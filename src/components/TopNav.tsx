@@ -39,6 +39,7 @@ const TABS: { key: TabKey; label: string; module?: string; language?: Language }
   { key: "missionary", label: "Missionary", module: "lds-missionary" },
   { key: "orthopedics", label: "Orthopedics", module: "orthopedics" },
   { key: "reader", label: "Reader" },
+  { key: "flashcards", label: "Flashcards" },
   { key: "kana", label: "Kana Pad", language: "Japanese" },
   { key: "grammar", label: "Grammar Studio" },
   { key: "conjugation", label: "Conjugation" },

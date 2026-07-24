@@ -157,6 +157,40 @@ export const generateLessonTitles = createServerFn({ method: "POST" })
     });
   });
 
+const MorphPartSchema = z.object({
+  word: z.string(),
+  romanization: z.string().optional(),
+  root: z.string(),
+  ending: z.string(),
+  gloss: z.string(),
+});
+
+const ConjugationRowSchema = z.object({
+  form: z.string(),
+  root: z.string(),
+  ending: z.string(),
+  full: z.string(),
+  romanization: z.string().optional(),
+  english: z.string(),
+});
+
+// The tool-call input_schema asks the model for this shape, but nothing
+// enforces it — a malformed response (e.g. morphology without table) used
+// to flow straight into the UI and crash MorphologyCard. Validate before
+// returning so the client either gets a complete lesson or a retryable error.
+const LessonContentSchema = z.object({
+  explanation: z.string(),
+  examples: z.array(z.object({ target: z.string(), english: z.string() })),
+  keyRule: z.string(),
+  morphology: z
+    .object({
+      summary: z.string(),
+      base: MorphPartSchema,
+      table: z.array(ConjugationRowSchema).min(1),
+    })
+    .optional(),
+});
+
 export const generateLessonContent = createServerFn({ method: "POST" })
   .inputValidator((i: unknown) => LessonInput.parse(i))
   .handler(async ({ data }) => {
@@ -167,7 +201,7 @@ export const generateLessonContent = createServerFn({ method: "POST" })
       "Use the dictionary / base form as `morphology.base` and provide 4–6 rows in `morphology.table` reusing the SAME root with different endings (e.g. Japanese iku → root 'i' (行), endings ka/ki/ku/ke/kō, full forms 行かない / 行きます / 行く / 行けば / 行こう). " +
       "Always include romanization for non-Latin scripts. Omit `morphology` only for purely syntactic topics like word order or particles that don't inflect.";
     const user = `Teach this grammar concept: "${data.concept}" for a ${data.language} learner at CEFR ${data.level}. Provide a clear ~150-word explanation IN ${native}, exactly 3 example sentences in ${data.language} each with a ${native} translation (use the field name "english" for the ${native} translation), one bold key rule (single sentence in ${native}), and — if the concept involves a word that conjugates/inflects — a morphology breakdown showing the unchanging root and the changing endings (the "english" field on each row should be the ${native} gloss).`;
-    return callTool<LessonContent>(system, user, "return_lesson_content", {
+    const result = await callTool<LessonContent>(system, user, "return_lesson_content", {
       type: "object",
       properties: {
         explanation: { type: "string", minLength: 200 },
@@ -232,6 +266,13 @@ export const generateLessonContent = createServerFn({ method: "POST" })
       required: ["explanation", "examples", "keyRule"],
       additionalProperties: false,
     });
+    if (result.error || !result.data) return { data: null, error: result.error };
+    const parsed = LessonContentSchema.safeParse(result.data);
+    if (!parsed.success) {
+      console.error("generateLessonContent: malformed AI response", parsed.error);
+      return { data: null, error: "Lesson content came back incomplete. Please try again." };
+    }
+    return { data: parsed.data, error: null };
   });
 
 export const generateLessonQuiz = createServerFn({ method: "POST" })

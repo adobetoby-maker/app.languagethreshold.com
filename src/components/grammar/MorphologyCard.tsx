@@ -11,6 +11,11 @@ import { useApp } from "@/state/app-state";
  */
 export function MorphologyCard({ morph }: { morph: MorphologyBreakdown }) {
   const { state } = useApp();
+  // Defense-in-depth alongside the server-side zod validation: cached
+  // lessons written before that validation existed can still carry a
+  // morphology object with missing base/table — render defensively rather
+  // than crash the whole lesson view.
+  const base = morph.base ?? { word: "", root: "", ending: "", gloss: "" };
   return (
     <div className="mb-7 overflow-hidden rounded-xl border border-gold/30 bg-card/40">
       {/* Header */}
@@ -29,13 +34,13 @@ export function MorphologyCard({ morph }: { morph: MorphologyBreakdown }) {
         {/* Base form spotlight */}
         <div className="mb-6 rounded-lg border border-border/50 bg-background/40 px-4 py-4">
           <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-            Base form · {morph.base.gloss}
+            Base form · {base.gloss}
           </div>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <ChunkedWord root={morph.base.root} ending={morph.base.ending} size="lg" />
-            {morph.base.romanization && (
+            <ChunkedWord root={base.root} ending={base.ending} size="lg" />
+            {base.romanization && (
               <span className="font-mono text-[12px] tracking-wide text-muted-foreground">
-                {morph.base.romanization}
+                {base.romanization}
               </span>
             )}
           </div>
@@ -54,7 +59,7 @@ export function MorphologyCard({ morph }: { morph: MorphologyBreakdown }) {
               </tr>
             </thead>
             <tbody>
-              {morph.table.map((row, i) => (
+              {(morph.table ?? []).map((row, i) => (
                 <tr
                   key={i}
                   className="border-t border-border/40 align-top transition-colors hover:bg-gold/5"

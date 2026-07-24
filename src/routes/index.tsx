@@ -6,6 +6,7 @@ import { AuthProvider } from "@/state/auth-state";
 import { LibraryProvider } from "@/state/library-state";
 import { NotesProvider } from "@/state/notes-state";
 import { GrammarProvider } from "@/state/grammar-state";
+import { FlashcardProvider } from "@/state/flashcard-state";
 import { SpeechProvider } from "@/state/speech-state";
 import { SpeakProvider } from "@/state/speak-state";
 import { TutorProvider } from "@/state/tutor-state";
@@ -124,6 +125,7 @@ function Index() {
             <LibraryProvider>
               <NotesProvider>
                 <GrammarProvider>
+                  <FlashcardProvider>
                   <SpeechBridge>
                     <SpeakBridge>
                       <TutorProvider>
@@ -182,6 +184,7 @@ function Index() {
                       />
                     </SpeakBridge>
                   </SpeechBridge>
+                  </FlashcardProvider>
                 </GrammarProvider>
               </NotesProvider>
             </LibraryProvider>

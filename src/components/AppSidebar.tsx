@@ -142,6 +142,7 @@ const TAB_ITEMS: {
   { key: "speak", label: "Speak & Learn", short: "Speak", group: "Core Lessons", Icon: Mic2 },
   { key: "penpal", label: "Pen Pal Practice", short: "Pen Pal", group: "Core Lessons", Icon: Mail },
   // ── Vocabulary ───────────────────────────────────────────────────────────────
+  { key: "flashcards", label: "Flashcards", short: "Cards", group: "Vocabulary", Icon: Layers },
   { key: "dictionary", label: "Dictionary", short: "Dict.", group: "Vocabulary", Icon: LibraryBig },
   { key: "wordMatch", label: "Word Match", short: "Words", group: "Vocabulary", Icon: Grid3x3 },
   { key: "idiomMaster", label: "Idiom Master", short: "Idioms", group: "Vocabulary", Icon: Quote },
@@ -358,6 +359,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           {(
             [
               { key: "reader" as TabKey, Icon: BookOpen, label: "Reader" },
+              { key: "flashcards" as TabKey, Icon: Layers, label: "Cards" },
               { key: "grammar" as TabKey, Icon: GraduationCap, label: "Grammar" },
               { key: "games" as TabKey, Icon: Gamepad2, label: "Games" },
               { key: "speak" as TabKey, Icon: Mic2, label: "Speak" },

@@ -54,7 +54,9 @@ type Action =
     }
   | { type: "ADD_BADGE"; payload: string };
 
-const STORAGE_KEY = "lt.grammar.v1";
+// v2: invalidates lesson content cached before the server-side zod
+// validation existed — stale malformed morphology objects crashed the UI.
+const STORAGE_KEY = "lt.grammar.v2";
 
 function emptyLevel(): LevelState {
   return { lessons: [], contents: {}, completed: {} };

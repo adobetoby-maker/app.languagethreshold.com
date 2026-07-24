@@ -11,6 +11,7 @@ import {
   AlertTriangle,
   CalendarCheck,
   Sparkle,
+  Layers,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import { useConjugation, type LeaderboardKey as CKey } from "@/state/conjugation-state";
@@ -107,6 +108,14 @@ const GAMES: GameDescriptor[] = [
     blurb: "Spot the cognate trap. Decide if a familiar-looking word means what you think.",
     Icon: AlertTriangle,
     accent: "amber",
+  },
+  {
+    id: "flashcards",
+    tabKey: "flashcards",
+    title: "Flashcards",
+    blurb: "My Vocab or a topic deck — tap through with retention scheduling that brings due words back.",
+    Icon: Layers,
+    accent: "gold",
   },
 ];
 
@@ -320,7 +329,9 @@ export function GamesHub() {
                       ? wmStats
                       : g.id === "idiomMaster"
                         ? idiomStats
-                        : ffStats;
+                        : g.id === "falseFriends"
+                          ? ffStats
+                          : { bestStreak: 0, perfectRuns: 0, totalCorrect: 0, totalAttempts: 0 };
           const acc =
             stats.totalAttempts === 0
               ? 0

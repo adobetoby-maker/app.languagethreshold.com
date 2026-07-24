@@ -2,8 +2,58 @@ import { useState, useMemo } from 'react'
 import { Search, ChevronDown, ChevronUp, BookOpen, Loader2 } from 'lucide-react'
 import { dictWords } from './wordData'
 import { verbProfiles } from './verbProfiles'
+import { italianDictWords } from './italianWordData'
+import { italianVerbProfiles } from './italianVerbProfiles'
 import type { WordCategory, DictWord, VerbProfile } from './types'
 import { MorphDisplay } from './MorphDisplay'
+import { useApp, type Language } from '@/state/app-state'
+
+// ─── Per-language dataset + label config ───────────────────────────────────────
+
+interface DictionaryLanguageConfig {
+  words: DictWord[]
+  profiles: Record<string, VerbProfile>
+  searchPlaceholder: string
+  phraseNoun: string
+  phraseExample: string
+  /** Overrides the key-derived field label ("presentYo" -> "Present Yo") with a
+   * label that matches this language's actual grammatical terms. */
+  fieldLabels?: Record<string, string>
+}
+
+const ITALIAN_FIELD_LABELS: Record<string, string> = {
+  imperativeFormal: 'Imperativo formale (Lei)',
+  imperativeInformal: 'Imperativo informale (tu)',
+  presentYo: 'Presente (io)',
+  presentTu: 'Presente (tu)',
+  presentEl: 'Presente (lui/lei)',
+  gerund: 'Gerundio',
+  pastParticiple: 'Participio passato',
+  presentNosotros: 'Presente (noi)',
+  presentEllos: 'Presente (loro)',
+  subjunctiveEl: 'Congiuntivo (lui/lei)',
+  subjunctiveTu: 'Congiuntivo (tu)',
+  preteriteYo: 'Passato remoto (io)',
+  preteriteEl: 'Passato remoto (lui/lei)',
+}
+
+const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> = {
+  Spanish: {
+    words: dictWords,
+    profiles: verbProfiles,
+    searchPlaceholder: 'Search Spanish or English…',
+    phraseNoun: 'Spanish',
+    phraseExample: 'El médico examina al paciente...',
+  },
+  Italian: {
+    words: italianDictWords,
+    profiles: italianVerbProfiles,
+    searchPlaceholder: 'Search Italian or English…',
+    phraseNoun: 'Italian',
+    phraseExample: 'Il medico esamina il paziente...',
+    fieldLabels: ITALIAN_FIELD_LABELS,
+  },
+}
 
 // ─── Category chip data ───────────────────────────────────────────────────────
 
@@ -28,11 +78,13 @@ function VerbPhaseSection({
   forms,
   open,
   onToggle,
+  fieldLabels,
 }: {
   phase: 'phase1' | 'phase2' | 'phase3'
   forms: VerbProfile[typeof phase]
   open: boolean
   onToggle: () => void
+  fieldLabels?: Record<string, string>
 }) {
   const entries = useMemo(() => {
     const f = forms as Record<string, unknown>
@@ -64,9 +116,9 @@ function VerbPhaseSection({
         <div className="grid grid-cols-2 gap-1.5 px-3 pb-3 pt-1 sm:grid-cols-3">
           {entries.map(([key, val]) => {
             const form = val as { full: string; stem: string; ending: string; irregular?: boolean; irregularNote?: string }
-            const label = key
-              .replace(/([A-Z])/g, ' $1')
-              .replace(/^./, (s) => s.toUpperCase())
+            const label =
+              fieldLabels?.[key] ??
+              key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase())
             return (
               <div
                 key={key}
@@ -87,12 +139,20 @@ function VerbPhaseSection({
 
 // ─── Word card ────────────────────────────────────────────────────────────────
 
-function WordCard({ word }: { word: DictWord }) {
+function WordCard({
+  word,
+  profiles,
+  fieldLabels,
+}: {
+  word: DictWord
+  profiles: Record<string, VerbProfile>
+  fieldLabels?: Record<string, string>
+}) {
   const [expanded, setExpanded] = useState(false)
   const [openPhase, setOpenPhase] = useState<'phase1' | 'phase2' | 'phase3' | null>(null)
 
   const profile: VerbProfile | undefined =
-    word.verbProfile ?? (word.verbProfileId ? verbProfiles[word.verbProfileId] : undefined)
+    word.verbProfile ?? (word.verbProfileId ? profiles[word.verbProfileId] : undefined)
 
   function togglePhase(p: 'phase1' | 'phase2' | 'phase3') {
     setOpenPhase((prev) => (prev === p ? null : p))
@@ -109,7 +169,7 @@ function WordCard({ word }: { word: DictWord }) {
             className="font-display text-xl leading-tight"
             style={{ color: 'var(--foreground)' }}
           >
-            {word.spanish}
+            {word.word}
           </h3>
           <span
             className="shrink-0 rounded-full border border-border/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest"
@@ -160,7 +220,7 @@ function WordCard({ word }: { word: DictWord }) {
               {word.examples.map((ex, i) => (
                 <div key={i}>
                   <p className="text-sm" style={{ color: 'var(--foreground)' }}>
-                    {ex.spanish}
+                    {ex.target}
                   </p>
                   <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
                     {ex.english}
@@ -189,6 +249,7 @@ function WordCard({ word }: { word: DictWord }) {
                   forms={profile[p]}
                   open={openPhase === p}
                   onToggle={() => togglePhase(p)}
+                  fieldLabels={fieldLabels}
                 />
               ))}
               {profile.clinicalNote && (
@@ -208,7 +269,7 @@ function WordCard({ word }: { word: DictWord }) {
 
 // ─── Phrase engine ────────────────────────────────────────────────────────────
 
-function PhraseEngine() {
+function PhraseEngine({ noun, example }: { noun: string; example: string }) {
   const [phrase, setPhrase] = useState('')
   const [result, setResult] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -223,7 +284,7 @@ function PhraseEngine() {
       const res = await fetch('https://lt-dictionary.vercel.app/api/phrase', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phrase: phrase.trim() }),
+        body: JSON.stringify({ phrase: phrase.trim(), targetLanguage: noun }),
       })
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
       const data = (await res.json()) as { result?: string; analysis?: string }
@@ -241,7 +302,7 @@ function PhraseEngine() {
         Phrase Engine
       </h2>
       <p className="text-sm mb-4" style={{ color: 'var(--muted-foreground)' }}>
-        Paste a Spanish phrase to get morphological analysis and translation.
+        Paste a phrase in {noun} to get morphological analysis and translation.
       </p>
 
       <textarea
@@ -250,7 +311,7 @@ function PhraseEngine() {
         onKeyDown={(e) => {
           if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) void analyze()
         }}
-        placeholder="e.g. El médico examina al paciente..."
+        placeholder={`e.g. ${example}`}
         rows={3}
         className="w-full rounded-lg border border-border/50 bg-background/60 px-3 py-2 text-sm resize-none focus:outline-none focus:ring-1 focus:ring-gold/50 placeholder:text-muted-foreground/50"
         style={{ color: 'var(--foreground)' }}
@@ -293,21 +354,26 @@ function PhraseEngine() {
 // ─── Main tab ─────────────────────────────────────────────────────────────────
 
 export function DictionaryTab() {
+  const { state } = useApp()
   const [category, setCategory] = useState<CategoryFilter>('all')
   const [query, setQuery] = useState('')
 
+  const config = DICTIONARY_LANGUAGES[state.selectedLanguage]
+  const words = config?.words ?? []
+  const profiles = config?.profiles ?? {}
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return dictWords.filter((w) => {
+    return words.filter((w) => {
       const catMatch = category === 'all' || w.category === category
       const searchMatch =
         !q ||
-        w.spanish.toLowerCase().includes(q) ||
+        w.word.toLowerCase().includes(q) ||
         w.english.toLowerCase().includes(q) ||
         w.pronunciation.toLowerCase().includes(q)
       return catMatch && searchMatch
     })
-  }, [category, query])
+  }, [words, category, query])
 
   return (
     <div className="flex flex-col gap-6 px-4 py-6 sm:px-6 max-w-5xl mx-auto pb-32">
@@ -323,91 +389,94 @@ export function DictionaryTab() {
             Dictionary
           </h1>
           <p className="font-mono text-[10px] uppercase tracking-widest mt-0.5" style={{ color: 'var(--muted-foreground)' }}>
-            {dictWords.length > 0 ? `${dictWords.length} entries` : 'Run the generation script to populate'}
+            {words.length > 0
+              ? `${words.length} entries · ${state.selectedLanguage}`
+              : `Not yet available for ${state.selectedLanguage}`}
           </p>
         </div>
       </div>
 
-      {/* Search */}
-      <div className="relative">
-        <Search
-          className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 pointer-events-none"
-          style={{ color: 'var(--muted-foreground)' }}
-        />
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search Spanish or English…"
-          className="w-full rounded-xl border border-border/50 bg-card/50 py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-gold/50 placeholder:text-muted-foreground/50"
-          style={{ color: 'var(--foreground)' }}
-        />
-      </div>
+      {config && (
+        <>
+          {/* Search */}
+          <div className="relative">
+            <Search
+              className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 pointer-events-none"
+              style={{ color: 'var(--muted-foreground)' }}
+            />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={config.searchPlaceholder}
+              className="w-full rounded-xl border border-border/50 bg-card/50 py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-gold/50 placeholder:text-muted-foreground/50"
+              style={{ color: 'var(--foreground)' }}
+            />
+          </div>
 
-      {/* Category chips */}
-      <div className="flex flex-wrap gap-2">
-        {CATEGORY_CHIPS.map((chip) => {
-          const active = category === chip.key
-          return (
-            <button
-              key={chip.key}
-              onClick={() => setCategory(chip.key)}
-              className="rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all"
-              style={{
-                borderColor: active ? 'var(--gold)' : 'var(--border)',
-                background: active ? 'color-mix(in oklab, var(--gold) 15%, transparent)' : 'transparent',
-                color: active ? 'var(--gold)' : 'var(--muted-foreground)',
-              }}
-            >
-              {chip.label}
-            </button>
-          )
-        })}
-      </div>
+          {/* Category chips */}
+          <div className="flex flex-wrap gap-2">
+            {CATEGORY_CHIPS.map((chip) => {
+              const active = category === chip.key
+              return (
+                <button
+                  key={chip.key}
+                  onClick={() => setCategory(chip.key)}
+                  className="rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-all"
+                  style={{
+                    borderColor: active ? 'var(--gold)' : 'var(--border)',
+                    background: active ? 'color-mix(in oklab, var(--gold) 15%, transparent)' : 'transparent',
+                    color: active ? 'var(--gold)' : 'var(--muted-foreground)',
+                  }}
+                >
+                  {chip.label}
+                </button>
+              )
+            })}
+          </div>
 
-      {/* Results count */}
-      {query || category !== 'all' ? (
-        <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: 'var(--muted-foreground)' }}>
-          {filtered.length} result{filtered.length !== 1 ? 's' : ''}
-        </p>
-      ) : null}
+          {/* Results count */}
+          {query || category !== 'all' ? (
+            <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: 'var(--muted-foreground)' }}>
+              {filtered.length} result{filtered.length !== 1 ? 's' : ''}
+            </p>
+          ) : null}
 
-      {/* Empty state */}
-      {dictWords.length === 0 && (
+          {/* Word grid */}
+          {filtered.length > 0 && (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((word) => (
+                <WordCard key={word.id} word={word} profiles={profiles} fieldLabels={config.fieldLabels} />
+              ))}
+            </div>
+          )}
+
+          {/* No search results */}
+          {words.length > 0 && filtered.length === 0 && (
+            <div className="rounded-xl border border-border/30 bg-card/20 px-6 py-8 text-center">
+              <p className="font-display text-base" style={{ color: 'var(--muted-foreground)' }}>
+                No words match "{query}"
+              </p>
+            </div>
+          )}
+
+          {/* Phrase Engine */}
+          <PhraseEngine noun={config.phraseNoun} example={config.phraseExample} />
+        </>
+      )}
+
+      {/* Language not yet supported */}
+      {!config && (
         <div className="rounded-xl border border-border/40 bg-card/30 px-6 py-10 text-center">
           <BookOpen className="mx-auto mb-3 h-10 w-10 opacity-30" style={{ color: 'var(--gold)' }} strokeWidth={1.2} />
           <p className="font-display text-lg mb-1" style={{ color: 'var(--foreground)' }}>
-            Dictionary not yet populated
+            Dictionary not yet available for {state.selectedLanguage}
           </p>
           <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
-            Run the generation script to add 500+ verb entries:
-          </p>
-          <pre className="mt-3 inline-block rounded-lg border border-border/40 bg-background/60 px-4 py-2 font-mono text-xs text-left" style={{ color: 'var(--foreground)' }}>
-            node scripts/generate-lle-dictionary.mjs
-          </pre>
-        </div>
-      )}
-
-      {/* Word grid */}
-      {filtered.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((word) => (
-            <WordCard key={word.id} word={word} />
-          ))}
-        </div>
-      )}
-
-      {/* No search results */}
-      {dictWords.length > 0 && filtered.length === 0 && (
-        <div className="rounded-xl border border-border/30 bg-card/20 px-6 py-8 text-center">
-          <p className="font-display text-base" style={{ color: 'var(--muted-foreground)' }}>
-            No words match "{query}"
+            Verb-conjugation lookup is live for Spanish and Italian so far — more languages are on the way.
           </p>
         </div>
       )}
-
-      {/* Phrase Engine */}
-      <PhraseEngine />
     </div>
   )
 }

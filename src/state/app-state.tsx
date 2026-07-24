@@ -11,6 +11,7 @@ import {
 } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import type { SM2Card } from "./sm2";
 
 export type Language =
   | "Spanish"
@@ -84,12 +85,14 @@ export type TabKey =
   | "fmg"
   | "penpal"
   | "patterns"
+  | "cognates"
   | "story"
   | "guide"
   | "climbing"
   | "fishing"
   | "fieldPrep"
-  | "dictionary";
+  | "dictionary"
+  | "flashcards";
 
 // Learner CEFR-ish self level (used elsewhere for AI prompts)
 export type Level = "Beginner" | "Intermediate" | "Advanced" | "Fluent";
@@ -202,6 +205,10 @@ export interface AppState {
   // Grammar pattern SRS — parallel to vocab SRS, keyed by patternId
   patternProgress: Record<string, number>; // patternId → correctCount (5+ = mastered)
 
+  // Flashcard retention SRS (SM-2) — parallel store, keyed by `${blockId}:${word}`.
+  // blockId is "myVocab" or a module category (Faith/Medical/Trades/...).
+  vocabSM2: Record<string, SM2Card>;
+
   // Counters (persisted) for achievement conditions
   wordsLookedUp: number;
   notesSaved: number;
@@ -298,6 +305,7 @@ export type AppAction =
   | { type: "START_REGRESSION_CHECK" } // reset mastered words to count=3 for re-drill
   | { type: "SCORE_PATTERN"; payload: string } // patternId — increments correctCount
   | { type: "PATTERN_REGRESSION_CHECK" } // reset mastered patterns to threshold-2
+  | { type: "UPDATE_SM2_CARD"; payload: { key: string; card: SM2Card } }
   | { type: "FIRST_SENTENCE_MOMENT" } // fires achievement + XP
   | { type: "_DERIVE" } // internal: re-derive tier + pendingLevelUp
   | { type: "COMPLETE_LESSON"; payload: string } // moduleId
@@ -341,6 +349,7 @@ const initialState: AppState = {
   userVocab: [],
   vocabLang: null,
   patternProgress: {},
+  vocabSM2: {},
   hydrated: false,
 };
 
@@ -522,6 +531,11 @@ function reducer(state: AppState, action: AppAction): AppState {
       }
       return { ...state, patternProgress: updated };
     }
+    case "UPDATE_SM2_CARD":
+      return {
+        ...state,
+        vocabSM2: { ...state.vocabSM2, [action.payload.key]: action.payload.card },
+      };
     case "FIRST_SENTENCE_MOMENT":
       return {
         ...state,
@@ -732,6 +746,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "userVocab",
   "vocabLang",
   "patternProgress",
+  "vocabSM2",
   "onboardingComplete",
   "lessonProgress",
   "favoriteTeam",

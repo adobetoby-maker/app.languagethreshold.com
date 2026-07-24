@@ -5,7 +5,6 @@ import type { DictWord } from './types'
 export const dictWords: DictWord[] = [
   {
     "id": "medical-examinar",
-    "spanish": "examinar",
     "english": "to examine",
     "pronunciation": "examinar",
     "partOfSpeech": "verb",
@@ -14,18 +13,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "examinar",
     "examples": [
       {
-        "spanish": "El médico examina al paciente.",
+        "target": "El médico examina al paciente.",
         "english": "The doctor examines the patient."
       },
       {
-        "spanish": "La enfermera examina los síntomas del paciente.",
+        "target": "La enfermera examina los síntomas del paciente.",
         "english": "The nurse examines the patient's symptoms."
       }
-    ]
+    ],
+    "word": "examinar"
   },
   {
     "id": "medical-inyectar",
-    "spanish": "inyectar",
     "english": "to inject",
     "pronunciation": "inyectar",
     "partOfSpeech": "verb",
@@ -34,18 +33,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "inyectar",
     "examples": [
       {
-        "spanish": "El enfermero inyectó la vacuna al paciente.",
+        "target": "El enfermero inyectó la vacuna al paciente.",
         "english": "The nurse injected the vaccine into the patient."
       },
       {
-        "spanish": "El médico necesita inyectar anestesia antes de la cirugía.",
+        "target": "El médico necesita inyectar anestesia antes de la cirugía.",
         "english": "The doctor needs to inject anesthesia before surgery."
       }
-    ]
+    ],
+    "word": "inyectar"
   },
   {
     "id": "medical-prescribir",
-    "spanish": "prescribir",
     "english": "to prescribe",
     "pronunciation": "prescribir",
     "partOfSpeech": "verb",
@@ -54,18 +53,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "prescribir",
     "examples": [
       {
-        "spanish": "El médico prescribió antibióticos para la infección.",
+        "target": "El médico prescribió antibióticos para la infección.",
         "english": "The doctor prescribed antibiotics for the infection."
       },
       {
-        "spanish": "La enfermera prescribió reposo absoluto durante una semana.",
+        "target": "La enfermera prescribió reposo absoluto durante una semana.",
         "english": "The nurse prescribed complete rest for one week."
       }
-    ]
+    ],
+    "word": "prescribir"
   },
   {
     "id": "medical-diagnosticar",
-    "spanish": "diagnosticar",
     "english": "to diagnose",
     "pronunciation": "diagnosticar",
     "partOfSpeech": "verb",
@@ -74,18 +73,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "diagnosticar",
     "examples": [
       {
-        "spanish": "El médico diagnosticó una infección bacteriana después de realizar los análisis.",
+        "target": "El médico diagnosticó una infección bacteriana después de realizar los análisis.",
         "english": "The doctor diagnosed a bacterial infection after running the tests."
       },
       {
-        "spanish": "Es importante diagnosticar la enfermedad en las primeras etapas para un mejor tratamiento.",
+        "target": "Es importante diagnosticar la enfermedad en las primeras etapas para un mejor tratamiento.",
         "english": "It is important to diagnose the disease in the early stages for better treatment."
       }
-    ]
+    ],
+    "word": "diagnosticar"
   },
   {
     "id": "medical-suturar",
-    "spanish": "suturar",
     "english": "to suture",
     "pronunciation": "suturar",
     "partOfSpeech": "verb",
@@ -94,18 +93,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "suturar",
     "examples": [
       {
-        "spanish": "El cirujano debe suturar la herida después de la operación.",
+        "target": "El cirujano debe suturar la herida después de la operación.",
         "english": "The surgeon must suture the wound after the operation."
       },
       {
-        "spanish": "La enfermera va a suturar los puntos con cuidado para evitar infecciones.",
+        "target": "La enfermera va a suturar los puntos con cuidado para evitar infecciones.",
         "english": "The nurse is going to suture the stitches carefully to prevent infections."
       }
-    ]
+    ],
+    "word": "suturar"
   },
   {
     "id": "medical-hidratar",
-    "spanish": "hidratar",
     "english": "to hydrate",
     "pronunciation": "hidratar",
     "partOfSpeech": "verb",
@@ -114,18 +113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hidratar",
     "examples": [
       {
-        "spanish": "Es importante hidratar al paciente después de la cirugía.",
+        "target": "Es importante hidratar al paciente después de la cirugía.",
         "english": "It is important to hydrate the patient after surgery."
       },
       {
-        "spanish": "El enfermero necesita hidratar la piel del paciente quemado.",
+        "target": "El enfermero necesita hidratar la piel del paciente quemado.",
         "english": "The nurse needs to hydrate the burned patient's skin."
       }
-    ]
+    ],
+    "word": "hidratar"
   },
   {
     "id": "medical-monitorear",
-    "spanish": "monitorear",
     "english": "to monitor",
     "pronunciation": "monitorear",
     "partOfSpeech": "verb",
@@ -134,18 +133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "monitorear",
     "examples": [
       {
-        "spanish": "El médico monitorea los signos vitales del paciente durante la cirugía.",
+        "target": "El médico monitorea los signos vitales del paciente durante la cirugía.",
         "english": "The doctor monitors the patient's vital signs during surgery."
       },
       {
-        "spanish": "Las enfermeras monitorean constantemente el ritmo cardíaco en la unidad de cuidados intensivos.",
+        "target": "Las enfermeras monitorean constantemente el ritmo cardíaco en la unidad de cuidados intensivos.",
         "english": "The nurses constantly monitor the heart rate in the intensive care unit."
       }
-    ]
+    ],
+    "word": "monitorear"
   },
   {
     "id": "medical-evaluar",
-    "spanish": "evaluar",
     "english": "to evaluate",
     "pronunciation": "evaluar",
     "partOfSpeech": "verb",
@@ -154,18 +153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "evaluar",
     "examples": [
       {
-        "spanish": "El médico debe evaluar los síntomas del paciente cuidadosamente.",
+        "target": "El médico debe evaluar los síntomas del paciente cuidadosamente.",
         "english": "The doctor must carefully evaluate the patient's symptoms."
       },
       {
-        "spanish": "La enfermera evaluará el progreso de la recuperación después de la cirugía.",
+        "target": "La enfermera evaluará el progreso de la recuperación después de la cirugía.",
         "english": "The nurse will evaluate the recovery progress after surgery."
       }
-    ]
+    ],
+    "word": "evaluar"
   },
   {
     "id": "medical-reanimar",
-    "spanish": "reanimar",
     "english": "to resuscitate",
     "pronunciation": "reanimar",
     "partOfSpeech": "verb",
@@ -174,18 +173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reanimar",
     "examples": [
       {
-        "spanish": "Los paramédicos tuvieron que reanimar al paciente que sufrió un infarto.",
+        "target": "Los paramédicos tuvieron que reanimar al paciente que sufrió un infarto.",
         "english": "The paramedics had to resuscitate the patient who suffered a heart attack."
       },
       {
-        "spanish": "El equipo de urgencias logró reanimar al niño después de practicarle la reanimación cardiopulmonar.",
+        "target": "El equipo de urgencias logró reanimar al niño después de practicarle la reanimación cardiopulmonar.",
         "english": "The emergency team managed to revive the child after performing CPR on him."
       }
-    ]
+    ],
+    "word": "reanimar"
   },
   {
     "id": "medical-tratar",
-    "spanish": "tratar",
     "english": "to treat",
     "pronunciation": "tratar",
     "partOfSpeech": "verb",
@@ -194,18 +193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tratar",
     "examples": [
       {
-        "spanish": "El médico trata la infección con antibióticos.",
+        "target": "El médico trata la infección con antibióticos.",
         "english": "The doctor treats the infection with antibiotics."
       },
       {
-        "spanish": "Vamos a tratar al paciente con una nueva terapia.",
+        "target": "Vamos a tratar al paciente con una nueva terapia.",
         "english": "We are going to treat the patient with a new therapy."
       }
-    ]
+    ],
+    "word": "tratar"
   },
   {
     "id": "medical-operar",
-    "spanish": "operar",
     "english": "to operate",
     "pronunciation": "operar",
     "partOfSpeech": "verb",
@@ -214,18 +213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "operar",
     "examples": [
       {
-        "spanish": "El cirujano va a operar al paciente mañana por la mañana.",
+        "target": "El cirujano va a operar al paciente mañana por la mañana.",
         "english": "The surgeon is going to operate on the patient tomorrow morning."
       },
       {
-        "spanish": "Los médicos operaron al niño de apendicitis hace una semana.",
+        "target": "Los médicos operaron al niño de apendicitis hace una semana.",
         "english": "The doctors operated on the child for appendicitis a week ago."
       }
-    ]
+    ],
+    "word": "operar"
   },
   {
     "id": "medical-ingresar",
-    "spanish": "ingresar",
     "english": "to admit (to hospital)",
     "pronunciation": "ingresar",
     "partOfSpeech": "verb",
@@ -234,18 +233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ingresar",
     "examples": [
       {
-        "spanish": "El paciente fue ingresado en el hospital después del accidente.",
+        "target": "El paciente fue ingresado en el hospital después del accidente.",
         "english": "The patient was admitted to the hospital after the accident."
       },
       {
-        "spanish": "La enfermera ingresó los datos médicos del nuevo paciente en el sistema.",
+        "target": "La enfermera ingresó los datos médicos del nuevo paciente en el sistema.",
         "english": "The nurse entered the patient's medical data into the system."
       }
-    ]
+    ],
+    "word": "ingresar"
   },
   {
     "id": "medical-drenar",
-    "spanish": "drenar",
     "english": "to drain",
     "pronunciation": "drenar",
     "partOfSpeech": "verb",
@@ -254,18 +253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "drenar",
     "examples": [
       {
-        "spanish": "El cirujano necesita drenar el absceso para aliviar la infección.",
+        "target": "El cirujano necesita drenar el absceso para aliviar la infección.",
         "english": "The surgeon needs to drain the abscess to relieve the infection."
       },
       {
-        "spanish": "Después de la operación, colocaron un tubo para drenar el líquido acumulado.",
+        "target": "Después de la operación, colocaron un tubo para drenar el líquido acumulado.",
         "english": "After the surgery, they placed a tube to drain the accumulated fluid."
       }
-    ]
+    ],
+    "word": "drenar"
   },
   {
     "id": "medical-referir",
-    "spanish": "referir",
     "english": "to refer",
     "pronunciation": "referir",
     "partOfSpeech": "verb",
@@ -274,18 +273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "referir",
     "examples": [
       {
-        "spanish": "El paciente se refiere a un dolor persistente en el pecho.",
+        "target": "El paciente se refiere a un dolor persistente en el pecho.",
         "english": "The patient refers to a persistent pain in the chest."
       },
       {
-        "spanish": "La enfermera refiere los síntomas del paciente al médico especialista.",
+        "target": "La enfermera refiere los síntomas del paciente al médico especialista.",
         "english": "The nurse refers the patient's symptoms to the specialist doctor."
       }
-    ]
+    ],
+    "word": "referir"
   },
   {
     "id": "medical-auscultar",
-    "spanish": "auscultar",
     "english": "to auscultate",
     "pronunciation": "auscultar",
     "partOfSpeech": "verb",
@@ -294,18 +293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "auscultar",
     "examples": [
       {
-        "spanish": "El médico ausculta los pulmones del paciente con un estetoscopio.",
+        "target": "El médico ausculta los pulmones del paciente con un estetoscopio.",
         "english": "The doctor auscultates the patient's lungs with a stethoscope."
       },
       {
-        "spanish": "La enfermera ausculta el corazón para detectar cualquier soplo anormal.",
+        "target": "La enfermera ausculta el corazón para detectar cualquier soplo anormal.",
         "english": "The nurse auscultates the heart to detect any abnormal murmur."
       }
-    ]
+    ],
+    "word": "auscultar"
   },
   {
     "id": "medical-palpar",
-    "spanish": "palpar",
     "english": "to palpate",
     "pronunciation": "palpar",
     "partOfSpeech": "verb",
@@ -314,18 +313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "palpar",
     "examples": [
       {
-        "spanish": "El médico palpó el abdomen del paciente para detectar cualquier anomalía.",
+        "target": "El médico palpó el abdomen del paciente para detectar cualquier anomalía.",
         "english": "The doctor palpated the patient's abdomen to detect any abnormality."
       },
       {
-        "spanish": "La enfermera palpa la zona inflamada para evaluar el grado de sensibilidad.",
+        "target": "La enfermera palpa la zona inflamada para evaluar el grado de sensibilidad.",
         "english": "The nurse palpates the inflamed area to assess the degree of sensitivity."
       }
-    ]
+    ],
+    "word": "palpar"
   },
   {
     "id": "medical-radiografiar",
-    "spanish": "radiografiar",
     "english": "to X-ray",
     "pronunciation": "radiografiar",
     "partOfSpeech": "verb",
@@ -334,18 +333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "radiografiar",
     "examples": [
       {
-        "spanish": "El radiólogo necesita radiografiar el tobillo del paciente para detectar fracturas.",
+        "target": "El radiólogo necesita radiografiar el tobillo del paciente para detectar fracturas.",
         "english": "The radiologist needs to X-ray the patient's ankle to detect fractures."
       },
       {
-        "spanish": "Vamos a radiografiar el pecho para verificar si hay neumonía.",
+        "target": "Vamos a radiografiar el pecho para verificar si hay neumonía.",
         "english": "We are going to X-ray the chest to check for pneumonia."
       }
-    ]
+    ],
+    "word": "radiografiar"
   },
   {
     "id": "medical-analizar",
-    "spanish": "analizar",
     "english": "to analyze",
     "pronunciation": "analizar",
     "partOfSpeech": "verb",
@@ -354,18 +353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "analizar",
     "examples": [
       {
-        "spanish": "El médico debe analizar los resultados de la biopsia.",
+        "target": "El médico debe analizar los resultados de la biopsia.",
         "english": "The doctor must analyze the biopsy results."
       },
       {
-        "spanish": "Necesitamos analizar la muestra de sangre para diagnosticar la enfermedad.",
+        "target": "Necesitamos analizar la muestra de sangre para diagnosticar la enfermedad.",
         "english": "We need to analyze the blood sample to diagnose the disease."
       }
-    ]
+    ],
+    "word": "analizar"
   },
   {
     "id": "medical-medicar",
-    "spanish": "medicar",
     "english": "to medicate",
     "pronunciation": "medicar",
     "partOfSpeech": "verb",
@@ -374,18 +373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "medicar",
     "examples": [
       {
-        "spanish": "El médico decidió medicar al paciente con antibióticos para tratar la infección.",
+        "target": "El médico decidió medicar al paciente con antibióticos para tratar la infección.",
         "english": "The doctor decided to medicate the patient with antibiotics to treat the infection."
       },
       {
-        "spanish": "Es necesario medicar al enfermo inmediatamente para aliviar su dolor.",
+        "target": "Es necesario medicar al enfermo inmediatamente para aliviar su dolor.",
         "english": "It is necessary to medicate the patient immediately to relieve his pain."
       }
-    ]
+    ],
+    "word": "medicar"
   },
   {
     "id": "medical-recetar",
-    "spanish": "recetar",
     "english": "to prescribe",
     "pronunciation": "recetar",
     "partOfSpeech": "verb",
@@ -394,18 +393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "recetar",
     "examples": [
       {
-        "spanish": "El médico le recetó antibióticos para la infección.",
+        "target": "El médico le recetó antibióticos para la infección.",
         "english": "The doctor prescribed antibiotics for the infection."
       },
       {
-        "spanish": "La doctora me recetó una nueva medicina para controlar la presión arterial.",
+        "target": "La doctora me recetó una nueva medicina para controlar la presión arterial.",
         "english": "The doctor prescribed me a new medicine to control blood pressure."
       }
-    ]
+    ],
+    "word": "recetar"
   },
   {
     "id": "medical-hospitalizar",
-    "spanish": "hospitalizar",
     "english": "to hospitalize",
     "pronunciation": "hospitalizar",
     "partOfSpeech": "verb",
@@ -414,18 +413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hospitalizar",
     "examples": [
       {
-        "spanish": "El paciente fue hospitalizado después del accidente grave.",
+        "target": "El paciente fue hospitalizado después del accidente grave.",
         "english": "The patient was hospitalized after the serious accident."
       },
       {
-        "spanish": "Decidieron hospitalizar al niño por la neumonía severa.",
+        "target": "Decidieron hospitalizar al niño por la neumonía severa.",
         "english": "They decided to hospitalize the child due to severe pneumonia."
       }
-    ]
+    ],
+    "word": "hospitalizar"
   },
   {
     "id": "medical-transfundir",
-    "spanish": "transfundir",
     "english": "to transfuse",
     "pronunciation": "transfundir",
     "partOfSpeech": "verb",
@@ -434,18 +433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "transfundir",
     "examples": [
       {
-        "spanish": "El cirujano necesita transfundir sangre al paciente durante la operación.",
+        "target": "El cirujano necesita transfundir sangre al paciente durante la operación.",
         "english": "The surgeon needs to transfuse blood to the patient during the operation."
       },
       {
-        "spanish": "Los médicos decidieron transfundir plasma fresco congelado para detener la hemorragia.",
+        "target": "Los médicos decidieron transfundir plasma fresco congelado para detener la hemorragia.",
         "english": "The doctors decided to transfuse fresh frozen plasma to stop the hemorrhage."
       }
-    ]
+    ],
+    "word": "transfundir"
   },
   {
     "id": "medical-intubar",
-    "spanish": "intubar",
     "english": "to intubate",
     "pronunciation": "intubar",
     "partOfSpeech": "verb",
@@ -454,18 +453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "intubar",
     "examples": [
       {
-        "spanish": "El anestesiólogo necesita intubar al paciente antes de la cirugía.",
+        "target": "El anestesiólogo necesita intubar al paciente antes de la cirugía.",
         "english": "The anesthesiologist needs to intubate the patient before surgery."
       },
       {
-        "spanish": "Los médicos decidieron intubar al paciente porque sus niveles de oxígeno eran muy bajos.",
+        "target": "Los médicos decidieron intubar al paciente porque sus niveles de oxígeno eran muy bajos.",
         "english": "The doctors decided to intubate the patient because his oxygen levels were very low."
       }
-    ]
+    ],
+    "word": "intubar"
   },
   {
     "id": "medical-ventilar",
-    "spanish": "ventilar",
     "english": "to ventilate",
     "pronunciation": "ventilar",
     "partOfSpeech": "verb",
@@ -474,18 +473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ventilar",
     "examples": [
       {
-        "spanish": "Es necesario ventilar la sala de cirugía después de cada operación.",
+        "target": "Es necesario ventilar la sala de cirugía después de cada operación.",
         "english": "It is necessary to ventilate the operating room after each surgery."
       },
       {
-        "spanish": "El respirador artificial ventila los pulmones del paciente en estado crítico.",
+        "target": "El respirador artificial ventila los pulmones del paciente en estado crítico.",
         "english": "The artificial ventilator ventilates the lungs of the critically ill patient."
       }
-    ]
+    ],
+    "word": "ventilar"
   },
   {
     "id": "medical-cateterizar",
-    "spanish": "cateterizar",
     "english": "to catheterize",
     "pronunciation": "cateterizar",
     "partOfSpeech": "verb",
@@ -494,18 +493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cateterizar",
     "examples": [
       {
-        "spanish": "El cardiólogo necesita cateterizar al paciente para realizar el cateterismo cardíaco.",
+        "target": "El cardiólogo necesita cateterizar al paciente para realizar el cateterismo cardíaco.",
         "english": "The cardiologist needs to catheterize the patient to perform cardiac catheterization."
       },
       {
-        "spanish": "Los médicos decidieron cateterizar la vena central del paciente en la unidad de cuidados intensivos.",
+        "target": "Los médicos decidieron cateterizar la vena central del paciente en la unidad de cuidados intensivos.",
         "english": "The doctors decided to catheterize the patient's central vein in the intensive care unit."
       }
-    ]
+    ],
+    "word": "cateterizar"
   },
   {
     "id": "medical-desinfectar",
-    "spanish": "desinfectar",
     "english": "to disinfect",
     "pronunciation": "desinfectar",
     "partOfSpeech": "verb",
@@ -514,18 +513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "desinfectar",
     "examples": [
       {
-        "spanish": "Es importante desinfectar la herida antes de aplicar el vendaje.",
+        "target": "Es importante desinfectar la herida antes de aplicar el vendaje.",
         "english": "It is important to disinfect the wound before applying the bandage."
       },
       {
-        "spanish": "El enfermero desinfectó el área quirúrgica con alcohol.",
+        "target": "El enfermero desinfectó el área quirúrgica con alcohol.",
         "english": "The nurse disinfected the surgical area with alcohol."
       }
-    ]
+    ],
+    "word": "desinfectar"
   },
   {
     "id": "medical-esterilizar",
-    "spanish": "esterilizar",
     "english": "to sterilize",
     "pronunciation": "esterilizar",
     "partOfSpeech": "verb",
@@ -534,18 +533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "esterilizar",
     "examples": [
       {
-        "spanish": "El cirujano debe esterilizar todos los instrumentos antes de la operación.",
+        "target": "El cirujano debe esterilizar todos los instrumentos antes de la operación.",
         "english": "The surgeon must sterilize all instruments before the operation."
       },
       {
-        "spanish": "Es necesario esterilizar el equipo médico para prevenir infecciones.",
+        "target": "Es necesario esterilizar el equipo médico para prevenir infecciones.",
         "english": "It is necessary to sterilize the medical equipment to prevent infections."
       }
-    ]
+    ],
+    "word": "esterilizar"
   },
   {
     "id": "medical-amputar",
-    "spanish": "amputar",
     "english": "to amputate",
     "pronunciation": "amputar",
     "partOfSpeech": "verb",
@@ -554,18 +553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "amputar",
     "examples": [
       {
-        "spanish": "El cirujano tuvo que amputar la pierna del paciente debido a la gangrena.",
+        "target": "El cirujano tuvo que amputar la pierna del paciente debido a la gangrena.",
         "english": "The surgeon had to amputate the patient's leg due to gangrene."
       },
       {
-        "spanish": "Decidieron amputar el dedo para prevenir la propagación de la infección.",
+        "target": "Decidieron amputar el dedo para prevenir la propagación de la infección.",
         "english": "They decided to amputate the finger to prevent the spread of infection."
       }
-    ]
+    ],
+    "word": "amputar"
   },
   {
     "id": "medical-rehabilitar",
-    "spanish": "rehabilitar",
     "english": "to rehabilitate",
     "pronunciation": "rehabilitar",
     "partOfSpeech": "verb",
@@ -574,18 +573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "rehabilitar",
     "examples": [
       {
-        "spanish": "El fisioterapeuta va a rehabilitar al paciente después de la cirugía.",
+        "target": "El fisioterapeuta va a rehabilitar al paciente después de la cirugía.",
         "english": "The physical therapist is going to rehabilitate the patient after surgery."
       },
       {
-        "spanish": "Necesitamos rehabilitar su movilidad mediante ejercicios terapéuticos.",
+        "target": "Necesitamos rehabilitar su movilidad mediante ejercicios terapéuticos.",
         "english": "We need to rehabilitate his mobility through therapeutic exercises."
       }
-    ]
+    ],
+    "word": "rehabilitar"
   },
   {
     "id": "medical-fisioterapear",
-    "spanish": "fisioterapear",
     "english": "to provide physical therapy",
     "pronunciation": "fisioterapear",
     "partOfSpeech": "verb",
@@ -594,18 +593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "fisioterapear",
     "examples": [
       {
-        "spanish": "El fisioterapeuta va a fisioterapear al paciente después de la cirugía.",
+        "target": "El fisioterapeuta va a fisioterapear al paciente después de la cirugía.",
         "english": "The physical therapist is going to provide physical therapy to the patient after surgery."
       },
       {
-        "spanish": "Es importante fisioterapear la lesión para recuperar la movilidad completa.",
+        "target": "Es importante fisioterapear la lesión para recuperar la movilidad completa.",
         "english": "It is important to apply physical therapy to the injury to recover full mobility."
       }
-    ]
+    ],
+    "word": "fisioterapear"
   },
   {
     "id": "medical-vacunar",
-    "spanish": "vacunar",
     "english": "to vaccinate",
     "pronunciation": "vacunar",
     "partOfSpeech": "verb",
@@ -614,18 +613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vacunar",
     "examples": [
       {
-        "spanish": "El enfermero va a vacunar al niño contra la gripe.",
+        "target": "El enfermero va a vacunar al niño contra la gripe.",
         "english": "The nurse is going to vaccinate the child against the flu."
       },
       {
-        "spanish": "Es importante vacunar a todos los pacientes antes de la cirugía.",
+        "target": "Es importante vacunar a todos los pacientes antes de la cirugía.",
         "english": "It is important to vaccinate all patients before surgery."
       }
-    ]
+    ],
+    "word": "vacunar"
   },
   {
     "id": "medical-inmunizar",
-    "spanish": "inmunizar",
     "english": "to immunize",
     "pronunciation": "inmunizar",
     "partOfSpeech": "verb",
@@ -634,18 +633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "inmunizar",
     "examples": [
       {
-        "spanish": "El pediatra va a inmunizar a los niños contra la poliomielitis.",
+        "target": "El pediatra va a inmunizar a los niños contra la poliomielitis.",
         "english": "The pediatrician is going to immunize the children against polio."
       },
       {
-        "spanish": "Es importante inmunizar a los pacientes antes de viajar a zonas de riesgo.",
+        "target": "Es importante inmunizar a los pacientes antes de viajar a zonas de riesgo.",
         "english": "It is important to immunize patients before traveling to risk areas."
       }
-    ]
+    ],
+    "word": "inmunizar"
   },
   {
     "id": "medical-biopsiar",
-    "spanish": "biopsiar",
     "english": "to perform a biopsy",
     "pronunciation": "biopsiar",
     "partOfSpeech": "verb",
@@ -654,18 +653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "biopsiar",
     "examples": [
       {
-        "spanish": "El cirujano decidió biopsiar el tejido sospechoso para descartar malignidad.",
+        "target": "El cirujano decidió biopsiar el tejido sospechoso para descartar malignidad.",
         "english": "The surgeon decided to biopsy the suspicious tissue to rule out malignancy."
       },
       {
-        "spanish": "Fue necesario biopsiar la lesión cutánea porque presentaba características atípicas.",
+        "target": "Fue necesario biopsiar la lesión cutánea porque presentaba características atípicas.",
         "english": "It was necessary to biopsy the skin lesion because it presented atypical characteristics."
       }
-    ]
+    ],
+    "word": "biopsiar"
   },
   {
     "id": "medical-endoscopiar",
-    "spanish": "endoscopiar",
     "english": "to perform an endoscopy",
     "pronunciation": "endoscopiar",
     "partOfSpeech": "verb",
@@ -674,18 +673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "endoscopiar",
     "examples": [
       {
-        "spanish": "El gastroenterólogo necesita endoscopiar al paciente para diagnosticar la úlcera.",
+        "target": "El gastroenterólogo necesita endoscopiar al paciente para diagnosticar la úlcera.",
         "english": "The gastroenterologist needs to perform an endoscopy on the patient to diagnose the ulcer."
       },
       {
-        "spanish": "Vamos a endoscopiar las vías respiratorias para buscar la causa de la tos persistente.",
+        "target": "Vamos a endoscopiar las vías respiratorias para buscar la causa de la tos persistente.",
         "english": "We are going to endoscope the respiratory tract to find the cause of the persistent cough."
       }
-    ]
+    ],
+    "word": "endoscopiar"
   },
   {
     "id": "medical-ecografiar",
-    "spanish": "ecografiar",
     "english": "to perform an ultrasound",
     "pronunciation": "ecografiar",
     "partOfSpeech": "verb",
@@ -694,18 +693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ecografiar",
     "examples": [
       {
-        "spanish": "El radiólogo va a ecografiar el abdomen del paciente para detectar posibles anomalías.",
+        "target": "El radiólogo va a ecografiar el abdomen del paciente para detectar posibles anomalías.",
         "english": "The radiologist is going to ultrasound the patient's abdomen to detect any possible abnormalities."
       },
       {
-        "spanish": "Necesitamos ecografiar el corazón del bebé durante el embarazo para asegurar su desarrollo correcto.",
+        "target": "Necesitamos ecografiar el corazón del bebé durante el embarazo para asegurar su desarrollo correcto.",
         "english": "We need to ultrasound the baby's heart during pregnancy to ensure its proper development."
       }
-    ]
+    ],
+    "word": "ecografiar"
   },
   {
     "id": "medical-extraer",
-    "spanish": "extraer",
     "english": "to extract",
     "pronunciation": "extraer",
     "partOfSpeech": "verb",
@@ -714,18 +713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "extraer",
     "examples": [
       {
-        "spanish": "El dentista necesita extraer la muela del juicio.",
+        "target": "El dentista necesita extraer la muela del juicio.",
         "english": "The dentist needs to extract the wisdom tooth."
       },
       {
-        "spanish": "Los médicos extrajeron la bala del paciente durante la cirugía.",
+        "target": "Los médicos extrajeron la bala del paciente durante la cirugía.",
         "english": "The doctors extracted the bullet from the patient during surgery."
       }
-    ]
+    ],
+    "word": "extraer"
   },
   {
     "id": "medical-incisionar",
-    "spanish": "incisionar",
     "english": "to incise",
     "pronunciation": "incisionar",
     "partOfSpeech": "verb",
@@ -734,18 +733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "incisionar",
     "examples": [
       {
-        "spanish": "El cirujano decidió incisionar la piel para acceder al tumor.",
+        "target": "El cirujano decidió incisionar la piel para acceder al tumor.",
         "english": "The surgeon decided to incise the skin to access the tumor."
       },
       {
-        "spanish": "El médico tuvo que incisionar el absceso para drenar la infección.",
+        "target": "El médico tuvo que incisionar el absceso para drenar la infección.",
         "english": "The doctor had to incise the abscess to drain the infection."
       }
-    ]
+    ],
+    "word": "incisionar"
   },
   {
     "id": "medical-irrigar",
-    "spanish": "irrigar",
     "english": "to irrigate",
     "pronunciation": "irrigar",
     "partOfSpeech": "verb",
@@ -754,18 +753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "irrigar",
     "examples": [
       {
-        "spanish": "El cirujano debe irrigar la herida con solución salina estéril.",
+        "target": "El cirujano debe irrigar la herida con solución salina estéril.",
         "english": "The surgeon must irrigate the wound with sterile saline solution."
       },
       {
-        "spanish": "Durante la operación, irrigaremos la cavidad abdominal para prevenir infecciones.",
+        "target": "Durante la operación, irrigaremos la cavidad abdominal para prevenir infecciones.",
         "english": "During the operation, we will irrigate the abdominal cavity to prevent infections."
       }
-    ]
+    ],
+    "word": "irrigar"
   },
   {
     "id": "medical-comprimir",
-    "spanish": "comprimir",
     "english": "to compress",
     "pronunciation": "comprimir",
     "partOfSpeech": "verb",
@@ -774,18 +773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comprimir",
     "examples": [
       {
-        "spanish": "El médico debe comprimir la herida para detener la hemorragia.",
+        "target": "El médico debe comprimir la herida para detener la hemorragia.",
         "english": "The doctor must compress the wound to stop the bleeding."
       },
       {
-        "spanish": "Necesitas comprimir la arteria durante cinco minutos para controlar el sangrado.",
+        "target": "Necesitas comprimir la arteria durante cinco minutos para controlar el sangrado.",
         "english": "You need to compress the artery for five minutes to control the bleeding."
       }
-    ]
+    ],
+    "word": "comprimir"
   },
   {
     "id": "medical-inmovilizar",
-    "spanish": "inmovilizar",
     "english": "to immobilize",
     "pronunciation": "inmovilizar",
     "partOfSpeech": "verb",
@@ -794,18 +793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "inmovilizar",
     "examples": [
       {
-        "spanish": "El médico necesitaba inmovilizar el brazo fracturado del paciente con un yeso.",
+        "target": "El médico necesitaba inmovilizar el brazo fracturado del paciente con un yeso.",
         "english": "The doctor needed to immobilize the patient's fractured arm with a cast."
       },
       {
-        "spanish": "Después del accidente, los paramédicos decidieron inmovilizar la columna vertebral del herido para evitar más daños.",
+        "target": "Después del accidente, los paramédicos decidieron inmovilizar la columna vertebral del herido para evitar más daños.",
         "english": "After the accident, the paramedics decided to immobilize the injured person's spine to prevent further injury."
       }
-    ]
+    ],
+    "word": "inmovilizar"
   },
   {
     "id": "medical-resecar",
-    "spanish": "resecar",
     "english": "to resect",
     "pronunciation": "resecar",
     "partOfSpeech": "verb",
@@ -814,18 +813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "resecar",
     "examples": [
       {
-        "spanish": "El cirujano necesita resecar el tejido necrótico para prevenir la infección.",
+        "target": "El cirujano necesita resecar el tejido necrótico para prevenir la infección.",
         "english": "The surgeon needs to resect the necrotic tissue to prevent infection."
       },
       {
-        "spanish": "Decidieron resecar la porción dañada del intestino durante la operación.",
+        "target": "Decidieron resecar la porción dañada del intestino durante la operación.",
         "english": "They decided to resect the damaged portion of the intestine during surgery."
       }
-    ]
+    ],
+    "word": "resecar"
   },
   {
     "id": "medical-trasplantar",
-    "spanish": "trasplantar",
     "english": "to transplant",
     "pronunciation": "trasplantar",
     "partOfSpeech": "verb",
@@ -834,18 +833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "trasplantar",
     "examples": [
       {
-        "spanish": "El cirujano va a trasplantar el órgano donado al paciente.",
+        "target": "El cirujano va a trasplantar el órgano donado al paciente.",
         "english": "The surgeon is going to transplant the donated organ to the patient."
       },
       {
-        "spanish": "Después de trasplantar el corazón, el médico monitorea la recuperación del paciente.",
+        "target": "Después de trasplantar el corazón, el médico monitorea la recuperación del paciente.",
         "english": "After transplanting the heart, the doctor monitors the patient's recovery."
       }
-    ]
+    ],
+    "word": "trasplantar"
   },
   {
     "id": "medical-dializar",
-    "spanish": "dializar",
     "english": "to dialyze",
     "pronunciation": "dializar",
     "partOfSpeech": "verb",
@@ -854,18 +853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dializar",
     "examples": [
       {
-        "spanish": "El nefrólogo debe dializar al paciente tres veces por semana debido a su insuficiencia renal.",
+        "target": "El nefrólogo debe dializar al paciente tres veces por semana debido a su insuficiencia renal.",
         "english": "The nephrologist must dialyze the patient three times a week due to his kidney failure."
       },
       {
-        "spanish": "Decidieron dializar al enfermo inmediatamente después de confirmar el diagnóstico de uremia.",
+        "target": "Decidieron dializar al enfermo inmediatamente después de confirmar el diagnóstico de uremia.",
         "english": "They decided to dialyze the patient immediately after confirming the diagnosis of uremia."
       }
-    ]
+    ],
+    "word": "dializar"
   },
   {
     "id": "medical-oxigenar",
-    "spanish": "oxigenar",
     "english": "to oxygenate",
     "pronunciation": "oxigenar",
     "partOfSpeech": "verb",
@@ -874,18 +873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "oxigenar",
     "examples": [
       {
-        "spanish": "El médico necesita oxigenar al paciente con una mascarilla de oxígeno.",
+        "target": "El médico necesita oxigenar al paciente con una mascarilla de oxígeno.",
         "english": "The doctor needs to oxygenate the patient with an oxygen mask."
       },
       {
-        "spanish": "Es importante oxigenar la sangre del paciente durante la cirugía.",
+        "target": "Es importante oxigenar la sangre del paciente durante la cirugía.",
         "english": "It is important to oxygenate the patient's blood during surgery."
       }
-    ]
+    ],
+    "word": "oxigenar"
   },
   {
     "id": "medical-sediar",
-    "spanish": "sediar",
     "english": "to siege (medical tissue/lesion)",
     "pronunciation": "sediar",
     "partOfSpeech": "verb",
@@ -894,18 +893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sediar",
     "examples": [
       {
-        "spanish": "El cirujano tuvo que sediar al paciente antes de la operación.",
+        "target": "El cirujano tuvo que sediar al paciente antes de la operación.",
         "english": "The surgeon had to sedate the patient before the operation."
       },
       {
-        "spanish": "Es necesario sediar al enfermo para realizar el procedimiento dental.",
+        "target": "Es necesario sediar al enfermo para realizar el procedimiento dental.",
         "english": "It is necessary to sedate the patient to perform the dental procedure."
       }
-    ]
+    ],
+    "word": "sediar"
   },
   {
     "id": "medical-anestesiar",
-    "spanish": "anestesiar",
     "english": "to anesthetize",
     "pronunciation": "anestesiar",
     "partOfSpeech": "verb",
@@ -914,18 +913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "anestesiar",
     "examples": [
       {
-        "spanish": "El anestesiólogo debe anestesiar al paciente antes de la cirugía.",
+        "target": "El anestesiólogo debe anestesiar al paciente antes de la cirugía.",
         "english": "The anesthesiologist must anesthetize the patient before surgery."
       },
       {
-        "spanish": "Vamos a anestesiar la zona afectada para realizar el procedimiento dental.",
+        "target": "Vamos a anestesiar la zona afectada para realizar el procedimiento dental.",
         "english": "We are going to anesthetize the affected area to perform the dental procedure."
       }
-    ]
+    ],
+    "word": "anestesiar"
   },
   {
     "id": "medical-desfilar",
-    "spanish": "desfilar",
     "english": "to parade; to file past",
     "pronunciation": "desfilar",
     "partOfSpeech": "verb",
@@ -934,18 +933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "desfilar",
     "examples": [
       {
-        "spanish": "Los estudiantes de medicina desfilan en la ceremonia de graduación del hospital.",
+        "target": "Los estudiantes de medicina desfilan en la ceremonia de graduación del hospital.",
         "english": "The medical students parade at the hospital graduation ceremony."
       },
       {
-        "spanish": "Durante la presentación clínica, los residentes desfilaron ante el jefe de departamento mostrando sus casos.",
+        "target": "Durante la presentación clínica, los residentes desfilaron ante el jefe de departamento mostrando sus casos.",
         "english": "During the clinical presentation, the residents paraded before the department head showing their cases."
       }
-    ]
+    ],
+    "word": "desfilar"
   },
   {
     "id": "medical-sangrar",
-    "spanish": "sangrar",
     "english": "to bleed",
     "pronunciation": "sangrar",
     "partOfSpeech": "verb",
@@ -954,18 +953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sangrar",
     "examples": [
       {
-        "spanish": "La herida sangra abundantemente y necesitamos detener la hemorragia.",
+        "target": "La herida sangra abundantemente y necesitamos detener la hemorragia.",
         "english": "The wound is bleeding heavily and we need to stop the hemorrhage."
       },
       {
-        "spanish": "El paciente sigue sangrando después de la cirugía.",
+        "target": "El paciente sigue sangrando después de la cirugía.",
         "english": "The patient continues to bleed after surgery."
       }
-    ]
+    ],
+    "word": "sangrar"
   },
   {
     "id": "medical-vomitar",
-    "spanish": "vomitar",
     "english": "to vomit",
     "pronunciation": "vomitar",
     "partOfSpeech": "verb",
@@ -974,18 +973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vomitar",
     "examples": [
       {
-        "spanish": "El paciente comenzó a vomitar después de la anestesia.",
+        "target": "El paciente comenzó a vomitar después de la anestesia.",
         "english": "The patient began to vomit after the anesthesia."
       },
       {
-        "spanish": "Si el niño sigue vomitando, debemos llevarlo al hospital.",
+        "target": "Si el niño sigue vomitando, debemos llevarlo al hospital.",
         "english": "If the child continues to vomit, we must take him to the hospital."
       }
-    ]
+    ],
+    "word": "vomitar"
   },
   {
     "id": "medical-agonizar",
-    "spanish": "agonizar",
     "english": "to be dying; to be in agony",
     "pronunciation": "agonizar",
     "partOfSpeech": "verb",
@@ -994,18 +993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "agonizar",
     "examples": [
       {
-        "spanish": "El paciente comenzó a agonizar después del accidente grave.",
+        "target": "El paciente comenzó a agonizar después del accidente grave.",
         "english": "The patient began to be in agony after the serious accident."
       },
       {
-        "spanish": "Sin tratamiento inmediato, el enfermo agonizará en intenso dolor.",
+        "target": "Sin tratamiento inmediato, el enfermo agonizará en intenso dolor.",
         "english": "Without immediate treatment, the patient will be in severe agony."
       }
-    ]
+    ],
+    "word": "agonizar"
   },
   {
     "id": "medical-reinfundir",
-    "spanish": "reinfundir",
     "english": "to reinfuse",
     "pronunciation": "reinfundir",
     "partOfSpeech": "verb",
@@ -1014,18 +1013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reinfundir",
     "examples": [
       {
-        "spanish": "El cirujano tuvo que reinfundir confianza al paciente antes de la operación.",
+        "target": "El cirujano tuvo que reinfundir confianza al paciente antes de la operación.",
         "english": "The surgeon had to restore confidence in the patient before the operation."
       },
       {
-        "spanish": "Los médicos reinfundieron esperanza en los familiares del enfermo grave.",
+        "target": "Los médicos reinfundieron esperanza en los familiares del enfermo grave.",
         "english": "The doctors restored hope in the family members of the critically ill patient."
       }
-    ]
+    ],
+    "word": "reinfundir"
   },
   {
     "id": "medical-dilatar",
-    "spanish": "dilatar",
     "english": "to dilate",
     "pronunciation": "dilatar",
     "partOfSpeech": "verb",
@@ -1034,18 +1033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dilatar",
     "examples": [
       {
-        "spanish": "El oftalmólogo usó gotas para dilatar las pupilas del paciente.",
+        "target": "El oftalmólogo usó gotas para dilatar las pupilas del paciente.",
         "english": "The ophthalmologist used drops to dilate the patient's pupils."
       },
       {
-        "spanish": "Durante el parto, el cuello uterino debe dilatar varios centímetros.",
+        "target": "Durante el parto, el cuello uterino debe dilatar varios centímetros.",
         "english": "During labor, the cervix must dilate several centimeters."
       }
-    ]
+    ],
+    "word": "dilatar"
   },
   {
     "id": "medical-hipertensar",
-    "spanish": "hipertensar",
     "english": "to cause hypertension",
     "pronunciation": "hipertensar",
     "partOfSpeech": "verb",
@@ -1054,18 +1053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hipertensar",
     "examples": [
       {
-        "spanish": "El estrés crónico puede hipertensar al paciente si no se controla adecuadamente.",
+        "target": "El estrés crónico puede hipertensar al paciente si no se controla adecuadamente.",
         "english": "Chronic stress can cause hypertension in the patient if not controlled properly."
       },
       {
-        "spanish": "Los malos hábitos alimenticios hipertensan a muchos pacientes en la clínica.",
+        "target": "Los malos hábitos alimenticios hipertensan a muchos pacientes en la clínica.",
         "english": "Poor eating habits cause hypertension in many patients at the clinic."
       }
-    ]
+    ],
+    "word": "hipertensar"
   },
   {
     "id": "medical-estabilizar",
-    "spanish": "estabilizar",
     "english": "to stabilize",
     "pronunciation": "estabilizar",
     "partOfSpeech": "verb",
@@ -1074,18 +1073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "estabilizar",
     "examples": [
       {
-        "spanish": "El tratamiento ayudó a estabilizar la condición del paciente después del accidente.",
+        "target": "El tratamiento ayudó a estabilizar la condición del paciente después del accidente.",
         "english": "The treatment helped stabilize the patient's condition after the accident."
       },
       {
-        "spanish": "Los médicos utilizaron medicamentos para estabilizar los signos vitales del enfermo.",
+        "target": "Los médicos utilizaron medicamentos para estabilizar los signos vitales del enfermo.",
         "english": "The doctors used medications to stabilize the patient's vital signs."
       }
-    ]
+    ],
+    "word": "estabilizar"
   },
   {
     "id": "medical-monitorizar",
-    "spanish": "monitorizar",
     "english": "to monitor",
     "pronunciation": "monitorizar",
     "partOfSpeech": "verb",
@@ -1094,18 +1093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "monitorizar",
     "examples": [
       {
-        "spanish": "El cardiólogo debe monitorizar los signos vitales del paciente durante la cirugía.",
+        "target": "El cardiólogo debe monitorizar los signos vitales del paciente durante la cirugía.",
         "english": "The cardiologist must monitor the patient's vital signs during surgery."
       },
       {
-        "spanish": "Es importante monitorizar la presión arterial y el nivel de oxígeno en sangre de los pacientes críticos.",
+        "target": "Es importante monitorizar la presión arterial y el nivel de oxígeno en sangre de los pacientes críticos.",
         "english": "It is important to monitor blood pressure and blood oxygen levels in critical patients."
       }
-    ]
+    ],
+    "word": "monitorizar"
   },
   {
     "id": "medical-infiltrar",
-    "spanish": "infiltrar",
     "english": "to infiltrate",
     "pronunciation": "infiltrar",
     "partOfSpeech": "verb",
@@ -1114,18 +1113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "infiltrar",
     "examples": [
       {
-        "spanish": "El cáncer comenzó a infiltrar los tejidos sanos circundantes.",
+        "target": "El cáncer comenzó a infiltrar los tejidos sanos circundantes.",
         "english": "The cancer began to infiltrate the surrounding healthy tissues."
       },
       {
-        "spanish": "La infección bacteriana logró infiltrar la barrera hematoencefálica.",
+        "target": "La infección bacteriana logró infiltrar la barrera hematoencefálica.",
         "english": "The bacterial infection managed to infiltrate the blood-brain barrier."
       }
-    ]
+    ],
+    "word": "infiltrar"
   },
   {
     "id": "medical-aspirar",
-    "spanish": "aspirar",
     "english": "to aspirate",
     "pronunciation": "aspirar",
     "partOfSpeech": "verb",
@@ -1134,18 +1133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aspirar",
     "examples": [
       {
-        "spanish": "El paciente debe aspirar profundamente durante el examen pulmonar.",
+        "target": "El paciente debe aspirar profundamente durante el examen pulmonar.",
         "english": "The patient must breathe in deeply during the lung examination."
       },
       {
-        "spanish": "La enfermera aspiró las secreciones de las vías respiratorias del paciente.",
+        "target": "La enfermera aspiró las secreciones de las vías respiratorias del paciente.",
         "english": "The nurse suctioned the secretions from the patient's airway."
       }
-    ]
+    ],
+    "word": "aspirar"
   },
   {
     "id": "medical-laparoscopiar",
-    "spanish": "laparoscopiar",
     "english": "to perform laparoscopy",
     "pronunciation": "laparoscopiar",
     "partOfSpeech": "verb",
@@ -1154,18 +1153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "laparoscopiar",
     "examples": [
       {
-        "spanish": "El cirujano decidió laparoscopiar al paciente para diagnosticar la apendicitis.",
+        "target": "El cirujano decidió laparoscopiar al paciente para diagnosticar la apendicitis.",
         "english": "The surgeon decided to perform laparoscopy on the patient to diagnose appendicitis."
       },
       {
-        "spanish": "Fue necesario laparoscopiar a la mujer embarazada debido a los dolores abdominales persistentes.",
+        "target": "Fue necesario laparoscopiar a la mujer embarazada debido a los dolores abdominales persistentes.",
         "english": "It was necessary to perform laparoscopy on the pregnant woman due to persistent abdominal pain."
       }
-    ]
+    ],
+    "word": "laparoscopiar"
   },
   {
     "id": "medical-tomar",
-    "spanish": "tomar",
     "english": "to take",
     "pronunciation": "tomar",
     "partOfSpeech": "verb",
@@ -1174,18 +1173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tomar",
     "examples": [
       {
-        "spanish": "El paciente debe tomar la medicina tres veces al día.",
+        "target": "El paciente debe tomar la medicina tres veces al día.",
         "english": "The patient must take the medicine three times a day."
       },
       {
-        "spanish": "Voy a tomar la presión arterial del paciente.",
+        "target": "Voy a tomar la presión arterial del paciente.",
         "english": "I am going to take the patient's blood pressure."
       }
-    ]
+    ],
+    "word": "tomar"
   },
   {
     "id": "medical-controlar",
-    "spanish": "controlar",
     "english": "to monitor/to control",
     "pronunciation": "controlar",
     "partOfSpeech": "verb",
@@ -1194,18 +1193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "controlar",
     "examples": [
       {
-        "spanish": "El médico debe controlar la presión arterial del paciente regularmente.",
+        "target": "El médico debe controlar la presión arterial del paciente regularmente.",
         "english": "The doctor must monitor the patient's blood pressure regularly."
       },
       {
-        "spanish": "Es importante controlar el nivel de glucosa en pacientes diabéticos.",
+        "target": "Es importante controlar el nivel de glucosa en pacientes diabéticos.",
         "english": "It is important to control glucose levels in diabetic patients."
       }
-    ]
+    ],
+    "word": "controlar"
   },
   {
     "id": "medical-administrar",
-    "spanish": "administrar",
     "english": "to administer",
     "pronunciation": "administrar",
     "partOfSpeech": "verb",
@@ -1214,18 +1213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "administrar",
     "examples": [
       {
-        "spanish": "El enfermero administra la medicación al paciente cada cuatro horas.",
+        "target": "El enfermero administra la medicación al paciente cada cuatro horas.",
         "english": "The nurse administers the medication to the patient every four hours."
       },
       {
-        "spanish": "El médico administra la vacuna contra la gripe a todos los pacientes de riesgo.",
+        "target": "El médico administra la vacuna contra la gripe a todos los pacientes de riesgo.",
         "english": "The doctor administers the flu vaccine to all at-risk patients."
       }
-    ]
+    ],
+    "word": "administrar"
   },
   {
     "id": "medical-curar",
-    "spanish": "curar",
     "english": "to cure",
     "pronunciation": "curar",
     "partOfSpeech": "verb",
@@ -1234,18 +1233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "curar",
     "examples": [
       {
-        "spanish": "El médico cura la herida con antiséptico.",
+        "target": "El médico cura la herida con antiséptico.",
         "english": "The doctor treats the wound with antiseptic."
       },
       {
-        "spanish": "Este medicamento cura la infección rápidamente.",
+        "target": "Este medicamento cura la infección rápidamente.",
         "english": "This medication heals the infection quickly."
       }
-    ]
+    ],
+    "word": "curar"
   },
   {
     "id": "medical-vendarar",
-    "spanish": "vendarar",
     "english": "to bandage",
     "pronunciation": "vendarar",
     "partOfSpeech": "verb",
@@ -1254,18 +1253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vendarar",
     "examples": [
       {
-        "spanish": "El médico va a vendar la herida con una gasa estéril.",
+        "target": "El médico va a vendar la herida con una gasa estéril.",
         "english": "The doctor is going to bandage the wound with sterile gauze."
       },
       {
-        "spanish": "La enfermera vendará el tobillo del paciente después de la cirugía.",
+        "target": "La enfermera vendará el tobillo del paciente después de la cirugía.",
         "english": "The nurse will bandage the patient's ankle after surgery."
       }
-    ]
+    ],
+    "word": "vendarar"
   },
   {
     "id": "medical-enfermar",
-    "spanish": "enfermar",
     "english": "to fall ill / to become sick",
     "pronunciation": "enfermar",
     "partOfSpeech": "verb",
@@ -1274,18 +1273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "enfermar",
     "examples": [
       {
-        "spanish": "El paciente comenzó a enfermar después de la cirugía.",
+        "target": "El paciente comenzó a enfermar después de la cirugía.",
         "english": "The patient began to get sick after the surgery."
       },
       {
-        "spanish": "Si no tomas tus medicinas, podrías enfermar gravemente.",
+        "target": "Si no tomas tus medicinas, podrías enfermar gravemente.",
         "english": "If you don't take your medicine, you could become seriously ill."
       }
-    ]
+    ],
+    "word": "enfermar"
   },
   {
     "id": "construction-instalar",
-    "spanish": "instalar",
     "english": "to install",
     "pronunciation": "instalar",
     "partOfSpeech": "verb",
@@ -1294,18 +1293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "instalar",
     "examples": [
       {
-        "spanish": "Los trabajadores van a instalar las ventanas nuevas en la casa.",
+        "target": "Los trabajadores van a instalar las ventanas nuevas en la casa.",
         "english": "The workers are going to install the new windows in the house."
       },
       {
-        "spanish": "Debemos instalar el sistema eléctrico antes de terminar la construcción.",
+        "target": "Debemos instalar el sistema eléctrico antes de terminar la construcción.",
         "english": "We must install the electrical system before finishing construction."
       }
-    ]
+    ],
+    "word": "instalar"
   },
   {
     "id": "construction-soldar",
-    "spanish": "soldar",
     "english": "to weld",
     "pronunciation": "soldar",
     "partOfSpeech": "verb",
@@ -1314,18 +1313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "soldar",
     "examples": [
       {
-        "spanish": "El soldador necesita soldar las vigas de acero para construir el puente.",
+        "target": "El soldador necesita soldar las vigas de acero para construir el puente.",
         "english": "The welder needs to weld the steel beams to build the bridge."
       },
       {
-        "spanish": "Vamos a soldar las tuberías de cobre en la nueva instalación de fontanería.",
+        "target": "Vamos a soldar las tuberías de cobre en la nueva instalación de fontanería.",
         "english": "We are going to weld the copper pipes in the new plumbing installation."
       }
-    ]
+    ],
+    "word": "soldar"
   },
   {
     "id": "construction-demoler",
-    "spanish": "demoler",
     "english": "to demolish",
     "pronunciation": "demoler",
     "partOfSpeech": "verb",
@@ -1334,18 +1333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "demoler",
     "examples": [
       {
-        "spanish": "Los trabajadores van a demoler el edificio antiguo la próxima semana.",
+        "target": "Los trabajadores van a demoler el edificio antiguo la próxima semana.",
         "english": "The workers are going to demolish the old building next week."
       },
       {
-        "spanish": "Necesitamos demoler esta pared para ampliar la cocina.",
+        "target": "Necesitamos demoler esta pared para ampliar la cocina.",
         "english": "We need to demolish this wall to expand the kitchen."
       }
-    ]
+    ],
+    "word": "demoler"
   },
   {
     "id": "construction-nivelar",
-    "spanish": "nivelar",
     "english": "to level",
     "pronunciation": "nivelar",
     "partOfSpeech": "verb",
@@ -1354,18 +1353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "nivelar",
     "examples": [
       {
-        "spanish": "Los trabajadores nivelan el terreno para construir la casa.",
+        "target": "Los trabajadores nivelan el terreno para construir la casa.",
         "english": "The workers level the ground to build the house."
       },
       {
-        "spanish": "Necesitamos nivelar la base antes de colocar los cimientos.",
+        "target": "Necesitamos nivelar la base antes de colocar los cimientos.",
         "english": "We need to level the base before laying the foundations."
       }
-    ]
+    ],
+    "word": "nivelar"
   },
   {
     "id": "construction-excavar",
-    "spanish": "excavar",
     "english": "to excavate",
     "pronunciation": "excavar",
     "partOfSpeech": "verb",
@@ -1374,18 +1373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "excavar",
     "examples": [
       {
-        "spanish": "Los obreros excavan el terreno para los cimientos del edificio.",
+        "target": "Los obreros excavan el terreno para los cimientos del edificio.",
         "english": "The workers excavate the ground for the building's foundation."
       },
       {
-        "spanish": "La máquina excavadora excava un pozo profundo en la obra.",
+        "target": "La máquina excavadora excava un pozo profundo en la obra.",
         "english": "The excavator digs a deep hole at the construction site."
       }
-    ]
+    ],
+    "word": "excavar"
   },
   {
     "id": "construction-rellenar",
-    "spanish": "rellenar",
     "english": "to fill in / to fill up",
     "pronunciation": "rellenar",
     "partOfSpeech": "verb",
@@ -1394,18 +1393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "rellenar",
     "examples": [
       {
-        "spanish": "Necesito rellenar este hueco en la pared con cemento.",
+        "target": "Necesito rellenar este hueco en la pared con cemento.",
         "english": "I need to fill this hole in the wall with cement."
       },
       {
-        "spanish": "Los trabajadores rellenan la zanja con grava y arena.",
+        "target": "Los trabajadores rellenan la zanja con grava y arena.",
         "english": "The workers fill the trench with gravel and sand."
       }
-    ]
+    ],
+    "word": "rellenar"
   },
   {
     "id": "construction-amarrar",
-    "spanish": "amarrar",
     "english": "to tie/secure/moor",
     "pronunciation": "amarrar",
     "partOfSpeech": "verb",
@@ -1414,18 +1413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "amarrar",
     "examples": [
       {
-        "spanish": "Los trabajadores amarran las vigas de acero con cables de seguridad.",
+        "target": "Los trabajadores amarran las vigas de acero con cables de seguridad.",
         "english": "The workers tie down the steel beams with safety cables."
       },
       {
-        "spanish": "Necesito amarrar bien esta carga antes de transportarla.",
+        "target": "Necesito amarrar bien esta carga antes de transportarla.",
         "english": "I need to secure this load well before transporting it."
       }
-    ]
+    ],
+    "word": "amarrar"
   },
   {
     "id": "construction-impermeabilizar",
-    "spanish": "impermeabilizar",
     "english": "to waterproof",
     "pronunciation": "impermeabilizar",
     "partOfSpeech": "verb",
@@ -1434,18 +1433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "impermeabilizar",
     "examples": [
       {
-        "spanish": "Los trabajadores impermeabilizan el techo con una membrana sintética.",
+        "target": "Los trabajadores impermeabilizan el techo con una membrana sintética.",
         "english": "The workers waterproof the roof with a synthetic membrane."
       },
       {
-        "spanish": "Es necesario impermeabilizar los cimientos antes de construir las paredes.",
+        "target": "Es necesario impermeabilizar los cimientos antes de construir las paredes.",
         "english": "It is necessary to waterproof the foundations before building the walls."
       }
-    ]
+    ],
+    "word": "impermeabilizar"
   },
   {
     "id": "construction-inspeccionar",
-    "spanish": "inspeccionar",
     "english": "to inspect",
     "pronunciation": "inspeccionar",
     "partOfSpeech": "verb",
@@ -1454,18 +1453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "inspeccionar",
     "examples": [
       {
-        "spanish": "El inspector debe inspeccionar todos los cimientos de la construcción.",
+        "target": "El inspector debe inspeccionar todos los cimientos de la construcción.",
         "english": "The inspector must inspect all the foundations of the construction."
       },
       {
-        "spanish": "Vamos a inspeccionar la calidad de los materiales antes de continuar con la obra.",
+        "target": "Vamos a inspeccionar la calidad de los materiales antes de continuar con la obra.",
         "english": "We are going to inspect the quality of the materials before continuing with the construction work."
       }
-    ]
+    ],
+    "word": "inspeccionar"
   },
   {
     "id": "construction-cementar",
-    "spanish": "cementar",
     "english": "to cement",
     "pronunciation": "cementar",
     "partOfSpeech": "verb",
@@ -1474,18 +1473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cementar",
     "examples": [
       {
-        "spanish": "Los trabajadores cementan los cimientos de la casa nueva.",
+        "target": "Los trabajadores cementan los cimientos de la casa nueva.",
         "english": "The workers cement the foundations of the new house."
       },
       {
-        "spanish": "Necesitamos cementar las grietas en las paredes antes de pintar.",
+        "target": "Necesitamos cementar las grietas en las paredes antes de pintar.",
         "english": "We need to cement the cracks in the walls before painting."
       }
-    ]
+    ],
+    "word": "cementar"
   },
   {
     "id": "construction-engrasar",
-    "spanish": "engrasar",
     "english": "to grease",
     "pronunciation": "engrasar",
     "partOfSpeech": "verb",
@@ -1494,18 +1493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "engrasar",
     "examples": [
       {
-        "spanish": "El trabajador engrasa las máquinas de construcción cada semana.",
+        "target": "El trabajador engrasa las máquinas de construcción cada semana.",
         "english": "The worker greases the construction machines every week."
       },
       {
-        "spanish": "Necesitamos engrasar los rodillos del andamio antes de usarlo.",
+        "target": "Necesitamos engrasar los rodillos del andamio antes de usarlo.",
         "english": "We need to grease the scaffold rollers before using it."
       }
-    ]
+    ],
+    "word": "engrasar"
   },
   {
     "id": "construction-tornillar",
-    "spanish": "tornillar",
     "english": "to screw",
     "pronunciation": "tornillar",
     "partOfSpeech": "verb",
@@ -1514,18 +1513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tornillar",
     "examples": [
       {
-        "spanish": "El trabajador tornilla la placa de metal al marco de la puerta.",
+        "target": "El trabajador tornilla la placa de metal al marco de la puerta.",
         "english": "The worker screws the metal plate to the door frame."
       },
       {
-        "spanish": "Necesitamos tornillar todas las vigas antes de continuar con la construcción.",
+        "target": "Necesitamos tornillar todas las vigas antes de continuar con la construcción.",
         "english": "We need to screw all the beams before continuing with the construction."
       }
-    ]
+    ],
+    "word": "tornillar"
   },
   {
     "id": "construction-atornillar",
-    "spanish": "atornillar",
     "english": "to screw",
     "pronunciation": "atornillar",
     "partOfSpeech": "verb",
@@ -1534,18 +1533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "atornillar",
     "examples": [
       {
-        "spanish": "El carpintero atornilla la bisagra a la puerta.",
+        "target": "El carpintero atornilla la bisagra a la puerta.",
         "english": "The carpenter screws the hinge to the door."
       },
       {
-        "spanish": "Necesito atornillar estas planchas de metal para armar la estructura.",
+        "target": "Necesito atornillar estas planchas de metal para armar la estructura.",
         "english": "I need to screw these metal sheets together to assemble the structure."
       }
-    ]
+    ],
+    "word": "atornillar"
   },
   {
     "id": "construction-taladrar",
-    "spanish": "taladrar",
     "english": "to drill",
     "pronunciation": "taladrar",
     "partOfSpeech": "verb",
@@ -1554,18 +1553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "taladrar",
     "examples": [
       {
-        "spanish": "El contratista necesita taladrar la pared para instalar los cables eléctricos.",
+        "target": "El contratista necesita taladrar la pared para instalar los cables eléctricos.",
         "english": "The contractor needs to drill the wall to install the electrical wires."
       },
       {
-        "spanish": "Voy a taladrar varios agujeros en el hormigón para fijar las vigas de acero.",
+        "target": "Voy a taladrar varios agujeros en el hormigón para fijar las vigas de acero.",
         "english": "I am going to drill several holes in the concrete to fix the steel beams."
       }
-    ]
+    ],
+    "word": "taladrar"
   },
   {
     "id": "construction-cortar",
-    "spanish": "cortar",
     "english": "to cut",
     "pronunciation": "cortar",
     "partOfSpeech": "verb",
@@ -1574,18 +1573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cortar",
     "examples": [
       {
-        "spanish": "El carpintero corta la madera con la sierra.",
+        "target": "El carpintero corta la madera con la sierra.",
         "english": "The carpenter cuts the wood with the saw."
       },
       {
-        "spanish": "Necesitamos cortar los tubos de metal para la instalación.",
+        "target": "Necesitamos cortar los tubos de metal para la instalación.",
         "english": "We need to cut the metal pipes for the installation."
       }
-    ]
+    ],
+    "word": "cortar"
   },
   {
     "id": "construction-lijar",
-    "spanish": "lijar",
     "english": "to sand",
     "pronunciation": "lijar",
     "partOfSpeech": "verb",
@@ -1594,18 +1593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "lijar",
     "examples": [
       {
-        "spanish": "El carpintero lija la madera para suavizar la superficie.",
+        "target": "El carpintero lija la madera para suavizar la superficie.",
         "english": "The carpenter sands the wood to smooth the surface."
       },
       {
-        "spanish": "Necesito lijar esta pared antes de pintar.",
+        "target": "Necesito lijar esta pared antes de pintar.",
         "english": "I need to sand this wall before painting."
       }
-    ]
+    ],
+    "word": "lijar"
   },
   {
     "id": "construction-pintar",
-    "spanish": "pintar",
     "english": "to paint",
     "pronunciation": "pintar",
     "partOfSpeech": "verb",
@@ -1614,18 +1613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pintar",
     "examples": [
       {
-        "spanish": "Los trabajadores pintan las paredes de la casa nueva.",
+        "target": "Los trabajadores pintan las paredes de la casa nueva.",
         "english": "The workers paint the walls of the new house."
       },
       {
-        "spanish": "Necesito pintar el marco de la ventana antes de instalarla.",
+        "target": "Necesito pintar el marco de la ventana antes de instalarla.",
         "english": "I need to paint the window frame before installing it."
       }
-    ]
+    ],
+    "word": "pintar"
   },
   {
     "id": "construction-sellar",
-    "spanish": "sellar",
     "english": "to seal",
     "pronunciation": "sellar",
     "partOfSpeech": "verb",
@@ -1634,18 +1633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sellar",
     "examples": [
       {
-        "spanish": "El contratista sella la grieta en la pared con masilla.",
+        "target": "El contratista sella la grieta en la pared con masilla.",
         "english": "The contractor seals the crack in the wall with putty."
       },
       {
-        "spanish": "Debemos sellar todas las juntas antes de pintar.",
+        "target": "Debemos sellar todas las juntas antes de pintar.",
         "english": "We must seal all the joints before painting."
       }
-    ]
+    ],
+    "word": "sellar"
   },
   {
     "id": "construction-aislar",
-    "spanish": "aislar",
     "english": "to isolate",
     "pronunciation": "aislar",
     "partOfSpeech": "verb",
@@ -1654,18 +1653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aislar",
     "examples": [
       {
-        "spanish": "Necesitamos aislar la zona de construcción con vallas de seguridad.",
+        "target": "Necesitamos aislar la zona de construcción con vallas de seguridad.",
         "english": "We need to isolate the construction area with safety fences."
       },
       {
-        "spanish": "El contratista decidió aislar la pared dañada antes de repararla.",
+        "target": "El contratista decidió aislar la pared dañada antes de repararla.",
         "english": "The contractor decided to isolate the damaged wall before repairing it."
       }
-    ]
+    ],
+    "word": "aislar"
   },
   {
     "id": "construction-encofrar",
-    "spanish": "encofrar",
     "english": "to formwork / to frame with scaffolding",
     "pronunciation": "encofrar",
     "partOfSpeech": "verb",
@@ -1674,18 +1673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "encofrar",
     "examples": [
       {
-        "spanish": "Los trabajadores encofraron la base de hormigón para la nueva estructura.",
+        "target": "Los trabajadores encofraron la base de hormigón para la nueva estructura.",
         "english": "The workers formworked the concrete base for the new structure."
       },
       {
-        "spanish": "Debemos encofrar las columnas antes de verter el cemento.",
+        "target": "Debemos encofrar las columnas antes de verter el cemento.",
         "english": "We must form the columns before pouring the cement."
       }
-    ]
+    ],
+    "word": "encofrar"
   },
   {
     "id": "construction-verter",
-    "spanish": "verter",
     "english": "to pour, to spill, to dump",
     "pronunciation": "verter",
     "partOfSpeech": "verb",
@@ -1694,18 +1693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "verter",
     "examples": [
       {
-        "spanish": "Los trabajadores vierten el cemento en el molde para construir la base.",
+        "target": "Los trabajadores vierten el cemento en el molde para construir la base.",
         "english": "The workers pour the cement into the mold to build the foundation."
       },
       {
-        "spanish": "Debemos verter el hormigón antes de que se endurezca.",
+        "target": "Debemos verter el hormigón antes de que se endurezca.",
         "english": "We must pour the concrete before it hardens."
       }
-    ]
+    ],
+    "word": "verter"
   },
   {
     "id": "construction-vibrar",
-    "spanish": "vibrar",
     "english": "to vibrate",
     "pronunciation": "vibrar",
     "partOfSpeech": "verb",
@@ -1714,18 +1713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vibrar",
     "examples": [
       {
-        "spanish": "La hormigonera hace vibrar toda la estructura durante el vertido del cemento.",
+        "target": "La hormigonera hace vibrar toda la estructura durante el vertido del cemento.",
         "english": "The concrete mixer causes the entire structure to vibrate during the cement pour."
       },
       {
-        "spanish": "Los pilotes vibran cuando la máquina compactadora golpea el terreno.",
+        "target": "Los pilotes vibran cuando la máquina compactadora golpea el terreno.",
         "english": "The pilings vibrate when the compacting machine strikes the ground."
       }
-    ]
+    ],
+    "word": "vibrar"
   },
   {
     "id": "construction-compactar",
-    "spanish": "compactar",
     "english": "to compact",
     "pronunciation": "compactar",
     "partOfSpeech": "verb",
@@ -1734,18 +1733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "compactar",
     "examples": [
       {
-        "spanish": "Los trabajadores compactan el terreno antes de verter el concreto.",
+        "target": "Los trabajadores compactan el terreno antes de verter el concreto.",
         "english": "The workers compact the ground before pouring the concrete."
       },
       {
-        "spanish": "Es necesario compactar la base del camino para que sea más resistente.",
+        "target": "Es necesario compactar la base del camino para que sea más resistente.",
         "english": "It is necessary to compact the road base to make it more resistant."
       }
-    ]
+    ],
+    "word": "compactar"
   },
   {
     "id": "construction-medir",
-    "spanish": "medir",
     "english": "to measure",
     "pronunciation": "medir",
     "partOfSpeech": "verb",
@@ -1754,18 +1753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "medir",
     "examples": [
       {
-        "spanish": "El carpintero mide la pared antes de instalar los estantes.",
+        "target": "El carpintero mide la pared antes de instalar los estantes.",
         "english": "The carpenter measures the wall before installing the shelves."
       },
       {
-        "spanish": "Debemos medir las dimensiones de la habitación para colocar las puertas correctamente.",
+        "target": "Debemos medir las dimensiones de la habitación para colocar las puertas correctamente.",
         "english": "We must measure the dimensions of the room to install the doors correctly."
       }
-    ]
+    ],
+    "word": "medir"
   },
   {
     "id": "construction-marcar",
-    "spanish": "marcar",
     "english": "to mark",
     "pronunciation": "marcar",
     "partOfSpeech": "verb",
@@ -1774,18 +1773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "marcar",
     "examples": [
       {
-        "spanish": "El contratista marca las líneas de construcción con tiza.",
+        "target": "El contratista marca las líneas de construcción con tiza.",
         "english": "The contractor marks the construction lines with chalk."
       },
       {
-        "spanish": "Necesito marcar los puntos donde van los cimientos.",
+        "target": "Necesito marcar los puntos donde van los cimientos.",
         "english": "I need to mark the points where the foundations will go."
       }
-    ]
+    ],
+    "word": "marcar"
   },
   {
     "id": "construction-trazar",
-    "spanish": "trazar",
     "english": "to trace, to draw, to layout",
     "pronunciation": "trazar",
     "partOfSpeech": "verb",
@@ -1794,18 +1793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "trazar",
     "examples": [
       {
-        "spanish": "El arquitecto traza el plano de la nueva casa.",
+        "target": "El arquitecto traza el plano de la nueva casa.",
         "english": "The architect traces the blueprint of the new house."
       },
       {
-        "spanish": "Los trabajadores trazan las líneas para los cimientos.",
+        "target": "Los trabajadores trazan las líneas para los cimientos.",
         "english": "The workers trace the lines for the foundations."
       }
-    ]
+    ],
+    "word": "trazar"
   },
   {
     "id": "construction-replantear",
-    "spanish": "replantear",
     "english": "to reconsider, to reframe, to revise the approach",
     "pronunciation": "replantear",
     "partOfSpeech": "verb",
@@ -1814,18 +1813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "replantear",
     "examples": [
       {
-        "spanish": "El arquitecto tuvo que replantear el diseño del edificio debido a problemas estructurales.",
+        "target": "El arquitecto tuvo que replantear el diseño del edificio debido a problemas estructurales.",
         "english": "The architect had to reconsider the building design due to structural problems."
       },
       {
-        "spanish": "Los ingenieros decidieron replantear la distribución de las columnas en la construcción.",
+        "target": "Los ingenieros decidieron replantear la distribución de las columnas en la construcción.",
         "english": "The engineers decided to reconsider the distribution of the columns in the construction."
       }
-    ]
+    ],
+    "word": "replantear"
   },
   {
     "id": "construction-reforzar",
-    "spanish": "reforzar",
     "english": "to reinforce",
     "pronunciation": "reforzar",
     "partOfSpeech": "verb",
@@ -1834,18 +1833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reforzar",
     "examples": [
       {
-        "spanish": "Necesitamos reforzar los cimientos del edificio con acero.",
+        "target": "Necesitamos reforzar los cimientos del edificio con acero.",
         "english": "We need to reinforce the building's foundations with steel."
       },
       {
-        "spanish": "El contratista reforzó la estructura del puente con vigas adicionales.",
+        "target": "El contratista reforzó la estructura del puente con vigas adicionales.",
         "english": "The contractor reinforced the bridge's structure with additional beams."
       }
-    ]
+    ],
+    "word": "reforzar"
   },
   {
     "id": "construction-esmerilar",
-    "spanish": "esmerilar",
     "english": "to grind, to polish with emery",
     "pronunciation": "esmerilar",
     "partOfSpeech": "verb",
@@ -1854,18 +1853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "esmerilar",
     "examples": [
       {
-        "spanish": "El obrero esmerila la superficie de metal para dejarla lisa.",
+        "target": "El obrero esmerila la superficie de metal para dejarla lisa.",
         "english": "The worker grinds the metal surface to leave it smooth."
       },
       {
-        "spanish": "Necesitamos esmerilar los bordes afilados de la placa de acero.",
+        "target": "Necesitamos esmerilar los bordes afilados de la placa de acero.",
         "english": "We need to grind the sharp edges of the steel plate."
       }
-    ]
+    ],
+    "word": "esmerilar"
   },
   {
     "id": "construction-doblar",
-    "spanish": "doblar",
     "english": "to fold, to bend, to turn",
     "pronunciation": "doblar",
     "partOfSpeech": "verb",
@@ -1874,18 +1873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "doblar",
     "examples": [
       {
-        "spanish": "Necesito doblar estas vigas de acero para la estructura.",
+        "target": "Necesito doblar estas vigas de acero para la estructura.",
         "english": "I need to bend these steel beams for the structure."
       },
       {
-        "spanish": "Los trabajadores doblan el tubo de cobre en la esquina.",
+        "target": "Los trabajadores doblan el tubo de cobre en la esquina.",
         "english": "The workers bend the copper pipe at the corner."
       }
-    ]
+    ],
+    "word": "doblar"
   },
   {
     "id": "construction-izar",
-    "spanish": "izar",
     "english": "to hoist",
     "pronunciation": "izar",
     "partOfSpeech": "verb",
@@ -1894,18 +1893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "izar",
     "examples": [
       {
-        "spanish": "Los trabajadores izan la bandera en la obra cada mañana.",
+        "target": "Los trabajadores izan la bandera en la obra cada mañana.",
         "english": "The workers hoist the flag at the construction site every morning."
       },
       {
-        "spanish": "Necesitamos izar el acero estructural con la grúa.",
+        "target": "Necesitamos izar el acero estructural con la grúa.",
         "english": "We need to hoist the structural steel with the crane."
       }
-    ]
+    ],
+    "word": "izar"
   },
   {
     "id": "construction-descender",
-    "spanish": "descender",
     "english": "to descend",
     "pronunciation": "descender",
     "partOfSpeech": "verb",
@@ -1914,18 +1913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "descender",
     "examples": [
       {
-        "spanish": "Los trabajadores descienden por la escalera de mano hacia el sótano.",
+        "target": "Los trabajadores descienden por la escalera de mano hacia el sótano.",
         "english": "The workers descend down the ladder towards the basement."
       },
       {
-        "spanish": "El elevador desciende lentamente desde el piso 10 hasta la planta baja.",
+        "target": "El elevador desciende lentamente desde el piso 10 hasta la planta baja.",
         "english": "The elevator descends slowly from the 10th floor to the ground level."
       }
-    ]
+    ],
+    "word": "descender"
   },
   {
     "id": "construction-anclar",
-    "spanish": "anclar",
     "english": "to anchor",
     "pronunciation": "anclar",
     "partOfSpeech": "verb",
@@ -1934,18 +1933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "anclar",
     "examples": [
       {
-        "spanish": "Los trabajadores anclan la estructura de acero al cimiento.",
+        "target": "Los trabajadores anclan la estructura de acero al cimiento.",
         "english": "The workers anchor the steel structure to the foundation."
       },
       {
-        "spanish": "Debemos anclar bien estas vigas para garantizar la estabilidad del edificio.",
+        "target": "Debemos anclar bien estas vigas para garantizar la estabilidad del edificio.",
         "english": "We must anchor these beams well to ensure the stability of the building."
       }
-    ]
+    ],
+    "word": "anclar"
   },
   {
     "id": "construction-fijar",
-    "spanish": "fijar",
     "english": "to fix/to fasten/to set",
     "pronunciation": "fijar",
     "partOfSpeech": "verb",
@@ -1954,18 +1953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "fijar",
     "examples": [
       {
-        "spanish": "El contratista fija los clavos en la pared.",
+        "target": "El contratista fija los clavos en la pared.",
         "english": "The contractor fixes the nails in the wall."
       },
       {
-        "spanish": "Necesitamos fijar la viga de acero al marco.",
+        "target": "Necesitamos fijar la viga de acero al marco.",
         "english": "We need to fasten the steel beam to the frame."
       }
-    ]
+    ],
+    "word": "fijar"
   },
   {
     "id": "construction-sujetar",
-    "spanish": "sujetar",
     "english": "to fasten, to hold, to secure, to clamp",
     "pronunciation": "sujetar",
     "partOfSpeech": "verb",
@@ -1974,18 +1973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sujetar",
     "examples": [
       {
-        "spanish": "Necesito sujetar esta viga con abrazaderas de metal.",
+        "target": "Necesito sujetar esta viga con abrazaderas de metal.",
         "english": "I need to fasten this beam with metal clamps."
       },
       {
-        "spanish": "El trabajador sujeta la escalera contra la pared.",
+        "target": "El trabajador sujeta la escalera contra la pared.",
         "english": "The worker holds the ladder against the wall."
       }
-    ]
+    ],
+    "word": "sujetar"
   },
   {
     "id": "construction-asegurar",
-    "spanish": "asegurar",
     "english": "to secure; to ensure; to fasten",
     "pronunciation": "asegurar",
     "partOfSpeech": "verb",
@@ -1994,18 +1993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "asegurar",
     "examples": [
       {
-        "spanish": "El contratista debe asegurar que la estructura esté bien nivelada.",
+        "target": "El contratista debe asegurar que la estructura esté bien nivelada.",
         "english": "The contractor must ensure that the structure is properly leveled."
       },
       {
-        "spanish": "Necesitamos asegurar los cables eléctricos con abrazaderas de metal.",
+        "target": "Necesitamos asegurar los cables eléctricos con abrazaderas de metal.",
         "english": "We need to secure the electrical cables with metal clamps."
       }
-    ]
+    ],
+    "word": "asegurar"
   },
   {
     "id": "construction-verificar",
-    "spanish": "verificar",
     "english": "to verify",
     "pronunciation": "verificar",
     "partOfSpeech": "verb",
@@ -2014,18 +2013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "verificar",
     "examples": [
       {
-        "spanish": "El ingeniero debe verificar que todos los cimientos estén correctamente nivelados.",
+        "target": "El ingeniero debe verificar que todos los cimientos estén correctamente nivelados.",
         "english": "The engineer must verify that all the foundations are correctly leveled."
       },
       {
-        "spanish": "Antes de comenzar la construcción, necesitamos verificar los planos y permisos.",
+        "target": "Antes de comenzar la construcción, necesitamos verificar los planos y permisos.",
         "english": "Before starting construction, we need to verify the plans and permits."
       }
-    ]
+    ],
+    "word": "verificar"
   },
   {
     "id": "construction-aprobar",
-    "spanish": "aprobar",
     "english": "to approve",
     "pronunciation": "aprobar",
     "partOfSpeech": "verb",
@@ -2034,18 +2033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aprobar",
     "examples": [
       {
-        "spanish": "El inspector aprobó los planos de la nueva construcción.",
+        "target": "El inspector aprobó los planos de la nueva construcción.",
         "english": "The inspector approved the plans for the new construction."
       },
       {
-        "spanish": "No aprobaron el proyecto porque no cumplía con los códigos de seguridad.",
+        "target": "No aprobaron el proyecto porque no cumplía con los códigos de seguridad.",
         "english": "They did not approve the project because it did not comply with safety codes."
       }
-    ]
+    ],
+    "word": "aprobar"
   },
   {
     "id": "construction-certificar",
-    "spanish": "certificar",
     "english": "to certify",
     "pronunciation": "certificar",
     "partOfSpeech": "verb",
@@ -2054,18 +2053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "certificar",
     "examples": [
       {
-        "spanish": "El ingeniero debe certificar que la estructura cumple con los códigos de construcción.",
+        "target": "El ingeniero debe certificar que la estructura cumple con los códigos de construcción.",
         "english": "The engineer must certify that the structure complies with building codes."
       },
       {
-        "spanish": "Vamos a certificar la calidad de los materiales antes de comenzar la obra.",
+        "target": "Vamos a certificar la calidad de los materiales antes de comenzar la obra.",
         "english": "We are going to certify the quality of the materials before starting the construction work."
       }
-    ]
+    ],
+    "word": "certificar"
   },
   {
     "id": "construction-derribar",
-    "spanish": "derribar",
     "english": "to knock down / to demolish",
     "pronunciation": "derribar",
     "partOfSpeech": "verb",
@@ -2074,18 +2073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "derribar",
     "examples": [
       {
-        "spanish": "Los trabajadores van a derribar el edificio antiguo la próxima semana.",
+        "target": "Los trabajadores van a derribar el edificio antiguo la próxima semana.",
         "english": "The workers are going to demolish the old building next week."
       },
       {
-        "spanish": "Necesitamos derribar esta pared para ampliar la sala.",
+        "target": "Necesitamos derribar esta pared para ampliar la sala.",
         "english": "We need to tear down this wall to enlarge the room."
       }
-    ]
+    ],
+    "word": "derribar"
   },
   {
     "id": "construction-construir",
-    "spanish": "construir",
     "english": "to build",
     "pronunciation": "construir",
     "partOfSpeech": "verb",
@@ -2094,18 +2093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "construir",
     "examples": [
       {
-        "spanish": "Los trabajadores construyen un nuevo edificio en el centro de la ciudad.",
+        "target": "Los trabajadores construyen un nuevo edificio en el centro de la ciudad.",
         "english": "The workers are building a new building in the city center."
       },
       {
-        "spanish": "Necesitamos construir los cimientos antes de levantar las paredes.",
+        "target": "Necesitamos construir los cimientos antes de levantar las paredes.",
         "english": "We need to build the foundations before raising the walls."
       }
-    ]
+    ],
+    "word": "construir"
   },
   {
     "id": "construction-edificar",
-    "spanish": "edificar",
     "english": "to build/construct",
     "pronunciation": "edificar",
     "partOfSpeech": "verb",
@@ -2114,18 +2113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "edificar",
     "examples": [
       {
-        "spanish": "Los obreros edifican un nuevo rascacielos en el centro de la ciudad.",
+        "target": "Los obreros edifican un nuevo rascacielos en el centro de la ciudad.",
         "english": "The workers build a new skyscraper in the city center."
       },
       {
-        "spanish": "La empresa tiene planes para edificar tres viviendas en este terreno.",
+        "target": "La empresa tiene planes para edificar tres viviendas en este terreno.",
         "english": "The company has plans to construct three houses on this land."
       }
-    ]
+    ],
+    "word": "edificar"
   },
   {
     "id": "construction-estructurar",
-    "spanish": "estructurar",
     "english": "to structure",
     "pronunciation": "estructurar",
     "partOfSpeech": "verb",
@@ -2134,18 +2133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "estructurar",
     "examples": [
       {
-        "spanish": "Los ingenieros estructuran el edificio con vigas de acero.",
+        "target": "Los ingenieros estructuran el edificio con vigas de acero.",
         "english": "The engineers structure the building with steel beams."
       },
       {
-        "spanish": "Necesitamos estructurar el proyecto antes de comenzar la construcción.",
+        "target": "Necesitamos estructurar el proyecto antes de comenzar la construcción.",
         "english": "We need to structure the project before starting construction."
       }
-    ]
+    ],
+    "word": "estructurar"
   },
   {
     "id": "construction-armar",
-    "spanish": "armar",
     "english": "to assemble / to frame",
     "pronunciation": "armar",
     "partOfSpeech": "verb",
@@ -2154,18 +2153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "armar",
     "examples": [
       {
-        "spanish": "Los trabajadores arman la estructura de acero para el nuevo edificio.",
+        "target": "Los trabajadores arman la estructura de acero para el nuevo edificio.",
         "english": "The workers assemble the steel structure for the new building."
       },
       {
-        "spanish": "Necesitamos armar el andamio antes de comenzar la construcción.",
+        "target": "Necesitamos armar el andamio antes de comenzar la construcción.",
         "english": "We need to set up the scaffolding before starting construction."
       }
-    ]
+    ],
+    "word": "armar"
   },
   {
     "id": "construction-desarmar",
-    "spanish": "desarmar",
     "english": "to disassemble",
     "pronunciation": "desarmar",
     "partOfSpeech": "verb",
@@ -2174,18 +2173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "desarmar",
     "examples": [
       {
-        "spanish": "Los trabajadores desarmaron el andamio después de terminar la construcción.",
+        "target": "Los trabajadores desarmaron el andamio después de terminar la construcción.",
         "english": "The workers dismantled the scaffolding after finishing the construction."
       },
       {
-        "spanish": "Necesitamos desarmar esta estructura metálica para transportarla al siguiente sitio.",
+        "target": "Necesitamos desarmar esta estructura metálica para transportarla al siguiente sitio.",
         "english": "We need to disassemble this metal structure to transport it to the next site."
       }
-    ]
+    ],
+    "word": "desarmar"
   },
   {
     "id": "construction-revestir",
-    "spanish": "revestir",
     "english": "to coat, to cover, to face",
     "pronunciation": "revestir",
     "partOfSpeech": "verb",
@@ -2194,18 +2193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "revestir",
     "examples": [
       {
-        "spanish": "Los trabajadores revisten la pared con azulejos de cerámica.",
+        "target": "Los trabajadores revisten la pared con azulejos de cerámica.",
         "english": "The workers cover the wall with ceramic tiles."
       },
       {
-        "spanish": "Necesitamos revestir el piso con madera antes de terminar la construcción.",
+        "target": "Necesitamos revestir el piso con madera antes de terminar la construcción.",
         "english": "We need to coat the floor with wood before finishing the construction."
       }
-    ]
+    ],
+    "word": "revestir"
   },
   {
     "id": "construction-acabar",
-    "spanish": "acabar",
     "english": "to finish",
     "pronunciation": "acabar",
     "partOfSpeech": "verb",
@@ -2214,18 +2213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "acabar",
     "examples": [
       {
-        "spanish": "Los trabajadores acaban de terminar la construcción del edificio.",
+        "target": "Los trabajadores acaban de terminar la construcción del edificio.",
         "english": "The workers have just finished the construction of the building."
       },
       {
-        "spanish": "Acabamos de colocar los cimientos para la nueva casa.",
+        "target": "Acabamos de colocar los cimientos para la nueva casa.",
         "english": "We have just laid the foundations for the new house."
       }
-    ]
+    ],
+    "word": "acabar"
   },
   {
     "id": "construction-pulir",
-    "spanish": "pulir",
     "english": "to polish",
     "pronunciation": "pulir",
     "partOfSpeech": "verb",
@@ -2234,18 +2233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pulir",
     "examples": [
       {
-        "spanish": "Los trabajadores pulen la superficie de mármol con máquinas especializadas.",
+        "target": "Los trabajadores pulen la superficie de mármol con máquinas especializadas.",
         "english": "The workers polish the marble surface with specialized machines."
       },
       {
-        "spanish": "Tenemos que pulir los acabados de hormigón antes de instalar las baldosas.",
+        "target": "Tenemos que pulir los acabados de hormigón antes de instalar las baldosas.",
         "english": "We have to polish the concrete finishes before installing the tiles."
       }
-    ]
+    ],
+    "word": "pulir"
   },
   {
     "id": "construction-ensamblar",
-    "spanish": "ensamblar",
     "english": "to assemble",
     "pronunciation": "ensamblar",
     "partOfSpeech": "verb",
@@ -2254,18 +2253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ensamblar",
     "examples": [
       {
-        "spanish": "Los trabajadores ensamblan las vigas de acero para construir el edificio.",
+        "target": "Los trabajadores ensamblan las vigas de acero para construir el edificio.",
         "english": "The workers assemble the steel beams to build the building."
       },
       {
-        "spanish": "Debemos ensamblar todas las piezas prefabricadas antes de continuar con la obra.",
+        "target": "Debemos ensamblar todas las piezas prefabricadas antes de continuar con la obra.",
         "english": "We must assemble all the prefabricated pieces before continuing with the construction."
       }
-    ]
+    ],
+    "word": "ensamblar"
   },
   {
     "id": "construction-montar",
-    "spanish": "montar",
     "english": "to assemble, to install, to mount",
     "pronunciation": "montar",
     "partOfSpeech": "verb",
@@ -2274,18 +2273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "montar",
     "examples": [
       {
-        "spanish": "Los trabajadores montan la estructura de acero del edificio.",
+        "target": "Los trabajadores montan la estructura de acero del edificio.",
         "english": "The workers assemble the steel structure of the building."
       },
       {
-        "spanish": "Necesitamos montar el andamio antes de comenzar la construcción.",
+        "target": "Necesitamos montar el andamio antes de comenzar la construcción.",
         "english": "We need to set up the scaffolding before starting construction."
       }
-    ]
+    ],
+    "word": "montar"
   },
   {
     "id": "construction-desmontar",
-    "spanish": "desmontar",
     "english": "to disassemble",
     "pronunciation": "desmontar",
     "partOfSpeech": "verb",
@@ -2294,18 +2293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "desmontar",
     "examples": [
       {
-        "spanish": "Los trabajadores desmontan el andamio después de terminar la construcción.",
+        "target": "Los trabajadores desmontan el andamio después de terminar la construcción.",
         "english": "The workers dismantle the scaffolding after finishing the construction."
       },
       {
-        "spanish": "Necesitamos desmontar la pared para acceder a las tuberías.",
+        "target": "Necesitamos desmontar la pared para acceder a las tuberías.",
         "english": "We need to dismantle the wall to access the pipes."
       }
-    ]
+    ],
+    "word": "desmontar"
   },
   {
     "id": "construction-reparar",
-    "spanish": "reparar",
     "english": "to repair",
     "pronunciation": "reparar",
     "partOfSpeech": "verb",
@@ -2314,18 +2313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reparar",
     "examples": [
       {
-        "spanish": "El trabajador repara la pared dañada.",
+        "target": "El trabajador repara la pared dañada.",
         "english": "The worker repairs the damaged wall."
       },
       {
-        "spanish": "Necesitamos reparar el techo antes de la lluvia.",
+        "target": "Necesitamos reparar el techo antes de la lluvia.",
         "english": "We need to repair the roof before the rain."
       }
-    ]
+    ],
+    "word": "reparar"
   },
   {
     "id": "construction-mantener",
-    "spanish": "mantener",
     "english": "to maintain",
     "pronunciation": "mantener",
     "partOfSpeech": "verb",
@@ -2334,18 +2333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "mantener",
     "examples": [
       {
-        "spanish": "Los trabajadores mantienen la estructura del edificio en perfecto estado.",
+        "target": "Los trabajadores mantienen la estructura del edificio en perfecto estado.",
         "english": "The workers maintain the structure of the building in perfect condition."
       },
       {
-        "spanish": "Es importante mantener los cimientos del puente durante la construcción.",
+        "target": "Es importante mantener los cimientos del puente durante la construcción.",
         "english": "It is important to maintain the foundations of the bridge during construction."
       }
-    ]
+    ],
+    "word": "mantener"
   },
   {
     "id": "construction-renovar",
-    "spanish": "renovar",
     "english": "to renovate / to renew",
     "pronunciation": "renovar",
     "partOfSpeech": "verb",
@@ -2354,18 +2353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "renovar",
     "examples": [
       {
-        "spanish": "Necesitamos renovar el techo de la casa antes del invierno.",
+        "target": "Necesitamos renovar el techo de la casa antes del invierno.",
         "english": "We need to renovate the roof of the house before winter."
       },
       {
-        "spanish": "El contratista va a renovar todas las tuberías del edificio.",
+        "target": "El contratista va a renovar todas las tuberías del edificio.",
         "english": "The contractor is going to renovate all the pipes in the building."
       }
-    ]
+    ],
+    "word": "renovar"
   },
   {
     "id": "construction-restaurar",
-    "spanish": "restaurar",
     "english": "to restore",
     "pronunciation": "restaurar",
     "partOfSpeech": "verb",
@@ -2374,18 +2373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "restaurar",
     "examples": [
       {
-        "spanish": "Los obreros restauran la fachada del edificio histórico.",
+        "target": "Los obreros restauran la fachada del edificio histórico.",
         "english": "The workers restore the facade of the historic building."
       },
       {
-        "spanish": "Necesitamos restaurar los cimientos dañados de la casa.",
+        "target": "Necesitamos restaurar los cimientos dañados de la casa.",
         "english": "We need to restore the damaged foundations of the house."
       }
-    ]
+    ],
+    "word": "restaurar"
   },
   {
     "id": "construction-reformar",
-    "spanish": "reformar",
     "english": "to renovate/remodel",
     "pronunciation": "reformar",
     "partOfSpeech": "verb",
@@ -2394,18 +2393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reformar",
     "examples": [
       {
-        "spanish": "Los trabajadores reforman la fachada del edificio.",
+        "target": "Los trabajadores reforman la fachada del edificio.",
         "english": "The workers are reforming the building's facade."
       },
       {
-        "spanish": "Vamos a reformar la cocina de la casa.",
+        "target": "Vamos a reformar la cocina de la casa.",
         "english": "We are going to reform the kitchen of the house."
       }
-    ]
+    ],
+    "word": "reformar"
   },
   {
     "id": "construction-ampliar",
-    "spanish": "ampliar",
     "english": "to enlarge, to expand, to extend",
     "pronunciation": "ampliar",
     "partOfSpeech": "verb",
@@ -2414,18 +2413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ampliar",
     "examples": [
       {
-        "spanish": "Vamos a ampliar la sala de espera del hospital.",
+        "target": "Vamos a ampliar la sala de espera del hospital.",
         "english": "We are going to expand the hospital's waiting room."
       },
       {
-        "spanish": "El contratista decidió ampliar los cimientos de la casa.",
+        "target": "El contratista decidió ampliar los cimientos de la casa.",
         "english": "The contractor decided to enlarge the house's foundations."
       }
-    ]
+    ],
+    "word": "ampliar"
   },
   {
     "id": "construction-reconstruir",
-    "spanish": "reconstruir",
     "english": "to rebuild",
     "pronunciation": "reconstruir",
     "partOfSpeech": "verb",
@@ -2434,18 +2433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reconstruir",
     "examples": [
       {
-        "spanish": "Los trabajadores reconstruyen el puente después del terremoto.",
+        "target": "Los trabajadores reconstruyen el puente después del terremoto.",
         "english": "The workers rebuild the bridge after the earthquake."
       },
       {
-        "spanish": "Necesitamos reconstruir los cimientos del edificio dañado.",
+        "target": "Necesitamos reconstruir los cimientos del edificio dañado.",
         "english": "We need to rebuild the foundations of the damaged building."
       }
-    ]
+    ],
+    "word": "reconstruir"
   },
   {
     "id": "construction-terraplanar",
-    "spanish": "terraplanar",
     "english": "to grade; to level ground",
     "pronunciation": "terraplanar",
     "partOfSpeech": "verb",
@@ -2454,18 +2453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "terraplanar",
     "examples": [
       {
-        "spanish": "Los trabajadores terraplanarán el terreno para construir la carretera.",
+        "target": "Los trabajadores terraplanarán el terreno para construir la carretera.",
         "english": "The workers will level the ground to build the road."
       },
       {
-        "spanish": "Es necesario terraplanar esta zona antes de iniciar los cimientos del edificio.",
+        "target": "Es necesario terraplanar esta zona antes de iniciar los cimientos del edificio.",
         "english": "It is necessary to level this area before starting the building's foundation."
       }
-    ]
+    ],
+    "word": "terraplanar"
   },
   {
     "id": "daily-hablar",
-    "spanish": "hablar",
     "english": "to speak",
     "pronunciation": "hablar",
     "partOfSpeech": "verb",
@@ -2474,18 +2473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hablar",
     "examples": [
       {
-        "spanish": "Yo hablo con mis amigos todos los días.",
+        "target": "Yo hablo con mis amigos todos los días.",
         "english": "I speak with my friends every day."
       },
       {
-        "spanish": "Mi madre habla por teléfono con su hermana.",
+        "target": "Mi madre habla por teléfono con su hermana.",
         "english": "My mother talks on the phone with her sister."
       }
-    ]
+    ],
+    "word": "hablar"
   },
   {
     "id": "daily-comer",
-    "spanish": "comer",
     "english": "to eat",
     "pronunciation": "comer",
     "partOfSpeech": "verb",
@@ -2494,18 +2493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comer",
     "examples": [
       {
-        "spanish": "Como pizza con mis amigos los viernes.",
+        "target": "Como pizza con mis amigos los viernes.",
         "english": "I eat pizza with my friends on Fridays."
       },
       {
-        "spanish": "Mi familia come juntos en la mesa cada noche.",
+        "target": "Mi familia come juntos en la mesa cada noche.",
         "english": "My family eats together at the table every night."
       }
-    ]
+    ],
+    "word": "comer"
   },
   {
     "id": "daily-beber",
-    "spanish": "beber",
     "english": "to drink",
     "pronunciation": "beber",
     "partOfSpeech": "verb",
@@ -2514,18 +2513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "beber",
     "examples": [
       {
-        "spanish": "Bebo café todas las mañanas.",
+        "target": "Bebo café todas las mañanas.",
         "english": "I drink coffee every morning."
       },
       {
-        "spanish": "Mi hermana bebe agua después del ejercicio.",
+        "target": "Mi hermana bebe agua después del ejercicio.",
         "english": "My sister drinks water after exercise."
       }
-    ]
+    ],
+    "word": "beber"
   },
   {
     "id": "daily-dormir",
-    "spanish": "dormir",
     "english": "to sleep",
     "pronunciation": "dormir",
     "partOfSpeech": "verb",
@@ -2534,18 +2533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dormir",
     "examples": [
       {
-        "spanish": "Mi hijo duerme ocho horas cada noche.",
+        "target": "Mi hijo duerme ocho horas cada noche.",
         "english": "My son sleeps eight hours every night."
       },
       {
-        "spanish": "Yo duermo mejor cuando hace frío.",
+        "target": "Yo duermo mejor cuando hace frío.",
         "english": "I sleep better when it's cold."
       }
-    ]
+    ],
+    "word": "dormir"
   },
   {
     "id": "daily-caminar",
-    "spanish": "caminar",
     "english": "to walk",
     "pronunciation": "caminar",
     "partOfSpeech": "verb",
@@ -2554,18 +2553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "caminar",
     "examples": [
       {
-        "spanish": "Camino al trabajo cada mañana.",
+        "target": "Camino al trabajo cada mañana.",
         "english": "I walk to work every morning."
       },
       {
-        "spanish": "Mi abuela camina en el parque después del almuerzo.",
+        "target": "Mi abuela camina en el parque después del almuerzo.",
         "english": "My grandmother walks in the park after lunch."
       }
-    ]
+    ],
+    "word": "caminar"
   },
   {
     "id": "daily-correr",
-    "spanish": "correr",
     "english": "to run",
     "pronunciation": "correr",
     "partOfSpeech": "verb",
@@ -2574,18 +2573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "correr",
     "examples": [
       {
-        "spanish": "Cada mañana corro cinco kilómetros en el parque.",
+        "target": "Cada mañana corro cinco kilómetros en el parque.",
         "english": "Every morning I run five kilometers in the park."
       },
       {
-        "spanish": "Los niños corren en el patio durante el recreo.",
+        "target": "Los niños corren en el patio durante el recreo.",
         "english": "The children run in the playground during recess."
       }
-    ]
+    ],
+    "word": "correr"
   },
   {
     "id": "daily-trabajar",
-    "spanish": "trabajar",
     "english": "to work",
     "pronunciation": "trabajar",
     "partOfSpeech": "verb",
@@ -2594,18 +2593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "trabajar",
     "examples": [
       {
-        "spanish": "Yo trabajo en una oficina todos los días.",
+        "target": "Yo trabajo en una oficina todos los días.",
         "english": "I work in an office every day."
       },
       {
-        "spanish": "Mi hermana trabaja como enfermera en el hospital.",
+        "target": "Mi hermana trabaja como enfermera en el hospital.",
         "english": "My sister works as a nurse in the hospital."
       }
-    ]
+    ],
+    "word": "trabajar"
   },
   {
     "id": "daily-estudiar",
-    "spanish": "estudiar",
     "english": "to study",
     "pronunciation": "estudiar",
     "partOfSpeech": "verb",
@@ -2614,18 +2613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "estudiar",
     "examples": [
       {
-        "spanish": "Estudio español cada mañana.",
+        "target": "Estudio español cada mañana.",
         "english": "I study Spanish every morning."
       },
       {
-        "spanish": "Mi hermana estudia para el examen de matemáticas.",
+        "target": "Mi hermana estudia para el examen de matemáticas.",
         "english": "My sister studies for the math exam."
       }
-    ]
+    ],
+    "word": "estudiar"
   },
   {
     "id": "daily-comprar",
-    "spanish": "comprar",
     "english": "to buy",
     "pronunciation": "comprar",
     "partOfSpeech": "verb",
@@ -2634,18 +2633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comprar",
     "examples": [
       {
-        "spanish": "Voy a comprar leche en el supermercado.",
+        "target": "Voy a comprar leche en el supermercado.",
         "english": "I'm going to buy milk at the supermarket."
       },
       {
-        "spanish": "Mi hermana compra ropa nueva cada fin de semana.",
+        "target": "Mi hermana compra ropa nueva cada fin de semana.",
         "english": "My sister buys new clothes every weekend."
       }
-    ]
+    ],
+    "word": "comprar"
   },
   {
     "id": "daily-vender",
-    "spanish": "vender",
     "english": "to sell",
     "pronunciation": "vender",
     "partOfSpeech": "verb",
@@ -2654,18 +2653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vender",
     "examples": [
       {
-        "spanish": "Mi hermano vende libros usados en el mercado.",
+        "target": "Mi hermano vende libros usados en el mercado.",
         "english": "My brother sells used books at the market."
       },
       {
-        "spanish": "Ella vende verduras frescas en su tienda cada día.",
+        "target": "Ella vende verduras frescas en su tienda cada día.",
         "english": "She sells fresh vegetables in her store every day."
       }
-    ]
+    ],
+    "word": "vender"
   },
   {
     "id": "daily-vivir",
-    "spanish": "vivir",
     "english": "to live",
     "pronunciation": "vivir",
     "partOfSpeech": "verb",
@@ -2674,18 +2673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vivir",
     "examples": [
       {
-        "spanish": "Vivo en una casa cerca del parque.",
+        "target": "Vivo en una casa cerca del parque.",
         "english": "I live in a house near the park."
       },
       {
-        "spanish": "Mis abuelos viven en el campo.",
+        "target": "Mis abuelos viven en el campo.",
         "english": "My grandparents live in the countryside."
       }
-    ]
+    ],
+    "word": "vivir"
   },
   {
     "id": "daily-morir",
-    "spanish": "morir",
     "english": "to die",
     "pronunciation": "morir",
     "partOfSpeech": "verb",
@@ -2694,18 +2693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "morir",
     "examples": [
       {
-        "spanish": "Mi abuelo murió hace cinco años.",
+        "target": "Mi abuelo murió hace cinco años.",
         "english": "My grandfather died five years ago."
       },
       {
-        "spanish": "Las flores se mueren si no las riegas.",
+        "target": "Las flores se mueren si no las riegas.",
         "english": "The flowers die if you don't water them."
       }
-    ]
+    ],
+    "word": "morir"
   },
   {
     "id": "daily-nacer",
-    "spanish": "nacer",
     "english": "to be born",
     "pronunciation": "nacer",
     "partOfSpeech": "verb",
@@ -2714,18 +2713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "nacer",
     "examples": [
       {
-        "spanish": "Mi hermana nace mañana en el hospital.",
+        "target": "Mi hermana nace mañana en el hospital.",
         "english": "My sister is being born tomorrow at the hospital."
       },
       {
-        "spanish": "Los pollitos nacen en primavera.",
+        "target": "Los pollitos nacen en primavera.",
         "english": "The chicks are born in spring."
       }
-    ]
+    ],
+    "word": "nacer"
   },
   {
     "id": "daily-crecer",
-    "spanish": "crecer",
     "english": "to grow",
     "pronunciation": "crecer",
     "partOfSpeech": "verb",
@@ -2734,18 +2733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "crecer",
     "examples": [
       {
-        "spanish": "Mi hijo crece muy rápido cada año.",
+        "target": "Mi hijo crece muy rápido cada año.",
         "english": "My son grows very quickly every year."
       },
       {
-        "spanish": "Las plantas crecen mejor con luz solar y agua.",
+        "target": "Las plantas crecen mejor con luz solar y agua.",
         "english": "Plants grow better with sunlight and water."
       }
-    ]
+    ],
+    "word": "crecer"
   },
   {
     "id": "daily-llegar",
-    "spanish": "llegar",
     "english": "to arrive",
     "pronunciation": "llegar",
     "partOfSpeech": "verb",
@@ -2754,18 +2753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "llegar",
     "examples": [
       {
-        "spanish": "Llego a la oficina a las 9 de la mañana.",
+        "target": "Llego a la oficina a las 9 de la mañana.",
         "english": "I arrive at the office at 9 in the morning."
       },
       {
-        "spanish": "El autobús llega a la estación en diez minutos.",
+        "target": "El autobús llega a la estación en diez minutos.",
         "english": "The bus arrives at the station in ten minutes."
       }
-    ]
+    ],
+    "word": "llegar"
   },
   {
     "id": "daily-salir",
-    "spanish": "salir",
     "english": "to leave / to exit / to go out",
     "pronunciation": "salir",
     "partOfSpeech": "verb",
@@ -2774,18 +2773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "salir",
     "examples": [
       {
-        "spanish": "Salgo de casa a las 8 de la mañana para ir al trabajo.",
+        "target": "Salgo de casa a las 8 de la mañana para ir al trabajo.",
         "english": "I leave home at 8 in the morning to go to work."
       },
       {
-        "spanish": "Mis amigos salen del cine después de ver la película.",
+        "target": "Mis amigos salen del cine después de ver la película.",
         "english": "My friends leave the movie theater after watching the film."
       }
-    ]
+    ],
+    "word": "salir"
   },
   {
     "id": "daily-entrar",
-    "spanish": "entrar",
     "english": "to enter",
     "pronunciation": "entrar",
     "partOfSpeech": "verb",
@@ -2794,18 +2793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "entrar",
     "examples": [
       {
-        "spanish": "Entro en la casa después del trabajo.",
+        "target": "Entro en la casa después del trabajo.",
         "english": "I enter the house after work."
       },
       {
-        "spanish": "Los estudiantes entran en la clase a las 8 de la mañana.",
+        "target": "Los estudiantes entran en la clase a las 8 de la mañana.",
         "english": "The students enter the classroom at 8 in the morning."
       }
-    ]
+    ],
+    "word": "entrar"
   },
   {
     "id": "daily-volver",
-    "spanish": "volver",
     "english": "to return",
     "pronunciation": "volver",
     "partOfSpeech": "verb",
@@ -2814,18 +2813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "volver",
     "examples": [
       {
-        "spanish": "Mañana vuelvo a casa después del trabajo.",
+        "target": "Mañana vuelvo a casa después del trabajo.",
         "english": "Tomorrow I return home after work."
       },
       {
-        "spanish": "Mi hermana vuelve del supermercado con las compras.",
+        "target": "Mi hermana vuelve del supermercado con las compras.",
         "english": "My sister returns from the supermarket with the groceries."
       }
-    ]
+    ],
+    "word": "volver"
   },
   {
     "id": "daily-ir",
-    "spanish": "ir",
     "english": "to go",
     "pronunciation": "ir",
     "partOfSpeech": "verb",
@@ -2834,18 +2833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ir",
     "examples": [
       {
-        "spanish": "Voy al trabajo cada mañana.",
+        "target": "Voy al trabajo cada mañana.",
         "english": "I go to work every morning."
       },
       {
-        "spanish": "Mis amigos van al cine esta noche.",
+        "target": "Mis amigos van al cine esta noche.",
         "english": "My friends are going to the cinema tonight."
       }
-    ]
+    ],
+    "word": "ir"
   },
   {
     "id": "daily-venir",
-    "spanish": "venir",
     "english": "to come",
     "pronunciation": "venir",
     "partOfSpeech": "verb",
@@ -2854,18 +2853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "venir",
     "examples": [
       {
-        "spanish": "Mi hermana viene a visitarme este fin de semana.",
+        "target": "Mi hermana viene a visitarme este fin de semana.",
         "english": "My sister is coming to visit me this weekend."
       },
       {
-        "spanish": "¿A qué hora vienes a casa después del trabajo?",
+        "target": "¿A qué hora vienes a casa después del trabajo?",
         "english": "What time are you coming home after work?"
       }
-    ]
+    ],
+    "word": "venir"
   },
   {
     "id": "daily-tener",
-    "spanish": "tener",
     "english": "to have",
     "pronunciation": "tener",
     "partOfSpeech": "verb",
@@ -2874,18 +2873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tener",
     "examples": [
       {
-        "spanish": "Tengo que ir al trabajo mañana.",
+        "target": "Tengo que ir al trabajo mañana.",
         "english": "I have to go to work tomorrow."
       },
       {
-        "spanish": "Mi hermana tiene tres gatos en casa.",
+        "target": "Mi hermana tiene tres gatos en casa.",
         "english": "My sister has three cats at home."
       }
-    ]
+    ],
+    "word": "tener"
   },
   {
     "id": "daily-ser",
-    "spanish": "ser",
     "english": "to be (permanent identity/occupation)",
     "pronunciation": "ser",
     "partOfSpeech": "verb",
@@ -2894,18 +2893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ser",
     "examples": [
       {
-        "spanish": "Yo soy ingeniero.",
+        "target": "Yo soy ingeniero.",
         "english": "I am an engineer."
       },
       {
-        "spanish": "Ella es mi mejor amiga.",
+        "target": "Ella es mi mejor amiga.",
         "english": "She is my best friend."
       }
-    ]
+    ],
+    "word": "ser"
   },
   {
     "id": "daily-estar",
-    "spanish": "estar",
     "english": "to be (location/condition)",
     "pronunciation": "estar",
     "partOfSpeech": "verb",
@@ -2914,18 +2913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "estar",
     "examples": [
       {
-        "spanish": "Estoy en la oficina trabajando.",
+        "target": "Estoy en la oficina trabajando.",
         "english": "I am at the office working."
       },
       {
-        "spanish": "¿Dónde estás? Estoy en casa.",
+        "target": "¿Dónde estás? Estoy en casa.",
         "english": "Where are you? I am at home."
       }
-    ]
+    ],
+    "word": "estar"
   },
   {
     "id": "daily-hacer",
-    "spanish": "hacer",
     "english": "to do / to make",
     "pronunciation": "hacer",
     "partOfSpeech": "verb",
@@ -2934,18 +2933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hacer",
     "examples": [
       {
-        "spanish": "Hago la cama todas las mañanas.",
+        "target": "Hago la cama todas las mañanas.",
         "english": "I make the bed every morning."
       },
       {
-        "spanish": "¿Qué haces este fin de semana?",
+        "target": "¿Qué haces este fin de semana?",
         "english": "What are you doing this weekend?"
       }
-    ]
+    ],
+    "word": "hacer"
   },
   {
     "id": "daily-poder",
-    "spanish": "poder",
     "english": "can/to be able to",
     "pronunciation": "poder",
     "partOfSpeech": "verb",
@@ -2954,18 +2953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "poder",
     "examples": [
       {
-        "spanish": "No puedo ir al cine esta noche porque tengo que trabajar.",
+        "target": "No puedo ir al cine esta noche porque tengo que trabajar.",
         "english": "I cannot go to the cinema tonight because I have to work."
       },
       {
-        "spanish": "¿Puedes ayudarme a cargar estas bolsas?",
+        "target": "¿Puedes ayudarme a cargar estas bolsas?",
         "english": "Can you help me carry these bags?"
       }
-    ]
+    ],
+    "word": "poder"
   },
   {
     "id": "daily-querer",
-    "spanish": "querer",
     "english": "to want",
     "pronunciation": "querer",
     "partOfSpeech": "verb",
@@ -2974,18 +2973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "querer",
     "examples": [
       {
-        "spanish": "Quiero un café por la mañana.",
+        "target": "Quiero un café por la mañana.",
         "english": "I want a coffee in the morning."
       },
       {
-        "spanish": "¿Qué quieres hacer este fin de semana?",
+        "target": "¿Qué quieres hacer este fin de semana?",
         "english": "What do you want to do this weekend?"
       }
-    ]
+    ],
+    "word": "querer"
   },
   {
     "id": "daily-saber",
-    "spanish": "saber",
     "english": "to know",
     "pronunciation": "saber",
     "partOfSpeech": "verb",
@@ -2994,18 +2993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "saber",
     "examples": [
       {
-        "spanish": "No sé dónde dejé mis llaves esta mañana.",
+        "target": "No sé dónde dejé mis llaves esta mañana.",
         "english": "I don't know where I left my keys this morning."
       },
       {
-        "spanish": "Mi hermana sabe cocinar muy bien.",
+        "target": "Mi hermana sabe cocinar muy bien.",
         "english": "My sister knows how to cook very well."
       }
-    ]
+    ],
+    "word": "saber"
   },
   {
     "id": "daily-conocer",
-    "spanish": "conocer",
     "english": "to know, to meet",
     "pronunciation": "conocer",
     "partOfSpeech": "verb",
@@ -3014,18 +3013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "conocer",
     "examples": [
       {
-        "spanish": "Conocí a mi mejor amiga en la universidad.",
+        "target": "Conocí a mi mejor amiga en la universidad.",
         "english": "I met my best friend at university."
       },
       {
-        "spanish": "¿Conoces un buen restaurante cerca de aquí?",
+        "target": "¿Conoces un buen restaurante cerca de aquí?",
         "english": "Do you know a good restaurant near here?"
       }
-    ]
+    ],
+    "word": "conocer"
   },
   {
     "id": "daily-ver",
-    "spanish": "ver",
     "english": "to see",
     "pronunciation": "ver",
     "partOfSpeech": "verb",
@@ -3034,18 +3033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ver",
     "examples": [
       {
-        "spanish": "Veo a mis amigos en el parque.",
+        "target": "Veo a mis amigos en el parque.",
         "english": "I see my friends in the park."
       },
       {
-        "spanish": "¿Viste la película anoche?",
+        "target": "¿Viste la película anoche?",
         "english": "Did you see the movie last night?"
       }
-    ]
+    ],
+    "word": "ver"
   },
   {
     "id": "daily-oír",
-    "spanish": "oír",
     "english": "to hear",
     "pronunciation": "oír",
     "partOfSpeech": "verb",
@@ -3054,18 +3053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "oír",
     "examples": [
       {
-        "spanish": "Oigo música hermosa en la radio.",
+        "target": "Oigo música hermosa en la radio.",
         "english": "I hear beautiful music on the radio."
       },
       {
-        "spanish": "¿Oyes ese ruido extraño en la noche?",
+        "target": "¿Oyes ese ruido extraño en la noche?",
         "english": "Do you hear that strange noise at night?"
       }
-    ]
+    ],
+    "word": "oír"
   },
   {
     "id": "daily-dar",
-    "spanish": "dar",
     "english": "to give",
     "pronunciation": "dar",
     "partOfSpeech": "verb",
@@ -3074,18 +3073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dar",
     "examples": [
       {
-        "spanish": "Le doy un regalo a mi hermana por su cumpleaños.",
+        "target": "Le doy un regalo a mi hermana por su cumpleaños.",
         "english": "I give my sister a gift for her birthday."
       },
       {
-        "spanish": "Mañana doy una presentación en la oficina.",
+        "target": "Mañana doy una presentación en la oficina.",
         "english": "Tomorrow I give a presentation at the office."
       }
-    ]
+    ],
+    "word": "dar"
   },
   {
     "id": "daily-decir",
-    "spanish": "decir",
     "english": "to say",
     "pronunciation": "decir",
     "partOfSpeech": "verb",
@@ -3094,18 +3093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "decir",
     "examples": [
       {
-        "spanish": "Mi madre me dice que limpie mi habitación.",
+        "target": "Mi madre me dice que limpie mi habitación.",
         "english": "My mother tells me to clean my room."
       },
       {
-        "spanish": "¿Qué dice el profesor sobre el examen?",
+        "target": "¿Qué dice el profesor sobre el examen?",
         "english": "What does the professor say about the exam?"
       }
-    ]
+    ],
+    "word": "decir"
   },
   {
     "id": "daily-poner",
-    "spanish": "poner",
     "english": "to put",
     "pronunciation": "poner",
     "partOfSpeech": "verb",
@@ -3114,18 +3113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "poner",
     "examples": [
       {
-        "spanish": "Pongo la mesa para la cena.",
+        "target": "Pongo la mesa para la cena.",
         "english": "I set the table for dinner."
       },
       {
-        "spanish": "Mi hermana pone su ropa en el armario.",
+        "target": "Mi hermana pone su ropa en el armario.",
         "english": "My sister puts her clothes in the closet."
       }
-    ]
+    ],
+    "word": "poner"
   },
   {
     "id": "daily-traer",
-    "spanish": "traer",
     "english": "to bring",
     "pronunciation": "traer",
     "partOfSpeech": "verb",
@@ -3134,18 +3133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "traer",
     "examples": [
       {
-        "spanish": "Mañana traigo el libro que me pediste.",
+        "target": "Mañana traigo el libro que me pediste.",
         "english": "Tomorrow I'll bring you the book you asked for."
       },
       {
-        "spanish": "¿Puedes traer la leche del supermercado?",
+        "target": "¿Puedes traer la leche del supermercado?",
         "english": "Can you bring the milk from the supermarket?"
       }
-    ]
+    ],
+    "word": "traer"
   },
   {
     "id": "daily-caer",
-    "spanish": "caer",
     "english": "to fall",
     "pronunciation": "caer",
     "partOfSpeech": "verb",
@@ -3154,18 +3153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "caer",
     "examples": [
       {
-        "spanish": "Me caí en las escaleras esta mañana.",
+        "target": "Me caí en las escaleras esta mañana.",
         "english": "I fell on the stairs this morning."
       },
       {
-        "spanish": "Las hojas caen del árbol en otoño.",
+        "target": "Las hojas caen del árbol en otoño.",
         "english": "The leaves fall from the tree in autumn."
       }
-    ]
+    ],
+    "word": "caer"
   },
   {
     "id": "daily-seguir",
-    "spanish": "seguir",
     "english": "to follow",
     "pronunciation": "seguir",
     "partOfSpeech": "verb",
@@ -3174,18 +3173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "seguir",
     "examples": [
       {
-        "spanish": "Sigo el mismo camino para ir al trabajo cada día.",
+        "target": "Sigo el mismo camino para ir al trabajo cada día.",
         "english": "I follow the same path to go to work every day."
       },
       {
-        "spanish": "Mi hermana sigue estudiando inglés por las noches.",
+        "target": "Mi hermana sigue estudiando inglés por las noches.",
         "english": "My sister continues studying English at night."
       }
-    ]
+    ],
+    "word": "seguir"
   },
   {
     "id": "daily-jugar",
-    "spanish": "jugar",
     "english": "to play",
     "pronunciation": "jugar",
     "partOfSpeech": "verb",
@@ -3194,18 +3193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "jugar",
     "examples": [
       {
-        "spanish": "Mi hijo juega en el parque después de la escuela.",
+        "target": "Mi hijo juega en el parque después de la escuela.",
         "english": "My son plays in the park after school."
       },
       {
-        "spanish": "Nosotros jugamos al fútbol todos los sábados.",
+        "target": "Nosotros jugamos al fútbol todos los sábados.",
         "english": "We play football every Saturday."
       }
-    ]
+    ],
+    "word": "jugar"
   },
   {
     "id": "daily-ganar",
-    "spanish": "ganar",
     "english": "to win; to earn",
     "pronunciation": "ganar",
     "partOfSpeech": "verb",
@@ -3214,18 +3213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ganar",
     "examples": [
       {
-        "spanish": "Mi equipo ganó el partido de fútbol ayer.",
+        "target": "Mi equipo ganó el partido de fútbol ayer.",
         "english": "My team won the soccer match yesterday."
       },
       {
-        "spanish": "Espero ganar suficiente dinero para comprar una casa.",
+        "target": "Espero ganar suficiente dinero para comprar una casa.",
         "english": "I hope to earn enough money to buy a house."
       }
-    ]
+    ],
+    "word": "ganar"
   },
   {
     "id": "daily-abrir",
-    "spanish": "abrir",
     "english": "to open",
     "pronunciation": "abrir",
     "partOfSpeech": "verb",
@@ -3234,18 +3233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "abrir",
     "examples": [
       {
-        "spanish": "Abro la puerta de mi casa cuando llego del trabajo.",
+        "target": "Abro la puerta de mi casa cuando llego del trabajo.",
         "english": "I open the door of my house when I arrive from work."
       },
       {
-        "spanish": "Mi hijo abre su regalo de cumpleaños con entusiasmo.",
+        "target": "Mi hijo abre su regalo de cumpleaños con entusiasmo.",
         "english": "My son opens his birthday gift enthusiastically."
       }
-    ]
+    ],
+    "word": "abrir"
   },
   {
     "id": "daily-cerrar",
-    "spanish": "cerrar",
     "english": "to close",
     "pronunciation": "cerrar",
     "partOfSpeech": "verb",
@@ -3254,18 +3253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cerrar",
     "examples": [
       {
-        "spanish": "Cierra la puerta cuando salgas de la casa.",
+        "target": "Cierra la puerta cuando salgas de la casa.",
         "english": "Close the door when you leave the house."
       },
       {
-        "spanish": "Tengo que cerrar la tienda a las nueve de la noche.",
+        "target": "Tengo que cerrar la tienda a las nueve de la noche.",
         "english": "I have to close the store at nine at night."
       }
-    ]
+    ],
+    "word": "cerrar"
   },
   {
     "id": "daily-escribir",
-    "spanish": "escribir",
     "english": "to write",
     "pronunciation": "escribir",
     "partOfSpeech": "verb",
@@ -3274,18 +3273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "escribir",
     "examples": [
       {
-        "spanish": "Escribo un correo electrónico a mi jefe cada mañana.",
+        "target": "Escribo un correo electrónico a mi jefe cada mañana.",
         "english": "I write an email to my boss every morning."
       },
       {
-        "spanish": "Mi hija escribe sus tareas en el cuaderno.",
+        "target": "Mi hija escribe sus tareas en el cuaderno.",
         "english": "My daughter writes her homework in the notebook."
       }
-    ]
+    ],
+    "word": "escribir"
   },
   {
     "id": "daily-leer",
-    "spanish": "leer",
     "english": "to read",
     "pronunciation": "leer",
     "partOfSpeech": "verb",
@@ -3294,18 +3293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "leer",
     "examples": [
       {
-        "spanish": "Cada mañana leo el periódico con mi café.",
+        "target": "Cada mañana leo el periódico con mi café.",
         "english": "Every morning I read the newspaper with my coffee."
       },
       {
-        "spanish": "Mi hijo lee un libro antes de dormir.",
+        "target": "Mi hijo lee un libro antes de dormir.",
         "english": "My son reads a book before going to sleep."
       }
-    ]
+    ],
+    "word": "leer"
   },
   {
     "id": "daily-escuchar",
-    "spanish": "escuchar",
     "english": "to listen",
     "pronunciation": "escuchar",
     "partOfSpeech": "verb",
@@ -3314,18 +3313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "escuchar",
     "examples": [
       {
-        "spanish": "Escucho música mientras trabajo.",
+        "target": "Escucho música mientras trabajo.",
         "english": "I listen to music while I work."
       },
       {
-        "spanish": "Mi hijo escucha a su profesor en clase.",
+        "target": "Mi hijo escucha a su profesor en clase.",
         "english": "My son listens to his teacher in class."
       }
-    ]
+    ],
+    "word": "escuchar"
   },
   {
     "id": "daily-mirar",
-    "spanish": "mirar",
     "english": "to look",
     "pronunciation": "mirar",
     "partOfSpeech": "verb",
@@ -3334,18 +3333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "mirar",
     "examples": [
       {
-        "spanish": "Miro mi teléfono cada mañana.",
+        "target": "Miro mi teléfono cada mañana.",
         "english": "I look at my phone every morning."
       },
       {
-        "spanish": "Los niños miran la televisión después de la escuela.",
+        "target": "Los niños miran la televisión después de la escuela.",
         "english": "The children watch television after school."
       }
-    ]
+    ],
+    "word": "mirar"
   },
   {
     "id": "daily-tocar",
-    "spanish": "tocar",
     "english": "to touch",
     "pronunciation": "tocar",
     "partOfSpeech": "verb",
@@ -3354,18 +3353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tocar",
     "examples": [
       {
-        "spanish": "Mi hijo toca la guitarra todas las noches.",
+        "target": "Mi hijo toca la guitarra todas las noches.",
         "english": "My son plays the guitar every night."
       },
       {
-        "spanish": "No toques ese jarrón, es muy frágil.",
+        "target": "No toques ese jarrón, es muy frágil.",
         "english": "Don't touch that vase, it's very fragile."
       }
-    ]
+    ],
+    "word": "tocar"
   },
   {
     "id": "daily-sentir",
-    "spanish": "sentir",
     "english": "to feel",
     "pronunciation": "sentir",
     "partOfSpeech": "verb",
@@ -3374,18 +3373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sentir",
     "examples": [
       {
-        "spanish": "Siento mucho dolor en la espalda después de trabajar.",
+        "target": "Siento mucho dolor en la espalda después de trabajar.",
         "english": "I feel a lot of pain in my back after working."
       },
       {
-        "spanish": "¿Cómo te sientes hoy?",
+        "target": "¿Cómo te sientes hoy?",
         "english": "How do you feel today?"
       }
-    ]
+    ],
+    "word": "sentir"
   },
   {
     "id": "daily-pensar",
-    "spanish": "pensar",
     "english": "to think",
     "pronunciation": "pensar",
     "partOfSpeech": "verb",
@@ -3394,18 +3393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pensar",
     "examples": [
       {
-        "spanish": "Pienso que mañana será un día hermoso.",
+        "target": "Pienso que mañana será un día hermoso.",
         "english": "I think that tomorrow will be a beautiful day."
       },
       {
-        "spanish": "¿Qué piensas sobre la película que vimos anoche?",
+        "target": "¿Qué piensas sobre la película que vimos anoche?",
         "english": "What do you think about the movie we watched last night?"
       }
-    ]
+    ],
+    "word": "pensar"
   },
   {
     "id": "daily-creer",
-    "spanish": "creer",
     "english": "to believe",
     "pronunciation": "creer",
     "partOfSpeech": "verb",
@@ -3414,18 +3413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "creer",
     "examples": [
       {
-        "spanish": "Creo que lluvia mañana.",
+        "target": "Creo que lluvia mañana.",
         "english": "I think it will rain tomorrow."
       },
       {
-        "spanish": "¿Crees que podemos llegar a tiempo?",
+        "target": "¿Crees que podemos llegar a tiempo?",
         "english": "Do you think we can arrive on time?"
       }
-    ]
+    ],
+    "word": "creer"
   },
   {
     "id": "daily-recordar",
-    "spanish": "recordar",
     "english": "to remember",
     "pronunciation": "recordar",
     "partOfSpeech": "verb",
@@ -3434,18 +3433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "recordar",
     "examples": [
       {
-        "spanish": "Recuerdo que tengo que comprar leche en el supermercado.",
+        "target": "Recuerdo que tengo que comprar leche en el supermercado.",
         "english": "I remember that I have to buy milk at the supermarket."
       },
       {
-        "spanish": "¿Recuerdas dónde dejaste las llaves de la casa?",
+        "target": "¿Recuerdas dónde dejaste las llaves de la casa?",
         "english": "Do you remember where you left the house keys?"
       }
-    ]
+    ],
+    "word": "recordar"
   },
   {
     "id": "daily-olvidar",
-    "spanish": "olvidar",
     "english": "to forget",
     "pronunciation": "olvidar",
     "partOfSpeech": "verb",
@@ -3454,18 +3453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "olvidar",
     "examples": [
       {
-        "spanish": "Siempre olvido mis llaves en la oficina.",
+        "target": "Siempre olvido mis llaves en la oficina.",
         "english": "I always forget my keys at the office."
       },
       {
-        "spanish": "No olvides comprar leche cuando vayas al supermercado.",
+        "target": "No olvides comprar leche cuando vayas al supermercado.",
         "english": "Don't forget to buy milk when you go to the supermarket."
       }
-    ]
+    ],
+    "word": "olvidar"
   },
   {
     "id": "daily-aprender",
-    "spanish": "aprender",
     "english": "to learn",
     "pronunciation": "aprender",
     "partOfSpeech": "verb",
@@ -3474,18 +3473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aprender",
     "examples": [
       {
-        "spanish": "Mi hijo aprende a leer en la escuela.",
+        "target": "Mi hijo aprende a leer en la escuela.",
         "english": "My son learns to read at school."
       },
       {
-        "spanish": "Estoy aprendiendo a cocinar nuevas recetas.",
+        "target": "Estoy aprendiendo a cocinar nuevas recetas.",
         "english": "I am learning to cook new recipes."
       }
-    ]
+    ],
+    "word": "aprender"
   },
   {
     "id": "daily-enseñar",
-    "spanish": "enseñar",
     "english": "to teach",
     "pronunciation": "enseñar",
     "partOfSpeech": "verb",
@@ -3494,18 +3493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "enseñar",
     "examples": [
       {
-        "spanish": "Mi profesor enseña matemáticas en la escuela.",
+        "target": "Mi profesor enseña matemáticas en la escuela.",
         "english": "My teacher teaches mathematics at school."
       },
       {
-        "spanish": "Le enseño a mi hijo cómo atarse los zapatos.",
+        "target": "Le enseño a mi hijo cómo atarse los zapatos.",
         "english": "I teach my son how to tie his shoes."
       }
-    ]
+    ],
+    "word": "enseñar"
   },
   {
     "id": "daily-explicar",
-    "spanish": "explicar",
     "english": "to explain",
     "pronunciation": "explicar",
     "partOfSpeech": "verb",
@@ -3514,18 +3513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "explicar",
     "examples": [
       {
-        "spanish": "Mi profesor explica la lección muy claramente.",
+        "target": "Mi profesor explica la lección muy claramente.",
         "english": "My teacher explains the lesson very clearly."
       },
       {
-        "spanish": "Necesito explicarle a mi hijo cómo hacer la tarea.",
+        "target": "Necesito explicarle a mi hijo cómo hacer la tarea.",
         "english": "I need to explain to my son how to do the homework."
       }
-    ]
+    ],
+    "word": "explicar"
   },
   {
     "id": "daily-preguntar",
-    "spanish": "preguntar",
     "english": "to ask",
     "pronunciation": "preguntar",
     "partOfSpeech": "verb",
@@ -3534,18 +3533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "preguntar",
     "examples": [
       {
-        "spanish": "Le pregunté a mi amigo dónde vive.",
+        "target": "Le pregunté a mi amigo dónde vive.",
         "english": "I asked my friend where he lives."
       },
       {
-        "spanish": "Mi hijo siempre me pregunta por qué el cielo es azul.",
+        "target": "Mi hijo siempre me pregunta por qué el cielo es azul.",
         "english": "My son always asks me why the sky is blue."
       }
-    ]
+    ],
+    "word": "preguntar"
   },
   {
     "id": "daily-responder",
-    "spanish": "responder",
     "english": "to answer",
     "pronunciation": "responder",
     "partOfSpeech": "verb",
@@ -3554,18 +3553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "responder",
     "examples": [
       {
-        "spanish": "Debo responder el correo electrónico de mi jefe antes de las cinco.",
+        "target": "Debo responder el correo electrónico de mi jefe antes de las cinco.",
         "english": "I must respond to my boss's email before five o'clock."
       },
       {
-        "spanish": "¿Cuándo vas a responder a la invitación de la fiesta?",
+        "target": "¿Cuándo vas a responder a la invitación de la fiesta?",
         "english": "When are you going to respond to the party invitation?"
       }
-    ]
+    ],
+    "word": "responder"
   },
   {
     "id": "daily-llamar",
-    "spanish": "llamar",
     "english": "to call",
     "pronunciation": "llamar",
     "partOfSpeech": "verb",
@@ -3574,18 +3573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "llamar",
     "examples": [
       {
-        "spanish": "Voy a llamar a mi amigo para invitarlo a cenar.",
+        "target": "Voy a llamar a mi amigo para invitarlo a cenar.",
         "english": "I'm going to call my friend to invite him to dinner."
       },
       {
-        "spanish": "Mi madre me llama desde la cocina para ayudarla.",
+        "target": "Mi madre me llama desde la cocina para ayudarla.",
         "english": "My mother calls me from the kitchen to help her."
       }
-    ]
+    ],
+    "word": "llamar"
   },
   {
     "id": "daily-esperar",
-    "spanish": "esperar",
     "english": "to wait",
     "pronunciation": "esperar",
     "partOfSpeech": "verb",
@@ -3594,18 +3593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "esperar",
     "examples": [
       {
-        "spanish": "Espero el autobús en la parada cada mañana.",
+        "target": "Espero el autobús en la parada cada mañana.",
         "english": "I wait for the bus at the stop every morning."
       },
       {
-        "spanish": "Mi hermana espera que llegue pronto a casa.",
+        "target": "Mi hermana espera que llegue pronto a casa.",
         "english": "My sister hopes that I arrive home soon."
       }
-    ]
+    ],
+    "word": "esperar"
   },
   {
     "id": "daily-buscar",
-    "spanish": "buscar",
     "english": "to search",
     "pronunciation": "buscar",
     "partOfSpeech": "verb",
@@ -3614,18 +3613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "buscar",
     "examples": [
       {
-        "spanish": "Busco mis llaves en la casa.",
+        "target": "Busco mis llaves en la casa.",
         "english": "I'm looking for my keys in the house."
       },
       {
-        "spanish": "Mi hermana busca trabajo en una tienda.",
+        "target": "Mi hermana busca trabajo en una tienda.",
         "english": "My sister is looking for work in a store."
       }
-    ]
+    ],
+    "word": "buscar"
   },
   {
     "id": "daily-encontrar",
-    "spanish": "encontrar",
     "english": "to find",
     "pronunciation": "encontrar",
     "partOfSpeech": "verb",
@@ -3634,18 +3633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "encontrar",
     "examples": [
       {
-        "spanish": "Encontré mis llaves en la cocina esta mañana.",
+        "target": "Encontré mis llaves en la cocina esta mañana.",
         "english": "I found my keys in the kitchen this morning."
       },
       {
-        "spanish": "¿Dónde encontraste ese libro tan interesante?",
+        "target": "¿Dónde encontraste ese libro tan interesante?",
         "english": "Where did you find that interesting book?"
       }
-    ]
+    ],
+    "word": "encontrar"
   },
   {
     "id": "daily-usar",
-    "spanish": "usar",
     "english": "to use",
     "pronunciation": "usar",
     "partOfSpeech": "verb",
@@ -3654,18 +3653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "usar",
     "examples": [
       {
-        "spanish": "Uso mi teléfono para enviar mensajes.",
+        "target": "Uso mi teléfono para enviar mensajes.",
         "english": "I use my phone to send messages."
       },
       {
-        "spanish": "Mi hermana usa la computadora para trabajar.",
+        "target": "Mi hermana usa la computadora para trabajar.",
         "english": "My sister uses the computer to work."
       }
-    ]
+    ],
+    "word": "usar"
   },
   {
     "id": "daily-necesitar",
-    "spanish": "necesitar",
     "english": "to need",
     "pronunciation": "necesitar",
     "partOfSpeech": "verb",
@@ -3674,18 +3673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "necesitar",
     "examples": [
       {
-        "spanish": "Necesito comprar leche en el supermercado.",
+        "target": "Necesito comprar leche en el supermercado.",
         "english": "I need to buy milk at the supermarket."
       },
       {
-        "spanish": "Mi hermana necesita estudiar para el examen.",
+        "target": "Mi hermana necesita estudiar para el examen.",
         "english": "My sister needs to study for the exam."
       }
-    ]
+    ],
+    "word": "necesitar"
   },
   {
     "id": "daily-gustar",
-    "spanish": "gustar",
     "english": "to like",
     "pronunciation": "gustar",
     "partOfSpeech": "verb",
@@ -3694,18 +3693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "gustar",
     "examples": [
       {
-        "spanish": "Me gusta desayunar café con pan tostado.",
+        "target": "Me gusta desayunar café con pan tostado.",
         "english": "I like to have coffee with toast for breakfast."
       },
       {
-        "spanish": "A mi hermana le gustan las películas de terror.",
+        "target": "A mi hermana le gustan las películas de terror.",
         "english": "My sister likes horror movies."
       }
-    ]
+    ],
+    "word": "gustar"
   },
   {
     "id": "daily-amar",
-    "spanish": "amar",
     "english": "to love",
     "pronunciation": "amar",
     "partOfSpeech": "verb",
@@ -3714,18 +3713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "amar",
     "examples": [
       {
-        "spanish": "Amo a mi familia más que nada en el mundo.",
+        "target": "Amo a mi familia más que nada en el mundo.",
         "english": "I love my family more than anything in the world."
       },
       {
-        "spanish": "Mi abuela ama pasar tiempo con sus nietos.",
+        "target": "Mi abuela ama pasar tiempo con sus nietos.",
         "english": "My grandmother loves spending time with her grandchildren."
       }
-    ]
+    ],
+    "word": "amar"
   },
   {
     "id": "daily-odiar",
-    "spanish": "odiar",
     "english": "to hate",
     "pronunciation": "odiar",
     "partOfSpeech": "verb",
@@ -3734,18 +3733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "odiar",
     "examples": [
       {
-        "spanish": "Odio esperar en la fila del supermercado.",
+        "target": "Odio esperar en la fila del supermercado.",
         "english": "I hate waiting in the supermarket line."
       },
       {
-        "spanish": "Mi hermano odia hacer la tarea los domingos.",
+        "target": "Mi hermano odia hacer la tarea los domingos.",
         "english": "My brother hates doing homework on Sundays."
       }
-    ]
+    ],
+    "word": "odiar"
   },
   {
     "id": "daily-temer",
-    "spanish": "temer",
     "english": "to fear",
     "pronunciation": "temer",
     "partOfSpeech": "verb",
@@ -3754,18 +3753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "temer",
     "examples": [
       {
-        "spanish": "Temo que llegaré tarde al trabajo.",
+        "target": "Temo que llegaré tarde al trabajo.",
         "english": "I'm afraid that I will arrive late to work."
       },
       {
-        "spanish": "Mi hijo teme la oscuridad por la noche.",
+        "target": "Mi hijo teme la oscuridad por la noche.",
         "english": "My son fears the darkness at night."
       }
-    ]
+    ],
+    "word": "temer"
   },
   {
     "id": "daily-reír",
-    "spanish": "reír",
     "english": "to laugh",
     "pronunciation": "reír",
     "partOfSpeech": "verb",
@@ -3774,18 +3773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reír",
     "examples": [
       {
-        "spanish": "Mi hermana se ríe de las bromas de su amigo.",
+        "target": "Mi hermana se ríe de las bromas de su amigo.",
         "english": "My sister laughs at her friend's jokes."
       },
       {
-        "spanish": "Los niños ríen mientras juegan en el parque.",
+        "target": "Los niños ríen mientras juegan en el parque.",
         "english": "The children laugh while they play in the park."
       }
-    ]
+    ],
+    "word": "reír"
   },
   {
     "id": "daily-llorar",
-    "spanish": "llorar",
     "english": "to cry",
     "pronunciation": "llorar",
     "partOfSpeech": "verb",
@@ -3794,18 +3793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "llorar",
     "examples": [
       {
-        "spanish": "Mi hijo lloró cuando se cayó del columpio.",
+        "target": "Mi hijo lloró cuando se cayó del columpio.",
         "english": "My son cried when he fell off the swing."
       },
       {
-        "spanish": "Ella lloraba de alegría durante la ceremonia de boda.",
+        "target": "Ella lloraba de alegría durante la ceremonia de boda.",
         "english": "She was crying with joy during the wedding ceremony."
       }
-    ]
+    ],
+    "word": "llorar"
   },
   {
     "id": "daily-gritar",
-    "spanish": "gritar",
     "english": "to shout",
     "pronunciation": "gritar",
     "partOfSpeech": "verb",
@@ -3814,18 +3813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "gritar",
     "examples": [
       {
-        "spanish": "Los niños gritan de alegría en el parque.",
+        "target": "Los niños gritan de alegría en el parque.",
         "english": "The children shout with joy in the park."
       },
       {
-        "spanish": "Mi madre grita mi nombre cuando llego a casa.",
+        "target": "Mi madre grita mi nombre cuando llego a casa.",
         "english": "My mother shouts my name when I arrive home."
       }
-    ]
+    ],
+    "word": "gritar"
   },
   {
     "id": "daily-cantar",
-    "spanish": "cantar",
     "english": "to sing",
     "pronunciation": "cantar",
     "partOfSpeech": "verb",
@@ -3834,18 +3833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cantar",
     "examples": [
       {
-        "spanish": "Mi hermana canta en la ducha cada mañana.",
+        "target": "Mi hermana canta en la ducha cada mañana.",
         "english": "My sister sings in the shower every morning."
       },
       {
-        "spanish": "Los niños cantan canciones en la escuela.",
+        "target": "Los niños cantan canciones en la escuela.",
         "english": "The children sing songs at school."
       }
-    ]
+    ],
+    "word": "cantar"
   },
   {
     "id": "daily-bailar",
-    "spanish": "bailar",
     "english": "to dance",
     "pronunciation": "bailar",
     "partOfSpeech": "verb",
@@ -3854,18 +3853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "bailar",
     "examples": [
       {
-        "spanish": "Mi hermana baila salsa todos los viernes por la noche.",
+        "target": "Mi hermana baila salsa todos los viernes por la noche.",
         "english": "My sister dances salsa every Friday night."
       },
       {
-        "spanish": "Los niños bailan en la fiesta de cumpleaños.",
+        "target": "Los niños bailan en la fiesta de cumpleaños.",
         "english": "The children dance at the birthday party."
       }
-    ]
+    ],
+    "word": "bailar"
   },
   {
     "id": "daily-nadar",
-    "spanish": "nadar",
     "english": "to swim",
     "pronunciation": "nadar",
     "partOfSpeech": "verb",
@@ -3874,18 +3873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "nadar",
     "examples": [
       {
-        "spanish": "Mi hijo nada en la piscina todos los días.",
+        "target": "Mi hijo nada en la piscina todos los días.",
         "english": "My son swims in the pool every day."
       },
       {
-        "spanish": "Nosotros nadamos en el mar durante el verano.",
+        "target": "Nosotros nadamos en el mar durante el verano.",
         "english": "We swim in the sea during the summer."
       }
-    ]
+    ],
+    "word": "nadar"
   },
   {
     "id": "daily-cocinar",
-    "spanish": "cocinar",
     "english": "to cook",
     "pronunciation": "cocinar",
     "partOfSpeech": "verb",
@@ -3894,18 +3893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cocinar",
     "examples": [
       {
-        "spanish": "Mi madre cocina la cena todos los días.",
+        "target": "Mi madre cocina la cena todos los días.",
         "english": "My mother cooks dinner every day."
       },
       {
-        "spanish": "Yo cocino pasta italiana el fin de semana.",
+        "target": "Yo cocino pasta italiana el fin de semana.",
         "english": "I cook Italian pasta on the weekend."
       }
-    ]
+    ],
+    "word": "cocinar"
   },
   {
     "id": "daily-limpiar",
-    "spanish": "limpiar",
     "english": "to clean",
     "pronunciation": "limpiar",
     "partOfSpeech": "verb",
@@ -3914,18 +3913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "limpiar",
     "examples": [
       {
-        "spanish": "Limpio la casa todos los sábados.",
+        "target": "Limpio la casa todos los sábados.",
         "english": "I clean the house every Saturday."
       },
       {
-        "spanish": "Mi hijo limpia su habitación después de jugar.",
+        "target": "Mi hijo limpia su habitación después de jugar.",
         "english": "My son cleans his room after playing."
       }
-    ]
+    ],
+    "word": "limpiar"
   },
   {
     "id": "daily-lavar",
-    "spanish": "lavar",
     "english": "to wash",
     "pronunciation": "lavar",
     "partOfSpeech": "verb",
@@ -3934,18 +3933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "lavar",
     "examples": [
       {
-        "spanish": "Lavo mi coche los sábados.",
+        "target": "Lavo mi coche los sábados.",
         "english": "I wash my car on Saturdays."
       },
       {
-        "spanish": "Mi hijo lava los platos después de comer.",
+        "target": "Mi hijo lava los platos después de comer.",
         "english": "My son washes the dishes after eating."
       }
-    ]
+    ],
+    "word": "lavar"
   },
   {
     "id": "daily-secar",
-    "spanish": "secar",
     "english": "to dry",
     "pronunciation": "secar",
     "partOfSpeech": "verb",
@@ -3954,18 +3953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "secar",
     "examples": [
       {
-        "spanish": "Después de lavar la ropa, la seco en la secadora.",
+        "target": "Después de lavar la ropa, la seco en la secadora.",
         "english": "After washing the clothes, I dry them in the dryer."
       },
       {
-        "spanish": "Mi hermana se seca el cabello con una toalla cada mañana.",
+        "target": "Mi hermana se seca el cabello con una toalla cada mañana.",
         "english": "My sister dries her hair with a towel every morning."
       }
-    ]
+    ],
+    "word": "secar"
   },
   {
     "id": "daily-planchar",
-    "spanish": "planchar",
     "english": "to iron",
     "pronunciation": "planchar",
     "partOfSpeech": "verb",
@@ -3974,18 +3973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "planchar",
     "examples": [
       {
-        "spanish": "Mi madre plancha la ropa todos los domingos.",
+        "target": "Mi madre plancha la ropa todos los domingos.",
         "english": "My mother irons the clothes every Sunday."
       },
       {
-        "spanish": "Tengo que planchar mi camisa antes de ir al trabajo.",
+        "target": "Tengo que planchar mi camisa antes de ir al trabajo.",
         "english": "I have to iron my shirt before going to work."
       }
-    ]
+    ],
+    "word": "planchar"
   },
   {
     "id": "daily-conducir",
-    "spanish": "conducir",
     "english": "to drive",
     "pronunciation": "conducir",
     "partOfSpeech": "verb",
@@ -3994,18 +3993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "conducir",
     "examples": [
       {
-        "spanish": "Yo conduzco mi coche al trabajo cada mañana.",
+        "target": "Yo conduzco mi coche al trabajo cada mañana.",
         "english": "I drive my car to work every morning."
       },
       {
-        "spanish": "Mi hermano conduce muy cuidadosamente en la lluvia.",
+        "target": "Mi hermano conduce muy cuidadosamente en la lluvia.",
         "english": "My brother drives very carefully in the rain."
       }
-    ]
+    ],
+    "word": "conducir"
   },
   {
     "id": "daily-manejar",
-    "spanish": "manejar",
     "english": "to drive",
     "pronunciation": "manejar",
     "partOfSpeech": "verb",
@@ -4014,18 +4013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "manejar",
     "examples": [
       {
-        "spanish": "Manejo mi coche todos los días para ir al trabajo.",
+        "target": "Manejo mi coche todos los días para ir al trabajo.",
         "english": "I drive my car every day to go to work."
       },
       {
-        "spanish": "Mi hermano maneja muy bien la situación con sus clientes.",
+        "target": "Mi hermano maneja muy bien la situación con sus clientes.",
         "english": "My brother handles the situation with his clients very well."
       }
-    ]
+    ],
+    "word": "manejar"
   },
   {
     "id": "daily-viajar",
-    "spanish": "viajar",
     "english": "to travel",
     "pronunciation": "viajar",
     "partOfSpeech": "verb",
@@ -4034,18 +4033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "viajar",
     "examples": [
       {
-        "spanish": "Mañana voy a viajar a Madrid por negocios.",
+        "target": "Mañana voy a viajar a Madrid por negocios.",
         "english": "Tomorrow I am going to travel to Madrid for business."
       },
       {
-        "spanish": "Mi familia viaja a la playa cada verano.",
+        "target": "Mi familia viaja a la playa cada verano.",
         "english": "My family travels to the beach every summer."
       }
-    ]
+    ],
+    "word": "viajar"
   },
   {
     "id": "daily-pasar",
-    "spanish": "pasar",
     "english": "to pass",
     "pronunciation": "pasar",
     "partOfSpeech": "verb",
@@ -4054,18 +4053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pasar",
     "examples": [
       {
-        "spanish": "¿Puedes pasar la sal, por favor?",
+        "target": "¿Puedes pasar la sal, por favor?",
         "english": "Can you pass the salt, please?"
       },
       {
-        "spanish": "Voy a pasar por la tienda después del trabajo.",
+        "target": "Voy a pasar por la tienda después del trabajo.",
         "english": "I'm going to stop by the store after work."
       }
-    ]
+    ],
+    "word": "pasar"
   },
   {
     "id": "daily-empezar",
-    "spanish": "empezar",
     "english": "to begin",
     "pronunciation": "empezar",
     "partOfSpeech": "verb",
@@ -4074,18 +4073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "empezar",
     "examples": [
       {
-        "spanish": "Empiezo mi día con una taza de café.",
+        "target": "Empiezo mi día con una taza de café.",
         "english": "I start my day with a cup of coffee."
       },
       {
-        "spanish": "La película empieza a las ocho de la noche.",
+        "target": "La película empieza a las ocho de la noche.",
         "english": "The movie starts at eight o'clock in the evening."
       }
-    ]
+    ],
+    "word": "empezar"
   },
   {
     "id": "daily-terminar",
-    "spanish": "terminar",
     "english": "to finish",
     "pronunciation": "terminar",
     "partOfSpeech": "verb",
@@ -4094,18 +4093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "terminar",
     "examples": [
       {
-        "spanish": "Termino mi trabajo a las cinco de la tarde.",
+        "target": "Termino mi trabajo a las cinco de la tarde.",
         "english": "I finish my work at five in the afternoon."
       },
       {
-        "spanish": "La película termina a las diez de la noche.",
+        "target": "La película termina a las diez de la noche.",
         "english": "The movie ends at ten at night."
       }
-    ]
+    ],
+    "word": "terminar"
   },
   {
     "id": "daily-continuar",
-    "spanish": "continuar",
     "english": "to continue",
     "pronunciation": "continuar",
     "partOfSpeech": "verb",
@@ -4114,18 +4113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "continuar",
     "examples": [
       {
-        "spanish": "Continuaré estudiando después de comer.",
+        "target": "Continuaré estudiando después de comer.",
         "english": "I will continue studying after eating."
       },
       {
-        "spanish": "El tráfico continúa siendo un problema en la ciudad.",
+        "target": "El tráfico continúa siendo un problema en la ciudad.",
         "english": "Traffic continues to be a problem in the city."
       }
-    ]
+    ],
+    "word": "continuar"
   },
   {
     "id": "daily-parar",
-    "spanish": "parar",
     "english": "to stop",
     "pronunciation": "parar",
     "partOfSpeech": "verb",
@@ -4134,18 +4133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "parar",
     "examples": [
       {
-        "spanish": "El autobús para en la esquina.",
+        "target": "El autobús para en la esquina.",
         "english": "The bus stops at the corner."
       },
       {
-        "spanish": "Necesito parar de trabajar para descansar.",
+        "target": "Necesito parar de trabajar para descansar.",
         "english": "I need to stop working to rest."
       }
-    ]
+    ],
+    "word": "parar"
   },
   {
     "id": "daily-ayudar",
-    "spanish": "ayudar",
     "english": "to help",
     "pronunciation": "ayudar",
     "partOfSpeech": "verb",
@@ -4154,18 +4153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ayudar",
     "examples": [
       {
-        "spanish": "Mi hermana me ayuda con la tarea.",
+        "target": "Mi hermana me ayuda con la tarea.",
         "english": "My sister helps me with homework."
       },
       {
-        "spanish": "Voy a ayudar a mi madre en la cocina.",
+        "target": "Voy a ayudar a mi madre en la cocina.",
         "english": "I'm going to help my mother in the kitchen."
       }
-    ]
+    ],
+    "word": "ayudar"
   },
   {
     "id": "daily-pedir",
-    "spanish": "pedir",
     "english": "to ask for",
     "pronunciation": "pedir",
     "partOfSpeech": "verb",
@@ -4174,18 +4173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pedir",
     "examples": [
       {
-        "spanish": "Le pido un favor a mi amigo.",
+        "target": "Le pido un favor a mi amigo.",
         "english": "I ask my friend for a favor."
       },
       {
-        "spanish": "Los niños piden permiso para salir al parque.",
+        "target": "Los niños piden permiso para salir al parque.",
         "english": "The children ask for permission to go to the park."
       }
-    ]
+    ],
+    "word": "pedir"
   },
   {
     "id": "daily-ofrecer",
-    "spanish": "ofrecer",
     "english": "to offer",
     "pronunciation": "ofrecer",
     "partOfSpeech": "verb",
@@ -4194,18 +4193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ofrecer",
     "examples": [
       {
-        "spanish": "Mi amiga me ofrece café cada mañana.",
+        "target": "Mi amiga me ofrece café cada mañana.",
         "english": "My friend offers me coffee every morning."
       },
       {
-        "spanish": "El restaurante ofrece descuentos los martes.",
+        "target": "El restaurante ofrece descuentos los martes.",
         "english": "The restaurant offers discounts on Tuesdays."
       }
-    ]
+    ],
+    "word": "ofrecer"
   },
   {
     "id": "daily-recibir",
-    "spanish": "recibir",
     "english": "to receive",
     "pronunciation": "recibir",
     "partOfSpeech": "verb",
@@ -4214,18 +4213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "recibir",
     "examples": [
       {
-        "spanish": "Recibo una llamada de mi madre cada domingo.",
+        "target": "Recibo una llamada de mi madre cada domingo.",
         "english": "I receive a call from my mother every Sunday."
       },
       {
-        "spanish": "Mi hermana recibió un paquete en la puerta esta mañana.",
+        "target": "Mi hermana recibió un paquete en la puerta esta mañana.",
         "english": "My sister received a package at the door this morning."
       }
-    ]
+    ],
+    "word": "recibir"
   },
   {
     "id": "daily-enviar",
-    "spanish": "enviar",
     "english": "to send",
     "pronunciation": "enviar",
     "partOfSpeech": "verb",
@@ -4234,18 +4233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "enviar",
     "examples": [
       {
-        "spanish": "Voy a enviar un correo electrónico a mi jefe.",
+        "target": "Voy a enviar un correo electrónico a mi jefe.",
         "english": "I am going to send an email to my boss."
       },
       {
-        "spanish": "Mi madre envía un paquete a mi hermana cada mes.",
+        "target": "Mi madre envía un paquete a mi hermana cada mes.",
         "english": "My mother sends a package to my sister every month."
       }
-    ]
+    ],
+    "word": "enviar"
   },
   {
     "id": "daily-llevar",
-    "spanish": "llevar",
     "english": "to carry, to wear, to take",
     "pronunciation": "llevar",
     "partOfSpeech": "verb",
@@ -4254,18 +4253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "llevar",
     "examples": [
       {
-        "spanish": "Llevo mi hijo a la escuela cada mañana.",
+        "target": "Llevo mi hijo a la escuela cada mañana.",
         "english": "I take my son to school every morning."
       },
       {
-        "spanish": "Ella lleva un vestido azul hoy.",
+        "target": "Ella lleva un vestido azul hoy.",
         "english": "She is wearing a blue dress today."
       }
-    ]
+    ],
+    "word": "llevar"
   },
   {
     "id": "daily-dejar",
-    "spanish": "dejar",
     "english": "to leave, to let, to allow",
     "pronunciation": "dejar",
     "partOfSpeech": "verb",
@@ -4274,18 +4273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dejar",
     "examples": [
       {
-        "spanish": "Voy a dejar las llaves en la mesa.",
+        "target": "Voy a dejar las llaves en la mesa.",
         "english": "I'm going to leave the keys on the table."
       },
       {
-        "spanish": "No puedo dejar de pensar en ti.",
+        "target": "No puedo dejar de pensar en ti.",
         "english": "I can't stop thinking about you."
       }
-    ]
+    ],
+    "word": "dejar"
   },
   {
     "id": "daily-probar",
-    "spanish": "probar",
     "english": "to try",
     "pronunciation": "probar",
     "partOfSpeech": "verb",
@@ -4294,18 +4293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "probar",
     "examples": [
       {
-        "spanish": "Voy a probar este nuevo restaurante el fin de semana.",
+        "target": "Voy a probar este nuevo restaurante el fin de semana.",
         "english": "I'm going to try this new restaurant this weekend."
       },
       {
-        "spanish": "¿Probaste el café que preparé esta mañana?",
+        "target": "¿Probaste el café que preparé esta mañana?",
         "english": "Did you try the coffee I made this morning?"
       }
-    ]
+    ],
+    "word": "probar"
   },
   {
     "id": "daily-intentar",
-    "spanish": "intentar",
     "english": "to attempt",
     "pronunciation": "intentar",
     "partOfSpeech": "verb",
@@ -4314,18 +4313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "intentar",
     "examples": [
       {
-        "spanish": "Voy a intentar terminar mi tarea antes de las 5 de la tarde.",
+        "target": "Voy a intentar terminar mi tarea antes de las 5 de la tarde.",
         "english": "I'm going to try to finish my homework before 5 o'clock."
       },
       {
-        "spanish": "Mi hermana intentó aprender a cocinar este fin de semana.",
+        "target": "Mi hermana intentó aprender a cocinar este fin de semana.",
         "english": "My sister tried to learn how to cook this weekend."
       }
-    ]
+    ],
+    "word": "intentar"
   },
   {
     "id": "daily-conseguir",
-    "spanish": "conseguir",
     "english": "to obtain, to achieve, to get",
     "pronunciation": "conseguir",
     "partOfSpeech": "verb",
@@ -4334,18 +4333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "conseguir",
     "examples": [
       {
-        "spanish": "Conseguí un nuevo trabajo después de muchas entrevistas.",
+        "target": "Conseguí un nuevo trabajo después de muchas entrevistas.",
         "english": "I got a new job after many interviews."
       },
       {
-        "spanish": "¿Dónde puedo conseguir entradas para el concierto?",
+        "target": "¿Dónde puedo conseguir entradas para el concierto?",
         "english": "Where can I get tickets for the concert?"
       }
-    ]
+    ],
+    "word": "conseguir"
   },
   {
     "id": "daily-lograr",
-    "spanish": "lograr",
     "english": "to achieve",
     "pronunciation": "lograr",
     "partOfSpeech": "verb",
@@ -4354,18 +4353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "lograr",
     "examples": [
       {
-        "spanish": "Logré terminar mi proyecto antes de la fecha límite.",
+        "target": "Logré terminar mi proyecto antes de la fecha límite.",
         "english": "I managed to finish my project before the deadline."
       },
       {
-        "spanish": "Mi hermana logró conseguir el trabajo que deseaba.",
+        "target": "Mi hermana logró conseguir el trabajo que deseaba.",
         "english": "My sister managed to get the job she wanted."
       }
-    ]
+    ],
+    "word": "lograr"
   },
   {
     "id": "daily-fallar",
-    "spanish": "fallar",
     "english": "to fail",
     "pronunciation": "fallar",
     "partOfSpeech": "verb",
@@ -4374,18 +4373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "fallar",
     "examples": [
       {
-        "spanish": "El freno del coche falló en la autopista.",
+        "target": "El freno del coche falló en la autopista.",
         "english": "The car's brake failed on the highway."
       },
       {
-        "spanish": "Mi plan falló porque no consideré todos los detalles.",
+        "target": "Mi plan falló porque no consideré todos los detalles.",
         "english": "My plan failed because I didn't consider all the details."
       }
-    ]
+    ],
+    "word": "fallar"
   },
   {
     "id": "mission-predicar",
-    "spanish": "predicar",
     "english": "to preach",
     "pronunciation": "predicar",
     "partOfSpeech": "verb",
@@ -4394,18 +4393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "predicar",
     "examples": [
       {
-        "spanish": "El misionero predica el evangelio en la iglesia cada domingo.",
+        "target": "El misionero predica el evangelio en la iglesia cada domingo.",
         "english": "The missionary preaches the gospel in the church every Sunday."
       },
       {
-        "spanish": "Durante la misión, predicamos la palabra de Dios a las comunidades locales.",
+        "target": "Durante la misión, predicamos la palabra de Dios a las comunidades locales.",
         "english": "During the mission, we preached the word of God to local communities."
       }
-    ]
+    ],
+    "word": "predicar"
   },
   {
     "id": "mission-bautizar",
-    "spanish": "bautizar",
     "english": "to baptize",
     "pronunciation": "bautizar",
     "partOfSpeech": "verb",
@@ -4414,18 +4413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "bautizar",
     "examples": [
       {
-        "spanish": "El sacerdote bautizó al bebé en la iglesia de la misión.",
+        "target": "El sacerdote bautizó al bebé en la iglesia de la misión.",
         "english": "The priest baptized the baby in the mission church."
       },
       {
-        "spanish": "Los misioneros bautizaron a cientos de indígenas durante su trabajo en la misión.",
+        "target": "Los misioneros bautizaron a cientos de indígenas durante su trabajo en la misión.",
         "english": "The missionaries baptized hundreds of indigenous people during their work in the mission."
       }
-    ]
+    ],
+    "word": "bautizar"
   },
   {
     "id": "mission-orar",
-    "spanish": "orar",
     "english": "to pray",
     "pronunciation": "orar",
     "partOfSpeech": "verb",
@@ -4434,18 +4433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "orar",
     "examples": [
       {
-        "spanish": "Los misioneros oran cada mañana antes de comenzar su trabajo en la comunidad.",
+        "target": "Los misioneros oran cada mañana antes de comenzar su trabajo en la comunidad.",
         "english": "The missionaries pray every morning before beginning their work in the community."
       },
       {
-        "spanish": "Debemos orar por los enfermos que visitamos durante nuestra misión.",
+        "target": "Debemos orar por los enfermos que visitamos durante nuestra misión.",
         "english": "We must pray for the sick people we visit during our mission."
       }
-    ]
+    ],
+    "word": "orar"
   },
   {
     "id": "mission-confesar",
-    "spanish": "confesar",
     "english": "to confess",
     "pronunciation": "confesar",
     "partOfSpeech": "verb",
@@ -4454,18 +4453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "confesar",
     "examples": [
       {
-        "spanish": "El espía confesó su identidad a la agencia de inteligencia.",
+        "target": "El espía confesó su identidad a la agencia de inteligencia.",
         "english": "The spy confessed his identity to the intelligence agency."
       },
       {
-        "spanish": "Durante la misión, el sospechoso confesó dónde escondía las pruebas.",
+        "target": "Durante la misión, el sospechoso confesó dónde escondía las pruebas.",
         "english": "During the mission, the suspect confessed where he was hiding the evidence."
       }
-    ]
+    ],
+    "word": "confesar"
   },
   {
     "id": "mission-bendecir",
-    "spanish": "bendecir",
     "english": "to bless",
     "pronunciation": "bendecir",
     "partOfSpeech": "verb",
@@ -4474,18 +4473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "bendecir",
     "examples": [
       {
-        "spanish": "El sacerdote bendice a los soldados antes de la misión.",
+        "target": "El sacerdote bendice a los soldados antes de la misión.",
         "english": "The priest blesses the soldiers before the mission."
       },
       {
-        "spanish": "Bendecimos nuestras armas para protegernos en esta peligrosa misión.",
+        "target": "Bendecimos nuestras armas para protegernos en esta peligrosa misión.",
         "english": "We bless our weapons to protect us on this dangerous mission."
       }
-    ]
+    ],
+    "word": "bendecir"
   },
   {
     "id": "mission-servir",
-    "spanish": "servir",
     "english": "to serve",
     "pronunciation": "servir",
     "partOfSpeech": "verb",
@@ -4494,18 +4493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "servir",
     "examples": [
       {
-        "spanish": "Los soldados sirven a su país con honor.",
+        "target": "Los soldados sirven a su país con honor.",
         "english": "The soldiers serve their country with honor."
       },
       {
-        "spanish": "Esta estrategia sirve para completar nuestra misión.",
+        "target": "Esta estrategia sirve para completar nuestra misión.",
         "english": "This strategy serves to complete our mission."
       }
-    ]
+    ],
+    "word": "servir"
   },
   {
     "id": "mission-compartir",
-    "spanish": "compartir",
     "english": "to share",
     "pronunciation": "compartir",
     "partOfSpeech": "verb",
@@ -4514,18 +4513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "compartir",
     "examples": [
       {
-        "spanish": "Los soldados comparten sus raciones de comida durante la misión.",
+        "target": "Los soldados comparten sus raciones de comida durante la misión.",
         "english": "The soldiers share their food rations during the mission."
       },
       {
-        "spanish": "Debemos compartir la información importante con el equipo de operaciones.",
+        "target": "Debemos compartir la información importante con el equipo de operaciones.",
         "english": "We must share the important information with the operations team."
       }
-    ]
+    ],
+    "word": "compartir"
   },
   {
     "id": "mission-testificar",
-    "spanish": "testificar",
     "english": "to testify",
     "pronunciation": "testificar",
     "partOfSpeech": "verb",
@@ -4534,18 +4533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "testificar",
     "examples": [
       {
-        "spanish": "El testigo fue llamado a testificar sobre los eventos de la noche del crimen.",
+        "target": "El testigo fue llamado a testificar sobre los eventos de la noche del crimen.",
         "english": "The witness was called to testify about the events of the night of the crime."
       },
       {
-        "spanish": "Los misioneros vinieron a testificar sobre su trabajo en la comunidad local.",
+        "target": "Los misioneros vinieron a testificar sobre su trabajo en la comunidad local.",
         "english": "The missionaries came to testify about their work in the local community."
       }
-    ]
+    ],
+    "word": "testificar"
   },
   {
     "id": "mission-perdonar",
-    "spanish": "perdonar",
     "english": "to forgive",
     "pronunciation": "perdonar",
     "partOfSpeech": "verb",
@@ -4554,18 +4553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "perdonar",
     "examples": [
       {
-        "spanish": "El comandante decide perdonar al soldado por su error en la misión.",
+        "target": "El comandante decide perdonar al soldado por su error en la misión.",
         "english": "The commander decides to forgive the soldier for his mistake on the mission."
       },
       {
-        "spanish": "Debemos perdonar a nuestros enemigos para completar nuestra misión de paz.",
+        "target": "Debemos perdonar a nuestros enemigos para completar nuestra misión de paz.",
         "english": "We must forgive our enemies to complete our peace mission."
       }
-    ]
+    ],
+    "word": "perdonar"
   },
   {
     "id": "mission-consagrar",
-    "spanish": "consagrar",
     "english": "to consecrate, to dedicate",
     "pronunciation": "consagrar",
     "partOfSpeech": "verb",
@@ -4574,18 +4573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "consagrar",
     "examples": [
       {
-        "spanish": "El sacerdote consagró la iglesia para servir a la misión.",
+        "target": "El sacerdote consagró la iglesia para servir a la misión.",
         "english": "The priest consecrated the church to serve the mission."
       },
       {
-        "spanish": "Los misioneros consagraron sus vidas a la conversión de los pueblos indígenas.",
+        "target": "Los misioneros consagraron sus vidas a la conversión de los pueblos indígenas.",
         "english": "The missionaries dedicated their lives to the conversion of indigenous peoples."
       }
-    ]
+    ],
+    "word": "consagrar"
   },
   {
     "id": "mission-ungir",
-    "spanish": "ungir",
     "english": "to anoint",
     "pronunciation": "ungir",
     "partOfSpeech": "verb",
@@ -4594,18 +4593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ungir",
     "examples": [
       {
-        "spanish": "El sacerdote ungió al nuevo obispo en la ceremonia de la misión.",
+        "target": "El sacerdote ungió al nuevo obispo en la ceremonia de la misión.",
         "english": "The priest anointed the new bishop at the mission ceremony."
       },
       {
-        "spanish": "Los misioneros ungieron a los enfermos durante su visita a la aldea.",
+        "target": "Los misioneros ungieron a los enfermos durante su visita a la aldea.",
         "english": "The missionaries anointed the sick during their visit to the village."
       }
-    ]
+    ],
+    "word": "ungir"
   },
   {
     "id": "mission-santificar",
-    "spanish": "santificar",
     "english": "to sanctify",
     "pronunciation": "santificar",
     "partOfSpeech": "verb",
@@ -4614,18 +4613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "santificar",
     "examples": [
       {
-        "spanish": "Los misioneros trabajan para santificar a las comunidades indígenas.",
+        "target": "Los misioneros trabajan para santificar a las comunidades indígenas.",
         "english": "The missionaries work to sanctify the indigenous communities."
       },
       {
-        "spanish": "La iglesia busca santificar el nombre de Dios en cada misión.",
+        "target": "La iglesia busca santificar el nombre de Dios en cada misión.",
         "english": "The church seeks to sanctify God's name in each mission."
       }
-    ]
+    ],
+    "word": "santificar"
   },
   {
     "id": "mission-convertir",
-    "spanish": "convertir",
     "english": "to convert",
     "pronunciation": "convertir",
     "partOfSpeech": "verb",
@@ -4634,18 +4633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "convertir",
     "examples": [
       {
-        "spanish": "La misión es convertir a los nuevos soldados en expertos.",
+        "target": "La misión es convertir a los nuevos soldados en expertos.",
         "english": "The mission is to convert the new soldiers into experts."
       },
       {
-        "spanish": "Debemos convertir este edificio en nuestro cuartel general.",
+        "target": "Debemos convertir este edificio en nuestro cuartel general.",
         "english": "We must convert this building into our headquarters."
       }
-    ]
+    ],
+    "word": "convertir"
   },
   {
     "id": "mission-arrepentirse",
-    "spanish": "arrepentirse",
     "english": "to repent",
     "pronunciation": "arrepentirse",
     "partOfSpeech": "verb",
@@ -4654,18 +4653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "arrepentirse",
     "examples": [
       {
-        "spanish": "El soldado se arrepintió de haber abandonado su misión.",
+        "target": "El soldado se arrepintió de haber abandonado su misión.",
         "english": "The soldier regretted having abandoned his mission."
       },
       {
-        "spanish": "Se arrepintieron de no haber completado la operación a tiempo.",
+        "target": "Se arrepintieron de no haber completado la operación a tiempo.",
         "english": "They regretted not having completed the operation on time."
       }
-    ]
+    ],
+    "word": "arrepentirse"
   },
   {
     "id": "mission-reconciliar",
-    "spanish": "reconciliar",
     "english": "to reconcile",
     "pronunciation": "reconciliar",
     "partOfSpeech": "verb",
@@ -4674,18 +4673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reconciliar",
     "examples": [
       {
-        "spanish": "La misión es reconciliar a los dos grupos enfrentados en el conflicto.",
+        "target": "La misión es reconciliar a los dos grupos enfrentados en el conflicto.",
         "english": "The mission is to reconcile the two opposing groups in the conflict."
       },
       {
-        "spanish": "Nuestro objetivo es reconciliar a las comunidades divididas por años de tensión.",
+        "target": "Nuestro objetivo es reconciliar a las comunidades divididas por años de tensión.",
         "english": "Our objective is to reconcile the communities divided by years of tension."
       }
-    ]
+    ],
+    "word": "reconciliar"
   },
   {
     "id": "mission-discipular",
-    "spanish": "discipular",
     "english": "to disciple",
     "pronunciation": "discipular",
     "partOfSpeech": "verb",
@@ -4694,18 +4693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "discipular",
     "examples": [
       {
-        "spanish": "El misionero discipulaba a los nuevos creyentes en la fe cristiana.",
+        "target": "El misionero discipulaba a los nuevos creyentes en la fe cristiana.",
         "english": "The missionary discipled the new believers in the Christian faith."
       },
       {
-        "spanish": "Durante años, el pastor discipuló a jóvenes líderes para que continuaran la misión.",
+        "target": "Durante años, el pastor discipuló a jóvenes líderes para que continuaran la misión.",
         "english": "For years, the pastor discipled young leaders so they would continue the mission."
       }
-    ]
+    ],
+    "word": "discipular"
   },
   {
     "id": "mission-evangelizar",
-    "spanish": "evangelizar",
     "english": "to evangelize",
     "pronunciation": "evangelizar",
     "partOfSpeech": "verb",
@@ -4714,18 +4713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "evangelizar",
     "examples": [
       {
-        "spanish": "Los misioneros viajaron a la región remota para evangelizar a las comunidades indígenas.",
+        "target": "Los misioneros viajaron a la región remota para evangelizar a las comunidades indígenas.",
         "english": "The missionaries traveled to the remote region to evangelize the indigenous communities."
       },
       {
-        "spanish": "Durante su misión, se dedicaron a evangelizar y bautizar a miles de personas en el valle.",
+        "target": "Durante su misión, se dedicaron a evangelizar y bautizar a miles de personas en el valle.",
         "english": "During their mission, they dedicated themselves to evangelizing and baptizing thousands of people in the valley."
       }
-    ]
+    ],
+    "word": "evangelizar"
   },
   {
     "id": "mission-invitar",
-    "spanish": "invitar",
     "english": "to invite",
     "pronunciation": "invitar",
     "partOfSpeech": "verb",
@@ -4734,18 +4733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "invitar",
     "examples": [
       {
-        "spanish": "El comandante invita a los soldados a una reunión estratégica.",
+        "target": "El comandante invita a los soldados a una reunión estratégica.",
         "english": "The commander invites the soldiers to a strategic meeting."
       },
       {
-        "spanish": "Invitamos al equipo de reconocimiento a participar en la misión.",
+        "target": "Invitamos al equipo de reconocimiento a participar en la misión.",
         "english": "We invite the reconnaissance team to participate in the mission."
       }
-    ]
+    ],
+    "word": "invitar"
   },
   {
     "id": "mission-visitar",
-    "spanish": "visitar",
     "english": "to visit",
     "pronunciation": "visitar",
     "partOfSpeech": "verb",
@@ -4754,18 +4753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "visitar",
     "examples": [
       {
-        "spanish": "El equipo de rescate visita a los refugiados en el campamento.",
+        "target": "El equipo de rescate visita a los refugiados en el campamento.",
         "english": "The rescue team visits the refugees at the camp."
       },
       {
-        "spanish": "Debemos visitar la zona afectada para evaluar los daños.",
+        "target": "Debemos visitar la zona afectada para evaluar los daños.",
         "english": "We must visit the affected area to assess the damage."
       }
-    ]
+    ],
+    "word": "visitar"
   },
   {
     "id": "mission-anunciar",
-    "spanish": "anunciar",
     "english": "to announce",
     "pronunciation": "anunciar",
     "partOfSpeech": "verb",
@@ -4774,18 +4773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "anunciar",
     "examples": [
       {
-        "spanish": "El comandante anunció la nueva misión a todo el equipo.",
+        "target": "El comandante anunció la nueva misión a todo el equipo.",
         "english": "The commander announced the new mission to the entire team."
       },
       {
-        "spanish": "Vamos a anunciar el lanzamiento de la operación mañana por la mañana.",
+        "target": "Vamos a anunciar el lanzamiento de la operación mañana por la mañana.",
         "english": "We are going to announce the launch of the operation tomorrow morning."
       }
-    ]
+    ],
+    "word": "anunciar"
   },
   {
     "id": "mission-proclamar",
-    "spanish": "proclamar",
     "english": "to proclaim",
     "pronunciation": "proclamar",
     "partOfSpeech": "verb",
@@ -4794,18 +4793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "proclamar",
     "examples": [
       {
-        "spanish": "El líder proclamó la independencia de la nación.",
+        "target": "El líder proclamó la independencia de la nación.",
         "english": "The leader proclaimed the nation's independence."
       },
       {
-        "spanish": "Los misioneros proclamaron el evangelio en toda la región.",
+        "target": "Los misioneros proclamaron el evangelio en toda la región.",
         "english": "The missionaries proclaimed the gospel throughout the region."
       }
-    ]
+    ],
+    "word": "proclamar"
   },
   {
     "id": "mission-glorificar",
-    "spanish": "glorificar",
     "english": "to glorify",
     "pronunciation": "glorificar",
     "partOfSpeech": "verb",
@@ -4814,18 +4813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "glorificar",
     "examples": [
       {
-        "spanish": "Los misioneros glorificaban a Dios en cada aldea que visitaban.",
+        "target": "Los misioneros glorificaban a Dios en cada aldea que visitaban.",
         "english": "The missionaries glorified God in every village they visited."
       },
       {
-        "spanish": "Nuestra misión es glorificar el nombre de Cristo entre las naciones.",
+        "target": "Nuestra misión es glorificar el nombre de Cristo entre las naciones.",
         "english": "Our mission is to glorify the name of Christ among the nations."
       }
-    ]
+    ],
+    "word": "glorificar"
   },
   {
     "id": "mission-alabar",
-    "spanish": "alabar",
     "english": "to praise",
     "pronunciation": "alabar",
     "partOfSpeech": "verb",
@@ -4834,18 +4833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "alabar",
     "examples": [
       {
-        "spanish": "El obispo alabó la dedicación de los misioneros en la aldea.",
+        "target": "El obispo alabó la dedicación de los misioneros en la aldea.",
         "english": "The bishop praised the dedication of the missionaries in the village."
       },
       {
-        "spanish": "Debemos alabar el valor de aquellos que sirven en la misión.",
+        "target": "Debemos alabar el valor de aquellos que sirven en la misión.",
         "english": "We must praise the courage of those who serve in the mission."
       }
-    ]
+    ],
+    "word": "alabar"
   },
   {
     "id": "mission-adorar",
-    "spanish": "adorar",
     "english": "to adore",
     "pronunciation": "adorar",
     "partOfSpeech": "verb",
@@ -4854,18 +4853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "adorar",
     "examples": [
       {
-        "spanish": "Los misioneros adoran a Dios en la iglesia de la aldea.",
+        "target": "Los misioneros adoran a Dios en la iglesia de la aldea.",
         "english": "The missionaries adore God in the village church."
       },
       {
-        "spanish": "Durante la misión, aprendimos a adorar con devoción y fe.",
+        "target": "Durante la misión, aprendimos a adorar con devoción y fe.",
         "english": "During the mission, we learned to adore with devotion and faith."
       }
-    ]
+    ],
+    "word": "adorar"
   },
   {
     "id": "mission-agradecer",
-    "spanish": "agradecer",
     "english": "to thank",
     "pronunciation": "agradecer",
     "partOfSpeech": "verb",
@@ -4874,18 +4873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "agradecer",
     "examples": [
       {
-        "spanish": "Agradezco tu ayuda en esta misión peligrosa.",
+        "target": "Agradezco tu ayuda en esta misión peligrosa.",
         "english": "I appreciate your help on this dangerous mission."
       },
       {
-        "spanish": "El comandante agradece el valor de sus soldados.",
+        "target": "El comandante agradece el valor de sus soldados.",
         "english": "The commander appreciates the courage of his soldiers."
       }
-    ]
+    ],
+    "word": "agradecer"
   },
   {
     "id": "mission-interceder",
-    "spanish": "interceder",
     "english": "to intercede",
     "pronunciation": "interceder",
     "partOfSpeech": "verb",
@@ -4894,18 +4893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "interceder",
     "examples": [
       {
-        "spanish": "El líder decidió interceder ante el enemigo para negociar la paz de la misión.",
+        "target": "El líder decidió interceder ante el enemigo para negociar la paz de la misión.",
         "english": "The leader decided to intercede with the enemy to negotiate peace for the mission."
       },
       {
-        "spanish": "Los diplomáticos van a interceder entre las dos facciones en conflicto durante la operación.",
+        "target": "Los diplomáticos van a interceder entre las dos facciones en conflicto durante la operación.",
         "english": "The diplomats will intercede between the two conflicting factions during the operation."
       }
-    ]
+    ],
+    "word": "interceder"
   },
   {
     "id": "mission-ministrar",
-    "spanish": "ministrar",
     "english": "to administer; to dispense; to provide spiritual care",
     "pronunciation": "ministrar",
     "partOfSpeech": "verb",
@@ -4914,18 +4913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ministrar",
     "examples": [
       {
-        "spanish": "El sacerdote ministra los sacramentos a los fieles en la misión.",
+        "target": "El sacerdote ministra los sacramentos a los fieles en la misión.",
         "english": "The priest administers the sacraments to the faithful at the mission."
       },
       {
-        "spanish": "Los misioneros ministran ayuda humanitaria a las comunidades necesitadas.",
+        "target": "Los misioneros ministran ayuda humanitaria a las comunidades necesitadas.",
         "english": "The missionaries provide humanitarian aid to needy communities."
       }
-    ]
+    ],
+    "word": "ministrar"
   },
   {
     "id": "mission-sanar",
-    "spanish": "sanar",
     "english": "to heal",
     "pronunciation": "sanar",
     "partOfSpeech": "verb",
@@ -4934,18 +4933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sanar",
     "examples": [
       {
-        "spanish": "La misión es sanar a los enfermos del pueblo.",
+        "target": "La misión es sanar a los enfermos del pueblo.",
         "english": "The mission is to heal the sick people of the town."
       },
       {
-        "spanish": "Debemos sanar las heridas de guerra antes de partir.",
+        "target": "Debemos sanar las heridas de guerra antes de partir.",
         "english": "We must heal the war wounds before we leave."
       }
-    ]
+    ],
+    "word": "sanar"
   },
   {
     "id": "mission-liberar",
-    "spanish": "liberar",
     "english": "to liberate",
     "pronunciation": "liberar",
     "partOfSpeech": "verb",
@@ -4954,18 +4953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "liberar",
     "examples": [
       {
-        "spanish": "Debemos liberar a los rehenes antes de que sea demasiado tarde.",
+        "target": "Debemos liberar a los rehenes antes de que sea demasiado tarde.",
         "english": "We must free the hostages before it's too late."
       },
       {
-        "spanish": "La misión es liberar el territorio ocupado por el enemigo.",
+        "target": "La misión es liberar el territorio ocupado por el enemigo.",
         "english": "The mission is to liberate the territory occupied by the enemy."
       }
-    ]
+    ],
+    "word": "liberar"
   },
   {
     "id": "mission-transformar",
-    "spanish": "transformar",
     "english": "to transform",
     "pronunciation": "transformar",
     "partOfSpeech": "verb",
@@ -4974,18 +4973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "transformar",
     "examples": [
       {
-        "spanish": "Nuestra misión es transformar la comunidad local mediante programas educativos.",
+        "target": "Nuestra misión es transformar la comunidad local mediante programas educativos.",
         "english": "Our mission is to transform the local community through educational programs."
       },
       {
-        "spanish": "El equipo de voluntarios trabajará para transformar las vidas de los niños necesitados.",
+        "target": "El equipo de voluntarios trabajará para transformar las vidas de los niños necesitados.",
         "english": "The volunteer team will work to transform the lives of children in need."
       }
-    ]
+    ],
+    "word": "transformar"
   },
   {
     "id": "mission-aconsejar",
-    "spanish": "aconsejar",
     "english": "to advise",
     "pronunciation": "aconsejar",
     "partOfSpeech": "verb",
@@ -4994,18 +4993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aconsejar",
     "examples": [
       {
-        "spanish": "El comandante aconseja a los soldados que eviten el área peligrosa.",
+        "target": "El comandante aconseja a los soldados que eviten el área peligrosa.",
         "english": "The commander advises the soldiers to avoid the dangerous area."
       },
       {
-        "spanish": "Te aconsejo que completes la misión antes del anochecer.",
+        "target": "Te aconsejo que completes la misión antes del anochecer.",
         "english": "I advise you to complete the mission before nightfall."
       }
-    ]
+    ],
+    "word": "aconsejar"
   },
   {
     "id": "mission-orientar",
-    "spanish": "orientar",
     "english": "to orient",
     "pronunciation": "orientar",
     "partOfSpeech": "verb",
@@ -5014,18 +5013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "orientar",
     "examples": [
       {
-        "spanish": "El comandante orienta a sus soldados hacia el objetivo de la misión.",
+        "target": "El comandante orienta a sus soldados hacia el objetivo de la misión.",
         "english": "The commander orients his soldiers toward the mission objective."
       },
       {
-        "spanish": "Necesitamos orientar nuestros esfuerzos para cumplir la misión con éxito.",
+        "target": "Necesitamos orientar nuestros esfuerzos para cumplir la misión con éxito.",
         "english": "We need to orient our efforts to accomplish the mission successfully."
       }
-    ]
+    ],
+    "word": "orientar"
   },
   {
     "id": "mission-guiar",
-    "spanish": "guiar",
     "english": "to guide",
     "pronunciation": "guiar",
     "partOfSpeech": "verb",
@@ -5034,18 +5033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "guiar",
     "examples": [
       {
-        "spanish": "El guía debe guiar al equipo de rescate a través de la montaña peligrosa.",
+        "target": "El guía debe guiar al equipo de rescate a través de la montaña peligrosa.",
         "english": "The guide must guide the rescue team through the dangerous mountain."
       },
       {
-        "spanish": "Los soldados guiaron a los civiles hacia la zona segura durante la misión de evacuación.",
+        "target": "Los soldados guiaron a los civiles hacia la zona segura durante la misión de evacuación.",
         "english": "The soldiers guided the civilians toward the safe zone during the evacuation mission."
       }
-    ]
+    ],
+    "word": "guiar"
   },
   {
     "id": "mission-liderar",
-    "spanish": "liderar",
     "english": "to lead",
     "pronunciation": "liderar",
     "partOfSpeech": "verb",
@@ -5054,18 +5053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "liderar",
     "examples": [
       {
-        "spanish": "El comandante lidera la misión con determinación.",
+        "target": "El comandante lidera la misión con determinación.",
         "english": "The commander leads the mission with determination."
       },
       {
-        "spanish": "Debo liderar a mi equipo para completar esta operación.",
+        "target": "Debo liderar a mi equipo para completar esta operación.",
         "english": "I must lead my team to complete this operation."
       }
-    ]
+    ],
+    "word": "liderar"
   },
   {
     "id": "mission-dirigir",
-    "spanish": "dirigir",
     "english": "to direct",
     "pronunciation": "dirigir",
     "partOfSpeech": "verb",
@@ -5074,18 +5073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dirigir",
     "examples": [
       {
-        "spanish": "El comandante dirige la misión hacia el objetivo estratégico.",
+        "target": "El comandante dirige la misión hacia el objetivo estratégico.",
         "english": "The commander directs the mission toward the strategic objective."
       },
       {
-        "spanish": "Necesito dirigir a mi equipo para completar esta misión con éxito.",
+        "target": "Necesito dirigir a mi equipo para completar esta misión con éxito.",
         "english": "I need to direct my team to complete this mission successfully."
       }
-    ]
+    ],
+    "word": "dirigir"
   },
   {
     "id": "mission-inspirar",
-    "spanish": "inspirar",
     "english": "to inspire",
     "pronunciation": "inspirar",
     "partOfSpeech": "verb",
@@ -5094,18 +5093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "inspirar",
     "examples": [
       {
-        "spanish": "El líder inspiró a sus tropas para completar la misión peligrosa.",
+        "target": "El líder inspiró a sus tropas para completar la misión peligrosa.",
         "english": "The leader inspired his troops to complete the dangerous mission."
       },
       {
-        "spanish": "Las historias de valentía inspiraron a los agentes a continuar con la operación.",
+        "target": "Las historias de valentía inspiraron a los agentes a continuar con la operación.",
         "english": "The stories of bravery inspired the agents to continue with the operation."
       }
-    ]
+    ],
+    "word": "inspirar"
   },
   {
     "id": "hospitality-preparar",
-    "spanish": "preparar",
     "english": "to prepare",
     "pronunciation": "preparar",
     "partOfSpeech": "verb",
@@ -5114,18 +5113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "preparar",
     "examples": [
       {
-        "spanish": "El chef prepara los ingredientes para la cena.",
+        "target": "El chef prepara los ingredientes para la cena.",
         "english": "The chef prepares the ingredients for dinner."
       },
       {
-        "spanish": "Necesito preparar las habitaciones antes de la llegada de los huéspedes.",
+        "target": "Necesito preparar las habitaciones antes de la llegada de los huéspedes.",
         "english": "I need to prepare the rooms before the guests arrive."
       }
-    ]
+    ],
+    "word": "preparar"
   },
   {
     "id": "hospitality-reservar",
-    "spanish": "reservar",
     "english": "to reserve",
     "pronunciation": "reservar",
     "partOfSpeech": "verb",
@@ -5134,18 +5133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reservar",
     "examples": [
       {
-        "spanish": "Quiero reservar una habitación para el próximo fin de semana.",
+        "target": "Quiero reservar una habitación para el próximo fin de semana.",
         "english": "I want to reserve a room for next weekend."
       },
       {
-        "spanish": "El cliente reservó una mesa para cuatro personas en el restaurante.",
+        "target": "El cliente reservó una mesa para cuatro personas en el restaurante.",
         "english": "The customer reserved a table for four people at the restaurant."
       }
-    ]
+    ],
+    "word": "reservar"
   },
   {
     "id": "hospitality-recomendar",
-    "spanish": "recomendar",
     "english": "to recommend",
     "pronunciation": "recomendar",
     "partOfSpeech": "verb",
@@ -5154,18 +5153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "recomendar",
     "examples": [
       {
-        "spanish": "Te recomiendo que pruebes nuestro plato especial de la casa.",
+        "target": "Te recomiendo que pruebes nuestro plato especial de la casa.",
         "english": "I recommend that you try our house special dish."
       },
       {
-        "spanish": "Le recomendamos este hotel porque tiene excelente servicio y ubicación.",
+        "target": "Le recomendamos este hotel porque tiene excelente servicio y ubicación.",
         "english": "We recommend this hotel to you because it has excellent service and location."
       }
-    ]
+    ],
+    "word": "recomendar"
   },
   {
     "id": "hospitality-cobrar",
-    "spanish": "cobrar",
     "english": "to charge",
     "pronunciation": "cobrar",
     "partOfSpeech": "verb",
@@ -5174,18 +5173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cobrar",
     "examples": [
       {
-        "spanish": "El recepcionista cobra la cuenta al final de la estadía.",
+        "target": "El recepcionista cobra la cuenta al final de la estadía.",
         "english": "The receptionist charges the bill at the end of the stay."
       },
       {
-        "spanish": "¿Cuánto cobran por una noche en la habitación doble?",
+        "target": "¿Cuánto cobran por una noche en la habitación doble?",
         "english": "How much do they charge for a night in the double room?"
       }
-    ]
+    ],
+    "word": "cobrar"
   },
   {
     "id": "hospitality-pagar",
-    "spanish": "pagar",
     "english": "to pay",
     "pronunciation": "pagar",
     "partOfSpeech": "verb",
@@ -5194,18 +5193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "pagar",
     "examples": [
       {
-        "spanish": "El cliente paga la factura en la recepción.",
+        "target": "El cliente paga la factura en la recepción.",
         "english": "The customer pays the bill at the reception."
       },
       {
-        "spanish": "¿Cuánto tengo que pagar por la habitación?",
+        "target": "¿Cuánto tengo que pagar por la habitación?",
         "english": "How much do I have to pay for the room?"
       }
-    ]
+    ],
+    "word": "pagar"
   },
   {
     "id": "hospitality-atender",
-    "spanish": "atender",
     "english": "to attend to / to serve / to take care of",
     "pronunciation": "atender",
     "partOfSpeech": "verb",
@@ -5214,18 +5213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "atender",
     "examples": [
       {
-        "spanish": "El camarero atiende a los clientes con profesionalismo.",
+        "target": "El camarero atiende a los clientes con profesionalismo.",
         "english": "The waiter serves the customers professionally."
       },
       {
-        "spanish": "Necesitamos atender las necesidades de nuestros huéspedes rápidamente.",
+        "target": "Necesitamos atender las necesidades de nuestros huéspedes rápidamente.",
         "english": "We need to attend to our guests' needs quickly."
       }
-    ]
+    ],
+    "word": "atender"
   },
   {
     "id": "hospitality-ordenar",
-    "spanish": "ordenar",
     "english": "to order",
     "pronunciation": "ordenar",
     "partOfSpeech": "verb",
@@ -5234,18 +5233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "ordenar",
     "examples": [
       {
-        "spanish": "El cliente ordena una bebida fría en la recepción.",
+        "target": "El cliente ordena una bebida fría en la recepción.",
         "english": "The customer orders a cold drink at the reception."
       },
       {
-        "spanish": "Los huéspedes ordenan sus cenas en el restaurante del hotel.",
+        "target": "Los huéspedes ordenan sus cenas en el restaurante del hotel.",
         "english": "The guests order their dinners in the hotel restaurant."
       }
-    ]
+    ],
+    "word": "ordenar"
   },
   {
     "id": "hospitality-cancelar",
-    "spanish": "cancelar",
     "english": "to cancel",
     "pronunciation": "cancelar",
     "partOfSpeech": "verb",
@@ -5254,18 +5253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cancelar",
     "examples": [
       {
-        "spanish": "El cliente decidió cancelar su reserva en el hotel.",
+        "target": "El cliente decidió cancelar su reserva en el hotel.",
         "english": "The client decided to cancel his hotel reservation."
       },
       {
-        "spanish": "Necesitamos cancelar la reserva de la sala de conferencias para mañana.",
+        "target": "Necesitamos cancelar la reserva de la sala de conferencias para mañana.",
         "english": "We need to cancel the conference room reservation for tomorrow."
       }
-    ]
+    ],
+    "word": "cancelar"
   },
   {
     "id": "hospitality-confirmar",
-    "spanish": "confirmar",
     "english": "to confirm",
     "pronunciation": "confirmar",
     "partOfSpeech": "verb",
@@ -5274,18 +5273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "confirmar",
     "examples": [
       {
-        "spanish": "Por favor, confirme su reserva antes de las 6 de la tarde.",
+        "target": "Por favor, confirme su reserva antes de las 6 de la tarde.",
         "english": "Please confirm your reservation before 6 PM."
       },
       {
-        "spanish": "El cliente confirmó su llegada para el próximo martes.",
+        "target": "El cliente confirmó su llegada para el próximo martes.",
         "english": "The guest confirmed his arrival for next Tuesday."
       }
-    ]
+    ],
+    "word": "confirmar"
   },
   {
     "id": "hospitality-registrar",
-    "spanish": "registrar",
     "english": "to check in",
     "pronunciation": "registrar",
     "partOfSpeech": "verb",
@@ -5294,18 +5293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "registrar",
     "examples": [
       {
-        "spanish": "El recepcionista registra a los huéspedes a su llegada al hotel.",
+        "target": "El recepcionista registra a los huéspedes a su llegada al hotel.",
         "english": "The receptionist checks in the guests upon their arrival at the hotel."
       },
       {
-        "spanish": "Necesito registrar los datos personales de los clientes en el sistema.",
+        "target": "Necesito registrar los datos personales de los clientes en el sistema.",
         "english": "I need to register the guests' personal information in the system."
       }
-    ]
+    ],
+    "word": "registrar"
   },
   {
     "id": "hospitality-alojar",
-    "spanish": "alojar",
     "english": "to lodge",
     "pronunciation": "alojar",
     "partOfSpeech": "verb",
@@ -5314,18 +5313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "alojar",
     "examples": [
       {
-        "spanish": "El hotel aloja a más de 200 huéspedes cada noche.",
+        "target": "El hotel aloja a más de 200 huéspedes cada noche.",
         "english": "The hotel accommodates more than 200 guests each night."
       },
       {
-        "spanish": "Podemos alojar a su familia en nuestras mejores habitaciones.",
+        "target": "Podemos alojar a su familia en nuestras mejores habitaciones.",
         "english": "We can lodge your family in our best rooms."
       }
-    ]
+    ],
+    "word": "alojar"
   },
   {
     "id": "hospitality-desalojar",
-    "spanish": "desalojar",
     "english": "to evict",
     "pronunciation": "desalojar",
     "partOfSpeech": "verb",
@@ -5334,18 +5333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "desalojar",
     "examples": [
       {
-        "spanish": "El gerente tuvo que desalojar a los huéspedes que no pagaron la reserva.",
+        "target": "El gerente tuvo que desalojar a los huéspedes que no pagaron la reserva.",
         "english": "The manager had to evict the guests who did not pay for the reservation."
       },
       {
-        "spanish": "Debemos desalojar las habitaciones antes del mediodía para la llegada de nuevos clientes.",
+        "target": "Debemos desalojar las habitaciones antes del mediodía para la llegada de nuevos clientes.",
         "english": "We must vacate the rooms before noon for the arrival of new guests."
       }
-    ]
+    ],
+    "word": "desalojar"
   },
   {
     "id": "hospitality-despedir",
-    "spanish": "despedir",
     "english": "to dismiss; to say goodbye",
     "pronunciation": "despedir",
     "partOfSpeech": "verb",
@@ -5354,18 +5353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "despedir",
     "examples": [
       {
-        "spanish": "El gerente tuvo que despedir al empleado por su mal desempeño.",
+        "target": "El gerente tuvo que despedir al empleado por su mal desempeño.",
         "english": "The manager had to dismiss the employee for his poor performance."
       },
       {
-        "spanish": "Despedimos a nuestros huéspedes en la puerta del hotel.",
+        "target": "Despedimos a nuestros huéspedes en la puerta del hotel.",
         "english": "We bid farewell to our guests at the hotel entrance."
       }
-    ]
+    ],
+    "word": "despedir"
   },
   {
     "id": "hospitality-bienventar",
-    "spanish": "bienventar",
     "english": "to welcome",
     "pronunciation": "bienventar",
     "partOfSpeech": "verb",
@@ -5374,18 +5373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "bienventar",
     "examples": [
       {
-        "spanish": "El gerente del hotel bienventa a los huéspedes en la recepción.",
+        "target": "El gerente del hotel bienventa a los huéspedes en la recepción.",
         "english": "The hotel manager welcomes the guests at the reception."
       },
       {
-        "spanish": "Nos gusta bienventar a nuestros clientes con una sonrisa cálida.",
+        "target": "Nos gusta bienventar a nuestros clientes con una sonrisa cálida.",
         "english": "We like to welcome our clients with a warm smile."
       }
-    ]
+    ],
+    "word": "bienventar"
   },
   {
     "id": "hospitality-acompañar",
-    "spanish": "acompañar",
     "english": "to accompany",
     "pronunciation": "acompañar",
     "partOfSpeech": "verb",
@@ -5394,18 +5393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "acompañar",
     "examples": [
       {
-        "spanish": "El recepcionista acompañará al huésped a su habitación.",
+        "target": "El recepcionista acompañará al huésped a su habitación.",
         "english": "The receptionist will accompany the guest to their room."
       },
       {
-        "spanish": "Nuestro personal está listo para acompañar a los clientes durante su estancia.",
+        "target": "Nuestro personal está listo para acompañar a los clientes durante su estancia.",
         "english": "Our staff is ready to assist the clients throughout their stay."
       }
-    ]
+    ],
+    "word": "acompañar"
   },
   {
     "id": "hospitality-mostrar",
-    "spanish": "mostrar",
     "english": "to show",
     "pronunciation": "mostrar",
     "partOfSpeech": "verb",
@@ -5414,18 +5413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "mostrar",
     "examples": [
       {
-        "spanish": "El recepcionista muestra la habitación al huésped.",
+        "target": "El recepcionista muestra la habitación al huésped.",
         "english": "The receptionist shows the room to the guest."
       },
       {
-        "spanish": "Te voy a mostrar dónde están los servicios del hotel.",
+        "target": "Te voy a mostrar dónde están los servicios del hotel.",
         "english": "I'm going to show you where the hotel services are located."
       }
-    ]
+    ],
+    "word": "mostrar"
   },
   {
     "id": "hospitality-presentar",
-    "spanish": "presentar",
     "english": "to present",
     "pronunciation": "presentar",
     "partOfSpeech": "verb",
@@ -5434,18 +5433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "presentar",
     "examples": [
       {
-        "spanish": "El recepcionista presenta el menú al cliente.",
+        "target": "El recepcionista presenta el menú al cliente.",
         "english": "The receptionist presents the menu to the customer."
       },
       {
-        "spanish": "Voy a presentar las opciones de habitaciones disponibles.",
+        "target": "Voy a presentar las opciones de habitaciones disponibles.",
         "english": "I am going to present the available room options."
       }
-    ]
+    ],
+    "word": "presentar"
   },
   {
     "id": "hospitality-incluir",
-    "spanish": "incluir",
     "english": "to include",
     "pronunciation": "incluir",
     "partOfSpeech": "verb",
@@ -5454,18 +5453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "incluir",
     "examples": [
       {
-        "spanish": "El precio de la habitación incluye desayuno buffet gratuito.",
+        "target": "El precio de la habitación incluye desayuno buffet gratuito.",
         "english": "The room price includes a complimentary buffet breakfast."
       },
       {
-        "spanish": "¿El paquete turístico incluye las comidas y el transporte?",
+        "target": "¿El paquete turístico incluye las comidas y el transporte?",
         "english": "Does the tourist package include meals and transportation?"
       }
-    ]
+    ],
+    "word": "incluir"
   },
   {
     "id": "hospitality-excluir",
-    "spanish": "excluir",
     "english": "to exclude",
     "pronunciation": "excluir",
     "partOfSpeech": "verb",
@@ -5474,18 +5473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "excluir",
     "examples": [
       {
-        "spanish": "El hotel decidió excluir a los huéspedes que no cumplían con las normas de conducta.",
+        "target": "El hotel decidió excluir a los huéspedes que no cumplían con las normas de conducta.",
         "english": "The hotel decided to exclude guests who did not comply with the code of conduct."
       },
       {
-        "spanish": "No podemos excluir a ningún cliente de nuestros servicios de restaurante sin una razón válida.",
+        "target": "No podemos excluir a ningún cliente de nuestros servicios de restaurante sin una razón válida.",
         "english": "We cannot exclude any customer from our restaurant services without a valid reason."
       }
-    ]
+    ],
+    "word": "excluir"
   },
   {
     "id": "hospitality-separar",
-    "spanish": "separar",
     "english": "to separate",
     "pronunciation": "separar",
     "partOfSpeech": "verb",
@@ -5494,18 +5493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "separar",
     "examples": [
       {
-        "spanish": "Por favor, separa las mesas para que los clientes tengan más espacio.",
+        "target": "Por favor, separa las mesas para que los clientes tengan más espacio.",
         "english": "Please separate the tables so that customers have more space."
       },
       {
-        "spanish": "Vamos a separar los grupos grandes en diferentes áreas del restaurante.",
+        "target": "Vamos a separar los grupos grandes en diferentes áreas del restaurante.",
         "english": "We are going to separate the large groups into different areas of the restaurant."
       }
-    ]
+    ],
+    "word": "separar"
   },
   {
     "id": "hospitality-juntar",
-    "spanish": "juntar",
     "english": "to gather, to join, to bring together",
     "pronunciation": "juntar",
     "partOfSpeech": "verb",
@@ -5514,18 +5513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "juntar",
     "examples": [
       {
-        "spanish": "Por favor, junten todas las sillas alrededor de la mesa para la cena.",
+        "target": "Por favor, junten todas las sillas alrededor de la mesa para la cena.",
         "english": "Please gather all the chairs around the table for dinner."
       },
       {
-        "spanish": "Vamos a juntar los ingredientes en la cocina antes de preparar el desayuno.",
+        "target": "Vamos a juntar los ingredientes en la cocina antes de preparar el desayuno.",
         "english": "Let's gather the ingredients in the kitchen before preparing breakfast."
       }
-    ]
+    ],
+    "word": "juntar"
   },
   {
     "id": "hospitality-organizar",
-    "spanish": "organizar",
     "english": "to organize",
     "pronunciation": "organizar",
     "partOfSpeech": "verb",
@@ -5534,18 +5533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "organizar",
     "examples": [
       {
-        "spanish": "El hotel organiza actividades para los huéspedes cada fin de semana.",
+        "target": "El hotel organiza actividades para los huéspedes cada fin de semana.",
         "english": "The hotel organizes activities for guests every weekend."
       },
       {
-        "spanish": "Necesitamos organizar la conferencia y reservar las salas de reunión.",
+        "target": "Necesitamos organizar la conferencia y reservar las salas de reunión.",
         "english": "We need to organize the conference and book the meeting rooms."
       }
-    ]
+    ],
+    "word": "organizar"
   },
   {
     "id": "hospitality-decorar",
-    "spanish": "decorar",
     "english": "to decorate",
     "pronunciation": "decorar",
     "partOfSpeech": "verb",
@@ -5554,18 +5553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "decorar",
     "examples": [
       {
-        "spanish": "El hotel decora las habitaciones con flores frescas cada día.",
+        "target": "El hotel decora las habitaciones con flores frescas cada día.",
         "english": "The hotel decorates the rooms with fresh flowers every day."
       },
       {
-        "spanish": "Vamos a decorar el salón de eventos para la boda de esta noche.",
+        "target": "Vamos a decorar el salón de eventos para la boda de esta noche.",
         "english": "We are going to decorate the event hall for tonight's wedding."
       }
-    ]
+    ],
+    "word": "decorar"
   },
   {
     "id": "hospitality-arreglar",
-    "spanish": "arreglar",
     "english": "to fix, to arrange, to repair",
     "pronunciation": "arreglar",
     "partOfSpeech": "verb",
@@ -5574,18 +5573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "arreglar",
     "examples": [
       {
-        "spanish": "El camarero arregla la mesa para los clientes.",
+        "target": "El camarero arregla la mesa para los clientes.",
         "english": "The waiter arranges the table for the guests."
       },
       {
-        "spanish": "Necesitamos arreglar la habitación antes de que lleguen los huéspedes.",
+        "target": "Necesitamos arreglar la habitación antes de que lleguen los huéspedes.",
         "english": "We need to fix/prepare the room before the guests arrive."
       }
-    ]
+    ],
+    "word": "arreglar"
   },
   {
     "id": "hospitality-tender",
-    "spanish": "tender",
     "english": "to lay out, to spread, to make (a bed)",
     "pronunciation": "tender",
     "partOfSpeech": "verb",
@@ -5594,18 +5593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tender",
     "examples": [
       {
-        "spanish": "El camarero tiende la mesa con cuidado antes de la cena.",
+        "target": "El camarero tiende la mesa con cuidado antes de la cena.",
         "english": "The waiter sets the table carefully before dinner."
       },
       {
-        "spanish": "Las empleadas tienden las camas limpias en todas las habitaciones del hotel.",
+        "target": "Las empleadas tienden las camas limpias en todas las habitaciones del hotel.",
         "english": "The staff members make the clean beds in all the hotel rooms."
       }
-    ]
+    ],
+    "word": "tender"
   },
   {
     "id": "hospitality-sanitizar",
-    "spanish": "sanitizar",
     "english": "to sanitize",
     "pronunciation": "sanitizar",
     "partOfSpeech": "verb",
@@ -5614,18 +5613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sanitizar",
     "examples": [
       {
-        "spanish": "Es importante sanitizar todas las superficies del hotel cada día para garantizar la seguridad de los huéspedes.",
+        "target": "Es importante sanitizar todas las superficies del hotel cada día para garantizar la seguridad de los huéspedes.",
         "english": "It is important to sanitize all hotel surfaces every day to ensure guest safety."
       },
       {
-        "spanish": "El personal de limpieza debe sanitizar los baños y las habitaciones entre cada cliente.",
+        "target": "El personal de limpieza debe sanitizar los baños y las habitaciones entre cada cliente.",
         "english": "The cleaning staff must sanitize the bathrooms and rooms between each guest."
       }
-    ]
+    ],
+    "word": "sanitizar"
   },
   {
     "id": "hospitality-perfumar",
-    "spanish": "perfumar",
     "english": "to perfume",
     "pronunciation": "perfumar",
     "partOfSpeech": "verb",
@@ -5634,18 +5633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "perfumar",
     "examples": [
       {
-        "spanish": "El hotel perfuma todas las habitaciones cada mañana para crear una atmósfera acogedora.",
+        "target": "El hotel perfuma todas las habitaciones cada mañana para crear una atmósfera acogedora.",
         "english": "The hotel perfumes all the rooms every morning to create a welcoming atmosphere."
       },
       {
-        "spanish": "El gerente decidió perfumar el vestíbulo con aromas de lavanda para mejorar la experiencia del huésped.",
+        "target": "El gerente decidió perfumar el vestíbulo con aromas de lavanda para mejorar la experiencia del huésped.",
         "english": "The manager decided to perfume the lobby with lavender scents to improve the guest experience."
       }
-    ]
+    ],
+    "word": "perfumar"
   },
   {
     "id": "hospitality-climatizar",
-    "spanish": "climatizar",
     "english": "to air-condition",
     "pronunciation": "climatizar",
     "partOfSpeech": "verb",
@@ -5654,18 +5653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "climatizar",
     "examples": [
       {
-        "spanish": "El hotel climatiza todas las habitaciones para garantizar la comodidad de los huéspedes.",
+        "target": "El hotel climatiza todas las habitaciones para garantizar la comodidad de los huéspedes.",
         "english": "The hotel air-conditions all rooms to ensure guest comfort."
       },
       {
-        "spanish": "Es importante climatizar el restaurante adecuadamente durante el servicio.",
+        "target": "Es importante climatizar el restaurante adecuadamente durante el servicio.",
         "english": "It is important to regulate the temperature in the restaurant properly during service."
       }
-    ]
+    ],
+    "word": "climatizar"
   },
   {
     "id": "hospitality-iluminar",
-    "spanish": "iluminar",
     "english": "to illuminate",
     "pronunciation": "iluminar",
     "partOfSpeech": "verb",
@@ -5674,18 +5673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "iluminar",
     "examples": [
       {
-        "spanish": "Las velas iluminan el comedor del restaurante de manera romántica.",
+        "target": "Las velas iluminan el comedor del restaurante de manera romántica.",
         "english": "The candles illuminate the restaurant's dining room in a romantic way."
       },
       {
-        "spanish": "Debemos iluminar mejor las áreas comunes del hotel para mayor seguridad.",
+        "target": "Debemos iluminar mejor las áreas comunes del hotel para mayor seguridad.",
         "english": "We should better illuminate the common areas of the hotel for greater safety."
       }
-    ]
+    ],
+    "word": "iluminar"
   },
   {
     "id": "sports-entrenar",
-    "spanish": "entrenar",
     "english": "to train",
     "pronunciation": "entrenar",
     "partOfSpeech": "verb",
@@ -5694,18 +5693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "entrenar",
     "examples": [
       {
-        "spanish": "Los jugadores entrenan cada día para mejorar su rendimiento.",
+        "target": "Los jugadores entrenan cada día para mejorar su rendimiento.",
         "english": "The players train every day to improve their performance."
       },
       {
-        "spanish": "El entrenador entrena al equipo de fútbol tres veces a la semana.",
+        "target": "El entrenador entrena al equipo de fútbol tres veces a la semana.",
         "english": "The coach trains the soccer team three times a week."
       }
-    ]
+    ],
+    "word": "entrenar"
   },
   {
     "id": "sports-saltar",
-    "spanish": "saltar",
     "english": "to jump",
     "pronunciation": "saltar",
     "partOfSpeech": "verb",
@@ -5714,18 +5713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "saltar",
     "examples": [
       {
-        "spanish": "El atleta salta sobre el obstáculo con facilidad.",
+        "target": "El atleta salta sobre el obstáculo con facilidad.",
         "english": "The athlete jumps over the obstacle easily."
       },
       {
-        "spanish": "Los jugadores saltan para alcanzar el balón en el aire.",
+        "target": "Los jugadores saltan para alcanzar el balón en el aire.",
         "english": "The players jump to reach the ball in the air."
       }
-    ]
+    ],
+    "word": "saltar"
   },
   {
     "id": "sports-lanzar",
-    "spanish": "lanzar",
     "english": "to throw",
     "pronunciation": "lanzar",
     "partOfSpeech": "verb",
@@ -5734,18 +5733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "lanzar",
     "examples": [
       {
-        "spanish": "El pitcher lanzó la pelota con mucha fuerza.",
+        "target": "El pitcher lanzó la pelota con mucha fuerza.",
         "english": "The pitcher threw the ball with great force."
       },
       {
-        "spanish": "La jugadora lanzó el balón hacia la canasta.",
+        "target": "La jugadora lanzó el balón hacia la canasta.",
         "english": "The player threw the ball toward the basket."
       }
-    ]
+    ],
+    "word": "lanzar"
   },
   {
     "id": "sports-atrapar",
-    "spanish": "atrapar",
     "english": "to catch",
     "pronunciation": "atrapar",
     "partOfSpeech": "verb",
@@ -5754,18 +5753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "atrapar",
     "examples": [
       {
-        "spanish": "El portero logró atrapar el balón con ambas manos.",
+        "target": "El portero logró atrapar el balón con ambas manos.",
         "english": "The goalkeeper managed to catch the ball with both hands."
       },
       {
-        "spanish": "El fielder atrapó la pelota en el aire para eliminar al bateador.",
+        "target": "El fielder atrapó la pelota en el aire para eliminar al bateador.",
         "english": "The fielder caught the ball in the air to get the batter out."
       }
-    ]
+    ],
+    "word": "atrapar"
   },
   {
     "id": "sports-defender",
-    "spanish": "defender",
     "english": "to defend",
     "pronunciation": "defender",
     "partOfSpeech": "verb",
@@ -5774,18 +5773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "defender",
     "examples": [
       {
-        "spanish": "El defensa debe defender la portería contra los ataques del equipo contrario.",
+        "target": "El defensa debe defender la portería contra los ataques del equipo contrario.",
         "english": "The defender must defend the goal against the opposing team's attacks."
       },
       {
-        "spanish": "Los jugadores defienden su territorio con agresividad durante todo el partido.",
+        "target": "Los jugadores defienden su territorio con agresividad durante todo el partido.",
         "english": "The players defend their territory aggressively throughout the entire match."
       }
-    ]
+    ],
+    "word": "defender"
   },
   {
     "id": "sports-atacar",
-    "spanish": "atacar",
     "english": "to attack",
     "pronunciation": "atacar",
     "partOfSpeech": "verb",
@@ -5794,18 +5793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "atacar",
     "examples": [
       {
-        "spanish": "El delantero ataca la portería con un disparo fuerte.",
+        "target": "El delantero ataca la portería con un disparo fuerte.",
         "english": "The forward attacks the goal with a strong shot."
       },
       {
-        "spanish": "El equipo ataca desde el primer minuto del partido.",
+        "target": "El equipo ataca desde el primer minuto del partido.",
         "english": "The team attacks from the first minute of the match."
       }
-    ]
+    ],
+    "word": "atacar"
   },
   {
     "id": "sports-perder",
-    "spanish": "perder",
     "english": "to lose",
     "pronunciation": "perder",
     "partOfSpeech": "verb",
@@ -5814,18 +5813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "perder",
     "examples": [
       {
-        "spanish": "El equipo perdió el partido por dos goles.",
+        "target": "El equipo perdió el partido por dos goles.",
         "english": "The team lost the match by two goals."
       },
       {
-        "spanish": "No quiero perder la final del campeonato.",
+        "target": "No quiero perder la final del campeonato.",
         "english": "I don't want to lose the championship final."
       }
-    ]
+    ],
+    "word": "perder"
   },
   {
     "id": "sports-competir",
-    "spanish": "competir",
     "english": "to compete",
     "pronunciation": "competir",
     "partOfSpeech": "verb",
@@ -5834,18 +5833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "competir",
     "examples": [
       {
-        "spanish": "Los equipos compiten por el campeonato nacional.",
+        "target": "Los equipos compiten por el campeonato nacional.",
         "english": "The teams compete for the national championship."
       },
       {
-        "spanish": "Mi hermano compite en la carrera de 100 metros.",
+        "target": "Mi hermano compite en la carrera de 100 metros.",
         "english": "My brother competes in the 100-meter race."
       }
-    ]
+    ],
+    "word": "competir"
   },
   {
     "id": "sports-practicar",
-    "spanish": "practicar",
     "english": "to practice",
     "pronunciation": "practicar",
     "partOfSpeech": "verb",
@@ -5854,18 +5853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "practicar",
     "examples": [
       {
-        "spanish": "Los jugadores practican fútbol en el estadio.",
+        "target": "Los jugadores practican fútbol en el estadio.",
         "english": "The players practice football in the stadium."
       },
       {
-        "spanish": "Ella practica tenis tres veces a la semana.",
+        "target": "Ella practica tenis tres veces a la semana.",
         "english": "She practices tennis three times a week."
       }
-    ]
+    ],
+    "word": "practicar"
   },
   {
     "id": "sports-mejorar",
-    "spanish": "mejorar",
     "english": "to improve",
     "pronunciation": "mejorar",
     "partOfSpeech": "verb",
@@ -5874,18 +5873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "mejorar",
     "examples": [
       {
-        "spanish": "El entrenador cree que el equipo puede mejorar su defensa.",
+        "target": "El entrenador cree que el equipo puede mejorar su defensa.",
         "english": "The coach believes the team can improve its defense."
       },
       {
-        "spanish": "El jugador necesita mejorar su velocidad para competir en la liga.",
+        "target": "El jugador necesita mejorar su velocidad para competir en la liga.",
         "english": "The player needs to improve his speed to compete in the league."
       }
-    ]
+    ],
+    "word": "mejorar"
   },
   {
     "id": "sports-lesionarse",
-    "spanish": "lesionarse",
     "english": "to get injured",
     "pronunciation": "lesionarse",
     "partOfSpeech": "verb",
@@ -5894,18 +5893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "lesionarse",
     "examples": [
       {
-        "spanish": "El jugador se lesionó la rodilla durante el partido.",
+        "target": "El jugador se lesionó la rodilla durante el partido.",
         "english": "The player injured his knee during the match."
       },
       {
-        "spanish": "Se lesionó el hombro mientras entrenaba y tuvo que retirarse del torneo.",
+        "target": "Se lesionó el hombro mientras entrenaba y tuvo que retirarse del torneo.",
         "english": "He injured his shoulder while training and had to withdraw from the tournament."
       }
-    ]
+    ],
+    "word": "lesionarse"
   },
   {
     "id": "sports-recuperar",
-    "spanish": "recuperar",
     "english": "to recover",
     "pronunciation": "recuperar",
     "partOfSpeech": "verb",
@@ -5914,18 +5913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "recuperar",
     "examples": [
       {
-        "spanish": "El jugador necesita recuperar su forma física después de la lesión.",
+        "target": "El jugador necesita recuperar su forma física después de la lesión.",
         "english": "The player needs to recover his physical fitness after the injury."
       },
       {
-        "spanish": "El equipo se recuperó en la segunda mitad del partido.",
+        "target": "El equipo se recuperó en la segunda mitad del partido.",
         "english": "The team recovered in the second half of the match."
       }
-    ]
+    ],
+    "word": "recuperar"
   },
   {
     "id": "sports-estirar",
-    "spanish": "estirar",
     "english": "to stretch",
     "pronunciation": "estirar",
     "partOfSpeech": "verb",
@@ -5934,18 +5933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "estirar",
     "examples": [
       {
-        "spanish": "El jugador estira los músculos antes del partido.",
+        "target": "El jugador estira los músculos antes del partido.",
         "english": "The player stretches the muscles before the game."
       },
       {
-        "spanish": "Debes estirar bien las piernas para evitar lesiones.",
+        "target": "Debes estirar bien las piernas para evitar lesiones.",
         "english": "You should stretch your legs well to avoid injuries."
       }
-    ]
+    ],
+    "word": "estirar"
   },
   {
     "id": "sports-enfriar",
-    "spanish": "enfriar",
     "english": "to cool down",
     "pronunciation": "enfriar",
     "partOfSpeech": "verb",
@@ -5954,18 +5953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "enfriar",
     "examples": [
       {
-        "spanish": "El entrenador decidió enfriar al jugador estrella antes del partido importante.",
+        "target": "El entrenador decidió enfriar al jugador estrella antes del partido importante.",
         "english": "The coach decided to cool down the star player before the important match."
       },
       {
-        "spanish": "Necesitamos enfriar la intensidad del equipo para evitar lesiones.",
+        "target": "Necesitamos enfriar la intensidad del equipo para evitar lesiones.",
         "english": "We need to cool down the team's intensity to avoid injuries."
       }
-    ]
+    ],
+    "word": "enfriar"
   },
   {
     "id": "sports-fortalecer",
-    "spanish": "fortalecer",
     "english": "to strengthen",
     "pronunciation": "fortalecer",
     "partOfSpeech": "verb",
@@ -5974,18 +5973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "fortalecer",
     "examples": [
       {
-        "spanish": "Los entrenamientos diarios fortalecen los músculos de los atletas.",
+        "target": "Los entrenamientos diarios fortalecen los músculos de los atletas.",
         "english": "Daily training sessions strengthen the athletes' muscles."
       },
       {
-        "spanish": "Para fortalecer la defensa, el entrenador implementó nuevas tácticas.",
+        "target": "Para fortalecer la defensa, el entrenador implementó nuevas tácticas.",
         "english": "To strengthen the defense, the coach implemented new tactics."
       }
-    ]
+    ],
+    "word": "fortalecer"
   },
   {
     "id": "sports-resistir",
-    "spanish": "resistir",
     "english": "to resist",
     "pronunciation": "resistir",
     "partOfSpeech": "verb",
@@ -5994,18 +5993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "resistir",
     "examples": [
       {
-        "spanish": "El atleta resistió el dolor durante toda la carrera.",
+        "target": "El atleta resistió el dolor durante toda la carrera.",
         "english": "The athlete endured the pain throughout the entire race."
       },
       {
-        "spanish": "Los jugadores resistieron la presión del equipo contrario en el segundo tiempo.",
+        "target": "Los jugadores resistieron la presión del equipo contrario en el segundo tiempo.",
         "english": "The players resisted the pressure from the opposing team in the second half."
       }
-    ]
+    ],
+    "word": "resistir"
   },
   {
     "id": "sports-aguantar",
-    "spanish": "aguantar",
     "english": "to endure / to hold up / to withstand",
     "pronunciation": "aguantar",
     "partOfSpeech": "verb",
@@ -6014,18 +6013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "aguantar",
     "examples": [
       {
-        "spanish": "El jugador aguantó el dolor durante todo el partido.",
+        "target": "El jugador aguantó el dolor durante todo el partido.",
         "english": "The player endured the pain throughout the entire match."
       },
       {
-        "spanish": "Los atletas tienen que aguantar la presión en las competiciones.",
+        "target": "Los atletas tienen que aguantar la presión en las competiciones.",
         "english": "The athletes have to withstand the pressure in competitions."
       }
-    ]
+    ],
+    "word": "aguantar"
   },
   {
     "id": "sports-superar",
-    "spanish": "superar",
     "english": "to overcome / to surpass",
     "pronunciation": "superar",
     "partOfSpeech": "verb",
@@ -6034,18 +6033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "superar",
     "examples": [
       {
-        "spanish": "El atleta logró superar su récord personal en la carrera.",
+        "target": "El atleta logró superar su récord personal en la carrera.",
         "english": "The athlete managed to surpass his personal record in the race."
       },
       {
-        "spanish": "El equipo tuvo que superar a su rival en el último partido.",
+        "target": "El equipo tuvo que superar a su rival en el último partido.",
         "english": "The team had to overcome its rival in the last match."
       }
-    ]
+    ],
+    "word": "superar"
   },
   {
     "id": "sports-vencer",
-    "spanish": "vencer",
     "english": "to beat; to overcome; to defeat",
     "pronunciation": "vencer",
     "partOfSpeech": "verb",
@@ -6054,18 +6053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "vencer",
     "examples": [
       {
-        "spanish": "El equipo local logró vencer al campeón en la final.",
+        "target": "El equipo local logró vencer al campeón en la final.",
         "english": "The home team managed to defeat the champion in the final."
       },
       {
-        "spanish": "Necesitamos vencer nuestro miedo para ganar la competencia.",
+        "target": "Necesitamos vencer nuestro miedo para ganar la competencia.",
         "english": "We need to overcome our fear to win the competition."
       }
-    ]
+    ],
+    "word": "vencer"
   },
   {
     "id": "sports-arbitrar",
-    "spanish": "arbitrar",
     "english": "to referee",
     "pronunciation": "arbitrar",
     "partOfSpeech": "verb",
@@ -6074,18 +6073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "arbitrar",
     "examples": [
       {
-        "spanish": "El árbitro arbitró el partido de fútbol con profesionalismo.",
+        "target": "El árbitro arbitró el partido de fútbol con profesionalismo.",
         "english": "The referee arbitrated the football match professionally."
       },
       {
-        "spanish": "Dos jueces arbitrarán la competencia de tenis mañana.",
+        "target": "Dos jueces arbitrarán la competencia de tenis mañana.",
         "english": "Two judges will arbitrate the tennis competition tomorrow."
       }
-    ]
+    ],
+    "word": "arbitrar"
   },
   {
     "id": "sports-sancionar",
-    "spanish": "sancionar",
     "english": "to sanction",
     "pronunciation": "sancionar",
     "partOfSpeech": "verb",
@@ -6094,18 +6093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sancionar",
     "examples": [
       {
-        "spanish": "El árbitro sancionó al jugador con una tarjeta amarilla por falta táctica.",
+        "target": "El árbitro sancionó al jugador con una tarjeta amarilla por falta táctica.",
         "english": "The referee penalized the player with a yellow card for a tactical foul."
       },
       {
-        "spanish": "La federación decidió sancionar al equipo por comportamiento antideportivo.",
+        "target": "La federación decidió sancionar al equipo por comportamiento antideportivo.",
         "english": "The federation decided to penalize the team for unsporting conduct."
       }
-    ]
+    ],
+    "word": "sancionar"
   },
   {
     "id": "sports-expulsar",
-    "spanish": "expulsar",
     "english": "to expel",
     "pronunciation": "expulsar",
     "partOfSpeech": "verb",
@@ -6114,18 +6113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "expulsar",
     "examples": [
       {
-        "spanish": "El árbitro expulsó al jugador por comportamiento violento.",
+        "target": "El árbitro expulsó al jugador por comportamiento violento.",
         "english": "The referee expelled the player for violent conduct."
       },
       {
-        "spanish": "Fue expulsado del partido después de recibir la tarjeta roja.",
+        "target": "Fue expulsado del partido después de recibir la tarjeta roja.",
         "english": "He was sent off the game after receiving the red card."
       }
-    ]
+    ],
+    "word": "expulsar"
   },
   {
     "id": "sports-sustituir",
-    "spanish": "sustituir",
     "english": "to substitute",
     "pronunciation": "sustituir",
     "partOfSpeech": "verb",
@@ -6134,18 +6133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sustituir",
     "examples": [
       {
-        "spanish": "El entrenador decidió sustituir al delantero cansado en el segundo tiempo.",
+        "target": "El entrenador decidió sustituir al delantero cansado en el segundo tiempo.",
         "english": "The coach decided to substitute the tired forward in the second half."
       },
       {
-        "spanish": "El portero fue sustituido después de cometer un error grave.",
+        "target": "El portero fue sustituido después de cometer un error grave.",
         "english": "The goalkeeper was substituted after making a serious mistake."
       }
-    ]
+    ],
+    "word": "sustituir"
   },
   {
     "id": "sports-rotar",
-    "spanish": "rotar",
     "english": "to rotate",
     "pronunciation": "rotar",
     "partOfSpeech": "verb",
@@ -6154,18 +6153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "rotar",
     "examples": [
       {
-        "spanish": "Los jugadores rotan sus posiciones cada cuarto.",
+        "target": "Los jugadores rotan sus posiciones cada cuarto.",
         "english": "The players rotate their positions every quarter."
       },
       {
-        "spanish": "El entrenador decide rotar el equipo para dar descanso a los titulares.",
+        "target": "El entrenador decide rotar el equipo para dar descanso a los titulares.",
         "english": "The coach decides to rotate the team to give rest to the starters."
       }
-    ]
+    ],
+    "word": "rotar"
   },
   {
     "id": "sports-descansar",
-    "spanish": "descansar",
     "english": "to rest",
     "pronunciation": "descansar",
     "partOfSpeech": "verb",
@@ -6174,18 +6173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "descansar",
     "examples": [
       {
-        "spanish": "El jugador necesita descansar después del partido intenso.",
+        "target": "El jugador necesita descansar después del partido intenso.",
         "english": "The player needs to rest after the intense match."
       },
       {
-        "spanish": "Los atletas descansan durante el descanso del medio tiempo.",
+        "target": "Los atletas descansan durante el descanso del medio tiempo.",
         "english": "The athletes rest during halftime."
       }
-    ]
+    ],
+    "word": "descansar"
   },
   {
     "id": "sports-cronometrar",
-    "spanish": "cronometrar",
     "english": "to time/to stopwatch",
     "pronunciation": "cronometrar",
     "partOfSpeech": "verb",
@@ -6194,18 +6193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cronometrar",
     "examples": [
       {
-        "spanish": "El entrenador cronometró los 100 metros de cada atleta.",
+        "target": "El entrenador cronometró los 100 metros de cada atleta.",
         "english": "The coach timed each athlete's 100 meters."
       },
       {
-        "spanish": "Necesitamos cronometrar el tiempo de reacción del nadador.",
+        "target": "Necesitamos cronometrar el tiempo de reacción del nadador.",
         "english": "We need to time the swimmer's reaction time."
       }
-    ]
+    ],
+    "word": "cronometrar"
   },
   {
     "id": "sports-patear",
-    "spanish": "patear",
     "english": "to kick",
     "pronunciation": "patear",
     "partOfSpeech": "verb",
@@ -6214,18 +6213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "patear",
     "examples": [
       {
-        "spanish": "El futbolista pateó el balón hacia la portería.",
+        "target": "El futbolista pateó el balón hacia la portería.",
         "english": "The football player kicked the ball toward the goal."
       },
       {
-        "spanish": "Durante el partido, nuestro delantero pateó más de veinte veces.",
+        "target": "Durante el partido, nuestro delantero pateó más de veinte veces.",
         "english": "During the match, our forward kicked more than twenty times."
       }
-    ]
+    ],
+    "word": "patear"
   },
   {
     "id": "sports-golpear",
-    "spanish": "golpear",
     "english": "to hit/strike",
     "pronunciation": "golpear",
     "partOfSpeech": "verb",
@@ -6234,18 +6233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "golpear",
     "examples": [
       {
-        "spanish": "El boxeador golpea el saco de arena con mucha fuerza.",
+        "target": "El boxeador golpea el saco de arena con mucha fuerza.",
         "english": "The boxer hits the punching bag with a lot of strength."
       },
       {
-        "spanish": "El tenista golpea la pelota hacia el otro lado de la cancha.",
+        "target": "El tenista golpea la pelota hacia el otro lado de la cancha.",
         "english": "The tennis player hits the ball to the other side of the court."
       }
-    ]
+    ],
+    "word": "golpear"
   },
   {
     "id": "sports-bloquear",
-    "spanish": "bloquear",
     "english": "to block",
     "pronunciation": "bloquear",
     "partOfSpeech": "verb",
@@ -6254,18 +6253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "bloquear",
     "examples": [
       {
-        "spanish": "El defensa bloquea el tiro del delantero contrario.",
+        "target": "El defensa bloquea el tiro del delantero contrario.",
         "english": "The defender blocks the opposing forward's shot."
       },
       {
-        "spanish": "El portero logra bloquear el balón con las manos.",
+        "target": "El portero logra bloquear el balón con las manos.",
         "english": "The goalkeeper manages to block the ball with his hands."
       }
-    ]
+    ],
+    "word": "bloquear"
   },
   {
     "id": "sports-esquivar",
-    "spanish": "esquivar",
     "english": "to dodge",
     "pronunciation": "esquivar",
     "partOfSpeech": "verb",
@@ -6274,18 +6273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "esquivar",
     "examples": [
       {
-        "spanish": "El boxeador esquiva los golpes de su oponente con agilidad.",
+        "target": "El boxeador esquiva los golpes de su oponente con agilidad.",
         "english": "The boxer dodges his opponent's punches with agility."
       },
       {
-        "spanish": "La defensora esquiva el tackle del equipo contrario.",
+        "target": "La defensora esquiva el tackle del equipo contrario.",
         "english": "The defender evades the opposing team's tackle."
       }
-    ]
+    ],
+    "word": "esquivar"
   },
   {
     "id": "sports-driblar",
-    "spanish": "driblar",
     "english": "to dribble",
     "pronunciation": "driblar",
     "partOfSpeech": "verb",
@@ -6294,18 +6293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "driblar",
     "examples": [
       {
-        "spanish": "El jugador driblaba el balón hacia la portería.",
+        "target": "El jugador driblaba el balón hacia la portería.",
         "english": "The player dribbled the ball toward the goal."
       },
       {
-        "spanish": "Necesito driblar mejor para evitar a los defensores.",
+        "target": "Necesito driblar mejor para evitar a los defensores.",
         "english": "I need to dribble better to avoid the defenders."
       }
-    ]
+    ],
+    "word": "driblar"
   },
   {
     "id": "sports-asistir",
-    "spanish": "asistir",
     "english": "to attend",
     "pronunciation": "asistir",
     "partOfSpeech": "verb",
@@ -6314,18 +6313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "asistir",
     "examples": [
       {
-        "spanish": "Muchos aficionados asisten al partido de fútbol cada domingo.",
+        "target": "Muchos aficionados asisten al partido de fútbol cada domingo.",
         "english": "Many fans attend the football match every Sunday."
       },
       {
-        "spanish": "El entrenador asiste a los jugadores durante el entrenamiento.",
+        "target": "El entrenador asiste a los jugadores durante el entrenamiento.",
         "english": "The coach assists the players during training."
       }
-    ]
+    ],
+    "word": "asistir"
   },
   {
     "id": "sports-celebrar",
-    "spanish": "celebrar",
     "english": "to celebrate",
     "pronunciation": "celebrar",
     "partOfSpeech": "verb",
@@ -6334,18 +6333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "celebrar",
     "examples": [
       {
-        "spanish": "El equipo celebra la victoria después del partido.",
+        "target": "El equipo celebra la victoria después del partido.",
         "english": "The team celebrates the victory after the match."
       },
       {
-        "spanish": "Los aficionados celebran el gol espectacular de su jugador.",
+        "target": "Los aficionados celebran el gol espectacular de su jugador.",
         "english": "The fans celebrate their player's spectacular goal."
       }
-    ]
+    ],
+    "word": "celebrar"
   },
   {
     "id": "sports-protestar",
-    "spanish": "protestar",
     "english": "to protest",
     "pronunciation": "protestar",
     "partOfSpeech": "verb",
@@ -6354,18 +6353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "protestar",
     "examples": [
       {
-        "spanish": "El entrenador protestó contra la decisión del árbitro.",
+        "target": "El entrenador protestó contra la decisión del árbitro.",
         "english": "The coach protested against the referee's decision."
       },
       {
-        "spanish": "Los jugadores protestaron por la falta que no fue marcada.",
+        "target": "Los jugadores protestaron por la falta que no fue marcada.",
         "english": "The players protested about the foul that wasn't called."
       }
-    ]
+    ],
+    "word": "protestar"
   },
   {
     "id": "sports-motivar",
-    "spanish": "motivar",
     "english": "to motivate",
     "pronunciation": "motivar",
     "partOfSpeech": "verb",
@@ -6374,18 +6373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "motivar",
     "examples": [
       {
-        "spanish": "El entrenador motiva a sus jugadores antes del partido.",
+        "target": "El entrenador motiva a sus jugadores antes del partido.",
         "english": "The coach motivates his players before the match."
       },
       {
-        "spanish": "La victoria del equipo motiva a todos los aficionados.",
+        "target": "La victoria del equipo motiva a todos los aficionados.",
         "english": "The team's victory motivates all the fans."
       }
-    ]
+    ],
+    "word": "motivar"
   },
   {
     "id": "sports-animar",
-    "spanish": "animar",
     "english": "to cheer; to encourage",
     "pronunciation": "animar",
     "partOfSpeech": "verb",
@@ -6394,18 +6393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "animar",
     "examples": [
       {
-        "spanish": "Los aficionados animan al equipo desde las gradas.",
+        "target": "Los aficionados animan al equipo desde las gradas.",
         "english": "The fans cheer for the team from the stands."
       },
       {
-        "spanish": "El entrenador anima a los jugadores a dar lo mejor de sí.",
+        "target": "El entrenador anima a los jugadores a dar lo mejor de sí.",
         "english": "The coach encourages the players to give their best."
       }
-    ]
+    ],
+    "word": "animar"
   },
   {
     "id": "sports-apoyar",
-    "spanish": "apoyar",
     "english": "to support",
     "pronunciation": "apoyar",
     "partOfSpeech": "verb",
@@ -6414,18 +6413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "apoyar",
     "examples": [
       {
-        "spanish": "Los aficionados apoyan al equipo desde las gradas.",
+        "target": "Los aficionados apoyan al equipo desde las gradas.",
         "english": "The fans support the team from the stands."
       },
       {
-        "spanish": "El entrenador apoya a sus jugadores durante los partidos difíciles.",
+        "target": "El entrenador apoya a sus jugadores durante los partidos difíciles.",
         "english": "The coach supports his players during difficult matches."
       }
-    ]
+    ],
+    "word": "apoyar"
   },
   {
     "id": "sports-concentrarse",
-    "spanish": "concentrarse",
     "english": "to concentrate",
     "pronunciation": "concentrarse",
     "partOfSpeech": "verb",
@@ -6434,18 +6433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "concentrarse",
     "examples": [
       {
-        "spanish": "El jugador debe concentrarse en el partido para jugar bien.",
+        "target": "El jugador debe concentrarse en el partido para jugar bien.",
         "english": "The player must concentrate on the game to play well."
       },
       {
-        "spanish": "Los atletas se concentran antes de la competencia para dar su mejor rendimiento.",
+        "target": "Los atletas se concentran antes de la competencia para dar su mejor rendimiento.",
         "english": "The athletes concentrate before the competition to give their best performance."
       }
-    ]
+    ],
+    "word": "concentrarse"
   },
   {
     "id": "business-negociar",
-    "spanish": "negociar",
     "english": "to negotiate",
     "pronunciation": "negociar",
     "partOfSpeech": "verb",
@@ -6454,18 +6453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "negociar",
     "examples": [
       {
-        "spanish": "Los dos empresarios negocian el precio del contrato.",
+        "target": "Los dos empresarios negocian el precio del contrato.",
         "english": "The two businessmen negotiate the price of the contract."
       },
       {
-        "spanish": "Nuestro equipo negocia constantemente con los proveedores para obtener mejores condiciones.",
+        "target": "Nuestro equipo negocia constantemente con los proveedores para obtener mejores condiciones.",
         "english": "Our team constantly negotiates with suppliers to obtain better terms."
       }
-    ]
+    ],
+    "word": "negociar"
   },
   {
     "id": "business-firmar",
-    "spanish": "firmar",
     "english": "to sign",
     "pronunciation": "firmar",
     "partOfSpeech": "verb",
@@ -6474,18 +6473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "firmar",
     "examples": [
       {
-        "spanish": "El cliente debe firmar el contrato antes de finalizar el acuerdo.",
+        "target": "El cliente debe firmar el contrato antes de finalizar el acuerdo.",
         "english": "The client must sign the contract before finalizing the agreement."
       },
       {
-        "spanish": "El director firmará los documentos de la empresa mañana por la mañana.",
+        "target": "El director firmará los documentos de la empresa mañana por la mañana.",
         "english": "The director will sign the company documents tomorrow morning."
       }
-    ]
+    ],
+    "word": "firmar"
   },
   {
     "id": "business-contratar",
-    "spanish": "contratar",
     "english": "to hire",
     "pronunciation": "contratar",
     "partOfSpeech": "verb",
@@ -6494,18 +6493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "contratar",
     "examples": [
       {
-        "spanish": "La empresa decidió contratar a cinco ingenieros nuevos para el proyecto.",
+        "target": "La empresa decidió contratar a cinco ingenieros nuevos para el proyecto.",
         "english": "The company decided to hire five new engineers for the project."
       },
       {
-        "spanish": "Vamos a contratar los servicios de una agencia de publicidad especializada.",
+        "target": "Vamos a contratar los servicios de una agencia de publicidad especializada.",
         "english": "We are going to contract the services of a specialized advertising agency."
       }
-    ]
+    ],
+    "word": "contratar"
   },
   {
     "id": "business-reportar",
-    "spanish": "reportar",
     "english": "to report",
     "pronunciation": "reportar",
     "partOfSpeech": "verb",
@@ -6514,18 +6513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "reportar",
     "examples": [
       {
-        "spanish": "El gerente reporta los resultados trimestrales a la junta directiva.",
+        "target": "El gerente reporta los resultados trimestrales a la junta directiva.",
         "english": "The manager reports the quarterly results to the board of directors."
       },
       {
-        "spanish": "Necesito reportar estos gastos en el informe financiero antes del viernes.",
+        "target": "Necesito reportar estos gastos en el informe financiero antes del viernes.",
         "english": "I need to report these expenses in the financial report before Friday."
       }
-    ]
+    ],
+    "word": "reportar"
   },
   {
     "id": "business-facturar",
-    "spanish": "facturar",
     "english": "to invoice",
     "pronunciation": "facturar",
     "partOfSpeech": "verb",
@@ -6534,18 +6533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "facturar",
     "examples": [
       {
-        "spanish": "La empresa factura los servicios prestados cada mes.",
+        "target": "La empresa factura los servicios prestados cada mes.",
         "english": "The company invoices for services rendered each month."
       },
       {
-        "spanish": "Necesitamos facturar estos productos antes del cierre del trimestre.",
+        "target": "Necesitamos facturar estos productos antes del cierre del trimestre.",
         "english": "We need to invoice these products before the end of the quarter."
       }
-    ]
+    ],
+    "word": "facturar"
   },
   {
     "id": "business-planificar",
-    "spanish": "planificar",
     "english": "to plan",
     "pronunciation": "planificar",
     "partOfSpeech": "verb",
@@ -6554,18 +6553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "planificar",
     "examples": [
       {
-        "spanish": "Debemos planificar la estrategia de marketing para el próximo trimestre.",
+        "target": "Debemos planificar la estrategia de marketing para el próximo trimestre.",
         "english": "We must plan the marketing strategy for the next quarter."
       },
       {
-        "spanish": "El equipo planifica los objetivos anuales en la reunión de enero.",
+        "target": "El equipo planifica los objetivos anuales en la reunión de enero.",
         "english": "The team plans the annual objectives in the January meeting."
       }
-    ]
+    ],
+    "word": "planificar"
   },
   {
     "id": "business-supervisar",
-    "spanish": "supervisar",
     "english": "to supervise",
     "pronunciation": "supervisar",
     "partOfSpeech": "verb",
@@ -6574,18 +6573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "supervisar",
     "examples": [
       {
-        "spanish": "El gerente debe supervisar el progreso del proyecto cada semana.",
+        "target": "El gerente debe supervisar el progreso del proyecto cada semana.",
         "english": "The manager must supervise the project's progress every week."
       },
       {
-        "spanish": "Es responsabilidad del director supervisar que todos los empleados cumplan con las normas de calidad.",
+        "target": "Es responsabilidad del director supervisar que todos los empleados cumplan con las normas de calidad.",
         "english": "It is the director's responsibility to supervise that all employees comply with quality standards."
       }
-    ]
+    ],
+    "word": "supervisar"
   },
   {
     "id": "business-delegar",
-    "spanish": "delegar",
     "english": "to delegate",
     "pronunciation": "delegar",
     "partOfSpeech": "verb",
@@ -6594,18 +6593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "delegar",
     "examples": [
       {
-        "spanish": "El gerente decidió delegar las responsabilidades del proyecto a su equipo.",
+        "target": "El gerente decidió delegar las responsabilidades del proyecto a su equipo.",
         "english": "The manager decided to delegate the project responsibilities to his team."
       },
       {
-        "spanish": "Es importante que los líderes empresariales sepan cuándo delegar tareas para mejorar la productividad.",
+        "target": "Es importante que los líderes empresariales sepan cuándo delegar tareas para mejorar la productividad.",
         "english": "It is important that business leaders know when to delegate tasks to improve productivity."
       }
-    ]
+    ],
+    "word": "delegar"
   },
   {
     "id": "business-auditar",
-    "spanish": "auditar",
     "english": "to audit",
     "pronunciation": "auditar",
     "partOfSpeech": "verb",
@@ -6614,18 +6613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "auditar",
     "examples": [
       {
-        "spanish": "La empresa debe auditar sus cuentas financieras cada año.",
+        "target": "La empresa debe auditar sus cuentas financieras cada año.",
         "english": "The company must audit its financial accounts every year."
       },
       {
-        "spanish": "El equipo de auditores va a auditar los procesos internos de la organización.",
+        "target": "El equipo de auditores va a auditar los procesos internos de la organización.",
         "english": "The audit team is going to audit the organization's internal processes."
       }
-    ]
+    ],
+    "word": "auditar"
   },
   {
     "id": "business-revisar",
-    "spanish": "revisar",
     "english": "to review, to check, to audit",
     "pronunciation": "revisar",
     "partOfSpeech": "verb",
@@ -6634,18 +6633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "revisar",
     "examples": [
       {
-        "spanish": "El gerente revisa los informes financieros cada semana.",
+        "target": "El gerente revisa los informes financieros cada semana.",
         "english": "The manager reviews the financial reports every week."
       },
       {
-        "spanish": "Necesitamos revisar el contrato antes de firmarlo.",
+        "target": "Necesitamos revisar el contrato antes de firmarlo.",
         "english": "We need to review the contract before signing it."
       }
-    ]
+    ],
+    "word": "revisar"
   },
   {
     "id": "business-rechazar",
-    "spanish": "rechazar",
     "english": "to reject",
     "pronunciation": "rechazar",
     "partOfSpeech": "verb",
@@ -6654,18 +6653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "rechazar",
     "examples": [
       {
-        "spanish": "La empresa decidió rechazar la propuesta de fusión debido a los términos desfavorables.",
+        "target": "La empresa decidió rechazar la propuesta de fusión debido a los términos desfavorables.",
         "english": "The company decided to reject the merger proposal due to unfavorable terms."
       },
       {
-        "spanish": "Tuvimos que rechazar la solicitud del cliente porque no cumplía con nuestros estándares de calidad.",
+        "target": "Tuvimos que rechazar la solicitud del cliente porque no cumplía con nuestros estándares de calidad.",
         "english": "We had to reject the client's request because it did not meet our quality standards."
       }
-    ]
+    ],
+    "word": "rechazar"
   },
   {
     "id": "business-invertir",
-    "spanish": "invertir",
     "english": "to invest",
     "pronunciation": "invertir",
     "partOfSpeech": "verb",
@@ -6674,18 +6673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "invertir",
     "examples": [
       {
-        "spanish": "La empresa decidió invertir en nuevas tecnologías para mejorar la productividad.",
+        "target": "La empresa decidió invertir en nuevas tecnologías para mejorar la productividad.",
         "english": "The company decided to invest in new technologies to improve productivity."
       },
       {
-        "spanish": "Nosotros invertimos millones de dólares en la expansión internacional.",
+        "target": "Nosotros invertimos millones de dólares en la expansión internacional.",
         "english": "We invested millions of dollars in international expansion."
       }
-    ]
+    ],
+    "word": "invertir"
   },
   {
     "id": "business-financiar",
-    "spanish": "financiar",
     "english": "to finance",
     "pronunciation": "financiar",
     "partOfSpeech": "verb",
@@ -6694,18 +6693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "financiar",
     "examples": [
       {
-        "spanish": "El banco financiará el proyecto de expansión de la empresa.",
+        "target": "El banco financiará el proyecto de expansión de la empresa.",
         "english": "The bank will finance the company's expansion project."
       },
       {
-        "spanish": "Necesitamos financiar nuestro negocio con inversión extranjera.",
+        "target": "Necesitamos financiar nuestro negocio con inversión extranjera.",
         "english": "We need to finance our business with foreign investment."
       }
-    ]
+    ],
+    "word": "financiar"
   },
   {
     "id": "business-presupuestar",
-    "spanish": "presupuestar",
     "english": "to budget",
     "pronunciation": "presupuestar",
     "partOfSpeech": "verb",
@@ -6714,18 +6713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "presupuestar",
     "examples": [
       {
-        "spanish": "La empresa necesita presupuestar los gastos operativos para el próximo trimestre.",
+        "target": "La empresa necesita presupuestar los gastos operativos para el próximo trimestre.",
         "english": "The company needs to budget the operating expenses for the next quarter."
       },
       {
-        "spanish": "El director financiero presupuestó cinco millones de euros para la campaña de marketing.",
+        "target": "El director financiero presupuestó cinco millones de euros para la campaña de marketing.",
         "english": "The financial director budgeted five million euros for the marketing campaign."
       }
-    ]
+    ],
+    "word": "presupuestar"
   },
   {
     "id": "business-cotizar",
-    "spanish": "cotizar",
     "english": "to quote; to list on the stock exchange",
     "pronunciation": "cotizar",
     "partOfSpeech": "verb",
@@ -6734,18 +6733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "cotizar",
     "examples": [
       {
-        "spanish": "La empresa cotiza sus acciones en la bolsa de valores.",
+        "target": "La empresa cotiza sus acciones en la bolsa de valores.",
         "english": "The company lists its shares on the stock exchange."
       },
       {
-        "spanish": "Necesitamos cotizar el precio del producto antes de presentar la propuesta.",
+        "target": "Necesitamos cotizar el precio del producto antes de presentar la propuesta.",
         "english": "We need to quote the price of the product before presenting the proposal."
       }
-    ]
+    ],
+    "word": "cotizar"
   },
   {
     "id": "business-licitar",
-    "spanish": "licitar",
     "english": "to bid",
     "pronunciation": "licitar",
     "partOfSpeech": "verb",
@@ -6754,18 +6753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "licitar",
     "examples": [
       {
-        "spanish": "La empresa decidió licitar para obtener el contrato de construcción.",
+        "target": "La empresa decidió licitar para obtener el contrato de construcción.",
         "english": "The company decided to bid to obtain the construction contract."
       },
       {
-        "spanish": "Varios proveedores licitaron por el proyecto de modernización del sistema.",
+        "target": "Varios proveedores licitaron por el proyecto de modernización del sistema.",
         "english": "Several suppliers bid for the system modernization project."
       }
-    ]
+    ],
+    "word": "licitar"
   },
   {
     "id": "business-importar",
-    "spanish": "importar",
     "english": "to matter, to import, to be important",
     "pronunciation": "importar",
     "partOfSpeech": "verb",
@@ -6774,18 +6773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "importar",
     "examples": [
       {
-        "spanish": "No nos importa el costo si la calidad es excelente.",
+        "target": "No nos importa el costo si la calidad es excelente.",
         "english": "We don't care about the cost if the quality is excellent."
       },
       {
-        "spanish": "Lo que importa es cumplir con los objetivos trimestrales.",
+        "target": "Lo que importa es cumplir con los objetivos trimestrales.",
         "english": "What matters is meeting the quarterly targets."
       }
-    ]
+    ],
+    "word": "importar"
   },
   {
     "id": "business-exportar",
-    "spanish": "exportar",
     "english": "to export",
     "pronunciation": "exportar",
     "partOfSpeech": "verb",
@@ -6794,18 +6793,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "exportar",
     "examples": [
       {
-        "spanish": "Nuestra empresa exporta productos electrónicos a más de 50 países.",
+        "target": "Nuestra empresa exporta productos electrónicos a más de 50 países.",
         "english": "Our company exports electronic products to more than 50 countries."
       },
       {
-        "spanish": "Esperamos exportar el 40% de nuestra producción el próximo año fiscal.",
+        "target": "Esperamos exportar el 40% de nuestra producción el próximo año fiscal.",
         "english": "We expect to export 40% of our production next fiscal year."
       }
-    ]
+    ],
+    "word": "exportar"
   },
   {
     "id": "business-distribuir",
-    "spanish": "distribuir",
     "english": "to distribute",
     "pronunciation": "distribuir",
     "partOfSpeech": "verb",
@@ -6814,18 +6813,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "distribuir",
     "examples": [
       {
-        "spanish": "La empresa distribuye sus productos a través de varios canales de venta.",
+        "target": "La empresa distribuye sus productos a través de varios canales de venta.",
         "english": "The company distributes its products through several sales channels."
       },
       {
-        "spanish": "Necesitamos distribuir el presupuesto entre los diferentes departamentos.",
+        "target": "Necesitamos distribuir el presupuesto entre los diferentes departamentos.",
         "english": "We need to distribute the budget among the different departments."
       }
-    ]
+    ],
+    "word": "distribuir"
   },
   {
     "id": "business-comercializar",
-    "spanish": "comercializar",
     "english": "to commercialize",
     "pronunciation": "comercializar",
     "partOfSpeech": "verb",
@@ -6834,18 +6833,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comercializar",
     "examples": [
       {
-        "spanish": "La empresa decidió comercializar su nuevo producto en mercados internacionales.",
+        "target": "La empresa decidió comercializar su nuevo producto en mercados internacionales.",
         "english": "The company decided to commercialize its new product in international markets."
       },
       {
-        "spanish": "Necesitamos comercializar esta tecnología antes de que nuestros competidores lo hagan.",
+        "target": "Necesitamos comercializar esta tecnología antes de que nuestros competidores lo hagan.",
         "english": "We need to commercialize this technology before our competitors do."
       }
-    ]
+    ],
+    "word": "comercializar"
   },
   {
     "id": "business-promover",
-    "spanish": "promover",
     "english": "to promote",
     "pronunciation": "promover",
     "partOfSpeech": "verb",
@@ -6854,18 +6853,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "promover",
     "examples": [
       {
-        "spanish": "La empresa promueve el desarrollo profesional de sus empleados.",
+        "target": "La empresa promueve el desarrollo profesional de sus empleados.",
         "english": "The company promotes the professional development of its employees."
       },
       {
-        "spanish": "Vamos a promover este nuevo producto en el mercado internacional.",
+        "target": "Vamos a promover este nuevo producto en el mercado internacional.",
         "english": "We are going to promote this new product in the international market."
       }
-    ]
+    ],
+    "word": "promover"
   },
   {
     "id": "business-publicitar",
-    "spanish": "publicitar",
     "english": "to advertise",
     "pronunciation": "publicitar",
     "partOfSpeech": "verb",
@@ -6874,18 +6873,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "publicitar",
     "examples": [
       {
-        "spanish": "La empresa decidió publicitar su nuevo producto en las redes sociales para aumentar las ventas.",
+        "target": "La empresa decidió publicitar su nuevo producto en las redes sociales para aumentar las ventas.",
         "english": "The company decided to advertise its new product on social media to increase sales."
       },
       {
-        "spanish": "Debemos publicitar nuestros servicios de consultoría para atraer más clientes potenciales.",
+        "target": "Debemos publicitar nuestros servicios de consultoría para atraer más clientes potenciales.",
         "english": "We must publicize our consulting services to attract more potential clients."
       }
-    ]
+    ],
+    "word": "publicitar"
   },
   {
     "id": "business-promocionar",
-    "spanish": "promocionar",
     "english": "to promote",
     "pronunciation": "promocionar",
     "partOfSpeech": "verb",
@@ -6894,18 +6893,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "promocionar",
     "examples": [
       {
-        "spanish": "La empresa promociona sus nuevos productos en las redes sociales.",
+        "target": "La empresa promociona sus nuevos productos en las redes sociales.",
         "english": "The company promotes its new products on social media."
       },
       {
-        "spanish": "Vamos a promocionar a nuestro mejor empleado al puesto de gerente.",
+        "target": "Vamos a promocionar a nuestro mejor empleado al puesto de gerente.",
         "english": "We are going to promote our best employee to the manager position."
       }
-    ]
+    ],
+    "word": "promocionar"
   },
   {
     "id": "business-expandir",
-    "spanish": "expandir",
     "english": "to expand",
     "pronunciation": "expandir",
     "partOfSpeech": "verb",
@@ -6914,18 +6913,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "expandir",
     "examples": [
       {
-        "spanish": "La empresa planea expandir sus operaciones a nuevos mercados internacionales.",
+        "target": "La empresa planea expandir sus operaciones a nuevos mercados internacionales.",
         "english": "The company plans to expand its operations to new international markets."
       },
       {
-        "spanish": "Necesitamos expandir nuestro equipo de ventas para aumentar la producción.",
+        "target": "Necesitamos expandir nuestro equipo de ventas para aumentar la producción.",
         "english": "We need to expand our sales team to increase production."
       }
-    ]
+    ],
+    "word": "expandir"
   },
   {
     "id": "business-fusionar",
-    "spanish": "fusionar",
     "english": "to merge",
     "pronunciation": "fusionar",
     "partOfSpeech": "verb",
@@ -6934,18 +6933,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "fusionar",
     "examples": [
       {
-        "spanish": "Las dos empresas decidieron fusionarse para aumentar su competitividad en el mercado.",
+        "target": "Las dos empresas decidieron fusionarse para aumentar su competitividad en el mercado.",
         "english": "The two companies decided to merge to increase their competitiveness in the market."
       },
       {
-        "spanish": "Vamos a fusionar nuestros departamentos de tecnología para optimizar los recursos.",
+        "target": "Vamos a fusionar nuestros departamentos de tecnología para optimizar los recursos.",
         "english": "We are going to merge our technology departments to optimize resources."
       }
-    ]
+    ],
+    "word": "fusionar"
   },
   {
     "id": "business-adquirir",
-    "spanish": "adquirir",
     "english": "to acquire",
     "pronunciation": "adquirir",
     "partOfSpeech": "verb",
@@ -6954,18 +6953,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "adquirir",
     "examples": [
       {
-        "spanish": "La empresa decidió adquirir una nueva tecnología para mejorar la producción.",
+        "target": "La empresa decidió adquirir una nueva tecnología para mejorar la producción.",
         "english": "The company decided to acquire new technology to improve production."
       },
       {
-        "spanish": "Nuestro negocio necesita adquirir más capital para expandirse al mercado internacional.",
+        "target": "Nuestro negocio necesita adquirir más capital para expandirse al mercado internacional.",
         "english": "Our business needs to acquire more capital to expand into the international market."
       }
-    ]
+    ],
+    "word": "adquirir"
   },
   {
     "id": "business-liquidar",
-    "spanish": "liquidar",
     "english": "to liquidate",
     "pronunciation": "liquidar",
     "partOfSpeech": "verb",
@@ -6974,18 +6973,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "liquidar",
     "examples": [
       {
-        "spanish": "La empresa decidió liquidar sus activos para pagar las deudas.",
+        "target": "La empresa decidió liquidar sus activos para pagar las deudas.",
         "english": "The company decided to liquidate its assets to pay off the debts."
       },
       {
-        "spanish": "Necesitamos liquidar el inventario antes del final del trimestre.",
+        "target": "Necesitamos liquidar el inventario antes del final del trimestre.",
         "english": "We need to liquidate the inventory before the end of the quarter."
       }
-    ]
+    ],
+    "word": "liquidar"
   },
   {
     "id": "business-disolver",
-    "spanish": "disolver",
     "english": "to dissolve",
     "pronunciation": "disolver",
     "partOfSpeech": "verb",
@@ -6994,18 +6993,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "disolver",
     "examples": [
       {
-        "spanish": "La empresa decidió disolver la sociedad después de diez años de operaciones.",
+        "target": "La empresa decidió disolver la sociedad después de diez años de operaciones.",
         "english": "The company decided to dissolve the partnership after ten years of operations."
       },
       {
-        "spanish": "El consejo de administración votó para disolver el contrato con el proveedor.",
+        "target": "El consejo de administración votó para disolver el contrato con el proveedor.",
         "english": "The board of directors voted to dissolve the contract with the supplier."
       }
-    ]
+    ],
+    "word": "disolver"
   },
   {
     "id": "business-incorporar",
-    "spanish": "incorporar",
     "english": "to incorporate",
     "pronunciation": "incorporar",
     "partOfSpeech": "verb",
@@ -7014,18 +7013,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "incorporar",
     "examples": [
       {
-        "spanish": "Vamos a incorporar nuevas tecnologías en nuestro proceso de producción.",
+        "target": "Vamos a incorporar nuevas tecnologías en nuestro proceso de producción.",
         "english": "We are going to incorporate new technologies into our production process."
       },
       {
-        "spanish": "La empresa decidió incorporar a tres ingenieros al equipo de desarrollo.",
+        "target": "La empresa decidió incorporar a tres ingenieros al equipo de desarrollo.",
         "english": "The company decided to incorporate three engineers into the development team."
       }
-    ]
+    ],
+    "word": "incorporar"
   },
   {
     "id": "business-capitalizar",
-    "spanish": "capitalizar",
     "english": "to capitalize",
     "pronunciation": "capitalizar",
     "partOfSpeech": "verb",
@@ -7034,18 +7033,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "capitalizar",
     "examples": [
       {
-        "spanish": "La empresa decidió capitalizar sus ganancias reinvirtiendo en nuevas tecnologías.",
+        "target": "La empresa decidió capitalizar sus ganancias reinvirtiendo en nuevas tecnologías.",
         "english": "The company decided to capitalize its profits by reinvesting in new technologies."
       },
       {
-        "spanish": "Debemos capitalizar esta oportunidad de mercado antes de que sea demasiado tarde.",
+        "target": "Debemos capitalizar esta oportunidad de mercado antes de que sea demasiado tarde.",
         "english": "We must capitalize on this market opportunity before it's too late."
       }
-    ]
+    ],
+    "word": "capitalizar"
   },
   {
     "id": "business-apalancar",
-    "spanish": "apalancar",
     "english": "to leverage",
     "pronunciation": "apalancar",
     "partOfSpeech": "verb",
@@ -7054,18 +7053,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "apalancar",
     "examples": [
       {
-        "spanish": "La empresa logró apalancar su posición en el mercado mediante una estrategia de inversión inteligente.",
+        "target": "La empresa logró apalancar su posición en el mercado mediante una estrategia de inversión inteligente.",
         "english": "The company managed to leverage its market position through a smart investment strategy."
       },
       {
-        "spanish": "Necesitamos apalancar nuestros recursos financieros para expandir el negocio internacionalmente.",
+        "target": "Necesitamos apalancar nuestros recursos financieros para expandir el negocio internacionalmente.",
         "english": "We need to leverage our financial resources to expand the business internationally."
       }
-    ]
+    ],
+    "word": "apalancar"
   },
   {
     "id": "business-diversificar",
-    "spanish": "diversificar",
     "english": "to diversify",
     "pronunciation": "diversificar",
     "partOfSpeech": "verb",
@@ -7074,18 +7073,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "diversificar",
     "examples": [
       {
-        "spanish": "La empresa decidió diversificar sus productos para reducir el riesgo de mercado.",
+        "target": "La empresa decidió diversificar sus productos para reducir el riesgo de mercado.",
         "english": "The company decided to diversify its products to reduce market risk."
       },
       {
-        "spanish": "Necesitamos diversificar nuestras inversiones en diferentes sectores económicos.",
+        "target": "Necesitamos diversificar nuestras inversiones en diferentes sectores económicos.",
         "english": "We need to diversify our investments across different economic sectors."
       }
-    ]
+    ],
+    "word": "diversificar"
   },
   {
     "id": "business-rentabilizar",
-    "spanish": "rentabilizar",
     "english": "to make profitable / to maximize profitability",
     "pronunciation": "rentabilizar",
     "partOfSpeech": "verb",
@@ -7094,18 +7093,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "rentabilizar",
     "examples": [
       {
-        "spanish": "La empresa debe rentabilizar sus inversiones en tecnología para mejorar la competitividad.",
+        "target": "La empresa debe rentabilizar sus inversiones en tecnología para mejorar la competitividad.",
         "english": "The company must make its technology investments profitable to improve competitiveness."
       },
       {
-        "spanish": "Nuestro objetivo es rentabilizar el capital invertido en la nueva sucursal dentro de dos años.",
+        "target": "Nuestro objetivo es rentabilizar el capital invertido en la nueva sucursal dentro de dos años.",
         "english": "Our goal is to make the capital invested in the new branch profitable within two years."
       }
-    ]
+    ],
+    "word": "rentabilizar"
   },
   {
     "id": "business-optimizar",
-    "spanish": "optimizar",
     "english": "to optimize",
     "pronunciation": "optimizar",
     "partOfSpeech": "verb",
@@ -7114,18 +7113,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "optimizar",
     "examples": [
       {
-        "spanish": "Debemos optimizar nuestros procesos de producción para reducir costos.",
+        "target": "Debemos optimizar nuestros procesos de producción para reducir costos.",
         "english": "We must optimize our production processes to reduce costs."
       },
       {
-        "spanish": "La empresa decidió optimizar su estrategia de marketing digital este trimestre.",
+        "target": "La empresa decidió optimizar su estrategia de marketing digital este trimestre.",
         "english": "The company decided to optimize its digital marketing strategy this quarter."
       }
-    ]
+    ],
+    "word": "optimizar"
   },
   {
     "id": "business-automatizar",
-    "spanish": "automatizar",
     "english": "to automate",
     "pronunciation": "automatizar",
     "partOfSpeech": "verb",
@@ -7134,18 +7133,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "automatizar",
     "examples": [
       {
-        "spanish": "La empresa decidió automatizar sus procesos de facturación para reducir errores y aumentar la eficiencia.",
+        "target": "La empresa decidió automatizar sus procesos de facturación para reducir errores y aumentar la eficiencia.",
         "english": "The company decided to automate its billing processes to reduce errors and increase efficiency."
       },
       {
-        "spanish": "Necesitamos automatizar el sistema de inventario antes del próximo trimestre.",
+        "target": "Necesitamos automatizar el sistema de inventario antes del próximo trimestre.",
         "english": "We need to automate the inventory system before the next quarter."
       }
-    ]
+    ],
+    "word": "automatizar"
   },
   {
     "id": "business-digitalizar",
-    "spanish": "digitalizar",
     "english": "to digitize",
     "pronunciation": "digitalizar",
     "partOfSpeech": "verb",
@@ -7154,18 +7153,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "digitalizar",
     "examples": [
       {
-        "spanish": "La empresa decidió digitalizar todos sus procesos administrativos para mejorar la eficiencia.",
+        "target": "La empresa decidió digitalizar todos sus procesos administrativos para mejorar la eficiencia.",
         "english": "The company decided to digitalize all its administrative processes to improve efficiency."
       },
       {
-        "spanish": "Necesitamos digitalizar nuestros archivos antes de cerrar la oficina física.",
+        "target": "Necesitamos digitalizar nuestros archivos antes de cerrar la oficina física.",
         "english": "We need to digitalize our files before closing the physical office."
       }
-    ]
+    ],
+    "word": "digitalizar"
   },
   {
     "id": "business-externalizar",
-    "spanish": "externalizar",
     "english": "to outsource",
     "pronunciation": "externalizar",
     "partOfSpeech": "verb",
@@ -7174,18 +7173,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "externalizar",
     "examples": [
       {
-        "spanish": "La empresa decidió externalizar sus servicios de atención al cliente a un proveedor especializado.",
+        "target": "La empresa decidió externalizar sus servicios de atención al cliente a un proveedor especializado.",
         "english": "The company decided to outsource its customer service to a specialized provider."
       },
       {
-        "spanish": "Vamos a externalizar la producción de componentes para reducir costos operacionales.",
+        "target": "Vamos a externalizar la producción de componentes para reducir costos operacionales.",
         "english": "We are going to outsource component production to reduce operational costs."
       }
-    ]
+    ],
+    "word": "externalizar"
   },
   {
     "id": "business-tercerizar",
-    "spanish": "tercerizar",
     "english": "to outsource",
     "pronunciation": "tercerizar",
     "partOfSpeech": "verb",
@@ -7194,18 +7193,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "tercerizar",
     "examples": [
       {
-        "spanish": "La empresa decidió tercerizar sus servicios de logística para reducir costos.",
+        "target": "La empresa decidió tercerizar sus servicios de logística para reducir costos.",
         "english": "The company decided to outsource its logistics services to reduce costs."
       },
       {
-        "spanish": "Vamos a tercerizar la gestión de recursos humanos con una consultora externa.",
+        "target": "Vamos a tercerizar la gestión de recursos humanos con una consultora externa.",
         "english": "We are going to outsource human resources management to an external consulting firm."
       }
-    ]
+    ],
+    "word": "tercerizar"
   },
   {
     "id": "business-innovar",
-    "spanish": "innovar",
     "english": "to innovate",
     "pronunciation": "innovar",
     "partOfSpeech": "verb",
@@ -7214,18 +7213,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "innovar",
     "examples": [
       {
-        "spanish": "La empresa necesita innovar en sus procesos de producción para mantenerse competitiva.",
+        "target": "La empresa necesita innovar en sus procesos de producción para mantenerse competitiva.",
         "english": "The company needs to innovate in its production processes to remain competitive."
       },
       {
-        "spanish": "Nuestro equipo de desarrollo está innovando constantemente para crear productos más eficientes.",
+        "target": "Nuestro equipo de desarrollo está innovando constantemente para crear productos más eficientes.",
         "english": "Our development team is constantly innovating to create more efficient products."
       }
-    ]
+    ],
+    "word": "innovar"
   },
   {
     "id": "academic-investigar",
-    "spanish": "investigar",
     "english": "to investigate",
     "pronunciation": "investigar",
     "partOfSpeech": "verb",
@@ -7234,18 +7233,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "investigar",
     "examples": [
       {
-        "spanish": "Los investigadores investigan las causas del cambio climático.",
+        "target": "Los investigadores investigan las causas del cambio climático.",
         "english": "The researchers investigate the causes of climate change."
       },
       {
-        "spanish": "El estudiante debe investigar más fuentes para su tesis doctoral.",
+        "target": "El estudiante debe investigar más fuentes para su tesis doctoral.",
         "english": "The student must investigate more sources for his doctoral thesis."
       }
-    ]
+    ],
+    "word": "investigar"
   },
   {
     "id": "academic-calificar",
-    "spanish": "calificar",
     "english": "to grade; to qualify; to rate",
     "pronunciation": "calificar",
     "partOfSpeech": "verb",
@@ -7254,18 +7253,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "calificar",
     "examples": [
       {
-        "spanish": "El profesor calificará los exámenes finales la próxima semana.",
+        "target": "El profesor calificará los exámenes finales la próxima semana.",
         "english": "The professor will grade the final exams next week."
       },
       {
-        "spanish": "Los investigadores califican este hallazgo como un avance significativo en la física cuántica.",
+        "target": "Los investigadores califican este hallazgo como un avance significativo en la física cuántica.",
         "english": "The researchers classify this finding as a significant breakthrough in quantum physics."
       }
-    ]
+    ],
+    "word": "calificar"
   },
   {
     "id": "academic-comprender",
-    "spanish": "comprender",
     "english": "to understand",
     "pronunciation": "comprender",
     "partOfSpeech": "verb",
@@ -7274,18 +7273,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comprender",
     "examples": [
       {
-        "spanish": "Los estudiantes deben comprender los conceptos fundamentales de la física cuántica.",
+        "target": "Los estudiantes deben comprender los conceptos fundamentales de la física cuántica.",
         "english": "Students must understand the fundamental concepts of quantum physics."
       },
       {
-        "spanish": "Es esencial comprender la metodología de investigación para realizar un estudio académico riguroso.",
+        "target": "Es esencial comprender la metodología de investigación para realizar un estudio académico riguroso.",
         "english": "It is essential to understand research methodology in order to conduct a rigorous academic study."
       }
-    ]
+    ],
+    "word": "comprender"
   },
   {
     "id": "academic-memorizar",
-    "spanish": "memorizar",
     "english": "to memorize",
     "pronunciation": "memorizar",
     "partOfSpeech": "verb",
@@ -7294,18 +7293,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "memorizar",
     "examples": [
       {
-        "spanish": "Los estudiantes necesitan memorizar los términos científicos para el examen final.",
+        "target": "Los estudiantes necesitan memorizar los términos científicos para el examen final.",
         "english": "Students need to memorize the scientific terms for the final exam."
       },
       {
-        "spanish": "Es importante memorizar las fórmulas matemáticas antes de resolver los problemas complejos.",
+        "target": "Es importante memorizar las fórmulas matemáticas antes de resolver los problemas complejos.",
         "english": "It is important to memorize the mathematical formulas before solving complex problems."
       }
-    ]
+    ],
+    "word": "memorizar"
   },
   {
     "id": "academic-repasar",
-    "spanish": "repasar",
     "english": "to review",
     "pronunciation": "repasar",
     "partOfSpeech": "verb",
@@ -7314,18 +7313,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "repasar",
     "examples": [
       {
-        "spanish": "Los estudiantes deben repasar los apuntes antes del examen final.",
+        "target": "Los estudiantes deben repasar los apuntes antes del examen final.",
         "english": "Students must review their notes before the final exam."
       },
       {
-        "spanish": "El profesor va a repasar los conceptos clave de la lección anterior.",
+        "target": "El profesor va a repasar los conceptos clave de la lección anterior.",
         "english": "The professor is going to review the key concepts from the previous lesson."
       }
-    ]
+    ],
+    "word": "repasar"
   },
   {
     "id": "academic-resumir",
-    "spanish": "resumir",
     "english": "to summarize",
     "pronunciation": "resumir",
     "partOfSpeech": "verb",
@@ -7334,18 +7333,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "resumir",
     "examples": [
       {
-        "spanish": "El profesor pidió a los estudiantes que resumieran el capítulo en una página.",
+        "target": "El profesor pidió a los estudiantes que resumieran el capítulo en una página.",
         "english": "The professor asked the students to summarize the chapter in one page."
       },
       {
-        "spanish": "Es importante resumir los hallazgos principales de la investigación en la conclusión.",
+        "target": "Es importante resumir los hallazgos principales de la investigación en la conclusión.",
         "english": "It is important to summarize the main findings of the research in the conclusion."
       }
-    ]
+    ],
+    "word": "resumir"
   },
   {
     "id": "academic-redactar",
-    "spanish": "redactar",
     "english": "to draft, to compose, to write",
     "pronunciation": "redactar",
     "partOfSpeech": "verb",
@@ -7354,18 +7353,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "redactar",
     "examples": [
       {
-        "spanish": "Los estudiantes deben redactar un ensayo sobre la historia medieval.",
+        "target": "Los estudiantes deben redactar un ensayo sobre la historia medieval.",
         "english": "The students must write an essay about medieval history."
       },
       {
-        "spanish": "El investigador redactó un informe detallado de sus hallazgos científicos.",
+        "target": "El investigador redactó un informe detallado de sus hallazgos científicos.",
         "english": "The researcher drafted a detailed report of his scientific findings."
       }
-    ]
+    ],
+    "word": "redactar"
   },
   {
     "id": "academic-citar",
-    "spanish": "citar",
     "english": "to cite",
     "pronunciation": "citar",
     "partOfSpeech": "verb",
@@ -7374,18 +7373,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "citar",
     "examples": [
       {
-        "spanish": "El profesor citó varios estudios en su conferencia sobre lingüística.",
+        "target": "El profesor citó varios estudios en su conferencia sobre lingüística.",
         "english": "The professor cited several studies in his lecture on linguistics."
       },
       {
-        "spanish": "Es importante citar las fuentes bibliográficas en la tesis doctoral.",
+        "target": "Es importante citar las fuentes bibliográficas en la tesis doctoral.",
         "english": "It is important to cite the bibliographic sources in the doctoral thesis."
       }
-    ]
+    ],
+    "word": "citar"
   },
   {
     "id": "academic-argumentar",
-    "spanish": "argumentar",
     "english": "to argue; to present arguments",
     "pronunciation": "argumentar",
     "partOfSpeech": "verb",
@@ -7394,18 +7393,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "argumentar",
     "examples": [
       {
-        "spanish": "El investigador argumentó que sus hallazgos refutaban la teoría anterior.",
+        "target": "El investigador argumentó que sus hallazgos refutaban la teoría anterior.",
         "english": "The researcher argued that his findings refuted the previous theory."
       },
       {
-        "spanish": "En su tesis doctoral, ella argumenta de manera convincente sobre la importancia del análisis crítico.",
+        "target": "En su tesis doctoral, ella argumenta de manera convincente sobre la importancia del análisis crítico.",
         "english": "In her doctoral thesis, she argues convincingly about the importance of critical analysis."
       }
-    ]
+    ],
+    "word": "argumentar"
   },
   {
     "id": "academic-debatir",
-    "spanish": "debatir",
     "english": "to debate",
     "pronunciation": "debatir",
     "partOfSpeech": "verb",
@@ -7414,18 +7413,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "debatir",
     "examples": [
       {
-        "spanish": "Los académicos debaten sobre la validez de esta teoría científica.",
+        "target": "Los académicos debaten sobre la validez de esta teoría científica.",
         "english": "The academics debate the validity of this scientific theory."
       },
       {
-        "spanish": "Durante el seminario, los estudiantes debatieron las implicaciones éticas del experimento.",
+        "target": "Durante el seminario, los estudiantes debatieron las implicaciones éticas del experimento.",
         "english": "During the seminar, the students debated the ethical implications of the experiment."
       }
-    ]
+    ],
+    "word": "debatir"
   },
   {
     "id": "academic-comparar",
-    "spanish": "comparar",
     "english": "to compare",
     "pronunciation": "comparar",
     "partOfSpeech": "verb",
@@ -7434,18 +7433,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "comparar",
     "examples": [
       {
-        "spanish": "Los investigadores compararon los resultados de ambos estudios para identificar diferencias significativas.",
+        "target": "Los investigadores compararon los resultados de ambos estudios para identificar diferencias significativas.",
         "english": "The researchers compared the results of both studies to identify significant differences."
       },
       {
-        "spanish": "Es importante comparar las metodologías utilizadas en diferentes investigaciones académicas.",
+        "target": "Es importante comparar las metodologías utilizadas en diferentes investigaciones académicas.",
         "english": "It is important to compare the methodologies used in different academic research."
       }
-    ]
+    ],
+    "word": "comparar"
   },
   {
     "id": "academic-contrastar",
-    "spanish": "contrastar",
     "english": "to contrast",
     "pronunciation": "contrastar",
     "partOfSpeech": "verb",
@@ -7454,18 +7453,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "contrastar",
     "examples": [
       {
-        "spanish": "Los investigadores contrastan los resultados de dos estudios diferentes para identificar las discrepancias metodológicas.",
+        "target": "Los investigadores contrastan los resultados de dos estudios diferentes para identificar las discrepancias metodológicas.",
         "english": "The researchers contrast the results of two different studies to identify methodological discrepancies."
       },
       {
-        "spanish": "En el análisis comparativo, es fundamental contrastar las teorías clásicas con los hallazgos contemporáneos.",
+        "target": "En el análisis comparativo, es fundamental contrastar las teorías clásicas con los hallazgos contemporáneos.",
         "english": "In comparative analysis, it is essential to contrast classical theories with contemporary findings."
       }
-    ]
+    ],
+    "word": "contrastar"
   },
   {
     "id": "academic-sintetizar",
-    "spanish": "sintetizar",
     "english": "to synthesize",
     "pronunciation": "sintetizar",
     "partOfSpeech": "verb",
@@ -7474,18 +7473,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sintetizar",
     "examples": [
       {
-        "spanish": "Los investigadores sintetizaron los resultados de múltiples estudios en un informe comprehensivo.",
+        "target": "Los investigadores sintetizaron los resultados de múltiples estudios en un informe comprehensivo.",
         "english": "The researchers synthesized the results of multiple studies into a comprehensive report."
       },
       {
-        "spanish": "Es necesario sintetizar la información compleja para presentarla de manera clara a la audiencia académica.",
+        "target": "Es necesario sintetizar la información compleja para presentarla de manera clara a la audiencia académica.",
         "english": "It is necessary to synthesize the complex information to present it clearly to the academic audience."
       }
-    ]
+    ],
+    "word": "sintetizar"
   },
   {
     "id": "academic-hipotizar",
-    "spanish": "hipotizar",
     "english": "to hypothesize",
     "pronunciation": "hipotizar",
     "partOfSpeech": "verb",
@@ -7494,18 +7493,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "hipotizar",
     "examples": [
       {
-        "spanish": "El investigador decidió hipotizar que el cambio climático afectaría significativamente los ecosistemas marinos.",
+        "target": "El investigador decidió hipotizar que el cambio climático afectaría significativamente los ecosistemas marinos.",
         "english": "The researcher decided to hypothesize that climate change would significantly affect marine ecosystems."
       },
       {
-        "spanish": "En su tesis doctoral, la científica hipotizó una nueva teoría sobre el comportamiento de las partículas subatómicas.",
+        "target": "En su tesis doctoral, la científica hipotizó una nueva teoría sobre el comportamiento de las partículas subatómicas.",
         "english": "In her doctoral thesis, the scientist hypothesized a new theory about the behavior of subatomic particles."
       }
-    ]
+    ],
+    "word": "hipotizar"
   },
   {
     "id": "academic-demostrar",
-    "spanish": "demostrar",
     "english": "to demonstrate",
     "pronunciation": "demostrar",
     "partOfSpeech": "verb",
@@ -7514,18 +7513,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "demostrar",
     "examples": [
       {
-        "spanish": "Los investigadores demostraron que la hipótesis era correcta mediante un análisis estadístico riguroso.",
+        "target": "Los investigadores demostraron que la hipótesis era correcta mediante un análisis estadístico riguroso.",
         "english": "The researchers demonstrated that the hypothesis was correct through rigorous statistical analysis."
       },
       {
-        "spanish": "Es necesario demostrar los teoremas matemáticos con evidencia lógica en la disertación académica.",
+        "target": "Es necesario demostrar los teoremas matemáticos con evidencia lógica en la disertación académica.",
         "english": "It is necessary to prove mathematical theorems with logical evidence in the academic dissertation."
       }
-    ]
+    ],
+    "word": "demostrar"
   },
   {
     "id": "academic-refutar",
-    "spanish": "refutar",
     "english": "to refute",
     "pronunciation": "refutar",
     "partOfSpeech": "verb",
@@ -7534,18 +7533,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "refutar",
     "examples": [
       {
-        "spanish": "El investigador refutó la hipótesis inicial mediante nuevas pruebas experimentales.",
+        "target": "El investigador refutó la hipótesis inicial mediante nuevas pruebas experimentales.",
         "english": "The researcher refuted the initial hypothesis through new experimental evidence."
       },
       {
-        "spanish": "En su tesis doctoral, la académica refutó los argumentos presentados por sus predecesores.",
+        "target": "En su tesis doctoral, la académica refutó los argumentos presentados por sus predecesores.",
         "english": "In her doctoral thesis, the academic refuted the arguments presented by her predecessors."
       }
-    ]
+    ],
+    "word": "refutar"
   },
   {
     "id": "academic-publicar",
-    "spanish": "publicar",
     "english": "to publish",
     "pronunciation": "publicar",
     "partOfSpeech": "verb",
@@ -7554,18 +7553,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "publicar",
     "examples": [
       {
-        "spanish": "Los investigadores publicaron sus hallazgos en una revista científica de renombre.",
+        "target": "Los investigadores publicaron sus hallazgos en una revista científica de renombre.",
         "english": "The researchers published their findings in a renowned scientific journal."
       },
       {
-        "spanish": "La universidad requiere que los profesores publiquen al menos un artículo académico cada año.",
+        "target": "La universidad requiere que los profesores publiquen al menos un artículo académico cada año.",
         "english": "The university requires that professors publish at least one academic article each year."
       }
-    ]
+    ],
+    "word": "publicar"
   },
   {
     "id": "academic-experimentar",
-    "spanish": "experimentar",
     "english": "to experiment",
     "pronunciation": "experimentar",
     "partOfSpeech": "verb",
@@ -7574,18 +7573,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "experimentar",
     "examples": [
       {
-        "spanish": "Los investigadores experimentaron con nuevas metodologías para validar sus hipótesis.",
+        "target": "Los investigadores experimentaron con nuevas metodologías para validar sus hipótesis.",
         "english": "The researchers experimented with new methodologies to validate their hypotheses."
       },
       {
-        "spanish": "Durante el estudio, los participantes experimentaron cambios significativos en sus niveles de ansiedad.",
+        "target": "Durante el estudio, los participantes experimentaron cambios significativos en sus niveles de ansiedad.",
         "english": "During the study, the participants experienced significant changes in their anxiety levels."
       }
-    ]
+    ],
+    "word": "experimentar"
   },
   {
     "id": "academic-observar",
-    "spanish": "observar",
     "english": "to observe",
     "pronunciation": "observar",
     "partOfSpeech": "verb",
@@ -7594,18 +7593,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "observar",
     "examples": [
       {
-        "spanish": "Los investigadores observaron el comportamiento de las células bajo el microscopio.",
+        "target": "Los investigadores observaron el comportamiento de las células bajo el microscopio.",
         "english": "The researchers observed the behavior of cells under the microscope."
       },
       {
-        "spanish": "Es importante observar los cambios en los datos experimentales para sacar conclusiones válidas.",
+        "target": "Es importante observar los cambios en los datos experimentales para sacar conclusiones válidas.",
         "english": "It is important to observe the changes in experimental data to draw valid conclusions."
       }
-    ]
+    ],
+    "word": "observar"
   },
   {
     "id": "academic-calcular",
-    "spanish": "calcular",
     "english": "to calculate",
     "pronunciation": "calcular",
     "partOfSpeech": "verb",
@@ -7614,18 +7613,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "calcular",
     "examples": [
       {
-        "spanish": "Los investigadores calculan el índice de mortalidad basándose en datos estadísticos.",
+        "target": "Los investigadores calculan el índice de mortalidad basándose en datos estadísticos.",
         "english": "Researchers calculate the mortality rate based on statistical data."
       },
       {
-        "spanish": "Es necesario calcular la velocidad de reacción para completar este experimento de química.",
+        "target": "Es necesario calcular la velocidad de reacción para completar este experimento de química.",
         "english": "It is necessary to calculate the reaction rate to complete this chemistry experiment."
       }
-    ]
+    ],
+    "word": "calcular"
   },
   {
     "id": "academic-clasificar",
-    "spanish": "clasificar",
     "english": "to classify",
     "pronunciation": "clasificar",
     "partOfSpeech": "verb",
@@ -7634,18 +7633,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "clasificar",
     "examples": [
       {
-        "spanish": "Los investigadores clasifican los especímenes según sus características biológicas.",
+        "target": "Los investigadores clasifican los especímenes según sus características biológicas.",
         "english": "The researchers classify the specimens according to their biological characteristics."
       },
       {
-        "spanish": "Es necesario clasificar los datos recopilados para facilitar el análisis estadístico.",
+        "target": "Es necesario clasificar los datos recopilados para facilitar el análisis estadístico.",
         "english": "It is necessary to classify the collected data to facilitate statistical analysis."
       }
-    ]
+    ],
+    "word": "clasificar"
   },
   {
     "id": "academic-categorizar",
-    "spanish": "categorizar",
     "english": "to categorize",
     "pronunciation": "categorizar",
     "partOfSpeech": "verb",
@@ -7654,18 +7653,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "categorizar",
     "examples": [
       {
-        "spanish": "Los investigadores categorizaron los datos en diferentes grupos según su relevancia científica.",
+        "target": "Los investigadores categorizaron los datos en diferentes grupos según su relevancia científica.",
         "english": "The researchers categorized the data into different groups according to their scientific relevance."
       },
       {
-        "spanish": "Es necesario categorizar los hallazgos de este estudio para facilitar su análisis posterior.",
+        "target": "Es necesario categorizar los hallazgos de este estudio para facilitar su análisis posterior.",
         "english": "It is necessary to categorize the findings of this study to facilitate their subsequent analysis."
       }
-    ]
+    ],
+    "word": "categorizar"
   },
   {
     "id": "academic-sistematizar",
-    "spanish": "sistematizar",
     "english": "to systematize",
     "pronunciation": "sistematizar",
     "partOfSpeech": "verb",
@@ -7674,18 +7673,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "sistematizar",
     "examples": [
       {
-        "spanish": "Los investigadores sistematizaron los datos recopilados durante el estudio longitudinal.",
+        "target": "Los investigadores sistematizaron los datos recopilados durante el estudio longitudinal.",
         "english": "The researchers systematized the data collected during the longitudinal study."
       },
       {
-        "spanish": "Es necesario sistematizar la metodología de investigación para garantizar la reproducibilidad de los resultados.",
+        "target": "Es necesario sistematizar la metodología de investigación para garantizar la reproducibilidad de los resultados.",
         "english": "It is necessary to systematize the research methodology to ensure the reproducibility of the results."
       }
-    ]
+    ],
+    "word": "sistematizar"
   },
   {
     "id": "academic-documentar",
-    "spanish": "documentar",
     "english": "to document",
     "pronunciation": "documentar",
     "partOfSpeech": "verb",
@@ -7694,18 +7693,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "documentar",
     "examples": [
       {
-        "spanish": "Los investigadores documentaron todos los hallazgos en el informe final.",
+        "target": "Los investigadores documentaron todos los hallazgos en el informe final.",
         "english": "The researchers documented all the findings in the final report."
       },
       {
-        "spanish": "Es esencial documentar cada paso del procedimiento experimental para garantizar la reproducibilidad.",
+        "target": "Es esencial documentar cada paso del procedimiento experimental para garantizar la reproducibilidad.",
         "english": "It is essential to document each step of the experimental procedure to ensure reproducibility."
       }
-    ]
+    ],
+    "word": "documentar"
   },
   {
     "id": "academic-archivar",
-    "spanish": "archivar",
     "english": "to file, to archive",
     "pronunciation": "archivar",
     "partOfSpeech": "verb",
@@ -7714,18 +7713,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "archivar",
     "examples": [
       {
-        "spanish": "El investigador debe archivar todos los documentos de la investigación para futuras referencias.",
+        "target": "El investigador debe archivar todos los documentos de la investigación para futuras referencias.",
         "english": "The researcher must file all research documents for future reference."
       },
       {
-        "spanish": "La universidad archiva los expedientes académicos de los estudiantes en la base de datos central.",
+        "target": "La universidad archiva los expedientes académicos de los estudiantes en la base de datos central.",
         "english": "The university files students' academic records in the central database."
       }
-    ]
+    ],
+    "word": "archivar"
   },
   {
     "id": "academic-actualizar",
-    "spanish": "actualizar",
     "english": "to update",
     "pronunciation": "actualizar",
     "partOfSpeech": "verb",
@@ -7734,18 +7733,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "actualizar",
     "examples": [
       {
-        "spanish": "Es necesario actualizar la base de datos del registro académico antes de finalizar el semestre.",
+        "target": "Es necesario actualizar la base de datos del registro académico antes de finalizar el semestre.",
         "english": "It is necessary to update the academic record database before the end of the semester."
       },
       {
-        "spanish": "Los investigadores deben actualizar sus metodologías conforme avanzan los estudios científicos.",
+        "target": "Los investigadores deben actualizar sus metodologías conforme avanzan los estudios científicos.",
         "english": "Researchers must update their methodologies as scientific studies progress."
       }
-    ]
+    ],
+    "word": "actualizar"
   },
   {
     "id": "academic-corregir",
-    "spanish": "corregir",
     "english": "to correct",
     "pronunciation": "corregir",
     "partOfSpeech": "verb",
@@ -7754,18 +7753,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "corregir",
     "examples": [
       {
-        "spanish": "El profesor necesita corregir los exámenes de sus estudiantes antes del viernes.",
+        "target": "El profesor necesita corregir los exámenes de sus estudiantes antes del viernes.",
         "english": "The professor needs to correct his students' exams before Friday."
       },
       {
-        "spanish": "Es importante corregir los errores metodológicos en la investigación científica.",
+        "target": "Es importante corregir los errores metodológicos en la investigación científica.",
         "english": "It is important to correct the methodological errors in scientific research."
       }
-    ]
+    ],
+    "word": "corregir"
   },
   {
     "id": "academic-perfeccionar",
-    "spanish": "perfeccionar",
     "english": "to perfect",
     "pronunciation": "perfeccionar",
     "partOfSpeech": "verb",
@@ -7774,18 +7773,18 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "perfeccionar",
     "examples": [
       {
-        "spanish": "Los investigadores necesitan perfeccionar sus metodologías para obtener resultados más precisos.",
+        "target": "Los investigadores necesitan perfeccionar sus metodologías para obtener resultados más precisos.",
         "english": "Researchers need to perfect their methodologies to obtain more accurate results."
       },
       {
-        "spanish": "Durante el doctorado, el estudiante trabajó para perfeccionar su análisis crítico de la literatura.",
+        "target": "Durante el doctorado, el estudiante trabajó para perfeccionar su análisis crítico de la literatura.",
         "english": "During his doctorate, the student worked to refine his critical analysis of literature."
       }
-    ]
+    ],
+    "word": "perfeccionar"
   },
   {
     "id": "academic-dominar",
-    "spanish": "dominar",
     "english": "to master",
     "pronunciation": "dominar",
     "partOfSpeech": "verb",
@@ -7794,13 +7793,14 @@ export const dictWords: DictWord[] = [
     "verbProfileId": "dominar",
     "examples": [
       {
-        "spanish": "El estudiante debe dominar los conceptos fundamentales de la química orgánica para aprobar el examen.",
+        "target": "El estudiante debe dominar los conceptos fundamentales de la química orgánica para aprobar el examen.",
         "english": "The student must master the fundamental concepts of organic chemistry to pass the exam."
       },
       {
-        "spanish": "Los investigadores dominan las técnicas de análisis estadístico necesarias para su investigación doctoral.",
+        "target": "Los investigadores dominan las técnicas de análisis estadístico necesarias para su investigación doctoral.",
         "english": "The researchers master the statistical analysis techniques necessary for their doctoral research."
       }
-    ]
+    ],
+    "word": "dominar"
   }
 ]

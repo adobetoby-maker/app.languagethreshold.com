@@ -71,6 +71,9 @@ const PenPalPad = lazy(() => import("./penpal/PenPalPad").then((m) => ({ default
 const PatternLab = lazy(() =>
   import("./patterns/PatternLab").then((m) => ({ default: m.PatternLab })),
 );
+const CognateBridge = lazy(() =>
+  import("./cognates/CognateBridge").then((m) => ({ default: m.CognateBridge })),
+);
 const DailyStory = lazy(() =>
   import("./story/DailyStory").then((m) => ({ default: m.DailyStory })),
 );
@@ -86,6 +89,9 @@ const FieldPrepRouter = lazy(() =>
 );
 const DictionaryTab = lazy(() =>
   import("./dictionary/DictionaryTab").then((m) => ({ default: m.DictionaryTab })),
+);
+const FlashcardDecks = lazy(() =>
+  import("./flashcards/FlashcardDecks").then((m) => ({ default: m.FlashcardDecks })),
 );
 
 /**
@@ -120,12 +126,14 @@ export const TAB_COMPONENTS: Record<TabKey, ComponentType> = {
   fmg: FmgHome,
   penpal: PenPalPad,
   patterns: PatternLab,
+  cognates: CognateBridge,
   story: DailyStory,
   guide: AppGuide,
   climbing: ClimbingHome,
   fishing: FishingHome,
   fieldPrep: FieldPrepRouter,
   dictionary: DictionaryTab,
+  flashcards: FlashcardDecks,
 };
 
 if (import.meta.env.DEV) {

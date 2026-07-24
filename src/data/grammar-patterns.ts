@@ -9,10 +9,12 @@ export type PatternCategory =
   | "ability" // can / be able to
   | "action" // progressive — currently doing
   | "cause" // because / so
+  | "purpose" // in order to / so that — para que and its cross-language cousins
   | "sequence" // first, then, finally
   | "opinion" // I think / it seems
   | "preference" // I like / I love
-  | "description"; // adjective / state patterns
+  | "description" // adjective / state patterns
+  | "form"; // the dictionary/infinitive form itself, and how it plugs into modals
 
 export interface PatternExample {
   target: string; // full sentence in target language
@@ -1069,6 +1071,34 @@ const PORTUGUESE_PATTERNS: GrammarPattern[] = [
 
 const ITALIAN_PATTERNS: GrammarPattern[] = [
   {
+    id: "it-infinitive-form",
+    language: "Italian",
+    phase: 1,
+    frequency: "ultra",
+    category: "form",
+    pattern: "-are / -ere / -ire",
+    name: "The dictionary form (infinitive)",
+    meaning: "The unconjugated 'lookup' form of any Italian verb",
+    hook: "This is the key that unlocks every modal pattern below — Devo, Voglio, Posso, and every one of the other Ultra patterns on this list just plug a dictionary-form verb in after them. Learn to recognize -are/-ere/-ire and you can generate hundreds of sentences from patterns you already know. If you know Spanish, this is nearly free: Spanish infinitives end -ar/-er/-ir — Italian just adds one 'e'.",
+    examples: [
+      {
+        target: "parlare",
+        english: "to speak (-are family — the largest and most regular)",
+        breakdown: "Devo parlare italiano. = I have to speak Italian. Same infinitive, any modal in front.",
+      },
+      {
+        target: "leggere",
+        english: "to read (-ere family)",
+        breakdown: "Voglio leggere questo libro. = I want to read this book.",
+      },
+      {
+        target: "dormire",
+        english: "to sleep (-ire family)",
+        breakdown: "Posso dormire qui? = Can I sleep here?",
+      },
+    ],
+  },
+  {
     id: "it-be-identity",
     language: "Italian",
     phase: 1,
@@ -1124,7 +1154,7 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
         english: "I want to speak Italian fluently.",
       },
       { target: "Voglio aiutare i miei pazienti.", english: "I want to help my patients." },
-      { target: "Voglio imparare più vocabulario.", english: "I want to learn more vocabulary." },
+      { target: "Voglio imparare più vocabolario.", english: "I want to learn more vocabulary." },
     ],
   },
   {
@@ -1173,14 +1203,18 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
     phase: 2,
     frequency: "ultra",
     category: "intention",
-    pattern: "Vado a + [infinitive]",
-    name: "Going to",
-    meaning: "I'm going to [do something]",
-    hook: "Andare a + infinitive = near future. More immediate than the future tense — how Italians speak.",
+    pattern: "Sto per + [infinitive]",
+    name: "About to / going to",
+    meaning: "I'm about to [do something] (imminent)",
+    hook: "This is a false-friend trap: Spanish voy a and English going to stretch to cover any future plan, but Italian andare a doesn't work the same way — it stays tied to literal motion ('vado a comprare il pane' = I go [somewhere] to buy bread). Stare per + infinitive is the real periphrastic for 'about to.' For a scheduled future plan with no urgency, Italians just use the future tense instead (arriverò, non 'vado ad arrivare').",
     examples: [
-      { target: "Vado a spiegare la procedura.", english: "I'm going to explain the procedure." },
-      { target: "Andiamo ad arrivare alle tre.", english: "We're going to arrive at three." },
-      { target: "Che cosa vai a fare dopo?", english: "What are you going to do after?" },
+      { target: "Sto per operare.", english: "I'm about to operate." },
+      { target: "Stiamo per arrivare.", english: "We're about to arrive." },
+      {
+        target: "Che cosa stai per fare?",
+        english: "What are you about to do?",
+        breakdown: "For a further-out plan, use the future tense instead: 'Che cosa farai dopo?'",
+      },
     ],
   },
   {
@@ -1221,6 +1255,34 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
       {
         target: "Sono arrivato tardi perché c'era molto traffico.",
         english: "I arrived late because there was a lot of traffic.",
+      },
+    ],
+  },
+  {
+    id: "it-purpose",
+    language: "Italian",
+    phase: 2,
+    frequency: "high",
+    category: "purpose",
+    pattern: "per + [infinitive] (same subject) / affinché + [congiuntivo] (different subject)",
+    name: "Purpose — in order to / so that",
+    meaning: "[action], in order to / so that [goal happens]",
+    hook: "This is Italian's answer to Spanish para que — but it doesn't work the same way. Para que always triggers the subjunctive, no matter who's doing what. Italian splits the decision on subject: if the SAME person does both actions, use per + the plain infinitive — no subjunctive needed at all. Only switch to affinché (or perché in this same 'so that' sense) + congiuntivo when the two actions have DIFFERENT subjects. Assuming Italian always needs the subjunctive here, the way para que does, is the single most common mistake a Spanish speaker makes with this pattern.",
+    examples: [
+      {
+        target: "Studio italiano per capire meglio i miei pazienti.",
+        english: "I study Italian in order to understand my patients better.",
+        breakdown: "Same subject (io studio, io capisco) — per + infinitive, no subjunctive.",
+      },
+      {
+        target: "Ti spiego la procedura affinché tu capisca cosa succederà.",
+        english: "I'm explaining the procedure to you so that you understand what will happen.",
+        breakdown: "Different subjects (io spiego / tu capisci) — affinché + congiuntivo: capisca, not capisci.",
+      },
+      {
+        target: "Parlo lentamente perché tu possa seguire meglio.",
+        english: "I speak slowly so that you can follow better.",
+        breakdown: "perché doubles as 'because' AND 'so that' — the mood tells you which: indicativo = because, congiuntivo (possa) = so that.",
       },
     ],
   },

@@ -8,8 +8,8 @@ export interface MorphForm {
 
 export interface VerbProfile {
   stem: string
-  infinitiveEnding: '-ar' | '-er' | '-ir'
-  irregularType?: string
+  infinitiveEnding: '-ar' | '-er' | '-ir' | '-are' | '-ere' | '-ire'
+  irregularType?: string | null
   phase1: {
     label: string
     hint: string
@@ -51,7 +51,7 @@ export type WordCategory =
 
 export interface DictWord {
   id: string
-  spanish: string
+  word: string
   english: string
   pronunciation: string
   partOfSpeech: 'noun' | 'verb' | 'adjective' | 'phrase'
@@ -60,5 +60,5 @@ export interface DictWord {
   context?: string
   verbProfileId?: string
   verbProfile?: VerbProfile
-  examples: { spanish: string; english: string }[]
+  examples: { target: string; english: string }[]
 }

@@ -10,7 +10,7 @@ const Input = z.object({
 
 export interface TranslatedPhrase {
   english: string;
-  targetLang: string;
+  translation: string;
 }
 
 export const translatePhrases = createServerFn({ method: "POST" })
@@ -46,10 +46,17 @@ ${data.phrases.map((p, i) => `${i + 1}. ${p}`).join("\n")}`,
                     items: {
                       type: "object",
                       properties: {
-                        english: { type: "string" },
-                        targetLang: { type: "string" },
+                        english: {
+                          type: "string",
+                          description: "The original English phrase, copied exactly as given",
+                        },
+                        translation: {
+                          type: "string",
+                          description:
+                            "The phrase translated INTO the target language — the actual translated words, never the name of the language itself",
+                        },
                       },
-                      required: ["english", "targetLang"],
+                      required: ["english", "translation"],
                       additionalProperties: false,
                     },
                   },
@@ -67,7 +74,17 @@ ${data.phrases.map((p, i) => `${i + 1}. ${p}`).join("\n")}`,
           return { phrases: null, error: "Translation failed" };
 
         const result = toolUse.input as { translations: TranslatedPhrase[] };
-        return { phrases: result.translations, error: null };
+        // Guard against the model echoing the language name (or nothing) instead of a
+        // real translation — the exact failure that shipped "Italian" as every card back.
+        const langLower = data.targetLanguage.trim().toLowerCase();
+        const valid = (result.translations ?? []).filter(
+          (t) =>
+            typeof t?.translation === "string" &&
+            t.translation.trim().length > 0 &&
+            t.translation.trim().toLowerCase() !== langLower,
+        );
+        if (valid.length === 0) return { phrases: null, error: "Translation failed" };
+        return { phrases: valid, error: null };
       } catch (e) {
         console.error("translatePhrases failed", e);
         return { phrases: null, error: "Translation failed" };

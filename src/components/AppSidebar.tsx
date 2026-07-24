@@ -25,6 +25,8 @@ import {
   ChevronDown,
   Shield,
   LibraryBig,
+  ArrowRightLeft,
+  Menu,
 } from "lucide-react";
 import { useState } from "react";
 import { useApp, type TabKey, type Language } from "@/state/app-state";
@@ -38,6 +40,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 const LANGUAGES: Language[] = [
   "Spanish",
@@ -86,18 +89,20 @@ const TAB_ITEMS: {
   key: TabKey;
   label: string;
   short: string;
+  group: string;
   Icon: React.ElementType;
   moduleOnly?: string;
   moduleFilter?: (id: string | null) => boolean;
 }[] = [
   // ── Orientation ──────────────────────────────────────────────────────────────
-  { key: "guide", label: "App Guide", short: "Guide", Icon: Compass },
-  { key: "dashboard", label: "Dashboard", short: "Progress", Icon: BarChart3 },
+  { key: "guide", label: "App Guide", short: "Guide", group: "Orientation", Icon: Compass },
+  { key: "dashboard", label: "Dashboard", short: "Progress", group: "Orientation", Icon: BarChart3 },
   // ── Module-specific ──────────────────────────────────────────────────────────
   {
     key: "missionary",
     label: "Missionary",
     short: "Mission",
+    group: "Module",
     Icon: Church,
     moduleOnly: "lds-missionary",
   },
@@ -105,6 +110,7 @@ const TAB_ITEMS: {
     key: "fieldPrep",
     label: "Field Prep",
     short: "Field Prep",
+    group: "Module",
     Icon: Shield,
     moduleFilter: (id) => !!id && FIELD_PREP_MODULE_IDS.has(id),
   },
@@ -112,6 +118,7 @@ const TAB_ITEMS: {
     key: "discussions",
     label: "Discussions",
     short: "Discuss",
+    group: "Module",
     Icon: MessageCircle,
     moduleOnly: "lds-missionary",
   },
@@ -119,27 +126,31 @@ const TAB_ITEMS: {
     key: "orthopedics",
     label: "Orthopedics",
     short: "Ortho",
+    group: "Module",
     Icon: Activity,
     moduleOnly: "orthopedics",
   },
   // ── Core lessons ─────────────────────────────────────────────────────────────
-  { key: "reader", label: "Reader", short: "Reader", Icon: BookOpen },
-  { key: "story", label: "Daily Story", short: "Story", Icon: Sparkle },
-  { key: "grammar", label: "Grammar Studio", short: "Grammar", Icon: GraduationCap },
-  { key: "patterns", label: "Grammar Patterns", short: "Patterns", Icon: Layers },
-  { key: "conjugation", label: "Conjugation", short: "Conjugate", Icon: Repeat2 },
-  { key: "sentenceBuild", label: "Sentence Builder", short: "Sentences", Icon: AlignLeft },
-  { key: "listeningDrill", label: "Listening Drill", short: "Listening", Icon: Headphones },
-  { key: "speak", label: "Speak & Learn", short: "Speak", Icon: Mic2 },
-  { key: "penpal", label: "Pen Pal Practice", short: "Pen Pal", Icon: Mail },
+  { key: "reader", label: "Reader", short: "Reader", group: "Core Lessons", Icon: BookOpen },
+  { key: "story", label: "Daily Story", short: "Story", group: "Core Lessons", Icon: Sparkle },
+  { key: "grammar", label: "Grammar Studio", short: "Grammar", group: "Core Lessons", Icon: GraduationCap },
+  { key: "patterns", label: "Grammar Patterns", short: "Patterns", group: "Core Lessons", Icon: Layers },
+  { key: "cognates", label: "Cognate Bridge", short: "Cognates", group: "Core Lessons", Icon: ArrowRightLeft },
+  { key: "conjugation", label: "Conjugation", short: "Conjugate", group: "Core Lessons", Icon: Repeat2 },
+  { key: "sentenceBuild", label: "Sentence Builder", short: "Sentences", group: "Core Lessons", Icon: AlignLeft },
+  { key: "listeningDrill", label: "Listening Drill", short: "Listening", group: "Core Lessons", Icon: Headphones },
+  { key: "speak", label: "Speak & Learn", short: "Speak", group: "Core Lessons", Icon: Mic2 },
+  { key: "penpal", label: "Pen Pal Practice", short: "Pen Pal", group: "Core Lessons", Icon: Mail },
   // ── Vocabulary ───────────────────────────────────────────────────────────────
-  { key: "dictionary", label: "Dictionary", short: "Dict.", Icon: LibraryBig },
-  { key: "wordMatch", label: "Word Match", short: "Words", Icon: Grid3x3 },
-  { key: "idiomMaster", label: "Idiom Master", short: "Idioms", Icon: Quote },
-  { key: "falseFriends", label: "False Friends", short: "False Fr.", Icon: AlertTriangle },
+  { key: "dictionary", label: "Dictionary", short: "Dict.", group: "Vocabulary", Icon: LibraryBig },
+  { key: "wordMatch", label: "Word Match", short: "Words", group: "Vocabulary", Icon: Grid3x3 },
+  { key: "idiomMaster", label: "Idiom Master", short: "Idioms", group: "Vocabulary", Icon: Quote },
+  { key: "falseFriends", label: "False Friends", short: "False Fr.", group: "Vocabulary", Icon: AlertTriangle },
   // ── Play ─────────────────────────────────────────────────────────────────────
-  { key: "games", label: "Games Hub", short: "Games", Icon: Gamepad2 },
+  { key: "games", label: "Games Hub", short: "Games", group: "Play", Icon: Gamepad2 },
 ];
+
+const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", "Play"];
 
 const VISITED_KEY = "lt.visitedTabs.session";
 const TAB_XP = 5;
@@ -186,6 +197,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const mod = getModule(state.activeModuleId);
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
+  const [moreSheetOpen, setMoreSheetOpen] = useState(false);
 
   const visible = TAB_ITEMS.filter((t) => {
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
@@ -389,8 +401,71 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               <span className="text-[9px] font-medium tracking-wide">Match</span>
             </button>
           )}
+          {/* Mobile-only: opens the full tab list — every tab the desktop sidebar has,
+             not just the 5 curated quick-access buttons in this row. */}
+          <button
+            onClick={() => setMoreSheetOpen(true)}
+            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold lg:hidden"
+          >
+            <Menu className="h-5 w-5" strokeWidth={1.6} />
+            <span className="text-[9px] font-medium tracking-wide">More</span>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile-only: full tab list, grouped the same way the desktop sidebar implies. */}
+      <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
+        <SheetContent
+          side="bottom"
+          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] lg:hidden"
+        >
+          <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
+          <SheetDescription className="sr-only">
+            Every available tab, grouped by section. Tap one to switch.
+          </SheetDescription>
+          <div className="mt-2 space-y-5">
+            {TAB_GROUP_ORDER.map((group) => {
+              const items = visible.filter((item) => item.group === group);
+              if (items.length === 0) return null;
+              return (
+                <div key={group}>
+                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                    {group}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((item) => {
+                      const { key, Icon } = item;
+                      const { label } =
+                        key === "fieldPrep"
+                          ? fieldPrepLabel(state.activeModuleId)
+                          : { label: item.label };
+                      const active = state.currentTab === key;
+                      return (
+                        <button
+                          key={key}
+                          onClick={() => {
+                            switchTab(key);
+                            setMoreSheetOpen(false);
+                          }}
+                          className={cn(
+                            "flex w-[31%] grow flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-3 text-center transition-colors min-h-[44px]",
+                            active
+                              ? "border-gold/40 bg-gold/15 text-gold"
+                              : "border-border/40 bg-card/30 text-muted-foreground hover:border-gold/25 hover:text-foreground",
+                          )}
+                        >
+                          <Icon className="h-5 w-5 shrink-0" strokeWidth={1.6} />
+                          <span className="text-[10px] leading-tight tracking-wide">{label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </SheetContent>
+      </Sheet>
 
       <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
     </>

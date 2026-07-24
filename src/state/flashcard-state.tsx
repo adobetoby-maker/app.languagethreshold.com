@@ -28,9 +28,13 @@ export const FLASHCARD_CATEGORIES = [
   "phrases",
   "module",
 ] as const;
-export type FlashcardCategory = (typeof FLASHCARD_CATEGORIES)[number];
+// The fixed sections above plus "block" — dynamic per-profession topic decks
+// (Faith/Medical/Trades/...) sourced from lib/flashcard-blocks and translated
+// on demand, one persistent card per word (unlike the old FlashcardDecks,
+// which re-translated every session and threw the results away).
+export type FlashcardCategory = (typeof FLASHCARD_CATEGORIES)[number] | "block";
 
-export const CATEGORY_LABEL: Record<FlashcardCategory, string> = {
+export const CATEGORY_LABEL: Record<(typeof FLASHCARD_CATEGORIES)[number], string> = {
   vocab: "Vocab (your words)",
   verbs: "Verbs",
   nouns: "Nouns",
@@ -54,6 +58,7 @@ export interface FlashcardEntry {
   source: "starter" | "user";
   frequencyId?: string; // matches FrequencyWordEntry.id (starter/conjugated cards only) — looks up the full conjugation table
   moduleId?: string; // matches AppModule.id (module cards only)
+  blockId?: string; // matches FlashBlock.id (block cards only)
   addedAt: number;
   srs: SrsFields;
 }
@@ -88,6 +93,15 @@ type Action =
   | {
       type: "SYNC_VOCAB";
       payload: { language: Language; items: { word: string; translation: string }[]; now?: number };
+    }
+  | {
+      type: "ADD_BLOCK_CARDS";
+      payload: {
+        language: Language;
+        blockId: string;
+        pairs: { english: string; translation: string }[];
+        now?: number;
+      };
     }
   | { type: "REVIEW_CARD"; payload: { id: string; grade: SrsGrade; now?: number } }
   | { type: "REMOVE_CARD"; payload: { id: string } };
@@ -233,6 +247,14 @@ function syncModuleDeck(
   return { cards: next, changed };
 }
 
+// `sections` accepts fixed category names plus "block:<blockId>" tokens for
+// the dynamic topic decks.
+function matchesSection(c: FlashcardEntry, sections: string[]): boolean {
+  return c.category === "block"
+    ? sections.includes(`block:${c.blockId}`)
+    : sections.includes(c.category);
+}
+
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
@@ -376,6 +398,36 @@ function reducer(state: State, action: Action): State {
       };
     }
 
+    case "ADD_BLOCK_CARDS": {
+      // Introduces a translated batch from a topic block. Keyed by the
+      // English headword so re-introducing never duplicates or resets SRS.
+      const { language, blockId, pairs } = action.payload;
+      const now = action.payload.now ?? Date.now();
+      const cards = { ...state.cards };
+      let changed = false;
+      for (const pair of pairs) {
+        if (!pair.english?.trim() || !pair.translation?.trim()) continue;
+        const id = `block:${language}:${blockId}:${pair.english.toLowerCase().trim()}`;
+        if (cards[id]) continue;
+        cards[id] = {
+          id,
+          language,
+          word: pair.translation,
+          translation: pair.english,
+          example: "",
+          exampleTranslation: "",
+          category: "block",
+          blockId,
+          source: "starter",
+          addedAt: now,
+          srs: newSrsFields(now),
+        };
+        changed = true;
+      }
+      if (!changed) return state;
+      return { ...state, cards };
+    }
+
     case "REVIEW_CARD": {
       const card = state.cards[action.payload.id];
       if (!card) return state;
@@ -405,14 +457,19 @@ const Ctx = createContext<{
   seedStarter: (language: Language) => void;
   seedDeck: (language: Language, category: FlashcardCategory, moduleId?: string) => void;
   syncVocab: (language: Language, items: { word: string; translation: string }[]) => void;
+  addBlockCards: (
+    language: Language,
+    blockId: string,
+    pairs: { english: string; translation: string }[],
+  ) => void;
   addCard: (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) => void;
   reviewCard: (id: string, grade: SrsGrade) => void;
   removeCard: (id: string) => void;
   hasCard: (language: Language, word: string) => boolean;
   cardsForLanguage: (language: Language) => FlashcardEntry[];
   dueCardsForLanguage: (language: Language) => FlashcardEntry[];
-  cardsForCategories: (language: Language, categories: FlashcardCategory[]) => FlashcardEntry[];
-  dueCardsForCategories: (language: Language, categories: FlashcardCategory[]) => FlashcardEntry[];
+  cardsForCategories: (language: Language, sections: string[]) => FlashcardEntry[];
+  dueCardsForCategories: (language: Language, sections: string[]) => FlashcardEntry[];
   hasModuleDeck: (moduleId: string) => boolean;
 } | null>(null);
 
@@ -475,6 +532,11 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       dispatch({ type: "SYNC_VOCAB", payload: { language, items } }),
     [],
   );
+  const addBlockCards = useCallback(
+    (language: Language, blockId: string, pairs: { english: string; translation: string }[]) =>
+      dispatch({ type: "ADD_BLOCK_CARDS", payload: { language, blockId, pairs } }),
+    [],
+  );
   const addCard = useCallback(
     (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) =>
       dispatch({ type: "ADD_CARD", payload: entry }),
@@ -504,16 +566,16 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     [state.cards],
   );
   const cardsForCategories = useCallback(
-    (language: Language, categories: FlashcardCategory[]) =>
+    (language: Language, sections: string[]) =>
       Object.values(state.cards).filter(
-        (c) => c.language === language && categories.includes(c.category),
+        (c) => c.language === language && matchesSection(c, sections),
       ),
     [state.cards],
   );
   const dueCardsForCategories = useCallback(
-    (language: Language, categories: FlashcardCategory[]) =>
+    (language: Language, sections: string[]) =>
       Object.values(state.cards)
-        .filter((c) => c.language === language && categories.includes(c.category) && isDue(c.srs))
+        .filter((c) => c.language === language && matchesSection(c, sections) && isDue(c.srs))
         .sort((a, b) => a.srs.dueDate - b.srs.dueDate),
     [state.cards],
   );
@@ -525,6 +587,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       seedStarter,
       seedDeck,
       syncVocab,
+      addBlockCards,
       addCard,
       reviewCard,
       removeCard,
@@ -540,6 +603,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       seedStarter,
       seedDeck,
       syncVocab,
+      addBlockCards,
       addCard,
       reviewCard,
       removeCard,

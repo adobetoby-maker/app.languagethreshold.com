@@ -9,6 +9,9 @@ import {
   type FlashcardCategory,
 } from "@/state/flashcard-state";
 import { useSpeech } from "@/state/speech-state";
+import { useServerFn } from "@tanstack/react-start";
+import { getCategoryBlocks } from "@/lib/flashcard-blocks";
+import { translatePhrases } from "@/fns/phrase-translate.functions";
 import { configureUtterance } from "@/lib/voices";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import type { SrsGrade } from "@/lib/srs";
@@ -62,6 +65,7 @@ export function FlashcardsStudio() {
     seedStarter,
     seedDeck,
     syncVocab,
+    addBlockCards,
     reviewCard,
     removeCard,
     cardsForCategories,
@@ -79,8 +83,54 @@ export function FlashcardsStudio() {
     () => FLASHCARD_CATEGORIES.filter((c) => c !== "module" || moduleAvailable),
     [moduleAvailable],
   );
-  const [selectedCategories, setSelectedCategories] =
-    useState<FlashcardCategory[]>(availableCategories);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([...availableCategories]);
+
+  // Dynamic topic decks (Faith/Medical/Trades/...) — English headword pools
+  // translated into the target language on first use, 24 words per batch,
+  // persisted as ordinary cards so translation happens once per word ever.
+  const translate = useServerFn(translatePhrases);
+  const blocks = useMemo(() => getCategoryBlocks(), []);
+  const [introducing, setIntroducing] = useState<string | null>(null);
+  const [blockError, setBlockError] = useState<string | null>(null);
+
+  const introducedCount = useCallback(
+    (blockId: string) => cardsForCategories(language, [`block:${blockId}`]).length,
+    [cardsForCategories, language],
+  );
+
+  const introduceBatch = useCallback(
+    async (blockId: string) => {
+      const block = blocks.find((b) => b.id === blockId);
+      if (!block || introducing) return;
+      const have = new Set(
+        cardsForCategories(language, [`block:${blockId}`]).map((c) => c.translation.toLowerCase()),
+      );
+      const next = block.words.filter((w) => !have.has(w.toLowerCase())).slice(0, 24);
+      if (next.length === 0) return;
+      setIntroducing(blockId);
+      setBlockError(null);
+      try {
+        const pairs: { english: string; translation: string }[] = [];
+        for (let i = 0; i < next.length; i += 8) {
+          const res = await translate({
+            data: {
+              phrases: next.slice(i, i + 8),
+              targetLanguage: language,
+              context: `${block.label} vocabulary`,
+            },
+          });
+          if (res.error || !res.phrases) throw new Error(res.error ?? "translation failed");
+          pairs.push(...res.phrases);
+        }
+        addBlockCards(language, blockId, pairs);
+      } catch {
+        setBlockError(`Couldn't translate the ${block.label} deck right now — try again.`);
+      } finally {
+        setIntroducing(null);
+      }
+    },
+    [blocks, introducing, cardsForCategories, language, translate, addBlockCards],
+  );
 
   // Seed every deck category once per language (verbs already had its own
   // dedicated seeder from before this multi-category system existed — kept
@@ -115,18 +165,25 @@ export function FlashcardsStudio() {
   // with no module deck yet drops "module" from the selectable set).
   useEffect(() => {
     setSelectedCategories((prev) => {
-      const stillValid = prev.filter((c) => availableCategories.includes(c));
-      return stillValid.length > 0 ? stillValid : availableCategories;
+      const stillValid = prev.filter(
+        (c) => c.startsWith("block:") || (availableCategories as string[]).includes(c),
+      );
+      return stillValid.length > 0 ? stillValid : [...availableCategories];
     });
   }, [availableCategories]);
 
-  function toggleCategory(category: FlashcardCategory) {
+  function toggleCategory(section: string) {
     setSelectedCategories((prev) =>
-      prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category],
+      prev.includes(section) ? prev.filter((c) => c !== section) : [...prev, section],
     );
+    // First enable of an empty topic deck kicks off its first translated batch.
+    if (section.startsWith("block:")) {
+      const blockId = section.slice("block:".length);
+      if (introducedCount(blockId) === 0) void introduceBatch(blockId);
+    }
   }
 
-  const allSelected = selectedCategories.length === availableCategories.length;
+  const allSelected = availableCategories.every((c) => selectedCategories.includes(c));
 
   const allCards = useMemo(
     () => cardsForCategories(language, selectedCategories),
@@ -236,10 +293,24 @@ export function FlashcardsStudio() {
         selected={selectedCategories}
         allSelected={allSelected}
         onToggle={toggleCategory}
-        onSelectAll={() => setSelectedCategories(availableCategories)}
+        onSelectAll={() =>
+          setSelectedCategories([
+            ...availableCategories,
+            ...blocks.filter((b) => introducedCount(b.id) > 0).map((b) => `block:${b.id}`),
+          ])
+        }
         cardsForCategories={cardsForCategories}
         dueCardsForCategories={dueCardsForCategories}
+        blocks={blocks}
+        introducing={introducing}
+        introducedCount={introducedCount}
+        onIntroduceMore={introduceBatch}
       />
+      {blockError && (
+        <p className="mb-4 px-1 font-mono text-[10px] uppercase tracking-[0.16em] text-rose-400">
+          {blockError}
+        </p>
+      )}
 
       {current ? (
         <div className="flex flex-col items-center gap-5">
@@ -379,21 +450,29 @@ function CategorySelector({
   onSelectAll,
   cardsForCategories,
   dueCardsForCategories,
+  blocks,
+  introducing,
+  introducedCount,
+  onIntroduceMore,
 }: {
   language: FlashcardEntry["language"];
-  available: FlashcardCategory[];
-  selected: FlashcardCategory[];
+  available: readonly string[];
+  selected: string[];
   allSelected: boolean;
-  onToggle: (category: FlashcardCategory) => void;
+  onToggle: (section: string) => void;
   onSelectAll: () => void;
   cardsForCategories: (
     language: FlashcardEntry["language"],
-    categories: FlashcardCategory[],
+    sections: string[],
   ) => FlashcardEntry[];
   dueCardsForCategories: (
     language: FlashcardEntry["language"],
-    categories: FlashcardCategory[],
+    sections: string[],
   ) => FlashcardEntry[];
+  blocks: { id: string; label: string; words: string[] }[];
+  introducing: string | null;
+  introducedCount: (blockId: string) => number;
+  onIntroduceMore: (blockId: string) => void;
 }) {
   return (
     <div className="mb-8">
@@ -428,11 +507,57 @@ function CategorySelector({
                   : "border-border/60 bg-card/30 text-muted-foreground hover:border-gold/40"
               }`}
             >
-              {CATEGORY_LABEL[category]}
+              {CATEGORY_LABEL[category as keyof typeof CATEGORY_LABEL]}
               <span className={active ? "text-gold/70" : "text-muted-foreground/60"}>
                 {due > 0 ? `${due}/${total}` : total}
               </span>
             </button>
+          );
+        })}
+      </div>
+      <div className="mb-2.5 mt-4 flex items-center gap-2 px-1">
+        <BookOpen className="h-3.5 w-3.5 text-gold" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          Topic decks · translated as you go
+        </span>
+      </div>
+      <div className="flex flex-wrap gap-2 px-1">
+        {blocks.map((b) => {
+          const token = `block:${b.id}`;
+          const introduced = introducedCount(b.id);
+          const due = introduced > 0 ? dueCardsForCategories(language, [token]).length : 0;
+          const active = selected.includes(token);
+          const busy = introducing === b.id;
+          return (
+            <span key={b.id} className="inline-flex items-center">
+              <button
+                onClick={() => onToggle(token)}
+                disabled={busy}
+                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${
+                  active
+                    ? "border-gold bg-gold/15 text-gold"
+                    : "border-border/60 bg-card/30 text-muted-foreground hover:border-gold/40"
+                } ${busy ? "opacity-60" : ""}`}
+              >
+                {b.label}
+                <span className={active ? "text-gold/70" : "text-muted-foreground/60"}>
+                  {busy
+                    ? "translating…"
+                    : due > 0
+                      ? `${due} due · ${introduced}/${b.words.length}`
+                      : `${introduced}/${b.words.length}`}
+                </span>
+              </button>
+              {active && !busy && introduced > 0 && introduced < b.words.length && (
+                <button
+                  onClick={() => onIntroduceMore(b.id)}
+                  title={`Translate the next ${Math.min(24, b.words.length - introduced)} words`}
+                  className="ml-1 rounded-full border border-gold/40 bg-gold/[0.08] px-2 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold/15"
+                >
+                  +24
+                </button>
+              )}
+            </span>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 ---
-project: language-lens-elite
+project: app.languagethreshold.com
 category: language-learning-app
 deploy: vercel
 lifecycle: active
@@ -9,7 +9,7 @@ supabase_project: pollhlkgltdkdskdzsgd
 stripe_webhook_url: https://app.languagethreshold.com/api/stripe-webhook
 ---
 
-# Language Threshold (language-lens-elite)
+# Language Threshold (`app.languagethreshold.com`)
 
 Multi-language learning platform: parallel reader, flashcards, grammar, speaking, matchmaking, leaderboard.
 
@@ -234,3 +234,21 @@ Current tabs: Reader, Kana Pad, Grammar, Speak, Discussions, Library, Notes, Tut
 3. Run `npx tsc --noEmit` — zero new errors before declaring done
 4. State what was deferred
 5. Suggest next step — don't take it without being asked
+
+
+---
+
+## AI Rosetta — mandatory coordination
+
+Before beginning project work on Mac Studio or MacBook Air:
+
+1. Read `AI_HANDOFF.md`.
+2. Read `ai-rosetta/README.md` and `ai-rosetta/PREFLIGHT.md`.
+3. Run the preflight on the Mac currently in use; never assume the other Mac pushed.
+4. Read the active task brief and update `ai-rosetta/agents/CLAUDE_STATUS.md`.
+5. During independent work, do not read Codex's plan until Claude's plan is marked `independent-complete`.
+6. Work from a `claude/<task-slug>` branch, never directly from `main`.
+7. Commit, push, fetch again, and verify the remote SHA before ending.
+8. Record exact deployment evidence; production changes require Toby's explicit approval.
+
+Claude mobile may inspect GitHub-visible state and help record Toby's decisions. It must not claim either Mac checkout is synchronized without a fresh preflight from that device.

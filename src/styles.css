@@ -98,7 +98,8 @@
   --secondary-foreground: oklch(0.96 0.012 80);
 
   --muted: oklch(0.26 0.04 255);
-  --muted-foreground: oklch(0.72 0.02 80);
+  /* L 0.78 (was 0.72) — muted labels were washing out under bright-room glare */
+  --muted-foreground: oklch(0.78 0.02 80);
 
   --accent: oklch(0.74 0.13 80);
   --accent-foreground: oklch(0.18 0.035 255);
@@ -106,8 +107,9 @@
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.98 0.005 80);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
+  /* 14%/18% (was 10%/14%) — hairline borders disappeared in bright rooms */
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 18%);
   --ring: oklch(0.74 0.13 80);
 }
 

@@ -27,6 +27,8 @@ import {
   LibraryBig,
   ArrowRightLeft,
   Menu,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useState } from "react";
 import { useApp, type TabKey, type Language } from "@/state/app-state";
@@ -352,6 +354,19 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </span>
             <ChevronDown className="h-3 w-3 opacity-50" />
           </button>
+
+          {/* Theme toggle — icon-only to keep the strip compact */}
+          <button
+            onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
+            aria-label={state.darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            className="flex shrink-0 items-center justify-center rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold"
+          >
+            {state.darkMode ? (
+              <Sun className="h-3.5 w-3.5" strokeWidth={1.8} />
+            ) : (
+              <Moon className="h-3.5 w-3.5" strokeWidth={1.8} />
+            )}
+          </button>
         </div>
 
         {/* Tab row */}
@@ -425,6 +440,25 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <SheetDescription className="sr-only">
             Every available tab, grouped by section. Tap one to switch.
           </SheetDescription>
+
+          {/* Theme toggle — labeled row so the setting is discoverable */}
+          <button
+            onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
+            className="mt-3 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
+          >
+            <span className="flex items-center gap-2.5 text-sm text-foreground">
+              {state.darkMode ? (
+                <Moon className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              ) : (
+                <Sun className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              )}
+              Appearance
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              {state.darkMode ? "Dark — tap for light" : "Light — tap for dark"}
+            </span>
+          </button>
+
           <div className="mt-2 space-y-5">
             {TAB_GROUP_ORDER.map((group) => {
               const items = visible.filter((item) => item.group === group);

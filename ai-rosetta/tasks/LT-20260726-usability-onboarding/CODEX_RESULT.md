@@ -3,55 +3,79 @@
 Task: `LT-20260726-usability-onboarding`  
 Branch: `codex/ai-rosetta-control`  
 Draft PR: #2, `Build AI Rosetta multi-device coordination layer`  
+Starting baseline: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`  
+Initial implementation head: `cd544460cda5ddf4ca66627732b2a7903e368b22`  
+Claude-review fix: `7d32e9571ec597cdfd83cec8c03fc0f3e5ddfb07`  
 Production remains unchanged: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
 
 ## What changed
 
 - Added the Rosetta coordination layer and validator in draft PR #2.
-- Closed Codex's handoff by marking `ai-rosetta/agents/CODEX_STATUS.md` as `independent-complete`.
-- Fixed documentation wording in `AGENTS.md` so the Rosetta validator no longer false-positives on Cloudflare guidance while still preserving the instruction not to deploy with Wrangler.
-- Added this task result record for Claude and Toby review.
+- Added explicit responsibilities for Claude mobile, Claude Code on Mac Studio,
+  Claude Code on MacBook Air, Codex, GitHub, and Vercel.
+- Added the project identity, portfolio index, mandatory preflight, separate
+  agent statuses, task brief, templates, and full Claude Code PRD.
+- Replaced stale Cloudflare deployment instructions with verified Vercel
+  guidance.
+- Added `npm run rosetta:check`.
+- Closed Codex's status as `independent-complete`.
 
-## Commits
+No application behavior or learner-facing code changed.
 
-- Baseline and production commit: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`.
-- Codex PR head before this handoff closure: `cd544460cda5ddf4ca66627732b2a7903e368b22`.
-- Handoff closure commit: the commit containing this `CODEX_RESULT.md` file.
+## Claude cross-check
 
-## Checks run
+Claude reviewed a clean checkout on Mac Studio and found one blocker: the
+validator's broad Cloudflare regex matched the remediation sentence describing
+that the application was no longer deployed to Cloudflare. Acceptance criterion
+4 was therefore unmet at the initial PR head.
 
-- Rosetta preflight commands from `ai-rosetta/PREFLIGHT.md`.
-- `npm run rosetta:check`.
+Codex addressed the review in two layers:
 
-Initial `npm run rosetta:check` failed because `AGENTS.md` used the phrase
-"no longer deployed to Cloudflare Workers"; the validator treated that as stale
-Cloudflare deployment guidance. The wording was changed to identify Vercel as
-the active hosting target without changing application behavior.
+1. `AGENTS.md` states positively that Vercel is the active hosting target.
+2. The validator now detects actual stale deployment instructions—Wrangler
+   deploy/publish commands, Cloudflare deployment bullets, or npm deployment
+   commands associated with Cloudflare—rather than harmless historical prose.
 
-## Vercel preview
+Regression proof:
 
-- GitHub PR #2 check `Vercel`: passed.
-- `Vercel Preview Comments`: passed.
-- Durable preview evidence should be read from PR #2's live Vercel status
-  check because Vercel creates a new preview record for each pushed commit.
+- current corrected `AGENTS.md`: does not trigger;
+- representative stale Cloudflare deployment instructions: trigger.
 
-No production deployment was performed.
+## Verification
 
-## Known limitations
+- Initial local Rosetta scaffold check: passed.
+- Required branch files were re-fetched from GitHub successfully.
+- Narrow-regex direct regression test: passed.
+- Vercel preview: READY.
+- GitHub Vercel status: success.
+- Production alias remains on main commit `8dff4f2`.
+- Mac Studio preflight: otherwise aligned.
+- MacBook Air preflight: blocked because the device has been offline with 100%
+  packet loss since July 21. No state was inferred.
 
-- This branch is documentation and validation tooling only; it does not change
-  learner-facing onboarding or usability behavior.
-- PR #2 remains draft and unmerged.
-- Claude's status is still idle and must be verified from Claude's own checkout.
-- The Vercel preview evidence is from GitHub status checks, not from a separate
-  manual browser QA pass.
+## Known limitations and next checks
 
-## Claude review request
+- Claude should re-run `npm run rosetta:check` on a clean checkout after the
+  review fix.
+- MacBook Air must run the full preflight when connectivity returns.
+- Its origin may still use the repository's pre-rename URL; preserve local work
+  before updating that remote.
+- The dedicated cross-project `ai-rosetta-control` repository does not yet
+  exist; this app contains the bootstrap portfolio index.
+- The protocol should clarify whether cross-agent status edits are allowed
+  during bootstrap. Default recommendation: each agent owns its own status file;
+  cross-agent observations belong in reviews or PR comments.
+- The earlier `codex/usability-onboarding` branch should be reconciled with the
+  active-task record before application implementation begins.
 
-Claude should review draft PR #2 for protocol correctness, especially:
+## What Claude should review next
 
-- whether the Rosetta authority model is clear enough for Claude mobile,
-  Claude Code on Mac Studio, Claude Code on MacBook Air, and Codex;
-- whether the preflight evidence is sufficient to prevent divergent local state;
-- whether the PRD correctly preserves independent Claude and Codex reasoning;
-- whether production deployment remains clearly gated on Toby's approval.
+1. Re-run `npm run rosetta:check`.
+2. Confirm the review blocker is cleared.
+3. Keep PR #2 unmerged until Toby approves.
+4. Do not deploy production.
+
+## Independent-completion declaration
+
+Independent work completed before cross-review: yes  
+Other agent's plan read before completion: no

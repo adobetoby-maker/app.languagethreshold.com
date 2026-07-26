@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "rosetta:check": "node scripts/rosetta-check.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

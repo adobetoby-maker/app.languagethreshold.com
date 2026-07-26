@@ -92,9 +92,18 @@ if (claudeBranch && codexBranch && claudeBranch === codexBranch) {
   errors.push("Claude and Codex may not claim the same working branch.");
 }
 
-if (/deployed to cloudflare workers|npm run deploy.*cloudflare/i.test(agents)) {
+const staleCloudflareInstruction =
+  /(?:^|\n)\s*(?:[-*]\s*)?(?:(?:npx|pnpm dlx)\s+)?wrangler\s+(?:deploy|publish)\b/im.test(
+    agents,
+  ) ||
+  /npm\s+run\s+deploy[^\n]*(?:cloudflare|wrangler)/i.test(agents) ||
+  /(?:^|\n)\s*-\s*(?:deployed|deployment)\s+(?:to|via):?\s*cloudflare\b/im.test(
+    agents,
+  );
+
+if (staleCloudflareInstruction) {
   errors.push(
-    "AGENTS.md contains stale Cloudflare production guidance; this app deploys to Vercel.",
+    "AGENTS.md contains an instruction to deploy through Cloudflare; this app deploys to Vercel.",
   );
 }
 

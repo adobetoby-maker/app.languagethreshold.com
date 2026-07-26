@@ -31,9 +31,9 @@ the active hosting target without changing application behavior.
 ## Vercel preview
 
 - GitHub PR #2 check `Vercel`: passed.
-- Vercel deployment record:
-  `https://vercel.com/adobetoby-5572s-projects/language-threshold-app/72z97mWrS3FAjBcSo1q3KS9h4L1n`.
 - `Vercel Preview Comments`: passed.
+- Durable preview evidence should be read from PR #2's live Vercel status
+  check because Vercel creates a new preview record for each pushed commit.
 
 No production deployment was performed.
 

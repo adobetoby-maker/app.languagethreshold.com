@@ -8,7 +8,7 @@
 - Deployment: Vercel project `language-threshold-app`
 - Production branch: `main`
 
-This application is not Next.js. It is no longer deployed to Cloudflare Workers.
+This application is not Next.js. Its active hosting target is Vercel.
 `wrangler.jsonc` is legacy configuration. Do not deploy this app with Wrangler.
 
 ## AI Rosetta — mandatory coordination

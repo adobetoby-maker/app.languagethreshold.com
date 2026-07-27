@@ -28,12 +28,21 @@ deserve the same clarity and discovery.
 
 Claude's mobile production review found:
 
-- Save Progress dominates every tested mobile screen.
+- Save Progress is visually dominant at narrow mobile widths because its copy
+  wraps, but its dismissal works and persists across navigation and reload.
 - Ask Tutor overlaps useful content.
 - inactive filter developer language is shown to learners;
-- Grammar loading gives no time expectation;
+- Grammar generation resolves in approximately four seconds with a visible
+  spinner on this baseline; the earlier indefinite-loading concern did not
+  reproduce and should not be treated as an active defect;
+- a complete eight-tab sweep produced zero console errors and zero page errors;
 - onboarding role cards, Flashcards hierarchy, Speak empty state, theme toggle,
   and contrast changes are strong.
+
+These three corrections supersede the earlier claims that banner dismissal was
+broken, Grammar loading was indefinite or lacked a working progress state, and
+the eight primary tabs produced console/page errors. They are shared factual
+corrections, not solution recommendations.
 
 Codex's review emphasized:
 
@@ -65,4 +74,3 @@ Codex's review emphasized:
 A first-time mobile learner can understand where to begin, discover the
 Reader/Tutor magic, and reach the valuable practice tools without persistent
 interface elements obstructing their work.
-

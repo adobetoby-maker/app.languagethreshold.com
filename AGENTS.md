@@ -1,78 +1,58 @@
-<!-- BEGIN:tanstack-start-rules -->
-# TanStack Start — not a standard Vite/Next.js app
+# Language Threshold — Agent Instructions
 
-Uses TanStack Start (not Next.js). Server functions are in `src/routes/api.*.ts`.
-Deployed via `@cloudflare/vite-plugin` to Cloudflare Workers — not Vercel.
-Read `wrangler.jsonc` before any deploy changes. Run `npx tsc --noEmit` after type changes.
-<!-- END:tanstack-start-rules -->
+## Verified project identity
 
-# Language Lens Elite — Project Context
+- Canonical repository: `adobetoby-maker/app.languagethreshold.com`
+- Production: `https://app.languagethreshold.com`
+- Framework: TanStack Start + React 19 + Vite
+- Deployment: Vercel project `language-threshold-app`
+- Production branch: `main`
 
-## What This Is
-Language learning app (language-lens). Hosted at app.languagethreshold.com.
-Features: AI tutor, discussion mode, field prep, sports news, speaking practice.
+This application is not Next.js. Its active hosting target is Vercel.
+`wrangler.jsonc` is legacy configuration. Do not deploy this app with Wrangler.
 
-## Stack
-- TanStack Start (React 19) + @cloudflare/vite-plugin + Supabase
-- Deployed to Cloudflare Workers
-- Machine: [SSH] Mac Studio (~/language-lens-elite) | [MAC] Local dev at ~/language-lens
+## AI Rosetta — mandatory coordination
 
-## Commands
+Before beginning project work:
+
+1. Read `AI_HANDOFF.md`.
+2. Fetch and read the current coordination ref and task `REMOTE_STATE.md`.
+3. Read `ai-rosetta/README.md` and run `ai-rosetta/PREFLIGHT.md`.
+4. Read the active task brief.
+5. Update only `ai-rosetta/agents/CODEX_STATUS.md`.
+6. During independent work, do not read Claude's plan until Codex's plan is marked `independent-complete`; current factual status may still be read.
+7. Work from a `codex/<task-slug>` branch, never directly from `main`.
+8. Open a draft PR at the first reviewable checkpoint.
+9. Distinguish application head, documentation head, and preview commit.
+10. Record and stop local dev servers at handoff unless a named reviewer is actively using one.
+11. Use only project-scoped credentials; never borrow secrets from another repository.
+12. Preserve dirty or divergent state; never reset or overwrite it to make a preflight pass.
+13. Commit, push, fetch again, and verify the remote SHA before ending.
+14. Production changes require Toby's explicit approval.
+
+GitHub is the durable coordination authority. Local Mac and Codex folders are working copies.
+Branch-local status is not live cross-branch truth; the task coordination ref is.
+
+## Before touching application code
+
+Read:
+
+- `src/components/tab-registry.ts` — exhaustive tab registration.
+- `src/state/app-state.tsx` — application state and the separate XP tier system.
+- `CLAUDE.md` — current architecture, infrastructure, commands, and failure patterns.
+
+Adding a tab requires updating both the `TabKey` union and `TAB_COMPONENTS`.
+Never edit `src/routeTree.gen.ts` manually.
+
+## Verification
+
+Run the checks relevant to the work:
+
 ```bash
-npm run dev        # localhost:3000 (or bun dev)
-npm run build      # production build
-npm run preview    # local CF Workers runtime
-npm run deploy     # → Cloudflare via wrangler (requires: npx wrangler login)
-npx tsc --noEmit   # type check
+npm run rosetta:check
+npx tsc --noEmit
+npm run lint
+npm run build
 ```
 
-## Deployment
-- Worker name: `language-threshold-app`
-- Live URL: https://app.languagethreshold.com
-- Routes via: `wrangler.jsonc` → `app.languagethreshold.com/*`
-- Re-auth if deploy fails: `npx wrangler login`
-
-## API Routes (server functions — run in CF Workers)
-- `src/routes/api.tutor.ts` — AI tutor chat (Anthropic)
-- `src/routes/api.speak.ts` — speaking practice
-- `src/routes/api.discussion.ts` — discussion mode
-- `src/routes/api.field-prep.ts` — field preparation
-- `src/routes/api.module-field-prep.ts` — module field prep
-- `src/routes/api.sports-news.ts` — sports news feed
-
-## Key Env Vars (CF Workers secrets)
-```
-ANTHROPIC_API_KEY         # AI features
-VITE_SUPABASE_URL
-VITE_SUPABASE_PUBLISHABLE_KEY
-```
-Set via: `wrangler secret put ANTHROPIC_API_KEY`
-Or Cloudflare dashboard: Workers & Pages → language-threshold-app → Settings
-
-## Architecture
-```
-src/
-  routes/         — pages + API server functions
-    __root.tsx    — root layout
-    [index].tsx   — home/dashboard
-    api.*.ts      — server-only API routes (run in Workers)
-  components/     — React components
-  lib/            — shared utilities
-  state/          — client state
-  hooks/          — React hooks
-  data/           — static data
-  integrations/   — third-party integrations
-  fns/            — utility functions
-supabase/
-  migrations/     — DB migrations
-```
-
-## TanStack Start vs Next.js
-- Server functions use `createAPIFileRoute` not Next.js Route Handlers
-- No `app/` directory — routes are in `src/routes/`
-- No `layout.tsx` pattern — use `__root.tsx`
-- File-based routing: `[index].tsx` = `/`, `api.tutor.ts` = `/api/tutor`
-
-## DON'T TOUCH
-- `wrangler.jsonc` routes (the `app.languagethreshold.com/*` binding)
-- `src/routeTree.gen.ts` — auto-generated, never edit manually
+Report the exact branch, starting and ending commits, checks, preview or deployment evidence, remaining risks, and next action.

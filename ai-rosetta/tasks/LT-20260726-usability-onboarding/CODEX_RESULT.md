@@ -140,3 +140,65 @@ would not be code-split.
 - No manual preview or Production deployment was initiated.
 - Production remains unchanged at
   `8dff4f2b03f5e81a55894574e8ef3326d80d1116`.
+
+## 2026-07-27 stable localhost replay
+
+This follow-up preserves the earlier concurrent report and records a second,
+stable browser replay after the live Track A checkout advanced during testing.
+The application remained read-only. The `Dove abiti?` fixture was created
+through the app's Add Text flow in an isolated browser context; it did not
+change repository or production data.
+
+### Exact runtime provenance
+
+- Server: PID `46558`, Vite dev server rooted at
+  `/Users/drive/projects-local/app-lt`
+- Running branch and final tested checkout:
+  `claude/usability-onboarding` at
+  `e668022f5941d82b4acc54568d8604beea914b7b`
+- Matching PR #3 head:
+  `e668022f5941d82b4acc54568d8604beea914b7b`
+- PR #4 head before this evidence-only update:
+  `d2465d66eed2f36c2de30808df445684f4c0912f`
+- Merge base:
+  `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
+- Divergence: Track A has 15 unique commits; PR #4 has 5 unique commits.
+- Application comparison (`src`, package, scripts, and tests): 43 files
+  differ, with 892 insertions and 1,703 deletions.
+
+Result: localhost still runs Track A, not PR #4. The replay validates the exact
+Track A commit above and must not be treated as runtime certification of PR #4.
+
+### Stable replay results
+
+| Review step | Result |
+| --- | --- |
+| Mobile onboarding | Passed at `390x844`. The language grid, Italian selection, first-run value proposition, `Start reading`, and Reader entry were usable without clipping or control overlap. The overlay became visible 889 ms after navigation; the underlying Reader was briefly visible after DOM content loaded at 349 ms. |
+| `Dove abiti?` | Partial. Add Text produced the exact aligned sentence. Tapping `abiti?` returned lemma `abitare` and correct second-person grammar. The Word Card used a generated example (`Abiti in citta o in campagna?`) rather than displaying the exact tapped sentence. |
+| `Dove abiti?` Tutor | Passed. Tutor showed selected lemma `abitare`, exact source sentence `Dove abiti?`, and the prefilled question preserved both. A live response correctly explained `Dove abiti?`, omitted `tu`, and connected it to `Abito a Roma.` |
+| `prenotazione` | Partial. Tapping the word in `Buonasera, avete una prenotazione?` returned the correct definition and direct-object grammar. The Word Card again displayed a generated example instead of the exact tapped sentence. |
+| `prenotazione` Tutor | Passed. Tutor showed `Context from Reader - sentence 1`, selected word `prenotazione`, exact source sentence `Buonasera, avete una prenotazione?`, and the same exact sentence in the prefilled question. |
+| Save word | Passed. `My Vocab` persisted `prenotazione`, its definition, and `vocabLang: Italian`. |
+| Flashcards | Passed after the stable replay. Flashcards became 95 total, reported `Vocab (your words) 1/1`, and persisted card id `user:Italian:prenotazione`. |
+| Saved-word filter | Failed. Activating `Vocab (your words) 1/1` changed the deck to 94 cards, removed `prenotazione`, and left core cards such as `potere` visible. |
+
+### Dock geometry
+
+- Bottom navigation: `x=0`, `y=741.5`, `width=390`, `height=102.5`.
+- Docked Tutor item: `x=341.28125`, `y=788.5`, `width=48.71875`,
+  `height=55.5`.
+- Open Tutor panel: `x=16`, `y=16`, `width=358`, `height=712`,
+  ending at `y=728`.
+- The navigation begins at `y=741.5`, leaving a 13.5 px gap below the open
+  Tutor panel and zero overlap.
+- No separate floating mobile Tutor button was visible.
+
+### Runtime health and boundaries
+
+- No console errors, page errors, failed HTTP responses, blank state, or
+  framework error overlay occurred.
+- No application source was edited.
+- PR #4 was not merged.
+- No manual preview or Production deployment was initiated.
+- `main` and Production remain at
+  `8dff4f2b03f5e81a55894574e8ef3326d80d1116`.

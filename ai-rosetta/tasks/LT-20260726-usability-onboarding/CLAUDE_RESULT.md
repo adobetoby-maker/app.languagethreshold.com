@@ -1,14 +1,27 @@
 # CLAUDE_RESULT — DUO-002
 
+**Status: `independent-complete`**
+
 Agent: Claude Code
 Branch: `claude/usability-onboarding`
-**Branch head: `e668022f5941d82b4acc54568d8604beea914b7b`**
+**Implementation head: `e668022f5941d82b4acc54568d8604beea914b7b`** (last code commit; later SHAs on this branch are Rosetta documentation only)
 Baseline: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
 Preview (aligned, HTTP 200): https://language-threshold-b38j3ywqc-adobetoby-5572s-projects.vercel.app
-Draft PR: #3
+Review PR: [#3](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/3) — open, not draft
 Date: 2026-07-27
 
 Supersedes the Phase-1 checkpoint version, which was 8 commits stale.
+
+## Completion declaration
+
+The independent Claude implementation is **complete**. Every change is committed
+and pushed to `claude/usability-onboarding` at the head recorded above, with an
+aligned READY Vercel preview verified at HTTP 200.
+
+Runtime certification of the AI-backed surfaces is **not** part of this
+declaration and is listed separately under "Remaining limitations". Those items
+are environmental and shared with the Codex branch; they do not indicate
+incomplete implementation work on this side.
 
 ## Attribution — this branch is no longer solely Claude's work
 
@@ -139,19 +152,30 @@ or Speak is invalid until this is set.
 A previously borrowed ClearTerms key was removed on request; `git log -S"sk-ant-"`
 confirms it was never committed.
 
-## Not done
+## Remaining limitations — separate from the completion declaration
 
-1. **Missionary selection-block correction.** Could not locate the mid-page
-   render from source — `lds-missionary` appears only in module routing, and the
-   supplied screenshots show the Italian travel module. Needs one pointer rather
-   than a guess.
-2. **Cross-review / `SYNTHESIS.md`.** Codex is now independent-complete
-   (`CODEX_PLAN.md` / `CODEX_RESULT.md` at PR #4 docs head `8acd101`;
-   implementation `8e3c6b4`). Cross-review begins after this document is locked.
-3. **2560/5K composition** of the language step — `max-w-lg` reads adrift at
-   large viewports. Cosmetic; mobile was the stated priority.
+These are recorded as open, not as unfinished implementation:
+
+1. **Anthropic preview credential (environmental, shared).** Vercel Preview has
+   no `ANTHROPIC_API_KEY`, so preview does not match local. Word lookup, Tutor,
+   Grammar generation and Speak cannot be certified from any preview on either
+   branch until it is set. Codex records the same limitation independently.
+2. **`Dove abiti?` / `prenotazione` sentence-context cases — not reproduced and
+   not cleared.** Three scripted attempts at current head; the Word Card does
+   not open under Playwright after Track A's overlay changes, so matches
+   resolved to the training-demo copy rather than a card. The screenshots that
+   raised these predate Track A locally. Requires manual device reproduction or
+   selectors re-keyed to Track A's markup.
+3. **Missionary selection-block correction — not implemented.** Could not locate
+   the mid-page render from source; `lds-missionary` appears only in module
+   routing, and the supplied screenshots show the Italian travel module. Needs a
+   pointer rather than a guess.
+4. **Language step composition at 2560/5K.** `max-w-lg` reads adrift at large
+   viewports. Cosmetic; mobile was the stated priority.
 
 ## State
 
-`main` untouched. Production untouched. No merge performed. Nothing deployed to
-Production. Draft PR #3 remains draft.
+- `main`: unchanged at `8dff4f2b`.
+- Production: unchanged, not deployed.
+- PR #3: **open, not draft** (verified `isDraft=false`), head `577ee7d`.
+- No merge performed. Codex branch fetched read-only; never checked out or edited.

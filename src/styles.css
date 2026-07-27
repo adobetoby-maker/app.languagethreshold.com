@@ -1086,22 +1086,7 @@ rt,
   }
 }
 
-@media (hover: none) {
-  /* Both panes are decorated. An earlier pass scoped this to the target pane on
-   * the assumption that looking up an English word wasn't useful — that was
-   * wrong: tapping a native-pane word opens the same card, with Ask Tutor and
-   * My Vocab. Decorating one side made the affordance lie about what works.
-   * Noise is handled by weight (22% gold), not by hiding half the truth. */
-  .lt-word {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    /* Faint by design: reads as texture, never as emphasis. */
-    text-decoration-color: color-mix(in oklch, var(--color-gold) 22%, transparent);
-  }
-  .lt-word:active {
-    color: var(--color-gold);
-    text-decoration-color: var(--color-gold);
-  }
-}
+/* Underlines removed. Decorating every word read as clutter at phone size and
+ * still could not express "either side, and it leads to the Tutor". The
+ * training-demo block carries that message instead, and clears itself once the
+ * learner has used both panes. `.lt-word` keeps cursor/tap affordance only. */

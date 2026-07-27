@@ -33,7 +33,7 @@ import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getLessons } from "@/data/module-starters";
 import { ActionHint } from "@/components/onboarding/AppTour";
-import { dismissLearningHint } from "@/lib/learning-guidance";
+import { recordPaneTap } from "@/lib/learning-guidance";
 
 type TextSize = "S" | "M" | "L";
 
@@ -348,7 +348,9 @@ export function ParallelReader() {
     x: number,
     y: number,
   ) => {
-    dismissLearningHint("lt.guide.reader.tap");
+    // Counts per pane; the demo block clears only once BOTH sides have been
+    // used 3 times, so the learner discovers that native-side lookup works too.
+    recordPaneTap(pane, "lt.guide.reader.tap");
     const passage = buildCenteredPassage(activeSentences, sentenceIndex);
     if (pane === "right") {
       setWordReq({
@@ -503,8 +505,9 @@ export function ParallelReader() {
       <ModuleStudyGuide />
       <ModuleMatchPanel surface="Reader" className="mb-4" />
       <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
-        <strong>Tap any word in the target-language column.</strong> You will see what it means in
-        this sentence, then you can ask Tutor or save it for practice.
+        <strong>Your training demo.</strong> Tap a word on either side — {state.nativeLanguage} or{" "}
+        {state.selectedLanguage} — to see what it means in this sentence, ask the Tutor about it,
+        then save it. This disappears once you have tried both sides.
       </ActionHint>
 
       {/* Lesson navigation — shown when the active module has multiple lessons */}

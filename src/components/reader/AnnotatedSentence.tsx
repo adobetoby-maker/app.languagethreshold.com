@@ -131,7 +131,7 @@ function Tokens({
               const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
               onWordClick(clean, fullSentence, r.left + r.width / 2, r.bottom);
             }}
-            className="cursor-pointer rounded transition-colors hover:text-gold hover:[text-decoration:underline] hover:[text-decoration-color:var(--color-gold)] hover:[text-decoration-thickness:1px] hover:[text-underline-offset:4px]"
+            className="lt-word"
           >
             {tok}
           </span>

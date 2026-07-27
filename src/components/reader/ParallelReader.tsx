@@ -29,6 +29,7 @@ import { MiniPlayer } from "./MiniPlayer";
 import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { useCultureGenerator } from "@/components/library/useCultureGenerator";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
+import { TapHint } from "@/components/reader/TapHint";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getLessons } from "@/data/module-starters";
 
@@ -436,6 +437,7 @@ export function ParallelReader() {
     <div className="fade-in mx-auto w-full max-w-6xl">
       <ModuleStudyGuide />
       <ModuleMatchPanel surface="Reader" className="mb-4" />
+      <TapHint />
 
       {/* Lesson navigation — shown when the active module has multiple lessons */}
       {lessonIds.length > 1 && (
@@ -812,6 +814,10 @@ export function ParallelReader() {
             </div>
             <div
               ref={rightRef}
+              // Marks the target-language pane so the touch word-affordance in
+              // styles.css applies here only — decorating the native pane too
+              // doubled the noise and pointed at the wrong side. DUO-002 P0-2.
+              data-pane="target"
               className={`custom-scroll overflow-y-auto px-5 py-6 md:px-7 md:py-8 ${
                 fullscreen
                   ? "h-[calc(100dvh-100px)] md:h-[calc(100dvh-120px)]"

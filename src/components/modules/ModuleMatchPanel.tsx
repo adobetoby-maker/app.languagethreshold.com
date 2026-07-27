@@ -54,11 +54,43 @@ interface Props {
   className?: string;
 }
 
+/**
+ * This panel is internal QA instrumentation, not learner-facing UI. It shipped
+ * to production and rendered "◈ Filter check · Reader / No active module —
+ * filter inactive" as the first element on Reader, Grammar Studio and Speak.
+ *
+ * Visible only in dev, or when explicitly opted into with `?debugFilter=1`
+ * (persisted, cleared with `?debugFilter=0`). DUO-002 P0-3.
+ */
+const DEBUG_FLAG_KEY = "lt.debug.moduleFilter";
+
+function debugPanelEnabled(): boolean {
+  if (import.meta.env.DEV) return true;
+  if (typeof window === "undefined") return false;
+  try {
+    const param = new URLSearchParams(window.location.search).get("debugFilter");
+    if (param === "1") {
+      window.localStorage.setItem(DEBUG_FLAG_KEY, "1");
+      return true;
+    }
+    if (param === "0") {
+      window.localStorage.removeItem(DEBUG_FLAG_KEY);
+      return false;
+    }
+    return window.localStorage.getItem(DEBUG_FLAG_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function ModuleMatchPanel({ surface, className }: Props) {
   const { state: appState } = useApp();
   const { state: libState } = useLibrary();
   const [open, setOpen] = useState(false);
   const [highlight, setHighlight] = useState(true);
+  // Hooks above run unconditionally; the early return sits below them so hook
+  // order stays stable between renders.
+  const enabled = useMemo(() => debugPanelEnabled(), []);
 
   const activeModule = getModule(appState.activeModuleId);
   const focus = activeModule?.vocabFocus ?? null;
@@ -67,6 +99,9 @@ export function ModuleMatchPanel({ surface, className }: Props) {
     () => partitionByFocus(libState.entries, focus, entryHaystack),
     [libState.entries, focus],
   );
+
+  // Internal instrumentation — never rendered to learners. See debugPanelEnabled.
+  if (!enabled) return null;
 
   // Render even with no active module so users can confirm "filter is off".
   return (

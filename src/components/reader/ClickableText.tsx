@@ -49,8 +49,16 @@ function tokenizeJapanese(text: string): JToken[] {
   return result;
 }
 
-const CLICK_CLASS =
-  "cursor-pointer rounded transition-colors hover:text-gold hover:[text-decoration:underline] hover:[text-decoration-color:var(--color-gold)] hover:[text-decoration-thickness:1px] hover:[text-underline-offset:4px]";
+/**
+ * Shared word-affordance class. Defined in styles.css as `.lt-word` so the
+ * hover-capable and touch variants can be expressed as real media queries —
+ * Tailwind's `hover:` alone silently does nothing on touch, which is what hid
+ * the signature Reader interaction on mobile. DUO-002 P0-2.
+ *
+ * Exported so AnnotatedSentence and FuriganaText share one definition instead
+ * of each carrying a copy that can drift.
+ */
+export const CLICK_CLASS = "lt-word";
 
 export function ClickableText({
   text,

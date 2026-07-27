@@ -986,3 +986,47 @@ rt,
   mix-blend-mode: screen;
   pointer-events: none;
 }
+
+/* ── Tappable Reader words — DUO-002 P0-2 ────────────────────────────────────
+ * The word affordance was hover-only (`hover:text-gold`). Hover does not exist
+ * on touch, so on the product's primary platform nothing signalled that words
+ * were tappable — the signature Reader → Word Card → Tutor loop was invisible.
+ *
+ * Pointer devices keep the original richer hover treatment. Touch devices get a
+ * persistent but deliberately faint dotted underline: enough to read as
+ * interactive across a page of text, quiet enough not to compete with the prose
+ * (PRD §9 — restrained, content stays more important than chrome).
+ */
+.lt-word {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: color 150ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lt-word:hover {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (hover: none) {
+  /* Only the target-language pane is decorated. Underlining the native pane too
+   * doubled the visual noise on a page of prose and pointed at the side where
+   * looking a word up isn't the point. Scoped via [data-pane="target"]. */
+  [data-pane="target"] .lt-word {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    /* Faint by design: reads as texture, never as emphasis. */
+    text-decoration-color: color-mix(in oklch, var(--color-gold) 22%, transparent);
+  }
+  .lt-word:active {
+    color: var(--color-gold);
+    text-decoration-color: var(--color-gold);
+  }
+}

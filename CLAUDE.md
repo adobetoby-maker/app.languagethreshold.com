@@ -243,12 +243,17 @@ Current tabs: Reader, Kana Pad, Grammar, Speak, Discussions, Library, Notes, Tut
 Before beginning project work on Mac Studio or MacBook Air:
 
 1. Read `AI_HANDOFF.md`.
-2. Read `ai-rosetta/README.md` and `ai-rosetta/PREFLIGHT.md`.
-3. Run the preflight on the Mac currently in use; never assume the other Mac pushed.
-4. Read the active task brief and update `ai-rosetta/agents/CLAUDE_STATUS.md`.
-5. During independent work, do not read Codex's plan until Claude's plan is marked `independent-complete`.
-6. Work from a `claude/<task-slug>` branch, never directly from `main`.
-7. Commit, push, fetch again, and verify the remote SHA before ending.
-8. Record exact deployment evidence; production changes require Toby's explicit approval.
+2. Fetch the current coordination ref and read the task `REMOTE_STATE.md`.
+3. Read `ai-rosetta/README.md` and `ai-rosetta/PREFLIGHT.md`.
+4. Run the preflight on the Mac currently in use; never assume the other Mac pushed.
+5. Read the active task brief and update `ai-rosetta/agents/CLAUDE_STATUS.md`.
+6. During independent work, do not read Codex's plan until Claude's plan is marked `independent-complete`; factual remote status may still propagate.
+7. Work from a `claude/<task-slug>` branch, never directly from `main`.
+8. Open a draft PR at the first reviewable checkpoint.
+9. Distinguish application head, documentation head, and preview commit.
+10. Record PID, port, checkout, branch, and commit for every local dev server; stop it at handoff unless a named reviewer is using it.
+11. Use only Language Threshold project credentials. Never borrow, copy, or recover a secret from another project.
+12. Commit, push, fetch again, and verify the remote SHA before ending.
+13. Record exact deployment evidence; production changes require Toby's explicit approval.
 
 Claude mobile may inspect GitHub-visible state and help record Toby's decisions. It must not claim either Mac checkout is synchronized without a fresh preflight from that device.

@@ -5,8 +5,9 @@ status: protocol-bootstrap
 created: 2026-07-26
 owner: toby
 baseline_commit: 8dff4f2b03f5e81a55894574e8ef3326d80d1116
-claude_branch:
-codex_branch: codex/ai-rosetta-control
+coordination_ref: codex/duo-002-protocol-revision
+claude_branch: claude/usability-onboarding
+codex_branch: codex/usability-onboarding
 production_approved: false
 ---
 
@@ -68,6 +69,15 @@ Codex's review emphasized:
 - cross-review and synthesis;
 - Toby decision record;
 - final QA and source/deployment alignment.
+
+## Current phase
+
+Both independent implementations are complete. Cross-review may begin from the
+exact application commits recorded in `REMOTE_STATE.md`.
+
+Shared preview AI runtime certification remains an external limitation. It does
+not reopen independent implementation, but it must be resolved or explicitly
+waived before final QA of Word Card, Tutor, Grammar, and Speak.
 
 ## Acceptance
 

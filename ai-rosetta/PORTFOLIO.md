@@ -6,7 +6,7 @@ this file and `projects/` can move there without copying application code.
 
 | Project | Repository | Production | Active task | Claude | Codex | State |
 |---|---|---|---|---|---|---|
-| Language Threshold | `adobetoby-maker/app.languagethreshold.com` | `app.languagethreshold.com` | `LT-20260726-usability-onboarding` | unassigned | `codex/ai-rosetta-control` | protocol bootstrap |
+| Language Threshold | `adobetoby-maker/app.languagethreshold.com` | `app.languagethreshold.com` | `LT-20260726-usability-onboarding` | PR #3 independent-complete | PR #4 independent-complete | cross-review-ready; protocol revision in progress |
 
 ## Portfolio rules
 
@@ -18,4 +18,6 @@ this file and `projects/` can move there without copying application code.
 - Production status must include an exact commit, not “latest.”
 - Update this index when the active task, owner branch, blocker, or production
   commit changes.
+- Read current branch/PR/deployment facts from the task `REMOTE_STATE.md`; this
+  table is a portfolio summary, not the live ledger.
 

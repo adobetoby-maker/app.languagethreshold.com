@@ -30,8 +30,12 @@ chrome and explain relationships among tools—not remove the toolkit.
 - Canonical repository was renamed to `app.languagethreshold.com`.
 - GitHub-to-Vercel automatic deployment has been verified.
 - `main` and production were last verified at `8dff4f2`.
-- Claude's mobile review and Codex's source review should remain independently
-  attributable.
+- Claude/Track A PR #3 and Codex/Track B PR #4 are independently complete.
+- Both implementation previews are attached to their recorded application
+  commits.
+- Preview AI runtime certification remains blocked by missing or unverified
+  project-scoped Anthropic configuration.
+- Current facts live in the task `REMOTE_STATE.md` on the coordination ref.
 - Production changes require Toby's explicit approval.
 
 ## Local surfaces

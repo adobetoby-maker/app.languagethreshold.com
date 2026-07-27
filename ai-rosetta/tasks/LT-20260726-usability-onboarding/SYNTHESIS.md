@@ -1,5 +1,12 @@
 # SYNTHESIS — DUO-002 cross-review
 
+> **PREMATURE — superseded, retained for history.** The protocol requires each
+> agent to file its own review first (`CLAUDE_REVIEW_OF_CODEX.md`,
+> `CODEX_REVIEW_OF_CLAUDE.md`), and the final synthesis to land on the
+> coordination branch once both exist. This document was written before Codex's
+> review of Claude existed, so it is one-sided. Claude's formal review is
+> `CLAUDE_REVIEW_OF_CODEX.md`. Do not treat this as the final synthesis.
+
 Author: Claude Code (Claude-side cross-review)
 Date: 2026-07-27
 

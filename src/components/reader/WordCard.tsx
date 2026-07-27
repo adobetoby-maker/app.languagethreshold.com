@@ -8,6 +8,8 @@ import { useApp, type Language } from "@/state/app-state";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FuriganaText } from "./FuriganaText";
+import { ActionHint } from "@/components/onboarding/AppTour";
+import { dismissLearningHint } from "@/lib/learning-guidance";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -36,6 +38,10 @@ export interface WordCardRequest {
   word: string;
   sentence: string;
   language: Language;
+  textId?: string;
+  sentenceIndex?: number;
+  chapterIndex?: number;
+  passage?: string;
   x: number;
   y: number;
 }
@@ -61,7 +67,17 @@ export function WordCard({
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
   const ref = useRef<HTMLDivElement>(null);
 
-  const CARD_W = cardWidth(request.language);
+  const CARD_W =
+    typeof window === "undefined"
+      ? cardWidth(request.language)
+      : Math.min(cardWidth(request.language), window.innerWidth - 24);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("lt:word-card-state", { detail: true }));
+    return () => {
+      window.dispatchEvent(new CustomEvent("lt:word-card-state", { detail: false }));
+    };
+  }, []);
 
   // Initial position estimate — runs synchronously before first paint
   const initialPos = (() => {
@@ -165,6 +181,7 @@ export function WordCard({
     <div
       ref={ref}
       role="dialog"
+      aria-label={`Word details for ${request.word}`}
       style={{
         position: "fixed",
         left: pos.left,
@@ -184,7 +201,7 @@ export function WordCard({
       <button
         aria-label="Close"
         onClick={onClose}
-        className="absolute left-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
+        className="absolute left-2 top-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
       >
         <X className="h-3 w-3" />
       </button>
@@ -241,6 +258,11 @@ export function WordCard({
                 {card.contextNuance ? ` ${card.contextNuance}` : ""}
               </p>
             </div>
+
+            <ActionHint storageKey="lt.guide.reader.tutor" className="mt-3">
+              <strong>Ask Tutor keeps this word and the full sentence attached.</strong> Your next
+              question starts from what you are reading now.
+            </ActionHint>
 
             <div className="mt-4">
               <p className="font-display text-base italic text-foreground">
@@ -333,21 +355,40 @@ export function WordCard({
               </div>
             )}
 
-            <div className="mt-5 flex items-center gap-2 border-t border-border/60 pt-4">
+            <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
               <button
                 onClick={speak}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
               >
                 <Volume2 className="h-3 w-3" /> Pronounce
               </button>
               <button
                 onClick={() => {
+                  dismissLearningHint("lt.guide.reader.tutor");
+                  const explanation = [
+                    card.baseDefinition,
+                    card.conjugationNote,
+                    card.contextNuance,
+                  ]
+                    .filter(Boolean)
+                    .join(" ");
                   tutor.prefill(
                     `Can you explain more about the word "${card.headword}" and how it's used in this sentence?\n\n"${request.sentence}"`,
+                    request.textId
+                      ? {
+                          threadId: request.textId,
+                          selectedWord: card.headword,
+                          selectedSentence: request.sentence,
+                          passage: request.passage ?? request.sentence,
+                          wordExplanation: explanation,
+                          sentenceIndex: request.sentenceIndex,
+                          chapterIndex: request.chapterIndex,
+                        }
+                      : undefined,
                   );
                   onClose();
                 }}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
               >
                 <MessageCircle className="h-3 w-3" /> Ask Tutor
               </button>
@@ -366,14 +407,18 @@ export function WordCard({
                           correctCount: 0,
                         },
                       ],
+                      // Stamps vocabLang on first save so the word survives the
+                      // vocabLang gate in Flashcards, Tutor, Word Match, etc.
+                      lang: state.selectedLanguage,
                     });
                   }
                   setVocabAdded(true);
                   onXp(5);
+                  window.dispatchEvent(new CustomEvent("lt:meaningful-learning-action"));
                 }}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${
+                className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors ${
                   vocabAdded
-                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-400"
+                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
                     : "border-border/70 bg-background/40 text-foreground/90 hover:border-gold/60 hover:text-gold"
                 }`}
               >
@@ -388,6 +433,27 @@ export function WordCard({
                 )}
               </button>
             </div>
+
+            {vocabAdded && (
+              <div className="mt-3 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.08] p-3">
+                <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                  Saved to My Vocab
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  This word is ready in Flashcards—no re-entry needed.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    dispatch({ type: "SET_TAB", payload: "flashcards" });
+                  }}
+                  className="mt-2 inline-flex min-h-11 items-center rounded-lg border border-emerald-500/35 px-3 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-500/10 dark:text-emerald-300"
+                >
+                  Practice in Flashcards →
+                </button>
+              </div>
+            )}
 
             {vocabAdded && (
               <button

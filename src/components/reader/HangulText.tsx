@@ -112,7 +112,7 @@ export function HangulText({
               <span
                 key={i}
                 data-reading={reading}
-                className="furigana-inline cursor-pointer rounded transition-colors hover:text-gold"
+                className="furigana-inline lt-word"
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -130,7 +130,7 @@ export function HangulText({
           return (
             <ruby key={i} className="furigana-ruby">
               <span
-                className="cursor-pointer rounded transition-colors hover:text-gold"
+                className="lt-word"
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -185,7 +185,7 @@ function ClickableSpan({
               const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
               onWordClick(p, sentence, r.left + r.width / 2, r.bottom);
             }}
-            className="cursor-pointer rounded transition-colors hover:text-gold"
+            className="lt-word"
           >
             {p}
           </span>

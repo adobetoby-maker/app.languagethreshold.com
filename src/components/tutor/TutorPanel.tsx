@@ -5,7 +5,6 @@ import { Sparkles, Send, Minus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useLibrary, flagFor } from "@/state/library-state";
-import { useSpeech } from "@/state/speech-state";
 import { useTutor, type TutorMessage } from "@/state/tutor-state";
 import { getModule } from "@/data/modules";
 import { getMissionArea } from "@/data/missionary-content";
@@ -24,7 +23,7 @@ const LEVEL_TO_CEFR: Record<string, string> = {
 
 const QUICK_PROMPTS = [
   {
-    label: "Explain last word clicked 🔍",
+    label: "Explain selected word 🔍",
     value: (w?: string) =>
       w
         ? `Can you explain the word "${w}" in more depth — its nuances, common collocations, and a vivid example?`
@@ -49,12 +48,12 @@ const QUICK_PROMPTS = [
 export function TutorPanel() {
   const { state: appState, dispatch } = useApp();
   const { selected } = useLibrary();
-  const { lastWord } = useSpeech();
   const tutor = useTutor();
   const { gated } = useAiGate();
 
   const threadId = selected.id;
   const messages = tutor.messagesFor(threadId);
+  const sourceContext = tutor.contextFor(threadId);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -77,11 +76,12 @@ export function TutorPanel() {
   const cefr = useMemo(() => LEVEL_TO_CEFR[appState.level] ?? "A1", [appState.level]);
   const passage = useMemo(
     () =>
+      sourceContext?.passage ??
       selected.sentences
         .slice(0, 4)
         .map((s) => s.target)
         .join(" "),
-    [selected],
+    [selected, sourceContext],
   );
 
   const send = (text: string) => {
@@ -91,7 +91,6 @@ export function TutorPanel() {
   };
 
   const doSend = async (trimmed: string) => {
-
     setError(null);
     const userMsg: TutorMessage = {
       id: crypto.randomUUID(),
@@ -133,7 +132,10 @@ export function TutorPanel() {
             nativeLanguage: appState.nativeLanguage,
             textTitle: selected.title,
             passage,
-            lastWord: lastWord ?? undefined,
+            lastWord: sourceContext?.selectedWord,
+            selectedWord: sourceContext?.selectedWord,
+            selectedSentence: sourceContext?.selectedSentence,
+            wordExplanation: sourceContext?.wordExplanation,
             module: (() => {
               const mod = getModule(appState.activeModuleId);
               if (!mod) return undefined;
@@ -246,11 +248,23 @@ export function TutorPanel() {
 
   const stop = () => abortRef.current?.abort();
 
+  // The bottom-nav Tutor button dispatches this instead of importing the panel,
+  // keeping AppSidebar free of tutor-state coupling.
+  useEffect(() => {
+    const open = () => tutor.setOpen(true);
+    window.addEventListener("lt:open-tutor", open);
+    return () => window.removeEventListener("lt:open-tutor", open);
+  }, [tutor]);
+
+  // Closed state renders nothing on mobile: Tutor is now the fixed right-hand
+  // slot in the bottom nav, so the floating pill that used to cover Reader text,
+  // flashcards, Dashboard cards and the nav itself is gone. Desktop keeps the
+  // pill, where there is room for it and no bottom nav to collide with.
   if (!tutor.state.open) {
     return (
       <button
         onClick={() => tutor.setOpen(true)}
-        className="tutor-pulse fixed bottom-[calc(6.5rem+env(safe-area-inset-bottom))] right-4 z-40 inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:bottom-6 lg:right-6"
+        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:right-6 lg:inline-flex"
         aria-label="Open AI Tutor"
       >
         <Sparkles className="h-4 w-4 text-gold" />
@@ -260,7 +274,7 @@ export function TutorPanel() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 top-4 z-40 flex w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl">
+    <div className="lt-tutor-panel fixed right-4 top-4 z-40 flex w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">
         <div className="flex items-center gap-2">
@@ -275,7 +289,7 @@ export function TutorPanel() {
             <button
               onClick={() => tutor.clearThread(threadId)}
               aria-label="Clear conversation"
-              className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-background/50 hover:text-destructive"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-destructive"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>
@@ -283,12 +297,29 @@ export function TutorPanel() {
           <button
             onClick={() => tutor.setOpen(false)}
             aria-label="Minimize tutor"
-            className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
           >
             <Minus className="h-4 w-4" />
           </button>
         </div>
       </div>
+
+      {sourceContext && (
+        <div className="border-b border-sky-500/20 bg-sky-500/[0.07] px-4 py-3">
+          <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
+            Context from Reader · sentence{" "}
+            {sourceContext.sentenceIndex === undefined
+              ? "selected"
+              : sourceContext.sentenceIndex + 1}
+          </p>
+          <p className="mt-1 text-xs font-semibold text-foreground">
+            “{sourceContext.selectedWord}”
+          </p>
+          <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+            {sourceContext.selectedSentence}
+          </p>
+        </div>
+      )}
 
       {/* Messages */}
       <div ref={scrollRef} className="custom-scroll flex-1 space-y-4 overflow-y-auto px-4 py-5">
@@ -326,8 +357,8 @@ export function TutorPanel() {
         {QUICK_PROMPTS.map((q) => (
           <button
             key={q.label}
-            onClick={() => setInput(q.value(lastWord ?? undefined))}
-            className="rounded-full border border-border/70 bg-background/40 px-2.5 py-1 font-mono text-[10px] tracking-wide text-foreground/80 transition-colors hover:border-gold/60 hover:text-gold"
+            onClick={() => setInput(q.value(sourceContext?.selectedWord))}
+            className="min-h-11 rounded-full border border-border/70 bg-background/40 px-2.5 py-2 font-mono text-[10px] tracking-wide text-foreground/80 transition-colors hover:border-gold/60 hover:text-gold"
           >
             {q.label}
           </button>
@@ -353,13 +384,13 @@ export function TutorPanel() {
           }}
           placeholder="Ask your tutor…"
           rows={1}
-          className="custom-scroll max-h-32 flex-1 resize-none rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none"
+          className="custom-scroll min-h-11 max-h-32 flex-1 resize-none rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none"
         />
         {streaming ? (
           <button
             type="button"
             onClick={stop}
-            className="rounded-lg border border-border/70 bg-background/60 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:border-destructive/60 hover:text-destructive"
+            className="min-h-11 rounded-lg border border-border/70 bg-background/60 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:border-destructive/60 hover:text-destructive"
           >
             Stop
           </button>
@@ -367,7 +398,7 @@ export function TutorPanel() {
           <button
             type="submit"
             disabled={!input.trim()}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-midnight transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-midnight transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Send"
           >
             <Send className="h-4 w-4" />

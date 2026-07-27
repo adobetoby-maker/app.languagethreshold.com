@@ -56,6 +56,9 @@ const BodySchema = z.object({
     textTitle: z.string().max(200).optional(),
     passage: z.string().max(2000).optional(),
     lastWord: z.string().max(80).optional(),
+    selectedWord: z.string().max(80).optional(),
+    selectedSentence: z.string().max(1200).optional(),
+    wordExplanation: z.string().max(1600).optional(),
     module: ModuleSchema,
     userVocabWords: z.array(z.string().max(80)).max(15).optional(),
     activePatterns: z
@@ -171,7 +174,17 @@ function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
         `- Target language: ${ctx.language}`,
         `- CEFR level: ${ctx.level}`,
         ctx.textTitle ? `- Currently reading: "${ctx.textTitle}"` : null,
-        ctx.lastWord ? `- Last word the learner looked up: "${ctx.lastWord}"` : null,
+        ctx.selectedWord
+          ? `- Selected word from the Reader: "${ctx.selectedWord}"`
+          : ctx.lastWord
+            ? `- Last word the learner looked up: "${ctx.lastWord}"`
+            : null,
+        ctx.selectedSentence
+          ? `- Full sentence containing the selected word:\n"""\n${ctx.selectedSentence}\n"""`
+          : null,
+        ctx.wordExplanation
+          ? `- Word Card explanation already shown to the learner:\n${ctx.wordExplanation}`
+          : null,
         ctx.passage
           ? `- Snippet of current passage:\n"""\n${ctx.passage.slice(0, 1200)}\n"""`
           : null,

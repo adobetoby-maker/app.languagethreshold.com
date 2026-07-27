@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
 
 /**
@@ -24,6 +26,32 @@ const LANGUAGES: { id: Language; label: string; native: string }[] = [
   { id: "Pashto", label: "Pashto", native: "پښتو" },
 ];
 
+/**
+ * Shipped but secondary. English has 30 seeded texts
+ * (data/library-seeds/english-target-seeds.ts) and real en-target module
+ * support, so "English as a second language" is a genuine option — it simply
+ * isn't the common case for this audience, so it sits behind the expander
+ * rather than in the primary grid.
+ */
+const MORE_AVAILABLE: { id: Language; label: string; native: string }[] = [
+  { id: "English", label: "English", native: "English — as a second language" },
+];
+
+/**
+ * Roadmap only. These have no seeded passages, so they are shown as a promise
+ * and are deliberately NOT selectable — offering a language that opens an empty
+ * Reader would be worse than not offering it. Adding one later means seeding
+ * content and moving its entry up into LANGUAGES; the structure is already here.
+ */
+const COMING_SOON = [
+  "Swahili",
+  "Greek",
+  "Hebrew",
+  "Arabic",
+  "Russian",
+  "Mongolian",
+];
+
 const CHOSEN_KEY = "lt.onboarding.languageChosen";
 
 export function hasChosenLanguage(): boolean {
@@ -36,6 +64,7 @@ export function hasChosenLanguage(): boolean {
 
 export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   const { dispatch } = useApp();
+  const [expanded, setExpanded] = useState(false);
 
   function pick(lang: Language) {
     dispatch({ type: "SET_LANGUAGE", payload: lang });
@@ -76,6 +105,52 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
               </button>
             ))}
           </div>
+
+          {!expanded && (
+            <button
+              type="button"
+              onClick={() => setExpanded(true)}
+              className="mt-3 inline-flex items-center gap-1.5 rounded-lg px-2 py-2 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-gold"
+            >
+              More languages
+              <ChevronDown className="h-3.5 w-3.5" aria-hidden />
+            </button>
+          )}
+
+          {expanded && (
+            <div className="mt-4">
+              <div className="grid grid-cols-2 gap-2">
+                {MORE_AVAILABLE.map((l) => (
+                  <button
+                    key={l.id}
+                    type="button"
+                    onClick={() => pick(l.id)}
+                    className="col-span-2 min-h-16 rounded-xl border border-border/60 bg-card/60 p-3 text-left transition-colors hover:border-gold/60 hover:bg-gold/[0.06]"
+                  >
+                    <div className="text-sm font-medium text-foreground">{l.label}</div>
+                    <div className="text-xs text-muted-foreground">{l.native}</div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Coming soon
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {COMING_SOON.map((name) => (
+                  <span
+                    key={name}
+                    className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-muted-foreground/70"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-3 text-xs text-muted-foreground/80">
+                We add a language once it has real passages to read — these are on the way.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

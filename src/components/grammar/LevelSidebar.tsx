@@ -16,6 +16,9 @@ const LEVEL_LABEL: Record<CefrLevel, string> = {
   C2: "Mastery",
 };
 
+const LESSON_TIMEOUT_MS = 20_000;
+const WAIT_MESSAGES = ["Preparing your lesson…", "Building clear examples…", "Almost ready…"];
+
 export function LevelSidebar({
   activeLevel,
   activeLessonId,
@@ -29,8 +32,22 @@ export function LevelSidebar({
   const { getLevel, setLessons, state: gState } = useGrammar();
   const [expanded, setExpanded] = useState<CefrLevel | null>("A1");
   const [loadingLevel, setLoadingLevel] = useState<CefrLevel | null>(null);
+  const [waitStage, setWaitStage] = useState(0);
   const [errorByLevel, setErrorByLevel] = useState<Partial<Record<CefrLevel, string>>>({});
   const genTitles = useServerFn(generateLessonTitles);
+
+  useEffect(() => {
+    if (!loadingLevel) {
+      setWaitStage(0);
+      return;
+    }
+    const buildingTimer = window.setTimeout(() => setWaitStage(1), 4_000);
+    const almostTimer = window.setTimeout(() => setWaitStage(2), 10_000);
+    return () => {
+      window.clearTimeout(buildingTimer);
+      window.clearTimeout(almostTimer);
+    };
+  }, [loadingLevel]);
 
   // Auto-load A1 once hydrated
   useEffect(() => {
@@ -45,16 +62,30 @@ export function LevelSidebar({
     setLoadingLevel(level);
     setErrorByLevel((p) => ({ ...p, [level]: undefined }));
     try {
-      const res = await genTitles({
-        data: { language: state.selectedLanguage, level },
-      });
+      const res = await Promise.race([
+        genTitles({
+          data: { language: state.selectedLanguage, level },
+        }),
+        new Promise<never>((_, reject) => {
+          window.setTimeout(
+            () => reject(new Error("Lesson generation took longer than expected.")),
+            LESSON_TIMEOUT_MS,
+          );
+        }),
+      ]);
       if (res.data?.lessons) {
         setLessons(state.selectedLanguage, level, res.data.lessons);
       } else if (res.error) {
         setErrorByLevel((p) => ({ ...p, [level]: res.error ?? "Failed to load" }));
       }
-    } catch {
-      setErrorByLevel((p) => ({ ...p, [level]: "Failed to load" }));
+    } catch (error) {
+      setErrorByLevel((p) => ({
+        ...p,
+        [level]:
+          error instanceof Error
+            ? `${error.message} Your progress is safe.`
+            : "Lesson generation failed. Your progress is safe.",
+      }));
     } finally {
       setLoadingLevel(null);
     }
@@ -123,7 +154,7 @@ export function LevelSidebar({
                     {isLoading && lessons.length === 0 && (
                       <div className="flex items-center gap-2 px-2 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                         <Loader2 className="h-3 w-3 animate-spin text-gold" />
-                        Generating lessons…
+                        {WAIT_MESSAGES[waitStage]}
                       </div>
                     )}
                     {err && (

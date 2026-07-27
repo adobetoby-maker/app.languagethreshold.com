@@ -8,7 +8,10 @@ export interface MorphForm {
 
 export interface VerbProfile {
   stem: string
-  infinitiveEnding: '-ar' | '-er' | '-ir' | '-are' | '-ere' | '-ire'
+  // Generated source data includes language-specific and legacy values, plus
+  // a small number of records using the historical `infiniteEnding` spelling.
+  infinitiveEnding?: string | null
+  infiniteEnding?: string | null
   irregularType?: string | null
   phase1: {
     label: string

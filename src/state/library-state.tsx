@@ -67,7 +67,7 @@ const FLAG_BY_LANGUAGE: Record<Language, string> = {
 function makeInitial(): LibraryState {
   return {
     entries: [],
-    selectedId: "classic-quixote",
+    selectedId: "seed-es-travel-train-ticket",
     generating: false,
     readStatus: loadReadStatus(),
     languageFilter: loadLanguageFilter(),

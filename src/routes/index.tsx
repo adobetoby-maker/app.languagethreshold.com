@@ -33,6 +33,7 @@ import { CefrCompletionBridge } from "@/components/CefrCompletionBridge";
 import { MatchmakingOverlay } from "@/components/match/MatchmakingOverlay";
 import { MatchAchievementsBridge } from "@/components/match/MatchAchievementsBridge";
 import { OnboardingWizard } from "@/components/onboarding/OnboardingWizard";
+import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -57,14 +58,6 @@ function GatedTabShell() {
   );
 }
 
-function WizardGate() {
-  const { state } = useApp();
-  // Wait for localStorage to hydrate so we don't flash the wizard for returning users.
-  if (!state.hydrated) return null;
-  if (state.onboardingComplete) return null;
-  return <OnboardingWizard />;
-}
-
 // Reads ?module= URL param once on mount and activates the module.
 // This powers the "Start Free →" CTAs from the marketing site.
 function UrlModuleBridge() {
@@ -81,8 +74,8 @@ function UrlModuleBridge() {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
     }
-  // Only run once after hydration
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Only run once after hydration
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated]);
 
   return null;
@@ -109,88 +102,100 @@ function SpeakBridge({ children }: { children: ReactNode }) {
 
 function Index() {
   const [matchOpen, setMatchOpen] = useState(false);
+  const [personalizationOpen, setPersonalizationOpen] = useState(false);
   // Lets non-prop-connected children (e.g. GamesHub tab) open the overlay.
   useEffect(() => {
     const handler = () => setMatchOpen(true);
     window.addEventListener("lt:open-match", handler);
     return () => window.removeEventListener("lt:open-match", handler);
   }, []);
+  useEffect(() => {
+    const handler = () => setPersonalizationOpen(true);
+    window.addEventListener("lt:open-personalization", handler);
+    return () => window.removeEventListener("lt:open-personalization", handler);
+  }, []);
   return (
     <AppProvider>
       <AuthProvider>
         <SubscriptionProvider>
-        <AiGateProvider>
-        <MatchProvider>
-          <LeaderboardProvider>
-            <LibraryProvider>
-              <NotesProvider>
-                <GrammarProvider>
-                  <FlashcardProvider>
-                  <SpeechBridge>
-                    <SpeakBridge>
-                      <TutorProvider>
-                        <ConjugationProvider>
-                          <SentenceBuildProvider>
-                            <ListeningDrillProvider>
-                              <WordMatchProvider>
-                                <IdiomMasterProvider>
-                                  <FalseFriendsProvider>
-                                    <DailyChallengeProvider>
-                                      <div className="flex min-h-screen bg-background text-foreground">
-                                        {/* Left sidebar (desktop) + bottom nav (mobile) */}
-                                        <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
+          <AiGateProvider>
+            <MatchProvider>
+              <LeaderboardProvider>
+                <LibraryProvider>
+                  <NotesProvider>
+                    <GrammarProvider>
+                      <FlashcardProvider>
+                        <SpeechBridge>
+                          <SpeakBridge>
+                            <TutorProvider>
+                              <ConjugationProvider>
+                                <SentenceBuildProvider>
+                                  <ListeningDrillProvider>
+                                    <WordMatchProvider>
+                                      <IdiomMasterProvider>
+                                        <FalseFriendsProvider>
+                                          <DailyChallengeProvider>
+                                            <div className="flex min-h-screen bg-background text-foreground">
+                                              {/* Left sidebar (desktop) + bottom nav (mobile) */}
+                                              <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
 
-                                        {/* Main column */}
-                                        <div className="flex min-w-0 flex-1 flex-col">
-                                          <TopNav />
-                                          <SaveProgressBanner />
-                                          {/* Bottom padding always reserves room for the
-                                fixed bottom nav, on every viewport. */}
-                                          <main className="flex-1 overflow-y-auto px-4 py-6 pb-[calc(6.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:py-10 lg:pb-[calc(4rem+env(safe-area-inset-bottom))]">
-                                            <GatedTabShell />
-                                          </main>
-                                        </div>
-                                      </div>
+                                              {/* Main column */}
+                                              <div className="flex min-w-0 flex-1 flex-col">
+                                                <TopNav />
+                                                <SaveProgressBanner />
+                                                {/* Shared bottom-strip budget reserves the nav,
+                                              Tutor action, and Reader mini-player together. */}
+                                                <main className="lt-scroll-safe flex-1 overflow-y-auto px-4 py-6 sm:px-6 sm:py-10">
+                                                  <GatedTabShell />
+                                                </main>
+                                              </div>
+                                            </div>
 
-                                      <WizardGate />
-                                      <UrlModuleBridge />
-                                      <TutorPanel />
-                                      <LevelUpOverlay />
-                                      <CefrCompletionBridge />
-                                      <MatchmakingOverlay
-                                        open={matchOpen}
-                                        onClose={() => setMatchOpen(false)}
-                                      />
-                                      <MatchAchievementsBridge />
-                                      <DailyChallengeBridge />
-                                    </DailyChallengeProvider>
-                                  </FalseFriendsProvider>
-                                </IdiomMasterProvider>
-                              </WordMatchProvider>
-                            </ListeningDrillProvider>
-                          </SentenceBuildProvider>
-                        </ConjugationProvider>
-                      </TutorProvider>
-                      <Toaster
-                        theme="dark"
-                        position="bottom-right"
-                        toastOptions={{
-                          style: {
-                            background: "var(--card)",
-                            color: "var(--foreground)",
-                            border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
-                          },
-                        }}
-                      />
-                    </SpeakBridge>
-                  </SpeechBridge>
-                  </FlashcardProvider>
-                </GrammarProvider>
-              </NotesProvider>
-            </LibraryProvider>
-          </LeaderboardProvider>
-        </MatchProvider>
-        </AiGateProvider>
+                                            <FirstRunEntry />
+                                            {personalizationOpen && (
+                                              <OnboardingWizard
+                                                onClose={() => setPersonalizationOpen(false)}
+                                              />
+                                            )}
+                                            <UrlModuleBridge />
+                                            <TutorPanel />
+                                            <LevelUpOverlay />
+                                            <CefrCompletionBridge />
+                                            <MatchmakingOverlay
+                                              open={matchOpen}
+                                              onClose={() => setMatchOpen(false)}
+                                            />
+                                            <MatchAchievementsBridge />
+                                            <DailyChallengeBridge />
+                                          </DailyChallengeProvider>
+                                        </FalseFriendsProvider>
+                                      </IdiomMasterProvider>
+                                    </WordMatchProvider>
+                                  </ListeningDrillProvider>
+                                </SentenceBuildProvider>
+                              </ConjugationProvider>
+                            </TutorProvider>
+                            <Toaster
+                              theme="dark"
+                              position="bottom-right"
+                              toastOptions={{
+                                style: {
+                                  background: "var(--card)",
+                                  color: "var(--foreground)",
+                                  border:
+                                    "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
+                                },
+                              }}
+                            />
+                          </SpeakBridge>
+                        </SpeechBridge>
+                      </FlashcardProvider>
+                    </GrammarProvider>
+                  </NotesProvider>
+                </LibraryProvider>
+              </LeaderboardProvider>
+            </MatchProvider>
+          </AiGateProvider>
         </SubscriptionProvider>
       </AuthProvider>
     </AppProvider>

@@ -35,6 +35,7 @@ import {
 } from "@/data/curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
+import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -660,27 +661,94 @@ export function AppGuide() {
     <>
       {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
-        {/* ── Pick Your Module CTA (shown only when no module selected) ─── */}
-        {!state.activeModuleId && (
-          <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl shrink-0">✦</span>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold">Choose your field to get started</p>
-                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                  Are you a nurse, missionary, construction foreman, or coach? Pick your profession
-                  and we'll activate the vocabulary module built for your work.
-                </p>
+        {/* ── Optional personalization remains reachable after module selection ─── */}
+        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <span className="text-2xl shrink-0">✦</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">
+                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                Reader works without setup. Choose or update your profession and level to tailor
+                Tutor, readings, and relevant practice. Current level: {state.level}.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
+                >
+                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
                 <button
                   onClick={() => go("modules")}
-                  className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold hover:bg-gold/25 transition-colors"
+                  className="min-h-11 rounded-lg px-3 py-2 text-xs text-muted-foreground hover:text-foreground"
                 >
-                  Pick my module <ArrowRight className="h-3.5 w-3.5" />
+                  Browse specialty modules
                 </button>
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+              Complete toolkit
+            </p>
+            <h2 className="mt-1 font-display text-2xl text-foreground">
+              One system, not a pile of tabs
+            </h2>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              Start with Reader, keep important words in My Vocab, then choose the kind of practice
+              that moves them toward real use.
+            </p>
+          </div>
+
+          {(["Understand", "Remember", "Use", "Grow", "Specialize"] as LearningStage[]).map(
+            (stage) => {
+              const tools = TOOL_CATALOG_LIST.filter((tool) => tool.stage === stage);
+              return (
+                <div key={stage}>
+                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                    {stage}
+                  </p>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {tools.map((tool) => {
+                      const available = isToolAvailable(tool, state.activeModuleId);
+                      return (
+                        <article
+                          key={tool.key}
+                          data-activity={tool.accent}
+                          className="tool-purpose flex min-h-[116px] flex-col rounded-xl border bg-card/45 p-3.5"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span
+                              className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full"
+                              aria-hidden
+                            />
+                            <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
+                          </div>
+                          <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
+                            {tool.purpose}
+                          </p>
+                          <button
+                            type="button"
+                            onClick={() => go(available ? tool.key : "modules")}
+                            className="mt-3 min-h-11 self-start rounded-lg px-3 py-2 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-ink"
+                          >
+                            {available ? "Open" : tool.gate?.description}
+                          </button>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            },
+          )}
+        </section>
 
         {/* ── App Tour Banner ─────────────────────────────────────────────── */}
         <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">

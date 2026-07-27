@@ -36,6 +36,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
   --color-gold-soft: var(--gold-soft);
   --color-ivory: var(--ivory);
   --color-midnight: var(--midnight);
@@ -47,9 +48,18 @@
 /* Light mode = ivory editorial */
 :root {
   --radius: 0.5rem;
+  /* One budget shared by the fixed nav, Tutor action, and Reader mini-player. */
+  --lt-nav-height: 6.5rem;
+  --lt-floating-control-height: 3.5rem;
+  --lt-floating-gap: 0.75rem;
+  --lt-bottom-strip-budget: calc(
+    var(--lt-nav-height) + var(--lt-floating-control-height) + var(--lt-floating-control-height) +
+      var(--lt-floating-gap) + var(--lt-floating-gap) + var(--lt-floating-gap)
+  );
 
   --midnight: oklch(0.22 0.04 255);
   --gold: oklch(0.74 0.13 80);
+  --gold-ink: oklch(0.48 0.11 70);
   --gold-soft: oklch(0.86 0.08 85);
   --ivory: oklch(0.96 0.012 80);
 
@@ -81,8 +91,15 @@
   --ring: oklch(0.74 0.13 80);
 }
 
+@media (min-width: 64rem) {
+  :root {
+    --lt-nav-height: 3.5rem;
+  }
+}
+
 /* Dark mode = midnight luxe */
 .dark {
+  --gold-ink: var(--gold);
   --background: oklch(0.18 0.035 255); /* deep midnight */
   --foreground: oklch(0.98 0.005 80); /* near-white — crisper on dark bg */
 
@@ -124,13 +141,18 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-optical-sizing: auto;
-    font-feature-settings: "kern" 1, "calt" 1, "liga" 1;
+    font-feature-settings:
+      "kern" 1,
+      "calt" 1,
+      "liga" 1;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: optimizeLegibility;
   }
 
-  code, kbd, pre,
+  code,
+  kbd,
+  pre,
   .font-mono,
   [class*="font-mono"] {
     font-family: var(--font-mono);
@@ -162,6 +184,57 @@
     font-size: 1.0625rem; /* 17px — more comfortable for Spanish sentences */
     line-height: 1.8;
     letter-spacing: 0.01em;
+  }
+
+  .lt-scroll-safe {
+    padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom));
+  }
+
+  .lt-tutor-above-nav {
+    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
+  }
+
+  .lt-miniplayer-above-nav {
+    bottom: calc(
+      var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-control-height) +
+        var(--lt-floating-gap) + var(--lt-floating-gap)
+    );
+  }
+
+  .lt-tutor-panel {
+    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
+  }
+
+  .tool-purpose[data-activity="reading"] {
+    border-color: color-mix(in oklab, oklch(0.7 0.14 230) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="reading"] .tool-purpose-dot {
+    background: oklch(0.7 0.14 230);
+  }
+  .tool-purpose[data-activity="remember"] {
+    border-color: color-mix(in oklab, oklch(0.72 0.16 145) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="remember"] .tool-purpose-dot {
+    background: oklch(0.72 0.16 145);
+  }
+  .tool-purpose[data-activity="speaking"] {
+    border-color: color-mix(in oklab, oklch(0.7 0.16 320) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="speaking"] .tool-purpose-dot {
+    background: oklch(0.7 0.16 320);
+  }
+  .tool-purpose[data-activity="progress"] {
+    border-color: color-mix(in oklab, oklch(0.74 0.13 80) 38%, var(--border));
+  }
+  .tool-purpose[data-activity="progress"] .tool-purpose-dot {
+    background: oklch(0.74 0.13 80);
+  }
+  .tool-purpose[data-activity="specialty"] {
+    border-color: color-mix(in oklab, oklch(0.68 0.14 40) 34%, var(--border));
+  }
+  .tool-purpose[data-activity="specialty"] .tool-purpose-dot {
+    background: oklch(0.68 0.14 40);
   }
 
   .gold-underline {

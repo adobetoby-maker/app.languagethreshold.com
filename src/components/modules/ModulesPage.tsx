@@ -273,7 +273,7 @@ export function ModulesPage() {
       </div>
 
       {/* Module grid */}
-      <div className="custom-scroll flex-1 overflow-y-auto px-6 py-6">
+      <div className="lt-scroll-safe custom-scroll flex-1 overflow-y-auto px-6 py-6">
         <div className="mx-auto max-w-5xl space-y-10">
           {groups.length === 0 ? (
             <div className="py-16 text-center">

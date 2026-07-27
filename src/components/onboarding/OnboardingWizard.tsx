@@ -4,7 +4,6 @@ import { useApp, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 
 const FIELD_PREP_IDS = new Set([
-  "lds-missionary",
   "orthopedics",
   "nursing",
   "emergency-medicine",
@@ -96,7 +95,7 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
   { value: "Advanced", label: "Advanced", sub: "I speak well but want to refine" },
 ];
 
-export function OnboardingWizard() {
+export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   const { dispatch } = useApp();
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [level, setLevel] = useState<Level | null>(null);
@@ -123,18 +122,20 @@ export function OnboardingWizard() {
       dispatch({ type: "SET_ACTIVE_MODULE", payload: professionId });
     }
     dispatch({ type: "COMPLETE_ONBOARDING" });
-    // Missionary → open Discussion 1 directly (the structured lessons are there)
     if (professionId === "lds-missionary") {
       dispatch({ type: "SET_TAB", payload: "discussions" });
     } else if (professionId && FIELD_PREP_IDS.has(professionId)) {
       dispatch({ type: "SET_TAB", payload: "fieldPrep" });
     } else {
-      dispatch({ type: "SET_TAB", payload: "guide" });
+      dispatch({ type: "SET_TAB", payload: "reader" });
     }
+    onClose?.();
   }
 
   function skip() {
     dispatch({ type: "COMPLETE_ONBOARDING" });
+    dispatch({ type: "SET_TAB", payload: "reader" });
+    onClose?.();
   }
 
   return (
@@ -262,37 +263,38 @@ export function OnboardingWizard() {
                 {professionId === "lds-missionary" && (
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">📋</span>
-                    <p className="text-xs text-muted-foreground leading-snug">
-                      <span className="text-foreground font-medium">Discussion 1</span> opens
-                      next — La Restauración. Teach it word for word in your target language.
+                    <p className="text-xs leading-snug text-muted-foreground">
+                      <span className="font-medium text-foreground">Discussion 1</span> opens next.
+                      Your selection also tailors Tutor and relevant practice.
                     </p>
                   </div>
                 )}
-                {professionId && professionId !== "lds-missionary" && FIELD_PREP_IDS.has(professionId) && (
+                {professionId && FIELD_PREP_IDS.has(professionId) && (
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">🎙️</span>
-                    <p className="text-xs text-muted-foreground leading-snug">
-                      <span className="text-foreground font-medium">Field Prep</span> opens
-                      next — start a real conversation with an AI partner in your specialty.
+                    <p className="text-xs leading-snug text-muted-foreground">
+                      <span className="font-medium text-foreground">Field Prep</span> opens next
+                      with specialty practice tailored to your selection.
                     </p>
                   </div>
                 )}
-                {(!professionId || (professionId !== "lds-missionary" && !FIELD_PREP_IDS.has(professionId))) && (
-                  <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
-                    <span className="text-lg">📖</span>
-                    <p className="text-xs text-muted-foreground leading-snug">
-                      Your <span className="text-foreground font-medium">App Guide</span> opens
-                      next — it shows your daily recommended flow and explains every tool.
-                    </p>
-                  </div>
-                )}
+                {professionId !== "lds-missionary" &&
+                  (!professionId || !FIELD_PREP_IDS.has(professionId)) && (
+                    <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
+                      <span className="text-lg">📖</span>
+                      <p className="text-xs leading-snug text-muted-foreground">
+                        Reader opens next with a ready passage. Your selection also tailors Tutor
+                        and relevant practice.
+                      </p>
+                    </div>
+                  )}
               </div>
 
               <button
                 onClick={finish}
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-background transition-all hover:bg-gold/90"
               >
-                Start Learning <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                Continue <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
             </>
           )}

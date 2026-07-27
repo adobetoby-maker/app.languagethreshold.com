@@ -8,6 +8,8 @@ import { useApp, type Language } from "@/state/app-state";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FuriganaText } from "./FuriganaText";
+import { useFlashcards } from "@/state/flashcard-state";
+import { vocabWordKey } from "@/state/vocab-store";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -36,6 +38,8 @@ export interface WordCardRequest {
   word: string;
   sentence: string;
   language: Language;
+  passageExcerpt?: string;
+  textTitle?: string;
   x: number;
   y: number;
 }
@@ -52,6 +56,7 @@ export function WordCard({
   const lookup = useServerFn(lookupWord);
   const { setLastWord, accent, voiceURI } = useSpeech();
   const tutor = useTutor();
+  const flashcards = useFlashcards();
   const { state, dispatch } = useApp();
   const [card, setCard] = useState<WordCardData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -344,6 +349,17 @@ export function WordCard({
                 onClick={() => {
                   tutor.prefill(
                     `Can you explain more about the word "${card.headword}" and how it's used in this sentence?\n\n"${request.sentence}"`,
+                    {
+                      selectedWord: card.headword,
+                      sentence: request.sentence,
+                      passageExcerpt: request.passageExcerpt,
+                      textTitle: request.textTitle,
+                      language: request.language,
+                      learnerLevel: state.level,
+                      explanation: [card.baseDefinition, card.conjugationNote, card.contextNuance]
+                        .filter(Boolean)
+                        .join(" "),
+                    },
                   );
                   onClose();
                 }}
@@ -354,22 +370,35 @@ export function WordCard({
               <button
                 onClick={() => {
                   if (vocabAdded) return;
-                  const alreadyIn = state.userVocab.some((v) => v.word === card.headword);
+                  const languageVocab =
+                    state.vocabByLanguage[request.language] ??
+                    (state.vocabLang === request.language ? state.userVocab : []);
+                  const alreadyIn = languageVocab.some(
+                    (v) => vocabWordKey(v.word) === vocabWordKey(card.headword),
+                  );
                   if (!alreadyIn) {
                     dispatch({
                       type: "ADD_VOCAB_ITEMS",
-                      payload: [
-                        {
-                          word: card.headword,
-                          translation: card.baseDefinition,
-                          category: "topic",
-                          correctCount: 0,
-                        },
-                      ],
+                      payload: {
+                        lang: request.language,
+                        items: [
+                          {
+                            word: card.headword,
+                            translation: card.baseDefinition,
+                            category: "topic",
+                            correctCount: 0,
+                          },
+                        ],
+                      },
                     });
+                    onXp(5);
                   }
+                  // Flashcards uses its own persistent SRS store. Syncing is
+                  // idempotent and preserves the word's language ownership.
+                  flashcards.syncVocab(request.language, [
+                    { word: card.headword, translation: card.baseDefinition },
+                  ]);
                   setVocabAdded(true);
-                  onXp(5);
                 }}
                 className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${
                   vocabAdded

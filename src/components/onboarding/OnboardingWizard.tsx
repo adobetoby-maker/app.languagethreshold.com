@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkle, ArrowRight, Check } from "lucide-react";
+import { Sparkle, ArrowRight, Check, BookOpen, Compass, MousePointer2 } from "lucide-react";
 import { useApp, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 
@@ -98,7 +98,7 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
 
 export function OnboardingWizard() {
   const { dispatch } = useApp();
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [step, setStep] = useState<0 | 1 | 2 | 3>(0);
   const [level, setLevel] = useState<Level | null>(null);
   const [levelLabel, setLevelLabel] = useState<string>("");
   const [professionId, setProfessionId] = useState<string | null>(undefined as unknown as null);
@@ -128,38 +128,45 @@ export function OnboardingWizard() {
       dispatch({ type: "SET_TAB", payload: "discussions" });
     } else if (professionId && FIELD_PREP_IDS.has(professionId)) {
       dispatch({ type: "SET_TAB", payload: "fieldPrep" });
-    } else {
-      dispatch({ type: "SET_TAB", payload: "guide" });
-    }
+    } else dispatch({ type: "SET_TAB", payload: "reader" });
   }
 
-  function skip() {
+  function startReading() {
     dispatch({ type: "COMPLETE_ONBOARDING" });
+    dispatch({ type: "SET_TAB", payload: "reader" });
+  }
+
+  function exploreTools() {
+    dispatch({ type: "COMPLETE_ONBOARDING" });
+    dispatch({ type: "SET_TAB", payload: "guide" });
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4">
+    <div className="entry-learning-shell fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 backdrop-blur-sm">
       <div className="relative w-full max-w-lg">
-        {/* Skip */}
-        <button
-          onClick={skip}
-          className="absolute -top-8 right-0 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"
-        >
-          Skip setup →
-        </button>
+        {step > 0 && (
+          <button
+            onClick={startReading}
+            className="absolute -top-8 right-0 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Skip personalization →
+          </button>
+        )}
 
         {/* Progress bar */}
-        <div className="mb-6 flex gap-1.5">
-          {([1, 2, 3] as const).map((n) => (
-            <div
-              key={n}
-              className={cn(
-                "h-0.5 flex-1 rounded-full transition-all duration-500",
-                n <= step ? "bg-gold" : "bg-border/40",
-              )}
-            />
-          ))}
-        </div>
+        {step > 0 && (
+          <div className="mb-6 flex gap-1.5" aria-label={`Personalization step ${step} of 3`}>
+            {([1, 2, 3] as const).map((n) => (
+              <div
+                key={n}
+                className={cn(
+                  "h-0.5 flex-1 rounded-full transition-all duration-500",
+                  n <= step ? "bg-gold" : "bg-border/40",
+                )}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="rounded-2xl border border-border/60 bg-card/90 p-6 shadow-2xl">
           {/* Logo */}
@@ -170,7 +177,63 @@ export function OnboardingWizard() {
             </span>
           </div>
 
-          {/* Step 1 — Profession (most important for routing) */}
+          {/* Reader-first welcome — value is available before setup. */}
+          {step === 0 && (
+            <div className="text-center">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-gold/40 bg-gradient-to-br from-amber-300/25 via-emerald-300/10 to-sky-300/20 shadow-gold">
+                <BookOpen className="h-7 w-7 text-gold" strokeWidth={1.7} />
+              </div>
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
+                Understand it in context
+              </p>
+              <h1 className="text-3xl font-semibold leading-tight">
+                Reading another language should lead somewhere.
+              </h1>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+                Open a real passage, tap any word, and get an explanation for that exact sentence.
+                Ask Tutor, save the word, then practice it.
+              </p>
+
+              <div className="mt-6 grid grid-cols-3 gap-2 text-left">
+                {[
+                  ["1", "Tap a word"],
+                  ["2", "Ask in context"],
+                  ["3", "Save & practice"],
+                ].map(([n, label]) => (
+                  <div key={n} className="rounded-xl border border-border/50 bg-background/60 p-3">
+                    <span className="font-mono text-[10px] text-gold">{n}</span>
+                    <p className="mt-1 text-xs font-medium leading-snug">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={startReading}
+                className="mt-6 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-midnight shadow-gold transition-all hover:-translate-y-0.5 hover:bg-gold/90"
+              >
+                Start Reading <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              </button>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+                <button
+                  onClick={() => setStep(1)}
+                  className="inline-flex min-h-11 items-center gap-2 text-xs font-medium text-foreground/80 hover:text-gold"
+                >
+                  <MousePointer2 className="h-3.5 w-3.5" /> Personalize my path
+                </button>
+                <button
+                  onClick={exploreTools}
+                  className="inline-flex min-h-11 items-center gap-2 text-xs font-medium text-foreground/80 hover:text-gold"
+                >
+                  <Compass className="h-3.5 w-3.5" /> Explore all tools
+                </button>
+              </div>
+              <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+                No account or upload required
+              </p>
+            </div>
+          )}
+
+          {/* Step 1 — optional profession personalization */}
           {step === 1 && (
             <>
               <h2 className="text-xl font-semibold mb-1">What brings you here?</h2>
@@ -263,26 +326,29 @@ export function OnboardingWizard() {
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">📋</span>
                     <p className="text-xs text-muted-foreground leading-snug">
-                      <span className="text-foreground font-medium">Discussion 1</span> opens
-                      next — La Restauración. Teach it word for word in your target language.
+                      <span className="text-foreground font-medium">Discussion 1</span> opens next —
+                      La Restauración. Teach it word for word in your target language.
                     </p>
                   </div>
                 )}
-                {professionId && professionId !== "lds-missionary" && FIELD_PREP_IDS.has(professionId) && (
-                  <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
-                    <span className="text-lg">🎙️</span>
-                    <p className="text-xs text-muted-foreground leading-snug">
-                      <span className="text-foreground font-medium">Field Prep</span> opens
-                      next — start a real conversation with an AI partner in your specialty.
-                    </p>
-                  </div>
-                )}
-                {(!professionId || (professionId !== "lds-missionary" && !FIELD_PREP_IDS.has(professionId))) && (
+                {professionId &&
+                  professionId !== "lds-missionary" &&
+                  FIELD_PREP_IDS.has(professionId) && (
+                    <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
+                      <span className="text-lg">🎙️</span>
+                      <p className="text-xs text-muted-foreground leading-snug">
+                        <span className="text-foreground font-medium">Field Prep</span> opens next —
+                        start a real conversation with an AI partner in your specialty.
+                      </p>
+                    </div>
+                  )}
+                {(!professionId ||
+                  (professionId !== "lds-missionary" && !FIELD_PREP_IDS.has(professionId))) && (
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">📖</span>
                     <p className="text-xs text-muted-foreground leading-snug">
-                      Your <span className="text-foreground font-medium">App Guide</span> opens
-                      next — it shows your daily recommended flow and explains every tool.
+                      <span className="text-foreground font-medium">Reader</span> opens next with a
+                      sample passage. Tap any word to understand it in context.
                     </p>
                   </div>
                 )}
@@ -290,7 +356,7 @@ export function OnboardingWizard() {
 
               <button
                 onClick={finish}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-background transition-all hover:bg-gold/90"
+                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-midnight transition-all hover:bg-gold/90"
               >
                 Start Learning <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>

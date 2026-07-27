@@ -18,23 +18,39 @@ export interface TutorMessage {
   createdAt: number;
 }
 
+export interface TutorReaderContext {
+  selectedWord: string;
+  sentence: string;
+  passageExcerpt?: string;
+  textTitle?: string;
+  language: string;
+  learnerLevel?: string;
+  explanation?: string;
+}
+
 interface State {
   // threadId → messages
   threads: Record<string, TutorMessage[]>;
   open: boolean;
   pendingPrefill: string | null;
+  pendingReaderContext: TutorReaderContext | null;
+  activeReaderContext: TutorReaderContext | null;
   hydrated: boolean;
 }
 
 type Action =
   | { type: "HYDRATE"; payload: Record<string, TutorMessage[]> }
   | { type: "SET_OPEN"; payload: boolean }
-  | { type: "SET_PREFILL"; payload: string | null }
+  | {
+      type: "SET_PREFILL";
+      payload: { text: string; readerContext?: TutorReaderContext } | null;
+    }
   | { type: "ADD_MESSAGE"; payload: { threadId: string; message: TutorMessage } }
   | {
       type: "APPEND_DELTA";
       payload: { threadId: string; messageId: string; delta: string };
     }
+  | { type: "CLEAR_READER_CONTEXT" }
   | { type: "CLEAR_THREAD"; payload: string };
 
 const STORAGE_KEY = "lt.tutor.v1";
@@ -46,7 +62,12 @@ function reducer(state: State, action: Action): State {
     case "SET_OPEN":
       return { ...state, open: action.payload };
     case "SET_PREFILL":
-      return { ...state, pendingPrefill: action.payload };
+      return {
+        ...state,
+        pendingPrefill: action.payload?.text ?? null,
+        pendingReaderContext: action.payload?.readerContext ?? null,
+        activeReaderContext: action.payload?.readerContext ?? state.activeReaderContext,
+      };
     case "ADD_MESSAGE": {
       const cur = state.threads[action.payload.threadId] ?? [];
       return {
@@ -71,6 +92,8 @@ function reducer(state: State, action: Action): State {
         },
       };
     }
+    case "CLEAR_READER_CONTEXT":
+      return { ...state, activeReaderContext: null };
     case "CLEAR_THREAD": {
       const next = { ...state.threads };
       delete next[action.payload];
@@ -88,8 +111,9 @@ interface Ctx {
   appendDelta: (threadId: string, messageId: string, delta: string) => void;
   clearThread: (threadId: string) => void;
   setOpen: (v: boolean) => void;
-  prefill: (text: string) => void;
-  consumePrefill: () => string | null;
+  prefill: (text: string, readerContext?: TutorReaderContext) => void;
+  consumePrefill: () => { text: string; readerContext: TutorReaderContext | null } | null;
+  takeReaderContext: (textTitle: string) => TutorReaderContext | undefined;
 }
 
 const TutorCtx = createContext<Ctx | null>(null);
@@ -99,6 +123,8 @@ export function TutorProvider({ children }: { children: ReactNode }) {
     threads: {},
     open: false,
     pendingPrefill: null,
+    pendingReaderContext: null,
+    activeReaderContext: null,
     hydrated: false,
   });
   const consumedRef = useRef(false);
@@ -140,17 +166,24 @@ export function TutorProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "APPEND_DELTA", payload: { threadId, messageId, delta } }),
       clearThread: (threadId) => dispatch({ type: "CLEAR_THREAD", payload: threadId }),
       setOpen: (v) => dispatch({ type: "SET_OPEN", payload: v }),
-      prefill: (text) => {
+      prefill: (text, readerContext) => {
         consumedRef.current = false;
-        dispatch({ type: "SET_PREFILL", payload: text });
+        dispatch({ type: "SET_PREFILL", payload: { text, readerContext } });
         dispatch({ type: "SET_OPEN", payload: true });
       },
       consumePrefill: () => {
         if (consumedRef.current) return null;
         const t = state.pendingPrefill;
         consumedRef.current = true;
-        if (t) dispatch({ type: "SET_PREFILL", payload: null });
-        return t;
+        if (!t) return null;
+        const value = { text: t, readerContext: state.pendingReaderContext };
+        dispatch({ type: "SET_PREFILL", payload: null });
+        return value;
+      },
+      takeReaderContext: (textTitle) => {
+        const readerContext = state.activeReaderContext;
+        if (readerContext) dispatch({ type: "CLEAR_READER_CONTEXT" });
+        return readerContext?.textTitle === textTitle ? readerContext : undefined;
       },
     }),
     [state, messagesFor],

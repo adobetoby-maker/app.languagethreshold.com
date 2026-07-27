@@ -113,6 +113,54 @@
   --ring: oklch(0.74 0.13 80);
 }
 
+/* DUO-002 semantic surface accents. These brighten the default dark
+   experience without changing theme preference or lowering text contrast. */
+.entry-learning-shell {
+  background-image:
+    radial-gradient(
+      circle at 14% 10%,
+      color-mix(in oklab, var(--gold) 24%, transparent) 0,
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 88% 88%,
+      color-mix(in oklab, oklch(0.72 0.12 225) 16%, transparent) 0,
+      transparent 30rem
+    );
+}
+
+.reader-learning-surface,
+.practice-learning-surface {
+  isolation: isolate;
+  position: relative;
+}
+
+.reader-learning-surface::before,
+.practice-learning-surface::before {
+  border-radius: 2rem;
+  content: "";
+  inset: -1.5rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.reader-learning-surface::before {
+  background: radial-gradient(
+    circle at 78% 12%,
+    color-mix(in oklab, oklch(0.72 0.13 155) 14%, transparent) 0,
+    transparent 32rem
+  );
+}
+
+.practice-learning-surface::before {
+  background: radial-gradient(
+    circle at 50% 18%,
+    color-mix(in oklab, var(--gold) 16%, transparent) 0,
+    transparent 34rem
+  );
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

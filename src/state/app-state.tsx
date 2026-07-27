@@ -12,6 +12,13 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
+import {
+  includeLegacyVocab,
+  mergeVocabByLanguage,
+  mergeVocabItems,
+  type VocabByLanguage,
+  type VocabItem,
+} from "./vocab-store";
 
 export type Language =
   | "Spanish"
@@ -177,12 +184,7 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const VOCAB_MASTERY_THRESHOLD = 5; // correct matches before a word is mastered
 
-export interface UserVocabItem {
-  word: string;
-  translation: string;
-  category: string; // "job" | "hobby" | "family" | "place" | "topic"
-  correctCount: number; // 0-(threshold-1) = active; threshold+ = mastered
-}
+export type UserVocabItem = VocabItem;
 
 export interface AppState {
   selectedLanguage: Language;
@@ -199,8 +201,9 @@ export interface AppState {
 
   // Personal vocab — built from user's guided Q&A, used to seed games
   vocabAnswers: string[]; // 5 free-text answers (language-agnostic)
-  userVocab: UserVocabItem[]; // generated words for vocabLang
-  vocabLang: Language | null; // which language userVocab was built for
+  userVocab: UserVocabItem[]; // compatibility view of the selected language's words
+  vocabLang: Language | null; // language represented by the compatibility view
+  vocabByLanguage: VocabByLanguage<Language>; // durable per-language ownership
 
   // Grammar pattern SRS — parallel to vocab SRS, keyed by patternId
   patternProgress: Record<string, number>; // patternId → correctCount (5+ = mastered)
@@ -301,7 +304,10 @@ export type AppAction =
       payload: { answers: string[]; vocab: UserVocabItem[]; lang: Language };
     }
   | { type: "MASTER_VOCAB_WORD"; payload: string } // word string — increments correctCount
-  | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[] } // append replacement words
+  | {
+      type: "ADD_VOCAB_ITEMS";
+      payload: { items: UserVocabItem[]; lang: Language };
+    } // append words without silently relabelling another language's vocabulary
   | { type: "START_REGRESSION_CHECK" } // reset mastered words to count=3 for re-drill
   | { type: "SCORE_PATTERN"; payload: string } // patternId — increments correctCount
   | { type: "PATTERN_REGRESSION_CHECK" } // reset mastered patterns to threshold-2
@@ -348,6 +354,7 @@ const initialState: AppState = {
   vocabAnswers: [],
   userVocab: [],
   vocabLang: null,
+  vocabByLanguage: {},
   patternProgress: {},
   vocabSM2: {},
   hydrated: false,
@@ -355,13 +362,38 @@ const initialState: AppState = {
 
 function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
-    case "HYDRATE":
-      return { ...state, ...action.payload, hydrated: true };
+    case "HYDRATE": {
+      const hydrated = { ...state, ...action.payload };
+      const vocabByLanguage = includeLegacyVocab(
+        hydrated.vocabByLanguage,
+        hydrated.vocabLang,
+        hydrated.userVocab,
+      );
+      return {
+        ...hydrated,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[hydrated.selectedLanguage] ?? [],
+        vocabLang: hydrated.selectedLanguage,
+        hydrated: true,
+      };
+    }
     case "SET_LANGUAGE": {
       const languagesUsed = state.languagesUsed.includes(action.payload)
         ? state.languagesUsed
         : [...state.languagesUsed, action.payload];
-      return { ...state, selectedLanguage: action.payload, languagesUsed };
+      const vocabByLanguage = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+      );
+      return {
+        ...state,
+        selectedLanguage: action.payload,
+        languagesUsed,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[action.payload] ?? [],
+        vocabLang: action.payload,
+      };
     }
     case "SET_NATIVE_LANGUAGE":
       return { ...state, nativeLanguage: action.payload };
@@ -481,39 +513,73 @@ function reducer(state: AppState, action: AppAction): AppState {
         lessonsCompleted: state.lessonsCompleted + 1,
       };
     }
-    case "SET_USER_VOCAB":
+    case "SET_USER_VOCAB": {
+      const items = action.payload.vocab.map((v) => ({
+        ...v,
+        correctCount: v.correctCount ?? 0,
+      }));
+      const vocabByLanguage = {
+        ...includeLegacyVocab(state.vocabByLanguage, state.vocabLang, state.userVocab),
+        [action.payload.lang]: items,
+      };
       return {
         ...state,
         vocabAnswers: action.payload.answers,
-        userVocab: action.payload.vocab.map((v) => ({ ...v, correctCount: v.correctCount ?? 0 })),
-        vocabLang: action.payload.lang,
+        vocabByLanguage,
+        userVocab: state.selectedLanguage === action.payload.lang ? items : state.userVocab,
+        vocabLang:
+          state.selectedLanguage === action.payload.lang ? action.payload.lang : state.vocabLang,
       };
-    case "MASTER_VOCAB_WORD":
+    }
+    case "MASTER_VOCAB_WORD": {
+      const language = state.vocabLang ?? state.selectedLanguage;
+      const items = state.userVocab.map((v) =>
+        v.word === action.payload ? { ...v, correctCount: (v.correctCount ?? 0) + 1 } : v,
+      );
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          v.word === action.payload ? { ...v, correctCount: (v.correctCount ?? 0) + 1 } : v,
-        ),
+        userVocab: items,
+        vocabByLanguage: {
+          ...includeLegacyVocab(state.vocabByLanguage, state.vocabLang, state.userVocab),
+          [language]: items,
+        },
       };
-    case "ADD_VOCAB_ITEMS":
+    }
+    case "ADD_VOCAB_ITEMS": {
+      const vocabByLanguage = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+      );
+      const items = mergeVocabItems(
+        vocabByLanguage[action.payload.lang] ?? [],
+        action.payload.items,
+      );
+      vocabByLanguage[action.payload.lang] = items;
+      const isSelectedLanguage = state.selectedLanguage === action.payload.lang;
       return {
         ...state,
-        userVocab: [
-          ...state.userVocab,
-          ...action.payload
-            .filter((item) => !state.userVocab.some((existing) => existing.word === item.word))
-            .map((v) => ({ ...v, correctCount: 0 })),
-        ],
+        vocabByLanguage,
+        userVocab: isSelectedLanguage ? items : state.userVocab,
+        vocabLang: isSelectedLanguage ? action.payload.lang : state.vocabLang,
       };
-    case "START_REGRESSION_CHECK":
+    }
+    case "START_REGRESSION_CHECK": {
+      const language = state.vocabLang ?? state.selectedLanguage;
+      const items = state.userVocab.map((v) =>
+        (v.correctCount ?? 0) >= VOCAB_MASTERY_THRESHOLD
+          ? { ...v, correctCount: VOCAB_MASTERY_THRESHOLD - 2 }
+          : v,
+      );
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          (v.correctCount ?? 0) >= VOCAB_MASTERY_THRESHOLD
-            ? { ...v, correctCount: VOCAB_MASTERY_THRESHOLD - 2 }
-            : v,
-        ),
+        userVocab: items,
+        vocabByLanguage: {
+          ...includeLegacyVocab(state.vocabByLanguage, state.vocabLang, state.userVocab),
+          [language]: items,
+        },
       };
+    }
     case "SCORE_PATTERN":
       return {
         ...state,
@@ -592,9 +658,22 @@ function reducer(state: AppState, action: AppAction): AppState {
       const cefrLevelsCompleted = Array.from(
         new Set([...state.cefrLevelsCompleted, ...(remote.cefrLevelsCompleted ?? [])]),
       );
+      const localVocab = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+      );
+      const remoteVocab = includeLegacyVocab(
+        remote.vocabByLanguage,
+        remote.vocabLang,
+        remote.userVocab,
+      );
+      const vocabByLanguage = mergeVocabByLanguage(localVocab, remoteVocab);
+      const selectedLanguage = remote.selectedLanguage ?? state.selectedLanguage;
       return {
         ...state,
         ...(remote as Partial<AppState>),
+        selectedLanguage,
         xp,
         tier: tierForXp(xp),
         achievements,
@@ -602,6 +681,9 @@ function reducer(state: AppState, action: AppAction): AppState {
         cultureRead,
         languagesUsed,
         cefrLevelsCompleted,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[selectedLanguage] ?? [],
+        vocabLang: selectedLanguage,
         streak: Math.max(state.streak, remote.streak ?? 0),
         wordsLookedUp: Math.max(state.wordsLookedUp, remote.wordsLookedUp ?? 0),
         notesSaved: Math.max(state.notesSaved, remote.notesSaved ?? 0),
@@ -633,7 +715,7 @@ function reducer(state: AppState, action: AppAction): AppState {
 
 const STORAGE_KEY = "lt.app.v2";
 const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
 
@@ -644,7 +726,7 @@ type PersistedShape = Partial<AppState> & { __v?: number };
  */
 function migrate(raw: unknown): PersistedShape {
   if (!raw || typeof raw !== "object") return { __v: SCHEMA_VERSION };
-  let data = { ...(raw as Record<string, unknown>) } as PersistedShape;
+  const data = { ...(raw as Record<string, unknown>) } as PersistedShape;
   let v = typeof data.__v === "number" ? data.__v : 1;
 
   // v1 -> v2: introduce module fields + speakSecondsByLang + xpSessions defaults
@@ -659,6 +741,13 @@ function migrate(raw: unknown): PersistedShape {
     data.languagesUsed ??= [];
     data.cefrLevelsCompleted ??= [];
     v = 2;
+  }
+
+  // v2 -> v3: retain the existing list under its actual language, then make
+  // room for additional languages without relabelling or erasing it.
+  if (v < 3) {
+    data.vocabByLanguage = includeLegacyVocab(data.vocabByLanguage, data.vocabLang, data.userVocab);
+    v = 3;
   }
 
   // Drop keys not in PERSIST_KEYS (forward-compat / cleanup)
@@ -745,6 +834,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "vocabAnswers",
   "userVocab",
   "vocabLang",
+  "vocabByLanguage",
   "patternProgress",
   "vocabSM2",
   "onboardingComplete",
@@ -814,7 +904,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!state.hydrated) return;
     try {
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
-      for (const k of PERSIST_KEYS) toSave[k] = (state as any)[k];
+      for (const k of PERSIST_KEYS) {
+        toSave[k] = (state as unknown as Record<string, unknown>)[k];
+      }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
     } catch {
       /* ignore quota */

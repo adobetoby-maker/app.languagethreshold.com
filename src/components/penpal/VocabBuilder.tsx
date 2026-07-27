@@ -124,7 +124,10 @@ export function VocabBuilder({ onBack }: { onBack: () => void }) {
       })
         .then((res) => {
           if (res.vocab && res.vocab.length > 0) {
-            dispatch({ type: "ADD_VOCAB_ITEMS", payload: res.vocab });
+            dispatch({
+              type: "ADD_VOCAB_ITEMS",
+              payload: { items: res.vocab, lang: state.selectedLanguage },
+            });
             toast.success(`${res.vocab.length} new words added to keep you growing!`);
           }
         })

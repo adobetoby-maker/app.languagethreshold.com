@@ -263,7 +263,7 @@ export function FlashcardsStudio() {
   }
 
   return (
-    <div className="fade-in mx-auto w-full max-w-5xl">
+    <div className="practice-learning-surface fade-in mx-auto w-full max-w-5xl">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3 px-1">
         <div>
           <div className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">

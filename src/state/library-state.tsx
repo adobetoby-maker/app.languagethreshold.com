@@ -67,7 +67,9 @@ const FLAG_BY_LANGUAGE: Record<Language, string> = {
 function makeInitial(): LibraryState {
   return {
     entries: [],
-    selectedId: "classic-quixote",
+    // A short, natural B1 passage gives cold learners an immediate sample;
+    // they can choose longer or more advanced texts from the Library.
+    selectedId: "culture-espana-seed",
     generating: false,
     readStatus: loadReadStatus(),
     languageFilter: loadLanguageFilter(),

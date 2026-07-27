@@ -81,7 +81,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
                 await updateProfileData(userId, {
                   subscription_status: sub.status,
                   subscription_id: sub.id,
-                  period_end: sub.current_period_end,
+                  period_end: sub.items.data[0]?.current_period_end ?? null,
                   price_id: sub.items.data[0]?.price?.id ?? null,
                   cancel_at_period_end: sub.cancel_at_period_end,
                   ...(customerId(sub.customer)

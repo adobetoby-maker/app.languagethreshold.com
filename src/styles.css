@@ -1087,10 +1087,12 @@ rt,
 }
 
 @media (hover: none) {
-  /* Only the target-language pane is decorated. Underlining the native pane too
-   * doubled the visual noise on a page of prose and pointed at the side where
-   * looking a word up isn't the point. Scoped via [data-pane="target"]. */
-  [data-pane="target"] .lt-word {
+  /* Both panes are decorated. An earlier pass scoped this to the target pane on
+   * the assumption that looking up an English word wasn't useful — that was
+   * wrong: tapping a native-pane word opens the same card, with Ask Tutor and
+   * My Vocab. Decorating one side made the affordance lie about what works.
+   * Noise is handled by weight (22% gold), not by hiding half the truth. */
+  .lt-word {
     text-decoration: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;

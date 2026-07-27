@@ -156,8 +156,11 @@ change repository or production data.
 - Running branch and final tested checkout:
   `claude/usability-onboarding` at
   `e668022f5941d82b4acc54568d8604beea914b7b`
-- Matching PR #3 head:
-  `e668022f5941d82b4acc54568d8604beea914b7b`
+- Live checkout and PR #3 head observed at posting:
+  `577ee7d7e58429bc5319234146e7542cef65ad32`
+- The later Track A commit changes `CLAUDE_RESULT.md` only. Its application tree
+  is identical to the tested `e668022f5941d82b4acc54568d8604beea914b7b`
+  commit.
 - PR #4 head before this evidence-only update:
   `d2465d66eed2f36c2de30808df445684f4c0912f`
 - Merge base:

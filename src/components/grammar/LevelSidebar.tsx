@@ -29,8 +29,23 @@ export function LevelSidebar({
   const { getLevel, setLessons, state: gState } = useGrammar();
   const [expanded, setExpanded] = useState<CefrLevel | null>("A1");
   const [loadingLevel, setLoadingLevel] = useState<CefrLevel | null>(null);
+  const [loadingStage, setLoadingStage] = useState(0);
   const [errorByLevel, setErrorByLevel] = useState<Partial<Record<CefrLevel, string>>>({});
   const genTitles = useServerFn(generateLessonTitles);
+  const loadingCopy = ["Preparing your lesson…", "Building useful examples…", "Almost ready…"];
+
+  useEffect(() => {
+    if (!loadingLevel) {
+      setLoadingStage(0);
+      return;
+    }
+    const started = window.setTimeout(() => setLoadingStage(1), 3500);
+    const continuing = window.setTimeout(() => setLoadingStage(2), 8000);
+    return () => {
+      window.clearTimeout(started);
+      window.clearTimeout(continuing);
+    };
+  }, [loadingLevel]);
 
   // Auto-load A1 once hydrated
   useEffect(() => {
@@ -45,16 +60,30 @@ export function LevelSidebar({
     setLoadingLevel(level);
     setErrorByLevel((p) => ({ ...p, [level]: undefined }));
     try {
-      const res = await genTitles({
-        data: { language: state.selectedLanguage, level },
-      });
+      const res = await Promise.race([
+        genTitles({
+          data: { language: state.selectedLanguage, level },
+        }),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(
+            () => reject(new Error("This lesson is taking longer than expected.")),
+            25000,
+          ),
+        ),
+      ]);
       if (res.data?.lessons) {
         setLessons(state.selectedLanguage, level, res.data.lessons);
       } else if (res.error) {
         setErrorByLevel((p) => ({ ...p, [level]: res.error ?? "Failed to load" }));
       }
-    } catch {
-      setErrorByLevel((p) => ({ ...p, [level]: "Failed to load" }));
+    } catch (error) {
+      setErrorByLevel((p) => ({
+        ...p,
+        [level]:
+          error instanceof Error
+            ? error.message
+            : "We couldn't prepare this lesson. Your saved work is safe.",
+      }));
     } finally {
       setLoadingLevel(null);
     }
@@ -121,19 +150,29 @@ export function LevelSidebar({
                 {isOpen && (
                   <div className="ml-2 mt-1 border-l border-border/60 pl-3">
                     {isLoading && lessons.length === 0 && (
-                      <div className="flex items-center gap-2 px-2 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                        <Loader2 className="h-3 w-3 animate-spin text-gold" />
-                        Generating lessons…
+                      <div
+                        className="px-2 py-3 text-muted-foreground"
+                        role="status"
+                        aria-live="polite"
+                      >
+                        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em]">
+                          <Loader2 className="h-3 w-3 animate-spin text-gold" />
+                          {loadingCopy[loadingStage]}
+                        </div>
+                        <p className="mt-1 pl-5 text-[11px] leading-relaxed">
+                          This may take a short period. You can keep exploring other tools while it
+                          continues.
+                        </p>
                       </div>
                     )}
                     {err && (
-                      <div className="px-2 py-2 font-mono text-[10px] text-destructive">
-                        {err}{" "}
+                      <div className="rounded-lg border border-destructive/30 bg-destructive/5 px-2 py-2 text-[11px] text-destructive">
+                        <p>{err}</p>
                         <button
                           onClick={() => ensureLessons(level)}
-                          className="underline hover:text-foreground"
+                          className="mt-2 min-h-11 rounded-lg border border-destructive/40 px-3 font-semibold underline-offset-2 hover:bg-destructive/10"
                         >
-                          Retry
+                          Try again
                         </button>
                       </div>
                     )}

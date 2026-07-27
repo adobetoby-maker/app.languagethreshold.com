@@ -3817,7 +3817,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "inmovilizar": {
     "stem": "inmoviliz",
-    "infiniteEnding": "-ar",
+    "infinitiveEnding": "-ar",
     "irregularType": null,
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -8913,7 +8913,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "reforzar": {
     "stem": "refuerz",
-    "infiniteEnding": "-ar",
+    "infinitiveEnding": "-ar",
     "irregularType": "stem-change",
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -11388,7 +11388,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "mantener": {
     "stem": "manten",
-    "infiniteEnding": "-er",
+    "infinitiveEnding": "-er",
     "irregularType": "go-verb",
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -14540,7 +14540,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "poder": {
     "stem": "pud",
-    "infiniteEnding": "-ir",
+    "infinitiveEnding": "-ir",
     "irregularType": "stem-change",
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -14857,7 +14857,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "conocer": {
     "stem": "conoc",
-    "infiniteEnding": "-er",
+    "infinitiveEnding": "-er",
     "irregularType": "go-verb",
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -15702,7 +15702,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "seguir": {
     "stem": "sigu",
-    "infiniteEnding": "-ir",
+    "infinitiveEnding": "-ir",
     "irregularType": "stem-change",
     "phase1": {
       "label": "Phase 1 — Commands & Present",
@@ -24915,7 +24915,7 @@ export const verbProfiles: Record<string, VerbProfile> = {
   },
   "guiar": {
     "stem": "guí",
-    "infiniteEnding": "-ar",
+    "infinitiveEnding": "-ar",
     "irregularType": "stem-change",
     "phase1": {
       "label": "Phase 1 — Commands & Present",

@@ -8,7 +8,7 @@ export interface MorphForm {
 
 export interface VerbProfile {
   stem: string
-  infinitiveEnding: '-ar' | '-er' | '-ir' | '-are' | '-ere' | '-ire'
+  infinitiveEnding: string | null
   irregularType?: string | null
   phase1: {
     label: string

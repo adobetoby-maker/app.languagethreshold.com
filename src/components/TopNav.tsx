@@ -33,8 +33,28 @@ const LANGUAGES: Language[] = [
   "English",
 ];
 
+const MEDICAL_MODULES = new Set([
+  "orthopedics",
+  "nursing",
+  "emergency-medicine",
+  "family-medicine",
+  "fmg",
+  "ob-gyn",
+  "cardiology",
+  "general-surgery",
+  "physical-therapy",
+  "pain-management",
+  "medical-receptionist",
+  "or-evs",
+]);
 
-const TABS: { key: TabKey; label: string; module?: string; language?: Language }[] = [
+const TABS: {
+  key: TabKey;
+  label: string;
+  module?: string;
+  moduleFilter?: (id: string | null) => boolean;
+  language?: Language;
+}[] = [
   { key: "modules", label: "Modules" },
   { key: "missionary", label: "Missionary", module: "lds-missionary" },
   { key: "orthopedics", label: "Orthopedics", module: "orthopedics" },
@@ -50,7 +70,11 @@ const TABS: { key: TabKey; label: string; module?: string; language?: Language }
   { key: "falseFriends", label: "False Friends" },
   { key: "games", label: "Games" },
   { key: "speak", label: "Speak & Learn" },
-  { key: "anatomy", label: "Anatomy" },
+  {
+    key: "anatomy",
+    label: "Anatomy",
+    moduleFilter: (id) => !!id && MEDICAL_MODULES.has(id),
+  },
   { key: "discussions", label: "Discussions", module: "lds-missionary" },
   { key: "dashboard", label: "Dashboard" },
   { key: "guide", label: "App Guide" },
@@ -201,6 +225,7 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
           {TABS.filter(
             (t) =>
               (!t.module || state.activeModuleId === t.module) &&
+              (!t.moduleFilter || t.moduleFilter(state.activeModuleId)) &&
               (!t.language || state.selectedLanguage === t.language),
           ).map((tab) => {
             const active = state.currentTab === tab.key;

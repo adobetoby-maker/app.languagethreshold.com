@@ -81,8 +81,8 @@ function UrlModuleBridge() {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
     }
-  // Only run once after hydration
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Only run once after hydration
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated]);
 
   return null;
@@ -119,78 +119,79 @@ function Index() {
     <AppProvider>
       <AuthProvider>
         <SubscriptionProvider>
-        <AiGateProvider>
-        <MatchProvider>
-          <LeaderboardProvider>
-            <LibraryProvider>
-              <NotesProvider>
-                <GrammarProvider>
-                  <FlashcardProvider>
-                  <SpeechBridge>
-                    <SpeakBridge>
-                      <TutorProvider>
-                        <ConjugationProvider>
-                          <SentenceBuildProvider>
-                            <ListeningDrillProvider>
-                              <WordMatchProvider>
-                                <IdiomMasterProvider>
-                                  <FalseFriendsProvider>
-                                    <DailyChallengeProvider>
-                                      <div className="flex min-h-screen bg-background text-foreground">
-                                        {/* Left sidebar (desktop) + bottom nav (mobile) */}
-                                        <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
+          <AiGateProvider>
+            <MatchProvider>
+              <LeaderboardProvider>
+                <LibraryProvider>
+                  <NotesProvider>
+                    <GrammarProvider>
+                      <FlashcardProvider>
+                        <SpeechBridge>
+                          <SpeakBridge>
+                            <TutorProvider>
+                              <ConjugationProvider>
+                                <SentenceBuildProvider>
+                                  <ListeningDrillProvider>
+                                    <WordMatchProvider>
+                                      <IdiomMasterProvider>
+                                        <FalseFriendsProvider>
+                                          <DailyChallengeProvider>
+                                            <div className="flex min-h-screen bg-background text-foreground">
+                                              {/* Left sidebar (desktop) + bottom nav (mobile) */}
+                                              <AppSidebar onOpenMatch={() => setMatchOpen(true)} />
 
-                                        {/* Main column */}
-                                        <div className="flex min-w-0 flex-1 flex-col">
-                                          <TopNav />
-                                          <SaveProgressBanner />
-                                          {/* Bottom padding always reserves room for the
+                                              {/* Main column */}
+                                              <div className="flex min-w-0 flex-1 flex-col">
+                                                <TopNav />
+                                                <SaveProgressBanner />
+                                                {/* Bottom padding always reserves room for the
                                 fixed bottom nav, on every viewport. */}
-                                          <main className="flex-1 overflow-y-auto px-4 py-6 pb-[calc(6.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:py-10 lg:pb-[calc(4rem+env(safe-area-inset-bottom))]">
-                                            <GatedTabShell />
-                                          </main>
-                                        </div>
-                                      </div>
+                                                <main className="flex-1 overflow-y-auto px-4 py-6 pb-[calc(11rem+env(safe-area-inset-bottom))] sm:px-6 sm:py-10 lg:pb-[calc(8rem+env(safe-area-inset-bottom))]">
+                                                  <GatedTabShell />
+                                                </main>
+                                              </div>
+                                            </div>
 
-                                      <WizardGate />
-                                      <UrlModuleBridge />
-                                      <TutorPanel />
-                                      <LevelUpOverlay />
-                                      <CefrCompletionBridge />
-                                      <MatchmakingOverlay
-                                        open={matchOpen}
-                                        onClose={() => setMatchOpen(false)}
-                                      />
-                                      <MatchAchievementsBridge />
-                                      <DailyChallengeBridge />
-                                    </DailyChallengeProvider>
-                                  </FalseFriendsProvider>
-                                </IdiomMasterProvider>
-                              </WordMatchProvider>
-                            </ListeningDrillProvider>
-                          </SentenceBuildProvider>
-                        </ConjugationProvider>
-                      </TutorProvider>
-                      <Toaster
-                        theme="dark"
-                        position="bottom-right"
-                        toastOptions={{
-                          style: {
-                            background: "var(--card)",
-                            color: "var(--foreground)",
-                            border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
-                          },
-                        }}
-                      />
-                    </SpeakBridge>
-                  </SpeechBridge>
-                  </FlashcardProvider>
-                </GrammarProvider>
-              </NotesProvider>
-            </LibraryProvider>
-          </LeaderboardProvider>
-        </MatchProvider>
-        </AiGateProvider>
+                                            <WizardGate />
+                                            <UrlModuleBridge />
+                                            <TutorPanel />
+                                            <LevelUpOverlay />
+                                            <CefrCompletionBridge />
+                                            <MatchmakingOverlay
+                                              open={matchOpen}
+                                              onClose={() => setMatchOpen(false)}
+                                            />
+                                            <MatchAchievementsBridge />
+                                            <DailyChallengeBridge />
+                                          </DailyChallengeProvider>
+                                        </FalseFriendsProvider>
+                                      </IdiomMasterProvider>
+                                    </WordMatchProvider>
+                                  </ListeningDrillProvider>
+                                </SentenceBuildProvider>
+                              </ConjugationProvider>
+                            </TutorProvider>
+                            <Toaster
+                              theme="dark"
+                              position="bottom-right"
+                              toastOptions={{
+                                style: {
+                                  background: "var(--card)",
+                                  color: "var(--foreground)",
+                                  border:
+                                    "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
+                                },
+                              }}
+                            />
+                          </SpeakBridge>
+                        </SpeechBridge>
+                      </FlashcardProvider>
+                    </GrammarProvider>
+                  </NotesProvider>
+                </LibraryProvider>
+              </LeaderboardProvider>
+            </MatchProvider>
+          </AiGateProvider>
         </SubscriptionProvider>
       </AuthProvider>
     </AppProvider>

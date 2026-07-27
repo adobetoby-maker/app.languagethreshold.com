@@ -64,8 +64,8 @@ export function TutorPanel() {
   // Pull in pending prefill from Word Card / external triggers
   useEffect(() => {
     if (!tutor.state.open) return;
-    const t = tutor.consumePrefill();
-    if (t) setInput(t);
+    const pending = tutor.consumePrefill();
+    if (pending) setInput(pending.text);
   }, [tutor.state.open, tutor]);
 
   useEffect(() => {
@@ -91,8 +91,10 @@ export function TutorPanel() {
   };
 
   const doSend = async (trimmed: string) => {
-
     setError(null);
+    // Reader context belongs to the first contextual turn only. Later free-form
+    // questions in the same thread should not be steered by a stale word card.
+    const readerContext = tutor.takeReaderContext(selected.title);
     const userMsg: TutorMessage = {
       id: crypto.randomUUID(),
       role: "user",
@@ -134,6 +136,7 @@ export function TutorPanel() {
             textTitle: selected.title,
             passage,
             lastWord: lastWord ?? undefined,
+            readerContext,
             module: (() => {
               const mod = getModule(appState.activeModuleId);
               if (!mod) return undefined;
@@ -250,7 +253,7 @@ export function TutorPanel() {
     return (
       <button
         onClick={() => tutor.setOpen(true)}
-        className="tutor-pulse fixed bottom-[calc(6.5rem+env(safe-area-inset-bottom))] right-4 z-40 inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:bottom-6 lg:right-6"
+        className="tutor-pulse fixed bottom-[calc(7rem+env(safe-area-inset-bottom))] right-4 z-40 inline-flex min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:bottom-20 lg:right-6"
         aria-label="Open AI Tutor"
       >
         <Sparkles className="h-4 w-4 text-gold" />
@@ -260,7 +263,7 @@ export function TutorPanel() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 top-4 z-40 flex w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl">
+    <div className="fixed bottom-[calc(7rem+env(safe-area-inset-bottom))] right-2 top-[calc(0.5rem+env(safe-area-inset-top))] z-40 flex w-[380px] max-w-[calc(100vw-1rem)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl lg:bottom-20 lg:right-4 lg:top-4">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">
         <div className="flex items-center gap-2">

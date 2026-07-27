@@ -11,6 +11,7 @@ import {
   Square,
   ChevronLeft,
   ChevronRight,
+  MousePointer2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
@@ -46,6 +47,7 @@ type FuriganaMode = "off" | "above" | "inline";
 const FURIGANA_KEY = "lt.reader.furigana.v1";
 const FURIGANA_SCRIPT_KEY = "lt.reader.furigana.script.v1";
 const ROMAJA_KEY = "lt.reader.romaja.v1";
+const READER_HINT_KEY = "lt.reader.tap-hint-dismissed.v1";
 
 const SIZE_CLASS: Record<TextSize, string> = {
   S: "text-[15px] leading-[1.85]",
@@ -67,6 +69,13 @@ export function ParallelReader() {
   const [furiganaMode, setFuriganaMode] = useState<FuriganaMode>("above");
   const [furiganaScript, setFuriganaScript] = useState<FuriganaScript>("hiragana");
   const [romajaMode, setRomajaMode] = useState<FuriganaMode>("above");
+  const [showReaderHint, setShowReaderHint] = useState(() => {
+    try {
+      return localStorage.getItem(READER_HINT_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
 
   // Lesson navigation for the active module
   const lessonIds = useMemo(
@@ -316,8 +325,29 @@ export function ParallelReader() {
     x: number,
     y: number,
   ) => {
+    if (showReaderHint) {
+      setShowReaderHint(false);
+      try {
+        localStorage.setItem(READER_HINT_KEY, "1");
+      } catch {
+        /* ignore */
+      }
+    }
+    const passageExcerpt = activeSentences
+      .slice(0, 4)
+      .map((pair) => pair.target)
+      .join(" ")
+      .slice(0, 1600);
     if (pane === "right") {
-      setWordReq({ word, sentence, language: state.selectedLanguage, x, y });
+      setWordReq({
+        word,
+        sentence,
+        language: state.selectedLanguage,
+        passageExcerpt,
+        textTitle: selected.title,
+        x,
+        y,
+      });
     } else {
       // Left (native) pane: provide the paired target sentence so the AI can
       // identify the target-language equivalent of the clicked native word.
@@ -325,7 +355,15 @@ export function ParallelReader() {
       const context = pair
         ? `[${state.nativeLanguage}] "${sentence}" | [${selected.targetLabel}] "${pair.target}"`
         : sentence;
-      setWordReq({ word, sentence: context, language: state.selectedLanguage, x, y });
+      setWordReq({
+        word,
+        sentence: context,
+        language: state.selectedLanguage,
+        passageExcerpt,
+        textTitle: selected.title,
+        x,
+        y,
+      });
     }
   };
 
@@ -394,7 +432,6 @@ export function ParallelReader() {
   // Reset chapter to 0 whenever the user opens a different book
   useEffect(() => {
     setChapterIndex(0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected.id]);
 
   const handleSpeakSentence = () => {
@@ -433,7 +470,7 @@ export function ParallelReader() {
   }, [activeSentenceIndex, autoScroll]);
 
   return (
-    <div className="fade-in mx-auto w-full max-w-6xl">
+    <div className="reader-learning-surface fade-in mx-auto w-full max-w-6xl">
       <ModuleStudyGuide />
       <ModuleMatchPanel surface="Reader" className="mb-4" />
 
@@ -481,6 +518,35 @@ export function ParallelReader() {
             className="inline-flex items-center gap-1 rounded-full border border-gold/50 bg-gold/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-gold transition-colors hover:bg-gold/25 disabled:pointer-events-none disabled:opacity-30"
           >
             {currentLessonIndex < 0 ? "Start" : "Next"} <ChevronRight className="h-3 w-3" />
+          </button>
+        </div>
+      )}
+
+      {showReaderHint && (
+        <div className="mb-4 flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/[0.08] px-4 py-3 text-sm shadow-sm">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">
+            <MousePointer2 className="h-4 w-4" aria-hidden="true" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-semibold text-foreground">Tap any word to understand it here.</p>
+            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+              The Word Card explains it in this sentence, then carries that context into Tutor.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setShowReaderHint(false);
+              try {
+                localStorage.setItem(READER_HINT_KEY, "1");
+              } catch {
+                /* ignore */
+              }
+            }}
+            aria-label="Dismiss Reader tip"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted-foreground hover:bg-background/50 hover:text-foreground"
+          >
+            <X className="h-4 w-4" />
           </button>
         </div>
       )}

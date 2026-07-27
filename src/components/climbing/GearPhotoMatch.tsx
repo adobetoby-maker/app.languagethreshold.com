@@ -253,7 +253,6 @@ export function GearPhotoMatch() {
               disabled={!!selected}
               className={`relative rounded-xl overflow-hidden border-2 transition-all aspect-[4/3] ${borderClass}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={choice.imgUrl}
                 alt={choice.names["English"]}

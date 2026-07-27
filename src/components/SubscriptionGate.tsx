@@ -20,11 +20,12 @@ interface Props {
   children: ReactNode;
 }
 
-export function SubscriptionGate({ currentTab: _currentTab, children }: Props) {
+export function SubscriptionGate({ children }: Props) {
   // DEMO MODE — all paywalls disabled
   return <>{children}</>;
+}
 
-  // eslint-disable-next-line no-unreachable
+function EnabledSubscriptionGate({ currentTab, children }: Props) {
   const { isActive, loading: subLoading } = useSubscription();
   const { user, loading: authLoading } = useAuth();
   const { state } = useApp();
@@ -40,8 +41,10 @@ export function SubscriptionGate({ currentTab: _currentTab, children }: Props) {
   }, []);
 
   // Module-specific free tabs
-  const moduleFree = state.activeModuleId ? MODULE_FREE_TABS[state.activeModuleId] : null;
-  const isMissionaryModule = state.activeModuleId === "lds-missionary";
+  const activeModuleId = state.activeModuleId;
+  const moduleFree =
+    typeof activeModuleId === "string" ? MODULE_FREE_TABS[activeModuleId] : null;
+  const isMissionaryModule = activeModuleId === "lds-missionary";
 
   // Free tabs bypass the gate entirely
   if (FREE_TABS.has(currentTab)) return <>{children}</>;

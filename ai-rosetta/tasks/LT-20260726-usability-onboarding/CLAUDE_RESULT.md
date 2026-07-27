@@ -1,131 +1,157 @@
-# CLAUDE_RESULT — DUO-002 Phase 1
+# CLAUDE_RESULT — DUO-002
 
 Agent: Claude Code
 Branch: `claude/usability-onboarding`
+**Branch head: `e668022f5941d82b4acc54568d8604beea914b7b`**
 Baseline: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
-Head: `8dc1400`
-Draft PR: https://github.com/adobetoby-maker/app.languagethreshold.com/pull/3
-Status: **Phase 1 complete — stopped at checkpoint. Phases 2–4 not started.**
-Date: 2026-07-26
+Preview (aligned, HTTP 200): https://language-threshold-b38j3ywqc-adobetoby-5572s-projects.vercel.app
+Draft PR: #3
+Date: 2026-07-27
 
-## Independence attestation
+Supersedes the Phase-1 checkpoint version, which was 8 commits stale.
 
-`CODEX_PLAN.md` has not been read. Codex's branches (`codex/usability-onboarding`,
-`codex/ai-rosetta-control`) have not been inspected. Both subagents dispatched
-during the review were explicitly firewalled from them. No cross-review has begun.
+## Attribution — this branch is no longer solely Claude's work
 
-Prior disclosure stands: `AI_HANDOFF.md` §6 (which contains Codex's product
-review) was read before the independent phase. Judged not a violation because
-that same review is reproduced as shared evidence in the PRD §4.
+Toby authored and merged **Track A** directly onto this branch. Recorded
+explicitly so cross-review does not misattribute it:
 
-## What shipped
-
-| # | Defect | Commit |
+| Commit | Author | What |
 |---|---|---|
-| P0-1 | Reader word-save silently dropped by the `vocabLang` gate | `5f5ea28` |
-| P0-2 | No touch affordance on tappable words | `c982e5b` |
-| P0-3 | Internal QA diagnostics rendered to learners | `c982e5b` |
-| P0-4 | Language never asked; wrong default passage | `8dc1400` |
+| `3497eb8` | **Toby** | Build reader-first onboarding track A |
+| `43de363` | **Toby** | Merge Phase 1 checkpoint into accepted Track A |
+| `5f5ea28` | Claude | P0-1 `vocabLang` fix |
+| `c982e5b` | Claude | P0-2/P0-3 touch affordance + diagnostics gate |
+| `8dc1400` | Claude | P0-4 language step (superseded in part by Track A) |
+| `eae57c0` | Claude | Affordance correction — both panes |
+| `e26546d` | Claude | Tutor docked to nav; language-first gate |
+| `90417cb` | Claude | "More languages" expander |
+| `e668022` | Claude | Training-demo block + underlines removed |
 
-### P0-1 — the signature loop had no payoff
+### What Track A (Toby) contributed
 
-`vocabLang` initialises `null` and was only ever set by `SET_USER_VOCAB` (the Pen
-Pal builder). `ADD_VOCAB_ITEMS` — the Reader's save path — never claimed it. Ten
-consumers gate on `vocabLang === selectedLanguage`, so **every word saved from
-the Reader was silently filtered out** of Flashcards, Tutor, Word Match, Pattern
-Lab, Daily Story, Pen Pal, Conjugation and Speak. The UI reported success anyway.
+- **`FirstRunEntry`** — reader-first landing replacing the old wizard. One
+  dominant "Start reading", "No account needed · Beginner passage ready", and a
+  "Your first minute" ladder. Better than the wizard it replaced.
+- **Tutor clearance tokens** — `--lt-bottom-strip-budget`, `.lt-scroll-safe`,
+  `.lt-tutor-above-nav`, `.lt-miniplayer-above-nav`.
+- **`learning-guidance.ts` + `ActionHint`** — the dismissible guidance system
+  Claude's later work consolidated onto.
+- **`handleWord` rewrite** — passes the tapped sentence, `sentenceIndex`, and
+  `buildCenteredPassage(...)`; `WordCard` now sends `selectedSentence` /
+  `passage` / `sentenceIndex` to the Tutor.
+- **Seed change** — default text is now a beginner travel passage, not C2
+  Don Quixote.
+- **Cleared all 40 pre-existing TypeScript errors.** `tsc` is now 0.
 
-Fix claims the language only when the list is unowned; a populated list is never
-relabelled, so words saved under another language cannot be mis-tagged.
+## What Claude shipped
 
-### P0-2 — the interaction was invisible on mobile
+**P0-1 — Reader word-save was silently dropped.** `vocabLang` initialises null
+and was only set by `SET_USER_VOCAB` (Pen Pal). `ADD_VOCAB_ITEMS` — the Reader
+path — never claimed it, so ten consumers gating on
+`vocabLang === selectedLanguage` filtered out every Reader-saved word, including
+the Flashcards sync. The UI reported success regardless.
 
-Words were styled `hover:text-gold`. Hover does not exist on touch. New `.lt-word`
-class expresses the affordance as real media queries. Scoped to
-`[data-pane="target"]` — a first pass decorated both panes and read as a wall of
-links at 375px; restricting it halves the density and points at the side where
-lookup is useful. Four components each carried a private copy of the hover-only
-class; they now share one definition, so Japanese and Korean readers get it too.
-Plus `TapHint`: one-time, non-blocking, self-dismissing on the first real tap.
+**P0-2 — the interaction was invisible on touch.** Words were `hover:text-gold`;
+hover does not exist on phones. Went through three iterations, two of them
+corrections of my own errors:
+1. Underlines both panes — too heavy at 375.
+2. Target pane only — **wrong**; tapping a native word opens the same card
+   (verified with "village"). The affordance was lying.
+3. Underlines removed entirely; the training-demo block carries the message.
 
-### P0-3 — QA instrumentation in production
+**P0-3 — QA instrumentation shipped to learners.** `◈ Filter check · Reader`
+rendered as the first element on Reader, Grammar and Speak, ungated. Now dev-only
+or `?debugFilter=1`; verified folded out of the production bundle (zero
+`import.meta.env.DEV` references remain).
 
-`ModuleMatchPanel` rendered `◈ Filter check · Reader / No active module` as the
-first element on Reader, Grammar Studio and Speak, entirely ungated. Now dev-only
-or `?debugFilter=1`.
+**P0-4 — language never asked.** Restored ahead of Track A's landing as
+`LanguageFirstStep`, plus a "More languages" expander separating shipped
+(English, 30 seeded texts) from roadmap (Swahili, Greek, Hebrew, Arabic, Russian,
+Mongolian — non-selectable, no content).
 
-### P0-4 — new learners got the wrong content
+**Nav** — Tutor docked far-right in the bottom bar, More to the left, Match
+removed. The floating pill is gone on mobile, which removes the overlap class of
+bug rather than tuning clearance around it.
 
-Onboarding never asked the language. A beginner who came for French got a C2
-Cervantes text in Spanish. New step 1 asks first (everything downstream keys off
-it), `finish()` dispatches it, `skip()` preserves it, non-module learners now land
-in the Reader rather than the App Guide, and `library-state` re-selects on
-language mismatch choosing the lowest available CEFR level.
+**Training demo** — per-pane tap counting: the block clears only once **both**
+panes have been tapped 3 times, so dismissal is evidence the learner discovered
+that native-side lookup works too.
 
-## Verification — measured, not asserted
+## Verification — measured
 
 | Check | Result |
 |---|---|
-| Vocab save | `vocabLang` `null` → `"Spanish"`; word present in Cards DOM (was absent) |
-| Touch affordance | target pane `underline/dotted` @ 22% gold, 248 words; native pane `none`, 259 words |
-| Pointer affordance | 1440 mouse: `none` — original hover behaviour preserved |
-| TapHint lifecycle | shows on entry → clears on first word tap → stays cleared after reload |
-| P0-3 in prod build | DEV branch folded out; **zero** `import.meta.env.DEV` refs remain in bundle |
-| Language → passage | French → *"C'est jeudi — il est temps de planifier la semaine…"* |
-| Language → passage | Japanese → Japanese classroom passage |
-| Language step at 375 | all 8 cards fit; Pashto card bottom 623px vs 812px viewport |
+| `vocabLang` after Reader save | `null` → `"Spanish"` / `"French"` |
+| Saved word in Cards DOM | absent → present |
+| Word decoration (375, touch) | `none` — underlines removed |
+| Demo block on load | shown |
+| After 3 target-side taps | still shown; `tapCounts {"left":0,"right":3}` |
+| Nav order (live DOM) | `More · Reader · Cards · Grammar · Games · Speak · Dashboard · Tutor` |
+| Floating Ask Tutor on mobile | none rendered |
+| Language → passage | French → *"C'est jeudi…"* · Japanese → classroom passage |
+| Language step at 375 | all 8 fit; Pashto bottom 623px / 812px viewport |
+| Roadmap languages clickable | no — `closest('button') === null` |
+| `npx tsc --noEmit` | **0 errors** |
 | Viewports read | 375 / 1440 / 2560 / 5K |
-| `npx tsc --noEmit` | 40 errors before, 40 after — **zero added** (stash/count/pop) |
-| `npx eslint` | 2 errors before, 2 after — both pre-existing (`:660`, `:830`) |
 
-## Deliberately not done
+## Regression cases — `Dove abiti?` and `prenotazione`
 
-Phases 2–4 not started, per instruction. Advertising screenplay/shot list (§11)
-pending. `main` and Production untouched — no merge, no production deploy.
+**Status: NOT REPRODUCED, and NOT CLEARED. Unresolved.**
 
-## Known-remaining, ranked (detail in `CLAUDE_PLAN.md`)
+Chat identified from Toby's 06:18 screenshots that sentence analysis was wrong:
+`Dove abiti?` analysed against a verb "riporto" that is not in the sentence;
+`prenotazione` called the object of a preposition `per` absent from the displayed
+sentence; "nominative case" misapplied to Italian; `prenota` described as a
+synonymous noun when it is a verb form.
 
-1. **P1-1** — floating Ask Tutor covers content on every primary tab, including
-   the flashcard tap-to-flip target and, on mobile, the entire bottom nav
-   (the only route to 16 of 22 tabs).
-2. **P1-4** — My Vocab still has no tab of its own, and the `vocabLang` gate is
-   still silent when it hides a list.
-3. **P1-3** — Word Card action row sits ~2400px down inside the card.
-4. **P1-2** — Word Card blanks for 3–5s with no loading state.
-5. **P1-6** — three disagreeing nav lists; 6 tabs unreachable, 3 desktop-only.
-6. **P1-7** — no mobile sign-in path once the progress banner is dismissed.
-7. **Profession step still clips** at 375 and 1440 — "Just exploring" is below the
-   fold on every real display. The new language step does not have this problem.
+This corroborates the independent finding in `CLAUDE_PLAN.md` §1.7 — that the
+tapped sentence was not reaching the API.
 
-## Corrections to the shared brief
+**Important timing fact:** those screenshots were taken at 06:18–06:22 on 07-27,
+but the dev server they hit had been running since **20:56 on 07-26**, before
+Track A existed locally (rebased 06:33 on 07-27). **They therefore document the
+pre-Track-A build.** Track A's `handleWord` rewrite may already fix this.
 
-Three items in PRD §4 do **not** reproduce on this baseline. `BRIEF.md` should be
-corrected so Codex is not chasing them either:
+**What was attempted (07-27, current head):** three scripted runs at 390×844
+against local dev with a live Anthropic key, capturing outbound request payloads
+and comparing the card's analysis against the sentence read from the DOM.
 
-1. Banner dismissal **works** and persists across tab change and reload. Its 12.3%
-   height at 375px is a text-wrap effect (7.1% at 430, 3.0% at 1440), not fixed cost.
-2. Grammar generation is **not** indefinite — ~4s with a visible spinner, 6 A1 lessons.
-3. **Zero** console errors and zero page errors across the full 8-tab sweep.
+**Why it did not conclude:** the Word Card does not open under Playwright after
+Track A's overlay changes. Matches on "IN THIS SENTENCE" resolved to the
+training-demo copy rather than a rendered card. The API payload capture returned
+no `sentence` field, consistent with the card never being requested.
 
-## Process defect to correct — Rosetta coordination
+**Correct next step:** manual device reproduction, or re-tooled selectors keyed
+to Track A's markup. Do not treat as fixed.
 
-DUO-001 was reported blocked by this agent because its completion existed only in
-**PR #2's comments** and had never propagated to this branch or task folder.
-Nothing in the Rosetta task state recorded it as done, so the only honest read
-from here was "unverified".
+## Anthropic preview configuration — UNRESOLVED
 
-That is a coordination defect, not a judgement error: **completion signalled in a
-PR comment is invisible to an agent working from branch state.** Fix after the
-independent phase — task completion must be written into the Rosetta task folder
-(or `BRIEF.md`), not left in review threads.
+Local dev now has a working key (`ANTHROPIC_API_KEY` in
+`~/.claude/api-keys.env`, exported via `~/.zshenv` so non-interactive
+agent-started servers inherit it; `.env.local` holds only browser-safe `VITE_`
+Supabase values, no service-role key, gitignored, never committed).
 
-## Housekeeping
+**The Vercel Preview environment has no Anthropic key.** Local and preview
+therefore do not match: local returns AI content, preview reports AI not
+configured. Any preview-based review of the Word Card, Tutor, Grammar generation
+or Speak is invalid until this is set.
 
-- Borrowed ClearTerms `ANTHROPIC_API_KEY` **removed** from `.env.local`.
-  Confirmed never committed (`git log -S"sk-ant-"` is empty).
-- `.env.local` now holds only browser-safe `VITE_` Supabase values. No
-  service-role key present. Gitignored.
-- **Language Threshold needs its own Anthropic credential** for local testing.
-  Word lookup, Tutor, Grammar generation and Speak are all AI-backed; without a
-  dedicated project key the Word Card shows `AI IS NOT CONFIGURED` in dev.
-- Dev server stopped at handoff.
+A previously borrowed ClearTerms key was removed on request; `git log -S"sk-ant-"`
+confirms it was never committed.
+
+## Not done
+
+1. **Missionary selection-block correction.** Could not locate the mid-page
+   render from source — `lds-missionary` appears only in module routing, and the
+   supplied screenshots show the Italian travel module. Needs one pointer rather
+   than a guess.
+2. **Cross-review / `SYNTHESIS.md`.** Codex is now independent-complete
+   (`CODEX_PLAN.md` / `CODEX_RESULT.md` at PR #4 docs head `8acd101`;
+   implementation `8e3c6b4`). Cross-review begins after this document is locked.
+3. **2560/5K composition** of the language step — `max-w-lg` reads adrift at
+   large viewports. Cosmetic; mobile was the stated priority.
+
+## State
+
+`main` untouched. Production untouched. No merge performed. Nothing deployed to
+Production. Draft PR #3 remains draft.

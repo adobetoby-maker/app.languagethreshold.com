@@ -253,8 +253,10 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           {/* Step 2 — Level */}
           {step === 3 && (
             <>
+              {/* Back to profession (step 2). Was setStep(1) — stale from the
+                  pre-language 3-step flow, so it skipped the step just done. */}
               <button
-                onClick={() => setStep(1)}
+                onClick={() => setStep(2)}
                 className="mb-4 text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 ← Back
@@ -286,8 +288,9 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           {/* Step 3 — Summary */}
           {step === 4 && (
             <>
+              {/* Back to level (step 3), the step most likely being edited. */}
               <button
-                onClick={() => setStep(2)}
+                onClick={() => setStep(3)}
                 className="mb-4 text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 ← Back

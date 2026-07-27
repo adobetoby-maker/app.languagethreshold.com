@@ -455,17 +455,11 @@ export function WordCard({
               </div>
             )}
 
-            {vocabAdded && (
-              <button
-                onClick={() => {
-                  dispatch({ type: "SET_TAB", payload: "flashcards" });
-                  onClose();
-                }}
-                className="mt-2 w-full rounded-full border border-gold/40 bg-gold/[0.08] py-1.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/15"
-              >
-                Study your saved words →
-              </button>
-            )}
+            {/* Second Flashcards CTA removed — the confirmation panel above
+                already offers "Practice in Flashcards" and both performed the
+                same navigation. Two identical calls to action immediately after
+                the key save made the card feel undeliberate. Synthesis
+                correction 6. */}
           </>
         )}
       </div>

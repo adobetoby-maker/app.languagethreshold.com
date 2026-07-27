@@ -12,6 +12,13 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
+import {
+  includeLegacyVocab,
+  mergeVocabByLanguage,
+  mergeVocabItems,
+  type VocabByLanguage,
+  type VocabItem,
+} from "./vocab-store";
 
 export type Language =
   | "Spanish"
@@ -199,7 +206,8 @@ export interface AppState {
 
   // Personal vocab — built from user's guided Q&A, used to seed games
   vocabAnswers: string[]; // 5 free-text answers (language-agnostic)
-  userVocab: UserVocabItem[]; // generated words for vocabLang
+  vocabByLanguage: VocabByLanguage<Language>; // durable per-language ownership (Track B)
+  userVocab: UserVocabItem[]; // view of vocabByLanguage[selectedLanguage]
   vocabLang: Language | null; // which language userVocab was built for
 
   // Grammar pattern SRS — parallel to vocab SRS, keyed by patternId
@@ -349,6 +357,7 @@ const initialState: AppState = {
   lessonProgress: {},
   vocabAnswers: [],
   userVocab: [],
+  vocabByLanguage: {},
   vocabLang: null,
   patternProgress: {},
   vocabSM2: {},
@@ -357,13 +366,43 @@ const initialState: AppState = {
 
 function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
-    case "HYDRATE":
-      return { ...state, ...action.payload, hydrated: true };
+    case "HYDRATE": {
+      const hydrated = { ...state, ...action.payload };
+      // Fallback to the selected language so vocabulary saved before the
+      // per-language migration (vocabLang null, userVocab populated) is
+      // recovered rather than discarded. Synthesis correction 1.
+      const vocabByLanguage = includeLegacyVocab(
+        hydrated.vocabByLanguage,
+        hydrated.vocabLang,
+        hydrated.userVocab,
+        hydrated.selectedLanguage,
+      );
+      return {
+        ...hydrated,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[hydrated.selectedLanguage] ?? [],
+        vocabLang: hydrated.selectedLanguage,
+        hydrated: true,
+      };
+    }
     case "SET_LANGUAGE": {
       const languagesUsed = state.languagesUsed.includes(action.payload)
         ? state.languagesUsed
         : [...state.languagesUsed, action.payload];
-      return { ...state, selectedLanguage: action.payload, languagesUsed };
+      const vocabByLanguage = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      return {
+        ...state,
+        selectedLanguage: action.payload,
+        languagesUsed,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[action.payload] ?? [],
+        vocabLang: action.payload,
+      };
     }
     case "SET_NATIVE_LANGUAGE":
       return { ...state, nativeLanguage: action.payload };
@@ -498,24 +537,27 @@ function reducer(state: AppState, action: AppAction): AppState {
         ),
       };
     case "ADD_VOCAB_ITEMS": {
-      const merged = [
-        ...state.userVocab,
-        ...action.payload
-          .filter((item) => !state.userVocab.some((existing) => existing.word === item.word))
-          .map((v) => ({ ...v, correctCount: 0 })),
-      ];
-      // vocabLang was previously only set by SET_USER_VOCAB (the Pen Pal
-      // builder). Words saved from the Reader landed here with vocabLang still
-      // null, so every consumer gating on `vocabLang === selectedLanguage`
-      // dropped them silently — including the Flashcards sync, which left
-      // "Study your saved words →" opening an empty deck.
-      // Claim the language only when the list has no owner yet; never relabel a
-      // populated list, which would mis-tag words saved for another language.
-      const unclaimed = state.vocabLang === null || state.userVocab.length === 0;
+      // Track B's per-language model, adopted over Claude's vocabLang stamp.
+      // The stamp fixed only the first occurrence: a learner who saved Spanish
+      // words then switched to French still got a silently hidden list, because
+      // every consumer gated on `vocabLang === selectedLanguage`. Owning
+      // vocabulary per language leaves no gate to fail.
+      const language = action.lang ?? state.selectedLanguage;
+      const base = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      const vocabByLanguage = {
+        ...base,
+        [language]: mergeVocabItems(base[language] ?? [], action.payload as VocabItem[]),
+      } as VocabByLanguage<Language>;
       return {
         ...state,
-        userVocab: merged,
-        vocabLang: unclaimed && action.lang ? action.lang : state.vocabLang,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[state.selectedLanguage] ?? [],
+        vocabLang: state.selectedLanguage,
       };
     }
     case "START_REGRESSION_CHECK":
@@ -757,6 +799,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "moduleAssignments",
   "vocabAnswers",
   "userVocab",
+  "vocabByLanguage",
   "vocabLang",
   "patternProgress",
   "vocabSM2",

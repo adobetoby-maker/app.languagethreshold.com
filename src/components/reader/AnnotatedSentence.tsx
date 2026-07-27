@@ -1,4 +1,5 @@
 import type { Annotation } from "@/state/notes-state";
+import { wordA11yProps } from "@/lib/learning-guidance";
 
 /**
  * Renders a sentence with all annotations applied as overlapping spans.
@@ -132,6 +133,7 @@ function Tokens({
               onWordClick(clean, fullSentence, r.left + r.width / 2, r.bottom);
             }}
             className="lt-word"
+            {...wordA11yProps}
           >
             {tok}
           </span>

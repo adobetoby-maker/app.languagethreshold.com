@@ -52,3 +52,23 @@ export function recordPaneTap(pane: "left" | "right", storageKey: string): TapCo
   window.dispatchEvent(new CustomEvent("lt:pane-tap", { detail: counts }));
   return counts;
 }
+
+/**
+ * Keyboard access for tappable Reader words. Synthesis correction 7.
+ *
+ * Words render as <span onClick>, which is unreachable by keyboard and invisible
+ * to assistive tech. Spreading these props makes each word a real button stop
+ * and activates it on Enter/Space by replaying the click the element already
+ * carries — so no renderer needs its own handler duplicated.
+ */
+export function wordKeyActivation(event: React.KeyboardEvent<HTMLElement>) {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  event.currentTarget.click();
+}
+
+export const wordA11yProps = {
+  role: "button" as const,
+  tabIndex: 0,
+  onKeyDown: wordKeyActivation,
+};

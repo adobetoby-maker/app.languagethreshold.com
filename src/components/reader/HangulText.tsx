@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { wordA11yProps } from "@/lib/learning-guidance";
 import { useServerFn } from "@tanstack/react-start";
 import { addRomaja, type RomajaSegment } from "@/fns/romaja.functions";
 
@@ -113,6 +114,7 @@ export function HangulText({
                 key={i}
                 data-reading={reading}
                 className="furigana-inline lt-word"
+                {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -131,6 +133,7 @@ export function HangulText({
             <ruby key={i} className="furigana-ruby">
               <span
                 className="lt-word"
+            {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -186,6 +189,7 @@ function ClickableSpan({
               onWordClick(p, sentence, r.left + r.width / 2, r.bottom);
             }}
             className="lt-word"
+            {...wordA11yProps}
           >
             {p}
           </span>

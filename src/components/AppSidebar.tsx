@@ -445,6 +445,29 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             Every available tab, grouped by section. Tap one to switch.
           </SheetDescription>
 
+          {/* Language Match — restored. Removing Match from the bottom row without
+              adding it here left mobile users no direct entry point: the More
+              sheet renders only TAB_ITEMS, and Match is an onOpenMatch overlay
+              action, not a TabKey. It was reachable solely via Games Hub.
+              Synthesis correction 4. */}
+          {onOpenMatch && (
+            <button
+              onClick={() => {
+                setMoreSheetOpen(false);
+                onOpenMatch();
+              }}
+              className="mt-3 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
+            >
+              <span className="flex items-center gap-2.5 text-sm text-foreground">
+                <Trophy className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+                Language Match
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                Play
+              </span>
+            </button>
+          )}
+
           {/* Theme toggle — labeled row so the setting is discoverable */}
           <button
             onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}

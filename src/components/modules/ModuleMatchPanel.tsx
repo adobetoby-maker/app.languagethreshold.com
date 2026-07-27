@@ -73,7 +73,6 @@ export function ModuleMatchPanel({ surface, className }: Props) {
   );
 
   if (!activeModule) return null;
-
   return (
     <section
       className={"rounded-2xl border border-gold/30 bg-card/40 backdrop-blur " + (className ?? "")}

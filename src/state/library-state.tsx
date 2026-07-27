@@ -428,13 +428,32 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     [state.entries, state.selectedId],
   );
 
+  // Keep the open text consistent with the learner's chosen language and level.
+  //
+  // Previously this only re-selected when the current entry was *unavailable*,
+  // so picking French left you on the Spanish default — and that default is
+  // `classic-quixote`, a C2 text, shown to absolute beginners. DUO-002 P0-4.
   useEffect(() => {
     const cur = state.entries.find((e) => e.id === state.selectedId);
-    if (!cur || !cur.available) {
-      const fallback = state.entries.find((e) => e.available);
-      if (fallback) dispatch({ type: "SELECT", payload: fallback.id });
+    const needsReselect = !cur || !cur.available || cur.language !== selectedLanguage;
+    if (!needsReselect) return;
+
+    const forLanguage = state.entries.filter((e) => e.available && e.language === selectedLanguage);
+    // Nothing seeded for this language yet — keep whatever is open rather than
+    // dumping the learner into an empty Reader.
+    if (forLanguage.length === 0) return;
+
+    // Easiest first, so a beginner doesn't open on 17th-century Cervantes.
+    const CEFR = ["A1", "A2", "B1", "B2", "C1", "C2"];
+    const rank = (e: (typeof forLanguage)[number]) => {
+      const i = CEFR.indexOf(String(e.level ?? "").toUpperCase());
+      return i === -1 ? CEFR.length : i;
+    };
+    const easiest = [...forLanguage].sort((a, b) => rank(a) - rank(b))[0];
+    if (easiest && easiest.id !== state.selectedId) {
+      dispatch({ type: "SELECT", payload: easiest.id });
     }
-  }, [state.entries, state.selectedId]);
+  }, [state.entries, state.selectedId, selectedLanguage]);
 
   return (
     <Ctx.Provider

@@ -407,6 +407,9 @@ export function WordCard({
                           correctCount: 0,
                         },
                       ],
+                      // Stamps vocabLang on first save so the word survives the
+                      // vocabLang gate in Flashcards, Tutor, Word Match, etc.
+                      lang: state.selectedLanguage,
                     });
                   }
                   setVocabAdded(true);

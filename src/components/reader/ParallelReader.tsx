@@ -882,6 +882,8 @@ export function ParallelReader() {
             </div>
             <div
               ref={rightRef}
+              // Keep the touch affordance scoped to the target-language pane.
+              data-pane="target"
               className={`lt-scroll-safe custom-scroll overflow-y-auto px-5 py-6 md:px-7 md:py-8 ${
                 fullscreen
                   ? "h-[calc(100dvh-100px)] md:h-[calc(100dvh-120px)]"

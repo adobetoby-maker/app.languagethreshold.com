@@ -301,7 +301,9 @@ export type AppAction =
       payload: { answers: string[]; vocab: UserVocabItem[]; lang: Language };
     }
   | { type: "MASTER_VOCAB_WORD"; payload: string } // word string — increments correctCount
-  | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[] } // append replacement words
+  // Append words (e.g. Reader word-save). `lang` stamps vocabLang when the list
+  // is still unclaimed, so downstream vocabLang gates don't silently drop them.
+  | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[]; lang?: Language }
   | { type: "START_REGRESSION_CHECK" } // reset mastered words to count=3 for re-drill
   | { type: "SCORE_PATTERN"; payload: string } // patternId — increments correctCount
   | { type: "PATTERN_REGRESSION_CHECK" } // reset mastered patterns to threshold-2
@@ -495,16 +497,27 @@ function reducer(state: AppState, action: AppAction): AppState {
           v.word === action.payload ? { ...v, correctCount: (v.correctCount ?? 0) + 1 } : v,
         ),
       };
-    case "ADD_VOCAB_ITEMS":
+    case "ADD_VOCAB_ITEMS": {
+      const merged = [
+        ...state.userVocab,
+        ...action.payload
+          .filter((item) => !state.userVocab.some((existing) => existing.word === item.word))
+          .map((v) => ({ ...v, correctCount: 0 })),
+      ];
+      // vocabLang was previously only set by SET_USER_VOCAB (the Pen Pal
+      // builder). Words saved from the Reader landed here with vocabLang still
+      // null, so every consumer gating on `vocabLang === selectedLanguage`
+      // dropped them silently — including the Flashcards sync, which left
+      // "Study your saved words →" opening an empty deck.
+      // Claim the language only when the list has no owner yet; never relabel a
+      // populated list, which would mis-tag words saved for another language.
+      const unclaimed = state.vocabLang === null || state.userVocab.length === 0;
       return {
         ...state,
-        userVocab: [
-          ...state.userVocab,
-          ...action.payload
-            .filter((item) => !state.userVocab.some((existing) => existing.word === item.word))
-            .map((v) => ({ ...v, correctCount: 0 })),
-        ],
+        userVocab: merged,
+        vocabLang: unclaimed && action.lang ? action.lang : state.vocabLang,
       };
+    }
     case "START_REGRESSION_CHECK":
       return {
         ...state,
@@ -644,7 +657,7 @@ type PersistedShape = Partial<AppState> & { __v?: number };
  */
 function migrate(raw: unknown): PersistedShape {
   if (!raw || typeof raw !== "object") return { __v: SCHEMA_VERSION };
-  let data = { ...(raw as Record<string, unknown>) } as PersistedShape;
+  const data = { ...(raw as Record<string, unknown>) } as PersistedShape;
   let v = typeof data.__v === "number" ? data.__v : 1;
 
   // v1 -> v2: introduce module fields + speakSecondsByLang + xpSessions defaults
@@ -814,7 +827,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!state.hydrated) return;
     try {
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
-      for (const k of PERSIST_KEYS) toSave[k] = (state as any)[k];
+      for (const k of PERSIST_KEYS) {
+        toSave[k] = (state as unknown as Record<string, unknown>)[k];
+      }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
     } catch {
       /* ignore quota */

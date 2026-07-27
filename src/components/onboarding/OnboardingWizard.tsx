@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Sparkle, ArrowRight, Check } from "lucide-react";
-import { useApp, type Level } from "@/state/app-state";
+import { useApp, type Language, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 
 const FIELD_PREP_IDS = new Set([
@@ -95,27 +95,53 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
   { value: "Advanced", label: "Advanced", sub: "I speak well but want to refine" },
 ];
 
+/**
+ * Offered target languages, with the native-language name so a learner
+ * recognises their own. Order matches current seeded-content depth.
+ */
+const LANGUAGES: { id: Language; label: string; native: string }[] = [
+  { id: "Spanish", label: "Spanish", native: "Español" },
+  { id: "French", label: "French", native: "Français" },
+  { id: "Italian", label: "Italian", native: "Italiano" },
+  { id: "German", label: "German", native: "Deutsch" },
+  { id: "Portuguese", label: "Portuguese", native: "Português" },
+  { id: "Japanese", label: "Japanese", native: "日本語" },
+  { id: "Korean", label: "Korean", native: "한국어" },
+  { id: "Pashto", label: "Pashto", native: "پښتو" },
+];
+
 export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   const { dispatch } = useApp();
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  // Language is step 1: everything downstream (Reader text, Tutor, vocab gate)
+  // keys off it, and it was previously never asked — leaving every learner on
+  // the "Spanish" default. DUO-002 P0-4.
+  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  const [language, setLanguage] = useState<Language | null>(null);
   const [level, setLevel] = useState<Level | null>(null);
   const [levelLabel, setLevelLabel] = useState<string>("");
   const [professionId, setProfessionId] = useState<string | null>(undefined as unknown as null);
   const [professionLabel, setProfessionLabel] = useState<string>("");
 
+  function pickLanguage(l: Language) {
+    setLanguage(l);
+    setStep(2);
+  }
+
   function pickProfession(id: string | null, label: string) {
     setProfessionId(id);
     setProfessionLabel(label);
-    setStep(2);
+    setStep(3);
   }
 
   function pickLevel(l: Level, label: string) {
     setLevel(l);
     setLevelLabel(label);
-    setStep(3);
+    setStep(4);
   }
 
   function finish() {
+    // Language first — the Reader's passage selection keys off it.
+    if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
     if (level) dispatch({ type: "SET_LEVEL", payload: level });
     if (professionId) {
       dispatch({ type: "PURCHASE_MODULE", payload: professionId });
@@ -127,12 +153,18 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
     } else if (professionId && FIELD_PREP_IDS.has(professionId)) {
       dispatch({ type: "SET_TAB", payload: "fieldPrep" });
     } else {
+      // Everyone else lands in the Reader, not the App Guide. The signature
+      // interaction lives here, and onboarding previously never routed to it —
+      // so the product's core move was something a new learner had to stumble
+      // onto. DUO-002 P0-4 / PRD 8.1.
       dispatch({ type: "SET_TAB", payload: "reader" });
     }
     onClose?.();
   }
 
   function skip() {
+    // Preserve a language picked before the learner bailed out of setup.
+    if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: "reader" });
     onClose?.();
@@ -151,7 +183,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
 
         {/* Progress bar */}
         <div className="mb-6 flex gap-1.5">
-          {([1, 2, 3] as const).map((n) => (
+          {([1, 2, 3, 4] as const).map((n) => (
             <div
               key={n}
               className={cn(
@@ -171,8 +203,32 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
             </span>
           </div>
 
-          {/* Step 1 — Profession (most important for routing) */}
+          {/* Step 1 — Language. Asked first: the Reader text, Tutor context and
+              vocab gate all key off it. Previously never asked, which left every
+              learner on the Spanish default regardless of intent. */}
           {step === 1 && (
+            <>
+              <h2 className="text-xl font-semibold mb-1">What are you learning?</h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                We&apos;ll open a passage you can start reading right away.
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() => pickLanguage(l.id)}
+                    className="rounded-xl border border-border/60 bg-background/40 p-3 text-left transition-colors hover:border-gold/60 hover:bg-gold/[0.06]"
+                  >
+                    <div className="text-sm font-medium">{l.label}</div>
+                    <div className="text-xs text-muted-foreground">{l.native}</div>
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Step 2 — Profession (drives module routing) */}
+          {step === 2 && (
             <>
               <h2 className="text-xl font-semibold mb-1">What brings you here?</h2>
               <p className="text-sm text-muted-foreground mb-4">
@@ -195,7 +251,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           )}
 
           {/* Step 2 — Level */}
-          {step === 2 && (
+          {step === 3 && (
             <>
               <button
                 onClick={() => setStep(1)}
@@ -228,7 +284,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           )}
 
           {/* Step 3 — Summary */}
-          {step === 3 && (
+          {step === 4 && (
             <>
               <button
                 onClick={() => setStep(2)}

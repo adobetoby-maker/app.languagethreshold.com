@@ -1,167 +1,77 @@
-# SYNTHESIS — DUO-002 cross-review
+# SYNTHESIS — DUO-002
 
-> **PREMATURE — superseded, retained for history.** The protocol requires each
-> agent to file its own review first (`CLAUDE_REVIEW_OF_CODEX.md`,
-> `CODEX_REVIEW_OF_CLAUDE.md`), and the final synthesis to land on the
-> coordination branch once both exist. This document was written before Codex's
-> review of Claude existed, so it is one-sided. Claude's formal review is
-> `CLAUDE_REVIEW_OF_CODEX.md`. Do not treat this as the final synthesis.
-
-Author: Claude Code (Claude-side cross-review)
+Status: approved for integration
 Date: 2026-07-27
+Shared baseline: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
+Track A application: `e668022f5941d82b4acc54568d8604beea914b7b`
+Track B application: `8e3c6b438c10f133be4d42d124b00f445a6dd03c`
+Integration branch: `integrate/usability-onboarding`
 
-Claude head: `5d5923a` · implementation head `e668022` · PR #3
-Codex head: `8acd101` (docs) · implementation head `8e3c6b4` · PR #4
-Shared baseline: `8dff4f2b`
+## Toby’s decision
 
-Codex's branch was fetched and read **read-only**. Not checked out, not edited,
-not merged. This document is Claude's half of the cross-review; Codex's half is
-its own to write.
+Approve a hybrid. Track A is the application and experience base. Claude Code is the primary integrator. Codex is the independent technical reviewer and QA agent. No Production merge or deployment is authorized.
 
----
+## Why
 
-## 1. Where we independently agree
+Track A produced the stronger learner experience: language-first entry, Reader-first onboarding, the Tutor docked into mobile navigation, clearer discovery of tappable words, and better preservation of the Reader → Word Card → Tutor signature loop.
 
-Neither agent could see the other's plan. Convergence is therefore evidence
-about the product, not about copying.
+Track B produced the stronger technical safeguards: vocabulary owned by language, executable regression tests, and a schema-validated Tutor context carrying the exact selected word and sentence.
 
-| Finding | Codex | Claude |
-|---|---|---|
-| Reader-first entry, before the toolkit map | ✅ | ✅ |
-| Preserve every tool; explain purpose rather than remove | ✅ | ✅ |
-| Carry structured Reader context into the Tutor turn | ✅ | ✅ |
-| **Saved vocabulary must be language-owned** | ✅ | ✅ |
-| Learner-safe diagnostics (hide QA instrumentation) | ✅ | ✅ |
-| Reserve mobile space for fixed nav / Tutor controls | ✅ | ✅ |
-| Delay account-saving pressure until after value | ✅ | ✗ not actioned |
+## Preserve from Track A
 
-The fourth row is the strongest signal in this task. Both agents, independently,
-identified that vocabulary saved from the Reader was language-mismatched and
-silently dropped. That was not in the brief — it was found in the code, twice.
+- language-first entry and matching beginner passage
+- Reader-first onboarding before the broader toolkit map
+- mobile Tutor docked into the bottom navigation
+- More Languages roadmap expander
+- per-pane interaction guidance
+- centered passage and selected-sentence forwarding
+- no persistent dotted underline on every word; use a concise tap hint and at most one temporary example
 
----
+## Port from Track B
 
-## 2. Where Codex is better — conceded plainly
+- `src/state/vocab-store.ts` language-owned vocabulary model
+- vocabulary and learner-diagnostic regression tests
+- Zod-validated `readerContext` for Tutor
+- exact word, sentence, passage excerpt, explanation, title, and learner level in the Tutor request
 
-### 2.1 The vocabulary fix. Codex's is structurally better than mine.
+## Corrections required during integration
 
-Same bug, two solutions:
+1. Recover legacy saved words when `vocabLang` is null; never silently discard them.
+2. Add a regression test for that exact pre-fix production state.
+3. Use deterministic word normalization instead of ambient-locale lowercasing.
+4. Restore direct mobile Language Match access in More.
+5. Correct personalization wizard Back targets.
+6. Remove the duplicate Flashcards CTA.
+7. Make tappable Reader words keyboard-accessible.
+8. Remove documentation trailing whitespace.
 
-**Claude (`5f5ea28`)** — stamp `vocabLang` when the list is unowned:
-```
-const unclaimed = state.vocabLang === null || state.userVocab.length === 0;
-vocabLang: unclaimed && action.lang ? action.lang : state.vocabLang
-```
+## Runtime certification gate
 
-**Codex (`src/state/vocab-store.ts`)** — replace the single labelled list with
-`VocabByLanguage<Language>`, a per-language map, plus `mergeVocabItems`
-(idempotent, case-normalised via `vocabWordKey`, preserves max `correctCount`)
-and `includeLegacyVocab` for migration.
+Use a dedicated Language Threshold `ANTHROPIC_API_KEY` in the Vercel Preview environment. Never borrow, copy, recover, or reuse a credential from another project.
 
-**Mine fixes the reported symptom. Codex's eliminates the class.** Under my fix a
-learner who saves Spanish words, then switches to French, still cannot save
-French words usefully: `vocabLang` stays `"Spanish"`, so every consumer gating on
-`vocabLang === selectedLanguage` hides the whole list while learning French. The
-word is stored and invisible — the same failure mode, one step further along.
-Codex's per-language map has no gate to fail.
+Certify these cases end-to-end:
 
-**Recommendation: take Codex's `vocab-store.ts` wholesale.** This is the single
-clearest merge decision in the task.
+- `Dove abiti?` is analyzed against that exact sentence.
+- `prenotazione` is correctly identified as the object of `confermare`.
+- no invented `riporto`, incorrect “object of per,” or inappropriate “nominative case” explanation appears
+- Word Card → Ask Tutor retains the exact selected word and sentence
+- changing the selected word cannot reuse stale context
 
-### 2.2 Codex wrote tests. I did not.
+## Mobile acceptance
 
-`tests/vocab-store.test.mjs` (50 lines) and `tests/learner-diagnostics.test.mjs`
-(40 lines), wired into `npm run rosetta:check`. My verification was all ad-hoc
-Playwright scripts — real evidence, but not repeatable by anyone else and not
-run in CI. For a fix whose entire failure mode is *silence*, regression tests are
-worth more than a screenshot.
+At 390px and 430px widths:
 
-**Recommendation: take Codex's tests, and keep them as the gate on this bug.**
+- Tutor covers no Reader or lesson content
+- bottom navigation remains usable
+- Word Card closes and scrolls fully
+- the learner reaches the first useful interaction quickly
+- detailed study guidance follows rather than precedes the magic moment
+- no mass dotted underlines remain
 
-### 2.3 Codex's Tutor context is the more complete answer to the open regression.
+## Role assignment
 
-Codex added a schema-validated `readerContext` to `api.tutor.ts` carrying
-`selectedWord`, **exact sentence**, `textTitle`, existing Word Card
-`explanation`, a `passageExcerpt` (1200-char capped), and `learnerLevel`, each
-injected as a labelled line in the system prompt.
+Claude Code owns implementation on `integrate/usability-onboarding`. Codex first reads this synthesis and the integration brief, then remains read-only until Claude declares the integration checkpoint complete. Codex then performs independent QA. If Codex finds a blocker, Claude fixes it unless Toby explicitly reassigns that correction.
 
-This is aimed squarely at the `Dove abiti?` / `prenotazione` defect — analysis
-performed against the wrong sentence. Track A also rewrote `handleWord` to pass
-the tapped sentence, but Codex additionally hardened the server contract with a
-Zod schema, so a malformed or missing sentence fails loudly rather than silently
-degrading to the passage opening.
+## Release boundary
 
-**Recommendation: take Codex's `readerContext` schema.** Neither side has
-*certified* the fix (§4), but this is the better-built mechanism.
-
----
-
-## 3. Where the Claude branch is ahead
-
-1. **`npm run build` completes.** Codex records two attempts stalling in
-   `vite build` and explicitly declines to claim success. It completes on this
-   branch — Vercel Build Output API v3 artifact created.
-2. **Tutor docked into the bottom nav.** Codex reserved clearance for a floating
-   control; this branch removes the floating control on mobile entirely. Toby
-   directed this after device testing showed the pill obscuring different content
-   at every scroll position. Removing the element beats spacing around it.
-3. **Language asked before entry, with a roadmap expander.** Codex's plan does
-   not record asking the learner's language. Track A's landing did not ask
-   either, so a French-intending learner could still receive Spanish content.
-4. **Per-pane tap counting on the training demo.** Guidance clears only after
-   both panes have been used three times, so dismissal is evidence the learner
-   discovered native-side lookup — not merely that they tapped once.
-5. **Lint warning count is lower** (11 vs 75), though these are different trees
-   and not a like-for-like comparison.
-
----
-
-## 4. Where both branches are equally blocked
-
-**No live sentence-aware Tutor response has been certified on either branch.**
-
-- Codex: *"a live sentence-aware Tutor response and stale-context expiry were not
-  certified… no dedicated Language Threshold credential was available."*
-- Claude: three scripted attempts at current head; the Word Card does not open
-  under Playwright after Track A's overlay changes, so no card was requested.
-
-The `Dove abiti?` / `prenotazione` cases are **open on both sides**. Vercel
-Preview has no `ANTHROPIC_API_KEY`, so no preview on either PR can settle it.
-
-**This is the highest-value unblock in the task and it is environmental, not a
-code decision.** Setting the preview credential should precede any merge choice,
-because the product's differentiating claim — sentence-aware analysis — is
-currently unverified in both candidate implementations.
-
----
-
-## 5. Recommendation
-
-Not a winner. **An explicit hybrid**, per PRD §17 Option C:
-
-| Element | Take from | Why |
-|---|---|---|
-| Vocabulary storage | **Codex** — `vocab-store.ts` + its two test files | Eliminates the bug class; mine only fixes the first occurrence |
-| Tutor reader-context schema | **Codex** — `readerContext` in `api.tutor.ts` | Schema-validated; fails loudly instead of degrading silently |
-| Tutor placement | **Claude** — docked in bottom nav | Removes the overlap class rather than reserving space around it |
-| Entry language selection | **Claude** — `LanguageFirstStep` + roadmap expander | Neither Track A nor Codex asks; without it the passage can be the wrong language |
-| Training-demo guidance | **Claude** — per-pane tap counters on Track A's `ActionHint` | Dismissal becomes evidence of learning, not of a single tap |
-| Diagnostics gating | Either — both correct | Convergent solutions |
-| Reader-first landing | **Track A (Toby)** | Already accepted and merged |
-
-**Sequencing:** set the preview `ANTHROPIC_API_KEY` first, then re-run
-`Dove abiti?` and `prenotazione` against both previews. If Codex's
-`readerContext` clears them and this branch's does not, that settles the Tutor
-question on evidence rather than on design preference.
-
----
-
-## 6. Disclosure
-
-I am one of the two implementers, reviewing my own work against the other's.
-Section 2 concedes the vocabulary fix, the tests, and the Tutor context schema to
-Codex; those are the three most consequential items in this task, and they should
-be weighted accordingly against my own advocacy in §3.
-
-Toby decides. Nothing here has been merged, and no production deploy has
-occurred. `main` remains at `8dff4f2b`.
+Integration may produce a Vercel Preview. It may not merge to `main` or deploy Production until Toby reviews the final preview and explicitly approves release.

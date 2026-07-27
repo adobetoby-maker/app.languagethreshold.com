@@ -63,13 +63,18 @@ export function TapHint() {
       role="note"
       className="mb-3 flex items-start gap-2 rounded-xl border border-gold/25 bg-gold/[0.06] px-3 py-2"
     >
-      <span className="text-sm text-foreground/85">
-        Tap any word — {state.nativeLanguage} or {state.selectedLanguage} — to see what it
-        means in this sentence, ask the Tutor about it, or save it to practice.
-      </span>
+      <div className="min-w-0">
+        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+          Your training demo
+        </div>
+        <span className="mt-1 block text-sm leading-relaxed text-foreground/85">
+          Tap a word on either side — {state.nativeLanguage} or {state.selectedLanguage} — to see
+          what it means in this sentence, ask the Tutor about it, then save it.
+        </span>
+      </div>
       <button
         onClick={dismiss}
-        aria-label="Dismiss hint"
+        aria-label="Dismiss training demo"
         className="ml-auto shrink-0 rounded-full p-1 text-muted-foreground transition-colors hover:bg-gold/15 hover:text-gold"
       >
         <X className="h-3.5 w-3.5" />

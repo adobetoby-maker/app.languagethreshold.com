@@ -1,10 +1,20 @@
+import { useState } from "react";
 import { ArrowRight, BookOpen, BookmarkPlus, MessageCircle, MousePointer2 } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
 
 export function FirstRunEntry() {
   const { state, dispatch } = useApp();
+  // Language is settled before the landing. Track A's entry screen asks nothing,
+  // so selectedLanguage stayed on its "Spanish" default and "Start reading"
+  // could open the wrong language entirely. DUO-002 P0-4.
+  const [languageChosen, setLanguageChosen] = useState(() => hasChosenLanguage());
 
   if (!state.hydrated || state.onboardingComplete) return null;
+
+  if (!languageChosen) {
+    return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;
+  }
 
   function enter(tab: "reader" | "guide") {
     dispatch({ type: "COMPLETE_ONBOARDING" });

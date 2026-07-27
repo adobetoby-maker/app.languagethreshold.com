@@ -248,11 +248,23 @@ export function TutorPanel() {
 
   const stop = () => abortRef.current?.abort();
 
+  // The bottom-nav Tutor button dispatches this instead of importing the panel,
+  // keeping AppSidebar free of tutor-state coupling.
+  useEffect(() => {
+    const open = () => tutor.setOpen(true);
+    window.addEventListener("lt:open-tutor", open);
+    return () => window.removeEventListener("lt:open-tutor", open);
+  }, [tutor]);
+
+  // Closed state renders nothing on mobile: Tutor is now the fixed right-hand
+  // slot in the bottom nav, so the floating pill that used to cover Reader text,
+  // flashcards, Dashboard cards and the nav itself is gone. Desktop keeps the
+  // pill, where there is room for it and no bottom nav to collide with.
   if (!tutor.state.open) {
     return (
       <button
         onClick={() => tutor.setOpen(true)}
-        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 inline-flex min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:right-6"
+        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:right-6 lg:inline-flex"
         aria-label="Open AI Tutor"
       >
         <Sparkles className="h-4 w-4 text-gold" />

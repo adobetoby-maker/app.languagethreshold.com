@@ -90,6 +90,20 @@ bug rather than tuning clearance around it.
 panes have been tapped 3 times, so dismissal is evidence the learner discovered
 that native-side lookup works too.
 
+## PRD §14 technical validation — run at head `10e1f0e`
+
+Exact results, not "tests passed":
+
+| Check | Result |
+|---|---|
+| `npm run rosetta:check` | **PASS** — 7 required artifacts verified; no raw demo media in repo; AI-gate baseline and learner-diagnostic invariants verified |
+| `npx tsc --noEmit` | **PASS** — 0 errors |
+| `npm run lint` | **PASS** — 0 errors, 11 warnings (pre-existing; Codex records 75 on its branch) |
+| `npm run build` | **PASS** — Vercel Build Output API v3 artifact created in `.vercel/output/` |
+
+Note: Codex could not complete `npm run build` in its checkout (two attempts
+stalled in `vite build`). It completes here.
+
 ## Verification — measured
 
 | Check | Result |

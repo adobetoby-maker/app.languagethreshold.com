@@ -34,6 +34,34 @@ function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
 }
 
+/**
+ * Marks every occurrence of the tapped word inside its source sentence.
+ *
+ * Without this the card names a word and then prints a sentence the learner has
+ * to re-scan to find it in — and when the word occurs more than once (e.g. "per"
+ * twice in "Per un giorno, per favore.") the grammar note has to spend its
+ * opening clause explaining a position the UI could simply show.
+ */
+function HighlightedSentence({ sentence, word }: { sentence: string; word: string }) {
+  const target = word.trim();
+  if (!target) return <>{sentence}</>;
+  const escaped = target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const parts = sentence.split(new RegExp(`(${escaped})`, "gi"));
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.toLowerCase() === target.toLowerCase() ? (
+          <span key={i} className="font-semibold text-gold">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export interface WordCardRequest {
   word: string;
   sentence: string;
@@ -250,8 +278,8 @@ export function WordCard({
             </div>
 
             <div className="rounded-xl border border-gold/30 bg-gold/[0.07] p-3">
-              <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-                📌 In this sentence
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                ✦ In this sentence
               </div>
               {/* The exact sentence the learner tapped. This block previously
                   rendered only the grammar note, and the generated example
@@ -259,14 +287,23 @@ export function WordCard({
                   promising "this sentence" never actually showed it. This value
                   is client-side Reader state, so it renders even when the AI
                   lookup is unavailable. */}
+              {/* Dominant italic on the card. Outside review found the earlier
+                  version defeated at a glance: the GENERATED example rendered
+                  larger and brighter than the sentence the learner actually
+                  tapped, so the eye landed on the invented one first. The labels
+                  said primary/secondary; the type said the opposite. */}
               <p
                 data-testid="wordcard-source-sentence"
-                className="mb-2 font-display text-[13px] italic leading-relaxed text-foreground"
+                className="mb-2 font-display text-base italic leading-relaxed text-foreground"
               >
                 {request.language === "Japanese" ? (
                   <FuriganaText text={request.sentence} mode="above" script="hiragana" />
                 ) : (
-                  `"${request.sentence}"`
+                  <>
+                    &ldquo;
+                    <HighlightedSentence sentence={request.sentence} word={request.word} />
+                    &rdquo;
+                  </>
                 )}
               </p>
               <p className="text-[13px] leading-relaxed text-foreground/90">
@@ -287,14 +324,17 @@ export function WordCard({
               <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 ⊕ Another example
               </div>
-              <p className="font-display text-base italic text-foreground">
+              {/* Deliberately one size below the source sentence above: this is
+                  generated illustration, not what the learner tapped. The gloss
+                  drops out of mono — it is English prose, not UI chrome. */}
+              <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
                 {request.language === "Japanese" ? (
                   <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
                 ) : (
                   `"${card.exampleSentence}"`
                 )}
               </p>
-              <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+              <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
                 {card.exampleTranslation}
               </p>
             </div>

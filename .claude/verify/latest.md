@@ -40,3 +40,30 @@ taken from that observation, not from the assumption that data plumbing is invis
   the onboarding gate, which the desktop capture already covers.
 - No live model was called at any point. R2 is certified offline by schema and
   prompt-assembly unit tests, as required.
+
+---
+
+## Item 3 — learner-facing failure state (this pass, commit follows)
+
+Reproduced the Preview condition locally by starting the dev server with
+`ANTHROPIC_API_KEY=""`, so the lookup genuinely fails rather than being simulated.
+
+| Spec item | Observed | Result |
+|---|---|---|
+| Raw operator string removed | `/AI is not configured/` no longer present in the rendered body; retained on `title` so it stays diagnosable | PASS |
+| Learner copy present | "Word details aren't available right now. Your sentence is above — try again in a moment." — muted body text in a bordered panel, not red/destructive | PASS |
+| Source sentence survives failed lookup | `[data-testid=wordcard-source-sentence]` count = 1, renders “Per un giorno, per favore.” with both `per` tokens marked gold | PASS |
+| Tapped word shown as headword | "Per" renders in display serif with no card data present | PASS |
+| Mobile 390×844 | Card compact, no overflow, no overlap with the fixed bottom nav; Reader below shows the selected sentence with gold rule and marked token | PASS |
+| Console errors | none | PASS |
+| Outside input | Independent QA reviewer (Opus) on PR #8 surfaced this defect from the Preview: the card showed only red "AI IS NOT CONFIGURED" with no sentence. Verdict acted on, not filed. | PASS |
+
+**This corrects a false claim recorded earlier in this repair.** The F2 entry
+stated the source sentence "renders even when the AI lookup is unavailable." It
+did not — the block sat inside the `{!loading && card && …}` branch, so a failed
+lookup erased it. It now renders from local Reader state in both paths.
+
+Viewport coverage for this change: verified at 390×844 (the learner-critical
+case and the one the Preview exposed). Not re-captured at 1440/2560/5K — the
+Word Card is a fixed-pixel overlay (`cardWidth()`), so it does not reflow with
+viewport; that is reasoning, not evidence, and is flagged for Codex.

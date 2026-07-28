@@ -238,9 +238,50 @@ export function WordCard({
       <div className="max-h-[80vh] overflow-y-auto px-5 pb-5 pt-12">
         {loading && <CardSkeleton />}
 
+        {/* When the lookup fails there is still something worth showing: the word
+            the learner tapped and the sentence it came from. Both are local
+            Reader state and need no network. Previously the whole card body sat
+            behind `card`, so a failed lookup erased the sentence too and left
+            only a red error string. */}
+        {!loading && !card && (
+          <>
+            <h3 className="font-display text-3xl font-bold leading-tight tracking-tight">
+              {request.word}
+            </h3>
+            <div className="mt-3 rounded-xl border border-gold/30 bg-gold/[0.07] p-3">
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                ✦ In this sentence
+              </div>
+              <p
+                data-testid="wordcard-source-sentence"
+                className="font-display text-base italic leading-relaxed text-foreground"
+              >
+                {request.language === "Japanese" ? (
+                  <FuriganaText text={request.sentence} mode="above" script="hiragana" />
+                ) : (
+                  <>
+                    &ldquo;
+                    <HighlightedSentence sentence={request.sentence} word={request.word} />
+                    &rdquo;
+                  </>
+                )}
+              </p>
+            </div>
+          </>
+        )}
+
+        {/* Learner-facing copy. The raw server string ("AI is not configured")
+            is operator language and was being rendered verbatim, in red, to a
+            learner. It is kept on `title` so it stays diagnosable. */}
         {!loading && error && (
-          <div className="py-6 text-center font-mono text-xs uppercase tracking-[0.18em] text-destructive">
-            {error}
+          <div
+            title={error}
+            className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
+          >
+            <p className="text-[13px] leading-relaxed text-muted-foreground">
+              Word details aren&rsquo;t available right now. Your sentence is above — try again in
+              a moment.
+            </p>
           </div>
         )}
 

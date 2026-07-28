@@ -13,9 +13,13 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
 import {
+  applyMasteryIncrement,
+  applyRegressionReset,
+  deriveUserVocab,
   includeLegacyVocab,
   mergeVocabByLanguage,
   mergeVocabItems,
+  replaceLanguageVocab,
   type VocabByLanguage,
   type VocabItem,
 } from "./vocab-store";
@@ -522,20 +526,41 @@ function reducer(state: AppState, action: AppAction): AppState {
         lessonsCompleted: state.lessonsCompleted + 1,
       };
     }
-    case "SET_USER_VOCAB":
+    case "SET_USER_VOCAB": {
+      // Writes the durable map, then re-derives the view. This previously wrote
+      // `userVocab` alone, so the Pen Pal builder's list survived only until the
+      // next merge-on-hydrate reconciled it against vocabByLanguage.
+      const base = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      const vocabByLanguage = replaceLanguageVocab(
+        base,
+        action.payload.lang,
+        action.payload.vocab as VocabItem[],
+      );
       return {
         ...state,
         vocabAnswers: action.payload.answers,
-        userVocab: action.payload.vocab.map((v) => ({ ...v, correctCount: v.correctCount ?? 0 })),
+        vocabByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
         vocabLang: action.payload.lang,
       };
-    case "MASTER_VOCAB_WORD":
+    }
+    case "MASTER_VOCAB_WORD": {
+      const vocabByLanguage = applyMasteryIncrement(
+        state.vocabByLanguage,
+        state.selectedLanguage,
+        action.payload,
+      );
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          v.word === action.payload ? { ...v, correctCount: (v.correctCount ?? 0) + 1 } : v,
-        ),
+        vocabByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
+    }
     case "ADD_VOCAB_ITEMS": {
       // Track B's per-language model, adopted over Claude's vocabLang stamp.
       // The stamp fixed only the first occurrence: a learner who saved Spanish
@@ -560,15 +585,23 @@ function reducer(state: AppState, action: AppAction): AppState {
         vocabLang: state.selectedLanguage,
       };
     }
-    case "START_REGRESSION_CHECK":
+    case "START_REGRESSION_CHECK": {
+      // The defect this fixes: writing the derived `userVocab` here produced a
+      // DECREASE, and `mergeVocabItems` resolves collisions with Math.max — so
+      // the next HYDRATE or SET_LANGUAGE restored the pre-reset count and the
+      // drill silently never happened. Writing the durable map directly is the
+      // only way a decrease can survive reconciliation.
+      const vocabByLanguage = applyRegressionReset(
+        state.vocabByLanguage,
+        state.selectedLanguage,
+        VOCAB_MASTERY_THRESHOLD,
+      );
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          (v.correctCount ?? 0) >= VOCAB_MASTERY_THRESHOLD
-            ? { ...v, correctCount: VOCAB_MASTERY_THRESHOLD - 2 }
-            : v,
-        ),
+        vocabByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
+    }
     case "SCORE_PATTERN":
       return {
         ...state,

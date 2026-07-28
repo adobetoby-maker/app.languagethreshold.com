@@ -71,6 +71,73 @@ export function includeLegacyVocab<Language extends string>(
   return next;
 }
 
+/**
+ * Reads the durable per-language list. `userVocab` is a DERIVED VIEW of this and
+ * must never be written directly — see the writers below.
+ */
+export function deriveUserVocab<Language extends string>(
+  byLanguage: VocabByLanguage<Language> | undefined,
+  language: Language,
+): VocabItem[] {
+  return byLanguage?.[language] ?? [];
+}
+
+/**
+ * The three writers below exist because `mergeVocabItems` resolves collisions
+ * with `Math.max`. That clamp is correct for reconciling legacy/remote data —
+ * it must never lose a learner's progress — but it makes any DELIBERATE
+ * decrease impossible. Reducers that previously mutated the derived `userVocab`
+ * were silently reconciled away on the next HYDRATE or SET_LANGUAGE:
+ * increments survived (max kept them) and decrements did not.
+ *
+ * So in-app writes go straight to `vocabByLanguage` and never travel through
+ * the legacy-merge path. Once the derived view is recomputed from the map, the
+ * subsequent merge-on-hydrate compares identical data and is a no-op.
+ */
+export function applyMasteryIncrement<Language extends string>(
+  byLanguage: VocabByLanguage<Language>,
+  language: Language,
+  word: string,
+): VocabByLanguage<Language> {
+  const key = vocabWordKey(word);
+  const current = byLanguage[language] ?? [];
+  return {
+    ...byLanguage,
+    [language]: current.map((item) =>
+      vocabWordKey(item.word) === key
+        ? { ...item, correctCount: (item.correctCount ?? 0) + 1 }
+        : item,
+    ),
+  };
+}
+
+/** Regression drill: step mastered words back so they re-enter rotation. */
+export function applyRegressionReset<Language extends string>(
+  byLanguage: VocabByLanguage<Language>,
+  language: Language,
+  threshold: number,
+): VocabByLanguage<Language> {
+  const current = byLanguage[language] ?? [];
+  return {
+    ...byLanguage,
+    [language]: current.map((item) =>
+      (item.correctCount ?? 0) >= threshold ? { ...item, correctCount: threshold - 2 } : item,
+    ),
+  };
+}
+
+/** Wholesale replacement (Pen Pal vocabulary builder). */
+export function replaceLanguageVocab<Language extends string>(
+  byLanguage: VocabByLanguage<Language>,
+  language: Language,
+  items: readonly VocabItem[],
+): VocabByLanguage<Language> {
+  return {
+    ...byLanguage,
+    [language]: items.map((item) => ({ ...item, correctCount: item.correctCount ?? 0 })),
+  };
+}
+
 export function mergeVocabByLanguage<Language extends string>(
   local: VocabByLanguage<Language>,
   remote: VocabByLanguage<Language>,

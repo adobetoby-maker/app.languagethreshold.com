@@ -253,6 +253,22 @@ export function WordCard({
               <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                 📌 In this sentence
               </div>
+              {/* The exact sentence the learner tapped. This block previously
+                  rendered only the grammar note, and the generated example
+                  further down was the sole sentence on the card — so a heading
+                  promising "this sentence" never actually showed it. This value
+                  is client-side Reader state, so it renders even when the AI
+                  lookup is unavailable. */}
+              <p
+                data-testid="wordcard-source-sentence"
+                className="mb-2 font-display text-[13px] italic leading-relaxed text-foreground"
+              >
+                {request.language === "Japanese" ? (
+                  <FuriganaText text={request.sentence} mode="above" script="hiragana" />
+                ) : (
+                  `"${request.sentence}"`
+                )}
+              </p>
               <p className="text-[13px] leading-relaxed text-foreground/90">
                 {card.conjugationNote}
                 {card.contextNuance ? ` ${card.contextNuance}` : ""}
@@ -265,6 +281,12 @@ export function WordCard({
             </ActionHint>
 
             <div className="mt-4">
+              {/* Labelled explicitly: this is a generated example, not the
+                  sentence the learner tapped. Unlabelled — and with the source
+                  sentence absent — it was being read as the source sentence. */}
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                ⊕ Another example
+              </div>
               <p className="font-display text-base italic text-foreground">
                 {request.language === "Japanese" ? (
                   <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />

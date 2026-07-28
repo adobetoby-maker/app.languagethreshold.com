@@ -241,3 +241,112 @@ change required.
 Local development server stopped at handoff. No merge to `main`. No production
 deployment. Codex's branch was read read-only via `git show` and never checked
 out, edited, or merged.
+
+---
+
+# INDEPENDENT QA — PR #8 stacked repair (vocabulary reconciliation)
+
+Reviewed commit: `fdc27394e9426fc1a92fb52e06ab8c763eff613d`
+Base: `87ba41584f199db9dcfa0802abcf85b9702b4d88`
+Aligned Preview: READY, `githubCommitSha` matches the reviewed commit exactly,
+`target: null` (preview, not Production).
+Verdict: **APPROVE FOR INTEGRATION**, conditional on this limitation being
+recorded — which this section does.
+
+Review published at PR #8 comment `5104691442`. Reviewed in a detached worktree;
+Codex's branch was not modified.
+
+## Why PR #8 exists
+
+A defect in the F1 vocabulary write path, found by Codex during independent QA.
+F1 made in-app writes durable against **local** hydrate and language switching,
+but not against **remote** Supabase reconciliation. `MERGE_REMOTE` treated every
+per-language snapshot as append-only, so an intentional replacement — Pen Pal
+rewriting `vecchio` to `nuovo` — was unioned back to both words when a stale
+cloud snapshot arrived. Same failure class as F1, one layer up. The F1 tests did
+not reach it because they exercised only hydrate and language switch.
+
+Codex also found that cloud upserts were enabled before the initial Supabase
+fetch completed, so a debounced write could race the first reconciliation.
+
+## KNOWN LIMITATION — concurrent deletions at equal revision
+
+Confirmed by direct probe during review, not inferred:
+
+```text
+device A deletes "due"   -> local  { uno },       revision 3
+device B still holds it  -> remote { uno, due },  revision 3
+result                   -> "due" resurrects
+```
+
+At **equal** revisions the reconciler unions, so a deletion made concurrently on
+one device is undone by the other device's snapshot.
+
+This is inherent to a single monotonic counter per language. It orders sequential
+writes correctly but cannot distinguish "device B never saw the deletion" from
+"device B legitimately re-added the word." Resolving it properly requires
+per-item tombstones or a vector clock.
+
+Accepted rather than blocking, for three reasons:
+
+1. It is strictly narrower than the bug being fixed, which resurrected deletions
+   from *any* stale snapshot, versioned or not.
+2. It fails in the safe direction — a word is retained, never lost.
+3. It requires genuine concurrent multi-device editing within a single revision.
+
+**This limitation is unresolved and must be carried into any future
+multi-device or offline-sync work.**
+
+## Secondary observation — silent sync disablement
+
+If the initial `profiles` read returns an error, the handler returns without
+enabling cloud writes. That is the correct fail-safe: stale state is never
+uploaded. But it leaves a signed-in learner with cloud sync disabled for the
+remainder of the session, with no retry and no signal. Fail-safe, silent.
+Follow-up, not a blocker.
+
+## Correction to a claim in this document's repair phase
+
+The F2 entry above states that the Word Card source sentence "renders even when
+the AI lookup is unavailable." **That claim is false.** The PR #8 Preview
+disproves it: tapping a word with no `ANTHROPIC_API_KEY` configured renders a
+card containing only red "AI IS NOT CONFIGURED" — no headword, no definition,
+and no source sentence, because the "In this sentence" block sits inside the
+loaded-`card` branch.
+
+Two consequences, both owned by this integration branch and not by PR #8:
+
+1. F2 cannot be certified on any Preview until the dedicated Language Threshold
+   `ANTHROPIC_API_KEY` exists.
+2. The failure state shows raw developer text to a learner. Open.
+
+## Scope statement on the PR #8 Preview
+
+The Preview browser smoke test ran anonymously, so `MERGE_REMOTE` never fired.
+The Preview therefore establishes **no rendering regression** — 38 tappable
+target-pane words, correct parallel rendering, zero console errors, zero HTTP
+≥400 — and establishes **nothing about reconciliation behaviour**, which is
+verified by unit test only. Exercising it live would require signed-in
+multi-device Supabase state.
+
+## QA case results
+
+| # | Case | Result |
+|---|---|---|
+| 1 | Newer local replacement defeats stale unversioned remote | PASS |
+| 2 | Deletions survive sign-in → hydration → reload → language away/back | PASS |
+| 3 | Genuinely newer versioned remote snapshot wins | PASS |
+| 4 | Equal revisions reconcile concurrent additions | PARTIAL — deletions do not; see above |
+| 5 | Mastery and regression advance revisions | PASS |
+| 6 | No-op actions do not falsely advance revisions | PASS |
+| 7 | Cloud writes disabled until initial reconciliation completes | PASS |
+| 8 | Auth changes / failed remote reads cannot sync stale state | PASS |
+| 9 | Legacy profiles without revision metadata migrate without loss | PASS |
+| 10 | Revision map persisted and returned to Supabase | PASS |
+
+Gates at `fdc2739`: `git diff --check` PASS · 44/44 tests · 26/26 focused
+reconciliation · `tsc` 0 errors · rosetta PASS · lint 0 errors/12 warnings ·
+build PASS.
+
+PR #8 is not merged. PR #6 is not merged. No Production deployment. No Anthropic
+credential was recovered, borrowed, copied, or manufactured.

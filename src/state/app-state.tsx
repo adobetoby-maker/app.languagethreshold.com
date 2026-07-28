@@ -15,13 +15,15 @@ import type { SM2Card } from "./sm2";
 import {
   applyMasteryIncrement,
   applyRegressionReset,
+  bumpVocabRevision,
   deriveUserVocab,
   includeLegacyVocab,
-  mergeVocabByLanguage,
   mergeVocabItems,
+  reconcileVocabByLanguage,
   replaceLanguageVocab,
   type VocabByLanguage,
   type VocabItem,
+  type VocabRevisionByLanguage,
 } from "./vocab-store";
 
 export type Language =
@@ -211,6 +213,7 @@ export interface AppState {
   // Personal vocab — built from user's guided Q&A, used to seed games
   vocabAnswers: string[]; // 5 free-text answers (language-agnostic)
   vocabByLanguage: VocabByLanguage<Language>; // durable per-language ownership (Track B)
+  vocabRevisionsByLanguage: VocabRevisionByLanguage<Language>; // complete-snapshot ordering
   userVocab: UserVocabItem[]; // view of vocabByLanguage[selectedLanguage]
   vocabLang: Language | null; // which language userVocab was built for
 
@@ -362,6 +365,7 @@ const initialState: AppState = {
   vocabAnswers: [],
   userVocab: [],
   vocabByLanguage: {},
+  vocabRevisionsByLanguage: {},
   vocabLang: null,
   patternProgress: {},
   vocabSM2: {},
@@ -542,10 +546,15 @@ export function reducer(state: AppState, action: AppAction): AppState {
         action.payload.lang,
         action.payload.vocab as VocabItem[],
       );
+      const vocabRevisionsByLanguage = bumpVocabRevision(
+        state.vocabRevisionsByLanguage ?? {},
+        action.payload.lang,
+      );
       return {
         ...state,
         vocabAnswers: action.payload.answers,
         vocabByLanguage,
+        vocabRevisionsByLanguage,
         userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
         vocabLang: action.payload.lang,
       };
@@ -556,9 +565,14 @@ export function reducer(state: AppState, action: AppAction): AppState {
         state.selectedLanguage,
         action.payload,
       );
+      const vocabRevisionsByLanguage =
+        vocabByLanguage === state.vocabByLanguage
+          ? (state.vocabRevisionsByLanguage ?? {})
+          : bumpVocabRevision(state.vocabRevisionsByLanguage ?? {}, state.selectedLanguage);
       return {
         ...state,
         vocabByLanguage,
+        vocabRevisionsByLanguage,
         userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
     }
@@ -579,9 +593,14 @@ export function reducer(state: AppState, action: AppAction): AppState {
         ...base,
         [language]: mergeVocabItems(base[language] ?? [], action.payload as VocabItem[]),
       } as VocabByLanguage<Language>;
+      const vocabRevisionsByLanguage = bumpVocabRevision(
+        state.vocabRevisionsByLanguage ?? {},
+        language,
+      );
       return {
         ...state,
         vocabByLanguage,
+        vocabRevisionsByLanguage,
         userVocab: vocabByLanguage[state.selectedLanguage] ?? [],
         vocabLang: state.selectedLanguage,
       };
@@ -597,9 +616,14 @@ export function reducer(state: AppState, action: AppAction): AppState {
         state.selectedLanguage,
         VOCAB_MASTERY_THRESHOLD,
       );
+      const vocabRevisionsByLanguage =
+        vocabByLanguage === state.vocabByLanguage
+          ? (state.vocabRevisionsByLanguage ?? {})
+          : bumpVocabRevision(state.vocabRevisionsByLanguage ?? {}, state.selectedLanguage);
       return {
         ...state,
         vocabByLanguage,
+        vocabRevisionsByLanguage,
         userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
     }
@@ -681,14 +705,13 @@ export function reducer(state: AppState, action: AppAction): AppState {
       const cefrLevelsCompleted = Array.from(
         new Set([...state.cefrLevelsCompleted, ...(remote.cefrLevelsCompleted ?? [])]),
       );
-      // Vocabulary is a collection, so it unions like the others. Spreading
-      // `remote` alone let a remote profile's `vocabByLanguage` overwrite the
-      // local map wholesale, destroying every word learned on this device. The
-      // reconciled values are therefore assigned AFTER the spread.
+      // Vocabulary is a complete per-language snapshot. Equal/legacy snapshots
+      // union additions, while an explicitly newer revision wins so a stale
+      // cloud list cannot resurrect words removed by SET_USER_VOCAB.
       // Preferences follow "remote wins", so the derived view is rebuilt for
       // whichever language survives the merge.
       const selectedLanguage = (remote.selectedLanguage ?? state.selectedLanguage) as Language;
-      const vocabByLanguage = mergeVocabByLanguage(
+      const { vocabByLanguage, vocabRevisionsByLanguage } = reconcileVocabByLanguage(
         state.vocabByLanguage ?? {},
         // A remote profile written before the per-language migration carries its
         // words in the legacy `userVocab` list; fold those in rather than drop them.
@@ -698,6 +721,8 @@ export function reducer(state: AppState, action: AppAction): AppState {
           remote.userVocab,
           selectedLanguage,
         ),
+        state.vocabRevisionsByLanguage ?? {},
+        remote.vocabRevisionsByLanguage ?? {},
       );
       return {
         ...state,
@@ -711,6 +736,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
         cefrLevelsCompleted,
         selectedLanguage,
         vocabByLanguage,
+        vocabRevisionsByLanguage,
         // Derived view — never written independently (F1).
         userVocab: deriveUserVocab(vocabByLanguage, selectedLanguage),
         vocabLang: selectedLanguage,
@@ -857,6 +883,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "vocabAnswers",
   "userVocab",
   "vocabByLanguage",
+  "vocabRevisionsByLanguage",
   "vocabLang",
   "patternProgress",
   "vocabSM2",
@@ -991,21 +1018,38 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    let authSequence = 0;
     const { data: sub } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      const sequence = ++authSequence;
       const uid = session?.user?.id ?? null;
-      setUserId(uid);
+      setUserId(null);
+      if (syncTimer.current) {
+        clearTimeout(syncTimer.current);
+        syncTimer.current = null;
+      }
 
       if (uid) {
-        // Fetch remote profile and merge into current (already localStorage-hydrated) state.
-        const { data } = await supabase.from("profiles").select("data").eq("id", uid).maybeSingle();
+        // Do not enable cloud writes until the initial remote snapshot has been
+        // reconciled. Otherwise the debounce can upsert stale local state while
+        // this request is still in flight.
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("data")
+          .eq("id", uid)
+          .maybeSingle();
 
+        if (sequence !== authSequence || error) return;
         if (data?.data) {
           const remote = migrate(data.data as unknown);
           dispatch({ type: "MERGE_REMOTE", payload: remote });
         }
+        setUserId(uid);
       }
     });
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      authSequence += 1;
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   // Debounced upsert — fires 2 s after the last state change while logged in.

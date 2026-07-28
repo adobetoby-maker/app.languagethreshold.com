@@ -31,13 +31,13 @@ const localState = (overrides = {}) => ({
   challengesCleared: 0,
   lessonProgress: {},
   vocabByLanguage: { Italian: [w("prenotazione", 3), w("biglietto", 1)] },
+  vocabRevisionsByLanguage: {},
   vocabLang: "Italian",
   userVocab: [w("prenotazione", 3), w("biglietto", 1)],
   ...overrides,
 });
 
-const mergeRemote = (state, payload) =>
-  reducer(state, { type: "MERGE_REMOTE", payload });
+const mergeRemote = (state, payload) => reducer(state, { type: "MERGE_REMOTE", payload });
 
 const words = (items) => (items ?? []).map((i) => i.word).sort();
 
@@ -145,5 +145,106 @@ describe("MERGE_REMOTE reconciles vocabulary instead of overwriting it", () => {
 
     assert.deepEqual(words(next.vocabByLanguage.Italian), ["biglietto", "prenotazione"]);
     assert.equal(next.xp, 999, "numeric progress still takes the max");
+  });
+
+  test("R1: a newer local replacement defeats stale remote vocabulary", () => {
+    const replaced = reducer(
+      localState({
+        vocabByLanguage: { Italian: [w("vecchio", 2)] },
+        userVocab: [w("vecchio", 2)],
+      }),
+      {
+        type: "SET_USER_VOCAB",
+        payload: {
+          answers: ["nuovo"],
+          vocab: [w("nuovo", 0)],
+          lang: "Italian",
+        },
+      },
+    );
+
+    assert.deepEqual(words(replaced.vocabByLanguage.Italian), ["nuovo"]);
+    assert.equal(replaced.vocabRevisionsByLanguage.Italian, 1);
+
+    const reconciled = mergeRemote(replaced, {
+      __v: 2,
+      vocabByLanguage: { Italian: [w("vecchio", 2)] },
+      userVocab: [w("vecchio", 2)],
+      vocabLang: "Italian",
+    });
+
+    assert.deepEqual(
+      words(reconciled.vocabByLanguage.Italian),
+      ["nuovo"],
+      "a stale pre-revision cloud snapshot must not resurrect a removed word",
+    );
+    assert.deepEqual(words(reconciled.userVocab), ["nuovo"]);
+    assert.equal(
+      reconciled.vocabRevisionsByLanguage.Italian,
+      1,
+      "the reconciled snapshot retains the revision that is persisted to Supabase",
+    );
+  });
+
+  test("R1: replacement semantics survive hydration and language switching", () => {
+    const replaced = reducer(localState(), {
+      type: "SET_USER_VOCAB",
+      payload: {
+        answers: ["nuovo"],
+        vocab: [w("nuovo", 0)],
+        lang: "Italian",
+      },
+    });
+    const persisted = {
+      vocabByLanguage: replaced.vocabByLanguage,
+      vocabRevisionsByLanguage: replaced.vocabRevisionsByLanguage,
+      userVocab: replaced.userVocab,
+      vocabLang: replaced.vocabLang,
+      selectedLanguage: replaced.selectedLanguage,
+    };
+    const hydrated = reducer(localState(), { type: "HYDRATE", payload: persisted });
+    const away = reducer(hydrated, { type: "SET_LANGUAGE", payload: "Spanish" });
+    const back = reducer(away, { type: "SET_LANGUAGE", payload: "Italian" });
+
+    assert.deepEqual(words(hydrated.userVocab), ["nuovo"]);
+    assert.deepEqual(words(back.userVocab), ["nuovo"]);
+    assert.ok(!words(back.userVocab).includes("prenotazione"));
+  });
+
+  test("R1: a newer versioned remote replacement is authoritative", () => {
+    const next = mergeRemote(localState({ vocabRevisionsByLanguage: { Italian: 1 } }), {
+      __v: 2,
+      vocabByLanguage: { Italian: [w("remoto", 0)] },
+      vocabRevisionsByLanguage: { Italian: 2 },
+      vocabLang: "Italian",
+      userVocab: [w("remoto", 0)],
+    });
+
+    assert.deepEqual(words(next.vocabByLanguage.Italian), ["remoto"]);
+    assert.equal(next.vocabRevisionsByLanguage.Italian, 2);
+  });
+
+  test("R1: equal revisions conservatively union concurrent additions", () => {
+    const next = mergeRemote(localState({ vocabRevisionsByLanguage: { Italian: 2 } }), {
+      __v: 2,
+      vocabByLanguage: { Italian: [w("treno", 0)] },
+      vocabRevisionsByLanguage: { Italian: 2 },
+      vocabLang: "Italian",
+      userVocab: [w("treno", 0)],
+    });
+
+    assert.deepEqual(words(next.vocabByLanguage.Italian), ["biglietto", "prenotazione", "treno"]);
+    assert.equal(next.vocabRevisionsByLanguage.Italian, 2);
+  });
+
+  test("R1: no-op mastery does not falsely advance the snapshot revision", () => {
+    const state = localState({ vocabRevisionsByLanguage: { Italian: 3 } });
+    const next = reducer(state, {
+      type: "MASTER_VOCAB_WORD",
+      payload: "not-in-the-list",
+    });
+
+    assert.equal(next.vocabRevisionsByLanguage.Italian, 3);
+    assert.deepEqual(next.vocabByLanguage, state.vocabByLanguage);
   });
 });

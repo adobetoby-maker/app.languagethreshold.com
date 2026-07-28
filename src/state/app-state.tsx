@@ -368,7 +368,8 @@ const initialState: AppState = {
   hydrated: false,
 };
 
-function reducer(state: AppState, action: AppAction): AppState {
+// Exported so the MERGE_REMOTE reconciliation can be exercised directly in tests.
+export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "HYDRATE": {
       const hydrated = { ...state, ...action.payload };
@@ -680,6 +681,24 @@ function reducer(state: AppState, action: AppAction): AppState {
       const cefrLevelsCompleted = Array.from(
         new Set([...state.cefrLevelsCompleted, ...(remote.cefrLevelsCompleted ?? [])]),
       );
+      // Vocabulary is a collection, so it unions like the others. Spreading
+      // `remote` alone let a remote profile's `vocabByLanguage` overwrite the
+      // local map wholesale, destroying every word learned on this device. The
+      // reconciled values are therefore assigned AFTER the spread.
+      // Preferences follow "remote wins", so the derived view is rebuilt for
+      // whichever language survives the merge.
+      const selectedLanguage = (remote.selectedLanguage ?? state.selectedLanguage) as Language;
+      const vocabByLanguage = mergeVocabByLanguage(
+        state.vocabByLanguage ?? {},
+        // A remote profile written before the per-language migration carries its
+        // words in the legacy `userVocab` list; fold those in rather than drop them.
+        includeLegacyVocab(
+          remote.vocabByLanguage,
+          remote.vocabLang,
+          remote.userVocab,
+          selectedLanguage,
+        ),
+      );
       return {
         ...state,
         ...(remote as Partial<AppState>),
@@ -690,6 +709,11 @@ function reducer(state: AppState, action: AppAction): AppState {
         cultureRead,
         languagesUsed,
         cefrLevelsCompleted,
+        selectedLanguage,
+        vocabByLanguage,
+        // Derived view — never written independently (F1).
+        userVocab: deriveUserVocab(vocabByLanguage, selectedLanguage),
+        vocabLang: selectedLanguage,
         streak: Math.max(state.streak, remote.streak ?? 0),
         wordsLookedUp: Math.max(state.wordsLookedUp, remote.wordsLookedUp ?? 0),
         notesSaved: Math.max(state.notesSaved, remote.notesSaved ?? 0),

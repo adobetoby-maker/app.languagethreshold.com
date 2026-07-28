@@ -67,6 +67,7 @@ export interface WordCardRequest {
   sentence: string;
   language: Language;
   textId?: string;
+  textTitle?: string;
   sentenceIndex?: number;
   chapterIndex?: number;
   passage?: string;
@@ -447,6 +448,15 @@ export function WordCard({
                           chapterIndex: request.chapterIndex,
                         }
                       : undefined,
+                    {
+                      selectedWord: card.headword,
+                      sentence: request.sentence,
+                      passageExcerpt: request.passage,
+                      textTitle: request.textTitle,
+                      language: request.language,
+                      learnerLevel: state.level,
+                      explanation,
+                    },
                   );
                   onClose();
                 }}

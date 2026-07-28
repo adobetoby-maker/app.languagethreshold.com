@@ -105,6 +105,40 @@ Still open from the outside review, deliberately not fixed here:
   navigation systems (~42 targets), "Reader" active in two at once. Outside the
   five findings; recommend a separate task.
 
+## F3 — study-section selection (added this pass)
+
+Toby's decision: focus-then-mix (recommended option a).
+
+Root cause, confirmed in source before changing anything: `selectedCategories`
+defaults to **every** available section (`FlashcardsStudio.tsx:86`), and the chip
+handler was a plain add/remove toggle. So tapping "Vocab (your words) 1/1" —
+intending to focus on the just-saved word — hit the REMOVE branch. Deck 95 → 94,
+saved word gone, every unrelated card retained. Not an inverted filter; a
+default-all state colliding with subtract semantics.
+
+Fix: logic extracted to a pure `src/state/section-selection.ts` so it is testable
+without a JSX loader — the same constraint that stalled the first builder. From
+the default state the first tap focuses; afterwards taps add and remove as
+before; deselecting the last section returns to everything rather than leaving an
+empty deck.
+
+| Check | Result |
+|---|---|
+| Reported case: tap vocab from default → INCLUDES the saved word | PASS |
+| Regression guard: must not equal the old plain-toggle result | PASS |
+| Mixing still works after focusing (vocab → +verbs → +nouns) | PASS |
+| Removing from a mixed selection still subtracts | PASS |
+| Deselecting the last section returns to all, never empty | PASS |
+| Topic `block:` sections mix in without triggering focus | PASS |
+| Empty available set does not throw | PASS |
+
+**Not verified, stated rather than glossed:** the end-to-end browser check
+(save a word → Cards → tap the Vocab chip → confirm the word is still in the
+deck) was attempted and did not complete — the MY VOCAB button sits inside the
+card's internal scroll area and the click timed out on visibility. The semantics
+are proven by unit test; the on-screen behaviour is **not** confirmed. Codex
+should close that specifically.
+
 ## Gates at `5ab90e5`
 
 | Check | Result |

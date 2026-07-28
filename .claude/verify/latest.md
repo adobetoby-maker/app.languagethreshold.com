@@ -29,6 +29,30 @@ Duo coordinator from read screenshots and executed gates — not from code inten
 | F2 — example labelled | `⊕ ANOTHER EXAMPLE` renders above `"Ho lavorato per tre ore."`; the generated example can no longer be read as the tapped sentence. | PASS |
 | Language gate (390 + 1440) | 8 languages in native scripts (Español, Français, Italiano, Deutsch, Português, 日本語, 한국어, پښتو), "More languages" collapsed. All 8 above the fold at 390. | PASS |
 | Footer visible | No scroll video. WAIVED — Word Card and language gate are fixed overlays with no scrolling footer. | WAIVED |
+
+## Viewport coverage — all 4 required, each read
+
+Captured with `eyes-4vp.sh 8080` into `.claude/qa/vp/`. One observed sentence each.
+
+| Viewport | Observed | Result |
+|---|---|---|
+| 375×812 | `vp375-0.png` read: language gate fills ~90% of width, headline commanding, all 8 languages plus the "More languages" expander visible without scrolling, generous tap targets, native scripts clean (Español / Français / 日本語 / 한국어 / پښتو). Best composition of the four. | PASS |
+| 1440×900 | `vp1440-0.png` read: same gate in a max-width column sitting left-of-centre at roughly a third of the width, with large dead space above, below and right. Legible and correct, but sparse. | WARN |
+| 2560×1440 | `vp2560-0.png` read: the card occupies roughly 18% of the width, marooned in a very large empty field; type is small relative to viewport and the page reads unfinished rather than composed. | WARN |
+| 2560×1440 @2x (5K) | `vp5K-0.png` read: layout identical to 2560 at double density; glyphs crisp including CJK and Arabic script, no scaling artefacts. Same max-width weakness, not worse. | WARN |
+| **Word Card @ 2560** | `wordcard-2560.png` read — the surface this commit actually changes. Fixed-width overlay anchored near the tapped word. Computed: `font-size: 16px`, `highlighted tokens = 2`, source box 312px. Hierarchy holds identically to 390. Entire card fits including COMMON PHRASES, RELATED WORDS, ORIGIN and the PRONOUNCE / ASK TUTOR / MY VOCAB row. | PASS |
+
+**Refinement to an outside-review finding:** the card is *not* clipped at 2560 —
+the full card including its action row is visible. The mid-glyph clipping the
+reviewer saw is specific to 390×844, where card height exceeds the viewport. It
+is a mobile-height problem, not a general one.
+
+**Scope caveat, stated rather than glossed:** the 4-viewport sweep captures the
+first-run language gate, because that is what renders at load. The Word Card only
+appears after interaction, so it was verified separately at 390 and 2560. The
+1440/5K Word Card was not captured; the card is a fixed-pixel overlay
+(`cardWidth()`), so it does not reflow with viewport — but that is reasoning, not
+a capture, and Codex should confirm it.
 | Outside input | Independent reviewer (Opus, no authorship): "The change is directionally correct and the tapped sentence is now genuinely on screen, but the fix is defeated at a glance: the generated example is rendered larger, brighter, and better-glossed than the sentence the learner actually tapped, and the tapped word itself is still unmarked in both." Verdict: do NOT show as-is. | PASS (recorded) |
 
 ## Outside review — findings I did not catch

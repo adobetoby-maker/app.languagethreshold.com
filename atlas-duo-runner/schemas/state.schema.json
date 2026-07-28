@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas-duo.local/schemas/state.schema.json",
+  "title": "Atlas Duo Task State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "phase",
+    "coordination_ref",
+    "baseline_commit",
+    "updated_at",
+    "production_approved",
+    "runs",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^DUO-[0-9]{8}-[a-z0-9-]+$"
+    },
+    "phase": {
+      "enum": [
+        "draft",
+        "awaiting_task_approval",
+        "bootstrapping",
+        "role_work",
+        "role_checkpoint",
+        "cross_review",
+        "synthesis",
+        "awaiting_toby_decision",
+        "integration",
+        "integration_checkpoint",
+        "independent_qa",
+        "release_ready",
+        "awaiting_production_approval",
+        "releasing",
+        "verifying_production",
+        "done",
+        "paused",
+        "blocked_external",
+        "blocked_security",
+        "failed_recoverable",
+        "failed_terminal",
+        "canceled"
+      ]
+    },
+    "coordination_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseline_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_approved": {
+      "type": "boolean"
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/run"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/blocker"
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actor",
+        "action"
+      ],
+      "properties": {
+        "actor": {
+          "enum": [
+            "atlas",
+            "toby",
+            "claude",
+            "codex",
+            "project_operator",
+            "none"
+          ]
+        },
+        "action": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "role",
+        "provider",
+        "branch",
+        "status"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "designer",
+            "builder",
+            "reviewer",
+            "integrator",
+            "independent"
+          ]
+        },
+        "provider": {
+          "enum": [
+            "claude",
+            "codex"
+          ]
+        },
+        "branch": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "blocked",
+            "checkpoint_requested",
+            "complete",
+            "failed",
+            "canceled"
+          ]
+        },
+        "application_head": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "documentation_head": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "preview_commit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "preview_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "heartbeat_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classification",
+        "summary",
+        "owner",
+        "next_check"
+      ],
+      "properties": {
+        "classification": {
+          "enum": [
+            "product",
+            "technical",
+            "credential",
+            "external_service",
+            "security",
+            "cost"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "next_check": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

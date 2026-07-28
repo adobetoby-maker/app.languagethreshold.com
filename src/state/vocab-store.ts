@@ -6,6 +6,12 @@ export interface VocabItem {
 }
 
 export type VocabByLanguage<Language extends string> = Partial<Record<Language, VocabItem[]>>;
+export type VocabRevisionByLanguage<Language extends string> = Partial<Record<Language, number>>;
+
+export interface ReconciledVocab<Language extends string> {
+  vocabByLanguage: VocabByLanguage<Language>;
+  vocabRevisionsByLanguage: VocabRevisionByLanguage<Language>;
+}
 
 export function vocabWordKey(word: string): string {
   // Deterministic, locale-independent. `toLocaleLowerCase()` folds using the
@@ -101,13 +107,17 @@ export function applyMasteryIncrement<Language extends string>(
 ): VocabByLanguage<Language> {
   const key = vocabWordKey(word);
   const current = byLanguage[language] ?? [];
+  let changed = false;
+  const next = current.map((item) => {
+    if (vocabWordKey(item.word) !== key) return item;
+    changed = true;
+    return { ...item, correctCount: (item.correctCount ?? 0) + 1 };
+  });
+  if (!changed) return byLanguage;
+
   return {
     ...byLanguage,
-    [language]: current.map((item) =>
-      vocabWordKey(item.word) === key
-        ? { ...item, correctCount: (item.correctCount ?? 0) + 1 }
-        : item,
-    ),
+    [language]: next,
   };
 }
 
@@ -118,11 +128,17 @@ export function applyRegressionReset<Language extends string>(
   threshold: number,
 ): VocabByLanguage<Language> {
   const current = byLanguage[language] ?? [];
+  let changed = false;
+  const next = current.map((item) => {
+    if ((item.correctCount ?? 0) < threshold) return item;
+    changed = true;
+    return { ...item, correctCount: threshold - 2 };
+  });
+  if (!changed) return byLanguage;
+
   return {
     ...byLanguage,
-    [language]: current.map((item) =>
-      (item.correctCount ?? 0) >= threshold ? { ...item, correctCount: threshold - 2 } : item,
-    ),
+    [language]: next,
   };
 }
 
@@ -138,19 +154,81 @@ export function replaceLanguageVocab<Language extends string>(
   };
 }
 
+function revisionFor<Language extends string>(
+  revisions: VocabRevisionByLanguage<Language>,
+  language: Language,
+): number | undefined {
+  const revision = revisions[language];
+  return typeof revision === "number" && Number.isSafeInteger(revision) && revision >= 0
+    ? revision
+    : undefined;
+}
+
+export function bumpVocabRevision<Language extends string>(
+  revisions: VocabRevisionByLanguage<Language>,
+  language: Language,
+): VocabRevisionByLanguage<Language> {
+  return {
+    ...revisions,
+    [language]: (revisionFor(revisions, language) ?? 0) + 1,
+  };
+}
+
+/**
+ * Reconciles complete per-language snapshots without resurrecting deletions.
+ *
+ * A higher explicit revision is authoritative. Equal revisions union additions
+ * and retain the highest mastery count. Unversioned legacy snapshots union
+ * unless the local side has an explicit revision; that lets a new local
+ * replacement defeat stale pre-revision cloud data while preserving old words
+ * during first-time migration.
+ */
+export function reconcileVocabByLanguage<Language extends string>(
+  local: VocabByLanguage<Language>,
+  remote: VocabByLanguage<Language>,
+  localRevisions: VocabRevisionByLanguage<Language>,
+  remoteRevisions: VocabRevisionByLanguage<Language>,
+): ReconciledVocab<Language> {
+  const vocabByLanguage: VocabByLanguage<Language> = {};
+  const vocabRevisionsByLanguage: VocabRevisionByLanguage<Language> = {};
+  const languages = new Set([
+    ...(Object.keys(local) as Language[]),
+    ...(Object.keys(remote) as Language[]),
+    ...(Object.keys(localRevisions) as Language[]),
+    ...(Object.keys(remoteRevisions) as Language[]),
+  ]);
+
+  for (const language of languages) {
+    const localRevision = revisionFor(localRevisions, language);
+    const remoteRevision = revisionFor(remoteRevisions, language);
+    const localItems = local[language] ?? [];
+    const remoteItems = remote[language] ?? [];
+
+    if (
+      localRevision !== undefined &&
+      (remoteRevision === undefined || localRevision > remoteRevision)
+    ) {
+      vocabByLanguage[language] = mergeVocabItems([], localItems);
+    } else if (
+      remoteRevision !== undefined &&
+      localRevision !== undefined &&
+      remoteRevision > localRevision
+    ) {
+      vocabByLanguage[language] = mergeVocabItems([], remoteItems);
+    } else {
+      vocabByLanguage[language] = mergeVocabItems(localItems, remoteItems);
+    }
+
+    const revision = Math.max(localRevision ?? 0, remoteRevision ?? 0);
+    if (revision > 0) vocabRevisionsByLanguage[language] = revision;
+  }
+
+  return { vocabByLanguage, vocabRevisionsByLanguage };
+}
+
 export function mergeVocabByLanguage<Language extends string>(
   local: VocabByLanguage<Language>,
   remote: VocabByLanguage<Language>,
 ): VocabByLanguage<Language> {
-  const merged: VocabByLanguage<Language> = { ...local };
-  const languages = new Set([
-    ...(Object.keys(local) as Language[]),
-    ...(Object.keys(remote) as Language[]),
-  ]);
-
-  for (const language of languages) {
-    merged[language] = mergeVocabItems(local[language] ?? [], remote[language] ?? []);
-  }
-
-  return merged;
+  return reconcileVocabByLanguage(local, remote, {}, {}).vocabByLanguage;
 }

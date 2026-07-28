@@ -1,10 +1,10 @@
 # DUO-002 Hands Build Artifact
 
-Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`  
-Seat: `codex_hands`  
-Stage: build  
-Direction: Option A — Magic before map  
-Status: implemented in the workspace; independent review and runtime verification required
+- Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`
+- Seat: `codex_hands`
+- Stage: build
+- Direction: Option A — Magic before map
+- Status: implemented in the workspace; independent review and runtime verification required
 
 ## Workspace record
 

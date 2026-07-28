@@ -2,9 +2,9 @@
 
 Status: `independent-complete`
 
-Hands seat: `codex_hands`  
-Workspace branch supplied to this seat: `claude/usability-onboarding`  
-Starting commit: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
+- Hands seat: `codex_hands`
+- Workspace branch supplied to this seat: `claude/usability-onboarding`
+- Starting commit: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
 
 Independence statement: no `CLAUDE_PLAN.md` or other counterpart implementation plan exists in
 this workspace, and none was read. This plan derives from the frozen founder brief, approved

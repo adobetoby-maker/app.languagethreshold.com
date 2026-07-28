@@ -1,9 +1,9 @@
 # DUO-002 Final Handoff
 
-Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`  
-Direction: Option A — Magic before map  
-Builder/repair seat: `codex_hands`  
-Status: workspace repair complete; independent rendered verification and founder selection pending
+- Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`
+- Direction: Option A — Magic before map
+- Builder/repair seat: `codex_hands`
+- Status: workspace repair complete; independent rendered verification and founder selection pending
 
 ## Branch and external state
 

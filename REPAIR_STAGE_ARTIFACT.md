@@ -1,14 +1,14 @@
 # Atlas Duo Repair Stage Artifact
 
-Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`  
-Task: `DUO-002` / `LT-20260726-usability-onboarding`  
-Stage: `repair`  
-Hands seat: `codex_hands` (`gpt-5.6-sol`)  
-Independent reviewer: `opus`  
-Workspace: `/Users/drive/git-backups/lt-duo-002-20260726-164150/claude`  
-Branch: `claude/usability-onboarding`  
-Baseline/current HEAD: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`  
-Result: approved repairs are present and the deterministic verification blockers are cleared; rendered verification remains unavailable and this builder does not approve its own work.
+- Mission: `fb5416a6-7000-46b9-bea3-bce25c654c2c`
+- Task: `DUO-002` / `LT-20260726-usability-onboarding`
+- Stage: `repair`
+- Hands seat: `codex_hands` (`gpt-5.6-sol`)
+- Independent reviewer: `opus`
+- Workspace: `/Users/drive/git-backups/lt-duo-002-20260726-164150/claude`
+- Branch: `claude/usability-onboarding`
+- Baseline/current HEAD: `8dff4f2b03f5e81a55894574e8ef3326d80d1116`
+- Result: approved repairs are present and the deterministic verification blockers are cleared; rendered verification remains unavailable and this builder does not approve its own work.
 
 ## Authority and provenance
 

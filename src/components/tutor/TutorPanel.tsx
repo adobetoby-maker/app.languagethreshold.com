@@ -63,8 +63,8 @@ export function TutorPanel() {
   // Pull in pending prefill from Word Card / external triggers
   useEffect(() => {
     if (!tutor.state.open) return;
-    const t = tutor.consumePrefill();
-    if (t) setInput(t);
+    const pending = tutor.consumePrefill();
+    if (pending) setInput(pending.text);
   }, [tutor.state.open, tutor]);
 
   useEffect(() => {
@@ -92,6 +92,9 @@ export function TutorPanel() {
 
   const doSend = async (trimmed: string) => {
     setError(null);
+    // Reader context belongs to the first contextual turn only. Later free-form
+    // questions in the same thread should not be steered by a stale word card.
+    const readerContext = tutor.takeReaderContext(selected.title);
     const userMsg: TutorMessage = {
       id: crypto.randomUUID(),
       role: "user",
@@ -136,6 +139,7 @@ export function TutorPanel() {
             selectedWord: sourceContext?.selectedWord,
             selectedSentence: sourceContext?.selectedSentence,
             wordExplanation: sourceContext?.wordExplanation,
+            readerContext,
             module: (() => {
               const mod = getModule(appState.activeModuleId);
               if (!mod) return undefined;

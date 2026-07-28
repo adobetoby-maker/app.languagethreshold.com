@@ -28,6 +28,26 @@ export interface TutorSourceContext {
   chapterIndex?: number;
 }
 
+/**
+ * The approved Reader→Tutor wire contract (Track B). Mirrors
+ * `BodySchema.context.readerContext` in src/routes/api.tutor.ts exactly.
+ *
+ * Distinct from `TutorSourceContext` above: that one is thread-scoped and
+ * persisted so a reopened thread keeps its reading context. This one is a
+ * single-shot handoff — it steers only the first contextual turn and is taken
+ * (and cleared) by `takeReaderContext`, so a later free-form question in the
+ * same thread is not steered by a stale word card.
+ */
+export interface TutorReaderContext {
+  selectedWord: string;
+  sentence: string;
+  passageExcerpt?: string;
+  textTitle?: string;
+  language: string;
+  learnerLevel?: string;
+  explanation?: string;
+}
+
 interface State {
   // threadId → messages
   threads: Record<string, TutorMessage[]>;
@@ -35,6 +55,8 @@ interface State {
   sourceContexts: Record<string, TutorSourceContext>;
   open: boolean;
   pendingPrefill: string | null;
+  pendingReaderContext: TutorReaderContext | null;
+  activeReaderContext: TutorReaderContext | null;
   hydrated: boolean;
 }
 
@@ -46,9 +68,13 @@ interface PersistedTutorState {
 type Action =
   | { type: "HYDRATE"; payload: PersistedTutorState }
   | { type: "SET_OPEN"; payload: boolean }
-  | { type: "SET_PREFILL"; payload: string | null }
+  | {
+      type: "SET_PREFILL";
+      payload: { text: string; readerContext?: TutorReaderContext } | null;
+    }
   | { type: "SET_SOURCE_CONTEXT"; payload: TutorSourceContext }
   | { type: "CLEAR_SOURCE_CONTEXT"; payload: string }
+  | { type: "CLEAR_READER_CONTEXT" }
   | { type: "ADD_MESSAGE"; payload: { threadId: string; message: TutorMessage } }
   | {
       type: "APPEND_DELTA";
@@ -70,7 +96,12 @@ function reducer(state: State, action: Action): State {
     case "SET_OPEN":
       return { ...state, open: action.payload };
     case "SET_PREFILL":
-      return { ...state, pendingPrefill: action.payload };
+      return {
+        ...state,
+        pendingPrefill: action.payload?.text ?? null,
+        pendingReaderContext: action.payload?.readerContext ?? null,
+        activeReaderContext: action.payload?.readerContext ?? state.activeReaderContext,
+      };
     case "SET_SOURCE_CONTEXT":
       return {
         ...state,
@@ -79,6 +110,8 @@ function reducer(state: State, action: Action): State {
           [action.payload.threadId]: action.payload,
         },
       };
+    case "CLEAR_READER_CONTEXT":
+      return { ...state, activeReaderContext: null };
     case "CLEAR_SOURCE_CONTEXT": {
       const next = { ...state.sourceContexts };
       delete next[action.payload];
@@ -133,8 +166,13 @@ interface Ctx {
   clearThread: (threadId: string) => void;
   clearSourceContext: (threadId: string) => void;
   setOpen: (v: boolean) => void;
-  prefill: (text: string, sourceContext?: TutorSourceContext) => void;
-  consumePrefill: () => string | null;
+  prefill: (
+    text: string,
+    sourceContext?: TutorSourceContext,
+    readerContext?: TutorReaderContext,
+  ) => void;
+  consumePrefill: () => { text: string; readerContext: TutorReaderContext | null } | null;
+  takeReaderContext: (textTitle: string) => TutorReaderContext | undefined;
 }
 
 const TutorCtx = createContext<Ctx | null>(null);
@@ -145,6 +183,8 @@ export function TutorProvider({ children }: { children: ReactNode }) {
     sourceContexts: {},
     open: false,
     pendingPrefill: null,
+    pendingReaderContext: null,
+    activeReaderContext: null,
     hydrated: false,
   });
   const consumedRef = useRef(false);
@@ -224,20 +264,30 @@ export function TutorProvider({ children }: { children: ReactNode }) {
       clearSourceContext: (threadId) =>
         dispatch({ type: "CLEAR_SOURCE_CONTEXT", payload: threadId }),
       setOpen: (v) => dispatch({ type: "SET_OPEN", payload: v }),
-      prefill: (text, sourceContext) => {
+      prefill: (text, sourceContext, readerContext) => {
         consumedRef.current = false;
         if (sourceContext) {
           dispatch({ type: "SET_SOURCE_CONTEXT", payload: sourceContext });
         }
-        dispatch({ type: "SET_PREFILL", payload: text });
+        dispatch({ type: "SET_PREFILL", payload: { text, readerContext } });
         dispatch({ type: "SET_OPEN", payload: true });
       },
       consumePrefill: () => {
         if (consumedRef.current) return null;
         const t = state.pendingPrefill;
         consumedRef.current = true;
-        if (t) dispatch({ type: "SET_PREFILL", payload: null });
-        return t;
+        if (!t) return null;
+        const value = { text: t, readerContext: state.pendingReaderContext };
+        dispatch({ type: "SET_PREFILL", payload: null });
+        return value;
+      },
+      // Reader context belongs to the first contextual turn only. Taking it
+      // clears it, so later free-form questions in the same thread are not
+      // steered by a stale word card.
+      takeReaderContext: (textTitle) => {
+        const readerContext = state.activeReaderContext;
+        if (readerContext) dispatch({ type: "CLEAR_READER_CONTEXT" });
+        return readerContext?.textTitle === textTitle ? readerContext : undefined;
       },
     }),
     [state, messagesFor, contextFor],

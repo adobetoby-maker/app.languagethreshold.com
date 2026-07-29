@@ -63,6 +63,11 @@ export const BodySchema = z.object({
     wordExplanation: z.string().max(1600).optional(),
     readerContext: z
       .object({
+        bookId: z.string().max(120).optional(),
+        editionId: z.string().max(160).optional(),
+        pageId: z.string().max(160).optional(),
+        sentenceId: z.string().max(180).optional(),
+        occurrenceIndex: z.number().int().nonnegative().max(100).optional(),
         selectedWord: z.string().min(1).max(120),
         sentence: z.string().min(1).max(2000),
         passageExcerpt: z.string().max(2000).optional(),
@@ -200,6 +205,15 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
           : null,
         ctx.readerContext
           ? [
+              ctx.readerContext.bookId ? `- Book ID: "${ctx.readerContext.bookId}"` : null,
+              ctx.readerContext.editionId ? `- Edition ID: "${ctx.readerContext.editionId}"` : null,
+              ctx.readerContext.pageId ? `- Page ID: "${ctx.readerContext.pageId}"` : null,
+              ctx.readerContext.sentenceId
+                ? `- Sentence ID: "${ctx.readerContext.sentenceId}"`
+                : null,
+              ctx.readerContext.occurrenceIndex !== undefined
+                ? `- Word occurrence index: ${ctx.readerContext.occurrenceIndex}`
+                : null,
               `- Reader-selected word: "${ctx.readerContext.selectedWord}"`,
               `- Exact sentence: "${ctx.readerContext.sentence}"`,
               ctx.readerContext.textTitle

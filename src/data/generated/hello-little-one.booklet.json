@@ -1,0 +1,565 @@
+{
+  "generatedAtSourceCommit": "c354044395d293a48a809e076e9190c3630fcbe7",
+  "sourceRepository": "adobetoby-maker/language-threshold-readers",
+  "sourceFixture": "content/booklets/hello-little-one.en-es.v1.json",
+  "sourceFixtureSha256": "bae60c3117b977bf9f1d2969254c06793526dff0c7d68384d4bcbec20cc4660c",
+  "content": {
+    "adapterVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "bookId": "book_hello_little_one",
+    "editionId": "edition_hello_little_one_en_es_v1",
+    "editionVersion": 1,
+    "sourceLanguage": "en",
+    "targetLanguage": "es",
+    "contentStatus": "needs-native-review",
+    "consumer": "language-threshold-reader",
+    "title": "Hello, Little One",
+    "subtitle": "Hola, pequeño",
+    "language": "es",
+    "targetLabel": "Español",
+    "level": "pre-reader",
+    "pages": [
+      {
+        "pageId": "page_hello_little_one_cover",
+        "sourceLabel": "cover",
+        "order": 0,
+        "kind": "cover",
+        "image": {
+          "assetId": "asset_hello_little_one_cover",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125654_1c44396f-f01c-43a6-8951-f9fde820290f.png",
+          "altText": {
+            "source": "A baby waves hello beside a friendly bear under a warm sunrise.",
+            "target": "Un bebé saluda junto a un oso amistoso bajo un amanecer cálido."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "7fa98203403884a2d997c4a4c4706e01548673b82f0ba299d998cab858d9d049"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_cover_01",
+            "order": 0,
+            "en": "Hello, Little One.",
+            "target": "Hola, pequeño."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_001",
+        "sourceLabel": "p01",
+        "order": 1,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_001",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125533_9b43d614-2b3c-41a8-b6c0-e7a3f3716ca0.png",
+          "altText": {
+            "source": "Morning light shines into the baby's room.",
+            "target": "La luz de la mañana entra en la habitación del bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "0464876b23649dce4ade5ca07e3dfe588212e5a4f55ae7a6cf446bd255179bb1"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_001_01",
+            "order": 0,
+            "en": "Hello.",
+            "target": "Hola."
+          },
+          {
+            "sentenceId": "sentence_hello_little_one_001_02",
+            "order": 1,
+            "en": "It is morning.",
+            "target": "Es de mañana."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_002",
+        "sourceLabel": "p02",
+        "order": 2,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_002",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125535_2480eea3-a12a-42a0-8b97-f42b789491ea.png",
+          "altText": {
+            "source": "The baby smiles at Mother.",
+            "target": "El bebé le sonríe a mamá."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "58514b1735dda2788b327fa60f4504147b7cba9c80c1d8a987386780b99e653e"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_002_01",
+            "order": 0,
+            "en": "Hello, Mother.",
+            "target": "Hola, mamá."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_003",
+        "sourceLabel": "p03",
+        "order": 3,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_003",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125536_01b246c6-e583-4286-9955-e47b5b5525b9.png",
+          "altText": {
+            "source": "Mother holds the baby close.",
+            "target": "Mamá abraza al bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "22e407d86ae1dc13cb84e02cbf4632f393b76c2ec4212858e9354d37c6742c15"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_003_01",
+            "order": 0,
+            "en": "Mother holds me close.",
+            "target": "Mamá me abraza."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_004",
+        "sourceLabel": "p04",
+        "order": 4,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_004",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125538_74fe7f07-47d3-41a4-b710-1917088363e9.png",
+          "altText": {
+            "source": "Father greets the baby.",
+            "target": "Papá saluda al bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "2268b54b2b92bd05759f6b5db1e44deeb404bbdb619f6b42e2f2d1486de823b6"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_004_01",
+            "order": 0,
+            "en": "Hello, Father.",
+            "target": "Hola, papá."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_005",
+        "sourceLabel": "p05",
+        "order": 5,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_005",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125540_5d2370be-760e-47f2-bf3c-c22c4eb1e6eb.png",
+          "altText": {
+            "source": "The baby's sister waves hello.",
+            "target": "La hermana del bebé saluda con la mano."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "272ff7c6040f325fb736c9450c2f04ca89996962d97b5dd5627fcba1c800ba55"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_005_01",
+            "order": 0,
+            "en": "Hello, Sister.",
+            "target": "Hola, hermana."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_006",
+        "sourceLabel": "p06",
+        "order": 6,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_006",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125802_e003710d-baad-48a2-9630-5f46f2074b26.png",
+          "altText": {
+            "source": "The baby's brother says hello.",
+            "target": "El hermano del bebé dice hola."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "051c18830c36ceb193c3b2c3cb4294e8067ea0bd880e6e4f91c57f24e762e8e7"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_006_01",
+            "order": 0,
+            "en": "Hello, Brother.",
+            "target": "Hola, hermano."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_007",
+        "sourceLabel": "p07",
+        "order": 7,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_007",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125544_f6b4a2e2-3b27-44cc-afb1-f2553446a416.png",
+          "altText": {
+            "source": "Grandfather smiles at the baby.",
+            "target": "El abuelo le sonríe al bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "dfd3da9235f8ea73e44471e3c61a0db7ca174abd638a860cf6d5cebed74106b4"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_007_01",
+            "order": 0,
+            "en": "Hello, Grandfather.",
+            "target": "Hola, abuelo."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_008",
+        "sourceLabel": "p08",
+        "order": 8,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_008",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125546_bb280590-066c-402a-8780-1f0074af4d4c.png",
+          "altText": {
+            "source": "Grandmother greets the baby.",
+            "target": "La abuela saluda al bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "07d6512f42125ae6ad1b940092137adffab21e143d8cc2561e3a497b41f4be59"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_008_01",
+            "order": 0,
+            "en": "Hello, Grandmother.",
+            "target": "Hola, abuela."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_009",
+        "sourceLabel": "p09",
+        "order": 9,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_009",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125548_887a0baa-28dd-4dc9-86d7-3d939d44355e.png",
+          "altText": {
+            "source": "The family gathers around the baby.",
+            "target": "La familia se reúne alrededor del bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "ccff0562f6bfaccd137cfc02db8c33cbf98073326367ae117983aab082f7579c"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_009_01",
+            "order": 0,
+            "en": "This is my family.",
+            "target": "Esta es mi familia."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_010",
+        "sourceLabel": "p10",
+        "order": 10,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_010",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125550_22169dfe-f3f0-4f5d-a030-75509249e8e4.png",
+          "altText": {
+            "source": "The baby holds a family member's hand.",
+            "target": "El bebé toma la mano de un familiar."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "b42d754e774ca0bee807d44ab3ef0ee23bbc8f4c4491b47e6921513cb41d876c"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_010_01",
+            "order": 0,
+            "en": "I hold your hand.",
+            "target": "Te tomo de la mano."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_011",
+        "sourceLabel": "p11",
+        "order": 11,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_011",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125551_e13e7549-7d4c-4ba7-90e1-73bb8b89ce59.png",
+          "altText": {
+            "source": "A friendly dog greets the baby.",
+            "target": "Un perro amistoso saluda al bebé."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "69673faf7740e7e514003df304335fa8b9f27d4efae6d1b85c83d840dae3b64a"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_011_01",
+            "order": 0,
+            "en": "Hello, Dog.",
+            "target": "Hola, perro."
+          }
+        ]
+      },
+      {
+        "pageId": "page_hello_little_one_012",
+        "sourceLabel": "p12",
+        "order": 12,
+        "kind": "story",
+        "image": {
+          "assetId": "asset_hello_little_one_012",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3ER8qzhPd5TQMr0pVhlXtjQaavS/hf_20260613_125553_47e7a870-ec33-4ff0-bb37-4c77bf3d6666.png",
+          "altText": {
+            "source": "The family wishes the little one goodnight.",
+            "target": "La familia le desea buenas noches al pequeño."
+          },
+          "ownershipStatus": "verification-required",
+          "storageStatus": "migration-pending",
+          "sha256": "da52604f8a829e1408eea5dc904f1478bb4ca5330df43f0d24cb6e4128c0df33"
+        },
+        "sentences": [
+          {
+            "sentenceId": "sentence_hello_little_one_012_01",
+            "order": 0,
+            "en": "Goodnight, little one.",
+            "target": "Buenas noches, pequeño."
+          },
+          {
+            "sentenceId": "sentence_hello_little_one_012_02",
+            "order": 1,
+            "en": "We love you.",
+            "target": "Te queremos."
+          }
+        ]
+      }
+    ],
+    "sentences": [
+      {
+        "pageId": "page_hello_little_one_cover",
+        "sentenceId": "sentence_hello_little_one_cover_01",
+        "source": "Hello, Little One.",
+        "target": "Hola, pequeño."
+      },
+      {
+        "pageId": "page_hello_little_one_001",
+        "sentenceId": "sentence_hello_little_one_001_01",
+        "source": "Hello.",
+        "target": "Hola."
+      },
+      {
+        "pageId": "page_hello_little_one_001",
+        "sentenceId": "sentence_hello_little_one_001_02",
+        "source": "It is morning.",
+        "target": "Es de mañana."
+      },
+      {
+        "pageId": "page_hello_little_one_002",
+        "sentenceId": "sentence_hello_little_one_002_01",
+        "source": "Hello, Mother.",
+        "target": "Hola, mamá."
+      },
+      {
+        "pageId": "page_hello_little_one_003",
+        "sentenceId": "sentence_hello_little_one_003_01",
+        "source": "Mother holds me close.",
+        "target": "Mamá me abraza."
+      },
+      {
+        "pageId": "page_hello_little_one_004",
+        "sentenceId": "sentence_hello_little_one_004_01",
+        "source": "Hello, Father.",
+        "target": "Hola, papá."
+      },
+      {
+        "pageId": "page_hello_little_one_005",
+        "sentenceId": "sentence_hello_little_one_005_01",
+        "source": "Hello, Sister.",
+        "target": "Hola, hermana."
+      },
+      {
+        "pageId": "page_hello_little_one_006",
+        "sentenceId": "sentence_hello_little_one_006_01",
+        "source": "Hello, Brother.",
+        "target": "Hola, hermano."
+      },
+      {
+        "pageId": "page_hello_little_one_007",
+        "sentenceId": "sentence_hello_little_one_007_01",
+        "source": "Hello, Grandfather.",
+        "target": "Hola, abuelo."
+      },
+      {
+        "pageId": "page_hello_little_one_008",
+        "sentenceId": "sentence_hello_little_one_008_01",
+        "source": "Hello, Grandmother.",
+        "target": "Hola, abuela."
+      },
+      {
+        "pageId": "page_hello_little_one_009",
+        "sentenceId": "sentence_hello_little_one_009_01",
+        "source": "This is my family.",
+        "target": "Esta es mi familia."
+      },
+      {
+        "pageId": "page_hello_little_one_010",
+        "sentenceId": "sentence_hello_little_one_010_01",
+        "source": "I hold your hand.",
+        "target": "Te tomo de la mano."
+      },
+      {
+        "pageId": "page_hello_little_one_011",
+        "sentenceId": "sentence_hello_little_one_011_01",
+        "source": "Hello, Dog.",
+        "target": "Hola, perro."
+      },
+      {
+        "pageId": "page_hello_little_one_012",
+        "sentenceId": "sentence_hello_little_one_012_01",
+        "source": "Goodnight, little one.",
+        "target": "Buenas noches, pequeño."
+      },
+      {
+        "pageId": "page_hello_little_one_012",
+        "sentenceId": "sentence_hello_little_one_012_02",
+        "source": "We love you.",
+        "target": "Te queremos."
+      }
+    ],
+    "vocabulary": [
+      {
+        "vocabularyId": "vocabulary_hello",
+        "term": {
+          "source": "hello",
+          "target": "hola"
+        },
+        "gloss": {
+          "source": "A friendly word used when you greet someone.",
+          "target": "Una palabra amistosa que usas para saludar a alguien."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_mother",
+        "term": {
+          "source": "mother",
+          "target": "mamá"
+        },
+        "gloss": {
+          "source": "A mother is a parent in a family.",
+          "target": "Una mamá es una persona adulta de la familia."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_father",
+        "term": {
+          "source": "father",
+          "target": "papá"
+        },
+        "gloss": {
+          "source": "A father is a parent in a family.",
+          "target": "Un papá es una persona adulta de la familia."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_sister",
+        "term": {
+          "source": "sister",
+          "target": "hermana"
+        },
+        "gloss": {
+          "source": "A sister is a girl or woman who shares a parent with you.",
+          "target": "Una hermana es una niña o mujer que comparte contigo a uno de tus padres."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_brother",
+        "term": {
+          "source": "brother",
+          "target": "hermano"
+        },
+        "gloss": {
+          "source": "A brother is a boy or man who shares a parent with you.",
+          "target": "Un hermano es un niño u hombre que comparte contigo a uno de tus padres."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_grandmother",
+        "term": {
+          "source": "grandmother",
+          "target": "abuela"
+        },
+        "gloss": {
+          "source": "A grandmother is the mother of one of your parents.",
+          "target": "Una abuela es la mamá de uno de tus padres."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_grandfather",
+        "term": {
+          "source": "grandfather",
+          "target": "abuelo"
+        },
+        "gloss": {
+          "source": "A grandfather is the father of one of your parents.",
+          "target": "Un abuelo es el papá de uno de tus padres."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_baby",
+        "term": {
+          "source": "baby",
+          "target": "bebé"
+        },
+        "gloss": {
+          "source": "A baby is a very young child.",
+          "target": "Un bebé es un niño muy pequeño."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_dog",
+        "term": {
+          "source": "dog",
+          "target": "perro"
+        },
+        "gloss": {
+          "source": "A dog is an animal that can live with a family.",
+          "target": "Un perro es un animal que puede vivir con una familia."
+        }
+      },
+      {
+        "vocabularyId": "vocabulary_love",
+        "term": {
+          "source": "love",
+          "target": "querer"
+        },
+        "gloss": {
+          "source": "Love is caring deeply about someone.",
+          "target": "Querer es sentir mucho cariño por alguien."
+        }
+      }
+    ]
+  }
+}

@@ -13,6 +13,11 @@ const { BodySchema, buildSystemPrompt } = await loadModule("src/routes/api.tutor
 const readerContextSchema = BodySchema.shape.context.shape.readerContext;
 
 const validReaderContext = {
+  bookId: "book_hello_little_one",
+  editionId: "edition_hello_little_one_en_es_v1",
+  pageId: "page_hello_little_one_002",
+  sentenceId: "sentence_hello_little_one_002_01",
+  occurrenceIndex: 0,
   selectedWord: "prenotazione",
   sentence: "Ho perso la prenotazione per il treno delle otto.",
   passageExcerpt: "Ho perso la prenotazione per il treno delle otto. Ora devo aspettare.",
@@ -42,7 +47,17 @@ describe("R2: readerContext schema", () => {
     const parsed = readerContextSchema.parse(minimal);
 
     assert.deepEqual(parsed, minimal);
-    for (const key of ["passageExcerpt", "textTitle", "learnerLevel", "explanation"]) {
+    for (const key of [
+      "bookId",
+      "editionId",
+      "pageId",
+      "sentenceId",
+      "occurrenceIndex",
+      "passageExcerpt",
+      "textTitle",
+      "learnerLevel",
+      "explanation",
+    ]) {
       assert.ok(!(key in parsed), `${key} must be absent, not undefined-valued`);
     }
   });
@@ -83,6 +98,10 @@ describe("R2: readerContext schema", () => {
       language: 40,
       learnerLevel: 40,
       explanation: 1600,
+      bookId: 120,
+      editionId: 160,
+      pageId: 160,
+      sentenceId: 180,
     };
 
     for (const [field, max] of Object.entries(limits)) {
@@ -98,6 +117,17 @@ describe("R2: readerContext schema", () => {
         `${field} must reject ${max + 1} characters`,
       );
     }
+
+    assert.equal(
+      readerContextSchema.safeParse({ ...validReaderContext, occurrenceIndex: 100 }).success,
+      true,
+    );
+    for (const occurrenceIndex of [-1, 1.5, 101]) {
+      assert.equal(
+        readerContextSchema.safeParse({ ...validReaderContext, occurrenceIndex }).success,
+        false,
+      );
+    }
   });
 });
 
@@ -109,6 +139,11 @@ describe("R2: readerContext prompt assembly", () => {
     const prompt = promptFor(validReaderContext);
 
     for (const line of [
+      `- Book ID: "book_hello_little_one"`,
+      `- Edition ID: "edition_hello_little_one_en_es_v1"`,
+      `- Page ID: "page_hello_little_one_002"`,
+      `- Sentence ID: "sentence_hello_little_one_002_01"`,
+      `- Word occurrence index: 0`,
       `- Reader-selected word: "prenotazione"`,
       `- Exact sentence: "Ho perso la prenotazione per il treno delle otto."`,
       `- Selection source: "Alla stazione"`,
@@ -120,7 +155,9 @@ describe("R2: readerContext prompt assembly", () => {
     }
 
     assert.ok(
-      prompt.includes(`- Surrounding passage excerpt:\n"""\n${validReaderContext.passageExcerpt}\n"""`),
+      prompt.includes(
+        `- Surrounding passage excerpt:\n"""\n${validReaderContext.passageExcerpt}\n"""`,
+      ),
       "passage excerpt must be fenced",
     );
   });
@@ -136,6 +173,11 @@ describe("R2: readerContext prompt assembly", () => {
     assert.ok(prompt.includes(`- Exact sentence: "Il treno parte alle otto."`));
     for (const absent of [
       "- Selection source:",
+      "- Book ID:",
+      "- Edition ID:",
+      "- Page ID:",
+      "- Sentence ID:",
+      "- Word occurrence index:",
       "- Existing Word Card explanation:",
       "- Surrounding passage excerpt:",
       "- Learner level when selected:",
@@ -154,7 +196,10 @@ describe("R2: readerContext prompt assembly", () => {
     const prompt = promptFor({ ...validReaderContext, passageExcerpt: excerpt });
 
     assert.ok(prompt.includes(`"""\n${"a".repeat(1200)}\n"""`), "excerpt must be sliced to 1200");
-    assert.ok(!prompt.includes("a".repeat(1201)), "no more than 1200 characters may reach the model");
+    assert.ok(
+      !prompt.includes("a".repeat(1201)),
+      "no more than 1200 characters may reach the model",
+    );
   });
 
   test("emits no reader lines when readerContext is absent", () => {

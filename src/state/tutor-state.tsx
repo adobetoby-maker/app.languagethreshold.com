@@ -39,6 +39,11 @@ export interface TutorSourceContext {
  * same thread is not steered by a stale word card.
  */
 export interface TutorReaderContext {
+  bookId?: string;
+  editionId?: string;
+  pageId?: string;
+  sentenceId?: string;
+  occurrenceIndex?: number;
   selectedWord: string;
   sentence: string;
   passageExcerpt?: string;

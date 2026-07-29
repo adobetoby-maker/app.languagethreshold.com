@@ -63,6 +63,11 @@ function HighlightedSentence({ sentence, word }: { sentence: string; word: strin
 }
 
 export interface WordCardRequest {
+  bookId?: string;
+  editionId?: string;
+  pageId?: string;
+  sentenceId?: string;
+  occurrenceIndex?: number;
   word: string;
   sentence: string;
   language: Language;
@@ -279,8 +284,8 @@ export function WordCard({
             className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
           >
             <p className="text-[13px] leading-relaxed text-muted-foreground">
-              Word details aren&rsquo;t available right now. Your sentence is above — try again in
-              a moment.
+              Word details aren&rsquo;t available right now. Your sentence is above — try again in a
+              moment.
             </p>
           </div>
         )}
@@ -490,6 +495,11 @@ export function WordCard({
                         }
                       : undefined,
                     {
+                      bookId: request.bookId,
+                      editionId: request.editionId,
+                      pageId: request.pageId,
+                      sentenceId: request.sentenceId,
+                      occurrenceIndex: request.occurrenceIndex,
                       selectedWord: card.headword,
                       sentence: request.sentence,
                       passageExcerpt: request.passage,

@@ -14,8 +14,9 @@ import { useApp } from "./app-state";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "./auth-state";
 import { toast } from "sonner";
+import type { BookletContent } from "@/data/booklets";
 
-export type LibrarySection = "missionary" | "classic" | "culture" | "custom";
+export type LibrarySection = "missionary" | "classic" | "culture" | "readers" | "custom";
 export type ReadStatus = "never" | "partial" | "complete";
 
 export interface BookChapter {
@@ -30,6 +31,7 @@ export interface LibraryEntry extends LibraryText {
   chapters?: BookChapter[];
   createdAt?: number;
   category?: string;
+  booklet?: BookletContent;
 }
 
 interface LibraryState {

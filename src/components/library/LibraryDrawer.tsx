@@ -114,6 +114,7 @@ const CATEGORY_ORDER = [
   "Technology",
   "Finance",
   "Faith",
+  "Readers",
   "Classics",
   "Culture",
   "Korean",
@@ -132,6 +133,7 @@ const CATEGORY_ICON: Record<string, string> = {
   Technology: "💻",
   Finance: "💰",
   Faith: "✝️",
+  Readers: "📖",
   Classics: "📚",
   Culture: "🌍",
   Korean: "🇰🇷",
@@ -139,7 +141,7 @@ const CATEGORY_ICON: Record<string, string> = {
   Other: "📂",
 };
 
-const QUICK_CATEGORIES = ["Faith", "Medical", "Trades", "Sports", "Culture"] as const;
+const QUICK_CATEGORIES = ["Readers", "Faith", "Medical", "Trades", "Sports", "Culture"] as const;
 const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
 type QuickCat = (typeof QUICK_CATEGORIES)[number] | "All";
 type LevelFilter = (typeof CEFR_LEVELS)[number] | "All";
@@ -185,10 +187,11 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
   // My Texts (custom) — always pinned, no language filter
   const customEntries = state.entries.filter((e) => e.section === "custom");
+  const readerEntries = state.entries.filter((e) => e.section === "readers");
 
   // Non-custom entries filtered by language, category, and level
   const filteredSeeds = useMemo(() => {
-    let seeds = state.entries.filter((e) => e.section !== "custom");
+    let seeds = state.entries.filter((e) => e.section !== "custom" && e.section !== "readers");
     if (langFilter.length > 0)
       seeds = seeds.filter((e) => langFilter.includes(e.language as Language));
     if (catFilter !== "All") seeds = seeds.filter((e) => e.category === catFilter);
@@ -321,6 +324,30 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
                 ))}
               </div>
             )}
+          </section>
+
+          <section className="mb-7">
+            <div className="mb-3 flex items-center gap-2 px-1 text-gold">
+              <span aria-hidden="true">📖</span>
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.28em]">Readers</h3>
+              <div className="ml-2 h-px flex-1 bg-gradient-to-r from-gold/40 to-transparent" />
+              <span className="font-mono text-[9px] text-muted-foreground">
+                {readerEntries.length}
+              </span>
+            </div>
+            <div className="space-y-2">
+              {readerEntries.map((entry) => (
+                <BookCard
+                  key={entry.id}
+                  entry={entry}
+                  active={entry.id === state.selectedId}
+                  readStatus={state.readStatus[entry.id] ?? "never"}
+                  isNew={false}
+                  onSelect={() => select(entry)}
+                  onCycleStatus={cycleReadStatus}
+                />
+              ))}
+            </div>
           </section>
 
           {/* ── Filter rows ───────────────────────────── */}

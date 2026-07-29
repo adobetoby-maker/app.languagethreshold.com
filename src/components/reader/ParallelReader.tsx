@@ -34,6 +34,7 @@ import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getLessons } from "@/data/module-starters";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
+import { BookletParallelReader } from "./BookletParallelReader";
 
 type TextSize = "S" | "M" | "L";
 
@@ -501,6 +502,18 @@ export function ParallelReader() {
       }
     });
   }, [activeSentenceIndex, autoScroll]);
+
+  if (selected.booklet) {
+    return (
+      <>
+        <BookletParallelReader
+          content={selected.booklet}
+          onOpenLibrary={() => setDrawerOpen(true)}
+        />
+        <LibraryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      </>
+    );
+  }
 
   return (
     <div className="fade-in mx-auto w-full max-w-6xl">

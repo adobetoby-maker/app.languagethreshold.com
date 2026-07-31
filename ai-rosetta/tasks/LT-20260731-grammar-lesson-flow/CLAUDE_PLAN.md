@@ -16,9 +16,18 @@ The brief's root cause holds. Three further facts materially change the answer,
 and I found them by reading the app rather than reasoning from the symptom:
 
 **a. Tabs are state, not routes.** `currentTab: TabKey` in `app-state.tsx:204`,
-moved by `SET_TAB` (`:284`, `:422`). The TanStack router is used in exactly two
-places — `/account` and `/family-setup` — both of which are full pages *outside*
-the app shell, losing the bottom nav.
+moved by `SET_TAB` (`:284`, `:422`).
+
+> **CORRECTION (Toby, 2026-07-31).** This originally read "the TanStack router is
+> used in exactly two places — `/account` and `/family-setup`." That was wrong.
+> There are **five** routes: `/`, `/index`, `/account`, `/family-setup`,
+> `/pricing`. I reached the wrong number by grepping `useNavigate` usage instead
+> of `createFileRoute` declarations — wrong method, wrong answer.
+>
+> The conclusion still holds: ordinary app tabs are state-driven, and the routed
+> pages that exist (`/account`, `/family-setup`, `/pricing`) sit outside the app
+> shell. But the supporting fact was overstated and is corrected here rather than
+> quietly edited.
 
 **b. Nothing in the app pushes history for in-app views.** A repo-wide grep of
 `src/components/` and `src/state/` for `pushState` / `popstate` returns nothing.
@@ -129,6 +138,22 @@ Reuses `allDone` and the `completed` map; adds no new persisted state.
 6. Completing the final lesson of the final level offers no fake next step.
 7. Desktop 1440px side-by-side is unchanged.
 8. XP award, completion records and lesson content are unchanged.
+
+## 4b. Gap both plans missed — found by Toby
+
+Neither plan handles the back requirement **while the quiz modal is open**.
+
+`QuizCard` renders as a fixed overlay, so the mobile lesson header — and the back
+control I specified there — sits behind it. Toby's requirement was explicitly
+"at any time," and both plans satisfy it only while the quiz is closed.
+
+Fix must come from one of:
+- an in-quiz `Back to Grammar` action, or
+- browser Back closing the quiz first, then the lesson.
+
+Recorded here because it invalidates an acceptance test I wrote ("back returns to
+the level list at any point, including mid-quiz") — I asserted that case passes
+without designing the mechanism that would make it pass.
 
 ## 5. Risks
 

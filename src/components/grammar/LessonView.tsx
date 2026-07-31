@@ -13,7 +13,7 @@ import { FuriganaText } from "@/components/reader/FuriganaText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { QuizCard } from "./QuizCard";
 import { MorphologyCard } from "./MorphologyCard";
-import { resolveNextStep, nextCefrLevel } from "@/lib/grammar-flow";
+import { resolveNextStep, nextCefrLevel, isLevelComplete, CEFR_ORDER } from "@/lib/grammar-flow";
 
 const LEVEL_LABEL: Record<CefrLevel, string> = {
   A1: "Beginner",
@@ -29,6 +29,7 @@ export function LessonView({
   lesson,
   onBack,
   onSelectLesson,
+  onStartNextLevel,
 }: {
   level: CefrLevel;
   lesson: LessonStub;
@@ -38,6 +39,8 @@ export function LessonView({
   /** Opens another lesson, REPLACING the history entry so Back still returns
    *  straight to the curriculum. */
   onSelectLesson?: (level: CefrLevel, lesson: LessonStub) => void;
+  /** Closes the lesson and expands the named CEFR level in the curriculum. */
+  onStartNextLevel?: (level: CefrLevel) => void;
 }) {
   const { state, dispatch } = useApp();
   const { getLevel, setContent } = useGrammar();
@@ -48,9 +51,27 @@ export function LessonView({
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [finished, setFinished] = useState(false);
 
+  // Finding 2: reset completion state when the desktop sidebar selects a
+  // different lesson. The same LessonView instance is reused, so local state
+  // from a completed lesson would otherwise persist into the new one.
+  useEffect(() => {
+    setFinished(false);
+  }, [lesson.id]);
+
   const lvl = getLevel(state.selectedLanguage, level);
   const content: LessonContent | undefined = lvl?.contents[lesson.id];
   const isComplete = !!lvl?.completed[lesson.id];
+
+  // Finding 3: truthful copy for the course-complete panel. course-complete
+  // fires when all C2 lessons are done, but A1-C1 may still be outstanding.
+  const allLevelsComplete = CEFR_ORDER.every((lvl) => {
+    const l = getLevel(state.selectedLanguage, lvl);
+    if (!l || l.lessons.length === 0) return false;
+    return isLevelComplete(
+      l.lessons.map((ls) => ls.id),
+      l.completed,
+    );
+  });
 
   useEffect(() => {
     if (content) return;
@@ -266,9 +287,12 @@ export function LessonView({
                 {lessonIds.length} of {lessonIds.length} lessons
               </p>
               <div className="mt-4 flex flex-col gap-2">
+                {/* Finding 1: call onStartNextLevel so the named level is
+                    actually opened in the curriculum, not just onBack which
+                    returns to a collapsed list with no level selected. */}
                 <button
                   type="button"
-                  onClick={onBack}
+                  onClick={() => onStartNextLevel?.(nextStep.nextLevel)}
                   className="min-h-11 w-full rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-midnight transition-transform hover:-translate-y-0.5"
                 >
                   Start {nextStep.nextLevel} →
@@ -297,10 +321,14 @@ export function LessonView({
           {nextStep.kind === "course-complete" && (
             <>
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                Grammar path complete
+                {allLevelsComplete ? "Grammar path complete" : "C2 complete"}
               </p>
+              {/* Finding 3: only claim every level is finished when they
+                  actually are — completing C2 alone does not finish A1-C1. */}
               <p className="mt-1 font-display text-lg italic text-foreground">
-                You have finished every CEFR level.
+                {allLevelsComplete
+                  ? "You have finished every CEFR level."
+                  : "C2 complete — explore other levels to finish the full course."}
               </p>
               <div className="mt-4 flex flex-col gap-2">
                 {onBack && (

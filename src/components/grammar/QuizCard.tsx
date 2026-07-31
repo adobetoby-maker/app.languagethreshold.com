@@ -52,8 +52,8 @@ function normalize(s: string) {
   return s
     .toLowerCase()
     .trim()
-    .replace(/[.,;:!?¿¡«»"'()\[\]]+$/g, "")
-    .replace(/^[¿¡«"'(\[]+/g, "");
+    .replace(/[.,;:!?¿¡«»"'()[\]]+$/g, "")
+    .replace(/^[¿¡«"'([]+/g, "");
 }
 
 export function QuizCard({

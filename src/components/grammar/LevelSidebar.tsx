@@ -23,10 +23,14 @@ export function LevelSidebar({
   activeLevel,
   activeLessonId,
   onSelect,
+  openLevel,
 }: {
   activeLevel: CefrLevel | null;
   activeLessonId: string | null;
   onSelect: (level: CefrLevel, lesson: LessonStub) => void;
+  /** When set, expands this level and loads its lessons. Used by the
+   *  "Start {nextLevel}" completion action in LessonView. */
+  openLevel?: CefrLevel | null;
 }) {
   const { state } = useApp();
   const { getLevel, setLessons, state: gState } = useGrammar();
@@ -55,6 +59,16 @@ export function LevelSidebar({
     void ensureLessons("A1");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gState.hydrated, state.selectedLanguage]);
+
+  // Finding 1: when GrammarStudio requests a specific level (e.g. after the
+  // learner clicks "Start A2"), expand and load it — don't just return to
+  // a collapsed curriculum with nothing selected.
+  useEffect(() => {
+    if (!openLevel || openLevel === expanded) return;
+    setExpanded(openLevel);
+    void ensureLessons(openLevel);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openLevel]);
 
   async function ensureLessons(level: CefrLevel) {
     const existing = getLevel(state.selectedLanguage, level);

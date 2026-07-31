@@ -15,6 +15,7 @@ export function GrammarStudio() {
   const { state: gState } = useGrammar();
   const [activeLevel, setActiveLevel] = useState<CefrLevel | null>(null);
   const [activeLesson, setActiveLesson] = useState<LessonStub | null>(null);
+  const [requestedExpandLevel, setRequestedExpandLevel] = useState<CefrLevel | null>(null);
 
   const closeLesson = useCallback(() => {
     setActiveLevel(null);
@@ -64,10 +65,26 @@ export function GrammarStudio() {
   }, []);
 
   // A lesson from a previous language must not stay open when the learner
-  // switches languages from the bottom strip.
+  // switches languages from the bottom strip. Also reset any pending
+  // level-expand request so it doesn't carry over to the new language.
   useEffect(() => {
     closeLesson();
+    setRequestedExpandLevel(null);
   }, [state.selectedLanguage, closeLesson]);
+
+  // Finding 1: close the current lesson and direct the sidebar to expand the
+  // named next CEFR level, so "Start A2" actually opens A2 instead of just
+  // returning to a collapsed curriculum with nothing selected.
+  const handleStartNextLevel = useCallback((nextLevel: CefrLevel) => {
+    if (typeof window !== "undefined" && window.history.state?.[LESSON_HISTORY_STATE]) {
+      const cleaned = { ...window.history.state };
+      delete cleaned[LESSON_HISTORY_STATE];
+      window.history.replaceState(cleaned, "");
+    }
+    setActiveLevel(null);
+    setActiveLesson(null);
+    setRequestedExpandLevel(nextLevel);
+  }, []);
 
   const backToCurriculum = useCallback(() => {
     if (typeof window !== "undefined" && window.history.state?.[LESSON_HISTORY_STATE]) {
@@ -133,6 +150,7 @@ export function GrammarStudio() {
             activeLevel={activeLevel}
             activeLessonId={activeLesson?.id ?? null}
             onSelect={handleSelect}
+            openLevel={requestedExpandLevel}
           />
         </div>
 
@@ -142,6 +160,7 @@ export function GrammarStudio() {
             lesson={activeLesson}
             onBack={backToCurriculum}
             onSelectLesson={(lvl, lsn) => handleSelect(lvl, lsn, "replace")}
+            onStartNextLevel={handleStartNextLevel}
           />
         ) : (
           <div className="hidden flex-1 items-center justify-center md:flex rounded-2xl border border-dashed border-border/60 bg-card/30 p-16 text-center backdrop-blur">

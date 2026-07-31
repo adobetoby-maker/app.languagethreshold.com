@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "lint": "node scripts/lint-changed.mjs",
     "rosetta:check": "node scripts/rosetta-check.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "verify:deploy-target": "node scripts/verify-deploy-target.mjs",
+    "deploy:prod": "node scripts/verify-deploy-target.mjs && vercel --prod"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

@@ -17,6 +17,9 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 
+// The Vercel project this repository is allowed to deploy to.
+const EXPECTED_PROJECT = "language-threshold-app";
+
 // Fingerprints that identify THIS repository as the app, not the marketing site.
 const MARKERS = [
   { file: "src/routes/index.tsx", contains: "A Premium Language Learning Experience",
@@ -61,4 +64,41 @@ if (missing.length) {
     "the guard keeps protecting you rather than being deleted.");
 }
 
-console.log("✓ deploy target verified — this is the Language Threshold app");
+// ── Destination check ────────────────────────────────────────────────────────
+// The content checks above prove WHAT ships. They cannot prove WHERE it ships.
+//
+// On first use this guard passed the content check and then deployed into a
+// brand-new Vercel project named after the working directory, because no
+// .vercel link existed. Vercel creates a project silently in that case: the
+// deploy "succeeds", prints a URL, and the real production domain never moves.
+// Right code, wrong destination, no error.
+const LINK = ".vercel/project.json";
+
+if (!existsSync(LINK)) {
+  fail(
+    "this directory is not linked to a Vercel project",
+    "Without a link, `vercel --prod` will CREATE a new project named after this\n" +
+      "folder and deploy there. Production will appear to succeed while\n" +
+      "app.languagethreshold.com stays untouched.\n\n" +
+      `Fix:  vercel link --yes --project ${EXPECTED_PROJECT}`,
+  );
+}
+
+let link;
+try {
+  link = JSON.parse(readFileSync(LINK, "utf8"));
+} catch (err) {
+  fail(`${LINK} is unreadable or malformed`, String(err));
+}
+
+if (link.projectName !== EXPECTED_PROJECT) {
+  fail(
+    `linked to the WRONG Vercel project: "${link.projectName}"`,
+    `Expected "${EXPECTED_PROJECT}".\n\n` +
+      "Deploying would publish this build somewhere other than the app's\n" +
+      "production domain.\n\n" +
+      `Fix:  rm -rf .vercel && vercel link --yes --project ${EXPECTED_PROJECT}`,
+  );
+}
+
+console.log(`✓ deploy target verified — Language Threshold app → ${link.projectName}`);

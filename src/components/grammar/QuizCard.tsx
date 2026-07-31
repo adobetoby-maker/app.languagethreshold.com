@@ -187,18 +187,21 @@ export function QuizCard({
         </button>
 
         {/* The lesson's back arrow is behind this overlay, so the "at any time"
-            requirement needs its own exit here. DUO-003 item 9. */}
+            requirement needs its own exit here. DUO-003 item 9.
+            In normal flow, NOT absolutely positioned: an earlier version used
+            `absolute left-4 top-4` and collided with the "Quiz · {level}" label
+            beneath it. */}
         {onExitToCurriculum && (
           <button
             onClick={onExitToCurriculum}
-            className="absolute left-4 top-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold md:hidden"
+            className="-ml-2 mb-2 inline-flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold md:hidden"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
             Grammar
           </button>
         )}
 
-        <div className="mb-5 flex items-center justify-between">
+        <div className="mb-5 flex items-center justify-between gap-3 pr-8">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
               ✦ Quiz · {level}

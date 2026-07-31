@@ -95,3 +95,64 @@ into the completion set; the quiz-escape path (item 9) is new to both.
 
 No merge to `main` and no Production deploy without Toby's explicit approval.
 Both source PRs remain draft until the hybrid is built and reviewed.
+
+---
+
+# INTEGRATION RESULT
+
+**Status: `integration-checkpoint-complete`**
+Integration commit: `acb70b1c8aea12381a8699479a1f13287f52ea6c`
+Branch: `integrate/duo-003-grammar-flow` · from `main` @ `8d8ae38`
+Integration lead: Claude Code · Independent QA: Codex
+
+## All nine approved items implemented
+
+| # | Item | Where |
+|---|---|---|
+| 1 | Mobile stacked view; desktop split unchanged | `GrammarStudio.tsx` |
+| 2 | One curriculum→lesson history entry | `GrammarStudio.tsx` |
+| 3 | Replace that entry when advancing | `handleSelect(…, "replace")` |
+| 4 | Next lesson / Review lesson / Back to Grammar | `LessonView.tsx` |
+| 5 | Canonical next-incomplete with wraparound | `src/lib/grammar-flow.ts` |
+| 6 | Level milestone with `Start {next}` | `LessonView.tsx` |
+| 7 | C2 ends with Back to Grammar, no fake next | `grammar-flow.ts` |
+| 8 | Award logic untouched inside `QuizCard` | — |
+| 9 | Quiz escape path (in-quiz exit, Escape, `role="dialog"`) | `QuizCard.tsx` |
+
+## Verification at `acb70b1c`
+
+| Check | Result |
+|---|---|
+| `node --test` | **54/54 pass** (10 new progression tests) |
+| `npx tsc --noEmit` | 0 errors |
+| `npm run lint` | 2 errors — **both pre-existing** `no-useless-escape` at `QuizCard.tsx:55-56`, confirmed by linting the unmodified HEAD copy of that file |
+
+### Browser, 390×844
+
+| Behaviour | Before | After |
+|---|---|---|
+| Tap a lesson | appended below the whole accordion, off-screen | **replaces the list** |
+| Back affordance | none | `← BACK TO A1` above every state |
+| History entry | none | pushed on open |
+| Browser/gesture back | exited the app | **returns to the curriculum** |
+| Load feedback | none | skeleton + "Composing your lesson…" |
+| Page errors | — | none |
+
+The last-in-array wraparound case is covered by test, not by assertion: a
+learner completing out of order wraps to the earliest outstanding lesson rather
+than seeing a false "level complete".
+
+## Not verified
+
+- The completion panel was not exercised end-to-end; it requires passing a
+  generated quiz perfectly, which needs a live model run. Its progression logic
+  is covered by the pure tests, but the rendered panel has not been seen.
+- Desktop 1440 was not re-captured this pass. The change is gated behind
+  `md:hidden` / `hidden md:block`, so desktop should be untouched — that is
+  reasoning, not evidence, and is flagged for QA.
+- No Vercel Preview created for this branch yet.
+
+## Boundaries
+
+No merge to `main`. No production deploy. `main` remains at `8d8ae38` plus the
+already-merged DUO-002 work. Codex's DUO-003 branch was read read-only.

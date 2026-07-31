@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { Loader2, BookOpen, Sparkles } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
@@ -112,17 +114,17 @@ export function LessonView({ level, lesson }: { level: CefrLevel; lesson: Lesson
 
         {content && !loading && (
           <>
-            <p className="mb-7 whitespace-pre-wrap font-display text-[16px] leading-[1.85] text-foreground/90">
-              {content.explanation}
-            </p>
+            <div className="mb-7 whitespace-pre-wrap font-display text-[16px] leading-[1.85] text-foreground/90 [&_p]:m-0 [&_p+p]:mt-4 [&_strong]:font-semibold [&_strong]:text-foreground">
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content.explanation}</ReactMarkdown>
+            </div>
 
             <div className="mb-7 rounded-xl border border-gold/40 bg-gold/10 px-5 py-4">
               <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                 ✦ Key Rule
               </div>
-              <p className="font-display text-[15px] font-semibold italic text-foreground">
-                {content.keyRule}
-              </p>
+              <div className="font-display text-[15px] font-semibold italic text-foreground [&_p]:m-0 [&_strong]:text-gold">
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content.keyRule}</ReactMarkdown>
+              </div>
             </div>
 
             {content.morphology && <MorphologyCard morph={content.morphology} />}

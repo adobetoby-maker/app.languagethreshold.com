@@ -12,6 +12,19 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
+import {
+  applyMasteryIncrement,
+  applyRegressionReset,
+  bumpVocabRevision,
+  deriveUserVocab,
+  includeLegacyVocab,
+  mergeVocabItems,
+  reconcileVocabByLanguage,
+  replaceLanguageVocab,
+  type VocabByLanguage,
+  type VocabItem,
+  type VocabRevisionByLanguage,
+} from "./vocab-store";
 
 export type Language =
   | "Spanish"
@@ -199,7 +212,9 @@ export interface AppState {
 
   // Personal vocab — built from user's guided Q&A, used to seed games
   vocabAnswers: string[]; // 5 free-text answers (language-agnostic)
-  userVocab: UserVocabItem[]; // generated words for vocabLang
+  vocabByLanguage: VocabByLanguage<Language>; // durable per-language ownership (Track B)
+  vocabRevisionsByLanguage: VocabRevisionByLanguage<Language>; // complete-snapshot ordering
+  userVocab: UserVocabItem[]; // view of vocabByLanguage[selectedLanguage]
   vocabLang: Language | null; // which language userVocab was built for
 
   // Grammar pattern SRS — parallel to vocab SRS, keyed by patternId
@@ -301,7 +316,9 @@ export type AppAction =
       payload: { answers: string[]; vocab: UserVocabItem[]; lang: Language };
     }
   | { type: "MASTER_VOCAB_WORD"; payload: string } // word string — increments correctCount
-  | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[] } // append replacement words
+  // Append words (e.g. Reader word-save). `lang` stamps vocabLang when the list
+  // is still unclaimed, so downstream vocabLang gates don't silently drop them.
+  | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[]; lang?: Language }
   | { type: "START_REGRESSION_CHECK" } // reset mastered words to count=3 for re-drill
   | { type: "SCORE_PATTERN"; payload: string } // patternId — increments correctCount
   | { type: "PATTERN_REGRESSION_CHECK" } // reset mastered patterns to threshold-2
@@ -347,21 +364,54 @@ const initialState: AppState = {
   lessonProgress: {},
   vocabAnswers: [],
   userVocab: [],
+  vocabByLanguage: {},
+  vocabRevisionsByLanguage: {},
   vocabLang: null,
   patternProgress: {},
   vocabSM2: {},
   hydrated: false,
 };
 
-function reducer(state: AppState, action: AppAction): AppState {
+// Exported so the MERGE_REMOTE reconciliation can be exercised directly in tests.
+export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
-    case "HYDRATE":
-      return { ...state, ...action.payload, hydrated: true };
+    case "HYDRATE": {
+      const hydrated = { ...state, ...action.payload };
+      // Fallback to the selected language so vocabulary saved before the
+      // per-language migration (vocabLang null, userVocab populated) is
+      // recovered rather than discarded. Synthesis correction 1.
+      const vocabByLanguage = includeLegacyVocab(
+        hydrated.vocabByLanguage,
+        hydrated.vocabLang,
+        hydrated.userVocab,
+        hydrated.selectedLanguage,
+      );
+      return {
+        ...hydrated,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[hydrated.selectedLanguage] ?? [],
+        vocabLang: hydrated.selectedLanguage,
+        hydrated: true,
+      };
+    }
     case "SET_LANGUAGE": {
       const languagesUsed = state.languagesUsed.includes(action.payload)
         ? state.languagesUsed
         : [...state.languagesUsed, action.payload];
-      return { ...state, selectedLanguage: action.payload, languagesUsed };
+      const vocabByLanguage = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      return {
+        ...state,
+        selectedLanguage: action.payload,
+        languagesUsed,
+        vocabByLanguage,
+        userVocab: vocabByLanguage[action.payload] ?? [],
+        vocabLang: action.payload,
+      };
     }
     case "SET_NATIVE_LANGUAGE":
       return { ...state, nativeLanguage: action.payload };
@@ -481,39 +531,102 @@ function reducer(state: AppState, action: AppAction): AppState {
         lessonsCompleted: state.lessonsCompleted + 1,
       };
     }
-    case "SET_USER_VOCAB":
+    case "SET_USER_VOCAB": {
+      // Writes the durable map, then re-derives the view. This previously wrote
+      // `userVocab` alone, so the Pen Pal builder's list survived only until the
+      // next merge-on-hydrate reconciled it against vocabByLanguage.
+      const base = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      const vocabByLanguage = replaceLanguageVocab(
+        base,
+        action.payload.lang,
+        action.payload.vocab as VocabItem[],
+      );
+      const vocabRevisionsByLanguage = bumpVocabRevision(
+        state.vocabRevisionsByLanguage ?? {},
+        action.payload.lang,
+      );
       return {
         ...state,
         vocabAnswers: action.payload.answers,
-        userVocab: action.payload.vocab.map((v) => ({ ...v, correctCount: v.correctCount ?? 0 })),
+        vocabByLanguage,
+        vocabRevisionsByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
         vocabLang: action.payload.lang,
       };
-    case "MASTER_VOCAB_WORD":
+    }
+    case "MASTER_VOCAB_WORD": {
+      const vocabByLanguage = applyMasteryIncrement(
+        state.vocabByLanguage,
+        state.selectedLanguage,
+        action.payload,
+      );
+      const vocabRevisionsByLanguage =
+        vocabByLanguage === state.vocabByLanguage
+          ? (state.vocabRevisionsByLanguage ?? {})
+          : bumpVocabRevision(state.vocabRevisionsByLanguage ?? {}, state.selectedLanguage);
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          v.word === action.payload ? { ...v, correctCount: (v.correctCount ?? 0) + 1 } : v,
-        ),
+        vocabByLanguage,
+        vocabRevisionsByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
-    case "ADD_VOCAB_ITEMS":
+    }
+    case "ADD_VOCAB_ITEMS": {
+      // Track B's per-language model, adopted over Claude's vocabLang stamp.
+      // The stamp fixed only the first occurrence: a learner who saved Spanish
+      // words then switched to French still got a silently hidden list, because
+      // every consumer gated on `vocabLang === selectedLanguage`. Owning
+      // vocabulary per language leaves no gate to fail.
+      const language = action.lang ?? state.selectedLanguage;
+      const base = includeLegacyVocab(
+        state.vocabByLanguage,
+        state.vocabLang,
+        state.userVocab,
+        state.selectedLanguage,
+      );
+      const vocabByLanguage = {
+        ...base,
+        [language]: mergeVocabItems(base[language] ?? [], action.payload as VocabItem[]),
+      } as VocabByLanguage<Language>;
+      const vocabRevisionsByLanguage = bumpVocabRevision(
+        state.vocabRevisionsByLanguage ?? {},
+        language,
+      );
       return {
         ...state,
-        userVocab: [
-          ...state.userVocab,
-          ...action.payload
-            .filter((item) => !state.userVocab.some((existing) => existing.word === item.word))
-            .map((v) => ({ ...v, correctCount: 0 })),
-        ],
+        vocabByLanguage,
+        vocabRevisionsByLanguage,
+        userVocab: vocabByLanguage[state.selectedLanguage] ?? [],
+        vocabLang: state.selectedLanguage,
       };
-    case "START_REGRESSION_CHECK":
+    }
+    case "START_REGRESSION_CHECK": {
+      // The defect this fixes: writing the derived `userVocab` here produced a
+      // DECREASE, and `mergeVocabItems` resolves collisions with Math.max — so
+      // the next HYDRATE or SET_LANGUAGE restored the pre-reset count and the
+      // drill silently never happened. Writing the durable map directly is the
+      // only way a decrease can survive reconciliation.
+      const vocabByLanguage = applyRegressionReset(
+        state.vocabByLanguage,
+        state.selectedLanguage,
+        VOCAB_MASTERY_THRESHOLD,
+      );
+      const vocabRevisionsByLanguage =
+        vocabByLanguage === state.vocabByLanguage
+          ? (state.vocabRevisionsByLanguage ?? {})
+          : bumpVocabRevision(state.vocabRevisionsByLanguage ?? {}, state.selectedLanguage);
       return {
         ...state,
-        userVocab: state.userVocab.map((v) =>
-          (v.correctCount ?? 0) >= VOCAB_MASTERY_THRESHOLD
-            ? { ...v, correctCount: VOCAB_MASTERY_THRESHOLD - 2 }
-            : v,
-        ),
+        vocabByLanguage,
+        vocabRevisionsByLanguage,
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
+    }
     case "SCORE_PATTERN":
       return {
         ...state,
@@ -592,6 +705,25 @@ function reducer(state: AppState, action: AppAction): AppState {
       const cefrLevelsCompleted = Array.from(
         new Set([...state.cefrLevelsCompleted, ...(remote.cefrLevelsCompleted ?? [])]),
       );
+      // Vocabulary is a complete per-language snapshot. Equal/legacy snapshots
+      // union additions, while an explicitly newer revision wins so a stale
+      // cloud list cannot resurrect words removed by SET_USER_VOCAB.
+      // Preferences follow "remote wins", so the derived view is rebuilt for
+      // whichever language survives the merge.
+      const selectedLanguage = (remote.selectedLanguage ?? state.selectedLanguage) as Language;
+      const { vocabByLanguage, vocabRevisionsByLanguage } = reconcileVocabByLanguage(
+        state.vocabByLanguage ?? {},
+        // A remote profile written before the per-language migration carries its
+        // words in the legacy `userVocab` list; fold those in rather than drop them.
+        includeLegacyVocab(
+          remote.vocabByLanguage,
+          remote.vocabLang,
+          remote.userVocab,
+          selectedLanguage,
+        ),
+        state.vocabRevisionsByLanguage ?? {},
+        remote.vocabRevisionsByLanguage ?? {},
+      );
       return {
         ...state,
         ...(remote as Partial<AppState>),
@@ -602,6 +734,12 @@ function reducer(state: AppState, action: AppAction): AppState {
         cultureRead,
         languagesUsed,
         cefrLevelsCompleted,
+        selectedLanguage,
+        vocabByLanguage,
+        vocabRevisionsByLanguage,
+        // Derived view — never written independently (F1).
+        userVocab: deriveUserVocab(vocabByLanguage, selectedLanguage),
+        vocabLang: selectedLanguage,
         streak: Math.max(state.streak, remote.streak ?? 0),
         wordsLookedUp: Math.max(state.wordsLookedUp, remote.wordsLookedUp ?? 0),
         notesSaved: Math.max(state.notesSaved, remote.notesSaved ?? 0),
@@ -644,7 +782,7 @@ type PersistedShape = Partial<AppState> & { __v?: number };
  */
 function migrate(raw: unknown): PersistedShape {
   if (!raw || typeof raw !== "object") return { __v: SCHEMA_VERSION };
-  let data = { ...(raw as Record<string, unknown>) } as PersistedShape;
+  const data = { ...(raw as Record<string, unknown>) } as PersistedShape;
   let v = typeof data.__v === "number" ? data.__v : 1;
 
   // v1 -> v2: introduce module fields + speakSecondsByLang + xpSessions defaults
@@ -744,6 +882,8 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "moduleAssignments",
   "vocabAnswers",
   "userVocab",
+  "vocabByLanguage",
+  "vocabRevisionsByLanguage",
   "vocabLang",
   "patternProgress",
   "vocabSM2",
@@ -814,7 +954,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!state.hydrated) return;
     try {
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
-      for (const k of PERSIST_KEYS) toSave[k] = (state as any)[k];
+      for (const k of PERSIST_KEYS) {
+        toSave[k] = (state as unknown as Record<string, unknown>)[k];
+      }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
     } catch {
       /* ignore quota */
@@ -876,21 +1018,38 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    let authSequence = 0;
     const { data: sub } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      const sequence = ++authSequence;
       const uid = session?.user?.id ?? null;
-      setUserId(uid);
+      setUserId(null);
+      if (syncTimer.current) {
+        clearTimeout(syncTimer.current);
+        syncTimer.current = null;
+      }
 
       if (uid) {
-        // Fetch remote profile and merge into current (already localStorage-hydrated) state.
-        const { data } = await supabase.from("profiles").select("data").eq("id", uid).maybeSingle();
+        // Do not enable cloud writes until the initial remote snapshot has been
+        // reconciled. Otherwise the debounce can upsert stale local state while
+        // this request is still in flight.
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("data")
+          .eq("id", uid)
+          .maybeSingle();
 
+        if (sequence !== authSequence || error) return;
         if (data?.data) {
           const remote = migrate(data.data as unknown);
           dispatch({ type: "MERGE_REMOTE", payload: remote });
         }
+        setUserId(uid);
       }
     });
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      authSequence += 1;
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   // Debounced upsert — fires 2 s after the last state change while logged in.

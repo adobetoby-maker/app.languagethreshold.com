@@ -18,6 +18,7 @@ import { useLibrary } from "@/state/library-state";
 import { getModuleReadingId } from "@/data/curriculum";
 import { useNotes } from "@/state/notes-state";
 import { useSpeech } from "@/state/speech-state";
+import { useTutor } from "@/state/tutor-state";
 import { AnnotatedSentence } from "./AnnotatedSentence";
 import { FuriganaText, type FuriganaScript } from "./FuriganaText";
 import { HangulText } from "./HangulText";
@@ -31,6 +32,8 @@ import { useCultureGenerator } from "@/components/library/useCultureGenerator";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getLessons } from "@/data/module-starters";
+import { ActionHint } from "@/components/onboarding/AppTour";
+import { recordPaneTap } from "@/lib/learning-guidance";
 
 type TextSize = "S" | "M" | "L";
 
@@ -46,6 +49,33 @@ type FuriganaMode = "off" | "above" | "inline";
 const FURIGANA_KEY = "lt.reader.furigana.v1";
 const FURIGANA_SCRIPT_KEY = "lt.reader.furigana.script.v1";
 const ROMAJA_KEY = "lt.reader.romaja.v1";
+const TUTOR_PASSAGE_LIMIT = 2_000;
+
+function buildCenteredPassage(sentences: { target: string }[], sentenceIndex: number): string {
+  const candidateIndexes = [
+    sentenceIndex,
+    sentenceIndex - 1,
+    sentenceIndex + 1,
+    sentenceIndex - 2,
+    sentenceIndex + 2,
+  ];
+  const selected: { index: number; text: string }[] = [];
+  let length = 0;
+
+  for (const index of candidateIndexes) {
+    const text = sentences[index]?.target?.trim();
+    if (!text) continue;
+    const separatorLength = selected.length > 0 ? 1 : 0;
+    if (length + separatorLength + text.length > TUTOR_PASSAGE_LIMIT) continue;
+    selected.push({ index, text });
+    length += separatorLength + text.length;
+  }
+
+  return selected
+    .sort((a, b) => a.index - b.index)
+    .map(({ text }) => text)
+    .join(" ");
+}
 
 const SIZE_CLASS: Record<TextSize, string> = {
   S: "text-[15px] leading-[1.85]",
@@ -58,6 +88,7 @@ export function ParallelReader() {
   const { selected, state: lib, dispatch: libDispatch } = useLibrary();
   const { add: addAnnotation, forText } = useNotes();
   const { activeSentenceIndex, speakSentence, speakSentences, stop, playing } = useSpeech();
+  const tutor = useTutor();
   const [size, setSize] = useState<TextSize>("M");
   const [syncScroll, setSyncScroll] = useState(true);
   const [autoScroll, setAutoScroll] = useState(false);
@@ -313,11 +344,27 @@ export function ParallelReader() {
     word: string,
     sentence: string,
     pane: "left" | "right",
+    sentenceIndex: number,
     x: number,
     y: number,
   ) => {
+    // Counts per pane; the demo block clears only once BOTH sides have been
+    // used 3 times, so the learner discovers that native-side lookup works too.
+    recordPaneTap(pane, "lt.guide.reader.tap");
+    const passage = buildCenteredPassage(activeSentences, sentenceIndex);
     if (pane === "right") {
-      setWordReq({ word, sentence, language: state.selectedLanguage, x, y });
+      setWordReq({
+        word,
+        sentence,
+        language: state.selectedLanguage,
+        textId: selected.id,
+        textTitle: selected.title,
+        sentenceIndex,
+        chapterIndex: safeChapterIndex,
+        passage,
+        x,
+        y,
+      });
     } else {
       // Left (native) pane: provide the paired target sentence so the AI can
       // identify the target-language equivalent of the clicked native word.
@@ -325,7 +372,18 @@ export function ParallelReader() {
       const context = pair
         ? `[${state.nativeLanguage}] "${sentence}" | [${selected.targetLabel}] "${pair.target}"`
         : sentence;
-      setWordReq({ word, sentence: context, language: state.selectedLanguage, x, y });
+      setWordReq({
+        word,
+        sentence: context,
+        language: state.selectedLanguage,
+        textId: selected.id,
+        textTitle: selected.title,
+        sentenceIndex,
+        chapterIndex: safeChapterIndex,
+        passage,
+        x,
+        y,
+      });
     }
   };
 
@@ -394,8 +452,20 @@ export function ParallelReader() {
   // Reset chapter to 0 whenever the user opens a different book
   useEffect(() => {
     setChapterIndex(0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected.id]);
+
+  const readerLocationRef = useRef(`${selected.id}:${safeChapterIndex}`);
+  const currentSourceContext = tutor.contextFor(selected.id);
+  useEffect(() => {
+    const nextLocation = `${selected.id}:${safeChapterIndex}`;
+    const sourceIsFromAnotherChapter =
+      currentSourceContext?.chapterIndex !== undefined &&
+      currentSourceContext.chapterIndex !== safeChapterIndex;
+    if (readerLocationRef.current !== nextLocation || sourceIsFromAnotherChapter) {
+      tutor.clearSourceContext(selected.id);
+      readerLocationRef.current = nextLocation;
+    }
+  }, [currentSourceContext?.chapterIndex, safeChapterIndex, selected.id, tutor]);
 
   const handleSpeakSentence = () => {
     const idx = findNearestSentence();
@@ -436,6 +506,11 @@ export function ParallelReader() {
     <div className="fade-in mx-auto w-full max-w-6xl">
       <ModuleStudyGuide />
       <ModuleMatchPanel surface="Reader" className="mb-4" />
+      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
+        <strong>Your training demo.</strong> Tap a word on either side — {state.nativeLanguage} or{" "}
+        {state.selectedLanguage} — to see what it means in this sentence, ask the Tutor about it,
+        then save it. This disappears once you have tried both sides.
+      </ActionHint>
 
       {/* Lesson navigation — shown when the active module has multiple lessons */}
       {lessonIds.length > 1 && (
@@ -752,7 +827,7 @@ export function ParallelReader() {
               </div>
               <div
                 ref={leftRef}
-                className="custom-scroll h-[calc(100dvh-180px)] overflow-y-auto px-5 py-6 md:h-[62vh] md:px-7 md:py-8"
+                className="lt-scroll-safe custom-scroll h-[calc(100dvh-180px)] overflow-y-auto px-5 py-6 md:h-[62vh] md:px-7 md:py-8"
               >
                 <Pane
                   pane="left"
@@ -812,7 +887,9 @@ export function ParallelReader() {
             </div>
             <div
               ref={rightRef}
-              className={`custom-scroll overflow-y-auto px-5 py-6 md:px-7 md:py-8 ${
+              // Keep the touch affordance scoped to the target-language pane.
+              data-pane="target"
+              className={`lt-scroll-safe custom-scroll overflow-y-auto px-5 py-6 md:px-7 md:py-8 ${
                 fullscreen
                   ? "h-[calc(100dvh-100px)] md:h-[calc(100dvh-120px)]"
                   : "h-[calc(100dvh-180px)] md:h-[62vh]"
@@ -893,7 +970,14 @@ function Pane({
   size: TextSize;
   annotations: ReturnType<typeof useNotes>["annotations"];
   activeSentenceIndex: number;
-  onWordClick: (w: string, sentence: string, pane: "left" | "right", x: number, y: number) => void;
+  onWordClick: (
+    w: string,
+    sentence: string,
+    pane: "left" | "right",
+    sentenceIndex: number,
+    x: number,
+    y: number,
+  ) => void;
   accent?: boolean;
   furiganaMode?: FuriganaMode;
   furiganaScript?: FuriganaScript;
@@ -904,14 +988,14 @@ function Pane({
   const lineNeedsExtraLeading = furiganaMode === "above" || romajaMode === "above";
   // Inject pane identity into every word-click so the parent can route
   // left-pane (native) and right-pane (target) lookups differently.
-  const wrappedWordClick = (w: string, s: string, x: number, y: number) => {
-    onWordClick(w, s, pane, x, y);
-  };
   return (
     <div
       className={`font-display ${SIZE_CLASS[size]} ${accent ? "text-foreground" : "text-foreground/90"}`}
     >
       {sentences.map((s, i) => {
+        const wrappedWordClick = (w: string, sentence: string, x: number, y: number) => {
+          onWordClick(w, sentence, pane, i, x, y);
+        };
         const sentenceAnns = annotations.filter((a) => a.pane === pane && a.sentenceIndex === i);
         const isActive = activeSentenceIndex === i;
         const useRubyRenderer = (showFurigana || showRomaja) && sentenceAnns.length === 0;

@@ -1,8 +1,9 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { getTourScript, type TourStep } from "@/data/tour-scripts";
 import { cn } from "@/lib/utils";
+import { dismissLearningHint } from "@/lib/learning-guidance";
 
 interface Rect {
   top: number;
@@ -12,6 +13,53 @@ interface Rect {
 }
 
 const PAD = 8; // px padding around highlighted element
+
+export function ActionHint({
+  storageKey,
+  children,
+  className = "",
+}: {
+  storageKey: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  const [dismissed, setDismissed] = useState(() => {
+    try {
+      return localStorage.getItem(storageKey) === "1";
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    const onDismiss = (event: Event) => {
+      if ((event as CustomEvent<string>).detail === storageKey) setDismissed(true);
+    };
+    window.addEventListener("lt:dismiss-learning-hint", onDismiss);
+    return () => window.removeEventListener("lt:dismiss-learning-hint", onDismiss);
+  }, [storageKey]);
+
+  if (dismissed) return null;
+
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-xl border border-sky-500/25 bg-sky-500/[0.07] px-3 py-2.5 ${className}`}
+    >
+      <span className="text-sky-600 dark:text-sky-300" aria-hidden>
+        ✦
+      </span>
+      <div className="min-w-0 flex-1 text-xs leading-relaxed text-foreground/85">{children}</div>
+      <button
+        type="button"
+        onClick={() => dismissLearningHint(storageKey)}
+        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:bg-background/60 hover:text-foreground"
+        aria-label="Dismiss guidance"
+      >
+        <X className="h-4 w-4" />
+      </button>
+    </div>
+  );
+}
 
 function getTargetRect(target: string): Rect | null {
   const el = document.querySelector(`[data-tour="${target}"]`);

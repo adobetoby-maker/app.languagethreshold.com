@@ -29,6 +29,7 @@ import {
   Menu,
   Sun,
   Moon,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import { useApp, type TabKey, type Language } from "@/state/app-state";
@@ -371,6 +372,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
         {/* Tab row */}
         <div className="flex items-center justify-around">
+          {/* Leftmost: full tab list. Match moved out of this row — it lives in the
+             More sheet now, freeing the far-right slot for Tutor. */}
+          <button
+            onClick={() => setMoreSheetOpen(true)}
+            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold lg:hidden"
+          >
+            <Menu className="h-5 w-5" strokeWidth={1.6} />
+            <span className="text-[9px] font-medium tracking-wide">More</span>
+          </button>
           {(
             [
               { key: "reader" as TabKey, Icon: BookOpen, label: "Reader" },
@@ -409,23 +419,17 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </button>
             );
           })}
-          {onOpenMatch && (
-            <button
-              onClick={onOpenMatch}
-              className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold"
-            >
-              <Trophy className="h-5 w-5" strokeWidth={1.6} />
-              <span className="text-[9px] font-medium tracking-wide">Match</span>
-            </button>
-          )}
-          {/* Mobile-only: opens the full tab list — every tab the desktop sidebar has,
-             not just the 5 curated quick-access buttons in this row. */}
+          {/* Rightmost, fixed: Tutor. Previously a floating pill that covered
+             Reader text, flashcards, Dashboard cards and the nav itself at every
+             scroll position. Docking it here removes the overlap class of bug
+             entirely rather than tuning clearance around it. */}
           <button
-            onClick={() => setMoreSheetOpen(true)}
-            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold lg:hidden"
+            onClick={() => window.dispatchEvent(new CustomEvent("lt:open-tutor"))}
+            aria-label="Ask Tutor"
+            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-gold transition-colors hover:text-gold"
           >
-            <Menu className="h-5 w-5" strokeWidth={1.6} />
-            <span className="text-[9px] font-medium tracking-wide">More</span>
+            <Sparkles className="h-5 w-5" strokeWidth={1.8} />
+            <span className="text-[9px] font-bold tracking-wide">Tutor</span>
           </button>
         </div>
       </nav>
@@ -440,6 +444,29 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <SheetDescription className="sr-only">
             Every available tab, grouped by section. Tap one to switch.
           </SheetDescription>
+
+          {/* Language Match — restored. Removing Match from the bottom row without
+              adding it here left mobile users no direct entry point: the More
+              sheet renders only TAB_ITEMS, and Match is an onOpenMatch overlay
+              action, not a TabKey. It was reachable solely via Games Hub.
+              Synthesis correction 4. */}
+          {onOpenMatch && (
+            <button
+              onClick={() => {
+                setMoreSheetOpen(false);
+                onOpenMatch();
+              }}
+              className="mt-3 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
+            >
+              <span className="flex items-center gap-2.5 text-sm text-foreground">
+                <Trophy className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+                Language Match
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                Play
+              </span>
+            </button>
+          )}
 
           {/* Theme toggle — labeled row so the setting is discoverable */}
           <button

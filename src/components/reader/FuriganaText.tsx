@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { wordA11yProps } from "@/lib/learning-guidance";
 import { useServerFn } from "@tanstack/react-start";
 import { addFurigana, type FuriganaSegment } from "@/fns/furigana.functions";
 
@@ -124,7 +125,8 @@ export function FuriganaText({
               <span
                 key={i}
                 data-reading={reading}
-                className="furigana-inline cursor-pointer rounded transition-colors hover:text-gold"
+                className="furigana-inline lt-word"
+                {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -142,7 +144,8 @@ export function FuriganaText({
           return (
             <ruby key={i} className="furigana-ruby">
               <span
-                className="cursor-pointer rounded transition-colors hover:text-gold"
+                className="lt-word"
+            {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {
@@ -182,12 +185,12 @@ function ClickableSpan({
   onWordClick?: (w: string, s: string, x: number, y: number) => void;
 }) {
   if (!onWordClick) return <>{text}</>;
-  const parts = text.split(/([\s。、！？「」『』・，．,.!?:;()[\]<>\"'])/);
+  const parts = text.split(/([\s。、！？「」『』・，．,.!?:;()[\]<>"'])/);
   return (
     <>
       {parts.map((p, i) => {
         if (!p) return null;
-        if (/^[\s。、！？「」『』・，．,.!?:;()[\]<>\"']$/.test(p)) {
+        if (/^[\s。、！？「」『』・，．,.!?:;()[\]<>"']$/.test(p)) {
           return <span key={i}>{p}</span>;
         }
         return (
@@ -198,7 +201,8 @@ function ClickableSpan({
               const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
               onWordClick(p, sentence, r.left + r.width / 2, r.bottom);
             }}
-            className="cursor-pointer rounded transition-colors hover:text-gold"
+            className="lt-word"
+            {...wordA11yProps}
           >
             {p}
           </span>

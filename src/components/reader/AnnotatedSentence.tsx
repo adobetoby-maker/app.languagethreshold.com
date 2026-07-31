@@ -1,4 +1,5 @@
 import type { Annotation } from "@/state/notes-state";
+import { wordA11yProps } from "@/lib/learning-guidance";
 
 /**
  * Renders a sentence with all annotations applied as overlapping spans.
@@ -121,7 +122,7 @@ function Tokens({
     <>
       {tokens.map((tok, i) => {
         if (/^\s+$/.test(tok) || tok === "") return <span key={i}>{tok}</span>;
-        const clean = tok.replace(/^[¿¡«"'(\[]+|[.,;:!?»"')\]]+$/g, "");
+        const clean = tok.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
         if (!clean) return <span key={i}>{tok}</span>;
         return (
           <span
@@ -131,7 +132,8 @@ function Tokens({
               const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
               onWordClick(clean, fullSentence, r.left + r.width / 2, r.bottom);
             }}
-            className="cursor-pointer rounded transition-colors hover:text-gold hover:[text-decoration:underline] hover:[text-decoration-color:var(--color-gold)] hover:[text-decoration-thickness:1px] hover:[text-underline-offset:4px]"
+            className="lt-word"
+            {...wordA11yProps}
           >
             {tok}
           </span>

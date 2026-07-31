@@ -8,7 +8,8 @@
     "build": "vite build && node scripts/vercel-adapter.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "node scripts/lint-changed.mjs",
+    "rosetta:check": "node scripts/rosetta-check.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

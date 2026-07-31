@@ -8,6 +8,8 @@ import { useApp, type Language } from "@/state/app-state";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FuriganaText } from "./FuriganaText";
+import { ActionHint } from "@/components/onboarding/AppTour";
+import { dismissLearningHint } from "@/lib/learning-guidance";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -32,10 +34,43 @@ function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
 }
 
+/**
+ * Marks every occurrence of the tapped word inside its source sentence.
+ *
+ * Without this the card names a word and then prints a sentence the learner has
+ * to re-scan to find it in — and when the word occurs more than once (e.g. "per"
+ * twice in "Per un giorno, per favore.") the grammar note has to spend its
+ * opening clause explaining a position the UI could simply show.
+ */
+function HighlightedSentence({ sentence, word }: { sentence: string; word: string }) {
+  const target = word.trim();
+  if (!target) return <>{sentence}</>;
+  const escaped = target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const parts = sentence.split(new RegExp(`(${escaped})`, "gi"));
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.toLowerCase() === target.toLowerCase() ? (
+          <span key={i} className="font-semibold text-gold">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export interface WordCardRequest {
   word: string;
   sentence: string;
   language: Language;
+  textId?: string;
+  textTitle?: string;
+  sentenceIndex?: number;
+  chapterIndex?: number;
+  passage?: string;
   x: number;
   y: number;
 }
@@ -61,7 +96,17 @@ export function WordCard({
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
   const ref = useRef<HTMLDivElement>(null);
 
-  const CARD_W = cardWidth(request.language);
+  const CARD_W =
+    typeof window === "undefined"
+      ? cardWidth(request.language)
+      : Math.min(cardWidth(request.language), window.innerWidth - 24);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("lt:word-card-state", { detail: true }));
+    return () => {
+      window.dispatchEvent(new CustomEvent("lt:word-card-state", { detail: false }));
+    };
+  }, []);
 
   // Initial position estimate — runs synchronously before first paint
   const initialPos = (() => {
@@ -165,6 +210,7 @@ export function WordCard({
     <div
       ref={ref}
       role="dialog"
+      aria-label={`Word details for ${request.word}`}
       style={{
         position: "fixed",
         left: pos.left,
@@ -184,7 +230,7 @@ export function WordCard({
       <button
         aria-label="Close"
         onClick={onClose}
-        className="absolute left-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
+        className="absolute left-2 top-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
       >
         <X className="h-3 w-3" />
       </button>
@@ -192,9 +238,50 @@ export function WordCard({
       <div className="max-h-[80vh] overflow-y-auto px-5 pb-5 pt-12">
         {loading && <CardSkeleton />}
 
+        {/* When the lookup fails there is still something worth showing: the word
+            the learner tapped and the sentence it came from. Both are local
+            Reader state and need no network. Previously the whole card body sat
+            behind `card`, so a failed lookup erased the sentence too and left
+            only a red error string. */}
+        {!loading && !card && (
+          <>
+            <h3 className="font-display text-3xl font-bold leading-tight tracking-tight">
+              {request.word}
+            </h3>
+            <div className="mt-3 rounded-xl border border-gold/30 bg-gold/[0.07] p-3">
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                ✦ In this sentence
+              </div>
+              <p
+                data-testid="wordcard-source-sentence"
+                className="font-display text-base italic leading-relaxed text-foreground"
+              >
+                {request.language === "Japanese" ? (
+                  <FuriganaText text={request.sentence} mode="above" script="hiragana" />
+                ) : (
+                  <>
+                    &ldquo;
+                    <HighlightedSentence sentence={request.sentence} word={request.word} />
+                    &rdquo;
+                  </>
+                )}
+              </p>
+            </div>
+          </>
+        )}
+
+        {/* Learner-facing copy. The raw server string ("AI is not configured")
+            is operator language and was being rendered verbatim, in red, to a
+            learner. It is kept on `title` so it stays diagnosable. */}
         {!loading && error && (
-          <div className="py-6 text-center font-mono text-xs uppercase tracking-[0.18em] text-destructive">
-            {error}
+          <div
+            title={error}
+            className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
+          >
+            <p className="text-[13px] leading-relaxed text-muted-foreground">
+              Word details aren&rsquo;t available right now. Your sentence is above — try again in
+              a moment.
+            </p>
           </div>
         )}
 
@@ -233,24 +320,63 @@ export function WordCard({
             </div>
 
             <div className="rounded-xl border border-gold/30 bg-gold/[0.07] p-3">
-              <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-                📌 In this sentence
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                ✦ In this sentence
               </div>
+              {/* The exact sentence the learner tapped. This block previously
+                  rendered only the grammar note, and the generated example
+                  further down was the sole sentence on the card — so a heading
+                  promising "this sentence" never actually showed it. This value
+                  is client-side Reader state, so it renders even when the AI
+                  lookup is unavailable. */}
+              {/* Dominant italic on the card. Outside review found the earlier
+                  version defeated at a glance: the GENERATED example rendered
+                  larger and brighter than the sentence the learner actually
+                  tapped, so the eye landed on the invented one first. The labels
+                  said primary/secondary; the type said the opposite. */}
+              <p
+                data-testid="wordcard-source-sentence"
+                className="mb-2 font-display text-base italic leading-relaxed text-foreground"
+              >
+                {request.language === "Japanese" ? (
+                  <FuriganaText text={request.sentence} mode="above" script="hiragana" />
+                ) : (
+                  <>
+                    &ldquo;
+                    <HighlightedSentence sentence={request.sentence} word={request.word} />
+                    &rdquo;
+                  </>
+                )}
+              </p>
               <p className="text-[13px] leading-relaxed text-foreground/90">
                 {card.conjugationNote}
                 {card.contextNuance ? ` ${card.contextNuance}` : ""}
               </p>
             </div>
 
+            <ActionHint storageKey="lt.guide.reader.tutor" className="mt-3">
+              <strong>Ask Tutor keeps this word and the full sentence attached.</strong> Your next
+              question starts from what you are reading now.
+            </ActionHint>
+
             <div className="mt-4">
-              <p className="font-display text-base italic text-foreground">
+              {/* Labelled explicitly: this is a generated example, not the
+                  sentence the learner tapped. Unlabelled — and with the source
+                  sentence absent — it was being read as the source sentence. */}
+              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                ⊕ Another example
+              </div>
+              {/* Deliberately one size below the source sentence above: this is
+                  generated illustration, not what the learner tapped. The gloss
+                  drops out of mono — it is English prose, not UI chrome. */}
+              <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
                 {request.language === "Japanese" ? (
                   <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
                 ) : (
                   `"${card.exampleSentence}"`
                 )}
               </p>
-              <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+              <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
                 {card.exampleTranslation}
               </p>
             </div>
@@ -333,21 +459,49 @@ export function WordCard({
               </div>
             )}
 
-            <div className="mt-5 flex items-center gap-2 border-t border-border/60 pt-4">
+            <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
               <button
                 onClick={speak}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
               >
                 <Volume2 className="h-3 w-3" /> Pronounce
               </button>
               <button
                 onClick={() => {
+                  dismissLearningHint("lt.guide.reader.tutor");
+                  const explanation = [
+                    card.baseDefinition,
+                    card.conjugationNote,
+                    card.contextNuance,
+                  ]
+                    .filter(Boolean)
+                    .join(" ");
                   tutor.prefill(
                     `Can you explain more about the word "${card.headword}" and how it's used in this sentence?\n\n"${request.sentence}"`,
+                    request.textId
+                      ? {
+                          threadId: request.textId,
+                          selectedWord: card.headword,
+                          selectedSentence: request.sentence,
+                          passage: request.passage ?? request.sentence,
+                          wordExplanation: explanation,
+                          sentenceIndex: request.sentenceIndex,
+                          chapterIndex: request.chapterIndex,
+                        }
+                      : undefined,
+                    {
+                      selectedWord: card.headword,
+                      sentence: request.sentence,
+                      passageExcerpt: request.passage,
+                      textTitle: request.textTitle,
+                      language: request.language,
+                      learnerLevel: state.level,
+                      explanation,
+                    },
                   );
                   onClose();
                 }}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/90 transition-colors hover:border-gold/60 hover:text-gold"
               >
                 <MessageCircle className="h-3 w-3" /> Ask Tutor
               </button>
@@ -366,14 +520,18 @@ export function WordCard({
                           correctCount: 0,
                         },
                       ],
+                      // Stamps vocabLang on first save so the word survives the
+                      // vocabLang gate in Flashcards, Tutor, Word Match, etc.
+                      lang: state.selectedLanguage,
                     });
                   }
                   setVocabAdded(true);
                   onXp(5);
+                  window.dispatchEvent(new CustomEvent("lt:meaningful-learning-action"));
                 }}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${
+                className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors ${
                   vocabAdded
-                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-400"
+                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
                     : "border-border/70 bg-background/40 text-foreground/90 hover:border-gold/60 hover:text-gold"
                 }`}
               >
@@ -390,16 +548,31 @@ export function WordCard({
             </div>
 
             {vocabAdded && (
-              <button
-                onClick={() => {
-                  dispatch({ type: "SET_TAB", payload: "flashcards" });
-                  onClose();
-                }}
-                className="mt-2 w-full rounded-full border border-gold/40 bg-gold/[0.08] py-1.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/15"
-              >
-                Study your saved words →
-              </button>
+              <div className="mt-3 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.08] p-3">
+                <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                  Saved to My Vocab
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  This word is ready in Flashcards—no re-entry needed.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    dispatch({ type: "SET_TAB", payload: "flashcards" });
+                  }}
+                  className="mt-2 inline-flex min-h-11 items-center rounded-lg border border-emerald-500/35 px-3 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-500/10 dark:text-emerald-300"
+                >
+                  Practice in Flashcards →
+                </button>
+              </div>
             )}
+
+            {/* Second Flashcards CTA removed — the confirmation panel above
+                already offers "Practice in Flashcards" and both performed the
+                same navigation. Two identical calls to action immediately after
+                the key save made the card feel undeliberate. Synthesis
+                correction 6. */}
           </>
         )}
       </div>

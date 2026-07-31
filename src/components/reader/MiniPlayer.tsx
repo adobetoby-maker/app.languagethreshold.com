@@ -9,7 +9,7 @@ export function MiniPlayer() {
 
   return (
     <div
-      className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2"
+      className="lt-miniplayer-above-nav fixed left-1/2 z-50 -translate-x-1/2"
       style={{ animation: "cardPop 220ms cubic-bezier(.22,1,.36,1)" }}
     >
       <div className="flex items-center gap-3 rounded-full border border-gold/50 bg-card/95 px-4 py-2 shadow-luxe backdrop-blur">

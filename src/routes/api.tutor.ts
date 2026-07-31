@@ -47,7 +47,9 @@ const ModuleSchema = z
   })
   .optional();
 
-const BodySchema = z.object({
+// Exported so the approved Reader→Tutor contract can be certified offline by
+// unit test, without calling a live model. See tests/tutor-reader-context.test.mjs.
+export const BodySchema = z.object({
   messages: z.array(MessageSchema).min(1).max(40),
   context: z.object({
     language: z.string().min(1).max(40),
@@ -56,6 +58,20 @@ const BodySchema = z.object({
     textTitle: z.string().max(200).optional(),
     passage: z.string().max(2000).optional(),
     lastWord: z.string().max(80).optional(),
+    selectedWord: z.string().max(80).optional(),
+    selectedSentence: z.string().max(1200).optional(),
+    wordExplanation: z.string().max(1600).optional(),
+    readerContext: z
+      .object({
+        selectedWord: z.string().min(1).max(120),
+        sentence: z.string().min(1).max(2000),
+        passageExcerpt: z.string().max(2000).optional(),
+        textTitle: z.string().max(200).optional(),
+        language: z.string().min(1).max(40),
+        learnerLevel: z.string().max(40).optional(),
+        explanation: z.string().max(1600).optional(),
+      })
+      .optional(),
     module: ModuleSchema,
     userVocabWords: z.array(z.string().max(80)).max(15).optional(),
     activePatterns: z
@@ -140,7 +156,7 @@ function buildModuleAddendum(mod: NonNullable<z.infer<typeof BodySchema>["contex
   return lines.filter(Boolean).join("\n");
 }
 
-function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
+export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
   const isEnTarget = ctx.module?.learnDirection === "en-target";
   const native = ctx.nativeLanguage ?? "Spanish";
 
@@ -171,7 +187,38 @@ function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
         `- Target language: ${ctx.language}`,
         `- CEFR level: ${ctx.level}`,
         ctx.textTitle ? `- Currently reading: "${ctx.textTitle}"` : null,
-        ctx.lastWord ? `- Last word the learner looked up: "${ctx.lastWord}"` : null,
+        ctx.selectedWord
+          ? `- Selected word from the Reader: "${ctx.selectedWord}"`
+          : ctx.lastWord
+            ? `- Last word the learner looked up: "${ctx.lastWord}"`
+            : null,
+        ctx.selectedSentence
+          ? `- Full sentence containing the selected word:\n"""\n${ctx.selectedSentence}\n"""`
+          : null,
+        ctx.wordExplanation
+          ? `- Word Card explanation already shown to the learner:\n${ctx.wordExplanation}`
+          : null,
+        ctx.readerContext
+          ? [
+              `- Reader-selected word: "${ctx.readerContext.selectedWord}"`,
+              `- Exact sentence: "${ctx.readerContext.sentence}"`,
+              ctx.readerContext.textTitle
+                ? `- Selection source: "${ctx.readerContext.textTitle}"`
+                : null,
+              ctx.readerContext.explanation
+                ? `- Existing Word Card explanation: ${ctx.readerContext.explanation}`
+                : null,
+              ctx.readerContext.passageExcerpt
+                ? `- Surrounding passage excerpt:\n"""\n${ctx.readerContext.passageExcerpt.slice(0, 1200)}\n"""`
+                : null,
+              ctx.readerContext.learnerLevel
+                ? `- Learner level when selected: ${ctx.readerContext.learnerLevel}`
+                : null,
+              `- Treat the selected sentence as the primary context for the learner's question.`,
+            ]
+              .filter(Boolean)
+              .join("\n")
+          : null,
         ctx.passage
           ? `- Snippet of current passage:\n"""\n${ctx.passage.slice(0, 1200)}\n"""`
           : null,

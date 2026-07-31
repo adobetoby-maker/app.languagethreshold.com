@@ -78,11 +78,12 @@ export const Route = createFileRoute("/api/stripe-webhook")({
               const sub = event.data.object as Stripe.Subscription;
               const userId = sub.metadata?.userId;
               if (userId) {
+                const primaryItem = sub.items.data[0];
                 await updateProfileData(userId, {
                   subscription_status: sub.status,
                   subscription_id: sub.id,
-                  period_end: sub.current_period_end,
-                  price_id: sub.items.data[0]?.price?.id ?? null,
+                  period_end: primaryItem?.current_period_end ?? null,
+                  price_id: primaryItem?.price?.id ?? null,
                   cancel_at_period_end: sub.cancel_at_period_end,
                   ...(customerId(sub.customer)
                     ? { stripe_customer_id: customerId(sub.customer) }

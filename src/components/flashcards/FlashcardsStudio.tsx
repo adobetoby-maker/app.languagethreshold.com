@@ -8,6 +8,7 @@ import {
   type FlashcardEntry,
   type FlashcardCategory,
 } from "@/state/flashcard-state";
+import { nextSectionSelection } from "@/state/section-selection";
 import { useSpeech } from "@/state/speech-state";
 import { useServerFn } from "@tanstack/react-start";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
@@ -173,9 +174,10 @@ export function FlashcardsStudio() {
   }, [availableCategories]);
 
   function toggleCategory(section: string) {
-    setSelectedCategories((prev) =>
-      prev.includes(section) ? prev.filter((c) => c !== section) : [...prev, section],
-    );
+    // Focus-then-mix. Selection defaults to every section, so a plain toggle
+    // made the first tap SUBTRACT — which is why tapping "Vocab (your words)"
+    // was what made the learner's saved word vanish from the deck.
+    setSelectedCategories((prev) => nextSectionSelection(prev, section, availableCategories));
     // First enable of an empty topic deck kicks off its first translated batch.
     if (section.startsWith("block:")) {
       const blockId = section.slice("block:".length);

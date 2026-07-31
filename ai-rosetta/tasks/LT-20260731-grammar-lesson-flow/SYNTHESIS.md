@@ -100,12 +100,13 @@ Both source PRs remain draft until the hybrid is built and reviewed.
 
 # INTEGRATION RESULT
 
-**Status: `integration-checkpoint-complete`**
-Integration commit: `acb70b1c8aea12381a8699479a1f13287f52ea6c`
+**Status: `repair-complete — awaiting-codex-re-review`**
+Integration commit (repaired): `0255749` (integrate/duo-003-grammar-flow)
+Prior integration commit: `acb70b1c` (checkpoint, four findings outstanding)
 Branch: `integrate/duo-003-grammar-flow` · from `main` @ `8d8ae38`
-Integration lead: Claude Code · Independent QA: Codex
+Integration lead: Claude Code · Independent QA: Codex (re-review requested)
 
-## All nine approved items implemented
+## All nine approved items implemented (unchanged from `acb70b1c`)
 
 | # | Item | Where |
 |---|---|---|
@@ -119,38 +120,34 @@ Integration lead: Claude Code · Independent QA: Codex
 | 8 | Award logic untouched inside `QuizCard` | — |
 | 9 | Quiz escape path (in-quiz exit, Escape, `role="dialog"`) | `QuizCard.tsx` |
 
-## Verification at `acb70b1c`
+## Four Codex QA findings — repaired at `0255749`
+
+| Finding | Root cause | Fix |
+|---|---|---|
+| F1 `Start {nextLevel}` no-op | `onClick` called `onBack` instead of `onStartNextLevel` | New `onStartNextLevel` prop on `LessonView`; `openLevel` prop + `useEffect` on `LevelSidebar` that expands and loads the named level; `handleStartNextLevel` callback in `GrammarStudio` that threads the state |
+| F2 Stale completion UI | `finished` local state persisted when the desktop sidebar re-selected a different lesson on the same mounted `LessonView` | `useEffect(() => setFinished(false), [lesson.id])` — resets on lesson change |
+| F3 False C2 copy | "You have finished every CEFR level." appeared after completing only C2 lessons | Computed `allLevelsComplete` via `isLevelComplete` across all 6 CEFR levels; conditional copy gates on that |
+| F4 Lint error | `\[` inside `[…]` character class = useless escape → `no-useless-escape` error | Removed the backslash from two regex character classes in `normalize()` |
+
+## Verification at `0255749`
 
 | Check | Result |
 |---|---|
-| `node --test` | **54/54 pass** (10 new progression tests) |
+| `git diff --check` | 0 whitespace errors |
+| `node --test` | **59/59 pass** (17 new DUO-003 regression assertions added) |
 | `npx tsc --noEmit` | 0 errors |
-| `npm run lint` | 2 errors — **both pre-existing** `no-useless-escape` at `QuizCard.tsx:55-56`, confirmed by linting the unmodified HEAD copy of that file |
-
-### Browser, 390×844
-
-| Behaviour | Before | After |
-|---|---|---|
-| Tap a lesson | appended below the whole accordion, off-screen | **replaces the list** |
-| Back affordance | none | `← BACK TO A1` above every state |
-| History entry | none | pushed on open |
-| Browser/gesture back | exited the app | **returns to the curriculum** |
-| Load feedback | none | skeleton + "Composing your lesson…" |
-| Page errors | — | none |
-
-The last-in-array wraparound case is covered by test, not by assertion: a
-learner completing out of order wraps to the earliest outstanding lesson rather
-than seeing a false "level complete".
+| `npm run rosetta:check` | 7 artifacts verified, gate passed |
+| `npm run lint` | **0 errors** (Finding 4 resolved) |
+| `npm run build` | ✓ Vercel Build Output API v3 artifact created |
 
 ## Not verified
 
 - The completion panel was not exercised end-to-end; it requires passing a
   generated quiz perfectly, which needs a live model run. Its progression logic
   is covered by the pure tests, but the rendered panel has not been seen.
-- Desktop 1440 was not re-captured this pass. The change is gated behind
+- Desktop 1440 was not re-captured. The change is gated behind
   `md:hidden` / `hidden md:block`, so desktop should be untouched — that is
-  reasoning, not evidence, and is flagged for QA.
-- No Vercel Preview created for this branch yet.
+  reasoning, not evidence, and is flagged for Codex re-review.
 
 ## Boundaries
 

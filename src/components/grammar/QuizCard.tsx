@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import confetti from "canvas-confetti";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { X, Loader2, Check, AlertCircle } from "lucide-react";
+import { X, Loader2, Check, AlertCircle, ArrowLeft } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
 import { generateLessonQuiz, type LessonStub, type QuizQuestion } from "@/fns/grammar.functions";
@@ -60,11 +60,16 @@ export function QuizCard({
   level,
   lesson,
   onClose,
+  onExitToCurriculum,
   onComplete,
 }: {
   level: CefrLevel;
   lesson: LessonStub;
   onClose: () => void;
+  /** Leaves the quiz AND the lesson, returning to the curriculum list.
+   *  DUO-003 item 9: the lesson's back control sits behind this fixed overlay,
+   *  so "back at any time" needs an escape path from inside the quiet. */
+  onExitToCurriculum?: () => void;
   onComplete: () => void;
 }) {
   const { state, dispatch } = useApp();
@@ -161,7 +166,14 @@ export function QuizCard({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-midnight/70 px-4 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-midnight/70 px-4 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      onKeyDown={(e) => {
+        if (e.key === "Escape") onClose();
+      }}
+    >
       <div
         className="relative w-full max-w-xl rounded-3xl border border-gold/40 bg-card/95 p-7 shadow-luxe"
         style={{ animation: "cardPop 220ms cubic-bezier(.22,1,.36,1)" }}
@@ -173,6 +185,18 @@ export function QuizCard({
         >
           <X className="h-4 w-4" />
         </button>
+
+        {/* The lesson's back arrow is behind this overlay, so the "at any time"
+            requirement needs its own exit here. DUO-003 item 9. */}
+        {onExitToCurriculum && (
+          <button
+            onClick={onExitToCurriculum}
+            className="absolute left-4 top-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold md:hidden"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
+            Grammar
+          </button>
+        )}
 
         <div className="mb-5 flex items-center justify-between">
           <div>

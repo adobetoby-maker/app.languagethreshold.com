@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { GraduationCap } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
@@ -8,16 +8,91 @@ import { LevelSidebar } from "./LevelSidebar";
 import { LessonView } from "./LessonView";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 
+const LESSON_HISTORY_STATE = "lt.grammar.lesson";
+
 export function GrammarStudio() {
   const { state } = useApp();
   const { state: gState } = useGrammar();
   const [activeLevel, setActiveLevel] = useState<CefrLevel | null>(null);
   const [activeLesson, setActiveLesson] = useState<LessonStub | null>(null);
+  const [requestedExpandLevel, setRequestedExpandLevel] = useState<CefrLevel | null>(null);
 
-  const handleSelect = (level: CefrLevel, lesson: LessonStub) => {
-    setActiveLevel(level);
-    setActiveLesson(lesson);
-  };
+  const closeLesson = useCallback(() => {
+    setActiveLevel(null);
+    setActiveLesson(null);
+  }, []);
+
+  // One history entry for the curriculum -> lesson step, so the phone's back
+  // gesture returns to the level list instead of exiting the app. Advancing
+  // between lessons REPLACES this entry rather than pushing another: without
+  // that, finishing five lessons would need five back presses to escape
+  // Grammar. (DUO-003 synthesis items 2 and 3.)
+  const handleSelect = useCallback(
+    (level: CefrLevel, lesson: LessonStub, mode: "push" | "replace" = "push") => {
+      setActiveLevel(level);
+      setActiveLesson(lesson);
+      if (typeof window === "undefined") return;
+      const alreadyInLesson = window.history.state?.[LESSON_HISTORY_STATE] === true;
+      const next = { ...(window.history.state ?? {}), [LESSON_HISTORY_STATE]: true };
+      if (mode === "replace" || alreadyInLesson) {
+        window.history.replaceState(next, "");
+      } else {
+        window.history.pushState(next, "");
+      }
+    },
+    [],
+  );
+
+  // Browser/gesture back closes the lesson rather than leaving the app.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPop = () => closeLesson();
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [closeLesson]);
+
+  // Leaving Grammar (or changing target language) must not leave a stale lesson
+  // entry behind that could reopen under another tab.
+  useEffect(() => {
+    return () => {
+      if (typeof window === "undefined") return;
+      if (window.history.state?.[LESSON_HISTORY_STATE]) {
+        const cleaned = { ...window.history.state };
+        delete cleaned[LESSON_HISTORY_STATE];
+        window.history.replaceState(cleaned, "");
+      }
+    };
+  }, []);
+
+  // A lesson from a previous language must not stay open when the learner
+  // switches languages from the bottom strip. Also reset any pending
+  // level-expand request so it doesn't carry over to the new language.
+  useEffect(() => {
+    closeLesson();
+    setRequestedExpandLevel(null);
+  }, [state.selectedLanguage, closeLesson]);
+
+  // Finding 1: close the current lesson and direct the sidebar to expand the
+  // named next CEFR level, so "Start A2" actually opens A2 instead of just
+  // returning to a collapsed curriculum with nothing selected.
+  const handleStartNextLevel = useCallback((nextLevel: CefrLevel) => {
+    if (typeof window !== "undefined" && window.history.state?.[LESSON_HISTORY_STATE]) {
+      const cleaned = { ...window.history.state };
+      delete cleaned[LESSON_HISTORY_STATE];
+      window.history.replaceState(cleaned, "");
+    }
+    setActiveLevel(null);
+    setActiveLesson(null);
+    setRequestedExpandLevel(nextLevel);
+  }, []);
+
+  const backToCurriculum = useCallback(() => {
+    if (typeof window !== "undefined" && window.history.state?.[LESSON_HISTORY_STATE]) {
+      window.history.back(); // popstate handler closes the lesson
+      return;
+    }
+    closeLesson();
+  }, [closeLesson]);
 
   return (
     <div className="fade-in mx-auto w-full max-w-7xl">
@@ -65,17 +140,30 @@ export function GrammarStudio() {
 
       <ModuleMatchPanel surface="Grammar Studio" className="mb-4" />
 
+      {/* Below md the list and the lesson are MUTUALLY EXCLUSIVE. Previously
+          `flex-col` stacked the lesson beneath the whole CEFR accordion, so
+          tapping a lesson loaded it below the fold with no transition — the
+          "not visible that it loaded" report. Desktop keeps the split view. */}
       <div className="flex flex-col gap-5 md:flex-row">
-        <LevelSidebar
-          activeLevel={activeLevel}
-          activeLessonId={activeLesson?.id ?? null}
-          onSelect={handleSelect}
-        />
+        <div className={activeLesson ? "hidden md:block" : "contents md:block"}>
+          <LevelSidebar
+            activeLevel={activeLevel}
+            activeLessonId={activeLesson?.id ?? null}
+            onSelect={handleSelect}
+            openLevel={requestedExpandLevel}
+          />
+        </div>
 
         {activeLesson && activeLevel ? (
-          <LessonView level={activeLevel} lesson={activeLesson} />
+          <LessonView
+            level={activeLevel}
+            lesson={activeLesson}
+            onBack={backToCurriculum}
+            onSelectLesson={(lvl, lsn) => handleSelect(lvl, lsn, "replace")}
+            onStartNextLevel={handleStartNextLevel}
+          />
         ) : (
-          <div className="flex flex-1 items-center justify-center rounded-2xl border border-dashed border-border/60 bg-card/30 p-16 text-center backdrop-blur">
+          <div className="hidden flex-1 items-center justify-center md:flex rounded-2xl border border-dashed border-border/60 bg-card/30 p-16 text-center backdrop-blur">
             <div>
               <div className="mb-3 text-4xl text-gold">✦</div>
               <p className="font-display text-lg italic text-foreground">

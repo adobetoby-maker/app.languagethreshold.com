@@ -1,24 +1,30 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Square, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Search, Square, X } from "lucide-react";
 import {
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
   MISSION_TTS_VOICES,
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
-import { SPEAKING_MISSIONS, type SpeakingMission } from "@/data/speaking-missions";
+import {
+  SPANISH_SPEAKING_MODULES,
+  SPEAKING_MISSIONS,
+  type SpeakingMission,
+} from "@/data/speaking-missions";
 import {
   getMissionTtsCapabilities,
   speakMissionTts,
   stopMissionTts,
   type MissionTtsCapabilities,
 } from "@/lib/mission-tts";
+import { configureUtterance } from "@/lib/voices";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useSpeech } from "@/state/speech-state";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Spanish" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
+type PartnerAudioSource = "device" | "google";
 
 interface MissionTurn {
   id: string;
@@ -67,9 +73,17 @@ function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
 }
 
 function specialtyStyle(specialty: SpeakingMission["specialty"]) {
-  return specialty === "construction"
-    ? { label: "Construction", icon: "🏗️", color: "#ff7a4a" }
-    : { label: "Missionary", icon: "📖", color: "#c9a84c" };
+  const styles: Record<SpeakingMission["specialty"], { color: string }> = {
+    Faith: { color: "#c9a84c" },
+    Medical: { color: "#4fb6d3" },
+    Trades: { color: "#ff7a4a" },
+    Service: { color: "#ba8cff" },
+    Education: { color: "#7cb6ff" },
+    Agriculture: { color: "#7fc66a" },
+    Sports: { color: "#55c79f" },
+    Travel: { color: "#e9a85d" },
+  };
+  return { label: specialty, ...styles[specialty] };
 }
 
 function missionTurnId() {
@@ -78,12 +92,13 @@ function missionTurnId() {
 
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
-  const { accent, rate, setRate } = useSpeech();
+  const { accent, rate, setRate, voiceURI } = useSpeech();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
+  const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -93,6 +108,12 @@ export function SpeakingMissionsPreview() {
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
   const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
   const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
+  const [deviceVoiceAvailable, setDeviceVoiceAvailable] = useState(false);
+  const [catalogModuleId, setCatalogModuleId] = useState<string | null>(null);
+  const [catalogCategory, setCatalogCategory] = useState<SpeakingMission["specialty"] | "All">(
+    "All",
+  );
+  const [catalogSearch, setCatalogSearch] = useState("");
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
@@ -101,8 +122,42 @@ export function SpeakingMissionsPreview() {
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const partnerVoice =
     ttsCapabilities?.voices[partnerVersion] ?? MISSION_TTS_VOICES[partnerVersion];
+  const partnerAudioReady =
+    partnerAudioSource === "device" ? deviceVoiceAvailable : ttsStatus === "ready";
+  const catalogCategories = useMemo(
+    () => [...new Set(SPANISH_SPEAKING_MODULES.map((module) => module.category))],
+    [],
+  );
+  const filteredCatalogModules = useMemo(() => {
+    const query = catalogSearch.trim().toLocaleLowerCase();
+    return SPANISH_SPEAKING_MODULES.filter(
+      (module) =>
+        (catalogCategory === "All" || module.category === catalogCategory) &&
+        (!query ||
+          `${module.name} ${module.category} ${module.blurb}`.toLocaleLowerCase().includes(query) ||
+          SPEAKING_MISSIONS.some(
+            (mission) =>
+              mission.moduleId === module.id &&
+              `${mission.title} ${mission.summary} ${mission.vocabulary.join(" ")}`
+                .toLocaleLowerCase()
+                .includes(query),
+          )),
+    );
+  }, [catalogCategory, catalogSearch]);
+  const catalogModule =
+    SPANISH_SPEAKING_MODULES.find((module) => module.id === catalogModuleId) ?? null;
+  const catalogMissions = catalogModule
+    ? SPEAKING_MISSIONS.filter((mission) => mission.moduleId === catalogModule.id)
+    : [];
 
-  useEffect(() => setRecognitionSupported(recognitionConstructor() !== null), []);
+  useEffect(() => {
+    setRecognitionSupported(recognitionConstructor() !== null);
+    setDeviceVoiceAvailable(
+      typeof window !== "undefined" &&
+        "speechSynthesis" in window &&
+        "SpeechSynthesisUtterance" in window,
+    );
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -172,6 +227,17 @@ export function SpeakingMissionsPreview() {
   const speakPartnerText = useCallback(
     async (text: string) => {
       stopAudio();
+      if (partnerAudioSource === "device") {
+        if (typeof window === "undefined" || !window.speechSynthesis) {
+          setErrorMessage("A device voice is unavailable in this browser.");
+          return;
+        }
+        const utterance = new SpeechSynthesisUtterance(text);
+        configureUtterance(utterance, missionLocale, voiceURI);
+        utterance.rate = partnerSpeed;
+        window.speechSynthesis.speak(utterance);
+        return;
+      }
       if (ttsStatus !== "ready") {
         setErrorMessage("Google partner voices are unavailable for this Preview deployment.");
         return;
@@ -190,11 +256,20 @@ export function SpeakingMissionsPreview() {
         );
       }
     },
-    [ageConfirmed, partnerSpeed, partnerVersion, stopAudio, ttsStatus],
+    [
+      ageConfirmed,
+      missionLocale,
+      partnerAudioSource,
+      partnerSpeed,
+      partnerVersion,
+      stopAudio,
+      ttsStatus,
+      voiceURI,
+    ],
   );
 
   const beginMission = () => {
-    if (!selectedMission || !ageConfirmed || ttsStatus !== "ready") return;
+    if (!selectedMission || !ageConfirmed || !partnerAudioReady) return;
     stopActiveWork();
     const opening: MissionTurn = {
       id: missionTurnId(),
@@ -381,40 +456,121 @@ export function SpeakingMissionsPreview() {
             Practice a real situation
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Each mission can be practiced with a woman or a man as the conversation partner. The
-            twelve versions use the main app&apos;s current AI and browser speech path and do not
-            yet count toward durable mastery.
+            Choose from {SPEAKING_MISSIONS.length} missions across {SPANISH_SPEAKING_MODULES.length}{" "}
+            Spanish specialties. Every mission can be practiced with a woman or a man as the
+            conversation partner and does not yet count toward durable mastery.
           </p>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {SPEAKING_MISSIONS.map((mission) => {
-            const specialty = specialtyStyle(mission.specialty);
-            return (
-              <button
-                key={mission.id}
-                type="button"
-                onClick={() => selectMission(mission)}
-                className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
-              >
-                <div className="flex items-center justify-between gap-3 text-xs">
-                  <span style={{ color: specialty.color }}>
-                    {specialty.icon} {specialty.label}
-                  </span>
-                  <span className="text-muted-foreground">
-                    {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
-                  </span>
-                </div>
-                <h3 className="mt-3 font-serif text-xl text-foreground">{mission.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  {mission.summary}
-                </p>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
-                  Woman + man partner versions
-                </p>
-              </button>
-            );
-          })}
-        </div>
+        {catalogModule ? (
+          <>
+            <button
+              type="button"
+              onClick={() => setCatalogModuleId(null)}
+              className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            >
+              <ChevronLeft className="h-4 w-4" /> All Spanish specialties
+            </button>
+            <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
+              <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
+              <h3 className="mt-1 font-serif text-2xl text-foreground">
+                {catalogModule.emoji} {catalogModule.name}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {catalogModule.blurb}
+              </p>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                {catalogMissions.length} speaking missions
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {catalogMissions.map((mission) => {
+                const specialty = specialtyStyle(mission.specialty);
+                return (
+                  <button
+                    key={mission.id}
+                    type="button"
+                    onClick={() => selectMission(mission)}
+                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-xs">
+                      <span style={{ color: specialty.color }}>{specialty.label}</span>
+                      <span className="text-muted-foreground">
+                        {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
+                      </span>
+                    </div>
+                    <h3 className="mt-3 font-serif text-xl text-foreground">{mission.title}</h3>
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                      Woman + man partner versions
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <>
+            <label className="relative mb-3 block">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <span className="sr-only">Search Spanish specialties</span>
+              <input
+                type="search"
+                value={catalogSearch}
+                onChange={(event) => setCatalogSearch(event.target.value)}
+                placeholder="Search specialties or mission topics…"
+                className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-3 text-sm text-foreground"
+              />
+            </label>
+            <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+              {(["All", ...catalogCategories] as const).map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setCatalogCategory(category)}
+                  className={
+                    "shrink-0 rounded-full border px-3 py-1.5 text-xs transition-colors " +
+                    (catalogCategory === category
+                      ? "border-gold bg-gold/15 text-gold"
+                      : "border-border text-muted-foreground hover:text-foreground")
+                  }
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {filteredCatalogModules.map((module) => {
+                const missionCount = SPEAKING_MISSIONS.filter(
+                  (mission) => mission.moduleId === module.id,
+                ).length;
+                const specialty = specialtyStyle(module.category);
+                return (
+                  <button
+                    key={module.id}
+                    type="button"
+                    onClick={() => setCatalogModuleId(module.id)}
+                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-xs">
+                      <span style={{ color: specialty.color }}>{specialty.label}</span>
+                      <span className="text-muted-foreground">{missionCount} missions</span>
+                    </div>
+                    <h3 className="mt-3 font-serif text-xl text-foreground">
+                      {module.emoji} {module.name}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {module.blurb}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+            {filteredCatalogModules.length === 0 && (
+              <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
+                No Spanish specialty matches that search.
+              </p>
+            )}
+          </>
+        )}
       </section>
     );
   }
@@ -432,7 +588,7 @@ export function SpeakingMissionsPreview() {
         </button>
         <div className="mt-5 flex items-center justify-between gap-3 text-xs">
           <span style={{ color: specialty.color }}>
-            {specialty.icon} {specialty.label} · {selectedMission.level}
+            {selectedMission.moduleEmoji} {selectedMission.moduleName} · {selectedMission.level}
           </span>
           <span className="text-muted-foreground">
             {selectedMission.quickMinutes}–{selectedMission.targetMinutes} min
@@ -462,7 +618,7 @@ export function SpeakingMissionsPreview() {
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Useful vocabulary
+              Focus concepts
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {selectedMission.vocabulary.map((word) => (
@@ -476,6 +632,34 @@ export function SpeakingMissionsPreview() {
 
         <div className="mt-6 rounded-2xl border border-gold/25 bg-background/50 p-4">
           <fieldset>
+            <legend className="text-sm text-muted-foreground">Partner audio</legend>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {(["device", "google"] as const).map((source) => {
+                const selected = partnerAudioSource === source;
+                return (
+                  <button
+                    key={source}
+                    type="button"
+                    onClick={() => setPartnerAudioSource(source)}
+                    aria-pressed={selected}
+                    className={
+                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      (selected
+                        ? "border-gold bg-gold/15 text-gold"
+                        : "border-border text-muted-foreground hover:text-foreground")
+                    }
+                  >
+                    {source === "device" ? "Device voice" : "Google voices"}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Device voice preserves the voice already used by the app. Google provides a fixed
+              woman/man pair when configured.
+            </p>
+          </fieldset>
+          <fieldset className="mt-4 border-t border-border/60 pt-4">
             <legend className="text-sm text-muted-foreground">Conversation partner</legend>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {(["woman", "man"] as const).map((version) => {
@@ -512,9 +696,10 @@ export function SpeakingMissionsPreview() {
             />
             <span>
               I confirm I am 13 or older. Mission mode sends my recognized speech text to Anthropic.
-              Google Cloud receives only the partner&apos;s generated Spanish line plus voice and
-              speed settings to create playback. The app does not send microphone audio to Google
-              Cloud TTS; browser speech recognition may use browser or operating-system services.
+              {partnerAudioSource === "google"
+                ? " Google Cloud receives only the partner's generated Spanish line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS."
+                : " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."}{" "}
+              Browser speech recognition may use browser or operating-system services.
             </span>
           </label>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
@@ -532,17 +717,21 @@ export function SpeakingMissionsPreview() {
           <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
             <div>
               <p className="text-sm text-muted-foreground">
-                {partnerVersion === "woman" ? "Woman" : "Man"} partner voice
+                {partnerAudioSource === "device"
+                  ? "Current app voice"
+                  : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
               </p>
               <p className="mt-0.5 text-xs text-foreground/80">
-                {partnerVoice.label} · {partnerVoice.name}
+                {partnerAudioSource === "device"
+                  ? "Best available Spanish voice from this phone or browser"
+                  : `${partnerVoice.label} · ${partnerVoice.name}`}
               </p>
             </div>
             <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-              Server voice
+              {partnerAudioSource === "device" ? "Device voice" : "Server voice"}
             </span>
           </div>
-          {ttsStatus === "ready" ? (
+          {partnerAudioReady ? (
             <button
               type="button"
               onClick={() =>
@@ -554,18 +743,22 @@ export function SpeakingMissionsPreview() {
               }
               className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
             >
-              Test {partnerVersion} voice at {partnerSpeed}×
+              Test {partnerAudioSource === "device" ? "device" : partnerVersion} voice at{" "}
+              {partnerSpeed}×
             </button>
           ) : (
             <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
-              {ttsStatus === "checking"
-                ? "Checking Google partner voice availability…"
-                : "Google Cloud partner voices are not configured for this Preview deployment."}
+              {partnerAudioSource === "device"
+                ? "A Spanish device voice is unavailable in this browser."
+                : ttsStatus === "checking"
+                  ? "Checking Google partner voice availability…"
+                  : "Google Cloud partner voices are not configured for this Preview deployment."}
             </p>
           )}
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            The mission uses a fixed Google Neural2 woman/man pair, independent of the voices
-            installed on this phone.
+            {partnerAudioSource === "device"
+              ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
+              : "Google uses a fixed Neural2 woman/man pair, independent of the voices installed on this phone."}
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="flex items-center justify-between gap-3 text-muted-foreground">
@@ -601,7 +794,7 @@ export function SpeakingMissionsPreview() {
         <button
           type="button"
           onClick={beginMission}
-          disabled={!ageConfirmed || ttsStatus !== "ready"}
+          disabled={!ageConfirmed || !partnerAudioReady}
           className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
         >
           Start mission

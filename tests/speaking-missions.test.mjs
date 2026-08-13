@@ -5,7 +5,11 @@ import {
   MISSION_TTS_SPEEDS,
   MISSION_TTS_VOICES,
 } from "../src/data/mission-tts.ts";
-import { findSpeakingMission, SPEAKING_MISSIONS } from "../src/data/speaking-missions.ts";
+import {
+  findSpeakingMission,
+  SPANISH_SPEAKING_MODULES,
+  SPEAKING_MISSIONS,
+} from "../src/data/speaking-missions.ts";
 
 const APPROVED_SCENARIO_VERSION_IDS = [
   "scenario_version_construction_safety_briefing_es_v1",
@@ -16,13 +20,33 @@ const APPROVED_SCENARIO_VERSION_IDS = [
   "scenario_version_missionary_church_ride_es_v1",
 ];
 
-test("speaking preview exposes only the six approved immutable scenarios", () => {
+test("speaking preview preserves the six reviewed immutable scenarios", () => {
   assert.deepEqual(
-    SPEAKING_MISSIONS.map((mission) => mission.id),
+    SPEAKING_MISSIONS.slice(0, APPROVED_SCENARIO_VERSION_IDS.length).map((mission) => mission.id),
     APPROVED_SCENARIO_VERSION_IDS,
   );
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 6);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 6);
+});
+
+test("speaking preview covers every existing Spanish specialty challenge", () => {
+  assert.equal(SPANISH_SPEAKING_MODULES.length, 40);
+  const challengeCount = SPANISH_SPEAKING_MODULES.reduce(
+    (total, module) => total + module.challengePrompts.length,
+    0,
+  );
+  assert.equal(challengeCount, 233);
+  assert.equal(SPEAKING_MISSIONS.length, APPROVED_SCENARIO_VERSION_IDS.length + challengeCount);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 239);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 239);
+
+  for (const module of SPANISH_SPEAKING_MODULES) {
+    const generated = SPEAKING_MISSIONS.filter(
+      (mission) =>
+        mission.moduleId === module.id &&
+        mission.id.includes(`scenario_version_${module.id}_challenge_`),
+    );
+    assert.equal(generated.length, module.challengePrompts.length, module.id);
+  }
+  assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
 });
 
 test("each speaking mission has complete UX-preview metadata", () => {
@@ -30,6 +54,9 @@ test("each speaking mission has complete UX-preview metadata", () => {
     assert.equal(mission.version, 1);
     assert.equal(mission.locale, "es-419");
     assert.ok(mission.title.length > 0);
+    assert.ok(mission.moduleId.length > 0);
+    assert.ok(mission.moduleName.length > 0);
+    assert.ok(mission.moduleEmoji.length > 0);
     assert.ok(mission.openingLine.length > 0);
     assert.ok(mission.vocabulary.length > 0);
     assert.equal(mission.objectives.length, 3);

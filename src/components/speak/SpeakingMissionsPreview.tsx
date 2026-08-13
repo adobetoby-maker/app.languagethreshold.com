@@ -1,15 +1,24 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Square, X } from "lucide-react";
-import { VoicePicker } from "@/components/VoicePicker";
+import {
+  isMissionTtsSpeed,
+  MISSION_TTS_SPEEDS,
+  MISSION_TTS_VOICES,
+  type MissionPartnerVersion,
+} from "@/data/mission-tts";
 import { SPEAKING_MISSIONS, type SpeakingMission } from "@/data/speaking-missions";
-import { pickVoiceForPresentation, subscribeVoices } from "@/lib/voices";
+import {
+  getMissionTtsCapabilities,
+  speakMissionTts,
+  stopMissionTts,
+  type MissionTtsCapabilities,
+} from "@/lib/mission-tts";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useSpeech } from "@/state/speech-state";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Spanish" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
-type PartnerVersion = "woman" | "man";
 
 interface MissionTurn {
   id: string;
@@ -67,16 +76,14 @@ function missionTurnId() {
   return `${Date.now()}-${crypto.randomUUID()}`;
 }
 
-const PARTNER_SPEED_OPTIONS = [0.5, 0.6, 0.75, 0.85, 1, 1.1, 1.25, 1.5] as const;
-
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
-  const { accent, rate, setRate, voiceURI } = useSpeech();
+  const { accent, rate, setRate } = useSpeech();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
-  const [partnerVersion, setPartnerVersion] = useState<PartnerVersion>("woman");
+  const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -84,17 +91,32 @@ export function SpeakingMissionsPreview() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
-  const [, setVoiceRevision] = useState(0);
+  const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
+  const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
   const missionLocale = accent.startsWith("es-") ? accent : "es-MX";
-  const partnerVoice = pickVoiceForPresentation(missionLocale, partnerVersion, voiceURI);
+  const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
+  const partnerVoice =
+    ttsCapabilities?.voices[partnerVersion] ?? MISSION_TTS_VOICES[partnerVersion];
 
   useEffect(() => setRecognitionSupported(recognitionConstructor() !== null), []);
 
-  useEffect(() => subscribeVoices(() => setVoiceRevision((revision) => revision + 1)), []);
+  useEffect(() => {
+    const controller = new AbortController();
+    getMissionTtsCapabilities(controller.signal)
+      .then((capabilities) => {
+        setTtsCapabilities(capabilities);
+        setTtsStatus(capabilities.ready ? "ready" : "unavailable");
+      })
+      .catch((error) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setTtsStatus("unavailable");
+      });
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     transcriptRef.current?.scrollTo({
@@ -104,6 +126,7 @@ export function SpeakingMissionsPreview() {
   }, [turns, interim, status]);
 
   const stopAudio = useCallback(() => {
+    stopMissionTts();
     if (typeof window !== "undefined") window.speechSynthesis?.cancel();
   }, []);
 
@@ -147,26 +170,31 @@ export function SpeakingMissionsPreview() {
   }, [started, status, stopActiveWork]);
 
   const speakPartnerText = useCallback(
-    (text: string) => {
-      if (typeof window === "undefined" || !window.speechSynthesis) return;
+    async (text: string) => {
       stopAudio();
-      const utterance = new SpeechSynthesisUtterance(text);
-      if (!partnerVoice) {
-        setErrorMessage(
-          `No identifiable ${partnerVersion} Spanish voice is available on this device. Choose another installed voice or use the other partner version.`,
-        );
+      if (ttsStatus !== "ready") {
+        setErrorMessage("Google partner voices are unavailable for this Preview deployment.");
         return;
       }
-      utterance.lang = missionLocale;
-      utterance.voice = partnerVoice;
-      utterance.rate = rate;
-      window.speechSynthesis.speak(utterance);
+      try {
+        await speakMissionTts({
+          text,
+          partnerVersion,
+          speakingRate: partnerSpeed,
+          ageConfirmed,
+        });
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setErrorMessage(
+          error instanceof Error ? error.message : "Google partner voice playback failed.",
+        );
+      }
     },
-    [missionLocale, partnerVersion, partnerVoice, rate, stopAudio],
+    [ageConfirmed, partnerSpeed, partnerVersion, stopAudio, ttsStatus],
   );
 
   const beginMission = () => {
-    if (!selectedMission || !ageConfirmed || !partnerVoice) return;
+    if (!selectedMission || !ageConfirmed || ttsStatus !== "ready") return;
     stopActiveWork();
     const opening: MissionTurn = {
       id: missionTurnId(),
@@ -182,7 +210,7 @@ export function SpeakingMissionsPreview() {
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
-    speakPartnerText(opening.text);
+    void speakPartnerText(opening.text);
   };
 
   const exitMission = () => {
@@ -266,7 +294,7 @@ export function SpeakingMissionsPreview() {
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
-      speakPartnerText(payload.assistantText);
+      void speakPartnerText(payload.assistantText);
     } catch (error) {
       requestRef.current = null;
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -484,7 +512,9 @@ export function SpeakingMissionsPreview() {
             />
             <span>
               I confirm I am 13 or older. Mission mode sends my recognized speech text to Anthropic.
-              Audio remains handled by the browser in this UX preview.
+              Google Cloud receives only the partner&apos;s generated Spanish line plus voice and
+              speed settings to create playback. The app does not send microphone audio to Google
+              Cloud TTS; browser speech recognition may use browser or operating-system services.
             </span>
           </label>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
@@ -505,17 +535,18 @@ export function SpeakingMissionsPreview() {
                 {partnerVersion === "woman" ? "Woman" : "Man"} partner voice
               </p>
               <p className="mt-0.5 text-xs text-foreground/80">
-                {partnerVoice?.name ?? `No identifiable ${partnerVersion} Spanish voice`}
-                {partnerVoice?.name.includes("Google") ? " · Google" : ""}
+                {partnerVoice.label} · {partnerVoice.name}
               </p>
             </div>
-            <VoicePicker />
+            <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+              Server voice
+            </span>
           </div>
-          {partnerVoice ? (
+          {ttsStatus === "ready" ? (
             <button
               type="button"
               onClick={() =>
-                speakPartnerText(
+                void speakPartnerText(
                   partnerVersion === "woman"
                     ? "Hola, soy su compañera de práctica. ¿Empezamos?"
                     : "Hola, soy su compañero de práctica. ¿Empezamos?",
@@ -523,30 +554,30 @@ export function SpeakingMissionsPreview() {
               }
               className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
             >
-              Test {partnerVersion} voice at {rate}×
+              Test {partnerVersion} voice at {partnerSpeed}×
             </button>
           ) : (
             <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
-              This browser did not expose an identifiable {partnerVersion} Spanish voice. Voice
-              names—not the partner button—determine the actual sound. Install or select a matching
-              Spanish voice, or use the other partner version.
+              {ttsStatus === "checking"
+                ? "Checking Google partner voice availability…"
+                : "Google Cloud partner voices are not configured for this Preview deployment."}
             </p>
           )}
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Browser voice lists do not include a reliable gender field, so the app only labels
-            well-known voice names and will not silently reuse the wrong voice.
+            The mission uses a fixed Google Neural2 woman/man pair, independent of the voices
+            installed on this phone.
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="flex items-center justify-between gap-3 text-muted-foreground">
               <span>Partner speed · ear training</span>
-              <span className="font-mono text-gold">{rate}×</span>
+              <span className="font-mono text-gold">{partnerSpeed}×</span>
             </span>
             <select
-              value={rate}
+              value={partnerSpeed}
               onChange={(event) => setRate(Number(event.target.value))}
               className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
             >
-              {PARTNER_SPEED_OPTIONS.map((speed) => (
+              {MISSION_TTS_SPEEDS.map((speed) => (
                 <option key={speed} value={speed}>
                   {speed}×
                   {speed === 0.5
@@ -570,7 +601,7 @@ export function SpeakingMissionsPreview() {
         <button
           type="button"
           onClick={beginMission}
-          disabled={!ageConfirmed || !partnerVoice}
+          disabled={!ageConfirmed || ttsStatus !== "ready"}
           className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
         >
           Start mission
@@ -734,7 +765,7 @@ export function SpeakingMissionsPreview() {
                   {turn.role === "partner" && (
                     <button
                       type="button"
-                      onClick={() => speakPartnerText(turn.text)}
+                      onClick={() => void speakPartnerText(turn.text)}
                       className="mr-2 text-gold"
                       aria-label="Replay partner speech"
                     >

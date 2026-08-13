@@ -1,5 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import {
+  isMissionTtsSpeed,
+  MISSION_TTS_SPEEDS,
+  MISSION_TTS_VOICES,
+} from "../src/data/mission-tts.ts";
 import { findSpeakingMission, SPEAKING_MISSIONS } from "../src/data/speaking-missions.ts";
 
 const APPROVED_SCENARIO_VERSION_IDS = [
@@ -40,4 +45,26 @@ test("mission lookup fails closed for unknown versions", () => {
   const approved = SPEAKING_MISSIONS[0];
   assert.equal(findSpeakingMission(approved.id), approved);
   assert.equal(findSpeakingMission("scenario_version_unknown_es_v1"), null);
+});
+
+test("mission TTS uses a fixed Google Neural2 woman/man pair", () => {
+  assert.deepEqual(MISSION_TTS_VOICES.woman, {
+    name: "es-US-Neural2-A",
+    languageCode: "es-US",
+    label: "Google Neural2 · woman",
+  });
+  assert.deepEqual(MISSION_TTS_VOICES.man, {
+    name: "es-US-Neural2-B",
+    languageCode: "es-US",
+    label: "Google Neural2 · man",
+  });
+  assert.notEqual(MISSION_TTS_VOICES.woman.name, MISSION_TTS_VOICES.man.name);
+});
+
+test("mission TTS accepts only the published ear-training speeds", () => {
+  assert.deepEqual(MISSION_TTS_SPEEDS, [0.5, 0.6, 0.75, 0.85, 1, 1.1, 1.25, 1.5]);
+  for (const speed of MISSION_TTS_SPEEDS) assert.equal(isMissionTtsSpeed(speed), true);
+  for (const unsupported of [0.25, 0.7, 0.9, 2]) {
+    assert.equal(isMissionTtsSpeed(unsupported), false);
+  }
 });

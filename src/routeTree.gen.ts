@@ -21,6 +21,7 @@ import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhoo
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
+import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
@@ -88,6 +89,11 @@ const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
   path: '/api/module-field-prep',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiMissionTtsRoute = ApiMissionTtsRouteImport.update({
+  id: '/api/mission-tts',
+  path: '/api/mission-tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiFieldPrepRoute = ApiFieldPrepRouteImport.update({
   id: '/api/field-prep',
   path: '/api/field-prep',
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
+  '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
     | '/api/sports-news'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
     | '/api/sports-news'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
+    | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
     | '/api/sports-news'
@@ -255,6 +267,7 @@ export interface RootRouteChildren {
   ApiDiscussionRoute: typeof ApiDiscussionRoute
   ApiFamilyAddKidRoute: typeof ApiFamilyAddKidRoute
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
+  ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
@@ -350,6 +363,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/mission-tts': {
+      id: '/api/mission-tts'
+      path: '/api/mission-tts'
+      fullPath: '/api/mission-tts'
+      preLoaderRoute: typeof ApiMissionTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/field-prep': {
       id: '/api/field-prep'
       path: '/api/field-prep'
@@ -407,6 +427,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiDiscussionRoute: ApiDiscussionRoute,
   ApiFamilyAddKidRoute: ApiFamilyAddKidRoute,
   ApiFieldPrepRoute: ApiFieldPrepRoute,
+  ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,

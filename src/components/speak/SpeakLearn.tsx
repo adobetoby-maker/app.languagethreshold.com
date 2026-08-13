@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Mic, Square, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useApp, type Language } from "@/state/app-state";
@@ -10,6 +10,7 @@ import { celebrate, looseIncludes } from "@/lib/confetti";
 import { getModule } from "@/data/modules";
 import { matchesFocus } from "@/lib/module-filter";
 import { ChallengePanel, type SpeakChallenge } from "@/components/speak/ChallengePanel";
+import { SpeakingMissionsPreview } from "@/components/speak/SpeakingMissionsPreview";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { useAiGate } from "@/state/ai-gate-state";
 
@@ -77,15 +78,28 @@ type SpeechRecognitionLike = {
   start: () => void;
   stop: () => void;
   abort: () => void;
-  onresult: ((e: any) => void) | null;
-  onerror: ((e: any) => void) | null;
+  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
   onend: (() => void) | null;
 };
 
+type SpeechRecognitionEventLike = {
+  resultIndex: number;
+  results: ArrayLike<{
+    isFinal: boolean;
+    0: { transcript: string };
+  }>;
+};
+
+type SpeechRecognitionErrorEventLike = { error?: string };
+
 function getRecognitionCtor(): (new () => SpeechRecognitionLike) | null {
   if (typeof window === "undefined") return null;
-  const w = window as any;
-  return w.SpeechRecognition || w.webkitSpeechRecognition || null;
+  const speechWindow = window as typeof window & {
+    SpeechRecognition?: new () => SpeechRecognitionLike;
+    webkitSpeechRecognition?: new () => SpeechRecognitionLike;
+  };
+  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
 }
 
 export function SpeakLearn() {
@@ -111,6 +125,7 @@ export function SpeakLearn() {
   const [interim, setInterim] = useState("");
   const [thinking, setThinking] = useState(false);
   const [challenge, setChallenge] = useState<SpeakChallenge | null>(null);
+  const [surface, setSurface] = useState<"missions" | "conversation">("missions");
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -153,19 +168,22 @@ export function SpeakLearn() {
     };
   }, [addSeconds, dispatch, language]);
 
-  const speakAloud = (text: string) => {
-    if (typeof window === "undefined") return;
-    if (needsRemoteTTS(accent)) {
-      void speakRemote(text, accent, { rate: 1 });
-      return;
-    }
-    if (!window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    configureUtterance(u, accent, voiceURI);
-    u.rate = 1;
-    window.speechSynthesis.speak(u);
-  };
+  const speakAloud = useCallback(
+    (text: string) => {
+      if (typeof window === "undefined") return;
+      if (needsRemoteTTS(accent)) {
+        void speakRemote(text, accent, { rate: 1 });
+        return;
+      }
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      configureUtterance(u, accent, voiceURI);
+      u.rate = 1;
+      window.speechSynthesis.speak(u);
+    },
+    [accent, voiceURI],
+  );
 
   const awardExchange = () => {
     dispatch({ type: "ADD_XP", payload: 10 });
@@ -284,9 +302,9 @@ export function SpeakLearn() {
         incrementExchanges();
         awardExchange();
       }
-    } catch (e: any) {
+    } catch (e: unknown) {
       setThinking(false);
-      if (e?.name !== "AbortError") {
+      if (!(e instanceof DOMException && e.name === "AbortError")) {
         toast("Network error", {
           description: "Couldn't reach the conversation partner.",
         });
@@ -351,7 +369,7 @@ export function SpeakLearn() {
       rec.interimResults = true;
 
       let finalText = "";
-      rec.onresult = (e: any) => {
+      rec.onresult = (e) => {
         let interimText = "";
         for (let i = e.resultIndex; i < e.results.length; i++) {
           const r = e.results[i];
@@ -360,7 +378,7 @@ export function SpeakLearn() {
         }
         setInterim(interimText);
       };
-      rec.onerror = (e: any) => {
+      rec.onerror = (e) => {
         if (e?.error && e.error !== "no-speech" && e.error !== "aborted") {
           toast("Mic error", { description: String(e.error) });
         }
@@ -457,7 +475,7 @@ export function SpeakLearn() {
         )}
       </div>
     ),
-    [turns, interim, isEmpty, language, thinking],
+    [turns, interim, isEmpty, language, thinking, speakAloud],
   );
 
   return (
@@ -466,11 +484,15 @@ export function SpeakLearn() {
         <div>
           <h1 className="font-serif text-4xl text-foreground">Speak & Learn</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            A patient {language} conversation partner. Tap, talk, learn.
-            {exchanges > 0 && <span className="ml-2 text-gold">· {exchanges} exchanges</span>}
+            {surface === "missions"
+              ? "Practice a focused Spanish situation with a clear goal."
+              : `A patient ${language} conversation partner. Tap, talk, learn.`}
+            {surface === "conversation" && exchanges > 0 && (
+              <span className="ml-2 text-gold">· {exchanges} exchanges</span>
+            )}
           </p>
         </div>
-        {turns.length > 0 && (
+        {surface === "conversation" && turns.length > 0 && (
           <button
             onClick={clear}
             className="flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -481,120 +503,163 @@ export function SpeakLearn() {
         )}
       </header>
 
-      <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
+      <div
+        role="tablist"
+        aria-label="Speaking practice type"
+        className="grid grid-cols-2 rounded-2xl border border-border/70 bg-card/40 p-1"
+      >
+        <button
+          type="button"
+          role="tab"
+          aria-selected={surface === "missions"}
+          onClick={() => setSurface("missions")}
+          className={
+            "rounded-xl px-3 py-2 text-sm transition-colors " +
+            (surface === "missions"
+              ? "bg-gold text-black"
+              : "text-muted-foreground hover:text-foreground")
+          }
+        >
+          Scenario missions
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={surface === "conversation"}
+          onClick={() => setSurface("conversation")}
+          className={
+            "rounded-xl px-3 py-2 text-sm transition-colors " +
+            (surface === "conversation"
+              ? "bg-gold text-black"
+              : "text-muted-foreground hover:text-foreground")
+          }
+        >
+          Free conversation
+        </button>
+      </div>
 
-      {transcript}
+      {surface === "missions" ? (
+        <SpeakingMissionsPreview />
+      ) : (
+        <>
+          <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
 
-      <ChallengePanel
-        language={language}
-        level={state.level}
-        active={challenge}
-        onStart={(c) => setChallenge(c)}
-        onSpeakAloud={speakAloud}
-      />
+          {transcript}
 
-      {(() => {
-        const mod = getModule(state.activeModuleId);
-        if (!mod) return null;
-        return (
-          <div className="mt-6 rounded-3xl border border-gold/40 bg-gold/10 p-4 backdrop-blur">
-            <div className="mb-2 flex items-center gap-2">
-              <span className="text-base leading-none">{mod.emoji}</span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                ◈ In {mod.name}
-              </span>
-              <span className="text-xs text-muted-foreground">· roleplay as {mod.userRole}</span>
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
-              {mod.challengePrompts.map((p) => (
-                <button
-                  key={p}
-                  onClick={() => sendChip(p)}
-                  disabled={listening || thinking}
-                  className="shrink-0 rounded-full border border-gold/50 bg-background/70 px-4 py-1.5 text-sm text-foreground transition-all hover:border-gold hover:bg-gold/15 disabled:opacity-40"
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
+          <ChallengePanel
+            language={language}
+            level={state.level}
+            active={challenge}
+            onStart={(c) => setChallenge(c)}
+            onSpeakAloud={speakAloud}
+          />
 
-      <div className="mt-6">
-        <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
-          Topic starters
-        </p>
-        <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
           {(() => {
             const mod = getModule(state.activeModuleId);
-            const focus = mod?.vocabFocus ?? null;
-            const ordered = focus
-              ? [...chips].sort((a, b) => {
-                  const am = matchesFocus(a, focus) ? 1 : 0;
-                  const bm = matchesFocus(b, focus) ? 1 : 0;
-                  return bm - am;
-                })
-              : chips;
-            return ordered.map((chip) => {
-              const inMod = !!focus && matchesFocus(chip, focus);
-              return (
+            if (!mod) return null;
+            return (
+              <div className="mt-6 rounded-3xl border border-gold/40 bg-gold/10 p-4 backdrop-blur">
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="text-base leading-none">{mod.emoji}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                    ◈ In {mod.name}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    · roleplay as {mod.userRole}
+                  </span>
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
+                  {mod.challengePrompts.map((p) => (
+                    <button
+                      key={p}
+                      onClick={() => sendChip(p)}
+                      disabled={listening || thinking}
+                      className="shrink-0 rounded-full border border-gold/50 bg-background/70 px-4 py-1.5 text-sm text-foreground transition-all hover:border-gold hover:bg-gold/15 disabled:opacity-40"
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="mt-6">
+            <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
+              Topic starters
+            </p>
+            <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
+              {(() => {
+                const mod = getModule(state.activeModuleId);
+                const focus = mod?.vocabFocus ?? null;
+                const ordered = focus
+                  ? [...chips].sort((a, b) => {
+                      const am = matchesFocus(a, focus) ? 1 : 0;
+                      const bm = matchesFocus(b, focus) ? 1 : 0;
+                      return bm - am;
+                    })
+                  : chips;
+                return ordered.map((chip) => {
+                  const inMod = !!focus && matchesFocus(chip, focus);
+                  return (
+                    <button
+                      key={chip}
+                      onClick={() => sendChip(chip)}
+                      disabled={listening || thinking}
+                      className={
+                        "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
+                        (inMod
+                          ? "border-gold/60 hover:border-gold"
+                          : "border-gold/30 hover:border-gold/60")
+                      }
+                    >
+                      {inMod && <span className="mr-1 text-gold">◈</span>}
+                      {chip}
+                    </button>
+                  );
+                });
+              })()}
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col items-center gap-3">
+            {supported === false ? (
+              <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-center text-sm text-muted-foreground">
+                Speech recognition isn’t available in this browser.
+                <br />
+                Try Chrome or Edge for the full Speak & Learn experience.
+              </div>
+            ) : (
+              <>
                 <button
-                  key={chip}
-                  onClick={() => sendChip(chip)}
-                  disabled={listening || thinking}
+                  onClick={listening ? stopListening : startListening}
+                  disabled={thinking}
+                  aria-label={listening ? "Stop listening" : "Start listening"}
                   className={
-                    "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
-                    (inMod
-                      ? "border-gold/60 hover:border-gold"
-                      : "border-gold/30 hover:border-gold/60")
+                    "relative flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +
+                    (listening
+                      ? "bg-gold listening-rings"
+                      : "tutor-pulse bg-primary hover:bg-primary/90")
                   }
                 >
-                  {inMod && <span className="mr-1 text-gold">◈</span>}
-                  {chip}
+                  {listening ? (
+                    <Square className="h-7 w-7" fill="currentColor" />
+                  ) : (
+                    <Mic className="h-8 w-8" />
+                  )}
                 </button>
-              );
-            });
-          })()}
-        </div>
-      </div>
-
-      <div className="mt-6 flex flex-col items-center gap-3">
-        {supported === false ? (
-          <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-center text-sm text-muted-foreground">
-            Speech recognition isn’t available in this browser.
-            <br />
-            Try Chrome or Edge for the full Speak & Learn experience.
+                <p className="text-sm text-muted-foreground">
+                  {listening
+                    ? "Listening… speak naturally"
+                    : thinking
+                      ? "Partner is replying…"
+                      : "Tap the mic to speak"}
+                </p>
+              </>
+            )}
           </div>
-        ) : (
-          <>
-            <button
-              onClick={listening ? stopListening : startListening}
-              disabled={thinking}
-              aria-label={listening ? "Stop listening" : "Start listening"}
-              className={
-                "relative flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform active:scale-95 disabled:opacity-50 " +
-                (listening
-                  ? "bg-gold listening-rings"
-                  : "tutor-pulse bg-primary hover:bg-primary/90")
-              }
-            >
-              {listening ? (
-                <Square className="h-7 w-7" fill="currentColor" />
-              ) : (
-                <Mic className="h-8 w-8" />
-              )}
-            </button>
-            <p className="text-sm text-muted-foreground">
-              {listening
-                ? "Listening… speak naturally"
-                : thinking
-                  ? "Partner is replying…"
-                  : "Tap the mic to speak"}
-            </p>
-          </>
-        )}
-      </div>
+        </>
+      )}
     </div>
   );
 }

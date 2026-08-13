@@ -104,8 +104,8 @@ const S: Record<string, TourStep> = {
   },
   speak: {
     target: "speak",
-    title: "Speak & Learn",
-    body: "Talk with an AI conversation partner. Your mic picks up your voice, the AI responds naturally. Spoken production — actually forming sentences out loud — cements vocabulary faster than any passive method.",
+    title: "Speak & Learn — Core First",
+    body: "For Spanish, Italian, and Japanese, start in Core Speaking: essential verbs, high-use grammar patterns, then 53 daily-life situations. Move into specialty missions when the foundation feels automatic.",
     tabKey: "speak",
     cta: "Start Speaking",
   },

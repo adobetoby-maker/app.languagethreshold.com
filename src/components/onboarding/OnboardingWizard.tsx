@@ -310,6 +310,16 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                     <p className="text-sm font-medium">{professionLabel}</p>
                   </div>
                 </div>
+                {language && ["Spanish", "Italian", "Japanese"].includes(language) && (
+                  <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
+                    <span className="text-lg">🎙️</span>
+                    <p className="text-xs leading-snug text-muted-foreground">
+                      <span className="font-medium text-foreground">Core Speaking</span> is ready
+                      with essential verbs, high-use grammar, and 53 daily-life situations before
+                      specialty practice.
+                    </p>
+                  </div>
+                )}
                 <div className="flex items-center gap-3 rounded-xl border border-border/40 bg-background/50 px-4 py-3">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20">
                     <Check className="h-3.5 w-3.5 text-gold" strokeWidth={2.5} />

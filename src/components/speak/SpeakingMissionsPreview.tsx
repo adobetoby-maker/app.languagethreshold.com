@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Square, X } from "lucide-react";
 import { VoicePicker } from "@/components/VoicePicker";
 import { SPEAKING_MISSIONS, type SpeakingMission } from "@/data/speaking-missions";
-import { configureUtterance, pickVoice } from "@/lib/voices";
+import { pickVoiceForPresentation, subscribeVoices } from "@/lib/voices";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useSpeech } from "@/state/speech-state";
 
@@ -84,14 +84,17 @@ export function SpeakingMissionsPreview() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
+  const [, setVoiceRevision] = useState(0);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
   const missionLocale = accent.startsWith("es-") ? accent : "es-MX";
-  const activeVoice = pickVoice(missionLocale, voiceURI);
+  const partnerVoice = pickVoiceForPresentation(missionLocale, partnerVersion, voiceURI);
 
   useEffect(() => setRecognitionSupported(recognitionConstructor() !== null), []);
+
+  useEffect(() => subscribeVoices(() => setVoiceRevision((revision) => revision + 1)), []);
 
   useEffect(() => {
     transcriptRef.current?.scrollTo({
@@ -148,15 +151,22 @@ export function SpeakingMissionsPreview() {
       if (typeof window === "undefined" || !window.speechSynthesis) return;
       stopAudio();
       const utterance = new SpeechSynthesisUtterance(text);
-      configureUtterance(utterance, missionLocale, voiceURI);
+      if (!partnerVoice) {
+        setErrorMessage(
+          `No identifiable ${partnerVersion} Spanish voice is available on this device. Choose another installed voice or use the other partner version.`,
+        );
+        return;
+      }
+      utterance.lang = missionLocale;
+      utterance.voice = partnerVoice;
       utterance.rate = rate;
       window.speechSynthesis.speak(utterance);
     },
-    [missionLocale, rate, stopAudio, voiceURI],
+    [missionLocale, partnerVersion, partnerVoice, rate, stopAudio],
   );
 
   const beginMission = () => {
-    if (!selectedMission || !ageConfirmed) return;
+    if (!selectedMission || !ageConfirmed || !partnerVoice) return;
     stopActiveWork();
     const opening: MissionTurn = {
       id: missionTurnId(),
@@ -495,16 +505,36 @@ export function SpeakingMissionsPreview() {
                 {partnerVersion === "woman" ? "Woman" : "Man"} partner voice
               </p>
               <p className="mt-0.5 text-xs text-foreground/80">
-                {activeVoice?.name ?? `Best available ${missionLocale} voice`}
-                {activeVoice?.name.includes("Google") ? " · Google" : ""}
+                {partnerVoice?.name ?? `No identifiable ${partnerVersion} Spanish voice`}
+                {partnerVoice?.name.includes("Google") ? " · Google" : ""}
               </p>
             </div>
             <VoicePicker />
           </div>
+          {partnerVoice ? (
+            <button
+              type="button"
+              onClick={() =>
+                speakPartnerText(
+                  partnerVersion === "woman"
+                    ? "Hola, soy su compañera de práctica. ¿Empezamos?"
+                    : "Hola, soy su compañero de práctica. ¿Empezamos?",
+                )
+              }
+              className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+            >
+              Test {partnerVersion} voice at {rate}×
+            </button>
+          ) : (
+            <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
+              This browser did not expose an identifiable {partnerVersion} Spanish voice. Voice
+              names—not the partner button—determine the actual sound. Install or select a matching
+              Spanish voice, or use the other partner version.
+            </p>
+          )}
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Browser voice lists do not reliably label gender. Use Voice to choose the matching woman
-            or man voice available on this device; Chrome and Edge usually offer the widest
-            selection.
+            Browser voice lists do not include a reliable gender field, so the app only labels
+            well-known voice names and will not silently reuse the wrong voice.
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="flex items-center justify-between gap-3 text-muted-foreground">
@@ -540,7 +570,7 @@ export function SpeakingMissionsPreview() {
         <button
           type="button"
           onClick={beginMission}
-          disabled={!ageConfirmed}
+          disabled={!ageConfirmed || !partnerVoice}
           className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
         >
           Start mission

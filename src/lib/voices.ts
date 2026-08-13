@@ -71,6 +71,68 @@ export function pickVoice(
   return candidates[0] ?? null;
 }
 
+export type VoicePresentation = "woman" | "man" | "unknown";
+
+const WOMAN_VOICE_NAMES = [
+  "female",
+  "woman",
+  "mónica",
+  "monica",
+  "paulina",
+  "luciana",
+  "ximena",
+  "marisol",
+  "sabina",
+  "dalia",
+  "elvira",
+  "sofia",
+  "helena",
+  "conchita",
+  "google español",
+];
+
+const MAN_VOICE_NAMES = [
+  "male",
+  "man",
+  "jorge",
+  "diego",
+  "carlos",
+  "juan",
+  "raul",
+  "raúl",
+  "pablo",
+  "alvaro",
+  "álvaro",
+  "enrique",
+  "antonio",
+];
+
+/** Browser voice metadata has no gender field, so only classify well-known explicit names. */
+export function voicePresentation(voice: SpeechSynthesisVoice): VoicePresentation {
+  const name = voice.name.toLocaleLowerCase();
+  if (MAN_VOICE_NAMES.some((marker) => name.includes(marker))) return "man";
+  if (WOMAN_VOICE_NAMES.some((marker) => name.includes(marker))) return "woman";
+  return "unknown";
+}
+
+/**
+ * Resolve an honestly-identifiable partner voice. A mismatched global voice is never reused just
+ * because it is available; callers can then explain that this device lacks the requested voice.
+ */
+export function pickVoiceForPresentation(
+  locale: string,
+  presentation: Exclude<VoicePresentation, "unknown">,
+  preferredVoiceURI?: string | null,
+): SpeechSynthesisVoice | null {
+  const candidates = getVoicesForLocale(locale);
+  if (preferredVoiceURI) {
+    const preferred = candidates.find((voice) => voice.voiceURI === preferredVoiceURI);
+    if (preferred && [presentation, "unknown"].includes(voicePresentation(preferred)))
+      return preferred;
+  }
+  return candidates.find((voice) => voicePresentation(voice) === presentation) ?? null;
+}
+
 /**
  * Apply locale + Google-voice preference to an utterance, then return it.
  * Always sets `lang` so OS fallback still works if no JS voice is found.

@@ -7,7 +7,9 @@ import {
 } from "../src/data/mission-tts.ts";
 import {
   findSpeakingMission,
-  SPANISH_SPEAKING_MODULES,
+  getSpeakingMissions,
+  getSpeakingModules,
+  SPEAKING_LANGUAGES,
   SPEAKING_MISSIONS,
 } from "../src/data/speaking-missions.ts";
 
@@ -27,32 +29,59 @@ test("speaking preview preserves the six reviewed immutable scenarios", () => {
   );
 });
 
-test("speaking preview covers every existing Spanish specialty challenge", () => {
-  assert.equal(SPANISH_SPEAKING_MODULES.length, 40);
-  const challengeCount = SPANISH_SPEAKING_MODULES.reduce(
-    (total, module) => total + module.challengePrompts.length,
-    0,
-  );
-  assert.equal(challengeCount, 233);
-  assert.equal(SPEAKING_MISSIONS.length, APPROVED_SCENARIO_VERSION_IDS.length + challengeCount);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 239);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 239);
+test("speaking preview covers every authored topic in Spanish, Italian, and Japanese", () => {
+  const expected = {
+    Spanish: { modules: 40, challenges: 233, lessons: 1180, curated: 6, total: 1419 },
+    Italian: { modules: 39, challenges: 226, lessons: 1170, curated: 0, total: 1396 },
+    Japanese: { modules: 39, challenges: 226, lessons: 1170, curated: 0, total: 1396 },
+  };
 
-  for (const module of SPANISH_SPEAKING_MODULES) {
-    const generated = SPEAKING_MISSIONS.filter(
-      (mission) =>
-        mission.moduleId === module.id &&
-        mission.id.includes(`scenario_version_${module.id}_challenge_`),
+  assert.deepEqual(
+    SPEAKING_LANGUAGES.map((entry) => entry.language),
+    ["Spanish", "Italian", "Japanese"],
+  );
+  for (const { language, locale } of SPEAKING_LANGUAGES) {
+    const modules = getSpeakingModules(language);
+    const missions = getSpeakingMissions(language);
+    const challenges = missions.filter((mission) => mission.id.includes("_challenge_"));
+    const lessons = missions.filter((mission) => mission.id.includes("_lesson_"));
+    const curated = missions.filter(
+      (mission) => !mission.id.includes("_challenge_") && !mission.id.includes("_lesson_"),
     );
-    assert.equal(generated.length, module.challengePrompts.length, module.id);
+    assert.equal(modules.length, expected[language].modules, `${language} modules`);
+    assert.equal(challenges.length, expected[language].challenges, `${language} challenges`);
+    assert.equal(lessons.length, expected[language].lessons, `${language} lessons`);
+    assert.equal(curated.length, expected[language].curated, `${language} curated`);
+    assert.equal(missions.length, expected[language].total, `${language} total`);
+    assert.ok(
+      missions.every((mission) => mission.locale === locale),
+      `${language} locale`,
+    );
+
+    for (const module of modules) {
+      assert.equal(
+        challenges.filter((mission) => mission.moduleId === module.id).length,
+        module.challengePrompts.length,
+        `${language}/${module.id} challenges`,
+      );
+      assert.ok(
+        lessons.some((mission) => mission.moduleId === module.id),
+        `${language}/${module.id} lessons`,
+      );
+    }
   }
+
+  assert.equal(SPEAKING_MISSIONS.length, 4211);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4211);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4211);
   assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
 });
 
 test("each speaking mission has complete UX-preview metadata", () => {
   for (const mission of SPEAKING_MISSIONS) {
     assert.equal(mission.version, 1);
-    assert.equal(mission.locale, "es-419");
+    assert.ok(["Spanish", "Italian", "Japanese"].includes(mission.language));
+    assert.ok(["es-419", "it-IT", "ja-JP"].includes(mission.locale));
     assert.ok(mission.title.length > 0);
     assert.ok(mission.moduleId.length > 0);
     assert.ok(mission.moduleName.length > 0);

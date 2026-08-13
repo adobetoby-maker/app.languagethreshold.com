@@ -1,6 +1,9 @@
 import { MODULES, type AppModule } from "./modules.ts";
+import { CURRICULA, type Lesson } from "./curriculum.ts";
 
 export type SpeakingMissionSpecialty = Exclude<AppModule["category"], "English for Work">;
+export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese";
+export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP";
 
 export interface SpeakingMissionObjective {
   id: string;
@@ -23,8 +26,10 @@ export interface SpeakingMission {
   level: "A1" | "A2";
   quickMinutes: number;
   targetMinutes: number;
-  locale: "es-419";
+  language: SpeakingMissionLanguage;
+  locale: SpeakingMissionLocale;
   vocabulary: string[];
+  sourcePrompts?: string[];
   objectives: SpeakingMissionObjective[];
   openingLine: string;
   safetyRules: string[];
@@ -49,6 +54,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A2",
     quickMinutes: 7,
     targetMinutes: 12,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: [
       "equipo de protección personal",
@@ -95,6 +101,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A2",
     quickMinutes: 7,
     targetMinutes: 11,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: ["poste", "plano de construcción", "trazo"],
     objectives: [
@@ -136,6 +143,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A2",
     quickMinutes: 8,
     targetMinutes: 12,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: ["peligro", "reporte de incidente", "emergencia", "primeros auxilios"],
     objectives: [
@@ -177,6 +185,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A1",
     quickMinutes: 7,
     targetMinutes: 10,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: ["iglesia", "verdad"],
     objectives: [
@@ -218,6 +227,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A2",
     quickMinutes: 9,
     targetMinutes: 15,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: ["restauración", "profeta", "revelación", "iglesia", "verdad"],
     objectives: [
@@ -259,6 +269,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
     level: "A1",
     quickMinutes: 7,
     targetMinutes: 10,
+    language: "Spanish",
     locale: "es-419",
     vocabulary: ["Reunión Sacramental", "aventón a la iglesia"],
     objectives: [
@@ -286,30 +297,59 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
 ];
 
-function partnerRoleFor(module: AppModule): string {
+export const SPEAKING_LANGUAGES: Array<{
+  language: SpeakingMissionLanguage;
+  code: "es" | "it" | "ja";
+  locale: SpeakingMissionLocale;
+}> = [
+  { language: "Spanish", code: "es", locale: "es-419" },
+  { language: "Italian", code: "it", locale: "it-IT" },
+  { language: "Japanese", code: "ja", locale: "ja-JP" },
+];
+
+function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): string {
   const role = module.aiPersona.match(/^You are (.+?)(?:\.| depending on)/)?.[1];
-  return role ?? `Spanish-speaking ${module.name.toLowerCase()} conversation partner`;
+  return role ?? `${language}-speaking ${module.name.toLowerCase()} conversation partner`;
 }
 
-function openingLineFor(category: SpeakingMissionSpecialty): string {
-  switch (category) {
-    case "Faith":
-      return "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?";
-    case "Medical":
-      return "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?";
-    case "Trades":
-      return "Buenos días. ¿Qué tenemos que hacer primero en esta situación?";
-    case "Service":
-      return "Hola. Necesito ayuda con esta situación. ¿Podemos hablar?";
-    case "Education":
-      return "Hola. Quisiera entender mejor la situación. ¿Podemos revisarla juntos?";
-    case "Agriculture":
-      return "Buenos días. ¿Cuál es el plan de trabajo y qué necesita que haga?";
-    case "Sports":
-      return "Entrenador, ¿cuál es el plan y qué quiere que haga?";
-    case "Travel":
-      return "Disculpe, necesito ayuda con esta situación. ¿Qué debo hacer?";
-  }
+const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpecialty, string>> = {
+  Spanish: {
+    Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
+    Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
+    Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
+    Service: "Hola. Necesito ayuda con esta situación. ¿Podemos hablar?",
+    Education: "Hola. Quisiera entender mejor la situación. ¿Podemos revisarla juntos?",
+    Agriculture: "Buenos días. ¿Cuál es el plan de trabajo y qué necesita que haga?",
+    Sports: "Entrenador, ¿cuál es el plan y qué quiere que haga?",
+    Travel: "Disculpe, necesito ayuda con esta situación. ¿Qué debo hacer?",
+  },
+  Italian: {
+    Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
+    Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
+    Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
+    Service: "Buongiorno. Ho bisogno di aiuto con questa situazione. Possiamo parlarne?",
+    Education: "Buongiorno. Vorrei capire meglio la situazione. Possiamo esaminarla insieme?",
+    Agriculture: "Buongiorno. Qual è il piano di lavoro e che cosa devo fare?",
+    Sports: "Mister, qual è il piano e che cosa vuole che faccia?",
+    Travel: "Mi scusi, ho bisogno di aiuto. Che cosa devo fare?",
+  },
+  Japanese: {
+    Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
+    Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
+    Trades: "おはようございます。この状況では、まず何をすればよいですか。",
+    Service: "こんにちは。この件で助けが必要です。少しお話しできますか。",
+    Education: "こんにちは。状況をよく理解したいです。一緒に確認していただけますか。",
+    Agriculture: "おはようございます。今日の作業計画と、私がすることを教えてください。",
+    Sports: "コーチ、今日の作戦と私の役割を教えてください。",
+    Travel: "すみません、助けていただけますか。どうすればよいですか。",
+  },
+};
+
+function openingLineFor(
+  language: SpeakingMissionLanguage,
+  category: SpeakingMissionSpecialty,
+): string {
+  return OPENING_LINES[language][category];
 }
 
 function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
@@ -352,13 +392,16 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
 function missionFromChallenge(
   module: AppModule,
   specialty: SpeakingMissionSpecialty,
+  language: SpeakingMissionLanguage,
+  languageCode: "es" | "it" | "ja",
+  locale: SpeakingMissionLocale,
   challenge: string,
   challengeIndex: number,
 ): SpeakingMission {
-  const stableBase = `${module.id}_challenge_${challengeIndex + 1}`;
+  const stableBase = `${module.id}_challenge_${challengeIndex + 1}_${languageCode}`;
   const vocabulary = module.vocabFocus.slice(0, 8);
   return {
-    id: `scenario_version_${stableBase}_es_v1`,
+    id: `scenario_version_${stableBase}_v1`,
     scenarioId: `scenario_${stableBase}`,
     version: 1,
     title: challenge.replace(/[.!?]+$/, ""),
@@ -368,11 +411,12 @@ function missionFromChallenge(
     moduleName: module.name,
     moduleEmoji: module.emoji,
     learnerRole: module.userRole,
-    partnerRole: partnerRoleFor(module),
+    partnerRole: partnerRoleFor(module, language),
     level: "A2",
     quickMinutes: 7,
     targetMinutes: 12,
-    locale: "es-419",
+    language,
+    locale,
     vocabulary,
     objectives: [
       {
@@ -382,7 +426,7 @@ function missionFromChallenge(
       },
       {
         id: `objective_${stableBase}_concepts`,
-        description: `Use at least two ${module.name} focus concepts naturally in Spanish.`,
+        description: `Use at least two ${module.name} focus concepts naturally in ${language}.`,
         critical: false,
       },
       {
@@ -391,31 +435,102 @@ function missionFromChallenge(
         critical: true,
       },
     ],
-    openingLine: openingLineFor(specialty),
+    openingLine: openingLineFor(language, specialty),
     safetyRules: safetyRulesFor(specialty),
   };
 }
 
-export const SPANISH_SPEAKING_MODULES = MODULES.filter(
-  (module): module is AppModule & { category: SpeakingMissionSpecialty } =>
-    module.learnDirection !== "en-target" &&
-    module.category !== "English for Work" &&
-    (!module.languages || module.languages.includes("Spanish")),
+function missionFromLesson(
+  module: AppModule,
+  specialty: SpeakingMissionSpecialty,
+  language: SpeakingMissionLanguage,
+  languageCode: "es" | "it" | "ja",
+  locale: SpeakingMissionLocale,
+  lesson: Lesson,
+): SpeakingMission {
+  const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
+  return {
+    id: `scenario_version_${stableBase}_v1`,
+    scenarioId: `scenario_${stableBase}`,
+    version: 1,
+    title: `Lesson ${lesson.n}: ${lesson.title}`,
+    summary: lesson.objective,
+    specialty,
+    moduleId: module.id,
+    moduleName: module.name,
+    moduleEmoji: module.emoji,
+    learnerRole: module.userRole,
+    partnerRole: partnerRoleFor(module, language),
+    level: "A2",
+    quickMinutes: 7,
+    targetMinutes: 12,
+    language,
+    locale,
+    vocabulary: module.vocabFocus.slice(0, 8),
+    sourcePrompts: lesson.steps.map((step) => step.instruction),
+    objectives: [
+      {
+        id: `objective_${stableBase}_lesson`,
+        description: lesson.objective,
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_concepts`,
+        description: `Use the lesson's essential ${module.name} language naturally in ${language}.`,
+        critical: false,
+      },
+      {
+        id: `objective_${stableBase}_close`,
+        description: "Confirm understanding, the decision, or the next practical step.",
+        critical: true,
+      },
+    ],
+    openingLine: openingLineFor(language, specialty),
+    safetyRules: safetyRulesFor(specialty),
+  };
+}
+
+export function getSpeakingModules(language: SpeakingMissionLanguage) {
+  return MODULES.filter(
+    (module): module is AppModule & { category: SpeakingMissionSpecialty } =>
+      module.learnDirection !== "en-target" &&
+      module.category !== "English for Work" &&
+      (!module.languages || module.languages.includes(language)),
+  );
+}
+
+const COMPLETE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) =>
+  getSpeakingModules(language).flatMap((module) => {
+    const challengeMissions = module.challengePrompts.map((challenge, challengeIndex) =>
+      missionFromChallenge(
+        module,
+        module.category,
+        language,
+        code,
+        locale,
+        challenge,
+        challengeIndex,
+      ),
+    );
+    const curriculum = CURRICULA[module.id];
+    const lessonMissions = (curriculum?.lessons ?? []).map((lesson) =>
+      missionFromLesson(module, module.category, language, code, locale, lesson),
+    );
+    return [...challengeMissions, ...lessonMissions];
+  }),
 );
 
-const COMPLETE_SPANISH_CHALLENGE_MISSIONS = SPANISH_SPEAKING_MODULES.flatMap((module) =>
-  module.challengePrompts.map((challenge, challengeIndex) =>
-    missionFromChallenge(module, module.category, challenge, challengeIndex),
-  ),
-);
-
-// The six reviewed missions remain first-class curated choices. Every existing
-// challenge topic from every Spanish-target specialty is projected after them,
-// using stable IDs so the API can continue to fail closed on unknown scenarios.
+// The six reviewed Spanish missions remain first-class curated choices. Every
+// authored challenge and curriculum lesson for Spanish, Italian, and Japanese
+// follows with stable IDs so the API continues to fail closed on unknown topics.
 export const SPEAKING_MISSIONS: SpeakingMission[] = [
   ...CURATED_SPEAKING_MISSIONS,
-  ...COMPLETE_SPANISH_CHALLENGE_MISSIONS,
+  ...COMPLETE_TOPIC_MISSIONS,
 ];
+
+export function getSpeakingMissions(language: SpeakingMissionLanguage) {
+  return SPEAKING_MISSIONS.filter((mission) => mission.language === language);
+}
 
 export function findSpeakingMission(id: string) {
   return SPEAKING_MISSIONS.find((mission) => mission.id === id) ?? null;

@@ -1,6 +1,6 @@
-import type { ModuleCurriculum } from "./curriculum";
-import type { Lesson } from "./curriculum-helpers";
-import { r, sp, wm, pt, sb, ds, gr, ld } from "./curriculum-helpers";
+import type { ModuleCurriculum } from "./curriculum.ts";
+import type { Lesson } from "./curriculum-helpers.ts";
+import { r, sp, wm, pt, sb, ds, gr, ld } from "./curriculum-helpers.ts";
 
 // ─── EMERGENCY MEDICINE ───────────────────────────────────────────────────────
 

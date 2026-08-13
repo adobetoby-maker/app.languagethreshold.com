@@ -7,9 +7,11 @@ import {
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
 import {
-  SPANISH_SPEAKING_MODULES,
-  SPEAKING_MISSIONS,
+  getSpeakingMissions,
+  getSpeakingModules,
+  SPEAKING_LANGUAGES,
   type SpeakingMission,
+  type SpeakingMissionLanguage,
 } from "@/data/speaking-missions";
 import {
   getMissionTtsCapabilities,
@@ -19,10 +21,11 @@ import {
 } from "@/lib/mission-tts";
 import { configureUtterance } from "@/lib/voices";
 import { useAiGate } from "@/state/ai-gate-state";
+import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
-type FeedbackLanguage = "English" | "Spanish" | "Adaptive";
+type FeedbackLanguage = "English" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
 type PartnerAudioSource = "device" | "google";
 
@@ -90,8 +93,26 @@ function missionTurnId() {
   return `${Date.now()}-${crypto.randomUUID()}`;
 }
 
+function partnerVoiceSample(
+  language: SpeakingMissionLanguage,
+  partnerVersion: MissionPartnerVersion,
+) {
+  if (language === "Italian") {
+    return partnerVersion === "woman"
+      ? "Ciao, sono la tua compagna di conversazione. Cominciamo?"
+      : "Ciao, sono il tuo compagno di conversazione. Cominciamo?";
+  }
+  if (language === "Japanese") {
+    return "こんにちは。会話練習のパートナーです。始めましょうか。";
+  }
+  return partnerVersion === "woman"
+    ? "Hola, soy su compañera de práctica. ¿Empezamos?"
+    : "Hola, soy su compañero de práctica. ¿Empezamos?";
+}
+
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
+  const { state: appState } = useApp();
   const { accent, rate, setRate, voiceURI } = useSpeech();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
@@ -118,24 +139,39 @@ export function SpeakingMissionsPreview() {
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
-  const missionLocale = accent.startsWith("es-") ? accent : "es-MX";
+  const missionLanguage = SPEAKING_LANGUAGES.some(
+    (entry) => entry.language === appState.selectedLanguage,
+  )
+    ? (appState.selectedLanguage as SpeakingMissionLanguage)
+    : null;
+  const languageModules = useMemo(
+    () => (missionLanguage ? getSpeakingModules(missionLanguage) : []),
+    [missionLanguage],
+  );
+  const languageMissions = useMemo(
+    () => (missionLanguage ? getSpeakingMissions(missionLanguage) : []),
+    [missionLanguage],
+  );
+  const missionLocale = selectedMission?.locale ?? accent;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const partnerVoice =
     ttsCapabilities?.voices[partnerVersion] ?? MISSION_TTS_VOICES[partnerVersion];
   const partnerAudioReady =
-    partnerAudioSource === "device" ? deviceVoiceAvailable : ttsStatus === "ready";
+    partnerAudioSource === "device"
+      ? deviceVoiceAvailable
+      : selectedMission?.language === "Spanish" && ttsStatus === "ready";
   const catalogCategories = useMemo(
-    () => [...new Set(SPANISH_SPEAKING_MODULES.map((module) => module.category))],
-    [],
+    () => [...new Set(languageModules.map((module) => module.category))],
+    [languageModules],
   );
   const filteredCatalogModules = useMemo(() => {
     const query = catalogSearch.trim().toLocaleLowerCase();
-    return SPANISH_SPEAKING_MODULES.filter(
+    return languageModules.filter(
       (module) =>
         (catalogCategory === "All" || module.category === catalogCategory) &&
         (!query ||
           `${module.name} ${module.category} ${module.blurb}`.toLocaleLowerCase().includes(query) ||
-          SPEAKING_MISSIONS.some(
+          languageMissions.some(
             (mission) =>
               mission.moduleId === module.id &&
               `${mission.title} ${mission.summary} ${mission.vocabulary.join(" ")}`
@@ -143,11 +179,10 @@ export function SpeakingMissionsPreview() {
                 .includes(query),
           )),
     );
-  }, [catalogCategory, catalogSearch]);
-  const catalogModule =
-    SPANISH_SPEAKING_MODULES.find((module) => module.id === catalogModuleId) ?? null;
+  }, [catalogCategory, catalogSearch, languageMissions, languageModules]);
+  const catalogModule = languageModules.find((module) => module.id === catalogModuleId) ?? null;
   const catalogMissions = catalogModule
-    ? SPEAKING_MISSIONS.filter((mission) => mission.moduleId === catalogModule.id)
+    ? languageMissions.filter((mission) => mission.moduleId === catalogModule.id)
     : [];
 
   useEffect(() => {
@@ -192,6 +227,15 @@ export function SpeakingMissionsPreview() {
     requestRef.current = null;
     stopAudio();
   }, [stopAudio]);
+
+  useEffect(() => {
+    stopActiveWork();
+    setSelectedMission(null);
+    setCatalogModuleId(null);
+    setCatalogCategory("All");
+    setCatalogSearch("");
+    setPartnerAudioSource("device");
+  }, [appState.selectedLanguage, stopActiveWork]);
 
   useEffect(() => {
     return () => stopActiveWork();
@@ -302,6 +346,7 @@ export function SpeakingMissionsPreview() {
 
   const selectMission = (mission: SpeakingMission) => {
     exitMission();
+    if (mission.language !== "Spanish") setPartnerAudioSource("device");
     setSelectedMission(mission);
   };
 
@@ -339,7 +384,7 @@ export function SpeakingMissionsPreview() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           mode: "mission",
-          language: "Spanish",
+          language: selectedMission.language,
           level: selectedMission.level,
           messages: history,
           scenarioVersionId: selectedMission.id,
@@ -446,19 +491,35 @@ export function SpeakingMissionsPreview() {
   };
 
   if (!selectedMission) {
+    if (!missionLanguage) {
+      return (
+        <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+            Scenario missions
+          </p>
+          <h2 className="mt-2 font-serif text-2xl text-foreground">
+            {appState.selectedLanguage} missions are next in the rollout
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            The complete topic catalog is currently available for Spanish, Italian, and Japanese.
+            Choose one of those languages from the language menu to practice its full set.
+          </p>
+        </section>
+      );
+    }
     return (
       <section aria-labelledby="mission-preview-heading" className="mt-5">
         <div className="mb-5 rounded-2xl border border-gold/30 bg-gold/10 p-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            UX preview · Spanish
+            UX preview · {missionLanguage}
           </p>
           <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
             Practice a real situation
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Choose from {SPEAKING_MISSIONS.length} missions across {SPANISH_SPEAKING_MODULES.length}{" "}
-            Spanish specialties. Every mission can be practiced with a woman or a man as the
-            conversation partner and does not yet count toward durable mastery.
+            Choose from {languageMissions.length} missions across {languageModules.length}{" "}
+            {missionLanguage} specialties. Every mission can be practiced with a woman or a man as
+            the conversation partner and does not yet count toward durable mastery.
           </p>
         </div>
         {catalogModule ? (
@@ -468,7 +529,7 @@ export function SpeakingMissionsPreview() {
               onClick={() => setCatalogModuleId(null)}
               className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
             >
-              <ChevronLeft className="h-4 w-4" /> All Spanish specialties
+              <ChevronLeft className="h-4 w-4" /> All {missionLanguage} specialties
             </button>
             <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
               <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
@@ -511,7 +572,7 @@ export function SpeakingMissionsPreview() {
           <>
             <label className="relative mb-3 block">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <span className="sr-only">Search Spanish specialties</span>
+              <span className="sr-only">Search {missionLanguage} specialties</span>
               <input
                 type="search"
                 value={catalogSearch}
@@ -539,7 +600,7 @@ export function SpeakingMissionsPreview() {
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {filteredCatalogModules.map((module) => {
-                const missionCount = SPEAKING_MISSIONS.filter(
+                const missionCount = languageMissions.filter(
                   (mission) => mission.moduleId === module.id,
                 ).length;
                 const specialty = specialtyStyle(module.category);
@@ -566,7 +627,7 @@ export function SpeakingMissionsPreview() {
             </div>
             {filteredCatalogModules.length === 0 && (
               <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
-                No Spanish specialty matches that search.
+                No {missionLanguage} specialty matches that search.
               </p>
             )}
           </>
@@ -636,27 +697,36 @@ export function SpeakingMissionsPreview() {
             <div className="mt-2 grid grid-cols-2 gap-2">
               {(["device", "google"] as const).map((source) => {
                 const selected = partnerAudioSource === source;
+                const available = source === "device" || selectedMission.language === "Spanish";
                 return (
                   <button
                     key={source}
                     type="button"
-                    onClick={() => setPartnerAudioSource(source)}
+                    onClick={() => available && setPartnerAudioSource(source)}
+                    disabled={!available}
                     aria-pressed={selected}
                     className={
                       "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
                       (selected
                         ? "border-gold bg-gold/15 text-gold"
-                        : "border-border text-muted-foreground hover:text-foreground")
+                        : available
+                          ? "border-border text-muted-foreground hover:text-foreground"
+                          : "cursor-not-allowed border-border text-muted-foreground opacity-40")
                     }
                   >
-                    {source === "device" ? "Device voice" : "Google voices"}
+                    {source === "device"
+                      ? "Device voice"
+                      : selectedMission.language === "Spanish"
+                        ? "Google voices"
+                        : "Google · Spanish only"}
                   </button>
                 );
               })}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Device voice preserves the voice already used by the app. Google provides a fixed
-              woman/man pair when configured.
+              Device voice preserves the voice already used by the app for{" "}
+              {selectedMission.language}. Google currently provides the optional fixed woman/man
+              pair for Spanish only.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
@@ -710,7 +780,7 @@ export function SpeakingMissionsPreview() {
               className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
             >
               <option value="English">English</option>
-              <option value="Spanish">Spanish</option>
+              <option value="Target language">{selectedMission.language}</option>
               <option value="Adaptive">Adaptive</option>
             </select>
           </label>
@@ -723,7 +793,7 @@ export function SpeakingMissionsPreview() {
               </p>
               <p className="mt-0.5 text-xs text-foreground/80">
                 {partnerAudioSource === "device"
-                  ? "Best available Spanish voice from this phone or browser"
+                  ? `Best available ${selectedMission.language} voice from this phone or browser`
                   : `${partnerVoice.label} · ${partnerVoice.name}`}
               </p>
             </div>
@@ -735,11 +805,7 @@ export function SpeakingMissionsPreview() {
             <button
               type="button"
               onClick={() =>
-                void speakPartnerText(
-                  partnerVersion === "woman"
-                    ? "Hola, soy su compañera de práctica. ¿Empezamos?"
-                    : "Hola, soy su compañero de práctica. ¿Empezamos?",
-                )
+                void speakPartnerText(partnerVoiceSample(selectedMission.language, partnerVersion))
               }
               className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
             >
@@ -749,7 +815,7 @@ export function SpeakingMissionsPreview() {
           ) : (
             <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
               {partnerAudioSource === "device"
-                ? "A Spanish device voice is unavailable in this browser."
+                ? `A ${selectedMission.language} device voice is unavailable in this browser.`
                 : ttsStatus === "checking"
                   ? "Checking Google partner voice availability…"
                   : "Google Cloud partner voices are not configured for this Preview deployment."}
@@ -1053,7 +1119,7 @@ export function SpeakingMissionsPreview() {
                 ? "Listening… tap Stop when you finish"
                 : status === "thinking"
                   ? "Partner is replying…"
-                  : "Tap the microphone and answer in Spanish"}
+                  : `Tap the microphone and answer in ${selectedMission.language}`}
             </p>
           </>
         )}

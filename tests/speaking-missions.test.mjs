@@ -6,9 +6,9 @@ import {
   MISSION_TTS_VOICES,
 } from "../src/data/mission-tts.ts";
 import { CORE_VERBS, DAILY_LIVING_TOPICS } from "../src/data/core-speaking.ts";
-import { getPatternsForLanguage } from "../src/data/grammar-patterns.ts";
 import {
   findSpeakingMission,
+  getCoreGrammarPatterns,
   getSpeakingMissions,
   getSpeakingModules,
   SPEAKING_LANGUAGES,
@@ -56,6 +56,13 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
 
   for (const { language } of SPEAKING_LANGUAGES) {
     assert.ok(CORE_VERBS.every((verb) => verb.target[language].length > 0));
+    const grammarPatterns = getCoreGrammarPatterns(language);
+    assert.ok(grammarPatterns.length >= 30, `${language} has broad core grammar coverage`);
+    assert.equal(
+      new Set(grammarPatterns.map((pattern) => pattern.id)).size,
+      grammarPatterns.length,
+      `${language} grammar IDs are unique`,
+    );
     const core = getSpeakingMissions(language).filter(
       (mission) => mission.moduleId === "core-speaking",
     );
@@ -65,7 +72,7 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
     );
     assert.equal(
       core.filter((mission) => mission.coreSection === "Grammar patterns").length,
-      getPatternsForLanguage(language).length,
+      grammarPatterns.length,
     );
     assert.equal(
       core.filter((mission) => mission.coreSection === "Daily living").length,
@@ -76,9 +83,9 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
 
 test("speaking preview covers every authored topic in Spanish, Italian, and Japanese", () => {
   const expected = {
-    Spanish: { modules: 41, challenges: 233, lessons: 1180, curated: 6, core: 111, total: 1530 },
-    Italian: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 113, total: 1509 },
-    Japanese: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 111, total: 1507 },
+    Spanish: { modules: 41, challenges: 233, lessons: 1180, curated: 6, core: 133, total: 1552 },
+    Italian: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 133, total: 1529 },
+    Japanese: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 136, total: 1532 },
   };
 
   assert.deepEqual(
@@ -119,9 +126,9 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 4546);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4546);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4546);
+  assert.equal(SPEAKING_MISSIONS.length, 4613);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4613);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4613);
   assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
 });
 

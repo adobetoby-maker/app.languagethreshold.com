@@ -2,13 +2,15 @@ import { MODULES, type AppModule } from "./modules.ts";
 import { CURRICULA, type Lesson } from "./curriculum.ts";
 import {
   CORE_SPEAKING_MODULE,
+  CORE_GRAMMAR_EXTENSIONS,
   CORE_VERBS,
   DAILY_LIVING_TOPICS,
   type CoreSpeakingSection,
+  type CoreGrammarPattern,
   type CoreVerb,
   type DailyLivingTopic,
 } from "./core-speaking.ts";
-import { getPatternsForLanguage, type GrammarPattern } from "./grammar-patterns.ts";
+import { getPatternsForLanguage } from "./grammar-patterns.ts";
 
 export type SpeakingMissionSpecialty = "Core" | Exclude<AppModule["category"], "English for Work">;
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese";
@@ -616,7 +618,7 @@ function missionFromCoreVerb(
 }
 
 function missionFromGrammarPattern(
-  pattern: GrammarPattern,
+  pattern: CoreGrammarPattern,
   patternIndex: number,
   language: SpeakingMissionLanguage,
   languageCode: "es" | "it" | "ja",
@@ -628,7 +630,7 @@ function missionFromGrammarPattern(
     scenarioId: `scenario_${stableBase}`,
     version: 1,
     title: `Grammar: ${pattern.name}`,
-    summary: `${pattern.meaning}. ${pattern.hook}`,
+    summary: pattern.hook ? `${pattern.meaning}. ${pattern.hook}` : pattern.meaning,
     specialty: "Core",
     moduleId: CORE_SPEAKING_MODULE.id,
     moduleName: CORE_SPEAKING_MODULE.name,
@@ -640,14 +642,8 @@ function missionFromGrammarPattern(
     targetMinutes: 8,
     language,
     locale,
-    vocabulary: [pattern.pattern, ...pattern.examples.slice(0, 2).map((example) => example.target)],
-    sourcePrompts: [
-      pattern.hook,
-      ...pattern.examples.map(
-        (example) =>
-          `${example.target} means “${example.english}”.${example.breakdown ? ` ${example.breakdown}` : ""}`,
-      ),
-    ],
+    vocabulary: [pattern.pattern, ...pattern.examples.slice(0, 2)],
+    sourcePrompts: [...(pattern.hook ? [pattern.hook] : []), ...pattern.examples],
     coreSection: "Grammar patterns",
     coreOrder: patternIndex,
     objectives: [
@@ -740,11 +736,27 @@ export function getSpeakingModules(language: SpeakingMissionLanguage): SpeakingM
   return [CORE_SPEAKING_MODULE, ...getSpecialtySpeakingModules(language)];
 }
 
+export function getCoreGrammarPatterns(language: SpeakingMissionLanguage): CoreGrammarPattern[] {
+  const storyPatterns: CoreGrammarPattern[] = getPatternsForLanguage(language).map((pattern) => ({
+    id: pattern.id,
+    name: pattern.name,
+    meaning: pattern.meaning,
+    pattern: pattern.pattern,
+    examples: pattern.examples.map(
+      (example) =>
+        `${example.target} — ${example.english}${example.breakdown ? `. ${example.breakdown}` : ""}`,
+    ),
+    phase: pattern.phase,
+    hook: pattern.hook,
+  }));
+  return [...storyPatterns, ...CORE_GRAMMAR_EXTENSIONS[language]];
+}
+
 const CORE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) => [
   ...CORE_VERBS.map((verb, verbIndex) =>
     missionFromCoreVerb(verb, verbIndex, language, code, locale),
   ),
-  ...getPatternsForLanguage(language).map((pattern, patternIndex) =>
+  ...getCoreGrammarPatterns(language).map((pattern, patternIndex) =>
     missionFromGrammarPattern(pattern, patternIndex, language, code, locale),
   ),
   ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>

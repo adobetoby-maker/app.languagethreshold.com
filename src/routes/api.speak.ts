@@ -22,6 +22,7 @@ const BodySchema = z.object({
   scenarioVersionId: z.string().max(120).optional(),
   ageConfirmed: z.boolean().optional(),
   feedbackLanguage: z.enum(["English", "Spanish", "Adaptive"]).optional(),
+  partnerVersion: z.enum(["woman", "man"]).optional(),
 });
 
 const MissionTurnSchema = z.object({
@@ -45,7 +46,11 @@ function chatSystemPrompt(language: string, level: string, userVocabWords?: stri
   return base;
 }
 
-function missionSystemPrompt(mission: SpeakingMission, feedbackLanguage: string) {
+function missionSystemPrompt(
+  mission: SpeakingMission,
+  feedbackLanguage: string,
+  partnerVersion: "woman" | "man",
+) {
   const feedbackRule =
     feedbackLanguage === "Spanish"
       ? "Write deferred coaching in simple Spanish."
@@ -55,6 +60,9 @@ function missionSystemPrompt(mission: SpeakingMission, feedbackLanguage: string)
 
   return [
     `You are roleplaying only as this conversation partner: ${mission.partnerRole}.`,
+    `For this run, the conversation partner is a ${partnerVersion}. Use grammatically appropriate self-reference, forms of address, and gendered words when the situation naturally calls for them.`,
+    "Keep the partner individual and professional; never introduce gender stereotypes or change the objectives, difficulty level, or safety rules because of gender.",
+    "Vary natural sentence rhythm and level-appropriate word choices across runs so the learner practices real listening variation while the underlying task stays comparable.",
     `The learner is the ${mission.learnerRole} in a ${mission.title} practice mission.`,
     `Speak natural Latin American Spanish (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
     `Mission: ${mission.summary}`,
@@ -150,7 +158,11 @@ export const Route = createFileRoute("/api/speak")({
             const response = await client.messages.create({
               model: "claude-haiku-4-5",
               max_tokens: 512,
-              system: missionSystemPrompt(mission, payload.feedbackLanguage ?? "Adaptive"),
+              system: missionSystemPrompt(
+                mission,
+                payload.feedbackLanguage ?? "Adaptive",
+                payload.partnerVersion ?? "woman",
+              ),
               messages: payload.messages,
               tools: [
                 {

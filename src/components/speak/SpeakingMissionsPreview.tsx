@@ -9,6 +9,7 @@ import { useSpeech } from "@/state/speech-state";
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Spanish" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
+type PartnerVersion = "woman" | "man";
 
 interface MissionTurn {
   id: string;
@@ -73,6 +74,7 @@ export function SpeakingMissionsPreview() {
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
+  const [partnerVersion, setPartnerVersion] = useState<PartnerVersion>("woman");
   const [status, setStatus] = useState<MissionStatus>("ready");
   const [turns, setTurns] = useState<MissionTurn[]>([]);
   const [interim, setInterim] = useState("");
@@ -228,6 +230,7 @@ export function SpeakingMissionsPreview() {
           scenarioVersionId: selectedMission.id,
           ageConfirmed,
           feedbackLanguage,
+          partnerVersion,
         }),
         signal: controller.signal,
       });
@@ -338,8 +341,9 @@ export function SpeakingMissionsPreview() {
             Practice a real situation
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            These six missions use the main app&apos;s current AI and browser speech path so we can
-            evaluate flow and interface. They do not yet count toward durable mastery.
+            Each mission can be practiced with a woman or a man as the conversation partner. The
+            twelve versions use the main app&apos;s current AI and browser speech path and do not
+            yet count toward durable mastery.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -363,6 +367,9 @@ export function SpeakingMissionsPreview() {
                 <h3 className="mt-3 font-serif text-xl text-foreground">{mission.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                   {mission.summary}
+                </p>
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                  Woman + man partner versions
                 </p>
               </button>
             );
@@ -428,7 +435,35 @@ export function SpeakingMissionsPreview() {
         </div>
 
         <div className="mt-6 rounded-2xl border border-gold/25 bg-background/50 p-4">
-          <label className="flex items-start gap-3 text-sm text-foreground/90">
+          <fieldset>
+            <legend className="text-sm text-muted-foreground">Conversation partner</legend>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {(["woman", "man"] as const).map((version) => {
+                const selected = partnerVersion === version;
+                return (
+                  <button
+                    key={version}
+                    type="button"
+                    onClick={() => setPartnerVersion(version)}
+                    aria-pressed={selected}
+                    className={
+                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      (selected
+                        ? "border-gold bg-gold/15 text-gold"
+                        : "border-border text-muted-foreground hover:text-foreground")
+                    }
+                  >
+                    {version === "woman" ? "Woman partner" : "Man partner"}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Same objectives, with the partner&apos;s natural self-reference, phrasing, and
+              response rhythm adapted for this version.
+            </p>
+          </fieldset>
+          <label className="mt-4 flex items-start gap-3 border-t border-border/60 pt-4 text-sm text-foreground/90">
             <input
               type="checkbox"
               checked={ageConfirmed}
@@ -440,7 +475,7 @@ export function SpeakingMissionsPreview() {
               Audio remains handled by the browser in this UX preview.
             </span>
           </label>
-          <label className="mt-4 grid gap-1 text-sm">
+          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="text-muted-foreground">Coaching language</span>
             <select
               value={feedbackLanguage}
@@ -454,7 +489,9 @@ export function SpeakingMissionsPreview() {
           </label>
           <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
             <div>
-              <p className="text-sm text-muted-foreground">Partner voice</p>
+              <p className="text-sm text-muted-foreground">
+                {partnerVersion === "woman" ? "Woman" : "Man"} partner voice
+              </p>
               <p className="mt-0.5 text-xs text-foreground/80">
                 {activeVoice?.name ?? `Best available ${missionLocale} voice`}
                 {activeVoice?.name.includes("Google") ? " · Google" : ""}
@@ -462,6 +499,11 @@ export function SpeakingMissionsPreview() {
             </div>
             <VoicePicker />
           </div>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            Browser voice lists do not reliably label gender. Use Voice to choose the matching woman
+            or man voice available on this device; Chrome and Edge usually offer the widest
+            selection.
+          </p>
         </div>
 
         <button
@@ -493,7 +535,9 @@ export function SpeakingMissionsPreview() {
           Mission recap · UX preview
         </p>
         <h2 className="mt-2 font-serif text-3xl text-foreground">{completionTitle}</h2>
-        <p className="mt-2 text-sm text-muted-foreground">{selectedMission.title}</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {selectedMission.title} · {partnerVersion === "woman" ? "Woman" : "Man"} partner
+        </p>
 
         <div className="mt-6 rounded-2xl border border-gold/35 bg-gold/10 p-4">
           <div className="flex items-center gap-2 text-gold">
@@ -575,6 +619,7 @@ export function SpeakingMissionsPreview() {
           <h2 className="mt-1 font-serif text-2xl text-foreground">{selectedMission.title}</h2>
           <p className="mt-1 text-xs text-muted-foreground">
             {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
+            {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
           </p>
         </div>
         <button

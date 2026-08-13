@@ -14,6 +14,7 @@ export interface DailyLivingTopic {
   objective: string;
   partnerRole: string;
   concepts: string[];
+  riskClass?: "medical" | "emergency" | "financial" | "legal" | "minor-data";
 }
 
 export interface CoreGrammarPattern {
@@ -997,14 +998,16 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "Describe the reason for the visit, symptoms, onset, medications, and allergies without seeking diagnosis from the AI.",
     partnerRole: "Clinic intake staff",
     concepts: ["symptoms", "onset", "medications", "allergies"],
+    riskClass: "medical",
   },
   {
     id: "pharmacy",
     title: "Use a pharmacy",
     objective:
-      "Ask about a prescription, dosage instructions, pickup time, price, and pharmacist clarification.",
+      "Ask about a prescription, pickup time, price, and ask a pharmacist to clarify the prescription label.",
     partnerRole: "Pharmacy staff member",
     concepts: ["prescription", "instructions", "pickup", "price"],
+    riskClass: "medical",
   },
   {
     id: "emergency",
@@ -1013,6 +1016,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "State the emergency, location, immediate danger, and answer a dispatcher's questions.",
     partnerRole: "Emergency dispatcher",
     concepts: ["emergency", "location", "danger", "instructions"],
+    riskClass: "emergency",
   },
   {
     id: "directions",
@@ -1064,6 +1068,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "State an allergy or dietary restriction, ask about ingredients, and confirm safe options.",
     partnerRole: "Restaurant employee discussing ingredients",
     concepts: ["allergy", "ingredients", "dietary restriction"],
+    riskClass: "medical",
   },
   {
     id: "grocery",
@@ -1101,6 +1106,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "Ask about an account transaction, withdrawal, deposit, fees, or an ATM problem without sharing real credentials.",
     partnerRole: "Bank employee",
     concepts: ["deposit", "withdrawal", "fee", "account"],
+    riskClass: "financial",
   },
   {
     id: "mail-delivery",
@@ -1183,6 +1189,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "Discuss schedule, attendance, pickup, a routine issue, and next steps using fictional details.",
     partnerRole: "School or childcare staff member",
     concepts: ["attendance", "pickup", "schedule", "message"],
+    riskClass: "minor-data",
   },
   {
     id: "neighbors",
@@ -1206,6 +1213,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "Describe what happened, when and where, and what assistance you need without inventing legal advice.",
     partnerRole: "Non-emergency dispatcher",
     concepts: ["incident", "time", "location", "description"],
+    riskClass: "legal",
   },
   {
     id: "car-trouble",
@@ -1237,6 +1245,7 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "State travel purpose, length of stay, lodging type, and general declarations using fictional details.",
     partnerRole: "Border or customs officer",
     concepts: ["purpose", "duration", "lodging", "declaration"],
+    riskClass: "legal",
   },
   {
     id: "personal-service",

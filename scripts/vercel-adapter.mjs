@@ -1,9 +1,10 @@
 // Post-build script: produces a Vercel Build Output API v3 artifact.
 // Vercel detects .vercel/output/ and deploys it directly — no framework detection needed.
-import { mkdirSync, writeFileSync, cpSync } from "fs";
+import { mkdirSync, writeFileSync, cpSync, rmSync } from "fs";
 import { execFileSync } from "child_process";
 
 const out = ".vercel/output";
+rmSync(out, { recursive: true, force: true });
 mkdirSync(`${out}/static`, { recursive: true });
 mkdirSync(`${out}/functions/index.func`, { recursive: true });
 
@@ -71,8 +72,24 @@ module.exports = async function handler(req, res) {
     res.setHeader(k, v)
   }
 
-  const buf = await webResponse.arrayBuffer()
-  res.end(Buffer.from(buf))
+  if (!webResponse.body) {
+    res.end()
+    return
+  }
+
+  const reader = webResponse.body.getReader()
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      if (!res.write(Buffer.from(value))) {
+        await new Promise(resolve => res.once('drain', resolve))
+      }
+    }
+  } finally {
+    reader.releaseLock()
+  }
+  res.end()
 }
 `,
 );

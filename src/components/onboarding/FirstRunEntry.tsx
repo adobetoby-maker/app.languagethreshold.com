@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
+import { requestCoreSpeakingEntry } from "@/lib/speaking-navigation";
 
 export function FirstRunEntry() {
   const { state, dispatch } = useApp();
@@ -23,9 +24,13 @@ export function FirstRunEntry() {
     return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;
   }
 
-  const coreSpeakingAvailable = ["Spanish", "Italian", "Japanese"].includes(state.selectedLanguage);
+  const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
+  const coreSpeakingAvailable =
+    ["Spanish", "Italian"].includes(state.selectedLanguage) ||
+    (state.selectedLanguage === "Japanese" && japaneseSpeakingReviewed);
 
   function enter(tab: "reader" | "speak" | "guide") {
+    if (tab === "speak") requestCoreSpeakingEntry();
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: tab });
   }
@@ -73,7 +78,7 @@ export function FirstRunEntry() {
             </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
-              <span>No account needed</span>
+              <span>No account needed to read · sign-in required for AI speaking</span>
               <span aria-hidden>·</span>
               <span>Beginner passage ready</span>
               <span aria-hidden>·</span>

@@ -13,6 +13,8 @@ import { ChallengePanel, type SpeakChallenge } from "@/components/speak/Challeng
 import { SpeakingMissionsPreview } from "@/components/speak/SpeakingMissionsPreview";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { useAiGate } from "@/state/ai-gate-state";
+import { speakingRequestHeaders } from "@/lib/speaking-client";
+import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 
 const TOPIC_CHIPS: Record<Language, string[]> = {
   Spanish: [
@@ -132,6 +134,11 @@ export function SpeakLearn() {
   const sessionStartRef = useRef<number | null>(null);
 
   useEffect(() => {
+    setSpeakingPrivacyMode(true);
+    return () => setSpeakingPrivacyMode(false);
+  }, []);
+
+  useEffect(() => {
     setSupported(getRecognitionCtor() !== null);
   }, []);
 
@@ -194,7 +201,7 @@ export function SpeakLearn() {
     try {
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await speakingRequestHeaders(),
         body: JSON.stringify({
           mode: "tip",
           language,
@@ -228,7 +235,7 @@ export function SpeakLearn() {
     try {
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await speakingRequestHeaders(),
         body: JSON.stringify({
           mode: "chat",
           language,
@@ -485,7 +492,7 @@ export function SpeakLearn() {
           <h1 className="font-serif text-4xl text-foreground">Speak & Learn</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {surface === "missions"
-              ? "Practice a focused Spanish situation with a clear goal."
+              ? `Practice a focused ${language} situation with a clear goal.`
               : `A patient ${language} conversation partner. Tap, talk, learn.`}
             {surface === "conversation" && exchanges > 0 && (
               <span className="ml-2 text-gold">· {exchanges} exchanges</span>

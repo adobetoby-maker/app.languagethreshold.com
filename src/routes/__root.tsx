@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
+import {
+  isSpeakingPrivacyMode,
+  LANGUAGE_THRESHOLD_GA_ID,
+} from "../lib/speaking-privacy";
 
-const GA_ID = 'G-RP0TZ1MP7E'
+const GA_ID = LANGUAGE_THRESHOLD_GA_ID;
 
 import appCss from "../styles.css?url";
 import interCss from "@fontsource-variable/inter/opsz.css?url";
@@ -130,7 +134,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <Analytics />
+        <Analytics beforeSend={(event) => (isSpeakingPrivacyMode() ? null : event)} />
         {GA_ID && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

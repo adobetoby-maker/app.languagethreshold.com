@@ -9,10 +9,15 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "node scripts/lint-changed.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "audit:prod": "npm audit --omit=dev --audit-level=high",
     "rosetta:check": "node scripts/rosetta-check.mjs",
     "format": "prettier --write .",
     "verify:deploy-target": "node scripts/verify-deploy-target.mjs",
-    "deploy:prod": "node scripts/verify-deploy-target.mjs && vercel --prod"
+    "verify:vercel-artifact": "node scripts/verify-vercel-artifact.mjs",
+    "deploy": "npm run deploy:prod",
+    "deploy:prod": "npm run verify:deploy-target && npm run audit:prod && npm run test && npm run typecheck && npm run build && npm run verify:vercel-artifact && vercel deploy --prebuilt --prod --yes"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
@@ -103,5 +108,10 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
+  },
+  "overrides": {
+    "@mapbox/node-pre-gyp": "2.0.3",
+    "@xmldom/xmldom": "0.9.11",
+    "tar": "7.5.22"
   }
 }

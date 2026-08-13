@@ -1,8 +1,10 @@
 import type { MissionPartnerVersion, MissionTtsSpeed } from "@/data/mission-tts";
+import { speakingRequestHeaders } from "@/lib/speaking-client";
 
 export interface MissionTtsCapabilities {
   provider: "google-cloud-tts";
   ready: boolean;
+  supportedLanguages: ["Spanish"];
   voices: Record<MissionPartnerVersion, { name: string; label: string }>;
   speakingRates: number[];
 }
@@ -52,12 +54,12 @@ export async function speakMissionTts({
   text,
   partnerVersion,
   speakingRate,
-  ageConfirmed,
+  language,
 }: {
   text: string;
   partnerVersion: MissionPartnerVersion;
   speakingRate: MissionTtsSpeed;
-  ageConfirmed: boolean;
+  language: "Spanish";
 }) {
   stopMissionTts();
   const controller = new AbortController();
@@ -65,8 +67,8 @@ export async function speakMissionTts({
 
   const response = await fetch("/api/mission-tts", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, partnerVersion, speakingRate, ageConfirmed }),
+    headers: await speakingRequestHeaders(),
+    body: JSON.stringify({ text, partnerVersion, speakingRate, language }),
     signal: controller.signal,
   });
   if (!response.ok) {

@@ -1,21 +1,42 @@
-name: Deploy to Vercel
+name: Verify and deploy to Vercel
 
 on:
+  pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  deploy:
+  verify-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: npm ci
 
-      - name: Build
+      - name: Verify, test, and typecheck
+        run: |
+          npm run audit:prod
+          npm run test
+          npm run typecheck
+
+      - name: Verify production Vercel destination
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npm run verify:deploy-target
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build Vercel artifact
         run: npm run build
         env:
           VITE_SUPABASE_URL: "https://pollhlkgltdkdskdzsgd.supabase.co"
@@ -25,8 +46,13 @@ jobs:
           VITE_STRIPE_PRICE_ANNUAL: "price_1TbKk4QjohgWhWid1m86409i"
           VITE_STRIPE_PRICE_FAMILY: "price_1TbKk5QjohgWhWidSuAbMeTq"
 
-      - name: Deploy
-        run: npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
+      - name: Verify Vercel artifact
+        run: npm run verify:vercel-artifact
+
+      - name: Deploy production Vercel project
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx vercel@53.1.0 deploy --prebuilt --prod --yes
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

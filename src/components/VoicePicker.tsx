@@ -12,7 +12,7 @@ import { useSpeech } from "@/state/speech-state";
 import { getVoicesForLocale, subscribeVoices, pickVoice } from "@/lib/voices";
 
 export function VoicePicker() {
-  const { accent, voiceURI, setVoiceURI } = useSpeech();
+  const { accent, rate, voiceURI, setVoiceURI } = useSpeech();
   const [mounted, setMounted] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
@@ -46,7 +46,7 @@ export function VoicePicker() {
     const u = new SpeechSynthesisUtterance(sample);
     u.voice = v;
     u.lang = v.lang;
-    u.rate = 1;
+    u.rate = rate;
     window.speechSynthesis.speak(u);
   };
 

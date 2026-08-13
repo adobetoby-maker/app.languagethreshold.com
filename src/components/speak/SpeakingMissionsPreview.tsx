@@ -67,9 +67,11 @@ function missionTurnId() {
   return `${Date.now()}-${crypto.randomUUID()}`;
 }
 
+const PARTNER_SPEED_OPTIONS = [0.5, 0.6, 0.75, 0.85, 1, 1.1, 1.25, 1.5] as const;
+
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
-  const { accent, rate, voiceURI } = useSpeech();
+  const { accent, rate, setRate, voiceURI } = useSpeech();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -504,6 +506,35 @@ export function SpeakingMissionsPreview() {
             or man voice available on this device; Chrome and Edge usually offer the widest
             selection.
           </p>
+          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+            <span className="flex items-center justify-between gap-3 text-muted-foreground">
+              <span>Partner speed · ear training</span>
+              <span className="font-mono text-gold">{rate}×</span>
+            </span>
+            <select
+              value={rate}
+              onChange={(event) => setRate(Number(event.target.value))}
+              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+            >
+              {PARTNER_SPEED_OPTIONS.map((speed) => (
+                <option key={speed} value={speed}>
+                  {speed}×
+                  {speed === 0.5
+                    ? " · very slow"
+                    : speed === 0.75
+                      ? " · careful"
+                      : speed === 1
+                        ? " · natural"
+                        : speed === 1.5
+                          ? " · challenge"
+                          : ""}
+                </option>
+              ))}
+            </select>
+            <span className="text-xs leading-relaxed text-muted-foreground">
+              Start slower for comprehension, then repeat the same mission faster to train your ear.
+            </span>
+          </label>
         </div>
 
         <button

@@ -1,9 +1,27 @@
 import { MODULES, type AppModule } from "./modules.ts";
 import { CURRICULA, type Lesson } from "./curriculum.ts";
+import {
+  CORE_SPEAKING_MODULE,
+  CORE_VERBS,
+  DAILY_LIVING_TOPICS,
+  type CoreSpeakingSection,
+  type CoreVerb,
+  type DailyLivingTopic,
+} from "./core-speaking.ts";
+import { getPatternsForLanguage, type GrammarPattern } from "./grammar-patterns.ts";
 
-export type SpeakingMissionSpecialty = Exclude<AppModule["category"], "English for Work">;
+export type SpeakingMissionSpecialty = "Core" | Exclude<AppModule["category"], "English for Work">;
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese";
 export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP";
+
+export interface SpeakingModuleDefinition {
+  id: string;
+  name: string;
+  emoji: string;
+  category: SpeakingMissionSpecialty;
+  blurb: string;
+  userRole: string;
+}
 
 export interface SpeakingMissionObjective {
   id: string;
@@ -30,6 +48,8 @@ export interface SpeakingMission {
   locale: SpeakingMissionLocale;
   vocabulary: string[];
   sourcePrompts?: string[];
+  coreSection?: CoreSpeakingSection;
+  coreOrder?: number;
   objectives: SpeakingMissionObjective[];
   openingLine: string;
   safetyRules: string[];
@@ -314,6 +334,7 @@ function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): s
 
 const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpecialty, string>> = {
   Spanish: {
+    Core: "Hola. ¿En qué puedo ayudarle hoy?",
     Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
     Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
     Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
@@ -324,6 +345,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
     Travel: "Disculpe, necesito ayuda con esta situación. ¿Qué debo hacer?",
   },
   Italian: {
+    Core: "Buongiorno. Come posso aiutarla oggi?",
     Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
     Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
     Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
@@ -334,6 +356,7 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
     Travel: "Mi scusi, ho bisogno di aiuto. Che cosa devo fare?",
   },
   Japanese: {
+    Core: "こんにちは。今日はどうされましたか。",
     Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
     Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
     Trades: "おはようございます。この状況では、まず何をすればよいですか。",
@@ -356,6 +379,11 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
   const practiceOnly =
     "This is language practice only; do not present the roleplay as professional advice.";
   switch (category) {
+    case "Core":
+      return [
+        practiceOnly,
+        "Use fictional personal, account, payment, medical, and location details during roleplay.",
+      ];
     case "Medical":
       return [
         practiceOnly,
@@ -387,6 +415,48 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
     case "Travel":
       return [practiceOnly, "Use fictional personal, passport, payment, and location details."];
   }
+}
+
+function dailyLivingOpeningLine(
+  topic: DailyLivingTopic,
+  language: SpeakingMissionLanguage,
+): string {
+  const lines = {
+    Spanish: {
+      caller: "Hola, llamo para hacer una consulta. ¿Con quién hablo?",
+      office: "Buenos días. Ha llamado a la oficina. ¿En qué puedo ayudarle?",
+      unavailable: "Lo siento, esa persona no está disponible. ¿Quiere dejar un mensaje?",
+      voicemail: "Ha llamado fuera del horario de atención. Por favor, deje un mensaje.",
+      emergency: "Servicios de emergencia. Dígame qué pasó y dónde está.",
+    },
+    Italian: {
+      caller: "Buongiorno, chiamo per chiedere un'informazione. Con chi parlo?",
+      office: "Buongiorno. Ha chiamato l'ufficio. Come posso aiutarla?",
+      unavailable: "Mi dispiace, quella persona non è disponibile. Vuole lasciare un messaggio?",
+      voicemail: "Ha chiamato fuori dall'orario d'ufficio. Per favore, lasci un messaggio.",
+      emergency: "Servizi di emergenza. Mi dica che cosa è successo e dove si trova.",
+    },
+    Japanese: {
+      caller: "もしもし、問い合わせでお電話しました。どちらさまですか。",
+      office: "お電話ありがとうございます。どのようなご用件でしょうか。",
+      unavailable: "申し訳ありません。ただ今席を外しております。ご伝言を承りましょうか。",
+      voicemail: "ただ今、営業時間外です。発信音の後にメッセージをお願いします。",
+      emergency: "緊急通報です。何が起きたか、場所はどこか教えてください。",
+    },
+  }[language];
+
+  if (["answer-phone", "wrong-number"].includes(topic.id)) return lines.caller;
+  if (topic.id === "take-message") return lines.unavailable;
+  if (topic.id === "voicemail") return lines.voicemail;
+  if (topic.id === "emergency") return lines.emergency;
+  if (
+    ["ask-for-person", "make-appointment", "reschedule", "cancel", "confirm-appointment"].includes(
+      topic.id,
+    )
+  ) {
+    return lines.office;
+  }
+  return openingLineFor(language, "Core");
 }
 
 function missionFromChallenge(
@@ -490,17 +560,200 @@ function missionFromLesson(
   };
 }
 
-export function getSpeakingModules(language: SpeakingMissionLanguage) {
+function missionFromCoreVerb(
+  verb: CoreVerb,
+  verbIndex: number,
+  language: SpeakingMissionLanguage,
+  languageCode: "es" | "it" | "ja",
+  locale: SpeakingMissionLocale,
+): SpeakingMission {
+  const stableBase = `core_verb_${verb.id}_${languageCode}`;
+  const target = verb.target[language];
+  return {
+    id: `scenario_version_${stableBase}_v1`,
+    scenarioId: `scenario_${stableBase}`,
+    version: 1,
+    title: `Verb ${verbIndex + 1}: ${verb.english}`,
+    summary: `Build a short everyday exchange around ${target}, one of the highest-use ${language} verbs.`,
+    specialty: "Core",
+    moduleId: CORE_SPEAKING_MODULE.id,
+    moduleName: CORE_SPEAKING_MODULE.name,
+    moduleEmoji: CORE_SPEAKING_MODULE.emoji,
+    learnerRole: CORE_SPEAKING_MODULE.userRole,
+    partnerRole: `${language}-speaking everyday conversation partner`,
+    level: verbIndex < 25 ? "A1" : "A2",
+    quickMinutes: 5,
+    targetMinutes: 8,
+    language,
+    locale,
+    vocabulary: [target],
+    sourcePrompts: [
+      `Practice the meaning “${verb.english}” using ${target}.`,
+      "Use the verb in a statement, a question, and a useful response.",
+    ],
+    coreSection: "Essential verbs",
+    coreOrder: verbIndex,
+    objectives: [
+      {
+        id: `objective_${stableBase}_meaning`,
+        description: `Use ${target} accurately in a practical everyday statement.`,
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_question`,
+        description: "Ask or answer a natural question built around the verb.",
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_repair`,
+        description: "Repair or clarify the meaning if the partner misunderstands.",
+        critical: false,
+      },
+    ],
+    openingLine: openingLineFor(language, "Core"),
+    safetyRules: safetyRulesFor("Core"),
+  };
+}
+
+function missionFromGrammarPattern(
+  pattern: GrammarPattern,
+  patternIndex: number,
+  language: SpeakingMissionLanguage,
+  languageCode: "es" | "it" | "ja",
+  locale: SpeakingMissionLocale,
+): SpeakingMission {
+  const stableBase = `core_grammar_${pattern.id}_${languageCode}`;
+  return {
+    id: `scenario_version_${stableBase}_v1`,
+    scenarioId: `scenario_${stableBase}`,
+    version: 1,
+    title: `Grammar: ${pattern.name}`,
+    summary: `${pattern.meaning}. ${pattern.hook}`,
+    specialty: "Core",
+    moduleId: CORE_SPEAKING_MODULE.id,
+    moduleName: CORE_SPEAKING_MODULE.name,
+    moduleEmoji: CORE_SPEAKING_MODULE.emoji,
+    learnerRole: CORE_SPEAKING_MODULE.userRole,
+    partnerRole: `${language}-speaking everyday conversation partner`,
+    level: pattern.phase === 1 ? "A1" : "A2",
+    quickMinutes: 5,
+    targetMinutes: 8,
+    language,
+    locale,
+    vocabulary: [pattern.pattern, ...pattern.examples.slice(0, 2).map((example) => example.target)],
+    sourcePrompts: [
+      pattern.hook,
+      ...pattern.examples.map(
+        (example) =>
+          `${example.target} means “${example.english}”.${example.breakdown ? ` ${example.breakdown}` : ""}`,
+      ),
+    ],
+    coreSection: "Grammar patterns",
+    coreOrder: patternIndex,
+    objectives: [
+      {
+        id: `objective_${stableBase}_pattern`,
+        description: `Use the pattern ${pattern.pattern} to express “${pattern.meaning}.”`,
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_exchange`,
+        description: "Use the pattern naturally in a two-way everyday exchange.",
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_variation`,
+        description: "Create a new example rather than only repeating the model sentence.",
+        critical: false,
+      },
+    ],
+    openingLine: openingLineFor(language, "Core"),
+    safetyRules: safetyRulesFor("Core"),
+  };
+}
+
+function missionFromDailyLivingTopic(
+  topic: DailyLivingTopic,
+  topicIndex: number,
+  language: SpeakingMissionLanguage,
+  languageCode: "es" | "it" | "ja",
+  locale: SpeakingMissionLocale,
+): SpeakingMission {
+  const stableBase = `core_daily_${topic.id}_${languageCode}`;
+  return {
+    id: `scenario_version_${stableBase}_v1`,
+    scenarioId: `scenario_${stableBase}`,
+    version: 1,
+    title: topic.title,
+    summary: topic.objective,
+    specialty: "Core",
+    moduleId: CORE_SPEAKING_MODULE.id,
+    moduleName: CORE_SPEAKING_MODULE.name,
+    moduleEmoji: CORE_SPEAKING_MODULE.emoji,
+    learnerRole: CORE_SPEAKING_MODULE.userRole,
+    partnerRole: topic.partnerRole,
+    level: topicIndex < 20 ? "A1" : "A2",
+    quickMinutes: 7,
+    targetMinutes: 10,
+    language,
+    locale,
+    vocabulary: topic.concepts,
+    sourcePrompts: [topic.objective],
+    coreSection: "Daily living",
+    coreOrder: topicIndex,
+    objectives: [
+      {
+        id: `objective_${stableBase}_task`,
+        description: topic.objective,
+        critical: true,
+      },
+      {
+        id: `objective_${stableBase}_clarify`,
+        description: "Ask for repetition or clarification if an important detail is unclear.",
+        critical: false,
+      },
+      {
+        id: `objective_${stableBase}_close`,
+        description: "Confirm the result, decision, or next practical step before closing.",
+        critical: true,
+      },
+    ],
+    openingLine: dailyLivingOpeningLine(topic, language),
+    safetyRules: safetyRulesFor("Core"),
+  };
+}
+
+type SpecialtySpeakingModule = AppModule & {
+  category: Exclude<AppModule["category"], "English for Work">;
+};
+
+function getSpecialtySpeakingModules(language: SpeakingMissionLanguage) {
   return MODULES.filter(
-    (module): module is AppModule & { category: SpeakingMissionSpecialty } =>
+    (module): module is SpecialtySpeakingModule =>
       module.learnDirection !== "en-target" &&
       module.category !== "English for Work" &&
       (!module.languages || module.languages.includes(language)),
   );
 }
 
+export function getSpeakingModules(language: SpeakingMissionLanguage): SpeakingModuleDefinition[] {
+  return [CORE_SPEAKING_MODULE, ...getSpecialtySpeakingModules(language)];
+}
+
+const CORE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) => [
+  ...CORE_VERBS.map((verb, verbIndex) =>
+    missionFromCoreVerb(verb, verbIndex, language, code, locale),
+  ),
+  ...getPatternsForLanguage(language).map((pattern, patternIndex) =>
+    missionFromGrammarPattern(pattern, patternIndex, language, code, locale),
+  ),
+  ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>
+    missionFromDailyLivingTopic(topic, topicIndex, language, code, locale),
+  ),
+]);
+
 const COMPLETE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) =>
-  getSpeakingModules(language).flatMap((module) => {
+  getSpecialtySpeakingModules(language).flatMap((module) => {
     const challengeMissions = module.challengePrompts.map((challenge, challengeIndex) =>
       missionFromChallenge(
         module,
@@ -524,6 +777,7 @@ const COMPLETE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, lo
 // authored challenge and curriculum lesson for Spanish, Italian, and Japanese
 // follows with stable IDs so the API continues to fail closed on unknown topics.
 export const SPEAKING_MISSIONS: SpeakingMission[] = [
+  ...CORE_TOPIC_MISSIONS,
   ...CURATED_SPEAKING_MISSIONS,
   ...COMPLETE_TOPIC_MISSIONS,
 ];

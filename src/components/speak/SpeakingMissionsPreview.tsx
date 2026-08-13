@@ -6,6 +6,7 @@ import {
   MISSION_TTS_VOICES,
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
+import type { CoreSpeakingSection } from "@/data/core-speaking";
 import {
   getSpeakingMissions,
   getSpeakingModules,
@@ -28,6 +29,12 @@ type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
 type PartnerAudioSource = "device" | "google";
+
+const CORE_SECTIONS: CoreSpeakingSection[] = [
+  "Essential verbs",
+  "Grammar patterns",
+  "Daily living",
+];
 
 interface MissionTurn {
   id: string;
@@ -77,6 +84,7 @@ function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
 
 function specialtyStyle(specialty: SpeakingMission["specialty"]) {
   const styles: Record<SpeakingMission["specialty"], { color: string }> = {
+    Core: { color: "#f0c96a" },
     Faith: { color: "#c9a84c" },
     Medical: { color: "#4fb6d3" },
     Trades: { color: "#ff7a4a" },
@@ -135,6 +143,7 @@ export function SpeakingMissionsPreview() {
     "All",
   );
   const [catalogSearch, setCatalogSearch] = useState("");
+  const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
@@ -184,6 +193,10 @@ export function SpeakingMissionsPreview() {
   const catalogMissions = catalogModule
     ? languageMissions.filter((mission) => mission.moduleId === catalogModule.id)
     : [];
+  const visibleCatalogMissions =
+    catalogModule?.id === "core-speaking"
+      ? catalogMissions.filter((mission) => mission.coreSection === coreSection)
+      : catalogMissions;
 
   useEffect(() => {
     setRecognitionSupported(recognitionConstructor() !== null);
@@ -234,6 +247,7 @@ export function SpeakingMissionsPreview() {
     setCatalogModuleId(null);
     setCatalogCategory("All");
     setCatalogSearch("");
+    setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
   }, [appState.selectedLanguage, stopActiveWork]);
 
@@ -518,8 +532,9 @@ export function SpeakingMissionsPreview() {
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Choose from {languageMissions.length} missions across {languageModules.length}{" "}
-            {missionLanguage} specialties. Every mission can be practiced with a woman or a man as
-            the conversation partner and does not yet count toward durable mastery.
+            {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
+            daily living; then move into specialty practice. Every mission supports woman and man
+            partner versions and does not yet count toward durable mastery.
           </p>
         </div>
         {catalogModule ? (
@@ -529,7 +544,7 @@ export function SpeakingMissionsPreview() {
               onClick={() => setCatalogModuleId(null)}
               className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
             >
-              <ChevronLeft className="h-4 w-4" /> All {missionLanguage} specialties
+              <ChevronLeft className="h-4 w-4" /> All {missionLanguage} modules
             </button>
             <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
               <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
@@ -543,8 +558,36 @@ export function SpeakingMissionsPreview() {
                 {catalogMissions.length} speaking missions
               </p>
             </div>
+            {catalogModule.id === "core-speaking" && (
+              <div className="mb-4 grid grid-cols-3 gap-2" aria-label="Core speaking sections">
+                {CORE_SECTIONS.map((section) => {
+                  const count = catalogMissions.filter(
+                    (mission) => mission.coreSection === section,
+                  ).length;
+                  return (
+                    <button
+                      key={section}
+                      type="button"
+                      onClick={() => setCoreSection(section)}
+                      aria-pressed={coreSection === section}
+                      className={
+                        "rounded-xl border px-2 py-2.5 text-xs transition-colors " +
+                        (coreSection === section
+                          ? "border-gold bg-gold/15 text-gold"
+                          : "border-border text-muted-foreground hover:text-foreground")
+                      }
+                    >
+                      <span className="block">{section}</span>
+                      <span className="mt-0.5 block font-mono text-[9px] opacity-75">
+                        {count} missions
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             <div className="grid gap-3 sm:grid-cols-2">
-              {catalogMissions.map((mission) => {
+              {visibleCatalogMissions.map((mission) => {
                 const specialty = specialtyStyle(mission.specialty);
                 return (
                   <button
@@ -572,12 +615,12 @@ export function SpeakingMissionsPreview() {
           <>
             <label className="relative mb-3 block">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <span className="sr-only">Search {missionLanguage} specialties</span>
+              <span className="sr-only">Search {missionLanguage} modules</span>
               <input
                 type="search"
                 value={catalogSearch}
                 onChange={(event) => setCatalogSearch(event.target.value)}
-                placeholder="Search specialties or mission topics…"
+                placeholder="Search core, specialties, or mission topics…"
                 className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-3 text-sm text-foreground"
               />
             </label>
@@ -608,7 +651,10 @@ export function SpeakingMissionsPreview() {
                   <button
                     key={module.id}
                     type="button"
-                    onClick={() => setCatalogModuleId(module.id)}
+                    onClick={() => {
+                      setCatalogModuleId(module.id);
+                      if (module.id === "core-speaking") setCoreSection("Essential verbs");
+                    }}
                     className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
                   >
                     <div className="flex items-center justify-between gap-3 text-xs">
@@ -627,7 +673,7 @@ export function SpeakingMissionsPreview() {
             </div>
             {filteredCatalogModules.length === 0 && (
               <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
-                No {missionLanguage} specialty matches that search.
+                No {missionLanguage} module matches that search.
               </p>
             )}
           </>

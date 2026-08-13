@@ -5,6 +5,8 @@ import {
   MISSION_TTS_SPEEDS,
   MISSION_TTS_VOICES,
 } from "../src/data/mission-tts.ts";
+import { CORE_VERBS, DAILY_LIVING_TOPICS } from "../src/data/core-speaking.ts";
+import { getPatternsForLanguage } from "../src/data/grammar-patterns.ts";
 import {
   findSpeakingMission,
   getSpeakingMissions,
@@ -24,16 +26,59 @@ const APPROVED_SCENARIO_VERSION_IDS = [
 
 test("speaking preview preserves the six reviewed immutable scenarios", () => {
   assert.deepEqual(
-    SPEAKING_MISSIONS.slice(0, APPROVED_SCENARIO_VERSION_IDS.length).map((mission) => mission.id),
+    SPEAKING_MISSIONS.filter((mission) => APPROVED_SCENARIO_VERSION_IDS.includes(mission.id)).map(
+      (mission) => mission.id,
+    ),
     APPROVED_SCENARIO_VERSION_IDS,
   );
 });
 
+test("core speaking covers essential verbs, grammar patterns, and daily living", () => {
+  assert.equal(CORE_VERBS.length, 50);
+  assert.equal(new Set(CORE_VERBS.map((verb) => verb.id)).size, CORE_VERBS.length);
+  assert.equal(DAILY_LIVING_TOPICS.length, 53);
+  assert.equal(
+    new Set(DAILY_LIVING_TOPICS.map((topic) => topic.id)).size,
+    DAILY_LIVING_TOPICS.length,
+  );
+  for (const requiredTopic of [
+    "answer-phone",
+    "make-appointment",
+    "reschedule",
+    "cancel",
+    "confirm-appointment",
+  ]) {
+    assert.ok(
+      DAILY_LIVING_TOPICS.some((topic) => topic.id === requiredTopic),
+      requiredTopic,
+    );
+  }
+
+  for (const { language } of SPEAKING_LANGUAGES) {
+    assert.ok(CORE_VERBS.every((verb) => verb.target[language].length > 0));
+    const core = getSpeakingMissions(language).filter(
+      (mission) => mission.moduleId === "core-speaking",
+    );
+    assert.equal(
+      core.filter((mission) => mission.coreSection === "Essential verbs").length,
+      CORE_VERBS.length,
+    );
+    assert.equal(
+      core.filter((mission) => mission.coreSection === "Grammar patterns").length,
+      getPatternsForLanguage(language).length,
+    );
+    assert.equal(
+      core.filter((mission) => mission.coreSection === "Daily living").length,
+      DAILY_LIVING_TOPICS.length,
+    );
+  }
+});
+
 test("speaking preview covers every authored topic in Spanish, Italian, and Japanese", () => {
   const expected = {
-    Spanish: { modules: 40, challenges: 233, lessons: 1180, curated: 6, total: 1419 },
-    Italian: { modules: 39, challenges: 226, lessons: 1170, curated: 0, total: 1396 },
-    Japanese: { modules: 39, challenges: 226, lessons: 1170, curated: 0, total: 1396 },
+    Spanish: { modules: 41, challenges: 233, lessons: 1180, curated: 6, core: 111, total: 1530 },
+    Italian: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 113, total: 1509 },
+    Japanese: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 111, total: 1507 },
   };
 
   assert.deepEqual(
@@ -45,20 +90,23 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
     const missions = getSpeakingMissions(language);
     const challenges = missions.filter((mission) => mission.id.includes("_challenge_"));
     const lessons = missions.filter((mission) => mission.id.includes("_lesson_"));
-    const curated = missions.filter(
-      (mission) => !mission.id.includes("_challenge_") && !mission.id.includes("_lesson_"),
+    const curated = missions.filter((mission) =>
+      APPROVED_SCENARIO_VERSION_IDS.includes(mission.id),
     );
+    const core = missions.filter((mission) => mission.moduleId === "core-speaking");
     assert.equal(modules.length, expected[language].modules, `${language} modules`);
     assert.equal(challenges.length, expected[language].challenges, `${language} challenges`);
     assert.equal(lessons.length, expected[language].lessons, `${language} lessons`);
     assert.equal(curated.length, expected[language].curated, `${language} curated`);
+    assert.equal(core.length, expected[language].core, `${language} core`);
     assert.equal(missions.length, expected[language].total, `${language} total`);
     assert.ok(
       missions.every((mission) => mission.locale === locale),
       `${language} locale`,
     );
 
-    for (const module of modules) {
+    assert.equal(modules[0].id, "core-speaking", `${language} core is first`);
+    for (const module of modules.filter((module) => module.id !== "core-speaking")) {
       assert.equal(
         challenges.filter((mission) => mission.moduleId === module.id).length,
         module.challengePrompts.length,
@@ -71,9 +119,9 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 4211);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4211);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4211);
+  assert.equal(SPEAKING_MISSIONS.length, 4546);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4546);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4546);
   assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
 });
 

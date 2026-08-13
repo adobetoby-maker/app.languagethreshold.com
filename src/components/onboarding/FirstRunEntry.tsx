@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { ArrowRight, BookOpen, BookmarkPlus, MessageCircle, MousePointer2 } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  BookmarkPlus,
+  MessageCircle,
+  Mic,
+  MousePointer2,
+} from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
 
@@ -16,7 +23,9 @@ export function FirstRunEntry() {
     return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;
   }
 
-  function enter(tab: "reader" | "guide") {
+  const coreSpeakingAvailable = ["Spanish", "Italian", "Japanese"].includes(state.selectedLanguage);
+
+  function enter(tab: "reader" | "speak" | "guide") {
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: tab });
   }
@@ -36,19 +45,32 @@ export function FirstRunEntry() {
               <span className="block text-gold-ink">Remember what matters.</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Open a real passage, tap any word, and ask Tutor why it works in that exact sentence.
-              Save it once; practice it whenever you are ready.
+              Read real language, understand why it works, then use it out loud. Core Speaking
+              builds essential verbs and grammar before daily-life and specialty conversations.
             </p>
 
-            <button
-              type="button"
-              onClick={() => enter("reader")}
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-sm font-semibold text-midnight shadow-gold transition-transform hover:-translate-y-0.5 sm:w-auto"
-            >
-              <BookOpen className="h-4 w-4" aria-hidden />
-              Start reading
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </button>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => enter("reader")}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 text-sm font-semibold text-midnight shadow-gold transition-transform hover:-translate-y-0.5 sm:w-auto"
+              >
+                <BookOpen className="h-4 w-4" aria-hidden />
+                Start reading
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </button>
+              {coreSpeakingAvailable && (
+                <button
+                  type="button"
+                  onClick={() => enter("speak")}
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-gold/45 bg-gold/10 px-6 py-3.5 text-sm font-semibold text-gold-ink transition-colors hover:bg-gold/20 sm:w-auto"
+                >
+                  <Mic className="h-4 w-4" aria-hidden />
+                  Start Core Speaking
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </button>
+              )}
+            </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
               <span>No account needed</span>
@@ -92,6 +114,16 @@ export function FirstRunEntry() {
                   title: "Save and practice",
                   body: "Keep it in My Vocab and strengthen recall with Flashcards.",
                 },
+                ...(coreSpeakingAvailable
+                  ? [
+                      {
+                        Icon: Mic,
+                        tone: "bg-gold/12 text-gold-ink",
+                        title: "Use it out loud",
+                        body: "Practice Core verbs and grammar, then handle 53 daily-life situations before specialty missions.",
+                      },
+                    ]
+                  : []),
               ].map(({ Icon, tone, title, body }, index) => (
                 <li
                   key={title}

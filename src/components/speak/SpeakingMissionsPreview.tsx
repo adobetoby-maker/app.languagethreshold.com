@@ -1,0 +1,1175 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Search, Square, X } from "lucide-react";
+import {
+  isMissionTtsSpeed,
+  MISSION_TTS_SPEEDS,
+  MISSION_TTS_VOICES,
+  type MissionPartnerVersion,
+} from "@/data/mission-tts";
+import type { CoreSpeakingSection } from "@/data/core-speaking";
+import {
+  getSpeakingMissions,
+  getSpeakingModules,
+  SPEAKING_LANGUAGES,
+  type SpeakingMission,
+  type SpeakingMissionLanguage,
+} from "@/data/speaking-missions";
+import {
+  getMissionTtsCapabilities,
+  speakMissionTts,
+  stopMissionTts,
+  type MissionTtsCapabilities,
+} from "@/lib/mission-tts";
+import { configureUtterance } from "@/lib/voices";
+import { useAiGate } from "@/state/ai-gate-state";
+import { useApp } from "@/state/app-state";
+import { useSpeech } from "@/state/speech-state";
+
+type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
+type FeedbackLanguage = "English" | "Target language" | "Adaptive";
+type CompletionReason = "learner" | "natural" | "limit";
+type PartnerAudioSource = "device" | "google";
+
+const CORE_SECTIONS: CoreSpeakingSection[] = [
+  "Essential verbs",
+  "Grammar patterns",
+  "Daily living",
+];
+
+interface MissionTurn {
+  id: string;
+  role: "learner" | "partner";
+  text: string;
+  opening?: boolean;
+  feedback?: string[];
+}
+
+interface MissionTurnResponse {
+  assistantText: string;
+  deferredFeedback: string[];
+  provisionalObjectiveIds: string[];
+  shouldEnd: boolean;
+}
+
+type SpeechRecognitionLike = {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  start: () => void;
+  stop: () => void;
+  abort: () => void;
+  onresult: ((event: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEventLike) => void) | null;
+  onend: (() => void) | null;
+};
+
+type SpeechRecognitionEventLike = {
+  resultIndex: number;
+  results: ArrayLike<{
+    isFinal: boolean;
+    0: { transcript: string };
+  }>;
+};
+
+type SpeechRecognitionErrorEventLike = { error?: string };
+
+function recognitionConstructor(): (new () => SpeechRecognitionLike) | null {
+  if (typeof window === "undefined") return null;
+  const speechWindow = window as typeof window & {
+    SpeechRecognition?: new () => SpeechRecognitionLike;
+    webkitSpeechRecognition?: new () => SpeechRecognitionLike;
+  };
+  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
+}
+
+function specialtyStyle(specialty: SpeakingMission["specialty"]) {
+  const styles: Record<SpeakingMission["specialty"], { color: string }> = {
+    Core: { color: "#f0c96a" },
+    Faith: { color: "#c9a84c" },
+    Medical: { color: "#4fb6d3" },
+    Trades: { color: "#ff7a4a" },
+    Service: { color: "#ba8cff" },
+    Education: { color: "#7cb6ff" },
+    Agriculture: { color: "#7fc66a" },
+    Sports: { color: "#55c79f" },
+    Travel: { color: "#e9a85d" },
+  };
+  return { label: specialty, ...styles[specialty] };
+}
+
+function missionTurnId() {
+  return `${Date.now()}-${crypto.randomUUID()}`;
+}
+
+function partnerVoiceSample(
+  language: SpeakingMissionLanguage,
+  partnerVersion: MissionPartnerVersion,
+) {
+  if (language === "Italian") {
+    return partnerVersion === "woman"
+      ? "Ciao, sono la tua compagna di conversazione. Cominciamo?"
+      : "Ciao, sono il tuo compagno di conversazione. Cominciamo?";
+  }
+  if (language === "Japanese") {
+    return "こんにちは。会話練習のパートナーです。始めましょうか。";
+  }
+  return partnerVersion === "woman"
+    ? "Hola, soy su compañera de práctica. ¿Empezamos?"
+    : "Hola, soy su compañero de práctica. ¿Empezamos?";
+}
+
+export function SpeakingMissionsPreview() {
+  const { gated } = useAiGate();
+  const { state: appState } = useApp();
+  const { accent, rate, setRate, voiceURI } = useSpeech();
+  const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
+  const [started, setStarted] = useState(false);
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
+  const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
+  const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
+  const [status, setStatus] = useState<MissionStatus>("ready");
+  const [turns, setTurns] = useState<MissionTurn[]>([]);
+  const [interim, setInterim] = useState("");
+  const [objectiveIds, setObjectiveIds] = useState<string[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
+  const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
+  const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
+  const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
+  const [deviceVoiceAvailable, setDeviceVoiceAvailable] = useState(false);
+  const [catalogModuleId, setCatalogModuleId] = useState<string | null>(null);
+  const [catalogCategory, setCatalogCategory] = useState<SpeakingMission["specialty"] | "All">(
+    "All",
+  );
+  const [catalogSearch, setCatalogSearch] = useState("");
+  const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const requestRef = useRef<AbortController | null>(null);
+  const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const sessionStartedAtRef = useRef<number | null>(null);
+  const missionLanguage = SPEAKING_LANGUAGES.some(
+    (entry) => entry.language === appState.selectedLanguage,
+  )
+    ? (appState.selectedLanguage as SpeakingMissionLanguage)
+    : null;
+  const languageModules = useMemo(
+    () => (missionLanguage ? getSpeakingModules(missionLanguage) : []),
+    [missionLanguage],
+  );
+  const languageMissions = useMemo(
+    () => (missionLanguage ? getSpeakingMissions(missionLanguage) : []),
+    [missionLanguage],
+  );
+  const missionLocale = selectedMission?.locale ?? accent;
+  const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
+  const partnerVoice =
+    ttsCapabilities?.voices[partnerVersion] ?? MISSION_TTS_VOICES[partnerVersion];
+  const partnerAudioReady =
+    partnerAudioSource === "device"
+      ? deviceVoiceAvailable
+      : selectedMission?.language === "Spanish" && ttsStatus === "ready";
+  const catalogCategories = useMemo(
+    () => [...new Set(languageModules.map((module) => module.category))],
+    [languageModules],
+  );
+  const filteredCatalogModules = useMemo(() => {
+    const query = catalogSearch.trim().toLocaleLowerCase();
+    return languageModules.filter(
+      (module) =>
+        (catalogCategory === "All" || module.category === catalogCategory) &&
+        (!query ||
+          `${module.name} ${module.category} ${module.blurb}`.toLocaleLowerCase().includes(query) ||
+          languageMissions.some(
+            (mission) =>
+              mission.moduleId === module.id &&
+              `${mission.title} ${mission.summary} ${mission.vocabulary.join(" ")}`
+                .toLocaleLowerCase()
+                .includes(query),
+          )),
+    );
+  }, [catalogCategory, catalogSearch, languageMissions, languageModules]);
+  const catalogModule = languageModules.find((module) => module.id === catalogModuleId) ?? null;
+  const catalogMissions = catalogModule
+    ? languageMissions.filter((mission) => mission.moduleId === catalogModule.id)
+    : [];
+  const visibleCatalogMissions =
+    catalogModule?.id === "core-speaking"
+      ? catalogMissions.filter((mission) => mission.coreSection === coreSection)
+      : catalogMissions;
+
+  useEffect(() => {
+    setRecognitionSupported(recognitionConstructor() !== null);
+    setDeviceVoiceAvailable(
+      typeof window !== "undefined" &&
+        "speechSynthesis" in window &&
+        "SpeechSynthesisUtterance" in window,
+    );
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    getMissionTtsCapabilities(controller.signal)
+      .then((capabilities) => {
+        setTtsCapabilities(capabilities);
+        setTtsStatus(capabilities.ready ? "ready" : "unavailable");
+      })
+      .catch((error) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setTtsStatus("unavailable");
+      });
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    transcriptRef.current?.scrollTo({
+      top: transcriptRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [turns, interim, status]);
+
+  const stopAudio = useCallback(() => {
+    stopMissionTts();
+    if (typeof window !== "undefined") window.speechSynthesis?.cancel();
+  }, []);
+
+  const stopActiveWork = useCallback(() => {
+    recognitionRef.current?.abort();
+    recognitionRef.current = null;
+    requestRef.current?.abort();
+    requestRef.current = null;
+    stopAudio();
+  }, [stopAudio]);
+
+  useEffect(() => {
+    stopActiveWork();
+    setSelectedMission(null);
+    setCatalogModuleId(null);
+    setCatalogCategory("All");
+    setCatalogSearch("");
+    setCoreSection("Essential verbs");
+    setPartnerAudioSource("device");
+  }, [appState.selectedLanguage, stopActiveWork]);
+
+  useEffect(() => {
+    return () => stopActiveWork();
+  }, [stopActiveWork]);
+
+  useEffect(() => {
+    if (!started || status === "complete" || sessionStartedAtRef.current === null) return;
+    const elapsed = Date.now() - sessionStartedAtRef.current;
+    const remaining = Math.max(0, 18 * 60 * 1000 - elapsed);
+    const hardCap = window.setTimeout(() => {
+      stopActiveWork();
+      setCompletionReason("limit");
+      setStatus("complete");
+      setErrorMessage("This UX-preview mission reached its 18-minute limit.");
+    }, remaining);
+    return () => window.clearTimeout(hardCap);
+  }, [started, status, stopActiveWork]);
+
+  useEffect(() => {
+    const stopOnBackground = () => {
+      if (document.visibilityState !== "hidden" || !started || status === "complete") return;
+      stopActiveWork();
+      setInterim("");
+      setStatus("error");
+      setErrorMessage(
+        "The mission paused when this tab moved to the background. Tap Resume to continue.",
+      );
+    };
+    document.addEventListener("visibilitychange", stopOnBackground);
+    return () => document.removeEventListener("visibilitychange", stopOnBackground);
+  }, [started, status, stopActiveWork]);
+
+  const speakPartnerText = useCallback(
+    async (text: string) => {
+      stopAudio();
+      if (partnerAudioSource === "device") {
+        if (typeof window === "undefined" || !window.speechSynthesis) {
+          setErrorMessage("A device voice is unavailable in this browser.");
+          return;
+        }
+        const utterance = new SpeechSynthesisUtterance(text);
+        configureUtterance(utterance, missionLocale, voiceURI);
+        utterance.rate = partnerSpeed;
+        window.speechSynthesis.speak(utterance);
+        return;
+      }
+      if (ttsStatus !== "ready") {
+        setErrorMessage("Google partner voices are unavailable for this Preview deployment.");
+        return;
+      }
+      try {
+        await speakMissionTts({
+          text,
+          partnerVersion,
+          speakingRate: partnerSpeed,
+          ageConfirmed,
+        });
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setErrorMessage(
+          error instanceof Error ? error.message : "Google partner voice playback failed.",
+        );
+      }
+    },
+    [
+      ageConfirmed,
+      missionLocale,
+      partnerAudioSource,
+      partnerSpeed,
+      partnerVersion,
+      stopAudio,
+      ttsStatus,
+      voiceURI,
+    ],
+  );
+
+  const beginMission = () => {
+    if (!selectedMission || !ageConfirmed || !partnerAudioReady) return;
+    stopActiveWork();
+    const opening: MissionTurn = {
+      id: missionTurnId(),
+      role: "partner",
+      text: selectedMission.openingLine,
+      opening: true,
+    };
+    setTurns([opening]);
+    setObjectiveIds([]);
+    setErrorMessage(null);
+    setInterim("");
+    setCompletionReason(null);
+    setStatus("ready");
+    sessionStartedAtRef.current = Date.now();
+    setStarted(true);
+    void speakPartnerText(opening.text);
+  };
+
+  const exitMission = () => {
+    stopActiveWork();
+    setStarted(false);
+    setTurns([]);
+    setInterim("");
+    setObjectiveIds([]);
+    setErrorMessage(null);
+    setCompletionReason(null);
+    setStatus("ready");
+    sessionStartedAtRef.current = null;
+  };
+
+  const selectMission = (mission: SpeakingMission) => {
+    exitMission();
+    if (mission.language !== "Spanish") setPartnerAudioSource("device");
+    setSelectedMission(mission);
+  };
+
+  const sendLearnerTurn = async (text: string) => {
+    if (!selectedMission) return;
+    const learnerText = text.trim();
+    if (!learnerText) {
+      setStatus("ready");
+      return;
+    }
+
+    const learnerTurn: MissionTurn = {
+      id: missionTurnId(),
+      role: "learner",
+      text: learnerText,
+    };
+    const previousTurns = turns;
+    setTurns((current) => [...current, learnerTurn]);
+    setStatus("thinking");
+    setErrorMessage(null);
+    const controller = new AbortController();
+    requestRef.current?.abort();
+    requestRef.current = controller;
+
+    try {
+      const history: Array<{ role: "user" | "assistant"; content: string }> = previousTurns
+        .slice(-38)
+        .map((turn) => ({
+          role: turn.role === "learner" ? ("user" as const) : ("assistant" as const),
+          content: turn.text,
+        }));
+      history.push({ role: "user", content: learnerText });
+      const response = await fetch("/api/speak", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mode: "mission",
+          language: selectedMission.language,
+          level: selectedMission.level,
+          messages: history,
+          scenarioVersionId: selectedMission.id,
+          ageConfirmed,
+          feedbackLanguage,
+          partnerVersion,
+        }),
+        signal: controller.signal,
+      });
+
+      const payload = (await response.json()) as MissionTurnResponse | { error?: string };
+      if (!response.ok || !("assistantText" in payload)) {
+        throw new Error(
+          "error" in payload && payload.error
+            ? payload.error
+            : "The mission partner could not respond.",
+        );
+      }
+
+      setTurns((current) => [
+        ...current.map((turn) =>
+          turn.id === learnerTurn.id ? { ...turn, feedback: payload.deferredFeedback } : turn,
+        ),
+        { id: missionTurnId(), role: "partner", text: payload.assistantText },
+      ]);
+      setObjectiveIds((current) => [...new Set([...current, ...payload.provisionalObjectiveIds])]);
+      requestRef.current = null;
+      if (payload.shouldEnd) setCompletionReason("natural");
+      setStatus(payload.shouldEnd ? "complete" : "ready");
+      void speakPartnerText(payload.assistantText);
+    } catch (error) {
+      requestRef.current = null;
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "The mission partner could not respond.",
+      );
+    }
+  };
+
+  const startListening = () => {
+    const Constructor = recognitionConstructor();
+    if (!Constructor) {
+      setErrorMessage(
+        "Speech recognition is unavailable in this browser. Use a supported browser for this UX preview.",
+      );
+      setStatus("error");
+      return;
+    }
+    try {
+      stopAudio();
+      const recognition = new Constructor();
+      recognition.lang = missionLocale;
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      let finalText = "";
+      recognition.onresult = (event) => {
+        let interimText = "";
+        for (let index = event.resultIndex; index < event.results.length; index += 1) {
+          const result = event.results[index];
+          if (result.isFinal) finalText += result[0].transcript;
+          else interimText += result[0].transcript;
+        }
+        setInterim(interimText);
+      };
+      recognition.onerror = (event) => {
+        if (event?.error && event.error !== "no-speech" && event.error !== "aborted") {
+          setErrorMessage(`Microphone error: ${String(event.error)}`);
+          setStatus("error");
+        }
+      };
+      recognition.onend = () => {
+        recognitionRef.current = null;
+        setInterim("");
+        if (finalText.trim()) {
+          setStatus("ready");
+          gated(() => sendLearnerTurn(finalText));
+        } else setStatus((current) => (current === "error" ? current : "ready"));
+      };
+      recognitionRef.current = recognition;
+      recognition.start();
+      setStatus("listening");
+      setErrorMessage(null);
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "The microphone could not start.");
+    }
+  };
+
+  const stopListening = () => recognitionRef.current?.stop();
+
+  const completedObjectiveCount =
+    selectedMission?.objectives.filter((objective) => objectiveIds.includes(objective.id)).length ??
+    0;
+  const feedbackNotes = turns.flatMap((turn) => turn.feedback ?? []);
+  const latestFeedback = feedbackNotes.at(-1) ?? null;
+
+  const finishMission = () => {
+    stopActiveWork();
+    setInterim("");
+    setErrorMessage(null);
+    setCompletionReason("learner");
+    setStatus("complete");
+  };
+
+  if (!selectedMission) {
+    if (!missionLanguage) {
+      return (
+        <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+            Scenario missions
+          </p>
+          <h2 className="mt-2 font-serif text-2xl text-foreground">
+            {appState.selectedLanguage} missions are next in the rollout
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            The complete topic catalog is currently available for Spanish, Italian, and Japanese.
+            Choose one of those languages from the language menu to practice its full set.
+          </p>
+        </section>
+      );
+    }
+    return (
+      <section aria-labelledby="mission-preview-heading" className="mt-5">
+        <div className="mb-5 rounded-2xl border border-gold/30 bg-gold/10 p-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+            UX preview · {missionLanguage}
+          </p>
+          <h2 id="mission-preview-heading" className="mt-1 font-serif text-2xl text-foreground">
+            Practice a real situation
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Choose from {languageMissions.length} missions across {languageModules.length}{" "}
+            {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
+            daily living; then move into specialty practice. Every mission supports woman and man
+            partner versions and does not yet count toward durable mastery.
+          </p>
+        </div>
+        {catalogModule ? (
+          <>
+            <button
+              type="button"
+              onClick={() => setCatalogModuleId(null)}
+              className="mb-4 flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            >
+              <ChevronLeft className="h-4 w-4" /> All {missionLanguage} modules
+            </button>
+            <div className="mb-4 rounded-2xl border border-border/70 bg-card/40 p-4">
+              <p className="text-sm text-muted-foreground">{catalogModule.category}</p>
+              <h3 className="mt-1 font-serif text-2xl text-foreground">
+                {catalogModule.emoji} {catalogModule.name}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {catalogModule.blurb}
+              </p>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                {catalogMissions.length} speaking missions
+              </p>
+            </div>
+            {catalogModule.id === "core-speaking" && (
+              <div className="mb-4 grid grid-cols-3 gap-2" aria-label="Core speaking sections">
+                {CORE_SECTIONS.map((section) => {
+                  const count = catalogMissions.filter(
+                    (mission) => mission.coreSection === section,
+                  ).length;
+                  return (
+                    <button
+                      key={section}
+                      type="button"
+                      onClick={() => setCoreSection(section)}
+                      aria-pressed={coreSection === section}
+                      className={
+                        "rounded-xl border px-2 py-2.5 text-xs transition-colors " +
+                        (coreSection === section
+                          ? "border-gold bg-gold/15 text-gold"
+                          : "border-border text-muted-foreground hover:text-foreground")
+                      }
+                    >
+                      <span className="block">{section}</span>
+                      <span className="mt-0.5 block font-mono text-[9px] opacity-75">
+                        {count} missions
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+            <div className="grid gap-3 sm:grid-cols-2">
+              {visibleCatalogMissions.map((mission) => {
+                const specialty = specialtyStyle(mission.specialty);
+                return (
+                  <button
+                    key={mission.id}
+                    type="button"
+                    onClick={() => selectMission(mission)}
+                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-xs">
+                      <span style={{ color: specialty.color }}>{specialty.label}</span>
+                      <span className="text-muted-foreground">
+                        {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
+                      </span>
+                    </div>
+                    <h3 className="mt-3 font-serif text-xl text-foreground">{mission.title}</h3>
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
+                      Woman + man partner versions
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <>
+            <label className="relative mb-3 block">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <span className="sr-only">Search {missionLanguage} modules</span>
+              <input
+                type="search"
+                value={catalogSearch}
+                onChange={(event) => setCatalogSearch(event.target.value)}
+                placeholder="Search core, specialties, or mission topics…"
+                className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-3 text-sm text-foreground"
+              />
+            </label>
+            <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+              {(["All", ...catalogCategories] as const).map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setCatalogCategory(category)}
+                  className={
+                    "shrink-0 rounded-full border px-3 py-1.5 text-xs transition-colors " +
+                    (catalogCategory === category
+                      ? "border-gold bg-gold/15 text-gold"
+                      : "border-border text-muted-foreground hover:text-foreground")
+                  }
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {filteredCatalogModules.map((module) => {
+                const missionCount = languageMissions.filter(
+                  (mission) => mission.moduleId === module.id,
+                ).length;
+                const specialty = specialtyStyle(module.category);
+                return (
+                  <button
+                    key={module.id}
+                    type="button"
+                    onClick={() => {
+                      setCatalogModuleId(module.id);
+                      if (module.id === "core-speaking") setCoreSection("Essential verbs");
+                    }}
+                    className="rounded-2xl border border-border/70 bg-card/50 p-4 text-left transition-colors hover:border-gold/50 hover:bg-card"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-xs">
+                      <span style={{ color: specialty.color }}>{specialty.label}</span>
+                      <span className="text-muted-foreground">{missionCount} missions</span>
+                    </div>
+                    <h3 className="mt-3 font-serif text-xl text-foreground">
+                      {module.emoji} {module.name}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {module.blurb}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+            {filteredCatalogModules.length === 0 && (
+              <p className="rounded-2xl border border-border/70 p-5 text-sm text-muted-foreground">
+                No {missionLanguage} module matches that search.
+              </p>
+            )}
+          </>
+        )}
+      </section>
+    );
+  }
+
+  if (!started) {
+    const specialty = specialtyStyle(selectedMission.specialty);
+    return (
+      <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+        <button
+          type="button"
+          onClick={() => setSelectedMission(null)}
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <ChevronLeft className="h-4 w-4" /> All missions
+        </button>
+        <div className="mt-5 flex items-center justify-between gap-3 text-xs">
+          <span style={{ color: specialty.color }}>
+            {selectedMission.moduleEmoji} {selectedMission.moduleName} · {selectedMission.level}
+          </span>
+          <span className="text-muted-foreground">
+            {selectedMission.quickMinutes}–{selectedMission.targetMinutes} min
+          </span>
+        </div>
+        <h2 className="mt-2 font-serif text-3xl text-foreground">{selectedMission.title}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          {selectedMission.summary}
+        </p>
+
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              Mission objectives
+            </p>
+            <ul className="mt-2 space-y-2 text-sm text-foreground/85">
+              {selectedMission.objectives.map((objective) => (
+                <li key={objective.id} className="flex gap-2">
+                  <span className="text-gold">○</span>
+                  <span>
+                    {objective.description}
+                    {objective.critical ? " *" : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              Focus concepts
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {selectedMission.vocabulary.map((word) => (
+                <span key={word} className="rounded-full border border-border/70 px-3 py-1 text-xs">
+                  {word}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-gold/25 bg-background/50 p-4">
+          <fieldset>
+            <legend className="text-sm text-muted-foreground">Partner audio</legend>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {(["device", "google"] as const).map((source) => {
+                const selected = partnerAudioSource === source;
+                const available = source === "device" || selectedMission.language === "Spanish";
+                return (
+                  <button
+                    key={source}
+                    type="button"
+                    onClick={() => available && setPartnerAudioSource(source)}
+                    disabled={!available}
+                    aria-pressed={selected}
+                    className={
+                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      (selected
+                        ? "border-gold bg-gold/15 text-gold"
+                        : available
+                          ? "border-border text-muted-foreground hover:text-foreground"
+                          : "cursor-not-allowed border-border text-muted-foreground opacity-40")
+                    }
+                  >
+                    {source === "device"
+                      ? "Device voice"
+                      : selectedMission.language === "Spanish"
+                        ? "Google voices"
+                        : "Google · Spanish only"}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Device voice preserves the voice already used by the app for{" "}
+              {selectedMission.language}. Google currently provides the optional fixed woman/man
+              pair for Spanish only.
+            </p>
+          </fieldset>
+          <fieldset className="mt-4 border-t border-border/60 pt-4">
+            <legend className="text-sm text-muted-foreground">Conversation partner</legend>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {(["woman", "man"] as const).map((version) => {
+                const selected = partnerVersion === version;
+                return (
+                  <button
+                    key={version}
+                    type="button"
+                    onClick={() => setPartnerVersion(version)}
+                    aria-pressed={selected}
+                    className={
+                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      (selected
+                        ? "border-gold bg-gold/15 text-gold"
+                        : "border-border text-muted-foreground hover:text-foreground")
+                    }
+                  >
+                    {version === "woman" ? "Woman partner" : "Man partner"}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Same objectives, with the partner&apos;s natural self-reference, phrasing, and
+              response rhythm adapted for this version.
+            </p>
+          </fieldset>
+          <label className="mt-4 flex items-start gap-3 border-t border-border/60 pt-4 text-sm text-foreground/90">
+            <input
+              type="checkbox"
+              checked={ageConfirmed}
+              onChange={(event) => setAgeConfirmed(event.target.checked)}
+              className="mt-1"
+            />
+            <span>
+              I confirm I am 13 or older. Mission mode sends my recognized speech text to Anthropic.
+              {partnerAudioSource === "google"
+                ? " Google Cloud receives only the partner's generated Spanish line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS."
+                : " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."}{" "}
+              Browser speech recognition may use browser or operating-system services.
+            </span>
+          </label>
+          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+            <span className="text-muted-foreground">Coaching language</span>
+            <select
+              value={feedbackLanguage}
+              onChange={(event) => setFeedbackLanguage(event.target.value as FeedbackLanguage)}
+              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+            >
+              <option value="English">English</option>
+              <option value="Target language">{selectedMission.language}</option>
+              <option value="Adaptive">Adaptive</option>
+            </select>
+          </label>
+          <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+            <div>
+              <p className="text-sm text-muted-foreground">
+                {partnerAudioSource === "device"
+                  ? "Current app voice"
+                  : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
+              </p>
+              <p className="mt-0.5 text-xs text-foreground/80">
+                {partnerAudioSource === "device"
+                  ? `Best available ${selectedMission.language} voice from this phone or browser`
+                  : `${partnerVoice.label} · ${partnerVoice.name}`}
+              </p>
+            </div>
+            <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+              {partnerAudioSource === "device" ? "Device voice" : "Server voice"}
+            </span>
+          </div>
+          {partnerAudioReady ? (
+            <button
+              type="button"
+              onClick={() =>
+                void speakPartnerText(partnerVoiceSample(selectedMission.language, partnerVersion))
+              }
+              className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+            >
+              Test {partnerAudioSource === "device" ? "device" : partnerVersion} voice at{" "}
+              {partnerSpeed}×
+            </button>
+          ) : (
+            <p role="alert" className="mt-3 text-xs leading-relaxed text-destructive">
+              {partnerAudioSource === "device"
+                ? `A ${selectedMission.language} device voice is unavailable in this browser.`
+                : ttsStatus === "checking"
+                  ? "Checking Google partner voice availability…"
+                  : "Google Cloud partner voices are not configured for this Preview deployment."}
+            </p>
+          )}
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            {partnerAudioSource === "device"
+              ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
+              : "Google uses a fixed Neural2 woman/man pair, independent of the voices installed on this phone."}
+          </p>
+          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+            <span className="flex items-center justify-between gap-3 text-muted-foreground">
+              <span>Partner speed · ear training</span>
+              <span className="font-mono text-gold">{partnerSpeed}×</span>
+            </span>
+            <select
+              value={partnerSpeed}
+              onChange={(event) => setRate(Number(event.target.value))}
+              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+            >
+              {MISSION_TTS_SPEEDS.map((speed) => (
+                <option key={speed} value={speed}>
+                  {speed}×
+                  {speed === 0.5
+                    ? " · very slow"
+                    : speed === 0.75
+                      ? " · careful"
+                      : speed === 1
+                        ? " · natural"
+                        : speed === 1.5
+                          ? " · challenge"
+                          : ""}
+                </option>
+              ))}
+            </select>
+            <span className="text-xs leading-relaxed text-muted-foreground">
+              Start slower for comprehension, then repeat the same mission faster to train your ear.
+            </span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          onClick={beginMission}
+          disabled={!ageConfirmed || !partnerAudioReady}
+          className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Start mission
+        </button>
+        <p className="mt-2 text-center text-xs text-muted-foreground">
+          * Required for Bronze or higher in the future scoring model. This preview does not save a
+          tier.
+        </p>
+      </section>
+    );
+  }
+
+  if (status === "complete") {
+    const completionTitle =
+      completionReason === "limit"
+        ? "Time limit reached"
+        : completionReason === "natural"
+          ? "Mission reached a natural close"
+          : "Mission ended";
+    return (
+      <section className="mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
+          Mission recap · UX preview
+        </p>
+        <h2 className="mt-2 font-serif text-3xl text-foreground">{completionTitle}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {selectedMission.title} · {partnerVersion === "woman" ? "Woman" : "Man"} partner
+        </p>
+
+        <div className="mt-6 rounded-2xl border border-gold/35 bg-gold/10 p-4">
+          <div className="flex items-center gap-2 text-gold">
+            <Lightbulb className="h-4 w-4" />
+            <h3 className="font-mono text-xs uppercase tracking-[0.18em]">Coaching feedback</h3>
+          </div>
+          {feedbackNotes.length > 0 ? (
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground">
+              {feedbackNotes.map((feedback, index) => (
+                <li key={`recap-feedback-${index}`} className="flex gap-2">
+                  <span className="text-gold">•</span>
+                  <span>{feedback}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              No coaching was generated before this mission ended. Complete at least one learner
+              turn to receive feedback.
+            </p>
+          )}
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-border/70 bg-background/40 p-4">
+          <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            Objectives observed · provisional
+          </h3>
+          <ul className="mt-3 space-y-2 text-sm">
+            {selectedMission.objectives.map((objective) => {
+              const completed = objectiveIds.includes(objective.id);
+              return (
+                <li key={objective.id} className="flex gap-2">
+                  <span className={completed ? "text-emerald-300" : "text-muted-foreground"}>
+                    {completed ? "✓" : "○"}
+                  </span>
+                  <span className={completed ? "text-foreground" : "text-muted-foreground"}>
+                    {objective.description}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {completedObjectiveCount} of {selectedMission.objectives.length} observed. No mastery
+            tier was saved.
+          </p>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={beginMission}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400/40 px-4 py-3 text-sm text-emerald-200"
+          >
+            <RotateCcw className="h-4 w-4" /> Try again
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              exitMission();
+              setSelectedMission(null);
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
+          >
+            <ChevronLeft className="h-4 w-4" /> All missions
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="mt-5">
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+            Mission in progress · UX preview
+          </p>
+          <h2 className="mt-1 font-serif text-2xl text-foreground">{selectedMission.title}</h2>
+          <p className="mt-1 text-xs text-muted-foreground">
+            {completedObjectiveCount}/{selectedMission.objectives.length} provisional objectives
+            {` · ${partnerVersion === "woman" ? "Woman" : "Man"} partner`}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={finishMission}
+          className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
+        >
+          <X className="h-3.5 w-3.5" /> End
+        </button>
+      </div>
+
+      <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
+        {selectedMission.objectives.map((objective) => {
+          const completed = objectiveIds.includes(objective.id);
+          return (
+            <span
+              key={objective.id}
+              className={
+                "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
+                (completed
+                  ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
+                  : "border-border text-muted-foreground")
+              }
+              title={objective.description}
+            >
+              {completed ? <Check className="h-3 w-3" /> : "○"} {objective.description}
+            </span>
+          );
+        })}
+      </div>
+
+      <div
+        ref={transcriptRef}
+        className="h-[390px] overflow-y-auto rounded-3xl border border-border/60 bg-card/40 p-4"
+        aria-live="polite"
+      >
+        <ul className="flex flex-col gap-3">
+          {turns.map((turn) => (
+            <li
+              key={turn.id}
+              className={turn.role === "learner" ? "flex justify-end" : "flex justify-start"}
+            >
+              <div className="max-w-[88%]">
+                <div
+                  className={
+                    turn.role === "learner"
+                      ? "rounded-2xl rounded-br-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground"
+                      : "rounded-2xl rounded-bl-sm border border-gold/30 bg-background/70 px-4 py-2.5 text-sm text-foreground"
+                  }
+                >
+                  {turn.role === "partner" && (
+                    <button
+                      type="button"
+                      onClick={() => void speakPartnerText(turn.text)}
+                      className="mr-2 text-gold"
+                      aria-label="Replay partner speech"
+                    >
+                      🔊
+                    </button>
+                  )}
+                  <span className="leading-relaxed">{turn.text}</span>
+                </div>
+                {turn.feedback?.map((feedback, index) => (
+                  <p
+                    key={`${turn.id}-feedback-${index}`}
+                    className="mt-1 rounded-xl bg-gold/10 px-3 py-1.5 text-xs text-gold"
+                  >
+                    💡 {feedback}
+                  </p>
+                ))}
+              </div>
+            </li>
+          ))}
+          {interim && (
+            <li className="flex justify-end">
+              <div className="max-w-[88%] rounded-2xl border border-dashed border-primary/50 bg-primary/10 px-4 py-2.5 text-sm italic">
+                {interim}
+              </div>
+            </li>
+          )}
+          {status === "thinking" && (
+            <li className="flex justify-start">
+              <div className="rounded-2xl border border-gold/20 px-4 py-2 text-xs text-muted-foreground">
+                Partner is responding…
+              </div>
+            </li>
+          )}
+        </ul>
+      </div>
+
+      {errorMessage && (
+        <div
+          role="alert"
+          className="mt-3 rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive"
+        >
+          {errorMessage}
+        </div>
+      )}
+
+      <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
+        <div className="flex items-center gap-2 text-gold">
+          <Lightbulb className="h-4 w-4" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">
+          {latestFeedback ?? "Your first coaching note will appear here after you answer."}
+        </p>
+      </div>
+
+      <div className="mt-5 flex flex-col items-center gap-3">
+        {recognitionSupported === false ? (
+          <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
+            Speech recognition is unavailable in this browser.
+          </p>
+        ) : status === "error" ? (
+          <button
+            type="button"
+            onClick={() => {
+              setStatus("ready");
+              setErrorMessage(null);
+            }}
+            className="rounded-full border border-gold/40 px-5 py-2 text-sm text-gold"
+          >
+            Resume mission
+          </button>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={status === "listening" ? stopListening : startListening}
+              disabled={status === "thinking"}
+              aria-label={status === "listening" ? "Stop listening" : "Start listening"}
+              className={
+                "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
+                (status === "listening" ? "bg-gold listening-rings" : "bg-primary")
+              }
+            >
+              {status === "listening" ? (
+                <Square className="h-7 w-7" fill="currentColor" />
+              ) : (
+                <Mic className="h-8 w-8" />
+              )}
+            </button>
+            <p className="text-sm text-muted-foreground">
+              {status === "listening"
+                ? "Listening… tap Stop when you finish"
+                : status === "thinking"
+                  ? "Partner is replying…"
+                  : `Tap the microphone and answer in ${selectedMission.language}`}
+            </p>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}

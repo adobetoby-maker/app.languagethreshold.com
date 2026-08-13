@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Check, ChevronLeft, Mic, RotateCcw, Square, X } from "lucide-react";
+import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Square, X } from "lucide-react";
+import { VoicePicker } from "@/components/VoicePicker";
 import { SPEAKING_MISSIONS, type SpeakingMission } from "@/data/speaking-missions";
-import { configureUtterance } from "@/lib/voices";
+import { configureUtterance, pickVoice } from "@/lib/voices";
 import { useAiGate } from "@/state/ai-gate-state";
+import { useSpeech } from "@/state/speech-state";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Spanish" | "Adaptive";
+type CompletionReason = "learner" | "natural" | "limit";
 
 interface MissionTurn {
   id: string;
@@ -65,6 +68,7 @@ function missionTurnId() {
 
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
+  const { accent, rate, voiceURI } = useSpeech();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -75,10 +79,13 @@ export function SpeakingMissionsPreview() {
   const [objectiveIds, setObjectiveIds] = useState<string[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [recognitionSupported, setRecognitionSupported] = useState<boolean | null>(null);
+  const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
+  const missionLocale = accent.startsWith("es-") ? accent : "es-MX";
+  const activeVoice = pickVoice(missionLocale, voiceURI);
 
   useEffect(() => setRecognitionSupported(recognitionConstructor() !== null), []);
 
@@ -111,6 +118,7 @@ export function SpeakingMissionsPreview() {
     const remaining = Math.max(0, 18 * 60 * 1000 - elapsed);
     const hardCap = window.setTimeout(() => {
       stopActiveWork();
+      setCompletionReason("limit");
       setStatus("complete");
       setErrorMessage("This UX-preview mission reached its 18-minute limit.");
     }, remaining);
@@ -136,11 +144,11 @@ export function SpeakingMissionsPreview() {
       if (typeof window === "undefined" || !window.speechSynthesis) return;
       stopAudio();
       const utterance = new SpeechSynthesisUtterance(text);
-      configureUtterance(utterance, "es-MX", null);
-      utterance.rate = 1;
+      configureUtterance(utterance, missionLocale, voiceURI);
+      utterance.rate = rate;
       window.speechSynthesis.speak(utterance);
     },
-    [stopAudio],
+    [missionLocale, rate, stopAudio, voiceURI],
   );
 
   const beginMission = () => {
@@ -156,6 +164,7 @@ export function SpeakingMissionsPreview() {
     setObjectiveIds([]);
     setErrorMessage(null);
     setInterim("");
+    setCompletionReason(null);
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
@@ -169,6 +178,7 @@ export function SpeakingMissionsPreview() {
     setInterim("");
     setObjectiveIds([]);
     setErrorMessage(null);
+    setCompletionReason(null);
     setStatus("ready");
     sessionStartedAtRef.current = null;
   };
@@ -239,6 +249,7 @@ export function SpeakingMissionsPreview() {
       ]);
       setObjectiveIds((current) => [...new Set([...current, ...payload.provisionalObjectiveIds])]);
       requestRef.current = null;
+      if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
       speakPartnerText(payload.assistantText);
     } catch (error) {
@@ -263,7 +274,7 @@ export function SpeakingMissionsPreview() {
     try {
       stopAudio();
       const recognition = new Constructor();
-      recognition.lang = "es-MX";
+      recognition.lang = missionLocale;
       recognition.continuous = false;
       recognition.interimResults = true;
       let finalText = "";
@@ -305,6 +316,16 @@ export function SpeakingMissionsPreview() {
   const completedObjectiveCount =
     selectedMission?.objectives.filter((objective) => objectiveIds.includes(objective.id)).length ??
     0;
+  const feedbackNotes = turns.flatMap((turn) => turn.feedback ?? []);
+  const latestFeedback = feedbackNotes.at(-1) ?? null;
+
+  const finishMission = () => {
+    stopActiveWork();
+    setInterim("");
+    setErrorMessage(null);
+    setCompletionReason("learner");
+    setStatus("complete");
+  };
 
   if (!selectedMission) {
     return (
@@ -431,6 +452,16 @@ export function SpeakingMissionsPreview() {
               <option value="Adaptive">Adaptive</option>
             </select>
           </label>
+          <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+            <div>
+              <p className="text-sm text-muted-foreground">Partner voice</p>
+              <p className="mt-0.5 text-xs text-foreground/80">
+                {activeVoice?.name ?? `Best available ${missionLocale} voice`}
+                {activeVoice?.name.includes("Google") ? " · Google" : ""}
+              </p>
+            </div>
+            <VoicePicker />
+          </div>
         </div>
 
         <button
@@ -449,6 +480,91 @@ export function SpeakingMissionsPreview() {
     );
   }
 
+  if (status === "complete") {
+    const completionTitle =
+      completionReason === "limit"
+        ? "Time limit reached"
+        : completionReason === "natural"
+          ? "Mission reached a natural close"
+          : "Mission ended";
+    return (
+      <section className="mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
+          Mission recap · UX preview
+        </p>
+        <h2 className="mt-2 font-serif text-3xl text-foreground">{completionTitle}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{selectedMission.title}</p>
+
+        <div className="mt-6 rounded-2xl border border-gold/35 bg-gold/10 p-4">
+          <div className="flex items-center gap-2 text-gold">
+            <Lightbulb className="h-4 w-4" />
+            <h3 className="font-mono text-xs uppercase tracking-[0.18em]">Coaching feedback</h3>
+          </div>
+          {feedbackNotes.length > 0 ? (
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground">
+              {feedbackNotes.map((feedback, index) => (
+                <li key={`recap-feedback-${index}`} className="flex gap-2">
+                  <span className="text-gold">•</span>
+                  <span>{feedback}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              No coaching was generated before this mission ended. Complete at least one learner
+              turn to receive feedback.
+            </p>
+          )}
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-border/70 bg-background/40 p-4">
+          <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            Objectives observed · provisional
+          </h3>
+          <ul className="mt-3 space-y-2 text-sm">
+            {selectedMission.objectives.map((objective) => {
+              const completed = objectiveIds.includes(objective.id);
+              return (
+                <li key={objective.id} className="flex gap-2">
+                  <span className={completed ? "text-emerald-300" : "text-muted-foreground"}>
+                    {completed ? "✓" : "○"}
+                  </span>
+                  <span className={completed ? "text-foreground" : "text-muted-foreground"}>
+                    {objective.description}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {completedObjectiveCount} of {selectedMission.objectives.length} observed. No mastery
+            tier was saved.
+          </p>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={beginMission}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400/40 px-4 py-3 text-sm text-emerald-200"
+          >
+            <RotateCcw className="h-4 w-4" /> Try again
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              exitMission();
+              setSelectedMission(null);
+            }}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
+          >
+            <ChevronLeft className="h-4 w-4" /> All missions
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="mt-5">
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
@@ -463,7 +579,7 @@ export function SpeakingMissionsPreview() {
         </div>
         <button
           type="button"
-          onClick={exitMission}
+          onClick={finishMission}
           className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground"
         >
           <X className="h-3.5 w-3.5" /> End
@@ -558,23 +674,18 @@ export function SpeakingMissionsPreview() {
         </div>
       )}
 
+      <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4" aria-live="polite">
+        <div className="flex items-center gap-2 text-gold">
+          <Lightbulb className="h-4 w-4" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em]">Latest coaching</p>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">
+          {latestFeedback ?? "Your first coaching note will appear here after you answer."}
+        </p>
+      </div>
+
       <div className="mt-5 flex flex-col items-center gap-3">
-        {status === "complete" ? (
-          <div className="w-full rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-4 text-center">
-            <p className="font-serif text-xl text-foreground">Mission reached a natural close</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {completedObjectiveCount} provisional objective
-              {completedObjectiveCount === 1 ? "" : "s"} observed. No mastery tier was saved.
-            </p>
-            <button
-              type="button"
-              onClick={beginMission}
-              className="mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 px-4 py-2 text-sm text-emerald-200"
-            >
-              <RotateCcw className="h-4 w-4" /> Try again
-            </button>
-          </div>
-        ) : recognitionSupported === false ? (
+        {recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
             Speech recognition is unavailable in this browser.
           </p>

@@ -17,7 +17,7 @@
     "verify:deploy-target": "node scripts/verify-deploy-target.mjs",
     "verify:vercel-artifact": "node scripts/verify-vercel-artifact.mjs",
     "deploy": "npm run deploy:prod",
-    "deploy:prod": "npm run verify:deploy-target && npm run audit:prod && npm run test && npm run typecheck && npm run build && npm run verify:vercel-artifact && vercel deploy --prebuilt --prod --yes"
+    "deploy:prod": "npm run verify:deploy-target && npm run audit:prod && npm run test && npm run typecheck && npm run lint && npm run build && npm run verify:vercel-artifact && npx vercel@53.1.0 deploy --prebuilt --prod --yes"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

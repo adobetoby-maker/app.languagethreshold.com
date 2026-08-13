@@ -21,6 +21,13 @@ export function bearerToken(request: Request) {
   return match?.[1]?.trim() || null;
 }
 
+export function isSpeakingMissionLanguageEnabled(
+  language: string,
+  environment: Record<string, string | undefined> = process.env,
+) {
+  return language !== "Japanese" || environment.JAPANESE_SPEAKING_REVIEWED === "true";
+}
+
 function supabaseUrl() {
   return (process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || "").replace(/\/$/, "");
 }

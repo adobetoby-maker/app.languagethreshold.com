@@ -5,6 +5,7 @@ import {
   enforceSpeakingPreAuthRateLimit,
   enforceSpeakingRateLimit,
   hasSpeakingAgeAttestation,
+  isSpeakingMissionLanguageEnabled,
   isStrictSameOrigin,
 } from "../src/lib/speaking-security.ts";
 
@@ -47,6 +48,16 @@ test("speaking auth accepts only bearer tokens", () => {
   assert.equal(
     bearerToken(new Request(url, { headers: { Authorization: "Bearer signed-token" } })),
     "signed-token",
+  );
+});
+
+test("Japanese missions fail closed until the server-side curriculum review flag is set", () => {
+  assert.equal(isSpeakingMissionLanguageEnabled("Spanish", {}), true);
+  assert.equal(isSpeakingMissionLanguageEnabled("Italian", {}), true);
+  assert.equal(isSpeakingMissionLanguageEnabled("Japanese", {}), false);
+  assert.equal(
+    isSpeakingMissionLanguageEnabled("Japanese", { JAPANESE_SPEAKING_REVIEWED: "true" }),
+    true,
   );
 });
 

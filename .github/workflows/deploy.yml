@@ -28,6 +28,7 @@ jobs:
           npm run audit:prod
           npm run test
           npm run typecheck
+          npm run lint
 
       - name: Verify production Vercel destination
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

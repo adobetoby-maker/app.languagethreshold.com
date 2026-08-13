@@ -8,6 +8,7 @@ import {
   enforceSpeakingPreAuthRateLimit,
   enforceSpeakingRateLimit,
   hasSpeakingAgeAttestation,
+  isSpeakingMissionLanguageEnabled,
   isStrictSameOrigin,
 } from "../lib/speaking-security";
 initSentry();
@@ -228,6 +229,15 @@ export const Route = createFileRoute("/api/speak")({
               status: 400,
               headers: { "Content-Type": "application/json" },
             });
+          }
+          if (!isSpeakingMissionLanguageEnabled(mission.language)) {
+            return new Response(
+              JSON.stringify({ error: "This speaking language is still under curriculum review." }),
+              {
+                status: 403,
+                headers: { "Content-Type": "application/json" },
+              },
+            );
           }
           if (!payload.messages?.length) {
             return new Response(JSON.stringify({ error: "Mission history is required." }), {

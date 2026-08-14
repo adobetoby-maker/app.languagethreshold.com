@@ -232,6 +232,8 @@ export function SpeakingMissionsPreview() {
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const viewTopRef = useRef<HTMLElement | null>(null);
+  const previousViewKeyRef = useRef<string | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
   const playbackGenerationRef = useRef(0);
   const finishDevicePlaybackRef = useRef<(() => void) | null>(null);
@@ -421,6 +423,22 @@ export function SpeakingMissionsPreview() {
   useEffect(() => {
     return () => stopActiveWork();
   }, [stopActiveWork]);
+
+  useEffect(() => {
+    const viewKey = !selectedMission
+      ? `catalog:${catalogModuleId ?? "all"}`
+      : !started
+        ? `setup:${selectedMission.id}`
+        : status === "complete"
+          ? `recap:${selectedMission.id}`
+          : `mission:${selectedMission.id}`;
+    if (previousViewKeyRef.current === viewKey) return;
+    previousViewKeyRef.current = viewKey;
+    const frame = window.requestAnimationFrame(() => {
+      viewTopRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [catalogModuleId, selectedMission, started, status]);
 
   useEffect(() => {
     if (!started || status === "complete" || sessionStartedAtRef.current === null) return;
@@ -784,7 +802,10 @@ export function SpeakingMissionsPreview() {
       const sameLanguagePair =
         appState.selectedLanguage === "English" && appState.nativeLanguage === "English";
       return (
-        <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+        <section
+          ref={viewTopRef}
+          className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
+        >
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
             Scenario missions
           </p>
@@ -806,7 +827,11 @@ export function SpeakingMissionsPreview() {
       );
     }
     return (
-      <section aria-labelledby="mission-preview-heading" className="mt-5">
+      <section
+        ref={viewTopRef}
+        aria-labelledby="mission-preview-heading"
+        className="scroll-mt-4 mt-5"
+      >
         <div className="mb-5 rounded-2xl border border-gold/30 bg-gold/10 p-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
             UX preview · {missionLanguage}
@@ -982,7 +1007,10 @@ export function SpeakingMissionsPreview() {
   if (!started) {
     const specialty = specialtyStyle(selectedMission.specialty);
     return (
-      <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+      <section
+        ref={viewTopRef}
+        className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
+      >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         <button
           type="button"
@@ -1327,7 +1355,10 @@ export function SpeakingMissionsPreview() {
           ? "Mission reached a natural close"
           : "Mission ended";
     return (
-      <section className="mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5">
+      <section
+        ref={viewTopRef}
+        className="scroll-mt-4 mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5"
+      >
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
           Mission recap · UX preview
         </p>
@@ -1416,7 +1447,7 @@ export function SpeakingMissionsPreview() {
   }
 
   return (
-    <section className="mt-5">
+    <section ref={viewTopRef} className="scroll-mt-4 mt-5">
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">

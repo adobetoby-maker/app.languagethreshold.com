@@ -6,6 +6,8 @@ import { CountUp } from "@/components/CountUp";
 import { flagFor } from "@/state/library-state";
 import { ModuleBadgesPanel } from "@/components/dashboard/ModuleBadgesPanel";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
+import { LessonStackCard } from "@/components/dashboard/LessonStackCard";
+import { PushReminderControl } from "@/components/PushReminderControl";
 
 const LANG_FLAGS: Record<Language, string> = {
   Spanish: "🇪🇸",
@@ -120,6 +122,11 @@ export function Dashboard() {
           onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
         />
       )}
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        <LessonStackCard />
+        <PushReminderControl />
+      </div>
 
       {/* Language Match rank card */}
       <section

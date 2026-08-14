@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v7";
+const CACHE = "lt-v8";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -64,4 +64,51 @@ self.addEventListener("fetch", (event) => {
         .catch(() => caches.match("/").then((r) => r ?? Response.error())),
     );
   }
+});
+
+self.addEventListener("push", (event) => {
+  let payload = {};
+  try {
+    payload = event.data ? event.data.json() : {};
+  } catch {
+    payload = {};
+  }
+  const title = typeof payload.title === "string" ? payload.title.slice(0, 120) : "Language Threshold";
+  const body = typeof payload.body === "string" ? payload.body.slice(0, 300) : "Your next practice is ready.";
+  const url = typeof payload.url === "string" && payload.url.startsWith("/") ? payload.url : "/?tab=speak";
+  const tag = typeof payload.tag === "string" ? payload.tag.slice(0, 120) : "language-threshold-practice";
+  const badgeCount = Number.isFinite(payload.badgeCount) ? Math.max(0, Math.min(999, payload.badgeCount)) : 1;
+
+  event.waitUntil(
+    Promise.all([
+      self.registration.showNotification(title, {
+        body,
+        tag,
+        icon: "/icons/icon-192.png",
+        badge: "/icons/icon-192.png",
+        data: { url },
+      }),
+      typeof self.navigator?.setAppBadge === "function"
+        ? self.navigator.setAppBadge(badgeCount).catch(() => {})
+        : Promise.resolve(),
+    ]),
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const target =
+    typeof event.notification.data?.url === "string" && event.notification.data.url.startsWith("/")
+      ? event.notification.data.url
+      : "/?tab=speak";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(async (clients) => {
+      const destination = new URL(target, self.location.origin).href;
+      for (const client of clients) {
+        if ("navigate" in client) await client.navigate(destination);
+        if ("focus" in client) return client.focus();
+      }
+      return self.clients.openWindow(destination);
+    }),
+  );
 });

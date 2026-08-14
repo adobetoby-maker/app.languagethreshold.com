@@ -44,9 +44,11 @@ import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
+import { LongPressWordText } from "./LongPressWordText";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
@@ -172,7 +174,7 @@ function highStakesNotice(mission: SpeakingMission) {
 
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
-  const { state: appState } = useApp();
+  const { state: appState, dispatch: appDispatch } = useApp();
   const { accent, rate, setRate, voiceURI, setVoiceURI } = useSpeech();
   const { session } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
@@ -201,6 +203,7 @@ export function SpeakingMissionsPreview() {
   const [catalogSearch, setCatalogSearch] = useState("");
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
   const [typedTurn, setTypedTurn] = useState("");
+  const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
@@ -221,20 +224,16 @@ export function SpeakingMissionsPreview() {
   const activeTravelDestination =
     tripDestination?.language === missionLanguage ? tripDestination : null;
   const languageModules = useMemo(
-    () =>
-      missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : [],
+    () => (missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : []),
     [appState.nativeLanguage, missionLanguage],
   );
-  const languageMissions = useMemo(
-    () => {
-      if (!missionLanguage) return [];
-      const availableModuleIds = new Set(languageModules.map((module) => module.id));
-      return getSpeakingMissions(missionLanguage).filter((mission) =>
-        availableModuleIds.has(mission.moduleId),
-      );
-    },
-    [languageModules, missionLanguage],
-  );
+  const languageMissions = useMemo(() => {
+    if (!missionLanguage) return [];
+    const availableModuleIds = new Set(languageModules.map((module) => module.id));
+    return getSpeakingMissions(missionLanguage).filter((mission) =>
+      availableModuleIds.has(mission.moduleId),
+    );
+  }, [languageModules, missionLanguage]);
   const missionLocale =
     selectedMission?.specialty === "Travel" && activeTravelDestination?.ttsLocale
       ? activeTravelDestination.ttsLocale
@@ -373,6 +372,7 @@ export function SpeakingMissionsPreview() {
 
   useEffect(() => {
     stopActiveWork();
+    setWordRequest(null);
     setSelectedMission(null);
     setCatalogModuleId(coreEntryRequestedRef.current ? "core-speaking" : null);
     coreEntryRequestedRef.current = false;
@@ -479,6 +479,7 @@ export function SpeakingMissionsPreview() {
   const beginMission = () => {
     if (!selectedMission || !ageConfirmed || !partnerAudioReady) return;
     stopActiveWork();
+    setWordRequest(null);
     const opening: MissionTurn = {
       id: missionTurnId(),
       role: "partner",
@@ -499,6 +500,7 @@ export function SpeakingMissionsPreview() {
 
   const exitMission = () => {
     stopActiveWork();
+    setWordRequest(null);
     setStarted(false);
     setTurns([]);
     setInterim("");
@@ -654,11 +656,28 @@ export function SpeakingMissionsPreview() {
 
   const finishMission = () => {
     stopActiveWork();
+    setWordRequest(null);
     setInterim("");
     setErrorMessage(null);
     setCompletionReason("learner");
     setStatus("complete");
   };
+
+  const openWordDefinition = useCallback(
+    (word: string, sentence: string, x: number, y: number) => {
+      if (!selectedMission) return;
+      setWordRequest({
+        word,
+        sentence,
+        language: selectedMission.language,
+        textId: selectedMission.id,
+        textTitle: selectedMission.title,
+        x,
+        y,
+      });
+    },
+    [selectedMission],
+  );
 
   if (!selectedMission) {
     if (!missionLanguage) {
@@ -1354,7 +1373,9 @@ export function SpeakingMissionsPreview() {
                       🔊
                     </button>
                   )}
-                  <span className="leading-relaxed">{turn.text}</span>
+                  <span className="leading-relaxed">
+                    <LongPressWordText text={turn.text} onWordLookup={openWordDefinition} />
+                  </span>
                 </div>
                 {turn.feedback?.map((feedback, index) => (
                   <p
@@ -1383,6 +1404,9 @@ export function SpeakingMissionsPreview() {
           )}
         </ul>
       </div>
+      <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+        Press and hold any dialogue word for its definition.
+      </p>
 
       {errorMessage && (
         <div
@@ -1481,6 +1505,14 @@ export function SpeakingMissionsPreview() {
           </>
         )}
       </div>
+
+      {wordRequest && (
+        <WordCard
+          request={wordRequest}
+          onClose={() => setWordRequest(null)}
+          onXp={(amount) => appDispatch({ type: "ADD_XP", payload: amount })}
+        />
+      )}
     </section>
   );
 }

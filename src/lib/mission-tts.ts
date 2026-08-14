@@ -16,6 +16,31 @@ let finishActivePlayback: (() => void) | null = null;
 const capabilitiesCache = new Map<string, { expiresAt: number; value: MissionTtsCapabilities }>();
 const capabilitiesInFlight = new Map<string, Promise<MissionTtsCapabilities>>();
 
+function observeCapabilitiesRequest(
+  request: Promise<MissionTtsCapabilities>,
+  signal?: AbortSignal,
+) {
+  if (!signal) return request;
+  if (signal.aborted) {
+    return Promise.reject(new DOMException("The request was aborted.", "AbortError"));
+  }
+
+  return new Promise<MissionTtsCapabilities>((resolve, reject) => {
+    const abort = () => reject(new DOMException("The request was aborted.", "AbortError"));
+    signal.addEventListener("abort", abort, { once: true });
+    request.then(
+      (value) => {
+        signal.removeEventListener("abort", abort);
+        resolve(value);
+      },
+      (error) => {
+        signal.removeEventListener("abort", abort);
+        reject(error);
+      },
+    );
+  });
+}
+
 function audioElement() {
   if (!sharedAudio) sharedAudio = new Audio();
   return sharedAudio;
@@ -43,17 +68,16 @@ export function stopMissionTts() {
 }
 
 export async function getMissionTtsCapabilities(languageCode: string, signal?: AbortSignal) {
-  const cacheKey = languageCode.split("-")[0]?.toLowerCase() ?? languageCode.toLowerCase();
+  const cacheKey = languageCode.trim().toLowerCase();
   const cached = capabilitiesCache.get(cacheKey);
   if (cached && cached.expiresAt > Date.now()) return cached.value;
   const pending = capabilitiesInFlight.get(cacheKey);
-  if (pending) return pending;
+  if (pending) return observeCapabilitiesRequest(pending, signal);
 
   const params = new URLSearchParams({ languageCode });
   const request = fetch(`/api/mission-tts?${params}`, {
     method: "GET",
     cache: "no-store",
-    signal,
   })
     .then(async (response) => {
       if (!response.ok) throw new Error("Google voices are unavailable.");
@@ -63,7 +87,7 @@ export async function getMissionTtsCapabilities(languageCode: string, signal?: A
     })
     .finally(() => capabilitiesInFlight.delete(cacheKey));
   capabilitiesInFlight.set(cacheKey, request);
-  return request;
+  return observeCapabilitiesRequest(request, signal);
 }
 
 export async function speakMissionTts({

@@ -238,6 +238,7 @@ export function SpeakingMissionsPreview() {
   const viewTopRef = useRef<HTMLElement | null>(null);
   const previousViewKeyRef = useRef<string | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
+  const practiceRecordedRef = useRef(false);
   const playbackGenerationRef = useRef(0);
   const finishDevicePlaybackRef = useRef<(() => void) | null>(null);
   const [coreEntryRequested] = useState(() => consumeCoreSpeakingEntry());
@@ -546,6 +547,7 @@ export function SpeakingMissionsPreview() {
   const startMissionSession = () => {
     if (!selectedMission || !partnerAudioReady) return;
     stopActiveWork();
+    practiceRecordedRef.current = false;
     setWordRequest(null);
     const opening: MissionTurn = {
       id: missionTurnId(),
@@ -619,6 +621,7 @@ export function SpeakingMissionsPreview() {
     setLastResponseTiming(null);
     setStatus("ready");
     sessionStartedAtRef.current = null;
+    practiceRecordedRef.current = false;
   };
 
   const selectMission = (mission: SpeakingMission) => {
@@ -645,8 +648,6 @@ export function SpeakingMissionsPreview() {
       setStatus("ready");
       return;
     }
-
-    appDispatch({ type: "MARK_PRACTICE" });
 
     const learnerTurn: MissionTurn = {
       id: missionTurnId(),
@@ -813,6 +814,22 @@ export function SpeakingMissionsPreview() {
     0;
   const feedbackNotes = turns.flatMap((turn) => turn.feedback ?? []);
   const latestFeedback = feedbackNotes.at(-1) ?? null;
+
+  useEffect(() => {
+    if (
+      status !== "complete" ||
+      !selectedMission ||
+      practiceRecordedRef.current ||
+      !turns.some((turn) => turn.role === "learner")
+    ) {
+      return;
+    }
+    practiceRecordedRef.current = true;
+    appDispatch({
+      type: "MARK_PRACTICE",
+      payload: { language: selectedMission.language },
+    });
+  }, [appDispatch, selectedMission, status, turns]);
 
   const finishMission = () => {
     stopActiveWork();

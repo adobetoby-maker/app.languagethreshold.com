@@ -8,7 +8,7 @@ import {
   type PushSettingsResponse,
   urlBase64ToUint8Array,
 } from "@/lib/push-api";
-import { useApp } from "@/state/app-state";
+import { LANGUAGES, useApp, type Language } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 
 function deviceSupportsPush() {
@@ -45,13 +45,14 @@ function subscriptionShape(subscription: PushSubscription) {
 }
 
 export function PushReminderControl() {
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
   const { session, user } = useAuth();
   const context = useMemo(() => buildLearningReminderContext(state), [state]);
   const [settings, setSettings] = useState<PushSettingsResponse | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const supported = deviceSupportsPush();
+  const reminderLanguage = state.practiceReminderLanguage ?? state.selectedLanguage;
 
   useEffect(() => {
     if (!session) {
@@ -66,7 +67,8 @@ export function PushReminderControl() {
         if (user) rememberPushEnabled(user.id, value.enabled);
       })
       .catch((error: unknown) => {
-        if (active) setMessage(error instanceof Error ? error.message : "Reminders are unavailable.");
+        if (active)
+          setMessage(error instanceof Error ? error.message : "Reminders are unavailable.");
       });
     return () => {
       active = false;
@@ -83,7 +85,9 @@ export function PushReminderControl() {
       return;
     }
     if (isIos() && !isStandalone()) {
-      setMessage("On iPhone, install Language Threshold on your Home Screen, open the app, then enable reminders here.");
+      setMessage(
+        "On iPhone, install Language Threshold on your Home Screen, open the app, then enable reminders here.",
+      );
       return;
     }
     if (!settings?.publicKey || !settings.configured) {
@@ -95,7 +99,10 @@ export function PushReminderControl() {
     setMessage(null);
     try {
       const permission = await Notification.requestPermission();
-      if (permission !== "granted") throw new Error("Notifications were not allowed. You can change this in your device settings.");
+      if (permission !== "granted")
+        throw new Error(
+          "Notifications were not allowed. You can change this in your device settings.",
+        );
       const registration = await navigator.serviceWorker.ready;
       const existing = await registration.pushManager.getSubscription();
       const subscription =
@@ -117,7 +124,9 @@ export function PushReminderControl() {
       const next = { ...settings, enabled: true, timezone: timezone() };
       setSettings(next);
       rememberPushEnabled(user.id, true);
-      toast("Practice reminders are on", { description: `Daily at ${formatHour(next.reminderHour)}.` });
+      toast(`${reminderLanguage} reminders are on`, {
+        description: `Daily at ${formatHour(next.reminderHour)}.`,
+      });
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Could not enable reminders.");
     } finally {
@@ -183,16 +192,45 @@ export function PushReminderControl() {
     <section className="rounded-2xl border border-cyan-400/25 bg-cyan-400/5 p-5">
       <div className="flex items-start gap-3">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-300/35 bg-cyan-300/10">
-          {settings?.enabled ? <BellRing className="h-4.5 w-4.5 text-cyan-200" /> : <BellOff className="h-4.5 w-4.5 text-cyan-200" />}
+          {settings?.enabled ? (
+            <BellRing className="h-4.5 w-4.5 text-cyan-200" />
+          ) : (
+            <BellOff className="h-4.5 w-4.5 text-cyan-200" />
+          )}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">Daily practice reminder</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">
+            Daily practice reminder
+          </p>
           <h2 className="mt-1 font-serif text-xl text-foreground">
             {settings?.enabled ? "Your countdown is active" : "Keep the trip in sight"}
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-            One useful notification combines your nearest departure, selected speaking topic, and exact lessons left.
+            One useful notification combines your nearest departure, selected speaking topic, and
+            exact lessons left.
           </p>
+
+          {session && (
+            <label className="mt-4 block text-xs text-muted-foreground">
+              Remind me to speak
+              <select
+                value={reminderLanguage}
+                onChange={(event) =>
+                  dispatch({
+                    type: "SET_REMINDER_LANGUAGE",
+                    payload: event.target.value as Language,
+                  })
+                }
+                className="ml-2 min-h-11 rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
+              >
+                {LANGUAGES.map((language) => (
+                  <option key={language} value={language}>
+                    {language}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
 
           {!session ? (
             <p className="mt-4 rounded-xl border border-border/60 bg-background/35 p-3 text-xs text-muted-foreground">
@@ -208,7 +246,9 @@ export function PushReminderControl() {
                   className="ml-2 min-h-11 rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
                 >
                   {Array.from({ length: 15 }, (_, index) => index + 7).map((hour) => (
-                    <option key={hour} value={hour}>{formatHour(hour)}</option>
+                    <option key={hour} value={hour}>
+                      {formatHour(hour)}
+                    </option>
                   ))}
                 </select>
               </label>
@@ -228,7 +268,11 @@ export function PushReminderControl() {
               disabled={busy || !settings}
               className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-cyan-300 px-4 py-2 text-xs font-semibold text-slate-950 disabled:opacity-45"
             >
-              {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <BellRing className="h-4 w-4" />}
+              {busy ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <BellRing className="h-4 w-4" />
+              )}
               Allow practice reminders
             </button>
           )}

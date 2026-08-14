@@ -8,6 +8,7 @@ import { ModuleBadgesPanel } from "@/components/dashboard/ModuleBadgesPanel";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { LessonStackCard } from "@/components/dashboard/LessonStackCard";
 import { PushReminderControl } from "@/components/PushReminderControl";
+import { PracticeStreakCard } from "@/components/dashboard/PracticeStreakCard";
 
 const LANG_FLAGS: Record<Language, string> = {
   Spanish: "🇪🇸",
@@ -44,7 +45,7 @@ export function Dashboard() {
   const stats = [
     {
       icon: Flame,
-      label: "Streak",
+      label: "Lesson streak",
       value: `${state.streak} day${state.streak === 1 ? "" : "s"}`,
       hot: state.streak > 1,
     },
@@ -122,6 +123,8 @@ export function Dashboard() {
           onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
         />
       )}
+
+      <PracticeStreakCard />
 
       <div className="grid gap-4 lg:grid-cols-2">
         <LessonStackCard />

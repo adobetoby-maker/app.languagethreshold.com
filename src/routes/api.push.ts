@@ -26,7 +26,10 @@ const ContextSchema = z.object({
   version: z.literal(1),
   language: z.string().min(1).max(40),
   topicTitle: z.string().max(140).nullable(),
-  lastPracticeDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
+  lastPracticeDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .nullable(),
   mission: CountdownSchema,
   trip: CountdownSchema,
   stack: z
@@ -39,13 +42,30 @@ const ContextSchema = z.object({
       nextLessonTitle: z.string().max(140).nullable(),
     })
     .nullable(),
+  streak: z
+    .object({
+      current: z.number().int().min(0).max(100_000),
+      best: z.number().int().min(0).max(100_000),
+      lessonsCompletedToday: z.number().int().min(0).max(1_000),
+      recoveryLessonsRemaining: z.number().int().min(0).max(2),
+      travelPasses: z.number().int().min(0).max(3),
+      travelBreakEndsOn: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .nullable(),
+    })
+    .optional(),
 });
 
 const BodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("subscribe"),
     subscription: z.object({
-      endpoint: z.string().url().max(2048).refine((value) => value.startsWith("https://")),
+      endpoint: z
+        .string()
+        .url()
+        .max(2048)
+        .refine((value) => value.startsWith("https://")),
       keys: z.object({
         p256dh: z.string().min(40).max(256),
         auth: z.string().min(8).max(128),
@@ -65,7 +85,11 @@ const BodySchema = z.discriminatedUnion("action", [
   z.object({ action: z.literal("sync-context"), context: ContextSchema }),
   z.object({
     action: z.literal("unsubscribe"),
-    endpoint: z.string().url().max(2048).refine((value) => value.startsWith("https://")),
+    endpoint: z
+      .string()
+      .url()
+      .max(2048)
+      .refine((value) => value.startsWith("https://")),
   }),
 ]);
 
@@ -133,14 +157,16 @@ export const Route = createFileRoute("/api/push")({
         });
       },
       POST: async ({ request }) => {
-        if (!isStrictSameOrigin(request)) return json({ error: "Cross-origin request rejected." }, 403);
+        if (!isStrictSameOrigin(request))
+          return json({ error: "Cross-origin request rejected." }, 403);
         const principal = await principalFor(request);
         if (!principal) return json({ error: "Sign in to manage practice reminders." }, 401);
         const budget = await enforceSpeakingRateLimit(principal.userId, "push", 30).catch(() => ({
           allowed: false,
           misconfigured: true,
         }));
-        if (!budget.allowed) return json({ error: "Too many reminder changes. Try again soon." }, 429);
+        if (!budget.allowed)
+          return json({ error: "Too many reminder changes. Try again soon." }, 429);
 
         const parsed = BodySchema.safeParse(await request.json().catch(() => null));
         if (!parsed.success) return json({ error: "Invalid reminder request." }, 400);
@@ -170,7 +196,10 @@ export const Route = createFileRoute("/api/push")({
               {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ context: body.context, updated_at: new Date().toISOString() }),
+                body: JSON.stringify({
+                  context: body.context,
+                  updated_at: new Date().toISOString(),
+                }),
               },
             );
             if (!updated.ok) throw new Error("Reminder context update failed.");
@@ -180,23 +209,27 @@ export const Route = createFileRoute("/api/push")({
           if (!validTimeZone(body.timezone)) return json({ error: "Invalid time zone." }, 400);
 
           if (body.action === "subscribe") {
-            if (!pushServerConfigured()) return json({ error: "Push delivery is not configured." }, 503);
+            if (!pushServerConfigured())
+              return json({ error: "Push delivery is not configured." }, 503);
             const endpointHash = await hashPushEndpoint(body.subscription.endpoint);
-            const subscription = await pushSupabase("push_subscriptions?on_conflict=endpoint_hash", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Prefer: "resolution=merge-duplicates,return=minimal",
+            const subscription = await pushSupabase(
+              "push_subscriptions?on_conflict=endpoint_hash",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Prefer: "resolution=merge-duplicates,return=minimal",
+                },
+                body: JSON.stringify({
+                  endpoint_hash: endpointHash,
+                  user_id: principal.userId,
+                  endpoint: body.subscription.endpoint,
+                  p256dh: body.subscription.keys.p256dh,
+                  auth: body.subscription.keys.auth,
+                  updated_at: new Date().toISOString(),
+                }),
               },
-              body: JSON.stringify({
-                endpoint_hash: endpointHash,
-                user_id: principal.userId,
-                endpoint: body.subscription.endpoint,
-                p256dh: body.subscription.keys.p256dh,
-                auth: body.subscription.keys.auth,
-                updated_at: new Date().toISOString(),
-              }),
-            });
+            );
             if (!subscription.ok) throw new Error("Push subscription was rejected.");
             await upsertPreferences(principal.userId, body);
             return json({ ok: true });

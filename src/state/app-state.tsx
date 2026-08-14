@@ -14,6 +14,13 @@ import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
 import type { NextTripPlan } from "@/data/travel-destinations";
 import {
+  evaluatePracticeStreak,
+  initialPracticeStreak,
+  recordPracticeCompletion,
+  startTravelBreak,
+  type PracticeStreakData,
+} from "@/lib/practice-streak";
+import {
   applyMasteryIncrement,
   applyRegressionReset,
   bumpVocabRevision,
@@ -37,6 +44,18 @@ export type Language =
   | "Portuguese"
   | "Pashto"
   | "English";
+
+export const LANGUAGES: Language[] = [
+  "Spanish",
+  "French",
+  "German",
+  "Italian",
+  "Japanese",
+  "Korean",
+  "Portuguese",
+  "Pashto",
+  "English",
+];
 
 // The learner's native ("translation") language — used for the left pane,
 // definitions, lesson explanations, etc. Default English; expandable.
@@ -207,6 +226,11 @@ export interface AppState {
   streak: number;
   lastActiveDate: string | null; // YYYY-MM-DD
   lastPracticeDate: string | null; // YYYY-MM-DD; lesson or speaking practice
+  lastPracticeDateByLanguage: Partial<Record<Language, string>>;
+  // Canonical lesson/speaking streak record. `streak` and
+  // `lastPracticeDate` remain as compatibility views for older consumers.
+  practiceStreak: PracticeStreakData;
+  practiceReminderLanguage: Language | null;
   level: Level; // learner self-level (existing behavior)
   tier: XpTier; // derived from xp
   achievements: string[]; // achievement ids
@@ -294,8 +318,11 @@ export type AppAction =
   | { type: "SET_DARK_MODE"; payload: boolean }
   | { type: "SET_TAB"; payload: TabKey }
   | { type: "ADD_XP"; payload: number }
-  | { type: "SET_STREAK"; payload: { streak: number; date: string } }
-  | { type: "MARK_PRACTICE" }
+  | { type: "SET_LAST_ACTIVE_DATE"; payload: string }
+  | { type: "EVALUATE_PRACTICE_STREAK"; payload: string }
+  | { type: "MARK_PRACTICE"; payload?: { language: Language } }
+  | { type: "START_TRAVEL_BREAK"; payload: { days: number } }
+  | { type: "SET_REMINDER_LANGUAGE"; payload: Language | null }
   | { type: "SET_LEVEL"; payload: Level }
   | { type: "ADD_ACHIEVEMENT"; payload: string }
   | { type: "ADD_NOTE"; payload: Note }
@@ -357,6 +384,9 @@ const initialState: AppState = {
   streak: 0,
   lastActiveDate: null,
   lastPracticeDate: null,
+  lastPracticeDateByLanguage: {},
+  practiceStreak: initialPracticeStreak(),
+  practiceReminderLanguage: null,
   level: "Beginner",
   tier: "Beginner 🌱",
   achievements: [],
@@ -395,6 +425,38 @@ const initialState: AppState = {
   hydrated: false,
 };
 
+function practiceStreakFromLegacy(
+  value: PracticeStreakData | undefined,
+  legacy: { streak?: number; lastPracticeDate?: string | null },
+): PracticeStreakData {
+  if (value && typeof value === "object") {
+    return {
+      ...initialPracticeStreak(),
+      ...value,
+      best: Math.max(value.best ?? 0, value.current ?? 0),
+      practiceDates: Array.isArray(value.practiceDates) ? value.practiceDates.slice(-370) : [],
+      today: value.today ?? { date: null, lessonsCompleted: 0 },
+    };
+  }
+  const current = Math.max(0, legacy.streak ?? 0);
+  return {
+    ...initialPracticeStreak(),
+    current,
+    best: current,
+    lastPracticeDate: legacy.lastPracticeDate ?? null,
+    practiceDates: legacy.lastPracticeDate ? [legacy.lastPracticeDate] : [],
+  };
+}
+
+function withPracticeStreak(state: AppState, practiceStreak: PracticeStreakData): AppState {
+  return {
+    ...state,
+    practiceStreak,
+    streak: practiceStreak.current,
+    lastPracticeDate: practiceStreak.lastPracticeDate,
+  };
+}
+
 // Exported so the MERGE_REMOTE reconciliation can be exercised directly in tests.
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
@@ -409,8 +471,12 @@ export function reducer(state: AppState, action: AppAction): AppState {
         hydrated.userVocab,
         hydrated.selectedLanguage,
       );
+      const practiceStreak = practiceStreakFromLegacy(hydrated.practiceStreak, hydrated);
       return {
         ...hydrated,
+        practiceStreak,
+        streak: practiceStreak.current,
+        lastPracticeDate: practiceStreak.lastPracticeDate,
         vocabByLanguage,
         userVocab: vocabByLanguage[hydrated.selectedLanguage] ?? [],
         vocabLang: hydrated.selectedLanguage,
@@ -466,10 +532,34 @@ export function reducer(state: AppState, action: AppAction): AppState {
         pendingLevelUp: leveled ? newTier : state.pendingLevelUp,
       };
     }
-    case "SET_STREAK":
-      return { ...state, streak: action.payload.streak, lastActiveDate: action.payload.date };
-    case "MARK_PRACTICE":
-      return { ...state, lastPracticeDate: todayKey() };
+    case "SET_LAST_ACTIVE_DATE":
+      return { ...state, lastActiveDate: action.payload };
+    case "EVALUATE_PRACTICE_STREAK":
+      return withPracticeStreak(
+        state,
+        evaluatePracticeStreak(state.practiceStreak, action.payload),
+      );
+    case "MARK_PRACTICE": {
+      const today = todayKey();
+      const language = action.payload?.language ?? state.selectedLanguage;
+      return withPracticeStreak(
+        {
+          ...state,
+          lastPracticeDateByLanguage: {
+            ...state.lastPracticeDateByLanguage,
+            [language]: today,
+          },
+        },
+        recordPracticeCompletion(state.practiceStreak, today),
+      );
+    }
+    case "START_TRAVEL_BREAK":
+      return withPracticeStreak(
+        state,
+        startTravelBreak(state.practiceStreak, todayKey(), action.payload.days),
+      );
+    case "SET_REMINDER_LANGUAGE":
+      return { ...state, practiceReminderLanguage: action.payload };
     case "SET_LEVEL":
       return { ...state, level: action.payload };
     case "ADD_ACHIEVEMENT":
@@ -568,12 +658,18 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "COMPLETE_LESSON": {
       const moduleId = action.payload;
       const current = state.lessonProgress[moduleId] ?? 0;
-      return {
-        ...state,
-        lessonProgress: { ...state.lessonProgress, [moduleId]: current + 1 },
-        lessonsCompleted: state.lessonsCompleted + 1,
-        lastPracticeDate: todayKey(),
-      };
+      return withPracticeStreak(
+        {
+          ...state,
+          lessonProgress: { ...state.lessonProgress, [moduleId]: current + 1 },
+          lessonsCompleted: state.lessonsCompleted + 1,
+          lastPracticeDateByLanguage: {
+            ...state.lastPracticeDateByLanguage,
+            [state.selectedLanguage]: todayKey(),
+          },
+        },
+        recordPracticeCompletion(state.practiceStreak, todayKey()),
+      );
     }
     case "SET_USER_VOCAB": {
       // Writes the durable map, then re-derives the view. This previously wrote
@@ -768,6 +864,12 @@ export function reducer(state: AppState, action: AppAction): AppState {
         state.vocabRevisionsByLanguage ?? {},
         remote.vocabRevisionsByLanguage ?? {},
       );
+      const remotePracticeStreak = practiceStreakFromLegacy(remote.practiceStreak, remote);
+      const localPracticeStreak = practiceStreakFromLegacy(state.practiceStreak, state);
+      const practiceStreak =
+        remotePracticeStreak.updatedAt >= localPracticeStreak.updatedAt
+          ? remotePracticeStreak
+          : localPracticeStreak;
       return {
         ...state,
         ...(remote as Partial<AppState>),
@@ -784,17 +886,18 @@ export function reducer(state: AppState, action: AppAction): AppState {
           ...state.speakingFocusByLanguage,
           ...(remote.speakingFocusByLanguage ?? {}),
         },
+        lastPracticeDateByLanguage: {
+          ...state.lastPracticeDateByLanguage,
+          ...(remote.lastPracticeDateByLanguage ?? {}),
+        },
         vocabByLanguage,
         vocabRevisionsByLanguage,
         // Derived view — never written independently (F1).
         userVocab: deriveUserVocab(vocabByLanguage, selectedLanguage),
         vocabLang: selectedLanguage,
-        streak: Math.max(state.streak, remote.streak ?? 0),
-        lastPracticeDate:
-          [state.lastPracticeDate, remote.lastPracticeDate]
-            .filter((value): value is string => Boolean(value))
-            .sort()
-            .at(-1) ?? null,
+        practiceStreak,
+        streak: practiceStreak.current,
+        lastPracticeDate: practiceStreak.lastPracticeDate,
         wordsLookedUp: Math.max(state.wordsLookedUp, remote.wordsLookedUp ?? 0),
         notesSaved: Math.max(state.notesSaved, remote.notesSaved ?? 0),
         tutorMessages: Math.max(state.tutorMessages, remote.tutorMessages ?? 0),
@@ -825,7 +928,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
 
 const STORAGE_KEY = "lt.app.v2";
 const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
 
@@ -868,6 +971,17 @@ function migrate(raw: unknown): PersistedShape {
     v = 4;
   }
 
+  // v4 -> v5: replace the open-app streak with a lesson/speaking streak and
+  // add recovery, travel-pass, and reminder-language state.
+  if (v < 5) {
+    data.practiceStreak = practiceStreakFromLegacy(undefined, data);
+    data.practiceReminderLanguage ??= null;
+    data.lastPracticeDateByLanguage = data.lastPracticeDate
+      ? { [data.selectedLanguage ?? "Spanish"]: data.lastPracticeDate }
+      : {};
+    v = 5;
+  }
+
   // Drop keys not in PERSIST_KEYS (forward-compat / cleanup)
   const allowed = new Set<string>([...(PERSIST_KEYS as string[]), "__v"]);
   for (const k of Object.keys(data)) {
@@ -875,19 +989,11 @@ function migrate(raw: unknown): PersistedShape {
   }
 
   // Validate selectedLanguage against current Language union
-  const validLangs: Language[] = [
-    "Spanish",
-    "French",
-    "German",
-    "Italian",
-    "Japanese",
-    "Korean",
-    "Portuguese",
-    "Pashto",
-    "English",
-  ];
-  if (data.selectedLanguage && !validLangs.includes(data.selectedLanguage)) {
+  if (data.selectedLanguage && !LANGUAGES.includes(data.selectedLanguage)) {
     delete data.selectedLanguage;
+  }
+  if (data.practiceReminderLanguage && !LANGUAGES.includes(data.practiceReminderLanguage)) {
+    data.practiceReminderLanguage = null;
   }
 
   data.__v = SCHEMA_VERSION;
@@ -929,6 +1035,9 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "streak",
   "lastActiveDate",
   "lastPracticeDate",
+  "lastPracticeDateByLanguage",
+  "practiceStreak",
+  "practiceReminderLanguage",
   "level",
   "tier",
   "achievements",
@@ -971,11 +1080,6 @@ function todayKey() {
   const day = d.getDate().toString().padStart(2, "0");
   return `${d.getFullYear()}-${m}-${day}`;
 }
-function dateDelta(a: string, b: string) {
-  const A = new Date(a + "T00:00:00").getTime();
-  const B = new Date(b + "T00:00:00").getTime();
-  return Math.round((B - A) / 86400000);
-}
 
 const AppContext = createContext<{
   state: AppState;
@@ -1002,24 +1106,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // Daily streak engine (runs once on hydrate)
+  // Evaluate streak state once on hydrate. Opening the app no longer advances
+  // the streak; only a completed lesson or completed speaking mission does.
   const ranStreak = useRef(false);
   useEffect(() => {
     if (!state.hydrated || ranStreak.current) return;
     ranStreak.current = true;
-    const today = todayKey();
-    if (!state.lastActiveDate) {
-      dispatch({ type: "SET_STREAK", payload: { streak: 1, date: today } });
-      return;
-    }
-    if (state.lastActiveDate === today) return; // already counted
-    const delta = dateDelta(state.lastActiveDate, today);
-    if (delta === 1) {
-      dispatch({ type: "SET_STREAK", payload: { streak: state.streak + 1, date: today } });
-    } else if (delta >= 2) {
-      dispatch({ type: "SET_STREAK", payload: { streak: 1, date: today } });
-    }
-  }, [state.hydrated, state.lastActiveDate, state.streak]);
+    dispatch({ type: "EVALUATE_PRACTICE_STREAK", payload: todayKey() });
+  }, [state.hydrated]);
 
   // Persist
   useEffect(() => {
@@ -1139,19 +1233,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [state, userId]);
   // ────────────────────────────────────────────────────────────────────────
 
-  // pingActivity — call on any meaningful action; refreshes lastActiveDate (but doesn't double-count streak)
+  // General activity is separate from lesson streaks. This keeps passive app
+  // opens, settings changes, and browsing from inflating learning consistency.
   const pingActivity = useCallback(() => {
     const today = todayKey();
     if (state.lastActiveDate === today) return;
-    if (!state.lastActiveDate) {
-      dispatch({ type: "SET_STREAK", payload: { streak: 1, date: today } });
-      return;
-    }
-    const delta = dateDelta(state.lastActiveDate, today);
-    if (delta === 1)
-      dispatch({ type: "SET_STREAK", payload: { streak: state.streak + 1, date: today } });
-    else if (delta >= 2) dispatch({ type: "SET_STREAK", payload: { streak: 1, date: today } });
-  }, [state.lastActiveDate, state.streak]);
+    dispatch({ type: "SET_LAST_ACTIVE_DATE", payload: today });
+  }, [state.lastActiveDate]);
 
   const value = useMemo(() => ({ state, dispatch, pingActivity }), [state, pingActivity]);
 

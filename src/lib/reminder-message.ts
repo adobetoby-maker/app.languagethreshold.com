@@ -21,6 +21,14 @@ export interface LearningReminderContext {
   mission: ReminderCountdown | null;
   trip: ReminderCountdown | null;
   stack: ReminderStack | null;
+  streak?: {
+    current: number;
+    best: number;
+    lessonsCompletedToday: number;
+    recoveryLessonsRemaining: number;
+    travelPasses: number;
+    travelBreakEndsOn: string | null;
+  };
 }
 
 export interface ReminderNotification {
@@ -42,7 +50,19 @@ export function buildReminderNotification(
   context: LearningReminderContext,
   today: string,
 ): ReminderNotification | null {
+  if (context.streak?.travelBreakEndsOn && today <= context.streak.travelBreakEndsOn) return null;
   if (context.lastPracticeDate === today) return null;
+
+  if (context.streak?.recoveryLessonsRemaining) {
+    const remaining = context.streak.recoveryLessonsRemaining;
+    return {
+      title: `${remaining} ${remaining === 1 ? "lesson" : "lessons"} can restore your streak`,
+      body: `Your ${context.streak.current}-day ${context.language} streak is still recoverable today. Finish ${remaining === 1 ? "one more lesson" : "two lessons"} to bring it back.`,
+      url: "/?tab=speak",
+      tag: "language-threshold-streak-recovery",
+      badgeCount: remaining,
+    };
+  }
 
   const countdowns = [context.mission, context.trip]
     .filter((value): value is ReminderCountdown => Boolean(value))
@@ -69,6 +89,9 @@ export function buildReminderNotification(
     bodyParts.push(
       `${context.stack.remainingLessons} of ${context.stack.totalLessons} lessons remain in ${context.stack.name}.`,
     );
+  }
+  if (context.streak?.current) {
+    bodyParts.push(`Protect your ${context.streak.current}-day lesson streak.`);
   }
 
   return {

@@ -47,6 +47,47 @@ test("daily notification is suppressed after real practice", () => {
   );
 });
 
+test("recovery reminder says exactly how many lessons restore the streak", () => {
+  const notification = buildReminderNotification(
+    {
+      ...context,
+      language: "Italian",
+      streak: {
+        current: 18,
+        best: 18,
+        lessonsCompletedToday: 1,
+        recoveryLessonsRemaining: 1,
+        travelPasses: 1,
+        travelBreakEndsOn: null,
+      },
+    },
+    "2026-08-14",
+  );
+  assert.equal(notification.title, "1 lesson can restore your streak");
+  assert.match(notification.body, /18-day Italian streak/);
+  assert.equal(notification.badgeCount, 1);
+});
+
+test("daily reminders pause while a travel pass protects the streak", () => {
+  assert.equal(
+    buildReminderNotification(
+      {
+        ...context,
+        streak: {
+          current: 18,
+          best: 18,
+          lessonsCompletedToday: 0,
+          recoveryLessonsRemaining: 0,
+          travelPasses: 0,
+          travelBreakEndsOn: "2026-08-18",
+        },
+      },
+      "2026-08-14",
+    ),
+    null,
+  );
+});
+
 test("service worker handles push, safe deep links, and notification clicks", async () => {
   const serviceWorker = await readFile("public/sw.js", "utf8");
   assert.match(serviceWorker, /addEventListener\("push"/);

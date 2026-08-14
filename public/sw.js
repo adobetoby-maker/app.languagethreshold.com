@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v8";
+const CACHE = "lt-v9";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -73,11 +73,17 @@ self.addEventListener("push", (event) => {
   } catch {
     payload = {};
   }
-  const title = typeof payload.title === "string" ? payload.title.slice(0, 120) : "Language Threshold";
-  const body = typeof payload.body === "string" ? payload.body.slice(0, 300) : "Your next practice is ready.";
-  const url = typeof payload.url === "string" && payload.url.startsWith("/") ? payload.url : "/?tab=speak";
-  const tag = typeof payload.tag === "string" ? payload.tag.slice(0, 120) : "language-threshold-practice";
-  const badgeCount = Number.isFinite(payload.badgeCount) ? Math.max(0, Math.min(999, payload.badgeCount)) : 1;
+  const title =
+    typeof payload.title === "string" ? payload.title.slice(0, 120) : "Language Threshold";
+  const body =
+    typeof payload.body === "string" ? payload.body.slice(0, 300) : "Your next practice is ready.";
+  const url =
+    typeof payload.url === "string" && payload.url.startsWith("/") ? payload.url : "/?tab=speak";
+  const tag =
+    typeof payload.tag === "string" ? payload.tag.slice(0, 120) : "language-threshold-practice";
+  const badgeCount = Number.isFinite(payload.badgeCount)
+    ? Math.max(0, Math.min(999, payload.badgeCount))
+    : 1;
 
   event.waitUntil(
     Promise.all([

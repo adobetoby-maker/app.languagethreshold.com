@@ -48,6 +48,7 @@ import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
+import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -150,6 +151,19 @@ function partnerVoiceSample(
     : "Hola, soy su compañero de práctica. ¿Empezamos?";
 }
 
+function clarificationPhrase(language: SpeakingMissionLanguage) {
+  if (language === "Spanish") {
+    return "No entiendo todavía. ¿Puede repetir más despacio y darme un ejemplo?";
+  }
+  if (language === "Italian") {
+    return "Non capisco ancora. Può ripetere più lentamente e farmi un esempio?";
+  }
+  if (language === "Japanese") {
+    return "まだ分かりません。もう少しゆっくり、例を使って説明していただけますか。";
+  }
+  return "I don't understand yet. Could you repeat more slowly and give me an example?";
+}
+
 function highStakesNotice(mission: SpeakingMission) {
   if (mission.riskClass === "emergency") {
     return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
@@ -203,11 +217,16 @@ export function SpeakingMissionsPreview() {
   const [catalogSearch, setCatalogSearch] = useState("");
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
   const [typedTurn, setTypedTurn] = useState("");
+  const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
+  const [partnerSpeaking, setPartnerSpeaking] = useState(false);
+  const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
+  const playbackGenerationRef = useRef(0);
+  const finishDevicePlaybackRef = useRef<(() => void) | null>(null);
   const [coreEntryRequested] = useState(() => consumeCoreSpeakingEntry());
   const coreEntryRequestedRef = useRef(coreEntryRequested);
   const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
@@ -358,8 +377,12 @@ export function SpeakingMissionsPreview() {
   }, [turns, interim, status]);
 
   const stopAudio = useCallback(() => {
+    playbackGenerationRef.current += 1;
     stopMissionTts();
     if (typeof window !== "undefined") window.speechSynthesis?.cancel();
+    finishDevicePlaybackRef.current?.();
+    finishDevicePlaybackRef.current = null;
+    setPartnerSpeaking(false);
   }, []);
 
   const stopActiveWork = useCallback(() => {
@@ -422,26 +445,40 @@ export function SpeakingMissionsPreview() {
     async (text: string) => {
       stopAudio();
       if (partnerAudioSource === "text") return;
-      if (partnerAudioSource === "device") {
-        if (typeof window === "undefined" || !window.speechSynthesis) {
-          setErrorMessage("A device voice is unavailable in this browser.");
+      const playbackGeneration = ++playbackGenerationRef.current;
+      setPartnerSpeaking(true);
+      try {
+        if (partnerAudioSource === "device") {
+          if (typeof window === "undefined" || !window.speechSynthesis) {
+            setErrorMessage("A device voice is unavailable in this browser.");
+            return;
+          }
+          const utterance = new SpeechSynthesisUtterance(text);
+          configureUtterance(utterance, missionLocale, voiceURI);
+          utterance.rate = partnerSpeed;
+          await new Promise<void>((resolve, reject) => {
+            const finish = () => {
+              finishDevicePlaybackRef.current = null;
+              resolve();
+            };
+            finishDevicePlaybackRef.current = finish;
+            utterance.onend = finish;
+            utterance.onerror = (event) => {
+              finishDevicePlaybackRef.current = null;
+              reject(new Error(event.error || "The device voice could not play."));
+            };
+            window.speechSynthesis.speak(utterance);
+          });
           return;
         }
-        const utterance = new SpeechSynthesisUtterance(text);
-        configureUtterance(utterance, missionLocale, voiceURI);
-        utterance.rate = partnerSpeed;
-        window.speechSynthesis.speak(utterance);
-        return;
-      }
-      if (ttsStatus !== "ready") {
-        setErrorMessage("Google partner voices are unavailable for this deployment.");
-        return;
-      }
-      if (!partnerVoice) {
-        setErrorMessage(`No Google voice is available for ${missionLocale}.`);
-        return;
-      }
-      try {
+        if (ttsStatus !== "ready") {
+          setErrorMessage("Google partner voices are unavailable for this deployment.");
+          return;
+        }
+        if (!partnerVoice) {
+          setErrorMessage(`No Google voice is available for ${missionLocale}.`);
+          return;
+        }
         await speakMissionTts({
           text,
           voiceName: partnerVoice.name,
@@ -451,9 +488,9 @@ export function SpeakingMissionsPreview() {
         });
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
-        setErrorMessage(
-          error instanceof Error ? error.message : "Google partner voice playback failed.",
-        );
+        setErrorMessage(error instanceof Error ? error.message : "Partner voice playback failed.");
+      } finally {
+        if (playbackGenerationRef.current === playbackGeneration) setPartnerSpeaking(false);
       }
     },
     [missionLocale, partnerAudioSource, partnerSpeed, partnerVoice, stopAudio, ttsStatus, voiceURI],
@@ -488,10 +525,12 @@ export function SpeakingMissionsPreview() {
     };
     setTurns([opening]);
     setObjectiveIds([]);
+    setSkippedObjectiveIds([]);
     setErrorMessage(null);
     setInterim("");
     setCompletionReason(null);
     setTypedTurn("");
+    setTranscriptSource(null);
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
@@ -505,8 +544,11 @@ export function SpeakingMissionsPreview() {
     setTurns([]);
     setInterim("");
     setObjectiveIds([]);
+    setSkippedObjectiveIds([]);
     setErrorMessage(null);
     setCompletionReason(null);
+    setTypedTurn("");
+    setTranscriptSource(null);
     setStatus("ready");
     sessionStartedAtRef.current = null;
   };
@@ -515,6 +557,11 @@ export function SpeakingMissionsPreview() {
     exitMission();
     setSelectedMission(mission);
   };
+
+  const activeObjective = selectedMission?.objectives.find(
+    (objective) =>
+      !objectiveIds.includes(objective.id) && !skippedObjectiveIds.includes(objective.id),
+  );
 
   const sendLearnerTurn = async (text: string) => {
     if (!selectedMission) return;
@@ -529,9 +576,11 @@ export function SpeakingMissionsPreview() {
       role: "learner",
       text: learnerText,
     };
+    const learnerTranscriptSource = transcriptSource;
     const previousTurns = turns;
     setTurns((current) => [...current, learnerTurn]);
     setTypedTurn("");
+    setTranscriptSource(null);
     setStatus("thinking");
     setErrorMessage(null);
     const controller = new AbortController();
@@ -558,6 +607,9 @@ export function SpeakingMissionsPreview() {
           feedbackLanguage,
           nativeLanguage: appState.nativeLanguage,
           partnerVersion,
+          activeObjectiveId: activeObjective?.id,
+          completedObjectiveIds: objectiveIds,
+          skippedObjectiveIds,
           destinationCountryId:
             selectedMission.specialty === "Travel" ? activeTravelDestination?.id : undefined,
         }),
@@ -581,6 +633,7 @@ export function SpeakingMissionsPreview() {
       ]);
       setObjectiveIds((current) => [...new Set([...current, ...payload.provisionalObjectiveIds])]);
       setTypedTurn("");
+      setTranscriptSource(null);
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
@@ -590,6 +643,7 @@ export function SpeakingMissionsPreview() {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setTurns((current) => current.filter((turn) => turn.id !== learnerTurn.id));
       setTypedTurn(learnerText);
+      setTranscriptSource(learnerTranscriptSource ?? "typed");
       setStatus("error");
       setErrorMessage(
         error instanceof Error ? error.message : "The mission partner could not respond.",
@@ -598,6 +652,7 @@ export function SpeakingMissionsPreview() {
   };
 
   const startListening = () => {
+    if (partnerSpeaking || status === "thinking") return;
     const Constructor = recognitionConstructor();
     if (!Constructor) {
       setErrorMessage(
@@ -613,6 +668,8 @@ export function SpeakingMissionsPreview() {
       recognition.continuous = false;
       recognition.interimResults = true;
       let finalText = "";
+      let latestInterimText = "";
+      let recognitionError: string | null = null;
       recognition.onresult = (event) => {
         let interimText = "";
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
@@ -620,21 +677,35 @@ export function SpeakingMissionsPreview() {
           if (result.isFinal) finalText = `${finalText} ${result[0].transcript}`.trim();
           else interimText = `${interimText} ${result[0].transcript}`.trim();
         }
+        if (interimText) latestInterimText = interimText;
         setInterim(interimText);
       };
       recognition.onerror = (event) => {
-        if (event?.error && event.error !== "no-speech" && event.error !== "aborted") {
-          setErrorMessage(`Microphone error: ${String(event.error)}`);
+        recognitionError = event?.error ?? "unknown";
+        if (recognitionError !== "no-speech" && recognitionError !== "aborted") {
+          setErrorMessage(`Microphone error: ${recognitionError}. Try again or type your answer.`);
           setStatus("error");
         }
       };
       recognition.onend = () => {
+        if (recognitionRef.current !== recognition) return;
         recognitionRef.current = null;
         setInterim("");
-        if (finalText.trim()) {
+        const capturedText = bestAvailableSpeechTranscript(finalText, latestInterimText);
+        if (capturedText) {
+          setTypedTurn(capturedText);
+          setTranscriptSource("dictation");
+          setErrorMessage(null);
           setStatus("ready");
-          gated(() => sendLearnerTurn(finalText));
-        } else setStatus((current) => (current === "error" ? current : "ready"));
+          return;
+        }
+        if (recognitionError === "aborted") return;
+        setStatus((current) => (current === "error" ? current : "ready"));
+        setErrorMessage(
+          recognitionError === "no-speech"
+            ? "I did not hear speech. Tap Retry, or use the keyboard microphone in the answer box."
+            : "No transcript was returned. Tap Retry, or use the keyboard microphone in the answer box.",
+        );
       };
       recognitionRef.current = recognition;
       recognition.start();
@@ -1252,12 +1323,21 @@ export function SpeakingMissionsPreview() {
           <ul className="mt-3 space-y-2 text-sm">
             {selectedMission.objectives.map((objective) => {
               const completed = objectiveIds.includes(objective.id);
+              const skipped = skippedObjectiveIds.includes(objective.id);
               return (
                 <li key={objective.id} className="flex gap-2">
                   <span className={completed ? "text-emerald-300" : "text-muted-foreground"}>
-                    {completed ? "✓" : "○"}
+                    {completed ? "✓" : skipped ? "—" : "○"}
                   </span>
-                  <span className={completed ? "text-foreground" : "text-muted-foreground"}>
+                  <span
+                    className={
+                      completed
+                        ? "text-foreground"
+                        : skipped
+                          ? "text-muted-foreground line-through"
+                          : "text-muted-foreground"
+                    }
+                  >
                     {objective.description}
                   </span>
                 </li>
@@ -1266,7 +1346,7 @@ export function SpeakingMissionsPreview() {
           </ul>
           <p className="mt-3 text-xs text-muted-foreground">
             {completedObjectiveCount} of {selectedMission.objectives.length} observed. No mastery
-            tier was saved.
+            tier was saved. {skippedObjectiveIds.length} skipped.
           </p>
         </div>
 
@@ -1327,6 +1407,7 @@ export function SpeakingMissionsPreview() {
       <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
         {selectedMission.objectives.map((objective) => {
           const completed = objectiveIds.includes(objective.id);
+          const skipped = skippedObjectiveIds.includes(objective.id);
           return (
             <span
               key={objective.id}
@@ -1334,14 +1415,60 @@ export function SpeakingMissionsPreview() {
                 "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs " +
                 (completed
                   ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300"
-                  : "border-border text-muted-foreground")
+                  : skipped
+                    ? "border-border/60 bg-background/30 text-muted-foreground line-through"
+                    : "border-border text-muted-foreground")
               }
               title={objective.description}
             >
-              {completed ? <Check className="h-3 w-3" /> : "○"} {objective.description}
+              {completed ? <Check className="h-3 w-3" /> : skipped ? "—" : "○"}{" "}
+              {objective.description}
             </span>
           );
         })}
+      </div>
+
+      <div className="mb-4 rounded-2xl border border-sky-400/35 bg-sky-400/10 p-4">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-300">
+          {activeObjective ? "Your next goal" : "Practice goals addressed"}
+        </p>
+        <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground">
+          {activeObjective
+            ? activeObjective.description
+            : "Continue naturally or end the mission when the practical exchange feels complete."}
+        </p>
+        {activeObjective && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setTypedTurn(clarificationPhrase(selectedMission.language));
+                setTranscriptSource("typed");
+              }}
+              disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+              className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
+            >
+              Help me ask for an example
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setSkippedObjectiveIds((current) =>
+                  current.includes(activeObjective.id) ? current : [...current, activeObjective.id],
+                )
+              }
+              disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+              className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground disabled:opacity-40"
+            >
+              Skip this goal
+            </button>
+          </div>
+        )}
+        {selectedMission.vocabulary.length > 0 && activeObjective && (
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            Useful words: {selectedMission.vocabulary.slice(0, 6).join(" · ")}
+          </p>
+        )}
       </div>
 
       <div
@@ -1427,12 +1554,35 @@ export function SpeakingMissionsPreview() {
         </p>
       </div>
 
+      {transcriptSource === "dictation" && typedTurn.trim() && (
+        <div
+          role="status"
+          className="mt-4 rounded-2xl border border-emerald-400/35 bg-emerald-400/10 p-3"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
+            Review what your phone heard
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground">
+            Edit the transcript below if needed, then tap Send. It will not be submitted until you
+            approve it.
+          </p>
+          <button
+            type="button"
+            onClick={startListening}
+            disabled={status === "thinking" || status === "listening" || partnerSpeaking}
+            className="mt-2 rounded-full border border-emerald-300/40 px-3 py-1.5 text-xs text-emerald-200 disabled:opacity-40"
+          >
+            Retry microphone
+          </button>
+        </div>
+      )}
+
       <form
         className="mt-4 flex gap-2"
         onSubmit={(event) => {
           event.preventDefault();
           const text = typedTurn.trim();
-          if (!text || status === "thinking") return;
+          if (!text || status === "thinking" || partnerSpeaking) return;
           gated(() => void sendLearnerTurn(text));
         }}
       >
@@ -1442,7 +1592,10 @@ export function SpeakingMissionsPreview() {
         <input
           id="mission-typed-turn"
           value={typedTurn}
-          onChange={(event) => setTypedTurn(event.target.value)}
+          onChange={(event) => {
+            setTypedTurn(event.target.value);
+            setTranscriptSource("typed");
+          }}
           disabled={status === "thinking" || status === "listening"}
           maxLength={2000}
           placeholder={`Type an answer in ${selectedMission.language}…`}
@@ -1450,7 +1603,9 @@ export function SpeakingMissionsPreview() {
         />
         <button
           type="submit"
-          disabled={!typedTurn.trim() || status === "thinking" || status === "listening"}
+          disabled={
+            !typedTurn.trim() || status === "thinking" || status === "listening" || partnerSpeaking
+          }
           aria-label="Send typed answer"
           className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
         >
@@ -1458,7 +1613,7 @@ export function SpeakingMissionsPreview() {
         </button>
       </form>
       <p className="mt-1 text-center text-xs text-muted-foreground">
-        Type when the microphone or speech recognition is unavailable.
+        You can also use the iPhone keyboard microphone in this answer box.
       </p>
 
       <div className="mt-5 flex flex-col items-center gap-3">
@@ -1482,7 +1637,7 @@ export function SpeakingMissionsPreview() {
             <button
               type="button"
               onClick={status === "listening" ? stopListening : startListening}
-              disabled={status === "thinking"}
+              disabled={status === "thinking" || partnerSpeaking}
               aria-label={status === "listening" ? "Stop listening" : "Start listening"}
               className={
                 "flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground shadow-lg active:scale-95 disabled:opacity-40 " +
@@ -1498,9 +1653,11 @@ export function SpeakingMissionsPreview() {
             <p className="text-sm text-muted-foreground">
               {status === "listening"
                 ? "Listening… tap Stop when you finish"
-                : status === "thinking"
-                  ? "Partner is replying…"
-                  : `Tap the microphone and answer in ${selectedMission.language}`}
+                : partnerSpeaking
+                  ? "Partner is speaking… your microphone will unlock afterward"
+                  : status === "thinking"
+                    ? "Partner is replying…"
+                    : `Your turn — tap the microphone and answer in ${selectedMission.language}`}
             </p>
           </>
         )}

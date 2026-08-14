@@ -50,12 +50,10 @@ export function getVoicesForLocale(locale: string): SpeechSynthesisVoice[] {
   const all = getAllVoices();
   const family = locale.split("-")[0].toLowerCase();
   const exact = all.filter((v) => v.lang.toLowerCase() === locale.toLowerCase());
-  const fam = all.filter(
-    (v) => v.lang.toLowerCase().startsWith(family + "-") && !exact.includes(v),
-  );
+  const familyMatches = all.filter((v) => v.lang.toLowerCase().startsWith(family + "-"));
   // Sort: Google voices first, then by name
   const score = (v: SpeechSynthesisVoice) => (v.name.includes("Google") ? 0 : 1);
-  return [...exact, ...fam].sort((a, b) => {
+  return (exact.length > 0 ? exact : familyMatches).sort((a, b) => {
     const s = score(a) - score(b);
     return s !== 0 ? s : a.name.localeCompare(b.name);
   });

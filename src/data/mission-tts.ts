@@ -81,10 +81,33 @@ export function sortGoogleTtsVoices(voices: GoogleTtsVoice[]): GoogleTtsVoice[] 
 }
 
 export function googleVoicesForLocale(voices: GoogleTtsVoice[], locale: string): GoogleTtsVoice[] {
+  const normalizedLocale = locale.trim().toLowerCase();
+  const exactMatches = voices.filter((voice) =>
+    voice.languageCodes.some((code) => code.trim().toLowerCase() === normalizedLocale),
+  );
+  if (exactMatches.length > 0) return sortGoogleTtsVoices(exactMatches);
+
   const family = languageFamily(locale);
   return sortGoogleTtsVoices(
     voices.filter((voice) => voice.languageCodes.some((code) => languageFamily(code) === family)),
   );
+}
+
+export function recommendedGoogleVoices(
+  voices: GoogleTtsVoice[],
+  locale: string,
+  partnerVersion: MissionPartnerVersion,
+  limit = 6,
+): GoogleTtsVoice[] {
+  const compatible = googleVoicesForLocale(voices, locale);
+  const targetGender = partnerVersion === "woman" ? "FEMALE" : "MALE";
+  const genderMatches = compatible.filter(
+    (voice) =>
+      voice.ssmlGender === targetGender ||
+      voice.ssmlGender === "NEUTRAL" ||
+      voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED",
+  );
+  return (genderMatches.length > 0 ? genderMatches : compatible).slice(0, Math.max(1, limit));
 }
 
 export function defaultGoogleVoice(

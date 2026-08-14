@@ -51,6 +51,10 @@ describe("country-specific next-trip curriculum", () => {
     }
   });
 
+  test("Costa Rica uses the neutral Spanish teaching locale", () => {
+    assert.equal(getTravelDestination("costa-rica")?.ttsLocale, "es-CR");
+  });
+
   test("Italy includes the Rome pain points that motivated the destination layer", () => {
     const italy = getTravelDestination("italy");
     assert.ok(italy);

@@ -1,6 +1,10 @@
 import type { SpeakingMissionLanguage } from "./speaking-missions.ts";
 
-export type CoreSpeakingSection = "Essential verbs" | "Grammar patterns" | "Daily living";
+export type CoreSpeakingSection =
+  | "Essential verbs"
+  | "Grammar patterns"
+  | "Daily living"
+  | "Relationships & intimacy";
 
 export interface CoreVerb {
   id: string;
@@ -14,7 +18,7 @@ export interface DailyLivingTopic {
   objective: string;
   partnerRole: string;
   concepts: string[];
-  riskClass?: "medical" | "emergency" | "financial" | "legal" | "minor-data";
+  riskClass?: "medical" | "emergency" | "financial" | "legal" | "minor-data" | "intimacy";
 }
 
 export interface CoreGrammarPattern {
@@ -33,7 +37,7 @@ export const CORE_SPEAKING_MODULE = {
   emoji: "◈",
   category: "Core" as const,
   blurb:
-    "Build the verbs and grammar that power everyday speech, then use them in practical daily-life conversations.",
+    "Build the verbs and grammar that power everyday speech, then use them in practical daily-life and relationship conversations.",
   userRole: "Language learner handling an everyday conversation",
 };
 
@@ -1262,5 +1266,83 @@ export const DAILY_LIVING_TOPICS: DailyLivingTopic[] = [
       "Compare plans, ask about cost and installation, and report a service problem without sharing real credentials.",
     partnerRole: "Phone or internet representative",
     concepts: ["plan", "data", "installation", "outage"],
+  },
+];
+
+// A dedicated Core progression because relationship language is common daily
+// life, but deserves clearer consent, privacy, and age-appropriate safeguards
+// than an ordinary small-talk mission.
+export const RELATIONSHIPS_INTIMACY_TOPICS: DailyLivingTopic[] = [
+  {
+    id: "dating-interest",
+    title: "Express interest and suggest a date",
+    objective:
+      "Express interest respectfully, invite someone to a public activity, and accept either answer without pressure.",
+    partnerRole: "Person the learner would like to know better",
+    concepts: ["interest", "invitation", "date", "respectful refusal"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "relationship-status",
+    title: "Discuss relationship status",
+    objective:
+      "Ask and answer respectfully about dating, partnership, exclusivity, and how each person describes the relationship.",
+    partnerRole: "Person discussing the relationship with the learner",
+    concepts: ["dating", "partner", "single", "exclusive"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "affection-appreciation",
+    title: "Express affection and appreciation",
+    objective:
+      "Give a sincere compliment, express care and gratitude, and respond naturally to affection.",
+    partnerRole: "Learner's romantic partner",
+    concepts: ["affection", "compliment", "care", "gratitude"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "relationship-expectations",
+    title: "Talk about expectations and the future",
+    objective:
+      "Discuss communication, time together, exclusivity, and future hopes without assuming that both people want the same thing.",
+    partnerRole: "Learner's dating or romantic partner",
+    concepts: ["expectations", "commitment", "communication", "future"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "consent-boundaries",
+    title: "Communicate consent and boundaries",
+    objective:
+      "Ask before physical affection, state a boundary clearly, check comfort, and respond immediately and respectfully to no or uncertainty.",
+    partnerRole: "Learner's dating or romantic partner",
+    concepts: ["consent", "boundary", "comfortable", "stop"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "safer-intimacy",
+    title: "Discuss intimacy and sexual health respectfully",
+    objective:
+      "Use non-graphic language to discuss readiness, mutual consent, protection, testing, and seeking qualified sexual-health care.",
+    partnerRole: "Adult romantic partner in a fictional conversation",
+    concepts: ["readiness", "consent", "protection", "testing"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "relationship-conflict",
+    title: "Repair a relationship disagreement",
+    objective:
+      "Describe feelings without insults, listen to the other perspective, apologize where appropriate, and agree on a next step.",
+    partnerRole: "Learner's dating or romantic partner",
+    concepts: ["feelings", "disagreement", "apology", "repair"],
+    riskClass: "intimacy",
+  },
+  {
+    id: "end-relationship",
+    title: "End a relationship respectfully",
+    objective:
+      "State the decision clearly and kindly, avoid false promises, respect safety and boundaries, and close the conversation without coercion.",
+    partnerRole: "Learner's dating or romantic partner",
+    concepts: ["breakup", "decision", "kindness", "boundary"],
+    riskClass: "intimacy",
   },
 ];

@@ -5,6 +5,7 @@ import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
 import { MODULES, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
+import { NextTripBanner } from "@/components/travel/NextTripBanner";
 
 const CATEGORY_ORDER: AppModule["category"][] = [
   "English for Work",
@@ -275,6 +276,11 @@ export function ModulesPage() {
       {/* Module grid */}
       <div className="lt-scroll-safe custom-scroll flex-1 overflow-y-auto px-6 py-6">
         <div className="mx-auto max-w-5xl space-y-10">
+          {activeCategory === "Travel" && (
+            <NextTripBanner
+              onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
+            />
+          )}
           {groups.length === 0 ? (
             <div className="py-16 text-center">
               <p className="text-muted-foreground text-sm">No modules match "{search}"</p>

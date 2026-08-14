@@ -26,6 +26,7 @@ const FILTER_TABS = [
   { id: "Faith" as const, label: "Faith" },
   { id: "Medical" as const, label: "Medical" },
   { id: "Trades" as const, label: "Trades" },
+  { id: "Travel" as const, label: "Travel" },
   { id: "Sports" as const, label: "Sports" },
 ];
 type FilterTab = (typeof FILTER_TABS)[number]["id"];
@@ -34,7 +35,6 @@ interface Props {
   open: boolean;
   onClose: () => void;
 }
-
 export function ModulePickerDialog({ open, onClose }: Props) {
   const { state, dispatch } = useApp();
   const [query, setQuery] = useState("");

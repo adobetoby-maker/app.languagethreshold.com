@@ -8,7 +8,11 @@ import {
   MISSION_TTS_SPEEDS,
   MISSION_TTS_SUPPORTED_LANGUAGES,
 } from "../src/data/mission-tts.ts";
-import { CORE_VERBS, DAILY_LIVING_TOPICS } from "../src/data/core-speaking.ts";
+import {
+  CORE_VERBS,
+  DAILY_LIVING_TOPICS,
+  RELATIONSHIPS_INTIMACY_TOPICS,
+} from "../src/data/core-speaking.ts";
 import {
   findSpeakingMission,
   getAllSpeakingMissions,
@@ -17,6 +21,11 @@ import {
   getSpeakingModules,
   SPEAKING_LANGUAGES,
 } from "../src/data/speaking-missions.ts";
+import {
+  TRAVEL_ZONE_CURRICULA,
+  TRAVEL_ZONE_MODULE_IDS,
+  TRAVEL_ZONE_MODULES,
+} from "../src/data/travel-zone.ts";
 
 const SPEAKING_MISSIONS = getAllSpeakingMissions();
 
@@ -45,6 +54,11 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
   assert.equal(
     new Set(DAILY_LIVING_TOPICS.map((topic) => topic.id)).size,
     DAILY_LIVING_TOPICS.length,
+  );
+  assert.equal(RELATIONSHIPS_INTIMACY_TOPICS.length, 8);
+  assert.equal(
+    new Set(RELATIONSHIPS_INTIMACY_TOPICS.map((topic) => topic.id)).size,
+    RELATIONSHIPS_INTIMACY_TOPICS.length,
   );
   for (const requiredTopic of [
     "answer-phone",
@@ -83,14 +97,26 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
       core.filter((mission) => mission.coreSection === "Daily living").length,
       DAILY_LIVING_TOPICS.length,
     );
+    const relationshipMissions = core.filter(
+      (mission) => mission.coreSection === "Relationships & intimacy",
+    );
+    assert.equal(relationshipMissions.length, RELATIONSHIPS_INTIMACY_TOPICS.length);
+    assert.ok(relationshipMissions.every((mission) => mission.riskClass === "intimacy"));
+    assert.ok(
+      relationshipMissions.every(
+        (mission) =>
+          mission.safetyRules.some((rule) => rule.includes("Consent must be freely given")) &&
+          mission.safetyRules.some((rule) => rule.includes("Never sexualize anyone under 18")),
+      ),
+    );
   }
 });
 
 test("speaking preview covers every authored topic in Spanish, Italian, and Japanese", () => {
   const expected = {
-    Spanish: { modules: 41, challenges: 233, lessons: 1180, curated: 6, core: 133, total: 1552 },
-    Italian: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 133, total: 1529 },
-    Japanese: { modules: 40, challenges: 226, lessons: 1170, curated: 0, core: 136, total: 1532 },
+    Spanish: { modules: 57, challenges: 361, lessons: 1420, curated: 6, core: 141, total: 1928 },
+    Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
+    Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
   };
 
   assert.deepEqual(
@@ -131,10 +157,95 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 4613);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 4613);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 4613);
+  assert.equal(SPEAKING_MISSIONS.length, 5741);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 5741);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 5741);
   assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
+});
+
+test("Travel is a large daily-interaction zone with the Rome gaps covered", () => {
+  assert.equal(TRAVEL_ZONE_MODULES.length, 16);
+  assert.equal(TRAVEL_ZONE_MODULE_IDS.length, 16);
+  assert.equal(new Set(TRAVEL_ZONE_MODULE_IDS).size, 16);
+  assert.ok(TRAVEL_ZONE_MODULES.every((module) => module.category === "Travel"));
+  assert.ok(TRAVEL_ZONE_MODULES.every((module) => module.challengePrompts.length === 8));
+
+  for (const requiredModule of [
+    "travel-breakfast",
+    "travel-lunch",
+    "travel-dinner",
+    "travel-shopping-essentials",
+    "travel-scooter-car-rental",
+    "travel-roadside-mechanics",
+    "travel-guides-attractions",
+    "travel-airport-luggage",
+    "travel-pharmacy-health",
+    "travel-social-dating",
+  ]) {
+    assert.ok(TRAVEL_ZONE_MODULE_IDS.includes(requiredModule), requiredModule);
+  }
+
+  const authoredContent = JSON.stringify(TRAVEL_ZONE_CURRICULA);
+  for (const requiredRomeUseCase of [
+    "Vespa",
+    "socks",
+    "underwear",
+    "headache",
+    "tell my children",
+    "Ask someone to dinner",
+    "lost luggage",
+  ]) {
+    assert.ok(authoredContent.includes(requiredRomeUseCase), requiredRomeUseCase);
+  }
+
+  for (const module of TRAVEL_ZONE_MODULES) {
+    const curriculum = TRAVEL_ZONE_CURRICULA[module.id];
+    assert.ok(curriculum, `${module.id} curriculum`);
+    assert.equal(curriculum.lessons.length, 15, `${module.id} lesson count`);
+    assert.deepEqual(
+      curriculum.lessons.map((lesson) => lesson.n),
+      Array.from({ length: 15 }, (_, index) => index + 1),
+      `${module.id} lesson order`,
+    );
+  }
+
+  for (const { language } of SPEAKING_LANGUAGES) {
+    const languageMissions = getSpeakingMissions(language);
+    const travelMissions = languageMissions.filter((mission) => mission.specialty === "Travel");
+    assert.equal(travelMissions.length, 404, `${language} Travel mission count`);
+    const nonTravelCounts = Object.groupBy(
+      languageMissions.filter((mission) => mission.specialty !== "Travel"),
+      (mission) => mission.specialty,
+    );
+    assert.ok(
+      Object.values(nonTravelCounts).every((missions) => (missions?.length ?? 0) < 404),
+      `${language} Travel is the largest speaking zone`,
+    );
+    for (const moduleId of TRAVEL_ZONE_MODULE_IDS) {
+      const moduleMissions = travelMissions.filter((mission) => mission.moduleId === moduleId);
+      assert.equal(moduleMissions.length, 23, `${language}/${moduleId} mission count`);
+      assert.equal(
+        new Set(moduleMissions.map((mission) => mission.openingLine)).size,
+        1,
+        `${language}/${moduleId} localized opening`,
+      );
+    }
+    assert.ok(
+      travelMissions
+        .filter((mission) => mission.moduleId === "travel-pharmacy-health")
+        .every((mission) => mission.riskClass === "medical"),
+    );
+    assert.ok(
+      travelMissions
+        .filter((mission) => mission.moduleId === "travel-social-dating")
+        .every((mission) => mission.riskClass === "intimacy"),
+    );
+    assert.ok(
+      travelMissions
+        .filter((mission) => mission.moduleId === "travel-problems-services")
+        .every((mission) => mission.riskClass === "legal"),
+    );
+  }
 });
 
 test("each speaking mission has complete UX-preview metadata", () => {

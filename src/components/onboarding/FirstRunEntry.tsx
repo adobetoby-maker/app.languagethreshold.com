@@ -125,7 +125,7 @@ export function FirstRunEntry() {
                         Icon: Mic,
                         tone: "bg-gold/12 text-gold-ink",
                         title: "Use it out loud",
-                        body: "Practice Core verbs and grammar, then handle 53 daily-life situations before specialty missions.",
+                        body: "Practice Core verbs and grammar, then handle 53 daily-life situations and 8 respectful relationships and intimacy conversations before specialty missions.",
                       },
                     ]
                   : []),

@@ -72,16 +72,17 @@ export function useMissionarySpeech() {
 
   const speak = useCallback(
     (id: string, text: string, lang: Language) => {
-      if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+      if (typeof window === "undefined") return;
       const localeCode = accent || LOCALE[lang];
       const words = text.match(/\S+/g) ?? [];
       if (words.length === 0) return;
 
-      if (needsRemoteTTS(localeCode)) {
+      if (needsRemoteTTS(localeCode, voiceURI)) {
         stopRemoteTTS();
         setSpeaking({ id, index: 0, fading: false });
         void speakRemote(text, localeCode, {
           rate,
+          voiceURI,
           onend: () => {
             setSpeaking((s) => (s && s.id === id ? { ...s, fading: true } : s));
             window.setTimeout(() => {
@@ -92,12 +93,12 @@ export function useMissionarySpeech() {
         return;
       }
 
+      if (!("speechSynthesis" in window)) return;
+
       window.speechSynthesis.cancel();
       setSpeaking({ id, index: 0, fading: false });
 
-      let cancelled = false;
       const speakAt = (i: number) => {
-        if (cancelled) return;
         if (i >= words.length) {
           setSpeaking((s) => (s && s.id === id ? { ...s, fading: true } : s));
           window.setTimeout(() => {

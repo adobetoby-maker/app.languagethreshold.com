@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 import { configureUtterance } from "@/lib/voices";
+import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import {
@@ -89,12 +90,16 @@ function speakAloud(
   voiceURI: string | null | undefined,
   onEnd?: () => void,
 ) {
-  if (!window.speechSynthesis) {
+  const clean = text.replace(/[*_`~#[\]]/g, "").trim();
+  if (!clean) {
     onEnd?.();
     return;
   }
-  const clean = text.replace(/[*_`~#[\]]/g, "").trim();
-  if (!clean) {
+  if (needsRemoteTTS(locale, voiceURI)) {
+    void speakRemote(clean, locale, { voiceURI, onend: onEnd });
+    return;
+  }
+  if (!window.speechSynthesis) {
     onEnd?.();
     return;
   }
@@ -151,6 +156,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
         /* */
       }
       if (!next) {
+        stopRemoteTTS();
         window.speechSynthesis?.cancel();
         recRef.current?.stop();
         setSpeaking(false);
@@ -575,6 +581,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
               <button
                 onClick={() => {
                   abortRef.current?.abort();
+                  stopRemoteTTS();
                   window.speechSynthesis?.cancel();
                   setSpeaking(false);
                   recRef.current?.stop();

@@ -118,6 +118,7 @@ export function SpeakLearn() {
     clear,
   } = useSpeak();
   const language = state.selectedLanguage;
+  const learningPairIsValid = language !== state.nativeLanguage;
   const { accent: chosenAccent, voiceURI } = useSpeech();
   const accent = chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code;
   const chips = TOPIC_CHIPS[language];
@@ -207,6 +208,7 @@ export function SpeakLearn() {
           mode: "tip",
           language,
           level: state.level,
+          nativeLanguage: state.nativeLanguage,
           userText,
         }),
       });
@@ -241,6 +243,7 @@ export function SpeakLearn() {
           mode: "chat",
           language,
           level: state.level,
+          nativeLanguage: state.nativeLanguage,
           messages: history,
           userVocabWords:
             state.vocabLang === language && state.userVocab.length
@@ -548,6 +551,14 @@ export function SpeakLearn() {
 
       {surface === "missions" ? (
         <SpeakingMissionsPreview />
+      ) : !learningPairIsValid ? (
+        <div className="mt-4 rounded-3xl border border-gold/30 bg-card/50 p-6 text-center">
+          <p className="font-serif text-xl text-foreground">Choose your native language</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Your native language and study language must be different before starting a
+            conversation.
+          </p>
+        </div>
       ) : (
         <>
           <ModuleMatchPanel surface="Speak & Learn" className="mb-4" />
@@ -556,6 +567,7 @@ export function SpeakLearn() {
 
           <ChallengePanel
             language={language}
+            nativeLanguage={state.nativeLanguage}
             level={state.level}
             active={challenge}
             onStart={(c) => setChallenge(c)}

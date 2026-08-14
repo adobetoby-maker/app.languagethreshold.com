@@ -49,6 +49,26 @@ export function moduleSupportsLanguage(module: AppModule, language: Language): b
   return !module.languages || module.languages.includes(language);
 }
 
+/** Returns true when a module belongs to the learner's source → target direction. */
+export function moduleSupportsLearningPair(
+  module: AppModule,
+  targetLanguage: Language,
+  nativeLanguage: NativeLanguage,
+): boolean {
+  if (targetLanguage === "English") {
+    if (nativeLanguage === "English") return false;
+    if (module.learnDirection === "en-target") {
+      return !module.nativeLanguages || module.nativeLanguages.includes(nativeLanguage);
+    }
+    return moduleSupportsLanguage(module, targetLanguage);
+  }
+  return (
+    module.learnDirection !== "en-target" &&
+    module.category !== "English for Work" &&
+    moduleSupportsLanguage(module, targetLanguage)
+  );
+}
+
 export const MODULES: AppModule[] = [
   {
     id: "lds-missionary",

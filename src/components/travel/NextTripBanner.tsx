@@ -6,6 +6,7 @@ import {
   type TravelDestination,
 } from "@/data/travel-destinations";
 import { useApp } from "@/state/app-state";
+import type { NativeLanguage } from "@/state/app-state";
 
 interface NextTripBannerProps {
   compact?: boolean;
@@ -199,6 +200,7 @@ export function NextTripBanner({ compact = false, onPracticeTravel }: NextTripBa
             prepPercent={prepPercent}
             onPracticeTravel={onPracticeTravel}
             onClear={clear}
+            nativeLanguage={state.nativeLanguage}
           />
         ) : null}
       </div>
@@ -213,6 +215,7 @@ function DestinationBrief({
   prepPercent,
   onPracticeTravel,
   onClear,
+  nativeLanguage,
 }: {
   destination: TravelDestination;
   departureDate: string | null;
@@ -220,6 +223,7 @@ function DestinationBrief({
   prepPercent: number;
   onPracticeTravel?: () => void;
   onClear: () => void;
+  nativeLanguage: NativeLanguage;
 }) {
   return (
     <div className="mt-5 space-y-5">
@@ -274,7 +278,9 @@ function DestinationBrief({
           {destination.phrases.map((phrase) => (
             <article key={phrase.target} className="rounded-xl border border-gold/20 bg-gold/5 p-3">
               <p className="text-sm leading-relaxed text-foreground">{phrase.target}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{phrase.english}</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {phrase.nativeGlosses?.[nativeLanguage] ?? phrase.english}
+              </p>
               <p className="mt-1.5 font-mono text-[9px] leading-relaxed text-gold/70">
                 {phrase.note}
               </p>

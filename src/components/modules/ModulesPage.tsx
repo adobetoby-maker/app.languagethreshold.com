@@ -3,7 +3,7 @@ import { Search, Sparkles, CheckCircle2, Lock, ChevronRight } from "lucide-react
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
-import { MODULES, type AppModule } from "@/data/modules";
+import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 
@@ -169,10 +169,17 @@ export function ModulesPage() {
   const { isActive: isSubscribed } = useSubscription();
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<AppModule["category"] | "All">("All");
+  const availableModules = useMemo(
+    () =>
+      MODULES.filter((module) =>
+        moduleSupportsLearningPair(module, state.selectedLanguage, state.nativeLanguage),
+      ),
+    [state.nativeLanguage, state.selectedLanguage],
+  );
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    return MODULES.filter((m) => {
+    return availableModules.filter((m) => {
       const matchesCat = activeCategory === "All" || m.category === activeCategory;
       const matchesSearch =
         !q ||
@@ -182,7 +189,7 @@ export function ModulesPage() {
         m.vocabFocus.some((v) => v.toLowerCase().includes(q));
       return matchesCat && matchesSearch;
     });
-  }, [search, activeCategory]);
+  }, [activeCategory, availableModules, search]);
 
   // Group by category preserving CATEGORY_ORDER
   const groups = useMemo(() => {
@@ -204,8 +211,12 @@ export function ModulesPage() {
     dispatch({ type: "SET_TAB", payload: moduleDestinationTab(module.id) });
   };
 
-  const totalModules = MODULES.length;
-  const purchasedCount = state.purchasedModules.length;
+  const totalModules = availableModules.length;
+  const availableModuleIds = useMemo(
+    () => new Set(availableModules.map((module) => module.id)),
+    [availableModules],
+  );
+  const purchasedCount = state.purchasedModules.filter((id) => availableModuleIds.has(id)).length;
 
   return (
     <div className="flex h-full flex-col overflow-hidden">
@@ -253,7 +264,7 @@ export function ModulesPage() {
             </button>
             {CATEGORY_ORDER.map((cat) => {
               const meta = CATEGORY_META[cat];
-              const count = MODULES.filter((m) => m.category === cat).length;
+              const count = availableModules.filter((m) => m.category === cat).length;
               return (
                 <button
                   key={cat}

@@ -1076,11 +1076,38 @@ rt,
   transition: color 150ms ease;
 }
 
+.lt-speak-word {
+  cursor: help;
+  border-radius: 0.25rem;
+  -webkit-touch-callout: none;
+  user-select: text;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.lt-speak-word:active {
+  background: color-mix(in srgb, var(--color-gold) 18%, transparent);
+  color: var(--color-gold);
+}
+
+.lt-speak-word:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .lt-word:hover {
     color: var(--color-gold);
     text-decoration: underline;
     text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .lt-speak-word:hover {
+    color: var(--color-gold);
+    text-decoration: underline dotted;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
   }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, X, Check, Clock } from "lucide-react";
 import { useApp } from "@/state/app-state";
-import { MODULES, getModule, moduleSupportsLanguage } from "@/data/modules";
+import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
 import type { AppModule } from "@/data/modules";
 import type { Language } from "@/state/app-state";
 
@@ -40,7 +40,9 @@ export function ModulePickerDialog({ open, onClose }: Props) {
   const [query, setQuery] = useState("");
   const [filterTab, setFilterTab] = useState<FilterTab>("ALL");
 
-  const available = MODULES.filter((m) => moduleSupportsLanguage(m, state.selectedLanguage));
+  const available = MODULES.filter((module) =>
+    moduleSupportsLearningPair(module, state.selectedLanguage, state.nativeLanguage),
+  );
 
   const afterSearch = query.trim()
     ? available.filter((m) =>

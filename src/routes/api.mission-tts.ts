@@ -143,6 +143,8 @@ export const Route = createFileRoute("/api/mission-tts")({
         }
       },
       POST: async ({ request }) => {
+        const requestStartedAt = Date.now();
+        const requestId = request.headers.get("x-vercel-id");
         if (!isStrictSameOrigin(request)) {
           return json({ error: "Cross-origin request rejected." }, 403);
         }
@@ -208,6 +210,7 @@ export const Route = createFileRoute("/api/mission-tts")({
           const renderedRate = googleVoiceSupportsSpeakingRate(voice.name)
             ? parsed.data.speakingRate
             : 1;
+          const providerStartedAt = Date.now();
           const upstream = await fetch("https://texttospeech.googleapis.com/v1/text:synthesize", {
             method: "POST",
             headers: {
@@ -232,6 +235,20 @@ export const Route = createFileRoute("/api/mission-tts")({
           if (!payload.audioContent) throw new Error("Google Cloud TTS returned no audio.");
           const binary = atob(payload.audioContent);
           const audio = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+          const providerMs = Date.now() - providerStartedAt;
+          const totalMs = Date.now() - requestStartedAt;
+          console.log(
+            JSON.stringify({
+              level: "info",
+              message: "Mission voice ready",
+              route: "/api/mission-tts",
+              status: 200,
+              requestId,
+              provider: "google-cloud-tts",
+              providerMs,
+              totalMs,
+            }),
+          );
           return new Response(audio, {
             status: 200,
             headers: {
@@ -241,11 +258,22 @@ export const Route = createFileRoute("/api/mission-tts")({
               "X-TTS-Voice": voice.name,
               "X-TTS-Rate": String(parsed.data.speakingRate),
               "X-TTS-Rendered-Rate": String(renderedRate),
+              "Server-Timing": `google-tts;dur=${providerMs}, total;dur=${totalMs}`,
             },
           });
         } catch (error) {
           Sentry.captureException(error);
-          console.error("Google TTS request failed:", error);
+          console.error(
+            JSON.stringify({
+              level: "error",
+              message: "Google TTS request failed",
+              route: "/api/mission-tts",
+              status: 502,
+              requestId,
+              totalMs: Date.now() - requestStartedAt,
+              errorType: error instanceof Error ? error.name : "UnknownError",
+            }),
+          );
           return json({ error: "Google voice generation failed." }, 502);
         }
       },

@@ -105,7 +105,7 @@ const S: Record<string, TourStep> = {
   speak: {
     target: "speak",
     title: "Speak & Learn — Core First",
-    body: "For Spanish, Italian, and Japanese, start in Core Speaking: essential verbs, high-use grammar patterns, 53 daily-life situations, and 8 relationships and intimacy conversations. Move into specialty missions when the foundation feels automatic.",
+    body: "For Spanish, Italian, and English, start in Core Speaking: essential verbs, high-use grammar patterns, 53 daily-life situations, and 8 relationships and intimacy conversations. Japanese Core Speaking appears after its curriculum review gate is approved. Move into specialty missions when the foundation feels automatic.",
     tabKey: "speak",
     cta: "Start Speaking",
   },

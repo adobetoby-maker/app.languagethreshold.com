@@ -48,7 +48,11 @@ export const ACCENTS_BY_LANGUAGE: Record<Language, AccentOption[]> = {
   English: [
     { code: "en-US", label: "United States (en-US)" },
     { code: "en-GB", label: "United Kingdom (en-GB)" },
+    { code: "en-CA", label: "Canada (en-CA)" },
+    { code: "en-IE", label: "Ireland (en-IE)" },
     { code: "en-AU", label: "Australia (en-AU)" },
+    { code: "en-NZ", label: "New Zealand (en-NZ)" },
+    { code: "en-ZA", label: "South Africa (en-ZA)" },
   ],
 };
 

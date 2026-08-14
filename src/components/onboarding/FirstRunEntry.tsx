@@ -27,6 +27,7 @@ export function FirstRunEntry() {
   const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
   const coreSpeakingAvailable =
     ["Spanish", "Italian"].includes(state.selectedLanguage) ||
+    (state.selectedLanguage === "English" && state.nativeLanguage !== "English") ||
     (state.selectedLanguage === "Japanese" && japaneseSpeakingReviewed);
 
   function enter(tab: "reader" | "speak" | "guide") {

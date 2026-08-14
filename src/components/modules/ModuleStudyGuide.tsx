@@ -13,7 +13,7 @@ import {
 import { useApp, type Language, type TabKey } from "@/state/app-state";
 import { useTutor } from "@/state/tutor-state";
 import { useLibrary } from "@/state/library-state";
-import { MODULES, type AppModule, moduleSupportsLanguage } from "@/data/modules";
+import { MODULES, type AppModule, moduleSupportsLearningPair } from "@/data/modules";
 import { getLessons, getStarterSeedId } from "@/data/module-starters";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
@@ -94,7 +94,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
   }
 
   if (!module) return null;
-  if (!moduleSupportsLanguage(module, language)) return null;
+  if (!moduleSupportsLearningPair(module, language, state.nativeLanguage)) return null;
 
   const guide = buildGuide(module, language);
 
@@ -112,7 +112,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
   function startRoleplay(prompt: string) {
     tutor.prefill(
       `Roleplay — ${module!.userRole} (${module!.name}). In ${language}, ` +
-        `with a short English gloss in parentheses for each line. ` +
+        `with a short ${state.nativeLanguage} gloss in parentheses for each line. ` +
         `Begin the scene now: ${prompt}`,
     );
     tutor.setOpen(true);

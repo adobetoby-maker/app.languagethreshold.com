@@ -30,6 +30,7 @@ import {
   Sun,
   Moon,
   Sparkles,
+  RefreshCw,
 } from "lucide-react";
 import { useState } from "react";
 import { useApp, type TabKey, type Language } from "@/state/app-state";
@@ -45,6 +46,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { VoicePicker } from "./VoicePicker";
+import { reloadNewestAppVersion } from "@/lib/app-update";
 
 const LANGUAGES: Language[] = [
   "Spanish",
@@ -251,6 +253,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
+  const [updatingApp, setUpdatingApp] = useState(false);
 
   const visible = TAB_ITEMS.filter((t) => {
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
@@ -535,6 +538,27 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </span>
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
               {state.darkMode ? "Dark — tap for light" : "Light — tap for dark"}
+            </span>
+          </button>
+
+          <button
+            onClick={() => {
+              if (updatingApp) return;
+              setUpdatingApp(true);
+              void reloadNewestAppVersion();
+            }}
+            disabled={updatingApp}
+            className="mt-3 flex min-h-12 w-full items-center justify-between rounded-xl border-2 border-gold/40 bg-gold/10 px-4 py-3 text-left transition-colors hover:border-gold/70 disabled:cursor-wait disabled:opacity-60"
+          >
+            <span className="flex items-center gap-2.5 text-sm font-semibold text-gold">
+              <RefreshCw
+                className={cn("h-4 w-4", updatingApp && "animate-spin")}
+                strokeWidth={1.8}
+              />
+              {updatingApp ? "Updating app…" : "Update app"}
+            </span>
+            <span className="max-w-[46%] text-right text-[10px] leading-tight text-muted-foreground">
+              Loads newest version · keeps progress
             </span>
           </button>
 

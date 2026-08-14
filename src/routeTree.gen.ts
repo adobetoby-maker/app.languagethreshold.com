@@ -10,43 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char91indexChar93RouteImport } from './routes/[index]'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as FamilySetupRouteImport } from './routes/family-setup'
-import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
-import { Route as ApiTutorRouteImport } from './routes/api.tutor'
-import { Route as ApiTtsRouteImport } from './routes/api.tts'
-import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
-import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
-import { Route as ApiSpeakRouteImport } from './routes/api.speak'
-import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
-import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
-import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
-import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
-import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
-import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
-import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
+import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
+import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
+import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
+import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
+import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
+import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
+import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
+import { Route as ApiSpeakRouteImport } from './routes/api.speak'
+import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
+import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
+import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
+import { Route as ApiTtsRouteImport } from './routes/api.tts'
+import { Route as ApiTutorRouteImport } from './routes/api.tutor'
+import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
 
 const Char91indexChar93Route = Char91indexChar93RouteImport.update({
   id: '/index',
   path: '/index',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FamilySetupRoute = FamilySetupRouteImport.update({
-  id: '/family-setup',
-  path: '/family-setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountRoute = AccountRouteImport.update({
-  id: '/account',
-  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -54,64 +40,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
-  id: '/subscribe/success',
-  path: '/subscribe/success',
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiTutorRoute = ApiTutorRouteImport.update({
-  id: '/api/tutor',
-  path: '/api/tutor',
+const FamilySetupRoute = FamilySetupRouteImport.update({
+  id: '/family-setup',
+  path: '/family-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiTtsRoute = ApiTtsRouteImport.update({
-  id: '/api/tts',
-  path: '/api/tts',
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
-  id: '/api/stripe-webhook',
-  path: '/api/stripe-webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiSportsNewsRoute = ApiSportsNewsRouteImport.update({
-  id: '/api/sports-news',
-  path: '/api/sports-news',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiSpeakRoute = ApiSpeakRouteImport.update({
-  id: '/api/speak',
-  path: '/api/speak',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
-  id: '/api/module-field-prep',
-  path: '/api/module-field-prep',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiMissionTtsRoute = ApiMissionTtsRouteImport.update({
-  id: '/api/mission-tts',
-  path: '/api/mission-tts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiFieldPrepRoute = ApiFieldPrepRouteImport.update({
-  id: '/api/field-prep',
-  path: '/api/field-prep',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiFamilyAddKidRoute = ApiFamilyAddKidRouteImport.update({
-  id: '/api/family-add-kid',
-  path: '/api/family-add-kid',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
-  id: '/api/discussion',
-  path: '/api/discussion',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
-  id: '/api/create-checkout',
-  path: '/api/create-checkout',
+const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
+  id: '/api/cancel-subscription',
+  path: '/api/cancel-subscription',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiCaptureEmailRoute = ApiCaptureEmailRouteImport.update({
@@ -119,9 +65,69 @@ const ApiCaptureEmailRoute = ApiCaptureEmailRouteImport.update({
   path: '/api/capture-email',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
-  id: '/api/cancel-subscription',
-  path: '/api/cancel-subscription',
+const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
+  id: '/api/create-checkout',
+  path: '/api/create-checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
+  id: '/api/discussion',
+  path: '/api/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFamilyAddKidRoute = ApiFamilyAddKidRouteImport.update({
+  id: '/api/family-add-kid',
+  path: '/api/family-add-kid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFieldPrepRoute = ApiFieldPrepRouteImport.update({
+  id: '/api/field-prep',
+  path: '/api/field-prep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMissionTtsRoute = ApiMissionTtsRouteImport.update({
+  id: '/api/mission-tts',
+  path: '/api/mission-tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
+  id: '/api/module-field-prep',
+  path: '/api/module-field-prep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSpeakRoute = ApiSpeakRouteImport.update({
+  id: '/api/speak',
+  path: '/api/speak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSpeakingConsentRoute = ApiSpeakingConsentRouteImport.update({
+  id: '/api/speaking-consent',
+  path: '/api/speaking-consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSportsNewsRoute = ApiSportsNewsRouteImport.update({
+  id: '/api/sports-news',
+  path: '/api/sports-news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
+  id: '/api/stripe-webhook',
+  path: '/api/stripe-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTtsRoute = ApiTtsRouteImport.update({
+  id: '/api/tts',
+  path: '/api/tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTutorRoute = ApiTutorRouteImport.update({
+  id: '/api/tutor',
+  path: '/api/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
+  id: '/subscribe/success',
+  path: '/subscribe/success',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
+  '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
+  '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/speak': typeof ApiSpeakRoute
+  '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
+    | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/tts'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
+    | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/tts'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/speak'
+    | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
     | '/api/tts'
@@ -270,6 +282,7 @@ export interface RootRouteChildren {
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
+  ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
   ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
   ApiTtsRoute: typeof ApiTtsRoute
@@ -286,18 +299,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91indexChar93RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/family-setup': {
-      id: '/family-setup'
-      path: '/family-setup'
-      fullPath: '/family-setup'
-      preLoaderRoute: typeof FamilySetupRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account': {
@@ -307,95 +313,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/family-setup': {
+      id: '/family-setup'
+      path: '/family-setup'
+      fullPath: '/family-setup'
+      preLoaderRoute: typeof FamilySetupRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/subscribe/success': {
-      id: '/subscribe/success'
-      path: '/subscribe/success'
-      fullPath: '/subscribe/success'
-      preLoaderRoute: typeof SubscribeSuccessRouteImport
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/tutor': {
-      id: '/api/tutor'
-      path: '/api/tutor'
-      fullPath: '/api/tutor'
-      preLoaderRoute: typeof ApiTutorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/tts': {
-      id: '/api/tts'
-      path: '/api/tts'
-      fullPath: '/api/tts'
-      preLoaderRoute: typeof ApiTtsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/stripe-webhook': {
-      id: '/api/stripe-webhook'
-      path: '/api/stripe-webhook'
-      fullPath: '/api/stripe-webhook'
-      preLoaderRoute: typeof ApiStripeWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/sports-news': {
-      id: '/api/sports-news'
-      path: '/api/sports-news'
-      fullPath: '/api/sports-news'
-      preLoaderRoute: typeof ApiSportsNewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/speak': {
-      id: '/api/speak'
-      path: '/api/speak'
-      fullPath: '/api/speak'
-      preLoaderRoute: typeof ApiSpeakRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/module-field-prep': {
-      id: '/api/module-field-prep'
-      path: '/api/module-field-prep'
-      fullPath: '/api/module-field-prep'
-      preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/mission-tts': {
-      id: '/api/mission-tts'
-      path: '/api/mission-tts'
-      fullPath: '/api/mission-tts'
-      preLoaderRoute: typeof ApiMissionTtsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/field-prep': {
-      id: '/api/field-prep'
-      path: '/api/field-prep'
-      fullPath: '/api/field-prep'
-      preLoaderRoute: typeof ApiFieldPrepRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/family-add-kid': {
-      id: '/api/family-add-kid'
-      path: '/api/family-add-kid'
-      fullPath: '/api/family-add-kid'
-      preLoaderRoute: typeof ApiFamilyAddKidRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/discussion': {
-      id: '/api/discussion'
-      path: '/api/discussion'
-      fullPath: '/api/discussion'
-      preLoaderRoute: typeof ApiDiscussionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/create-checkout': {
-      id: '/api/create-checkout'
-      path: '/api/create-checkout'
-      fullPath: '/api/create-checkout'
-      preLoaderRoute: typeof ApiCreateCheckoutRouteImport
+    '/api/cancel-subscription': {
+      id: '/api/cancel-subscription'
+      path: '/api/cancel-subscription'
+      fullPath: '/api/cancel-subscription'
+      preLoaderRoute: typeof ApiCancelSubscriptionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/capture-email': {
@@ -405,11 +341,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiCaptureEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/cancel-subscription': {
-      id: '/api/cancel-subscription'
-      path: '/api/cancel-subscription'
-      fullPath: '/api/cancel-subscription'
-      preLoaderRoute: typeof ApiCancelSubscriptionRouteImport
+    '/api/create-checkout': {
+      id: '/api/create-checkout'
+      path: '/api/create-checkout'
+      fullPath: '/api/create-checkout'
+      preLoaderRoute: typeof ApiCreateCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/discussion': {
+      id: '/api/discussion'
+      path: '/api/discussion'
+      fullPath: '/api/discussion'
+      preLoaderRoute: typeof ApiDiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/family-add-kid': {
+      id: '/api/family-add-kid'
+      path: '/api/family-add-kid'
+      fullPath: '/api/family-add-kid'
+      preLoaderRoute: typeof ApiFamilyAddKidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/field-prep': {
+      id: '/api/field-prep'
+      path: '/api/field-prep'
+      fullPath: '/api/field-prep'
+      preLoaderRoute: typeof ApiFieldPrepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/mission-tts': {
+      id: '/api/mission-tts'
+      path: '/api/mission-tts'
+      fullPath: '/api/mission-tts'
+      preLoaderRoute: typeof ApiMissionTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/module-field-prep': {
+      id: '/api/module-field-prep'
+      path: '/api/module-field-prep'
+      fullPath: '/api/module-field-prep'
+      preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/speak': {
+      id: '/api/speak'
+      path: '/api/speak'
+      fullPath: '/api/speak'
+      preLoaderRoute: typeof ApiSpeakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/speaking-consent': {
+      id: '/api/speaking-consent'
+      path: '/api/speaking-consent'
+      fullPath: '/api/speaking-consent'
+      preLoaderRoute: typeof ApiSpeakingConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/sports-news': {
+      id: '/api/sports-news'
+      path: '/api/sports-news'
+      fullPath: '/api/sports-news'
+      preLoaderRoute: typeof ApiSportsNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/stripe-webhook': {
+      id: '/api/stripe-webhook'
+      path: '/api/stripe-webhook'
+      fullPath: '/api/stripe-webhook'
+      preLoaderRoute: typeof ApiStripeWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tts': {
+      id: '/api/tts'
+      path: '/api/tts'
+      fullPath: '/api/tts'
+      preLoaderRoute: typeof ApiTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tutor': {
+      id: '/api/tutor'
+      path: '/api/tutor'
+      fullPath: '/api/tutor'
+      preLoaderRoute: typeof ApiTutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscribe/success': {
+      id: '/subscribe/success'
+      path: '/subscribe/success'
+      fullPath: '/subscribe/success'
+      preLoaderRoute: typeof SubscribeSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -430,6 +450,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiSpeakRoute: ApiSpeakRoute,
+  ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,
   ApiStripeWebhookRoute: ApiStripeWebhookRoute,
   ApiTtsRoute: ApiTtsRoute,

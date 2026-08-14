@@ -3,6 +3,7 @@ import { Sparkles, Target, Zap } from "lucide-react";
 import { toast } from "sonner";
 import type { Language } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
+import { speakingRequestHeaders } from "@/lib/speaking-client";
 
 export interface SpeakChallenge {
   target: string;
@@ -53,7 +54,7 @@ export function ChallengePanel({ language, level, active, onStart, onSpeakAloud 
     try {
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await speakingRequestHeaders(),
         body: JSON.stringify({
           mode: "challenge",
           language,

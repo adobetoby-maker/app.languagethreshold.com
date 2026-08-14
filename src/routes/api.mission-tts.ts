@@ -1,7 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { isMissionTtsSpeed, MISSION_TTS_SPEEDS, MISSION_TTS_VOICES } from "../data/mission-tts";
+import {
+  isMissionTtsSpeed,
+  MISSION_TTS_SPEEDS,
+  MISSION_TTS_SUPPORTED_LANGUAGES,
+  MISSION_TTS_VOICES,
+} from "../data/mission-tts";
 import { initSentry, Sentry } from "../lib/sentry";
+import {
+  authenticateSpeakingRequest,
+  enforceSpeakingPreAuthRateLimit,
+  enforceSpeakingRateLimit,
+  hasSpeakingAgeAttestation,
+  isStrictSameOrigin,
+} from "../lib/speaking-security";
 
 initSentry();
 
@@ -9,7 +21,7 @@ const RequestSchema = z.object({
   text: z.string().trim().min(1).max(1200),
   partnerVersion: z.enum(["woman", "man"]),
   speakingRate: z.number().refine(isMissionTtsSpeed, "Unsupported speaking rate"),
-  ageConfirmed: z.literal(true),
+  language: z.literal("Spanish"),
 });
 
 function json(payload: unknown, status = 200) {
@@ -19,17 +31,13 @@ function json(payload: unknown, status = 200) {
   });
 }
 
-function isSameOrigin(request: Request) {
-  const origin = request.headers.get("Origin");
-  return !origin || origin === new URL(request.url).origin;
-}
-
 function capabilities() {
   const enabled = process.env.GOOGLE_CLOUD_TTS_ENABLED === "true";
   const configured = Boolean(process.env.GOOGLE_CLOUD_TTS_API_KEY);
   return {
     provider: "google-cloud-tts" as const,
     ready: enabled && configured,
+    supportedLanguages: [...MISSION_TTS_SUPPORTED_LANGUAGES],
     voices: {
       woman: {
         name: MISSION_TTS_VOICES.woman.name,
@@ -46,7 +54,46 @@ export const Route = createFileRoute("/api/mission-tts")({
     handlers: {
       GET: async () => json(capabilities()),
       POST: async ({ request }) => {
-        if (!isSameOrigin(request)) return json({ error: "Cross-origin request rejected." }, 403);
+        if (!isStrictSameOrigin(request)) {
+          return json({ error: "Cross-origin request rejected." }, 403);
+        }
+        const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
+          allowed: false,
+          misconfigured: true,
+        }));
+        if (!ipBudget.allowed) {
+          return json(
+            {
+              error: ipBudget.misconfigured
+                ? "Speaking controls are unavailable."
+                : "Too many voice requests. Please wait a minute and try again.",
+            },
+            ipBudget.misconfigured ? 503 : 429,
+          );
+        }
+        const principal = await authenticateSpeakingRequest(request).catch(() => null);
+        if (!principal) return json({ error: "Sign in to use Google partner voices." }, 401);
+        const ageAttested = await hasSpeakingAgeAttestation(principal.userId).catch(() => null);
+        if (ageAttested === null) {
+          return json({ error: "Speaking consent storage is unavailable." }, 503);
+        }
+        if (!ageAttested) {
+          return json({ error: "Add the account age self-attestation first." }, 403);
+        }
+        const budget = await enforceSpeakingRateLimit(principal.userId).catch(() => ({
+          allowed: false,
+          misconfigured: true,
+        }));
+        if (!budget.allowed) {
+          return json(
+            {
+              error: budget.misconfigured
+                ? "Speaking controls are unavailable."
+                : "Too many voice requests. Please wait a minute and try again.",
+            },
+            budget.misconfigured ? 503 : 429,
+          );
+        }
         if (!capabilities().ready) {
           return json(
             { error: "Google partner voices are not configured for this deployment." },

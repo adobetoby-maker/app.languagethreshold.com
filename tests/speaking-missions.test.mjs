@@ -3,17 +3,20 @@ import test from "node:test";
 import {
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
+  MISSION_TTS_SUPPORTED_LANGUAGES,
   MISSION_TTS_VOICES,
 } from "../src/data/mission-tts.ts";
 import { CORE_VERBS, DAILY_LIVING_TOPICS } from "../src/data/core-speaking.ts";
 import {
   findSpeakingMission,
+  getAllSpeakingMissions,
   getCoreGrammarPatterns,
   getSpeakingMissions,
   getSpeakingModules,
   SPEAKING_LANGUAGES,
-  SPEAKING_MISSIONS,
 } from "../src/data/speaking-missions.ts";
+
+const SPEAKING_MISSIONS = getAllSpeakingMissions();
 
 const APPROVED_SCENARIO_VERSION_IDS = [
   "scenario_version_construction_safety_briefing_es_v1",
@@ -159,6 +162,7 @@ test("mission lookup fails closed for unknown versions", () => {
 });
 
 test("mission TTS uses a fixed Google Neural2 woman/man pair", () => {
+  assert.deepEqual(MISSION_TTS_SUPPORTED_LANGUAGES, ["Spanish"]);
   assert.deepEqual(MISSION_TTS_VOICES.woman, {
     name: "es-US-Neural2-A",
     languageCode: "es-US",
@@ -170,6 +174,28 @@ test("mission TTS uses a fixed Google Neural2 woman/man pair", () => {
     label: "Google Neural2 · man",
   });
   assert.notEqual(MISSION_TTS_VOICES.woman.name, MISSION_TTS_VOICES.man.name);
+});
+
+test("high-stakes daily missions carry explicit runtime policy", () => {
+  for (const topicId of [
+    "doctor-visit",
+    "pharmacy",
+    "emergency",
+    "bank-atm",
+    "school-childcare",
+    "nonemergency-police",
+    "customs",
+  ]) {
+    const topic = DAILY_LIVING_TOPICS.find((candidate) => candidate.id === topicId);
+    assert.ok(topic?.riskClass, `${topicId} has a risk class`);
+    for (const { language } of SPEAKING_LANGUAGES) {
+      const mission = getSpeakingMissions(language).find((candidate) =>
+        candidate.id.includes(`core_daily_${topicId}_`),
+      );
+      assert.equal(mission?.riskClass, topic.riskClass, `${language}/${topicId} risk class`);
+      assert.ok(mission?.safetyRules.length >= 3, `${language}/${topicId} has extra safety rules`);
+    }
+  }
 });
 
 test("mission TTS accepts only the published ear-training speeds", () => {

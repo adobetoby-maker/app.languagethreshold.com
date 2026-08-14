@@ -15,6 +15,12 @@ import { getPatternsForLanguage } from "./grammar-patterns.ts";
 export type SpeakingMissionSpecialty = "Core" | Exclude<AppModule["category"], "English for Work">;
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese";
 export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP";
+export type SpeakingMissionRisk =
+  | "medical"
+  | "emergency"
+  | "financial"
+  | "legal"
+  | "minor-data";
 
 export interface SpeakingModuleDefinition {
   id: string;
@@ -55,6 +61,7 @@ export interface SpeakingMission {
   objectives: SpeakingMissionObjective[];
   openingLine: string;
   safetyRules: string[];
+  riskClass?: SpeakingMissionRisk;
 }
 
 // Immutable UX-preview projection of the scenarios approved in
@@ -419,6 +426,39 @@ function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
   }
 }
 
+function safetyRulesForDailyLiving(topic: DailyLivingTopic): string[] {
+  const base = safetyRulesFor("Core");
+  switch (topic.riskClass) {
+    case "medical":
+      return [
+        ...base,
+        "Practice communication only. Do not diagnose, prescribe, interpret a dose, or delay real care. End the roleplay if the learner seeks real medical guidance.",
+      ];
+    case "emergency":
+      return [
+        ...base,
+        "This is not an emergency service. If the learner describes a real danger, end practice immediately and direct them to local emergency services.",
+      ];
+    case "financial":
+      return [
+        ...base,
+        "Do not request credentials or provide personalized financial advice; use invented account details only.",
+      ];
+    case "legal":
+      return [
+        ...base,
+        "Do not provide legal or immigration advice, predict outcomes, or ask for real identifying details.",
+      ];
+    case "minor-data":
+      return [
+        ...base,
+        "Use fictional child and family details only; do not request or expose educational or pickup records.",
+      ];
+    default:
+      return base;
+  }
+}
+
 function dailyLivingOpeningLine(
   topic: DailyLivingTopic,
   language: SpeakingMissionLanguage,
@@ -715,7 +755,8 @@ function missionFromDailyLivingTopic(
       },
     ],
     openingLine: dailyLivingOpeningLine(topic, language),
-    safetyRules: safetyRulesFor("Core"),
+    safetyRules: safetyRulesForDailyLiving(topic),
+    riskClass: topic.riskClass,
   };
 }
 
@@ -752,20 +793,25 @@ export function getCoreGrammarPatterns(language: SpeakingMissionLanguage): CoreG
   return [...storyPatterns, ...CORE_GRAMMAR_EXTENSIONS[language]];
 }
 
-const CORE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) => [
-  ...CORE_VERBS.map((verb, verbIndex) =>
-    missionFromCoreVerb(verb, verbIndex, language, code, locale),
-  ),
-  ...getCoreGrammarPatterns(language).map((pattern, patternIndex) =>
-    missionFromGrammarPattern(pattern, patternIndex, language, code, locale),
-  ),
-  ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>
-    missionFromDailyLivingTopic(topic, topicIndex, language, code, locale),
-  ),
-]);
+const missionCache = new Map<SpeakingMissionLanguage, SpeakingMission[]>();
+const missionIndexCache = new Map<SpeakingMissionLanguage, Map<string, SpeakingMission>>();
 
-const COMPLETE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, locale }) =>
-  getSpecialtySpeakingModules(language).flatMap((module) => {
+function buildSpeakingMissions(language: SpeakingMissionLanguage) {
+  const definition = SPEAKING_LANGUAGES.find((entry) => entry.language === language);
+  if (!definition) return [];
+  const { code, locale } = definition;
+  const coreMissions = [
+    ...CORE_VERBS.map((verb, verbIndex) =>
+      missionFromCoreVerb(verb, verbIndex, language, code, locale),
+    ),
+    ...getCoreGrammarPatterns(language).map((pattern, patternIndex) =>
+      missionFromGrammarPattern(pattern, patternIndex, language, code, locale),
+    ),
+    ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>
+      missionFromDailyLivingTopic(topic, topicIndex, language, code, locale),
+    ),
+  ];
+  const specialtyMissions = getSpecialtySpeakingModules(language).flatMap((module) => {
     const challengeMissions = module.challengePrompts.map((challenge, challengeIndex) =>
       missionFromChallenge(
         module,
@@ -782,22 +828,33 @@ const COMPLETE_TOPIC_MISSIONS = SPEAKING_LANGUAGES.flatMap(({ language, code, lo
       missionFromLesson(module, module.category, language, code, locale, lesson),
     );
     return [...challengeMissions, ...lessonMissions];
-  }),
-);
+  });
+  return [
+    ...coreMissions,
+    ...CURATED_SPEAKING_MISSIONS.filter((mission) => mission.language === language),
+    ...specialtyMissions,
+  ];
+}
 
-// The six reviewed Spanish missions remain first-class curated choices. Every
-// authored challenge and curriculum lesson for Spanish, Italian, and Japanese
-// follows with stable IDs so the API continues to fail closed on unknown topics.
-export const SPEAKING_MISSIONS: SpeakingMission[] = [
-  ...CORE_TOPIC_MISSIONS,
-  ...CURATED_SPEAKING_MISSIONS,
-  ...COMPLETE_TOPIC_MISSIONS,
-];
-
+// Build only the selected language. The six reviewed Spanish missions remain
+// first-class curated choices without constructing all 4,613 objects at startup.
 export function getSpeakingMissions(language: SpeakingMissionLanguage) {
-  return SPEAKING_MISSIONS.filter((mission) => mission.language === language);
+  const cached = missionCache.get(language);
+  if (cached) return cached;
+  const missions = buildSpeakingMissions(language);
+  missionCache.set(language, missions);
+  missionIndexCache.set(language, new Map(missions.map((mission) => [mission.id, mission])));
+  return missions;
+}
+
+export function getAllSpeakingMissions() {
+  return SPEAKING_LANGUAGES.flatMap(({ language }) => getSpeakingMissions(language));
 }
 
 export function findSpeakingMission(id: string) {
-  return SPEAKING_MISSIONS.find((mission) => mission.id === id) ?? null;
+  const code = id.match(/_(es|it|ja)_v1$/)?.[1];
+  const language = SPEAKING_LANGUAGES.find((entry) => entry.code === code)?.language;
+  if (!language) return null;
+  getSpeakingMissions(language);
+  return missionIndexCache.get(language)?.get(id) ?? null;
 }

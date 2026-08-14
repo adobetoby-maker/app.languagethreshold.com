@@ -1,4 +1,7 @@
 export type MissionPartnerVersion = "woman" | "man";
+export type MissionTtsLanguage = "Spanish";
+
+export const MISSION_TTS_SUPPORTED_LANGUAGES = ["Spanish"] as const;
 
 export const MISSION_TTS_SPEEDS = [0.5, 0.6, 0.75, 0.85, 1, 1.1, 1.25, 1.5] as const;
 

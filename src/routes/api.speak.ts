@@ -3,6 +3,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
 import { findSpeakingMission, type SpeakingMission } from "../data/speaking-missions";
+import {
+  authenticateSpeakingRequest,
+  enforceSpeakingPreAuthRateLimit,
+  enforceSpeakingRateLimit,
+  hasSpeakingAgeAttestation,
+  isSpeakingMissionLanguageEnabled,
+  isStrictSameOrigin,
+} from "../lib/speaking-security";
 initSentry();
 
 const MessageSchema = z.object({
@@ -20,7 +28,6 @@ const BodySchema = z.object({
   kind: z.enum(["grammar", "reach"]).optional(),
   userVocabWords: z.array(z.string().max(80)).max(15).optional(),
   scenarioVersionId: z.string().max(120).optional(),
-  ageConfirmed: z.boolean().optional(),
   feedbackLanguage: z.enum(["English", "Target language", "Adaptive"]).optional(),
   partnerVersion: z.enum(["woman", "man"]).optional(),
 });
@@ -30,7 +37,18 @@ const MissionTurnSchema = z.object({
   deferredFeedback: z.array(z.string().min(1).max(240)).min(1).max(2),
   provisionalObjectiveIds: z.array(z.string().min(1).max(120)).max(3),
   shouldEnd: z.boolean(),
+  safetyStop: z.boolean(),
 });
+
+function validMissionHistory(mission: SpeakingMission, messages: z.infer<typeof MessageSchema>[]) {
+  if (messages[0]?.role !== "assistant" || messages[0].content !== mission.openingLine)
+    return false;
+  if (messages.at(-1)?.role !== "user") return false;
+  return messages.every((message, index) => {
+    if (index === 0) return true;
+    return message.role === (index % 2 === 1 ? "user" : "assistant");
+  });
+}
 
 function chatSystemPrompt(language: string, level: string, userVocabWords?: string[]) {
   const base = [
@@ -80,6 +98,7 @@ function missionSystemPrompt(
     "After every learner turn, put one brief coaching note in deferredFeedback. If correction is useful, give the single highest-value correction. Otherwise name what the learner communicated successfully.",
     "If the learner communicates successfully by describing or repairing around a missing word, continue naturally and recognize the recovery in coaching.",
     feedbackRule,
+    "Set safetyStop to true if the learner presents a real emergency or asks for real medical, legal, financial, or safety advice. When safetyStop is true, briefly redirect them to an appropriate real-world professional or local emergency service and end the roleplay.",
     "Set shouldEnd only when the practical situation has reached a natural close or safety requires ending practice.",
     "Always respond through the speaking_mission_turn tool and nowhere else.",
   ].join("\n");
@@ -112,6 +131,56 @@ export const Route = createFileRoute("/api/speak")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        if (!isStrictSameOrigin(request)) {
+          return new Response(JSON.stringify({ error: "Cross-origin request rejected." }), {
+            status: 403,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+
+        const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
+          allowed: false,
+          misconfigured: true,
+        }));
+        if (!ipBudget.allowed) {
+          return new Response(
+            JSON.stringify({
+              error: ipBudget.misconfigured
+                ? "Speaking controls are unavailable."
+                : "Too many speaking requests. Please wait a minute and try again.",
+            }),
+            {
+              status: ipBudget.misconfigured ? 503 : 429,
+              headers: { "Content-Type": "application/json", "Retry-After": "60" },
+            },
+          );
+        }
+
+        const principal = await authenticateSpeakingRequest(request).catch(() => null);
+        if (!principal) {
+          return new Response(JSON.stringify({ error: "Sign in to use AI speaking practice." }), {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
+        const budget = await enforceSpeakingRateLimit(principal.userId).catch(() => ({
+          allowed: false,
+          misconfigured: true,
+        }));
+        if (!budget.allowed) {
+          return new Response(
+            JSON.stringify({
+              error: budget.misconfigured
+                ? "Speaking controls are unavailable."
+                : "Too many speaking requests. Please wait a minute and try again.",
+            }),
+            {
+              status: budget.misconfigured ? 503 : 429,
+              headers: { "Content-Type": "application/json", "Retry-After": "60" },
+            },
+          );
+        }
+
         let payload: z.infer<typeof BodySchema>;
         try {
           payload = BodySchema.parse(await request.json());
@@ -134,10 +203,20 @@ export const Route = createFileRoute("/api/speak")({
 
         // ----- MISSION MODE: immutable scenario roleplay for the main-app UX preview -----
         if (payload.mode === "mission") {
-          if (payload.ageConfirmed !== true) {
+          const ageAttested = await hasSpeakingAgeAttestation(principal.userId).catch(() => null);
+          if (ageAttested === null) {
+            return new Response(
+              JSON.stringify({ error: "Speaking consent storage is unavailable." }),
+              {
+                status: 503,
+                headers: { "Content-Type": "application/json" },
+              },
+            );
+          }
+          if (!ageAttested) {
             return new Response(
               JSON.stringify({
-                error: "Speaking missions are currently restricted to ages 13 and older.",
+                error: "Add the account age self-attestation before starting a mission.",
               }),
               { status: 403, headers: { "Content-Type": "application/json" } },
             );
@@ -151,8 +230,27 @@ export const Route = createFileRoute("/api/speak")({
               headers: { "Content-Type": "application/json" },
             });
           }
+          if (!isSpeakingMissionLanguageEnabled(mission.language)) {
+            return new Response(
+              JSON.stringify({ error: "This speaking language is still under curriculum review." }),
+              {
+                status: 403,
+                headers: { "Content-Type": "application/json" },
+              },
+            );
+          }
           if (!payload.messages?.length) {
             return new Response(JSON.stringify({ error: "Mission history is required." }), {
+              status: 400,
+              headers: { "Content-Type": "application/json" },
+            });
+          }
+          if (
+            payload.language !== mission.language ||
+            payload.level !== mission.level ||
+            !validMissionHistory(mission, payload.messages)
+          ) {
+            return new Response(JSON.stringify({ error: "Invalid mission state." }), {
               status: 400,
               headers: { "Content-Type": "application/json" },
             });
@@ -178,7 +276,7 @@ export const Route = createFileRoute("/api/speak")({
                     properties: {
                       assistantText: {
                         type: "string",
-                        description: "One or two short in-character sentences in Spanish.",
+                        description: `One or two short in-character sentences in ${mission.language}.`,
                       },
                       deferredFeedback: {
                         type: "array",
@@ -199,12 +297,18 @@ export const Route = createFileRoute("/api/speak")({
                         type: "boolean",
                         description: "True only after a natural practical close or a safety stop.",
                       },
+                      safetyStop: {
+                        type: "boolean",
+                        description:
+                          "True when the learner describes a real emergency or requests real medical, legal, financial, or safety advice that must end the roleplay.",
+                      },
                     },
                     required: [
                       "assistantText",
                       "deferredFeedback",
                       "provisionalObjectiveIds",
                       "shouldEnd",
+                      "safetyStop",
                     ],
                     additionalProperties: false,
                   },
@@ -229,7 +333,7 @@ export const Route = createFileRoute("/api/speak")({
                   parsed.data.provisionalObjectiveIds.filter((id) => objectiveIds.has(id)),
                 ),
               ],
-              shouldEnd: parsed.data.shouldEnd,
+              shouldEnd: parsed.data.shouldEnd || parsed.data.safetyStop,
             };
             return new Response(JSON.stringify(result), {
               status: 200,

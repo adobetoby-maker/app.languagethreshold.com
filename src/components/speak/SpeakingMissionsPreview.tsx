@@ -1,5 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Check, ChevronLeft, Lightbulb, Mic, RotateCcw, Search, Square, X } from "lucide-react";
+import {
+  Check,
+  ChevronLeft,
+  Lightbulb,
+  Mic,
+  RotateCcw,
+  Search,
+  Send,
+  Square,
+  X,
+} from "lucide-react";
 import {
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
@@ -20,15 +30,23 @@ import {
   stopMissionTts,
   type MissionTtsCapabilities,
 } from "@/lib/mission-tts";
-import { configureUtterance } from "@/lib/voices";
+import { configureUtterance, pickVoice, subscribeVoices } from "@/lib/voices";
+import {
+  getSpeakingAgeAttestation,
+  saveSpeakingAgeAttestation,
+  speakingRequestHeaders,
+} from "@/lib/speaking-client";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
+import { useAuth } from "@/state/auth-state";
+import { AuthModal } from "@/components/auth/AuthModal";
+import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "English" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
-type PartnerAudioSource = "device" | "google";
+type PartnerAudioSource = "device" | "google" | "text";
 
 const CORE_SECTIONS: CoreSpeakingSection[] = [
   "Essential verbs",
@@ -118,13 +136,35 @@ function partnerVoiceSample(
     : "Hola, soy su compañero de práctica. ¿Empezamos?";
 }
 
+function highStakesNotice(mission: SpeakingMission) {
+  if (mission.riskClass === "emergency") {
+    return "Language practice only — this is not an emergency service. For real danger, contact local emergency services now.";
+  }
+  if (mission.specialty === "Medical" || mission.riskClass === "medical") {
+    return "Language practice only — not medical advice, diagnosis, or dosing guidance. Contact a qualified clinician for real care.";
+  }
+  if (mission.riskClass === "financial") {
+    return "Language practice only — not financial advice. Use fictional account and payment details.";
+  }
+  if (mission.riskClass === "legal") {
+    return "Language practice only — not legal or immigration advice. Use fictional identifying details.";
+  }
+  if (mission.riskClass === "minor-data") {
+    return "Use fictional child and family details only. Do not enter real school, pickup, or contact records.";
+  }
+  return null;
+}
+
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
   const { state: appState } = useApp();
   const { accent, rate, setRate, voiceURI } = useSpeech();
+  const { session } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [ageSaving, setAgeSaving] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
   const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
@@ -144,15 +184,19 @@ export function SpeakingMissionsPreview() {
   );
   const [catalogSearch, setCatalogSearch] = useState("");
   const [coreSection, setCoreSection] = useState<CoreSpeakingSection>("Essential verbs");
+  const [typedTurn, setTypedTurn] = useState("");
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
-  const missionLanguage = SPEAKING_LANGUAGES.some(
-    (entry) => entry.language === appState.selectedLanguage,
-  )
-    ? (appState.selectedLanguage as SpeakingMissionLanguage)
-    : null;
+  const [coreEntryRequested] = useState(() => consumeCoreSpeakingEntry());
+  const coreEntryRequestedRef = useRef(coreEntryRequested);
+  const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
+  const missionLanguage =
+    SPEAKING_LANGUAGES.some((entry) => entry.language === appState.selectedLanguage) &&
+    (appState.selectedLanguage !== "Japanese" || japaneseSpeakingReviewed)
+      ? (appState.selectedLanguage as SpeakingMissionLanguage)
+      : null;
   const languageModules = useMemo(
     () => (missionLanguage ? getSpeakingModules(missionLanguage) : []),
     [missionLanguage],
@@ -168,7 +212,10 @@ export function SpeakingMissionsPreview() {
   const partnerAudioReady =
     partnerAudioSource === "device"
       ? deviceVoiceAvailable
-      : selectedMission?.language === "Spanish" && ttsStatus === "ready";
+      : partnerAudioSource === "text"
+        ? true
+        : selectedMission?.language === "Spanish" && ttsStatus === "ready";
+  const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
     () => [...new Set(languageModules.map((module) => module.category))],
     [languageModules],
@@ -200,12 +247,30 @@ export function SpeakingMissionsPreview() {
 
   useEffect(() => {
     setRecognitionSupported(recognitionConstructor() !== null);
-    setDeviceVoiceAvailable(
-      typeof window !== "undefined" &&
-        "speechSynthesis" in window &&
-        "SpeechSynthesisUtterance" in window,
-    );
   }, []);
+
+  useEffect(() => {
+    const refreshAvailability = () => {
+      setDeviceVoiceAvailable(Boolean(pickVoice(missionLocale, voiceURI)));
+    };
+    refreshAvailability();
+    return subscribeVoices(refreshAvailability);
+  }, [missionLocale, voiceURI]);
+
+  useEffect(() => {
+    if (!session) {
+      setAgeConfirmed(false);
+      return;
+    }
+    const controller = new AbortController();
+    getSpeakingAgeAttestation(controller.signal)
+      .then(setAgeConfirmed)
+      .catch((error) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setAgeConfirmed(false);
+      });
+    return () => controller.abort();
+  }, [session]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -244,7 +309,8 @@ export function SpeakingMissionsPreview() {
   useEffect(() => {
     stopActiveWork();
     setSelectedMission(null);
-    setCatalogModuleId(null);
+    setCatalogModuleId(coreEntryRequestedRef.current ? "core-speaking" : null);
+    coreEntryRequestedRef.current = false;
     setCatalogCategory("All");
     setCatalogSearch("");
     setCoreSection("Essential verbs");
@@ -285,6 +351,7 @@ export function SpeakingMissionsPreview() {
   const speakPartnerText = useCallback(
     async (text: string) => {
       stopAudio();
+      if (partnerAudioSource === "text") return;
       if (partnerAudioSource === "device") {
         if (typeof window === "undefined" || !window.speechSynthesis) {
           setErrorMessage("A device voice is unavailable in this browser.");
@@ -305,7 +372,7 @@ export function SpeakingMissionsPreview() {
           text,
           partnerVersion,
           speakingRate: partnerSpeed,
-          ageConfirmed,
+          language: "Spanish",
         });
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
@@ -315,7 +382,6 @@ export function SpeakingMissionsPreview() {
       }
     },
     [
-      ageConfirmed,
       missionLocale,
       partnerAudioSource,
       partnerSpeed,
@@ -325,6 +391,23 @@ export function SpeakingMissionsPreview() {
       voiceURI,
     ],
   );
+
+  const updateAgeAttestation = async (checked: boolean) => {
+    if (!session) {
+      setAuthOpen(true);
+      return;
+    }
+    setAgeSaving(true);
+    setErrorMessage(null);
+    try {
+      const saved = await saveSpeakingAgeAttestation(checked);
+      setAgeConfirmed(saved);
+    } catch {
+      setErrorMessage("The account age self-attestation could not be saved. Please try again.");
+    } finally {
+      setAgeSaving(false);
+    }
+  };
 
   const beginMission = () => {
     if (!selectedMission || !ageConfirmed || !partnerAudioReady) return;
@@ -340,6 +423,7 @@ export function SpeakingMissionsPreview() {
     setErrorMessage(null);
     setInterim("");
     setCompletionReason(null);
+    setTypedTurn("");
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
@@ -379,6 +463,7 @@ export function SpeakingMissionsPreview() {
     };
     const previousTurns = turns;
     setTurns((current) => [...current, learnerTurn]);
+    setTypedTurn("");
     setStatus("thinking");
     setErrorMessage(null);
     const controller = new AbortController();
@@ -395,14 +480,13 @@ export function SpeakingMissionsPreview() {
       history.push({ role: "user", content: learnerText });
       const response = await fetch("/api/speak", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: await speakingRequestHeaders(),
         body: JSON.stringify({
           mode: "mission",
           language: selectedMission.language,
           level: selectedMission.level,
           messages: history,
           scenarioVersionId: selectedMission.id,
-          ageConfirmed,
           feedbackLanguage,
           partnerVersion,
         }),
@@ -425,6 +509,7 @@ export function SpeakingMissionsPreview() {
         { id: missionTurnId(), role: "partner", text: payload.assistantText },
       ]);
       setObjectiveIds((current) => [...new Set([...current, ...payload.provisionalObjectiveIds])]);
+      setTypedTurn("");
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
@@ -432,6 +517,8 @@ export function SpeakingMissionsPreview() {
     } catch (error) {
       requestRef.current = null;
       if (error instanceof DOMException && error.name === "AbortError") return;
+      setTurns((current) => current.filter((turn) => turn.id !== learnerTurn.id));
+      setTypedTurn(learnerText);
       setStatus("error");
       setErrorMessage(
         error instanceof Error ? error.message : "The mission partner could not respond.",
@@ -459,8 +546,8 @@ export function SpeakingMissionsPreview() {
         let interimText = "";
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index];
-          if (result.isFinal) finalText += result[0].transcript;
-          else interimText += result[0].transcript;
+          if (result.isFinal) finalText = `${finalText} ${result[0].transcript}`.trim();
+          else interimText = `${interimText} ${result[0].transcript}`.trim();
         }
         setInterim(interimText);
       };
@@ -686,6 +773,7 @@ export function SpeakingMissionsPreview() {
     const specialty = specialtyStyle(selectedMission.specialty);
     return (
       <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
+        <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         <button
           type="button"
           onClick={() => setSelectedMission(null)}
@@ -705,6 +793,14 @@ export function SpeakingMissionsPreview() {
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {selectedMission.summary}
         </p>
+        {practiceNotice && (
+          <div
+            role="alert"
+            className="mt-4 rounded-2xl border border-amber-400/45 bg-amber-400/10 p-3 text-sm leading-relaxed text-amber-100"
+          >
+            {practiceNotice}
+          </div>
+        )}
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div>
@@ -740,10 +836,13 @@ export function SpeakingMissionsPreview() {
         <div className="mt-6 rounded-2xl border border-gold/25 bg-background/50 p-4">
           <fieldset>
             <legend className="text-sm text-muted-foreground">Partner audio</legend>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              {(["device", "google"] as const).map((source) => {
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {(["device", "google", "text"] as const).map((source) => {
                 const selected = partnerAudioSource === source;
-                const available = source === "device" || selectedMission.language === "Spanish";
+                const available =
+                  source === "text" ||
+                  source === "device" ||
+                  selectedMission.language === "Spanish";
                 return (
                   <button
                     key={source}
@@ -762,17 +861,19 @@ export function SpeakingMissionsPreview() {
                   >
                     {source === "device"
                       ? "Device voice"
-                      : selectedMission.language === "Spanish"
-                        ? "Google voices"
-                        : "Google · Spanish only"}
+                      : source === "text"
+                        ? "Text only"
+                        : selectedMission.language === "Spanish"
+                          ? "Google voices"
+                          : "Google · Spanish only"}
                   </button>
                 );
               })}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Device voice preserves the voice already used by the app for{" "}
-              {selectedMission.language}. Google currently provides the optional fixed woman/man
-              pair for Spanish only.
+              Device voice uses an installed {selectedMission.language} voice. Google provides the
+              optional fixed woman/man pair for Spanish only. Text-only keeps every mission usable
+              when browser speech services are unavailable.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
@@ -807,17 +908,32 @@ export function SpeakingMissionsPreview() {
             <input
               type="checkbox"
               checked={ageConfirmed}
-              onChange={(event) => setAgeConfirmed(event.target.checked)}
+              disabled={ageSaving}
+              onChange={(event) => void updateAgeAttestation(event.target.checked)}
               className="mt-1"
             />
             <span>
-              I confirm I am 13 or older. Mission mode sends my recognized speech text to Anthropic.
+              I self-attest that I am at least 13. This account-level attestation is saved with my
+              account; it is not an identity or age-document verification. Mission mode sends the
+              current rolling text transcript to Anthropic for the next reply and AI-estimated
+              coaching.
               {partnerAudioSource === "google"
                 ? " Google Cloud receives only the partner's generated Spanish line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS."
-                : " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."}{" "}
+                : partnerAudioSource === "device"
+                  ? " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."
+                  : " Text-only mode sends no partner line to a speech-synthesis provider."}{" "}
               Browser speech recognition may use browser or operating-system services.
             </span>
           </label>
+          {!session && (
+            <button
+              type="button"
+              onClick={() => setAuthOpen(true)}
+              className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+            >
+              Sign in to enable AI speaking
+            </button>
+          )}
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="text-muted-foreground">Coaching language</span>
             <select
@@ -835,19 +951,31 @@ export function SpeakingMissionsPreview() {
               <p className="text-sm text-muted-foreground">
                 {partnerAudioSource === "device"
                   ? "Current app voice"
-                  : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
+                  : partnerAudioSource === "text"
+                    ? "Text-only partner"
+                    : `${partnerVersion === "woman" ? "Woman" : "Man"} partner voice`}
               </p>
               <p className="mt-0.5 text-xs text-foreground/80">
                 {partnerAudioSource === "device"
                   ? `Best available ${selectedMission.language} voice from this phone or browser`
-                  : `${partnerVoice.label} · ${partnerVoice.name}`}
+                  : partnerAudioSource === "text"
+                    ? "Read each partner line without generated playback"
+                    : `${partnerVoice.label} · ${partnerVoice.name}`}
               </p>
             </div>
             <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-              {partnerAudioSource === "device" ? "Device voice" : "Server voice"}
+              {partnerAudioSource === "device"
+                ? "Device voice"
+                : partnerAudioSource === "text"
+                  ? "No audio"
+                  : "Server voice"}
             </span>
           </div>
-          {partnerAudioReady ? (
+          {partnerAudioSource === "text" ? (
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              Partner lines remain visible and replay is disabled in text-only mode.
+            </p>
+          ) : partnerAudioReady ? (
             <button
               type="button"
               onClick={() =>
@@ -870,7 +998,9 @@ export function SpeakingMissionsPreview() {
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             {partnerAudioSource === "device"
               ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
-              : "Google uses a fixed Neural2 woman/man pair, independent of the voices installed on this phone."}
+              : partnerAudioSource === "google"
+                ? "Google uses a fixed Neural2 woman/man pair, independent of the voices installed on this phone."
+                : "Text-only mode does not generate audio."}
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="flex items-center justify-between gap-3 text-muted-foreground">
@@ -880,6 +1010,7 @@ export function SpeakingMissionsPreview() {
             <select
               value={partnerSpeed}
               onChange={(event) => setRate(Number(event.target.value))}
+              disabled={partnerAudioSource === "text"}
               className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
             >
               {MISSION_TTS_SPEEDS.map((speed) => (
@@ -906,14 +1037,14 @@ export function SpeakingMissionsPreview() {
         <button
           type="button"
           onClick={beginMission}
-          disabled={!ageConfirmed || !partnerAudioReady}
+          disabled={!session || !ageConfirmed || !partnerAudioReady || ageSaving}
           className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
         >
           Start mission
         </button>
         <p className="mt-2 text-center text-xs text-muted-foreground">
-          * Required for Bronze or higher in the future scoring model. This preview does not save a
-          tier.
+          AI feedback and objective observations are advisory practice signals. They are not a
+          proficiency score, certification, or saved mastery tier.
         </p>
       </section>
     );
@@ -943,7 +1074,7 @@ export function SpeakingMissionsPreview() {
           </div>
           {feedbackNotes.length > 0 ? (
             <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground">
-              {feedbackNotes.map((feedback, index) => (
+              {feedbackNotes.slice(-3).map((feedback, index) => (
                 <li key={`recap-feedback-${index}`} className="flex gap-2">
                   <span className="text-gold">•</span>
                   <span>{feedback}</span>
@@ -1028,6 +1159,15 @@ export function SpeakingMissionsPreview() {
         </button>
       </div>
 
+      {practiceNotice && (
+        <div
+          role="alert"
+          className="mb-4 rounded-2xl border border-amber-400/45 bg-amber-400/10 p-3 text-sm leading-relaxed text-amber-100"
+        >
+          {practiceNotice}
+        </div>
+      )}
+
       <div className="mb-4 flex flex-wrap gap-2" aria-label="Mission objectives">
         {selectedMission.objectives.map((objective) => {
           const completed = objectiveIds.includes(objective.id);
@@ -1067,7 +1207,7 @@ export function SpeakingMissionsPreview() {
                       : "rounded-2xl rounded-bl-sm border border-gold/30 bg-background/70 px-4 py-2.5 text-sm text-foreground"
                   }
                 >
-                  {turn.role === "partner" && (
+                  {turn.role === "partner" && partnerAudioSource !== "text" && (
                     <button
                       type="button"
                       onClick={() => void speakPartnerText(turn.text)}
@@ -1126,10 +1266,44 @@ export function SpeakingMissionsPreview() {
         </p>
       </div>
 
+      <form
+        className="mt-4 flex gap-2"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const text = typedTurn.trim();
+          if (!text || status === "thinking") return;
+          gated(() => void sendLearnerTurn(text));
+        }}
+      >
+        <label className="sr-only" htmlFor="mission-typed-turn">
+          Type your answer in {selectedMission.language}
+        </label>
+        <input
+          id="mission-typed-turn"
+          value={typedTurn}
+          onChange={(event) => setTypedTurn(event.target.value)}
+          disabled={status === "thinking" || status === "listening"}
+          maxLength={2000}
+          placeholder={`Type an answer in ${selectedMission.language}…`}
+          className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground"
+        />
+        <button
+          type="submit"
+          disabled={!typedTurn.trim() || status === "thinking" || status === "listening"}
+          aria-label="Send typed answer"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-40"
+        >
+          <Send className="h-4 w-4" />
+        </button>
+      </form>
+      <p className="mt-1 text-center text-xs text-muted-foreground">
+        Type when the microphone or speech recognition is unavailable.
+      </p>
+
       <div className="mt-5 flex flex-col items-center gap-3">
         {recognitionSupported === false ? (
           <p className="rounded-xl border border-border p-4 text-center text-sm text-muted-foreground">
-            Speech recognition is unavailable in this browser.
+            Speech recognition is unavailable in this browser. Use the typed answer field above.
           </p>
         ) : status === "error" ? (
           <button

@@ -44,6 +44,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { VoicePicker } from "./VoicePicker";
 
 const LANGUAGES: Language[] = [
   "Spanish",
@@ -99,7 +100,13 @@ const TAB_ITEMS: {
 }[] = [
   // ── Orientation ──────────────────────────────────────────────────────────────
   { key: "guide", label: "App Guide", short: "Guide", group: "Orientation", Icon: Compass },
-  { key: "dashboard", label: "Dashboard", short: "Progress", group: "Orientation", Icon: BarChart3 },
+  {
+    key: "dashboard",
+    label: "Dashboard",
+    short: "Progress",
+    group: "Orientation",
+    Icon: BarChart3,
+  },
   // ── Module-specific ──────────────────────────────────────────────────────────
   {
     key: "missionary",
@@ -136,12 +143,48 @@ const TAB_ITEMS: {
   // ── Core lessons ─────────────────────────────────────────────────────────────
   { key: "reader", label: "Reader", short: "Reader", group: "Core Lessons", Icon: BookOpen },
   { key: "story", label: "Daily Story", short: "Story", group: "Core Lessons", Icon: Sparkle },
-  { key: "grammar", label: "Grammar Studio", short: "Grammar", group: "Core Lessons", Icon: GraduationCap },
-  { key: "patterns", label: "Grammar Patterns", short: "Patterns", group: "Core Lessons", Icon: Layers },
-  { key: "cognates", label: "Cognate Bridge", short: "Cognates", group: "Core Lessons", Icon: ArrowRightLeft },
-  { key: "conjugation", label: "Conjugation", short: "Conjugate", group: "Core Lessons", Icon: Repeat2 },
-  { key: "sentenceBuild", label: "Sentence Builder", short: "Sentences", group: "Core Lessons", Icon: AlignLeft },
-  { key: "listeningDrill", label: "Listening Drill", short: "Listening", group: "Core Lessons", Icon: Headphones },
+  {
+    key: "grammar",
+    label: "Grammar Studio",
+    short: "Grammar",
+    group: "Core Lessons",
+    Icon: GraduationCap,
+  },
+  {
+    key: "patterns",
+    label: "Grammar Patterns",
+    short: "Patterns",
+    group: "Core Lessons",
+    Icon: Layers,
+  },
+  {
+    key: "cognates",
+    label: "Cognate Bridge",
+    short: "Cognates",
+    group: "Core Lessons",
+    Icon: ArrowRightLeft,
+  },
+  {
+    key: "conjugation",
+    label: "Conjugation",
+    short: "Conjugate",
+    group: "Core Lessons",
+    Icon: Repeat2,
+  },
+  {
+    key: "sentenceBuild",
+    label: "Sentence Builder",
+    short: "Sentences",
+    group: "Core Lessons",
+    Icon: AlignLeft,
+  },
+  {
+    key: "listeningDrill",
+    label: "Listening Drill",
+    short: "Listening",
+    group: "Core Lessons",
+    Icon: Headphones,
+  },
   { key: "speak", label: "Speak & Learn", short: "Speak", group: "Core Lessons", Icon: Mic2 },
   { key: "penpal", label: "Pen Pal Practice", short: "Pen Pal", group: "Core Lessons", Icon: Mail },
   // ── Vocabulary ───────────────────────────────────────────────────────────────
@@ -149,7 +192,13 @@ const TAB_ITEMS: {
   { key: "dictionary", label: "Dictionary", short: "Dict.", group: "Vocabulary", Icon: LibraryBig },
   { key: "wordMatch", label: "Word Match", short: "Words", group: "Vocabulary", Icon: Grid3x3 },
   { key: "idiomMaster", label: "Idiom Master", short: "Idioms", group: "Vocabulary", Icon: Quote },
-  { key: "falseFriends", label: "False Friends", short: "False Fr.", group: "Vocabulary", Icon: AlertTriangle },
+  {
+    key: "falseFriends",
+    label: "False Friends",
+    short: "False Fr.",
+    group: "Vocabulary",
+    Icon: AlertTriangle,
+  },
   // ── Play ─────────────────────────────────────────────────────────────────────
   { key: "games", label: "Games Hub", short: "Games", group: "Play", Icon: Gamepad2 },
 ];
@@ -355,6 +404,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </span>
             <ChevronDown className="h-3 w-3 opacity-50" />
           </button>
+
+          {/* Site-wide voice choice must be reachable on phones, where TopNav is hidden. */}
+          <VoicePicker compact />
 
           {/* Theme toggle — icon-only to keep the strip compact */}
           <button

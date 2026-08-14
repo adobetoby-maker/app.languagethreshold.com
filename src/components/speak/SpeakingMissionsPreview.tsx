@@ -11,9 +11,11 @@ import {
   X,
 } from "lucide-react";
 import {
+  decodeGoogleVoicePreference,
+  defaultGoogleVoice,
+  googleVoicesForLocale,
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
-  MISSION_TTS_VOICES,
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
 import type { CoreSpeakingSection } from "@/data/core-speaking";
@@ -177,6 +179,7 @@ export function SpeakingMissionsPreview() {
   const [completionReason, setCompletionReason] = useState<CompletionReason | null>(null);
   const [ttsCapabilities, setTtsCapabilities] = useState<MissionTtsCapabilities | null>(null);
   const [ttsStatus, setTtsStatus] = useState<"checking" | "ready" | "unavailable">("checking");
+  const [selectedGoogleVoiceName, setSelectedGoogleVoiceName] = useState<string | null>(null);
   const [deviceVoiceAvailable, setDeviceVoiceAvailable] = useState(false);
   const [catalogModuleId, setCatalogModuleId] = useState<string | null>(null);
   const [catalogCategory, setCatalogCategory] = useState<SpeakingMission["specialty"] | "All">(
@@ -207,14 +210,29 @@ export function SpeakingMissionsPreview() {
   );
   const missionLocale = selectedMission?.locale ?? accent;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
+  const availableGoogleVoices = useMemo(
+    () => googleVoicesForLocale(ttsCapabilities?.voices ?? [], missionLocale),
+    [missionLocale, ttsCapabilities?.voices],
+  );
+  const globalGooglePreference = decodeGoogleVoicePreference(voiceURI);
+  const targetGoogleGender = partnerVersion === "woman" ? "FEMALE" : "MALE";
+  const globalGoogleVoice = availableGoogleVoices.find(
+    (voice) =>
+      voice.name === globalGooglePreference?.voiceName &&
+      (voice.ssmlGender === targetGoogleGender ||
+        voice.ssmlGender === "NEUTRAL" ||
+        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
+  );
   const partnerVoice =
-    ttsCapabilities?.voices[partnerVersion] ?? MISSION_TTS_VOICES[partnerVersion];
+    availableGoogleVoices.find((voice) => voice.name === selectedGoogleVoiceName) ??
+    globalGoogleVoice ??
+    defaultGoogleVoice(availableGoogleVoices, missionLocale, partnerVersion);
   const partnerAudioReady =
     partnerAudioSource === "device"
       ? deviceVoiceAvailable
       : partnerAudioSource === "text"
         ? true
-        : selectedMission?.language === "Spanish" && ttsStatus === "ready";
+        : ttsStatus === "ready" && partnerVoice !== null;
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
     () => [...new Set(languageModules.map((module) => module.category))],
@@ -274,7 +292,8 @@ export function SpeakingMissionsPreview() {
 
   useEffect(() => {
     const controller = new AbortController();
-    getMissionTtsCapabilities(controller.signal)
+    setTtsStatus("checking");
+    getMissionTtsCapabilities(missionLocale, controller.signal)
       .then((capabilities) => {
         setTtsCapabilities(capabilities);
         setTtsStatus(capabilities.ready ? "ready" : "unavailable");
@@ -284,7 +303,11 @@ export function SpeakingMissionsPreview() {
         setTtsStatus("unavailable");
       });
     return () => controller.abort();
-  }, []);
+  }, [missionLocale]);
+
+  useEffect(() => {
+    setSelectedGoogleVoiceName(null);
+  }, [missionLocale]);
 
   useEffect(() => {
     transcriptRef.current?.scrollTo({
@@ -364,15 +387,20 @@ export function SpeakingMissionsPreview() {
         return;
       }
       if (ttsStatus !== "ready") {
-        setErrorMessage("Google partner voices are unavailable for this Preview deployment.");
+        setErrorMessage("Google partner voices are unavailable for this deployment.");
+        return;
+      }
+      if (!partnerVoice) {
+        setErrorMessage(`No Google voice is available for ${missionLocale}.`);
         return;
       }
       try {
         await speakMissionTts({
           text,
-          partnerVersion,
+          voiceName: partnerVoice.name,
+          languageCode: partnerVoice.languageCodes[0] ?? missionLocale,
           speakingRate: partnerSpeed,
-          language: "Spanish",
+          usage: "mission",
         });
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
@@ -381,15 +409,7 @@ export function SpeakingMissionsPreview() {
         );
       }
     },
-    [
-      missionLocale,
-      partnerAudioSource,
-      partnerSpeed,
-      partnerVersion,
-      stopAudio,
-      ttsStatus,
-      voiceURI,
-    ],
+    [missionLocale, partnerAudioSource, partnerSpeed, partnerVoice, stopAudio, ttsStatus, voiceURI],
   );
 
   const updateAgeAttestation = async (checked: boolean) => {
@@ -839,10 +859,7 @@ export function SpeakingMissionsPreview() {
             <div className="mt-2 grid grid-cols-3 gap-2">
               {(["device", "google", "text"] as const).map((source) => {
                 const selected = partnerAudioSource === source;
-                const available =
-                  source === "text" ||
-                  source === "device" ||
-                  selectedMission.language === "Spanish";
+                const available = source !== "google" || ttsStatus !== "unavailable";
                 return (
                   <button
                     key={source}
@@ -863,17 +880,15 @@ export function SpeakingMissionsPreview() {
                       ? "Device voice"
                       : source === "text"
                         ? "Text only"
-                        : selectedMission.language === "Spanish"
-                          ? "Google voices"
-                          : "Google · Spanish only"}
+                        : "Google voices"}
                   </button>
                 );
               })}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Device voice uses an installed {selectedMission.language} voice. Google provides the
-              optional fixed woman/man pair for Spanish only. Text-only keeps every mission usable
-              when browser speech services are unavailable.
+              Device voice uses an installed {selectedMission.language} voice. Google lists every
+              compatible cloud voice for this language. Text-only keeps every mission usable when
+              speech services are unavailable.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
@@ -885,7 +900,10 @@ export function SpeakingMissionsPreview() {
                   <button
                     key={version}
                     type="button"
-                    onClick={() => setPartnerVersion(version)}
+                    onClick={() => {
+                      setPartnerVersion(version);
+                      setSelectedGoogleVoiceName(null);
+                    }}
                     aria-pressed={selected}
                     className={
                       "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
@@ -918,7 +936,7 @@ export function SpeakingMissionsPreview() {
               current rolling text transcript to Anthropic for the next reply and AI-estimated
               coaching.
               {partnerAudioSource === "google"
-                ? " Google Cloud receives only the partner's generated Spanish line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS."
+                ? ` Google Cloud receives only the partner's generated ${selectedMission.language} line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS.`
                 : partnerAudioSource === "device"
                   ? " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."
                   : " Text-only mode sends no partner line to a speech-synthesis provider."}{" "}
@@ -960,7 +978,9 @@ export function SpeakingMissionsPreview() {
                   ? `Best available ${selectedMission.language} voice from this phone or browser`
                   : partnerAudioSource === "text"
                     ? "Read each partner line without generated playback"
-                    : `${partnerVoice.label} · ${partnerVoice.name}`}
+                    : partnerVoice
+                      ? `${partnerVoice.label} · ${partnerVoice.name}`
+                      : `No Google ${selectedMission.language} voice available`}
               </p>
             </div>
             <span className="rounded-full border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
@@ -975,6 +995,44 @@ export function SpeakingMissionsPreview() {
             <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
               Partner lines remain visible and replay is disabled in text-only mode.
             </p>
+          ) : partnerAudioSource === "google" && partnerVoice ? (
+            <label className="mt-3 grid gap-1 text-sm">
+              <span className="text-muted-foreground">Google voice</span>
+              <select
+                value={partnerVoice.name}
+                onChange={(event) => {
+                  const voice = availableGoogleVoices.find(
+                    (candidate) => candidate.name === event.target.value,
+                  );
+                  if (!voice) return;
+                  setSelectedGoogleVoiceName(voice.name);
+                  if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
+                  if (voice.ssmlGender === "MALE") setPartnerVersion("man");
+                }}
+                className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+              >
+                {availableGoogleVoices.map((voice) => (
+                  <option key={voice.name} value={voice.name}>
+                    {voice.label} · {voice.languageCodes[0] ?? selectedMission.locale}
+                  </option>
+                ))}
+              </select>
+              <span className="text-xs leading-relaxed text-muted-foreground">
+                {availableGoogleVoices.length} compatible voices. Choosing a woman or man voice also
+                keeps the conversation-partner version aligned.
+              </span>
+              <button
+                type="button"
+                onClick={() =>
+                  void speakPartnerText(
+                    partnerVoiceSample(selectedMission.language, partnerVersion),
+                  )
+                }
+                className="mt-2 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+              >
+                Test {partnerVoice.label} at {partnerSpeed}×
+              </button>
+            </label>
           ) : partnerAudioReady ? (
             <button
               type="button"
@@ -992,14 +1050,14 @@ export function SpeakingMissionsPreview() {
                 ? `A ${selectedMission.language} device voice is unavailable in this browser.`
                 : ttsStatus === "checking"
                   ? "Checking Google partner voice availability…"
-                  : "Google Cloud partner voices are not configured for this Preview deployment."}
+                  : `Google Cloud voices are unavailable for ${selectedMission.language}.`}
             </p>
           )}
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             {partnerAudioSource === "device"
               ? "Device voice quality may be better on this phone, but browsers do not expose reliable gender metadata. The partner's dialogue still follows the selected woman/man version."
               : partnerAudioSource === "google"
-                ? "Google uses a fixed Neural2 woman/man pair, independent of the voices installed on this phone."
+                ? "Google server voices are independent of voices installed on this phone. The selected voice follows this mission and the site-wide voice setting."
                 : "Text-only mode does not generate audio."}
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">

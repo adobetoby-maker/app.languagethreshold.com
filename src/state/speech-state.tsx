@@ -44,9 +44,7 @@ export const ACCENTS_BY_LANGUAGE: Record<Language, AccentOption[]> = {
     { code: "pt-BR", label: "Brazil (pt-BR)" },
     { code: "pt-PT", label: "Portugal (pt-PT)" },
   ],
-  Pashto: [
-    { code: "ps-AF", label: "Afghanistan (ps-AF)" },
-  ],
+  Pashto: [{ code: "ps-AF", label: "Afghanistan (ps-AF)" }],
   English: [
     { code: "en-US", label: "United States (en-US)" },
     { code: "en-GB", label: "United Kingdom (en-GB)" },
@@ -180,6 +178,7 @@ export function SpeechProvider({
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
+      stopRemoteTTS();
     };
   }, []);
 
@@ -222,12 +221,13 @@ export function SpeechProvider({
   const speakOne = useCallback(
     (text: string, sentenceIndex: number, mode: SpeechMode, onEnd?: () => void) => {
       if (typeof window === "undefined") return;
-      if (needsRemoteTTS(accent)) {
+      if (needsRemoteTTS(accent, voiceURI)) {
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
         if (sentenceIndex >= 0) setActiveSentenceIndex(sentenceIndex);
         void speakRemote(text, accent, {
           rate,
+          voiceURI,
           onend: () => {
             if (sentenceIndex >= 0) incListened();
             onEnd?.();

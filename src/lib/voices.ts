@@ -6,6 +6,8 @@
 //   4. Any voice for the locale.
 //   5. Any voice for the language family.
 
+import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
+
 const LISTENERS = new Set<() => void>();
 let cached: SpeechSynthesisVoice[] = [];
 let refreshing = false;
@@ -59,13 +61,42 @@ export function getVoicesForLocale(locale: string): SpeechSynthesisVoice[] {
   });
 }
 
+const LANGUAGE_BY_FAMILY: Record<string, string> = {
+  es: "Spanish",
+  fr: "French",
+  de: "German",
+  it: "Italian",
+  ja: "Japanese",
+  ko: "Korean",
+  pt: "Portuguese",
+  ps: "Pashto",
+  en: "English",
+};
+
+/** Read the site-wide voice choice used by playback surfaces without React state. */
+export function getStoredVoicePreference(locale: string): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = localStorage.getItem("lt.speech.v1");
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { voiceByLang?: Record<string, unknown> };
+    const language = LANGUAGE_BY_FAMILY[languageFamily(locale)];
+    const value = language ? parsed.voiceByLang?.[language] : null;
+    return typeof value === "string" ? value : null;
+  } catch {
+    return null;
+  }
+}
+
 export function pickVoice(
   locale: string,
   preferredVoiceURI?: string | null,
 ): SpeechSynthesisVoice | null {
   const candidates = getVoicesForLocale(locale);
-  if (preferredVoiceURI) {
-    const match = candidates.find((v) => v.voiceURI === preferredVoiceURI);
+  const preference =
+    preferredVoiceURI === undefined ? getStoredVoicePreference(locale) : preferredVoiceURI;
+  if (preference && !decodeGoogleVoicePreference(preference)) {
+    const match = candidates.find((v) => v.voiceURI === preference);
     if (match) return match;
   }
   return candidates[0] ?? null;

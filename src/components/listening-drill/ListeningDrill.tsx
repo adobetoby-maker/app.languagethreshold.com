@@ -16,7 +16,7 @@ import { MODULES } from "@/data/modules";
 import { useListeningDrill, type LDLeaderboardKey } from "@/state/listening-drill-state";
 import { generateListeningDrill, type ListeningDrillLevel } from "@/fns/listening-drill.functions";
 import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
 
 const LEVEL_LABELS: Record<ListeningDrillLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Easy — 4-7 words, A2" },
@@ -58,6 +58,7 @@ function speak(text: string, language: Language) {
 }
 
 function cancelSpeak() {
+  stopRemoteTTS();
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   try {
     window.speechSynthesis.cancel();

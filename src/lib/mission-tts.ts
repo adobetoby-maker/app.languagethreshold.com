@@ -1,11 +1,11 @@
-import type { MissionPartnerVersion, MissionTtsSpeed } from "@/data/mission-tts";
+import type { GoogleTtsVoice, MissionTtsLanguage } from "@/data/mission-tts";
 import { speakingRequestHeaders } from "@/lib/speaking-client";
 
 export interface MissionTtsCapabilities {
   provider: "google-cloud-tts";
   ready: boolean;
-  supportedLanguages: ["Spanish"];
-  voices: Record<MissionPartnerVersion, { name: string; label: string }>;
+  supportedLanguages: MissionTtsLanguage[];
+  voices: GoogleTtsVoice[];
   speakingRates: number[];
 }
 
@@ -13,6 +13,8 @@ let sharedAudio: HTMLAudioElement | null = null;
 let activeController: AbortController | null = null;
 let activeObjectUrl: string | null = null;
 let finishActivePlayback: (() => void) | null = null;
+const capabilitiesCache = new Map<string, { expiresAt: number; value: MissionTtsCapabilities }>();
+const capabilitiesInFlight = new Map<string, Promise<MissionTtsCapabilities>>();
 
 function audioElement() {
   if (!sharedAudio) sharedAudio = new Audio();
@@ -40,26 +42,42 @@ export function stopMissionTts() {
   releaseObjectUrl();
 }
 
-export async function getMissionTtsCapabilities(signal?: AbortSignal) {
-  const response = await fetch("/api/mission-tts", {
+export async function getMissionTtsCapabilities(languageCode: string, signal?: AbortSignal) {
+  const cacheKey = languageCode.split("-")[0]?.toLowerCase() ?? languageCode.toLowerCase();
+  const cached = capabilitiesCache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) return cached.value;
+  const pending = capabilitiesInFlight.get(cacheKey);
+  if (pending) return pending;
+
+  const params = new URLSearchParams({ languageCode });
+  const request = fetch(`/api/mission-tts?${params}`, {
     method: "GET",
     cache: "no-store",
     signal,
-  });
-  if (!response.ok) throw new Error("Google partner voices are unavailable.");
-  return (await response.json()) as MissionTtsCapabilities;
+  })
+    .then(async (response) => {
+      if (!response.ok) throw new Error("Google voices are unavailable.");
+      const value = (await response.json()) as MissionTtsCapabilities;
+      capabilitiesCache.set(cacheKey, { expiresAt: Date.now() + 5 * 60 * 1000, value });
+      return value;
+    })
+    .finally(() => capabilitiesInFlight.delete(cacheKey));
+  capabilitiesInFlight.set(cacheKey, request);
+  return request;
 }
 
 export async function speakMissionTts({
   text,
-  partnerVersion,
+  voiceName,
+  languageCode,
   speakingRate,
-  language,
+  usage = "mission",
 }: {
   text: string;
-  partnerVersion: MissionPartnerVersion;
-  speakingRate: MissionTtsSpeed;
-  language: "Spanish";
+  voiceName: string;
+  languageCode: string;
+  speakingRate: number;
+  usage?: "learning" | "mission";
 }) {
   stopMissionTts();
   const controller = new AbortController();
@@ -68,20 +86,21 @@ export async function speakMissionTts({
   const response = await fetch("/api/mission-tts", {
     method: "POST",
     headers: await speakingRequestHeaders(),
-    body: JSON.stringify({ text, partnerVersion, speakingRate, language }),
+    body: JSON.stringify({ text, voiceName, languageCode, speakingRate, usage }),
     signal: controller.signal,
   });
   if (!response.ok) {
     const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-    throw new Error(payload?.error ?? "Google partner voice generation failed.");
+    throw new Error(payload?.error ?? "Google voice generation failed.");
   }
 
   const audio = audioElement();
   const blob = await response.blob();
   if (controller.signal.aborted) return;
+  const renderedRate = Number(response.headers.get("X-TTS-Rendered-Rate") ?? speakingRate);
   activeObjectUrl = URL.createObjectURL(blob);
   audio.src = activeObjectUrl;
-  audio.playbackRate = 1;
+  audio.playbackRate = renderedRate === speakingRate ? 1 : speakingRate;
   activeController = null;
 
   await new Promise<void>((resolve, reject) => {
@@ -101,9 +120,7 @@ export async function speakMissionTts({
     };
     finishActivePlayback = () => finish();
     audio.onended = () => finish();
-    audio.onerror = () => finish(new Error("The generated partner audio could not play."));
-    audio.play().catch((error) => {
-      finish(error);
-    });
+    audio.onerror = () => finish(new Error("The generated audio could not play."));
+    audio.play().catch((error) => finish(error));
   });
 }

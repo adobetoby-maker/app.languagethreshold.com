@@ -14,6 +14,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
 import { translatePhrases } from "@/fns/phrase-translate.functions";
 import { configureUtterance } from "@/lib/voices";
+import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import type { SrsGrade } from "@/lib/srs";
 
@@ -253,7 +254,12 @@ export function FlashcardsStudio() {
   }, [current, flipped, grade]);
 
   function speak(word: string) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    if (typeof window === "undefined") return;
+    if (needsRemoteTTS(accent, voiceURI)) {
+      void speakRemote(word, accent, { rate: 0.9, voiceURI });
+      return;
+    }
+    if (!("speechSynthesis" in window)) return;
     const utter = new SpeechSynthesisUtterance(word);
     // Was previously missing lang/voice entirely, so the browser fell back to
     // whatever default system voice was active (often English) — that's the

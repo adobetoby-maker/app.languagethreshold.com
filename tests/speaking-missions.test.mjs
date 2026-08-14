@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  decodeGoogleVoicePreference,
+  defaultGoogleVoice,
+  encodeGoogleVoicePreference,
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
   MISSION_TTS_SUPPORTED_LANGUAGES,
-  MISSION_TTS_VOICES,
 } from "../src/data/mission-tts.ts";
 import { CORE_VERBS, DAILY_LIVING_TOPICS } from "../src/data/core-speaking.ts";
 import {
@@ -161,19 +163,46 @@ test("mission lookup fails closed for unknown versions", () => {
   assert.equal(findSpeakingMission("scenario_version_unknown_es_v1"), null);
 });
 
-test("mission TTS uses a fixed Google Neural2 woman/man pair", () => {
-  assert.deepEqual(MISSION_TTS_SUPPORTED_LANGUAGES, ["Spanish"]);
-  assert.deepEqual(MISSION_TTS_VOICES.woman, {
-    name: "es-US-Neural2-A",
-    languageCode: "es-US",
-    label: "Google Neural2 · woman",
+test("Google TTS supports every published learner language", () => {
+  assert.deepEqual(MISSION_TTS_SUPPORTED_LANGUAGES, [
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Japanese",
+    "Korean",
+    "Portuguese",
+    "Pashto",
+    "English",
+  ]);
+});
+
+test("Google voice preferences round-trip and gender defaults stay aligned", () => {
+  const voices = [
+    {
+      name: "it-IT-Chirp3-HD-Achernar",
+      languageCodes: ["it-IT"],
+      ssmlGender: "FEMALE",
+      naturalSampleRateHertz: 24000,
+      tier: "Chirp 3 HD",
+      label: "Chirp 3 HD · Achernar · woman",
+    },
+    {
+      name: "it-IT-Chirp3-HD-Achird",
+      languageCodes: ["it-IT"],
+      ssmlGender: "MALE",
+      naturalSampleRateHertz: 24000,
+      tier: "Chirp 3 HD",
+      label: "Chirp 3 HD · Achird · man",
+    },
+  ];
+  const encoded = encodeGoogleVoicePreference(voices[0]);
+  assert.deepEqual(decodeGoogleVoicePreference(encoded), {
+    languageCode: "it-IT",
+    voiceName: "it-IT-Chirp3-HD-Achernar",
   });
-  assert.deepEqual(MISSION_TTS_VOICES.man, {
-    name: "es-US-Neural2-B",
-    languageCode: "es-US",
-    label: "Google Neural2 · man",
-  });
-  assert.notEqual(MISSION_TTS_VOICES.woman.name, MISSION_TTS_VOICES.man.name);
+  assert.equal(defaultGoogleVoice(voices, "it-IT", "woman")?.ssmlGender, "FEMALE");
+  assert.equal(defaultGoogleVoice(voices, "it-IT", "man")?.ssmlGender, "MALE");
 });
 
 test("high-stakes daily missions carry explicit runtime policy", () => {

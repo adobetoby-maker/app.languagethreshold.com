@@ -21,7 +21,7 @@ interface AuthContextValue {
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signInWithGoogle: () => Promise<void>;
   signInWithApple: () => Promise<void>;
-  signOut: () => Promise<void>;
+  signOut: (scope?: "global" | "local" | "others") => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: string | null }>;
 }
 
@@ -107,8 +107,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error?.message ?? null };
   }, []);
 
-  const signOut = useCallback(async () => {
-    await supabase.auth.signOut();
+  const signOut = useCallback(async (scope?: "global" | "local" | "others") => {
+    await supabase.auth.signOut(scope ? { scope } : undefined);
   }, []);
 
   const value = useMemo<AuthContextValue>(
@@ -123,7 +123,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut,
       resetPassword,
     }),
-    [session, loading, signUp, signIn, signOut, resetPassword],
+    [
+      session,
+      loading,
+      signUp,
+      signIn,
+      signInWithGoogle,
+      signInWithApple,
+      signOut,
+      resetPassword,
+    ],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

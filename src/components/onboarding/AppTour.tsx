@@ -113,6 +113,17 @@ export function AppTour({ onClose }: { onClose: () => void }) {
   }
 
   // Card positioning: try right of target, fall back to left, then below
+  // iOS PWA renders under the Dynamic Island. Absolutely-positioned tour cards are
+  // placed in raw viewport coordinates, so the top floor must clear the inset —
+  // padding on the parent cannot help them.
+  const safeTop =
+    typeof window !== "undefined"
+      ? parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue("--lt-safe-top-px"),
+        ) || 0
+      : 0;
+  const topFloor = safeTop + 8;
+
   const cardPos = (() => {
     if (!rect) return { top: h / 2 - 100, left: w / 2 - 150 };
     const cardW = Math.min(300, w - 32);
@@ -123,20 +134,20 @@ export function AppTour({ onClose }: { onClose: () => void }) {
     if (rightSpace >= cardW + 16) {
       // Right of target
       return {
-        top: Math.max(8, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
+        top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
         left: rect.left + rect.width + 12,
       };
     }
     if (leftSpace >= cardW + 16) {
       // Left of target
       return {
-        top: Math.max(8, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
+        top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height / 2 - cardH / 2)),
         left: rect.left - cardW - 12,
       };
     }
     // Below target
     return {
-      top: Math.min(h - cardH - 8, rect.top + rect.height + 12),
+      top: Math.max(topFloor, Math.min(h - cardH - 8, rect.top + rect.height + 12)),
       left: Math.max(8, Math.min(w - cardW - 8, rect.left + rect.width / 2 - cardW / 2)),
     };
   })();

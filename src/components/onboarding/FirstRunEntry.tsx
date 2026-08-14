@@ -37,7 +37,7 @@ export function FirstRunEntry() {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-y-auto bg-background">
+    <div className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background">
       <div className="mx-auto flex min-h-full w-full max-w-5xl items-center px-5 py-8 sm:px-8">
         <main className="grid w-full items-center gap-8 lg:grid-cols-[1.08fr_0.92fr]">
           <section>

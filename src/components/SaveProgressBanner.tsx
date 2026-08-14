@@ -49,7 +49,7 @@ export function SaveProgressBanner() {
 
   return (
     <>
-      <div className="border-b border-gold/20 bg-gold/[0.04] px-3 sm:px-6">
+      <div className="lt-safe-top-only border-b border-gold/20 bg-gold/[0.04] px-3 sm:px-6">
         <div className="flex min-h-11 items-center gap-2">
           <Bookmark className="h-4 w-4 flex-shrink-0 text-gold" />
           <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">

@@ -113,7 +113,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
 
   if (choosingEnglishNative) {
     return (
-      <div className="fixed inset-0 z-[110] overflow-y-auto bg-background">
+      <div className="lt-safe-top-only fixed inset-0 z-[110] overflow-y-auto bg-background">
         <div className="mx-auto flex min-h-full w-full max-w-lg items-center px-5 py-8">
           <div className="w-full">
             <button
@@ -152,7 +152,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[110] overflow-y-auto bg-background">
+    <div className="lt-safe-top-only fixed inset-0 z-[110] overflow-y-auto bg-background">
       <div className="mx-auto flex min-h-full w-full max-w-lg items-center px-5 py-8">
         <div className="w-full">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">

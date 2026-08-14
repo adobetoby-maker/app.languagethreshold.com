@@ -151,7 +151,7 @@ function Index() {
                                                 <SaveProgressBanner />
                                                 {/* Shared bottom-strip budget reserves the nav,
                                               Tutor action, and Reader mini-player together. */}
-                                                <main className="lt-scroll-safe flex-1 overflow-y-auto px-4 py-6 sm:px-6 sm:py-10">
+                                                <main className="lt-scroll-safe lt-safe-top-main flex-1 overflow-y-auto px-4 pb-6 sm:px-6 sm:pb-10">
                                                   <GatedTabShell />
                                                 </main>
                                               </div>

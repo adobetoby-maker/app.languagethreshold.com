@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { useApp, type Language } from "@/state/app-state";
+import { ArrowLeft, ChevronDown } from "lucide-react";
+import {
+  NATIVE_LANGUAGES,
+  useApp,
+  type Language,
+  type NativeLanguage,
+} from "@/state/app-state";
 
 /**
  * Language selection — the first thing a new learner sees, ahead of the
@@ -54,6 +59,24 @@ const COMING_SOON = [
 
 const CHOSEN_KEY = "lt.onboarding.languageChosen";
 
+const NATIVE_LANGUAGE_LABELS: Record<NativeLanguage, string> = {
+  English: "English",
+  Spanish: "Español",
+  French: "Français",
+  German: "Deutsch",
+  Italian: "Italiano",
+  Portuguese: "Português",
+  Dutch: "Nederlands",
+  Polish: "Polski",
+  Russian: "Русский",
+  Turkish: "Türkçe",
+  Arabic: "العربية",
+  Hindi: "हिन्दी",
+  "Chinese (Simplified)": "简体中文",
+  Japanese: "日本語",
+  Korean: "한국어",
+};
+
 export function hasChosenLanguage(): boolean {
   try {
     return window.localStorage.getItem(CHOSEN_KEY) === "1";
@@ -65,15 +88,67 @@ export function hasChosenLanguage(): boolean {
 export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   const { dispatch } = useApp();
   const [expanded, setExpanded] = useState(false);
+  const [choosingEnglishNative, setChoosingEnglishNative] = useState(false);
 
-  function pick(lang: Language) {
+  function finishChoice(lang: Language, nativeLanguage?: NativeLanguage) {
     dispatch({ type: "SET_LANGUAGE", payload: lang });
+    if (nativeLanguage) {
+      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: nativeLanguage });
+    }
     try {
       window.localStorage.setItem(CHOSEN_KEY, "1");
     } catch {
       /* private mode — the choice still applies for this session */
     }
     onChosen();
+  }
+
+  function pick(lang: Language) {
+    if (lang === "English") {
+      setChoosingEnglishNative(true);
+      return;
+    }
+    finishChoice(lang);
+  }
+
+  if (choosingEnglishNative) {
+    return (
+      <div className="fixed inset-0 z-[110] overflow-y-auto bg-background">
+        <div className="mx-auto flex min-h-full w-full max-w-lg items-center px-5 py-8">
+          <div className="w-full">
+            <button
+              type="button"
+              onClick={() => setChoosingEnglishNative(false)}
+              className="mb-5 inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm text-muted-foreground hover:text-gold"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden />
+              Back
+            </button>
+            <h1 className="font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
+              What language do you know best?
+            </h1>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              We’ll use it for translations and coaching while you learn English.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-2">
+              {NATIVE_LANGUAGES.filter((language) => language !== "English").map((language) => (
+                <button
+                  key={language}
+                  type="button"
+                  onClick={() => finishChoice("English", language)}
+                  className="min-h-16 rounded-xl border border-border/60 bg-card/60 p-3 text-left transition-colors hover:border-gold/60 hover:bg-gold/[0.06]"
+                >
+                  <div className="text-sm font-medium text-foreground">{language}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {NATIVE_LANGUAGE_LABELS[language]}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (

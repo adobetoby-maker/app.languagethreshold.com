@@ -2,7 +2,11 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
-import { findSpeakingMission, type SpeakingMission } from "../data/speaking-missions";
+import {
+  findSpeakingMission,
+  getSpeakingModules,
+  type SpeakingMission,
+} from "../data/speaking-missions";
 import {
   destinationPromptContext,
   getTravelDestination,
@@ -33,7 +37,28 @@ const BodySchema = z.object({
   kind: z.enum(["grammar", "reach"]).optional(),
   userVocabWords: z.array(z.string().max(80)).max(15).optional(),
   scenarioVersionId: z.string().max(120).optional(),
-  feedbackLanguage: z.enum(["English", "Target language", "Adaptive"]).optional(),
+  feedbackLanguage: z
+    .enum(["English", "Native language", "Target language", "Adaptive"])
+    .optional(),
+  nativeLanguage: z
+    .enum([
+      "English",
+      "Spanish",
+      "French",
+      "German",
+      "Italian",
+      "Portuguese",
+      "Dutch",
+      "Polish",
+      "Russian",
+      "Turkish",
+      "Arabic",
+      "Hindi",
+      "Chinese (Simplified)",
+      "Japanese",
+      "Korean",
+    ])
+    .optional(),
   partnerVersion: z.enum(["woman", "man"]).optional(),
   destinationCountryId: z.string().min(1).max(80).optional(),
 });
@@ -56,13 +81,19 @@ function validMissionHistory(mission: SpeakingMission, messages: z.infer<typeof 
   });
 }
 
-function chatSystemPrompt(language: string, level: string, userVocabWords?: string[]) {
+function chatSystemPrompt(
+  language: string,
+  level: string,
+  nativeLanguage: string,
+  userVocabWords?: string[],
+) {
   const base = [
     `You are a warm, fluent ${language} conversation partner.`,
     `The learner is at ${level} level. Speak naturally but clearly.`,
     `Keep responses to 2-3 sentences unless asked for more.`,
     `You love talking about food, travel, daily life, culture, and the places where ${language} is spoken.`,
     `Always respond in ${language}. Be encouraging and patient. Avoid markdown — write plain conversational text.`,
+    `The learner's native language is ${nativeLanguage}. Only use it for a brief clarification when the learner asks or communication has completely broken down.`,
   ].join(" ");
   if (userVocabWords?.length) {
     return `${base}\n\nThe learner has these personal vocabulary words — when natural, use them in conversation so they hear them in context: ${userVocabWords.join(", ")}.`;
@@ -73,14 +104,19 @@ function chatSystemPrompt(language: string, level: string, userVocabWords?: stri
 function missionSystemPrompt(
   mission: SpeakingMission,
   feedbackLanguage: string,
+  nativeLanguage: string,
   partnerVersion: "woman" | "man",
   destination: TravelDestination | null,
 ) {
   const feedbackRule =
     feedbackLanguage === "Target language"
       ? `Write deferred coaching in simple ${mission.language}.`
+      : feedbackLanguage === "Native language"
+        ? `Write deferred coaching in concise ${nativeLanguage}, the learner's native language.`
       : feedbackLanguage === "Adaptive"
-        ? `Use brief English coaching only for a communication-blocking issue; otherwise use simple ${mission.language}.`
+        ? nativeLanguage === mission.language
+          ? `Write deferred coaching in simple ${mission.language}.`
+          : `Use brief ${nativeLanguage} coaching only for a communication-blocking issue; otherwise use simple ${mission.language}.`
         : "Write deferred coaching in concise English.";
 
   return [
@@ -89,6 +125,7 @@ function missionSystemPrompt(
     "Keep the partner individual and professional; never introduce gender stereotypes or change the objectives, difficulty level, or safety rules because of gender.",
     "Vary natural sentence rhythm and level-appropriate word choices across runs so the learner practices real listening variation while the underlying task stays comparable.",
     `The learner is the ${mission.learnerRole} in a ${mission.title} practice mission.`,
+    `The learner's native coaching language is ${nativeLanguage}; the target language is ${mission.language}.`,
     `Specialty: ${mission.moduleName} (${mission.specialty}).`,
     destination ? destinationPromptContext(destination) : "",
     `Speak natural ${mission.language} (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
@@ -208,6 +245,16 @@ export const Route = createFileRoute("/api/speak")({
         }
 
         const client = new Anthropic({ apiKey: KEY });
+        const nativeLanguage = payload.nativeLanguage ?? "English";
+
+        if (nativeLanguage === payload.language) {
+          return new Response(
+            JSON.stringify({
+              error: "Choose a native language different from the language you are studying.",
+            }),
+            { status: 400, headers: { "Content-Type": "application/json" } },
+          );
+        }
 
         // ----- MISSION MODE: immutable scenario roleplay for the main-app UX preview -----
         if (payload.mode === "mission") {
@@ -245,6 +292,16 @@ export const Route = createFileRoute("/api/speak")({
                 status: 403,
                 headers: { "Content-Type": "application/json" },
               },
+            );
+          }
+          if (
+            !getSpeakingModules(mission.language, nativeLanguage).some(
+              (module) => module.id === mission.moduleId,
+            )
+          ) {
+            return new Response(
+              JSON.stringify({ error: "This mission is unavailable for this learning direction." }),
+              { status: 403, headers: { "Content-Type": "application/json" } },
             );
           }
           if (!payload.messages?.length) {
@@ -285,6 +342,7 @@ export const Route = createFileRoute("/api/speak")({
               system: missionSystemPrompt(
                 mission,
                 payload.feedbackLanguage ?? "Adaptive",
+                nativeLanguage,
                 payload.partnerVersion ?? "woman",
                 destination,
               ),
@@ -394,7 +452,7 @@ export const Route = createFileRoute("/api/speak")({
               messages: [
                 {
                   role: "user",
-                  content: `Did the user make any grammar errors in this ${payload.language} sentence: "${payload.userText}"? If yes, give one gentle tip in English under 20 words. If no errors, return null for the tip field.`,
+                  content: `Did the user make any grammar errors in this ${payload.language} sentence: "${payload.userText}"? If yes, give one gentle tip in ${nativeLanguage} under 20 words. If no errors, return null for the tip field.`,
                 },
               ],
               tools: [
@@ -444,8 +502,8 @@ export const Route = createFileRoute("/api/speak")({
               : ["everyday conversation"];
           const userPrompt =
             kind === "grammar"
-              ? `The learner has completed these ${payload.language} grammar lessons: ${concepts.join("; ")}. Create ONE short spoken challenge sentence (6-14 words) in ${payload.language} that naturally USES one of these grammar concepts. Then give the English translation and a one-line hint about which concept it practices.`
-              : `Create ONE "reach" vocabulary challenge in ${payload.language} for a ${payload.level} learner: a short useful sentence (6-12 words) containing ONE slightly advanced word the learner probably doesn't know yet. Provide the English translation and a hint that highlights the stretch word with its meaning.`;
+              ? `The learner has completed these ${payload.language} grammar lessons: ${concepts.join("; ")}. Create ONE short spoken challenge sentence (6-14 words) in ${payload.language} that naturally USES one of these grammar concepts. Then give a ${nativeLanguage} gloss and a one-line ${nativeLanguage} hint about which concept it practices.`
+              : `Create ONE "reach" vocabulary challenge in ${payload.language} for a ${payload.level} learner: a short useful sentence (6-12 words) containing ONE slightly advanced word the learner probably doesn't know yet. Provide a ${nativeLanguage} gloss and a ${nativeLanguage} hint that highlights the stretch word with its meaning.`;
 
           try {
             const response = await client.messages.create({
@@ -465,7 +523,10 @@ export const Route = createFileRoute("/api/speak")({
                         type: "string",
                         description: `The sentence to say in ${payload.language}.`,
                       },
-                      english: { type: "string", description: "Plain English translation." },
+                      gloss: {
+                        type: "string",
+                        description: `Plain ${nativeLanguage} translation or gloss.`,
+                      },
                       hint: {
                         type: "string",
                         description:
@@ -477,7 +538,7 @@ export const Route = createFileRoute("/api/speak")({
                           "The single most important word/phrase from `target` to listen for in the learner's speech.",
                       },
                     },
-                    required: ["target", "english", "hint", "keyword"],
+                    required: ["target", "gloss", "hint", "keyword"],
                     additionalProperties: false,
                   },
                 },
@@ -510,7 +571,12 @@ export const Route = createFileRoute("/api/speak")({
           const stream = await client.messages.create({
             model: "claude-haiku-4-5",
             max_tokens: 512,
-            system: chatSystemPrompt(payload.language, payload.level, payload.userVocabWords),
+            system: chatSystemPrompt(
+              payload.language,
+              payload.level,
+              nativeLanguage,
+              payload.userVocabWords,
+            ),
             messages: payload.messages,
             stream: true,
           });

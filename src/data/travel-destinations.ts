@@ -1,16 +1,18 @@
-import type { Language } from "@/state/app-state";
+import type { Language, NativeLanguage } from "@/state/app-state";
 
 export interface DestinationPhrase {
   english: string;
   target: string;
   note: string;
+  nativeGlosses?: Partial<Record<NativeLanguage, string>>;
 }
 
 export interface TravelDestination {
   id: string;
   country: string;
   flag: string;
-  language: Extract<Language, "Spanish" | "Italian" | "Japanese">;
+  language: Extract<Language, "Spanish" | "Italian" | "Japanese" | "English">;
+  ttsLocale: string;
   regions: string;
   localLens: string;
   practicalNotes: string[];
@@ -35,6 +37,7 @@ const spanish = (
   country,
   flag,
   language: "Spanish",
+  ttsLocale: spanishDestinationLocale(id),
   regions,
   localLens,
   practicalNotes,
@@ -54,6 +57,39 @@ const italian = (
   country,
   flag,
   language: "Italian",
+  ttsLocale: "it-IT",
+  regions,
+  localLens,
+  practicalNotes,
+  phrases,
+});
+
+function spanishDestinationLocale(id: string): string {
+  const locales: Record<string, string> = {
+    spain: "es-ES",
+    mexico: "es-MX",
+    argentina: "es-AR",
+    "equatorial-guinea": "es-ES",
+    "puerto-rico": "es-US",
+  };
+  return locales[id] ?? "es-419";
+}
+
+const english = (
+  id: string,
+  country: string,
+  flag: string,
+  ttsLocale: string,
+  regions: string,
+  localLens: string,
+  practicalNotes: string[],
+  phrases: DestinationPhrase[],
+): TravelDestination => ({
+  id,
+  country,
+  flag,
+  language: "English",
+  ttsLocale,
   regions,
   localLens,
   practicalNotes,
@@ -905,11 +941,272 @@ export const TRAVEL_DESTINATIONS: TravelDestination[] = [
       },
     ],
   ),
+  english(
+    "united-states",
+    "United States",
+    "🇺🇸",
+    "en-US",
+    "New York · California · Florida · Texas · Mountain West · Pacific Northwest",
+    "American English varies strongly by region, but clear direct requests, friendly small talk, first names, and explicit clarification are broadly useful. Service language often sounds informal while still being polite.",
+    [
+      "Prices shown before checkout may not include sales tax, and restaurant table service commonly involves a tip; confirm the total locally.",
+      "For transport, distinguish subway, train, bus, rideshare, rental car, freeway, and interstate.",
+      "In health, legal, or emergency situations, request a qualified interpreter rather than relying on a child or sharing private details with strangers.",
+    ],
+    [
+      {
+        english: "Ask someone to repeat more slowly.",
+        target: "Could you say that again a little more slowly, please?",
+        note: "A natural, polite repair phrase across the United States.",
+        nativeGlosses: {
+          Spanish: "¿Podría decirlo otra vez un poco más despacio, por favor?",
+          Italian: "Potrebbe ripeterlo un po' più lentamente, per favore?",
+          Japanese: "もう少しゆっくり、もう一度言っていただけますか。",
+        },
+      },
+      {
+        english: "Confirm the complete price.",
+        target: "What is the total after tax and all fees?",
+        note: "Useful for rentals, tickets, hotels, and shopping.",
+        nativeGlosses: {
+          Spanish: "¿Cuál es el total después de impuestos y todos los cargos?",
+          Italian: "Qual è il totale dopo le tasse e tutti i costi?",
+          Japanese: "税金とすべての手数料を含めた合計はいくらですか。",
+        },
+      },
+      {
+        english: "Ask where to wait for a rideshare.",
+        target: "Where is the designated rideshare pickup area?",
+        note: "Airports and venues often separate app-based pickup zones.",
+      },
+      {
+        english: "Request language access.",
+        target: "Could I have a qualified interpreter, please?",
+        note: "Important in medical, legal, school, and government settings.",
+      },
+    ],
+  ),
+  english(
+    "united-kingdom",
+    "United Kingdom",
+    "🇬🇧",
+    "en-GB",
+    "England · Scotland · Wales · Northern Ireland",
+    "British English includes major regional accents and vocabulary differences. Polite softeners such as could, would, sorry, and cheers are common, while queue, return ticket, lift, and takeaway replace familiar American terms.",
+    [
+      "Ask for a return ticket rather than a round-trip ticket and listen for platform, carriage, and last service.",
+      "At restaurants and pubs, confirm whether you order at the bar, whether service is included, and whether the kitchen is still serving.",
+      "Place names and accents can be difficult even for advanced learners; spelling a destination and asking for repetition is normal.",
+    ],
+    [
+      {
+        english: "Buy a round-trip rail ticket.",
+        target: "A return to Edinburgh, please.",
+        note: "Return is the usual UK term for a round trip.",
+        nativeGlosses: {
+          Spanish: "Un billete de ida y vuelta a Edimburgo, por favor.",
+          Italian: "Un biglietto di andata e ritorno per Edimburgo, per favore.",
+          Japanese: "エディンバラまでの往復切符をお願いします。",
+        },
+      },
+      {
+        english: "Ask whether food is available now.",
+        target: "Are you still serving food?",
+        note: "Useful in pubs where bar hours and kitchen hours differ.",
+      },
+      {
+        english: "Ask for food to take away.",
+        target: "Could I have that to take away, please?",
+        note: "Takeaway is more common than takeout.",
+      },
+      {
+        english: "Find the elevator.",
+        target: "Excuse me, where is the lift?",
+        note: "Lift is the standard UK word for elevator.",
+      },
+    ],
+  ),
+  english(
+    "canada",
+    "Canada",
+    "🇨🇦",
+    "en-CA",
+    "Ontario · British Columbia · Alberta · Atlantic Canada · the North",
+    "Canadian English is close to North American English while retaining distinctive spelling, vocabulary, and regional accents. English and French share official status federally, and local language realities vary by province and community.",
+    [
+      "Confirm whether service is available in English or French, especially when navigating federal or provincial services.",
+      "For winter travel, ask about road conditions, cancellations, closures, and whether equipment is suitable for the weather.",
+      "Use province, postal code, washroom, hydro, and transit terms accurately; meanings can differ from US usage.",
+    ],
+    [
+      {
+        english: "Ask for a restroom.",
+        target: "Excuse me, where is the washroom?",
+        note: "Washroom is common and widely understood in Canada.",
+      },
+      {
+        english: "Check the effect of weather on travel.",
+        target: "Are there any weather delays or road closures?",
+        note: "Useful before winter ground travel.",
+      },
+      {
+        english: "Ask for service in English.",
+        target: "Is service available in English?",
+        note: "A neutral way to request your preferred service language.",
+      },
+      {
+        english: "Confirm the price in Canadian currency.",
+        target: "Is that total in Canadian dollars?",
+        note: "Useful when booking from outside Canada.",
+      },
+    ],
+  ),
+  english(
+    "ireland",
+    "Ireland",
+    "🇮🇪",
+    "en-IE",
+    "Dublin · west coast · Cork · Galway · the Midlands",
+    "Irish English has distinctive rhythm, vocabulary, and conversational warmth. People may use grand, cheers, your man, and different indirect ways of asking questions; Irish also appears in signs and public life.",
+    [
+      "Ask whether a bus is direct, where it stops, and whether payment requires cash, a card, or a transport card.",
+      "In pubs and cafés, ask whether you order at the bar and use a round only if you understand the social expectation.",
+      "Rural directions may use landmarks rather than street numbers, so confirm the next turn and a visible reference point.",
+    ],
+    [
+      {
+        english: "Ask if everything is okay.",
+        target: "Is everything grand?",
+        note: "Grand often means fine or okay in Irish conversation.",
+      },
+      {
+        english: "Check whether a bus is direct.",
+        target: "Does this bus go straight to Galway?",
+        note: "Straight to is a useful everyday phrasing for a direct route.",
+      },
+      {
+        english: "Ask for the next landmark.",
+        target: "What landmark should I look for before the turn?",
+        note: "Helpful when directions are given by landmarks.",
+      },
+      {
+        english: "Offer thanks warmly.",
+        target: "Thanks a million. That was very kind of you.",
+        note: "A natural emphatic thank-you in Ireland.",
+      },
+    ],
+  ),
+  english(
+    "australia",
+    "Australia",
+    "🇦🇺",
+    "en-AU",
+    "Sydney · Melbourne · Queensland · Western Australia · regional and remote areas",
+    "Australian English often sounds relaxed and uses shortened words, but clear direct communication remains appropriate. Common travel terms include mate, brekkie, takeaway, petrol, ute, and thongs for flip-flops.",
+    [
+      "Distances can be substantial; confirm travel time, fuel availability, mobile coverage, water, and the last safe stop before remote travel.",
+      "Ask about flags, currents, heat, fire danger, and local warnings rather than treating the app as a safety authority.",
+      "For dining and shopping, use takeaway, entrée/main depending on the venue, EFTPOS, and receipt naturally.",
+    ],
+    [
+      {
+        english: "Ask for food to go.",
+        target: "Could I get that takeaway, please?",
+        note: "Takeaway is the usual Australian term.",
+      },
+      {
+        english: "Check fuel availability on a long drive.",
+        target: "Where is the last petrol station before the next town?",
+        note: "Petrol is used instead of gasoline.",
+      },
+      {
+        english: "Ask about beach conditions.",
+        target: "Where is the safest place to swim today?",
+        note: "Confirm with lifeguards and local signs.",
+      },
+      {
+        english: "Respond that something is acceptable.",
+        target: "No worries. That works for me.",
+        note: "No worries is friendly and common, but not mandatory.",
+      },
+    ],
+  ),
+  english(
+    "new-zealand",
+    "New Zealand",
+    "🇳🇿",
+    "en-NZ",
+    "Auckland · Wellington · Christchurch · Queenstown · regional Aotearoa",
+    "New Zealand English has a distinctive vowel system and includes Māori words and place names in everyday public life. Kia ora, whānau, kai, and Aotearoa may appear naturally alongside English.",
+    [
+      "Learn to hear and respectfully pronounce Māori place names; ask someone to repeat or spell a name rather than guessing.",
+      "For outdoor travel, confirm weather, track status, transport, equipment, and turnaround plans with official and local sources.",
+      "Use dairy for a neighborhood convenience shop and takeaway for food prepared to go.",
+    ],
+    [
+      {
+        english: "Offer a local greeting or thanks.",
+        target: "Kia ora. Thanks for your help.",
+        note: "Kia ora is widely used as hello, thanks, or acknowledgment.",
+      },
+      {
+        english: "Ask someone to pronounce a place name.",
+        target: "Could you show me how to pronounce that place name?",
+        note: "A respectful repair when a Māori name is unfamiliar.",
+      },
+      {
+        english: "Find a convenience shop.",
+        target: "Is there a dairy near here?",
+        note: "A dairy is a small local convenience shop in New Zealand.",
+      },
+      {
+        english: "Check a hiking route.",
+        target: "Is the track open, and how long does it take?",
+        note: "Track is commonly used for a hiking trail.",
+      },
+    ],
+  ),
+  english(
+    "south-africa",
+    "South Africa",
+    "🇿🇦",
+    "en-ZA",
+    "Gauteng · Western Cape · KwaZulu-Natal · Eastern Cape · Mpumalanga",
+    "South African English is one part of a multilingual society and carries regional vocabulary from Afrikaans, isiZulu, isiXhosa, and other languages. English is broadly useful in travel and business, but it is not everyone's home language.",
+    [
+      "Ask which language a person prefers and do not assume that English is their first or strongest language.",
+      "For driving and tours, confirm the route, fuel, tolls, meeting point, daylight timing, and current local guidance.",
+      "Listen for robot meaning traffic light, petrol station, braai, bakkie, and now-now, while using plain English when clarity matters.",
+    ],
+    [
+      {
+        english: "Ask someone's preferred language.",
+        target: "Which language would you prefer to use?",
+        note: "A respectful opening in a multilingual setting.",
+      },
+      {
+        english: "Ask for a traffic light landmark.",
+        target: "Do I turn left at the next robot?",
+        note: "Robot commonly means traffic light in South African English.",
+      },
+      {
+        english: "Find fuel.",
+        target: "Where is the nearest petrol station?",
+        note: "Petrol station is the common term.",
+      },
+      {
+        english: "Confirm the real timing of a plan.",
+        target: "Do you mean right now, or a little later?",
+        note: "Useful when informal time expressions are ambiguous.",
+      },
+    ],
+  ),
   {
     id: "japan",
     country: "Japan",
     flag: "🇯🇵",
     language: "Japanese",
+    ttsLocale: "ja-JP",
     regions: "Tokyo · Kansai · Hokkaido · Kyushu · Okinawa",
     localLens:
       "Polite Japanese, clear nonverbal attention, orderly queues, and context-sensitive service language matter. Regional words and food traditions vary, but basic です・ます speech is broadly useful.",

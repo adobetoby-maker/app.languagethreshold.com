@@ -10,11 +10,12 @@ import {
 
 describe("country-specific next-trip curriculum", () => {
   test("covers the complete current Speaking rollout without duplicate destinations", () => {
-    assert.equal(TRAVEL_DESTINATIONS.length, 26);
-    assert.equal(new Set(TRAVEL_DESTINATIONS.map((destination) => destination.id)).size, 26);
+    assert.equal(TRAVEL_DESTINATIONS.length, 33);
+    assert.equal(new Set(TRAVEL_DESTINATIONS.map((destination) => destination.id)).size, 33);
     assert.equal(getTravelDestinations("Spanish").length, 21);
     assert.equal(getTravelDestinations("Italian").length, 4);
     assert.equal(getTravelDestinations("Japanese").length, 1);
+    assert.equal(getTravelDestinations("English").length, 7);
   });
 
   test("every destination has a real country lens, practical notes, and phrases", () => {
@@ -22,11 +23,31 @@ describe("country-specific next-trip curriculum", () => {
       assert.ok(destination.localLens.length >= 80, `${destination.id} needs a fuller local lens`);
       assert.ok(destination.practicalNotes.length >= 3, `${destination.id} needs practical notes`);
       assert.ok(destination.phrases.length >= 4, `${destination.id} needs a useful phrase pack`);
+      assert.ok(destination.ttsLocale.length >= 5, `${destination.id} needs a voice locale`);
       for (const phrase of destination.phrases) {
         assert.ok(phrase.english.trim());
         assert.ok(phrase.target.trim());
         assert.ok(phrase.note.trim());
       }
+    }
+  });
+
+  test("English destinations cover the major accent regions", () => {
+    const english = getTravelDestinations("English");
+    assert.deepEqual(
+      new Set(english.map((destination) => destination.ttsLocale)),
+      new Set(["en-US", "en-GB", "en-CA", "en-IE", "en-AU", "en-NZ", "en-ZA"]),
+    );
+    for (const required of [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "ireland",
+      "australia",
+      "new-zealand",
+      "south-africa",
+    ]) {
+      assert.ok(getTravelDestination(required), required);
     }
   });
 

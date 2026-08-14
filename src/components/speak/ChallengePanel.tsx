@@ -1,13 +1,13 @@
 import { useMemo, useState } from "react";
 import { Sparkles, Target, Zap } from "lucide-react";
 import { toast } from "sonner";
-import type { Language } from "@/state/app-state";
+import type { Language, NativeLanguage } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
 import { speakingRequestHeaders } from "@/lib/speaking-client";
 
 export interface SpeakChallenge {
   target: string;
-  english: string;
+  gloss: string;
   hint: string;
   keyword: string;
   kind: "grammar" | "reach";
@@ -17,13 +17,21 @@ const LEVEL_ORDER: CefrLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 interface Props {
   language: Language;
+  nativeLanguage: NativeLanguage;
   level: string;
   active: SpeakChallenge | null;
   onStart: (c: SpeakChallenge) => void;
   onSpeakAloud: (text: string) => void;
 }
 
-export function ChallengePanel({ language, level, active, onStart, onSpeakAloud }: Props) {
+export function ChallengePanel({
+  language,
+  nativeLanguage,
+  level,
+  active,
+  onStart,
+  onSpeakAloud,
+}: Props) {
   const { state } = useGrammar();
   const [loading, setLoading] = useState<"grammar" | "reach" | null>(null);
 
@@ -58,6 +66,7 @@ export function ChallengePanel({ language, level, active, onStart, onSpeakAloud 
         body: JSON.stringify({
           mode: "challenge",
           language,
+          nativeLanguage,
           level,
           kind,
           concepts: kind === "grammar" ? completedConcepts.slice(-12) : undefined,
@@ -142,7 +151,7 @@ export function ChallengePanel({ language, level, active, onStart, onSpeakAloud 
             </button>
           </div>
           <p className="mt-2 font-serif text-xl text-foreground">{active.target}</p>
-          <p className="mt-1 text-sm text-muted-foreground">{active.english}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{active.gloss}</p>
           <p className="mt-2 text-xs text-gold/90">💡 {active.hint}</p>
           <p className="mt-2 text-xs text-muted-foreground">
             Say it out loud — confetti when you nail it.

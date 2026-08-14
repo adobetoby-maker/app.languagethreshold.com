@@ -13,6 +13,7 @@ import {
 import {
   decodeGoogleVoicePreference,
   defaultGoogleVoice,
+  encodeGoogleVoicePreference,
   googleVoicesForLocale,
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
@@ -48,7 +49,7 @@ import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
-type FeedbackLanguage = "English" | "Target language" | "Adaptive";
+type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
 type PartnerAudioSource = "device" | "google" | "text";
 
@@ -116,6 +117,7 @@ function specialtyStyle(specialty: SpeakingMission["specialty"]) {
     Agriculture: { color: "#7fc66a" },
     Sports: { color: "#55c79f" },
     Travel: { color: "#e9a85d" },
+    "English for Work": { color: "#77c7b7" },
   };
   return { label: specialty, ...styles[specialty] };
 }
@@ -135,6 +137,11 @@ function partnerVoiceSample(
   }
   if (language === "Japanese") {
     return "こんにちは。会話練習のパートナーです。始めましょうか。";
+  }
+  if (language === "English") {
+    return partnerVersion === "woman"
+      ? "Hello, I'm your conversation partner. Shall we begin?"
+      : "Hello, I'm your conversation partner. Shall we get started?";
   }
   return partnerVersion === "woman"
     ? "Hola, soy su compañera de práctica. ¿Empezamos?"
@@ -166,7 +173,7 @@ function highStakesNotice(mission: SpeakingMission) {
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
   const { state: appState } = useApp();
-  const { accent, rate, setRate, voiceURI } = useSpeech();
+  const { accent, rate, setRate, voiceURI, setVoiceURI } = useSpeech();
   const { session } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
@@ -201,9 +208,12 @@ export function SpeakingMissionsPreview() {
   const [coreEntryRequested] = useState(() => consumeCoreSpeakingEntry());
   const coreEntryRequestedRef = useRef(coreEntryRequested);
   const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
+  const hasValidLanguagePair =
+    appState.selectedLanguage !== "English" || appState.nativeLanguage !== "English";
   const missionLanguage =
     SPEAKING_LANGUAGES.some((entry) => entry.language === appState.selectedLanguage) &&
-    (appState.selectedLanguage !== "Japanese" || japaneseSpeakingReviewed)
+    (appState.selectedLanguage !== "Japanese" || japaneseSpeakingReviewed) &&
+    hasValidLanguagePair
       ? (appState.selectedLanguage as SpeakingMissionLanguage)
       : null;
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
@@ -211,14 +221,24 @@ export function SpeakingMissionsPreview() {
   const activeTravelDestination =
     tripDestination?.language === missionLanguage ? tripDestination : null;
   const languageModules = useMemo(
-    () => (missionLanguage ? getSpeakingModules(missionLanguage) : []),
-    [missionLanguage],
+    () =>
+      missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : [],
+    [appState.nativeLanguage, missionLanguage],
   );
   const languageMissions = useMemo(
-    () => (missionLanguage ? getSpeakingMissions(missionLanguage) : []),
-    [missionLanguage],
+    () => {
+      if (!missionLanguage) return [];
+      const availableModuleIds = new Set(languageModules.map((module) => module.id));
+      return getSpeakingMissions(missionLanguage).filter((mission) =>
+        availableModuleIds.has(mission.moduleId),
+      );
+    },
+    [languageModules, missionLanguage],
   );
-  const missionLocale = selectedMission?.locale ?? accent;
+  const missionLocale =
+    selectedMission?.specialty === "Travel" && activeTravelDestination?.ttsLocale
+      ? activeTravelDestination.ttsLocale
+      : (selectedMission?.locale ?? accent);
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const availableGoogleVoices = useMemo(
     () => googleVoicesForLocale(ttsCapabilities?.voices ?? [], missionLocale),
@@ -233,8 +253,15 @@ export function SpeakingMissionsPreview() {
         voice.ssmlGender === "NEUTRAL" ||
         voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
   );
+  const selectedGoogleVoice = availableGoogleVoices.find(
+    (voice) =>
+      voice.name === selectedGoogleVoiceName &&
+      (voice.ssmlGender === targetGoogleGender ||
+        voice.ssmlGender === "NEUTRAL" ||
+        voice.ssmlGender === "SSML_VOICE_GENDER_UNSPECIFIED"),
+  );
   const partnerVoice =
-    availableGoogleVoices.find((voice) => voice.name === selectedGoogleVoiceName) ??
+    selectedGoogleVoice ??
     globalGoogleVoice ??
     defaultGoogleVoice(availableGoogleVoices, missionLocale, partnerVersion);
   const partnerAudioReady =
@@ -320,6 +347,11 @@ export function SpeakingMissionsPreview() {
   }, [missionLocale]);
 
   useEffect(() => {
+    if (partnerAudioSource !== "google" || !partnerVoice) return;
+    setVoiceURI(encodeGoogleVoicePreference(partnerVoice));
+  }, [partnerAudioSource, partnerVoice, setVoiceURI]);
+
+  useEffect(() => {
     transcriptRef.current?.scrollTo({
       top: transcriptRef.current.scrollHeight,
       behavior: "smooth",
@@ -349,6 +381,11 @@ export function SpeakingMissionsPreview() {
     setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
   }, [appState.selectedLanguage, stopActiveWork]);
+
+  useEffect(() => {
+    if (started) return;
+    setPartnerAudioSource(decodeGoogleVoicePreference(voiceURI) ? "google" : "device");
+  }, [appState.selectedLanguage, started, voiceURI]);
 
   useEffect(() => {
     return () => stopActiveWork();
@@ -474,7 +511,6 @@ export function SpeakingMissionsPreview() {
 
   const selectMission = (mission: SpeakingMission) => {
     exitMission();
-    if (mission.language !== "Spanish") setPartnerAudioSource("device");
     setSelectedMission(mission);
   };
 
@@ -518,6 +554,7 @@ export function SpeakingMissionsPreview() {
           messages: history,
           scenarioVersionId: selectedMission.id,
           feedbackLanguage,
+          nativeLanguage: appState.nativeLanguage,
           partnerVersion,
           destinationCountryId:
             selectedMission.specialty === "Travel" ? activeTravelDestination?.id : undefined,
@@ -625,17 +662,28 @@ export function SpeakingMissionsPreview() {
 
   if (!selectedMission) {
     if (!missionLanguage) {
+      const japaneseAwaitingReview =
+        appState.selectedLanguage === "Japanese" && !japaneseSpeakingReviewed;
+      const sameLanguagePair =
+        appState.selectedLanguage === "English" && appState.nativeLanguage === "English";
       return (
         <section className="mt-5 rounded-3xl border border-border/70 bg-card/40 p-5">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
             Scenario missions
           </p>
           <h2 className="mt-2 font-serif text-2xl text-foreground">
-            {appState.selectedLanguage} missions are next in the rollout
+            {japaneseAwaitingReview
+              ? "Japanese missions are awaiting curriculum review"
+              : sameLanguagePair
+                ? "Choose your native language to study English"
+                : `${appState.selectedLanguage} missions are next in the rollout`}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            The complete topic catalog is currently available for Spanish, Italian, and Japanese.
-            Choose one of those languages from the language menu to practice its full set.
+            {japaneseAwaitingReview
+              ? "The Japanese catalog is built but remains hidden until its curriculum review flag is approved. Spanish, Italian, and English missions can be used now."
+              : sameLanguagePair
+                ? "English cannot also be your native coaching language. Choose your actual native language from the native-language menu, then return here for the complete English catalog."
+                : "The complete topic catalog is currently available for Spanish, Italian, and English. Choose one of those languages from the language menu to practice its full set."}
           </p>
         </section>
       );
@@ -989,7 +1037,7 @@ export function SpeakingMissionsPreview() {
               onChange={(event) => setFeedbackLanguage(event.target.value as FeedbackLanguage)}
               className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
             >
-              <option value="English">English</option>
+              <option value="Native language">{appState.nativeLanguage}</option>
               <option value="Target language">{selectedMission.language}</option>
               <option value="Adaptive">Adaptive</option>
             </select>
@@ -1036,6 +1084,7 @@ export function SpeakingMissionsPreview() {
                   );
                   if (!voice) return;
                   setSelectedGoogleVoiceName(voice.name);
+                  setVoiceURI(encodeGoogleVoicePreference(voice));
                   if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
                   if (voice.ssmlGender === "MALE") setPartnerVersion("man");
                 }}

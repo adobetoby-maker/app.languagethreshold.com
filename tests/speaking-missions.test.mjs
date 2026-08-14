@@ -26,6 +26,7 @@ import {
   TRAVEL_ZONE_MODULE_IDS,
   TRAVEL_ZONE_MODULES,
 } from "../src/data/travel-zone.ts";
+import { MODULES } from "../src/data/modules.ts";
 
 const SPEAKING_MISSIONS = getAllSpeakingMissions();
 
@@ -74,7 +75,11 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
   }
 
   for (const { language } of SPEAKING_LANGUAGES) {
-    assert.ok(CORE_VERBS.every((verb) => verb.target[language].length > 0));
+    assert.ok(
+      language === "English"
+        ? CORE_VERBS.every((verb) => verb.english.length > 0)
+        : CORE_VERBS.every((verb) => verb.target[language].length > 0),
+    );
     const grammarPatterns = getCoreGrammarPatterns(language);
     assert.ok(grammarPatterns.length >= 30, `${language} has broad core grammar coverage`);
     assert.equal(
@@ -112,16 +117,17 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
   }
 });
 
-test("speaking preview covers every authored topic in Spanish, Italian, and Japanese", () => {
+test("speaking preview covers every authored topic in Spanish, Italian, Japanese, and English", () => {
   const expected = {
     Spanish: { modules: 57, challenges: 361, lessons: 1420, curated: 6, core: 141, total: 1928 },
     Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
     Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
+    English: { modules: 58, challenges: 364, lessons: 1470, curated: 0, core: 141, total: 1975 },
   };
 
   assert.deepEqual(
     SPEAKING_LANGUAGES.map((entry) => entry.language),
-    ["Spanish", "Italian", "Japanese"],
+    ["Spanish", "Italian", "Japanese", "English"],
   );
   for (const { language, locale } of SPEAKING_LANGUAGES) {
     const modules = getSpeakingModules(language);
@@ -145,9 +151,11 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
 
     assert.equal(modules[0].id, "core-speaking", `${language} core is first`);
     for (const module of modules.filter((module) => module.id !== "core-speaking")) {
+      const sourceModule = MODULES.find((candidate) => candidate.id === module.id);
+      assert.ok(sourceModule, `${language}/${module.id} source module`);
       assert.equal(
         challenges.filter((mission) => mission.moduleId === module.id).length,
-        module.challengePrompts.length,
+        sourceModule.challengePrompts.length,
         `${language}/${module.id} challenges`,
       );
       assert.ok(
@@ -157,10 +165,36 @@ test("speaking preview covers every authored topic in Spanish, Italian, and Japa
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 5741);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 5741);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 5741);
-  assert.ok(!SPEAKING_MISSIONS.some((mission) => ["or-evs", "fmg"].includes(mission.moduleId)));
+  assert.equal(SPEAKING_MISSIONS.length, 7716);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 7716);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 7716);
+  assert.ok(
+    !SPEAKING_MISSIONS.some(
+      (mission) =>
+        mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),
+    ),
+  );
+  assert.ok(
+    ["or-evs", "fmg"].every((moduleId) =>
+      getSpeakingMissions("English").some((mission) => mission.moduleId === moduleId),
+    ),
+  );
+
+  const englishFromSpanish = getSpeakingModules("English", "Spanish").map(
+    (module) => module.id,
+  );
+  const englishFromItalian = getSpeakingModules("English", "Italian").map(
+    (module) => module.id,
+  );
+  const englishFromPortuguese = getSpeakingModules("English", "Portuguese").map(
+    (module) => module.id,
+  );
+  assert.ok(englishFromSpanish.includes("or-evs"));
+  assert.ok(englishFromSpanish.includes("fmg"));
+  assert.ok(!englishFromItalian.includes("or-evs"));
+  assert.ok(!englishFromItalian.includes("fmg"));
+  assert.ok(!englishFromPortuguese.includes("or-evs"));
+  assert.ok(englishFromPortuguese.includes("fmg"));
 });
 
 test("Travel is a large daily-interaction zone with the Rome gaps covered", () => {
@@ -251,8 +285,8 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
 test("each speaking mission has complete UX-preview metadata", () => {
   for (const mission of SPEAKING_MISSIONS) {
     assert.equal(mission.version, 1);
-    assert.ok(["Spanish", "Italian", "Japanese"].includes(mission.language));
-    assert.ok(["es-419", "it-IT", "ja-JP"].includes(mission.locale));
+    assert.ok(["Spanish", "Italian", "Japanese", "English"].includes(mission.language));
+    assert.ok(["es-419", "it-IT", "ja-JP", "en-US"].includes(mission.locale));
     assert.ok(mission.title.length > 0);
     assert.ok(mission.moduleId.length > 0);
     assert.ok(mission.moduleName.length > 0);
@@ -335,6 +369,27 @@ test("high-stakes daily missions carry explicit runtime policy", () => {
       assert.equal(mission?.riskClass, topic.riskClass, `${language}/${topicId} risk class`);
       assert.ok(mission?.safetyRules.length >= 3, `${language}/${topicId} has extra safety rules`);
     }
+  }
+});
+
+test("high-stakes lessons inside general Travel modules receive scenario-level policy", () => {
+  for (const language of ["Spanish", "Italian", "Japanese", "English"]) {
+    const missions = getSpeakingMissions(language);
+    const medicalEmergency = missions.find(
+      (mission) =>
+        mission.moduleId === "international-travel" &&
+        mission.title.includes("Medical Emergency While Traveling"),
+    );
+    const border = missions.find(
+      (mission) =>
+        mission.moduleId === "international-travel" && mission.title.includes("Visa & Border"),
+    );
+    assert.equal(medicalEmergency?.riskClass, "emergency", `${language} emergency risk`);
+    assert.ok(
+      medicalEmergency?.safetyRules.some((rule) => rule.includes("not an emergency service")),
+      `${language} emergency rule`,
+    );
+    assert.equal(border?.riskClass, "legal", `${language} border risk`);
   }
 });
 

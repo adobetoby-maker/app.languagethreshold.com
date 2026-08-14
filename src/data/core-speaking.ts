@@ -9,7 +9,7 @@ export type CoreSpeakingSection =
 export interface CoreVerb {
   id: string;
   english: string;
-  target: Record<SpeakingMissionLanguage, string>;
+  target: Record<Exclude<SpeakingMissionLanguage, "English">, string>;
 }
 
 export interface DailyLivingTopic {
@@ -45,6 +45,184 @@ export const CORE_SPEAKING_MODULE = {
 // learners need constantly in unscripted conversation. Language-specific forms
 // stay separate so Japanese is never forced into a Romance-language template.
 export const CORE_GRAMMAR_EXTENSIONS: Record<SpeakingMissionLanguage, CoreGrammarPattern[]> = {
+  English: [
+    {
+      id: "en-articles",
+      name: "Articles",
+      meaning: "choose a, an, the, or no article naturally",
+      pattern: "a / an / the / zero article + noun",
+      examples: ["I need a taxi.", "The station is nearby."],
+      phase: 1,
+    },
+    {
+      id: "en-plurals",
+      name: "Plural nouns",
+      meaning: "talk about more than one person or thing",
+      pattern: "noun + s/es · irregular plural",
+      examples: ["two tickets", "three children"],
+      phase: 1,
+    },
+    {
+      id: "en-present-simple",
+      name: "Present simple",
+      meaning: "describe routines, facts, and regular actions",
+      pattern: "I/you/we/they work · he/she works",
+      examples: ["I work in the morning.", "She lives nearby."],
+      phase: 1,
+    },
+    {
+      id: "en-present-continuous",
+      name: "Present continuous",
+      meaning: "say what is happening now or around now",
+      pattern: "am/is/are + verb-ing",
+      examples: ["I am calling about my reservation.", "We are waiting outside."],
+      phase: 1,
+    },
+    {
+      id: "en-negation",
+      name: "Negation",
+      meaning: "say that something is not true or does not happen",
+      pattern: "do/does not + verb · am/is/are not",
+      examples: ["I do not understand.", "The room is not ready."],
+      phase: 1,
+    },
+    {
+      id: "en-yes-no-questions",
+      name: "Yes/no questions",
+      meaning: "ask a direct question with do, be, have, or a modal",
+      pattern: "Do/Is/Have/Can + subject + ...?",
+      examples: ["Do you take cards?", "Can I check in early?"],
+      phase: 1,
+    },
+    {
+      id: "en-information-questions",
+      name: "Information questions",
+      meaning: "ask who, what, where, when, why, or how",
+      pattern: "who / what / where / when / why / how + question",
+      examples: ["Where is the platform?", "How much does it cost?"],
+      phase: 1,
+    },
+    {
+      id: "en-past-simple",
+      name: "Past simple",
+      meaning: "report a completed past event",
+      pattern: "verb-ed · irregular past",
+      examples: ["I called yesterday.", "We missed the train."],
+      phase: 1,
+    },
+    {
+      id: "en-past-continuous",
+      name: "Past continuous",
+      meaning: "describe an action that was in progress",
+      pattern: "was/were + verb-ing",
+      examples: ["I was waiting at the gate.", "They were closing the shop."],
+      phase: 2,
+    },
+    {
+      id: "en-present-perfect",
+      name: "Present perfect",
+      meaning: "connect past experience or a recent event to now",
+      pattern: "have/has + past participle",
+      examples: ["I have lost my passport.", "Have you called the hotel?"],
+      phase: 2,
+    },
+    {
+      id: "en-will",
+      name: "Future with will",
+      meaning: "make a prediction, promise, or decision now",
+      pattern: "will + base verb",
+      examples: ["I will call you tomorrow.", "We will help you."],
+      phase: 2,
+    },
+    {
+      id: "en-polite-requests",
+      name: "Polite requests",
+      meaning: "ask for help or service naturally",
+      pattern: "Could you ...? · Would you mind ...?",
+      examples: ["Could you repeat that, please?", "Would you mind writing it down?"],
+      phase: 1,
+    },
+    {
+      id: "en-offers",
+      name: "Offers and suggestions",
+      meaning: "offer help or suggest a plan",
+      pattern: "Can I ...? · Shall we ...? · How about ...?",
+      examples: ["Can I help you?", "How about meeting at seven?"],
+      phase: 1,
+    },
+    {
+      id: "en-comparatives",
+      name: "Comparisons",
+      meaning: "compare two options",
+      pattern: "-er / more + adjective + than",
+      examples: ["The bus is cheaper than the taxi.", "This route is more direct."],
+      phase: 2,
+    },
+    {
+      id: "en-superlatives",
+      name: "Superlatives",
+      meaning: "identify the strongest option in a group",
+      pattern: "the -est / the most + adjective",
+      examples: ["This is the fastest train.", "That was the most helpful guide."],
+      phase: 2,
+    },
+    {
+      id: "en-count-noncount",
+      name: "Count and noncount nouns",
+      meaning: "ask about quantities naturally",
+      pattern: "many/few + count · much/little + noncount",
+      examples: ["How many bags do you have?", "How much time do we have?"],
+      phase: 2,
+    },
+    {
+      id: "en-some-any",
+      name: "Some and any",
+      meaning: "talk about an unspecified amount or availability",
+      pattern: "some in statements/offers · any in questions/negatives",
+      examples: ["I need some help.", "Do you have any rooms available?"],
+      phase: 1,
+    },
+    {
+      id: "en-conditionals",
+      name: "Real conditions",
+      meaning: "say what will happen if a condition is met",
+      pattern: "if + present, will + verb",
+      examples: ["If the train is late, I will call.", "If you have time, we can meet."],
+      phase: 2,
+    },
+    {
+      id: "en-past-conditional",
+      name: "Hypothetical conditions",
+      meaning: "discuss an imagined choice or situation",
+      pattern: "if + past, would + verb",
+      examples: ["If I had more time, I would stay longer.", "What would you do?"],
+      phase: 2,
+    },
+    {
+      id: "en-relative-clauses",
+      name: "Relative clauses",
+      meaning: "identify a person, place, or thing with extra information",
+      pattern: "noun + who/that/which + clause",
+      examples: ["I need a hotel that is near the station.", "She is the guide who helped us."],
+      phase: 2,
+    },
+    {
+      id: "en-phrasal-verbs",
+      name: "High-use phrasal verbs",
+      meaning: "understand common verb-and-particle combinations",
+      pattern: "check in · pick up · find out · fill out",
+      examples: ["Where do I check in?", "Please fill out this form."],
+      phase: 2,
+    },
+    {
+      id: "en-reported-speech",
+      name: "Report what someone said",
+      meaning: "pass along a message or instruction",
+      pattern: "said/told me + clause",
+      examples: ["She said the office was closed.", "He told me to wait here."],
+      phase: 2,
+    },
+  ],
   Spanish: [
     {
       id: "existence-hay",

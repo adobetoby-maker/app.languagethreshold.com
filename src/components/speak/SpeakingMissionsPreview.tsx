@@ -14,9 +14,9 @@ import {
   decodeGoogleVoicePreference,
   defaultGoogleVoice,
   encodeGoogleVoicePreference,
-  googleVoicesForLocale,
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
+  recommendedGoogleVoices,
   type MissionPartnerVersion,
 } from "@/data/mission-tts";
 import type { CoreSpeakingSection } from "@/data/core-speaking";
@@ -50,6 +50,7 @@ import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
+import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
@@ -195,12 +196,14 @@ function highStakesNotice(mission: SpeakingMission) {
 export function SpeakingMissionsPreview() {
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
-  const { accent, rate, setRate, voiceURI, setVoiceURI } = useSpeech();
+  const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
   const { session } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [ageLoaded, setAgeLoaded] = useState(false);
   const [ageSaving, setAgeSaving] = useState(false);
+  const [consentOpen, setConsentOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
   const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
@@ -263,14 +266,11 @@ export function SpeakingMissionsPreview() {
       availableModuleIds.has(mission.moduleId),
     );
   }, [languageModules, missionLanguage]);
-  const missionLocale =
-    selectedMission?.specialty === "Travel" && activeTravelDestination?.ttsLocale
-      ? activeTravelDestination.ttsLocale
-      : (selectedMission?.locale ?? accent);
+  const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const availableGoogleVoices = useMemo(
-    () => googleVoicesForLocale(ttsCapabilities?.voices ?? [], missionLocale),
-    [missionLocale, ttsCapabilities?.voices],
+    () => recommendedGoogleVoices(ttsCapabilities?.voices ?? [], missionLocale, partnerVersion),
+    [missionLocale, partnerVersion, ttsCapabilities?.voices],
   );
   const globalGooglePreference = decodeGoogleVoicePreference(voiceURI);
   const targetGoogleGender = partnerVersion === "woman" ? "FEMALE" : "MALE";
@@ -298,6 +298,13 @@ export function SpeakingMissionsPreview() {
       : partnerAudioSource === "text"
         ? true
         : ttsStatus === "ready" && partnerVoice !== null;
+  const voiceRegionLabel = activeTravelDestination
+    ? `${activeTravelDestination.flag} ${activeTravelDestination.country}`
+    : missionLocale === "es-CR"
+      ? "Neutral Costa Rica"
+      : missionLocale === "en-US"
+        ? "Neutral United States"
+        : missionLocale;
   const practiceNotice = selectedMission ? highStakesNotice(selectedMission) : null;
   const catalogCategories = useMemo(
     () => [...new Set(languageModules.map((module) => module.category))],
@@ -333,6 +340,11 @@ export function SpeakingMissionsPreview() {
   }, []);
 
   useEffect(() => {
+    if (!activeTravelDestination || accent === activeTravelDestination.ttsLocale) return;
+    setAccent(activeTravelDestination.ttsLocale);
+  }, [accent, activeTravelDestination, setAccent]);
+
+  useEffect(() => {
     const refreshAvailability = () => {
       setDeviceVoiceAvailable(Boolean(pickVoice(missionLocale, voiceURI)));
     };
@@ -343,14 +355,21 @@ export function SpeakingMissionsPreview() {
   useEffect(() => {
     if (!session) {
       setAgeConfirmed(false);
+      setAgeLoaded(true);
       return;
     }
     const controller = new AbortController();
+    setAgeLoaded(false);
     getSpeakingAgeAttestation(controller.signal)
-      .then(setAgeConfirmed)
+      .then((confirmed) => {
+        setAgeConfirmed(confirmed);
+        setAgeLoaded(true);
+      })
       .catch((error) => {
         if (error instanceof DOMException && error.name === "AbortError") return;
         setAgeConfirmed(false);
+        setAgeLoaded(true);
+        setErrorMessage("Speaking confirmation could not be loaded. Please try again.");
       });
     return () => controller.abort();
   }, [session]);
@@ -524,25 +543,8 @@ export function SpeakingMissionsPreview() {
     [missionLocale, partnerAudioSource, partnerSpeed, partnerVoice, stopAudio, ttsStatus, voiceURI],
   );
 
-  const updateAgeAttestation = async (checked: boolean) => {
-    if (!session) {
-      setAuthOpen(true);
-      return;
-    }
-    setAgeSaving(true);
-    setErrorMessage(null);
-    try {
-      const saved = await saveSpeakingAgeAttestation(checked);
-      setAgeConfirmed(saved);
-    } catch {
-      setErrorMessage("The account age self-attestation could not be saved. Please try again.");
-    } finally {
-      setAgeSaving(false);
-    }
-  };
-
-  const beginMission = () => {
-    if (!selectedMission || !ageConfirmed || !partnerAudioReady) return;
+  const startMissionSession = () => {
+    if (!selectedMission || !partnerAudioReady) return;
     stopActiveWork();
     setWordRequest(null);
     const opening: MissionTurn = {
@@ -564,6 +566,42 @@ export function SpeakingMissionsPreview() {
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
     void speakPartnerText(opening.text);
+  };
+
+  const confirmAgeAndBegin = async () => {
+    if (!session) {
+      setConsentOpen(false);
+      setAuthOpen(true);
+      return;
+    }
+    setAgeSaving(true);
+    setErrorMessage(null);
+    try {
+      const saved = await saveSpeakingAgeAttestation(true);
+      if (!saved) throw new Error("Speaking confirmation was not saved.");
+      setAgeConfirmed(true);
+      setAgeLoaded(true);
+      setConsentOpen(false);
+      startMissionSession();
+    } catch {
+      setErrorMessage("The one-time speaking confirmation could not be saved. Please try again.");
+    } finally {
+      setAgeSaving(false);
+    }
+  };
+
+  const requestMissionStart = () => {
+    if (!selectedMission || !partnerAudioReady || ageSaving) return;
+    if (!session) {
+      setAuthOpen(true);
+      return;
+    }
+    if (!ageLoaded) return;
+    if (!ageConfirmed) {
+      setConsentOpen(true);
+      return;
+    }
+    startMissionSession();
   };
 
   const exitMission = () => {
@@ -1012,6 +1050,14 @@ export function SpeakingMissionsPreview() {
         className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
       >
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+        <SpeakingConsentDialog
+          open={consentOpen}
+          saving={ageSaving}
+          language={selectedMission.language}
+          audioSource={partnerAudioSource}
+          onOpenChange={setConsentOpen}
+          onConfirm={() => void confirmAgeAndBegin()}
+        />
         <button
           type="button"
           onClick={() => setSelectedMission(null)}
@@ -1048,7 +1094,7 @@ export function SpeakingMissionsPreview() {
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Mission objectives
+              Goals for this mission · reference
             </p>
             <ul className="mt-2 space-y-2 text-sm text-foreground/85">
               {selectedMission.objectives.map((objective) => (
@@ -1064,11 +1110,14 @@ export function SpeakingMissionsPreview() {
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Focus concepts
+              Words you may use · reference
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {selectedMission.vocabulary.map((word) => (
-                <span key={word} className="rounded-full border border-border/70 px-3 py-1 text-xs">
+                <span
+                  key={word}
+                  className="rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
+                >
                   {word}
                 </span>
               ))}
@@ -1076,9 +1125,14 @@ export function SpeakingMissionsPreview() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-gold/25 bg-background/50 p-4">
+        <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
+          <div className="mb-4 rounded-xl bg-gold/10 px-3 py-2 text-xs leading-relaxed text-foreground/85">
+            <span className="font-semibold text-gold">Set your choices.</span> Tappable choices have
+            strong borders; the selected choice is filled gold. The goals and words above are
+            reference information, not buttons.
+          </div>
           <fieldset>
-            <legend className="text-sm text-muted-foreground">Partner audio</legend>
+            <legend className="text-sm font-semibold text-foreground">Choose partner audio</legend>
             <div className="mt-2 grid grid-cols-3 gap-2">
               {(["device", "google", "text"] as const).map((source) => {
                 const selected = partnerAudioSource === source;
@@ -1091,31 +1145,38 @@ export function SpeakingMissionsPreview() {
                     disabled={!available}
                     aria-pressed={selected}
                     className={
-                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      "min-h-14 rounded-xl border-2 px-2 py-2.5 text-sm font-medium transition-colors " +
                       (selected
-                        ? "border-gold bg-gold/15 text-gold"
+                        ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
                         : available
-                          ? "border-border text-muted-foreground hover:text-foreground"
-                          : "cursor-not-allowed border-border text-muted-foreground opacity-40")
+                          ? "border-border bg-card text-foreground hover:border-gold/60"
+                          : "cursor-not-allowed border-border bg-card text-muted-foreground opacity-40")
                     }
                   >
-                    {source === "device"
-                      ? "Device voice"
-                      : source === "text"
-                        ? "Text only"
-                        : "Google voices"}
+                    <span className="flex items-center justify-center gap-1.5">
+                      {selected && <Check className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                      {source === "device"
+                        ? "Phone voice"
+                        : source === "text"
+                          ? "Text only"
+                          : "Google voice"}
+                    </span>
                   </button>
                 );
               })}
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Device voice uses an installed {selectedMission.language} voice. Google lists every
-              compatible cloud voice for this language. Text-only keeps every mission usable when
-              speech services are unavailable.
+              Phone voice uses a voice installed on this device. Google preselects a short list for
+              {activeTravelDestination
+                ? ` ${activeTravelDestination.country}`
+                : ` ${selectedMission.language}`}
+              . Text-only keeps every mission usable without playback.
             </p>
           </fieldset>
           <fieldset className="mt-4 border-t border-border/60 pt-4">
-            <legend className="text-sm text-muted-foreground">Conversation partner</legend>
+            <legend className="text-sm font-semibold text-foreground">
+              Choose conversation partner
+            </legend>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {(["woman", "man"] as const).map((version) => {
                 const selected = partnerVersion === version;
@@ -1129,13 +1190,16 @@ export function SpeakingMissionsPreview() {
                     }}
                     aria-pressed={selected}
                     className={
-                      "rounded-xl border px-3 py-2.5 text-sm transition-colors " +
+                      "min-h-14 rounded-xl border-2 px-3 py-2.5 text-sm font-medium transition-colors " +
                       (selected
-                        ? "border-gold bg-gold/15 text-gold"
-                        : "border-border text-muted-foreground hover:text-foreground")
+                        ? "border-gold bg-gold text-black shadow-md shadow-gold/10"
+                        : "border-border bg-card text-foreground hover:border-gold/60")
                     }
                   >
-                    {version === "woman" ? "Woman partner" : "Man partner"}
+                    <span className="flex items-center justify-center gap-2">
+                      {selected && <Check className="h-4 w-4" aria-hidden="true" />}
+                      {version === "woman" ? "Woman partner" : "Man partner"}
+                    </span>
                   </button>
                 );
               })}
@@ -1145,42 +1209,27 @@ export function SpeakingMissionsPreview() {
               response rhythm adapted for this version.
             </p>
           </fieldset>
-          <label className="mt-4 flex items-start gap-3 border-t border-border/60 pt-4 text-sm text-foreground/90">
-            <input
-              type="checkbox"
-              checked={ageConfirmed}
-              disabled={ageSaving}
-              onChange={(event) => void updateAgeAttestation(event.target.checked)}
-              className="mt-1"
-            />
-            <span>
-              I self-attest that I am at least 13. This account-level attestation is saved with my
-              account; it is not an identity or age-document verification. Mission mode sends the
-              current rolling text transcript to Anthropic for the next reply and AI-estimated
-              coaching.
-              {partnerAudioSource === "google"
-                ? ` Google Cloud receives only the partner's generated ${selectedMission.language} line plus voice and speed settings to create playback. The app does not send microphone audio to Google Cloud TTS.`
-                : partnerAudioSource === "device"
-                  ? " Partner playback uses this device's browser voice; the app does not send the partner line to Google Cloud TTS."
-                  : " Text-only mode sends no partner line to a speech-synthesis provider."}{" "}
-              Browser speech recognition may use browser or operating-system services.
-            </span>
-          </label>
-          {!session && (
-            <button
-              type="button"
-              onClick={() => setAuthOpen(true)}
-              className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
-            >
-              Sign in to enable AI speaking
-            </button>
-          )}
+          <div className="mt-4 border-t border-border/60 pt-4 text-sm">
+            {session && !ageLoaded ? (
+              <p className="text-muted-foreground">Checking your saved speaking confirmation…</p>
+            ) : ageConfirmed ? (
+              <p className="flex items-center gap-2 text-emerald-300">
+                <Check className="h-4 w-4" aria-hidden="true" /> Speaking confirmation saved to this
+                account
+              </p>
+            ) : (
+              <p className="text-muted-foreground">
+                The first time you tap Start, one large confirmation appears. Confirm once and you
+                will not be asked again.
+              </p>
+            )}
+          </div>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-            <span className="text-muted-foreground">Coaching language</span>
+            <span className="font-semibold text-foreground">Choose coaching language</span>
             <select
               value={feedbackLanguage}
               onChange={(event) => setFeedbackLanguage(event.target.value as FeedbackLanguage)}
-              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
             >
               <option value="Native language">{appState.nativeLanguage}</option>
               <option value="Target language">{selectedMission.language}</option>
@@ -1188,11 +1237,11 @@ export function SpeakingMissionsPreview() {
             </select>
           </label>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
-            <span className="text-muted-foreground">Spoken turn flow</span>
+            <span className="font-semibold text-foreground">Choose spoken turn flow</span>
             <select
               value={spokenTurnFlow}
               onChange={(event) => setSpokenTurnFlow(event.target.value as SpokenTurnFlow)}
-              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
             >
               <option value="quick">Quick response · send after silence</option>
               <option value="review">Review transcript before sending</option>
@@ -1235,7 +1284,9 @@ export function SpeakingMissionsPreview() {
             </p>
           ) : partnerAudioSource === "google" && partnerVoice ? (
             <label className="mt-3 grid gap-1 text-sm">
-              <span className="text-muted-foreground">Google voice</span>
+              <span className="font-semibold text-foreground">
+                Choose Google voice · {voiceRegionLabel}
+              </span>
               <select
                 value={partnerVoice.name}
                 onChange={(event) => {
@@ -1248,7 +1299,7 @@ export function SpeakingMissionsPreview() {
                   if (voice.ssmlGender === "FEMALE") setPartnerVersion("woman");
                   if (voice.ssmlGender === "MALE") setPartnerVersion("man");
                 }}
-                className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+                className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
               >
                 {availableGoogleVoices.map((voice) => (
                   <option key={voice.name} value={voice.name}>
@@ -1257,8 +1308,10 @@ export function SpeakingMissionsPreview() {
                 ))}
               </select>
               <span className="text-xs leading-relaxed text-muted-foreground">
-                {availableGoogleVoices.length} compatible voices. Choosing a woman or man voice also
-                keeps the conversation-partner version aligned.
+                {activeTravelDestination
+                  ? `${activeTravelDestination.country} is selected for your trip, so only matching ${missionLocale} voices are shown when Google provides them.`
+                  : `No trip country is selected, so ${voiceRegionLabel} is the preselected textbook-style default.`}{" "}
+                The app preselects one for your partner choice; changing it is optional.
               </span>
               <button
                 type="button"
@@ -1267,9 +1320,9 @@ export function SpeakingMissionsPreview() {
                     partnerVoiceSample(selectedMission.language, partnerVersion),
                   )
                 }
-                className="mt-2 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+                className="mt-2 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
               >
-                Test {partnerVoice.label} at {partnerSpeed}×
+                ▶ Play voice sample · {partnerSpeed}×
               </button>
             </label>
           ) : partnerAudioReady ? (
@@ -1278,9 +1331,9 @@ export function SpeakingMissionsPreview() {
               onClick={() =>
                 void speakPartnerText(partnerVoiceSample(selectedMission.language, partnerVersion))
               }
-              className="mt-3 w-full rounded-xl border border-gold/40 px-3 py-2 text-sm text-gold"
+              className="mt-3 min-h-12 w-full rounded-xl border-2 border-gold/60 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold"
             >
-              Test {partnerAudioSource === "device" ? "device" : partnerVersion} voice at{" "}
+              ▶ Play {partnerAudioSource === "device" ? "phone" : partnerVersion} voice sample ·{" "}
               {partnerSpeed}×
             </button>
           ) : (
@@ -1301,14 +1354,14 @@ export function SpeakingMissionsPreview() {
           </p>
           <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
             <span className="flex items-center justify-between gap-3 text-muted-foreground">
-              <span>Partner speed · ear training</span>
+              <span className="font-semibold text-foreground">Choose partner speed</span>
               <span className="font-mono text-gold">{partnerSpeed}×</span>
             </span>
             <select
               value={partnerSpeed}
               onChange={(event) => setRate(Number(event.target.value))}
               disabled={partnerAudioSource === "text"}
-              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+              className="min-h-12 rounded-xl border-2 border-gold/35 bg-card px-3 py-2 text-foreground"
             >
               {MISSION_TTS_SPEEDS.map((speed) => (
                 <option key={speed} value={speed}>
@@ -1333,11 +1386,15 @@ export function SpeakingMissionsPreview() {
 
         <button
           type="button"
-          onClick={beginMission}
-          disabled={!session || !ageConfirmed || !partnerAudioReady || ageSaving}
-          className="mt-5 w-full rounded-xl bg-gold px-4 py-3 font-semibold text-black disabled:cursor-not-allowed disabled:opacity-40"
+          onClick={requestMissionStart}
+          disabled={!partnerAudioReady || ageSaving || Boolean(session && !ageLoaded)}
+          className="mt-5 min-h-14 w-full rounded-2xl bg-gold px-4 py-3 font-semibold text-black shadow-lg shadow-gold/10 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Start mission
+          {!session
+            ? "Sign in to start mission"
+            : !ageLoaded
+              ? "Checking account…"
+              : "Start mission"}
         </button>
         <p className="mt-2 text-center text-xs text-muted-foreground">
           AI feedback and objective observations are advisory practice signals. They are not a
@@ -1359,6 +1416,15 @@ export function SpeakingMissionsPreview() {
         ref={viewTopRef}
         className="scroll-mt-4 mt-5 rounded-3xl border border-emerald-400/30 bg-card/50 p-5"
       >
+        <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+        <SpeakingConsentDialog
+          open={consentOpen}
+          saving={ageSaving}
+          language={selectedMission.language}
+          audioSource={partnerAudioSource}
+          onOpenChange={setConsentOpen}
+          onConfirm={() => void confirmAgeAndBegin()}
+        />
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">
           Mission recap · UX preview
         </p>
@@ -1426,7 +1492,7 @@ export function SpeakingMissionsPreview() {
         <div className="mt-5 grid grid-cols-2 gap-3">
           <button
             type="button"
-            onClick={beginMission}
+            onClick={requestMissionStart}
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400/40 px-4 py-3 text-sm text-emerald-200"
           >
             <RotateCcw className="h-4 w-4" /> Try again

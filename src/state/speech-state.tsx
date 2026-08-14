@@ -23,6 +23,7 @@ export interface AccentOption {
 export const ACCENTS_BY_LANGUAGE: Record<Language, AccentOption[]> = {
   Spanish: [
     { code: "es-CR", label: "Costa Rica (es-CR)" },
+    { code: "es-419", label: "Latin America — general (es-419)" },
     { code: "es-MX", label: "México (es-MX)" },
     { code: "es-US", label: "US Spanish (es-US)" },
     { code: "es-ES", label: "Spain (es-ES)" },

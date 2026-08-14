@@ -4,9 +4,11 @@ import {
   decodeGoogleVoicePreference,
   defaultGoogleVoice,
   encodeGoogleVoicePreference,
+  googleVoicesForLocale,
   isMissionTtsSpeed,
   MISSION_TTS_SPEEDS,
   MISSION_TTS_SUPPORTED_LANGUAGES,
+  recommendedGoogleVoices,
 } from "../src/data/mission-tts.ts";
 import {
   CORE_VERBS,
@@ -170,8 +172,7 @@ test("speaking preview covers every authored topic in Spanish, Italian, Japanese
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 7716);
   assert.ok(
     !SPEAKING_MISSIONS.some(
-      (mission) =>
-        mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),
+      (mission) => mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),
     ),
   );
   assert.ok(
@@ -180,12 +181,8 @@ test("speaking preview covers every authored topic in Spanish, Italian, Japanese
     ),
   );
 
-  const englishFromSpanish = getSpeakingModules("English", "Spanish").map(
-    (module) => module.id,
-  );
-  const englishFromItalian = getSpeakingModules("English", "Italian").map(
-    (module) => module.id,
-  );
+  const englishFromSpanish = getSpeakingModules("English", "Spanish").map((module) => module.id);
+  const englishFromItalian = getSpeakingModules("English", "Italian").map((module) => module.id);
   const englishFromPortuguese = getSpeakingModules("English", "Portuguese").map(
     (module) => module.id,
   );
@@ -348,6 +345,34 @@ test("Google voice preferences round-trip and gender defaults stay aligned", () 
   });
   assert.equal(defaultGoogleVoice(voices, "it-IT", "woman")?.ssmlGender, "FEMALE");
   assert.equal(defaultGoogleVoice(voices, "it-IT", "man")?.ssmlGender, "MALE");
+});
+
+test("Google voice choices prefer the destination locale and stay short", () => {
+  const voice = (locale, suffix, ssmlGender) => ({
+    name: `${locale}-Chirp3-HD-${suffix}`,
+    languageCodes: [locale],
+    ssmlGender,
+    naturalSampleRateHertz: 24000,
+    tier: "Chirp 3 HD",
+    label: `Chirp 3 HD · ${suffix}`,
+  });
+  const voices = [
+    voice("en-US", "USWoman", "FEMALE"),
+    voice("en-GB", "GBWoman1", "FEMALE"),
+    voice("en-GB", "GBWoman2", "FEMALE"),
+    voice("en-GB", "GBMan", "MALE"),
+    voice("en-AU", "AUWoman", "FEMALE"),
+  ];
+
+  assert.deepEqual(
+    googleVoicesForLocale(voices, "en-GB").map((candidate) => candidate.name),
+    ["en-GB-Chirp3-HD-GBMan", "en-GB-Chirp3-HD-GBWoman1", "en-GB-Chirp3-HD-GBWoman2"],
+  );
+  assert.deepEqual(
+    recommendedGoogleVoices(voices, "en-GB", "woman", 2).map((candidate) => candidate.name),
+    ["en-GB-Chirp3-HD-GBWoman1", "en-GB-Chirp3-HD-GBWoman2"],
+  );
+  assert.equal(googleVoicesForLocale(voices, "en-IE").length, voices.length);
 });
 
 test("high-stakes daily missions carry explicit runtime policy", () => {

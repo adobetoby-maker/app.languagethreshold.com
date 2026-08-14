@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
-import {
-  isSpeakingPrivacyMode,
-  LANGUAGE_THRESHOLD_GA_ID,
-} from "../lib/speaking-privacy";
+import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
+import { reloadNewestAppVersion } from "../lib/app-update";
 
 const GA_ID = LANGUAGE_THRESHOLD_GA_ID;
 
@@ -96,7 +94,10 @@ export const Route = createRootRoute({
       { property: "og:image", content: "https://app.languagethreshold.com/icons/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Language Threshold — AI Language Training for Professionals" },
+      {
+        property: "og:image:alt",
+        content: "Language Threshold — AI Language Training for Professionals",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Language Threshold — AI Language Training" },
       {
@@ -139,7 +140,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
             {/* GA_ID is a build-time env constant — not user input, no XSS risk */}
-            <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});` }} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`,
+              }}
+            />
           </>
         )}
       </body>
@@ -161,7 +166,7 @@ function RootComponent() {
       toast("New version available", {
         id: "sw-update",
         description: "Tap Reload to get the latest update.",
-        action: { label: "Reload", onClick: () => window.location.reload() },
+        action: { label: "Update", onClick: () => void reloadNewestAppVersion() },
         duration: Infinity,
       });
     };
@@ -179,7 +184,11 @@ function RootComponent() {
           const newSW = reg.installing;
           if (!newSW) return;
           newSW.addEventListener("statechange", () => {
-            if (newSW.state === "activated" && navigator.serviceWorker.controller && hadController) {
+            if (
+              newSW.state === "activated" &&
+              navigator.serviceWorker.controller &&
+              hadController
+            ) {
               showUpdateToast();
             }
           });

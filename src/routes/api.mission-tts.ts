@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
   googleVoiceLabel,
+  googleVoicesForLocale,
   googleVoiceSupportsSpeakingRate,
   googleVoiceTier,
   isSupportedGoogleTtsLocale,
@@ -110,7 +111,7 @@ async function capabilities(locale: string) {
     };
   }
   const apiKey = process.env.GOOGLE_CLOUD_TTS_API_KEY as string;
-  const voices = await listGoogleVoices(apiKey, locale);
+  const voices = googleVoicesForLocale(await listGoogleVoices(apiKey, locale), locale);
   return {
     provider: "google-cloud-tts" as const,
     ready: voices.length > 0,
@@ -197,14 +198,11 @@ export const Route = createFileRoute("/api/mission-tts")({
 
         const apiKey = process.env.GOOGLE_CLOUD_TTS_API_KEY as string;
         try {
-          const voices = await listGoogleVoices(apiKey, parsed.data.languageCode);
-          const voice = voices.find(
-            (candidate) =>
-              candidate.name === parsed.data.voiceName &&
-              candidate.languageCodes.some(
-                (code) => languageFamily(code) === languageFamily(parsed.data.languageCode),
-              ),
+          const voices = googleVoicesForLocale(
+            await listGoogleVoices(apiKey, parsed.data.languageCode),
+            parsed.data.languageCode,
           );
+          const voice = voices.find((candidate) => candidate.name === parsed.data.voiceName);
           if (!voice) return json({ error: "That Google voice is unavailable." }, 400);
 
           const renderedRate = googleVoiceSupportsSpeakingRate(voice.name)

@@ -69,6 +69,7 @@ function spanishDestinationLocale(id: string): string {
     spain: "es-ES",
     mexico: "es-MX",
     argentina: "es-AR",
+    "costa-rica": "es-CR",
     "equatorial-guinea": "es-ES",
     "puerto-rico": "es-US",
   };

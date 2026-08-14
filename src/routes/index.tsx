@@ -34,6 +34,7 @@ import { MatchmakingOverlay } from "@/components/match/MatchmakingOverlay";
 import { MatchAchievementsBridge } from "@/components/match/MatchAchievementsBridge";
 import { OnboardingWizard } from "@/components/onboarding/OnboardingWizard";
 import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
+import { PushReminderSync } from "@/components/PushReminderSync";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -67,12 +68,17 @@ function UrlModuleBridge() {
     if (!state.hydrated) return;
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
+    const tab = params.get("tab");
     if (moduleId && moduleId !== state.activeModuleId) {
       dispatch({ type: "PURCHASE_MODULE", payload: moduleId });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: moduleId });
       if (moduleId === "lds-missionary") {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
+    }
+    const allowedTabs = new Set(["reader", "grammar", "speak", "dashboard", "modules", "games"]);
+    if (tab && allowedTabs.has(tab)) {
+      dispatch({ type: "SET_TAB", payload: tab as "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games" });
     }
     // Only run once after hydration
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -167,6 +173,7 @@ function Index() {
                                             />
                                             <MatchAchievementsBridge />
                                             <DailyChallengeBridge />
+                                            <PushReminderSync />
                                           </DailyChallengeProvider>
                                         </FalseFriendsProvider>
                                       </IdiomMasterProvider>

@@ -22,6 +22,8 @@ import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
+import { Route as ApiPushRouteImport } from './routes/api.push'
+import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
@@ -95,6 +97,16 @@ const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
   path: '/api/module-field-prep',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPushRoute = ApiPushRouteImport.update({
+  id: '/api/push',
+  path: '/api/push',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPushCronRoute = ApiPushCronRouteImport.update({
+  id: '/api/push-cron',
+  path: '/api/push-cron',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSpeakRoute = ApiSpeakRouteImport.update({
   id: '/api/speak',
   path: '/api/speak',
@@ -145,6 +157,8 @@ export interface FileRoutesByFullPath {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/push': typeof ApiPushRoute
+  '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -167,6 +181,8 @@ export interface FileRoutesByTo {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/push': typeof ApiPushRoute
+  '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -190,6 +206,8 @@ export interface FileRoutesById {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/push': typeof ApiPushRoute
+  '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
@@ -214,6 +232,8 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/push'
+    | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
@@ -236,6 +256,8 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/push'
+    | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
@@ -258,6 +280,8 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/push'
+    | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
@@ -281,6 +305,8 @@ export interface RootRouteChildren {
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
+  ApiPushRoute: typeof ApiPushRoute
+  ApiPushCronRoute: typeof ApiPushCronRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
@@ -383,6 +409,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/push': {
+      id: '/api/push'
+      path: '/api/push'
+      fullPath: '/api/push'
+      preLoaderRoute: typeof ApiPushRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/push-cron': {
+      id: '/api/push-cron'
+      path: '/api/push-cron'
+      fullPath: '/api/push-cron'
+      preLoaderRoute: typeof ApiPushCronRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/speak': {
       id: '/api/speak'
       path: '/api/speak'
@@ -449,6 +489,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFieldPrepRoute: ApiFieldPrepRoute,
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
+  ApiPushRoute: ApiPushRoute,
+  ApiPushCronRoute: ApiPushCronRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,

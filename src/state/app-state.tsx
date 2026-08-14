@@ -206,6 +206,7 @@ export interface AppState {
   xp: number;
   streak: number;
   lastActiveDate: string | null; // YYYY-MM-DD
+  lastPracticeDate: string | null; // YYYY-MM-DD; lesson or speaking practice
   level: Level; // learner self-level (existing behavior)
   tier: XpTier; // derived from xp
   achievements: string[]; // achievement ids
@@ -263,6 +264,12 @@ export interface AppState {
   // Destination-specific vacation prep, kept independently for each language.
   nextTrips: Partial<Record<Language, NextTripPlan>>;
 
+  // The most recently chosen speaking mission for each language. This is a
+  // practice focus, not a mastery claim; reminders use it as the next topic.
+  speakingFocusByLanguage: Partial<
+    Record<Language, { missionId: string; title: string; updatedAt: string }>
+  >;
+
   onboardingComplete: boolean;
   lessonProgress: Record<string, number>; // moduleId → completed lesson count
 
@@ -288,6 +295,7 @@ export type AppAction =
   | { type: "SET_TAB"; payload: TabKey }
   | { type: "ADD_XP"; payload: number }
   | { type: "SET_STREAK"; payload: { streak: number; date: string } }
+  | { type: "MARK_PRACTICE" }
   | { type: "SET_LEVEL"; payload: Level }
   | { type: "ADD_ACHIEVEMENT"; payload: string }
   | { type: "ADD_NOTE"; payload: Note }
@@ -318,6 +326,10 @@ export type AppAction =
       type: "SET_NEXT_TRIP";
       payload: { language: Language; plan: NextTripPlan | null };
     }
+  | {
+      type: "SET_SPEAKING_FOCUS";
+      payload: { language: Language; missionId: string; title: string };
+    }
   | { type: "COMPLETE_ONBOARDING" }
   | {
       type: "SET_USER_VOCAB";
@@ -344,6 +356,7 @@ const initialState: AppState = {
   xp: 0,
   streak: 0,
   lastActiveDate: null,
+  lastPracticeDate: null,
   level: "Beginner",
   tier: "Beginner 🌱",
   achievements: [],
@@ -369,6 +382,7 @@ const initialState: AppState = {
   favoriteTeam: null,
   departureDate: null,
   nextTrips: {},
+  speakingFocusByLanguage: {},
   onboardingComplete: false,
   lessonProgress: {},
   vocabAnswers: [],
@@ -454,6 +468,8 @@ export function reducer(state: AppState, action: AppAction): AppState {
     }
     case "SET_STREAK":
       return { ...state, streak: action.payload.streak, lastActiveDate: action.payload.date };
+    case "MARK_PRACTICE":
+      return { ...state, lastPracticeDate: todayKey() };
     case "SET_LEVEL":
       return { ...state, level: action.payload };
     case "ADD_ACHIEVEMENT":
@@ -535,6 +551,18 @@ export function reducer(state: AppState, action: AppAction): AppState {
       else delete nextTrips[action.payload.language];
       return { ...state, nextTrips };
     }
+    case "SET_SPEAKING_FOCUS":
+      return {
+        ...state,
+        speakingFocusByLanguage: {
+          ...state.speakingFocusByLanguage,
+          [action.payload.language]: {
+            missionId: action.payload.missionId,
+            title: action.payload.title.slice(0, 140),
+            updatedAt: new Date().toISOString(),
+          },
+        },
+      };
     case "COMPLETE_ONBOARDING":
       return { ...state, onboardingComplete: true };
     case "COMPLETE_LESSON": {
@@ -544,6 +572,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
         ...state,
         lessonProgress: { ...state.lessonProgress, [moduleId]: current + 1 },
         lessonsCompleted: state.lessonsCompleted + 1,
+        lastPracticeDate: todayKey(),
       };
     }
     case "SET_USER_VOCAB": {
@@ -751,12 +780,21 @@ export function reducer(state: AppState, action: AppAction): AppState {
         cefrLevelsCompleted,
         selectedLanguage,
         nextTrips: { ...state.nextTrips, ...(remote.nextTrips ?? {}) },
+        speakingFocusByLanguage: {
+          ...state.speakingFocusByLanguage,
+          ...(remote.speakingFocusByLanguage ?? {}),
+        },
         vocabByLanguage,
         vocabRevisionsByLanguage,
         // Derived view — never written independently (F1).
         userVocab: deriveUserVocab(vocabByLanguage, selectedLanguage),
         vocabLang: selectedLanguage,
         streak: Math.max(state.streak, remote.streak ?? 0),
+        lastPracticeDate:
+          [state.lastPracticeDate, remote.lastPracticeDate]
+            .filter((value): value is string => Boolean(value))
+            .sort()
+            .at(-1) ?? null,
         wordsLookedUp: Math.max(state.wordsLookedUp, remote.wordsLookedUp ?? 0),
         notesSaved: Math.max(state.notesSaved, remote.notesSaved ?? 0),
         tutorMessages: Math.max(state.tutorMessages, remote.tutorMessages ?? 0),
@@ -787,7 +825,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
 
 const STORAGE_KEY = "lt.app.v2";
 const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
 
@@ -820,6 +858,14 @@ function migrate(raw: unknown): PersistedShape {
   if (v < 3) {
     data.nextTrips ??= {};
     v = 3;
+  }
+
+  // v3 -> v4: remember the learner's chosen speaking topic for layered
+  // reminders. Existing profiles begin with no speaking focus.
+  if (v < 4) {
+    data.speakingFocusByLanguage ??= {};
+    data.lastPracticeDate ??= null;
+    v = 4;
   }
 
   // Drop keys not in PERSIST_KEYS (forward-compat / cleanup)
@@ -882,6 +928,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "xp",
   "streak",
   "lastActiveDate",
+  "lastPracticeDate",
   "level",
   "tier",
   "achievements",
@@ -915,6 +962,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "favoriteTeam",
   "departureDate",
   "nextTrips",
+  "speakingFocusByLanguage",
 ];
 
 function todayKey() {

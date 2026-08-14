@@ -624,6 +624,10 @@ export function SpeakingMissionsPreview() {
   const selectMission = (mission: SpeakingMission) => {
     exitMission();
     setSelectedMission(mission);
+    appDispatch({
+      type: "SET_SPEAKING_FOCUS",
+      payload: { language: mission.language, missionId: mission.id, title: mission.title },
+    });
   };
 
   const activeObjective = selectedMission?.objectives.find(
@@ -641,6 +645,8 @@ export function SpeakingMissionsPreview() {
       setStatus("ready");
       return;
     }
+
+    appDispatch({ type: "MARK_PRACTICE" });
 
     const learnerTurn: MissionTurn = {
       id: missionTurnId(),

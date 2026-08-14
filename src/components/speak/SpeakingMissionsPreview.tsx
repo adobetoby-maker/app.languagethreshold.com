@@ -55,6 +55,12 @@ type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
 type FeedbackLanguage = "Native language" | "Target language" | "Adaptive";
 type CompletionReason = "learner" | "natural" | "limit";
 type PartnerAudioSource = "device" | "google" | "text";
+type SpokenTurnFlow = "quick" | "review";
+
+interface ResponseTiming {
+  replyReadyMs: number;
+  voiceStartedMs?: number;
+}
 
 const CORE_SECTIONS: CoreSpeakingSection[] = [
   "Essential verbs",
@@ -197,6 +203,7 @@ export function SpeakingMissionsPreview() {
   const [ageSaving, setAgeSaving] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
+  const [spokenTurnFlow, setSpokenTurnFlow] = useState<SpokenTurnFlow>("quick");
   const [partnerVersion, setPartnerVersion] = useState<MissionPartnerVersion>("woman");
   const [partnerAudioSource, setPartnerAudioSource] = useState<PartnerAudioSource>("device");
   const [status, setStatus] = useState<MissionStatus>("ready");
@@ -220,6 +227,7 @@ export function SpeakingMissionsPreview() {
   const [transcriptSource, setTranscriptSource] = useState<"dictation" | "typed" | null>(null);
   const [partnerSpeaking, setPartnerSpeaking] = useState(false);
   const [skippedObjectiveIds, setSkippedObjectiveIds] = useState<string[]>([]);
+  const [lastResponseTiming, setLastResponseTiming] = useState<ResponseTiming | null>(null);
   const [wordRequest, setWordRequest] = useState<WordCardRequest | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const requestRef = useRef<AbortController | null>(null);
@@ -442,7 +450,7 @@ export function SpeakingMissionsPreview() {
   }, [started, status, stopActiveWork]);
 
   const speakPartnerText = useCallback(
-    async (text: string) => {
+    async (text: string, onPlaybackStart?: () => void) => {
       stopAudio();
       if (partnerAudioSource === "text") return;
       const playbackGeneration = ++playbackGenerationRef.current;
@@ -456,6 +464,7 @@ export function SpeakingMissionsPreview() {
           const utterance = new SpeechSynthesisUtterance(text);
           configureUtterance(utterance, missionLocale, voiceURI);
           utterance.rate = partnerSpeed;
+          utterance.onstart = () => onPlaybackStart?.();
           await new Promise<void>((resolve, reject) => {
             const finish = () => {
               finishDevicePlaybackRef.current = null;
@@ -485,6 +494,7 @@ export function SpeakingMissionsPreview() {
           languageCode: partnerVoice.languageCodes[0] ?? missionLocale,
           speakingRate: partnerSpeed,
           usage: "mission",
+          onPlaybackStart,
         });
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
@@ -531,6 +541,7 @@ export function SpeakingMissionsPreview() {
     setCompletionReason(null);
     setTypedTurn("");
     setTranscriptSource(null);
+    setLastResponseTiming(null);
     setStatus("ready");
     sessionStartedAtRef.current = Date.now();
     setStarted(true);
@@ -549,6 +560,7 @@ export function SpeakingMissionsPreview() {
     setCompletionReason(null);
     setTypedTurn("");
     setTranscriptSource(null);
+    setLastResponseTiming(null);
     setStatus("ready");
     sessionStartedAtRef.current = null;
   };
@@ -563,7 +575,10 @@ export function SpeakingMissionsPreview() {
       !objectiveIds.includes(objective.id) && !skippedObjectiveIds.includes(objective.id),
   );
 
-  const sendLearnerTurn = async (text: string) => {
+  const sendLearnerTurn = async (
+    text: string,
+    transcriptSourceOverride?: "dictation" | "typed",
+  ) => {
     if (!selectedMission) return;
     const learnerText = text.trim();
     if (!learnerText) {
@@ -576,7 +591,8 @@ export function SpeakingMissionsPreview() {
       role: "learner",
       text: learnerText,
     };
-    const learnerTranscriptSource = transcriptSource;
+    const learnerTranscriptSource = transcriptSourceOverride ?? transcriptSource;
+    const turnSubmittedAt = performance.now();
     const previousTurns = turns;
     setTurns((current) => [...current, learnerTurn]);
     setTypedTurn("");
@@ -625,6 +641,9 @@ export function SpeakingMissionsPreview() {
         );
       }
 
+      const replyReadyMs = Math.round(performance.now() - turnSubmittedAt);
+      setLastResponseTiming({ replyReadyMs });
+
       setTurns((current) => [
         ...current.map((turn) =>
           turn.id === learnerTurn.id ? { ...turn, feedback: payload.deferredFeedback } : turn,
@@ -637,7 +656,12 @@ export function SpeakingMissionsPreview() {
       requestRef.current = null;
       if (payload.shouldEnd) setCompletionReason("natural");
       setStatus(payload.shouldEnd ? "complete" : "ready");
-      void speakPartnerText(payload.assistantText);
+      void speakPartnerText(payload.assistantText, () => {
+        setLastResponseTiming({
+          replyReadyMs,
+          voiceStartedMs: Math.round(performance.now() - turnSubmittedAt),
+        });
+      });
     } catch (error) {
       requestRef.current = null;
       if (error instanceof DOMException && error.name === "AbortError") return;
@@ -697,6 +721,9 @@ export function SpeakingMissionsPreview() {
           setTranscriptSource("dictation");
           setErrorMessage(null);
           setStatus("ready");
+          if (spokenTurnFlow === "quick") {
+            gated(() => void sendLearnerTurn(capturedText, "dictation"));
+          }
           return;
         }
         if (recognitionError === "aborted") return;
@@ -1132,6 +1159,21 @@ export function SpeakingMissionsPreview() {
               <option value="Adaptive">Adaptive</option>
             </select>
           </label>
+          <label className="mt-4 grid gap-1 border-t border-border/60 pt-4 text-sm">
+            <span className="text-muted-foreground">Spoken turn flow</span>
+            <select
+              value={spokenTurnFlow}
+              onChange={(event) => setSpokenTurnFlow(event.target.value as SpokenTurnFlow)}
+              className="rounded-xl border border-border bg-background px-3 py-2 text-foreground"
+            >
+              <option value="quick">Quick response · send after silence</option>
+              <option value="review">Review transcript before sending</option>
+            </select>
+            <span className="text-xs leading-relaxed text-muted-foreground">
+              Quick response feels more conversational. Review mode lets you correct what the phone
+              heard before the partner replies.
+            </span>
+          </label>
           <div className="mt-4 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
             <div>
               <p className="text-sm text-muted-foreground">
@@ -1554,6 +1596,15 @@ export function SpeakingMissionsPreview() {
         </p>
       </div>
 
+      {lastResponseTiming && (
+        <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+          Last response · reply ready {(lastResponseTiming.replyReadyMs / 1000).toFixed(1)}s
+          {lastResponseTiming.voiceStartedMs !== undefined
+            ? ` · voice started ${(lastResponseTiming.voiceStartedMs / 1000).toFixed(1)}s`
+            : ""}
+        </p>
+      )}
+
       {transcriptSource === "dictation" && typedTurn.trim() && (
         <div
           role="status"
@@ -1613,6 +1664,9 @@ export function SpeakingMissionsPreview() {
         </button>
       </form>
       <p className="mt-1 text-center text-xs text-muted-foreground">
+        {spokenTurnFlow === "quick"
+          ? "Quick response sends when your phone detects that you finished speaking."
+          : "Review mode waits for you to approve the transcript."}{" "}
         You can also use the iPhone keyboard microphone in this answer box.
       </p>
 

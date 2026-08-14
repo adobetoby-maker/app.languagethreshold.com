@@ -200,6 +200,8 @@ export const Route = createFileRoute("/api/speak")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const requestStartedAt = Date.now();
+        const requestId = request.headers.get("x-vercel-id");
         if (!isStrictSameOrigin(request)) {
           return new Response(JSON.stringify({ error: "Cross-origin request rejected." }), {
             status: 403,
@@ -379,6 +381,7 @@ export const Route = createFileRoute("/api/speak")({
           }
 
           try {
+            const providerStartedAt = Date.now();
             const response = await client.messages.create({
               model: "claude-haiku-4-5",
               max_tokens: 512,
@@ -469,16 +472,42 @@ export const Route = createFileRoute("/api/speak")({
                 (parsed.data.shouldEnd &&
                   criticalSpeakingObjectivesAddressed(mission.objectives, addressedObjectiveIds)),
             };
+            const aiMs = Date.now() - providerStartedAt;
+            const totalMs = Date.now() - requestStartedAt;
+            console.log(
+              JSON.stringify({
+                level: "info",
+                message: "Speaking mission response ready",
+                route: "/api/speak",
+                mode: "mission",
+                status: 200,
+                requestId,
+                aiMs,
+                totalMs,
+              }),
+            );
             return new Response(JSON.stringify(result), {
               status: 200,
               headers: {
                 "Content-Type": "application/json",
                 "Cache-Control": "no-store",
+                "Server-Timing": `ai;dur=${aiMs}, total;dur=${totalMs}`,
               },
             });
           } catch (error) {
             Sentry.captureException(error);
-            console.error("Speaking mission request failed:", error);
+            console.error(
+              JSON.stringify({
+                level: "error",
+                message: "Speaking mission request failed",
+                route: "/api/speak",
+                mode: "mission",
+                status: 502,
+                requestId,
+                totalMs: Date.now() - requestStartedAt,
+                errorType: error instanceof Error ? error.name : "UnknownError",
+              }),
+            );
             return new Response(
               JSON.stringify({ error: "The mission partner could not respond." }),
               {

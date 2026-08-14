@@ -72,12 +72,14 @@ export async function speakMissionTts({
   languageCode,
   speakingRate,
   usage = "mission",
+  onPlaybackStart,
 }: {
   text: string;
   voiceName: string;
   languageCode: string;
   speakingRate: number;
   usage?: "learning" | "mission";
+  onPlaybackStart?: () => void;
 }) {
   stopMissionTts();
   const controller = new AbortController();
@@ -121,6 +123,9 @@ export async function speakMissionTts({
     finishActivePlayback = () => finish();
     audio.onended = () => finish();
     audio.onerror = () => finish(new Error("The generated audio could not play."));
-    audio.play().catch((error) => finish(error));
+    audio
+      .play()
+      .then(() => onPlaybackStart?.())
+      .catch((error) => finish(error));
   });
 }

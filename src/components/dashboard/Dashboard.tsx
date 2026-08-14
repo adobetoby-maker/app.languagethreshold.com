@@ -5,6 +5,7 @@ import { POINTS_PER_TIER, RANK_BADGE, RANK_COLOR, RANK_TITLE, useMatch } from "@
 import { CountUp } from "@/components/CountUp";
 import { flagFor } from "@/state/library-state";
 import { ModuleBadgesPanel } from "@/components/dashboard/ModuleBadgesPanel";
+import { NextTripBanner } from "@/components/travel/NextTripBanner";
 
 const LANG_FLAGS: Record<Language, string> = {
   Spanish: "🇪🇸",
@@ -34,7 +35,7 @@ function formatDay(date: string) {
 }
 
 export function Dashboard() {
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
   const m = useMatch();
   const progress = nextTierProgress(state.xp);
 
@@ -112,6 +113,13 @@ export function Dashboard() {
           </div>
         ))}
       </div>
+
+      {state.nextTrips[state.selectedLanguage] && (
+        <NextTripBanner
+          compact
+          onPracticeTravel={() => dispatch({ type: "SET_TAB", payload: "speak" })}
+        />
+      )}
 
       {/* Language Match rank card */}
       <section

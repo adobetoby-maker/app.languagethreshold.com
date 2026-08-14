@@ -12,6 +12,7 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { SM2Card } from "./sm2";
+import type { NextTripPlan } from "@/data/travel-destinations";
 import {
   applyMasteryIncrement,
   applyRegressionReset,
@@ -259,6 +260,9 @@ export interface AppState {
   // LDS Missionary departure date (YYYY-MM-DD) — drives Field Prep countdown
   departureDate: string | null;
 
+  // Destination-specific vacation prep, kept independently for each language.
+  nextTrips: Partial<Record<Language, NextTripPlan>>;
+
   onboardingComplete: boolean;
   lessonProgress: Record<string, number>; // moduleId → completed lesson count
 
@@ -310,6 +314,10 @@ export type AppAction =
   | { type: "SET_MODULE_ASSIGNMENT"; payload: { moduleId: string; assignmentId: string | null } }
   | { type: "SET_FAVORITE_TEAM"; payload: string | null }
   | { type: "SET_DEPARTURE_DATE"; payload: string | null }
+  | {
+      type: "SET_NEXT_TRIP";
+      payload: { language: Language; plan: NextTripPlan | null };
+    }
   | { type: "COMPLETE_ONBOARDING" }
   | {
       type: "SET_USER_VOCAB";
@@ -360,6 +368,7 @@ const initialState: AppState = {
   moduleAssignments: {},
   favoriteTeam: null,
   departureDate: null,
+  nextTrips: {},
   onboardingComplete: false,
   lessonProgress: {},
   vocabAnswers: [],
@@ -520,6 +529,12 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, favoriteTeam: action.payload };
     case "SET_DEPARTURE_DATE":
       return { ...state, departureDate: action.payload };
+    case "SET_NEXT_TRIP": {
+      const nextTrips = { ...state.nextTrips };
+      if (action.payload.plan) nextTrips[action.payload.language] = action.payload.plan;
+      else delete nextTrips[action.payload.language];
+      return { ...state, nextTrips };
+    }
     case "COMPLETE_ONBOARDING":
       return { ...state, onboardingComplete: true };
     case "COMPLETE_LESSON": {
@@ -735,6 +750,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
         languagesUsed,
         cefrLevelsCompleted,
         selectedLanguage,
+        nextTrips: { ...state.nextTrips, ...(remote.nextTrips ?? {}) },
         vocabByLanguage,
         vocabRevisionsByLanguage,
         // Derived view — never written independently (F1).
@@ -771,7 +787,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
 
 const STORAGE_KEY = "lt.app.v2";
 const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
 
@@ -797,6 +813,13 @@ function migrate(raw: unknown): PersistedShape {
     data.languagesUsed ??= [];
     data.cefrLevelsCompleted ??= [];
     v = 2;
+  }
+
+  // v2 -> v3: add per-language vacation plans without disturbing the
+  // missionary departure counter.
+  if (v < 3) {
+    data.nextTrips ??= {};
+    v = 3;
   }
 
   // Drop keys not in PERSIST_KEYS (forward-compat / cleanup)
@@ -891,6 +914,7 @@ const PERSIST_KEYS: (keyof AppState)[] = [
   "lessonProgress",
   "favoriteTeam",
   "departureDate",
+  "nextTrips",
 ];
 
 function todayKey() {

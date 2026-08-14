@@ -43,6 +43,8 @@ import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { NextTripBanner } from "@/components/travel/NextTripBanner";
+import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -54,6 +56,7 @@ const CORE_SECTIONS: CoreSpeakingSection[] = [
   "Essential verbs",
   "Grammar patterns",
   "Daily living",
+  "Relationships & intimacy",
 ];
 
 interface MissionTurn {
@@ -154,6 +157,9 @@ function highStakesNotice(mission: SpeakingMission) {
   if (mission.riskClass === "minor-data") {
     return "Use fictional child and family details only. Do not enter real school, pickup, or contact records.";
   }
+  if (mission.riskClass === "intimacy") {
+    return "Respectful communication practice only — no erotic roleplay. Use fictional details, honor consent and boundaries immediately, and ask a qualified clinician about personal sexual health.";
+  }
   return null;
 }
 
@@ -200,6 +206,10 @@ export function SpeakingMissionsPreview() {
     (appState.selectedLanguage !== "Japanese" || japaneseSpeakingReviewed)
       ? (appState.selectedLanguage as SpeakingMissionLanguage)
       : null;
+  const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
+  const tripDestination = getTravelDestination(tripPlan?.destinationId);
+  const activeTravelDestination =
+    tripDestination?.language === missionLanguage ? tripDestination : null;
   const languageModules = useMemo(
     () => (missionLanguage ? getSpeakingModules(missionLanguage) : []),
     [missionLanguage],
@@ -509,6 +519,8 @@ export function SpeakingMissionsPreview() {
           scenarioVersionId: selectedMission.id,
           feedbackLanguage,
           partnerVersion,
+          destinationCountryId:
+            selectedMission.specialty === "Travel" ? activeTravelDestination?.id : undefined,
         }),
         signal: controller.signal,
       });
@@ -640,9 +652,19 @@ export function SpeakingMissionsPreview() {
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Choose from {languageMissions.length} missions across {languageModules.length}{" "}
             {missionLanguage} modules. Start with Core Speaking for essential verbs, grammar, and
-            daily living; then move into specialty practice. Every mission supports woman and man
-            partner versions and does not yet count toward durable mastery.
+            daily living—including relationships and intimacy—then move into specialty practice.
+            Every mission supports woman and man partner versions and does not yet count toward
+            durable mastery.
           </p>
+        </div>
+        <div className="mb-5">
+          <NextTripBanner
+            onPracticeTravel={() => {
+              setCatalogModuleId(null);
+              setCatalogCategory("Travel");
+              setCatalogSearch("");
+            }}
+          />
         </div>
         {catalogModule ? (
           <>
@@ -666,7 +688,10 @@ export function SpeakingMissionsPreview() {
               </p>
             </div>
             {catalogModule.id === "core-speaking" && (
-              <div className="mb-4 grid grid-cols-3 gap-2" aria-label="Core speaking sections">
+              <div
+                className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4"
+                aria-label="Core speaking sections"
+              >
                 {CORE_SECTIONS.map((section) => {
                   const count = catalogMissions.filter(
                     (mission) => mission.coreSection === section,
@@ -810,6 +835,11 @@ export function SpeakingMissionsPreview() {
           </span>
         </div>
         <h2 className="mt-2 font-serif text-3xl text-foreground">{selectedMission.title}</h2>
+        {selectedMission.specialty === "Travel" && (
+          <div className="mt-4">
+            <NextTripBanner compact />
+          </div>
+        )}
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {selectedMission.summary}
         </p>

@@ -18,6 +18,7 @@ import {
   ds,
   fi,
 } from "./curriculum-helpers.ts";
+import { TRAVEL_ZONE_CURRICULA, TRAVEL_ZONE_READING_PATTERNS } from "./travel-zone.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
@@ -69,6 +70,7 @@ const MODULE_PATTERNS: Record<string, string[]> = {
   "legal-immigration": ["seed-{lang}-legal-asylum"],
   "k12-teacher": ["seed-{lang}-k12-iep"],
   "international-travel": ["seed-{lang}-travel-hotel"],
+  ...TRAVEL_ZONE_READING_PATTERNS,
   soccer: ["seed-{lang}-soccer-match"],
   hockey: ["seed-{lang}-hockey-rink"],
   baseball: ["seed-{lang}-baseball-dugout"],
@@ -2911,6 +2913,7 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
 // Merge extended curricula — import is at bottom to avoid circular init issues
 import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
 Object.assign(CURRICULA, EXTENDED_CURRICULA);
+Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 
 export function getCurriculum(moduleId: string): ModuleCurriculum | null {
   return CURRICULA[moduleId] ?? null;

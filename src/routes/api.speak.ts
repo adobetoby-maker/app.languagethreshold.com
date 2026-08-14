@@ -4,6 +4,11 @@ import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
 import { findSpeakingMission, type SpeakingMission } from "../data/speaking-missions";
 import {
+  destinationPromptContext,
+  getTravelDestination,
+  type TravelDestination,
+} from "../data/travel-destinations";
+import {
   authenticateSpeakingRequest,
   enforceSpeakingPreAuthRateLimit,
   enforceSpeakingRateLimit,
@@ -30,6 +35,7 @@ const BodySchema = z.object({
   scenarioVersionId: z.string().max(120).optional(),
   feedbackLanguage: z.enum(["English", "Target language", "Adaptive"]).optional(),
   partnerVersion: z.enum(["woman", "man"]).optional(),
+  destinationCountryId: z.string().min(1).max(80).optional(),
 });
 
 const MissionTurnSchema = z.object({
@@ -68,6 +74,7 @@ function missionSystemPrompt(
   mission: SpeakingMission,
   feedbackLanguage: string,
   partnerVersion: "woman" | "man",
+  destination: TravelDestination | null,
 ) {
   const feedbackRule =
     feedbackLanguage === "Target language"
@@ -83,6 +90,7 @@ function missionSystemPrompt(
     "Vary natural sentence rhythm and level-appropriate word choices across runs so the learner practices real listening variation while the underlying task stays comparable.",
     `The learner is the ${mission.learnerRole} in a ${mission.title} practice mission.`,
     `Specialty: ${mission.moduleName} (${mission.specialty}).`,
+    destination ? destinationPromptContext(destination) : "",
     `Speak natural ${mission.language} (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
     `Mission: ${mission.summary}`,
     `Objectives: ${mission.objectives.map((objective) => `${objective.id}: ${objective.description}`).join(" | ")}`,
@@ -255,6 +263,20 @@ export const Route = createFileRoute("/api/speak")({
               headers: { "Content-Type": "application/json" },
             });
           }
+          const destination = payload.destinationCountryId
+            ? getTravelDestination(payload.destinationCountryId)
+            : null;
+          if (
+            payload.destinationCountryId &&
+            (!destination ||
+              mission.specialty !== "Travel" ||
+              destination.language !== mission.language)
+          ) {
+            return new Response(JSON.stringify({ error: "Invalid destination context." }), {
+              status: 400,
+              headers: { "Content-Type": "application/json" },
+            });
+          }
 
           try {
             const response = await client.messages.create({
@@ -264,6 +286,7 @@ export const Route = createFileRoute("/api/speak")({
                 mission,
                 payload.feedbackLanguage ?? "Adaptive",
                 payload.partnerVersion ?? "woman",
+                destination,
               ),
               messages: payload.messages,
               tools: [

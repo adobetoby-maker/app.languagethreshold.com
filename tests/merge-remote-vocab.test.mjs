@@ -248,3 +248,38 @@ describe("MERGE_REMOTE reconciles vocabulary instead of overwriting it", () => {
     assert.deepEqual(next.vocabByLanguage, state.vocabByLanguage);
   });
 });
+
+describe("next-trip plans remain isolated by learning language", () => {
+  test("setting an Italian trip does not overwrite a Spanish trip", () => {
+    const withSpanish = localState({
+      nextTrips: {
+        Spanish: { destinationId: "mexico", departureDate: "2026-12-01" },
+      },
+    });
+    const next = reducer(withSpanish, {
+      type: "SET_NEXT_TRIP",
+      payload: {
+        language: "Italian",
+        plan: { destinationId: "italy", departureDate: "2026-09-15" },
+      },
+    });
+
+    assert.equal(next.nextTrips.Spanish.destinationId, "mexico");
+    assert.equal(next.nextTrips.Italian.destinationId, "italy");
+  });
+
+  test("remote sync merges plans by language", () => {
+    const next = mergeRemote(
+      localState({
+        nextTrips: { Italian: { destinationId: "italy", departureDate: null } },
+      }),
+      {
+        __v: 3,
+        nextTrips: { Spanish: { destinationId: "spain", departureDate: "2027-04-10" } },
+      },
+    );
+
+    assert.equal(next.nextTrips.Italian.destinationId, "italy");
+    assert.equal(next.nextTrips.Spanish.destinationId, "spain");
+  });
+});

@@ -5,6 +5,7 @@ import {
   CORE_GRAMMAR_EXTENSIONS,
   CORE_VERBS,
   DAILY_LIVING_TOPICS,
+  RELATIONSHIPS_INTIMACY_TOPICS,
   type CoreSpeakingSection,
   type CoreGrammarPattern,
   type CoreVerb,
@@ -20,7 +21,8 @@ export type SpeakingMissionRisk =
   | "emergency"
   | "financial"
   | "legal"
-  | "minor-data";
+  | "minor-data"
+  | "intimacy";
 
 export interface SpeakingModuleDefinition {
   id: string;
@@ -384,6 +386,111 @@ function openingLineFor(
   return OPENING_LINES[language][category];
 }
 
+const TRAVEL_MODULE_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string, string>> = {
+  Spanish: {
+    "travel-breakfast": "Buenos días. ¿Qué le gustaría tomar para empezar?",
+    "travel-lunch": "Buenas tardes. ¿Quiere ver el menú del día?",
+    "travel-dinner": "Buenas noches. ¿Tiene reserva o busca una mesa?",
+    "travel-shopping-essentials": "Hola. ¿Qué necesita encontrar y qué talla usa?",
+    "travel-daily-life-services": "Buenos días. Dígame qué servicio necesita hoy.",
+    "travel-markets-souvenirs": "Hola. Todo esto es de la región. ¿Qué está buscando?",
+    "travel-hotels-lodging": "Bienvenido. ¿Tiene una reserva a su nombre?",
+    "travel-taxi-rideshare": "Buenas. ¿A dónde vamos y lleva equipaje?",
+    "travel-trains-transit": "Buenos días. ¿A dónde necesita viajar?",
+    "travel-scooter-car-rental": "Hola. ¿Busca una Vespa, una moto o un coche, y por cuántos días?",
+    "travel-roadside-mechanics": "Buenos días. Cuénteme qué hace el vehículo y cuándo empezó.",
+    "travel-guides-attractions": "Bienvenidos. Antes de empezar, ¿qué les interesa conocer más?",
+    "travel-airport-luggage": "Buenos días. ¿Cuál es su vuelo y en qué puedo ayudarle?",
+    "travel-pharmacy-health": "Buenos días. ¿Qué síntomas tiene y desde cuándo?",
+    "travel-social-dating": "Hola. Creo que no nos conocemos. ¿Está de visita?",
+    "travel-problems-services": "Buenos días. Explíqueme qué pasó y qué necesita primero.",
+  },
+  Italian: {
+    "travel-breakfast": "Buongiorno. Che cosa desidera bere per iniziare?",
+    "travel-lunch": "Buongiorno. Vuole vedere il menù del giorno?",
+    "travel-dinner": "Buonasera. Ha una prenotazione o cerca un tavolo?",
+    "travel-shopping-essentials": "Buongiorno. Che cosa cerca e che taglia porta?",
+    "travel-daily-life-services": "Buongiorno. Mi dica di quale servizio ha bisogno oggi.",
+    "travel-markets-souvenirs": "Buongiorno. Questi prodotti sono locali. Che cosa cerca?",
+    "travel-hotels-lodging": "Benvenuto. Ha una prenotazione a suo nome?",
+    "travel-taxi-rideshare": "Buongiorno. Dove andiamo e ha dei bagagli?",
+    "travel-trains-transit": "Buongiorno. Dove deve andare?",
+    "travel-scooter-car-rental":
+      "Buongiorno. Cerca una Vespa, uno scooter o un'auto, e per quanti giorni?",
+    "travel-roadside-mechanics": "Buongiorno. Mi descriva che cosa fa il veicolo e da quando.",
+    "travel-guides-attractions": "Benvenuti. Prima di iniziare, che cosa vi interessa di più?",
+    "travel-airport-luggage": "Buongiorno. Qual è il suo volo e come posso aiutarla?",
+    "travel-pharmacy-health": "Buongiorno. Quali sintomi ha e da quanto tempo?",
+    "travel-social-dating": "Ciao. Non credo che ci conosciamo. Sei qui in visita?",
+    "travel-problems-services":
+      "Buongiorno. Mi spieghi che cosa è successo e di cosa ha bisogno subito.",
+  },
+  Japanese: {
+    "travel-breakfast": "おはようございます。まず、お飲み物は何になさいますか。",
+    "travel-lunch": "いらっしゃいませ。本日のランチメニューをご覧になりますか。",
+    "travel-dinner": "こんばんは。ご予約はございますか。",
+    "travel-shopping-essentials": "いらっしゃいませ。何をお探しで、サイズはいくつですか。",
+    "travel-daily-life-services": "いらっしゃいませ。今日はどのようなご用件でしょうか。",
+    "travel-markets-souvenirs": "いらっしゃいませ。こちらは地元の商品です。何をお探しですか。",
+    "travel-hotels-lodging": "ようこそ。ご予約のお名前をお願いします。",
+    "travel-taxi-rideshare": "こんにちは。どちらまでですか。お荷物はありますか。",
+    "travel-trains-transit": "こんにちは。どちらまで行かれますか。",
+    "travel-scooter-car-rental": "いらっしゃいませ。スクーターと車のどちらを、何日間ご希望ですか。",
+    "travel-roadside-mechanics": "こんにちは。車の状態と、いつからかを教えてください。",
+    "travel-guides-attractions": "ようこそ。始める前に、特に何に興味があるか教えてください。",
+    "travel-airport-luggage": "こんにちは。便名と、ご用件を教えてください。",
+    "travel-pharmacy-health": "こんにちは。どのような症状が、いつからありますか。",
+    "travel-social-dating": "こんにちは。初めまして。旅行で来ているんですか。",
+    "travel-problems-services": "こんにちは。何が起きて、まず何が必要か教えてください。",
+  },
+};
+
+function openingLineForModule(
+  module: AppModule,
+  language: SpeakingMissionLanguage,
+  specialty: SpeakingMissionSpecialty,
+): string {
+  return TRAVEL_MODULE_OPENING_LINES[language][module.id] ?? openingLineFor(language, specialty);
+}
+
+function riskClassForModule(module: AppModule): SpeakingMissionRisk | undefined {
+  if (module.id === "travel-pharmacy-health") return "medical";
+  if (module.id === "travel-social-dating") return "intimacy";
+  if (module.id === "travel-problems-services") return "legal";
+  return undefined;
+}
+
+function safetyRulesForModule(module: AppModule, specialty: SpeakingMissionSpecialty): string[] {
+  const base = safetyRulesFor(specialty);
+  const riskClass = riskClassForModule(module);
+  if (riskClass === "medical") {
+    return [
+      ...base,
+      "Practice communication only. Do not diagnose, prescribe, interpret a dose, or delay real care. End the roleplay if the learner seeks real medical guidance.",
+    ];
+  }
+  if (riskClass === "intimacy") {
+    return [
+      ...base,
+      "Keep the conversation age-appropriate, non-graphic, and focused on respectful communication rather than erotic roleplay. Never sexualize anyone under 18.",
+      "Consent must be freely given, specific, and reversible. Respect refusal or uncertainty immediately; never encourage pressure, coercion, or manipulation.",
+    ];
+  }
+  if (riskClass === "legal") {
+    return [
+      ...base,
+      "Do not provide legal advice, predict outcomes, or request real passport, financial, police, or identifying details.",
+    ];
+  }
+  if (["travel-scooter-car-rental", "travel-roadside-mechanics"].includes(module.id)) {
+    return [
+      ...base,
+      "Practice communication only; do not replace the rental contract, vehicle manual, local traffic law, mechanic, or emergency service.",
+    ];
+  }
+  return base;
+}
+
 function safetyRulesFor(category: SpeakingMissionSpecialty): string[] {
   const practiceOnly =
     "This is language practice only; do not present the roleplay as professional advice.";
@@ -454,15 +561,67 @@ function safetyRulesForDailyLiving(topic: DailyLivingTopic): string[] {
         ...base,
         "Use fictional child and family details only; do not request or expose educational or pickup records.",
       ];
+    case "intimacy":
+      return [
+        ...base,
+        "Keep the conversation age-appropriate, non-graphic, and focused on respectful communication rather than erotic roleplay. Never sexualize anyone under 18.",
+        "Consent must be freely given, specific, and reversible. Respect refusal or uncertainty immediately; never encourage pressure, coercion, or manipulation.",
+        "Use fictional personal details. Do not provide diagnosis or personalized sexual-health advice; direct real health questions to a qualified clinician.",
+      ];
     default:
       return base;
   }
 }
 
+const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string, string>> = {
+  Spanish: {
+    "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
+    "relationship-status": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
+    "affection-appreciation":
+      "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
+    "relationship-expectations":
+      "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
+    "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
+    "safer-intimacy":
+      "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
+    "relationship-conflict": "Me dolió lo que pasó, pero quiero escucharte y resolverlo contigo.",
+    "end-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
+  },
+  Italian: {
+    "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
+    "relationship-status": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
+    "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
+    "relationship-expectations":
+      "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
+    "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
+    "safer-intimacy":
+      "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
+    "relationship-conflict":
+      "Quello che è successo mi ha ferito, ma voglio ascoltarti e risolverlo insieme.",
+    "end-relationship":
+      "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione.",
+  },
+  Japanese: {
+    "dating-interest": "もっとあなたのことを知りたいです。今度、一緒にお茶しませんか。",
+    "relationship-status":
+      "私たちの関係について話したいです。あなたは今の関係をどう考えていますか。",
+    "affection-appreciation": "あなたのことをとても大切に思っています。いつもありがとう。",
+    "relationship-expectations": "この関係に何を望んでいるか、お互いに話しませんか。",
+    "consent-boundaries": "抱きしめてもいいですか。嫌なら、遠慮なく言ってください。",
+    "safer-intimacy": "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
+    "relationship-conflict":
+      "さっきのことで傷つきました。でも、あなたの話を聞いて一緒に解決したいです。",
+    "end-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
+  },
+};
+
 function dailyLivingOpeningLine(
   topic: DailyLivingTopic,
   language: SpeakingMissionLanguage,
 ): string {
+  const relationshipLine = RELATIONSHIP_OPENING_LINES[language][topic.id];
+  if (relationshipLine) return relationshipLine;
+
   const lines = {
     Spanish: {
       caller: "Hola, llamo para hacer una consulta. ¿Con quién hablo?",
@@ -547,8 +706,9 @@ function missionFromChallenge(
         critical: true,
       },
     ],
-    openingLine: openingLineFor(language, specialty),
-    safetyRules: safetyRulesFor(specialty),
+    openingLine: openingLineForModule(module, language, specialty),
+    safetyRules: safetyRulesForModule(module, specialty),
+    riskClass: riskClassForModule(module),
   };
 }
 
@@ -597,8 +757,9 @@ function missionFromLesson(
         critical: true,
       },
     ],
-    openingLine: openingLineFor(language, specialty),
-    safetyRules: safetyRulesFor(specialty),
+    openingLine: openingLineForModule(module, language, specialty),
+    safetyRules: safetyRulesForModule(module, specialty),
+    riskClass: riskClassForModule(module),
   };
 }
 
@@ -714,6 +875,7 @@ function missionFromDailyLivingTopic(
   language: SpeakingMissionLanguage,
   languageCode: "es" | "it" | "ja",
   locale: SpeakingMissionLocale,
+  coreSection: CoreSpeakingSection = "Daily living",
 ): SpeakingMission {
   const stableBase = `core_daily_${topic.id}_${languageCode}`;
   return {
@@ -735,7 +897,7 @@ function missionFromDailyLivingTopic(
     locale,
     vocabulary: topic.concepts,
     sourcePrompts: [topic.objective],
-    coreSection: "Daily living",
+    coreSection,
     coreOrder: topicIndex,
     objectives: [
       {
@@ -809,6 +971,16 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
     ),
     ...DAILY_LIVING_TOPICS.map((topic, topicIndex) =>
       missionFromDailyLivingTopic(topic, topicIndex, language, code, locale),
+    ),
+    ...RELATIONSHIPS_INTIMACY_TOPICS.map((topic, topicIndex) =>
+      missionFromDailyLivingTopic(
+        topic,
+        DAILY_LIVING_TOPICS.length + topicIndex,
+        language,
+        code,
+        locale,
+        "Relationships & intimacy",
+      ),
     ),
   ];
   const specialtyMissions = getSpecialtySpeakingModules(language).flatMap((module) => {

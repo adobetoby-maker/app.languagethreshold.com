@@ -315,8 +315,8 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                     <span className="text-lg">🎙️</span>
                     <p className="text-xs leading-snug text-muted-foreground">
                       <span className="font-medium text-foreground">Core Speaking</span> is ready
-                      with essential verbs, high-use grammar, and 53 daily-life situations before
-                      specialty practice.
+                      with essential verbs, high-use grammar, 53 daily-life situations, and 8
+                      respectful relationships and intimacy conversations before specialty practice.
                     </p>
                   </div>
                 )}

@@ -2,6 +2,7 @@
 // no payments wired yet; purchased ids live in app-state (localStorage).
 
 import type { Language, NativeLanguage } from "@/state/app-state";
+import { TRAVEL_ZONE_MODULES } from "./travel-zone.ts";
 
 export interface AppModule {
   id: string;
@@ -634,6 +635,7 @@ export const MODULES: AppModule[] = [
       "customs",
     ],
   },
+  ...TRAVEL_ZONE_MODULES,
   // ── Medical (additional) ─────────────────────────────────────────────────
   {
     id: "family-medicine",

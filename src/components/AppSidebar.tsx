@@ -59,6 +59,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
+import { PwaInstallControl } from "./PwaInstallControl";
 
 const LANGUAGES: Language[] = [
   "Spanish",
@@ -538,10 +539,14 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </button>
           )}
 
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+            App settings
+          </p>
+
           {/* Theme toggle — labeled row so the setting is discoverable */}
           <button
             onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
-            className="mt-3 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
+            className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
           >
             <span className="flex items-center gap-2.5 text-sm text-foreground">
               {state.darkMode ? (
@@ -555,6 +560,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               {state.darkMode ? "Dark — tap for light" : "Light — tap for dark"}
             </span>
           </button>
+
+          <PwaInstallControl />
 
           <button
             onClick={() => {

@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/state/auth-state";
 import { useSubscription } from "@/state/subscription-state";
+import { PwaInstallControl } from "@/components/PwaInstallControl";
 
 export const Route = createFileRoute("/account")({
   component: AccountPage,
@@ -253,6 +254,8 @@ function AccountPage() {
             <Settings className="h-5 w-5 text-gold" />
             <h1 className="text-2xl font-bold text-foreground">Account Settings</h1>
           </div>
+
+          <PwaInstallControl variant="card" />
 
           {/* ── Plan card ── */}
           <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">

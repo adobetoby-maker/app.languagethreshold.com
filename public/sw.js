@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v6";
+const CACHE = "lt-v7";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.

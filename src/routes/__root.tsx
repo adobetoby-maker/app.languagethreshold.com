@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
 import { reloadNewestAppVersion } from "../lib/app-update";
+import { initializePwaInstall } from "../lib/pwa-install";
 
 const GA_ID = LANGUAGE_THRESHOLD_GA_ID;
 
@@ -154,6 +155,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   useEffect(() => {
+    initializePwaInstall();
     if (!("serviceWorker" in navigator)) return;
 
     // Snapshot before registration — falsy means first-ever install, no reload needed.

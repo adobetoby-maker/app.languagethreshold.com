@@ -31,9 +31,11 @@ import {
   Moon,
   Sparkles,
   RefreshCw,
+  RotateCcw,
 } from "lucide-react";
 import { useState } from "react";
 import { useApp, type TabKey, type Language } from "@/state/app-state";
+import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
 import { CountUp } from "./CountUp";
 import { cn } from "@/lib/utils";
@@ -45,8 +47,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { VoicePicker } from "./VoicePicker";
-import { reloadNewestAppVersion } from "@/lib/app-update";
+import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 
 const LANGUAGES: Language[] = [
   "Spanish",
@@ -249,11 +261,14 @@ function fieldPrepLabel(moduleId: string | null): { label: string; short: string
 
 export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const { state, dispatch } = useApp();
+  const { signOut } = useAuth();
   const mod = getModule(state.activeModuleId);
   const fiery = state.streak > 1;
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [updatingApp, setUpdatingApp] = useState(false);
+  const [resetDialogOpen, setResetDialogOpen] = useState(false);
+  const [resettingApp, setResettingApp] = useState(false);
 
   const visible = TAB_ITEMS.filter((t) => {
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
@@ -562,6 +577,23 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             </span>
           </button>
 
+          <button
+            onClick={() => {
+              setMoreSheetOpen(false);
+              setResetDialogOpen(true);
+            }}
+            disabled={resettingApp}
+            className="mt-2 flex min-h-12 w-full items-center justify-between rounded-xl border border-destructive/45 bg-destructive/10 px-4 py-3 text-left transition-colors hover:border-destructive/75 disabled:cursor-wait disabled:opacity-60"
+          >
+            <span className="flex items-center gap-2.5 text-sm font-semibold text-destructive">
+              <RotateCcw className="h-4 w-4" strokeWidth={1.8} />
+              Start app from beginning
+            </span>
+            <span className="max-w-[42%] text-right text-[10px] leading-tight text-muted-foreground">
+              Signs out · clears this device
+            </span>
+          </button>
+
           <div className="mt-2 space-y-5">
             {TAB_GROUP_ORDER.map((group) => {
               const items = visible.filter((item) => item.group === group);
@@ -605,6 +637,39 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           </div>
         </SheetContent>
       </Sheet>
+
+      <AlertDialog open={resetDialogOpen} onOpenChange={setResetDialogOpen}>
+        <AlertDialogContent className="w-[calc(100%-2rem)] max-w-md rounded-3xl border-destructive/40">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Start over on this device?</AlertDialogTitle>
+            <AlertDialogDescription className="space-y-2 text-left leading-relaxed">
+              <span className="block">
+                This signs you out and removes progress, settings, and downloaded app files stored
+                in this browser. Language Threshold will reopen at the first language-selection
+                screen.
+              </span>
+              <span className="block font-medium text-foreground">
+                Your account and cloud-saved data will not be deleted, and your other devices will
+                stay signed in.
+              </span>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={resettingApp}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              disabled={resettingApp}
+              onClick={() => {
+                if (resettingApp) return;
+                setResettingApp(true);
+                void resetAppToFirstRun(() => signOut("local"));
+              }}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {resettingApp ? "Starting over…" : "Sign out & start over"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
     </>

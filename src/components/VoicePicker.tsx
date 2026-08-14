@@ -39,6 +39,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [googleVoices, setGoogleVoices] = useState<GoogleTtsVoice[]>([]);
   const [googleReady, setGoogleReady] = useState(false);
+  const [voiceSearch, setVoiceSearch] = useState("");
 
   useEffect(() => {
     setMounted(true);
@@ -69,6 +70,27 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   );
   const family = accent.split("-")[0].toLowerCase();
   const sample = SAMPLES[family] ?? "Hello";
+  const normalizedSearch = voiceSearch.trim().toLocaleLowerCase();
+  const visibleGoogleVoices = useMemo(
+    () =>
+      normalizedSearch
+        ? googleVoices.filter((voice) =>
+            `${voice.label} ${voice.name} ${voice.languageCodes.join(" ")}`
+              .toLocaleLowerCase()
+              .includes(normalizedSearch),
+          )
+        : googleVoices,
+    [googleVoices, normalizedSearch],
+  );
+  const visibleDeviceVoices = useMemo(
+    () =>
+      normalizedSearch
+        ? deviceVoices.filter((voice) =>
+            `${voice.name} ${voice.lang}`.toLocaleLowerCase().includes(normalizedSearch),
+          )
+        : deviceVoices,
+    [deviceVoices, normalizedSearch],
+  );
 
   if (!mounted || (deviceVoices.length === 0 && googleVoices.length === 0)) return null;
 
@@ -100,7 +122,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={(open) => !open && setVoiceSearch("")}>
       <DropdownMenuTrigger
         className={
           compact
@@ -127,6 +149,17 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           Voice for {accent}
         </DropdownMenuLabel>
+        <div className="px-2 pb-2">
+          <input
+            type="search"
+            value={voiceSearch}
+            onChange={(event) => setVoiceSearch(event.target.value)}
+            onKeyDown={(event) => event.stopPropagation()}
+            placeholder={`Search ${googleVoices.length + deviceVoices.length} voices`}
+            aria-label="Search voices"
+            className="w-full rounded-lg border border-border/70 bg-background px-3 py-2 font-mono text-xs text-foreground outline-none placeholder:text-muted-foreground focus:border-gold/60"
+          />
+        </div>
         <DropdownMenuItem
           onSelect={() => {
             stopMissionTts();
@@ -150,7 +183,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                 Sign in to use server voices. Device voices remain available without an account.
               </div>
             )}
-            {googleVoices.map((voice) => {
+            {visibleGoogleVoices.map((voice) => {
               const selected = activeGoogle?.name === voice.name;
               const languageCode = voice.languageCodes[0] ?? accent;
               return (
@@ -174,6 +207,11 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                 </DropdownMenuItem>
               );
             })}
+            {visibleGoogleVoices.length === 0 && (
+              <div className="px-2 py-3 text-xs text-muted-foreground">
+                No Google voice matches “{voiceSearch}”.
+              </div>
+            )}
           </>
         )}
 
@@ -183,7 +221,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
             <DropdownMenuLabel className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               <Smartphone className="h-3.5 w-3.5" /> This device · {deviceVoices.length} voices
             </DropdownMenuLabel>
-            {deviceVoices.map((voice) => {
+            {visibleDeviceVoices.map((voice) => {
               const selected = activeDevice?.voiceURI === voice.voiceURI;
               return (
                 <DropdownMenuItem

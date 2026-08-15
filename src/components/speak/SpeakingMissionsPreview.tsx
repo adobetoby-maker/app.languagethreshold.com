@@ -193,7 +193,19 @@ function highStakesNotice(mission: SpeakingMission) {
   return null;
 }
 
-export function SpeakingMissionsPreview() {
+export function SpeakingMissionsPreview({
+  embeddedMissionId,
+  onContinueWithCards,
+}: {
+  /** When set, skip the catalog and jump straight into this mission's setup
+   * screen — used to launch a single mission from a flashcard. */
+  embeddedMissionId?: string;
+  /** Present only in the embedded-from-flashcards flow. When provided, the
+   * setup screen's back action and the recap screen offer a "Continue with
+   * cards" path back to flashcards, plus a "Keep speaking" path that jumps
+   * to the full Speak & Learn tab. */
+  onContinueWithCards?: () => void;
+} = {}) {
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
   const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
@@ -434,6 +446,12 @@ export function SpeakingMissionsPreview() {
     setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
   }, [appState.selectedLanguage, stopActiveWork]);
+
+  useEffect(() => {
+    if (!embeddedMissionId || selectedMission) return;
+    const match = languageMissions.find((mission) => mission.id === embeddedMissionId);
+    if (match) setSelectedMission(match);
+  }, [embeddedMissionId, languageMissions, selectedMission]);
 
   useEffect(() => {
     if (started) return;
@@ -1083,10 +1101,11 @@ export function SpeakingMissionsPreview() {
         />
         <button
           type="button"
-          onClick={() => setSelectedMission(null)}
+          onClick={() => (onContinueWithCards ? onContinueWithCards() : setSelectedMission(null))}
           className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
         >
-          <ChevronLeft className="h-4 w-4" /> All missions
+          <ChevronLeft className="h-4 w-4" />
+          {onContinueWithCards ? "Back to cards" : "All missions"}
         </button>
         <div className="mt-5 flex items-center justify-between gap-3 text-xs">
           <span style={{ color: specialty.color }}>
@@ -1512,7 +1531,7 @@ export function SpeakingMissionsPreview() {
           </p>
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-3">
+        <div className={onContinueWithCards ? "mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3" : "mt-5 grid grid-cols-2 gap-3"}>
           <button
             type="button"
             onClick={requestMissionStart}
@@ -1520,16 +1539,42 @@ export function SpeakingMissionsPreview() {
           >
             <RotateCcw className="h-4 w-4" /> Try again
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              exitMission();
-              setSelectedMission(null);
-            }}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
-          >
-            <ChevronLeft className="h-4 w-4" /> All missions
-          </button>
+          {onContinueWithCards ? (
+            <>
+              <button
+                type="button"
+                onClick={() => {
+                  exitMission();
+                  onContinueWithCards();
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/50 bg-gold/10 px-4 py-3 text-sm text-gold"
+              >
+                <ChevronLeft className="h-4 w-4" /> Continue with cards
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  exitMission();
+                  setSelectedMission(null);
+                  appDispatch({ type: "SET_TAB", payload: "speak" });
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
+              >
+                <Mic className="h-4 w-4" /> Keep speaking
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                exitMission();
+                setSelectedMission(null);
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
+            >
+              <ChevronLeft className="h-4 w-4" /> All missions
+            </button>
+          )}
         </div>
       </section>
     );

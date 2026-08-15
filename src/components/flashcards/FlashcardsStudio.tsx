@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle } from "lucide-react";
+import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Mic } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import {
   useFlashcards,
@@ -17,6 +17,15 @@ import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import type { SrsGrade } from "@/lib/srs";
+import { findMissionForVocabWord, type SpeakingMissionLanguage } from "@/data/speaking-missions";
+import { SpeakingMissionsPreview } from "@/components/speak/SpeakingMissionsPreview";
+
+const SPEAKING_MISSION_LANGUAGES: readonly SpeakingMissionLanguage[] = [
+  "Spanish",
+  "Italian",
+  "Japanese",
+  "English",
+];
 
 const PERSON_LABEL = {
   Italian: { s1: "io", s2: "tu", s3: "lui/lei", p1: "noi", p2: "voi", p3: "loro" },
@@ -182,6 +191,19 @@ export function FlashcardsStudio() {
   );
   const current = dueCards[0];
 
+  const [activeMissionId, setActiveMissionId] = useState<string | null>(null);
+
+  const missionForCurrentWord = useMemo(() => {
+    if (!current || !flipped) return null;
+    if (!SPEAKING_MISSION_LANGUAGES.includes(language as SpeakingMissionLanguage)) return null;
+    if (language === appState.nativeLanguage) return null;
+    return findMissionForVocabWord(
+      language as SpeakingMissionLanguage,
+      appState.nativeLanguage,
+      current.word,
+    );
+  }, [current, flipped, language, appState.nativeLanguage]);
+
   const nextUp = useMemo(() => {
     if (dueCards.length > 0) return null;
     const upcoming = allCards
@@ -247,6 +269,17 @@ export function FlashcardsStudio() {
     utter.rate = 0.9;
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utter);
+  }
+
+  if (activeMissionId) {
+    return (
+      <div className="fade-in mx-auto w-full max-w-3xl">
+        <SpeakingMissionsPreview
+          embeddedMissionId={activeMissionId}
+          onContinueWithCards={() => setActiveMissionId(null)}
+        />
+      </div>
+    );
   }
 
   return (
@@ -372,6 +405,15 @@ export function FlashcardsStudio() {
                 </button>
               ))}
             </div>
+          )}
+
+          {flipped && missionForCurrentWord && (
+            <button
+              onClick={() => setActiveMissionId(missionForCurrentWord.id)}
+              className="inline-flex w-full max-w-xl items-center justify-center gap-2 rounded-full border border-gold/50 bg-gold/10 px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold/20"
+            >
+              <Mic className="h-3.5 w-3.5" /> Use it: speaking mission
+            </button>
           )}
         </div>
       ) : (

@@ -1189,3 +1189,38 @@ export function findSpeakingMission(id: string) {
   getSpeakingMissions(language);
   return missionIndexCache.get(language)?.get(id) ?? null;
 }
+
+/**
+ * Finds one mission that already uses a form of `word` in its focus vocabulary,
+ * restricted to modules the learner's native→target pair can actually access
+ * (same authorization the server enforces — never surfaces a mission the
+ * learner couldn't open). Used to launch a "use it in a mission" flow from a
+ * flashcard. Prefers an exact vocabulary match; falls back to a substring
+ * match so an inflected form (e.g. "comiendo" on a "comer" card) still hits.
+ */
+export function findMissionForVocabWord(
+  language: SpeakingMissionLanguage,
+  nativeLanguage: NativeLanguage,
+  word: string,
+): SpeakingMission | null {
+  const trimmed = word.trim().toLocaleLowerCase();
+  if (!trimmed) return null;
+  const availableModuleIds = new Set(
+    getSpeakingModules(language, nativeLanguage).map((module) => module.id),
+  );
+  const missions = getSpeakingMissions(language).filter((mission) =>
+    availableModuleIds.has(mission.moduleId),
+  );
+  const exact = missions.find((mission) =>
+    mission.vocabulary.some((entry) => entry.toLocaleLowerCase() === trimmed),
+  );
+  if (exact) return exact;
+  return (
+    missions.find((mission) =>
+      mission.vocabulary.some((entry) => {
+        const candidate = entry.toLocaleLowerCase();
+        return candidate.length > 2 && (candidate.includes(trimmed) || trimmed.includes(candidate));
+      }),
+    ) ?? null
+  );
+}

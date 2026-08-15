@@ -58,6 +58,7 @@ export function TutorPanel() {
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   // Pull in pending prefill from Word Card / external triggers
@@ -72,6 +73,26 @@ export function TutorPanel() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, streaming]);
+
+  // Lock body scroll while the tutor sheet is open (mobile rubber-band prevention)
+  useEffect(() => {
+    if (!tutor.state.open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [tutor.state.open]);
+
+  // Esc to close
+  useEffect(() => {
+    if (!tutor.state.open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") tutor.setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [tutor.state.open, tutor]);
 
   const cefr = useMemo(() => LEVEL_TO_CEFR[appState.level] ?? "A1", [appState.level]);
   const passage = useMemo(
@@ -260,10 +281,7 @@ export function TutorPanel() {
     return () => window.removeEventListener("lt:open-tutor", open);
   }, [tutor]);
 
-  // Closed state renders nothing on mobile: Tutor is now the fixed right-hand
-  // slot in the bottom nav, so the floating pill that used to cover Reader text,
-  // flashcards, Dashboard cards and the nav itself is gone. Desktop keeps the
-  // pill, where there is room for it and no bottom nav to collide with.
+  // Closed state: desktop floating pill only. Mobile uses the bottom-nav Tutor slot.
   if (!tutor.state.open) {
     return (
       <button
@@ -278,143 +296,169 @@ export function TutorPanel() {
   }
 
   return (
-    <div className="lt-tutor-panel fixed right-4 top-4 z-40 flex w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl">
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-border/60 px-4 py-3">
-        <div className="flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-gold" />
-          <span className="font-display text-sm italic">
-            <span className="text-gold">✦</span> Language Threshold Tutor
-          </span>
-          <span className="text-base">{flagFor(appState.selectedLanguage)}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          {messages.length > 0 && (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-[2px]"
+      style={{
+        paddingTop: "max(12px, env(safe-area-inset-top))",
+        paddingBottom: "max(12px, env(safe-area-inset-bottom))",
+        paddingLeft: "max(12px, env(safe-area-inset-left))",
+        paddingRight: "max(12px, env(safe-area-inset-right))",
+      }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) tutor.setOpen(false);
+      }}
+    >
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Language Threshold Tutor"
+        className="lt-tutor-panel relative flex w-full max-w-[min(100%,440px)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl"
+        style={{
+          maxHeight:
+            "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
+        }}
+      >
+        {/* Header */}
+        <div className="flex shrink-0 items-center justify-between border-b border-border/60 px-4 py-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-4 w-4 text-gold" />
+            <span className="font-display text-sm italic">
+              <span className="text-gold">✦</span> Language Threshold Tutor
+            </span>
+            <span className="text-base">{flagFor(appState.selectedLanguage)}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            {messages.length > 0 && (
+              <button
+                onClick={() => tutor.clearThread(threadId)}
+                aria-label="Clear conversation"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-destructive"
+              >
+                <Trash2 className="h-3.5 w-3.5" />
+              </button>
+            )}
             <button
-              onClick={() => tutor.clearThread(threadId)}
-              aria-label="Clear conversation"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-destructive"
+              onClick={() => tutor.setOpen(false)}
+              aria-label="Minimize tutor"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
             >
-              <Trash2 className="h-3.5 w-3.5" />
+              <Minus className="h-4 w-4" />
             </button>
-          )}
-          <button
-            onClick={() => tutor.setOpen(false)}
-            aria-label="Minimize tutor"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
-          >
-            <Minus className="h-4 w-4" />
-          </button>
+          </div>
         </div>
-      </div>
 
-      {sourceContext && (
-        <div className="border-b border-sky-500/20 bg-sky-500/[0.07] px-4 py-3">
-          <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
-            Context from Reader · sentence{" "}
-            {sourceContext.sentenceIndex === undefined
-              ? "selected"
-              : sourceContext.sentenceIndex + 1}
-          </p>
-          <p className="mt-1 text-xs font-semibold text-foreground">
-            “{sourceContext.selectedWord}”
-          </p>
-          <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-            {sourceContext.selectedSentence}
-          </p>
-        </div>
-      )}
-
-      {/* Messages */}
-      <div ref={scrollRef} className="custom-scroll flex-1 space-y-4 overflow-y-auto px-4 py-5">
-        {messages.length === 0 && (
-          <div className="rounded-xl border border-gold/30 bg-gold/5 p-4 text-center">
-            <div className="mx-auto mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/50 text-gold">
-              ✦
-            </div>
-            <p className="font-display text-sm italic text-foreground/90">
-              I'm your tutor for {appState.selectedLanguage}.
+        {sourceContext && (
+          <div className="shrink-0 border-b border-sky-500/20 bg-sky-500/[0.07] px-4 py-3">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
+              Context from Reader · sentence{" "}
+              {sourceContext.sentenceIndex === undefined
+                ? "selected"
+                : sourceContext.sentenceIndex + 1}
             </p>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Ask me anything about the text
+            <p className="mt-1 text-xs font-semibold text-foreground">
+              “{sourceContext.selectedWord}”
+            </p>
+            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+              {sourceContext.selectedSentence}
             </p>
           </div>
         )}
 
-        {messages.map((m) => (
-          <MessageBubble key={m.id} message={m} />
-        ))}
-
-        {streaming &&
-          messages[messages.length - 1]?.role === "assistant" &&
-          !messages[messages.length - 1]?.content && (
-            <div className="flex gap-2 text-muted-foreground">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-gold [animation-delay:120ms]" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-gold [animation-delay:240ms]" />
+        {/* Messages — flex-1 + min-h-0 so the panel sizes to content then scrolls */}
+        <div
+          ref={scrollRef}
+          className="custom-scroll min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-4 py-5 [-webkit-overflow-scrolling:touch]"
+        >
+          {messages.length === 0 && (
+            <div className="rounded-xl border border-gold/30 bg-gold/5 p-4 text-center">
+              <div className="mx-auto mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/50 text-gold">
+                ✦
+              </div>
+              <p className="font-display text-sm italic text-foreground/90">
+                I'm your tutor for {appState.selectedLanguage}.
+              </p>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                Ask me anything about the text
+              </p>
             </div>
           )}
-      </div>
 
-      {/* Quick prompts */}
-      <div className="flex flex-wrap gap-1.5 border-t border-border/60 px-3 py-2">
-        {QUICK_PROMPTS.map((q) => (
-          <button
-            key={q.label}
-            onClick={() => setInput(q.value(sourceContext?.selectedWord))}
-            className="min-h-11 rounded-full border border-border/70 bg-background/40 px-2.5 py-2 font-mono text-[10px] tracking-wide text-foreground/80 transition-colors hover:border-gold/60 hover:text-gold"
-          >
-            {q.label}
-          </button>
-        ))}
-      </div>
+          {messages.map((m) => (
+            <MessageBubble key={m.id} message={m} />
+          ))}
 
-      {/* Input */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          send(input);
-        }}
-        className="flex items-end gap-2 border-t border-border/60 bg-background/30 p-3"
-      >
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              send(input);
-            }
-          }}
-          placeholder="Ask your tutor…"
-          rows={1}
-          className="custom-scroll min-h-11 max-h-32 flex-1 resize-none rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none"
-        />
-        {streaming ? (
-          <button
-            type="button"
-            onClick={stop}
-            className="min-h-11 rounded-lg border border-border/70 bg-background/60 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:border-destructive/60 hover:text-destructive"
-          >
-            Stop
-          </button>
-        ) : (
-          <button
-            type="submit"
-            disabled={!input.trim()}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-midnight transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-            aria-label="Send"
-          >
-            <Send className="h-4 w-4" />
-          </button>
-        )}
-      </form>
-
-      {error && (
-        <div className="border-t border-destructive/40 bg-destructive/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-destructive">
-          {error}
+          {streaming &&
+            messages[messages.length - 1]?.role === "assistant" &&
+            !messages[messages.length - 1]?.content && (
+              <div className="flex gap-2 text-muted-foreground">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-gold [animation-delay:120ms]" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-gold [animation-delay:240ms]" />
+              </div>
+            )}
         </div>
-      )}
+
+        {/* Quick prompts */}
+        <div className="flex shrink-0 flex-wrap gap-1.5 border-t border-border/60 px-3 py-2">
+          {QUICK_PROMPTS.map((q) => (
+            <button
+              key={q.label}
+              onClick={() => setInput(q.value(sourceContext?.selectedWord))}
+              className="min-h-11 rounded-full border border-border/70 bg-background/40 px-2.5 py-2 font-mono text-[10px] tracking-wide text-foreground/80 transition-colors hover:border-gold/60 hover:text-gold"
+            >
+              {q.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Input */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            send(input);
+          }}
+          className="flex shrink-0 items-end gap-2 border-t border-border/60 bg-background/30 p-3"
+        >
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                send(input);
+              }
+            }}
+            placeholder="Ask your tutor…"
+            rows={1}
+            className="custom-scroll min-h-11 max-h-32 flex-1 resize-none rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none"
+          />
+          {streaming ? (
+            <button
+              type="button"
+              onClick={stop}
+              className="min-h-11 rounded-lg border border-border/70 bg-background/60 px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:border-destructive/60 hover:text-destructive"
+            >
+              Stop
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={!input.trim()}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gold text-midnight transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label="Send"
+            >
+              <Send className="h-4 w-4" />
+            </button>
+          )}
+        </form>
+
+        {error && (
+          <div className="shrink-0 border-t border-destructive/40 bg-destructive/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-destructive">
+            {error}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

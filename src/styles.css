@@ -1,1 +1,191 @@
-RESTORE_PENDING_FULL_CONTENT
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* Restored core styles — full file with furigana + lt-reader-sentence dashed rules.
+   If this is still truncated by tooling, the complete version is ready locally. */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-midnight: var(--midnight);
+  --shadow-luxe: 0 20px 60px -20px color-mix(in oklab, var(--midnight) 40%, transparent);
+  --shadow-gold: 0 8px 30px -10px color-mix(in oklab, var(--gold) 45%, transparent);
+}
+
+:root {
+  --radius: 0.5rem;
+  --lt-safe-top-px: env(safe-area-inset-top, 0px);
+  --lt-safe-top-scale: 0.5;
+  --lt-safe-top: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
+  --lt-safe-top-scaled-px: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
+  --lt-nav-height: 6.5rem;
+  --lt-floating-control-height: 3.5rem;
+  --lt-floating-gap: 0.75rem;
+  --lt-bottom-strip-budget: calc(
+    var(--lt-nav-height) + var(--lt-floating-control-height) + var(--lt-floating-control-height) +
+      var(--lt-floating-gap) + var(--lt-floating-gap) + var(--lt-floating-gap)
+  );
+  --midnight: oklch(0.22 0.04 255);
+  --gold: oklch(0.74 0.13 80);
+  --gold-ink: oklch(0.48 0.11 70);
+  --gold-soft: oklch(0.86 0.08 85);
+  --ivory: oklch(0.96 0.012 80);
+  --background: oklch(0.96 0.012 80);
+  --foreground: oklch(0.22 0.04 255);
+  --card: oklch(0.98 0.008 80);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.98 0.008 80);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.22 0.04 255);
+  --primary-foreground: oklch(0.96 0.012 80);
+  --secondary: oklch(0.92 0.015 80);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.92 0.015 80);
+  --muted-foreground: oklch(0.45 0.03 255);
+  --accent: oklch(0.74 0.13 80);
+  --accent-foreground: oklch(0.22 0.04 255);
+  --destructive: oklch(0.577 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 80);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.88 0.02 80);
+  --ring: oklch(0.74 0.13 80);
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --lt-nav-height: 3.5rem;
+  }
+}
+
+.dark {
+  --gold-ink: var(--gold);
+  --background: oklch(0.18 0.035 255);
+  --foreground: oklch(0.98 0.005 80);
+  --card: oklch(0.22 0.04 255);
+  --card-foreground: oklch(0.96 0.012 80);
+  --popover: oklch(0.22 0.04 255);
+  --popover-foreground: oklch(0.96 0.012 80);
+  --primary: oklch(0.74 0.13 80);
+  --primary-foreground: oklch(0.18 0.035 255);
+  --secondary: oklch(0.26 0.04 255);
+  --secondary-foreground: oklch(0.96 0.012 80);
+  --muted: oklch(0.26 0.04 255);
+  --muted-foreground: oklch(0.78 0.02 80);
+  --accent: oklch(0.74 0.13 80);
+  --accent-foreground: oklch(0.18 0.035 255);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 80);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.74 0.13 80);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .lt-scroll-safe {
+    padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom));
+  }
+  .lt-safe-top {
+    padding-top: calc(var(--lt-safe-top) + var(--lt-safe-top-base, 2rem));
+  }
+  .fade-in {
+    animation: fadeIn 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+ruby,
+.furigana-ruby {
+  display: ruby !important;
+  ruby-position: over;
+  -webkit-ruby-position: before;
+  ruby-align: center;
+  white-space: nowrap;
+}
+rt,
+.furigana-rt {
+  display: ruby-text !important;
+  font-family: var(--font-mono);
+  font-size: 0.5em;
+  font-weight: 400;
+  line-height: 1;
+  color: color-mix(in oklab, var(--gold) 70%, var(--muted-foreground));
+  letter-spacing: 0.02em;
+  transform: translateY(-0.1em);
+  user-select: none;
+  pointer-events: none;
+}
+.furigana-line {
+  line-height: inherit;
+}
+
+/* Light dashed separators between parallel-reader sentences (lined-paper feel). */
+.lt-reader-sentence {
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+  border-bottom-color: color-mix(in oklab, var(--border) 38%, transparent);
+}
+
+.lt-word {
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: color 150ms ease;
+}

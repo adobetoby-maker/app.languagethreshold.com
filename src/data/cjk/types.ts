@@ -9,6 +9,7 @@ export type CharacterCategory =
   | "core"
   | "jlpt-n5"
   | "jlpt-n4"
+  | "jlpt-n3"
   | "hsk-1"
   | "hsk-2"
   | "street-safety"

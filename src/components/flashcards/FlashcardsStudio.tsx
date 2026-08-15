@@ -409,7 +409,7 @@ export function FlashcardsStudio() {
 
       {allCards.length > 0 && (
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div>
+          <div className="order-2 lg:order-1">
             <div className="mb-3 flex items-center gap-2 px-1">
               <RotateCcw className="h-3.5 w-3.5 text-gold" />
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -429,7 +429,7 @@ export function FlashcardsStudio() {
           </div>
 
           {conjugation && personLabels && (
-            <div>
+            <div className="order-1 lg:order-2">
               <div className="mb-3 flex items-center gap-2 px-1">
                 <BookOpen className="h-3.5 w-3.5 text-gold" />
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -705,7 +705,7 @@ function DeckRow({ card, onRemove }: { card: FlashcardEntry; onRemove: () => voi
           <button
             onClick={onRemove}
             aria-label={`Remove ${card.word}`}
-            className="text-muted-foreground/60 transition-colors hover:text-destructive"
+            className={`text-muted-foreground/60 transition-colors hover:text-destructive`}
           >
             <Trash2 className="h-3 w-3" />
           </button>

@@ -59,16 +59,17 @@ const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> 
 
 type CategoryFilter = 'all' | WordCategory
 
+/** All first, then modules A–Z by label. */
 const CATEGORY_CHIPS: { key: CategoryFilter; label: string }[] = [
   { key: 'all', label: 'All' },
-  { key: 'medical', label: 'Medical' },
+  { key: 'academic', label: 'Academic' },
+  { key: 'business', label: 'Business' },
+  { key: 'mission', label: 'Church / Mission' },
   { key: 'construction', label: 'Construction' },
   { key: 'daily', label: 'Daily Life' },
-  { key: 'mission', label: 'Church / Mission' },
   { key: 'hospitality', label: 'Hospitality' },
+  { key: 'medical', label: 'Medical' },
   { key: 'sports', label: 'Sports' },
-  { key: 'business', label: 'Business' },
-  { key: 'academic', label: 'Academic' },
 ]
 
 // ─── Verb phase section ───────────────────────────────────────────────────────
@@ -364,15 +365,17 @@ export function DictionaryTab() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return words.filter((w) => {
-      const catMatch = category === 'all' || w.category === category
-      const searchMatch =
-        !q ||
-        w.word.toLowerCase().includes(q) ||
-        w.english.toLowerCase().includes(q) ||
-        w.pronunciation.toLowerCase().includes(q)
-      return catMatch && searchMatch
-    })
+    return words
+      .filter((w) => {
+        const catMatch = category === 'all' || w.category === category
+        const searchMatch =
+          !q ||
+          w.word.toLowerCase().includes(q) ||
+          w.english.toLowerCase().includes(q) ||
+          w.pronunciation.toLowerCase().includes(q)
+        return catMatch && searchMatch
+      })
+      .sort((a, b) => a.word.localeCompare(b.word, undefined, { sensitivity: 'base' }))
   }, [words, category, query])
 
   return (
@@ -414,7 +417,7 @@ export function DictionaryTab() {
             />
           </div>
 
-          {/* Category chips */}
+          {/* Category chips — All + modules A–Z */}
           <div className="flex flex-wrap gap-2">
             {CATEGORY_CHIPS.map((chip) => {
               const active = category === chip.key

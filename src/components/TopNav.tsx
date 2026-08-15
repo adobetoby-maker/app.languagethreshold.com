@@ -23,6 +23,7 @@ import { AuthButton } from "./auth/AuthButton";
 
 const LANGUAGES: Language[] = [
   "Spanish",
+  "English",
   "French",
   "German",
   "Italian",
@@ -30,7 +31,6 @@ const LANGUAGES: Language[] = [
   "Korean",
   "Portuguese",
   "Pashto",
-  "English",
 ];
 
 

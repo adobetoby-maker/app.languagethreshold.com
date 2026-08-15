@@ -68,16 +68,50 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     hydrated: false,
   });
 
-  const selected = useMemo(() => {
-    return state.entries.find((e) => e.id === state.selectedId) ?? state.entries[0] ?? {
-      id: "",
-      title: "Loading…",
-      language: appState.selectedLanguage,
-      section: "classic" as LibrarySection,
-      available: false,
-      targetLabel: appState.selectedLanguage,
-      sentences: [] as SentencePair[],
+  // Hydrate from local + remote library sources when language changes
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        // Seed with any already-available entries; culture generator fills more
+        const lang = appState.selectedLanguage;
+        const seed: LibraryEntry[] = state.entries.filter(
+          (e) => e.language === lang || e.available,
+        );
+        if (!cancelled && seed.length > 0 && !state.selectedId) {
+          dispatch({
+            type: "HYDRATE",
+            payload: { entries: seed, selectedId: seed[0]?.id ?? "" },
+          });
+        } else if (!cancelled && !state.hydrated) {
+          dispatch({
+            type: "HYDRATE",
+            payload: { entries: state.entries, selectedId: state.selectedId },
+          });
+        }
+      } catch {
+        /* ignore */
+      }
+    }
+    void load();
+    return () => {
+      cancelled = true;
     };
+  }, [appState.selectedLanguage]);
+
+  const selected = useMemo(() => {
+    return (
+      state.entries.find((e) => e.id === state.selectedId) ??
+      state.entries[0] ?? {
+        id: "",
+        title: "Loading…",
+        language: appState.selectedLanguage,
+        section: "classic" as LibrarySection,
+        available: false,
+        targetLabel: appState.selectedLanguage,
+        sentences: [] as SentencePair[],
+      }
+    );
   }, [state.entries, state.selectedId, appState.selectedLanguage]);
 
   return (

@@ -19,9 +19,14 @@ import {
  * settled before "Start reading" means anything.
  *
  * Shown in each language's own script, so a learner recognises their own.
+ *
+ * English is a first-class target (ESL): same core grid as Spanish/Italian/etc.
+ * Picking it still asks for native language so translations and coaching flip
+ * the usual direction.
  */
 const LANGUAGES: { id: Language; label: string; native: string }[] = [
   { id: "Spanish", label: "Spanish", native: "Español" },
+  { id: "English", label: "English", native: "English — as a second language" },
   { id: "French", label: "French", native: "Français" },
   { id: "Italian", label: "Italian", native: "Italiano" },
   { id: "German", label: "German", native: "Deutsch" },
@@ -29,17 +34,6 @@ const LANGUAGES: { id: Language; label: string; native: string }[] = [
   { id: "Japanese", label: "Japanese", native: "日本語" },
   { id: "Korean", label: "Korean", native: "한국어" },
   { id: "Pashto", label: "Pashto", native: "پښتو" },
-];
-
-/**
- * Shipped but secondary. English has 30 seeded texts
- * (data/library-seeds/english-target-seeds.ts) and real en-target module
- * support, so "English as a second language" is a genuine option — it simply
- * isn't the common case for this audience, so it sits behind the expander
- * rather than in the primary grid.
- */
-const MORE_AVAILABLE: { id: Language; label: string; native: string }[] = [
-  { id: "English", label: "English", native: "English — as a second language" },
 ];
 
 /**
@@ -164,7 +158,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
             What are you learning?
           </h1>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            We&apos;ll open a beginner passage in that language, ready to read.
+            We'll open a beginner passage in that language, ready to read.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-2">
@@ -187,28 +181,14 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
               onClick={() => setExpanded(true)}
               className="mt-3 inline-flex items-center gap-1.5 rounded-lg px-2 py-2 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-gold"
             >
-              More languages
+              Coming soon
               <ChevronDown className="h-3.5 w-3.5" aria-hidden />
             </button>
           )}
 
           {expanded && (
             <div className="mt-4">
-              <div className="grid grid-cols-2 gap-2">
-                {MORE_AVAILABLE.map((l) => (
-                  <button
-                    key={l.id}
-                    type="button"
-                    onClick={() => pick(l.id)}
-                    className="col-span-2 min-h-16 rounded-xl border border-border/60 bg-card/60 p-3 text-left transition-colors hover:border-gold/60 hover:bg-gold/[0.06]"
-                  >
-                    <div className="text-sm font-medium text-foreground">{l.label}</div>
-                    <div className="text-xs text-muted-foreground">{l.native}</div>
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 Coming soon
               </div>
               <div className="mt-2 flex flex-wrap gap-1.5">

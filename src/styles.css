@@ -2,16 +2,20 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Fonts loaded via <link> in src/routes/__root.tsx — CSS @import is reordered by Tailwind's transformer */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -36,16 +40,25 @@
   --color-gold-soft: var(--gold-soft);
   --color-ivory: var(--ivory);
   --color-midnight: var(--midnight);
+
   --shadow-luxe: 0 20px 60px -20px color-mix(in oklab, var(--midnight) 40%, transparent);
   --shadow-gold: 0 8px 30px -10px color-mix(in oklab, var(--gold) 45%, transparent);
 }
 
+/* Light mode = ivory editorial */
 :root {
   --radius: 0.5rem;
+  /* Readable from JS via getComputedStyle for absolutely-positioned overlays. */
   --lt-safe-top-px: env(safe-area-inset-top, 0px);
+  /* Fraction of the OS-reported top inset actually applied as visual buffer.
+     iOS reports enough inset to clear the Dynamic Island completely, which
+     reads as too much air once the surface also has its own padding.
+     Tune here — every safe-top utility reads this one number. */
   --lt-safe-top-scale: 0.5;
   --lt-safe-top: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
+  /* Same scaled value, for JS-positioned overlays (AppTour). */
   --lt-safe-top-scaled-px: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
+  /* One budget shared by the fixed nav, Tutor action, and Reader mini-player. */
   --lt-nav-height: 6.5rem;
   --lt-floating-control-height: 3.5rem;
   --lt-floating-gap: 0.75rem;
@@ -53,27 +66,36 @@
     var(--lt-nav-height) + var(--lt-floating-control-height) + var(--lt-floating-control-height) +
       var(--lt-floating-gap) + var(--lt-floating-gap) + var(--lt-floating-gap)
   );
+
   --midnight: oklch(0.22 0.04 255);
   --gold: oklch(0.74 0.13 80);
   --gold-ink: oklch(0.48 0.11 70);
   --gold-soft: oklch(0.86 0.08 85);
   --ivory: oklch(0.96 0.012 80);
-  --background: oklch(0.96 0.012 80);
-  --foreground: oklch(0.22 0.04 255);
+
+  --background: oklch(0.96 0.012 80); /* ivory */
+  --foreground: oklch(0.22 0.04 255); /* midnight */
+
   --card: oklch(0.98 0.008 80);
   --card-foreground: var(--foreground);
   --popover: oklch(0.98 0.008 80);
   --popover-foreground: var(--foreground);
-  --primary: oklch(0.22 0.04 255);
+
+  --primary: oklch(0.22 0.04 255); /* midnight */
   --primary-foreground: oklch(0.96 0.012 80);
+
   --secondary: oklch(0.92 0.015 80);
   --secondary-foreground: var(--foreground);
+
   --muted: oklch(0.92 0.015 80);
   --muted-foreground: oklch(0.45 0.03 255);
-  --accent: oklch(0.74 0.13 80);
+
+  --accent: oklch(0.74 0.13 80); /* gold */
   --accent-foreground: oklch(0.22 0.04 255);
+
   --destructive: oklch(0.577 0.22 27);
   --destructive-foreground: oklch(0.98 0.005 80);
+
   --border: oklch(0.88 0.02 80);
   --input: oklch(0.88 0.02 80);
   --ring: oklch(0.74 0.13 80);
@@ -85,24 +107,34 @@
   }
 }
 
+/* Dark mode = midnight luxe */
 .dark {
   --gold-ink: var(--gold);
-  --background: oklch(0.18 0.035 255);
-  --foreground: oklch(0.98 0.005 80);
+  --background: oklch(0.18 0.035 255); /* deep midnight */
+  --foreground: oklch(0.98 0.005 80); /* near-white — crisper on dark bg */
+
   --card: oklch(0.22 0.04 255);
   --card-foreground: oklch(0.96 0.012 80);
   --popover: oklch(0.22 0.04 255);
   --popover-foreground: oklch(0.96 0.012 80);
-  --primary: oklch(0.74 0.13 80);
+
+  --primary: oklch(0.74 0.13 80); /* gold */
   --primary-foreground: oklch(0.18 0.035 255);
+
   --secondary: oklch(0.26 0.04 255);
   --secondary-foreground: oklch(0.96 0.012 80);
+
   --muted: oklch(0.26 0.04 255);
+  /* L 0.78 (was 0.72) — muted labels were washing out under bright-room glare */
   --muted-foreground: oklch(0.78 0.02 80);
+
   --accent: oklch(0.74 0.13 80);
   --accent-foreground: oklch(0.18 0.035 255);
+
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.98 0.005 80);
+
+  /* 14%/18% (was 10%/14%) — hairline borders disappeared in bright rooms */
   --border: oklch(1 0 0 / 14%);
   --input: oklch(1 0 0 / 18%);
   --ring: oklch(0.74 0.13 80);
@@ -112,11 +144,37 @@
   * {
     border-color: var(--color-border);
   }
+
   html,
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    font-feature-settings:
+      "kern" 1,
+      "calt" 1,
+      "liga" 1;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: optimizeLegibility;
+  }
+
+  code,
+  kbd,
+  pre,
+  .font-mono,
+  [class*="font-mono"] {
+    font-family: var(--font-mono);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
 
@@ -127,13 +185,134 @@
   .font-mono {
     font-family: var(--font-mono);
   }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .reader-prose {
+    font-size: 1.0625rem; /* 17px — more comfortable for Spanish sentences */
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
   .lt-scroll-safe {
     padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom)) !important;
     scroll-padding-bottom: calc(var(--lt-bottom-strip-budget) + env(safe-area-inset-bottom));
   }
+
+  /* iOS PWA uses apple-mobile-web-app-status-bar-style: black-translucent, so web
+     content renders UNDER the status bar and Dynamic Island. Any surface sitting at
+     the top of the viewport must supply the inset itself. On desktop and Android,
+     env(safe-area-inset-top) resolves to 0px, so these are inert there.
+
+     .lt-safe-top ADDS the inset to whatever padding the element already carries,
+     so existing Tailwind py- / pt- spacing is preserved rather than overridden. */
   .lt-safe-top {
     padding-top: calc(var(--lt-safe-top) + var(--lt-safe-top-base, 2rem));
   }
+
+  /* For surfaces whose own padding is already correct and only need the inset. */
+  .lt-safe-top-only {
+    padding-top: var(--lt-safe-top);
+  }
+
+  /* Fixed/sticky bars pinned to the very top of the viewport. */
+  .lt-safe-top-bar {
+    padding-top: calc(var(--lt-safe-top) + var(--lt-safe-top-base, 0.5rem));
+  }
+
+  /* Main in-app content column. Below lg there is no top chrome — TopNav is
+     `hidden lg:block` — so the column itself must clear the status bar and
+     Dynamic Island. At lg and above TopNav already applies the inset, so it
+     must NOT be added again here or the gap doubles. */
+  .lt-safe-top-main {
+    padding-top: calc(1.5rem + var(--lt-safe-top));
+  }
+
+  @media (min-width: 640px) {
+    .lt-safe-top-main {
+      padding-top: calc(2.5rem + var(--lt-safe-top));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lt-safe-top-main {
+      padding-top: 2.5rem;
+    }
+  }
+
+  .lt-tutor-above-nav {
+    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
+  }
+
+  .lt-miniplayer-above-nav {
+    bottom: calc(
+      var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-control-height) +
+        var(--lt-floating-gap) + var(--lt-floating-gap)
+    );
+  }
+
+  .lt-tutor-panel {
+    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
+  }
+
+  .tool-purpose[data-activity="reading"] {
+    border-color: color-mix(in oklab, oklch(0.7 0.14 230) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="reading"] .tool-purpose-dot {
+    background: oklch(0.7 0.14 230);
+  }
+  .tool-purpose[data-activity="remember"] {
+    border-color: color-mix(in oklab, oklch(0.72 0.16 145) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="remember"] .tool-purpose-dot {
+    background: oklch(0.72 0.16 145);
+  }
+  .tool-purpose[data-activity="speaking"] {
+    border-color: color-mix(in oklab, oklch(0.7 0.16 320) 32%, var(--border));
+  }
+  .tool-purpose[data-activity="speaking"] .tool-purpose-dot {
+    background: oklch(0.7 0.16 320);
+  }
+  .tool-purpose[data-activity="progress"] {
+    border-color: color-mix(in oklab, oklch(0.74 0.13 80) 38%, var(--border));
+  }
+  .tool-purpose[data-activity="progress"] .tool-purpose-dot {
+    background: oklch(0.74 0.13 80);
+  }
+  .tool-purpose[data-activity="specialty"] {
+    border-color: color-mix(in oklab, oklch(0.68 0.14 40) 34%, var(--border));
+  }
+  .tool-purpose[data-activity="specialty"] .tool-purpose-dot {
+    background: oklch(0.68 0.14 40);
+  }
+
+  .gold-underline {
+    position: relative;
+  }
+  .gold-underline::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: -6px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-gold) 30%,
+      var(--color-gold) 70%,
+      transparent
+    );
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .gold-underline[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
   .fade-in {
     animation: fadeIn 350ms cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -147,47 +326,854 @@
       transform: translateY(0);
     }
   }
+
+  .tutor-pulse {
+    animation: tutorPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes tutorPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 45%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 0 14px color-mix(in oklab, var(--gold) 0%, transparent);
+    }
+  }
+
+  .listening-rings {
+    animation: listeningRings 1.4s ease-out infinite;
+  }
+  @keyframes listeningRings {
+    0% {
+      box-shadow:
+        0 0 0 0 color-mix(in oklab, var(--gold) 55%, transparent),
+        0 0 0 0 color-mix(in oklab, var(--gold) 35%, transparent);
+    }
+    100% {
+      box-shadow:
+        0 0 0 18px color-mix(in oklab, var(--gold) 0%, transparent),
+        0 0 0 36px color-mix(in oklab, var(--gold) 0%, transparent);
+    }
+  }
+
+  @keyframes cardPop {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 }
 
-/* ---- Furigana (ruby) — keep readings inside existing leading ---- */
+/* Achievement toast — gold-bordered, editorial */
+.achievement-toast {
+  border: 1px solid color-mix(in oklab, var(--gold) 70%, transparent) !important;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--gold) 14%, var(--card)),
+    var(--card)
+  ) !important;
+  box-shadow: 0 12px 40px -12px color-mix(in oklab, var(--gold) 50%, transparent) !important;
+}
+.achievement-toast [data-title] {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--foreground);
+}
+.achievement-toast [data-description] {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 10px;
+  color: color-mix(in oklab, var(--gold) 80%, var(--foreground));
+}
+
+/* ---- Furigana (ruby) styling ---------------------------------------------
+   Goal: tiny hiragana readings above kanji (or romaji below in romaji mode)
+   that DO NOT change the line height of the surrounding sentence. We rely on:
+   1. Native <ruby> with `ruby-position: over` (default in modern browsers).
+   2. A very small <rt> font (0.5em) with line-height:1 so the reading fits
+      inside the existing leading.
+   3. The reader paragraphs already use line-height ~1.85, which leaves
+      plenty of room above each glyph for the rt without pushing lines apart.
+
+   Browser fallbacks:
+   - Tailwind v4's preflight + some Webkit builds reset display:ruby. We force
+     `display: ruby` with !important plus `-webkit-ruby-position` for older Safari.
+   - Firefox honors `ruby-position: over` natively.
+   - Mobile Safari historically renders <rt> below by default; the explicit
+     `ruby-position: over` + `-webkit-ruby-position: before` together cover it.
+*/
 ruby,
 .furigana-ruby {
   display: ruby !important;
   ruby-position: over;
-  -webkit-ruby-position: before;
+  -webkit-ruby-position: before; /* Older Safari/iOS */
   ruby-align: center;
+  /* Prevent ruby from being broken across lines mid-character. */
   white-space: nowrap;
-  /* Do not let ruby expand the line box beyond the parent's leading */
-  ruby-overhang: none;
 }
 rt,
 .furigana-rt {
   display: ruby-text !important;
   font-family: var(--font-mono);
-  font-size: 0.45em;
-  font-weight: 500;
+  font-size: 0.5em;
+  font-weight: 400;
   line-height: 1;
-  color: color-mix(in oklab, var(--gold) 75%, var(--muted-foreground));
-  letter-spacing: 0.01em;
-  /* Pull the reading slightly into the leading gap above the kanji */
-  transform: translateY(-0.05em);
+  color: color-mix(in oklab, var(--gold) 70%, var(--muted-foreground));
+  letter-spacing: 0.02em;
+  /* Lift readings up slightly so they sit cleanly inside the existing leading
+     instead of widening the line box. */
+  transform: translateY(-0.1em);
   user-select: none;
+  /* CRITICAL: let clicks pass through the reading bubble down to the kanji /
+     surrounding kana. Without this, taps on the small hiragana above a kanji
+     do nothing, and taps near the edge of a kana run hit the neighboring
+     <rt> instead of the kana, so words feel un-clickable. */
   pointer-events: none;
 }
-/* When a cell uses furigana, keep the line-height the same as the parent size class */
+/* Fallback for engines that DON'T support `display: ruby`: render <rt> as a
+   small block that sits ABOVE its base via negative margin. This keeps the
+   sketch-style "small reading directly over the kanji" behavior even if the
+   browser falls all the way back to inline rendering. */
+@supports not (display: ruby) {
+  ruby,
+  .furigana-ruby {
+    display: inline-flex !important;
+    flex-direction: column-reverse;
+    align-items: center;
+    vertical-align: baseline;
+    line-height: 1;
+  }
+  rt,
+  .furigana-rt {
+    display: block !important;
+    margin-bottom: -0.15em;
+  }
+}
+/* When a sentence row contains ruby, keep the line box exactly as the parent
+   line-height dictates — never let ruby grow it. */
 .furigana-line {
   line-height: inherit;
 }
-/* Paired-row cells: ensure both columns share the same vertical padding rhythm */
-.lt-reader-pair {
-  align-items: start;
+
+/* Light dashed separators between parallel-reader sentences (lined-paper feel).
+   Helps the eye track corresponding native/target lines even when furigana
+   or multi-line wraps make the two panes drift in absolute height. */
+.lt-reader-sentence {
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+  border-bottom-color: color-mix(in oklab, var(--border) 38%, transparent);
 }
 
+/* ---- Furigana "inline" mode -----------------------------------------------
+   The reading sits directly ON TOP of the kanji as a faint overlay, so the
+   sentence rhythm matches the original Japanese exactly (no leading change,
+   no horizontal expansion). The base kanji stays fully visible underneath.
+*/
+.furigana-inline {
+  position: relative;
+  /* Keep the kanji unchanged — the overlay floats over it without affecting
+     surrounding glyph spacing. */
+}
+.furigana-inline::after {
+  content: attr(data-reading);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* Smaller than the kanji so it doesn't drown out the underlying character,
+     monospaced + slightly bold so the strokes read clearly even on top of
+     a complex kanji. */
+  font-family: var(--font-mono);
+  font-size: 0.42em;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  /* Soft gold pill that contrasts with both light and dark backgrounds while
+     letting the kanji silhouette show through at the edges. */
+  color: var(--midnight, #0b0d12);
+  background: color-mix(in oklab, var(--gold) 78%, transparent);
+  padding: 0.05em 0.25em;
+  border-radius: 0.4em;
+  box-shadow: 0 1px 2px color-mix(in oklab, black 20%, transparent);
+}
+/* In dark mode the pill stays gold but the text becomes the deep midnight. */
+.dark .furigana-inline::after {
+  color: #0b0d12;
+}
+
+/* ============================================================
+   LANGUAGE MATCH — button, overlay, particles, animations
+   ============================================================ */
+
+/* --- Rank badge glow (color-driven via --rank-color) ---- */
+.rank-glow {
+  position: relative;
+  filter: drop-shadow(0 0 6px var(--rank-color, #c9a84c))
+    drop-shadow(0 0 14px color-mix(in oklab, var(--rank-color, #c9a84c) 60%, transparent));
+  animation: rankPulse 2.4s ease-in-out infinite;
+}
+.rank-glow-intense {
+  filter: drop-shadow(0 0 12px var(--rank-color, #c9a84c))
+    drop-shadow(0 0 28px color-mix(in oklab, var(--rank-color, #c9a84c) 70%, transparent));
+}
+@keyframes rankPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+.rank-glow-rainbow {
+  background: linear-gradient(90deg, #ff4d4d, #ffb24d, #ffe34d, #4dff7a, #4dc3ff, #a64dff, #ff4dd2);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  animation:
+    rainbowShift 4s linear infinite,
+    rankPulse 2.4s ease-in-out infinite;
+}
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* --- Sword cursor + Language Match button ---------------- */
+.lm-btn {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g transform='rotate(-45 14 14)'><rect x='13' y='3' width='2' height='16' fill='%23c9a84c' stroke='%23000' stroke-width='0.6'/><rect x='9' y='18' width='10' height='2' fill='%23c9a84c' stroke='%23000' stroke-width='0.6'/><rect x='13' y='20' width='2' height='5' fill='%237a5a1f' stroke='%23000' stroke-width='0.6'/></g></svg>")
+      14 14,
+    pointer;
+  animation: lmHeartbeat 1.6s ease-in-out infinite;
+  transition: transform 200ms ease;
+}
+.lm-btn:hover {
+  transform: scale(1.06);
+  animation-play-state: paused;
+}
+.lm-btn-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #c9a84c 60deg,
+    #f5e6a8 90deg,
+    #c9a84c 120deg,
+    transparent 180deg,
+    #c9a84c 240deg,
+    #f5e6a8 270deg,
+    #c9a84c 300deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: lmShimmer 3.2s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.55));
+}
+.lm-btn:hover .lm-btn-border {
+  filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.95));
+}
+.lm-btn-inner {
+  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+}
+@keyframes lmShimmer {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes lmHeartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* --- Matchmaking overlay ---------------------------------- */
+.match-overlay-bg {
+  background: radial-gradient(ellipse at top, #0d172a 0%, #080f1a 60%, #04070d 100%);
+  transform: translateY(100%);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.match-overlay-open .match-overlay-bg {
+  transform: translateY(0);
+}
+.match-overlay-closed {
+  display: none;
+}
+
+/* --- Floating gold particles ------------------------------ */
+.match-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #f5e6a8 0%, #c9a84c 60%, transparent 100%);
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.7);
+  animation: particleFloat 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(8px, -22px);
+  }
+  50% {
+    transform: translate(-6px, -40px);
+  }
+  75% {
+    transform: translate(10px, -22px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* --- Player / opponent card entrances --------------------- */
+.card-rise {
+  animation: cardRise 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.card-slide-left {
+  animation: cardSlideLeft 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes cardSlideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-90px);
+  }
+}
+.card-slide-in-right {
+  animation: cardSlideInRight 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes cardSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(180px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(90px) scale(1);
+  }
+}
+
+/* --- VS badge drop ---------------------------------------- */
+.vs-drop {
+  animation: vsDrop 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes vsDrop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -260%) rotate(-12deg) scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -42%) rotate(6deg) scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+}
+
+/* --- Find Match button shimmer ---------------------------- */
+.find-match-btn {
+  background-size: 220% 100%;
+  animation: fmShimmer 3.2s ease-in-out infinite;
+}
+@keyframes fmShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* --- Searching radar -------------------------------------- */
+.radar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(201, 168, 76, 0.5);
+  animation: radar 1.8s ease-out infinite;
+}
+@keyframes radar {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+.searching-dots::after {
+  display: inline-block;
+  content: "";
+  animation: dots 1.4s steps(4, end) infinite;
+}
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}
+
+/* --- Countdown pop ---------------------------------------- */
+.countdown-pop {
+  animation: countdownPop 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes countdownPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+/* --- Battle arena ----------------------------------------- */
+.word-drop {
+  animation: wordDrop 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes wordDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(8px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.timer-urgent {
+  animation: timerUrgent 0.5s ease-in-out infinite;
+}
+@keyframes timerUrgent {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+}
+.card-correct-pulse {
+  animation: cardCorrect 700ms ease-out 1;
+}
+@keyframes cardCorrect {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+  40% {
+    box-shadow: 0 0 40px 6px rgba(52, 211, 153, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+.card-wrong-flash {
+  animation: cardWrong 600ms ease-out 1;
+}
+@keyframes cardWrong {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.round-slam {
+  animation: roundSlam 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes roundSlam {
+  0% {
+    opacity: 0;
+    transform: translateY(-160px) scale(0.6);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Match result screens */
+.match-result-pop {
+  animation: matchResultPop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes matchResultPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================================
+   END-OF-MATCH SCREENS — Victory / Defeat / Tie
+   ============================================================ */
+
+/* Victory title bounce-in with golden glow */
+.victory-title {
+  animation: victoryTitle 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes victoryTitle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.victory-badge-spin {
+  animation: badgeSpin 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes badgeSpin {
+  0% {
+    transform: rotate(-540deg) scale(0.4);
+    opacity: 0;
+  }
+  70% {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Falling gold particles (Victory background) */
+.gold-drop {
+  position: absolute;
+  top: -8px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #fff7c2 0%, #c9a84c 60%, transparent 100%);
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.85);
+  animation: goldFall linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes goldFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* Defeat — brief crimson wash that fades */
+.defeat-title {
+  animation: fadeIn 600ms ease-out both;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+.defeat-wash {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(180, 25, 25, 0.55) 0%,
+    rgba(60, 8, 8, 0.4) 50%,
+    transparent 100%
+  );
+  animation: defeatWash 1.4s ease-out both;
+}
+@keyframes defeatWash {
+  0% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Tie — diagonal split gold/silver shimmer */
+.tie-bg {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201, 168, 76, 0.25) 0%,
+      rgba(201, 168, 76, 0.18) 49%,
+      rgba(168, 169, 173, 0.18) 51%,
+      rgba(168, 169, 173, 0.28) 100%
+    ),
+    radial-gradient(ellipse at center, #0e1726 0%, #060a14 100%);
+  animation: tieShimmer 6s ease-in-out infinite;
+  background-size:
+    200% 200%,
+    100% 100%;
+}
+@keyframes tieShimmer {
+  0%,
+  100% {
+    background-position:
+      0% 50%,
+      0 0;
+  }
+  50% {
+    background-position:
+      100% 50%,
+      0 0;
+  }
+}
+
+/* ============================================================
+   RANK-UP CEREMONY
+   ============================================================ */
+
+@keyframes flashFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Old badge shatters into 8 fragments flying outward */
+.shatter-frag {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0);
+  animation: shatterFly 700ms cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+@keyframes shatterFly {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-180px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* Particles rush inward toward center */
+.rush-particle {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(220px);
+  animation: rushIn 600ms cubic-bezier(0.5, 0, 0.7, 0) forwards;
+  opacity: 0;
+}
+@keyframes rushIn {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(220px) scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* New badge assembles with elastic pop */
+.rank-assemble {
+  animation: rankAssemble 800ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes rankAssemble {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    filter: brightness(2.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: brightness(1.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* Rank name BOOMS in */
+.rank-boom {
+  animation: rankBoom 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes rankBoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) translateY(40px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Unreal-only shifting aurora background */
+.rank-aurora {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 77, 77, 0.18),
+    rgba(255, 178, 77, 0.18),
+    rgba(255, 227, 77, 0.18),
+    rgba(77, 255, 122, 0.18),
+    rgba(77, 195, 255, 0.18),
+    rgba(166, 77, 255, 0.18),
+    rgba(255, 77, 210, 0.18)
+  );
+  background-size: 400% 400%;
+  animation: rainbowShift 8s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* ── Tappable Reader words — DUO-002 P0-2 ────────────────────────────────────
+ * The word affordance was hover-only (`hover:text-gold`). Hover does not exist
+ * on touch, so on the product's primary platform nothing signalled that words
+ * were tappable — the signature Reader → Word Card → Tutor loop was invisible.
+ *
+ * Pointer devices keep the original richer hover treatment. Touch devices get a
+ * persistent but deliberately faint dotted underline: enough to read as
+ * interactive across a page of text, quiet enough not to compete with the prose
+ * (PRD §9 — restrained, content stays more important than chrome).
+ */
 .lt-word {
   cursor: pointer;
   border-radius: 0.25rem;
   transition: color 150ms ease;
 }
-.lt-word:hover {
-  color: var(--gold);
+
+.lt-speak-word {
+  cursor: help;
+  border-radius: 0.25rem;
+  -webkit-touch-callout: none;
+  user-select: text;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
 }
+
+.lt-speak-word:active {
+  background: color-mix(in srgb, var(--color-gold) 18%, transparent);
+  color: var(--color-gold);
+}
+
+.lt-speak-word:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lt-word:hover {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .lt-speak-word:hover {
+    color: var(--color-gold);
+    text-decoration: underline dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+/* Underlines removed. Decorating every word read as clutter at phone size and
+ * still could not express "either side, and it leads to the Tutor". The
+ * training-demo block carries that message instead, and clears itself once the
+ * learner has used both panes. `.lt-word` keeps cursor/tap affordance only. */

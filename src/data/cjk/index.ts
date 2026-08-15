@@ -40,6 +40,7 @@ export const CHARACTER_CATEGORY_LABELS: Record<CharacterCategory | "all", string
   "street-safety": "Street & Safety",
   "jlpt-n5": "JLPT N5",
   "jlpt-n4": "JLPT N4",
+  "jlpt-n3": "JLPT N3",
   "hsk-1": "HSK 1",
   "hsk-2": "HSK 2",
   "radical-focus": "Radicals",

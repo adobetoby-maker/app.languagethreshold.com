@@ -119,7 +119,7 @@ export function AppTour({ onClose }: { onClose: () => void }) {
   const safeTop =
     typeof window !== "undefined"
       ? parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue("--lt-safe-top-px"),
+          getComputedStyle(document.documentElement).getPropertyValue("--lt-safe-top-scaled-px"),
         ) || 0
       : 0;
   const topFloor = safeTop + 8;

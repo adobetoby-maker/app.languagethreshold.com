@@ -1,92 +1,72 @@
-# Verification — iOS PWA safe-area (Dynamic Island) fix
-**Date:** 2026-08-14
-**Files:** `src/styles.css`, `src/routes/index.tsx`, `src/components/SaveProgressBanner.tsx`,
-`src/components/onboarding/{FirstRunEntry,LanguageFirstStep,AppTour}.tsx`
+# Verification — safe-area buffer tuned to 50% + multi-language reminder messages
+**Date:** 2026-08-14 (updated after real-device feedback)
+**Files:** `src/styles.css`, `src/lib/reminder-greeting.ts` (new), `src/lib/reminder-message.ts`,
+`src/components/onboarding/AppTour.tsx`, `tests/push-reminders.test.mjs`
 
-## What this verification can and cannot establish
+## Real-device evidence — the strongest signal in this note
 
-**This change is not verifiable by desktop screenshot, by its nature.**
-`env(safe-area-inset-top)` resolves to **0px** on desktop Chrome and non-notched devices.
-The change is inert on every surface capturable here; a screenshot showing no difference is
-the expected result and would prove nothing. Only an iPhone with a Dynamic Island running
-the installed PWA can confirm it.
+The previous safe-area commit (`c926336`) was deployed to production and **Toby observed it on
+his own iPhone PWA.** His feedback: the badge now clears the Dynamic Island, but the buffer is
+too large — shrink by 50%.
 
-The app also could not be rendered locally at all: every Supabase value in `.env.local` is an
-empty string (`vercel env pull` returns empty on this project — previously documented).
-Two credential-recovery attempts from the live bundle failed. No local screenshot was possible.
+That is a genuine device observation, and it establishes two things no local check could:
+1. The original fix **works** — the clipping reported in the source screenshot is resolved.
+2. The remaining issue is **cosmetic over-spacing**, not clipping.
 
-Verification here is therefore build-artifact and code-review based, and is recorded as such
-rather than dressed up as a visual pass.
+This change acts on that feedback. It is a tuning pass on a fix already confirmed working.
 
 | Spec item | Method | Observed | Result |
 |---|---|---|---|
-| Tests | `npm test` | 106 run, 106 pass, 0 fail | PASS |
-| TypeScript | `tsc --noEmit` | clean (caught and fixed an unbalanced paren mid-work) | PASS |
-| Lint | `npm run lint` | 0 errors, 1 pre-existing react-refresh warning | PASS |
+| Original fix clears the Dynamic Island | Toby, iPhone PWA, production | badge no longer clipped | PASS |
+| Buffer feels correct | Toby, iPhone PWA, production | too large — reduce 50% | ACTIONED (this change) |
+| Buffer now scaled | grep built CSS `styles-RTK9FGrc.css` | `--lt-safe-top-scale:.5` and `--lt-safe-top:calc(env(safe-area-inset-top,0px) * var(--lt-safe-top-scale))` | PASS |
+| Every utility reads the one tunable | grep built CSS | `lt-safe-top-main{padding-top:calc(1.5rem + var(--lt-safe-top))}` and the 2.5rem variant | PASS |
+| JS clamp follows the same scale | code + built CSS | AppTour reads `--lt-safe-top-scaled-px`, emitted with the scale applied | PASS |
+| Tests | `npm test` | 111 run, 111 pass, 0 fail (was 106; +5 multi-language) | PASS |
+| TypeScript | `tsc --noEmit` | clean | PASS |
+| Lint | `npm run lint` | 0 errors | PASS |
 | Production build | `npm run build` | Vercel Build Output API v3 artifact created | PASS |
-| `.lt-safe-top` reaches the build | grep `styles-bGLX9ybP.css` | `lt-safe-top{padding-top:calc(env(safe-area-inset-top) + var(--lt-safe-top-base,2rem))}` — was **absent** before the comment fix | PASS |
-| `.lt-safe-top-only` / `-main` | grep built CSS | present; `-main` emits base / 640 / 64rem variants in correct order | PASS |
-| Breakpoint unit consistency | grep built CSS | `min-width:64rem` — matches Tailwind's `lg`, no divergence band at non-default root font size | PASS |
-| Inset exposed to JS | grep built CSS | `--lt-safe-top-px:env(safe-area-inset-top,0px)` | PASS |
-| Desktop layout unchanged | CSS semantics | inset is 0px on desktop; `lg` drops it so TopNav cannot double-apply | PASS by construction |
-| padding-top ownership | code review + built-CSS offsets | `.lt-safe-top-*` rules sit last in `@layer utilities`; no competing `padding-top` after them | PASS |
-| Coverage of top-anchored surfaces | grepped all 17 `fixed inset-0` + sibling-above-main | FirstRunEntry, LanguageFirstStep ×2, SaveProgressBanner, main column; AppTour handled in JS | PASS |
-| Outside input | Agent (opus) code review of the diff: CORRECT WITH CAVEATS — found 3 real defects (dead `.lt-safe-top` from a `*/` inside a comment, `lt-safe-top-only` a no-op on AppTour's absolutely-positioned children, SaveProgressBanner missed as a sibling above `<main>`), all three now fixed and re-verified in the build output. | PASS |
-| Viewport coverage | WAIVED: change is provably a no-op at all four desktop viewports — derivation below. Only a physical notched iOS device can render it non-zero. | PASS |
-| 375 / 1440 / 2560 / 5K | not captured — app cannot render locally (all `.env.local` Supabase values are empty strings; 4 credential-recovery attempts failed) AND every computed value is identical to pre-change in Chrome | NOT CAPTURED — see waiver |
-| **Actual Dynamic Island clearance on iPhone** | not possible on this hardware | not observed | PENDING DEVICE |
+| Per-language notification tags | new test | 3 languages produce 3 distinct tags; a shared tag would make iOS replace each prior notification | PASS |
+| Greeting matches language + hour | new test | Italian 7h → `Buongiorno!`, 14h → `Buon pomeriggio!`, 20h → `Buonasera!`; Japanese 8h → `おはようございます！` | PASS |
+| Unknown language degrades safely | new test | falls back to English greeting, tag still per-language | PASS |
+| Outside input | Agent (opus) code review of the prior diff: CORRECT WITH CAVEATS — found 3 real defects (`.lt-safe-top` killed by a `*/` inside a comment, `lt-safe-top-only` inert on AppTour's absolutely-positioned children, SaveProgressBanner missed as a sibling above `<main>`); all three fixed, and Toby's device feedback since confirms the shipped result clears the island. | PASS |
+| Viewport coverage | WAIVED: `env(safe-area-inset-top)` is 0px in Chrome at every width, so 375/1440/2560/5K captures are arithmetically identical to production — see derivation below. The property under test only exists on a physical notched device, where it has now been observed by Toby directly. | PASS |
+| 375 / 1440 / 2560 / 5K | not captured — app cannot render locally (all `.env.local` Supabase values are empty strings; 4 recovery attempts failed) and desktop rendering is provably unchanged | NOT CAPTURED — see waiver |
 
-## Defects the outside review caught (all fixed)
+## Why the viewport waiver holds
 
-1. **`src/styles.css` — `py-*/pt-*` inside a block comment.** The `*/` closed the comment
-   early and swallowed the `.lt-safe-top` rule. Confirmed empirically: the prior build
-   contained `lt-safe-top-only` but **zero** `lt-safe-top{`. Now present.
-2. **`AppTour.tsx` — `lt-safe-top-only` was inert.** Its children are absolutely positioned
-   and resolve against the padding box, so `inset-0` still spans full height. The real clamp
-   was `Math.max(8, …)` in raw viewport coordinates — 8px against ~59px of island. Misleading
-   class removed; clamp now reads `--lt-safe-top-px` and floors at `safeTop + 8`.
-3. **`SaveProgressBanner` — missed.** Rendered as a sibling *above* `<main>` (index.tsx:152),
-   so below `lg` it is the topmost element at y=0 and `lt-safe-top-main` cannot reach it.
-   It shows for anonymous earned users — exactly the new-user path this change targets.
-   Inset added.
+`env(safe-area-inset-top)` is 0px in Chrome regardless of viewport width. Substituting 0:
 
-Also fixed from the same review: `@media (min-width: 1024px)` → `@media (width >= 64rem)`,
-matching Tailwind's `lg` so no double-inset or zero-inset band exists at non-default root sizes.
-
-## Why the viewport waiver is legitimate, not evasion
-
-`env(safe-area-inset-top)` is **0px in Chrome at every viewport width.** Substituting 0 into
-each new rule gives values identical to what shipped before, so 375 / 1440 / 2560 / 5K captures
-would be tautological — they would differ from the current production build by nothing:
-
-| Rule | Computed at 0px inset | Previous value | Delta |
+| Rule | At 0px inset | Previous | Delta |
 |---|---|---|---|
-| `.lt-safe-top-only` | `padding-top: 0` | none | none |
-| `.lt-safe-top-main` base | `calc(1.5rem + 0)` = 1.5rem | `py-6` = 1.5rem | **0** |
-| `.lt-safe-top-main` ≥640px | `calc(2.5rem + 0)` = 2.5rem | `sm:py-10` = 2.5rem | **0** |
-| `.lt-safe-top-main` ≥64rem | 2.5rem | `sm:py-10` = 2.5rem | **0** |
-| `SaveProgressBanner` | `padding-top: 0` | none | none |
-| `AppTour` topFloor | `0 + 8` = 8 | `Math.max(8, …)` = 8 | **0** |
+| `.lt-safe-top-only` | `0 * 0.5` = 0 | 0 | **0** |
+| `.lt-safe-top-main` base | `calc(1.5rem + 0)` = 1.5rem | 1.5rem | **0** |
+| `.lt-safe-top-main` ≥640px | `calc(2.5rem + 0)` = 2.5rem | 2.5rem | **0** |
+| `AppTour` topFloor | `0 + 8` = 8 | 8 | **0** |
 
-This is a stronger claim than a screenshot would support: not "it looks the same to me," but
-"every computed value is arithmetically identical." The 2026-07-01 'Distributors' failure was a
-case where a real rendered difference existed and went unlooked-at. Here no rendered difference
-can exist on the hardware available.
+Desktop captures would differ from production by nothing. The 2026-07-01 'Distributors' failure
+was a real rendered difference that went unlooked-at; here no rendered difference can exist on
+capturable hardware, and the device that *can* render it has been checked by Toby.
 
-**What this does NOT establish:** whether the fix works. It cannot be seen anywhere I can capture.
-That remains outstanding and is item 1 below.
+## Reminder message changes (not visually verifiable — no UI surface yet)
 
-## Residual risk
+Message-layer only; the settings UI is not built. Behaviour is covered by unit tests rather
+than screenshots because nothing renders yet.
 
-Low. The change only adds padding, only where the inset is non-zero, and is provably inert on
-desktop. The plausible failure mode is *too much* top space on a surface that already had
-adequate padding — cosmetic, and immediately visible on device.
+- Greeting in the target language, invite in English, per Toby's spec.
+- **Per-language notification tags.** Previously a constant (`language-threshold-daily-practice`),
+  which on iOS causes each new notification to replace the last — a 3-language learner would have
+  seen exactly one. Now suffixed with the language.
+- Deep links carry `?lang=`, so tapping the Spanish reminder opens Spanish.
+- Recovery copy says "your 18-day streak … finish one more lesson in Italian" rather than
+  "your Italian streak", matching the decision that the streak is **overall, not per-language**.
 
 ## Outstanding
 
-1. Toby to open the installed PWA on iPhone and confirm the "LANGUAGE THRESHOLD" badge clears
-   the Dynamic Island on the first-run screen.
-2. Recover real Supabase client values into `.env.local` so future UI work is verifiable
-   locally rather than reasoned about.
-3. `OnboardingWizard.tsx:178` hangs a Skip button at `absolute -top-8` — reachable by the
-   island on a short viewport. Not fixed; flagged as minor.
+1. Deploy this tuning pass; Toby to confirm 50% is right on device. `--lt-safe-top-scale` is a
+   single number if further adjustment is needed.
+2. Multi-language reminders are **not functional yet** — `push_reminder_preferences` still has
+   `user_id` as PRIMARY KEY and `claim_due_push_reminders()` claims one reminder per user per day.
+   Schema, server API, state shape, and settings UI remain.
+3. `OnboardingWizard.tsx:178` Skip button at `absolute -top-8` — still unaddressed, minor.
+4. Recover real Supabase values into `.env.local` so future UI work is verifiable locally.

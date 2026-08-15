@@ -50,6 +50,14 @@
   --radius: 0.5rem;
   /* Readable from JS via getComputedStyle for absolutely-positioned overlays. */
   --lt-safe-top-px: env(safe-area-inset-top, 0px);
+  /* Fraction of the OS-reported top inset actually applied as visual buffer.
+     iOS reports enough inset to clear the Dynamic Island completely, which
+     reads as too much air once the surface also has its own padding.
+     Tune here — every safe-top utility reads this one number. */
+  --lt-safe-top-scale: 0.5;
+  --lt-safe-top: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
+  /* Same scaled value, for JS-positioned overlays (AppTour). */
+  --lt-safe-top-scaled-px: calc(env(safe-area-inset-top, 0px) * var(--lt-safe-top-scale));
   /* One budget shared by the fixed nav, Tutor action, and Reader mini-player. */
   --lt-nav-height: 6.5rem;
   --lt-floating-control-height: 3.5rem;
@@ -201,17 +209,17 @@
      .lt-safe-top ADDS the inset to whatever padding the element already carries,
      so existing Tailwind py- / pt- spacing is preserved rather than overridden. */
   .lt-safe-top {
-    padding-top: calc(env(safe-area-inset-top) + var(--lt-safe-top-base, 2rem));
+    padding-top: calc(var(--lt-safe-top) + var(--lt-safe-top-base, 2rem));
   }
 
   /* For surfaces whose own padding is already correct and only need the inset. */
   .lt-safe-top-only {
-    padding-top: env(safe-area-inset-top);
+    padding-top: var(--lt-safe-top);
   }
 
   /* Fixed/sticky bars pinned to the very top of the viewport. */
   .lt-safe-top-bar {
-    padding-top: calc(env(safe-area-inset-top) + var(--lt-safe-top-base, 0.5rem));
+    padding-top: calc(var(--lt-safe-top) + var(--lt-safe-top-base, 0.5rem));
   }
 
   /* Main in-app content column. Below lg there is no top chrome — TopNav is
@@ -219,12 +227,12 @@
      Dynamic Island. At lg and above TopNav already applies the inset, so it
      must NOT be added again here or the gap doubles. */
   .lt-safe-top-main {
-    padding-top: calc(1.5rem + env(safe-area-inset-top));
+    padding-top: calc(1.5rem + var(--lt-safe-top));
   }
 
   @media (min-width: 640px) {
     .lt-safe-top-main {
-      padding-top: calc(2.5rem + env(safe-area-inset-top));
+      padding-top: calc(2.5rem + var(--lt-safe-top));
     }
   }
 

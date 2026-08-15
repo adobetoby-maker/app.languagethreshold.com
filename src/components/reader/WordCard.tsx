@@ -34,6 +34,21 @@ function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
 }
 
+/** Read live safe-area insets (requires viewport-fit=cover, which we already set). */
+function getSafeAreaInsets(): { top: number; bottom: number } {
+  if (typeof document === "undefined") return { top: 0, bottom: 0 };
+  const probe = document.createElement("div");
+  probe.style.cssText =
+    "position:fixed;top:0;left:0;visibility:hidden;pointer-events:none;" +
+    "padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);";
+  document.body.appendChild(probe);
+  const style = getComputedStyle(probe);
+  const top = parseFloat(style.paddingTop) || 0;
+  const bottom = parseFloat(style.paddingBottom) || 0;
+  document.body.removeChild(probe);
+  return { top, bottom };
+}
+
 /**
  * Marks every occurrence of the tapped word inside its source sentence.
  *
@@ -108,30 +123,45 @@ export function WordCard({
     };
   }, []);
 
-  // Initial position estimate — runs synchronously before first paint
+  // Initial position estimate — runs synchronously before first paint.
+  // Safe-area insets keep the card (and its close button) clear of the Dynamic
+  // Island / notch and the home indicator.
   const initialPos = (() => {
-    const pad = 12;
+    const { top: safeTop, bottom: safeBottom } = getSafeAreaInsets();
+    const padTop = Math.max(12, safeTop + 8);
+    const padBottom = Math.max(12, safeBottom + 8);
+    const padX = 12;
     const vw = typeof window !== "undefined" ? window.innerWidth : 1024;
     const vh = typeof window !== "undefined" ? window.innerHeight : 768;
     let left = request.x + 16;
     let top = request.y + 16;
-    if (left + CARD_W + pad > vw) left = Math.max(pad, request.x - CARD_W - 16);
-    if (top + CARD_H + pad > vh) top = Math.max(pad, request.y - CARD_H - 16);
-    left = Math.max(pad, Math.min(left, vw - CARD_W - pad));
-    top = Math.max(pad, Math.min(top, vh - CARD_H - pad));
+    if (left + CARD_W + padX > vw) left = Math.max(padX, request.x - CARD_W - 16);
+    if (top + CARD_H + padBottom > vh) top = Math.max(padTop, request.y - CARD_H - 16);
+    left = Math.max(padX, Math.min(left, vw - CARD_W - padX));
+    top = Math.max(padTop, Math.min(top, vh - CARD_H - padBottom));
     return { left, top };
   })();
 
   const [pos, setPos] = useState(initialPos);
 
   // After content loads/changes, clamp so the actual rendered bottom stays on-screen
+  // (and still clears the home indicator).
   useLayoutEffect(() => {
     if (!ref.current) return;
-    const pad = 12;
+    const { top: safeTop, bottom: safeBottom } = getSafeAreaInsets();
+    const padTop = Math.max(12, safeTop + 8);
+    const padBottom = Math.max(12, safeBottom + 8);
     const vh = typeof window !== "undefined" ? window.innerHeight : 768;
     const rect = ref.current.getBoundingClientRect();
-    if (rect.bottom > vh - pad) {
-      setPos((p) => ({ ...p, top: Math.max(pad, p.top - (rect.bottom - vh + pad)) }));
+    if (rect.bottom > vh - padBottom) {
+      setPos((p) => ({
+        ...p,
+        top: Math.max(padTop, p.top - (rect.bottom - vh + padBottom)),
+      }));
+    }
+    // Also pull the card down if it somehow started under the Dynamic Island.
+    if (rect.top < padTop) {
+      setPos((p) => ({ ...p, top: padTop }));
     }
   }, [loading, card, error, showEtymology]);
 
@@ -235,7 +265,21 @@ export function WordCard({
         <X className="h-3 w-3" />
       </button>
 
-      <div className="max-h-[80vh] overflow-y-auto px-5 pb-5 pt-12">
+      {/*
+        Scroll region:
+        - max height uses 100dvh minus both safe-area insets so the card never
+          collides with Dynamic Island or the home indicator.
+        - -webkit-overflow-scrolling: touch restores momentum scrolling on iOS.
+        - overscroll-contain keeps the parent reader from rubber-banding while
+          the user is dragging inside the card.
+      */}
+      <div
+        className="overflow-y-auto overscroll-contain px-5 pb-5 pt-12 [-webkit-overflow-scrolling:touch]"
+        style={{
+          maxHeight:
+            "min(80vh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 48px))",
+        }}
+      >
         {loading && <CardSkeleton />}
 
         {/* When the lookup fails there is still something worth showing: the word

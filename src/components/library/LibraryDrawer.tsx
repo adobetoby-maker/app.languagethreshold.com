@@ -245,7 +245,13 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
         className={`fixed left-0 top-0 z-50 flex h-full w-full max-w-md flex-col border-r border-gold/30 bg-card/95 shadow-luxe backdrop-blur-2xl transition-transform duration-400 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+        style={{
+          transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+          // Top-anchored full-height drawer: without this its header sits
+          // under the Dynamic Island / status bar. Uses the same scaled
+          // --lt-safe-top the rest of the app was tuned to on-device.
+          paddingTop: "var(--lt-safe-top)",
+        }}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border/60 px-6 py-5">

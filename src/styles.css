@@ -253,9 +253,14 @@
     );
   }
 
-  .lt-tutor-panel {
-    bottom: calc(var(--lt-nav-height) + env(safe-area-inset-bottom) + var(--lt-floating-gap));
-  }
+  /* NOTE: .lt-tutor-panel intentionally sets no `bottom`.
+     The panel used to be `position: fixed` and bottom-anchored above the nav,
+     where a `bottom` offset was correct. It is now a `position: relative`
+     dialog centered by its flex parent, which supplies the safe-area padding.
+     On a relative element a `bottom` value SHIFTS IT UPWARD — roughly
+     nav-height + inset-bottom + gap (~106px on a Dynamic Island iPhone) —
+     pushing the header off-screen and the body under the status bar.
+     Keep positioning in TutorPanel.tsx; do not reintroduce an offset here. */
 
   .tool-purpose[data-activity="reading"] {
     border-color: color-mix(in oklab, oklch(0.7 0.14 230) 32%, var(--border));
@@ -416,19 +421,24 @@ ruby,
   ruby-align: center;
   /* Prevent ruby from being broken across lines mid-character. */
   white-space: nowrap;
+  /* CRITICAL for alignment: without this, a reading wider than its kanji is
+     allowed to overhang the neighbouring characters, which visually shifts the
+     reading off its own base and drifts the whole run out of registration. */
+  ruby-overhang: none;
 }
 rt,
 .furigana-rt {
   display: ruby-text !important;
   font-family: var(--font-mono);
-  font-size: 0.5em;
-  font-weight: 400;
+  font-size: 0.45em;
+  font-weight: 500;
   line-height: 1;
-  color: color-mix(in oklab, var(--gold) 70%, var(--muted-foreground));
-  letter-spacing: 0.02em;
+  color: color-mix(in oklab, var(--gold) 75%, var(--muted-foreground));
+  letter-spacing: 0.01em;
   /* Lift readings up slightly so they sit cleanly inside the existing leading
-     instead of widening the line box. */
-  transform: translateY(-0.1em);
+     instead of widening the line box. Keep this small — an over-large lift
+     detaches the reading from its kanji. */
+  transform: translateY(-0.05em);
   user-select: none;
   /* CRITICAL: let clicks pass through the reading bubble down to the kanji /
      surrounding kana. Without this, taps on the small hiragana above a kanji

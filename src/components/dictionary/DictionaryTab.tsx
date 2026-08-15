@@ -4,6 +4,7 @@ import { dictWords } from './wordData'
 import { verbProfiles } from './verbProfiles'
 import { italianDictWords } from './italianWordData'
 import { italianVerbProfiles } from './italianVerbProfiles'
+import { coreItalianWords } from './coreItalian'
 import type { WordCategory, DictWord, VerbProfile } from './types'
 import { MorphDisplay } from './MorphDisplay'
 import { useApp, type Language } from '@/state/app-state'
@@ -37,6 +38,20 @@ const ITALIAN_FIELD_LABELS: Record<string, string> = {
   preteriteEl: 'Passato remoto (lui/lei)',
 }
 
+/** Merge module dictionary with Core frequency set. Core entries win on
+ *  headword collision so the statistical foundation always surfaces under
+ *  the Core filter. */
+function mergeWithCore(moduleWords: DictWord[], coreWords: DictWord[]): DictWord[] {
+  const byLemma = new Map<string, DictWord>()
+  for (const w of moduleWords) {
+    byLemma.set(w.word.toLowerCase(), w)
+  }
+  for (const w of coreWords) {
+    byLemma.set(w.word.toLowerCase(), w)
+  }
+  return Array.from(byLemma.values())
+}
+
 const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> = {
   Spanish: {
     words: dictWords,
@@ -46,7 +61,7 @@ const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> 
     phraseExample: 'El médico examina al paciente...',
   },
   Italian: {
-    words: italianDictWords,
+    words: mergeWithCore(italianDictWords, coreItalianWords),
     profiles: italianVerbProfiles,
     searchPlaceholder: 'Search Italian or English…',
     phraseNoun: 'Italian',
@@ -59,9 +74,10 @@ const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> 
 
 type CategoryFilter = 'all' | WordCategory
 
-/** All first, then modules A–Z by label. */
+/** All → Core (frequency foundation) → specialty modules A–Z. */
 const CATEGORY_CHIPS: { key: CategoryFilter; label: string }[] = [
   { key: 'all', label: 'All' },
+  { key: 'core', label: 'Core' },
   { key: 'academic', label: 'Academic' },
   { key: 'business', label: 'Business' },
   { key: 'mission', label: 'Church / Mission' },
@@ -417,7 +433,7 @@ export function DictionaryTab() {
             />
           </div>
 
-          {/* Category chips — All + modules A–Z */}
+          {/* Category chips — All → Core → modules A–Z */}
           <div className="flex flex-wrap gap-2">
             {CATEGORY_CHIPS.map((chip) => {
               const active = category === chip.key

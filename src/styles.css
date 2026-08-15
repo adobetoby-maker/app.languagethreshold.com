@@ -2,9 +2,6 @@
 @source "../src";
 @import "tw-animate-css";
 
-/* Restored core styles — full file with furigana + lt-reader-sentence dashed rules.
-   If this is still truncated by tooling, the complete version is ready locally. */
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -152,6 +149,7 @@
   }
 }
 
+/* ---- Furigana (ruby) — keep readings inside existing leading ---- */
 ruby,
 .furigana-ruby {
   display: ruby !important;
@@ -159,33 +157,37 @@ ruby,
   -webkit-ruby-position: before;
   ruby-align: center;
   white-space: nowrap;
+  /* Do not let ruby expand the line box beyond the parent's leading */
+  ruby-overhang: none;
 }
 rt,
 .furigana-rt {
   display: ruby-text !important;
   font-family: var(--font-mono);
-  font-size: 0.5em;
-  font-weight: 400;
+  font-size: 0.45em;
+  font-weight: 500;
   line-height: 1;
-  color: color-mix(in oklab, var(--gold) 70%, var(--muted-foreground));
-  letter-spacing: 0.02em;
-  transform: translateY(-0.1em);
+  color: color-mix(in oklab, var(--gold) 75%, var(--muted-foreground));
+  letter-spacing: 0.01em;
+  /* Pull the reading slightly into the leading gap above the kanji */
+  transform: translateY(-0.05em);
   user-select: none;
   pointer-events: none;
 }
+/* When a cell uses furigana, keep the line-height the same as the parent size class */
 .furigana-line {
   line-height: inherit;
 }
-
-/* Light dashed separators between parallel-reader sentences (lined-paper feel). */
-.lt-reader-sentence {
-  border-bottom-style: dashed;
-  border-bottom-width: 1px;
-  border-bottom-color: color-mix(in oklab, var(--border) 38%, transparent);
+/* Paired-row cells: ensure both columns share the same vertical padding rhythm */
+.lt-reader-pair {
+  align-items: start;
 }
 
 .lt-word {
   cursor: pointer;
   border-radius: 0.25rem;
   transition: color 150ms ease;
+}
+.lt-word:hover {
+  color: var(--gold);
 }

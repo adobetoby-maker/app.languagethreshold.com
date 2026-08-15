@@ -32,7 +32,6 @@ export interface JapaneseConjugationSet {
 }
 
 const CATALOG: Record<string, JapaneseConjugationSet> = {
-  // Core group 1 (godan) and group 2 (ichidan) + utility
   "食べる": {
     infinitive: "食べる",
     reading: "taberu",
@@ -162,6 +161,136 @@ const CATALOG: Record<string, JapaneseConjugationSet> = {
     },
     teForm: "いて",
     taForm: "いた",
+  },
+  "書く": {
+    infinitive: "書く",
+    reading: "kaku",
+    english: "to write",
+    bases: { a: "書か", i: "書き", u: "書く", e: "書け", te: "書いて" },
+    forms: {
+      plain: { present: "書く", past: "書いた" },
+      polite: { present: "書きます", past: "書きました" },
+      honorific: { present: "お書きになります", past: "お書きになりました" },
+    },
+    teForm: "書いて",
+    taForm: "書いた",
+  },
+  "読む": {
+    infinitive: "読む",
+    reading: "yomu",
+    english: "to read",
+    bases: { a: "読ま", i: "読み", u: "読む", e: "読め", te: "読んで" },
+    forms: {
+      plain: { present: "読む", past: "読んだ" },
+      polite: { present: "読みます", past: "読みました" },
+      honorific: { present: "お読みになります", past: "お読みになりました" },
+    },
+    teForm: "読んで",
+    taForm: "読んだ",
+  },
+  "買う": {
+    infinitive: "買う",
+    reading: "kau",
+    english: "to buy",
+    bases: { a: "買わ", i: "買い", u: "買う", e: "買え", te: "買って" },
+    forms: {
+      plain: { present: "買う", past: "買った" },
+      polite: { present: "買います", past: "買いました" },
+      honorific: { present: "お買いになります", past: "お買いになりました" },
+    },
+    teForm: "買って",
+    taForm: "買った",
+  },
+  "待つ": {
+    infinitive: "待つ",
+    reading: "matsu",
+    english: "to wait",
+    bases: { a: "待た", i: "待ち", u: "待つ", e: "待て", te: "待って" },
+    forms: {
+      plain: { present: "待つ", past: "待った" },
+      polite: { present: "待ちます", past: "待ちました" },
+      honorific: { present: "お待ちになります", past: "お待ちになりました" },
+    },
+    teForm: "待って",
+    taForm: "待った",
+  },
+  "話す": {
+    infinitive: "話す",
+    reading: "hanasu",
+    english: "to speak",
+    bases: { a: "話さ", i: "話し", u: "話す", e: "話せ", te: "話して" },
+    forms: {
+      plain: { present: "話す", past: "話した" },
+      polite: { present: "話します", past: "話しました" },
+      honorific: { present: "お話しになります", past: "お話しになりました" },
+    },
+    teForm: "話して",
+    taForm: "話した",
+  },
+  "分かる": {
+    infinitive: "分かる",
+    reading: "wakaru",
+    english: "to understand",
+    bases: { a: "分から", i: "分かり", u: "分かる", e: "分かれ", te: "分かって" },
+    forms: {
+      plain: { present: "分かる", past: "分かった" },
+      polite: { present: "分かります", past: "分かりました" },
+      honorific: { present: "お分かりになります", past: "お分かりになりました" },
+    },
+    teForm: "分かって",
+    taForm: "分かった",
+  },
+  "思う": {
+    infinitive: "思う",
+    reading: "omou",
+    english: "to think",
+    bases: { a: "思わ", i: "思い", u: "思う", e: "思え", te: "思って" },
+    forms: {
+      plain: { present: "思う", past: "思った" },
+      polite: { present: "思います", past: "思いました" },
+      honorific: { present: "お思いになります", past: "お思いになりました" },
+    },
+    teForm: "思って",
+    taForm: "思った",
+  },
+  "知る": {
+    infinitive: "知る",
+    reading: "shiru",
+    english: "to know",
+    bases: { a: "知ら", i: "知り", u: "知る", e: "知れ", te: "知って" },
+    forms: {
+      plain: { present: "知る", past: "知った" },
+      polite: { present: "知ります", past: "知りました" },
+      honorific: { present: "ご存じです", past: "ご存じでした" },
+    },
+    teForm: "知って",
+    taForm: "知った",
+  },
+  "作る": {
+    infinitive: "作る",
+    reading: "tsukuru",
+    english: "to make",
+    bases: { a: "作ら", i: "作り", u: "作る", e: "作れ", te: "作って" },
+    forms: {
+      plain: { present: "作る", past: "作った" },
+      polite: { present: "作ります", past: "作りました" },
+      honorific: { present: "お作りになります", past: "お作りになりました" },
+    },
+    teForm: "作って",
+    taForm: "作った",
+  },
+  "使う": {
+    infinitive: "使う",
+    reading: "tsukau",
+    english: "to use",
+    bases: { a: "使わ", i: "使い", u: "使う", e: "使え", te: "使って" },
+    forms: {
+      plain: { present: "使う", past: "使った" },
+      polite: { present: "使います", past: "使いました" },
+      honorific: { present: "お使いになります", past: "お使いになりました" },
+    },
+    teForm: "使って",
+    taForm: "使った",
   },
 };
 

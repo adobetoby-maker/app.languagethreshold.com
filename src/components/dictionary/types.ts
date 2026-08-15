@@ -43,6 +43,7 @@ export interface VerbProfile {
 }
 
 export type WordCategory =
+  | 'core'
   | 'medical'
   | 'construction'
   | 'daily'

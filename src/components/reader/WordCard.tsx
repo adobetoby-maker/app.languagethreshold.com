@@ -244,11 +244,20 @@ export function WordCard({
       aria-label={`Word details for ${request.word}`}
       style={{
         position: "fixed",
-        left: pos.left,
-        top: pos.top,
-        width: CARD_W,
+        // Centred on the SAFE area, not the raw viewport. The safe-area centre
+        // sits at 50% + (topInset - bottomInset) / 2, so on a Dynamic Island
+        // phone the card is optically centred between the island and the home
+        // indicator rather than hidden behind the island.
+        left: "50%",
+        top: "calc(50% + (env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 2)",
+        transform: "translate(-50%, -50%)",
+        width: `min(calc(100vw - 24px), ${CARD_W}px)`,
+        // Never taller than the safe area, so it can't overflow upward under
+        // the island when the definition is long.
+        maxHeight:
+          "calc(100dvh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))",
       }}
-      className="word-card-pop z-50 overflow-hidden rounded-2xl border border-gold/50 bg-card/85 shadow-luxe backdrop-blur-2xl"
+      className="word-card-pop z-50 overflow-y-auto overscroll-contain rounded-2xl border border-gold/50 bg-card/85 shadow-luxe backdrop-blur-2xl"
     >
       {/* Ensure ruby / furigana and okurigana share a common baseline so
           kanji + following kana sit level (and with the romaji line below). */}

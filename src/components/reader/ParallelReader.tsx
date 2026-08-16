@@ -128,7 +128,16 @@ export function ParallelReader() {
     }
   }, [state.activeModuleId, state.selectedLanguage, lib.entries, lib.selectedId, libDispatch]);
 
-  // Hydrate + persist furigana / romaja preferences
+  // Hydrate + persist furigana / romaja preferences.
+  //
+  // Each persist effect MUST skip its first invocation. On mount it runs in the
+  // same commit as the hydrate effect below, when state still holds its default
+  // ("above") rather than the value just read from localStorage — so without
+  // this it writes the default straight over the user's saved preference and
+  // "off" silently resets to "above" on every reload.
+  const skipFuriganaPersist = useRef(true);
+  const skipScriptPersist = useRef(true);
+  const skipRomajaPersist = useRef(true);
   useEffect(() => {
     try {
       const raw = localStorage.getItem(FURIGANA_KEY);
@@ -152,6 +161,10 @@ export function ParallelReader() {
     }
   }, []);
   useEffect(() => {
+    if (skipFuriganaPersist.current) {
+      skipFuriganaPersist.current = false;
+      return;
+    }
     try {
       localStorage.setItem(FURIGANA_KEY, furiganaMode);
     } catch {
@@ -159,6 +172,10 @@ export function ParallelReader() {
     }
   }, [furiganaMode]);
   useEffect(() => {
+    if (skipScriptPersist.current) {
+      skipScriptPersist.current = false;
+      return;
+    }
     try {
       localStorage.setItem(FURIGANA_SCRIPT_KEY, furiganaScript);
     } catch {
@@ -166,6 +183,10 @@ export function ParallelReader() {
     }
   }, [furiganaScript]);
   useEffect(() => {
+    if (skipRomajaPersist.current) {
+      skipRomajaPersist.current = false;
+      return;
+    }
     try {
       localStorage.setItem(ROMAJA_KEY, romajaMode);
     } catch {
@@ -819,7 +840,10 @@ export function ParallelReader() {
         <div className={fullscreen ? "grid grid-cols-1" : "grid grid-cols-2"}>
           {!fullscreen && (
             <div className="relative">
-              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border/50 bg-card/80 px-6 py-3 backdrop-blur">
+              {/* h-12 is fixed on BOTH pane headers. The target header carries an
+                  h-7 audio button while this one is text-only, so padding-driven
+                  heights diverge and the two header boxes stop lining up. */}
+              <div className="sticky top-0 z-10 flex h-12 items-center justify-between border-b border-border/50 bg-card/80 px-6 backdrop-blur">
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                   {state.nativeLanguage}
                 </span>
@@ -848,7 +872,8 @@ export function ParallelReader() {
           )}
 
           <div className={`relative ${fullscreen ? "" : "border-l border-border/50"}`}>
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border/50 bg-card/80 px-6 py-3 backdrop-blur">
+            {/* Must stay h-12 in lock-step with the native pane header above. */}
+            <div className="sticky top-0 z-10 flex h-12 items-center justify-between border-b border-border/50 bg-card/80 px-6 backdrop-blur">
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
                 {selected.language}
               </span>

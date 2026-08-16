@@ -78,6 +78,9 @@ interface SpeechCtx {
   lastWord: string | null;
   setLastWord: (w: string) => void;
 
+  // Bounded history of recently looked-up words, most recent first.
+  recentWords: string[];
+
   // Live playback
   playing: boolean;
   current: PlaybackInfo | null;
@@ -99,6 +102,8 @@ const Ctx = createContext<SpeechCtx | null>(null);
 
 const ACHIEVEMENT_LISTENER = "Good Listener 👂";
 const STORAGE_KEY = "lt.speech.v1";
+const RECENT_WORDS_KEY = "lt.speech.recentWords.v1";
+const RECENT_WORDS_CAP = 20;
 
 export function SpeechProvider({
   children,
@@ -118,6 +123,7 @@ export function SpeechProvider({
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
   const [lastWord, setLastWordState] = useState<string | null>(null);
+  const [recentWords, setRecentWords] = useState<string[]>([]);
   const [current, setCurrent] = useState<PlaybackInfo | null>(null);
   const [activeSentenceIndex, setActiveSentenceIndex] = useState(-1);
   const [playing, setPlaying] = useState(false);
@@ -155,6 +161,42 @@ export function SpeechProvider({
       /* ignore */
     }
   }, [rate, listenedCount, voiceURI, language]);
+
+  // Hydrate recent-words history (separate localStorage key from the main
+  // speech-settings blob above — kept independent so it can grow/shrink
+  // without touching rate/accent/voice persistence).
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(RECENT_WORDS_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          setRecentWords(parsed.filter((w): w is string => typeof w === "string"));
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  // Persist recent-words history. MUST skip its first invocation — it runs in
+  // the same commit as the hydrate effect above, while recentWords still
+  // holds its default ([]) rather than the value just read from
+  // localStorage, so without this it would silently wipe the saved history
+  // on every mount. Same pattern as the furigana/romaja persist effects in
+  // ParallelReader.tsx.
+  const skipRecentWordsPersist = useRef(true);
+  useEffect(() => {
+    if (skipRecentWordsPersist.current) {
+      skipRecentWordsPersist.current = false;
+      return;
+    }
+    try {
+      localStorage.setItem(RECENT_WORDS_KEY, JSON.stringify(recentWords));
+    } catch {
+      /* ignore */
+    }
+  }, [recentWords]);
 
   // Reset accent + voice when language changes (load voice for new language)
   useEffect(() => {
@@ -208,7 +250,15 @@ export function SpeechProvider({
   }, []);
   const setAccent = useCallback((c: string) => setAccentState(c), []);
   const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
-  const setLastWord = useCallback((w: string) => setLastWordState(w), []);
+  const setLastWord = useCallback((w: string) => {
+    setLastWordState(w);
+    const trimmed = w.trim();
+    if (!trimmed) return;
+    setRecentWords((prev) => {
+      const deduped = prev.filter((existing) => existing !== trimmed);
+      return [trimmed, ...deduped].slice(0, RECENT_WORDS_CAP);
+    });
+  }, []);
 
   const incListened = useCallback(() => {
     setListenedCount((c) => {
@@ -334,6 +384,7 @@ export function SpeechProvider({
       setVoiceURI,
       lastWord,
       setLastWord,
+      recentWords,
       playing,
       current,
       activeSentenceIndex,
@@ -353,6 +404,7 @@ export function SpeechProvider({
       setVoiceURI,
       lastWord,
       setLastWord,
+      recentWords,
       playing,
       current,
       activeSentenceIndex,

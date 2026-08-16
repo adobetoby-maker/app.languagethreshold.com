@@ -9,6 +9,7 @@ import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { LessonStackCard } from "@/components/dashboard/LessonStackCard";
 import { PushReminderControl } from "@/components/PushReminderControl";
 import { PracticeStreakCard } from "@/components/dashboard/PracticeStreakCard";
+import { NotesCard } from "@/components/dashboard/NotesCard";
 
 const LANG_FLAGS: Record<Language, string> = {
   Spanish: "🇪🇸",
@@ -293,6 +294,8 @@ export function Dashboard() {
           </ul>
         )}
       </section>
+
+      <NotesCard />
 
       {/* Achievements grid */}
       <section>

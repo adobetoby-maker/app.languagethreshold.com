@@ -32,10 +32,15 @@ import {
   Sparkles,
   RefreshCw,
   RotateCcw,
+  History,
+  Volume2,
+  NotebookPen,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useApp, LANGUAGES, type TabKey, type Language } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
+import { useSpeech } from "@/state/speech-state";
+import { useNotes } from "@/state/notes-state";
 import { getModule } from "@/data/modules";
 import { CountUp } from "./CountUp";
 import { cn } from "@/lib/utils";
@@ -261,6 +266,63 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const [updatingApp, setUpdatingApp] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
   const [resettingApp, setResettingApp] = useState(false);
+  const { recentWords, speakWord } = useSpeech();
+  const { annotations, add: addNote } = useNotes();
+
+  // Recent-words collapse/expand — remembered across reloads. Default to
+  // expanded (true) on first render (matches SSR output), then hydrate the
+  // real value in an effect. The persist effect below MUST skip its first
+  // invocation for the same reason as the recent-words persist effect in
+  // speech-state.tsx: it runs in the same commit as hydration, before state
+  // holds the value just read from localStorage.
+  const RECENT_WORDS_OPEN_KEY = "lt.sidebar.recentWordsOpen.v1";
+  const [recentWordsOpen, setRecentWordsOpen] = useState(true);
+  const skipRecentWordsOpenPersist = useRef(true);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(RECENT_WORDS_OPEN_KEY);
+      if (raw === "0") setRecentWordsOpen(false);
+      else if (raw === "1") setRecentWordsOpen(true);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+  useEffect(() => {
+    if (skipRecentWordsOpenPersist.current) {
+      skipRecentWordsOpenPersist.current = false;
+      return;
+    }
+    try {
+      localStorage.setItem(RECENT_WORDS_OPEN_KEY, recentWordsOpen ? "1" : "0");
+    } catch {
+      /* ignore */
+    }
+  }, [recentWordsOpen]);
+
+  // Free-text sidebar note — a standalone Annotation with a stable sentinel
+  // textId so it doesn't collide with per-reading annotations.
+  const SIDEBAR_NOTE_TEXT_ID = "sidebar";
+  const sidebarNotes = annotations.filter(
+    (a) => a.textId === SIDEBAR_NOTE_TEXT_ID && a.sentenceIndex === 0,
+  );
+  const lastSidebarNote = sidebarNotes[sidebarNotes.length - 1];
+  const [noteDraft, setNoteDraft] = useState("");
+  const [noteSaved, setNoteSaved] = useState(false);
+
+  function saveSidebarNote() {
+    const trimmed = noteDraft.trim();
+    if (!trimmed) return;
+    addNote({
+      textId: SIDEBAR_NOTE_TEXT_ID,
+      pane: "left",
+      sentenceIndex: 0,
+      selectedText: trimmed,
+      noteText: trimmed,
+    });
+    setNoteDraft("");
+    setNoteSaved(true);
+    window.setTimeout(() => setNoteSaved(false), 2000);
+  }
 
   const visible = TAB_ITEMS.filter((t) => {
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
@@ -529,6 +591,82 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
             </button>
           )}
+
+          {/* Recently looked-up words — collapsible history built from
+              speech-state's setLastWord() calls (WordCard.tsx). Tap a word
+              to hear it spoken again; re-opening the WordCard popup itself
+              would require plumbing selection/position state that lives in
+              ParallelReader.tsx, out of scope here, so this is
+              display-plus-speak, not a full re-open. */}
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+            Recent words
+          </p>
+          <button
+            onClick={() => setRecentWordsOpen((v) => !v)}
+            className="mt-2 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25 cursor-pointer min-h-[44px]"
+          >
+            <span className="flex items-center gap-2.5 text-sm text-foreground">
+              <History className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              {recentWords.length > 0
+                ? `${recentWords.length} looked up`
+                : "None looked up yet"}
+            </span>
+            <ChevronDown
+              className={cn(
+                "h-3.5 w-3.5 text-muted-foreground transition-transform duration-200",
+                recentWordsOpen && "rotate-180",
+              )}
+            />
+          </button>
+          {recentWordsOpen && (
+            <div className="mt-2 flex flex-wrap gap-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+              {recentWords.length === 0 ? (
+                <span className="text-sm text-muted-foreground">
+                  Tap a word in the reader to start building your history.
+                </span>
+              ) : (
+                recentWords.map((word) => (
+                  <button
+                    key={word}
+                    onClick={() => speakWord(word)}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-gold/25 hover:text-gold cursor-pointer min-h-[44px]"
+                  >
+                    <Volume2 className="h-3.5 w-3.5 text-gold/70" strokeWidth={1.6} />
+                    {word}
+                  </button>
+                ))
+              )}
+            </div>
+          )}
+
+          {/* Free-text note — saved through useNotes() with a stable
+              sentinel textId so it never collides with per-reading
+              annotations. */}
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+            Quick note
+          </p>
+          <div className="mt-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+            <textarea
+              value={noteDraft}
+              onChange={(e) => setNoteDraft(e.target.value)}
+              placeholder="Jot down anything you want to remember…"
+              rows={3}
+              className="w-full resize-none rounded-lg border border-border/40 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/40 focus:outline-none"
+            />
+            <button
+              onClick={saveSidebarNote}
+              disabled={!noteDraft.trim()}
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-gold/25 hover:text-gold disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer min-h-[44px]"
+            >
+              <NotebookPen className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
+              Save note
+            </button>
+            {noteSaved && lastSidebarNote?.noteText && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Saved: <span className="text-foreground">{lastSidebarNote.noteText}</span>
+              </p>
+            )}
+          </div>
 
           <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
             App settings

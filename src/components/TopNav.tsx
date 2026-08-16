@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Moon, Sun, Sparkle, ChevronDown, Puzzle } from "lucide-react";
 import {
   useApp,
+  LANGUAGES,
   NATIVE_LANGUAGES,
   type Language,
   type NativeLanguage,
@@ -21,17 +22,8 @@ import { VoicePicker } from "./VoicePicker";
 import { LanguageMatchButton } from "./match/LanguageMatchButton";
 import { AuthButton } from "./auth/AuthButton";
 
-const LANGUAGES: Language[] = [
-  "Spanish",
-  "English",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-];
+// Uses the canonical list from app-state. A local copy here is how Chinese
+// went missing from this switcher while the first-run gate offered it.
 
 
 const TABS: { key: TabKey; label: string; module?: string; language?: Language }[] = [

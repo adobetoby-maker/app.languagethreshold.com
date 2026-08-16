@@ -450,21 +450,14 @@ rt,
    small block that sits ABOVE its base via negative margin. This keeps the
    sketch-style "small reading directly over the kanji" behavior even if the
    browser falls all the way back to inline rendering. */
-@supports not (display: ruby) {
-  ruby,
-  .furigana-ruby {
-    display: inline-flex !important;
-    flex-direction: column-reverse;
-    align-items: center;
-    vertical-align: baseline;
-    line-height: 1;
-  }
-  rt,
-  .furigana-rt {
-    display: block !important;
-    margin-bottom: -0.15em;
-  }
-}
+/* NO @supports fallback for `display: ruby`.
+   iOS Safari fails @supports (display: ruby) yet renders <ruby> natively and
+   correctly — reading above, base on the baseline. The old fallback re-laid
+   ruby out as a flex column, which made the box two rows tall and dropped the
+   kanji below the surrounding kana (座 sinking under ってください). Overriding
+   ruby layout here fixes nothing and breaks the baseline, so the native
+   rendering is deliberately left alone. */
+
 /* When a sentence row contains ruby, keep the line box exactly as the parent
    line-height dictates — never let ruby grow it. */
 .furigana-line {

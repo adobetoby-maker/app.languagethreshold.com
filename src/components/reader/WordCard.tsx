@@ -262,24 +262,20 @@ export function WordCard({
       {/* Ensure ruby / furigana and okurigana share a common baseline so
           kanji + following kana sit level (and with the romaji line below). */}
       <style>{`
-        .word-card-pop ruby {
-          ruby-position: over;
-          ruby-align: center;
-          display: inline-flex;
-          flex-direction: column-reverse;
-          align-items: center;
-          vertical-align: baseline;
-          line-height: 1.05;
-        }
+        /* Do NOT override ruby layout here. Browsers render <ruby> natively
+           with the reading above the base on the baseline; forcing a flex
+           column (or absolute positioning, which WebKit refuses on <rt>)
+           stacks the box two rows tall and drops the base out of the line.
+           Cosmetics only below. */
         .word-card-pop rt,
         .word-card-pop .furigana-rt {
-          display: block;
           font-size: 0.42em;
           font-weight: 500;
-          line-height: 1.1;
+          line-height: 1;
           letter-spacing: 0.02em;
+          white-space: nowrap;
+          pointer-events: none;
           color: var(--gold, #c9a84c);
-          transform: translateY(0.05em);
         }
         .word-card-pop rb,
         .word-card-pop .furigana-base {

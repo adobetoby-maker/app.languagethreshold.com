@@ -34,7 +34,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { useState } from "react";
-import { useApp, type TabKey, type Language } from "@/state/app-state";
+import { useApp, LANGUAGES, type TabKey, type Language } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
 import { CountUp } from "./CountUp";
@@ -61,17 +61,8 @@ import { VoicePicker } from "./VoicePicker";
 import { reloadNewestAppVersion, resetAppToFirstRun } from "@/lib/app-update";
 import { PwaInstallControl } from "./PwaInstallControl";
 
-const LANGUAGES: Language[] = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-];
+// Uses the canonical list from app-state — see TopNav for why a local copy is
+// a bug waiting to happen.
 
 // Modules that get a Field Prep tab
 const FIELD_PREP_MODULE_IDS = new Set([
@@ -509,7 +500,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
           side="bottom"
-          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] lg:hidden"
+          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] lg:hidden"
         >
           <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
           <SheetDescription className="sr-only">

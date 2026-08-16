@@ -106,6 +106,7 @@ const LANGUAGES: { id: Language; label: string; native: string }[] = [
   { id: "German", label: "German", native: "Deutsch" },
   { id: "Portuguese", label: "Portuguese", native: "Português" },
   { id: "Japanese", label: "Japanese", native: "日本語" },
+  { id: "Chinese", label: "Chinese (Mandarin)", native: "中文" },
   { id: "Korean", label: "Korean", native: "한국어" },
   { id: "Pashto", label: "Pashto", native: "پښتو" },
 ];

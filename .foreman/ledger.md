@@ -33,7 +33,7 @@ Wants BOTH modes, with recognition as an explicit act, never a guess:
 | P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **DONE** (efa7df6) |
 | P2 | SEPARATE Chinese recognition prompt (no overlap with Japanese) | WORKHORSE | `fns/handwriting-recognize.functions.ts`, `kana/HandwritingCanvas.tsx` | **DONE** (eaae5a6) |
 | P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | `styles.css`, `TopNav.tsx`, `AppSidebar.tsx`, `tutor/TutorPanel.tsx` | **DONE** (9e36a5e) |
-| P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | UNBLOCKED — P1 done |
+| P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx`, `reader/NotesPanel.tsx` | **DONE** (f7d2aa8) |
 
 ## Why P1 is first
 
@@ -96,7 +96,12 @@ position; do NOT bolt it onto the CJK recogniser. Surface as its own decision.
   styles.css (variant def + 2 media query updates), TopNav, AppSidebar (3 sites), TutorPanel.
   tsc: 0 errors. Build: clean. UNVERIFIED: real iPad (Playwright webkit cannot simulate
   touch-primary pointer capability; must test on physical device).
-- NEXT: **P4** (wire trace/convert into notes surfaces).
+- P4 DONE (f7d2aa8). Draw-to-convert wired into all three note entry surfaces (NotesCard add form,
+  NoteRow edit, NoteCard in NotesPanel). MultilingualNoteInput replaces bare <textarea> everywhere.
+  onKeyDown passthrough prop added to MultilingualNoteInput (fires after composition guard).
+  autoFocus replaces taRef+useEffect in NoteCard. tsc: 0 errors. Build: clean.
+  UNVERIFIED: actual draw→recognize flow on physical iPad (local API key invalid; 401 on recognizeHandwriting).
+  NEXT: ship P1–P4 diff to origin/main (currently isolated clone only).
 - (superseded) P2 (recognition beyond Japanese) is the highest-value remaining ticket, and it
   carries a founder decision on Pashto — do not let a worker bolt Arabic script onto the
   CJK recogniser.

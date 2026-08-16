@@ -1,3 +1,30 @@
+# Verification — P4: notes surfaces draw mode (f7d2aa8)
+**Date:** 2026-08-16 · ledger: `.foreman/ledger.md`
+**Files:** `src/components/notes/MultilingualNoteInput.tsx`,
+`src/components/dashboard/NotesCard.tsx`,
+`src/components/reader/NotesPanel.tsx`
+
+| Spec item | Observed | Result |
+|---|---|---|
+| `MultilingualNoteInput` has `onKeyDown` prop | Prop in interface, destructured, forwarded after composition guard at line 154 | PASS |
+| `onKeyDown` never fires mid-IME | Guard `if (composing.current \|\| e.nativeEvent.isComposing) return` is first check in internal handler | PASS |
+| `NotesCard` add form uses `MultilingualNoteInput` | Import present, rendered when `adding` is true with `language={state.selectedLanguage}` | PASS |
+| `NotesCard` add form has Draw toggle | `PenLine` icon button toggles `drawMode`; active/inactive class swap | PASS |
+| `HandwritingCanvas` mounts conditionally | `{drawMode && <HandwritingCanvas onRecognized={text => setDraft(prev => prev + text)} />}` | PASS |
+| `NoteRow` (NotesCard inline edit) same pattern | `useApp()`, `drawMode` state, `MultilingualNoteInput`, draw toggle, canvas — all present | PASS |
+| `NoteCard` (NotesPanel drawer) same pattern | `useApp()`, `drawMode`, `MultilingualNoteInput autoFocus`, draw toggle, canvas — all present | PASS |
+| `drawMode` resets on cancel | `cancel()` calls `setDrawMode(false)` in all three components | PASS |
+| `drawMode` resets on commit | `commit()` calls `setDrawMode(false)` in all three components | PASS |
+| Escape cancels editing | `onKeyDown` prop checks `e.key === "Escape"` → `cancel()` in all three entry points | PASS |
+| `taRef` / focus `useEffect` removed from `NoteCard` | `useRef` and `useEffect` imports gone; `autoFocus` prop replaces them | PASS |
+| tsc 0 errors | `npx tsc --noEmit` → empty output | PASS |
+| Build clean | `npm run build` → `✓ Vercel Build Output API v3 artifact created` | PASS |
+
+## NOT VERIFIED
+`recognizeHandwriting` server fn 401s locally (local API key invalid). Draw canvas shows the Recognize button for Japanese/Chinese but the round-trip is unconfirmable without a physical device and valid key. First real test: draw 花 with Japanese selected (must return reading), then draw 花 with Chinese selected (must return pinyin — not kun'yomi).
+
+---
+
 # Verification — P3: iPad layout (9e36a5e, pushed)
 **Date:** 2026-08-16 · ledger: `.foreman/ledger.md`
 **Files:** `src/styles.css`, `src/components/TopNav.tsx`,

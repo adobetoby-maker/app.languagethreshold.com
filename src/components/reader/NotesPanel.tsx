@@ -1,6 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronRight, Trash2, NotebookPen, Pencil, Check, X } from "lucide-react";
+import { useState } from "react";
+import { ChevronRight, Trash2, NotebookPen, Pencil, PenLine, Check, X } from "lucide-react";
 import { useNotes, type Annotation } from "@/state/notes-state";
+import { useApp } from "@/state/app-state";
+import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput";
+import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 
 export function NotesPanel({
   textId,
@@ -88,16 +91,10 @@ function NoteCard({
   onRemove: () => void;
   onSave: (text: string) => void;
 }) {
+  const { state } = useApp();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(ann.noteText ?? "");
-  const taRef = useRef<HTMLTextAreaElement>(null);
-
-  useEffect(() => {
-    if (editing) {
-      taRef.current?.focus();
-      taRef.current?.setSelectionRange(draft.length, draft.length);
-    }
-  }, [editing]);
+  const [drawMode, setDrawMode] = useState(false);
 
   const startEdit = () => {
     setDraft(ann.noteText ?? "");
@@ -105,50 +102,70 @@ function NoteCard({
   };
   const commit = () => {
     onSave(draft.trim());
+    setDrawMode(false);
     setEditing(false);
   };
   const cancel = () => {
     setDraft(ann.noteText ?? "");
+    setDrawMode(false);
     setEditing(false);
   };
 
   return (
     <li className="group rounded-xl border border-border/60 bg-background/40 p-3 transition-colors hover:border-gold/40">
       <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] italic leading-snug text-foreground">
-        “{ann.selectedText}”
+        "{ann.selectedText}"
       </div>
 
       {editing ? (
         <div className="mb-2">
-          <textarea
-            ref={taRef}
+          <MultilingualNoteInput
+            language={state.selectedLanguage}
             value={draft}
-            onChange={(e) => setDraft(e.target.value)}
+            onChange={setDraft}
+            onSave={commit}
             onKeyDown={(e) => {
-              if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-                e.preventDefault();
-                commit();
-              } else if (e.key === "Escape") {
+              if (e.key === "Escape") {
                 e.preventDefault();
                 cancel();
               }
             }}
-            placeholder="Write your thoughts…"
-            className="h-24 w-full resize-none rounded-md border border-gold/40 bg-background/80 px-3 py-2 font-mono text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
+            autoFocus
+            rows={3}
+            className="border-gold/40 bg-background/80 font-mono text-[12px]"
           />
-          <div className="mt-2 flex items-center justify-end gap-2">
+          {drawMode && (
+            <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
+              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} />
+            </div>
+          )}
+          <div className="mt-2 flex items-center justify-between gap-2">
             <button
-              onClick={cancel}
-              className="flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+              type="button"
+              onClick={() => setDrawMode((v) => !v)}
+              title="Draw a character to insert"
+              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                drawMode
+                  ? "border-gold/60 bg-gold/10 text-gold"
+                  : "border-border/50 text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <X className="h-3 w-3" /> Cancel
+              <PenLine className="h-3 w-3" /> Draw
             </button>
-            <button
-              onClick={commit}
-              className="flex items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight hover:opacity-90"
-            >
-              <Check className="h-3 w-3" /> Save
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={cancel}
+                className="flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-3 w-3" /> Cancel
+              </button>
+              <button
+                onClick={commit}
+                className="flex items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight hover:opacity-90"
+              >
+                <Check className="h-3 w-3" /> Save
+              </button>
+            </div>
           </div>
         </div>
       ) : ann.noteText ? (

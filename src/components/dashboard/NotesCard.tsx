@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
-import { Check, NotebookPen, Pencil, Plus, Trash2, X } from "lucide-react";
+import { Check, NotebookPen, Pencil, PenLine, Plus, Trash2, X } from "lucide-react";
 import { useNotes, type Annotation } from "@/state/notes-state";
 import { useLibrary } from "@/state/library-state";
+import { useApp } from "@/state/app-state";
+import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput";
+import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 
 // Standalone notes added from the Dashboard (not tied to a Reader passage)
 // use this sentinel textId so they group separately from real library entries.
@@ -13,9 +16,11 @@ export function NotesCard() {
   const {
     state: { entries },
   } = useLibrary();
+  const { state } = useApp();
 
   const [adding, setAdding] = useState(false);
   const [draft, setDraft] = useState("");
+  const [drawMode, setDrawMode] = useState(false);
 
   const titleForText = useMemo(() => {
     const map = new Map(entries.map((e) => [e.id, `${e.flag ?? ""} ${e.title}`.trim()]));
@@ -51,7 +56,14 @@ export function NotesCard() {
       noteText: text,
     });
     setDraft("");
+    setDrawMode(false);
     setAdding(false);
+  }
+
+  function handleCancelAdding() {
+    setAdding(false);
+    setDrawMode(false);
+    setDraft("");
   }
 
   return (
@@ -68,42 +80,56 @@ export function NotesCard() {
 
       {adding ? (
         <div className="mb-5 rounded-xl border border-gold/40 bg-gold/5 p-3">
-          <textarea
-            autoFocus
+          <MultilingualNoteInput
+            language={state.selectedLanguage}
             value={draft}
-            onChange={(e) => setDraft(e.target.value)}
+            onChange={setDraft}
+            onSave={handleAdd}
             onKeyDown={(e) => {
-              if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+              if (e.key === "Escape") {
                 e.preventDefault();
-                handleAdd();
-              } else if (e.key === "Escape") {
-                e.preventDefault();
-                setAdding(false);
-                setDraft("");
+                handleCancelAdding();
               }
             }}
-            placeholder="Jot down a thought…"
-            className="h-20 w-full resize-none rounded-md border border-gold/40 bg-background/80 px-3 py-2 font-mono text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
+            autoFocus
+            rows={3}
+            className="border-gold/40 bg-background/80 font-mono text-[12px]"
           />
-          <div className="mt-2 flex items-center justify-end gap-2">
+          {drawMode && (
+            <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
+              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} />
+            </div>
+          )}
+          <div className="mt-2 flex items-center justify-between gap-2">
             <button
               type="button"
-              onClick={() => {
-                setAdding(false);
-                setDraft("");
-              }}
-              className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              onClick={() => setDrawMode((v) => !v)}
+              title="Draw a character to insert"
+              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                drawMode
+                  ? "border-gold/60 bg-gold/10 text-gold"
+                  : "border-border/50 text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <X className="h-3 w-3" /> Cancel
+              <PenLine className="h-3 w-3" /> Draw
             </button>
-            <button
-              type="button"
-              onClick={handleAdd}
-              disabled={!draft.trim()}
-              className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              <Check className="h-3 w-3" /> Save note
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleCancelAdding}
+                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                <X className="h-3 w-3" /> Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleAdd}
+                disabled={!draft.trim()}
+                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                <Check className="h-3 w-3" /> Save note
+              </button>
+            </div>
           </div>
         </div>
       ) : (
@@ -155,8 +181,10 @@ function NoteRow({
   onSave: (text: string) => void;
   onRemove: () => void;
 }) {
+  const { state } = useApp();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(ann.noteText ?? "");
+  const [drawMode, setDrawMode] = useState(false);
 
   const startEdit = () => {
     setDraft(ann.noteText ?? "");
@@ -164,10 +192,12 @@ function NoteRow({
   };
   const commit = () => {
     onSave(draft.trim());
+    setDrawMode(false);
     setEditing(false);
   };
   const cancel = () => {
     setDraft(ann.noteText ?? "");
+    setDrawMode(false);
     setEditing(false);
   };
 
@@ -175,43 +205,61 @@ function NoteRow({
     <li className="group rounded-xl border border-border/60 bg-background/40 p-3 transition-colors duration-200 hover:border-gold/40">
       {ann.selectedText && (
         <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] italic leading-snug text-foreground">
-          “{ann.selectedText}”
+          "{ann.selectedText}"
         </div>
       )}
 
       {editing ? (
         <div>
-          <textarea
-            autoFocus
+          <MultilingualNoteInput
+            language={state.selectedLanguage}
             value={draft}
-            onChange={(e) => setDraft(e.target.value)}
+            onChange={setDraft}
+            onSave={commit}
             onKeyDown={(e) => {
-              if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-                e.preventDefault();
-                commit();
-              } else if (e.key === "Escape") {
+              if (e.key === "Escape") {
                 e.preventDefault();
                 cancel();
               }
             }}
-            placeholder="Write your thoughts…"
-            className="h-20 w-full resize-none rounded-md border border-gold/40 bg-background/80 px-3 py-2 font-mono text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
+            autoFocus
+            rows={3}
+            className="border-gold/40 bg-background/80 font-mono text-[12px]"
           />
-          <div className="mt-2 flex items-center justify-end gap-2">
+          {drawMode && (
+            <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
+              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} />
+            </div>
+          )}
+          <div className="mt-2 flex items-center justify-between gap-2">
             <button
               type="button"
-              onClick={cancel}
-              className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              onClick={() => setDrawMode((v) => !v)}
+              title="Draw a character to insert"
+              className={`flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                drawMode
+                  ? "border-gold/60 bg-gold/10 text-gold"
+                  : "border-border/50 text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <X className="h-3 w-3" /> Cancel
+              <PenLine className="h-3 w-3" /> Draw
             </button>
-            <button
-              type="button"
-              onClick={commit}
-              className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90"
-            >
-              <Check className="h-3 w-3" /> Save
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={cancel}
+                className="flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                <X className="h-3 w-3" /> Cancel
+              </button>
+              <button
+                type="button"
+                onClick={commit}
+                className="flex cursor-pointer items-center gap-1 rounded-full bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight transition-opacity duration-200 hover:opacity-90"
+              >
+                <Check className="h-3 w-3" /> Save
+              </button>
+            </div>
           </div>
         </div>
       ) : ann.noteText ? (

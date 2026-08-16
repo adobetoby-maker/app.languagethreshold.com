@@ -84,6 +84,7 @@ export function MultilingualNoteInput({
   value,
   onChange,
   onSave,
+  onKeyDown,
   rows = 3,
   autoFocus = false,
   className = "",
@@ -94,6 +95,8 @@ export function MultilingualNoteInput({
   onChange: (next: string) => void;
   /** Optional: Cmd/Ctrl+Enter saves. */
   onSave?: () => void;
+  /** Called for any key that is not mid-composition — lets callers handle Escape etc. */
+  onKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   rows?: number;
   autoFocus?: boolean;
   className?: string;
@@ -148,6 +151,7 @@ export function MultilingualNoteInput({
           e.preventDefault();
           onSave();
         }
+        onKeyDown?.(e);
       }}
       style={{
         fontFamily: fontStackFor(language),

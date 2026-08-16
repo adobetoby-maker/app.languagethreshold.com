@@ -11,6 +11,16 @@ const CANVAS_SIZE = 400;
 const BRUSH_COLOR = "#e8dcc8"; // warm off-white stroke on dark canvas
 const BRUSH_SIZE = 6;
 
+// Apple Pencil / stylus pressure ranges 0..1. Mice (and some touch surfaces that don't
+// report real pressure) send a constant 0 or 0.5 — treat those as "no pressure data"
+// rather than letting them collapse every stroke to the same near-invisible width.
+function pressureToWidth(pressure: number, baseWidth: number): number {
+  if (!pressure || pressure === 0.5) return baseWidth;
+  const min = baseWidth * 0.5;
+  const max = baseWidth * 1.8;
+  return Math.min(max, Math.max(min, min + pressure * (max - min)));
+}
+
 interface Props {
   onRecognized: (text: string) => void;
 }
@@ -19,17 +29,16 @@ export function HandwritingCanvas({ onRecognized }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const strokeHistoryRef = useRef<ImageData[]>([]);
   const isDrawingRef = useRef(false);
+  const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+  const sawPenRef = useRef(false);
+  const activePointerIdRef = useRef<number | null>(null);
   const recognize = useServerFn(recognizeHandwriting);
 
   const [hasStrokes, setHasStrokes] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<HandwritingResult | null>(null);
 
-  // Initialize canvas background
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d")!;
+  const drawBackground = useCallback((ctx: CanvasRenderingContext2D) => {
     ctx.fillStyle = "#12141a";
     ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     // Grid lines for character guidance
@@ -45,56 +54,119 @@ export function HandwritingCanvas({ onRecognized }: Props) {
     ctx.setLineDash([]);
   }, []);
 
-  const getCoords = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+  // Initialize canvas: size the backing store for the device's pixel ratio so strokes
+  // stay crisp on a retina iPad, then draw the background at logical coordinates.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = CANVAS_SIZE * dpr;
+    canvas.height = CANVAS_SIZE * dpr;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.scale(dpr, dpr);
+    drawBackground(ctx);
+  }, [drawBackground]);
+
+  const getCoords = useCallback((clientX: number, clientY: number) => {
     const canvas = canvasRef.current!;
     const rect = canvas.getBoundingClientRect();
     const scaleX = CANVAS_SIZE / rect.width;
     const scaleY = CANVAS_SIZE / rect.height;
+    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+  }, []);
 
-    if ("touches" in e) {
-      const t = e.changedTouches[0];
-      return { x: (t.clientX - rect.left) * scaleX, y: (t.clientY - rect.top) * scaleY };
+  // Palm rejection: once a real pen contact has been seen on this canvas, ignore touch
+  // events from then on — a resting palm must not draw. Devices with no pen never see a
+  // "pen" pointerType, so finger drawing keeps working there.
+  const shouldIgnorePointer = useCallback((e: React.PointerEvent) => {
+    if (e.pointerType === "pen") {
+      sawPenRef.current = true;
+      return false;
     }
-    return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
+    if (e.pointerType === "touch" && sawPenRef.current) return true;
+    return false;
   }, []);
 
   const startDraw = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
+    (e: React.PointerEvent) => {
+      if (isDrawingRef.current) return; // ignore a second simultaneous contact
+      if (shouldIgnorePointer(e)) return;
       e.preventDefault();
       const canvas = canvasRef.current!;
+      try {
+        canvas.setPointerCapture(e.pointerId);
+      } catch {
+        // pointer may already be gone — safe to ignore
+      }
+      activePointerIdRef.current = e.pointerId;
+
       const ctx = canvas.getContext("2d")!;
-      // Save state before this stroke
-      strokeHistoryRef.current.push(ctx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE));
+      strokeHistoryRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
       isDrawingRef.current = true;
 
-      const { x, y } = getCoords(e);
+      const { x, y } = getCoords(e.clientX, e.clientY);
+      lastPointRef.current = { x, y };
       ctx.strokeStyle = BRUSH_COLOR;
-      ctx.lineWidth = BRUSH_SIZE;
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
+      ctx.lineWidth = pressureToWidth(e.pressure, BRUSH_SIZE);
+      // Draw an immediate dot so a tap (no movement) still leaves a mark.
       ctx.beginPath();
       ctx.moveTo(x, y);
+      ctx.lineTo(x, y);
+      ctx.stroke();
       setHasStrokes(true);
       setResult(null);
     },
-    [getCoords],
+    [getCoords, shouldIgnorePointer],
   );
 
   const draw = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
-      e.preventDefault();
+    (e: React.PointerEvent) => {
       if (!isDrawingRef.current) return;
+      if (e.pointerId !== activePointerIdRef.current) return;
+      if (shouldIgnorePointer(e)) return;
+      e.preventDefault();
       const ctx = canvasRef.current!.getContext("2d")!;
-      const { x, y } = getCoords(e);
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      // Pencil reports far faster than the frame rate — draw every coalesced point so
+      // fast strokes stay smooth instead of polygonal. getCoalescedEvents can return an
+      // *empty* array (not just be missing) when there's nothing to coalesce, so `??`
+      // alone isn't enough — fall back to the event itself whenever the list is empty.
+      const native = e.nativeEvent;
+      const coalesced = native.getCoalescedEvents?.();
+      const events = coalesced && coalesced.length > 0 ? coalesced : [native];
+      for (const ev of events) {
+        const { x, y } = getCoords(ev.clientX, ev.clientY);
+        const last = lastPointRef.current ?? { x, y };
+        ctx.strokeStyle = BRUSH_COLOR;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.lineWidth = pressureToWidth(ev.pressure, BRUSH_SIZE);
+        ctx.beginPath();
+        ctx.moveTo(last.x, last.y);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        lastPointRef.current = { x, y };
+      }
     },
-    [getCoords],
+    [getCoords, shouldIgnorePointer],
   );
 
-  const endDraw = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+  const endDraw = useCallback((e: React.PointerEvent) => {
+    if (e.pointerId !== activePointerIdRef.current) return;
     e.preventDefault();
+    const canvas = canvasRef.current;
+    if (canvas) {
+      try {
+        canvas.releasePointerCapture(e.pointerId);
+      } catch {
+        // already released — safe to ignore
+      }
+    }
+    activePointerIdRef.current = null;
     isDrawingRef.current = false;
+    lastPointRef.current = null;
   }, []);
 
   const undo = () => {
@@ -110,19 +182,7 @@ export function HandwritingCanvas({ onRecognized }: Props) {
   const clear = () => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = "#12141a";
-    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-    // Redraw grid
-    ctx.strokeStyle = "rgba(201,168,76,0.08)";
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(CANVAS_SIZE / 2, 0);
-    ctx.lineTo(CANVAS_SIZE / 2, CANVAS_SIZE);
-    ctx.moveTo(0, CANVAS_SIZE / 2);
-    ctx.lineTo(CANVAS_SIZE, CANVAS_SIZE / 2);
-    ctx.stroke();
-    ctx.setLineDash([]);
+    drawBackground(ctx);
     strokeHistoryRef.current = [];
     setHasStrokes(false);
     setResult(null);
@@ -162,14 +222,16 @@ export function HandwritingCanvas({ onRecognized }: Props) {
           width={CANVAS_SIZE}
           height={CANVAS_SIZE}
           className="w-full h-full rounded-2xl border border-gold/20 cursor-crosshair"
-          style={{ touchAction: "none" }}
-          onMouseDown={startDraw}
-          onMouseMove={draw}
-          onMouseUp={endDraw}
-          onMouseLeave={endDraw}
-          onTouchStart={startDraw}
-          onTouchMove={draw}
-          onTouchEnd={endDraw}
+          style={{
+            touchAction: "none",
+            WebkitTouchCallout: "none",
+            WebkitUserSelect: "none",
+            userSelect: "none",
+          }}
+          onPointerDown={startDraw}
+          onPointerMove={draw}
+          onPointerUp={endDraw}
+          onPointerCancel={endDraw}
         />
       </div>
 

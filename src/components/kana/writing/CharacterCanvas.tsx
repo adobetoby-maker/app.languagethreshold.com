@@ -4,6 +4,16 @@ import { drawGridOnCanvas, renderGuideToCanvas, scoreDrawing, type ScoreResult }
 
 export const CANVAS_SIZE = 300;
 
+// Apple Pencil / stylus pressure ranges 0..1. Mice (and some touch surfaces that don't
+// report real pressure) send a constant 0 or 0.5 — treat those as "no pressure data"
+// rather than letting them collapse every stroke to the same near-invisible width.
+function pressureToWidth(pressure: number, baseWidth: number): number {
+  if (!pressure || pressure === 0.5) return baseWidth;
+  const min = baseWidth * 0.5;
+  const max = baseWidth * 1.8;
+  return Math.min(max, Math.max(min, min + pressure * (max - min)));
+}
+
 export interface CharacterCanvasRef {
   clear: () => void;
   undo: () => void;
@@ -42,6 +52,29 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
     const strokeHistoryRef = useRef<ImageData[]>([]);
     const isDrawingRef = useRef(false);
     const pathRef = useRef<{ x: number; y: number }[]>([]);
+    const sawPenRef = useRef(false);
+    const activePointerIdRef = useRef<number | null>(null);
+
+    // HiDPI: size both backing stores by devicePixelRatio so strokes and the guide
+    // glyph stay crisp on a retina iPad. Must run before the guide-render effect below,
+    // since resizing a canvas clears it. The guide layer's renderer already scales to
+    // canvas.width itself (see scoring.ts) — only the draw layer needs its context
+    // scaled, since its coordinate space (toCanvasPos) stays logical 0..CANVAS_SIZE.
+    useEffect(() => {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const guide = guideRef.current;
+      if (guide) {
+        guide.width = CANVAS_SIZE * dpr;
+        guide.height = CANVAS_SIZE * dpr;
+      }
+      const draw = drawRef.current;
+      if (draw) {
+        draw.width = CANVAS_SIZE * dpr;
+        draw.height = CANVAS_SIZE * dpr;
+        const ctx = draw.getContext("2d");
+        if (ctx) ctx.scale(dpr, dpr);
+      }
+    }, []);
 
     useEffect(() => {
       const canvas = guideRef.current;
@@ -50,10 +83,26 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
         renderGuideToCanvas(canvas, guideChar, guideAlpha, rightGuideAlpha);
       } else {
         const ctx = canvas.getContext("2d")!;
-        ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        drawGridOnCanvas(ctx, CANVAS_SIZE);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawGridOnCanvas(ctx, canvas.width);
       }
     }, [guideChar, guideAlpha, rightGuideAlpha]);
+
+    // scoring.ts hardcodes a 300x300 pixel read via getImageData — it isn't aware of the
+    // HiDPI-scaled backing store. Downsample to a plain CANVAS_SIZE x CANVAS_SIZE canvas
+    // before handing anything to it, so scoring keeps working unchanged.
+    const getNormalizedCanvas = useCallback((): HTMLCanvasElement | null => {
+      const real = drawRef.current;
+      if (!real) return null;
+      if (real.width === CANVAS_SIZE && real.height === CANVAS_SIZE) return real;
+      const off = document.createElement("canvas");
+      off.width = CANVAS_SIZE;
+      off.height = CANVAS_SIZE;
+      const octx = off.getContext("2d");
+      if (!octx) return real;
+      octx.drawImage(real, 0, 0, real.width, real.height, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
+      return off;
+    }, []);
 
     const toCanvasPos = useCallback((clientX: number, clientY: number) => {
       const canvas = drawRef.current!;
@@ -65,7 +114,7 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
     }, []);
 
     const beginStroke = useCallback(
-      (x: number, y: number) => {
+      (x: number, y: number, pressure: number) => {
         if (disabled) return;
         isDrawingRef.current = true;
         pathRef.current = [{ x, y }];
@@ -73,15 +122,18 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
         ctx.strokeStyle = brushColor;
-        ctx.lineWidth = brushSize;
+        ctx.lineWidth = pressureToWidth(pressure, brushSize);
+        // Draw an immediate dot so a tap (no movement) still leaves a mark.
         ctx.beginPath();
         ctx.moveTo(x, y);
+        ctx.lineTo(x, y);
+        ctx.stroke();
       },
       [disabled, brushColor, brushSize],
     );
 
     const extendStroke = useCallback(
-      (x: number, y: number) => {
+      (x: number, y: number, pressure: number) => {
         if (!isDrawingRef.current) return;
         const path = pathRef.current;
         path.push({ x, y });
@@ -89,7 +141,7 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
         ctx.strokeStyle = brushColor;
-        ctx.lineWidth = brushSize;
+        ctx.lineWidth = pressureToWidth(pressure, brushSize);
 
         if (path.length >= 3) {
           const prev = path[path.length - 3];
@@ -103,6 +155,9 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
           ctx.quadraticCurveTo(mid.x, mid.y, midX2, midY2);
           ctx.stroke();
         } else {
+          const prev = path[path.length - 2] ?? { x, y };
+          ctx.beginPath();
+          ctx.moveTo(prev.x, prev.y);
           ctx.lineTo(x, y);
           ctx.stroke();
         }
@@ -116,39 +171,81 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
       pathRef.current = [];
       const canvas = drawRef.current!;
       const ctx = canvas.getContext("2d")!;
-      strokeHistoryRef.current.push(ctx.getImageData(0, 0, CANVAS_SIZE, CANVAS_SIZE));
+      strokeHistoryRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
       onStrokeEnd?.();
     }, [onStrokeEnd]);
 
-    // Mouse
-    const onMouseDown = (e: React.MouseEvent) => {
-      const p = toCanvasPos(e.clientX, e.clientY);
-      beginStroke(p.x, p.y);
-    };
-    const onMouseMove = (e: React.MouseEvent) => {
-      if (!isDrawingRef.current) return;
-      const p = toCanvasPos(e.clientX, e.clientY);
-      extendStroke(p.x, p.y);
-    };
-    const onMouseUp = () => finishStroke();
+    // Palm rejection: once a real pen contact has been seen on this canvas, ignore touch
+    // events from then on — a resting palm must not draw. Devices with no pen never see a
+    // "pen" pointerType, so finger drawing keeps working there.
+    const shouldIgnorePointer = useCallback((e: React.PointerEvent) => {
+      if (e.pointerType === "pen") {
+        sawPenRef.current = true;
+        return false;
+      }
+      if (e.pointerType === "touch" && sawPenRef.current) return true;
+      return false;
+    }, []);
 
-    // Touch
-    const onTouchStart = (e: React.TouchEvent) => {
-      e.preventDefault();
-      const t = e.changedTouches[0];
-      const p = toCanvasPos(t.clientX, t.clientY);
-      beginStroke(p.x, p.y);
-    };
-    const onTouchMove = (e: React.TouchEvent) => {
-      e.preventDefault();
-      const t = e.changedTouches[0];
-      const p = toCanvasPos(t.clientX, t.clientY);
-      extendStroke(p.x, p.y);
-    };
-    const onTouchEnd = (e: React.TouchEvent) => {
-      e.preventDefault();
-      finishStroke();
-    };
+    const onPointerDown = useCallback(
+      (e: React.PointerEvent) => {
+        if (disabled) return;
+        if (isDrawingRef.current) return; // ignore a second simultaneous contact
+        if (shouldIgnorePointer(e)) return;
+        e.preventDefault();
+        const canvas = drawRef.current;
+        if (canvas) {
+          try {
+            canvas.setPointerCapture(e.pointerId);
+          } catch {
+            // pointer may already be gone — safe to ignore
+          }
+        }
+        activePointerIdRef.current = e.pointerId;
+        const p = toCanvasPos(e.clientX, e.clientY);
+        beginStroke(p.x, p.y, e.pressure);
+      },
+      [disabled, shouldIgnorePointer, toCanvasPos, beginStroke],
+    );
+
+    const onPointerMove = useCallback(
+      (e: React.PointerEvent) => {
+        if (!isDrawingRef.current) return;
+        if (e.pointerId !== activePointerIdRef.current) return;
+        if (shouldIgnorePointer(e)) return;
+        e.preventDefault();
+        // Pencil reports far faster than the frame rate — draw every coalesced point so
+        // fast strokes stay smooth instead of polygonal. getCoalescedEvents can return an
+        // *empty* array (not just be missing) when there's nothing to coalesce, so `??`
+        // alone isn't enough — fall back to the event itself whenever the list is empty.
+        const native = e.nativeEvent;
+        const coalesced = native.getCoalescedEvents?.();
+        const events = coalesced && coalesced.length > 0 ? coalesced : [native];
+        for (const ev of events) {
+          const p = toCanvasPos(ev.clientX, ev.clientY);
+          extendStroke(p.x, p.y, ev.pressure);
+        }
+      },
+      [shouldIgnorePointer, toCanvasPos, extendStroke],
+    );
+
+    const onPointerEnd = useCallback(
+      (e: React.PointerEvent) => {
+        if (e.pointerId !== activePointerIdRef.current) return;
+        e.preventDefault();
+        const canvas = drawRef.current;
+        if (canvas) {
+          try {
+            canvas.releasePointerCapture(e.pointerId);
+          } catch {
+            // already released — safe to ignore
+          }
+        }
+        activePointerIdRef.current = null;
+        finishStroke();
+      },
+      [finishStroke],
+    );
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -165,10 +262,12 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
           ctx.putImageData(history[history.length - 1], 0, 0);
         }
       },
-      getScore: (char, rightHalfOnly = false) =>
-        scoreDrawing(drawRef.current!, char, { rightHalfOnly }),
+      getScore: (char, rightHalfOnly = false) => {
+        const normalized = getNormalizedCanvas();
+        return scoreDrawing(normalized ?? drawRef.current!, char, { rightHalfOnly });
+      },
       hasStrokes: () => strokeHistoryRef.current.length > 0,
-      getCanvas: () => drawRef.current,
+      getCanvas: () => getNormalizedCanvas(),
     }));
 
     return (
@@ -193,16 +292,16 @@ export const CharacterCanvas = forwardRef<CharacterCanvasRef, Props>(
             className="absolute inset-0 w-full h-full"
             style={{
               touchAction: "none",
+              WebkitTouchCallout: "none",
+              WebkitUserSelect: "none",
+              userSelect: "none",
               background: "transparent",
               cursor: disabled ? "default" : "crosshair",
             }}
-            onMouseDown={onMouseDown}
-            onMouseMove={onMouseMove}
-            onMouseUp={onMouseUp}
-            onMouseLeave={onMouseUp}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerEnd}
+            onPointerCancel={onPointerEnd}
           />
         </div>
 

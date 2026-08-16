@@ -50,6 +50,7 @@ import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
+import { FuriganaText } from "@/components/reader/FuriganaText";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -252,6 +253,10 @@ export function SpeakingMissionsPreview() {
     hasValidLanguagePair
       ? (appState.selectedLanguage as SpeakingMissionLanguage)
       : null;
+  // Japanese Core Speaking shows the same kanji readings the Reader and
+  // Flashcards do — without them a learner meets bare kanji in the transcript
+  // and the reference vocabulary with no way to sound it out.
+  const showFurigana = missionLanguage === "Japanese";
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
   const tripDestination = getTravelDestination(tripPlan?.destinationId);
   const activeTravelDestination =
@@ -1139,9 +1144,9 @@ export function SpeakingMissionsPreview() {
               {selectedMission.vocabulary.map((word) => (
                 <span
                   key={word}
-                  className="rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
+                  className="furigana-line rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
                 >
-                  {word}
+                  {showFurigana ? <FuriganaText text={word} mode="above" script="hiragana" /> : word}
                 </span>
               ))}
             </div>
@@ -1662,8 +1667,12 @@ export function SpeakingMissionsPreview() {
                       🔊
                     </button>
                   )}
-                  <span className="leading-relaxed">
-                    <LongPressWordText text={turn.text} onWordLookup={openWordDefinition} />
+                  <span className="furigana-line leading-relaxed">
+                    <LongPressWordText
+                      text={turn.text}
+                      onWordLookup={openWordDefinition}
+                      furigana={showFurigana}
+                    />
                   </span>
                 </div>
                 {turn.feedback?.map((feedback, index) => (

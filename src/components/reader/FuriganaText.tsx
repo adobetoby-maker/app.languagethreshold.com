@@ -43,32 +43,22 @@ const KANJI_RE = /[\u4E00-\u9FFF]/;
 
 export type FuriganaScript = "hiragana" | "romaji";
 
-export function FuriganaText({
-  text,
-  onWordClick,
-  fullSentence,
-  mode = "above",
-  script = "hiragana",
-}: {
-  text: string;
-  /** Click handler — receives the clean clicked word, the full sentence, and screen coords. */
-  onWordClick?: (word: string, sentence: string, x: number, y: number) => void;
-  /** The full sentence to pass to onWordClick (defaults to `text`). */
-  fullSentence?: string;
-  /**
-   * "above"  : tiny reading floats above the kanji (default).
-   * "inline" : reading sits directly ON the kanji as a faint overlay (no extra leading).
-   */
-  mode?: "above" | "inline";
-  /** Which reading to show: hiragana (default) or Hepburn romaji. */
-  script?: FuriganaScript;
-}) {
+/**
+ * Fetch (and cache) furigana segments for a string.
+ *
+ * Extracted so surfaces other than <FuriganaText /> — e.g. the Core Speaking
+ * transcript, which needs its own long-press word handling and therefore
+ * cannot delegate rendering — can reuse the exact same request path, the same
+ * localStorage cache, and the same graceful fallback instead of duplicating
+ * them. Returns null while loading; callers should render plain text until
+ * then so layout does not jump.
+ */
+export function useFuriganaSegments(text: string): FuriganaSegment[] | null {
   const fetchFurigana = useServerFn(addFurigana);
   const [segments, setSegments] = useState<FuriganaSegment[] | null>(
     () => loadCache()[text] ?? null,
   );
   const inFlight = useRef(false);
-  const sentence = fullSentence ?? text;
 
   useEffect(() => {
     const cached = loadCache()[text];
@@ -89,8 +79,7 @@ export function FuriganaText({
         const res = await fetchFurigana({ data: { text } });
         if (cancelled) return;
         const segs = res.data?.segments ?? [{ base: text }];
-        const cache = { ...loadCache(), [text]: segs };
-        saveCache(cache);
+        saveCache({ ...loadCache(), [text]: segs });
         setSegments(segs);
       } catch {
         if (!cancelled) setSegments([{ base: text }]); // graceful fallback
@@ -105,6 +94,31 @@ export function FuriganaText({
     };
   }, [text, fetchFurigana]);
 
+  return segments;
+}
+
+export function FuriganaText({
+  text,
+  onWordClick,
+  fullSentence,
+  mode = "above",
+  script = "hiragana",
+}: {
+  text: string;
+  /** Click handler — receives the clean clicked word, the full sentence, and screen coords. */
+  onWordClick?: (word: string, sentence: string, x: number, y: number) => void;
+  /** The full sentence to pass to onWordClick (defaults to `text`). */
+  fullSentence?: string;
+  /**
+   * "above"  : tiny reading floats above the kanji (default).
+   * "inline" : reading sits directly ON the kanji as a faint overlay (no extra leading).
+   */
+  mode?: "above" | "inline";
+  /** Which reading to show: hiragana (default) or Hepburn romaji. */
+  script?: FuriganaScript;
+}) {
+  const sentence = fullSentence ?? text;
+  const segments = useFuriganaSegments(text);
   const rendered = useMemo(() => segments, [segments]);
 
   // While loading, show plain text so layout doesn't jump.

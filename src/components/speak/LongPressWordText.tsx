@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useFuriganaSegments } from "@/components/reader/FuriganaText";
 
 const LONG_PRESS_MS = 475;
 const MOVE_TOLERANCE_PX = 10;
@@ -161,6 +162,25 @@ function LongPressWord({
 export function LongPressWordText({
   text,
   onWordLookup,
+  furigana = false,
+}: {
+  text: string;
+  onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
+  /**
+   * Render kanji with their readings above (Japanese only). Off by default so
+   * every other language keeps the plain tokenized output.
+   */
+  furigana?: boolean;
+}) {
+  if (furigana) {
+    return <FuriganaLongPressText text={text} onWordLookup={onWordLookup} />;
+  }
+  return <PlainLongPressText text={text} onWordLookup={onWordLookup} />;
+}
+
+function PlainLongPressText({
+  text,
+  onWordLookup,
 }: {
   text: string;
   onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
@@ -182,6 +202,53 @@ export function LongPressWordText({
           <span key={`${index}-${token.text}`}>{token.text}</span>
         ),
       )}
+    </>
+  );
+}
+
+/**
+ * Japanese with readings. Segments come from the same server call and cache the
+ * Reader uses, so a sentence already annotated elsewhere costs nothing here.
+ * Each segment stays individually long-pressable — the ruby wraps the same
+ * <LongPressWord>, so adding readings never costs the lookup gesture.
+ */
+function FuriganaLongPressText({
+  text,
+  onWordLookup,
+}: {
+  text: string;
+  onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
+}) {
+  const segments = useFuriganaSegments(text);
+
+  // Until readings arrive, render the normal tokenized text so nothing jumps
+  // and long-press keeps working.
+  if (!segments) return <PlainLongPressText text={text} onWordLookup={onWordLookup} />;
+
+  return (
+    <>
+      {segments.map((segment, index) => {
+        if (!segment.hiragana) {
+          return (
+            <PlainLongPressText
+              key={`${index}-${segment.base}`}
+              text={segment.base}
+              onWordLookup={onWordLookup}
+            />
+          );
+        }
+        return (
+          <ruby key={`${index}-${segment.base}`} className="furigana-ruby">
+            <LongPressWord
+              display={segment.base}
+              word={segment.base}
+              sentence={text}
+              onWordLookup={onWordLookup}
+            />
+            <rt className="furigana-rt">{segment.hiragana}</rt>
+          </ruby>
+        );
+      })}
     </>
   );
 }

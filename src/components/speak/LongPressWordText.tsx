@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useFuriganaSegments } from "@/components/reader/FuriganaText";
+import { usePinyinSegments } from "@/components/reader/PinyinText";
 
 const LONG_PRESS_MS = 475;
 const MOVE_TOLERANCE_PX = 10;
@@ -162,18 +163,22 @@ function LongPressWord({
 export function LongPressWordText({
   text,
   onWordLookup,
-  furigana = false,
+  reading = null,
 }: {
   text: string;
   onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
   /**
-   * Render kanji with their readings above (Japanese only). Off by default so
-   * every other language keeps the plain tokenized output.
+   * Show readings above the characters: furigana for Japanese, pinyin for
+   * Chinese. Null (default) keeps the plain tokenized output, so every other
+   * language is untouched.
    */
-  furigana?: boolean;
+  reading?: "japanese" | "chinese" | null;
 }) {
-  if (furigana) {
+  if (reading === "japanese") {
     return <FuriganaLongPressText text={text} onWordLookup={onWordLookup} />;
+  }
+  if (reading === "chinese") {
+    return <PinyinLongPressText text={text} onWordLookup={onWordLookup} />;
   }
   return <PlainLongPressText text={text} onWordLookup={onWordLookup} />;
 }
@@ -246,6 +251,50 @@ function FuriganaLongPressText({
               onWordLookup={onWordLookup}
             />
             <rt className="furigana-rt">{segment.hiragana}</rt>
+          </ruby>
+        );
+      })}
+    </>
+  );
+}
+
+/**
+ * Chinese with pinyin — the Mandarin counterpart of FuriganaLongPressText.
+ * Shares the same cache and fallback behaviour, and keeps every segment
+ * long-pressable so readings never cost the lookup gesture.
+ */
+function PinyinLongPressText({
+  text,
+  onWordLookup,
+}: {
+  text: string;
+  onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
+}) {
+  const segments = usePinyinSegments(text);
+
+  if (!segments) return <PlainLongPressText text={text} onWordLookup={onWordLookup} />;
+
+  return (
+    <>
+      {segments.map((segment, index) => {
+        if (!segment.pinyin) {
+          return (
+            <PlainLongPressText
+              key={`${index}-${segment.base}`}
+              text={segment.base}
+              onWordLookup={onWordLookup}
+            />
+          );
+        }
+        return (
+          <ruby key={`${index}-${segment.base}`} className="furigana-ruby">
+            <LongPressWord
+              display={segment.base}
+              word={segment.base}
+              sentence={text}
+              onWordLookup={onWordLookup}
+            />
+            <rt className="furigana-rt">{segment.pinyin}</rt>
           </ruby>
         );
       })}

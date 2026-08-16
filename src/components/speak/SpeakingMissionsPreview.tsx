@@ -51,6 +51,7 @@ import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
+import { PinyinText } from "@/components/reader/PinyinText";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -253,10 +254,14 @@ export function SpeakingMissionsPreview() {
     hasValidLanguagePair
       ? (appState.selectedLanguage as SpeakingMissionLanguage)
       : null;
-  // Japanese Core Speaking shows the same kanji readings the Reader and
-  // Flashcards do — without them a learner meets bare kanji in the transcript
-  // and the reference vocabulary with no way to sound it out.
+  // Core Speaking shows the same readings the Reader and Flashcards do —
+  // without them a learner meets bare kanji/hanzi in the transcript and the
+  // reference vocabulary with no way to sound it out. Japanese gets furigana,
+  // Chinese gets pinyin; every other language renders unchanged.
+  const readingScript: "japanese" | "chinese" | null =
+    missionLanguage === "Japanese" ? "japanese" : missionLanguage === "Chinese" ? "chinese" : null;
   const showFurigana = missionLanguage === "Japanese";
+  const showPinyin = missionLanguage === "Chinese";
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
   const tripDestination = getTravelDestination(tripPlan?.destinationId);
   const activeTravelDestination =
@@ -1146,7 +1151,13 @@ export function SpeakingMissionsPreview() {
                   key={word}
                   className="furigana-line rounded-md bg-muted/45 px-3 py-1 text-xs text-foreground/80"
                 >
-                  {showFurigana ? <FuriganaText text={word} mode="above" script="hiragana" /> : word}
+                  {showFurigana ? (
+                    <FuriganaText text={word} mode="above" script="hiragana" />
+                  ) : showPinyin ? (
+                    <PinyinText text={word} />
+                  ) : (
+                    word
+                  )}
                 </span>
               ))}
             </div>
@@ -1671,7 +1682,7 @@ export function SpeakingMissionsPreview() {
                     <LongPressWordText
                       text={turn.text}
                       onWordLookup={openWordDefinition}
-                      furigana={showFurigana}
+                      reading={readingScript}
                     />
                   </span>
                 </div>

@@ -32,9 +32,15 @@ function pressureToWidth(pressure: number, baseWidth: number): number {
 
 interface Props {
   onRecognized: (text: string) => void;
+  /** Label for the insert button in the result card.
+   *  Defaults to "Use in Converter →" (Kana tab context).
+   *  Pass a custom label (e.g. "Insert →") when embedding in a notes surface —
+   *  doing so also clears the canvas automatically after insert so the user can
+   *  draw the next character without a manual Clear step. */
+  insertLabel?: string;
 }
 
-export function HandwritingCanvas({ onRecognized }: Props) {
+export function HandwritingCanvas({ onRecognized, insertLabel }: Props) {
   const { state } = useApp();
   const language = state.selectedLanguage;
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -310,11 +316,15 @@ export function HandwritingCanvas({ onRecognized }: Props) {
               <button
                 onClick={() => {
                   onRecognized(result.text);
-                  toast("Character loaded into converter");
+                  if (insertLabel) {
+                    clear();
+                  } else {
+                    toast("Character loaded into converter");
+                  }
                 }}
                 className="mt-3 flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/20"
               >
-                Use in Converter →
+                {insertLabel ?? "Use in Converter →"}
               </button>
             </div>
           </div>

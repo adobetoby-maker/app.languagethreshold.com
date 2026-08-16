@@ -97,7 +97,7 @@ export function NotesCard() {
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
-              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} />
+              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} insertLabel="Insert →" />
             </div>
           )}
           <div className="mt-2 flex items-center justify-between gap-2">
@@ -228,7 +228,7 @@ function NoteRow({
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
-              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} />
+              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} insertLabel="Insert →" />
             </div>
           )}
           <div className="mt-2 flex items-center justify-between gap-2">

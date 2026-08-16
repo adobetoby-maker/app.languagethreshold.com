@@ -347,7 +347,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   return (
     <>
       {/* ── Desktop sidebar ─────────────────────────────────── */}
-      <aside className="hidden lg:flex flex-col w-[76px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
+      <aside className="hidden desktop:flex flex-col w-[76px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
         <div className="flex h-16 items-center justify-center border-b border-border/40">
           {mod ? (
@@ -437,7 +437,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
          Shown on BOTH mobile and desktop per product request. */}
       <nav className="fixed bottom-0 inset-x-0 z-40 flex flex-col border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]">
         {/* Mobile-only: language + module strip */}
-        <div className="flex items-center gap-2 border-b border-border/30 px-3 py-1 lg:hidden">
+        <div className="flex items-center gap-2 border-b border-border/30 px-3 py-1 desktop:hidden">
           {/* Language selector */}
           <DropdownMenu>
             <DropdownMenuTrigger className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold focus:outline-none">
@@ -500,7 +500,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
              More sheet now, freeing the far-right slot for Tutor. */}
           <button
             onClick={() => setMoreSheetOpen(true)}
-            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold lg:hidden"
+            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold desktop:hidden"
           >
             <Menu className="h-5 w-5" strokeWidth={1.6} />
             <span className="text-[9px] font-medium tracking-wide">More</span>
@@ -562,7 +562,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       <Sheet open={moreSheetOpen} onOpenChange={setMoreSheetOpen}>
         <SheetContent
           side="bottom"
-          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] lg:hidden"
+          className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
         >
           <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
           <SheetDescription className="sr-only">

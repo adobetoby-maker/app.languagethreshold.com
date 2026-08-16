@@ -5,6 +5,10 @@
 /* Fonts loaded via <link> in src/routes/__root.tsx — CSS @import is reordered by Tailwind's transformer */
 
 @custom-variant dark (&:is(.dark *));
+/* Hover-first pointer device — real mouse, not touch. iPad (even with Apple Pencil)
+   reports hover:none because its primary input is touch, so it never matches this
+   variant and always gets the mobile layout regardless of viewport width. */
+@custom-variant desktop (@media (hover: hover) and (pointer: fine) and (min-width: 1024px));
 
 @theme inline {
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -101,7 +105,9 @@
   --ring: oklch(0.74 0.13 80);
 }
 
-@media (min-width: 64rem) {
+/* Reduce nav height on real desktop only — iPad keeps the tall mobile budget
+   because it still renders the bottom navigation bar. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
   :root {
     --lt-nav-height: 3.5rem;
   }
@@ -236,7 +242,10 @@
     }
   }
 
-  @media (width >= 64rem) {
+  /* On real desktop the TopNav already applies the safe-area inset, so the main
+     column must NOT add it again. iPad keeps the safe-area offset because its
+     TopNav is hidden and the main column is immediately below the status bar. */
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
     .lt-safe-top-main {
       padding-top: 2.5rem;
     }

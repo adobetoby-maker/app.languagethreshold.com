@@ -286,7 +286,7 @@ export function TutorPanel() {
     return (
       <button
         onClick={() => tutor.setOpen(true)}
-        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] lg:right-6 lg:inline-flex"
+        className="lt-tutor-above-nav tutor-pulse fixed right-4 z-40 hidden min-h-11 items-center gap-2 rounded-full border border-gold/60 bg-gradient-to-br from-gold/30 via-card/90 to-card/90 px-5 py-3 font-display text-sm italic text-foreground shadow-luxe backdrop-blur transition-transform hover:scale-[1.03] desktop:right-6 desktop:inline-flex"
         aria-label="Open AI Tutor"
       >
         <Sparkles className="h-4 w-4 text-gold" />

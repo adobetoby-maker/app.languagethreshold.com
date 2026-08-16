@@ -72,7 +72,7 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
   }
 
   return (
-    <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] lg:block">
+    <header className="sticky top-0 z-40 hidden border-b border-border/60 bg-background/85 backdrop-blur-xl [padding-top:env(safe-area-inset-top)] desktop:block">
       <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:h-20 sm:flex-nowrap sm:gap-6 sm:px-6 sm:py-0">
         <div className="flex items-center gap-2 sm:gap-2.5">
           <Sparkle className="h-5 w-5 text-gold" strokeWidth={1.5} fill="currentColor" />

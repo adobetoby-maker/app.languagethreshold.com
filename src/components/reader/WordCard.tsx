@@ -300,9 +300,13 @@ export function WordCard({
       <button
         aria-label="Close"
         onClick={onClose}
-        className="absolute left-2 top-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-background/40 text-muted-foreground transition-colors hover:border-gold/60 hover:text-gold"
+        /* z-20: without a stacking context the card body renders over this
+           button, so taps land on the content and the X does nothing — the
+           only way out was tapping outside. Gold + a larger glyph so it reads
+           as the exit at a glance. */
+        className="absolute left-2 top-2 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold/60 bg-background/90 text-gold shadow-md transition-colors hover:border-gold hover:bg-gold/15"
       >
-        <X className="h-3 w-3" />
+        <X className="h-5 w-5" strokeWidth={2.5} />
       </button>
 
       {/*

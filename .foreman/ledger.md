@@ -31,7 +31,7 @@ Wants BOTH modes, with recognition as an explicit act, never a guess:
 | # | Task | Seat | Write set | Status |
 |---|---|---|---|---|
 | P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **DONE** (efa7df6) |
-| P2 | Generalise recognition beyond Japanese (Chinese; decide Pashto) | WORKHORSE | `fns/handwriting-recognize.functions.ts` + its callers | PENDING |
+| P2 | SEPARATE Chinese recognition prompt (no overlap with Japanese) | WORKHORSE | `fns/handwriting-recognize.functions.ts`, `kana/HandwritingCanvas.tsx` | **RUNNING** (re-dispatched) |
 | P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | TBD | PENDING (needs design pass) |
 | P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | BLOCKED on P1 |
 
@@ -40,6 +40,19 @@ Wants BOTH modes, with recognition as an explicit act, never a guess:
 Zero hits for `pointerType`, `pressure`, `getCoalescedEvents` or `touch-action` in the
 canvases. So today: no palm rejection (a resting hand draws), no pressure variation, and
 strokes coarser than the Pencil actually reports. This is the gap the founder feels first.
+
+## P2 — FOUNDER DIRECTIVE (2026-08-16)
+
+"We will need a separate hard coded prompt for Chinese. That way they do not overlap.
+Learning is hard enough let alone when you are given the wrong thing."
+
+Two SEPARATE prompt constants and tool schemas — NOT one parameterised prompt. The
+duplication is deliberate; do not "clean it up" later. `language` is required with **no
+default**, because a default lets a missed call site silently get Japanese treatment —
+the exact failure being designed out. A confidently-wrong reading taught to a learner is
+worse than a failed lookup.
+
+First P2 attempt was BLOCKED by a full disk (ENOSPC) and made zero changes. Re-dispatched.
 
 ## P2 note — recognition is hardcoded Japanese
 

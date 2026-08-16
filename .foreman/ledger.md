@@ -1,45 +1,68 @@
-# Foreman ledger — sidebar notes / scratchpad block
+# Foreman ledger — Apple Pencil / iPad PWA block
 
-**Baseline commit:** `f5ef20c` (clean tree, 0 modified files)
-**Repo:** isolated clone at `scratchpad/main-test-copy`, tracking `origin/main`
-**Mode:** Full (Agent tool + real shell). Codex not probed — not consented this session.
-**LEAD seat:** frontier-class (this session).
+**Baseline commit:** `f4afc6b`
+**Repo:** isolated clone `scratchpad/main-test-copy`, tracks `origin/main`
+**Mode:** Full (Agent tool + real shell). Codex not consented.
 
-## Standing constraints for every worker
+## THE KEY FINDING — read before writing any code
 
-- `npx tsc --noEmit` must stay at **0 errors**; `npm run lint` 0 errors.
-- Local `ANTHROPIC_API_KEY` is INVALID → any AI server fn 401s locally. Verify
-  render paths by seeding the component's own localStorage cache, not by calling out.
-- Dev server already running on **:3040** (`.env.local` present, gitignored).
-- Chrome cannot reproduce the iOS path. `CSS.supports('display','ruby')` is false in
-  WebKit. Playwright **webkit** is installed — use it for anything Safari/PWA-shaped.
-- Do NOT override native `<ruby>` layout. That was a real bug, fixed in `31de475`.
-- Safe-area: use the existing `--lt-safe-top` scaled var, not raw `env()`.
+Most of the handwriting feature **already exists**. Do not rebuild it.
+
+| Capability | Where it already lives |
+|---|---|
+| Handwriting → character recognition | `src/fns/handwriting-recognize.functions.ts` (Anthropic vision; returns text + reading + meaning) |
+| Drawing surfaces | `src/components/kana/HandwritingCanvas.tsx`, `src/components/kana/writing/CharacterCanvas.tsx` |
+| **Draw on top of a character** ("work out my understanding") | `src/components/kana/writing/TraceMode.tsx` |
+| Stroke scoring | `src/components/kana/writing/scoring.ts` |
+| Pen-pal writing mode | `src/components/kana/writing/PenPalMode.tsx` |
+| Reachable already | `kana` + `characters` tabs in `tab-registry.ts` |
+
+## Founder's design intent (2026-08-16)
+
+Wants BOTH modes, with recognition as an explicit act, never a guess:
+- Default: **ink stays ink** (annotate / work out understanding).
+- Convert to a character on demand — hold-to-convert, or a "script writer" toggle.
+- **Draw on top of an existing character** to deconstruct it. This mode must never
+  auto-recognise; it is pure ink over a rendered glyph.
+- Target device: **iPad + Apple Pencil, installed as a PWA.**
 
 ## Tasks
 
 | # | Task | Seat | Write set | Status |
 |---|---|---|---|---|
-| T1 | Scout existing notes infrastructure + dashboard mount points | FAST (scout) | none (read-only) | **DONE** |
-| T2 | Storable notes section in Dashboard | WORKHORSE (sonnet) | `dashboard/NotesCard.tsx` (new), `dashboard/Dashboard.tsx` | **RUNNING** |
-| T3 | Sidebar actionable items (last-word toggle, open text field) | WORKHORSE (sonnet) | `AppSidebar.tsx`, `state/speech-state.tsx` | **RUNNING** |
-| T4 | Character-writing scratchpad + radical recognition | FRONTIER (design first) | TBD | NOT SCOPED — needs founder decision |
+| P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **RUNNING** |
+| P2 | Generalise recognition beyond Japanese (Chinese; decide Pashto) | WORKHORSE | `fns/handwriting-recognize.functions.ts` + its callers | PENDING |
+| P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | TBD | PENDING (needs design pass) |
+| P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | BLOCKED on P1 |
+
+## Why P1 is first
+
+Zero hits for `pointerType`, `pressure`, `getCoalescedEvents` or `touch-action` in the
+canvases. So today: no palm rejection (a resting hand draws), no pressure variation, and
+strokes coarser than the Pencil actually reports. This is the gap the founder feels first.
+
+## P2 note — recognition is hardcoded Japanese
+
+`handwriting-recognize.functions.ts:28,43,51,57` all say "Japanese". Chinese hanzi would
+come back read as kanji with Japanese readings — confidently wrong, which is worse than
+failing. **Pashto is a separate problem**: cursive Arabic, letters change shape by
+position; do NOT bolt it onto the CJK recogniser. Surface as its own decision.
+
+## Standing constraints (carried forward — all learned the hard way)
+
+- `npx tsc --noEmit` 0 errors; `npm run lint` 0 errors.
+- Local `ANTHROPIC_API_KEY` is **invalid** → AI server fns 401 locally. Verify render
+  paths by seeding the component's own localStorage cache. Do not chase the 401.
+- Chrome cannot reproduce the iOS path. Playwright **webkit** is installed — use it.
+- **Never override native `<ruby>` layout.** WebKit fails `@supports (display:ruby)` but
+  renders `<ruby>` correctly; overriding it drops the base off the baseline (fixed 31de475).
+  WebKit also ignores `position:absolute` on `<rt>` and clamps `<ruby>` to `display:inline`.
+- Any persist effect **must skip its first invocation**, or it writes default state over
+  hydrated state. Bug fixed three times now (furigana, romaja, recentWords).
+- Safe-area: use `--lt-safe-top`, not raw `env()`.
+- The QA screenshot harness captures an unrelated project ("you & I"). Do NOT score
+  against it and do NOT fabricate a visual verdict from it.
 
 ## Attempts (append-only)
 
-- T1 dispatched — scout, read-only. → DONE.
-  Findings: notes store is COMPLETE and reusable — `useNotes()` gives add/update/
-  remove/forText, persisted to localStorage `lt.annotations.v1`, survives reload.
-  No store extension needed for the Dashboard card. Annotation is keyed by `textId`.
-  Sidebar mobile mount point: `AppSidebar.tsx` ~line 530, after Language Match,
-  before "App settings". `lastWord` is a SINGLE in-memory value in speech-state and
-  does NOT persist — a history + persistence is required for the toggle to be useful.
-- T2 + T3 dispatched in parallel — write sets are disjoint (dashboard/* vs
-  AppSidebar+speech-state), so no worktree isolation needed.
-
-## Notes
-
-T4 is deliberately unscoped: "radical recognition" could mean on-device stroke
-matching against the existing `src/data/cjk/radicals.ts`, or a model call. That is a
-product decision, not an implementation detail — surfacing to the founder rather than
-guessing.
+- P1 dispatched.

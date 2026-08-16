@@ -5,7 +5,16 @@ import { toast } from "sonner";
 import {
   recognizeHandwriting,
   type HandwritingResult,
+  type HandwritingLanguage,
 } from "@/fns/handwriting-recognize.functions";
+import { useApp, type Language } from "@/state/app-state";
+
+// The recogniser only has hardcoded prompts for these languages (see
+// handwriting-recognize.functions.ts). Anything else must not be sent —
+// a confidently-wrong reading is worse than a visible "not available" state.
+function isRecognizableLanguage(language: Language): language is HandwritingLanguage {
+  return language === "Japanese" || language === "Chinese";
+}
 
 const CANVAS_SIZE = 400;
 const BRUSH_COLOR = "#e8dcc8"; // warm off-white stroke on dark canvas
@@ -26,6 +35,8 @@ interface Props {
 }
 
 export function HandwritingCanvas({ onRecognized }: Props) {
+  const { state } = useApp();
+  const language = state.selectedLanguage;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const strokeHistoryRef = useRef<ImageData[]>([]);
   const isDrawingRef = useRef(false);
@@ -189,6 +200,10 @@ export function HandwritingCanvas({ onRecognized }: Props) {
   };
 
   const handleRecognize = async () => {
+    // Guards the call site even though the UI below already hides this control
+    // for unsupported languages — never let a stray call reach the recogniser
+    // with a language it has no prompt for.
+    if (!isRecognizableLanguage(language)) return;
     const canvas = canvasRef.current!;
     const dataUrl = canvas.toDataURL("image/png");
     const base64 = dataUrl.split(",")[1];
@@ -196,7 +211,7 @@ export function HandwritingCanvas({ onRecognized }: Props) {
 
     setLoading(true);
     try {
-      const res = await recognize({ data: { imageBase64: base64 } });
+      const res = await recognize({ data: { imageBase64: base64, language } });
       if (res.error) {
         toast.error(res.error);
       } else if (res.result) {
@@ -209,10 +224,21 @@ export function HandwritingCanvas({ onRecognized }: Props) {
     }
   };
 
+  if (!isRecognizableLanguage(language)) {
+    return (
+      <div className="flex flex-col items-center gap-2 rounded-2xl border border-border/60 bg-card/40 p-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          Handwriting recognition isn't available for {language} yet.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <p className="text-sm text-muted-foreground">
-        Draw a kanji or kana character with your finger. AI will identify it.
+        Draw a {language === "Chinese" ? "Chinese character" : "kanji or kana character"} with
+        your finger. AI will identify it.
       </p>
 
       {/* Canvas */}

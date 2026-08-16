@@ -1,3 +1,35 @@
+# Verification — P3: iPad layout (9e36a5e, pushed)
+**Date:** 2026-08-16 · ledger: `.foreman/ledger.md`
+**Files:** `src/styles.css`, `src/components/TopNav.tsx`,
+`src/components/AppSidebar.tsx`, `src/components/tutor/TutorPanel.tsx`
+
+## What this does
+
+Adds `@custom-variant desktop` = `(hover: hover) and (pointer: fine) and (min-width: 1024px)`.
+iPad with Apple Pencil reports `hover: none` (primary input is touch), so it never matches
+this variant and always gets the mobile layout regardless of viewport width. All 6 sites
+in the layout shell that previously used bare `lg:` for desktop/mobile switching now use
+`desktop:`, making them iPad-safe.
+
+CSS variables also gated on the same query: `--lt-nav-height` (6.5rem stays on iPad to
+account for the bottom nav that is still present), `.lt-safe-top-main` safe-area offset
+(kept on iPad because TopNav is hidden there).
+
+| Spec item | Observed | Result |
+|---|---|---|
+| @custom-variant desktop defined in styles.css | grep confirms `@custom-variant desktop (@media (hover: hover) and (pointer: fine)...)` | PASS |
+| --lt-nav-height gated on hover media | grep confirms new media query, not bare min-width | PASS |
+| .lt-safe-top-main gated on hover media | grep confirms new media query, not bare min-width | PASS |
+| TopNav hidden desktop:block | `lg:block` → `desktop:block` confirmed in file | PASS |
+| AppSidebar desktop:flex (icon sidebar) | `lg:flex` → `desktop:flex` confirmed in file | PASS |
+| AppSidebar 3× desktop:hidden (strip, More btn, sheet) | all 3 sites confirmed in file | PASS |
+| TutorPanel desktop:right-6 desktop:inline-flex | confirmed in file | PASS |
+| tsc --noEmit | 0 errors | PASS |
+| npm run build | clean, Vercel Build Output API v3 artifact created | PASS |
+| Real iPad verification | NOT verified — Playwright webkit cannot simulate touch-primary pointer; must test on physical device | UNVERIFIED |
+
+---
+
 # Verification — separate Chinese recognition prompt, P2 (eaae5a6, pushed)
 **Date:** 2026-08-16 · ledger: `.foreman/ledger.md`
 **Files:** `src/fns/handwriting-recognize.functions.ts`,

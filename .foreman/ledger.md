@@ -32,8 +32,8 @@ Wants BOTH modes, with recognition as an explicit act, never a guess:
 |---|---|---|---|---|
 | P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **DONE** (efa7df6) |
 | P2 | SEPARATE Chinese recognition prompt (no overlap with Japanese) | WORKHORSE | `fns/handwriting-recognize.functions.ts`, `kana/HandwritingCanvas.tsx` | **DONE** (eaae5a6) |
-| P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | TBD | PENDING (needs design pass) |
-| P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | BLOCKED on P1 |
+| P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | `styles.css`, `TopNav.tsx`, `AppSidebar.tsx`, `tutor/TutorPanel.tsx` | **DONE** (9e36a5e) |
+| P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | UNBLOCKED — P1 done |
 
 ## Why P1 is first
 
@@ -90,9 +90,13 @@ position; do NOT bolt it onto the CJK recogniser. Surface as its own decision.
   `language` is z.enum with no default, UI + zod both refuse unsupported languages.
   UNVERIFIED: live recognition accuracy either language (local API key invalid). First
   real test should be a character in BOTH scripts (車 / 花) — Chinese must return pinyin.
-- NEXT: **P3** (iPad stops inheriting the desktop `lg` layout) then **P4** (wire
-  trace/convert into notes). FREE DISK SPACE FIRST — the Data volume hit 100% this
-  session and killed a worker mid-ticket.
+- P3 DONE (9e36a5e). Approach: @custom-variant desktop = (hover:hover)+(pointer:fine)+1024px.
+  iPad with Apple Pencil reports hover:none (primary input is touch), so it never matches
+  and always gets the mobile layout regardless of viewport width. 4 files changed:
+  styles.css (variant def + 2 media query updates), TopNav, AppSidebar (3 sites), TutorPanel.
+  tsc: 0 errors. Build: clean. UNVERIFIED: real iPad (Playwright webkit cannot simulate
+  touch-primary pointer capability; must test on physical device).
+- NEXT: **P4** (wire trace/convert into notes surfaces).
 - (superseded) P2 (recognition beyond Japanese) is the highest-value remaining ticket, and it
   carries a founder decision on Pashto — do not let a worker bolt Arabic script onto the
   CJK recogniser.

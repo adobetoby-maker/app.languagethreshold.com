@@ -30,7 +30,7 @@ Wants BOTH modes, with recognition as an explicit act, never a guess:
 
 | # | Task | Seat | Write set | Status |
 |---|---|---|---|---|
-| P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **RUNNING** |
+| P1 | Make existing canvases Apple Pencil–native | WORKHORSE | `kana/HandwritingCanvas.tsx`, `kana/writing/CharacterCanvas.tsx` | **DONE** (efa7df6) |
 | P2 | Generalise recognition beyond Japanese (Chinese; decide Pashto) | WORKHORSE | `fns/handwriting-recognize.functions.ts` + its callers | PENDING |
 | P3 | iPad layout — stop inheriting the desktop `lg` layout | FRONTIER | TBD | PENDING (needs design pass) |
 | P4 | Wire trace / convert into the notes surfaces | WORKHORSE | `notes/*`, `dashboard/NotesCard.tsx` | BLOCKED on P1 |
@@ -65,4 +65,14 @@ position; do NOT bolt it onto the CJK recogniser. Surface as its own decision.
 
 ## Attempts (append-only)
 
-- P1 dispatched.
+- P1 dispatched. → DONE, verified independently (tsc/build re-run by foreman).
+  **Caught a bug in the ticket instruction itself:** `getCoalescedEvents?.() ?? [native]`
+  is wrong on WebKit — the method EXISTS and returns an EMPTY ARRAY, so `??` never fires
+  and the draw loop ran zero times (no line drawn on move). Fixed to test `length`.
+  Surfaced only by driving real PointerEvents and reading canvas pixels.
+  Verified: pen draws; touch-after-pen ignored; touch-only still draws; pressure changes
+  coverage; the 0.5 default is guarded. NOT verified: no physical iPad/Pencil; dpr math
+  only ran at dpr=1.
+- NEXT: P2 (recognition beyond Japanese) is the highest-value remaining ticket, and it
+  carries a founder decision on Pashto — do not let a worker bolt Arabic script onto the
+  CJK recogniser.

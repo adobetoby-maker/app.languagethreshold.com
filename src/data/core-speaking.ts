@@ -44,8 +44,8 @@ export const CORE_SPEAKING_MODULE = {
 
 export const CORE_GRAMMAR_EXTENSIONS: Record<SpeakingMissionLanguage, CoreGrammarPattern[]> = {
   English: [
-    { id: "en-present-simple", name: "Present simple", meaning: "routines and facts", pattern: "I/you work · he/she works", examples: ["I work in the morning."], phase: 1 },
-    { id: "en-negation", name: "Negation", meaning: "say something is not true", pattern: "do/does not + verb", examples: ["I do not understand."], phase: 1 },
+    { id: "en-present-simple-core", name: "Present simple", meaning: "routines and facts", pattern: "I/you work · he/she works", examples: ["I work in the morning."], phase: 1 },
+    { id: "en-negation-core", name: "Negation", meaning: "say something is not true", pattern: "do/does not + verb", examples: ["I do not understand."], phase: 1 },
     { id: "en-questions", name: "Questions", meaning: "ask yes/no and information questions", pattern: "Do/Is/What/Where…?", examples: ["Do you take cards?", "Where is the station?"], phase: 1 },
   ],
   Spanish: [

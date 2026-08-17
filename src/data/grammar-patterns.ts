@@ -1,5 +1,7 @@
 import type { Language } from "@/state/app-state";
-import { CHINESE_PATTERNS } from "./chinese-patterns";
+// Explicit .ts extension: the node test runner resolves ESM without a bundler,
+// so an extensionless relative import fails there even though Vite accepts it.
+import { CHINESE_PATTERNS } from "./chinese-patterns.ts";
 
 export type PatternFrequency = "ultra" | "high" | "medium";
 export type PatternPhase = 1 | 2;

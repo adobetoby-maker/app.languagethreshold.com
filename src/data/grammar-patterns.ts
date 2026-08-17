@@ -202,7 +202,7 @@ const SPANISH_PATTERNS: GrammarPattern[] = [
     meaning: "how you are and where you are",
     hook: "Ser is what you are; estar is how and where you are.",
     examples: [
-      { target: "Estoy bien, gracias.", english: "I am well, thank you.", breakdown: "Health and mood always take estar" },
+      { target: "Estoy bien, gracias.", english: "I am well, thank you.", breakdown: "Health takes estar. Mood adjectives take either: ser for a trait, estar for right now" },
       { target: "Estoy en la sala de espera.", english: "I am in the waiting room." },
       { target: "El médico está ocupado.", english: "The doctor is busy." },
     ],
@@ -348,7 +348,7 @@ const SPANISH_PATTERNS: GrammarPattern[] = [
     examples: [
       { target: "Me llamo Ana.", english: "My name is Ana.", breakdown: "Literally 'I call myself Ana'" },
       { target: "Me levanto a las seis.", english: "I get up at six." },
-      { target: "¿Cómo se escribe?", english: "How is it spelled?" },
+      { target: "Me lavo las manos.", english: "I wash my hands." },
     ],
   },
   {
@@ -667,7 +667,7 @@ const JAPANESE_PATTERNS: GrammarPattern[] = [
     pattern: "[noun] の [noun]",
     name: "The particle の",
     meaning: "links two nouns — possession, origin, type",
-    hook: "Reverse the English order: の goes after the owner.",
+    hook: "The owner comes first, then の: 私の名前 maps straight onto my name.",
     examples: [
       { target: "私の名前です。", english: "It is my name.", breakdown: "私 (I) + の = my" },
       { target: "日本語の先生", english: "a Japanese-language teacher" },
@@ -893,7 +893,7 @@ const JAPANESE_PATTERNS: GrammarPattern[] = [
     meaning: "pick the top of a group",
     hook: "一番 literally means number one, and does all the work of a superlative.",
     examples: [
-      { target: "この店で一番おいしいです。", english: "It is the most delicious in this shop." },
+      { target: "これがこの店で一番おいしいです。", english: "This is the most delicious in this shop.", breakdown: "が marks what is number one; で marks the group it wins within" },
       { target: "何が一番好きですか。", english: "What do you like most?" },
       { target: "一番安いのをください。", english: "The cheapest one, please." },
     ],
@@ -1046,7 +1046,7 @@ const ENGLISH_PATTERNS: GrammarPattern[] = [
     pattern: "Do / Does / Is / Are + [subject] + [verb]?",
     name: "Yes-no questions",
     meaning: "ask something answerable with yes or no",
-    hook: "English inverts or adds 'do'. Rising intonation alone is not enough.",
+    hook: "English inverts or adds 'do'. Rising intonation alone will be understood, but it is not the form to learn.",
     examples: [
       { target: "Do you take cards?", english: "with do" },
       { target: "Are you open on Sunday?", english: "with be" },
@@ -1190,7 +1190,7 @@ const ENGLISH_PATTERNS: GrammarPattern[] = [
     pattern: "have/has + [past participle]",
     name: "Present perfect",
     meaning: "past events that still matter now",
-    hook: "The tense most languages have no equivalent for. Time not finished, or time not stated.",
+    hook: "Use it when a past event still matters now. A finished time — yesterday, at noon — takes the past simple instead.",
     examples: [
       { target: "I have lived here for two years.", english: "still true now", breakdown: "'for' a duration, 'since' a starting point" },
       { target: "Have you ever been to Japan?", english: "experience, time unstated" },
@@ -1210,7 +1210,7 @@ const ENGLISH_PATTERNS: GrammarPattern[] = [
     examples: [
       { target: "I need a taxi.", english: "any taxi — first mention" },
       { target: "The taxi is outside.", english: "the specific one we both know" },
-      { target: "I like coffee.", english: "no article", breakdown: "General uncountable ideas take no article — not 'I like the coffee'" },
+      { target: "I like coffee.", english: "no article", breakdown: "General uncountable ideas take no article: I like coffee. 'The coffee' is right when you both know which coffee" },
     ],
   },
   {
@@ -1305,7 +1305,7 @@ const ENGLISH_PATTERNS: GrammarPattern[] = [
     hook: "The distance between 'Repeat that' and 'Could you repeat that?' is enormous.",
     examples: [
       { target: "Could you repeat that, please?", english: "standard polite request" },
-      { target: "Would you mind waiting a moment?", english: "extra polite", breakdown: "'Would you mind' is followed by -ing, and 'no' means yes" },
+      { target: "Would you mind waiting a moment?", english: "extra polite", breakdown: "'Would you mind' takes -ing, and a no-answer accepts the request — usually 'No, not at all'" },
       { target: "Could I ask a question?", english: "asking permission" },
     ],
   },
@@ -1350,7 +1350,7 @@ const ENGLISH_PATTERNS: GrammarPattern[] = [
     pattern: "always / usually / often / sometimes / never",
     name: "How often",
     meaning: "say how frequently something happens",
-    hook: "The position is fixed: before the main verb, but after 'be'.",
+    hook: "Mid-position is the safe default: before the main verb, after 'be'. Sometimes and usually may also open or close a sentence.",
     examples: [
       { target: "I always take the bus.", english: "before the main verb" },
       { target: "She is never late.", english: "after 'be'", breakdown: "With be the adverb follows it — not 'she never is late'" },
@@ -1616,7 +1616,7 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
     meaning: "say what you did",
     hook: "The everyday past. Choosing avere or essere is the whole battle.",
     examples: [
-      { target: "Ho mangiato bene.", english: "I ate well.", breakdown: "Most verbs take avere; the participle stays -ato" },
+      { target: "Ho mangiato bene.", english: "I ate well.", breakdown: "Most verbs take avere, and the participle does not agree with the subject (mangiato / preso / finito)" },
       { target: "Sono andato a Roma.", english: "I went to Rome.", breakdown: "Movement verbs take essere, and the participle agrees: andato / andata" },
       { target: "Sei arrivata tardi.", english: "You arrived late. (to a woman)" },
     ],
@@ -1666,7 +1666,7 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
     examples: [
       { target: "Mi chiamo Marco.", english: "My name is Marco.", breakdown: "Literally 'I call myself Marco'" },
       { target: "Mi sveglio alle sei.", english: "I wake up at six." },
-      { target: "Come si scrive?", english: "How is it written?" },
+      { target: "Mi lavo le mani.", english: "I wash my hands." },
     ],
   },
   {
@@ -1730,7 +1730,7 @@ const ITALIAN_PATTERNS: GrammarPattern[] = [
     examples: [
       { target: "Questo è più caro di quello.", english: "This is more expensive than that one." },
       { target: "Il treno è meno veloce dell'aereo.", english: "The train is slower than the plane." },
-      { target: "È meglio così.", english: "It is better this way.", breakdown: "meglio and peggio are irregular — never più buono" },
+      { target: "È meglio così.", english: "It is better this way.", breakdown: "meglio and peggio replace bene and male — più buono is fine for taste; migliore is the usual adjective" },
     ],
   },
   {

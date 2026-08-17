@@ -45,7 +45,7 @@ const HANZI_RE = /[一-鿿]/;
  * request path and cache rather than duplicating them. Returns null while
  * loading; render plain text until then so layout does not jump.
  */
-export function usePinyinSegments(text: string): PinyinSegment[] | null {
+export function usePinyinSegments(text: string, enabled: boolean = true): PinyinSegment[] | null {
   const fetchPinyin = useServerFn(addPinyin);
   const [segments, setSegments] = useState<PinyinSegment[] | null>(
     () => loadCache()[text] ?? null,
@@ -53,6 +53,7 @@ export function usePinyinSegments(text: string): PinyinSegment[] | null {
   const inFlight = useRef(false);
 
   useEffect(() => {
+    if (!enabled) return;
     const cached = loadCache()[text];
     if (cached) {
       setSegments(cached);
@@ -84,7 +85,10 @@ export function usePinyinSegments(text: string): PinyinSegment[] | null {
       cancelled = true;
       inFlight.current = false;
     };
-  }, [text, fetchPinyin]);
+    // `enabled` must stay in the deps: the effect early-returns when pinyin is
+    // off, so switching it back on has to re-run this to fetch the readings.
+    // Without it, toggling off then on leaves the sentence permanently bare.
+  }, [text, fetchPinyin, enabled]);
 
   return segments;
 }
@@ -93,16 +97,23 @@ export function PinyinText({
   text,
   onWordClick,
   fullSentence,
+  mode = "above",
 }: {
   text: string;
   /** Receives the clicked hanzi/run, the full sentence, and screen coords. */
   onWordClick?: (word: string, sentence: string, x: number, y: number) => void;
   /** The full sentence to pass to onWordClick (defaults to `text`). */
   fullSentence?: string;
+  /** "off" hides readings entirely and skips the reading fetch; "above" (default) shows pinyin over the hanzi. */
+  mode?: "off" | "above";
 }) {
   const sentence = fullSentence ?? text;
-  const segments = usePinyinSegments(text);
+  const segments = usePinyinSegments(text, mode !== "off");
   const rendered = useMemo(() => segments, [segments]);
+
+  if (mode === "off") {
+    return <ClickableSpan text={text} sentence={sentence} onWordClick={onWordClick} />;
+  }
 
   // While loading, show plain text so layout doesn't jump.
   if (!rendered) {

@@ -22,6 +22,7 @@ import { useTutor } from "@/state/tutor-state";
 import { AnnotatedSentence } from "./AnnotatedSentence";
 import { FuriganaText, type FuriganaScript } from "./FuriganaText";
 import { HangulText } from "./HangulText";
+import { PinyinText } from "./PinyinText";
 import { WordCard, type WordCardRequest } from "./WordCard";
 import { SelectionMenu, type SelectionInfo } from "./SelectionMenu";
 import { NoteBubble } from "./NoteBubble";
@@ -49,6 +50,7 @@ type FuriganaMode = "off" | "above" | "inline";
 const FURIGANA_KEY = "lt.reader.furigana.v1";
 const FURIGANA_SCRIPT_KEY = "lt.reader.furigana.script.v1";
 const ROMAJA_KEY = "lt.reader.romaja.v1";
+const PINYIN_KEY = "lt.reader.pinyin.v1";
 const TUTOR_PASSAGE_LIMIT = 2_000;
 
 function buildCenteredPassage(sentences: { target: string }[], sentenceIndex: number): string {
@@ -98,6 +100,7 @@ export function ParallelReader() {
   const [furiganaMode, setFuriganaMode] = useState<FuriganaMode>("above");
   const [furiganaScript, setFuriganaScript] = useState<FuriganaScript>("hiragana");
   const [romajaMode, setRomajaMode] = useState<FuriganaMode>("above");
+  const [pinyinMode, setPinyinMode] = useState<"off" | "above">("above");
 
   // Lesson navigation for the active module
   const lessonIds = useMemo(
@@ -138,6 +141,7 @@ export function ParallelReader() {
   const skipFuriganaPersist = useRef(true);
   const skipScriptPersist = useRef(true);
   const skipRomajaPersist = useRef(true);
+  const skipPinyinPersist = useRef(true);
   useEffect(() => {
     try {
       const raw = localStorage.getItem(FURIGANA_KEY);
@@ -155,6 +159,10 @@ export function ParallelReader() {
         setRomajaMode(rawRomaja);
       } else if (rawRomaja === "inline") {
         setRomajaMode("above");
+      }
+      const rawPinyin = localStorage.getItem(PINYIN_KEY);
+      if (rawPinyin === "off" || rawPinyin === "above") {
+        setPinyinMode(rawPinyin);
       }
     } catch {
       /* ignore */
@@ -193,6 +201,17 @@ export function ParallelReader() {
       /* ignore */
     }
   }, [romajaMode]);
+  useEffect(() => {
+    if (skipPinyinPersist.current) {
+      skipPinyinPersist.current = false;
+      return;
+    }
+    try {
+      localStorage.setItem(PINYIN_KEY, pinyinMode);
+    } catch {
+      /* ignore */
+    }
+  }, [pinyinMode]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [chapterIndex, setChapterIndex] = useState(0);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
@@ -784,6 +803,32 @@ export function ParallelReader() {
               </div>
             </div>
           )}
+          {selected.language === "Chinese" && (
+            <div className="flex items-center gap-2">
+              <Languages className="h-3.5 w-3.5 text-muted-foreground" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Pinyin
+              </span>
+              <div className="flex overflow-hidden rounded-full border border-border/70">
+                {(
+                  [
+                    { v: "off", label: "Off" },
+                    { v: "above", label: "Above" },
+                  ] as { v: "off" | "above"; label: string }[]
+                ).map(({ v, label }) => (
+                  <button
+                    key={v}
+                    onClick={() => setPinyinMode(v)}
+                    data-active={pinyinMode === v}
+                    title={v === "off" ? "Hide readings" : "Tiny pinyin above hanzi"}
+                    className="px-3 py-1 font-mono text-[11px] tracking-widest text-muted-foreground transition-colors data-[active=true]:bg-gold data-[active=true]:text-midnight"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           <label className="flex cursor-pointer items-center gap-2">
             <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
               Auto-scroll
@@ -931,6 +976,7 @@ export function ParallelReader() {
                 furiganaMode={selected.language === "Japanese" ? furiganaMode : "off"}
                 furiganaScript={furiganaScript}
                 romajaMode={selected.language === "Korean" ? romajaMode : "off"}
+                pinyinMode={selected.language === "Chinese" ? pinyinMode : "off"}
               />
             </div>
           </div>
@@ -989,6 +1035,7 @@ function Pane({
   furiganaMode = "off",
   furiganaScript = "hiragana",
   romajaMode = "off",
+  pinyinMode = "off",
 }: {
   pane: "left" | "right";
   sentences: string[];
@@ -1007,10 +1054,12 @@ function Pane({
   furiganaMode?: FuriganaMode;
   furiganaScript?: FuriganaScript;
   romajaMode?: FuriganaMode;
+  pinyinMode?: "off" | "above";
 }) {
   const showFurigana = furiganaMode !== "off";
   const showRomaja = romajaMode !== "off";
-  const lineNeedsExtraLeading = furiganaMode === "above" || romajaMode === "above";
+  const showPinyin = pinyinMode !== "off";
+  const lineNeedsExtraLeading = furiganaMode === "above" || romajaMode === "above" || pinyinMode === "above";
   // Inject pane identity into every word-click so the parent can route
   // left-pane (native) and right-pane (target) lookups differently.
   return (
@@ -1023,7 +1072,8 @@ function Pane({
         };
         const sentenceAnns = annotations.filter((a) => a.pane === pane && a.sentenceIndex === i);
         const isActive = activeSentenceIndex === i;
-        const useRubyRenderer = (showFurigana || showRomaja) && sentenceAnns.length === 0;
+        const useRubyRenderer =
+          (showFurigana || showRomaja || showPinyin) && sentenceAnns.length === 0;
         return (
           <p
             key={i}
@@ -1047,12 +1097,19 @@ function Pane({
                   mode={furiganaMode === "inline" ? "inline" : "above"}
                   script={furiganaScript}
                 />
-              ) : (
+              ) : showRomaja ? (
                 <HangulText
                   text={s}
                   fullSentence={s}
                   onWordClick={wrappedWordClick}
                   mode={romajaMode === "inline" ? "inline" : "above"}
+                />
+              ) : (
+                <PinyinText
+                  text={s}
+                  fullSentence={s}
+                  onWordClick={wrappedWordClick}
+                  mode="above"
                 />
               )
             ) : (

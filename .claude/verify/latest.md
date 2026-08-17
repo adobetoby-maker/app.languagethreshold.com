@@ -1,3 +1,45 @@
+# Verification — Reader pinyin toggle for Chinese
+**Date:** 2026-08-16 · worktree `lt-worktrees/pinyin-games`
+**Files:** `src/components/reader/ParallelReader.tsx`, `src/components/reader/PinyinText.tsx`
+
+| Spec item | Method | Observed | Result |
+|---|---|---|---|
+| TypeScript | `npx tsc --noEmit` | no output, exit 0 | PASS |
+| Lint | `npm run lint` | 0 errors (1 pre-existing react-refresh warning on app-state) | PASS |
+| Toggle hidden on a non-Chinese passage | Playwright driving the live app on :3040, 1440×900 | Reader opened a Spanish passage: no Pinyin control, zero `<ruby>` elements | PASS |
+| Language gating | inspection | `pinyinMode={selected.language === "Chinese" ? pinyinMode : "off"}`, matching the Japanese/Korean pattern | PASS |
+| Language value is `"Chinese"` | Language union + `LanguageFirstStep.tsx:24` | union has `"Chinese"`; the card's label is "Chinese (Mandarin)" but its `id` is `"Chinese"` | PASS |
+| Pinyin rendering above hanzi | — | NOT VERIFIED — see below | UNVERIFIED |
+| Viewport coverage | WAIVED: the target surface (a Chinese passage showing pinyin) cannot be produced on this machine at any viewport — see below. Four viewports of a Spanish passage would prove nothing about pinyin. No visual claim about pinyin is made. | PASS |
+| Outside input | foreman-worker (sonnet) built most of this and caught a real defect in my ticket: I specified `"Chinese (Simplified)"`, which exists only in the NativeLanguage union. Followed literally the toggle would have compiled, linted, passed review, and never appeared. It used `"Chinese"`. | PASS |
+
+## Bug found and fixed during verification
+
+`usePinyinSegments` early-returns when `enabled` is false, but `enabled` was missing from the
+effect's dependency array. Toggling pinyin off then on flips `enabled` to true without
+re-running the effect — no fetch, no readings, permanently bare text. Flipping the switch on
+would have appeared to do nothing: the feature's primary interaction, silently dead.
+Surfaced by the lint warning, fixed by adding `enabled` to the deps with a comment saying
+why it must stay.
+
+## NOT VERIFIED
+
+Pinyin actually rendering. Reader library passages are LLM-generated and
+`pinyin.functions.ts` calls Anthropic; there is no `ANTHROPIC_API_KEY` on this machine, so
+every Chinese text in the library sits at "CHINESE · GENERATING…" with a disabled READ
+button. Same root cause as the P2/P4 handwriting gaps noted below. Production has a valid
+key — first real test is opening a Chinese passage and confirming pinyin sits above the
+hanzi and the toggle survives a reload.
+
+## Separate product bug found (not fixed — founder's call)
+
+Selecting **Chinese (Mandarin)** at first run and pressing "Start reading" opens a **Spanish**
+passage: *"Viajes: Comprar un Billete de Tren" — "Hola. Un billete a Madrid, por favor."*
+Pane headers read ENGLISH | SPANISH while the top bar reads CHINESE. A new Chinese learner's
+first screen is Spanish.
+
+---
+
 # Verification — P4: notes surfaces draw mode (f7d2aa8)
 **Date:** 2026-08-16 · ledger: `.foreman/ledger.md`
 **Files:** `src/components/notes/MultilingualNoteInput.tsx`,

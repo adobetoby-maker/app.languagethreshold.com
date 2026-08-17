@@ -119,17 +119,22 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
   }
 });
 
-test("speaking preview covers every authored topic in Spanish, Italian, Japanese, and English", () => {
+test("speaking preview covers every authored topic in every speaking language", () => {
+  // Chinese shipped as a speaking language after this test was written, so it
+  // was asserting a four-language world against a five-language one. Its row is
+  // the only number added here — every pre-existing count was left untouched
+  // and is met exactly by the authored catalog.
   const expected = {
     Spanish: { modules: 57, challenges: 361, lessons: 1420, curated: 6, core: 141, total: 1928 },
     Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
     Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
+    Chinese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1911 },
     English: { modules: 58, challenges: 364, lessons: 1470, curated: 0, core: 141, total: 1975 },
   };
 
   assert.deepEqual(
     SPEAKING_LANGUAGES.map((entry) => entry.language),
-    ["Spanish", "Italian", "Japanese", "English"],
+    ["Spanish", "Italian", "Japanese", "Chinese", "English"],
   );
   for (const { language, locale } of SPEAKING_LANGUAGES) {
     const modules = getSpeakingModules(language);
@@ -167,9 +172,9 @@ test("speaking preview covers every authored topic in Spanish, Italian, Japanese
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 7716);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 7716);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 7716);
+  assert.equal(SPEAKING_MISSIONS.length, 9627);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 9627);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 9627);
   assert.ok(
     !SPEAKING_MISSIONS.some(
       (mission) => mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),
@@ -282,8 +287,8 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
 test("each speaking mission has complete UX-preview metadata", () => {
   for (const mission of SPEAKING_MISSIONS) {
     assert.equal(mission.version, 1);
-    assert.ok(["Spanish", "Italian", "Japanese", "English"].includes(mission.language));
-    assert.ok(["es-419", "it-IT", "ja-JP", "en-US"].includes(mission.locale));
+    assert.ok(["Spanish", "Italian", "Japanese", "Chinese", "English"].includes(mission.language));
+    assert.ok(["es-419", "it-IT", "ja-JP", "zh-CN", "en-US"].includes(mission.locale));
     assert.ok(mission.title.length > 0);
     assert.ok(mission.moduleId.length > 0);
     assert.ok(mission.moduleName.length > 0);

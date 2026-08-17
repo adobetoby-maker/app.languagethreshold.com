@@ -330,7 +330,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_construction_safety_briefing_zh_v1",
-    scenarioId: "scenario_construction_safety_briefing",
+    scenarioId: "scenario_construction_safety_briefing_zh",
     version: 1,
     title: "Pre-shift safety briefing",
     summary:
@@ -372,7 +372,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_construction_materials_measurement_zh_v1",
-    scenarioId: "scenario_construction_materials_measurement",
+    scenarioId: "scenario_construction_materials_measurement_zh",
     version: 1,
     title: "Materials and measurement check",
     summary:
@@ -414,7 +414,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_construction_hazard_report_zh_v1",
-    scenarioId: "scenario_construction_hazard_report",
+    scenarioId: "scenario_construction_hazard_report_zh",
     version: 1,
     title: "Report a job-site hazard",
     summary:
@@ -456,7 +456,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_missionary_return_appointment_zh_v1",
-    scenarioId: "scenario_missionary_return_appointment",
+    scenarioId: "scenario_missionary_return_appointment_zh",
     version: 1,
     title: "Door approach and return appointment",
     summary:
@@ -498,7 +498,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_missionary_restoration_question_zh_v1",
-    scenarioId: "scenario_missionary_restoration_question",
+    scenarioId: "scenario_missionary_restoration_question_zh",
     version: 1,
     title: "Explain the Restoration",
     summary:
@@ -540,7 +540,7 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
   {
     id: "scenario_version_missionary_church_ride_zh_v1",
-    scenarioId: "scenario_missionary_church_ride",
+    scenarioId: "scenario_missionary_church_ride_zh",
     version: 1,
     title: "Invite and coordinate a ride",
     summary:

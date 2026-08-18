@@ -35,9 +35,19 @@ import {
   History,
   Volume2,
   NotebookPen,
+  PenLine,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useApp, LANGUAGES, type TabKey, type Language } from "@/state/app-state";
+import {
+  useApp,
+  LANGUAGES,
+  NATIVE_LANGUAGES,
+  type TabKey,
+  type Language,
+  type NativeLanguage,
+} from "@/state/app-state";
+import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput";
+import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 import { useAuth } from "@/state/auth-state";
 import { useSpeech } from "@/state/speech-state";
 import { useNotes } from "@/state/notes-state";
@@ -308,6 +318,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const lastSidebarNote = sidebarNotes[sidebarNotes.length - 1];
   const [noteDraft, setNoteDraft] = useState("");
   const [noteSaved, setNoteSaved] = useState(false);
+  const [noteDrawMode, setNoteDrawMode] = useState(false);
 
   function saveSidebarNote() {
     const trimmed = noteDraft.trim();
@@ -564,33 +575,65 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           side="bottom"
           className="max-h-[80vh] overflow-y-auto border-border/60 bg-background/98 backdrop-blur-xl [padding-top:calc(0.75rem+env(safe-area-inset-top))] [padding-bottom:calc(1.5rem+env(safe-area-inset-bottom))] desktop:hidden"
         >
+          {/* Which pair of languages you are working in, above everything else.
+              The bottom strip shows the target only, and native was reachable
+              solely from TopNav — which is desktop-only, so on a phone there was
+              no way to see or change it. Plain <select> rather than a dropdown
+              menu: inside a bottom sheet iOS gives the native picker wheel,
+              which is easier to hit and cannot be mis-scrolled. */}
+          {/* mt-8 clears the sheet's absolutely-positioned close button, which
+              otherwise lands on the Native select's top-right corner. */}
+          <div className="mt-8 mb-3 grid grid-cols-2 gap-2">
+            <label className="flex flex-col gap-1">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                Learning
+              </span>
+              <select
+                value={state.selectedLanguage}
+                onChange={(e) =>
+                  dispatch({ type: "SET_LANGUAGE", payload: e.target.value as Language })
+                }
+                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+              >
+                {LANGUAGES.map((lang) => (
+                  <option key={lang} value={lang}>
+                    {lang}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                Native
+              </span>
+              <select
+                value={state.nativeLanguage}
+                onChange={(e) =>
+                  dispatch({
+                    type: "SET_NATIVE_LANGUAGE",
+                    payload: e.target.value as NativeLanguage,
+                  })
+                }
+                className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
+              >
+                {NATIVE_LANGUAGES.map((lang) => (
+                  <option key={lang} value={lang}>
+                    {lang}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
           <SheetTitle className="font-display text-lg text-foreground">All Tabs</SheetTitle>
           <SheetDescription className="sr-only">
             Every available tab, grouped by section. Tap one to switch.
           </SheetDescription>
 
-          {/* Language Match — restored. Removing Match from the bottom row without
-              adding it here left mobile users no direct entry point: the More
-              sheet renders only TAB_ITEMS, and Match is an onOpenMatch overlay
-              action, not a TabKey. It was reachable solely via Games Hub.
-              Synthesis correction 4. */}
-          {onOpenMatch && (
-            <button
-              onClick={() => {
-                setMoreSheetOpen(false);
-                onOpenMatch();
-              }}
-              className="mt-3 flex w-full items-center justify-between rounded-xl border border-border/40 bg-card/30 px-4 py-3 transition-colors hover:border-gold/25"
-            >
-              <span className="flex items-center gap-2.5 text-sm text-foreground">
-                <Trophy className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
-                Language Match
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                Play
-              </span>
-            </button>
-          )}
+          {/* Language Match is not listed here. It already has a card in Games
+              Hub, and Games is a primary tab in the bottom nav — one tap, not
+              two — so a second entry in this sheet was duplication. The desktop
+              icon rail keeps its shortcut. */}
 
           {/* Recently looked-up words — collapsible history built from
               speech-state's setLastWord() calls (WordCard.tsx). Tap a word
@@ -646,13 +689,38 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
             Quick note
           </p>
           <div className="mt-2 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
-            <textarea
+            {/* Was a bare <textarea> — and this is the one note surface a phone
+                user reaches in two taps, yet the only one that could not accept
+                a drawn character or compose CJK properly. Now uses the same
+                input and canvas as the Dashboard card and Reader panel. */}
+            <MultilingualNoteInput
+              language={state.selectedLanguage}
               value={noteDraft}
-              onChange={(e) => setNoteDraft(e.target.value)}
-              placeholder="Jot down anything you want to remember…"
+              onChange={setNoteDraft}
+              onSave={saveSidebarNote}
               rows={3}
-              className="w-full resize-none rounded-lg border border-border/40 bg-background/60 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/40 focus:outline-none"
+              className="border-border/40 bg-background/60"
             />
+            {noteDrawMode && (
+              <div className="mt-2 overflow-hidden rounded-xl border border-gold/20">
+                <HandwritingCanvas
+                  onRecognized={(text) => setNoteDraft((prev) => prev + text)}
+                  insertLabel="Insert →"
+                />
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setNoteDrawMode((v) => !v)}
+              title="Draw a character to insert"
+              className={`mt-2 flex cursor-pointer items-center gap-1 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                noteDrawMode
+                  ? "border-gold/60 bg-gold/10 text-gold"
+                  : "border-border/50 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <PenLine className="h-3 w-3" /> Draw
+            </button>
             <button
               onClick={saveSidebarNote}
               disabled={!noteDraft.trim()}

@@ -1,3 +1,5 @@
+import { ROOFING_CONTENT } from "./roofing-content.ts";
+
 export interface ModulePhrase {
   en: string; // The English phrase a tradesperson would say
   intent: string; // One short label for what this phrase accomplishes
@@ -3211,6 +3213,7 @@ const landscaperModule: TradesModuleContent = {
 
 export const TRADES_CONTENT: TradesModuleContent[] = [
   framerModule,
+  ROOFING_CONTENT,
   plumberModule,
   drywallModule,
   electricianModule,

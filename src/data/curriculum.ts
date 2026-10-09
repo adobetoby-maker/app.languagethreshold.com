@@ -19,6 +19,7 @@ import {
   fi,
 } from "./curriculum-helpers.ts";
 import { TRAVEL_ZONE_CURRICULA, TRAVEL_ZONE_READING_PATTERNS } from "./travel-zone.ts";
+import { ROOFING_LESSONS } from "./roofing-curriculum.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
@@ -57,6 +58,7 @@ const MODULE_PATTERNS: Record<string, string[]> = {
   "catholic-ministry": ["seed-{lang}-catholic-mass"],
   "construction-foreman": ["seed-{lang}-framer-layout"],
   framer: ["seed-{lang}-framer-layout"],
+  roofing: ["seed-es-roofing-materials"],
   "construction-safety": ["seed-{lang}-construction-blueprint"],
   plumber: ["seed-{lang}-plumber-leak"],
   drywall: ["seed-{lang}-drywall-mud"],
@@ -2887,6 +2889,13 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     threshold:
       "By Lesson 30, you can run a complete morning safety meeting and task assignment in your target language.",
     lessons: CONSTRUCTION_LESSONS,
+  },
+  roofing: {
+    moduleId: "roofing",
+    headline: "The Roofing Foreman Core 30",
+    threshold:
+      "By Lesson 30, you can brief a roofing crew, direct tear-off and installation, raise a fall or weather concern, and close out the day in Spanish while verifying job-specific product instructions.",
+    lessons: ROOFING_LESSONS,
   },
   soccer: {
     moduleId: "soccer",

@@ -81,6 +81,7 @@ function fromClinicalContext(ctx: ClinicalContextLike): ModuleAreaContext {
 
 const MODULE_TO_AREA_MODULES = new Set([
   "framer",
+  "roofing",
   "plumber",
   "drywall",
   "electrician",
@@ -116,7 +117,7 @@ export function getModuleAreaContext(
   if (!areaId) return null;
 
   // ── Trades ────────────────────────────────────────────────────────────────
-  if (["framer", "plumber", "drywall", "electrician", "landscaper"].includes(moduleId)) {
+  if (["framer", "roofing", "plumber", "drywall", "electrician", "landscaper"].includes(moduleId)) {
     const area = getTradesArea(moduleId, areaId);
     return area ? fromModuleArea(area as ModuleAreaLike) : null;
   }

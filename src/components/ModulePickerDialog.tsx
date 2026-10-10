@@ -168,7 +168,7 @@ export function ModulePickerDialog({ open, onClose }: Props) {
             {state.activeModuleId === null && <Check className="h-4 w-4 shrink-0 text-gold" />}
           </button>
 
-          {/* Paid modules — grouped or flat */}
+          {/* Published modules — grouped or flat */}
           {query.trim() ? (
             filtered.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -236,13 +236,7 @@ function ModCard({
           {mod.blurb}
         </div>
       </div>
-      {active ? (
-        <Check className="h-3.5 w-3.5 shrink-0 text-gold mt-0.5" />
-      ) : (
-        <span className="shrink-0 font-mono text-[9px] text-gold/60 mt-0.5">
-          ${(mod.priceCents / 100).toFixed(0)}
-        </span>
-      )}
+      {active ? <Check className="h-3.5 w-3.5 shrink-0 text-gold mt-0.5" /> : null}
     </button>
   );
 }

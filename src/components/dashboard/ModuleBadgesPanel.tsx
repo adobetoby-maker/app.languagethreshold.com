@@ -1,10 +1,13 @@
 import { Lock, Puzzle } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { useSubscription } from "@/state/subscription-state";
 import { getModule, MODULES } from "@/data/modules";
 import { ladderProgress, getLadder } from "@/data/module-badges";
 
 export function ModuleBadgesPanel() {
   const { state, dispatch } = useApp();
+  const { status, teamActive } = useSubscription();
+  const hasPlan = teamActive || status === "active" || status === "trialing";
   const activeModule = getModule(state.activeModuleId);
   const activeLadder = getLadder(state.activeModuleId);
   const progress = ladderProgress(state.activeModuleId, state.challengesCleared);
@@ -158,7 +161,7 @@ export function ModuleBadgesPanel() {
           {MODULES.filter((m) => m.id !== state.activeModuleId).map((m) => {
             const ladder = getLadder(m.id);
             if (!ladder) return null;
-            const owned = state.purchasedModules.includes(m.id);
+            const owned = hasPlan || state.purchasedModules.includes(m.id);
             const top = ladder.badges[ladder.badges.length - 1];
             return (
               <button
@@ -182,7 +185,7 @@ export function ModuleBadgesPanel() {
                   </div>
                   {!owned && (
                     <span className="rounded-full border border-gold/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-gold">
-                      ${(m.priceCents / 100).toFixed(2)}
+                      Pro or Team
                     </span>
                   )}
                 </div>

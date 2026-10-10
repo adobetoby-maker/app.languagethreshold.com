@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
+import { teamAdminClient } from "@/lib/team-server";
 
 async function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -9,17 +10,10 @@ async function getSupabaseAdmin() {
   return createClient(url, key);
 }
 
-async function updateProfileData(
-  userId: string,
-  patch: Record<string, unknown>,
-) {
+async function updateProfileData(userId: string, patch: Record<string, unknown>) {
   const client = await getSupabaseAdmin();
 
-  const { data: existing } = await client
-    .from("profiles")
-    .select("data")
-    .eq("id", userId)
-    .single();
+  const { data: existing } = await client.from("profiles").select("data").eq("id", userId).single();
 
   const merged = { ...(existing?.data ?? {}), ...patch };
 
@@ -30,6 +24,70 @@ async function updateProfileData(
 
 function customerId(raw: Stripe.Subscription["customer"]): string | undefined {
   return typeof raw === "string" ? raw : undefined;
+}
+
+async function syncTeamSubscription(sub: Stripe.Subscription) {
+  const orgId = sub.metadata?.organizationId;
+  if (!orgId) return false;
+  const item = sub.items.data[0];
+  const status =
+    sub.status === "active" || sub.status === "trialing"
+      ? "active"
+      : sub.status === "past_due" || sub.status === "unpaid"
+        ? "past_due"
+        : "canceled";
+  const db = teamAdminClient();
+  const { data, error } = await db
+    .from("team_entitlements")
+    .update({
+      seat_limit: item?.quantity ?? 0,
+      status,
+      term: sub.metadata.term === "annual" ? "annual" : "quarterly",
+      stripe_customer_id: customerId(sub.customer) ?? null,
+      stripe_subscription_id: sub.id,
+      period_end: item?.current_period_end
+        ? new Date(item.current_period_end * 1000).toISOString()
+        : null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("organization_id", orgId)
+    .select("organization_id")
+    .maybeSingle();
+  if (error || !data)
+    throw error ?? new Error("Stripe team subscription has no matching organization.");
+  return true;
+}
+
+function invoiceSubscriptionId(inv: Stripe.Invoice) {
+  const raw = inv as unknown as {
+    parent?: { subscription_details?: { subscription?: string | { id: string } } };
+  };
+  const sub = raw.parent?.subscription_details?.subscription;
+  return typeof sub === "string" ? sub : sub?.id;
+}
+
+async function recordStripeEntry(
+  ref: string,
+  amountCents: number,
+  category: string,
+  orgId?: string,
+  occurredAt = Date.now(),
+) {
+  if (!amountCents) return;
+  const db = teamAdminClient();
+  const { error } = await db.from("platform_ledger_entries").upsert(
+    {
+      occurred_on: new Date(occurredAt).toISOString().slice(0, 10),
+      category,
+      amount_cents: amountCents,
+      source: "stripe",
+      external_ref: ref,
+      organization_id: orgId ?? null,
+      memo: ref,
+    },
+    { onConflict: "external_ref", ignoreDuplicates: true },
+  );
+  if (error) throw error;
 }
 
 export const Route = createFileRoute("/api/stripe-webhook")({
@@ -60,6 +118,24 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             // ── Trial / checkout ──────────────────────────────────────────
             case "checkout.session.completed": {
               const session = event.data.object as Stripe.Checkout.Session;
+              if (session.metadata?.organizationId) {
+                const subscriptionId =
+                  typeof session.subscription === "string"
+                    ? session.subscription
+                    : session.subscription?.id;
+                if (subscriptionId)
+                  await syncTeamSubscription(await stripe.subscriptions.retrieve(subscriptionId));
+                break;
+              }
+              if (session.mode === "payment" && session.amount_total) {
+                await recordStripeEntry(
+                  `checkout:${session.id}`,
+                  session.amount_total,
+                  "One-time revenue",
+                  undefined,
+                  event.created * 1000,
+                );
+              }
               const userId = session.client_reference_id ?? session.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, {
@@ -76,6 +152,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "customer.subscription.created":
             case "customer.subscription.updated": {
               const sub = event.data.object as Stripe.Subscription;
+              if (await syncTeamSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 const primaryItem = sub.items.data[0];
@@ -95,6 +172,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
 
             case "customer.subscription.deleted": {
               const sub = event.data.object as Stripe.Subscription;
+              if (await syncTeamSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "canceled" });
@@ -104,6 +182,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
 
             case "customer.subscription.paused": {
               const sub = event.data.object as Stripe.Subscription;
+              if (await syncTeamSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "paused" });
@@ -113,6 +192,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
 
             case "customer.subscription.resumed": {
               const sub = event.data.object as Stripe.Subscription;
+              if (await syncTeamSubscription(sub)) break;
               const userId = sub.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { subscription_status: "active" });
@@ -133,6 +213,27 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             // ── Payment events ────────────────────────────────────────────
             case "invoice.payment_succeeded": {
               const inv = event.data.object as Stripe.Invoice;
+              const subId = invoiceSubscriptionId(inv);
+              const db = teamAdminClient();
+              const { data: team } = subId
+                ? await db
+                    .from("team_entitlements")
+                    .select("organization_id")
+                    .eq("stripe_subscription_id", subId)
+                    .maybeSingle()
+                : { data: null };
+              await recordStripeEntry(
+                `invoice:${inv.id}`,
+                inv.amount_paid,
+                "Subscription revenue",
+                team?.organization_id,
+                event.created * 1000,
+              );
+              if (team)
+                await db
+                  .from("team_entitlements")
+                  .update({ status: "active", updated_at: new Date().toISOString() })
+                  .eq("organization_id", team.organization_id);
               const userId = inv.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, {
@@ -145,16 +246,58 @@ export const Route = createFileRoute("/api/stripe-webhook")({
 
             case "invoice.payment_failed": {
               const inv = event.data.object as Stripe.Invoice;
+              const subId = invoiceSubscriptionId(inv);
+              if (subId) {
+                const db = teamAdminClient();
+                await db
+                  .from("team_entitlements")
+                  .update({ status: "past_due", updated_at: new Date().toISOString() })
+                  .eq("stripe_subscription_id", subId);
+              }
               const userId = inv.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, { last_payment_failed: true });
               }
               break;
             }
+
+            case "charge.refunded": {
+              const charge = event.data.object as Stripe.Charge;
+              for (const refund of charge.refunds?.data ?? []) {
+                if (refund.status === "succeeded")
+                  await recordStripeEntry(
+                    `refund:${refund.id}`,
+                    -refund.amount,
+                    "Refunds",
+                    undefined,
+                    refund.created * 1000,
+                  );
+              }
+              break;
+            }
+
+            case "charge.succeeded":
+            case "charge.updated": {
+              const charge = event.data.object as Stripe.Charge;
+              const fullCharge = await stripe.charges.retrieve(charge.id, {
+                expand: ["balance_transaction"],
+              });
+              const balance = fullCharge.balance_transaction;
+              if (balance && typeof balance !== "string" && balance.fee > 0) {
+                await recordStripeEntry(
+                  `fee:${balance.id}`,
+                  -balance.fee,
+                  "Payment processing",
+                  undefined,
+                  balance.created * 1000,
+                );
+              }
+              break;
+            }
           }
         } catch (err) {
           console.error("Webhook handler error:", err);
-          // Return 200 so Stripe doesn't keep retrying
+          return new Response("Webhook processing failed", { status: 500 });
         }
 
         return new Response("ok", { status: 200 });

@@ -84,8 +84,8 @@ function CancelModal({
           <CheckCircle className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
           <h2 className="text-lg font-bold text-foreground mb-2">Cancellation scheduled</h2>
           <p className="text-sm text-muted-foreground mb-5">
-            You have full access until <strong className="text-foreground">{endDate}</strong>.
-            No further charges. Come back anytime.
+            You have full access until <strong className="text-foreground">{endDate}</strong>. No
+            further charges. Come back anytime.
           </p>
           <button
             onClick={onClose}
@@ -116,12 +116,10 @@ function CancelModal({
           </button>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-3">
-          Help us improve — what's your reason?
-        </p>
+        <p className="text-sm text-muted-foreground mb-3">Help us improve — what's your reason?</p>
 
         <div className="space-y-2 mb-5">
-          {CANCEL_REASONS.map(r => (
+          {CANCEL_REASONS.map((r) => (
             <button
               key={r.id}
               type="button"
@@ -168,7 +166,7 @@ function CancelModal({
 
 function AccountPage() {
   const { user, loading: authLoading } = useAuth();
-  const { isActive, status, refresh } = useSubscription();
+  const { isActive, teamActive, demoMode, status, refresh } = useSubscription();
   const navigate = useNavigate();
 
   const [showCancel, setShowCancel] = useState(false);
@@ -188,7 +186,9 @@ function AccountPage() {
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center">
           <p className="text-sm text-muted-foreground mb-4">Sign in to manage your account.</p>
-          <Link to="/" className="text-xs text-gold underline underline-offset-2">← Back to app</Link>
+          <Link to="/" className="text-xs text-gold underline underline-offset-2">
+            ← Back to app
+          </Link>
         </div>
       </div>
     );
@@ -199,9 +199,10 @@ function AccountPage() {
   // We read from profiles.data via subscription-state; for richer data we'd need a server fetch.
   // For now show what we have from the auth token + subscription state.
 
-  const referralLink = typeof window !== "undefined"
-    ? `${window.location.origin}/pricing?ref=${user.id.slice(0, 8)}`
-    : "";
+  const referralLink =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/pricing?ref=${user.id.slice(0, 8)}`
+      : "";
 
   async function copyReferral() {
     try {
@@ -228,7 +229,8 @@ function AccountPage() {
     await refresh();
   }
 
-  const giftLink = ANNUAL_LINK ?? `${typeof window !== "undefined" ? window.location.origin : ""}/pricing`;
+  const giftLink =
+    ANNUAL_LINK ?? `${typeof window !== "undefined" ? window.location.origin : ""}/pricing`;
 
   return (
     <>
@@ -236,7 +238,10 @@ function AccountPage() {
         <CancelModal
           periodEnd={null}
           onCancel={handleCancel}
-          onClose={() => { setShowCancel(false); setCancelError(null); }}
+          onClose={() => {
+            setShowCancel(false);
+            setCancelError(null);
+          }}
         />
       )}
 
@@ -267,13 +272,24 @@ function AccountPage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium text-foreground">
-                    {isActive ? planLabel(undefined, status) : "Free"}
+                    {teamActive && status !== "active" && status !== "trialing"
+                      ? "Company team seat"
+                      : demoMode && status === "none"
+                        ? "Demo access"
+                        : isActive
+                          ? planLabel(undefined, status)
+                          : "Free"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {status === "trialing" && "7-day free trial — no charge yet"}
                     {status === "active" && "Active — billed automatically"}
                     {status === "canceled" && "Canceled — access ends at period end"}
-                    {(status === "none" || !isActive) && "No active subscription"}
+                    {teamActive && status === "none" && "Access provided by your company"}
+                    {demoMode && !teamActive && status === "none" && "Public demo access"}
+                    {!demoMode &&
+                      !teamActive &&
+                      (status === "none" || !isActive) &&
+                      "No active subscription"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5 break-all">{user.email}</p>
                 </div>
@@ -282,23 +298,31 @@ function AccountPage() {
                     status === "trialing"
                       ? "bg-gold/10 text-gold"
                       : status === "active"
-                      ? "bg-emerald-500/10 text-emerald-400"
-                      : "bg-muted text-muted-foreground"
+                        ? "bg-emerald-500/10 text-emerald-400"
+                        : "bg-muted text-muted-foreground"
                   }`}
                 >
-                  {status === "trialing" ? "Trial" : status === "active" ? "Active" : status}
+                  {teamActive && status === "none"
+                    ? "Team"
+                    : status === "trialing"
+                      ? "Trial"
+                      : status === "active"
+                        ? "Active"
+                        : status}
                 </span>
               </div>
             </div>
           </section>
 
           {/* ── Upgrade to annual ── */}
-          {isActive && status !== "canceled" && (
+          {(status === "active" || status === "trialing") && (
             <section className="rounded-2xl border border-gold/30 bg-gold/5 overflow-hidden mb-4">
               <div className="px-5 py-4 flex items-center gap-3">
                 <TrendingUp className="h-4 w-4 text-gold shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-foreground">Switch to annual — save 35%</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    Switch to annual — save 35%
+                  </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     $149/year vs $228/year monthly. Same full access.
                   </p>
@@ -321,7 +345,8 @@ function AccountPage() {
             </div>
             <div className="px-5 py-4">
               <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
-                Give someone a year of Language Threshold — great for a coworker, spouse, or anyone learning Spanish on the job.
+                Give someone a year of Language Threshold — great for a coworker, spouse, or anyone
+                learning Spanish on the job.
               </p>
               <a
                 href={giftLink}
@@ -356,7 +381,11 @@ function AccountPage() {
                   onClick={copyReferral}
                   className="shrink-0 flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground hover:border-gold/40 hover:text-gold transition-colors"
                 >
-                  {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                  {copied ? (
+                    <Check className="h-3 w-3 text-emerald-400" />
+                  ) : (
+                    <Copy className="h-3 w-3" />
+                  )}
                   {copied ? "Copied" : "Copy"}
                 </button>
               </div>
@@ -364,14 +393,16 @@ function AccountPage() {
           </section>
 
           {/* ── Family setup ── */}
-          {isActive && (
+          {(status === "active" || status === "trialing" || demoMode) && (
             <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">
               <div className="px-5 py-4 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <Users2 className="h-4 w-4 text-violet-400" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">Family profiles</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">Add kids with username + PIN login</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Add kids with username + PIN login
+                    </p>
                   </div>
                 </div>
                 <Link
@@ -385,7 +416,7 @@ function AccountPage() {
           )}
 
           {/* ── Cancel ── */}
-          {isActive && status !== "canceled" && (
+          {(status === "active" || status === "trialing") && (
             <section className="rounded-2xl border border-border bg-card overflow-hidden mb-8">
               <div className="px-5 py-4 border-b border-border/60">
                 <h2 className="text-sm font-semibold text-foreground">Cancel subscription</h2>
@@ -398,8 +429,8 @@ function AccountPage() {
                   </div>
                 )}
                 <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
-                  You'll keep full access through the end of your current billing period.
-                  No partial refunds, no hassle.
+                  You'll keep full access through the end of your current billing period. No partial
+                  refunds, no hassle.
                 </p>
                 <button
                   type="button"
@@ -414,7 +445,10 @@ function AccountPage() {
 
           <p className="text-center text-xs text-muted-foreground">
             Questions?{" "}
-            <a href="mailto:support@languagethreshold.com" className="text-gold underline underline-offset-2">
+            <a
+              href="mailto:support@languagethreshold.com"
+              className="text-gold underline underline-offset-2"
+            >
               support@languagethreshold.com
             </a>
           </p>

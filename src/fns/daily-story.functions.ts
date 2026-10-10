@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
+import { getModule, moduleSupportsLanguage } from "@/data/modules";
 
 const InputSchema = z.object({
   language: z.string().min(1).max(40),
@@ -8,6 +9,7 @@ const InputSchema = z.object({
   vocabWords: z.array(z.string().max(80)).max(10),
   patternName: z.string().max(80),
   patternFormula: z.string().max(200),
+  moduleId: z.string().max(80).nullable().optional(),
 });
 
 export interface DailyStoryData {
@@ -30,11 +32,19 @@ export const generateDailyStory = createServerFn({ method: "POST" })
       ? `Weave these learner vocab words naturally into the story (use 2-3 of them): ${data.vocabWords.join(", ")}.`
       : "";
 
+    const module = getModule(data.moduleId);
+    const moduleClause =
+      module &&
+      moduleSupportsLanguage(module, data.language as Parameters<typeof moduleSupportsLanguage>[1])
+        ? `Set this story in a realistic ${module.name} situation. The learner's role is ${module.userRole}. Draw naturally on these themes: ${module.vocabFocus.slice(0, 6).join(", ")}. A possible situation is: ${module.challengePrompts[Math.floor(Math.random() * module.challengePrompts.length)] ?? module.blurb}. Keep it a story, not an instruction manual, and do not present trade or safety specifications as universal facts.`
+        : "Use an everyday situation that fits the learner's level.";
+
     const prompt = `Write a short ${data.language} story for a ${data.level} learner.
 Requirements:
 - 4 to 6 sentences in ${data.language}, simple and clear
 - Use the grammar pattern "${data.patternName}" (${data.patternFormula}) at least once
 ${vocabClause}
+- ${moduleClause}
 - Return via the story_output tool only`;
 
     try {

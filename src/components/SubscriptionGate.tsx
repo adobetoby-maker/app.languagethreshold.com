@@ -21,9 +21,6 @@ interface Props {
 }
 
 export function SubscriptionGate({ currentTab, children }: Props) {
-  // DEMO MODE — all paywalls disabled
-  return <>{children}</>;
-
   const { isActive, loading: subLoading } = useSubscription();
   const { user, loading: authLoading } = useAuth();
   const { state } = useApp();

@@ -61,7 +61,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
-    const redirectUrl = `${window.location.origin}/`;
+    const redirectUrl =
+      window.location.pathname === "/team/accept"
+        ? window.location.href
+        : `${window.location.origin}/`;
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -89,14 +92,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signInWithGoogle = useCallback(async () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/` },
+      options: {
+        redirectTo:
+          window.location.pathname === "/team/accept"
+            ? window.location.href
+            : `${window.location.origin}/`,
+      },
     });
   }, []);
 
   const signInWithApple = useCallback(async () => {
     await supabase.auth.signInWithOAuth({
       provider: "apple",
-      options: { redirectTo: `${window.location.origin}/` },
+      options: {
+        redirectTo:
+          window.location.pathname === "/team/accept"
+            ? window.location.href
+            : `${window.location.origin}/`,
+      },
     });
   }, []);
 
@@ -123,16 +136,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut,
       resetPassword,
     }),
-    [
-      session,
-      loading,
-      signUp,
-      signIn,
-      signInWithGoogle,
-      signInWithApple,
-      signOut,
-      resetPassword,
-    ],
+    [session, loading, signUp, signIn, signInWithGoogle, signInWithApple, signOut, resetPassword],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

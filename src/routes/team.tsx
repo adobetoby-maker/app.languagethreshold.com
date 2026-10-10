@@ -1,0 +1,1328 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useCallback, useEffect, useState } from "react";
+import {
+  BookOpen,
+  CheckCircle2,
+  CreditCard,
+  FileDown,
+  Mail,
+  Plus,
+  RefreshCw,
+  Users,
+} from "lucide-react";
+import { AuthProvider, useAuth } from "@/state/auth-state";
+import { AuthModal } from "@/components/auth/AuthModal";
+import { teamRequest } from "@/lib/team-client";
+import { MODULES, getModule } from "@/data/modules";
+
+export const Route = createFileRoute("/team")({
+  component: () => (
+    <AuthProvider>
+      <TeamPage />
+    </AuthProvider>
+  ),
+});
+
+type OrgMembership = {
+  organization_id: string;
+  role: string;
+  team_organizations: { id: string; name: string; billing_email: string; onboarding_step: number };
+};
+type Member = { id: string; user_id: string; display_name: string; role: string; status: string };
+type Invite = {
+  id: string;
+  email: string;
+  display_name: string;
+  role: string;
+  status: string;
+  module_id: string | null;
+  require_certificate: boolean;
+  sent_at: string | null;
+  last_email_error: string | null;
+};
+type Assignment = {
+  id: string;
+  user_id: string;
+  module_id: string;
+  require_certificate: boolean;
+  due_at: string | null;
+};
+type Activity = { user_id: string; module_id: string; active_seconds: number; started_at: string };
+type Lesson = { user_id: string; module_id: string; lesson_number: number };
+type Attempt = {
+  id: string;
+  user_id: string;
+  module_id: string;
+  score: number | null;
+  total: number;
+  submitted_at: string;
+};
+type Certificate = {
+  id: string;
+  user_id: string;
+  learner_name: string;
+  module_id: string;
+  score: number;
+  issued_at: string;
+  status: string;
+};
+type TeamData = {
+  organization: { id: string; name: string; billing_email: string; onboarding_step: number };
+  entitlement: {
+    seat_limit: number;
+    term: string | null;
+    status: string;
+    period_end: string | null;
+  };
+  role: string;
+  members: Member[];
+  invitations: Invite[];
+  assignments: Assignment[];
+  activity: Activity[];
+  activity7: Activity[];
+  lessons: Lesson[];
+  attempts: Attempt[];
+  certificates: Certificate[];
+};
+type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
+
+const card = "rounded-2xl border border-border/60 bg-card/50 p-5";
+const input = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
+const button = "rounded-lg bg-gold px-4 py-2.5 font-semibold text-background disabled:opacity-50";
+const secondary = "rounded-lg border border-border px-4 py-2.5 text-sm hover:border-gold/60";
+const money = (cents: number) =>
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
+const minutes = (seconds: number) => `${Math.round(seconds / 60)} min`;
+
+function parseCsvLine(line: string): string[] {
+  const cells: string[] = [];
+  let cell = "";
+  let quoted = false;
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"' && quoted && line[i + 1] === '"') {
+      cell += '"';
+      i++;
+    } else if (char === '"') quoted = !quoted;
+    else if (char === "," && !quoted) {
+      cells.push(cell.trim());
+      cell = "";
+    } else cell += char;
+  }
+  if (quoted) throw new Error("The CSV has an unfinished quoted field.");
+  cells.push(cell.trim());
+  return cells;
+}
+
+function TeamPage() {
+  const { user, loading: authLoading } = useAuth();
+  const userId = user?.id;
+  const [organizations, setOrganizations] = useState<OrgMembership[]>([]);
+  const [orgId, setOrgId] = useState<string | null>(null);
+  const [data, setData] = useState<TeamData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [billingEmail, setBillingEmail] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
+
+  const refresh = useCallback(
+    async (current?: string | null) => {
+      if (!userId) return;
+      setLoading(true);
+      setError("");
+      try {
+        const list = await teamRequest<{ organizations: OrgMembership[] }>("/api/team");
+        setOrganizations(list.organizations);
+        const selected =
+          current ??
+          orgId ??
+          new URLSearchParams(window.location.search).get("org") ??
+          list.organizations[0]?.organization_id ??
+          null;
+        if (selected) {
+          setOrgId(selected);
+          setData(await teamRequest<TeamData>(`/api/team?org=${encodeURIComponent(selected)}`));
+        } else setData(null);
+      } catch (cause) {
+        setError(cause instanceof Error ? cause.message : "Could not load team.");
+      } finally {
+        setLoading(false);
+      }
+    },
+    [userId, orgId],
+  );
+  useEffect(() => {
+    if (!authLoading && userId) void refresh();
+    else if (!authLoading) setLoading(false);
+  }, [authLoading, userId, refresh]);
+
+  async function act<T>(body: unknown, message: string, after?: (result: T) => void) {
+    setBusy(true);
+    setError("");
+    setNotice("");
+    try {
+      const result = await teamRequest<T & { warning?: string }>("/api/team", body);
+      setNotice(result.warning ? `${message} ${result.warning}` : message);
+      after?.(result);
+      await refresh();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Request failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (authLoading || loading)
+    return (
+      <Page>
+        <p className="text-muted-foreground">Loading team workspace…</p>
+      </Page>
+    );
+  if (!user)
+    return (
+      <Page>
+        <h1 className="text-3xl font-semibold">Team workspace</h1>
+        <p className="mt-3 text-muted-foreground">Sign in to set up or join a company team.</p>
+        <button onClick={() => setAuthOpen(true)} className={button + " mt-5"}>
+          Sign in or create account
+        </button>
+        <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+      </Page>
+    );
+  return (
+    <Page>
+      <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-[.22em] text-gold">
+            Language Threshold for Teams
+          </p>
+          <h1 className="text-3xl font-semibold">
+            {data?.organization.name ?? "Set up your company"}
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Seats, learning assignments, active practice, and certificates.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link to="/" className={secondary}>
+            ← Learning app
+          </Link>
+          <button
+            onClick={() => void refresh()}
+            className={secondary}
+            aria-label="Refresh team data"
+          >
+            <RefreshCw className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      {organizations.length > 1 && (
+        <label className="mb-6 block max-w-sm text-sm">
+          Company
+          <select
+            className={input + " mt-1"}
+            value={orgId ?? ""}
+            onChange={(event) => void refresh(event.target.value)}
+          >
+            {organizations.map((o) => (
+              <option key={o.organization_id} value={o.organization_id}>
+                {o.team_organizations.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
+      {error && (
+        <p
+          role="alert"
+          className="mb-5 rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-red-300"
+        >
+          {error}
+        </p>
+      )}
+      {notice && (
+        <p
+          role="status"
+          className="mb-5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 text-emerald-300"
+        >
+          {notice}
+        </p>
+      )}
+      {!data && (
+        <section className={card + " max-w-xl"}>
+          <h2 className="mb-2 text-xl font-semibold">Create your company workspace</h2>
+          <p className="mb-5 text-sm text-muted-foreground">
+            Start with 15 learner seats. Admin-only accounts do not use a learner seat.
+          </p>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              void act<{ orgId: string }>(
+                { action: "create", name: companyName, billingEmail: billingEmail || user.email },
+                "Company workspace created.",
+                (result) => setOrgId(result.orgId),
+              );
+            }}
+            className="space-y-4"
+          >
+            <label className="block text-sm">
+              Company name
+              <input
+                required
+                minLength={2}
+                maxLength={120}
+                className={input + " mt-1"}
+                value={companyName}
+                onChange={(event) => setCompanyName(event.target.value)}
+              />
+            </label>
+            <label className="block text-sm">
+              Billing and admin email
+              <input
+                required
+                type="email"
+                className={input + " mt-1"}
+                value={billingEmail || user.email || ""}
+                onChange={(event) => setBillingEmail(event.target.value)}
+              />
+            </label>
+            <button disabled={busy} className={button}>
+              Create workspace
+            </button>
+          </form>
+        </section>
+      )}
+      {data &&
+        (data.role === "owner" || data.role === "admin" ? (
+          <AdminWorkspace
+            data={data}
+            busy={busy}
+            setBusy={setBusy}
+            act={act}
+            refresh={() => refresh()}
+            setError={setError}
+            setNotice={setNotice}
+          />
+        ) : (
+          <LearnerWorkspace data={data} />
+        ))}
+    </Page>
+  );
+}
+
+function Page({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-background px-4 py-8 text-foreground sm:px-8">
+      <div className="mx-auto max-w-7xl">{children}</div>
+    </div>
+  );
+}
+
+function memberModules(data: TeamData, userId: string): Assignment[] {
+  const assigned = data.assignments.filter((item) => item.user_id === userId);
+  const assignedIds = new Set(assigned.map((item) => item.module_id));
+  const practiced = new Set(
+    data.activity.filter((item) => item.user_id === userId).map((item) => item.module_id),
+  );
+  return [
+    ...assigned,
+    ...[...practiced]
+      .filter((moduleId) => !assignedIds.has(moduleId))
+      .map((moduleId) => ({
+        id: `practice:${userId}:${moduleId}`,
+        user_id: userId,
+        module_id: moduleId,
+        require_certificate: false,
+        due_at: null,
+      })),
+  ];
+}
+
+function AdminWorkspace({
+  data,
+  busy,
+  setBusy,
+  act,
+  refresh,
+  setError,
+  setNotice,
+}: {
+  data: TeamData;
+  busy: boolean;
+  setBusy: (value: boolean) => void;
+  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  refresh: () => Promise<void>;
+  setError: (value: string) => void;
+  setNotice: (value: string) => void;
+}) {
+  const orgId = data.organization.id;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [moduleId, setModuleId] = useState("roofing");
+  const [certificate, setCertificate] = useState(true);
+  const [inviteRole, setInviteRole] = useState<"learner" | "admin">("learner");
+  const [term, setTerm] = useState<"quarterly" | "annual">("annual");
+  const [initialSeats, setInitialSeats] = useState(15);
+  const [addSeats, setAddSeats] = useState(1);
+  const [quote, setQuote] = useState<{
+    estimateCents: number;
+    newSeatLimit: number;
+    note: string;
+  } | null>(null);
+  const [showTour, setShowTour] = useState(data.organization.onboarding_step < 6);
+  const [tourStep, setTourStep] = useState(data.organization.onboarding_step);
+  const activeLearners = data.members.filter((m) => m.role === "learner" && m.status === "active");
+  const pending = data.invitations.filter((i) => i.role === "learner" && i.status === "pending");
+  const seatsUsed = activeLearners.length + pending.length;
+  const active30 = new Set(data.activity.map((a) => a.user_id)).size;
+  const totalMinutes = minutes(data.activity.reduce((sum, a) => sum + a.active_seconds, 0));
+  const remaining = Math.max(0, data.entitlement.seat_limit - seatsUsed);
+
+  async function importRoster(file: File) {
+    setBusy(true);
+    setError("");
+    setNotice("");
+    let sent = 0;
+    const failures: string[] = [];
+    try {
+      if (file.size > 65536) throw new Error("Use a CSV smaller than 64 KB.");
+      const lines = (await file.text())
+        .replace(/^\uFEFF/, "")
+        .split(/\r?\n/)
+        .filter(Boolean);
+      const rows = lines.map(parseCsvLine);
+      if (rows[0]?.[0]?.toLowerCase() === "name") rows.shift();
+      if (!rows.length) throw new Error("The CSV has no employees.");
+      if (rows.length > remaining)
+        throw new Error(`Only ${remaining} learner seats are available. Add seats first.`);
+      const seen = new Set<string>();
+      for (const [name, email] of rows) {
+        if (!name || !email || !email.includes("@"))
+          throw new Error("Each row needs a name and email address.");
+        const normalized = email.toLowerCase();
+        if (seen.has(normalized)) throw new Error(`Duplicate email in CSV: ${email}`);
+        seen.add(normalized);
+      }
+      for (const [name, email] of rows) {
+        try {
+          const result = await teamRequest<{ warning?: string }>("/api/team", {
+            action: "invite",
+            orgId,
+            name,
+            email,
+            role: "learner",
+            moduleId,
+            requireCertificate: certificate && moduleId === "roofing",
+          });
+          sent++;
+          if (result.warning) failures.push(`${email}: invitation reserved; ${result.warning}`);
+        } catch (cause) {
+          failures.push(`${email}: ${cause instanceof Error ? cause.message : "failed"}`);
+        }
+      }
+      setNotice(`${sent} of ${rows.length} seats assigned from CSV.`);
+      if (failures.length) setError(failures.join(" "));
+      await refresh();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not read CSV.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function billing(action: string, extra: Record<string, unknown> = {}) {
+    setBusy(true);
+    setError("");
+    setNotice("");
+    try {
+      const result = await teamRequest<{
+        url?: string;
+        estimateCents?: number;
+        newSeatLimit?: number;
+        note?: string;
+        message?: string;
+      }>("/api/team-billing", { action, orgId, ...extra });
+      if (result.url) {
+        window.location.href = result.url;
+        return;
+      }
+      if (action === "quote")
+        setQuote(
+          result as typeof quote & { estimateCents: number; newSeatLimit: number; note: string },
+        );
+      else {
+        setNotice(result.message ?? "Seat change submitted.");
+        setQuote(null);
+        await refresh();
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Billing request failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const csv = () => {
+    const rows = [
+      [
+        "Employee",
+        "Status",
+        "Module",
+        "Active minutes (7d)",
+        "Active minutes (30d)",
+        "Lessons",
+        "Best test",
+        "Certificate",
+      ],
+    ];
+    for (const member of activeLearners) {
+      const assignments = memberModules(data, member.user_id);
+      for (const assignment of assignments) {
+        const secs7 = data.activity7
+          .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+          .reduce((sum, a) => sum + a.active_seconds, 0);
+        const secs = data.activity
+          .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+          .reduce((sum, a) => sum + a.active_seconds, 0);
+        const lessons = data.lessons.filter(
+          (l) => l.user_id === member.user_id && l.module_id === assignment.module_id,
+        ).length;
+        const best = Math.max(
+          0,
+          ...data.attempts
+            .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+            .map((a) => a.score ?? 0),
+        );
+        const cert = data.certificates.find(
+          (c) =>
+            c.user_id === member.user_id &&
+            c.module_id === assignment.module_id &&
+            c.status === "issued",
+        );
+        rows.push([
+          member.display_name,
+          member.status,
+          getModule(assignment.module_id)?.name ?? assignment.module_id,
+          String(Math.round(secs7 / 60)),
+          String(Math.round(secs / 60)),
+          String(lessons),
+          best ? `${best}/25` : "",
+          cert?.id ?? "",
+        ]);
+      }
+    }
+    const text = rows
+      .map((row) => row.map((value) => `"${value.replaceAll('"', '""')}"`).join(","))
+      .join("\n");
+    const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "team-progress.csv";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
+        {[
+          ["Learner seats", data.entitlement.seat_limit],
+          ["Assigned", activeLearners.length],
+          ["Pending invites", pending.length],
+          ["Available", remaining],
+          [
+            "Active practice · 7d",
+            minutes(data.activity7.reduce((sum, a) => sum + a.active_seconds, 0)),
+          ],
+          ["Active practice · 30d", totalMinutes],
+        ].map(([label, value]) => (
+          <div key={String(label)} className={card}>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
+            <p className="mt-2 text-3xl font-semibold text-gold">{value}</p>
+          </div>
+        ))}
+      </div>
+      {showTour && (
+        <section className={card + " border-gold/30"}>
+          <div className="flex flex-wrap justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-gold">
+                Admin setup · step {tourStep} of 6
+              </p>
+              <h2 className="mt-2 text-xl font-semibold">
+                {
+                  [
+                    "Welcome to your team workspace",
+                    "Set up your company",
+                    "Add seats and employees",
+                    "Assign a module",
+                    "Choose the completion goal",
+                    "Review and launch",
+                  ][tourStep - 1]
+                }
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {
+                  [
+                    "Manage seats, assign Spanish modules, and review practice. Private AI conversations stay private.",
+                    "Confirm the company and billing contact before inviting learners.",
+                    "Each pending learner invitation reserves one paid seat.",
+                    "Roofing Foreman is ready for your crew; other modules can be assigned too.",
+                    "For Roofing, require 30 lessons and at least 20 of 25 correct answers for a certificate.",
+                    "Check your roster, send the admin summary, and track progress here.",
+                  ][tourStep - 1]
+                }
+              </p>
+            </div>
+            <button className={secondary + " h-fit"} onClick={() => setShowTour(false)}>
+              Close walkthrough
+            </button>
+          </div>
+          <div className="mt-5 flex gap-2">
+            <button
+              disabled={busy || tourStep === 1}
+              onClick={() => setTourStep((step) => Math.max(1, step - 1))}
+              className={secondary}
+            >
+              Back
+            </button>
+            <button
+              disabled={busy}
+              onClick={async () => {
+                if (tourStep === 6) {
+                  setShowTour(false);
+                  await act({ action: "onboarding", orgId, step: 6 }, "Setup complete.");
+                  await act({ action: "email_summary", orgId }, "Admin summary emailed.");
+                } else {
+                  setTourStep((step) => step + 1);
+                  if (tourStep >= data.organization.onboarding_step)
+                    await act(
+                      { action: "onboarding", orgId, step: tourStep + 1 },
+                      "Setup progress saved.",
+                    );
+                }
+              }}
+              className={button}
+            >
+              {tourStep === 6 ? "Finish and email admin" : "Next step"}
+            </button>
+          </div>
+        </section>
+      )}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <section className={card}>
+          <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
+            <CreditCard className="h-5 w-5 text-gold" /> Team billing
+          </h2>
+          <p className="mb-4 text-sm text-muted-foreground">
+            {data.entitlement.status} {data.entitlement.term ? `· ${data.entitlement.term}` : ""}{" "}
+            {data.entitlement.period_end
+              ? `· renews ${new Date(data.entitlement.period_end).toLocaleDateString()}`
+              : ""}
+          </p>
+          {data.entitlement.status === "pending" ? (
+            <div className="space-y-3">
+              <p className="text-sm">
+                Launch with 15 or more seats. The 15-seat offer is{" "}
+                <strong>$747 for three months</strong> or <strong>$2,490 for one year</strong>,
+                renewable.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <select
+                  className={input + " max-w-40"}
+                  value={term}
+                  onChange={(e) => setTerm(e.target.value as typeof term)}
+                >
+                  <option value="quarterly">3 months</option>
+                  <option value="annual">1 year</option>
+                </select>
+                <input
+                  aria-label="Initial learner seats"
+                  type="number"
+                  min={15}
+                  max={1000}
+                  className={input + " max-w-28"}
+                  value={initialSeats}
+                  onChange={(e) => setInitialSeats(Number(e.target.value))}
+                />
+              </div>
+              <p className="text-sm text-gold">
+                {money((term === "annual" ? 16600 : 4980) * initialSeats)} / term
+              </p>
+              <button
+                disabled={busy || initialSeats < 15}
+                onClick={() => void billing("checkout", { term, seats: initialSeats })}
+                className={button}
+              >
+                Continue to secure checkout
+              </button>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <p className="text-sm">
+                {remaining} seats are available. Add seats and assign them from this panel.
+              </p>
+              {data.entitlement.status === "active" && (
+                <>
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      min={1}
+                      max={100}
+                      aria-label="Seats to add"
+                      value={addSeats}
+                      onChange={(e) => {
+                        setAddSeats(Number(e.target.value));
+                        setQuote(null);
+                      }}
+                      className={input + " max-w-28"}
+                    />
+                    <button
+                      disabled={busy}
+                      onClick={() => void billing("quote", { addSeats })}
+                      className={secondary}
+                    >
+                      Preview price
+                    </button>
+                  </div>
+                  {quote && (
+                    <div className="rounded-xl border border-gold/30 bg-gold/5 p-3 text-sm">
+                      <strong>{money(quote.estimateCents)} estimated now</strong> ·{" "}
+                      {quote.newSeatLimit} seats after payment
+                      <p className="mt-1 text-xs text-muted-foreground">{quote.note}</p>
+                      <button
+                        disabled={busy}
+                        onClick={() => void billing("add_seats", { addSeats })}
+                        className={button + " mt-3"}
+                      >
+                        Confirm added seats
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+              {data.entitlement.status === "manual" && (
+                <p className="text-xs text-muted-foreground">
+                  This is a manually granted plan. Ask the Language Threshold owner to change the
+                  seat grant.
+                </p>
+              )}
+              {data.entitlement.status !== "manual" && (
+                <button
+                  disabled={busy}
+                  onClick={() => void billing("portal")}
+                  className={secondary}
+                >
+                  Manage billing
+                </button>
+              )}
+            </div>
+          )}
+        </section>
+        <section className={card}>
+          <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
+            <Users className="h-5 w-5 text-gold" /> Invite and assign a seat
+          </h2>
+          <p className="mb-4 text-sm text-muted-foreground">
+            One learner invitation reserves one seat and assigns the first module. Admin-only
+            invitations do not use learner seats.
+          </p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              void act<{ warning?: string }>(
+                {
+                  action: "invite",
+                  orgId,
+                  name,
+                  email,
+                  moduleId: inviteRole === "learner" ? moduleId : null,
+                  requireCertificate: inviteRole === "learner" && certificate,
+                  role: inviteRole,
+                },
+                "Invitation reserved and email sent.",
+                () => {
+                  setName("");
+                  setEmail("");
+                },
+              );
+            }}
+            className="space-y-3"
+          >
+            <input
+              required
+              minLength={2}
+              placeholder="Employee name"
+              aria-label="Employee name"
+              className={input}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              required
+              type="email"
+              placeholder="employee@company.com"
+              aria-label="Employee email"
+              className={input}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <select
+              aria-label="Invitation role"
+              className={input}
+              value={inviteRole}
+              onChange={(e) => setInviteRole(e.target.value as typeof inviteRole)}
+            >
+              <option value="learner">Learner · uses one seat</option>
+              <option value="admin">Company admin · no learner seat</option>
+            </select>
+            {inviteRole === "learner" && (
+              <>
+                <select
+                  aria-label="First module"
+                  className={input}
+                  value={moduleId}
+                  onChange={(e) => {
+                    setModuleId(e.target.value);
+                    if (e.target.value !== "roofing") setCertificate(false);
+                  }}
+                >
+                  {MODULES.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.name}
+                    </option>
+                  ))}
+                </select>
+                <label className="flex items-start gap-2 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={certificate}
+                    disabled={moduleId !== "roofing"}
+                    onChange={(e) => setCertificate(e.target.checked)}
+                  />
+                  <span>
+                    Require the 80% Roofing final test for a completion certificate
+                    {moduleId !== "roofing" && " (reviewed test not available for this module)"}
+                  </span>
+                </label>
+              </>
+            )}
+            <button
+              disabled={busy || (inviteRole === "learner" && remaining < 1)}
+              className={button}
+            >
+              <Plus className="mr-1 inline h-4 w-4" />{" "}
+              {inviteRole === "learner" ? "Assign seat and email invite" : "Invite company admin"}
+            </button>
+          </form>
+          <div className="mt-5 border-t border-border/50 pt-4">
+            <label className="block text-sm font-semibold">Import learner roster CSV</label>
+            <p className="my-2 text-xs text-muted-foreground">
+              Name,Email header and one employee per row. Each invitation uses one available seat
+              and the selected module and certificate setting above.
+            </p>
+            <input
+              type="file"
+              accept=".csv,text/csv"
+              disabled={busy || remaining < 1}
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importRoster(file);
+                event.target.value = "";
+              }}
+              className="text-xs"
+            />
+          </div>
+        </section>
+      </div>
+      <section className={card}>
+        <div className="mb-4 flex flex-wrap justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-semibold">Employees and module progress</h2>
+            <p className="text-sm text-muted-foreground">
+              {active30} learners practiced in the last 30 days. Active minutes are app usage, not
+              work hours or a proficiency score.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <button className={secondary} onClick={csv}>
+              <FileDown className="mr-1 inline h-4 w-4" /> Export CSV
+            </button>
+            <button
+              className={secondary}
+              onClick={() => {
+                setTourStep(1);
+                setShowTour(true);
+              }}
+            >
+              Admin walkthrough
+            </button>
+            <button
+              disabled={busy}
+              className={secondary}
+              onClick={() =>
+                void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
+              }
+            >
+              <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
+            </button>
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[750px] text-left text-sm">
+            <thead className="border-b border-border text-xs uppercase text-muted-foreground">
+              <tr>
+                {[
+                  "Employee",
+                  "Module",
+                  "Practice · 7d",
+                  "Practice · 30d",
+                  "Lessons",
+                  "Best test",
+                  "Certificate",
+                  "Action",
+                ].map((h) => (
+                  <th key={h} className="p-2">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {activeLearners.map((member) => {
+                const memberAssignments = memberModules(data, member.user_id);
+                return memberAssignments.length ? (
+                  memberAssignments.map((a) => (
+                    <EmployeeRow
+                      key={a.id}
+                      member={member}
+                      assignment={a}
+                      data={data}
+                      busy={busy}
+                      act={act}
+                      orgId={orgId}
+                    />
+                  ))
+                ) : (
+                  <tr key={member.id} className="border-b border-border/40">
+                    <td className="p-2">{member.display_name}</td>
+                    <td className="p-2 text-muted-foreground" colSpan={6}>
+                      No module assigned
+                    </td>
+                    <td className="p-2">
+                      <AssignModule member={member} orgId={orgId} busy={busy} act={act} />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className={card}>
+        <h2 className="mb-3 text-xl font-semibold">Pending invitations ({pending.length})</h2>
+        {pending.length === 0 ? (
+          <p className="text-sm text-muted-foreground">No pending invitations.</p>
+        ) : (
+          <div className="space-y-2">
+            {pending.map((invite) => (
+              <div
+                key={invite.id}
+                className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border/50 p-3 text-sm"
+              >
+                <span>
+                  {invite.display_name} · {invite.email} ·{" "}
+                  {getModule(invite.module_id)?.name ?? "No module"}
+                  {invite.last_email_error && (
+                    <span className="ml-2 text-amber-300">
+                      Email failed: {invite.last_email_error}
+                    </span>
+                  )}
+                </span>
+                <div className="flex gap-2">
+                  <button
+                    disabled={busy}
+                    className={secondary}
+                    onClick={() =>
+                      void act(
+                        { action: "resend", orgId, invitationId: invite.id },
+                        "New invitation link emailed.",
+                      )
+                    }
+                  >
+                    Resend
+                  </button>
+                  <button
+                    disabled={busy}
+                    className={secondary}
+                    onClick={() =>
+                      void act(
+                        { action: "revoke", orgId, invitationId: invite.id },
+                        "Invitation revoked.",
+                      )
+                    }
+                  >
+                    Revoke
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+      <section className={card}>
+        <h2 className="mb-2 text-xl font-semibold">Certificates</h2>
+        <p className="mb-3 text-sm text-muted-foreground">
+          Issued after 30 recorded Roofing lessons and at least 20 of 25 test answers correct. This
+          is language module completion, not trade or safety certification.
+        </p>
+        {data.certificates.length ? (
+          <div className="space-y-2">
+            {data.certificates.map((c) => (
+              <a
+                key={c.id}
+                href={`/certificate?id=${c.id}`}
+                className="block rounded-lg border border-border p-3 text-sm hover:border-gold/50"
+              >
+                {c.learner_name} · {getModule(c.module_id)?.name ?? c.module_id} · {c.score}% ·{" "}
+                {c.status} · {new Date(c.issued_at).toLocaleDateString()}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">No certificates issued yet.</p>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function EmployeeRow({
+  member,
+  assignment,
+  data,
+  busy,
+  act,
+  orgId,
+}: {
+  member: Member;
+  assignment: Assignment;
+  data: TeamData;
+  busy: boolean;
+  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  orgId: string;
+}) {
+  const seconds7 = data.activity7
+    .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+    .reduce((sum, a) => sum + a.active_seconds, 0);
+  const seconds = data.activity
+    .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+    .reduce((sum, a) => sum + a.active_seconds, 0);
+  const lessons = data.lessons.filter(
+    (l) => l.user_id === member.user_id && l.module_id === assignment.module_id,
+  ).length;
+  const best = Math.max(
+    0,
+    ...data.attempts
+      .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
+      .map((a) => a.score ?? 0),
+  );
+  const cert = data.certificates.find(
+    (c) =>
+      c.user_id === member.user_id && c.module_id === assignment.module_id && c.status === "issued",
+  );
+  return (
+    <tr className="border-b border-border/40">
+      <td className="p-2">{member.display_name}</td>
+      <td className="p-2">
+        {getModule(assignment.module_id)?.name ?? assignment.module_id}
+        {assignment.require_certificate && (
+          <span className="ml-1 text-xs text-gold">· test required</span>
+        )}
+      </td>
+      <td className="p-2">{minutes(seconds7)}</td>
+      <td className="p-2">{minutes(seconds)}</td>
+      <td className="p-2">
+        {lessons}
+        {assignment.module_id === "roofing" ? "/30" : ""}
+      </td>
+      <td className="p-2">{best ? `${best}/25` : "—"}</td>
+      <td className="p-2">
+        {cert ? (
+          <a className="text-gold underline" href={`/certificate?id=${cert.id}`}>
+            View
+          </a>
+        ) : (
+          "—"
+        )}
+      </td>
+      <td className="p-2">
+        <AssignModule member={member} orgId={orgId} busy={busy} act={act} />
+        <button
+          disabled={busy}
+          className="mt-2 block text-xs text-red-300 underline"
+          onClick={() => {
+            if (
+              window.confirm(
+                `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
+              )
+            )
+              void act({ action: "revoke", orgId, memberId: member.id }, "Seat released.");
+          }}
+        >
+          Release seat
+        </button>
+      </td>
+    </tr>
+  );
+}
+
+function AssignModule({
+  member,
+  orgId,
+  busy,
+  act,
+}: {
+  member: Member;
+  orgId: string;
+  busy: boolean;
+  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+}) {
+  const [open, setOpen] = useState(false);
+  const [moduleId, setModuleId] = useState("roofing");
+  const [requireCertificate, setRequireCertificate] = useState(false);
+  return open ? (
+    <div className="flex min-w-48 flex-col gap-2">
+      <select
+        className={input}
+        value={moduleId}
+        onChange={(e) => {
+          setModuleId(e.target.value);
+          if (e.target.value !== "roofing") setRequireCertificate(false);
+        }}
+      >
+        {MODULES.map((m) => (
+          <option key={m.id} value={m.id}>
+            {m.name}
+          </option>
+        ))}
+      </select>
+      <label className="text-xs">
+        <input
+          type="checkbox"
+          disabled={moduleId !== "roofing"}
+          checked={requireCertificate}
+          onChange={(e) => setRequireCertificate(e.target.checked)}
+        />{" "}
+        Require certificate
+      </label>
+      <button
+        disabled={busy}
+        className={button}
+        onClick={() =>
+          void act(
+            { action: "assign", orgId, memberId: member.id, moduleId, requireCertificate },
+            "Module assigned and employee notified.",
+            () => setOpen(false),
+          )
+        }
+      >
+        Save
+      </button>
+    </div>
+  ) : (
+    <button className="text-xs text-gold underline" onClick={() => setOpen(true)}>
+      Assign module
+    </button>
+  );
+}
+
+function LearnerWorkspace({ data }: { data: TeamData }) {
+  const { user } = useAuth();
+  const assignments = data.assignments.filter((a) => a.user_id === user?.id);
+  return (
+    <div className="space-y-6">
+      <section className={card}>
+        <h2 className="text-xl font-semibold">Your learning assignments</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Your company can see module progress and active practice time. Your private AI
+          conversations are not shown.
+        </p>
+      </section>
+      {assignments.map((a) => {
+        const lessons = data.lessons.filter((l) => l.module_id === a.module_id).length;
+        const seconds = data.activity
+          .filter((x) => x.module_id === a.module_id)
+          .reduce((sum, x) => sum + x.active_seconds, 0);
+        const cert = data.certificates.find(
+          (c) => c.module_id === a.module_id && c.status === "issued",
+        );
+        return (
+          <section key={a.id} className={card}>
+            <h3 className="text-xl font-semibold">
+              {getModule(a.module_id)?.emoji} {getModule(a.module_id)?.name ?? a.module_id}
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {minutes(seconds)} active practice in 30 days · {lessons}
+              {a.module_id === "roofing" ? "/30" : ""} lessons recorded
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link to="/" className={button}>
+                Open learning app
+              </Link>
+              {cert && (
+                <a href={`/certificate?id=${cert.id}`} className={secondary}>
+                  View certificate
+                </a>
+              )}
+            </div>
+            {a.require_certificate && a.module_id === "roofing" && (
+              <RoofingAssessment
+                orgId={data.organization.id}
+                lessons={lessons}
+                attempts={data.attempts.filter((t) => t.module_id === "roofing")}
+                certificate={cert ?? null}
+              />
+            )}
+          </section>
+        );
+      })}
+      {!assignments.length && (
+        <p className="text-muted-foreground">Your company has not assigned a module yet.</p>
+      )}
+    </div>
+  );
+}
+
+function RoofingAssessment({
+  orgId,
+  lessons,
+  attempts,
+  certificate,
+}: {
+  orgId: string;
+  lessons: number;
+  attempts: Attempt[];
+  certificate: Certificate | null;
+}) {
+  const [quiz, setQuiz] = useState<{ attemptId: string; questions: QuizQuestion[] } | null>(null);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [result, setResult] = useState<{
+    correct: number;
+    total: number;
+    passed: boolean;
+    areaScores: Record<string, { correct: number; total: number }>;
+    certificateId: string | null;
+  } | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const best = Math.max(0, ...attempts.map((a) => a.score ?? 0));
+  async function start() {
+    setBusy(true);
+    setError("");
+    try {
+      setQuiz(await teamRequest("/api/team-assessment", { action: "start", orgId }));
+      setAnswers({});
+      setResult(null);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not start test.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function submit() {
+    if (!quiz) return;
+    setBusy(true);
+    setError("");
+    try {
+      setResult(
+        await teamRequest("/api/team-assessment", {
+          action: "submit",
+          attemptId: quiz.attemptId,
+          answers,
+        }),
+      );
+      setQuiz(null);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not submit test.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <div className="mt-5 border-t border-border pt-4">
+      <h4 className="font-semibold">Roofing Spanish completion test</h4>
+      <p className="mt-1 text-sm text-muted-foreground">
+        25 questions · 20 correct to pass · all 30 lessons required for the certificate. Best score:{" "}
+        {best ? `${best}/25` : "not taken"}.
+      </p>
+      {certificate && (
+        <p className="mt-2 text-sm text-emerald-300">
+          <CheckCircle2 className="mr-1 inline h-4 w-4" /> Certificate issued
+        </p>
+      )}
+      {error && (
+        <p role="alert" className="mt-2 text-sm text-red-300">
+          {error}
+        </p>
+      )}
+      {result && (
+        <div className="mt-3 rounded-xl border border-border p-4">
+          <p className="font-semibold">
+            {result.correct}/{result.total} · {result.passed ? "Passed" : "Keep practicing"}
+          </p>
+          {result.passed && lessons < 30 && (
+            <p className="mt-1 text-sm">
+              Finish the remaining {30 - lessons} lessons to receive your certificate.
+            </p>
+          )}
+          <ul className="mt-2 text-sm text-muted-foreground">
+            {Object.entries(result.areaScores).map(([area, score]) => (
+              <li key={area}>
+                {area}: {score.correct}/{score.total}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {quiz ? (
+        <div className="mt-4 space-y-5">
+          {quiz.questions.map((q, index) => (
+            <fieldset key={q.id} className="rounded-xl border border-border p-4">
+              <legend className="px-1 text-sm font-semibold">
+                {index + 1}. {q.prompt}
+              </legend>
+              <div className="mt-2 space-y-2">
+                {q.options.map((option) => (
+                  <label key={option} className="flex gap-2 text-sm">
+                    <input
+                      type="radio"
+                      name={q.id}
+                      checked={answers[q.id] === option}
+                      onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: option }))}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          ))}
+          <button
+            disabled={busy || Object.keys(answers).length !== quiz.questions.length}
+            onClick={() => void submit()}
+            className={button}
+          >
+            Submit final test
+          </button>
+        </div>
+      ) : (
+        <button disabled={busy} onClick={() => void start()} className={secondary + " mt-3"}>
+          <BookOpen className="mr-1 inline h-4 w-4" /> {busy ? "Loading…" : "Start or retake test"}
+        </button>
+      )}
+    </div>
+  );
+}

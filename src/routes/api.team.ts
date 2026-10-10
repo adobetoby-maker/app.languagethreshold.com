@@ -201,6 +201,7 @@ export const Route = createFileRoute("/api/team")({
           return json({
             organization: org.data,
             entitlement: entitlement.data,
+            enrollmentEnabled: process.env.TEAM_ENROLLMENT_ENABLED === "true",
             role: member.role,
             members: members.data ?? [],
             invitations: invitations.data ?? [],

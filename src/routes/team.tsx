@@ -68,6 +68,7 @@ type Certificate = {
 };
 type TeamData = {
   organization: { id: string; name: string; billing_email: string; onboarding_step: number };
+  enrollmentEnabled: boolean;
   entitlement: {
     seat_limit: number;
     term: string | null;
@@ -657,8 +658,14 @@ function AdminWorkspace({
               <p className="text-sm text-gold">
                 {money((term === "annual" ? 16600 : 4980) * initialSeats)} / term
               </p>
+              {!data.enrollmentEnabled && (
+                <p className="text-sm text-amber-300">
+                  Team checkout is paused while invitation email is being set up. You can review the
+                  workspace and pricing now.
+                </p>
+              )}
               <button
-                disabled={busy || initialSeats < 15}
+                disabled={busy || initialSeats < 15 || !data.enrollmentEnabled}
                 onClick={() => void billing("checkout", { term, seats: initialSeats })}
                 className={button}
               >

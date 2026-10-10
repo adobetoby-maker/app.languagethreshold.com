@@ -57,6 +57,8 @@ export const Route = createFileRoute("/api/team-billing")({
             throw orgError ?? entitlementError ?? new Error("Team not found.");
           const origin = new URL(request.url).origin;
           if (body.action === "checkout") {
+            if (process.env.TEAM_ENROLLMENT_ENABLED !== "true")
+              throw new Error("Team enrollment is paused while invitation email is being set up.");
             if (
               entitlement.stripe_subscription_id &&
               ["active", "past_due"].includes(entitlement.status)

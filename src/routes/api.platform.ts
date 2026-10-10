@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { backfillStripeLedger } from "@/lib/stripe-ledger-backfill";
 import {
   audit,
   authenticatedUser,
@@ -11,6 +12,7 @@ import {
 } from "@/lib/team-server";
 
 const schema = z.discriminatedUnion("action", [
+  z.object({ action: z.literal("ledger_import_stripe") }),
   z.object({
     action: z.literal("ledger_add"),
     date: z.string().date(),
@@ -156,6 +158,11 @@ export const Route = createFileRoute("/api/platform")({
           const user = await authenticatedUser(request, db);
           await requirePlatformOwner(db, user);
           const body = schema.parse(await request.json());
+          if (body.action === "ledger_import_stripe") {
+            const counts = await backfillStripeLedger(db);
+            await audit(db, user.id, "ledger.import_stripe", undefined, counts);
+            return json({ counts });
+          }
           if (body.action === "ledger_add") {
             const amount = body.kind === "income" ? body.amountCents : -body.amountCents;
             const { data, error } = await db

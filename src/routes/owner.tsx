@@ -293,6 +293,18 @@ function OwnerDashboard() {
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
+                    <button
+                      disabled={busy}
+                      onClick={() =>
+                        void act(
+                          { action: "ledger_import_stripe" },
+                          "Stripe payment history imported. Existing entries were kept once.",
+                        )
+                      }
+                      className={secondary}
+                    >
+                      Import Stripe history
+                    </button>
                     <label className="text-xs">
                       From{" "}
                       <input

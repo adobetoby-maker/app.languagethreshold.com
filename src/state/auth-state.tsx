@@ -9,6 +9,11 @@ import {
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  clearModuleRequestReturn,
+  consumeModuleRequestReturn,
+  rememberModuleRequestReturn,
+} from "@/lib/auth-return";
 
 interface AuthContextValue {
   user: User | null;
@@ -27,6 +32,15 @@ interface AuthContextValue {
 
 const Ctx = createContext<AuthContextValue | null>(null);
 
+function restoreModuleRequestAfterAuth(session: Session | null) {
+  const returnPath = consumeModuleRequestReturn(
+    window.location.pathname,
+    !!session,
+    window.localStorage,
+  );
+  if (returnPath) window.location.replace(returnPath);
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
@@ -35,12 +49,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // CRITICAL: subscribe BEFORE getSession to avoid missing events
     const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
       setSession(s);
+      restoreModuleRequestAfterAuth(s);
     });
 
     supabase.auth
       .getSession()
       .then(({ data }) => {
         setSession(data.session);
+        restoreModuleRequestAfterAuth(data.session);
       })
       .catch(async (err) => {
         // Stale/invalid refresh token from a previous session — clear it silently.
@@ -61,12 +77,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
-    const redirectUrl = `${window.location.origin}/`;
+    rememberModuleRequestReturn(window.location.pathname, window.localStorage);
+    const redirectUrl =
+      window.location.pathname === "/team/accept"
+        ? window.location.href
+        : `${window.location.origin}/`;
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: { emailRedirectTo: redirectUrl },
     });
+    if (error || data.session) clearModuleRequestReturn(window.localStorage);
     return {
       error: error?.message ?? null,
       needsConfirmation: !error && !data.session,
@@ -87,16 +108,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
+    rememberModuleRequestReturn(window.location.pathname, window.localStorage);
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/` },
+      options: {
+        redirectTo:
+          window.location.pathname === "/team/accept"
+            ? window.location.href
+            : `${window.location.origin}/`,
+      },
     });
   }, []);
 
   const signInWithApple = useCallback(async () => {
+    rememberModuleRequestReturn(window.location.pathname, window.localStorage);
     await supabase.auth.signInWithOAuth({
       provider: "apple",
-      options: { redirectTo: `${window.location.origin}/` },
+      options: {
+        redirectTo:
+          window.location.pathname === "/team/accept"
+            ? window.location.href
+            : `${window.location.origin}/`,
+      },
     });
   }, []);
 
@@ -123,16 +156,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut,
       resetPassword,
     }),
-    [
-      session,
-      loading,
-      signUp,
-      signIn,
-      signInWithGoogle,
-      signInWithApple,
-      signOut,
-      resetPassword,
-    ],
+    [session, loading, signUp, signIn, signInWithGoogle, signInWithApple, signOut, resetPassword],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

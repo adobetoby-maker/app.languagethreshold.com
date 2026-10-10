@@ -77,6 +77,16 @@ export const MODULE_LESSONS: LessonMap = {
     Portuguese: ["seed-pt-framer-sheathing"],
   },
 
+  roofing: {
+    Spanish: [
+      "seed-es-roofing-materials",
+      "seed-es-roofing-tear-off",
+      "seed-es-roofing-install",
+      "seed-es-roofing-safety",
+      "seed-es-roofing-closeout",
+    ],
+  },
+
   "emergency-medicine": {
     Spanish: ["seed-es-em-triage"],
     French: ["seed-fr-em-resus"],

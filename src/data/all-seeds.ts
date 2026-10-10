@@ -11,6 +11,7 @@ import { FAITH_SEEDS } from "@/data/library-seeds/faith-seeds";
 import { MEDICAL_A_SEEDS } from "@/data/library-seeds/medical-a-seeds";
 import { MEDICAL_B_SEEDS } from "@/data/library-seeds/medical-b-seeds";
 import { TRADES_SEEDS } from "@/data/library-seeds/trades-seeds";
+import { ROOFING_READER_SEEDS } from "@/data/roofing-content";
 import { TRANSPORT_AGRI_SEEDS } from "@/data/library-seeds/transport-agri-seeds";
 import { SERVICE_EDU_SEEDS } from "@/data/library-seeds/service-edu-seeds";
 import { SPORTS_A_SEEDS } from "@/data/library-seeds/sports-a-seeds";
@@ -1398,6 +1399,7 @@ export const ALL_SEEDS: LibraryEntry[] = [
   ...(MEDICAL_A_SEEDS as LibraryEntry[]).map(tag("Medical")),
   ...(MEDICAL_B_SEEDS as LibraryEntry[]).map(tag("Medical")),
   ...(TRADES_SEEDS as LibraryEntry[]).map(tag("Trades")),
+  ...(ROOFING_READER_SEEDS as LibraryEntry[]).map(tag("Trades")),
   ...(TRANSPORT_AGRI_SEEDS as LibraryEntry[]).map(tag("Transport & Agriculture")),
   ...(SERVICE_EDU_SEEDS as LibraryEntry[]).map(tag("Service & Education")),
   ...(SPORTS_A_SEEDS as LibraryEntry[]).map(tag("Sports")),

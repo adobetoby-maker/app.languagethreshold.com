@@ -64,6 +64,13 @@ export function AuthButton() {
           <Settings className="mr-2 h-3.5 w-3.5" />
           Account & Settings
         </DropdownMenuItem>
+        <DropdownMenuItem
+          onSelect={() => navigate({ to: "/team" })}
+          className="font-mono text-xs uppercase tracking-[0.16em]"
+        >
+          <Users className="mr-2 h-3.5 w-3.5" />
+          Team workspace
+        </DropdownMenuItem>
         {isActive && (
           <DropdownMenuItem
             onSelect={() => navigate({ to: "/family-setup" })}

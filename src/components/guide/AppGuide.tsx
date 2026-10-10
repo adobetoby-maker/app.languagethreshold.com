@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import {
   BookOpen,
   GraduationCap,
@@ -25,6 +26,8 @@ import {
   Map,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
+import { teamRequest } from "@/lib/team-client";
+import { useAuth } from "@/state/auth-state";
 import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
 import {
@@ -470,12 +473,38 @@ function LessonRunner({
   onExit: () => void;
 }) {
   const { dispatch } = useApp();
+  const { user } = useAuth();
+  const userId = user?.id;
+  const teamSessions = useRef<Record<string, string>>({});
   const { state: lib } = useLibrary();
   const { dispatch: libDispatch } = useLibrary();
   const [done, setDone] = useState<Set<number>>(new Set());
 
   const allDone = done.size === lesson.steps.length;
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
+
+  useEffect(() => {
+    teamSessions.current = {};
+    if (!userId) return;
+    let live = true;
+    void teamRequest<{ sessions?: Record<string, string> }>("/api/team-activity", {
+      action: "lesson_start",
+      moduleId,
+      lessonNumber: lesson.n,
+    })
+      .then((result) => {
+        if (live) teamSessions.current = result.sessions ?? {};
+      })
+      .catch((error) => {
+        if (live)
+          toast.error(
+            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+          );
+      });
+    return () => {
+      live = false;
+    };
+  }, [userId, moduleId, lesson.n]);
 
   function toggle(i: number) {
     setDone((prev) => {
@@ -497,7 +526,20 @@ function LessonRunner({
     dispatch({ type: "SET_TAB", payload: tab });
   }
 
-  function complete() {
+  async function complete() {
+    if (user && Object.keys(teamSessions.current).length) {
+      try {
+        await teamRequest("/api/team-activity", {
+          action: "lesson",
+          moduleId,
+          lessonNumber: lesson.n,
+          sessions: teamSessions.current,
+        });
+      } catch (error) {
+        toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
+        return;
+      }
+    }
     dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
     dispatch({ type: "ADD_XP", payload: 50 });
     onComplete();

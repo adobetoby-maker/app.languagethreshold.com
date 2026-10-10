@@ -120,12 +120,10 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
 });
 
 test("speaking preview covers every authored topic in every speaking language", () => {
-  // Chinese shipped as a speaking language after this test was written, so it
-  // was asserting a four-language world against a five-language one. Its row is
-  // the only number added here — every pre-existing count was left untouched
-  // and is met exactly by the authored catalog.
+  // Keep each language's expected total aligned with its authored modules.
+  // Roofing adds one Spanish module, six challenges, and 30 lessons.
   const expected = {
-    Spanish: { modules: 57, challenges: 361, lessons: 1420, curated: 6, core: 141, total: 1928 },
+    Spanish: { modules: 58, challenges: 367, lessons: 1450, curated: 6, core: 141, total: 1964 },
     Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
     Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
     Chinese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1911 },
@@ -172,9 +170,9 @@ test("speaking preview covers every authored topic in every speaking language", 
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 9627);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 9627);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 9627);
+  assert.equal(SPEAKING_MISSIONS.length, 9663);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 9663);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 9663);
   assert.ok(
     !SPEAKING_MISSIONS.some(
       (mission) => mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),

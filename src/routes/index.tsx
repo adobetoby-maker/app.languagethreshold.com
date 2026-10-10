@@ -35,6 +35,8 @@ import { MatchAchievementsBridge } from "@/components/match/MatchAchievementsBri
 import { OnboardingWizard } from "@/components/onboarding/OnboardingWizard";
 import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
+import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
+import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -78,7 +80,10 @@ function UrlModuleBridge() {
     }
     const allowedTabs = new Set(["reader", "grammar", "speak", "dashboard", "modules", "games"]);
     if (tab && allowedTabs.has(tab)) {
-      dispatch({ type: "SET_TAB", payload: tab as "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games" });
+      dispatch({
+        type: "SET_TAB",
+        payload: tab as "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games",
+      });
     }
     // Only run once after hydration
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -174,6 +179,8 @@ function Index() {
                                             <MatchAchievementsBridge />
                                             <DailyChallengeBridge />
                                             <PushReminderSync />
+                                            <GlobalVocabCapture />
+                                            <TeamActivityBridge />
                                           </DailyChallengeProvider>
                                         </FalseFriendsProvider>
                                       </IdiomMasterProvider>

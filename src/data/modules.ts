@@ -127,6 +127,31 @@ export const MODULES: AppModule[] = [
     vocabFocus: ["stud", "joist", "header", "plumb", "level", "blueprint"],
   },
   {
+    id: "roofing",
+    name: "Roofing Foreman",
+    emoji: "🏠",
+    category: "Trades",
+    blurb:
+      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in Spanish.",
+    priceCents: 999,
+    languages: ["Spanish"],
+    aiPersona:
+      "You are a Spanish-speaking roofing crew member, crew lead, supplier, or inspector. Use practical roofing language and ask the learner to clarify instructions. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the selected product instructions and site plan rather than assuming a universal specification.",
+    userRole: "Roofing foreman",
+    challengePrompts: [
+      "Run a morning roofing briefing covering assignments, material staging, and fall hazards.",
+      "Direct tear-off and ask the crew to flag damaged deck panels before covering them.",
+      "Explain the underlayment and first-course plan using the job's product instructions.",
+      "Correct a misplaced fastener and verify the required nailing pattern.",
+      "Stop roof work when weather or fall protection becomes unsafe.",
+      "Walk the completed roof with the crew lead and assign closeout checks.",
+    ],
+    vocabFocus: [
+      "shingle", "underlayment", "flashing", "drip edge", "valley", "roof deck",
+      "ridge cap", "harness", "roof anchor", "tear-off", "nailing strip", "gutter",
+    ],
+  },
+  {
     id: "emergency-medicine",
     name: "Emergency Medicine",
     emoji: "🚨",

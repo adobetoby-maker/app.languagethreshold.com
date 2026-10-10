@@ -12,25 +12,38 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as ModuleRequestRouteImport } from './routes/module-request'
+import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
+import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
 import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
 import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
+import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
+import { Route as ApiPlatformRouteImport } from './routes/api.platform'
 import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
 import { Route as ApiSpeakRouteImport } from './routes/api.speak'
 import { Route as ApiSpeakingConsentRouteImport } from './routes/api.speaking-consent'
 import { Route as ApiSportsNewsRouteImport } from './routes/api.sports-news'
 import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
+import { Route as ApiTeamRouteImport } from './routes/api.team'
+import { Route as ApiTeamActivityRouteImport } from './routes/api.team-activity'
+import { Route as ApiTeamAssessmentRouteImport } from './routes/api.team-assessment'
+import { Route as ApiTeamBillingRouteImport } from './routes/api.team-billing'
+import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitlement'
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
+import { Route as TeamAcceptRouteImport } from './routes/team/accept'
 
 const Char91indexChar93Route = Char91indexChar93RouteImport.update({
   id: '/index',
@@ -47,14 +60,34 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CertificateRoute = CertificateRouteImport.update({
+  id: '/certificate',
+  path: '/certificate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FamilySetupRoute = FamilySetupRouteImport.update({
   id: '/family-setup',
   path: '/family-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ModuleRequestRoute = ModuleRequestRouteImport.update({
+  id: '/module-request',
+  path: '/module-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerRoute = OwnerRouteImport.update({
+  id: '/owner',
+  path: '/owner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
@@ -65,6 +98,11 @@ const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
 const ApiCaptureEmailRoute = ApiCaptureEmailRouteImport.update({
   id: '/api/capture-email',
   path: '/api/capture-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCertificateRoute = ApiCertificateRouteImport.update({
+  id: '/api/certificate',
+  path: '/api/certificate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
@@ -97,6 +135,16 @@ const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
   path: '/api/module-field-prep',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiModuleRequestRoute = ApiModuleRequestRouteImport.update({
+  id: '/api/module-request',
+  path: '/api/module-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPlatformRoute = ApiPlatformRouteImport.update({
+  id: '/api/platform',
+  path: '/api/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPushRoute = ApiPushRouteImport.update({
   id: '/api/push',
   path: '/api/push',
@@ -127,6 +175,31 @@ const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
   path: '/api/stripe-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTeamRoute = ApiTeamRouteImport.update({
+  id: '/api/team',
+  path: '/api/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTeamActivityRoute = ApiTeamActivityRouteImport.update({
+  id: '/api/team-activity',
+  path: '/api/team-activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTeamAssessmentRoute = ApiTeamAssessmentRouteImport.update({
+  id: '/api/team-assessment',
+  path: '/api/team-assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTeamBillingRoute = ApiTeamBillingRouteImport.update({
+  id: '/api/team-billing',
+  path: '/api/team-billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTeamEntitlementRoute = ApiTeamEntitlementRouteImport.update({
+  id: '/api/team-entitlement',
+  path: '/api/team-entitlement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiTtsRoute = ApiTtsRouteImport.update({
   id: '/api/tts',
   path: '/api/tts',
@@ -142,175 +215,270 @@ const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   path: '/subscribe/success',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamAcceptRoute = TeamAcceptRouteImport.update({
+  id: '/accept',
+  path: '/accept',
+  getParentRoute: () => TeamRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
+  '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/team': typeof TeamRouteWithChildren
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
+  '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/api/team': typeof ApiTeamRoute
+  '/api/team-activity': typeof ApiTeamActivityRoute
+  '/api/team-assessment': typeof ApiTeamAssessmentRoute
+  '/api/team-billing': typeof ApiTeamBillingRoute
+  '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
+  '/team/accept': typeof TeamAcceptRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
+  '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/team': typeof TeamRouteWithChildren
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
+  '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/api/team': typeof ApiTeamRoute
+  '/api/team-activity': typeof ApiTeamActivityRoute
+  '/api/team-assessment': typeof ApiTeamAssessmentRoute
+  '/api/team-billing': typeof ApiTeamBillingRoute
+  '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
+  '/team/accept': typeof TeamAcceptRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
+  '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/team': typeof TeamRouteWithChildren
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
+  '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
   '/api/speak': typeof ApiSpeakRoute
   '/api/speaking-consent': typeof ApiSpeakingConsentRoute
   '/api/sports-news': typeof ApiSportsNewsRoute
   '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/api/team': typeof ApiTeamRoute
+  '/api/team-activity': typeof ApiTeamActivityRoute
+  '/api/team-assessment': typeof ApiTeamAssessmentRoute
+  '/api/team-billing': typeof ApiTeamBillingRoute
+  '/api/team-entitlement': typeof ApiTeamEntitlementRoute
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
+  '/team/accept': typeof TeamAcceptRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/account'
+    | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
+    | '/owner'
     | '/pricing'
+    | '/team'
     | '/api/cancel-subscription'
     | '/api/capture-email'
+    | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
+    | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
+    | '/api/team'
+    | '/api/team-activity'
+    | '/api/team-assessment'
+    | '/api/team-billing'
+    | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
     | '/subscribe/success'
+    | '/team/accept'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/account'
+    | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
+    | '/owner'
     | '/pricing'
+    | '/team'
     | '/api/cancel-subscription'
     | '/api/capture-email'
+    | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
+    | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
+    | '/api/team'
+    | '/api/team-activity'
+    | '/api/team-assessment'
+    | '/api/team-billing'
+    | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
     | '/subscribe/success'
+    | '/team/accept'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
+    | '/owner'
     | '/pricing'
+    | '/team'
     | '/api/cancel-subscription'
     | '/api/capture-email'
+    | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
     | '/api/family-add-kid'
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
+    | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
     | '/api/speak'
     | '/api/speaking-consent'
     | '/api/sports-news'
     | '/api/stripe-webhook'
+    | '/api/team'
+    | '/api/team-activity'
+    | '/api/team-assessment'
+    | '/api/team-billing'
+    | '/api/team-entitlement'
     | '/api/tts'
     | '/api/tutor'
     | '/subscribe/success'
+    | '/team/accept'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  CertificateRoute: typeof CertificateRoute
   FamilySetupRoute: typeof FamilySetupRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
+  ModuleRequestRoute: typeof ModuleRequestRoute
+  OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
+  TeamRoute: typeof TeamRouteWithChildren
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
+  ApiCertificateRoute: typeof ApiCertificateRoute
   ApiCreateCheckoutRoute: typeof ApiCreateCheckoutRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
   ApiFamilyAddKidRoute: typeof ApiFamilyAddKidRoute
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
+  ApiModuleRequestRoute: typeof ApiModuleRequestRoute
+  ApiPlatformRoute: typeof ApiPlatformRoute
   ApiPushRoute: typeof ApiPushRoute
   ApiPushCronRoute: typeof ApiPushCronRoute
   ApiSpeakRoute: typeof ApiSpeakRoute
   ApiSpeakingConsentRoute: typeof ApiSpeakingConsentRoute
   ApiSportsNewsRoute: typeof ApiSportsNewsRoute
   ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
+  ApiTeamRoute: typeof ApiTeamRoute
+  ApiTeamActivityRoute: typeof ApiTeamActivityRoute
+  ApiTeamAssessmentRoute: typeof ApiTeamAssessmentRoute
+  ApiTeamBillingRoute: typeof ApiTeamBillingRoute
+  ApiTeamEntitlementRoute: typeof ApiTeamEntitlementRoute
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
@@ -339,6 +507,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/certificate': {
+      id: '/certificate'
+      path: '/certificate'
+      fullPath: '/certificate'
+      preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/family-setup': {
       id: '/family-setup'
       path: '/family-setup'
@@ -346,11 +521,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FamilySetupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/module-request': {
+      id: '/module-request'
+      path: '/module-request'
+      fullPath: '/module-request'
+      preLoaderRoute: typeof ModuleRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner': {
+      id: '/owner'
+      path: '/owner'
+      fullPath: '/owner'
+      preLoaderRoute: typeof OwnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/cancel-subscription': {
@@ -365,6 +561,13 @@ declare module '@tanstack/react-router' {
       path: '/api/capture-email'
       fullPath: '/api/capture-email'
       preLoaderRoute: typeof ApiCaptureEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/certificate': {
+      id: '/api/certificate'
+      path: '/api/certificate'
+      fullPath: '/api/certificate'
+      preLoaderRoute: typeof ApiCertificateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/create-checkout': {
@@ -409,6 +612,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/module-request': {
+      id: '/api/module-request'
+      path: '/api/module-request'
+      fullPath: '/api/module-request'
+      preLoaderRoute: typeof ApiModuleRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/platform': {
+      id: '/api/platform'
+      path: '/api/platform'
+      fullPath: '/api/platform'
+      preLoaderRoute: typeof ApiPlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/push': {
       id: '/api/push'
       path: '/api/push'
@@ -451,6 +668,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStripeWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/team': {
+      id: '/api/team'
+      path: '/api/team'
+      fullPath: '/api/team'
+      preLoaderRoute: typeof ApiTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/team-activity': {
+      id: '/api/team-activity'
+      path: '/api/team-activity'
+      fullPath: '/api/team-activity'
+      preLoaderRoute: typeof ApiTeamActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/team-assessment': {
+      id: '/api/team-assessment'
+      path: '/api/team-assessment'
+      fullPath: '/api/team-assessment'
+      preLoaderRoute: typeof ApiTeamAssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/team-billing': {
+      id: '/api/team-billing'
+      path: '/api/team-billing'
+      fullPath: '/api/team-billing'
+      preLoaderRoute: typeof ApiTeamBillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/team-entitlement': {
+      id: '/api/team-entitlement'
+      path: '/api/team-entitlement'
+      fullPath: '/api/team-entitlement'
+      preLoaderRoute: typeof ApiTeamEntitlementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/tts': {
       id: '/api/tts'
       path: '/api/tts'
@@ -472,29 +724,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubscribeSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/team/accept': {
+      id: '/team/accept'
+      path: '/accept'
+      fullPath: '/team/accept'
+      preLoaderRoute: typeof TeamAcceptRouteImport
+      parentRoute: typeof TeamRoute
+    }
   }
 }
+
+interface TeamRouteChildren {
+  TeamAcceptRoute: typeof TeamAcceptRoute
+}
+
+const TeamRouteChildren: TeamRouteChildren = {
+  TeamAcceptRoute: TeamAcceptRoute,
+}
+
+const TeamRouteWithChildren = TeamRoute._addFileChildren(TeamRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  CertificateRoute: CertificateRoute,
   FamilySetupRoute: FamilySetupRoute,
   Char91indexChar93Route: Char91indexChar93Route,
+  ModuleRequestRoute: ModuleRequestRoute,
+  OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
+  TeamRoute: TeamRouteWithChildren,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
+  ApiCertificateRoute: ApiCertificateRoute,
   ApiCreateCheckoutRoute: ApiCreateCheckoutRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
   ApiFamilyAddKidRoute: ApiFamilyAddKidRoute,
   ApiFieldPrepRoute: ApiFieldPrepRoute,
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
+  ApiModuleRequestRoute: ApiModuleRequestRoute,
+  ApiPlatformRoute: ApiPlatformRoute,
   ApiPushRoute: ApiPushRoute,
   ApiPushCronRoute: ApiPushCronRoute,
   ApiSpeakRoute: ApiSpeakRoute,
   ApiSpeakingConsentRoute: ApiSpeakingConsentRoute,
   ApiSportsNewsRoute: ApiSportsNewsRoute,
   ApiStripeWebhookRoute: ApiStripeWebhookRoute,
+  ApiTeamRoute: ApiTeamRoute,
+  ApiTeamActivityRoute: ApiTeamActivityRoute,
+  ApiTeamAssessmentRoute: ApiTeamAssessmentRoute,
+  ApiTeamBillingRoute: ApiTeamBillingRoute,
+  ApiTeamEntitlementRoute: ApiTeamEntitlementRoute,
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,

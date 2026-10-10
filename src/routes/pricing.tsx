@@ -77,7 +77,8 @@ const FEATURES_FREE = [
 
 export default function PricingPage() {
   const { user, loading: authLoading } = useAuth();
-  const { isActive, status } = useSubscription();
+  const { teamActive, status } = useSubscription();
+  const hasPlan = teamActive || status === "active" || status === "trialing";
   const [billing, setBilling] = useState<"monthly" | "annual" | "family" | "junior">("annual");
   const [loading, setLoading] = useState(false);
 
@@ -106,7 +107,10 @@ export default function PricingPage() {
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         {/* Header */}
         <div className="text-center mb-10">
-          <Link to="/" className="inline-block mb-6 text-xs text-muted-foreground hover:text-gold transition-colors">
+          <Link
+            to="/"
+            className="inline-block mb-6 text-xs text-muted-foreground hover:text-gold transition-colors"
+          >
             ← Back to app
           </Link>
           <div className="flex justify-center mb-4">
@@ -118,17 +122,20 @@ export default function PricingPage() {
             One plan. Every module.
           </h1>
           <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-            Medical, construction, sports, missionary, climbing — all included. Built for people who use Spanish at work, not in a classroom.
+            Medical, construction, sports, missionary, climbing — all included. Built for people who
+            use Spanish at work, not in a classroom.
           </p>
         </div>
 
         {/* Already subscribed */}
-        {isActive && (
+        {hasPlan && (
           <div className="mb-8 rounded-xl border border-gold/30 bg-gold/5 px-5 py-4 text-center">
             <p className="text-sm font-semibold text-gold">
-              {status === "trialing"
-                ? "You're in your free trial — enjoy full access!"
-                : "You have an active subscription."}
+              {teamActive && status !== "active" && status !== "trialing"
+                ? "Your company team seat includes full access."
+                : status === "trialing"
+                  ? "You're in your free trial — enjoy full access!"
+                  : "You have an active subscription."}
             </p>
             <Link to="/" className="mt-2 inline-block text-xs text-muted-foreground underline">
               Back to the app →
@@ -136,7 +143,7 @@ export default function PricingPage() {
           </div>
         )}
 
-        {!isActive && (
+        {!hasPlan && (
           <>
             {/* Billing toggle */}
             <div className="flex justify-center mb-8">
@@ -184,7 +191,9 @@ export default function PricingPage() {
                     </span>
                     <span className="text-muted-foreground text-sm">/month</span>
                     {billing === "annual" && (
-                      <span className="text-xs text-muted-foreground">billed $149/year · less than Rosetta Stone or Pimsleur</span>
+                      <span className="text-xs text-muted-foreground">
+                        billed $149/year · less than Rosetta Stone or Pimsleur
+                      </span>
                     )}
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1">
@@ -270,7 +279,13 @@ export default function PricingPage() {
                     disabled={loading || authLoading}
                     className="w-full flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
-                    {loading ? "Preparing checkout…" : <>Start free trial <ChevronRight className="h-4 w-4" /></>}
+                    {loading ? (
+                      "Preparing checkout…"
+                    ) : (
+                      <>
+                        Start free trial <ChevronRight className="h-4 w-4" />
+                      </>
+                    )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
                     7-day free trial · No credit card required
@@ -311,7 +326,13 @@ export default function PricingPage() {
                     disabled={loading || authLoading}
                     className="w-full flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
-                    {loading ? "Preparing checkout…" : <>Start family plan <ChevronRight className="h-4 w-4" /></>}
+                    {loading ? (
+                      "Preparing checkout…"
+                    ) : (
+                      <>
+                        Start family plan <ChevronRight className="h-4 w-4" />
+                      </>
+                    )}
                   </button>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
                     7-day free trial · Cancel anytime · All 6 seats activate immediately
@@ -347,6 +368,41 @@ export default function PricingPage() {
         )}
 
         {/* Junior Linguist callout */}
+        <div className="mt-8 rounded-xl border border-gold/30 bg-gold/5 px-5 py-5">
+          <div className="flex items-start gap-3">
+            <Users className="mt-0.5 h-6 w-6 shrink-0 text-gold" />
+            <div>
+              <p className="mb-1 text-base font-semibold text-foreground">
+                Training a crew or company?
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Teams start at 15 learner seats: $747 for three months or $2,490 for one year. Every
+                learner can use every published module. Company admins can assign a focus, invite
+                employees, and review practice and certificates.
+              </p>
+              <Link
+                to="/team"
+                className="mt-3 inline-block text-sm font-semibold text-gold underline underline-offset-2"
+              >
+                Set up a team →
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 rounded-xl border border-border bg-card/40 px-5 py-5">
+          <p className="text-base font-semibold">Need a specialty we have not published?</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Pro and Team include the full library. A custom module request costs $20 and includes
+            review plus a content brief. Building and publishing a complete module is quoted
+            separately.
+          </p>
+          <Link
+            to="/module-request"
+            className="mt-3 inline-block text-sm font-semibold text-gold underline underline-offset-2"
+          >
+            Request a custom module →
+          </Link>
+        </div>
         <div className="mt-8 rounded-xl border border-violet-500/20 bg-violet-500/5 px-5 py-4">
           <div className="flex items-start gap-3">
             <span className="text-2xl">🧒</span>
@@ -355,8 +411,8 @@ export default function PricingPage() {
                 Got kids? Try Junior Linguist
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-                Designed for ages 4-12. Vocabulary games, stories, and speaking practice built
-                for little learners. Included free with the Family Plan.
+                Designed for ages 4-12. Vocabulary games, stories, and speaking practice built for
+                little learners. Included free with the Family Plan.
               </p>
               <a
                 href="https://juniorlinguist.vercel.app"
@@ -406,7 +462,8 @@ export default function PricingPage() {
                   Sony WH-1000XM5 Headphones
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Noise-cancelling focus for listening drills. The difference between distracted and immersed.
+                  Noise-cancelling focus for listening drills. The difference between distracted and
+                  immersed.
                 </p>
               </div>
               <ChevronRight className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5 ml-auto group-hover:text-gold transition-colors" />
@@ -424,20 +481,21 @@ export default function PricingPage() {
                   Spanish Vocabulary Flashcards
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Physical cards for hands-on review — great offline companion to your digital practice.
+                  Physical cards for hands-on review — great offline companion to your digital
+                  practice.
                 </p>
               </div>
               <ChevronRight className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5 ml-auto group-hover:text-gold transition-colors" />
             </a>
           </div>
           <p className="mt-3 text-[10px] text-muted-foreground/60 leading-relaxed">
-            As an Amazon Associate we earn from qualifying purchases. This does not affect our recommendations.
+            As an Amazon Associate we earn from qualifying purchases. This does not affect our
+            recommendations.
           </p>
         </div>
 
         <div className="mt-8 text-center text-xs text-muted-foreground border-t border-border pt-6">
-          Questions? Email{" "}
-          <span className="text-foreground">support@languagethreshold.com</span>
+          Questions? Email <span className="text-foreground">support@languagethreshold.com</span>
         </div>
       </div>
     </div>

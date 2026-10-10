@@ -46,19 +46,14 @@ function moduleDestinationTab(moduleId: string): TabKey {
   return "reader";
 }
 
-function formatPrice(cents: number): string {
-  return `$${(cents / 100).toFixed(2)}`;
-}
-
 interface ModuleCardProps {
   module: AppModule;
   isActive: boolean;
-  isPurchased: boolean;
-  isSubscribed: boolean;
+  hasPlan: boolean;
   onActivate: () => void;
 }
 
-function ModuleCard({ module, isActive, isPurchased, isSubscribed, onActivate }: ModuleCardProps) {
+function ModuleCard({ module, isActive, hasPlan, onActivate }: ModuleCardProps) {
   const meta = CATEGORY_META[module.category];
   const topVocab = module.vocabFocus.slice(0, 5);
 
@@ -123,9 +118,9 @@ function ModuleCard({ module, isActive, isPurchased, isSubscribed, onActivate }:
 
       {/* Footer: status + action */}
       <div className="flex items-center justify-between gap-2">
-        {isPurchased || isSubscribed ? (
+        {hasPlan ? (
           <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-emerald-400">
-            ✓ Included with Pro
+            ✓ Included with your plan
           </span>
         ) : (
           <Link
@@ -148,7 +143,7 @@ function ModuleCard({ module, isActive, isPurchased, isSubscribed, onActivate }:
             onClick={onActivate}
             className="flex items-center gap-1.5 rounded-full border border-border/60 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground/80 transition-colors hover:border-gold/50 hover:bg-gold/10 hover:text-gold"
           >
-            {isPurchased ? (
+            {hasPlan ? (
               <>
                 Activate <ChevronRight className="h-3 w-3" />
               </>
@@ -166,7 +161,8 @@ function ModuleCard({ module, isActive, isPurchased, isSubscribed, onActivate }:
 
 export function ModulesPage() {
   const { state, dispatch } = useApp();
-  const { isActive: isSubscribed } = useSubscription();
+  const { status, teamActive, demoMode } = useSubscription();
+  const hasPlan = teamActive || status === "active" || status === "trialing";
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<AppModule["category"] | "All">("All");
   const availableModules = useMemo(
@@ -203,21 +199,11 @@ export function ModulesPage() {
   }, [filtered, activeCategory]);
 
   const handleActivate = (module: AppModule) => {
-    // Purchase if not owned (free preview period)
-    if (!state.purchasedModules.includes(module.id)) {
-      dispatch({ type: "PURCHASE_MODULE", payload: module.id });
-    }
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
     dispatch({ type: "SET_TAB", payload: moduleDestinationTab(module.id) });
   };
 
   const totalModules = availableModules.length;
-  const availableModuleIds = useMemo(
-    () => new Set(availableModules.map((module) => module.id)),
-    [availableModules],
-  );
-  const purchasedCount = state.purchasedModules.filter((id) => availableModuleIds.has(id)).length;
-
   return (
     <div className="flex h-full flex-col overflow-hidden">
       {/* Page header */}
@@ -229,13 +215,22 @@ export function ModulesPage() {
               <span className="text-gold">✦</span> Module Library
             </span>
             <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
-              {purchasedCount} / {totalModules} modules
+              {totalModules} modules in the library
             </span>
           </div>
           <p className="mt-1 text-xs text-muted-foreground">
-            Choose a specialty module to focus your reading, tutor, and practice around your
-            profession.
+            {hasPlan
+              ? "Your plan includes every module. Choose a specialty to focus your reading, tutor, and practice."
+              : demoMode
+                ? "Explore every specialty in the public demo. A Pro or Team plan includes the full library."
+                : "Preview any specialty. A Pro or Team plan includes the full library."}
           </p>
+          <Link
+            to="/module-request"
+            className="mt-2 inline-block text-xs font-semibold text-gold underline underline-offset-2"
+          >
+            Need a different specialty? Request a custom module for $20 →
+          </Link>
 
           {/* Search */}
           <div className="relative mt-4">
@@ -345,8 +340,7 @@ export function ModulesPage() {
                         key={m.id}
                         module={m}
                         isActive={state.activeModuleId === m.id}
-                        isPurchased={state.purchasedModules.includes(m.id)}
-                        isSubscribed={isSubscribed}
+                        hasPlan={hasPlan}
                         onActivate={() => handleActivate(m)}
                       />
                     ))}

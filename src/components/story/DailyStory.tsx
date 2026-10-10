@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
   BookOpen,
@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import { useApp, VOCAB_MASTERY_THRESHOLD } from "@/state/app-state";
 import { getUltraPatterns } from "@/data/grammar-patterns";
 import { generateDailyStory, type DailyStoryData } from "@/fns/daily-story.functions";
+import { getModule, moduleSupportsLanguage } from "@/data/modules";
 
 function highlightVocab(text: string, words: string[]): React.ReactNode {
   if (!words.length) return text;
@@ -40,17 +41,19 @@ export function DailyStory() {
   const [answer, setAnswer] = useState("");
   const [checked, setChecked] = useState<"correct" | "wrong" | null>(null);
   const [showTranslation, setShowTranslation] = useState(false);
-  const loadedRef = useRef(false);
+  const loadedRef = useRef("");
+  const requestRef = useRef(0);
 
   const lang = state.selectedLanguage;
+  const module = getModule(state.activeModuleId);
+  const storyModule = module && moduleSupportsLanguage(module, lang) ? module : null;
 
-  const activeVocab =
-    state.vocabLang === lang
-      ? state.userVocab
-          .filter((v) => v.correctCount < VOCAB_MASTERY_THRESHOLD)
-          .map((v) => v.word)
-          .slice(0, 8)
-      : [];
+  const activeVocab = useMemo(
+    () => state.vocabLang === lang
+      ? state.userVocab.filter((v) => v.correctCount < VOCAB_MASTERY_THRESHOLD).map((v) => v.word).slice(0, 8)
+      : [],
+    [state.vocabLang, state.userVocab, lang],
+  );
 
   const ultraPattern = getUltraPatterns(lang).find(
     (p) => (state.patternProgress[p.id] ?? 0) < VOCAB_MASTERY_THRESHOLD,
@@ -58,6 +61,7 @@ export function DailyStory() {
 
   const load = useCallback(async () => {
     if (!ultraPattern) return;
+    const requestId = ++requestRef.current;
     setLoading(true);
     setError(null);
     setAnswer("");
@@ -71,23 +75,27 @@ export function DailyStory() {
         vocabWords: activeVocab,
         patternName: ultraPattern.name,
         patternFormula: ultraPattern.pattern,
+        moduleId: storyModule?.id ?? null,
       },
     });
 
+    if (requestId !== requestRef.current) return;
     setLoading(false);
     if (res.error || !res.data) {
       setError(res.error ?? "Could not generate a story.");
       return;
     }
     setStory(res.data);
-  }, [fetchStory, lang, state.level, activeVocab, ultraPattern]);
+  }, [fetchStory, lang, state.level, activeVocab, ultraPattern, storyModule?.id]);
 
   useEffect(() => {
-    if (loadedRef.current) return;
-    loadedRef.current = true;
+    const key = `${lang}:${state.level}:${storyModule?.id ?? "core"}`;
+    if (loadedRef.current === key) return;
+    loadedRef.current = key;
+    setStory(null);
     void load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [lang, state.level, storyModule?.id]);
 
   function checkAnswer() {
     if (!story || !answer.trim()) return;
@@ -123,12 +131,17 @@ export function DailyStory() {
           Daily Story
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          A short {lang} story built from your vocab and patterns
+          A short {lang} story built from your vocab, patterns, and selected module
         </p>
       </div>
 
       {/* Context chips */}
       <div className="flex flex-wrap gap-2 mb-5">
+        {storyModule && (
+          <span className="rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-gold">
+            {storyModule.emoji} {storyModule.name}
+          </span>
+        )}
         <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-violet-400">
           {ultraPattern.name}
         </span>

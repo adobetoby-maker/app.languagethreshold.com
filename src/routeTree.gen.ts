@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
+import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as TeamRouteImport } from './routes/team'
@@ -26,6 +27,7 @@ import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
+import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
 import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
@@ -66,6 +68,11 @@ const CertificateRoute = CertificateRouteImport.update({
 const FamilySetupRoute = FamilySetupRouteImport.update({
   id: '/family-setup',
   path: '/family-setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModuleRequestRoute = ModuleRequestRouteImport.update({
+  id: '/module-request',
+  path: '/module-request',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OwnerRoute = OwnerRouteImport.update({
@@ -126,6 +133,11 @@ const ApiMissionTtsRoute = ApiMissionTtsRouteImport.update({
 const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
   id: '/api/module-field-prep',
   path: '/api/module-field-prep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiModuleRequestRoute = ApiModuleRequestRouteImport.update({
+  id: '/api/module-request',
+  path: '/api/module-request',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPlatformRoute = ApiPlatformRouteImport.update({
@@ -215,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRouteWithChildren
@@ -227,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -250,6 +264,7 @@ export interface FileRoutesByTo {
   '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRouteWithChildren
@@ -262,6 +277,7 @@ export interface FileRoutesByTo {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -286,6 +302,7 @@ export interface FileRoutesById {
   '/certificate': typeof CertificateRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
+  '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRouteWithChildren
@@ -298,6 +315,7 @@ export interface FileRoutesById {
   '/api/field-prep': typeof ApiFieldPrepRoute
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
+  '/api/module-request': typeof ApiModuleRequestRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -323,6 +341,7 @@ export interface FileRouteTypes {
     | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
     | '/owner'
     | '/pricing'
     | '/team'
@@ -335,6 +354,7 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -358,6 +378,7 @@ export interface FileRouteTypes {
     | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
     | '/owner'
     | '/pricing'
     | '/team'
@@ -370,6 +391,7 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -393,6 +415,7 @@ export interface FileRouteTypes {
     | '/certificate'
     | '/family-setup'
     | '/index'
+    | '/module-request'
     | '/owner'
     | '/pricing'
     | '/team'
@@ -405,6 +428,7 @@ export interface FileRouteTypes {
     | '/api/field-prep'
     | '/api/mission-tts'
     | '/api/module-field-prep'
+    | '/api/module-request'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -429,6 +453,7 @@ export interface RootRouteChildren {
   CertificateRoute: typeof CertificateRoute
   FamilySetupRoute: typeof FamilySetupRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
+  ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
   TeamRoute: typeof TeamRouteWithChildren
@@ -441,6 +466,7 @@ export interface RootRouteChildren {
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
+  ApiModuleRequestRoute: typeof ApiModuleRequestRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
   ApiPushRoute: typeof ApiPushRoute
   ApiPushCronRoute: typeof ApiPushCronRoute
@@ -493,6 +519,13 @@ declare module '@tanstack/react-router' {
       path: '/family-setup'
       fullPath: '/family-setup'
       preLoaderRoute: typeof FamilySetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/module-request': {
+      id: '/module-request'
+      path: '/module-request'
+      fullPath: '/module-request'
+      preLoaderRoute: typeof ModuleRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/owner': {
@@ -577,6 +610,13 @@ declare module '@tanstack/react-router' {
       path: '/api/module-field-prep'
       fullPath: '/api/module-field-prep'
       preLoaderRoute: typeof ApiModuleFieldPrepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/module-request': {
+      id: '/api/module-request'
+      path: '/api/module-request'
+      fullPath: '/api/module-request'
+      preLoaderRoute: typeof ApiModuleRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/platform': {
@@ -710,6 +750,7 @@ const rootRouteChildren: RootRouteChildren = {
   CertificateRoute: CertificateRoute,
   FamilySetupRoute: FamilySetupRoute,
   Char91indexChar93Route: Char91indexChar93Route,
+  ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
   TeamRoute: TeamRouteWithChildren,
@@ -722,6 +763,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFieldPrepRoute: ApiFieldPrepRoute,
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
+  ApiModuleRequestRoute: ApiModuleRequestRoute,
   ApiPlatformRoute: ApiPlatformRoute,
   ApiPushRoute: ApiPushRoute,
   ApiPushCronRoute: ApiPushCronRoute,

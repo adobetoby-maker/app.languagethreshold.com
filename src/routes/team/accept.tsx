@@ -45,7 +45,8 @@ function AcceptInvite() {
         ) : accepted ? (
           <>
             <p className="mt-4 text-sm text-emerald-300">
-              Your seat and module assignment are ready.
+              Your seat is ready. You can use every published module, starting with your team's
+              focus.
             </p>
             <Link
               to="/team"
@@ -58,7 +59,8 @@ function AcceptInvite() {
           <>
             <p className="mt-3 text-sm text-muted-foreground">
               Sign in with the email address that received this invitation. Acceptance reserves your
-              company seat and adds your assigned module.
+              company seat and sets your first module focus. Your seat includes the full module
+              library.
             </p>
             {loading ? (
               <p className="mt-4">Checking sign-in…</p>

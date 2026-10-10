@@ -376,9 +376,9 @@ export default function PricingPage() {
                 Training a crew or company?
               </p>
               <p className="text-sm text-muted-foreground">
-                Teams start at 15 learner seats: $747 for three months or $2,490 for one year.
-                Company admins can assign modules, invite employees, and review practice and
-                certificates.
+                Teams start at 15 learner seats: $747 for three months or $2,490 for one year. Every
+                learner can use every published module. Company admins can assign a focus, invite
+                employees, and review practice and certificates.
               </p>
               <Link
                 to="/team"
@@ -388,6 +388,20 @@ export default function PricingPage() {
               </Link>
             </div>
           </div>
+        </div>
+        <div className="mt-8 rounded-xl border border-border bg-card/40 px-5 py-5">
+          <p className="text-base font-semibold">Need a specialty we have not published?</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Pro and Team include the full library. A custom module request costs $20 and includes
+            review plus a content brief. Building and publishing a complete module is quoted
+            separately.
+          </p>
+          <Link
+            to="/module-request"
+            className="mt-3 inline-block text-sm font-semibold text-gold underline underline-offset-2"
+          >
+            Request a custom module →
+          </Link>
         </div>
         <div className="mt-8 rounded-xl border border-violet-500/20 bg-violet-500/5 px-5 py-4">
           <div className="flex items-start gap-3">

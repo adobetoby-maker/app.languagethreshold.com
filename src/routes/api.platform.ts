@@ -5,6 +5,7 @@ import {
   authenticatedUser,
   json,
   requirePlatformOwner,
+  sendTeamEmail,
   teamAdminClient,
   teamError,
 } from "@/lib/team-server";
@@ -35,6 +36,12 @@ const schema = z.discriminatedUnion("action", [
     certificateId: z.string().uuid(),
     reason: z.string().trim().min(3).max(500),
   }),
+  z.object({
+    action: z.literal("module_request_update"),
+    requestId: z.string().uuid(),
+    status: z.enum(["submitted", "reviewing", "delivered", "declined"]),
+    ownerNote: z.string().trim().max(1000),
+  }),
 ]);
 
 export const Route = createFileRoute("/api/platform")({
@@ -61,6 +68,7 @@ export const Route = createFileRoute("/api/platform")({
             attempts,
             ledger,
             auditEvents,
+            moduleRequests,
           ] = await Promise.all([
             db.rpc("platform_account_counts"),
             db.rpc("platform_financial_summary", { p_since: since }),
@@ -99,6 +107,14 @@ export const Route = createFileRoute("/api/platform")({
               .select("id,actor_user_id,action,organization_id,created_at")
               .order("created_at", { ascending: false })
               .limit(100),
+            db
+              .from("custom_module_requests")
+              .select(
+                "id,requester_id,organization_id,title,audience,situations,vocabulary,status,fee_cents,paid_at,owner_note,created_at",
+              )
+              .neq("status", "pending_payment")
+              .order("created_at", { ascending: false })
+              .limit(200),
           ]);
           for (const result of [
             counts,
@@ -112,6 +128,7 @@ export const Route = createFileRoute("/api/platform")({
             attempts,
             ledger,
             auditEvents,
+            moduleRequests,
           ])
             if (result.error) throw result.error;
           await audit(db, user.id, "platform.view", undefined, { since });
@@ -127,6 +144,7 @@ export const Route = createFileRoute("/api/platform")({
             attempts: attempts.data ?? [],
             ledger: ledger.data ?? [],
             auditEvents: auditEvents.data ?? [],
+            moduleRequests: moduleRequests.data ?? [],
           });
         } catch (error) {
           return teamError(error);
@@ -219,6 +237,52 @@ export const Route = createFileRoute("/api/platform")({
               term: body.term,
               periodEnd: body.periodEnd,
             });
+            return json({ ok: true });
+          }
+          if (body.action === "module_request_update") {
+            if (
+              (body.status === "delivered" || body.status === "declined") &&
+              body.ownerNote.length < 20
+            )
+              throw new Error(
+                "Add a useful content brief or explanation before closing the request.",
+              );
+            const { data: item, error } = await db
+              .from("custom_module_requests")
+              .update({
+                status: body.status,
+                owner_note: body.ownerNote,
+                updated_at: new Date().toISOString(),
+              })
+              .eq("id", body.requestId)
+              .neq("status", "pending_payment")
+              .select("id,organization_id,requester_id,title")
+              .maybeSingle();
+            if (error || !item) throw error ?? new Error("Paid request not found.");
+            await audit(
+              db,
+              user.id,
+              "custom_module.status_updated",
+              item.organization_id ?? undefined,
+              {
+                requestId: item.id,
+                status: body.status,
+              },
+            );
+            if (body.status !== "submitted") {
+              const { data: account } = await db.auth.admin.getUserById(item.requester_id);
+              if (account.user?.email) {
+                try {
+                  await sendTeamEmail(
+                    account.user.email,
+                    `Custom module request update: ${item.title}`,
+                    `Your custom module request is now ${body.status}.\n\n${body.ownerNote || "Sign in to view your request."}\n\nView your request: ${new URL(request.url).origin}/module-request\n\nLanguage Threshold`,
+                  );
+                } catch (mailError) {
+                  console.error("Custom module status email failed:", mailError);
+                }
+              }
+            }
             return json({ ok: true });
           }
           const { error } = await db

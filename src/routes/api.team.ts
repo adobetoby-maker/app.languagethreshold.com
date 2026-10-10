@@ -64,7 +64,7 @@ async function sendInvitation(
   await sendTeamEmail(
     to,
     `${company} invited you to Language Threshold`,
-    `Hello ${name},\n\n${company} invited you to learn with Language Threshold.${module ? ` Your first module is ${getModule(module)?.name ?? module}.` : ""}${certificate ? " Your assignment includes a completion certificate goal: finish the required lessons and pass the reviewed final test at 80% or higher." : ""}\n\nAccept your invitation: ${link}\n\nThe link expires in seven days. Your company admin can see practice time and module progress, but not your private AI conversations.\n\nLanguage Threshold`,
+    `Hello ${name},\n\n${company} invited you to learn with Language Threshold. Your seat includes every published module.${module ? ` Your first focus is ${getModule(module)?.name ?? module}.` : ""}${certificate ? " Your assignment includes a completion certificate goal: finish the required lessons and pass the reviewed final test at 80% or higher." : ""}\n\nAccept your invitation: ${link}\n\nThe link expires in seven days. Your company admin can see practice time and module progress, but not your private AI conversations.\n\nLanguage Threshold`,
   );
 }
 
@@ -396,7 +396,7 @@ export const Route = createFileRoute("/api/team")({
                 await sendTeamEmail(
                   account.user.email,
                   `${org.name} assigned ${getModule(body.moduleId)?.name}`,
-                  `Hello ${target.display_name},\n\n${org.name} assigned ${getModule(body.moduleId)?.name} in Language Threshold.${body.requireCertificate ? " Complete the required lessons and pass the reviewed final test at 80% or higher to earn your module completion certificate." : ""}\n\nOpen your team workspace: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
+                  `Hello ${target.display_name},\n\n${org.name} assigned ${getModule(body.moduleId)?.name} as a focus in Language Threshold. Your seat includes every published module.${body.requireCertificate ? " Complete the required lessons and pass the reviewed final test at 80% or higher to earn your module completion certificate." : ""}\n\nOpen your team workspace: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
                 );
               } catch (cause) {
                 warning = cause instanceof Error ? cause.message : "Email could not be sent.";

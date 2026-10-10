@@ -210,6 +210,11 @@ function TeamPage() {
           <Link to="/" className={secondary}>
             ← Learning app
           </Link>
+          {data && (data.role === "owner" || data.role === "admin") && (
+            <Link to="/module-request" className={secondary}>
+              Custom module request · $20
+            </Link>
+          )}
           <button
             onClick={() => void refresh()}
             className={secondary}
@@ -570,7 +575,7 @@ function AdminWorkspace({
                     "Manage seats, assign Spanish modules, and review practice. Private AI conversations stay private.",
                     "Confirm the company and billing contact before inviting learners.",
                     "Each pending learner invitation reserves one paid seat.",
-                    "Roofing Foreman is ready for your crew; other modules can be assigned too.",
+                    "Every published module is included for each learner; Roofing Foreman is ready for your crew.",
                     "For Roofing, require 30 lessons and at least 20 of 25 correct answers for a certificate.",
                     "Check your roster, send the admin summary, and track progress here.",
                   ][tourStep - 1]
@@ -1191,7 +1196,10 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
         );
       })}
       {!assignments.length && (
-        <p className="text-muted-foreground">Your company has not assigned a module yet.</p>
+        <p className="text-muted-foreground">
+          Your company has not set a module focus yet. You can still use every published module in
+          the learning app.
+        </p>
       )}
     </div>
   );

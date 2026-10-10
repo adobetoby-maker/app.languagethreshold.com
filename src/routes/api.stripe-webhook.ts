@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
-import { teamAdminClient } from "@/lib/team-server";
+import { audit, sendTeamEmail, teamAdminClient } from "@/lib/team-server";
 
 async function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -118,6 +118,57 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             // ── Trial / checkout ──────────────────────────────────────────
             case "checkout.session.completed": {
               const session = event.data.object as Stripe.Checkout.Session;
+              if (session.metadata?.customModuleRequestId) {
+                if (session.payment_status !== "paid" || session.amount_total !== 2000)
+                  throw new Error("Custom module request payment was not confirmed at $20.");
+                const db = teamAdminClient();
+                const { data: item, error } = await db
+                  .from("custom_module_requests")
+                  .select("id,title,audience,situations,vocabulary,status,organization_id")
+                  .eq("id", session.metadata.customModuleRequestId)
+                  .eq("stripe_session_id", session.id)
+                  .single();
+                if (error || !item) throw error ?? new Error("Custom module request not found.");
+                if (item.status === "pending_payment") {
+                  const { error: updateError } = await db
+                    .from("custom_module_requests")
+                    .update({
+                      status: "submitted",
+                      paid_at: new Date(event.created * 1000).toISOString(),
+                      updated_at: new Date().toISOString(),
+                    })
+                    .eq("id", item.id)
+                    .eq("status", "pending_payment");
+                  if (updateError) throw updateError;
+                  await audit(
+                    db,
+                    null,
+                    "custom_module.submitted",
+                    item.organization_id ?? undefined,
+                    { requestId: item.id },
+                  );
+                  const ownerEmail = process.env.PLATFORM_OWNER_EMAIL;
+                  if (ownerEmail) {
+                    try {
+                      await sendTeamEmail(
+                        ownerEmail,
+                        `New custom module request: ${item.title}`,
+                        `A $20 custom module request was paid.\n\nTitle: ${item.title}\nAudience: ${item.audience}\nSituations: ${item.situations}\nVocabulary: ${item.vocabulary || "None provided"}\n\nReview in the owner dashboard: ${new URL(request.url).origin}/owner`,
+                      );
+                    } catch (mailError) {
+                      console.error("Custom module owner email failed:", mailError);
+                    }
+                  }
+                }
+                await recordStripeEntry(
+                  `checkout:${session.id}`,
+                  session.amount_total,
+                  "Custom module request revenue",
+                  item.organization_id ?? undefined,
+                  event.created * 1000,
+                );
+                break;
+              }
               if (session.metadata?.organizationId) {
                 const subscriptionId =
                   typeof session.subscription === "string"

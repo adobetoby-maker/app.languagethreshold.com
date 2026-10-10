@@ -68,6 +68,20 @@ type Audit = {
   organization_id: string | null;
   created_at: string;
 };
+type ModuleRequest = {
+  id: string;
+  requester_id: string;
+  organization_id: string | null;
+  title: string;
+  audience: string;
+  situations: string;
+  vocabulary: string;
+  status: string;
+  fee_cents: number;
+  paid_at: string | null;
+  owner_note: string;
+  created_at: string;
+};
 type PlatformData = {
   counts: Counts;
   financial: { income_cents: number; expense_cents: number; net_cents: number; months: Month[] };
@@ -85,6 +99,7 @@ type PlatformData = {
   attempts: Attempt[];
   ledger: Ledger[];
   auditEvents: Audit[];
+  moduleRequests: ModuleRequest[];
 };
 const panel = "rounded-2xl border border-border/60 bg-card/50 p-5";
 const input = "rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
@@ -228,10 +243,10 @@ function OwnerDashboard() {
                   ["Assigned learner seats", data.counts.assigned_seats],
                   ["Adults", data.counts.adult_accounts],
                   ["Junior accounts", data.counts.junior_accounts],
-            ["Certificates", data.counts.certificates],
-            ["Pending invites", data.counts.pending_invites],
-            ["Email failures", data.counts.email_failures],
-            ["Test passes · 30d", data.counts.assessment_passes_30d],
+                  ["Certificates", data.counts.certificates],
+                  ["Pending invites", data.counts.pending_invites],
+                  ["Email failures", data.counts.email_failures],
+                  ["Test passes · 30d", data.counts.assessment_passes_30d],
                   [
                     "Active accounts · 7d / 30d",
                     `${data.counts.active_7d} / ${data.counts.active_30d}`,
@@ -463,6 +478,22 @@ function OwnerDashboard() {
                 </section>
               </div>
               <section className={panel}>
+                <h2 className="mb-2 text-xl font-semibold">Custom module requests</h2>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Paid $20 content briefs. Review the requested situations, then update the status
+                  and a note visible to the requester. A complete module needs a separate proposal.
+                </p>
+                {data.moduleRequests.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No paid requests yet.</p>
+                ) : (
+                  <div className="space-y-3">
+                    {data.moduleRequests.map((item) => (
+                      <ModuleRequestRow key={item.id} item={item} busy={busy} act={act} />
+                    ))}
+                  </div>
+                )}
+              </section>
+              <section className={panel}>
                 <h2 className="mb-4 text-xl font-semibold">Companies and seat use</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[720px] text-left text-sm">
@@ -475,9 +506,9 @@ function OwnerDashboard() {
                           "Assigned",
                           "Active · 30d",
                           "Minutes · 30d",
-                      "Top module",
-                      "Renewal",
-                      "Manual grant",
+                          "Top module",
+                          "Renewal",
+                          "Manual grant",
                         ].map((h) => (
                           <th className="p-2" key={h}>
                             {h}
@@ -515,6 +546,79 @@ function OwnerDashboard() {
         )}
       </div>
     </main>
+  );
+}
+
+function ModuleRequestRow({
+  item,
+  busy,
+  act,
+}: {
+  item: ModuleRequest;
+  busy: boolean;
+  act: (body: unknown, message: string) => Promise<void>;
+}) {
+  const [status, setStatus] = useState(item.status);
+  const [ownerNote, setOwnerNote] = useState(item.owner_note);
+  return (
+    <div className="rounded-xl border border-border/60 p-4 text-sm">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div>
+          <strong>{item.title}</strong>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Paid {item.paid_at ? new Date(item.paid_at).toLocaleDateString() : "pending"} ·{" "}
+            {money(item.fee_cents)} · {item.organization_id ?? "Individual"}
+          </p>
+        </div>
+        <span className="rounded-full border border-gold/40 px-2 py-1 text-xs capitalize text-gold">
+          {item.status}
+        </span>
+      </div>
+      <p className="mt-3">
+        <strong>Audience:</strong> {item.audience}
+      </p>
+      <p className="mt-1 whitespace-pre-wrap">
+        <strong>Situations:</strong> {item.situations}
+      </p>
+      {item.vocabulary && (
+        <p className="mt-1 whitespace-pre-wrap">
+          <strong>Vocabulary:</strong> {item.vocabulary}
+        </p>
+      )}
+      <div className="mt-3 flex flex-wrap gap-2">
+        <select
+          className={input}
+          value={status}
+          onChange={(event) => setStatus(event.target.value)}
+        >
+          {["submitted", "reviewing", "delivered", "declined"].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+        <input
+          className={input + " min-w-48 flex-1"}
+          value={ownerNote}
+          onChange={(event) => setOwnerNote(event.target.value)}
+          maxLength={1000}
+          placeholder="Content brief or update visible to requester"
+          aria-label="Content brief or requester update"
+        />
+        <button
+          className={secondary}
+          disabled={busy || (status === item.status && ownerNote === item.owner_note)}
+          onClick={() =>
+            void act(
+              { action: "module_request_update", requestId: item.id, status, ownerNote },
+              "Custom module request updated.",
+            )
+          }
+        >
+          Save
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -565,8 +669,10 @@ function OrgRow({
       <td className="p-2">
         {Math.round(activity.reduce((sum, a) => sum + a.active_seconds, 0) / 60)}
       </td>
-        <td className="p-2">{top}</td>
-        <td className="p-2">{entitlement?.period_end ? new Date(entitlement.period_end).toLocaleDateString() : "—"}</td>
+      <td className="p-2">{top}</td>
+      <td className="p-2">
+        {entitlement?.period_end ? new Date(entitlement.period_end).toLocaleDateString() : "—"}
+      </td>
       <td className="p-2">
         {!entitlement?.stripe_subscription_id && (
           <div className="flex flex-wrap gap-1">

@@ -144,7 +144,7 @@ function ModuleRequestPage() {
               be available after the live setup is complete.
             </p>
           )}
-          {!user && !authLoading && (
+          {!user && !authLoading && !isPreview && (
             <p className="mt-4 text-sm text-muted-foreground">
               You can review the form now. Sign in before sending your request to checkout.
             </p>

@@ -148,7 +148,7 @@ function ModuleCard({ module, isActive, isPurchased, isSubscribed, onActivate }:
             onClick={onActivate}
             className="flex items-center gap-1.5 rounded-full border border-border/60 bg-background/40 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground/80 transition-colors hover:border-gold/50 hover:bg-gold/10 hover:text-gold"
           >
-            {isPurchased ? (
+            {isPurchased || isSubscribed ? (
               <>
                 Activate <ChevronRight className="h-3 w-3" />
               </>

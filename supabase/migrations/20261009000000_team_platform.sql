@@ -238,6 +238,12 @@ begin
   if exists(select 1 from public.team_invitations where organization_id=p_org and lower(email)=lower(p_email) and status='pending') then
     raise exception 'An invitation is already pending for this email';
   end if;
+  if exists(
+    select 1 from public.team_members m join auth.users u on u.id=m.user_id
+    where m.organization_id=p_org and m.status='active' and lower(u.email)=lower(p_email)
+  ) then
+    raise exception 'This employee already belongs to the company';
+  end if;
   if p_role='learner' then
     select seat_limit into v_limit from public.team_entitlements where organization_id=p_org and (status='active' or (status='manual' and period_end>now()));
     if v_limit is null then raise exception 'An active team plan is required'; end if;

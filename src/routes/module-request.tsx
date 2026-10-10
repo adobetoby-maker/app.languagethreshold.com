@@ -39,6 +39,11 @@ function ModuleRequestPage() {
   const [requests, setRequests] = useState<RequestItem[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [isPreview, setIsPreview] = useState(false);
+
+  useEffect(() => {
+    setIsPreview(window.location.hostname.endsWith(".vercel.app"));
+  }, []);
 
   const refresh = useCallback(async () => {
     if (!user) return;
@@ -64,6 +69,11 @@ function ModuleRequestPage() {
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isPreview) return;
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
     setBusy(true);
     setError("");
     try {
@@ -125,94 +135,103 @@ function ModuleRequestPage() {
               {error}
             </p>
           )}
-          {authLoading ? (
-            <p className="mt-6 text-sm">Loading account…</p>
-          ) : !user ? (
-            <div className="mt-6">
-              <button
-                className="rounded-lg bg-gold px-4 py-2.5 font-semibold text-background"
-                onClick={() => setAuthOpen(true)}
-              >
-                Sign in to request
-              </button>
-              <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
-            </div>
-          ) : (
-            <form onSubmit={(event) => void submit(event)} className="mt-6 space-y-4">
-              <label className="block text-sm">
-                Specialty or module name
-                <input
-                  className={input + " mt-1"}
-                  value={title}
-                  onChange={(event) => setTitle(event.target.value)}
-                  minLength={3}
-                  maxLength={120}
-                  required
-                  placeholder="e.g. Commercial roofing inspections"
-                />
-              </label>
-              <label className="block text-sm">
-                Who will use it?
-                <input
-                  className={input + " mt-1"}
-                  value={audience}
-                  onChange={(event) => setAudience(event.target.value)}
-                  minLength={3}
-                  maxLength={300}
-                  required
-                  placeholder="e.g. Foremen who coordinate Spanish-speaking crews"
-                />
-              </label>
-              <label className="block text-sm">
-                Work situations to cover
-                <textarea
-                  className={input + " mt-1 min-h-28"}
-                  value={situations}
-                  onChange={(event) => setSituations(event.target.value)}
-                  minLength={10}
-                  maxLength={2000}
-                  required
-                  placeholder="Describe the conversations your team needs to practice."
-                />
-              </label>
-              <label className="block text-sm">
-                Important words or phrases (optional)
-                <textarea
-                  className={input + " mt-1 min-h-20"}
-                  value={vocabulary}
-                  onChange={(event) => setVocabulary(event.target.value)}
-                  maxLength={2000}
-                  placeholder="Include trade terms, product names, and regional wording."
-                />
-              </label>
-              {organizations.length > 0 && (
-                <label className="block text-sm">
-                  Request for
-                  <select
-                    className={input + " mt-1"}
-                    value={organizationId}
-                    onChange={(event) => setOrganizationId(event.target.value)}
-                  >
-                    <option value="">My account</option>
-                    {organizations.map((org) => (
-                      <option key={org.organization_id} value={org.organization_id}>
-                        {org.team_organizations.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              )}
-              <button
-                disabled={busy}
-                className="rounded-lg bg-gold px-5 py-3 font-semibold text-background disabled:opacity-50"
-              >
-                {busy ? "Opening checkout…" : "Submit request · $20"}
-              </button>
-              <p className="text-xs text-muted-foreground">
-                Payment is collected by Stripe. Requests are reviewed by Language Threshold.
-              </p>
-            </form>
+          {isPreview && (
+            <p
+              className="mt-4 rounded-lg border border-gold/30 bg-gold/5 p-3 text-sm text-gold"
+              role="status"
+            >
+              This preview is for reviewing the form. Sign-in and checkout for custom requests will
+              be available after the live setup is complete.
+            </p>
           )}
+          {!user && !authLoading && (
+            <p className="mt-4 text-sm text-muted-foreground">
+              You can review the form now. Sign in before sending your request to checkout.
+            </p>
+          )}
+          <form onSubmit={(event) => void submit(event)} className="mt-6 space-y-4">
+            <label className="block text-sm">
+              Specialty or module name
+              <input
+                className={input + " mt-1"}
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                minLength={3}
+                maxLength={120}
+                required
+                placeholder="e.g. Commercial roofing inspections"
+              />
+            </label>
+            <label className="block text-sm">
+              Who will use it?
+              <input
+                className={input + " mt-1"}
+                value={audience}
+                onChange={(event) => setAudience(event.target.value)}
+                minLength={3}
+                maxLength={300}
+                required
+                placeholder="e.g. Foremen who coordinate Spanish-speaking crews"
+              />
+            </label>
+            <label className="block text-sm">
+              Work situations to cover
+              <textarea
+                className={input + " mt-1 min-h-28"}
+                value={situations}
+                onChange={(event) => setSituations(event.target.value)}
+                minLength={10}
+                maxLength={2000}
+                required
+                placeholder="Describe the conversations your team needs to practice."
+              />
+            </label>
+            <label className="block text-sm">
+              Important words or phrases (optional)
+              <textarea
+                className={input + " mt-1 min-h-20"}
+                value={vocabulary}
+                onChange={(event) => setVocabulary(event.target.value)}
+                maxLength={2000}
+                placeholder="Include trade terms, product names, and regional wording."
+              />
+            </label>
+            {organizations.length > 0 && (
+              <label className="block text-sm">
+                Request for
+                <select
+                  className={input + " mt-1"}
+                  value={organizationId}
+                  onChange={(event) => setOrganizationId(event.target.value)}
+                >
+                  <option value="">My account</option>
+                  {organizations.map((org) => (
+                    <option key={org.organization_id} value={org.organization_id}>
+                      {org.team_organizations.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <button
+              disabled={busy || authLoading || isPreview}
+              className="rounded-lg bg-gold px-5 py-3 font-semibold text-background disabled:opacity-50"
+            >
+              {isPreview
+                ? "Review preview · no payment"
+                : busy
+                  ? "Opening checkout…"
+                  : authLoading
+                    ? "Loading account…"
+                    : user
+                      ? "Submit request · $20"
+                      : "Sign in to continue"}
+            </button>
+            <p className="text-xs text-muted-foreground">
+              Payment is collected by Stripe. Requests are reviewed by Language Threshold.
+            </p>
+          </form>
+          <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
         </div>
         {user && requests.length > 0 && (
           <section className="mt-6 rounded-2xl border border-border bg-card/50 p-6">

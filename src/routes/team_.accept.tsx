@@ -5,7 +5,7 @@ import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 
-export const Route = createFileRoute("/team/accept")({
+export const Route = createFileRoute("/team_/accept")({
   component: () => (
     <AuthProvider>
       <AcceptInvite />

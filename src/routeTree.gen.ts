@@ -43,7 +43,7 @@ import { Route as ApiTeamEntitlementRouteImport } from './routes/api.team-entitl
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as ApiTutorRouteImport } from './routes/api.tutor'
 import { Route as SubscribeSuccessRouteImport } from './routes/subscribe/success'
-import { Route as TeamAcceptRouteImport } from './routes/team/accept'
+import { Route as TeamAcceptRouteImport } from './routes/team_.accept'
 
 const Char91indexChar93Route = Char91indexChar93RouteImport.update({
   id: '/index',
@@ -216,9 +216,9 @@ const SubscribeSuccessRoute = SubscribeSuccessRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamAcceptRoute = TeamAcceptRouteImport.update({
-  id: '/accept',
-  path: '/accept',
-  getParentRoute: () => TeamRoute,
+  id: '/team_/accept',
+  path: '/team/accept',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -230,7 +230,7 @@ export interface FileRoutesByFullPath {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
-  '/team': typeof TeamRouteWithChildren
+  '/team': typeof TeamRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -267,7 +267,7 @@ export interface FileRoutesByTo {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
-  '/team': typeof TeamRouteWithChildren
+  '/team': typeof TeamRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -305,7 +305,7 @@ export interface FileRoutesById {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
-  '/team': typeof TeamRouteWithChildren
+  '/team': typeof TeamRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -331,7 +331,7 @@ export interface FileRoutesById {
   '/api/tts': typeof ApiTtsRoute
   '/api/tutor': typeof ApiTutorRoute
   '/subscribe/success': typeof SubscribeSuccessRoute
-  '/team/accept': typeof TeamAcceptRoute
+  '/team_/accept': typeof TeamAcceptRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -444,7 +444,7 @@ export interface FileRouteTypes {
     | '/api/tts'
     | '/api/tutor'
     | '/subscribe/success'
-    | '/team/accept'
+    | '/team_/accept'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -456,7 +456,7 @@ export interface RootRouteChildren {
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
-  TeamRoute: typeof TeamRouteWithChildren
+  TeamRoute: typeof TeamRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
@@ -482,6 +482,7 @@ export interface RootRouteChildren {
   ApiTtsRoute: typeof ApiTtsRoute
   ApiTutorRoute: typeof ApiTutorRoute
   SubscribeSuccessRoute: typeof SubscribeSuccessRoute
+  TeamAcceptRoute: typeof TeamAcceptRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -724,25 +725,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubscribeSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/team/accept': {
-      id: '/team/accept'
-      path: '/accept'
+    '/team_/accept': {
+      id: '/team_/accept'
+      path: '/team/accept'
       fullPath: '/team/accept'
       preLoaderRoute: typeof TeamAcceptRouteImport
-      parentRoute: typeof TeamRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface TeamRouteChildren {
-  TeamAcceptRoute: typeof TeamAcceptRoute
-}
-
-const TeamRouteChildren: TeamRouteChildren = {
-  TeamAcceptRoute: TeamAcceptRoute,
-}
-
-const TeamRouteWithChildren = TeamRoute._addFileChildren(TeamRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -753,7 +744,7 @@ const rootRouteChildren: RootRouteChildren = {
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
-  TeamRoute: TeamRouteWithChildren,
+  TeamRoute: TeamRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,
@@ -779,6 +770,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTtsRoute: ApiTtsRoute,
   ApiTutorRoute: ApiTutorRoute,
   SubscribeSuccessRoute: SubscribeSuccessRoute,
+  TeamAcceptRoute: TeamAcceptRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

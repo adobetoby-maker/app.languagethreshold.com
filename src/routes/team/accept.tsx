@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 
 export const Route = createFileRoute("/team/accept")({
@@ -36,21 +37,24 @@ function AcceptInvite() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
       <section className="w-full max-w-md rounded-2xl border border-border bg-card p-6">
-        <p className="text-xs font-bold uppercase tracking-widest text-gold">
+        <ThemeToggle className="mb-4 flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm" />
+        <p className="text-xs font-bold uppercase tracking-widest text-gold-ink dark:text-gold">
           Language Threshold Teams
         </p>
         <h1 className="mt-2 text-2xl font-semibold">Company invitation</h1>
         {!token ? (
-          <p className="mt-4 text-sm text-red-300">This invitation link is missing its token.</p>
+          <p className="mt-4 text-sm text-red-700 dark:text-red-300">
+            This invitation link is missing its token.
+          </p>
         ) : accepted ? (
           <>
-            <p className="mt-4 text-sm text-emerald-300">
+            <p className="mt-4 text-sm text-emerald-700 dark:text-emerald-300">
               Your seat is ready. You can use every published module, starting with your team's
               focus.
             </p>
             <Link
               to="/team"
-              className="mt-5 inline-block rounded-lg bg-gold px-4 py-2.5 font-semibold text-background"
+              className="mt-5 inline-block rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight"
             >
               Open team workspace
             </Link>
@@ -72,7 +76,7 @@ function AcceptInvite() {
                 <button
                   disabled={busy}
                   onClick={() => void accept()}
-                  className="mt-4 rounded-lg bg-gold px-4 py-2.5 font-semibold text-background disabled:opacity-50"
+                  className="mt-4 rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight disabled:opacity-50"
                 >
                   {busy ? "Accepting…" : "Accept invitation"}
                 </button>
@@ -81,7 +85,7 @@ function AcceptInvite() {
               <>
                 <button
                   onClick={() => setAuthOpen(true)}
-                  className="mt-4 rounded-lg bg-gold px-4 py-2.5 font-semibold text-background"
+                  className="mt-4 rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight"
                 >
                   Sign in or create account
                 </button>
@@ -89,7 +93,7 @@ function AcceptInvite() {
               </>
             )}
             {error && (
-              <p role="alert" className="mt-4 text-sm text-red-300">
+              <p role="alert" className="mt-4 text-sm text-red-700 dark:text-red-300">
                 {error}
               </p>
             )}

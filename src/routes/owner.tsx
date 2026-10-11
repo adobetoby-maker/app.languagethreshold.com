@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 
 export const Route = createFileRoute("/owner")({
@@ -103,7 +104,7 @@ type PlatformData = {
 };
 const panel = "rounded-2xl border border-border/60 bg-card/50 p-5";
 const input = "rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
-const button = "rounded-lg bg-gold px-4 py-2.5 font-semibold text-background disabled:opacity-50";
+const button = "rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight disabled:opacity-50";
 const secondary = "rounded-lg border border-border px-3 py-2 text-sm hover:border-gold/50";
 const money = (value: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value / 100);
@@ -185,7 +186,7 @@ function OwnerDashboard() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[.22em] text-gold">
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-gold-ink dark:text-gold">
               Language Threshold · Owner only
             </p>
             <h1 className="mt-2 text-3xl font-semibold">Platform dashboard</h1>
@@ -193,7 +194,8 @@ function OwnerDashboard() {
               Accounts, team use, and a site-wide cash activity ledger.
             </p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
+            <ThemeToggle className={secondary + " flex items-center gap-2"} />
             <Link to="/team" className={secondary}>
               Teams
             </Link>
@@ -216,21 +218,27 @@ function OwnerDashboard() {
             <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
           </div>
         ) : error && !data ? (
-          <p role="alert" className="rounded-xl border border-red-500/50 p-4 text-red-300">
+          <p
+            role="alert"
+            className="rounded-xl border border-red-500/50 p-4 text-red-700 dark:text-red-300"
+          >
             {error}
           </p>
         ) : (
           data && (
             <div className="space-y-6">
               {error && (
-                <p role="alert" className="rounded-lg border border-red-500/50 p-3 text-red-300">
+                <p
+                  role="alert"
+                  className="rounded-lg border border-red-500/50 p-3 text-red-700 dark:text-red-300"
+                >
                   {error}
                 </p>
               )}
               {notice && (
                 <p
                   role="status"
-                  className="rounded-lg border border-emerald-500/50 p-3 text-emerald-300"
+                  className="rounded-lg border border-emerald-500/50 p-3 text-emerald-700 dark:text-emerald-300"
                 >
                   {notice}
                 </p>
@@ -256,7 +264,9 @@ function OwnerDashboard() {
                     <p className="text-xs uppercase tracking-widest text-muted-foreground">
                       {label}
                     </p>
-                    <p className="mt-2 text-3xl font-semibold text-gold">{value}</p>
+                    <p className="mt-2 text-3xl font-semibold text-gold-ink dark:text-gold">
+                      {value}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -463,14 +473,18 @@ function OwnerDashboard() {
                         </div>
                         <div className="shrink-0 text-right">
                           <strong
-                            className={entry.amount_cents < 0 ? "text-red-300" : "text-emerald-300"}
+                            className={
+                              entry.amount_cents < 0
+                                ? "text-red-700 dark:text-red-300"
+                                : "text-emerald-700 dark:text-emerald-300"
+                            }
                           >
                             {money(entry.amount_cents)}
                           </strong>
                           {entry.source === "manual" && !entry.external_ref && (
                             <button
                               disabled={busy}
-                              className="ml-2 text-xs text-gold underline"
+                              className="ml-2 text-xs text-gold-ink dark:text-gold underline"
                               onClick={() => {
                                 const reason = window.prompt("Reason for reversing this entry?");
                                 if (reason?.trim())
@@ -582,7 +596,7 @@ function ModuleRequestRow({
             {money(item.fee_cents)} · {item.organization_id ?? "Individual"}
           </p>
         </div>
-        <span className="rounded-full border border-gold/40 px-2 py-1 text-xs capitalize text-gold">
+        <span className="rounded-full border border-gold/40 px-2 py-1 text-xs capitalize text-gold-ink dark:text-gold">
           {item.status}
         </span>
       </div>
@@ -666,7 +680,7 @@ function OrgRow({
       <td className="p-2">
         <a
           href={`/team?org=${encodeURIComponent(org.id)}`}
-          className="font-semibold text-gold underline"
+          className="font-semibold text-gold-ink dark:text-gold underline"
         >
           {org.name}
         </a>

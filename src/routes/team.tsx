@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 import { MODULES, getModule } from "@/data/modules";
 
@@ -91,7 +92,7 @@ type InviteLink = { id: string; name: string; email: string; url: string };
 
 const card = "rounded-2xl border border-border/60 bg-card/50 p-5";
 const input = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
-const button = "rounded-lg bg-gold px-4 py-2.5 font-semibold text-background disabled:opacity-50";
+const button = "rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight disabled:opacity-50";
 const secondary = "rounded-lg border border-border px-4 py-2.5 text-sm hover:border-gold/60";
 const money = (cents: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
@@ -187,6 +188,7 @@ function TeamPage() {
   if (!user)
     return (
       <Page>
+        <ThemeToggle className={secondary + " mb-5 flex items-center gap-2"} />
         <h1 className="text-3xl font-semibold">Team workspace</h1>
         <p className="mt-3 text-muted-foreground">Sign in to set up or join a company team.</p>
         <button onClick={() => setAuthOpen(true)} className={button + " mt-5"}>
@@ -199,7 +201,7 @@ function TeamPage() {
     <Page>
       <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[.22em] text-gold">
+          <p className="mb-2 text-xs font-bold uppercase tracking-[.22em] text-gold-ink dark:text-gold">
             Language Threshold for Teams
           </p>
           <h1 className="text-3xl font-semibold">
@@ -210,6 +212,7 @@ function TeamPage() {
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <ThemeToggle className={secondary + " flex items-center gap-2"} />
           <Link to="/" className={secondary}>
             ← Learning app
           </Link>
@@ -246,7 +249,7 @@ function TeamPage() {
       {error && (
         <p
           role="alert"
-          className="mb-5 rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-red-300"
+          className="mb-5 rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-red-700 dark:text-red-300"
         >
           {error}
         </p>
@@ -254,7 +257,7 @@ function TeamPage() {
       {notice && (
         <p
           role="status"
-          className="mb-5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 text-emerald-300"
+          className="mb-5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 text-emerald-700 dark:text-emerald-300"
         >
           {notice}
         </p>
@@ -602,7 +605,7 @@ function AdminWorkspace({
         ].map(([label, value]) => (
           <div key={String(label)} className={card}>
             <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-            <p className="mt-2 text-3xl font-semibold text-gold">{value}</p>
+            <p className="mt-2 text-3xl font-semibold text-gold-ink dark:text-gold">{value}</p>
           </div>
         ))}
       </div>
@@ -610,7 +613,7 @@ function AdminWorkspace({
         <section className={card + " border-gold/30"}>
           <div className="flex flex-wrap justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-widest text-gold">
+              <p className="text-xs uppercase tracking-widest text-gold-ink dark:text-gold">
                 Admin setup · step {tourStep} of 6
               </p>
               <h2 className="mt-2 text-xl font-semibold">
@@ -675,7 +678,7 @@ function AdminWorkspace({
       <div className="grid gap-6 lg:grid-cols-2">
         <section className={card}>
           <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
-            <CreditCard className="h-5 w-5 text-gold" /> Team billing
+            <CreditCard className="h-5 w-5 text-gold-ink dark:text-gold" /> Team billing
           </h2>
           <p className="mb-4 text-sm text-muted-foreground">
             {data.entitlement.status} {data.entitlement.term ? `· ${data.entitlement.term}` : ""}{" "}
@@ -709,11 +712,11 @@ function AdminWorkspace({
                   onChange={(e) => setInitialSeats(Number(e.target.value))}
                 />
               </div>
-              <p className="text-sm text-gold">
+              <p className="text-sm text-gold-ink dark:text-gold">
                 {money((term === "annual" ? 16600 : 4980) * initialSeats)} / term
               </p>
               {!data.enrollmentEnabled && (
-                <p className="text-sm text-amber-300">
+                <p className="text-sm text-amber-700 dark:text-amber-300">
                   Team checkout is paused while invitation email is being set up. You can review the
                   workspace and pricing now.
                 </p>
@@ -790,7 +793,7 @@ function AdminWorkspace({
         </section>
         <section className={card}>
           <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
-            <Users className="h-5 w-5 text-gold" /> Invite and assign a seat
+            <Users className="h-5 w-5 text-gold-ink dark:text-gold" /> Invite and assign a seat
           </h2>
           <p className="mb-4 text-sm text-muted-foreground">
             One learner invitation reserves one seat and assigns the first module. Admin-only
@@ -1076,7 +1079,7 @@ function AdminWorkspace({
                   {invite.display_name} · {invite.email} · {invite.role} ·{" "}
                   {getModule(invite.module_id)?.name ?? "No module"}
                   {invite.last_email_error && (
-                    <span className="ml-2 text-amber-300">
+                    <span className="ml-2 text-amber-700 dark:text-amber-300">
                       Email failed: {invite.last_email_error}
                     </span>
                   )}
@@ -1215,7 +1218,7 @@ function EmployeeRow({
       <td className="p-2">
         {getModule(assignment.module_id)?.name ?? assignment.module_id}
         {assignment.require_certificate && (
-          <span className="ml-1 text-xs text-gold">· test required</span>
+          <span className="ml-1 text-xs text-gold-ink dark:text-gold">· test required</span>
         )}
       </td>
       <td className="p-2">{minutes(seconds7)}</td>
@@ -1227,7 +1230,7 @@ function EmployeeRow({
       <td className="p-2">{best ? `${best}/25` : "—"}</td>
       <td className="p-2">
         {cert ? (
-          <a className="text-gold underline" href={`/certificate?id=${cert.id}`}>
+          <a className="text-gold-ink dark:text-gold underline" href={`/certificate?id=${cert.id}`}>
             View
           </a>
         ) : (
@@ -1238,7 +1241,7 @@ function EmployeeRow({
         <AssignModule member={member} orgId={orgId} busy={busy} act={act} />
         <button
           disabled={busy}
-          className="mt-2 block text-xs text-red-300 underline"
+          className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
           onClick={() => {
             if (
               window.confirm(
@@ -1309,7 +1312,10 @@ function AssignModule({
       </button>
     </div>
   ) : (
-    <button className="text-xs text-gold underline" onClick={() => setOpen(true)}>
+    <button
+      className="text-xs text-gold-ink dark:text-gold underline"
+      onClick={() => setOpen(true)}
+    >
       Assign module
     </button>
   );
@@ -1438,12 +1444,12 @@ function RoofingAssessment({
         {best ? `${best}/25` : "not taken"}.
       </p>
       {certificate && (
-        <p className="mt-2 text-sm text-emerald-300">
+        <p className="mt-2 text-sm text-emerald-700 dark:text-emerald-300">
           <CheckCircle2 className="mr-1 inline h-4 w-4" /> Certificate issued
         </p>
       )}
       {error && (
-        <p role="alert" className="mt-2 text-sm text-red-300">
+        <p role="alert" className="mt-2 text-sm text-red-700 dark:text-red-300">
           {error}
         </p>
       )}

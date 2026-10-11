@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 
 export const Route = createFileRoute("/module-request")({
@@ -98,11 +99,19 @@ function ModuleRequestPage() {
   return (
     <main className="min-h-screen bg-background px-4 py-10 text-foreground sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <Link to="/" className="text-sm text-gold underline underline-offset-2">
-          ← Back to learning app
-        </Link>
+        <div className="flex items-center justify-between gap-3">
+          <Link
+            to="/"
+            className="text-sm text-gold-ink underline underline-offset-2 dark:text-gold"
+          >
+            ← Back to learning app
+          </Link>
+          <ThemeToggle className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm" />
+        </div>
         <div className="mt-8 rounded-2xl border border-gold/30 bg-card/70 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold">Custom specialty</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-gold-ink dark:text-gold">
+            Custom specialty
+          </p>
           <h1 className="mt-2 text-3xl font-semibold">Request a custom module</h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Pro and Team already include every published module. If your work needs a specialty we
@@ -112,7 +121,7 @@ function ModuleRequestPage() {
           </p>
           {checkout === "success" && (
             <p
-              className="mt-4 rounded-lg border border-emerald-500/40 p-3 text-sm text-emerald-300"
+              className="mt-4 rounded-lg border border-emerald-500/40 p-3 text-sm text-emerald-700 dark:text-emerald-300"
               role="status"
             >
               Checkout returned successfully. Your request will show as submitted after payment
@@ -129,7 +138,7 @@ function ModuleRequestPage() {
           )}
           {error && (
             <p
-              className="mt-4 rounded-lg border border-red-500/50 p-3 text-sm text-red-300"
+              className="mt-4 rounded-lg border border-red-500/50 p-3 text-sm text-red-700 dark:text-red-300"
               role="alert"
             >
               {error}
@@ -137,7 +146,7 @@ function ModuleRequestPage() {
           )}
           {isPreview && (
             <p
-              className="mt-4 rounded-lg border border-gold/30 bg-gold/5 p-3 text-sm text-gold"
+              className="mt-4 rounded-lg border border-gold/30 bg-gold/5 p-3 text-sm text-gold-ink dark:text-gold"
               role="status"
             >
               This preview is for reviewing the form. Sign-in and checkout for custom requests will
@@ -215,7 +224,7 @@ function ModuleRequestPage() {
             )}
             <button
               disabled={busy || authLoading || isPreview}
-              className="rounded-lg bg-gold px-5 py-3 font-semibold text-background disabled:opacity-50"
+              className="rounded-lg bg-gold px-5 py-3 font-semibold text-midnight disabled:opacity-50"
             >
               {isPreview
                 ? "Review preview · no payment"
@@ -241,7 +250,9 @@ function ModuleRequestPage() {
                 <div key={item.id} className="rounded-lg border border-border/60 p-3 text-sm">
                   <div className="flex justify-between gap-2">
                     <strong>{item.title}</strong>
-                    <span className="capitalize text-gold">{item.status.replaceAll("_", " ")}</span>
+                    <span className="capitalize text-gold-ink dark:text-gold">
+                      {item.status.replaceAll("_", " ")}
+                    </span>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {new Date(item.created_at).toLocaleDateString()}

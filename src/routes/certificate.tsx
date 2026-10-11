@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/certificate")({ component: CertificatePage });
 type Certificate = {
@@ -37,28 +38,32 @@ function CertificatePage() {
   return (
     <main className="min-h-screen bg-background p-4 text-foreground sm:p-10">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-5 flex justify-between print:hidden">
-          <Link to="/team" className="text-sm text-gold underline">
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3 print:hidden">
+          <Link to="/team" className="text-sm text-gold-ink dark:text-gold underline">
             ← Team workspace
           </Link>
+          <ThemeToggle className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm" />
           {certificate && (
             <button
               onClick={() => window.print()}
-              className="rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-background"
+              className="rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-midnight"
             >
               Print or save PDF
             </button>
           )}
         </div>
         {error && (
-          <p role="alert" className="rounded-lg border border-red-400 p-4 text-red-300">
+          <p
+            role="alert"
+            className="rounded-lg border border-red-400 p-4 text-red-700 dark:text-red-300"
+          >
             {error}
           </p>
         )}
         {!error && !certificate && <p>Verifying credential…</p>}
         {certificate && (
           <section className="rounded-3xl border-4 border-gold/50 bg-card p-8 text-center shadow-2xl print:border-4 print:bg-white print:text-black sm:p-14">
-            <p className="font-mono text-xs font-bold uppercase tracking-[.3em] text-gold">
+            <p className="font-mono text-xs font-bold uppercase tracking-[.3em] text-gold-ink dark:text-gold">
               Language Threshold
             </p>
             <h1 className="mt-8 font-display text-4xl">Certificate of Module Completion</h1>

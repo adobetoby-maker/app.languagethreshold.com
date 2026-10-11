@@ -5,8 +5,10 @@ import { toast } from "sonner";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
 import { reloadNewestAppVersion } from "../lib/app-update";
 import { initializePwaInstall } from "../lib/pwa-install";
+import { APP_STATE_KEY, THEME_PREFERENCE_KEY } from "../lib/theme-preference";
 
 const GA_ID = LANGUAGE_THRESHOLD_GA_ID;
+const themeBootScript = `(()=>{try{const saved=localStorage.getItem(${JSON.stringify(THEME_PREFERENCE_KEY)});const dark=saved==="dark"?true:saved==="light"?false:JSON.parse(localStorage.getItem(${JSON.stringify(APP_STATE_KEY)})||"null")?.darkMode!==false;document.documentElement.classList.toggle("dark",dark);document.documentElement.style.colorScheme=dark?"dark":"light"}catch{document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}})();`;
 
 import appCss from "../styles.css?url";
 import interCss from "@fontsource-variable/inter/opsz.css?url";
@@ -129,8 +131,9 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <HeadContent />
       </head>
       <body>

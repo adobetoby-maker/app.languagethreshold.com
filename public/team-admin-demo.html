@@ -4,20 +4,72 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Roofing + Admin Review | Language Threshold</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("lt.theme.v1");
+        const dark =
+          savedTheme === "dark"
+            ? true
+            : savedTheme === "light"
+              ? false
+              : JSON.parse(localStorage.getItem("lt.app.v2") || "null")?.darkMode !== false;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
     <style>
       :root {
         color-scheme: dark;
-        --bg: #080b12;
-        --panel: #101723;
-        --panel2: #141e2c;
-        --line: #273346;
-        --text: #f3f4f0;
-        --muted: #a7b2c1;
-        --gold: #e4bd65;
+        --bg: oklch(0.18 0.035 255);
+        --bg-glow: oklch(0.26 0.04 255);
+        --panel: oklch(0.22 0.04 255);
+        --panel2: oklch(0.26 0.04 255);
+        --line: oklch(1 0 0 / 14%);
+        --text: oklch(0.98 0.005 80);
+        --muted: oklch(0.78 0.02 80);
+        --gold: oklch(0.74 0.13 80);
+        --gold-button: var(--gold);
         --teal: #66d9c6;
         --red: #f18c84;
         --green: #97df9b;
         --blue: #9dbff5;
+        --hero-note: linear-gradient(145deg, #322819, #202d3e);
+        --nav-bg: #192232f5;
+        --input-bg: var(--bg);
+        --status-bg: #ffffff11;
+        --hover-bg: #ffffff08;
+        --spanish: #b6efe4;
+        --progress-bg: #2c394a;
+        --button-ink: #172234;
+        --button-secondary: #ffffff0b;
+        --teal-button: var(--teal);
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --bg: oklch(0.96 0.012 80);
+        --bg-glow: #eee8dc;
+        --panel: oklch(0.98 0.008 80);
+        --panel2: oklch(0.92 0.015 80);
+        --line: oklch(0.88 0.02 80);
+        --text: oklch(0.22 0.04 255);
+        --muted: oklch(0.45 0.03 255);
+        --gold: oklch(0.48 0.11 70);
+        --gold-button: oklch(0.74 0.13 80);
+        --teal: #136a5e;
+        --red: #a33730;
+        --green: #246e42;
+        --blue: #315b9e;
+        --hero-note: linear-gradient(145deg, #fff9ec, #f0eadf);
+        --nav-bg: #f5f1e7f5;
+        --input-bg: #fffdfa;
+        --status-bg: #1922320d;
+        --hover-bg: #1922320a;
+        --spanish: #136a5e;
+        --progress-bg: #d7d9d3;
+        --button-ink: #172234;
+        --button-secondary: #fffdfa;
+        --teal-button: #8bd7c8;
       }
       * {
         box-sizing: border-box;
@@ -30,7 +82,7 @@
       }
       body {
         margin: 0;
-        background: radial-gradient(circle at 50% -15%, #17263d 0, #080b12 42%);
+        background: radial-gradient(circle at 50% -15%, var(--bg-glow) 0, var(--bg) 42%);
         color: var(--text);
         font:
           15px/1.55 -apple-system,
@@ -88,6 +140,18 @@
         gap: 10px;
         flex-wrap: wrap;
       }
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: var(--text);
+        background: var(--button-secondary);
+        font-size: 12px;
+        font-weight: 700;
+      }
       .pill {
         display: inline-flex;
         align-items: center;
@@ -111,9 +175,9 @@
         border: 1px solid #66d9c63b;
       }
       .pill.grey {
-        color: #c4d1df;
-        background: #ffffff0c;
-        border: 1px solid #ffffff22;
+        color: var(--muted);
+        background: var(--status-bg);
+        border: 1px solid var(--line);
       }
       .toplink {
         font-size: 12px;
@@ -164,14 +228,14 @@
         margin: 0 0 14px;
       }
       .lead {
-        color: #c2cdda;
+        color: var(--muted);
         font-size: 17px;
         max-width: 760px;
         margin-top: 17px;
       }
       .hero-note {
         border: 1px solid #e4bd6540;
-        background: linear-gradient(145deg, #271e11, #111a29);
+        background: var(--hero-note);
         border-radius: 18px;
         padding: 22px;
       }
@@ -181,7 +245,7 @@
         margin-bottom: 8px;
       }
       .hero-note p {
-        color: #d2d4d0;
+        color: var(--muted);
         font-size: 13px;
         margin: 0;
       }
@@ -193,7 +257,7 @@
         gap: 8px;
         overflow: auto;
         padding: 13px 0;
-        background: #080b12f5;
+        background: var(--nav-bg);
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
         backdrop-filter: blur(14px);
@@ -248,14 +312,14 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .card {
-        background: linear-gradient(150deg, #131c2b, #0e1420);
+        background: linear-gradient(150deg, var(--panel2), var(--panel));
         border: 1px solid var(--line);
         border-radius: 16px;
         padding: 20px;
         box-shadow: 0 12px 35px #0002;
       }
       .card.soft {
-        background: #0d131d;
+        background: var(--panel);
       }
       .metric-label {
         display: block;
@@ -286,7 +350,7 @@
         font-size: 11px;
         font-weight: 800;
         border-radius: 5px;
-        background: #ffffff11;
+        background: var(--status-bg);
       }
       .status.ready {
         color: var(--green);
@@ -312,18 +376,18 @@
         font-weight: 800;
         font-size: 13px;
         text-decoration: none;
-        background: #e4bd65;
-        color: #15202d;
+        background: var(--gold-button);
+        color: var(--button-ink);
       }
       .btn.secondary {
-        background: #ffffff0b;
+        background: var(--button-secondary);
         color: var(--text);
         border-color: var(--line);
       }
       .btn.teal {
-        background: var(--teal);
-        border-color: var(--teal);
-        color: #0c1820;
+        background: var(--teal-button);
+        border-color: var(--teal-button);
+        color: var(--button-ink);
       }
       .btn:focus-visible,
       button:focus-visible,
@@ -354,7 +418,7 @@
         gap: 4px;
         flex-wrap: wrap;
         padding: 4px;
-        background: #0c121d;
+        background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 11px;
         width: max-content;
@@ -368,7 +432,7 @@
         width: 100%;
         max-width: 320px;
         color: var(--text);
-        background: #0b111c;
+        background: var(--input-bg);
         border: 1px solid var(--line);
         border-radius: 8px;
         padding: 10px 12px;
@@ -377,7 +441,7 @@
         overflow: auto;
         border: 1px solid var(--line);
         border-radius: 14px;
-        background: #101722;
+        background: var(--panel);
       }
       table {
         width: 100%;
@@ -387,25 +451,25 @@
       th,
       td {
         padding: 12px 15px;
-        border-bottom: 1px solid #263243;
+        border-bottom: 1px solid var(--line);
         vertical-align: top;
       }
       th {
-        color: #99a9bd;
+        color: var(--muted);
         font-size: 10px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         font-weight: 800;
-        background: #152031;
+        background: var(--panel2);
       }
       tbody tr:last-child td {
         border-bottom: none;
       }
       tbody tr:hover {
-        background: #ffffff08;
+        background: var(--hover-bg);
       }
       .spanish {
-        color: #b6efe4;
+        color: var(--spanish);
         font-weight: 650;
       }
       .tag {
@@ -413,7 +477,7 @@
         border: 1px solid var(--line);
         border-radius: 5px;
         padding: 2px 7px;
-        color: #d4dfeb;
+        color: var(--text);
         font-size: 11px;
         margin: 2px 3px 2px 0;
       }
@@ -425,7 +489,7 @@
       .lesson {
         border: 1px solid var(--line);
         border-radius: 10px;
-        background: #121b29;
+        background: var(--panel);
         padding: 13px;
       }
       .lesson b {
@@ -452,7 +516,7 @@
       .scenario ul {
         margin: 8px 0 0;
         padding-left: 19px;
-        color: #bdc9d5;
+        color: var(--muted);
         font-size: 13px;
       }
       .muted {
@@ -481,7 +545,7 @@
       }
       .progress {
         height: 7px;
-        background: #2b3646;
+        background: var(--progress-bg);
         border-radius: 99px;
         overflow: hidden;
         min-width: 90px;
@@ -499,7 +563,7 @@
       }
       .form-row label {
         font-size: 11px;
-        color: #aebccd;
+        color: var(--muted);
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -507,7 +571,7 @@
       .form-row input,
       .form-row select {
         width: 100%;
-        background: #0c121d;
+        background: var(--input-bg);
         color: var(--text);
         border: 1px solid var(--line);
         padding: 10px;
@@ -546,7 +610,7 @@
         flex: 1;
         height: 4px;
         border-radius: 99px;
-        background: #2c394a;
+        background: var(--progress-bg);
       }
       .step-line span.active {
         background: var(--gold);
@@ -561,7 +625,7 @@
         margin: 7px 0 12px;
       }
       .step-body p {
-        color: #c7d1dd;
+        color: var(--muted);
       }
       .step-actions {
         display: flex;
@@ -571,7 +635,7 @@
       .callout {
         border-left: 3px solid var(--gold);
         padding: 11px 14px;
-        color: #d9d2bf;
+        color: var(--text);
         background: #e4bd650c;
         font-size: 13px;
         margin-top: 16px;
@@ -597,11 +661,11 @@
         bottom: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background: #1e2b3d;
+        background: var(--panel2);
         border: 1px solid var(--line);
         padding: 3px 7px;
         border-radius: 6px;
-        color: white;
+        color: var(--text);
         font-size: 10px;
         white-space: nowrap;
       }
@@ -658,8 +722,8 @@
       }
       dialog {
         color: var(--text);
-        background: #111b29;
-        border: 1px solid #3a4b60;
+        background: var(--panel);
+        border: 1px solid var(--line);
         border-radius: 16px;
         width: min(460px, calc(100vw - 28px));
         box-shadow: 0 25px 90px #000b;
@@ -739,6 +803,31 @@
       document.addEventListener("DOMContentLoaded", () => {
         const d = window.ROOFING_REVIEW_DATA;
         const $ = (id) => document.getElementById(id);
+        const themeButton = $("theme-toggle");
+        function showThemeChoice() {
+          const dark = document.documentElement.dataset.theme !== "light";
+          themeButton.textContent = dark ? "☀ Light mode" : "☾ Dark mode";
+          themeButton.setAttribute(
+            "aria-label",
+            dark ? "Switch to light mode" : "Switch to dark mode",
+          );
+        }
+        showThemeChoice();
+        themeButton.addEventListener("click", () => {
+          const dark = document.documentElement.dataset.theme !== "light";
+          document.documentElement.dataset.theme = dark ? "light" : "dark";
+          try {
+            localStorage.setItem("lt.theme.v1", dark ? "light" : "dark");
+          } catch {
+            // The visible choice still works when browser storage is blocked.
+          }
+          showThemeChoice();
+        });
+        window.addEventListener("storage", (event) => {
+          if (event.key !== "lt.theme.v1") return;
+          document.documentElement.dataset.theme = event.newValue === "light" ? "light" : "dark";
+          showThemeChoice();
+        });
         const esc = (s) =>
           String(s ?? "").replace(
             /[&<>"']/g,
@@ -955,6 +1044,7 @@
       <header class="top">
         <div class="brand"><span class="mark">L</span><span>Language Threshold</span></div>
         <div class="top-right">
+          <button type="button" id="theme-toggle" class="theme-toggle">☀ Light mode</button>
           <span class="pill gold">Product review</span
           ><a
             class="toplink"

@@ -123,6 +123,8 @@ writeFileSync(
       { src: "/images/(.*)", dest: "/images/$1" },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
+      { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },
+      { src: "/roofing-review-data\\.js", dest: "/roofing-review-data.js" },
       { src: "/(.*)", dest: "/" },
     ],
   }),

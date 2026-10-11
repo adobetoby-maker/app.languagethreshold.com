@@ -1,0 +1,1607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roofing + Admin Review | Language Threshold</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #080b12;
+        --panel: #101723;
+        --panel2: #141e2c;
+        --line: #273346;
+        --text: #f3f4f0;
+        --muted: #a7b2c1;
+        --gold: #e4bd65;
+        --teal: #66d9c6;
+        --red: #f18c84;
+        --green: #97df9b;
+        --blue: #9dbff5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(circle at 50% -15%, #17263d 0, #080b12 42%);
+        color: var(--text);
+        font:
+          15px/1.55 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: var(--teal);
+      }
+      .shell {
+        max-width: 1240px;
+        margin: auto;
+        padding: 0 24px 80px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--gold);
+        border-radius: 9px;
+        color: var(--gold);
+        font-family: Georgia, serif;
+        font-size: 21px;
+      }
+      .top-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        font-weight: 800;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .pill.gold {
+        color: var(--gold);
+        background: #e4bd6518;
+        border: 1px solid #e4bd6540;
+      }
+      .pill.teal {
+        color: var(--teal);
+        background: #66d9c617;
+        border: 1px solid #66d9c63b;
+      }
+      .pill.grey {
+        color: #c4d1df;
+        background: #ffffff0c;
+        border: 1px solid #ffffff22;
+      }
+      .toplink {
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      .hero {
+        padding: 58px 0 30px;
+        display: grid;
+        grid-template-columns: 1.5fr 0.8fr;
+        gap: 28px;
+        align-items: end;
+      }
+      .eyebrow {
+        color: var(--gold);
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.12;
+      }
+      h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(38px, 5.3vw, 70px);
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        max-width: 800px;
+      }
+      h2 {
+        font-family: Georgia, serif;
+        font-weight: 500;
+        font-size: clamp(28px, 3.6vw, 44px);
+        letter-spacing: -0.03em;
+      }
+      h3 {
+        font-size: 17px;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0 0 14px;
+      }
+      .lead {
+        color: #c2cdda;
+        font-size: 17px;
+        max-width: 760px;
+        margin-top: 17px;
+      }
+      .hero-note {
+        border: 1px solid #e4bd6540;
+        background: linear-gradient(145deg, #271e11, #111a29);
+        border-radius: 18px;
+        padding: 22px;
+      }
+      .hero-note strong {
+        color: var(--gold);
+        display: block;
+        margin-bottom: 8px;
+      }
+      .hero-note p {
+        color: #d2d4d0;
+        font-size: 13px;
+        margin: 0;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        padding: 13px 0;
+        background: #080b12f5;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+      .nav button,
+      .tabs button {
+        border: 1px solid transparent;
+        color: var(--muted);
+        background: transparent;
+        border-radius: 9px;
+        padding: 10px 14px;
+        white-space: nowrap;
+        font-weight: 700;
+      }
+      .nav button.active,
+      .tabs button.active {
+        border-color: #e4bd654a;
+        background: #e4bd6518;
+        color: var(--gold);
+      }
+      .panel {
+        display: none;
+        padding-top: 34px;
+      }
+      .panel.active {
+        display: block;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+      .section-head p {
+        color: var(--muted);
+        max-width: 720px;
+        margin: 10px 0 0;
+      }
+      .grid {
+        display: grid;
+        gap: 15px;
+      }
+      .grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card {
+        background: linear-gradient(150deg, #131c2b, #0e1420);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 12px 35px #0002;
+      }
+      .card.soft {
+        background: #0d131d;
+      }
+      .metric-label {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .metric {
+        display: block;
+        font-family: Georgia, serif;
+        font-size: 34px;
+        line-height: 1.2;
+        margin-top: 5px;
+      }
+      .metric-sub {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .small {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .status {
+        display: inline-block;
+        padding: 4px 8px;
+        font-size: 11px;
+        font-weight: 800;
+        border-radius: 5px;
+        background: #ffffff11;
+      }
+      .status.ready {
+        color: var(--green);
+        background: #97df9b17;
+      }
+      .status.pending {
+        color: var(--gold);
+        background: #e4bd6517;
+      }
+      .status.sample {
+        color: var(--blue);
+        background: #9dbff51a;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        border-radius: 9px;
+        border: 1px solid #e4bd6550;
+        padding: 9px 15px;
+        font-weight: 800;
+        font-size: 13px;
+        text-decoration: none;
+        background: #e4bd65;
+        color: #15202d;
+      }
+      .btn.secondary {
+        background: #ffffff0b;
+        color: var(--text);
+        border-color: var(--line);
+      }
+      .btn.teal {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: #0c1820;
+      }
+      .btn:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      a:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 25px 0 15px;
+      }
+      .toolbar h3 {
+        margin: 0;
+      }
+      .btns {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+      }
+      .tabs {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+        padding: 4px;
+        background: #0c121d;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        width: max-content;
+        max-width: 100%;
+        margin: 25px 0 18px;
+      }
+      .tab-body {
+        min-height: 300px;
+      }
+      .search {
+        width: 100%;
+        max-width: 320px;
+        color: var(--text);
+        background: #0b111c;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+      }
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #101722;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      th,
+      td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #263243;
+        vertical-align: top;
+      }
+      th {
+        color: #99a9bd;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 800;
+        background: #152031;
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+      tbody tr:hover {
+        background: #ffffff08;
+      }
+      .spanish {
+        color: #b6efe4;
+        font-weight: 650;
+      }
+      .tag {
+        display: inline-block;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 2px 7px;
+        color: #d4dfeb;
+        font-size: 11px;
+        margin: 2px 3px 2px 0;
+      }
+      .lesson-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .lesson {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #121b29;
+        padding: 13px;
+      }
+      .lesson b {
+        color: var(--gold);
+        font-size: 11px;
+      }
+      .lesson h4 {
+        margin: 4px 0 6px;
+        font-size: 14px;
+      }
+      .lesson p {
+        color: var(--muted);
+        font-size: 12px;
+        margin: 0;
+      }
+      .scenarios {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+      }
+      .scenario h3 {
+        margin: 8px 0;
+      }
+      .scenario ul {
+        margin: 8px 0 0;
+        padding-left: 19px;
+        color: #bdc9d5;
+        font-size: 13px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.9fr);
+        gap: 16px;
+      }
+      .panel-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .employee-name {
+        font-weight: 750;
+      }
+      .employee-email {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .number {
+        font-variant-numeric: tabular-nums;
+      }
+      .progress {
+        height: 7px;
+        background: #2b3646;
+        border-radius: 99px;
+        overflow: hidden;
+        min-width: 90px;
+      }
+      .progress > span {
+        display: block;
+        height: 100%;
+        background: var(--teal);
+        border-radius: 99px;
+      }
+      .form-row {
+        display: grid;
+        gap: 6px;
+        margin: 12px 0;
+      }
+      .form-row label {
+        font-size: 11px;
+        color: #aebccd;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .form-row input,
+      .form-row select {
+        width: 100%;
+        background: #0c121d;
+        color: var(--text);
+        border: 1px solid var(--line);
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .checkrow {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 12px;
+        border: 1px solid #66d9c642;
+        background: #66d9c60b;
+        border-radius: 9px;
+        margin: 15px 0;
+      }
+      .checkrow input {
+        width: 17px;
+        height: 17px;
+        accent-color: #54d3be;
+        margin-top: 3px;
+      }
+      .checkrow b {
+        display: block;
+        font-size: 13px;
+      }
+      .checkrow span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .step-line {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 18px;
+      }
+      .step-line span {
+        flex: 1;
+        height: 4px;
+        border-radius: 99px;
+        background: #2c394a;
+      }
+      .step-line span.active {
+        background: var(--gold);
+      }
+      .step-body {
+        min-height: 190px;
+      }
+      .step-body h3 {
+        font-family: Georgia, serif;
+        font-size: 27px;
+        font-weight: 500;
+        margin: 7px 0 12px;
+      }
+      .step-body p {
+        color: #c7d1dd;
+      }
+      .step-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+      }
+      .callout {
+        border-left: 3px solid var(--gold);
+        padding: 11px 14px;
+        color: #d9d2bf;
+        background: #e4bd650c;
+        font-size: 13px;
+        margin-top: 16px;
+      }
+      .chart {
+        display: flex;
+        align-items: end;
+        height: 145px;
+        gap: 8px;
+        border-bottom: 1px solid var(--line);
+        padding: 12px 4px 0;
+      }
+      .chart .bar {
+        flex: 1;
+        background: linear-gradient(180deg, #66d9c6, #286976);
+        border-radius: 5px 5px 0 0;
+        min-height: 8px;
+        position: relative;
+      }
+      .chart .bar:hover::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e2b3d;
+        border: 1px solid var(--line);
+        padding: 3px 7px;
+        border-radius: 6px;
+        color: white;
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      .chart-labels {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 10px;
+        margin-top: 9px;
+      }
+      .email {
+        background: #f6f3ed;
+        color: #16202a;
+        border-radius: 12px;
+        padding: 20px;
+        font-size: 13px;
+      }
+      .email small {
+        color: #647183;
+      }
+      .email hr {
+        border: 0;
+        border-top: 1px solid #d3d8da;
+        margin: 13px 0;
+      }
+      .email strong {
+        color: #16202a;
+      }
+      .email .email-cta {
+        display: inline-block;
+        background: #173a44;
+        color: #fff;
+        text-decoration: none;
+        padding: 9px 12px;
+        border-radius: 6px;
+        font-weight: 700;
+        margin: 6px 0;
+      }
+      .note {
+        margin-top: 13px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .footer {
+        border-top: 1px solid var(--line);
+        margin-top: 45px;
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      dialog {
+        color: var(--text);
+        background: #111b29;
+        border: 1px solid #3a4b60;
+        border-radius: 16px;
+        width: min(460px, calc(100vw - 28px));
+        box-shadow: 0 25px 90px #000b;
+        padding: 24px;
+      }
+      dialog::backdrop {
+        background: #000a;
+      }
+      dialog h3 {
+        font-family: Georgia, serif;
+        font-size: 26px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      dialog p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      dialog .dialog-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      @media (max-width: 900px) {
+        .hero,
+        .split {
+          grid-template-columns: 1fr;
+        }
+        .grid.four {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .lesson-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .shell {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        .top {
+          align-items: flex-start;
+        }
+        .top-right {
+          justify-content: flex-end;
+        }
+        .hero {
+          padding-top: 35px;
+        }
+        .grid.two,
+        .grid.three,
+        .grid.four,
+        .scenarios,
+        .lesson-grid {
+          grid-template-columns: 1fr;
+        }
+        th,
+        td {
+          padding: 10px 11px;
+        }
+        .hide-mobile {
+          display: none;
+        }
+        .tabs {
+          width: 100%;
+        }
+        .tabs button {
+          flex: 1;
+          padding: 8px 6px;
+          font-size: 11px;
+        }
+      }
+    </style>
+    <script src="./roofing-review-data.js" defer></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const d = window.ROOFING_REVIEW_DATA;
+        const $ = (id) => document.getElementById(id);
+        const esc = (s) =>
+          String(s ?? "").replace(
+            /[&<>"']/g,
+            (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
+          );
+        const panels = [...document.querySelectorAll(".panel")];
+        const navButtons = [...document.querySelectorAll(".nav button")];
+        function showPanel(id) {
+          panels.forEach((p) => p.classList.toggle("active", p.id === id));
+          navButtons.forEach((b) => b.classList.toggle("active", b.dataset.panel === id));
+          history.replaceState(null, "", "#" + id);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        navButtons.forEach((b) => b.addEventListener("click", () => showPanel(b.dataset.panel)));
+        if (location.hash && $(location.hash.slice(1))) showPanel(location.hash.slice(1));
+        window.addEventListener("hashchange", () => {
+          const id = location.hash.slice(1);
+          if ($(id)?.classList.contains("panel")) showPanel(id);
+        });
+        const courseTabs = [...document.querySelectorAll(".tabs button")];
+        function showCourseTab(id) {
+          document.querySelectorAll(".tab-body").forEach((e) => (e.hidden = e.id !== id));
+          courseTabs.forEach((b) => b.classList.toggle("active", b.dataset.tab === id));
+        }
+        courseTabs.forEach((b) => b.addEventListener("click", () => showCourseTab(b.dataset.tab)));
+        showCourseTab("materials");
+        $("course-counts").textContent =
+          `${d.guideMaterials.length} guide materials · ${Object.values(d.guidePhrases).flat().length} guide phrases · ${d.extraMaterials.length} added terms · ${Object.values(d.extraPhrases).flat().length} added phrases`;
+        $("material-count").textContent =
+          `${d.guideMaterials.length} source terms + ${d.extraMaterials.length} field terms`;
+        function renderMaterials(q = "") {
+          const items = [
+            ...d.guideMaterials.map((x) => ({ ...x, source: "Guide" })),
+            ...d.extraMaterials.map((x) => ({ ...x, source: "Added" })),
+          ].filter((x) => (x.en + " " + x.es).toLowerCase().includes(q.toLowerCase()));
+          $("materials-rows").innerHTML = items
+            .map(
+              (x, i) =>
+                `<tr><td>${i + 1}</td><td>${esc(x.en)}</td><td class="spanish">${esc(x.es)}</td><td><span class="tag">${x.source}</span></td></tr>`,
+            )
+            .join("");
+          $("materials-results").textContent = `Showing ${items.length} of 32 terms`;
+        }
+        $("materials-search").addEventListener("input", (e) => renderMaterials(e.target.value));
+        renderMaterials();
+        const phraseGroups = [
+          ["Tear-off & prep", d.guidePhrases.tearOff],
+          ["Installation", d.guidePhrases.installation],
+          ["Safety", d.guidePhrases.safety],
+          ["Added: briefing", d.extraPhrases.briefing],
+          ["Added: quality", d.extraPhrases.quality],
+          ["Added: stop-work", d.extraPhrases.safetyStopWork],
+          ["Added: closeout", d.extraPhrases.closeout],
+        ];
+        $("phrase-filters").innerHTML = phraseGroups
+          .map(
+            (g, i) =>
+              `<button type="button" class="${i === 0 ? "active" : ""}" data-group="${i}">${esc(g[0])} <span class="small">${g[1].length}</span></button>`,
+          )
+          .join("");
+        function renderPhrases(i) {
+          const [name, items] = phraseGroups[i];
+          $("phrase-heading").textContent = name;
+          $("phrases-rows").innerHTML = items
+            .map(
+              (x, n) =>
+                `<tr><td>${n + 1}</td><td>${esc(x.en)}</td><td class="spanish">${esc(x.es)}</td></tr>`,
+            )
+            .join("");
+          document
+            .querySelectorAll("#phrase-filters button")
+            .forEach((b, n) => b.classList.toggle("active", n === i));
+        }
+        $("phrase-filters").addEventListener("click", (e) => {
+          const b = e.target.closest("button[data-group]");
+          if (b) renderPhrases(Number(b.dataset.group));
+        });
+        renderPhrases(0);
+        $("lesson-grid").innerHTML = d.lessons
+          .map(
+            (x) =>
+              `<article class="lesson"><b>LESSON ${x.n}</b><h4>${esc(x.title)}</h4><p>${esc(x.objective)}</p></article>`,
+          )
+          .join("");
+        $("scenario-grid").innerHTML = d.areas
+          .map(
+            (x) =>
+              `<article class="card scenario"><span class="pill teal">${esc(x.emoji)} Speaking area</span><h3>${esc(x.name)}</h3><p class="muted">${esc(x.blurb)}</p><div class="small">Example challenges</div><ul>${x.challenges.map((y) => `<li>${esc(y)}</li>`).join("")}</ul></article>`,
+          )
+          .join("");
+        const steps = [
+          [
+            "Welcome to your team workspace",
+            "Manage seats, assign Spanish modules, and see how the team is practicing. Employee AI conversations stay private.",
+            "Start setup",
+          ],
+          [
+            "Set up the company",
+            "Enter company and billing contacts, timezone, and the person who will manage invitations.",
+            "Save company",
+          ],
+          [
+            "Add seats and employees",
+            "Assign each purchased seat to an employee. Pending invites reserve seats; add more capacity from this same panel.",
+            "Assign first seat",
+          ],
+          [
+            "Assign Roofing Foreman",
+            "Choose Roofing Foreman for the crew, then add other modules for people who need them.",
+            "Assign module",
+          ],
+          [
+            "Choose a completion goal",
+            "Require all lessons and a score of at least 80% on the reviewed final test to issue a completion certificate.",
+            "Require certificate",
+          ],
+          [
+            "Review and launch",
+            "Check recipients and rules, preview the emails, and send the invitations. Your dashboard begins tracking after employees start.",
+            "Go to dashboard",
+          ],
+        ];
+        let step = 0;
+        function renderStep() {
+          $("step-line").innerHTML = steps
+            .map((_, i) => `<span class="${i <= step ? "active" : ""}"></span>`)
+            .join("");
+          $("step-number").textContent = `Step ${step + 1} of ${steps.length}`;
+          $("step-title").textContent = steps[step][0];
+          $("step-copy").textContent = steps[step][1];
+          $("step-primary").textContent = steps[step][2] + " →";
+          $("step-back").disabled = step === 0;
+        }
+        $("step-back").addEventListener("click", () => {
+          step = Math.max(0, step - 1);
+          renderStep();
+        });
+        $("step-primary").addEventListener("click", () => {
+          step = Math.min(steps.length - 1, step + 1);
+          renderStep();
+        });
+        renderStep();
+        let seats = 15,
+          active = 12,
+          pending = 2;
+        function renderSeats() {
+          $("seats-purchased").textContent = seats;
+          $("seats-active").textContent = active;
+          $("seats-pending").textContent = pending;
+          $("seats-available").textContent = seats - active - pending;
+        }
+        renderSeats();
+        $("add-seat-button").addEventListener("click", () => {
+          $("seat-quote").textContent =
+            `Adding one seat would increase this sample account to ${seats + 1} learner seats. Proposed quarterly seat rate: $16.60/month, prorated through renewal.`;
+          $("add-seat-dialog").showModal();
+        });
+        $("confirm-seat").addEventListener("click", () => {
+          seats++;
+          renderSeats();
+          $("add-seat-dialog").close();
+          $("prototype-alert").textContent =
+            "Sample seat capacity updated for this review only. No purchase was made.";
+        });
+        $("assign-seat-button").addEventListener("click", () => {
+          if (seats - active - pending < 1) {
+            $("prototype-alert").textContent = "No sample seats available. Add a seat first.";
+            return;
+          }
+          $("employee-name-input").value = "";
+          $("employee-email-input").value = "";
+          $("assign-dialog").showModal();
+        });
+        $("confirm-assign").addEventListener("click", () => {
+          const n = $("employee-name-input").value.trim(),
+            e = $("employee-email-input").value.trim();
+          if (!n || !e) {
+            $("form-alert").textContent = "Enter a name and email for the sample invitation.";
+            return;
+          }
+          pending++;
+          renderSeats();
+          $("employee-rows").insertAdjacentHTML(
+            "beforeend",
+            `<tr><td><div class="employee-name">${esc(n)}</div><div class="employee-email">${esc(e)}</div></td><td><span class="status pending">Invite pending</span></td><td>Roofing Foreman</td><td>0 min</td><td>0/30</td><td><span class="status pending">Not started</span></td></tr>`,
+          );
+          $("assign-dialog").close();
+          $("prototype-alert").textContent = "Sample invitation added. No email was sent.";
+        });
+        $("assignment-preview").addEventListener("click", () => {
+          const module = $("module-select").value,
+            required = $("certificate-toggle").checked;
+          $("assignment-result").innerHTML =
+            `<strong>Assignment preview</strong><br>${esc(module)} · ${required ? "Certificate required: 30 lessons + 80% test" : "Progress tracking only"} · Employee invitations name the assigned module. <em>No assignment or email was sent.</em>`;
+        });
+        $("cert-example").addEventListener("click", () => {
+          $("cert-result").textContent =
+            "19/25 = 76% → Review and retake. 20/25 = 80% → Certificate issues after all required lessons are complete.";
+        });
+        document.querySelectorAll("[data-email]").forEach((b) =>
+          b.addEventListener("click", () => {
+            document
+              .querySelectorAll("[data-email]")
+              .forEach((x) => x.classList.toggle("active", x === b));
+            $("email-admin").hidden = b.dataset.email !== "admin";
+            $("email-employee").hidden = b.dataset.email !== "employee";
+          }),
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="top">
+        <div class="brand"><span class="mark">L</span><span>Language Threshold</span></div>
+        <div class="top-right">
+          <span class="pill gold">Product review</span
+          ><a
+            class="toplink"
+            href="https://github.com/adobetoby-maker/app.languagethreshold.com/pull/25"
+            target="_blank"
+            rel="noopener"
+            >Merged PR ↗</a
+          >
+        </div>
+      </header>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Roofing Spanish / Team operations</div>
+          <h1>One place to review the course and the company setup.</h1>
+          <p class="lead">
+            Inspect the real Roofing Foreman content, step through the team admin flow, and decide
+            what you need in your platform-wide super-admin view.
+          </p>
+        </div>
+        <div class="hero-note">
+          <strong>What is real today?</strong>
+          <p>
+            Roofing content, team administration, the owner dashboard, and the Roofing certificate
+            flow are deployed. The screens below use sample data to explain them. Team checkout is
+            paused while billing setup is completed. Company admins can create private invitation
+            links and send them through their own email while automatic email is unavailable. This
+            review page does not create accounts, charge money, or send email.
+          </p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Review sections">
+        <button type="button" data-panel="roofing" class="active">01 · Roofing module</button>
+        <button type="button" data-panel="company-admin">02 · Company admin</button>
+        <button type="button" data-panel="super-admin">03 · Super admin</button>
+        <button type="button" data-panel="email-flow">04 · Email flow</button>
+      </nav>
+
+      <main>
+        <section id="roofing" class="panel active" aria-labelledby="roofing-title">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Live module · merged PR #25</div>
+              <h2 id="roofing-title">Roofing Foreman</h2>
+              <p>
+                Spanish for material calls, tear-off, installation, fall-protection communication,
+                and crew closeout. Review data here is loaded from the module source committed in
+                the PR.
+              </p>
+            </div>
+            <a class="btn" href="https://app.languagethreshold.com/" target="_blank" rel="noopener"
+              >Open live app ↗</a
+            >
+          </div>
+          <div class="grid four">
+            <div class="card">
+              <span class="metric-label">Core lessons</span><span class="metric">30</span
+              ><span class="metric-sub">Five-stage learning path</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Published guide terms</span><span class="metric">20</span
+              ><span class="metric-sub">Plus 12 added field terms</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Published guide phrases</span><span class="metric">22</span
+              ><span class="metric-sub">Plus 16 added phrases</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Speaking areas</span><span class="metric">6</span
+              ><span class="metric-sub">Crew-focused roleplays</span>
+            </div>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Roofing content">
+            <button type="button" data-tab="materials" class="active">Materials</button
+            ><button type="button" data-tab="phrases">Phrases</button
+            ><button type="button" data-tab="lessons">30 lessons</button
+            ><button type="button" data-tab="scenarios">Speaking</button>
+          </div>
+          <div id="materials" class="tab-body">
+            <div class="toolbar">
+              <div>
+                <h3>Materials & field terms</h3>
+                <div id="material-count" class="small"></div>
+              </div>
+              <input
+                id="materials-search"
+                class="search"
+                type="search"
+                placeholder="Search English or Spanish…"
+                aria-label="Search roofing terms"
+              />
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>English</th>
+                    <th>Spanish</th>
+                    <th>Origin</th>
+                  </tr>
+                </thead>
+                <tbody id="materials-rows"></tbody>
+              </table>
+            </div>
+            <p id="materials-results" class="note"></p>
+          </div>
+          <div id="phrases" class="tab-body" hidden>
+            <div class="toolbar">
+              <div>
+                <h3>Guide phrases + added crew language</h3>
+                <p class="small" id="course-counts"></p>
+              </div>
+            </div>
+            <div id="phrase-filters" class="tabs" aria-label="Phrase categories"></div>
+            <h3 id="phrase-heading" style="margin-bottom: 12px"></h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>English</th>
+                    <th>Spanish</th>
+                  </tr>
+                </thead>
+                <tbody id="phrases-rows"></tbody>
+              </table>
+            </div>
+            <div class="callout">
+              Published nail counts and overlap dimensions are language examples. The crew must
+              confirm the selected product instructions and site plan.
+            </div>
+          </div>
+          <div id="lessons" class="tab-body" hidden>
+            <div class="toolbar">
+              <div>
+                <h3>The Roofing Core 30</h3>
+                <p class="small">
+                  Materials → tear-off → installation → safety communication → closeout.
+                </p>
+              </div>
+            </div>
+            <div id="lesson-grid" class="lesson-grid"></div>
+          </div>
+          <div id="scenarios" class="tab-body" hidden>
+            <div class="toolbar">
+              <div>
+                <h3>Six speaking situations</h3>
+                <p class="small">
+                  The learner speaks as the foreman; the AI plays a crew member, lead, supplier, or
+                  inspector.
+                </p>
+              </div>
+            </div>
+            <div id="scenario-grid" class="scenarios"></div>
+          </div>
+        </section>
+
+        <section id="company-admin" class="panel" aria-labelledby="admin-title">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Live feature · sample illustration</div>
+              <h2 id="admin-title">Company admin workspace</h2>
+              <p>
+                Seats, employees, module assignments, practice time, the 80% Roofing test, and
+                certificates in one company view.
+                <a href="https://app.languagethreshold.com/team" target="_blank" rel="noopener"
+                  >Open the live team dashboard ↗</a
+                >
+              </p>
+            </div>
+            <span class="pill grey">All figures below are sample data</span>
+          </div>
+          <div class="grid four">
+            <div class="card">
+              <span class="metric-label">Seats purchased</span
+              ><span id="seats-purchased" class="metric number">15</span
+              ><span class="metric-sub">Company learner capacity</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Active employees</span
+              ><span id="seats-active" class="metric number">12</span
+              ><span class="metric-sub">Accepted seat invitations</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Pending invites</span
+              ><span id="seats-pending" class="metric number">2</span
+              ><span class="metric-sub">Seats reserved</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Seats available</span
+              ><span id="seats-available" class="metric number">1</span
+              ><span class="metric-sub">Ready to assign</span>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div>
+              <h3>Seats & employees</h3>
+              <div class="small">Assign a seat and its first module together.</div>
+            </div>
+            <div class="btns">
+              <button type="button" id="add-seat-button" class="btn secondary">+ Add seats</button
+              ><button type="button" id="assign-seat-button" class="btn teal">
+                + Assign employee
+              </button>
+            </div>
+          </div>
+          <p id="prototype-alert" class="small" role="status"></p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Seat</th>
+                  <th>Module</th>
+                  <th>Active time · 30d</th>
+                  <th>Lessons</th>
+                  <th>Certificate</th>
+                </tr>
+              </thead>
+              <tbody id="employee-rows">
+                <tr>
+                  <td>
+                    <div class="employee-name">Maya R.</div>
+                    <div class="employee-email">maya@example.com</div>
+                  </td>
+                  <td><span class="status ready">Active</span></td>
+                  <td>Roofing Foreman</td>
+                  <td>3h 42m</td>
+                  <td>27/30</td>
+                  <td><span class="status pending">Test pending</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="employee-name">Luis C.</div>
+                    <div class="employee-email">luis@example.com</div>
+                  </td>
+                  <td><span class="status ready">Active</span></td>
+                  <td>Roofing Foreman</td>
+                  <td>5h 16m</td>
+                  <td>30/30</td>
+                  <td><span class="status ready">Issued · 88%</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="employee-name">Jordan P.</div>
+                    <div class="employee-email">jordan@example.com</div>
+                  </td>
+                  <td><span class="status ready">Active</span></td>
+                  <td>Roofing Foreman, Construction Safety</td>
+                  <td>2h 09m</td>
+                  <td>14/30</td>
+                  <td><span class="status pending">In progress</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="employee-name">Ana V.</div>
+                    <div class="employee-email">ana@example.com</div>
+                  </td>
+                  <td><span class="status pending">Invite pending</span></td>
+                  <td>Roofing Foreman</td>
+                  <td>0 min</td>
+                  <td>0/30</td>
+                  <td><span class="status pending">Not started</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            Showing 4 of 14 sample assigned or pending employees. Practice time means active use in
+            the app; it is not work time or a measure of proficiency.
+          </p>
+          <div class="split" style="margin-top: 22px">
+            <div class="card">
+              <div class="panel-title">
+                <h3>Assign a module and completion goal</h3>
+                <span class="status sample">Sample form</span>
+              </div>
+              <div class="grid two">
+                <div class="form-row">
+                  <label for="cohort-select">Assign to</label
+                  ><select id="cohort-select">
+                    <option>All Roofing Foremen · 15 seats</option>
+                    <option>Selected employees</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="module-select">Module</label
+                  ><select id="module-select">
+                    <option>Roofing Foreman</option>
+                    <option>Construction Foreman</option>
+                    <option>Construction Safety</option>
+                  </select>
+                </div>
+              </div>
+              <label class="checkrow"
+                ><input id="certificate-toggle" type="checkbox" checked /><span
+                  ><b>Require completion certificate</b
+                  ><span
+                    >Finish required lessons and pass the reviewed final test at 80% or
+                    higher.</span
+                  ></span
+                ></label
+              >
+              <div class="btns">
+                <button id="assignment-preview" type="button" class="btn teal">
+                  Preview assignment
+                </button>
+              </div>
+              <div id="assignment-result" class="callout" role="status">
+                Choose a module and preview the assignment. No data will be saved.
+              </div>
+            </div>
+            <div class="card">
+              <div class="panel-title">
+                <h3>Certificate rule</h3>
+                <span class="status ready">Live</span>
+              </div>
+              <p class="muted" style="margin-top: 12px">
+                A 25-question Roofing Spanish final test uses reviewed questions. The certificate
+                appears only after all required lessons and at least 20 correct answers.
+              </p>
+              <div class="progress"><span style="width: 80%"></span></div>
+              <p class="small" style="margin-top: 10px">
+                Passing threshold: 80% · Retakes with fresh questions
+              </p>
+              <button id="cert-example" type="button" class="btn secondary">
+                See pass example
+              </button>
+              <div id="cert-result" class="callout" role="status">
+                The certificate states language-module completion, not safety qualification.
+              </div>
+            </div>
+          </div>
+          <div class="card" style="margin-top: 22px">
+            <div class="panel-title">
+              <h3>First-time admin setup preview</h3>
+              <span id="step-number" class="small"></span>
+            </div>
+            <div id="step-line" class="step-line" style="margin-top: 18px"></div>
+            <div class="step-body">
+              <div class="eyebrow">Guided onboarding</div>
+              <h3 id="step-title"></h3>
+              <p id="step-copy"></p>
+            </div>
+            <div class="step-actions">
+              <button id="step-back" type="button" class="btn secondary">← Back</button
+              ><button id="step-primary" type="button" class="btn">Next →</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="super-admin" class="panel" aria-labelledby="super-title">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Live feature · sample illustration</div>
+              <h2 id="super-title">Super admin: the whole platform</h2>
+              <p>
+                One operational view across companies and individual accounts. Company admins see
+                only their own organization.
+                <a href="https://app.languagethreshold.com/owner" target="_blank" rel="noopener"
+                  >Open the live owner dashboard ↗</a
+                >
+              </p>
+            </div>
+            <span class="pill grey">Illustrative numbers · no live data</span>
+          </div>
+          <div class="grid four">
+            <div class="card">
+              <span class="metric-label">Total accounts</span><span class="metric">2,046</span
+              ><span class="metric-sub">Individuals + team members</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Companies</span><span class="metric">128</span
+              ><span class="metric-sub">Active + trial organizations</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Paid learner seats</span><span class="metric">1,635</span
+              ><span class="metric-sub">1,392 assigned · 243 open</span>
+            </div>
+            <div class="card">
+              <span class="metric-label">Active · last 30 days</span
+              ><span class="metric">1,421</span
+              ><span class="metric-sub">Practice in at least one module</span>
+            </div>
+          </div>
+          <div class="split" style="margin-top: 17px">
+            <div class="card">
+              <div class="panel-title">
+                <h3>Active learners by week</h3>
+                <span class="small">Sample 12-week trend</span>
+              </div>
+              <div class="chart">
+                <div class="bar" style="height: 46%" data-label="Week 1 · 750"></div>
+                <div class="bar" style="height: 51%" data-label="Week 2 · 825"></div>
+                <div class="bar" style="height: 49%" data-label="Week 3 · 790"></div>
+                <div class="bar" style="height: 58%" data-label="Week 4 · 938"></div>
+                <div class="bar" style="height: 62%" data-label="Week 5 · 1004"></div>
+                <div class="bar" style="height: 59%" data-label="Week 6 · 955"></div>
+                <div class="bar" style="height: 67%" data-label="Week 7 · 1085"></div>
+                <div class="bar" style="height: 71%" data-label="Week 8 · 1150"></div>
+                <div class="bar" style="height: 70%" data-label="Week 9 · 1134"></div>
+                <div class="bar" style="height: 78%" data-label="Week 10 · 1263"></div>
+                <div class="bar" style="height: 84%" data-label="Week 11 · 1360"></div>
+                <div class="bar" style="height: 88%" data-label="Week 12 · 1421"></div>
+              </div>
+              <div class="chart-labels"><span>12 weeks ago</span><span>Current week</span></div>
+            </div>
+            <div class="card">
+              <h3>What the owner should monitor</h3>
+              <div style="margin-top: 14px">
+                <p>
+                  <span class="tag">Accounts</span> New accounts, activated users, active 7/30 days,
+                  churned accounts
+                </p>
+                <p>
+                  <span class="tag">Seats</span> Purchased, assigned, pending, unused, expiring
+                  plans
+                </p>
+                <p>
+                  <span class="tag">Learning</span> Active minutes and modules practiced; exam
+                  passes; certificates
+                </p>
+                <p>
+                  <span class="tag">Operations</span> AI usage and cost, failed emails, billing
+                  failures, support load
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div>
+              <h3>Organizations</h3>
+              <div class="small">Cross-company summaries, not private conversations.</div>
+            </div>
+            <span class="status sample">Sample rows</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Plan</th>
+                  <th>Purchased</th>
+                  <th>Assigned</th>
+                  <th>Active · 30d</th>
+                  <th>Top module</th>
+                  <th>Renewal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sample Roofing Co.</td>
+                  <td>Team · annual</td>
+                  <td>15</td>
+                  <td>14</td>
+                  <td>12</td>
+                  <td>Roofing Foreman</td>
+                  <td>Jun 18</td>
+                </tr>
+                <tr>
+                  <td>Northline Services</td>
+                  <td>Team · quarterly</td>
+                  <td>24</td>
+                  <td>20</td>
+                  <td>16</td>
+                  <td>Construction Safety</td>
+                  <td>Nov 3</td>
+                </tr>
+                <tr>
+                  <td>Green Valley Health</td>
+                  <td>Team · annual</td>
+                  <td>10</td>
+                  <td>9</td>
+                  <td>7</td>
+                  <td>Emergency Medicine</td>
+                  <td>Feb 12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            Access should require a separate platform-owner role, multi-factor authentication, and
+            an audit log for viewing or changing company records. Platform metrics can aggregate
+            usage without displaying learner AI chats or recordings.
+          </div>
+        </section>
+
+        <section id="email-flow" class="panel" aria-labelledby="email-title">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Manual invitation delivery available</div>
+              <h2 id="email-title">Share the assignment, link the learning</h2>
+              <p>
+                Company admins can copy their setup summary and create employee invitation links in
+                the live team dashboard. They can send both through their company email. Automatic
+                delivery can resume after the email provider is available and a live send is
+                verified.
+              </p>
+            </div>
+            <span class="pill teal">Manual links ready</span>
+          </div>
+          <div class="tabs" aria-label="Email drafts">
+            <button type="button" data-email="admin" class="active">Admin email</button
+            ><button type="button" data-email="employee">Employee invite</button>
+          </div>
+          <div id="email-admin" class="grid two">
+            <div class="email">
+              <small
+                >To: Company admin · Subject: Your Roofing Foreman team is ready to set up</small
+              >
+              <hr />
+              <strong>Welcome to Language Threshold for Teams.</strong>
+              <p>
+                Your 15-seat Roofing Foreman workspace is ready for setup. Add your employees,
+                assign Roofing Foreman, and choose whether each assignment requires the 80%
+                completion test.
+              </p>
+              <p>
+                Your admin dashboard shows seats, active practice time by module, lesson progress,
+                and certificates once issued.
+              </p>
+              <a class="email-cta" href="#company-admin">Open team setup</a>
+              <p style="font-size: 11px; color: #617083">
+                Admin walkthrough: Seats → Employees → Modules → Certificate rule → Send invitations
+                → Track progress.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Why send the admin an email?</h3>
+              <p class="muted" style="margin-top: 12px">
+                It gives the company a direct entry point, lists the assigned modules and seat
+                count, and explains the 80% certificate option before anyone is invited. A weekly
+                optional summary can report new joins, active minutes, modules practiced, tests due,
+                and certificates issued.
+              </p>
+              <div class="callout">
+                The email is a link and summary. The module content and employee data remain in
+                authenticated app pages.
+              </div>
+            </div>
+          </div>
+          <div id="email-employee" class="grid two" hidden>
+            <div class="email">
+              <small>To: Employee · Subject: Start Roofing Foreman Spanish</small>
+              <hr />
+              <strong>Your company assigned you Roofing Foreman Spanish.</strong>
+              <p>
+                Practice roofing materials, tear-off, installation, safety communication, and
+                closeout on your own schedule. Your company chose the certificate goal: finish the
+                required lessons and pass the final test at 80% or higher.
+              </p>
+              <a class="email-cta" href="#roofing">Open your module</a>
+              <p style="font-size: 11px; color: #617083">
+                Your admin sees completion and practice time by module. Your private AI
+                conversations are not shared.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Employee invitation rule</h3>
+              <p class="muted" style="margin-top: 12px">
+                Each invitation is tied to one named employee and one reserved seat. The link
+                expires after seven days, can be regenerated by the admin, and never exposes another
+                employee's progress.
+              </p>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div><h3>Suggested owner review choices</h3></div>
+          </div>
+          <div class="grid three">
+            <div class="card">
+              <span class="metric-label">Email delivery</span>
+              <h3 style="margin-top: 8px">Copy summary + invite links</h3>
+              <p class="small" style="margin-top: 9px">
+                Company admins can send both through their own email. The app remains the source of
+                truth.
+              </p>
+            </div>
+            <div class="card">
+              <span class="metric-label">Super admin</span>
+              <h3 style="margin-top: 8px">Usage + accounts + billing</h3>
+              <p class="small" style="margin-top: 9px">
+                Cross-company metrics with strict platform-owner permissions.
+              </p>
+            </div>
+            <div class="card">
+              <span class="metric-label">Certificate</span>
+              <h3 style="margin-top: 8px">80% per assigned module</h3>
+              <p class="small" style="margin-top: 9px">
+                Only reviewed tests can issue a language-learning completion certificate.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <span>Language Threshold · Roofing + team review</span
+        ><span>Roofing data: merged PR #25 · Admin figures: illustrative samples</span
+        ><span><a href="/team">Live team dashboard</a> · <a href="/owner">Owner dashboard</a></span>
+      </footer>
+    </div>
+
+    <dialog id="add-seat-dialog">
+      <h3>Add a learner seat</h3>
+      <p id="seat-quote"></p>
+      <div class="callout">
+        Review-only interaction. Confirming updates the sample numbers on this page; it does not
+        create a charge.
+      </div>
+      <div class="dialog-actions">
+        <button
+          type="button"
+          class="btn secondary"
+          onclick="document.getElementById('add-seat-dialog').close()"
+        >
+          Cancel</button
+        ><button type="button" id="confirm-seat" class="btn teal">Update sample</button>
+      </div>
+    </dialog>
+    <dialog id="assign-dialog">
+      <h3>Assign an employee</h3>
+      <p>
+        Reserve an available sample seat and assign Roofing Foreman. No invitation will be sent.
+      </p>
+      <div class="form-row">
+        <label for="employee-name-input">Employee name</label
+        ><input id="employee-name-input" autocomplete="off" placeholder="Employee name" />
+      </div>
+      <div class="form-row">
+        <label for="employee-email-input">Employee email</label
+        ><input
+          id="employee-email-input"
+          type="email"
+          autocomplete="off"
+          placeholder="name@company.com"
+        />
+      </div>
+      <p id="form-alert" class="small" role="alert"></p>
+      <div class="dialog-actions">
+        <button
+          type="button"
+          class="btn secondary"
+          onclick="document.getElementById('assign-dialog').close()"
+        >
+          Cancel</button
+        ><button type="button" id="confirm-assign" class="btn teal">Add sample invite</button>
+      </div>
+    </dialog>
+  </body>
+</html>

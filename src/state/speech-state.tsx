@@ -10,6 +10,8 @@ import {
 } from "react";
 import { toast } from "sonner";
 import type { Language } from "./app-state";
+import { decodeGoogleVoicePreference } from "@/data/mission-tts";
+import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
 
@@ -77,6 +79,7 @@ interface SpeechCtx {
   accentsForLanguage: AccentOption[];
   voiceURI: string | null;
   setVoiceURI: (uri: string | null) => void;
+  settingsHydrated: boolean;
 
   // Last clicked word (from WordCard)
   lastWord: string | null;
@@ -272,7 +275,9 @@ export function SpeechProvider({
       setAccentState(c);
       // A prior voice selection must not silently keep a Spain accent after
       // the learner switches to Costa Rica, Mexico, or another locale.
-      setVoiceURIState(null);
+      setVoiceURIState((current) =>
+        current && !decodeGoogleVoicePreference(current) ? DEVICE_DEFAULT_VOICE : null,
+      );
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         const prev = raw ? JSON.parse(raw) : {};
@@ -417,6 +422,7 @@ export function SpeechProvider({
       accentsForLanguage,
       voiceURI,
       setVoiceURI,
+      settingsHydrated,
       lastWord,
       setLastWord,
       recentWords,
@@ -437,6 +443,7 @@ export function SpeechProvider({
       accentsForLanguage,
       voiceURI,
       setVoiceURI,
+      settingsHydrated,
       lastWord,
       setLastWord,
       recentWords,

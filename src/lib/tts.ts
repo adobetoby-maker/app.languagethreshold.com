@@ -4,14 +4,17 @@
 // fallback when neither a Google preference nor an on-device voice exists.
 
 import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
+import { isIosDevice } from "@/lib/pwa-install";
 import { speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
 import { configureUtterance, getStoredVoicePreference, getVoicesForLocale } from "@/lib/voices";
+import { toast } from "sonner";
 
 const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
   ps: "ps",
 };
 
 let shared: HTMLAudioElement | null = null;
+let warnedAboutMobileFallback = false;
 function audioEl(): HTMLAudioElement {
   if (!shared) shared = new Audio();
   return shared;
@@ -96,7 +99,20 @@ export async function speakRemote(
       });
       opts?.onend?.();
       return;
-    } catch {
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      if (
+        !warnedAboutMobileFallback &&
+        typeof navigator !== "undefined" &&
+        isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
+      ) {
+        warnedAboutMobileFallback = true;
+        toast.warning("Clear voice unavailable", {
+          description:
+            "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
+          duration: 7000,
+        });
+      }
       await speakOnDevice(text, locale, rate, opts?.voiceURI, opts?.onend);
       return;
     }

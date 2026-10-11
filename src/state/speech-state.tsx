@@ -22,12 +22,16 @@ export interface AccentOption {
 
 export const ACCENTS_BY_LANGUAGE: Record<Language, AccentOption[]> = {
   Spanish: [
-    { code: "es-CR", label: "Costa Rica (es-CR)" },
-    { code: "es-419", label: "Latin America — general (es-419)" },
+    { code: "es-CR", label: "Costa Rica · default" },
     { code: "es-MX", label: "México (es-MX)" },
+    { code: "es-GT", label: "Guatemala (es-GT)" },
+    { code: "es-CO", label: "Colombia (es-CO)" },
+    { code: "es-PE", label: "Perú (es-PE)" },
+    { code: "es-CL", label: "Chile (es-CL)" },
+    { code: "es-AR", label: "Argentina (es-AR)" },
+    { code: "es-419", label: "Latin America · general" },
     { code: "es-US", label: "US Spanish (es-US)" },
     { code: "es-ES", label: "Spain (es-ES)" },
-    { code: "es-AR", label: "Argentina (es-AR)" },
   ],
   French: [
     { code: "fr-FR", label: "France (fr-FR)" },
@@ -122,6 +126,8 @@ export function SpeechProvider({
   const [rate, setRateState] = useState(1);
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
+  const [settingsHydrated, setSettingsHydrated] = useState(false);
+  const voiceLanguageRef = useRef(language);
   const [lastWord, setLastWordState] = useState<string | null>(null);
   const [recentWords, setRecentWords] = useState<string[]>([]);
   const [current, setCurrent] = useState<PlaybackInfo | null>(null);
@@ -144,23 +150,29 @@ export function SpeechProvider({
       }
     } catch {
       /* ignore */
+    } finally {
+      setSettingsHydrated(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Persist
   useEffect(() => {
+    if (!settingsHydrated || voiceLanguageRef.current !== language) return;
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       const prev = raw ? JSON.parse(raw) : {};
       const voiceByLang = { ...(prev.voiceByLang ?? {}) };
       if (voiceURI) voiceByLang[language] = voiceURI;
       else delete voiceByLang[language];
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ rate, listenedCount, voiceByLang }));
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ ...prev, rate, listenedCount, voiceByLang }),
+      );
     } catch {
       /* ignore */
     }
-  }, [rate, listenedCount, voiceURI, language]);
+  }, [rate, listenedCount, voiceURI, language, settingsHydrated]);
 
   // Hydrate recent-words history (separate localStorage key from the main
   // speech-settings blob above — kept independent so it can grow/shrink
@@ -200,14 +212,21 @@ export function SpeechProvider({
 
   // Reset accent + voice when language changes (load voice for new language)
   useEffect(() => {
-    setAccentState(accentsForLanguage[0].code);
+    voiceLanguageRef.current = language;
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       const parsed = raw ? JSON.parse(raw) : {};
       const v = parsed.voiceByLang?.[language];
       setVoiceURIState(typeof v === "string" ? v : null);
+      const savedAccent = parsed.accentByLang?.[language];
+      setAccentState(
+        accentsForLanguage.some((option) => option.code === savedAccent)
+          ? savedAccent
+          : accentsForLanguage[0].code,
+      );
     } catch {
       setVoiceURIState(null);
+      setAccentState(accentsForLanguage[0].code);
     }
     // Stop any active speech
     if (typeof window !== "undefined" && window.speechSynthesis) {
@@ -248,7 +267,23 @@ export function SpeechProvider({
   const setRate = useCallback((n: number) => {
     setRateState(n);
   }, []);
-  const setAccent = useCallback((c: string) => setAccentState(c), []);
+  const setAccent = useCallback(
+    (c: string) => {
+      setAccentState(c);
+      // A prior voice selection must not silently keep a Spain accent after
+      // the learner switches to Costa Rica, Mexico, or another locale.
+      setVoiceURIState(null);
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const prev = raw ? JSON.parse(raw) : {};
+        const accentByLang = { ...(prev.accentByLang ?? {}), [language]: c };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...prev, accentByLang }));
+      } catch {
+        /* ignore */
+      }
+    },
+    [language],
+  );
   const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
   const setLastWord = useCallback((w: string) => {
     setLastWordState(w);

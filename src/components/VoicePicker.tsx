@@ -32,14 +32,32 @@ const SAMPLES: Record<string, string> = {
   en: "Hello, how are you?",
 };
 
+const SPANISH_REGION_NAMES: Record<string, string> = {
+  "es-CR": "Costa Rica",
+  "es-MX": "México",
+  "es-GT": "Guatemala",
+  "es-CO": "Colombia",
+  "es-PE": "Perú",
+  "es-CL": "Chile",
+  "es-AR": "Argentina",
+  "es-419": "Latin America",
+  "es-US": "US Spanish",
+  "es-ES": "Spain",
+};
+
+function voiceRegion(locale: string): string {
+  return SPANISH_REGION_NAMES[locale] ?? locale;
+}
+
 export function VoicePicker({ compact = false }: { compact?: boolean }) {
-  const { accent, rate, voiceURI, setVoiceURI } = useSpeech();
+  const { accent, setAccent, accentsForLanguage, rate, voiceURI, setVoiceURI } = useSpeech();
   const { session } = useAuth();
   const [mounted, setMounted] = useState(false);
   const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [googleVoices, setGoogleVoices] = useState<GoogleTtsVoice[]>([]);
   const [googleReady, setGoogleReady] = useState(false);
   const [voiceSearch, setVoiceSearch] = useState("");
+  const [showAllVoices, setShowAllVoices] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -91,8 +109,15 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         : deviceVoices,
     [deviceVoices, normalizedSearch],
   );
+  const shownGoogleVoices =
+    normalizedSearch || showAllVoices ? visibleGoogleVoices : visibleGoogleVoices.slice(0, 6);
+  const shownDeviceVoices =
+    normalizedSearch || showAllVoices ? visibleDeviceVoices : visibleDeviceVoices.slice(0, 8);
+  const preferredDevice = pickVoice(accent, null);
+  const accentLabel = accentsForLanguage.find((option) => option.code === accent)?.label ?? accent;
+  const actualVoiceLocale = activeGoogle?.languageCodes[0] ?? activeDevice?.lang ?? null;
 
-  if (!mounted || (deviceVoices.length === 0 && googleVoices.length === 0)) return null;
+  if (!mounted) return null;
 
   const previewDevice = (voice: SpeechSynthesisVoice) => {
     stopMissionTts();
@@ -122,7 +147,14 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   };
 
   return (
-    <DropdownMenu onOpenChange={(open) => !open && setVoiceSearch("")}>
+    <DropdownMenu
+      onOpenChange={(open) => {
+        if (!open) {
+          setVoiceSearch("");
+          setShowAllVoices(false);
+        }
+      }}
+    >
       <DropdownMenuTrigger
         className={
           compact
@@ -130,7 +162,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
             : "group inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         }
         aria-label={compact ? "Choose site voice" : undefined}
-        title={activeGoogle?.label ?? activeDevice?.name ?? "Choose voice"}
+        title={`${accentLabel} · ${activeGoogle?.label ?? activeDevice?.name ?? "Choose voice"}`}
       >
         <AudioLines
           className={`h-3.5 w-3.5 ${googlePreference ? "text-gold" : "text-muted-foreground"}`}
@@ -147,8 +179,37 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         className="max-h-[70vh] w-[min(360px,calc(100vw-1.5rem))] overflow-y-auto border-border/70 bg-popover/95 backdrop-blur-xl"
       >
         <DropdownMenuLabel className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          Voice for {accent}
+          Accent and voice
         </DropdownMenuLabel>
+        <div className="px-2 pb-2">
+          <label
+            htmlFor="site-voice-accent"
+            className="mb-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground"
+          >
+            {family === "es" ? "Spanish accent / region" : "Accent / region"}
+          </label>
+          <select
+            id="site-voice-accent"
+            value={accent}
+            onChange={(event) => {
+              setAccent(event.target.value);
+              setVoiceSearch("");
+            }}
+            className="w-full rounded-lg border border-border/70 bg-background px-3 py-2 text-xs text-foreground focus:border-gold/60 focus:outline-none"
+          >
+            {accentsForLanguage.map((option) => (
+              <option key={option.code} value={option.code}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          {actualVoiceLocale && actualVoiceLocale.toLowerCase() !== accent.toLowerCase() && (
+            <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+              Playback uses {voiceRegion(actualVoiceLocale)} ({actualVoiceLocale}). Exact {accent}{" "}
+              voices are shown when available.
+            </p>
+          )}
+        </div>
         <div className="px-2 pb-2">
           <input
             type="search"
@@ -169,8 +230,13 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
           className="font-mono text-xs"
         >
           <span className={voiceURI === null ? "text-gold" : "opacity-60"}>◈</span>
-          <span className="flex-1">System default</span>
+          <span className="flex-1">Best available for {accentLabel}</span>
         </DropdownMenuItem>
+        {preferredDevice && voiceURI === null && (
+          <div className="px-2 pb-1 text-[11px] text-muted-foreground">
+            Current device voice: {preferredDevice.name} · {voiceRegion(preferredDevice.lang)}
+          </div>
+        )}
 
         {googleVoices.length > 0 && (
           <>
@@ -183,7 +249,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                 Sign in to use server voices. Device voices remain available without an account.
               </div>
             )}
-            {visibleGoogleVoices.map((voice) => {
+            {shownGoogleVoices.map((voice) => {
               const selected = activeGoogle?.name === voice.name;
               const languageCode = voice.languageCodes[0] ?? accent;
               return (
@@ -201,7 +267,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                   <div className="flex flex-1 flex-col gap-0.5">
                     <span className="leading-tight">{voice.label}</span>
                     <span className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                      {languageCode} · {voice.name}
+                      {voiceRegion(languageCode)} ({languageCode}) · {voice.name}
                     </span>
                   </div>
                 </DropdownMenuItem>
@@ -212,6 +278,18 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                 No Google voice matches “{voiceSearch}”.
               </div>
             )}
+            {!normalizedSearch && visibleGoogleVoices.length > shownGoogleVoices.length && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setShowAllVoices(true);
+                }}
+                className="w-full px-3 py-2 text-left font-mono text-[11px] text-gold hover:bg-accent"
+              >
+                Show all {googleVoices.length} Google voices
+              </button>
+            )}
           </>
         )}
 
@@ -221,7 +299,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
             <DropdownMenuLabel className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               <Smartphone className="h-3.5 w-3.5" /> This device · {deviceVoices.length} voices
             </DropdownMenuLabel>
-            {visibleDeviceVoices.map((voice) => {
+            {shownDeviceVoices.map((voice) => {
               const selected = activeDevice?.voiceURI === voice.voiceURI;
               return (
                 <DropdownMenuItem
@@ -237,14 +315,33 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
                   <div className="flex flex-1 flex-col gap-0.5">
                     <span className="leading-tight">{voice.name}</span>
                     <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                      {voice.lang}
+                      {voiceRegion(voice.lang)} ({voice.lang})
                       {voice.localService ? <span className="ml-2">offline</span> : null}
                     </span>
                   </div>
                 </DropdownMenuItem>
               );
             })}
+            {!normalizedSearch && visibleDeviceVoices.length > shownDeviceVoices.length && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setShowAllVoices(true);
+                }}
+                className="w-full px-3 py-2 text-left font-mono text-[11px] text-gold hover:bg-accent"
+              >
+                Show all {deviceVoices.length} device voices
+              </button>
+            )}
           </>
+        )}
+
+        {deviceVoices.length === 0 && googleVoices.length === 0 && (
+          <div className="px-2 py-3 text-xs text-muted-foreground">
+            No voices are available in this browser yet. The accent choice will apply when voices
+            load.
+          </div>
         )}
 
         <DropdownMenuSeparator />

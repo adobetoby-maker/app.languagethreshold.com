@@ -6,7 +6,11 @@
 //   4. Any voice for the locale.
 //   5. Any voice for the language family.
 
-import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
+import {
+  decodeGoogleVoicePreference,
+  languageFamily,
+  spanishVoiceLocaleRank,
+} from "@/data/mission-tts";
 
 const LISTENERS = new Set<() => void>();
 let cached: SpeechSynthesisVoice[] = [];
@@ -51,9 +55,19 @@ export function getVoicesForLocale(locale: string): SpeechSynthesisVoice[] {
   const family = locale.split("-")[0].toLowerCase();
   const exact = all.filter((v) => v.lang.toLowerCase() === locale.toLowerCase());
   const familyMatches = all.filter((v) => v.lang.toLowerCase().startsWith(family + "-"));
-  // Sort: Google voices first, then by name
-  const score = (v: SpeechSynthesisVoice) => (v.name.includes("Google") ? 0 : 1);
+  // Prefer the requested locale. For Spanish fallback, a nearby Latin American
+  // voice is less surprising than the browser's first Spain voice.
+  const score = (v: SpeechSynthesisVoice) => {
+    if (family === "es" && v.name === "Paulina") return 0;
+    if (v.name.includes("Google")) return 1;
+    if (/^(Eddy|Flo|Grandma|Grandpa|Reed|Rocko|Sandy|Shelley) \(/.test(v.name)) return 3;
+    return 2;
+  };
   return (exact.length > 0 ? exact : familyMatches).sort((a, b) => {
+    if (exact.length === 0 && family === "es") {
+      const localeOrder = spanishVoiceLocaleRank(a.lang) - spanishVoiceLocaleRank(b.lang);
+      if (localeOrder !== 0) return localeOrder;
+    }
     const s = score(a) - score(b);
     return s !== 0 ? s : a.name.localeCompare(b.name);
   });

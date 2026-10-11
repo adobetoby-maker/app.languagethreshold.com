@@ -31,6 +31,26 @@ export interface GoogleTtsVoice {
 
 const VOICE_PREFIX = "google:";
 
+// Costa Rican voices are uncommon in browser and Cloud catalogs. When an exact
+// voice is unavailable, keep Latin American Spanish ahead of Castilian Spanish.
+const SPANISH_FALLBACK_LOCALES = [
+  "es-CR",
+  "es-MX",
+  "es-GT",
+  "es-CO",
+  "es-PE",
+  "es-CL",
+  "es-AR",
+  "es-419",
+  "es-US",
+  "es-ES",
+];
+
+export function spanishVoiceLocaleRank(locale: string): number {
+  const index = SPANISH_FALLBACK_LOCALES.indexOf(locale.trim());
+  return index === -1 ? SPANISH_FALLBACK_LOCALES.length - 2 : index;
+}
+
 export function isMissionTtsSpeed(value: number): value is MissionTtsSpeed {
   return MISSION_TTS_SPEEDS.some((speed) => speed === value);
 }
@@ -88,8 +108,14 @@ export function googleVoicesForLocale(voices: GoogleTtsVoice[], locale: string):
   if (exactMatches.length > 0) return sortGoogleTtsVoices(exactMatches);
 
   const family = languageFamily(locale);
-  return sortGoogleTtsVoices(
+  const familyMatches = sortGoogleTtsVoices(
     voices.filter((voice) => voice.languageCodes.some((code) => languageFamily(code) === family)),
+  );
+  if (family !== "es") return familyMatches;
+  return familyMatches.sort(
+    (a, b) =>
+      spanishVoiceLocaleRank(a.languageCodes[0] ?? "") -
+      spanishVoiceLocaleRank(b.languageCodes[0] ?? ""),
   );
 }
 

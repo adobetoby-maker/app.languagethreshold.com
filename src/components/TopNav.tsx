@@ -25,12 +25,18 @@ import { AuthButton } from "./auth/AuthButton";
 // Uses the canonical list from app-state. A local copy here is how Chinese
 // went missing from this switcher while the first-run gate offered it.
 
-
-const TABS: { key: TabKey; label: string; module?: string; language?: Language }[] = [
+const TABS: {
+  key: TabKey;
+  label: string;
+  module?: string;
+  language?: Language;
+  languages?: Language[];
+}[] = [
   { key: "modules", label: "Modules" },
   { key: "missionary", label: "Missionary", module: "lds-missionary" },
   { key: "orthopedics", label: "Orthopedics", module: "orthopedics" },
   { key: "reader", label: "Reader" },
+  { key: "characters", label: "Characters", languages: ["Japanese", "Chinese"] },
   { key: "flashcards", label: "Flashcards" },
   { key: "kana", label: "Kana Pad", language: "Japanese" },
   { key: "grammar", label: "Grammar Studio" },
@@ -183,7 +189,8 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
           {TABS.filter(
             (t) =>
               (!t.module || state.activeModuleId === t.module) &&
-              (!t.language || state.selectedLanguage === t.language),
+              (!t.language || state.selectedLanguage === t.language) &&
+              (!t.languages || t.languages.includes(state.selectedLanguage)),
           ).map((tab) => {
             const active = state.currentTab === tab.key;
             return (

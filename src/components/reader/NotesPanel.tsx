@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { ChevronRight, Trash2, NotebookPen, Pencil, PenLine, Check, X } from "lucide-react";
+import { ChevronRight, Trash2, NotebookPen, Pencil, PenLine, Check, Plus, X } from "lucide-react";
 import { useNotes, type Annotation } from "@/state/notes-state";
 import { useApp } from "@/state/app-state";
 import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput";
 import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export function NotesPanel({
   textId,
@@ -12,53 +20,132 @@ export function NotesPanel({
   textId: string;
   onGoTo: (pane: "left" | "right", sentenceIndex: number) => void;
 }) {
-  const { forText, remove, update } = useNotes();
+  const { forText, add, remove, update } = useNotes();
+  const { state } = useApp();
   const [open, setOpen] = useState(false);
+  const [adding, setAdding] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [drawMode, setDrawMode] = useState(false);
   const list = forText(textId).sort((a, b) => b.createdAt - a.createdAt);
   const noteCount = list.filter((a) => a.noteText).length;
 
-  return (
-    <>
-      {/* Tab handle */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Toggle notes panel"
-        className="fixed right-0 top-1/2 z-30 -translate-y-1/2 rounded-l-2xl border border-r-0 border-gold/40 bg-card/90 px-2 py-4 shadow-luxe backdrop-blur transition-colors hover:bg-gold/10"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <NotebookPen className="h-4 w-4 text-gold" />
-          <span className="rounded-full bg-gold px-1.5 py-0.5 font-mono text-[9px] font-semibold text-midnight">
-            {list.length}
-          </span>
-          <ChevronRight
-            className={`h-3 w-3 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
-          />
-        </div>
-      </button>
+  function saveNote() {
+    const noteText = draft.trim();
+    if (!noteText) return;
+    add({ textId, pane: "left", sentenceIndex: 0, selectedText: "", noteText });
+    setDraft("");
+    setDrawMode(false);
+    setAdding(false);
+  }
 
-      {/* Drawer */}
-      <aside
-        aria-hidden={!open}
-        className={`fixed right-0 top-0 z-40 h-screen w-[360px] max-w-[88vw] transform border-l border-gold/30 bg-card/95 shadow-luxe backdrop-blur-xl transition-transform duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <button
+          type="button"
+          aria-label="Open margin notes"
+          className="fixed right-0 top-1/2 z-30 -translate-y-1/2 rounded-l-2xl border border-r-0 border-gold/40 bg-card/90 px-2 py-4 shadow-luxe backdrop-blur transition-colors hover:bg-gold/10"
+        >
+          <span className="flex flex-col items-center gap-2">
+            <NotebookPen className="h-4 w-4 text-gold" />
+            <span className="rounded-full bg-gold px-1.5 py-0.5 font-mono text-[9px] font-semibold text-midnight">
+              {list.length}
+            </span>
+            <ChevronRight className="h-3 w-3 text-muted-foreground" />
+          </span>
+        </button>
+      </SheetTrigger>
+
+      <SheetContent
+        side="right"
+        className="h-dvh w-[360px] max-w-[88vw] border-l border-gold/30 bg-card/95 p-0 shadow-luxe backdrop-blur-xl sm:max-w-[360px]"
       >
-        <div className="flex items-center justify-between border-b border-border/60 px-5 py-4">
+        <SheetDescription className="sr-only">
+          Review highlights and notes for this reading passage.
+        </SheetDescription>
+        <div className="flex items-center justify-between gap-2 border-b border-border/60 px-5 py-4 pr-12">
           <div className="flex items-center gap-2">
             <span className="text-gold">✦</span>
-            <h3 className="font-display text-lg italic text-foreground">Margin Notes</h3>
+            <SheetTitle className="font-display text-lg italic text-foreground">
+              Margin Notes
+            </SheetTitle>
           </div>
           <span className="rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
             {noteCount} note{noteCount === 1 ? "" : "s"}
           </span>
         </div>
 
-        <div className="custom-scroll h-[calc(100vh-66px)] overflow-y-auto px-4 py-4">
+        <SheetClose className="mx-4 mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg border border-gold/35 bg-gold/10 px-3 text-xs font-semibold text-gold transition-colors hover:bg-gold/15">
+          <ChevronRight className="h-4 w-4 rotate-180" /> Back to reading
+        </SheetClose>
+
+        <div className="custom-scroll h-[calc(100dvh-125px)] overflow-y-auto px-4 py-4">
+          {adding ? (
+            <div className="mb-4 rounded-xl border border-gold/40 bg-gold/5 p-3">
+              <MultilingualNoteInput
+                language={state.selectedLanguage}
+                value={draft}
+                onChange={setDraft}
+                onSave={saveNote}
+                rows={3}
+                autoFocus
+              />
+              {drawMode && (
+                <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
+                  <HandwritingCanvas
+                    onRecognized={(text) => setDraft((previous) => previous + text)}
+                    insertLabel="Insert →"
+                  />
+                </div>
+              )}
+              <div className="mt-2 flex items-center justify-between gap-2">
+                {(state.selectedLanguage === "Japanese" ||
+                  state.selectedLanguage === "Chinese") && (
+                  <button
+                    type="button"
+                    onClick={() => setDrawMode((value) => !value)}
+                    className="inline-flex min-h-11 items-center gap-1 rounded-lg border border-gold/30 px-2 text-xs text-gold"
+                  >
+                    <PenLine className="h-3.5 w-3.5" /> Draw
+                  </button>
+                )}
+                <div className="ml-auto flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAdding(false);
+                      setDraft("");
+                      setDrawMode(false);
+                    }}
+                    className="min-h-11 rounded-lg px-2 text-xs text-muted-foreground"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={saveNote}
+                    disabled={!draft.trim()}
+                    className="min-h-11 rounded-lg bg-gold px-3 text-xs font-semibold text-midnight disabled:opacity-40"
+                  >
+                    Save note
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setAdding(true)}
+              className="mb-4 inline-flex min-h-11 items-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-3 text-xs font-semibold text-gold"
+            >
+              <Plus className="h-3.5 w-3.5" /> Add a note
+            </button>
+          )}
           {list.length === 0 ? (
             <div className="mt-16 px-6 text-center">
               <div className="mx-auto mb-3 text-3xl text-gold">✦</div>
               <p className="font-display text-sm italic text-muted-foreground">
-                Select any text to add your first note
+                Select text to mark a word or phrase, or add a thought above.
               </p>
             </div>
           ) : (
@@ -67,7 +154,10 @@ export function NotesPanel({
                 <NoteCard
                   key={a.id}
                   ann={a}
-                  onGoTo={onGoTo}
+                  onGoTo={(pane, sentenceIndex) => {
+                    onGoTo(pane, sentenceIndex);
+                    setOpen(false);
+                  }}
                   onRemove={() => remove(a.id)}
                   onSave={(text) => update(a.id, text)}
                 />
@@ -75,8 +165,8 @@ export function NotesPanel({
             </ul>
           )}
         </div>
-      </aside>
-    </>
+      </SheetContent>
+    </Sheet>
   );
 }
 
@@ -113,9 +203,11 @@ function NoteCard({
 
   return (
     <li className="group rounded-xl border border-border/60 bg-background/40 p-3 transition-colors hover:border-gold/40">
-      <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] italic leading-snug text-foreground">
-        "{ann.selectedText}"
-      </div>
+      {ann.selectedText && (
+        <div className="mb-2 rounded-md bg-gold/20 px-2 py-1.5 font-display text-[13px] italic leading-snug text-foreground">
+          "{ann.selectedText}"
+        </div>
+      )}
 
       {editing ? (
         <div className="mb-2">
@@ -136,7 +228,10 @@ function NoteCard({
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
-              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} insertLabel="Insert →" />
+              <HandwritingCanvas
+                onRecognized={(text) => setDraft((prev) => prev + text)}
+                insertLabel="Insert →"
+              />
             </div>
           )}
           <div className="mt-2 flex items-center justify-between gap-2">
@@ -187,12 +282,18 @@ function NoteCard({
       )}
 
       <div className="flex items-center justify-between">
-        <button
-          onClick={() => onGoTo(ann.pane, ann.sentenceIndex)}
-          className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold hover:underline"
-        >
-          ↳ Go to {ann.pane === "left" ? "English" : "target"}
-        </button>
+        {ann.selectedText ? (
+          <button
+            onClick={() => onGoTo(ann.pane, ann.sentenceIndex)}
+            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold hover:underline"
+          >
+            ↳ Go to {ann.pane === "left" ? "English" : "target"}
+          </button>
+        ) : (
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            Reading note
+          </span>
+        )}
         <div className="flex items-center gap-1">
           {!editing && (
             <button

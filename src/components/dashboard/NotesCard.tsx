@@ -16,7 +16,7 @@ export function NotesCard() {
   const {
     state: { entries },
   } = useLibrary();
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
 
   const [adding, setAdding] = useState(false);
   const [draft, setDraft] = useState("");
@@ -26,6 +26,7 @@ export function NotesCard() {
     const map = new Map(entries.map((e) => [e.id, `${e.flag ?? ""} ${e.title}`.trim()]));
     return (textId: string) => {
       if (textId === DASHBOARD_TEXT_ID) return "Standalone notes";
+      if (textId === "sidebar") return "Quick notes";
       return map.get(textId) ?? "Untitled passage";
     };
   }, [entries]);
@@ -77,6 +78,26 @@ export function NotesCard() {
           {annotations.length} saved
         </span>
       </div>
+      <p className="mb-4 text-xs text-muted-foreground">
+        Notes are saved in this browser and do not yet sync between devices.
+      </p>
+
+      {(state.selectedLanguage === "Japanese" || state.selectedLanguage === "Chinese") && (
+        <button
+          type="button"
+          onClick={() => {
+            try {
+              sessionStorage.setItem("lt.characterStudio.startWriting", "1");
+            } catch {
+              /* continue to the studio when storage is unavailable */
+            }
+            dispatch({ type: "SET_TAB", payload: "characters" });
+          }}
+          className="mb-5 inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
+        >
+          Open character and radical practice
+        </button>
+      )}
 
       {adding ? (
         <div className="mb-5 rounded-xl border border-gold/40 bg-gold/5 p-3">
@@ -97,7 +118,10 @@ export function NotesCard() {
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
-              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} insertLabel="Insert →" />
+              <HandwritingCanvas
+                onRecognized={(text) => setDraft((prev) => prev + text)}
+                insertLabel="Insert →"
+              />
             </div>
           )}
           <div className="mt-2 flex items-center justify-between gap-2">
@@ -144,8 +168,8 @@ export function NotesCard() {
 
       {annotations.length === 0 ? (
         <p className="text-sm text-muted-foreground">
-          Highlight any sentence in the <span className="text-gold">Reader</span> to save it here
-          as a note — or add a standalone thought above.
+          Highlight any sentence in the <span className="text-gold">Reader</span> to save it here as
+          a note — or add a standalone thought above.
         </p>
       ) : (
         <div className="space-y-5">
@@ -228,7 +252,10 @@ function NoteRow({
           />
           {drawMode && (
             <div className="mt-3 overflow-hidden rounded-xl border border-gold/20">
-              <HandwritingCanvas onRecognized={(text) => setDraft((prev) => prev + text)} insertLabel="Insert →" />
+              <HandwritingCanvas
+                onRecognized={(text) => setDraft((prev) => prev + text)}
+                insertLabel="Insert →"
+              />
             </div>
           )}
           <div className="mt-2 flex items-center justify-between gap-2">

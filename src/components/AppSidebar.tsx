@@ -118,6 +118,7 @@ const TAB_ITEMS: {
   Icon: React.ElementType;
   moduleOnly?: string;
   moduleFilter?: (id: string | null) => boolean;
+  languages?: Language[];
 }[] = [
   // ── Orientation ──────────────────────────────────────────────────────────────
   { key: "guide", label: "App Guide", short: "Guide", group: "Orientation", Icon: Compass },
@@ -163,6 +164,14 @@ const TAB_ITEMS: {
   },
   // ── Core lessons ─────────────────────────────────────────────────────────────
   { key: "reader", label: "Reader", short: "Reader", group: "Core Lessons", Icon: BookOpen },
+  {
+    key: "characters",
+    label: "Character Studio",
+    short: "Characters",
+    group: "Core Lessons",
+    Icon: PenLine,
+    languages: ["Japanese", "Chinese"],
+  },
   { key: "story", label: "Daily Story", short: "Story", group: "Core Lessons", Icon: Sparkle },
   {
     key: "grammar",
@@ -327,7 +336,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       textId: SIDEBAR_NOTE_TEXT_ID,
       pane: "left",
       sentenceIndex: 0,
-      selectedText: trimmed,
+      selectedText: "",
       noteText: trimmed,
     });
     setNoteDraft("");
@@ -336,6 +345,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   }
 
   const visible = TAB_ITEMS.filter((t) => {
+    if (t.languages && !t.languages.includes(state.selectedLanguage)) return false;
     if (t.moduleFilter) return t.moduleFilter(state.activeModuleId);
     if (t.moduleOnly) return state.activeModuleId === t.moduleOnly;
     return true;
@@ -650,9 +660,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           >
             <span className="flex items-center gap-2.5 text-sm text-foreground">
               <History className="h-4 w-4 text-gold/70" strokeWidth={1.6} />
-              {recentWords.length > 0
-                ? `${recentWords.length} looked up`
-                : "None looked up yet"}
+              {recentWords.length > 0 ? `${recentWords.length} looked up` : "None looked up yet"}
             </span>
             <ChevronDown
               className={cn(

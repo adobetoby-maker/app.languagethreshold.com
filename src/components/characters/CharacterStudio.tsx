@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { BookOpen, Shield, Sparkles, Layers } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { BookOpen, Shield, Sparkles, Layers, PenLine } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import {
   CHARACTER_CATEGORY_LABELS,
@@ -11,8 +11,9 @@ import {
 } from "@/data/cjk";
 import { CharacterDetail } from "./CharacterDetail";
 import { RadicalMatch } from "./RadicalMatch";
+import { CharacterCanvas } from "@/components/kana/writing/CharacterCanvas";
 
-type StudioMode = "characters" | "radicals" | "match";
+type StudioMode = "characters" | "radicals" | "match" | "writing";
 
 const JA_FILTERS: Array<CharacterCategory | "all"> = [
   "all",
@@ -44,6 +45,18 @@ export function CharacterStudio() {
   const [mode, setMode] = useState<StudioMode>("characters");
   const [filter, setFilter] = useState<CharacterCategory | "all">("all");
   const [selected, setSelected] = useState<CjkCharacter | null>(null);
+  const [practiceGlyph, setPracticeGlyph] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("lt.characterStudio.startWriting") === "1") {
+        sessionStorage.removeItem("lt.characterStudio.startWriting");
+        setMode("writing");
+      }
+    } catch {
+      /* regular Character Studio navigation still works without storage */
+    }
+  }, []);
 
   const filters = cjk === "Chinese" ? ZH_FILTERS : JA_FILTERS;
 
@@ -51,6 +64,29 @@ export function CharacterStudio() {
     if (!cjk) return [];
     return getCharactersByCategory(cjk, filter);
   }, [cjk, filter]);
+  const practiceTargets = useMemo(() => {
+    const targets = [
+      ...characters.slice(0, 12).map((character) => ({
+        glyph: character.char,
+        meaning: character.meanings[0],
+        strokeCount: character.strokeCount,
+        hint: character.strokeOrderHint,
+      })),
+      ...CORE_RADICALS.slice(0, 12).map((radical) => ({
+        glyph: radical.glyph,
+        meaning: radical.meaning,
+        strokeCount: radical.strokeCount,
+        hint: undefined as string | undefined,
+      })),
+    ];
+    const unique = new Map<string, (typeof targets)[number]>();
+    for (const target of targets) {
+      if (!unique.has(target.glyph)) unique.set(target.glyph, target);
+    }
+    return [...unique.values()];
+  }, [characters]);
+  const activePractice =
+    practiceTargets.find((target) => target.glyph === practiceGlyph) ?? practiceTargets[0];
 
   const handlePointerDown = (char: CjkCharacter) => {
     const id = window.setTimeout(() => setSelected(char), 400);
@@ -107,6 +143,7 @@ export function CharacterStudio() {
               { id: "characters" as const, label: "Characters", Icon: BookOpen },
               { id: "radicals" as const, label: "Radicals", Icon: Layers },
               { id: "match" as const, label: "Radical match", Icon: Shield },
+              { id: "writing" as const, label: "Writing practice", Icon: PenLine },
             ] as const
           ).map(({ id, label, Icon }) => (
             <button
@@ -182,6 +219,44 @@ export function CharacterStudio() {
         )}
 
         {mode === "match" && <RadicalMatch language={cjk} />}
+
+        {mode === "writing" && activePractice && (
+          <section className="space-y-5 rounded-2xl border border-border/60 bg-card/40 p-4 sm:p-6">
+            <div>
+              <h2 className="font-display text-xl text-foreground">
+                Write characters and radicals
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Choose a symbol, trace the guide with a finger or pen, then clear it and write from
+                memory. The canvas clears when you leave this page.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2" aria-label="Choose a writing target">
+              {practiceTargets.map((target) => (
+                <button
+                  key={`${target.glyph}-${target.meaning}`}
+                  type="button"
+                  onClick={() => setPracticeGlyph(target.glyph)}
+                  aria-pressed={activePractice.glyph === target.glyph}
+                  title={target.meaning}
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-border/60 bg-background/50 px-2 text-xl text-foreground aria-pressed:border-gold aria-pressed:bg-gold/10"
+                >
+                  {target.glyph}
+                </button>
+              ))}
+            </div>
+            <div className="rounded-xl border border-gold/25 bg-background/40 p-3">
+              <p className="text-sm font-semibold text-foreground">
+                {activePractice.glyph} · {activePractice.meaning} · {activePractice.strokeCount}{" "}
+                strokes
+              </p>
+              {activePractice.hint && (
+                <p className="mt-1 text-xs text-muted-foreground">{activePractice.hint}</p>
+              )}
+            </div>
+            <CharacterCanvas key={activePractice.glyph} guideChar={activePractice.glyph} />
+          </section>
+        )}
       </div>
     </>
   );

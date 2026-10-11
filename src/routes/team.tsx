@@ -14,6 +14,7 @@ import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
+import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
 
 export const Route = createFileRoute("/team")({
@@ -266,7 +267,7 @@ function TeamPage() {
         <section className={card + " max-w-xl"}>
           <h2 className="mb-2 text-xl font-semibold">Create your company workspace</h2>
           <p className="mb-5 text-sm text-muted-foreground">
-            Start with 15 learner seats. Admin-only accounts do not use a learner seat.
+            Start with five learner seats. Admin-only accounts do not use a learner seat.
           </p>
           <form
             onSubmit={(event) => {
@@ -378,8 +379,8 @@ function AdminWorkspace({
   const [inviteRole, setInviteRole] = useState<"learner" | "admin">("learner");
   const [delivery, setDelivery] = useState<"manual" | "email">("manual");
   const [inviteLinks, setInviteLinks] = useState<InviteLink[]>([]);
-  const [term, setTerm] = useState<"quarterly" | "annual">("annual");
-  const [initialSeats, setInitialSeats] = useState(15);
+  const [term, setTerm] = useState<TeamTerm>("monthly");
+  const [initialSeats, setInitialSeats] = useState(TEAM_MIN_SEATS);
   const [addSeats, setAddSeats] = useState(1);
   const [quote, setQuote] = useState<{
     estimateCents: number;
@@ -689,9 +690,10 @@ function AdminWorkspace({
           {data.entitlement.status === "pending" ? (
             <div className="space-y-3">
               <p className="text-sm">
-                Launch with 15 or more seats. The 15-seat offer is{" "}
-                <strong>$747 for three months</strong> or <strong>$2,490 for one year</strong>,
-                renewable.
+                Start with <strong>five seats for $99/month</strong>. For 15 seats, pay{" "}
+                <strong>$249/month</strong>, <strong>$747 for three months</strong>, or{" "}
+                <strong>$2,490 for one year</strong>. Extra seats are $15/month each, with
+                annual billing equal to ten months. Plans renew unless canceled.
               </p>
               <div className="flex flex-wrap gap-2">
                 <select
@@ -699,13 +701,14 @@ function AdminWorkspace({
                   value={term}
                   onChange={(e) => setTerm(e.target.value as typeof term)}
                 >
+                  <option value="monthly">Monthly</option>
                   <option value="quarterly">3 months</option>
                   <option value="annual">1 year</option>
                 </select>
                 <input
                   aria-label="Initial learner seats"
                   type="number"
-                  min={15}
+                  min={TEAM_MIN_SEATS}
                   max={1000}
                   className={input + " max-w-28"}
                   value={initialSeats}
@@ -713,7 +716,10 @@ function AdminWorkspace({
                 />
               </div>
               <p className="text-sm text-gold-ink dark:text-gold">
-                {money((term === "annual" ? 16600 : 4980) * initialSeats)} / term
+                {initialSeats >= TEAM_MIN_SEATS
+                  ? money(teamPeriodCents(initialSeats, term))
+                  : "Select at least five seats"}{" "}
+                / term
               </p>
               {!data.enrollmentEnabled && (
                 <p className="text-sm text-amber-700 dark:text-amber-300">
@@ -722,7 +728,7 @@ function AdminWorkspace({
                 </p>
               )}
               <button
-                disabled={busy || initialSeats < 15 || !data.enrollmentEnabled}
+                disabled={busy || initialSeats < TEAM_MIN_SEATS || !data.enrollmentEnabled}
                 onClick={() => void billing("checkout", { term, seats: initialSeats })}
                 className={button}
               >

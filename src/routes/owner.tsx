@@ -671,9 +671,11 @@ function OrgRow({
       (moduleSeconds.get(event.module_id) ?? 0) + event.active_seconds,
     );
   const top = [...moduleSeconds.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "—";
-  const [seats, setSeats] = useState(entitlement?.seat_limit ?? 15);
-  const [term, setTerm] = useState<"quarterly" | "annual">(
-    entitlement?.term === "quarterly" ? "quarterly" : "annual",
+  const [seats, setSeats] = useState(entitlement?.seat_limit ?? 5);
+  const [term, setTerm] = useState<"monthly" | "quarterly" | "annual">(
+    entitlement?.term === "monthly" || entitlement?.term === "quarterly"
+      ? entitlement.term
+      : "annual",
   );
   return (
     <tr className="border-b border-border/40 align-top">
@@ -717,6 +719,7 @@ function OrgRow({
               value={term}
               onChange={(e) => setTerm(e.target.value as typeof term)}
             >
+              <option value="monthly">1 mo</option>
               <option value="quarterly">3 mo</option>
               <option value="annual">1 yr</option>
             </select>
@@ -731,7 +734,7 @@ function OrgRow({
                     seats,
                     term,
                     periodEnd: new Date(
-                      Date.now() + (term === "annual" ? 365 : 90) * 86400000,
+                      Date.now() + (term === "annual" ? 365 : term === "quarterly" ? 90 : 30) * 86400000,
                     ).toISOString(),
                   },
                   "Manual entitlement updated.",

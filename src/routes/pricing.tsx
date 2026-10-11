@@ -376,7 +376,8 @@ export default function PricingPage() {
                 Training a crew or company?
               </p>
               <p className="text-sm text-muted-foreground">
-                Teams start at 15 learner seats: $747 for three months or $2,490 for one year. Every
+                Teams start at five learner seats for $99/month. Extra seats are $15/month each:
+                15 seats cost $249/month, $747 for three months, or $2,490 for one year. Every
                 learner can use every published module. Company admins can assign a focus, invite
                 employees, and review practice and certificates.
               </p>

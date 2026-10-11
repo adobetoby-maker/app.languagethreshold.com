@@ -42,7 +42,12 @@ async function syncTeamSubscription(sub: Stripe.Subscription) {
     .update({
       seat_limit: item?.quantity ?? 0,
       status,
-      term: sub.metadata.term === "annual" ? "annual" : "quarterly",
+      term:
+        sub.metadata.term === "annual"
+          ? "annual"
+          : sub.metadata.term === "monthly"
+            ? "monthly"
+            : "quarterly",
       stripe_customer_id: customerId(sub.customer) ?? null,
       stripe_subscription_id: sub.id,
       period_end: item?.current_period_end

@@ -9,13 +9,14 @@ import {
   teamAdminClient,
   teamError,
 } from "@/lib/team-server";
+import { TEAM_MIN_SEATS, teamPeriodCents, teamPriceTiers, type TeamTerm } from "@/lib/team-pricing";
 
 const bodySchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("checkout"),
     orgId: z.string().uuid(),
-    term: z.enum(["quarterly", "annual"]),
-    seats: z.number().int().min(15).max(1000),
+    term: z.enum(["monthly", "quarterly", "annual"]),
+    seats: z.number().int().min(TEAM_MIN_SEATS).max(1000),
   }),
   z.object({
     action: z.literal("quote"),
@@ -29,7 +30,31 @@ const bodySchema = z.discriminatedUnion("action", [
   }),
   z.object({ action: z.literal("portal"), orgId: z.string().uuid() }),
 ]);
-const unitCents = { quarterly: 4980, annual: 16600 } as const;
+
+async function teamStripePrice(stripe: Stripe, term: TeamTerm) {
+  const lookupKey = `language-threshold-team-${term}-v2`;
+  const existing = await stripe.prices.list({ lookup_keys: [lookupKey], limit: 1 });
+  if (existing.data[0]) return existing.data[0];
+  const { baseCents, extraSeatCents } = teamPriceTiers(term);
+  return stripe.prices.create(
+    {
+      currency: "usd",
+      billing_scheme: "tiered",
+      tiers_mode: "graduated",
+      tiers: [
+        { up_to: TEAM_MIN_SEATS, flat_amount: baseCents, unit_amount: 0 },
+        { up_to: "inf", unit_amount: extraSeatCents },
+      ],
+      recurring:
+        term === "annual"
+          ? { interval: "year" }
+          : { interval: "month", interval_count: term === "quarterly" ? 3 : 1 },
+      product_data: { name: "Language Threshold Teams learner seats" },
+      lookup_key: lookupKey,
+    },
+    { idempotencyKey: `team-price:${lookupKey}` },
+  );
+}
 
 export const Route = createFileRoute("/api/team-billing")({
   server: {
@@ -66,7 +91,7 @@ export const Route = createFileRoute("/api/team-billing")({
               throw new Error(
                 "This team already has a subscription. Use Add seats or Manage billing.",
               );
-            const unit = unitCents[body.term];
+            const price = await teamStripePrice(stripe, body.term);
             const checkout: Stripe.Checkout.SessionCreateParams = {
               mode: "subscription",
               customer_email: org.billing_email,
@@ -74,15 +99,7 @@ export const Route = createFileRoute("/api/team-billing")({
               line_items: [
                 {
                   quantity: body.seats,
-                  price_data: {
-                    currency: "usd",
-                    unit_amount: unit,
-                    product_data: { name: "Language Threshold Teams learner seat" },
-                    recurring:
-                      body.term === "quarterly"
-                        ? { interval: "month", interval_count: 3 }
-                        : { interval: "year" },
-                  },
+                  price: price.id,
                 },
               ],
               metadata: { organizationId: body.orgId, teamPlan: "1", term: body.term },
@@ -142,15 +159,20 @@ export const Route = createFileRoute("/api/team-billing")({
             0,
             Math.min(1, (periodEnd - Date.now()) / Math.max(1, periodEnd - periodStart)),
           );
-          const estimateCents = Math.round(
-            unitCents[entitlement.term as "quarterly" | "annual"] * body.addSeats * fraction,
-          );
+          const term = entitlement.term as TeamTerm;
+          const fullPeriodIncrease =
+            item.price.billing_scheme === "tiered"
+              ? teamPeriodCents(current + body.addSeats, term) - teamPeriodCents(current, term)
+              : (item.price.unit_amount ?? 0) * body.addSeats;
+          const estimateCents = Math.round(fullPeriodIncrease * fraction);
           if (body.action === "quote")
             return json({
               addSeats: body.addSeats,
               newSeatLimit: current + body.addSeats,
               estimateCents,
-              unitCents: unitCents[entitlement.term as "quarterly" | "annual"],
+              unitCents: item.price.billing_scheme === "tiered"
+                ? teamPriceTiers(term).extraSeatCents
+                : item.price.unit_amount,
               term: entitlement.term,
               periodEnd: new Date(periodEnd).toISOString(),
               note: "Prorated estimate before tax or discounts. Stripe shows the final invoice.",

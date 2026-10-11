@@ -58,7 +58,7 @@ function AcceptInvite() {
         ) : (
           <>
             <p className="mt-3 text-sm text-muted-foreground">
-              Sign in with the email address that received this invitation. Acceptance reserves your
+              Sign in with the email address named on your invitation. Acceptance reserves your
               company seat and sets your first module focus. Your seat includes the full module
               library.
             </p>

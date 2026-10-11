@@ -69,6 +69,7 @@ type Certificate = {
 type TeamData = {
   organization: { id: string; name: string; billing_email: string; onboarding_step: number };
   enrollmentEnabled: boolean;
+  emailEnabled: boolean;
   entitlement: {
     seat_limit: number;
     term: string | null;
@@ -86,6 +87,7 @@ type TeamData = {
   certificates: Certificate[];
 };
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
+type InviteLink = { id: string; name: string; email: string; url: string };
 
 const card = "rounded-2xl border border-border/60 bg-card/50 p-5";
 const input = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
@@ -176,7 +178,7 @@ function TeamPage() {
     }
   }
 
-  if (authLoading || loading)
+  if (authLoading || (loading && !data))
     return (
       <Page>
         <p className="text-muted-foreground">Loading team workspace…</p>
@@ -304,6 +306,7 @@ function TeamPage() {
       {data &&
         (data.role === "owner" || data.role === "admin" ? (
           <AdminWorkspace
+            key={data.organization.id}
             data={data}
             busy={busy}
             setBusy={setBusy}
@@ -370,6 +373,8 @@ function AdminWorkspace({
   const [moduleId, setModuleId] = useState("roofing");
   const [certificate, setCertificate] = useState(true);
   const [inviteRole, setInviteRole] = useState<"learner" | "admin">("learner");
+  const [delivery, setDelivery] = useState<"manual" | "email">("manual");
+  const [inviteLinks, setInviteLinks] = useState<InviteLink[]>([]);
   const [term, setTerm] = useState<"quarterly" | "annual">("annual");
   const [initialSeats, setInitialSeats] = useState(15);
   const [addSeats, setAddSeats] = useState(1);
@@ -381,17 +386,57 @@ function AdminWorkspace({
   const [showTour, setShowTour] = useState(data.organization.onboarding_step < 6);
   const [tourStep, setTourStep] = useState(data.organization.onboarding_step);
   const activeLearners = data.members.filter((m) => m.role === "learner" && m.status === "active");
-  const pending = data.invitations.filter((i) => i.role === "learner" && i.status === "pending");
-  const seatsUsed = activeLearners.length + pending.length;
+  const pending = data.invitations.filter((i) => i.status === "pending");
+  const seatsUsed = activeLearners.length + pending.filter((i) => i.role === "learner").length;
   const active30 = new Set(data.activity.map((a) => a.user_id)).size;
   const totalMinutes = minutes(data.activity.reduce((sum, a) => sum + a.active_seconds, 0));
   const remaining = Math.max(0, data.entitlement.seat_limit - seatsUsed);
+
+  async function copyText(value: string, success: string) {
+    try {
+      await navigator.clipboard.writeText(value);
+      setNotice(success);
+    } catch {
+      setError("Copy was blocked by your browser. Select the text and copy it manually.");
+    }
+  }
+
+  function downloadInviteLinks() {
+    const rows = [
+      ["Name", "Email", "Invitation link"],
+      ...inviteLinks.map((link) => [link.name, link.email, link.url]),
+    ];
+    const csvText = rows
+      .map((row) =>
+        row
+          .map((value) => {
+            const safe = /^[=+@-]/.test(value) ? `'${value}` : value;
+            return `"${safe.replaceAll('"', '""')}"`;
+          })
+          .join(","),
+      )
+      .join("\n");
+    const url = URL.createObjectURL(new Blob([csvText], { type: "text/csv;charset=utf-8" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "team-invitation-links.csv";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function adminSummary() {
+    const modules = [
+      ...new Set(data.assignments.map((a) => getModule(a.module_id)?.name ?? a.module_id)),
+    ];
+    return `${data.organization.name} · Language Threshold team setup\nLearner seats: ${data.entitlement.seat_limit}\nActive learners: ${activeLearners.length}\nPending invitations: ${pending.length}\nAssigned modules: ${modules.join(", ") || "None yet"}\nDashboard and walkthrough: ${window.location.origin}/team\nRoofing certificates require 30 lessons and at least 80% on the reviewed final test.`;
+  }
 
   async function importRoster(file: File) {
     setBusy(true);
     setError("");
     setNotice("");
-    let sent = 0;
+    let reserved = 0;
+    const createdLinks: InviteLink[] = [];
     const failures: string[] = [];
     try {
       if (file.size > 65536) throw new Error("Use a CSV smaller than 64 KB.");
@@ -414,7 +459,11 @@ function AdminWorkspace({
       }
       for (const [name, email] of rows) {
         try {
-          const result = await teamRequest<{ warning?: string }>("/api/team", {
+          const result = await teamRequest<{
+            invitationId: string;
+            inviteUrl: string | null;
+            warning?: string;
+          }>("/api/team", {
             action: "invite",
             orgId,
             name,
@@ -422,14 +471,20 @@ function AdminWorkspace({
             role: "learner",
             moduleId,
             requireCertificate: certificate && moduleId === "roofing",
+            delivery,
           });
-          sent++;
+          reserved++;
+          if (result.inviteUrl)
+            createdLinks.push({ id: result.invitationId, name, email, url: result.inviteUrl });
           if (result.warning) failures.push(`${email}: invitation reserved; ${result.warning}`);
         } catch (cause) {
           failures.push(`${email}: ${cause instanceof Error ? cause.message : "failed"}`);
         }
       }
-      setNotice(`${sent} of ${rows.length} seats assigned from CSV.`);
+      setInviteLinks(createdLinks);
+      setNotice(
+        `${reserved} of ${rows.length} invitations reserved.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
+      );
       if (failures.length) setError(failures.join(" "));
       await refresh();
     } catch (cause) {
@@ -578,7 +633,7 @@ function AdminWorkspace({
                     "Each pending learner invitation reserves one paid seat.",
                     "Every published module is included for each learner; Roofing Foreman is ready for your crew.",
                     "For Roofing, require 30 lessons and at least 20 of 25 correct answers for a certificate.",
-                    "Check your roster, send the admin summary, and track progress here.",
+                    "Check your roster, copy the admin summary, and track progress here. Share invitation links through your company email when automatic email is unavailable.",
                   ][tourStep - 1]
                 }
               </p>
@@ -601,7 +656,6 @@ function AdminWorkspace({
                 if (tourStep === 6) {
                   setShowTour(false);
                   await act({ action: "onboarding", orgId, step: 6 }, "Setup complete.");
-                  await act({ action: "email_summary", orgId }, "Admin summary emailed.");
                 } else {
                   setTourStep((step) => step + 1);
                   if (tourStep >= data.organization.onboarding_step)
@@ -613,7 +667,7 @@ function AdminWorkspace({
               }}
               className={button}
             >
-              {tourStep === 6 ? "Finish and email admin" : "Next step"}
+              {tourStep === 6 ? "Finish setup" : "Next step"}
             </button>
           </div>
         </section>
@@ -740,12 +794,13 @@ function AdminWorkspace({
           </h2>
           <p className="mb-4 text-sm text-muted-foreground">
             One learner invitation reserves one seat and assigns the first module. Admin-only
-            invitations do not use learner seats.
+            invitations do not use learner seats. Manual links expire in seven days and work only
+            for the invited email address.
           </p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              void act<{ warning?: string }>(
+              void act<{ invitationId: string; inviteUrl: string | null; warning?: string }>(
                 {
                   action: "invite",
                   orgId,
@@ -754,9 +809,17 @@ function AdminWorkspace({
                   moduleId: inviteRole === "learner" ? moduleId : null,
                   requireCertificate: inviteRole === "learner" && certificate,
                   role: inviteRole,
+                  delivery,
                 },
-                "Invitation reserved and email sent.",
-                () => {
+                delivery === "manual"
+                  ? "Invitation reserved. Share the link below."
+                  : "Invitation reserved.",
+                (result) => {
+                  setInviteLinks(
+                    result.inviteUrl
+                      ? [{ id: result.invitationId, name, email, url: result.inviteUrl }]
+                      : [],
+                  );
                   setName("");
                   setEmail("");
                 },
@@ -791,6 +854,20 @@ function AdminWorkspace({
               <option value="learner">Learner · uses one seat</option>
               <option value="admin">Company admin · no learner seat</option>
             </select>
+            <label className="block text-sm">
+              Delivery
+              <select
+                aria-label="Invitation delivery"
+                className={input + " mt-1"}
+                value={delivery}
+                onChange={(event) => setDelivery(event.target.value as "manual" | "email")}
+              >
+                <option value="manual">Copy link and send with your company email</option>
+                {data.emailEnabled && (
+                  <option value="email">Send with Language Threshold email</option>
+                )}
+              </select>
+            </label>
             {inviteRole === "learner" && (
               <>
                 <select
@@ -827,14 +904,14 @@ function AdminWorkspace({
               className={button}
             >
               <Plus className="mr-1 inline h-4 w-4" />{" "}
-              {inviteRole === "learner" ? "Assign seat and email invite" : "Invite company admin"}
+              {inviteRole === "learner" ? "Assign seat and create invite" : "Invite company admin"}
             </button>
           </form>
           <div className="mt-5 border-t border-border/50 pt-4">
             <label className="block text-sm font-semibold">Import learner roster CSV</label>
             <p className="my-2 text-xs text-muted-foreground">
               Name,Email header and one employee per row. Each invitation uses one available seat
-              and the selected module and certificate setting above.
+              and the selected module, certificate, and delivery setting above.
             </p>
             <input
               type="file"
@@ -848,6 +925,48 @@ function AdminWorkspace({
               className="text-xs"
             />
           </div>
+          {inviteLinks.length > 0 && (
+            <div id="team-invite-links" className="mt-5 border-t border-border/50 pt-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-semibold">Invitation links to share</h3>
+                {inviteLinks.length > 1 && (
+                  <button type="button" className={secondary} onClick={downloadInviteLinks}>
+                    <FileDown className="mr-1 inline h-4 w-4" /> Download links CSV
+                  </button>
+                )}
+              </div>
+              <p className="my-2 text-xs text-muted-foreground">
+                Send each link privately to the matching employee. Save these links now; for
+                security, they disappear when this page closes. You can create a fresh link from
+                Pending invitations.
+              </p>
+              <div className="space-y-3">
+                {inviteLinks.map((link) => (
+                  <div key={link.id} className="rounded-lg border border-border/50 p-3">
+                    <p className="mb-2 text-sm">
+                      {link.name} · {link.email}
+                    </p>
+                    <div className="flex gap-2">
+                      <input
+                        aria-label={`Invitation link for ${link.email}`}
+                        className={input}
+                        readOnly
+                        value={link.url}
+                        onFocus={(event) => event.target.select()}
+                      />
+                      <button
+                        type="button"
+                        className={secondary}
+                        onClick={() => void copyText(link.url, `Link copied for ${link.email}.`)}
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
       </div>
       <section className={card}>
@@ -873,14 +992,22 @@ function AdminWorkspace({
               Admin walkthrough
             </button>
             <button
-              disabled={busy}
               className={secondary}
-              onClick={() =>
-                void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
-              }
+              onClick={() => void copyText(adminSummary(), "Admin summary copied.")}
             >
-              <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
+              Copy admin summary
             </button>
+            {data.emailEnabled && (
+              <button
+                disabled={busy}
+                className={secondary}
+                onClick={() =>
+                  void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
+                }
+              >
+                <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
+              </button>
+            )}
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -946,7 +1073,7 @@ function AdminWorkspace({
                 className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border/50 p-3 text-sm"
               >
                 <span>
-                  {invite.display_name} · {invite.email} ·{" "}
+                  {invite.display_name} · {invite.email} · {invite.role} ·{" "}
                   {getModule(invite.module_id)?.name ?? "No module"}
                   {invite.last_email_error && (
                     <span className="ml-2 text-amber-300">
@@ -959,14 +1086,50 @@ function AdminWorkspace({
                     disabled={busy}
                     className={secondary}
                     onClick={() =>
-                      void act(
-                        { action: "resend", orgId, invitationId: invite.id },
-                        "New invitation link emailed.",
+                      void act<{ inviteUrl: string | null }>(
+                        { action: "resend", orgId, invitationId: invite.id, delivery: "manual" },
+                        "Fresh invitation link ready in the invitation panel above. The previous link is no longer valid.",
+                        (result) => {
+                          if (result.inviteUrl)
+                            setInviteLinks([
+                              {
+                                id: invite.id,
+                                name: invite.display_name,
+                                email: invite.email,
+                                url: result.inviteUrl,
+                              },
+                            ]);
+                        },
                       )
                     }
                   >
-                    Resend
+                    New link
                   </button>
+                  {data.emailEnabled && (
+                    <button
+                      disabled={busy}
+                      className={secondary}
+                      onClick={() =>
+                        void act<{ inviteUrl: string | null }>(
+                          { action: "resend", orgId, invitationId: invite.id, delivery: "email" },
+                          "Invitation email requested.",
+                          (result) => {
+                            if (result.inviteUrl)
+                              setInviteLinks([
+                                {
+                                  id: invite.id,
+                                  name: invite.display_name,
+                                  email: invite.email,
+                                  url: result.inviteUrl,
+                                },
+                              ]);
+                          },
+                        )
+                      }
+                    >
+                      Resend email
+                    </button>
+                  )}
                   <button
                     disabled={busy}
                     className={secondary}

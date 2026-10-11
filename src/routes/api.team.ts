@@ -30,9 +30,15 @@ const bodySchema = z.discriminatedUnion("action", [
     role: z.enum(["admin", "learner"]).default("learner"),
     moduleId: z.string().max(80).nullable().default("roofing"),
     requireCertificate: z.boolean().default(false),
+    delivery: z.enum(["manual", "email"]).default("manual"),
   }),
   z.object({ action: z.literal("accept"), token: z.string().min(20).max(100) }),
-  z.object({ action: z.literal("resend"), orgId: id, invitationId: id }),
+  z.object({
+    action: z.literal("resend"),
+    orgId: id,
+    invitationId: id,
+    delivery: z.enum(["manual", "email"]).default("manual"),
+  }),
   z.object({
     action: z.literal("revoke"),
     orgId: id,
@@ -202,6 +208,7 @@ export const Route = createFileRoute("/api/team")({
             organization: org.data,
             entitlement: entitlement.data,
             enrollmentEnabled: process.env.TEAM_ENROLLMENT_ENABLED === "true",
+            emailEnabled: Boolean(process.env.RESEND_API_KEY && process.env.TEAM_FROM_EMAIL),
             role: member.role,
             members: members.data ?? [],
             invitations: invitations.data ?? [],
@@ -263,33 +270,41 @@ export const Route = createFileRoute("/api/team")({
               p_token_hash: hash,
             });
             if (error) throw error;
+            const inviteUrl = `${new URL(request.url).origin}/team/accept?token=${encodeURIComponent(token)}`;
             let warning: string | null = null;
-            try {
-              await sendInvitation(
-                body.email,
-                body.name,
-                org.name,
-                body.moduleId,
-                body.requireCertificate,
-                token,
-                new URL(request.url).origin,
-              );
-              await db
-                .from("team_invitations")
-                .update({ sent_at: new Date().toISOString(), last_email_error: null })
-                .eq("id", invitationId);
-            } catch (cause) {
-              warning = cause instanceof Error ? cause.message : "Email could not be sent.";
-              await db
-                .from("team_invitations")
-                .update({ last_email_error: warning })
-                .eq("id", invitationId);
+            if (body.delivery === "email") {
+              try {
+                await sendInvitation(
+                  body.email,
+                  body.name,
+                  org.name,
+                  body.moduleId,
+                  body.requireCertificate,
+                  token,
+                  new URL(request.url).origin,
+                );
+                await db
+                  .from("team_invitations")
+                  .update({ sent_at: new Date().toISOString(), last_email_error: null })
+                  .eq("id", invitationId);
+              } catch (cause) {
+                warning = cause instanceof Error ? cause.message : "Email could not be sent.";
+                await db
+                  .from("team_invitations")
+                  .update({ last_email_error: warning })
+                  .eq("id", invitationId);
+              }
             }
             await audit(db, user.id, "team.invite", body.orgId, {
               invitationId,
               email: body.email,
+              delivery: body.delivery,
             });
-            return json({ invitationId, warning });
+            return json({
+              invitationId,
+              inviteUrl: body.delivery === "manual" || warning ? inviteUrl : null,
+              warning,
+            });
           }
           if (body.action === "resend") {
             const { data: invite, error } = await db
@@ -310,32 +325,40 @@ export const Route = createFileRoute("/api/team")({
               })
               .eq("id", body.invitationId);
             if (updateError) throw updateError;
-            try {
-              await sendInvitation(
-                invite.email,
-                invite.display_name,
-                org.name,
-                invite.module_id,
-                invite.require_certificate,
-                token,
-                new URL(request.url).origin,
-              );
-            } catch (cause) {
-              const message = cause instanceof Error ? cause.message : "Email could not be sent.";
-              await db
-                .from("team_invitations")
-                .update({ last_email_error: message })
-                .eq("id", body.invitationId);
-              throw cause;
+            const inviteUrl = `${new URL(request.url).origin}/team/accept?token=${encodeURIComponent(token)}`;
+            let warning: string | null = null;
+            if (body.delivery === "email") {
+              try {
+                await sendInvitation(
+                  invite.email,
+                  invite.display_name,
+                  org.name,
+                  invite.module_id,
+                  invite.require_certificate,
+                  token,
+                  new URL(request.url).origin,
+                );
+                await db
+                  .from("team_invitations")
+                  .update({ sent_at: new Date().toISOString() })
+                  .eq("id", body.invitationId);
+              } catch (cause) {
+                warning = cause instanceof Error ? cause.message : "Email could not be sent.";
+                await db
+                  .from("team_invitations")
+                  .update({ last_email_error: warning })
+                  .eq("id", body.invitationId);
+              }
             }
-            await db
-              .from("team_invitations")
-              .update({ sent_at: new Date().toISOString() })
-              .eq("id", body.invitationId);
             await audit(db, user.id, "team.resend", body.orgId, {
               invitationId: body.invitationId,
+              delivery: body.delivery,
             });
-            return json({ ok: true });
+            return json({
+              ok: true,
+              inviteUrl: body.delivery === "manual" || warning ? inviteUrl : null,
+              warning,
+            });
           }
           if (body.action === "revoke") {
             if (body.invitationId) {

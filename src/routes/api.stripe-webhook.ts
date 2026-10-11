@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 import { audit, sendTeamEmail, teamAdminClient } from "@/lib/team-server";
+import { syncTeamSubscription } from "@/lib/team-subscription";
 
 async function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -24,43 +25,6 @@ async function updateProfileData(userId: string, patch: Record<string, unknown>)
 
 function customerId(raw: Stripe.Subscription["customer"]): string | undefined {
   return typeof raw === "string" ? raw : undefined;
-}
-
-async function syncTeamSubscription(sub: Stripe.Subscription) {
-  const orgId = sub.metadata?.organizationId;
-  if (!orgId) return false;
-  const item = sub.items.data[0];
-  const status =
-    sub.status === "active" || sub.status === "trialing"
-      ? "active"
-      : sub.status === "past_due" || sub.status === "unpaid"
-        ? "past_due"
-        : "canceled";
-  const db = teamAdminClient();
-  const { data, error } = await db
-    .from("team_entitlements")
-    .update({
-      seat_limit: item?.quantity ?? 0,
-      status,
-      term:
-        sub.metadata.term === "annual"
-          ? "annual"
-          : sub.metadata.term === "monthly"
-            ? "monthly"
-            : "quarterly",
-      stripe_customer_id: customerId(sub.customer) ?? null,
-      stripe_subscription_id: sub.id,
-      period_end: item?.current_period_end
-        ? new Date(item.current_period_end * 1000).toISOString()
-        : null,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("organization_id", orgId)
-    .select("organization_id")
-    .maybeSingle();
-  if (error || !data)
-    throw error ?? new Error("Stripe team subscription has no matching organization.");
-  return true;
 }
 
 function invoiceSubscriptionId(inv: Stripe.Invoice) {
@@ -270,26 +234,15 @@ export const Route = createFileRoute("/api/stripe-webhook")({
             case "invoice.payment_succeeded": {
               const inv = event.data.object as Stripe.Invoice;
               const subId = invoiceSubscriptionId(inv);
-              const db = teamAdminClient();
-              const { data: team } = subId
-                ? await db
-                    .from("team_entitlements")
-                    .select("organization_id")
-                    .eq("stripe_subscription_id", subId)
-                    .maybeSingle()
-                : { data: null };
+              const subscription = subId ? await stripe.subscriptions.retrieve(subId) : null;
+              if (subscription) await syncTeamSubscription(subscription);
               await recordStripeEntry(
                 `invoice:${inv.id}`,
                 inv.amount_paid,
                 "Subscription revenue",
-                team?.organization_id,
+                subscription?.metadata.organizationId,
                 event.created * 1000,
               );
-              if (team)
-                await db
-                  .from("team_entitlements")
-                  .update({ status: "active", updated_at: new Date().toISOString() })
-                  .eq("organization_id", team.organization_id);
               const userId = inv.metadata?.userId;
               if (userId) {
                 await updateProfileData(userId, {
@@ -304,11 +257,7 @@ export const Route = createFileRoute("/api/stripe-webhook")({
               const inv = event.data.object as Stripe.Invoice;
               const subId = invoiceSubscriptionId(inv);
               if (subId) {
-                const db = teamAdminClient();
-                await db
-                  .from("team_entitlements")
-                  .update({ status: "past_due", updated_at: new Date().toISOString() })
-                  .eq("stripe_subscription_id", subId);
+                await syncTeamSubscription(await stripe.subscriptions.retrieve(subId));
               }
               const userId = inv.metadata?.userId;
               if (userId) {

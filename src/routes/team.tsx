@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -132,6 +132,7 @@ function TeamPage() {
   const [billingEmail, setBillingEmail] = useState("");
   const [busy, setBusy] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+  const handledCheckout = useRef("");
 
   const refresh = useCallback(
     async (current?: string | null) => {
@@ -163,6 +164,44 @@ function TeamPage() {
     if (!authLoading && userId) void refresh();
     else if (!authLoading) setLoading(false);
   }, [authLoading, userId, refresh]);
+
+  useEffect(() => {
+    if (!userId) return;
+    const url = new URL(window.location.href);
+    const checkout = url.searchParams.get("checkout");
+    const sessionId = url.searchParams.get("session_id");
+    const checkoutOrg = url.searchParams.get("org");
+    if (!checkout || handledCheckout.current === `${checkout}:${sessionId}`) return;
+    handledCheckout.current = `${checkout}:${sessionId}`;
+    if (checkout === "cancel") {
+      setNotice("Checkout was canceled. No team plan was purchased.");
+    } else if (checkout === "success" && sessionId && checkoutOrg) {
+      void (async () => {
+        try {
+          const result = await teamRequest<{ status: string }>(
+            `/api/team-billing?orgId=${encodeURIComponent(checkoutOrg)}&sessionId=${encodeURIComponent(sessionId)}`,
+          );
+          setNotice(
+            result.status === "active" || result.status === "trialing"
+              ? "Payment confirmed. Your team seats are ready to assign."
+              : "Stripe is still processing this payment. Refresh the team page to check your seats.",
+          );
+          await refresh(checkoutOrg);
+        } catch (cause) {
+          setError(cause instanceof Error ? cause.message : "Could not verify checkout.");
+          handledCheckout.current = "";
+          return;
+        }
+        url.searchParams.delete("checkout");
+        url.searchParams.delete("session_id");
+        window.history.replaceState(null, "", url);
+      })();
+      return;
+    }
+    url.searchParams.delete("checkout");
+    url.searchParams.delete("session_id");
+    window.history.replaceState(null, "", url);
+  }, [userId, refresh]);
 
   async function act<T>(body: unknown, message: string, after?: (result: T) => void) {
     setBusy(true);
@@ -380,7 +419,9 @@ function AdminWorkspace({
   const [delivery, setDelivery] = useState<"manual" | "email">("manual");
   const [inviteLinks, setInviteLinks] = useState<InviteLink[]>([]);
   const [term, setTerm] = useState<TeamTerm>("monthly");
-  const [initialSeats, setInitialSeats] = useState(TEAM_MIN_SEATS);
+  const [initialSeats, setInitialSeats] = useState(
+    Math.max(TEAM_MIN_SEATS, data.entitlement.seat_limit),
+  );
   const [addSeats, setAddSeats] = useState(1);
   const [quote, setQuote] = useState<{
     estimateCents: number;
@@ -395,6 +436,7 @@ function AdminWorkspace({
   const active30 = new Set(data.activity.map((a) => a.user_id)).size;
   const totalMinutes = minutes(data.activity.reduce((sum, a) => sum + a.active_seconds, 0));
   const remaining = Math.max(0, data.entitlement.seat_limit - seatsUsed);
+  const canStartPlan = ["pending", "manual", "canceled"].includes(data.entitlement.status);
 
   async function copyText(value: string, success: string) {
     try {
@@ -684,11 +726,17 @@ function AdminWorkspace({
           <p className="mb-4 text-sm text-muted-foreground">
             {data.entitlement.status} {data.entitlement.term ? `· ${data.entitlement.term}` : ""}{" "}
             {data.entitlement.period_end
-              ? `· renews ${new Date(data.entitlement.period_end).toLocaleDateString()}`
+              ? `· ${data.entitlement.status === "manual" ? "expires" : "renews"} ${new Date(data.entitlement.period_end).toLocaleDateString()}`
               : ""}
           </p>
-          {data.entitlement.status === "pending" ? (
+          {canStartPlan ? (
             <div className="space-y-3">
+              {data.entitlement.status === "manual" && (
+                <p className="text-sm text-muted-foreground">
+                  Your current pilot seats stay available while you check out. The paid plan takes
+                  over after Stripe confirms payment.
+                </p>
+              )}
               <p className="text-sm">
                 Start with <strong>five seats for $99/month</strong>. Ten seats cost{" "}
                 <strong>$159/month</strong>. For 15 seats, pay <strong>$209/month</strong>,{" "}
@@ -724,17 +772,29 @@ function AdminWorkspace({
               </p>
               {!data.enrollmentEnabled && (
                 <p className="text-sm text-amber-700 dark:text-amber-300">
-                  Team checkout is paused while invitation email is being set up. You can review the
-                  workspace and pricing now.
+                  Team billing is temporarily unavailable. You can still review the workspace and
+                  pricing.
                 </p>
               )}
               <button
-                disabled={busy || initialSeats < TEAM_MIN_SEATS || !data.enrollmentEnabled}
+                disabled={
+                  busy ||
+                  initialSeats < Math.max(TEAM_MIN_SEATS, seatsUsed) ||
+                  !data.enrollmentEnabled
+                }
                 onClick={() => void billing("checkout", { term, seats: initialSeats })}
                 className={button}
               >
-                Continue to secure checkout
+                {data.entitlement.status === "manual"
+                  ? "Switch to a paid plan"
+                  : data.entitlement.status === "canceled"
+                    ? "Restart team plan"
+                    : "Continue to secure checkout"}
               </button>
+              <p className="text-xs text-muted-foreground">
+                After payment, invite learners by secure link through your company email. Automatic
+                invitation email is available when configured.
+              </p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -779,12 +839,6 @@ function AdminWorkspace({
                     </div>
                   )}
                 </>
-              )}
-              {data.entitlement.status === "manual" && (
-                <p className="text-xs text-muted-foreground">
-                  This is a manually granted plan. Ask the Language Threshold owner to change the
-                  seat grant.
-                </p>
               )}
               {data.entitlement.status !== "manual" && (
                 <button

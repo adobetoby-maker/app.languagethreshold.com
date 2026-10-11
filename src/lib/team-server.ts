@@ -78,6 +78,13 @@ export function teamError(error: unknown) {
   return json({ error: message }, status);
 }
 
+export function teamBillingReady() {
+  return (
+    process.env.TEAM_ENROLLMENT_ENABLED !== "false" &&
+    Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_WEBHOOK_SECRET)
+  );
+}
+
 export async function sendTeamEmail(to: string, subject: string, body: string) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.TEAM_FROM_EMAIL;

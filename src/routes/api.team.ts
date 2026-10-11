@@ -11,6 +11,7 @@ import {
   requireTeamAdmin,
   sendTeamEmail,
   teamAdminClient,
+  teamBillingReady,
   teamError,
 } from "@/lib/team-server";
 
@@ -207,7 +208,7 @@ export const Route = createFileRoute("/api/team")({
           return json({
             organization: org.data,
             entitlement: entitlement.data,
-            enrollmentEnabled: process.env.TEAM_ENROLLMENT_ENABLED === "true",
+            enrollmentEnabled: teamBillingReady(),
             emailEnabled: Boolean(process.env.RESEND_API_KEY && process.env.TEAM_FROM_EMAIL),
             role: member.role,
             members: members.data ?? [],

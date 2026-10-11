@@ -30,7 +30,7 @@ const schema = z.discriminatedUnion("action", [
     action: z.literal("manual_grant"),
     orgId: z.string().uuid(),
     seats: z.number().int().min(0).max(1000),
-    term: z.enum(["quarterly", "annual"]),
+    term: z.enum(["monthly", "quarterly", "annual"]),
     periodEnd: z.string().datetime(),
   }),
   z.object({

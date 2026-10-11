@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Check, NotebookPen, Pencil, PenLine, Plus, Trash2, X } from "lucide-react";
+import { Check, NotebookPen, Pencil, PenLine, Plus, Search, Trash2, X } from "lucide-react";
 import { useNotes, type Annotation } from "@/state/notes-state";
 import { useLibrary } from "@/state/library-state";
 import { useApp } from "@/state/app-state";
@@ -10,6 +10,14 @@ import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 // use this sentinel textId so they group separately from real library entries.
 // pane/sentenceIndex are fixed placeholders — there is no passage position to record.
 const DASHBOARD_TEXT_ID = "dashboard";
+type NoteFilter = "all" | "reading" | "quick" | "standalone" | "highlights";
+
+function categoryFor(annotation: Annotation): Exclude<NoteFilter, "all"> {
+  if (!annotation.noteText?.trim()) return "highlights";
+  if (annotation.textId === "sidebar") return "quick";
+  if (annotation.textId === DASHBOARD_TEXT_ID) return "standalone";
+  return "reading";
+}
 
 export function NotesCard() {
   const { annotations, add, update, remove } = useNotes();
@@ -21,6 +29,8 @@ export function NotesCard() {
   const [adding, setAdding] = useState(false);
   const [draft, setDraft] = useState("");
   const [drawMode, setDrawMode] = useState(false);
+  const [filter, setFilter] = useState<NoteFilter>("all");
+  const [query, setQuery] = useState("");
 
   const titleForText = useMemo(() => {
     const map = new Map(entries.map((e) => [e.id, `${e.flag ?? ""} ${e.title}`.trim()]));
@@ -31,9 +41,32 @@ export function NotesCard() {
     };
   }, [entries]);
 
+  const counts = useMemo(() => {
+    const result: Record<NoteFilter, number> = {
+      all: annotations.length,
+      reading: 0,
+      quick: 0,
+      standalone: 0,
+      highlights: 0,
+    };
+    for (const annotation of annotations) result[categoryFor(annotation)] += 1;
+    return result;
+  }, [annotations]);
+
+  const filteredAnnotations = useMemo(() => {
+    const term = query.trim().toLocaleLowerCase();
+    return annotations.filter((annotation) => {
+      if (filter !== "all" && categoryFor(annotation) !== filter) return false;
+      if (!term) return true;
+      return [annotation.noteText, annotation.selectedText, titleForText(annotation.textId)].some(
+        (value) => value?.toLocaleLowerCase().includes(term),
+      );
+    });
+  }, [annotations, filter, query, titleForText]);
+
   const groups = useMemo(() => {
     const byText = new Map<string, Annotation[]>();
-    for (const a of annotations) {
+    for (const a of filteredAnnotations) {
       const arr = byText.get(a.textId) ?? [];
       arr.push(a);
       byText.set(a.textId, arr);
@@ -44,7 +77,7 @@ export function NotesCard() {
         return { textId, anns: sorted, latest: sorted[0]?.createdAt ?? 0 };
       })
       .sort((a, b) => b.latest - a.latest);
-  }, [annotations]);
+  }, [filteredAnnotations]);
 
   function handleAdd() {
     const text = draft.trim();
@@ -59,6 +92,8 @@ export function NotesCard() {
     setDraft("");
     setDrawMode(false);
     setAdding(false);
+    setFilter("standalone");
+    setQuery("");
   }
 
   function handleCancelAdding() {
@@ -68,14 +103,22 @@ export function NotesCard() {
   }
 
   return (
-    <section className="rounded-2xl border border-border/60 bg-card/60 p-6">
-      <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="flex items-center gap-2 font-display text-2xl italic text-foreground">
+    <section
+      id="my-notes"
+      aria-labelledby="my-notes-heading"
+      className="scroll-mt-24 rounded-2xl border border-border/60 bg-card/60 p-6"
+    >
+      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+        <h2
+          id="my-notes-heading"
+          className="flex items-center gap-2 font-display text-2xl italic text-foreground"
+        >
           <NotebookPen className="h-5 w-5 text-gold" strokeWidth={1.6} />
-          Notes
+          My Notes
         </h2>
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          {annotations.length} saved
+          {counts.all - counts.highlights} {counts.all - counts.highlights === 1 ? "note" : "notes"}{" "}
+          · {counts.highlights} {counts.highlights === 1 ? "highlight" : "highlights"}
         </span>
       </div>
       <p className="mb-4 text-xs text-muted-foreground">
@@ -166,10 +209,68 @@ export function NotesCard() {
         </button>
       )}
 
+      {annotations.length > 0 && (
+        <div className="mb-5 space-y-3">
+          <div className="relative">
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+              aria-hidden
+            />
+            <input
+              type="search"
+              aria-label="Search my notes"
+              placeholder="Search notes, highlights, or passage titles"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              className="min-h-11 w-full rounded-xl border border-border/60 bg-background/60 py-2 pl-10 pr-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-gold/60"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter my notes">
+            {(
+              [
+                ["all", "All"],
+                ["reading", "Reading"],
+                ["quick", "Quick"],
+                ["standalone", "Standalone"],
+                ["highlights", "Highlights"],
+              ] as const
+            ).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                aria-pressed={filter === value}
+                onClick={() => setFilter(value)}
+                className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                  filter === value
+                    ? "border-gold/60 bg-gold/15 text-gold"
+                    : "border-border/60 text-muted-foreground hover:border-gold/40 hover:text-foreground"
+                }`}
+              >
+                {label} <span className="ml-1 opacity-70">{counts[value]}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {annotations.length === 0 ? (
         <p className="text-sm text-muted-foreground">
           Highlight any sentence in the <span className="text-gold">Reader</span> to save it here as
           a note — or add a standalone thought above.
+        </p>
+      ) : filteredAnnotations.length === 0 ? (
+        <p className="text-sm text-muted-foreground">
+          {query.trim()
+            ? "No saved items match this search and filter."
+            : `No ${
+                {
+                  all: "items",
+                  reading: "reading notes",
+                  quick: "quick notes",
+                  standalone: "standalone notes",
+                  highlights: "highlights",
+                }[filter]
+              } saved yet.`}
         </p>
       ) : (
         <div className="space-y-5">

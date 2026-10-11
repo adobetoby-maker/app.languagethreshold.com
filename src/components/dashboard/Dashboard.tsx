@@ -1,5 +1,15 @@
 import { useMemo } from "react";
-import { Flame, Star, BookOpen, Award, Lock, Trophy, Sparkles, Swords } from "lucide-react";
+import {
+  Flame,
+  Star,
+  BookOpen,
+  Award,
+  Lock,
+  Trophy,
+  Sparkles,
+  Swords,
+  NotebookPen,
+} from "lucide-react";
 import { ACHIEVEMENTS, nextTierProgress, useApp, type Language } from "@/state/app-state";
 import { POINTS_PER_TIER, RANK_BADGE, RANK_COLOR, RANK_TITLE, useMatch } from "@/state/match-state";
 import { CountUp } from "@/components/CountUp";
@@ -83,14 +93,23 @@ export function Dashboard() {
   return (
     <div className="fade-in space-y-10">
       {/* Header */}
-      <div>
-        <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
-          ✦ Trophy Case
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+            ✦ Trophy Case
+          </div>
+          <h1 className="mt-2 font-display text-4xl italic text-foreground">Your Dashboard</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Every word, note, and conversation — together they form your story.
+          </p>
         </div>
-        <h1 className="mt-2 font-display text-4xl italic text-foreground">Your Dashboard</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Every word, note, and conversation — together they form your story.
-        </p>
+        <a
+          href="#my-notes"
+          className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
+        >
+          <NotebookPen className="h-4 w-4" strokeWidth={1.7} />
+          My Notes
+        </a>
       </div>
 
       {/* Stat cards */}
@@ -118,6 +137,8 @@ export function Dashboard() {
           </div>
         ))}
       </div>
+
+      <NotesCard />
 
       {state.nextTrips[state.selectedLanguage] && (
         <NextTripBanner
@@ -294,8 +315,6 @@ export function Dashboard() {
           </ul>
         )}
       </section>
-
-      <NotesCard />
 
       {/* Achievements grid */}
       <section>

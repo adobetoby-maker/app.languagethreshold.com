@@ -9,7 +9,7 @@ import {
   teamAdminClient,
   teamError,
 } from "@/lib/team-server";
-import { TEAM_MIN_SEATS, teamPeriodCents, teamPriceTiers, type TeamTerm } from "@/lib/team-pricing";
+import { TEAM_MIN_SEATS, TEAM_VOLUME_SEATS, teamPeriodCents, teamPriceTiers, type TeamTerm } from "@/lib/team-pricing";
 
 const bodySchema = z.discriminatedUnion("action", [
   z.object({
@@ -32,10 +32,10 @@ const bodySchema = z.discriminatedUnion("action", [
 ]);
 
 async function teamStripePrice(stripe: Stripe, term: TeamTerm) {
-  const lookupKey = `language-threshold-team-${term}-v2`;
+  const lookupKey = `language-threshold-team-${term}-v3`;
   const existing = await stripe.prices.list({ lookup_keys: [lookupKey], limit: 1 });
   if (existing.data[0]) return existing.data[0];
-  const { baseCents, extraSeatCents } = teamPriceTiers(term);
+  const { baseCents, standardSeatCents, volumeSeatCents } = teamPriceTiers(term);
   return stripe.prices.create(
     {
       currency: "usd",
@@ -43,7 +43,8 @@ async function teamStripePrice(stripe: Stripe, term: TeamTerm) {
       tiers_mode: "graduated",
       tiers: [
         { up_to: TEAM_MIN_SEATS, flat_amount: baseCents, unit_amount: 0 },
-        { up_to: "inf", unit_amount: extraSeatCents },
+        { up_to: TEAM_VOLUME_SEATS, unit_amount: standardSeatCents },
+        { up_to: "inf", unit_amount: volumeSeatCents },
       ],
       recurring:
         term === "annual"
@@ -160,9 +161,15 @@ export const Route = createFileRoute("/api/team-billing")({
             Math.min(1, (periodEnd - Date.now()) / Math.max(1, periodEnd - periodStart)),
           );
           const term = entitlement.term as TeamTerm;
+          const legacyV2Price = item.price.lookup_key?.endsWith("-v2") ?? false;
+          const oldPeriodCents = (seats: number) => {
+            const monthsCharged = term === "annual" ? 10 : term === "quarterly" ? 3 : 1;
+            return (9900 + (seats - TEAM_MIN_SEATS) * 1500) * monthsCharged;
+          };
+          const periodCents = legacyV2Price ? oldPeriodCents : (seats: number) => teamPeriodCents(seats, term);
           const fullPeriodIncrease =
             item.price.billing_scheme === "tiered"
-              ? teamPeriodCents(current + body.addSeats, term) - teamPeriodCents(current, term)
+              ? periodCents(current + body.addSeats) - periodCents(current)
               : (item.price.unit_amount ?? 0) * body.addSeats;
           const estimateCents = Math.round(fullPeriodIncrease * fraction);
           if (body.action === "quote")
@@ -170,9 +177,7 @@ export const Route = createFileRoute("/api/team-billing")({
               addSeats: body.addSeats,
               newSeatLimit: current + body.addSeats,
               estimateCents,
-              unitCents: item.price.billing_scheme === "tiered"
-                ? teamPriceTiers(term).extraSeatCents
-                : item.price.unit_amount,
+              unitCents: item.price.billing_scheme === "tiered" ? null : item.price.unit_amount,
               term: entitlement.term,
               periodEnd: new Date(periodEnd).toISOString(),
               note: "Prorated estimate before tax or discounts. Stripe shows the final invoice.",

@@ -690,10 +690,11 @@ function AdminWorkspace({
           {data.entitlement.status === "pending" ? (
             <div className="space-y-3">
               <p className="text-sm">
-                Start with <strong>five seats for $99/month</strong>. For 15 seats, pay{" "}
-                <strong>$249/month</strong>, <strong>$747 for three months</strong>, or{" "}
-                <strong>$2,490 for one year</strong>. Extra seats are $15/month each, with
-                annual billing equal to ten months. Plans renew unless canceled.
+                Start with <strong>five seats for $99/month</strong>. Ten seats cost{" "}
+                <strong>$159/month</strong>. For 15 seats, pay <strong>$209/month</strong>,{" "}
+                <strong>$627 for three months</strong>, or <strong>$2,090 for one year</strong>.
+                Seats 6–10 add $12/month each and seats 11 and up add $10/month each. Annual
+                billing equals ten months. Plans renew unless canceled.
               </p>
               <div className="flex flex-wrap gap-2">
                 <select

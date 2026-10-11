@@ -8,19 +8,24 @@ test("five learner seats retain the $99 monthly offer", () => {
   assert.equal(teamPeriodCents(5, "annual"), 99000);
 });
 
-test("fifteen seats match the approved volume and term prices", () => {
-  assert.equal(teamPeriodCents(15, "monthly"), 24900);
-  assert.equal(teamPeriodCents(15, "quarterly"), 74700);
-  assert.equal(teamPeriodCents(15, "annual"), 249000);
+test("ten and fifteen seats receive graduated volume pricing", () => {
+  assert.equal(teamPeriodCents(10, "monthly"), 15900);
+  assert.equal(teamPeriodCents(10, "quarterly"), 47700);
+  assert.equal(teamPeriodCents(10, "annual"), 159000);
+  assert.equal(teamPeriodCents(15, "monthly"), 20900);
+  assert.equal(teamPeriodCents(15, "quarterly"), 62700);
+  assert.equal(teamPeriodCents(15, "annual"), 209000);
 });
 
-test("adding seats always increases the total price", () => {
-  for (const term of ["monthly", "quarterly", "annual"])
-    for (let seats = 5; seats < 25; seats++)
-      assert.equal(
-        teamPeriodCents(seats + 1, term) - teamPeriodCents(seats, term),
-        teamPriceTiers(term).extraSeatCents,
-      );
+test("the marginal seat price drops after ten seats without a total-price cliff", () => {
+  for (const term of ["monthly", "quarterly", "annual"]) {
+    const tiers = teamPriceTiers(term);
+    for (let seats = 5; seats < 25; seats++) {
+      const increase = teamPeriodCents(seats + 1, term) - teamPeriodCents(seats, term);
+      assert.equal(increase, seats < 10 ? tiers.standardSeatCents : tiers.volumeSeatCents);
+      assert.ok(increase > 0);
+    }
+  }
 });
 
 test("team checkout rejects fewer than five seats", () => {

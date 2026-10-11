@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import {
@@ -14,6 +14,10 @@ import { useServerFn } from "@tanstack/react-start";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
 import { translatePhrases } from "@/fns/phrase-translate.functions";
 import { getModule } from "@/data/modules";
+import { getAvailableModuleLessons } from "@/data/module-starters";
+import { useLibrary } from "@/state/library-state";
+import { generateModuleDeck } from "@/fns/module-deck.functions";
+import { getCuratedModulePairs } from "@/data/curated-module-pairs";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
@@ -75,12 +79,14 @@ export function FlashcardsStudio() {
     syncVocab,
     addCard,
     addBlockCards,
+    addModuleCards,
     reviewCard,
     removeCard,
     cardsForCategories,
     dueCardsForCategories,
     hasModuleDeck,
   } = useFlashcards();
+  const library = useLibrary();
   const { accent, voiceURI } = useSpeech();
   const language = appState.selectedLanguage;
   const moduleId = appState.activeModuleId;
@@ -109,6 +115,91 @@ export function FlashcardsStudio() {
 
   const moduleAvailable = moduleId ? hasModuleDeck(moduleId) : false;
   const moduleSection = moduleAvailable && moduleId ? `module:${moduleId}` : null;
+  const generateFieldDeck = useServerFn(generateModuleDeck);
+  const generatedAttempts = useRef(new Set<string>());
+  const [generatingFieldDeck, setGeneratingFieldDeck] = useState(false);
+  const [fieldDeckError, setFieldDeckError] = useState<string | null>(null);
+  const generatedCount = moduleId
+    ? Object.values(state.cards).filter((card) =>
+        card.id.startsWith(`module-generated:${language}:${moduleId}:`),
+      ).length
+    : 0;
+
+  const readingIds = useMemo(
+    () => (moduleId ? getAvailableModuleLessons(moduleId, language, library.state.entries) : []),
+    [moduleId, language, library.state.entries],
+  );
+  const readingPairs = useMemo(() => {
+    if (moduleId === "roofing") return []; // The authored deck already includes these Reader pairs.
+    const selected = new Set(readingIds);
+    return library.state.entries
+      .filter((entry) => selected.has(entry.id))
+      .flatMap((entry) => entry.sentences)
+      .filter((pair) => pair.en.trim() && pair.target.trim() && pair.en.length <= 180)
+      .map((pair) => ({ english: pair.en, translation: pair.target, kind: "phrase" as const }));
+  }, [moduleId, readingIds, library.state.entries]);
+
+  useEffect(() => {
+    if (!state.hydrated || !moduleId || !readingPairs.length) return;
+    addModuleCards(language, moduleId, "reading", readingPairs);
+  }, [state.hydrated, moduleId, language, readingPairs, addModuleCards]);
+
+  useEffect(() => {
+    if (!state.hydrated || (moduleId !== "rock-climbing" && moduleId !== "sport-fishing")) return;
+    let active = true;
+    void getCuratedModulePairs(moduleId, language).then((pairs) => {
+      if (active && pairs.length) addModuleCards(language, moduleId, "curated", pairs);
+    });
+    return () => {
+      active = false;
+    };
+  }, [state.hydrated, moduleId, language, addModuleCards]);
+
+  const loadFieldDeck = useCallback(
+    async (force = false) => {
+      const climbingHasCuratedLanguage =
+        moduleId === "rock-climbing" &&
+        ["Spanish", "French", "German", "Italian", "Japanese", "Korean", "Portuguese"].includes(
+          language,
+        );
+      if (
+        !moduleId ||
+        moduleId === "roofing" ||
+        climbingHasCuratedLanguage ||
+        !state.hydrated ||
+        generatedCount >= 32
+      )
+        return;
+      const key = `${language}:${moduleId}`;
+      if (!force && generatedAttempts.current.has(key)) return;
+      generatedAttempts.current.add(key);
+      setGeneratingFieldDeck(true);
+      setFieldDeckError(null);
+      try {
+        const result = await generateFieldDeck({ data: { moduleId, language } });
+        if (result.error || !result.pairs?.length)
+          throw new Error(result.error ?? "No cards returned");
+        addModuleCards(language, moduleId, "generated", result.pairs);
+      } catch {
+        setFieldDeckError(`Couldn't prepare ${moduleName} practice cards. Try again.`);
+      } finally {
+        setGeneratingFieldDeck(false);
+      }
+    },
+    [
+      moduleId,
+      language,
+      moduleName,
+      state.hydrated,
+      generatedCount,
+      generateFieldDeck,
+      addModuleCards,
+    ],
+  );
+
+  useEffect(() => {
+    void loadFieldDeck();
+  }, [loadFieldDeck]);
   const availableCategories = useMemo(
     () => [
       ...FLASHCARD_CATEGORIES.filter((c) => c !== "module"),
@@ -395,17 +486,53 @@ export function FlashcardsStudio() {
               </p>
               <h2 className="font-display text-xl text-foreground">{moduleName} flashcards</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {cardsForCategories(language, [moduleSection]).length} field terms and crew phrases
-                · study this specialty without mixing other subjects.
+                {cardsForCategories(language, [moduleSection]).length} field terms and phrases ·
+                study this specialty without mixing other subjects.
               </p>
+              {generatedCount > 0 && (
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Includes {generatedCount} AI-generated practice cards.
+                </p>
+              )}
+              {generatingFieldDeck && (
+                <p className="mt-1 text-xs text-gold">Preparing field cards…</p>
+              )}
+              {fieldDeckError && (
+                <button
+                  type="button"
+                  onClick={() => void loadFieldDeck(true)}
+                  className="mt-2 text-xs text-rose-300 underline underline-offset-2"
+                >
+                  {fieldDeckError}
+                </button>
+              )}
             </div>
-            <button
-              type="button"
-              onClick={() => setSelectedCategories([moduleSection])}
-              className="rounded-full border border-gold bg-gold/15 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/25"
-            >
-              Study {moduleName} only
-            </button>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setSelectedCategories([moduleSection])}
+                className="rounded-full border border-gold bg-gold/15 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/25"
+              >
+                Study {moduleName} only
+              </button>
+              <button
+                type="button"
+                onClick={() => appDispatch({ type: "SET_TAB", payload: "guide" })}
+                className="rounded-full border border-border px-4 py-2 text-sm text-foreground hover:border-gold/60"
+              >
+                Open lesson plan
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (readingIds[0]) library.dispatch({ type: "SELECT", payload: readingIds[0] });
+                  appDispatch({ type: "SET_TAB", payload: readingIds.length ? "reader" : "story" });
+                }}
+                className="rounded-full border border-border px-4 py-2 text-sm text-foreground hover:border-gold/60"
+              >
+                {readingIds.length ? "Read field passage" : "Generate field story"}
+              </button>
+            </div>
           </div>
         </section>
       )}
@@ -657,7 +784,10 @@ export function FlashcardsStudio() {
                       card={c}
                       onRemove={() => {
                         removeCard(c.id);
-                        appDispatch({ type: "REMOVE_VOCAB_ITEM", payload: { language, word: c.word } });
+                        appDispatch({
+                          type: "REMOVE_VOCAB_ITEM",
+                          payload: { language, word: c.word },
+                        });
                       }}
                     />
                   ))}

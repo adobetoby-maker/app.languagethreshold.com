@@ -37,6 +37,7 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
+import { getModule } from "@/data/modules";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -71,12 +72,18 @@ function UrlModuleBridge() {
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
     const tab = params.get("tab");
-    if (moduleId === "roofing" && state.selectedLanguage !== "Spanish") {
-      dispatch({ type: "SET_LANGUAGE", payload: "Spanish" });
+    const linkedModule = getModule(moduleId);
+    const targetLanguage = linkedModule?.learnDirection === "en-target"
+      ? "English"
+      : linkedModule?.languages?.[0];
+    if (targetLanguage && (linkedModule?.learnDirection === "en-target" ||
+      !linkedModule?.languages?.includes(state.selectedLanguage)) &&
+      state.selectedLanguage !== targetLanguage) {
+      dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
-    if (moduleId && moduleId !== state.activeModuleId) {
-      dispatch({ type: "PURCHASE_MODULE", payload: moduleId });
-      dispatch({ type: "SET_ACTIVE_MODULE", payload: moduleId });
+    if (linkedModule && linkedModule.id !== state.activeModuleId) {
+      dispatch({ type: "PURCHASE_MODULE", payload: linkedModule.id });
+      dispatch({ type: "SET_ACTIVE_MODULE", payload: linkedModule.id });
       if (moduleId === "lds-missionary") {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }

@@ -1,4 +1,5 @@
 import type { Language } from "@/state/app-state";
+import type { LibraryEntry } from "@/state/library-state";
 
 // Maps moduleId + language to an ordered array of seed IDs — Lesson 1 first.
 // ModuleStudyGuide renders these as a numbered lesson list; learners can jump
@@ -526,4 +527,18 @@ export function getLessons(moduleId: string, language: Language): string[] {
 
 export function getStarterSeedId(moduleId: string, language: Language): string | null {
   return MODULE_LESSONS[moduleId]?.[language]?.[0] ?? null;
+}
+
+/** Only expose Reader lessons that have actually loaded for this language. */
+export function getAvailableModuleLessons(
+  moduleId: string,
+  language: Language,
+  entries: LibraryEntry[],
+): string[] {
+  const available = new Set(
+    entries
+      .filter((entry) => entry.available && entry.language === language && entry.sentences.length)
+      .map((entry) => entry.id),
+  );
+  return getLessons(moduleId, language).filter((id) => available.has(id));
 }

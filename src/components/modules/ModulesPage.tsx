@@ -6,6 +6,8 @@ import { useSubscription } from "@/state/subscription-state";
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
+import { useLibrary } from "@/state/library-state";
+import { getAvailableModuleLessons } from "@/data/module-starters";
 
 const CATEGORY_ORDER: AppModule["category"][] = [
   "English for Work",
@@ -156,21 +158,20 @@ function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: Mod
           </button>
         )}
       </div>
-      {module.id === "roofing" && (
-        <button
-          type="button"
-          onClick={onStudyCards}
-          className="mt-3 w-full rounded-full border border-gold/50 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/20"
-        >
-          Study Roofing flashcards →
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={onStudyCards}
+        className="mt-3 w-full rounded-full border border-gold/50 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/20"
+      >
+        Study {module.name} flashcards →
+      </button>
     </div>
   );
 }
 
 export function ModulesPage() {
   const { state, dispatch } = useApp();
+  const library = useLibrary();
   const { status, teamActive, demoMode } = useSubscription();
   const hasPlan = teamActive || status === "active" || status === "trialing";
   const [search, setSearch] = useState("");
@@ -210,7 +211,14 @@ export function ModulesPage() {
 
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
-    dispatch({ type: "SET_TAB", payload: moduleDestinationTab(module.id) });
+    const destination = moduleDestinationTab(module.id);
+    const hasReading =
+      getAvailableModuleLessons(module.id, state.selectedLanguage, library.state.entries).length >
+      0;
+    dispatch({
+      type: "SET_TAB",
+      payload: destination === "reader" && !hasReading ? "guide" : destination,
+    });
   };
 
   const totalModules = availableModules.length;

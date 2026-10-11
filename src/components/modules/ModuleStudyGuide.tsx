@@ -14,7 +14,7 @@ import { useApp, type Language, type TabKey } from "@/state/app-state";
 import { useTutor } from "@/state/tutor-state";
 import { useLibrary } from "@/state/library-state";
 import { MODULES, type AppModule, moduleSupportsLearningPair } from "@/data/modules";
-import { getLessons, getStarterSeedId } from "@/data/module-starters";
+import { getAvailableModuleLessons } from "@/data/module-starters";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 
@@ -54,26 +54,29 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
     }
   });
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
+  const lessonIds = useMemo(
+    () => (moduleId ? getAvailableModuleLessons(moduleId, language, library.state.entries) : []),
+    [moduleId, language, library.state.entries],
+  );
 
   // Pull the first 4 sentence pairs from the pre-built starter seed — no API call.
   const starterPairs = useMemo(() => {
     if (!moduleId || language === "English") return null;
-    const seedId = getStarterSeedId(moduleId, language);
+    const seedId = lessonIds[0];
     if (!seedId) return null;
     const entry = library.state.entries.find((e) => e.id === seedId);
     if (!entry) return null;
     return entry.sentences.slice(0, 4);
-  }, [moduleId, language, library.state.entries]);
+  }, [moduleId, language, lessonIds, library.state.entries]);
 
   // All ordered lessons for this module × language.
   const lessons = useMemo(() => {
     if (!moduleId) return [];
-    const ids = getLessons(moduleId, language);
-    return ids.map((id, idx) => {
+    return lessonIds.map((id, idx) => {
       const entry = library.state.entries.find((e) => e.id === id);
       return { id, idx, title: entry?.title ?? `Lesson ${idx + 1}`, subtitle: entry?.subtitle };
     });
-  }, [moduleId, language, library.state.entries]);
+  }, [moduleId, lessonIds, library.state.entries]);
 
   function dismiss() {
     setOpen(false);
@@ -96,17 +99,18 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
   if (!module) return null;
   if (!moduleSupportsLearningPair(module, language, state.nativeLanguage)) return null;
 
-  const guide = buildGuide(module, language);
+  const guide = buildGuide(module, language, lessons.length > 0);
 
   function go(tab: TabKey, seedId?: string) {
-    dispatch({ type: "SET_TAB", payload: tab });
     if (tab === "reader") {
-      const targetId = seedId ?? (moduleId ? getStarterSeedId(moduleId, language) : null);
-      const match =
-        (targetId && library.state.entries.find((e) => e.id === targetId)) ??
-        library.state.entries.find((e) => e.language === language && !e.id.startsWith("custom-"));
-      if (match) library.dispatch({ type: "SELECT", payload: match.id });
+      const targetId = seedId ?? lessonIds[0];
+      if (!targetId) {
+        dispatch({ type: "SET_TAB", payload: "story" });
+        return;
+      }
+      library.dispatch({ type: "SELECT", payload: targetId });
     }
+    dispatch({ type: "SET_TAB", payload: tab });
   }
 
   function startRoleplay(prompt: string) {
@@ -176,10 +180,11 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
             ))}
           </ul>
           <ActionRow>
-            <Pill onClick={() => go("reader")}>Open Reader</Pill>
-            {moduleId === "roofing" && (
-              <Pill onClick={() => go("flashcards")}>Study Roofing flashcards</Pill>
-            )}
+            <Pill onClick={() => go(lessonIds.length ? "reader" : "story")}>
+              {lessonIds.length ? "Open Reader" : "Generate a field story"}
+            </Pill>
+            <Pill onClick={() => go("flashcards")}>Study {module.name} cards</Pill>
+            <Pill onClick={() => go("guide")}>Open lesson plan</Pill>
           </ActionRow>
         </Card>
 
@@ -313,9 +318,10 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
           </>
         ) : (
           <div className="flex flex-wrap gap-1.5">
-            <Pill onClick={() => go("reader")} primary>
+            <Pill onClick={() => go("guide")} primary>
               Start first lesson
             </Pill>
+            <Pill onClick={() => go("story")}>Generate a field story</Pill>
           </div>
         )}
         <div className="mt-2 flex flex-wrap gap-1.5">
@@ -403,7 +409,7 @@ interface Guide {
   firstLessonTab: TabKey;
 }
 
-function buildGuide(module: AppModule, language: Language): Guide {
+function buildGuide(module: AppModule, language: Language, hasReading: boolean): Guide {
   const focus = module.vocabFocus;
   const top = focus.slice(0, 6).join(", ");
   const role = module.userRole;
@@ -413,21 +419,27 @@ function buildGuide(module: AppModule, language: Language): Guide {
   if (module.id === "lds-missionary") firstLessonTab = "missionary";
   else if (module.id === "orthopedics") firstLessonTab = "orthopedics";
 
-  const readings = [
-    `Skim a one-page primer in ${language} on ${module.category.toLowerCase()} ` +
-      `vocabulary you'll meet today: ${top}. Read it twice — once for gist, once aloud.`,
-    `Open the Reader and load a short ${module.category.toLowerCase()} passage in ${language}. ` +
-      `Click any unknown word to save it as a flashcard.`,
-    `Read 5 example sentences using "${focus[0] ?? "key terms"}" and "${focus[1] ?? "core verbs"}" ` +
-      `out loud. Mimic the rhythm — don't translate word-for-word.`,
-  ];
+  const readings = hasReading
+    ? [
+        `Read the available ${module.category.toLowerCase()} passage in ${language} twice: first for meaning, then aloud.`,
+        `Tap unfamiliar words in the Reader to save them as cards. Focus on ${top}.`,
+      ]
+    : [
+        `Generate a ${module.name} story in ${language} for reading practice.`,
+        `Use the ${module.name} cards to practice ${top}, then open the lesson plan.`,
+      ];
 
   const fastestPath: Guide["fastestPath"] = [
     {
       label: `Anchor 10 core ${role.toLowerCase()} words today (${focus.slice(0, 3).join(", ")}…).`,
       tab: "wordMatch",
     },
-    { label: "Read a short passage in the Reader and tap to save unknown words.", tab: "reader" },
+    {
+      label: hasReading
+        ? "Read the module passage and save unknown words."
+        : "Generate a field story for reading practice.",
+      tab: hasReading ? "reader" : "story",
+    },
     {
       label: "Drill the patterns in Sentence Builder so word order becomes muscle memory.",
       tab: "sentenceBuild",

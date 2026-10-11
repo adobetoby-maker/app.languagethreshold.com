@@ -15,7 +15,6 @@ import {
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useLibrary } from "@/state/library-state";
-import { getModuleReadingId } from "@/data/curriculum";
 import { useNotes } from "@/state/notes-state";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
@@ -32,7 +31,7 @@ import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { useCultureGenerator } from "@/components/library/useCultureGenerator";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
-import { getLessons } from "@/data/module-starters";
+import { getAvailableModuleLessons } from "@/data/module-starters";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 
@@ -104,8 +103,11 @@ export function ParallelReader() {
 
   // Lesson navigation for the active module
   const lessonIds = useMemo(
-    () => (state.activeModuleId ? getLessons(state.activeModuleId, state.selectedLanguage) : []),
-    [state.activeModuleId, state.selectedLanguage],
+    () =>
+      state.activeModuleId
+        ? getAvailableModuleLessons(state.activeModuleId, state.selectedLanguage, lib.entries)
+        : [],
+    [state.activeModuleId, state.selectedLanguage, lib.entries],
   );
   const currentLessonIndex = useMemo(
     () => (lessonIds.length > 0 ? lessonIds.indexOf(lib.selectedId) : -1),
@@ -123,13 +125,21 @@ export function ParallelReader() {
   useEffect(() => {
     const moduleId = state.activeModuleId;
     if (!moduleId) return;
-    if (lastAutoModule.current === moduleId) return;
-    lastAutoModule.current = moduleId;
-    const readingId = getModuleReadingId(moduleId, state.selectedLanguage, lib.entries);
+    const key = `${moduleId}:${state.selectedLanguage}`;
+    const readingId = lessonIds[0];
+    if (!readingId || lastAutoModule.current === key) return;
+    lastAutoModule.current = key;
     if (readingId && readingId !== lib.selectedId) {
       libDispatch({ type: "SELECT", payload: readingId });
     }
-  }, [state.activeModuleId, state.selectedLanguage, lib.entries, lib.selectedId, libDispatch]);
+  }, [
+    state.activeModuleId,
+    state.selectedLanguage,
+    lib.entries,
+    lib.selectedId,
+    libDispatch,
+    lessonIds,
+  ]);
 
   // Hydrate + persist furigana / romaja preferences.
   //
@@ -1059,7 +1069,8 @@ function Pane({
   const showFurigana = furiganaMode !== "off";
   const showRomaja = romajaMode !== "off";
   const showPinyin = pinyinMode !== "off";
-  const lineNeedsExtraLeading = furiganaMode === "above" || romajaMode === "above" || pinyinMode === "above";
+  const lineNeedsExtraLeading =
+    furiganaMode === "above" || romajaMode === "above" || pinyinMode === "above";
   // Inject pane identity into every word-click so the parent can route
   // left-pane (native) and right-pane (target) lookups differently.
   return (
@@ -1105,12 +1116,7 @@ function Pane({
                   mode={romajaMode === "inline" ? "inline" : "above"}
                 />
               ) : (
-                <PinyinText
-                  text={s}
-                  fullSentence={s}
-                  onWordClick={wrappedWordClick}
-                  mode="above"
-                />
+                <PinyinText text={s} fullSentence={s} onWordClick={wrappedWordClick} mode="above" />
               )
             ) : (
               <AnnotatedSentence

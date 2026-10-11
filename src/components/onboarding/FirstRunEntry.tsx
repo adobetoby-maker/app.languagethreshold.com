@@ -10,6 +10,7 @@ import {
 import { useApp } from "@/state/app-state";
 import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
 import { requestCoreSpeakingEntry } from "@/lib/speaking-navigation";
+import { getModule } from "@/data/modules";
 
 export function FirstRunEntry() {
   const { state, dispatch } = useApp();
@@ -17,18 +18,21 @@ export function FirstRunEntry() {
   // so selectedLanguage stayed on its "Spanish" default and "Start reading"
   // could open the wrong language entirely. DUO-002 P0-4.
   const [languageChosen, setLanguageChosen] = useState(() => hasChosenLanguage());
-  const directRoofingCards =
-    typeof window !== "undefined" &&
-    new URLSearchParams(window.location.search).get("module") === "roofing" &&
-    new URLSearchParams(window.location.search).get("tab") === "flashcards";
+  const directModuleCards = (() => {
+    if (typeof window === "undefined") return false;
+    const params = new URLSearchParams(window.location.search);
+    const linkedModule = getModule(params.get("module"));
+    return params.get("tab") === "flashcards" && Boolean(linkedModule) &&
+      (linkedModule?.learnDirection !== "en-target" || state.nativeLanguage !== "English");
+  })();
 
   useEffect(() => {
-    if (state.hydrated && !state.onboardingComplete && directRoofingCards) {
+    if (state.hydrated && !state.onboardingComplete && directModuleCards) {
       dispatch({ type: "COMPLETE_ONBOARDING" });
     }
-  }, [state.hydrated, state.onboardingComplete, directRoofingCards, dispatch]);
+  }, [state.hydrated, state.onboardingComplete, directModuleCards, dispatch]);
 
-  if (!state.hydrated || state.onboardingComplete || directRoofingCards) return null;
+  if (!state.hydrated || state.onboardingComplete || directModuleCards) return null;
 
   if (!languageChosen) {
     return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;

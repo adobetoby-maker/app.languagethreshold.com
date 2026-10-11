@@ -39,10 +39,16 @@ export const generateDailyStory = createServerFn({ method: "POST" })
         ? `Set this story in a realistic ${module.name} situation. The learner's role is ${module.userRole}. Draw naturally on these themes: ${module.vocabFocus.slice(0, 6).join(", ")}. A possible situation is: ${module.challengePrompts[Math.floor(Math.random() * module.challengePrompts.length)] ?? module.blurb}. Keep it a story, not an instruction manual, and do not present trade or safety specifications as universal facts.`
         : "Use an everyday situation that fits the learner's level.";
 
+    const grammarClause =
+      data.patternName && data.patternFormula
+        ? `Use the grammar pattern "${data.patternName}" (${data.patternFormula}) at least once.`
+        : "Use natural, clear grammar appropriate for the learner's level.";
     const prompt = `Write a short ${data.language} story for a ${data.level} learner.
 Requirements:
 - 4 to 6 sentences in ${data.language}, simple and clear
-- Use the grammar pattern "${data.patternName}" (${data.patternFormula}) at least once
+- Use idiomatic ${data.language} a local speaker would use; check noun gender, agreement, and word choice before returning the story
+- Keep the scene realistic and avoid invented product names, offers, or details that do not help the learner practice
+- ${grammarClause}
 ${vocabClause}
 - ${moduleClause}
 - Return via the story_output tool only`;

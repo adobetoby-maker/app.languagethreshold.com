@@ -14,6 +14,7 @@ import { DECK_NOUNS } from "@/data/deck-nouns";
 import { DECK_PHRASES } from "@/data/deck-phrases";
 import { DECK_GRAMMAR } from "@/data/deck-grammar";
 import { MODULE_DECKS } from "@/data/deck-modules";
+import { getModule } from "@/data/modules";
 import { buildConjugatedDeck } from "@/data/deck-conjugated";
 import type { DeckWord } from "@/data/deck-pronouns";
 import { newSrsFields, schedule, isDue, type SrsFields, type SrsGrade } from "@/lib/srs";
@@ -104,6 +105,16 @@ type Action =
         language: Language;
         blockId: string;
         pairs: { english: string; translation: string }[];
+        now?: number;
+      };
+    }
+  | {
+      type: "ADD_MODULE_CARDS";
+      payload: {
+        language: Language;
+        moduleId: string;
+        origin: "reading" | "generated" | "curated";
+        pairs: { english: string; translation: string; kind: "term" | "phrase" }[];
         now?: number;
       };
     }
@@ -445,6 +456,43 @@ function reducer(state: State, action: Action): State {
       return { ...state, cards };
     }
 
+    case "ADD_MODULE_CARDS": {
+      const { language, moduleId, origin, pairs } = action.payload;
+      const now = action.payload.now ?? Date.now();
+      const cards = { ...state.cards };
+      let changed = false;
+      for (const pair of pairs) {
+        const english = pair.english?.trim();
+        const translation = pair.translation?.trim();
+        if (!english || !translation) continue;
+        const id = `module-${origin}:${language}:${moduleId}:${english.toLocaleLowerCase("en")}`;
+        const existing = cards[id];
+        if (existing) {
+          if (existing.word !== translation || existing.translation !== english) {
+            cards[id] = { ...existing, word: translation, translation: english };
+            changed = true;
+          }
+          continue;
+        }
+        cards[id] = {
+          id,
+          language,
+          word: translation,
+          translation: english,
+          partOfSpeech: origin === "reading" ? "reading phrase" : `field ${pair.kind}`,
+          example: "",
+          exampleTranslation: "",
+          category: "module",
+          moduleId,
+          source: "starter",
+          addedAt: now,
+          srs: newSrsFields(now),
+        };
+        changed = true;
+      }
+      return changed ? { ...state, cards } : state;
+    }
+
     case "REVIEW_CARD": {
       const card = state.cards[action.payload.id];
       if (!card) return state;
@@ -481,6 +529,12 @@ const Ctx = createContext<{
     language: Language,
     blockId: string,
     pairs: { english: string; translation: string }[],
+  ) => void;
+  addModuleCards: (
+    language: Language,
+    moduleId: string,
+    origin: "reading" | "generated" | "curated",
+    pairs: { english: string; translation: string; kind: "term" | "phrase" }[],
   ) => void;
   addCard: (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) => void;
   reviewCard: (id: string, grade: SrsGrade) => void;
@@ -557,6 +611,15 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       dispatch({ type: "ADD_BLOCK_CARDS", payload: { language, blockId, pairs } }),
     [],
   );
+  const addModuleCards = useCallback(
+    (
+      language: Language,
+      moduleId: string,
+      origin: "reading" | "generated" | "curated",
+      pairs: { english: string; translation: string; kind: "term" | "phrase" }[],
+    ) => dispatch({ type: "ADD_MODULE_CARDS", payload: { language, moduleId, origin, pairs } }),
+    [],
+  );
   const addCard = useCallback(
     (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) =>
       dispatch({ type: "ADD_CARD", payload: entry }),
@@ -599,7 +662,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         .sort((a, b) => a.srs.dueDate - b.srs.dueDate),
     [state.cards],
   );
-  const hasModuleDeck = useCallback((moduleId: string) => moduleId in MODULE_DECKS, []);
+  const hasModuleDeck = useCallback((moduleId: string) => Boolean(getModule(moduleId)), []);
 
   const value = useMemo(
     () => ({
@@ -608,6 +671,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       seedDeck,
       syncVocab,
       addBlockCards,
+      addModuleCards,
       addCard,
       reviewCard,
       removeCard,
@@ -624,6 +688,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       seedDeck,
       syncVocab,
       addBlockCards,
+      addModuleCards,
       addCard,
       reviewCard,
       removeCard,

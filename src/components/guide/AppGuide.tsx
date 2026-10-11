@@ -33,9 +33,10 @@ import { cn } from "@/lib/utils";
 import {
   getCurriculum,
   getCurrentLesson,
-  getModuleReadingId,
   type Lesson,
 } from "@/data/curriculum";
+import { getAvailableModuleLessons } from "@/data/module-starters";
+import { getModule } from "@/data/modules";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
@@ -472,7 +473,7 @@ function LessonRunner({
   onComplete: () => void;
   onExit: () => void;
 }) {
-  const { dispatch } = useApp();
+  const { state, dispatch } = useApp();
   const { user } = useAuth();
   const userId = user?.id;
   const teamSessions = useRef<Record<string, string>>({});
@@ -482,6 +483,9 @@ function LessonRunner({
 
   const allDone = done.size === lesson.steps.length;
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
+  const hasModuleReading =
+    getAvailableModuleLessons(moduleId, state.selectedLanguage, lib.entries).length > 0;
+  const moduleName = getModule(moduleId)?.name ?? "field";
 
   useEffect(() => {
     teamSessions.current = {};
@@ -516,12 +520,34 @@ function LessonRunner({
   }
 
   function goToTab(tab: TabKey, readingTemplate?: string) {
-    if (readingTemplate) {
-      // Resolve {lang} from current selected reading's language or a default
-      const langEntry = lib.entries.find((e) => e.id === lib.selectedId);
-      const lang = langEntry?.language ?? "Spanish";
-      const resolved = getModuleReadingId(moduleId, lang, lib.entries);
-      if (resolved) libDispatch({ type: "SELECT", payload: resolved });
+    if (tab === "reader") {
+      const lang = state.selectedLanguage;
+      const templateId = readingTemplate?.replace(
+        "{lang}",
+        (
+          {
+            Spanish: "es",
+            French: "fr",
+            German: "de",
+            Italian: "it",
+            Japanese: "ja",
+            Chinese: "zh",
+            Korean: "ko",
+            Portuguese: "pt",
+            Pashto: "ps",
+            English: "en",
+          } as const
+        )[lang],
+      );
+      const available = getAvailableModuleLessons(moduleId, lang, lib.entries);
+      const resolved =
+        (templateId && available.includes(templateId) ? templateId : null) ??
+        available[0];
+      if (!resolved) {
+        dispatch({ type: "SET_TAB", payload: "story" });
+        return;
+      }
+      libDispatch({ type: "SELECT", payload: resolved });
     }
     dispatch({ type: "SET_TAB", payload: tab });
   }
@@ -600,7 +626,8 @@ function LessonRunner({
                         isDone ? "text-gold/70 line-through" : "text-white",
                       )}
                     >
-                      Step {i + 1} — {step.tabLabel}
+                      Step {i + 1} —{" "}
+                      {step.tab === "reader" && !hasModuleReading ? "Field Story" : step.tabLabel}
                     </span>
                     <span className="text-[10px] text-white/30 font-mono">
                       {step.durationMin} min
@@ -612,7 +639,9 @@ function LessonRunner({
                       isDone ? "text-white/30" : "text-white/60",
                     )}
                   >
-                    {step.instruction}
+                    {step.tab === "reader" && !hasModuleReading
+                      ? `Generate a ${moduleName} story in ${state.selectedLanguage}. Read it twice, then answer its comprehension question.`
+                      : step.instruction}
                   </p>
                 </div>
                 <button

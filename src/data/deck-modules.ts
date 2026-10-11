@@ -6,13 +6,9 @@ import {
   ROOFING_EXTRA_PHRASES,
 } from "./roofing-content";
 
-// Module-topic vocabulary decks, keyed by AppModule.id (src/data/modules.ts).
-// Proof of concept covers Orthopedics only — the module in active use — since
-// translating every module's vocabFocus list accurately across 7 languages
-// is a large hand-authoring effort on its own. Add more module ids here as
-// they're translated; MODULE_DECKS is the single lookup the flashcard
-// category system reads from, so nothing else needs to change when a new
-// module deck is added.
+// Hand-authored module decks, keyed by AppModule.id. FlashcardsStudio also
+// imports translated Reader pairs and existing specialty phrases, then builds
+// practice cards on demand for modules without a full authored deck.
 const orthopedics: DeckWord[] = [
   {
     id: "module-orthopedics-fracture",

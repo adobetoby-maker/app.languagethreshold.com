@@ -1,14 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import {
-  BookOpen,
-  RefreshCw,
-  ChevronDown,
-  ChevronUp,
-  Sparkle,
-  CheckCircle2,
-  XCircle,
-} from "lucide-react";
+import { RefreshCw, ChevronDown, ChevronUp, Sparkle, CheckCircle2, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useApp, VOCAB_MASTERY_THRESHOLD } from "@/state/app-state";
 import { getUltraPatterns } from "@/data/grammar-patterns";
@@ -49,9 +41,13 @@ export function DailyStory() {
   const storyModule = module && moduleSupportsLanguage(module, lang) ? module : null;
 
   const activeVocab = useMemo(
-    () => state.vocabLang === lang
-      ? state.userVocab.filter((v) => v.correctCount < VOCAB_MASTERY_THRESHOLD).map((v) => v.word).slice(0, 8)
-      : [],
+    () =>
+      state.vocabLang === lang
+        ? state.userVocab
+            .filter((v) => v.correctCount < VOCAB_MASTERY_THRESHOLD)
+            .map((v) => v.word)
+            .slice(0, 8)
+        : [],
     [state.vocabLang, state.userVocab, lang],
   );
 
@@ -60,7 +56,6 @@ export function DailyStory() {
   );
 
   const load = useCallback(async () => {
-    if (!ultraPattern) return;
     const requestId = ++requestRef.current;
     setLoading(true);
     setError(null);
@@ -73,8 +68,8 @@ export function DailyStory() {
         language: lang,
         level: state.level,
         vocabWords: activeVocab,
-        patternName: ultraPattern.name,
-        patternFormula: ultraPattern.pattern,
+        patternName: ultraPattern?.name ?? "",
+        patternFormula: ultraPattern?.pattern ?? "",
         moduleId: storyModule?.id ?? null,
       },
     });
@@ -110,18 +105,6 @@ export function DailyStory() {
     }
   }
 
-  // ── No ultra patterns for language ─────────────────────────────────────────
-  if (!ultraPattern) {
-    return (
-      <div className="flex flex-col items-center justify-center gap-4 py-20 text-center px-6">
-        <BookOpen className="h-10 w-10 text-muted-foreground/30" />
-        <p className="text-muted-foreground text-sm">
-          Daily Story is not yet available for {lang}. Switch to Spanish for full story content.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-xl mx-auto px-4 pt-4 pb-24">
       {/* Header */}
@@ -131,7 +114,7 @@ export function DailyStory() {
           Daily Story
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          A short {lang} story built from your vocab, patterns, and selected module
+          A short {lang} story built from your vocab and selected module
         </p>
       </div>
 
@@ -142,9 +125,11 @@ export function DailyStory() {
             {storyModule.emoji} {storyModule.name}
           </span>
         )}
-        <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-violet-400">
-          {ultraPattern.name}
-        </span>
+        {ultraPattern && (
+          <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-violet-400">
+            {ultraPattern.name}
+          </span>
+        )}
         {activeVocab.slice(0, 4).map((w) => (
           <span
             key={w}

@@ -11,6 +11,11 @@ import {
 } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  readDarkModePreference,
+  saveDarkModePreference,
+  THEME_PREFERENCE_KEY,
+} from "@/lib/theme-preference";
 import type { SM2Card } from "./sm2";
 import type { NextTripPlan } from "@/data/travel-destinations";
 import {
@@ -1018,11 +1023,25 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const { __v: _v, ...rest } = parsed;
       dispatch({
         type: "HYDRATE",
-        payload: { ...rest, tier: tierForXp(xp), pendingLevelUp: null },
+        payload: {
+          ...rest,
+          darkMode: readDarkModePreference(),
+          tier: tierForXp(xp),
+          pendingLevelUp: null,
+        },
       });
     } else {
-      dispatch({ type: "HYDRATE", payload: {} });
+      dispatch({ type: "HYDRATE", payload: { darkMode: readDarkModePreference() } });
     }
+  }, []);
+
+  useEffect(() => {
+    const sync = (event: StorageEvent) => {
+      if (event.key === THEME_PREFERENCE_KEY)
+        dispatch({ type: "SET_DARK_MODE", payload: readDarkModePreference() });
+    };
+    window.addEventListener("storage", sync);
+    return () => window.removeEventListener("storage", sync);
   }, []);
 
   const ranStreak = useRef(false);
@@ -1046,10 +1065,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (state.darkMode) root.classList.add("dark");
-    else root.classList.remove("dark");
-  }, [state.darkMode]);
+    if (state.hydrated) saveDarkModePreference(state.darkMode);
+  }, [state.darkMode, state.hydrated]);
 
   useEffect(() => {
     if (!state.hydrated) return;

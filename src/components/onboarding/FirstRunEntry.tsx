@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -17,8 +17,18 @@ export function FirstRunEntry() {
   // so selectedLanguage stayed on its "Spanish" default and "Start reading"
   // could open the wrong language entirely. DUO-002 P0-4.
   const [languageChosen, setLanguageChosen] = useState(() => hasChosenLanguage());
+  const directRoofingCards =
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("module") === "roofing" &&
+    new URLSearchParams(window.location.search).get("tab") === "flashcards";
 
-  if (!state.hydrated || state.onboardingComplete) return null;
+  useEffect(() => {
+    if (state.hydrated && !state.onboardingComplete && directRoofingCards) {
+      dispatch({ type: "COMPLETE_ONBOARDING" });
+    }
+  }, [state.hydrated, state.onboardingComplete, directRoofingCards, dispatch]);
+
+  if (!state.hydrated || state.onboardingComplete || directRoofingCards) return null;
 
   if (!languageChosen) {
     return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;

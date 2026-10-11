@@ -4,12 +4,14 @@ import { BookmarkPlus, X } from "lucide-react";
 import { toast } from "sonner";
 import { lookupWord } from "@/fns/word-lookup.functions";
 import { useApp } from "@/state/app-state";
+import { useFlashcards } from "@/state/flashcard-state";
 
 type Selection = { word: string; sentence: string; x: number; y: number };
 
 /** A single vocabulary entry point shared by games, speaking, stories and every other app tab. */
 export function GlobalVocabCapture() {
   const { state, dispatch } = useApp();
+  const { addCard } = useFlashcards();
   const lookup = useServerFn(lookupWord);
   const [selection, setSelection] = useState<Selection | null>(null);
   const [open, setOpen] = useState(false);
@@ -82,7 +84,23 @@ export function GlobalVocabCapture() {
       dispatch({
         type: "ADD_VOCAB_ITEMS",
         lang: state.selectedLanguage,
-        payload: [{ word: cleanWord, translation: gloss, category: "saved", correctCount: 0 }],
+        payload: [
+          {
+            word: cleanWord,
+            translation: gloss,
+            category: "saved",
+            correctCount: 0,
+            moduleId: state.activeModuleId ?? undefined,
+          },
+        ],
+      });
+      addCard({
+        language: state.selectedLanguage,
+        word: cleanWord,
+        translation: gloss,
+        example: sourceSentence && sourceSentence !== cleanWord ? sourceSentence : "",
+        exampleTranslation: "",
+        moduleId: state.activeModuleId ?? undefined,
       });
       setOpen(false);
       toast.success(`Saved to My Vocab · ${state.selectedLanguage}`);

@@ -51,9 +51,10 @@ interface ModuleCardProps {
   isActive: boolean;
   hasPlan: boolean;
   onActivate: () => void;
+  onStudyCards: () => void;
 }
 
-function ModuleCard({ module, isActive, hasPlan, onActivate }: ModuleCardProps) {
+function ModuleCard({ module, isActive, hasPlan, onActivate, onStudyCards }: ModuleCardProps) {
   const meta = CATEGORY_META[module.category];
   const topVocab = module.vocabFocus.slice(0, 5);
 
@@ -155,6 +156,15 @@ function ModuleCard({ module, isActive, hasPlan, onActivate }: ModuleCardProps) 
           </button>
         )}
       </div>
+      {module.id === "roofing" && (
+        <button
+          type="button"
+          onClick={onStudyCards}
+          className="mt-3 w-full rounded-full border border-gold/50 bg-gold/10 px-3 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/20"
+        >
+          Study Roofing flashcards →
+        </button>
+      )}
     </div>
   );
 }
@@ -342,6 +352,10 @@ export function ModulesPage() {
                         isActive={state.activeModuleId === m.id}
                         hasPlan={hasPlan}
                         onActivate={() => handleActivate(m)}
+                        onStudyCards={() => {
+                          dispatch({ type: "SET_ACTIVE_MODULE", payload: m.id });
+                          dispatch({ type: "SET_TAB", payload: "flashcards" });
+                        }}
                       />
                     ))}
                   </div>

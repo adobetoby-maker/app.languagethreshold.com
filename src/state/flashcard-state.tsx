@@ -57,7 +57,7 @@ export interface FlashcardEntry {
   category: FlashcardCategory;
   source: "starter" | "user";
   frequencyId?: string; // matches FrequencyWordEntry.id (starter/conjugated cards only) — looks up the full conjugation table
-  moduleId?: string; // matches AppModule.id (module cards only)
+  moduleId?: string; // matches AppModule.id (module or learner-created cards)
   blockId?: string; // matches FlashBlock.id (block cards only)
   addedAt: number;
   srs: SrsFields;
@@ -92,7 +92,11 @@ type Action =
     }
   | {
       type: "SYNC_VOCAB";
-      payload: { language: Language; items: { word: string; translation: string }[]; now?: number };
+      payload: {
+        language: Language;
+        items: { word: string; translation: string; moduleId?: string }[];
+        now?: number;
+      };
     }
   | {
       type: "ADD_BLOCK_CARDS";
@@ -250,6 +254,7 @@ function syncModuleDeck(
 // `sections` accepts fixed category names plus "block:<blockId>" tokens for
 // the dynamic topic decks.
 function matchesSection(c: FlashcardEntry, sections: string[]): boolean {
+  if (c.moduleId && sections.includes(`module:${c.moduleId}`)) return true;
   return c.category === "block"
     ? sections.includes(`block:${c.blockId}`)
     : sections.includes(c.category);
@@ -353,8 +358,12 @@ function reducer(state: State, action: Action): State {
         const id = userId(language, item.word);
         const existing = cards[id];
         if (existing) {
-          if (existing.translation !== item.translation) {
-            cards[id] = { ...existing, translation: item.translation };
+          if (existing.translation !== item.translation || (!existing.moduleId && item.moduleId)) {
+            cards[id] = {
+              ...existing,
+              translation: item.translation,
+              moduleId: existing.moduleId ?? item.moduleId,
+            };
             changed = true;
           }
           continue;
@@ -368,6 +377,7 @@ function reducer(state: State, action: Action): State {
           exampleTranslation: "",
           category: "vocab",
           source: "user",
+          moduleId: item.moduleId,
           addedAt: now,
           srs: newSrsFields(now),
         };
@@ -381,7 +391,14 @@ function reducer(state: State, action: Action): State {
       const { now, ...entry } = action.payload;
       const ts = now ?? Date.now();
       const id = userId(entry.language, entry.word);
-      if (state.cards[id]) return state; // already saved
+      if (state.cards[id]) {
+        const existing = state.cards[id];
+        if (!entry.moduleId || existing.moduleId === entry.moduleId) return state;
+        return {
+          ...state,
+          cards: { ...state.cards, [id]: { ...existing, moduleId: entry.moduleId } },
+        };
+      }
       return {
         ...state,
         cards: {
@@ -456,7 +473,10 @@ const Ctx = createContext<{
   state: State;
   seedStarter: (language: Language) => void;
   seedDeck: (language: Language, category: FlashcardCategory, moduleId?: string) => void;
-  syncVocab: (language: Language, items: { word: string; translation: string }[]) => void;
+  syncVocab: (
+    language: Language,
+    items: { word: string; translation: string; moduleId?: string }[],
+  ) => void;
   addBlockCards: (
     language: Language,
     blockId: string,
@@ -528,7 +548,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     [],
   );
   const syncVocab = useCallback(
-    (language: Language, items: { word: string; translation: string }[]) =>
+    (language: Language, items: { word: string; translation: string; moduleId?: string }[]) =>
       dispatch({ type: "SYNC_VOCAB", payload: { language, items } }),
     [],
   );

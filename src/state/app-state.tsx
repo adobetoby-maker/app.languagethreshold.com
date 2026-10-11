@@ -222,6 +222,7 @@ export interface UserVocabItem {
   translation: string;
   category: string;
   correctCount: number;
+  moduleId?: string;
 }
 
 export interface AppState {
@@ -340,6 +341,7 @@ export type AppAction =
     }
   | { type: "MASTER_VOCAB_WORD"; payload: string }
   | { type: "ADD_VOCAB_ITEMS"; payload: UserVocabItem[]; lang?: Language }
+  | { type: "REMOVE_VOCAB_ITEM"; payload: { language: Language; word: string } }
   | { type: "START_REGRESSION_CHECK" }
   | { type: "SCORE_PATTERN"; payload: string }
   | { type: "PATTERN_REGRESSION_CHECK" }
@@ -701,6 +703,19 @@ export function reducer(state: AppState, action: AppAction): AppState {
         vocabRevisionsByLanguage,
         userVocab: vocabByLanguage[state.selectedLanguage] ?? [],
         vocabLang: state.selectedLanguage,
+      };
+    }
+    case "REMOVE_VOCAB_ITEM": {
+      const { language, word } = action.payload;
+      const current = state.vocabByLanguage[language] ?? [];
+      const next = current.filter((item) => item.word.trim().toLowerCase() !== word.trim().toLowerCase());
+      if (next.length === current.length) return state;
+      const vocabByLanguage = { ...state.vocabByLanguage, [language]: next };
+      return {
+        ...state,
+        vocabByLanguage,
+        vocabRevisionsByLanguage: bumpVocabRevision(state.vocabRevisionsByLanguage ?? {}, language),
+        userVocab: deriveUserVocab(vocabByLanguage, state.selectedLanguage),
       };
     }
     case "START_REGRESSION_CHECK": {

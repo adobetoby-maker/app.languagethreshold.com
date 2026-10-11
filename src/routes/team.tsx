@@ -693,8 +693,8 @@ function AdminWorkspace({
                 Start with <strong>five seats for $99/month</strong>. Ten seats cost{" "}
                 <strong>$159/month</strong>. For 15 seats, pay <strong>$209/month</strong>,{" "}
                 <strong>$627 for three months</strong>, or <strong>$2,090 for one year</strong>.
-                Seats 6–10 add $12/month each and seats 11 and up add $10/month each. Annual
-                billing equals ten months. Plans renew unless canceled.
+                Seats 6–10 add $12/month each and seats 11 and up add $10/month each. Annual billing
+                equals ten months. Plans renew unless canceled.
               </p>
               <div className="flex flex-wrap gap-2">
                 <select
@@ -1358,9 +1358,12 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               {a.module_id === "roofing" ? "/30" : ""} lessons recorded
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <Link to="/" className={button}>
-                Open learning app
-              </Link>
+              <a
+                href={`/?module=${encodeURIComponent(a.module_id)}&tab=flashcards`}
+                className={button}
+              >
+                Study {getModule(a.module_id)?.name ?? "assigned module"} cards
+              </a>
               {cert && (
                 <a href={`/certificate?id=${cert.id}`} className={secondary}>
                   View certificate

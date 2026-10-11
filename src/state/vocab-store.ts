@@ -3,6 +3,7 @@ export interface VocabItem {
   translation: string;
   category: string;
   correctCount: number;
+  moduleId?: string;
 }
 
 export type VocabByLanguage<Language extends string> = Partial<Record<Language, VocabItem[]>>;

@@ -1,4 +1,10 @@
 import type { DeckWord } from "./deck-pronouns";
+import {
+  ROOFING_GUIDE_MATERIALS,
+  ROOFING_GUIDE_PHRASES,
+  ROOFING_EXTRA_MATERIALS,
+  ROOFING_EXTRA_PHRASES,
+} from "./roofing-content";
 
 // Module-topic vocabulary decks, keyed by AppModule.id (src/data/modules.ts).
 // Proof of concept covers Orthopedics only — the module in active use — since
@@ -232,4 +238,20 @@ const orthopedics: DeckWord[] = [
 
 export const MODULE_DECKS: Record<string, DeckWord[]> = {
   orthopedics,
+  roofing: [
+    ...ROOFING_GUIDE_MATERIALS,
+    ...ROOFING_EXTRA_MATERIALS,
+    ...Object.values(ROOFING_GUIDE_PHRASES).flat(),
+    ...Object.values(ROOFING_EXTRA_PHRASES).flat(),
+  ].map(({ en, es }, index) => ({
+    id: `roofing-${index + 1}`,
+    english: en,
+    partOfSpeech:
+      index < ROOFING_GUIDE_MATERIALS.length + ROOFING_EXTRA_MATERIALS.length
+        ? "roofing term"
+        : "crew phrase",
+    translations: {
+      Spanish: { word: es, example: es, exampleTranslation: en },
+    },
+  })),
 };

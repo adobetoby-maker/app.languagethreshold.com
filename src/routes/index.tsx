@@ -71,6 +71,9 @@ function UrlModuleBridge() {
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
     const tab = params.get("tab");
+    if (moduleId === "roofing" && state.selectedLanguage !== "Spanish") {
+      dispatch({ type: "SET_LANGUAGE", payload: "Spanish" });
+    }
     if (moduleId && moduleId !== state.activeModuleId) {
       dispatch({ type: "PURCHASE_MODULE", payload: moduleId });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: moduleId });
@@ -78,11 +81,20 @@ function UrlModuleBridge() {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
     }
-    const allowedTabs = new Set(["reader", "grammar", "speak", "dashboard", "modules", "games"]);
+    const allowedTabs = new Set([
+      "reader",
+      "grammar",
+      "speak",
+      "dashboard",
+      "modules",
+      "games",
+      "flashcards",
+    ]);
     if (tab && allowedTabs.has(tab)) {
       dispatch({
         type: "SET_TAB",
-        payload: tab as "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games",
+        payload: tab as
+          "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games" | "flashcards",
       });
     }
     // Only run once after hydration

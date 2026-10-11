@@ -177,6 +177,9 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
           </ul>
           <ActionRow>
             <Pill onClick={() => go("reader")}>Open Reader</Pill>
+            {moduleId === "roofing" && (
+              <Pill onClick={() => go("flashcards")}>Study Roofing flashcards</Pill>
+            )}
           </ActionRow>
         </Card>
 

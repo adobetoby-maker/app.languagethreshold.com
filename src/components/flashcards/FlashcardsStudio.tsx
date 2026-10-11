@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle } from "lucide-react";
+import { Layers, RotateCcw, Volume2, Sparkle, Trash2, BookOpen, Shuffle, Plus } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import {
   useFlashcards,
@@ -13,6 +13,7 @@ import { useSpeech } from "@/state/speech-state";
 import { useServerFn } from "@tanstack/react-start";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
 import { translatePhrases } from "@/fns/phrase-translate.functions";
+import { getModule } from "@/data/modules";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
@@ -66,12 +67,13 @@ function daysUntil(dueDate: number): string {
 }
 
 export function FlashcardsStudio() {
-  const { state: appState } = useApp();
+  const { state: appState, dispatch: appDispatch } = useApp();
   const {
     state,
     seedStarter,
     seedDeck,
     syncVocab,
+    addCard,
     addBlockCards,
     reviewCard,
     removeCard,
@@ -82,6 +84,7 @@ export function FlashcardsStudio() {
   const { accent, voiceURI } = useSpeech();
   const language = appState.selectedLanguage;
   const moduleId = appState.activeModuleId;
+  const moduleName = getModule(moduleId)?.name ?? "Module";
   const [flipped, setFlipped] = useState(false);
   const [reviewedCount, setReviewedCount] = useState(0);
   const [showFurigana, setShowFurigana] = useState(true);
@@ -105,11 +108,21 @@ export function FlashcardsStudio() {
   }, [showFurigana]);
 
   const moduleAvailable = moduleId ? hasModuleDeck(moduleId) : false;
+  const moduleSection = moduleAvailable && moduleId ? `module:${moduleId}` : null;
   const availableCategories = useMemo(
-    () => FLASHCARD_CATEGORIES.filter((c) => c !== "module" || moduleAvailable),
-    [moduleAvailable],
+    () => [
+      ...FLASHCARD_CATEGORIES.filter((c) => c !== "module"),
+      ...(moduleSection ? [moduleSection] : []),
+    ],
+    [moduleSection],
   );
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([...availableCategories]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    moduleSection ? [moduleSection] : [...availableCategories],
+  );
+  const [newEnglish, setNewEnglish] = useState("");
+  const [newTranslation, setNewTranslation] = useState("");
+  const [adding, setAdding] = useState(false);
+  const [addMessage, setAddMessage] = useState("");
 
   const translate = useServerFn(translatePhrases);
   const blocks = useMemo(() => getCategoryBlocks(), []);
@@ -173,18 +186,86 @@ export function FlashcardsStudio() {
     if (appState.vocabLang !== language || appState.userVocab.length === 0) return;
     syncVocab(
       language,
-      appState.userVocab.map((v) => ({ word: v.word, translation: v.translation })),
+      appState.userVocab.map((v) => ({
+        word: v.word,
+        translation: v.translation,
+        moduleId: v.moduleId,
+      })),
     );
   }, [state.hydrated, language, appState.vocabLang, appState.userVocab, syncVocab]);
 
   useEffect(() => {
-    setSelectedCategories((prev) => {
-      const stillValid = prev.filter(
-        (c) => c.startsWith("block:") || (availableCategories as string[]).includes(c),
-      );
-      return stillValid.length > 0 ? stillValid : [...availableCategories];
+    setSelectedCategories(moduleSection ? [moduleSection] : [...availableCategories]);
+  }, [moduleSection, availableCategories]);
+
+  function saveCards(pairs: { english: string; translation: string }[]) {
+    const valid = pairs.filter((pair) => pair.english.trim() && pair.translation.trim());
+    if (!valid.length) return;
+    for (const pair of valid) {
+      addCard({
+        language,
+        word: pair.translation.trim(),
+        translation: pair.english.trim(),
+        example: "",
+        exampleTranslation: "",
+        moduleId: moduleId ?? undefined,
+      });
+    }
+    appDispatch({
+      type: "ADD_VOCAB_ITEMS",
+      lang: language,
+      payload: valid.map((pair) => ({
+        word: pair.translation.trim(),
+        translation: pair.english.trim(),
+        category: "saved",
+        correctCount: 0,
+        moduleId: moduleId ?? undefined,
+      })),
     });
-  }, [availableCategories]);
+    setAddMessage(`${valid.length} card${valid.length === 1 ? "" : "s"} added to your study flow.`);
+    setNewEnglish("");
+    setNewTranslation("");
+    setSelectedCategories(moduleSection ? [moduleSection] : ["vocab"]);
+  }
+
+  async function handleAddCards() {
+    const items = newEnglish
+      .split(/\n/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+    if (!items.length || items.length > 8 || items.some((item) => item.length > 80)) {
+      setAddMessage("Enter 1–8 English words or short phrases, each under 80 characters.");
+      return;
+    }
+    if (newTranslation.trim()) {
+      if (items.length !== 1) {
+        setAddMessage(
+          "For several cards, leave the translation blank and use automatic translation.",
+        );
+        return;
+      }
+      saveCards([{ english: items[0], translation: newTranslation.trim() }]);
+      return;
+    }
+    setAdding(true);
+    setAddMessage("");
+    try {
+      const result = await translate({
+        data: {
+          phrases: items,
+          targetLanguage: language,
+          context: `${moduleName} learner flashcards`,
+        },
+      });
+      if (result.error || !result.phrases?.length)
+        throw new Error(result.error ?? "Translation failed");
+      saveCards(result.phrases);
+    } catch {
+      setAddMessage("Translation is unavailable. Enter a translation for one card and try again.");
+    } finally {
+      setAdding(false);
+    }
+  }
 
   function toggleCategory(section: string) {
     setSelectedCategories((prev) => nextSectionSelection(prev, section, availableCategories));
@@ -226,10 +307,8 @@ export function FlashcardsStudio() {
   // Japanese verb structure (bases + te/ta + register×tense) — separate catalog
   const japaneseConjugation: JapaneseConjugationSet | undefined =
     language === "Japanese" && activeCard
-      ? getJapaneseConjugation(activeCard.word) ??
-        (activeCard.romanization
-          ? getJapaneseConjugation(activeCard.romanization)
-          : undefined)
+      ? (getJapaneseConjugation(activeCard.word) ??
+        (activeCard.romanization ? getJapaneseConjugation(activeCard.romanization) : undefined))
       : undefined;
 
   const grade = useCallback(
@@ -307,8 +386,82 @@ export function FlashcardsStudio() {
         </div>
       </div>
 
+      {moduleSection && (
+        <section className="mb-5 rounded-2xl border border-gold/40 bg-gold/[0.08] p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                Your field focus
+              </p>
+              <h2 className="font-display text-xl text-foreground">{moduleName} flashcards</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {cardsForCategories(language, [moduleSection]).length} field terms and crew phrases
+                · study this specialty without mixing other subjects.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSelectedCategories([moduleSection])}
+              className="rounded-full border border-gold bg-gold/15 px-4 py-2 text-sm font-semibold text-gold hover:bg-gold/25"
+            >
+              Study {moduleName} only
+            </button>
+          </div>
+        </section>
+      )}
+
+      <section className="mb-6 rounded-2xl border border-border/60 bg-card/40 p-5">
+        <div className="mb-3 flex items-center gap-2 text-gold">
+          <Plus className="h-4 w-4" />
+          <h2 className="font-display text-lg">Make your own flashcards</h2>
+        </div>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Add a word or request up to eight translations, one English item per line. Saved cards
+          join My Vocab{moduleSection ? ` and your ${moduleName} deck` : ""}.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <label className="text-xs text-muted-foreground">
+            English word or phrase
+            <textarea
+              value={newEnglish}
+              onChange={(event) => setNewEnglish(event.target.value)}
+              rows={3}
+              maxLength={650}
+              placeholder="roof anchor"
+              className="mt-1 w-full rounded-lg border border-border bg-background/60 p-3 text-sm text-foreground"
+            />
+          </label>
+          <label className="text-xs text-muted-foreground">
+            {language} translation (optional for one card)
+            <input
+              value={newTranslation}
+              onChange={(event) => setNewTranslation(event.target.value)}
+              maxLength={160}
+              placeholder="Leave blank to translate automatically"
+              className="mt-1 w-full rounded-lg border border-border bg-background/60 p-3 text-sm text-foreground"
+            />
+          </label>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => void handleAddCards()}
+            disabled={adding}
+            className="rounded-full border border-gold bg-gold/15 px-4 py-2 text-sm font-semibold text-gold disabled:opacity-60"
+          >
+            {adding ? "Translating…" : "Add to study cards"}
+          </button>
+          {addMessage && (
+            <p role="status" className="text-xs text-muted-foreground">
+              {addMessage}
+            </p>
+          )}
+        </div>
+      </section>
+
       <CategorySelector
         language={language}
+        moduleName={moduleName}
         available={availableCategories}
         selected={selectedCategories}
         allSelected={allSelected}
@@ -368,13 +521,22 @@ export function FlashcardsStudio() {
                   <div className="mt-4 w-full max-w-sm space-y-2">
                     <div className="flex flex-wrap items-center justify-center gap-2">
                       <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        て <span className="text-foreground">{japaneseConjugation.teForm ?? japaneseConjugation.bases.te}</span>
+                        て{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.teForm ?? japaneseConjugation.bases.te}
+                        </span>
                       </span>
                       <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        た <span className="text-foreground">{japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}</span>
+                        た{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.taForm ?? japaneseConjugation.forms.plain.past}
+                        </span>
                       </span>
                       <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
-                        -masu <span className="text-foreground">{japaneseConjugation.forms.polite.present}</span>
+                        -masu{" "}
+                        <span className="text-foreground">
+                          {japaneseConjugation.forms.polite.present}
+                        </span>
                       </span>
                     </div>
                     <div className="flex flex-wrap justify-center gap-1.5">
@@ -490,7 +652,14 @@ export function FlashcardsStudio() {
                   .slice()
                   .sort((a, b) => a.srs.dueDate - b.srs.dueDate)
                   .map((c) => (
-                    <DeckRow key={c.id} card={c} onRemove={() => removeCard(c.id)} />
+                    <DeckRow
+                      key={c.id}
+                      card={c}
+                      onRemove={() => {
+                        removeCard(c.id);
+                        appDispatch({ type: "REMOVE_VOCAB_ITEM", payload: { language, word: c.word } });
+                      }}
+                    />
                   ))}
               </div>
             </div>
@@ -532,6 +701,7 @@ export function FlashcardsStudio() {
 
 function CategorySelector({
   language,
+  moduleName,
   available,
   selected,
   allSelected,
@@ -545,6 +715,7 @@ function CategorySelector({
   onIntroduceMore,
 }: {
   language: FlashcardEntry["language"];
+  moduleName: string;
   available: readonly string[];
   selected: string[];
   allSelected: boolean;
@@ -596,7 +767,9 @@ function CategorySelector({
                   : "border-border/60 bg-card/30 text-muted-foreground hover:border-gold/40"
               }`}
             >
-              {CATEGORY_LABEL[category as keyof typeof CATEGORY_LABEL]}
+              {category.startsWith("module:")
+                ? `${moduleName} cards`
+                : CATEGORY_LABEL[category as keyof typeof CATEGORY_LABEL]}
               <span className={active ? "text-gold/70" : "text-muted-foreground/60"}>
                 {due > 0 ? `${due}/${total}` : total}
               </span>

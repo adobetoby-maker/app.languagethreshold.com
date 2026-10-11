@@ -162,7 +162,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
             : "group inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 transition-all hover:border-gold/60 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         }
         aria-label={compact ? "Choose site voice" : undefined}
-        title={`${accentLabel} · ${activeGoogle?.label ?? activeDevice?.name ?? "Choose voice"}`}
+        title={`${accentLabel} · ${activeGoogle?.label ?? activeDevice?.name ?? "Choose voice"}${actualVoiceLocale ? ` (${voiceRegion(actualVoiceLocale)})` : ""}`}
       >
         <AudioLines
           className={`h-3.5 w-3.5 ${googlePreference ? "text-gold" : "text-muted-foreground"}`}

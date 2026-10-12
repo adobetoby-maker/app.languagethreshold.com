@@ -30,6 +30,30 @@ const CARD_W_CJK = 340;
 // the visible height with overflow-y scroll so the card still fits a phone
 // viewport. Used only for the smart-positioning math, not as a hard limit.
 const CARD_H = 560;
+const MAX_CLIENT_CACHE_ENTRIES = 200;
+const wordCardCache = new Map<string, WordCardData>();
+
+function wordCardCacheKey(request: WordCardRequest, nativeLanguage: string): string {
+  return JSON.stringify([
+    request.language,
+    nativeLanguage,
+    request.word,
+    request.sentence,
+  ]);
+}
+
+function getCachedWordCard(key: string): WordCardData | null {
+  return wordCardCache.get(key) ?? null;
+}
+
+function cacheWordCard(key: string, card: WordCardData): void {
+  wordCardCache.delete(key);
+  wordCardCache.set(key, card);
+  if (wordCardCache.size > MAX_CLIENT_CACHE_ENTRIES) {
+    const oldest = wordCardCache.keys().next().value;
+    if (oldest) wordCardCache.delete(oldest);
+  }
+}
 
 function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
@@ -104,9 +128,20 @@ export function WordCard({
   const { setLastWord, accent, voiceURI } = useSpeech();
   const tutor = useTutor();
   const { state, dispatch } = useApp();
-  const [card, setCard] = useState<WordCardData | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const lookupKey = wordCardCacheKey(request, state.nativeLanguage);
+  const [lookupState, setLookupState] = useState(() => {
+    const cached = getCachedWordCard(lookupKey);
+    return { key: lookupKey, card: cached, error: null as string | null, loading: !cached };
+  });
+  // A new tap can update the existing WordCard before its fetch effect runs.
+  // Never show the previous word's answer during that render.
+  const currentLookup = lookupState.key === lookupKey
+    ? lookupState
+    : (() => {
+        const cached = getCachedWordCard(lookupKey);
+        return { key: lookupKey, card: cached, error: null, loading: !cached };
+      })();
+  const { card, error, loading } = currentLookup;
   const [vocabAdded, setVocabAdded] = useState(false);
   const [showEtymology, setShowEtymology] = useState(false);
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
@@ -192,10 +227,13 @@ export function WordCard({
 
   // Fetch card
   useEffect(() => {
+    const cached = getCachedWordCard(lookupKey);
+    if (cached) {
+      setLookupState({ key: lookupKey, card: cached, error: null, loading: false });
+      return;
+    }
     let active = true;
-    setLoading(true);
-    setCard(null);
-    setError(null);
+    setLookupState({ key: lookupKey, card: null, error: null, loading: true });
     lookup({
       data: {
         word: request.word,
@@ -206,19 +244,27 @@ export function WordCard({
     })
       .then((res) => {
         if (!active) return;
-        if (res.error) setError(res.error);
-        else if (res.card) setCard(res.card);
-        else setError("No data returned — tap to retry");
+        if (res.card) cacheWordCard(lookupKey, res.card);
+        setLookupState({
+          key: lookupKey,
+          card: res.card,
+          error: res.error ?? (res.card ? null : "No data returned — tap to retry"),
+          loading: false,
+        });
       })
       .catch((e) => {
         if (!active) return;
-        setError(e?.message || "Lookup failed — tap to retry");
-      })
-      .finally(() => active && setLoading(false));
+        setLookupState({
+          key: lookupKey,
+          card: null,
+          error: e?.message || "Lookup failed — tap to retry",
+          loading: false,
+        });
+      });
     return () => {
       active = false;
     };
-  }, [request.word, request.sentence, request.language, state.nativeLanguage, lookup]);
+  }, [lookupKey, request.word, request.sentence, request.language, state.nativeLanguage, lookup]);
 
   const speak = () => {
     if (typeof window === "undefined") return;
@@ -324,14 +370,12 @@ export function WordCard({
             "min(80vh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 48px))",
         }}
       >
-        {loading && <CardSkeleton />}
-
         {/* When the lookup fails there is still something worth showing: the word
             the learner tapped and the sentence it came from. Both are local
             Reader state and need no network. Previously the whole card body sat
             behind `card`, so a failed lookup erased the sentence too and left
             only a red error string. */}
-        {!loading && !card && (
+        {!card && (
           <>
             <h3 className="font-display text-3xl font-bold leading-tight tracking-tight">
               {request.word}
@@ -356,6 +400,15 @@ export function WordCard({
               </p>
             </div>
           </>
+        )}
+
+        {loading && (
+          <div role="status" aria-live="polite" className="mt-4">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              Finding meaning and grammar…
+            </p>
+            <CardSkeleton />
+          </div>
         )}
 
         {/* Learner-facing copy. The raw server string ("AI is not configured")
@@ -671,11 +724,9 @@ export function WordCard({
 function CardSkeleton() {
   return (
     <div className="space-y-3">
-      <div className="shimmer h-8 w-2/3 rounded-md" />
-      <div className="shimmer h-3 w-1/3 rounded" />
       <div className="shimmer h-3 w-full rounded" />
       <div className="shimmer h-3 w-5/6 rounded" />
-      <div className="shimmer mt-4 h-20 w-full rounded-xl" />
+      <div className="shimmer mt-4 h-16 w-full rounded-xl" />
       <div className="shimmer h-3 w-4/6 rounded" />
       <div className="shimmer h-3 w-3/6 rounded" />
     </div>

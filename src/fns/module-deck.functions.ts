@@ -2,7 +2,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getCurriculum } from "@/data/curriculum";
-import { getModule } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import type { NativeLanguage } from "@/state/app-state";
 
 const Input = z.object({
   moduleId: z.string().min(1).max(80),
@@ -18,6 +19,11 @@ const Input = z.object({
     "Pashto",
     "English",
   ]),
+  nativeLanguage: z.enum([
+    "English", "Spanish", "French", "German", "Italian", "Portuguese",
+    "Dutch", "Polish", "Russian", "Turkish", "Arabic", "Hindi",
+    "Chinese (Simplified)", "Japanese", "Korean",
+  ]).optional(),
 });
 
 export interface ModuleDeckPair {
@@ -31,12 +37,9 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<{ pairs: ModuleDeckPair[] | null; error: string | null }> => {
     const module = getModule(data.moduleId);
     if (!module) return { pairs: null, error: "Unknown module" };
-    if (
-      module.learnDirection === "en-target"
-        ? data.language !== "English"
-        : data.language === "English" ||
-          (module.languages && !module.languages.includes(data.language))
-    ) {
+    const nativeLanguage: NativeLanguage = data.nativeLanguage ??
+      (data.language === "English" ? "Spanish" : "English");
+    if (!moduleSupportsLearningPair(module, data.language, nativeLanguage)) {
       return { pairs: null, error: "This language is not available for this module" };
     }
     const key = process.env.ANTHROPIC_API_KEY;
@@ -48,13 +51,14 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
       const response = await client.messages.create({
         model: "claude-haiku-4-5",
         max_tokens: 6000,
-        system: `You create practical bilingual flashcards for language learners. Return 20 distinct field terms and 20 short things the learner would actually say in the field. Translate every card naturally into the requested target language. Keep English and target text paired exactly. Phrases should be learner utterances, not instructions about what to practice. Cover the full range of provided lesson themes, not only the first lesson. For medical or safety topics, teach communication and verification, never an unsupported procedure, dose, measurement, or universal specification. Avoid stereotypes and culturally insensitive assumptions. Return only the requested tool data.`,
+        system: `You create practical bilingual flashcards for language learners. Return 20 distinct field terms and 20 short things the learner would actually say in the field. The learner's native language is ${nativeLanguage}; the language they are learning is ${data.language}. In each card, "english" is the native-language source text and "translation" is the ${data.language} practice text. For English learners, this means "english" must contain ${nativeLanguage} (such as Spanish), and "translation" must contain English. Translate every card naturally into the requested target language. Keep source and target text paired exactly. Phrases should be learner utterances, not instructions about what to practice. Cover the full range of provided lesson themes, not only the first lesson. For medical or safety topics, teach communication and verification, never an unsupported procedure, dose, measurement, or universal specification. Avoid stereotypes and culturally insensitive assumptions. Return only the requested tool data.`,
         messages: [
           {
             role: "user",
             content: JSON.stringify({
               module: module.name,
               targetLanguage: data.language,
+              nativeLanguage,
               learnerRole: module.userRole,
               description: module.blurb,
               vocabulary: module.vocabFocus,

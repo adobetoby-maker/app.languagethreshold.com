@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { useApp, VOCAB_MASTERY_THRESHOLD } from "@/state/app-state";
 import { getUltraPatterns } from "@/data/grammar-patterns";
 import { generateDailyStory, type DailyStoryData } from "@/fns/daily-story.functions";
-import { getModule, moduleSupportsLanguage } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 
 function highlightVocab(text: string, words: string[]): React.ReactNode {
   if (!words.length) return text;
@@ -38,7 +38,8 @@ export function DailyStory() {
 
   const lang = state.selectedLanguage;
   const module = getModule(state.activeModuleId);
-  const storyModule = module && moduleSupportsLanguage(module, lang) ? module : null;
+  const storyModule = module && moduleSupportsLearningPair(module, lang, state.nativeLanguage)
+    ? module : null;
 
   const activeVocab = useMemo(
     () =>
@@ -71,6 +72,7 @@ export function DailyStory() {
         patternName: ultraPattern?.name ?? "",
         patternFormula: ultraPattern?.pattern ?? "",
         moduleId: storyModule?.id ?? null,
+        nativeLanguage: state.nativeLanguage,
       },
     });
 
@@ -81,16 +83,16 @@ export function DailyStory() {
       return;
     }
     setStory(res.data);
-  }, [fetchStory, lang, state.level, activeVocab, ultraPattern, storyModule?.id]);
+  }, [fetchStory, lang, state.level, state.nativeLanguage, activeVocab, ultraPattern, storyModule?.id]);
 
   useEffect(() => {
-    const key = `${lang}:${state.level}:${storyModule?.id ?? "core"}`;
+    const key = `${state.nativeLanguage}:${lang}:${state.level}:${storyModule?.id ?? "core"}`;
     if (loadedRef.current === key) return;
     loadedRef.current = key;
     setStory(null);
     void load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lang, state.level, storyModule?.id]);
+  }, [lang, state.level, state.nativeLanguage, storyModule?.id]);
 
   function checkAnswer() {
     if (!story || !answer.trim()) return;
@@ -187,7 +189,7 @@ export function DailyStory() {
             onClick={() => setShowTranslation((v) => !v)}
             className="flex w-full items-center justify-between rounded-lg border border-border/40 bg-card/20 px-3 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
-            English translation
+            {state.nativeLanguage} translation
             {showTranslation ? (
               <ChevronUp className="h-3.5 w-3.5" />
             ) : (

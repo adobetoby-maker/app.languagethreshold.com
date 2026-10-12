@@ -16,8 +16,10 @@ export async function getCuratedModulePairs(
   const rows: CuratedModulePair[] = [];
   const addPhrases = (phrases: BilingualPhrase[], kind: CuratedModulePair["kind"] = "phrase") => {
     for (const phrase of phrases) {
-      const translation = phrase.translations[language];
-      if (translation) rows.push({ english: phrase.en, translation, kind });
+      const translation = phrase.translations[language === "English" ? "Spanish" : language];
+      if (translation) rows.push(language === "English"
+        ? { english: translation, translation: phrase.en, kind }
+        : { english: phrase.en, translation, kind });
     }
   };
 
@@ -29,8 +31,10 @@ export async function getCuratedModulePairs(
     addPhrases(climbing.PHRASES);
     for (const item of climbing.GEAR_ITEMS) {
       const english = item.names.English;
-      const translation = item.names[language];
-      if (english && translation) rows.push({ english, translation, kind: "term" });
+      const translation = item.names[language === "English" ? "Spanish" : language];
+      if (english && translation) rows.push(language === "English"
+        ? { english: translation, translation: english, kind: "term" }
+        : { english, translation, kind: "term" });
     }
   } else if (moduleId === "sport-fishing") {
     const fishing = await import("./fishing-practice");

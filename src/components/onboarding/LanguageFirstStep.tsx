@@ -33,6 +33,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   function choose(lang: Language) {
     setPicked(lang);
     dispatch({ type: "SET_LANGUAGE", payload: lang });
+    if (lang === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
     try {
       localStorage.setItem(STORAGE_KEY, "1");
     } catch {
@@ -52,7 +53,7 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
         </div>
 
         <div className="rounded-2xl border border-border/60 bg-card/90 p-6 shadow-2xl">
-          <h2 className="text-xl font-semibold mb-1">What are you learning?</h2>
+          <h2 className="text-xl font-semibold mb-1">What are you learning? / ¿Qué quieres aprender?</h2>
           <p className="text-sm text-muted-foreground mb-5">
             We&apos;ll open a passage and tools tailored to that language. You can change this later.
           </p>

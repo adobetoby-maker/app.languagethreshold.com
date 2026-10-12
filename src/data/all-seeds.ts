@@ -27,6 +27,7 @@ import { KOREAN_MODULE_SEEDS } from "@/data/library-seeds/korean-module-seeds";
 import { NEW_MODULES_SEEDS } from "@/data/library-seeds/new-modules-seeds";
 import { PASHTO_SEEDS } from "@/data/library-seeds/pashto-seeds";
 import { ITALIAN_EXPANSION_SEEDS } from "@/data/library-seeds/italian-expansion-seeds";
+import { englishModuleSeedsFromSpanish } from "@/data/module-starters";
 
 // Suppress unused-type warnings for types used only in inline object literals below
 type _BookChapter = BookChapter;
@@ -1385,7 +1386,7 @@ export const LDS_PACK_LOADERS: Record<string, () => Promise<LibraryEntry[]>> = {
     ),
 };
 
-export const ALL_SEEDS: LibraryEntry[] = [
+const BASE_SEEDS: LibraryEntry[] = [
   { ...PREACH_MY_GOSPEL_SEED, category: "Faith" },
   ...PREACH_MY_GOSPEL_I18N_SEEDS.map(tag("Faith")),
   ...CLASSIC_STUBS.map(tag("Classics")),
@@ -1415,4 +1416,9 @@ export const ALL_SEEDS: LibraryEntry[] = [
   ...(NEW_MODULES_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Other" })),
   ...(PASHTO_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
   ...(ITALIAN_EXPANSION_SEEDS as LibraryEntry[]).map((e) => ({ ...e, category: e.category ?? "Culture" })),
+];
+
+export const ALL_SEEDS: LibraryEntry[] = [
+  ...BASE_SEEDS,
+  ...englishModuleSeedsFromSpanish(BASE_SEEDS),
 ];

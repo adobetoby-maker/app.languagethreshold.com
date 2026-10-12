@@ -474,7 +474,12 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               {LANGUAGES.map((lang) => (
                 <DropdownMenuItem
                   key={lang}
-                  onSelect={() => dispatch({ type: "SET_LANGUAGE", payload: lang })}
+                  onSelect={() => {
+                    dispatch({ type: "SET_LANGUAGE", payload: lang });
+                    if (lang === "English" && state.nativeLanguage === "English") {
+                      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+                    }
+                  }}
                   className="font-mono text-xs uppercase tracking-[0.16em]"
                 >
                   <span className={state.selectedLanguage === lang ? "text-gold" : "opacity-50"}>
@@ -600,9 +605,13 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </span>
               <select
                 value={state.selectedLanguage}
-                onChange={(e) =>
-                  dispatch({ type: "SET_LANGUAGE", payload: e.target.value as Language })
-                }
+                onChange={(e) => {
+                  const lang = e.target.value as Language;
+                  dispatch({ type: "SET_LANGUAGE", payload: lang });
+                  if (lang === "English" && state.nativeLanguage === "English") {
+                    dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+                  }
+                }}
                 className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
               >
                 {LANGUAGES.map((lang) => (

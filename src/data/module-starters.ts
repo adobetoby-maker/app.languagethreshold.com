@@ -522,11 +522,47 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
-  return MODULE_LESSONS[moduleId]?.[language] ?? [];
+  const lessons = MODULE_LESSONS[moduleId];
+  if (!lessons) return [];
+  if (language === "English" && !lessons.English?.length) {
+    return (lessons.Spanish ?? []).map(englishFromSpanishSeedId);
+  }
+  return lessons[language] ?? [];
 }
 
 export function getStarterSeedId(moduleId: string, language: Language): string | null {
-  return MODULE_LESSONS[moduleId]?.[language]?.[0] ?? null;
+  return getLessons(moduleId, language)[0] ?? null;
+}
+
+export function englishFromSpanishSeedId(spanishId: string): string {
+  return `esl-${spanishId}`;
+}
+
+/** Reuse authored bilingual module lessons in the Spanish → English direction. */
+export function englishModuleSeedsFromSpanish(entries: LibraryEntry[]): LibraryEntry[] {
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  const ids = new Set(
+    Object.values(MODULE_LESSONS).flatMap((lessons) =>
+      lessons.English?.length ? [] : (lessons.Spanish ?? []),
+    ),
+  );
+  return [...ids].flatMap((id) => {
+    const source = byId.get(id);
+    if (!source?.available || source.language !== "Spanish" || !source.sentences.length) return [];
+    return [{
+      ...source,
+      id: englishFromSpanishSeedId(id),
+      language: "English" as const,
+      targetLabel: "English",
+      flag: "🇺🇸",
+      subtitle: source.subtitle ? `${source.subtitle} · Español → English` : "Español → English",
+      sentences: source.sentences.map(({ en, target }) => ({ en: target, target: en })),
+      chapters: source.chapters?.map((chapter) => ({
+        ...chapter,
+        sentences: chapter.sentences.map(({ en, target }) => ({ en: target, target: en })),
+      })),
+    }];
+  });
 }
 
 /** Only expose Reader lessons that have actually loaded for this language. */

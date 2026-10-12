@@ -60,7 +60,9 @@ export function moduleSupportsLearningPair(
     if (module.learnDirection === "en-target") {
       return !module.nativeLanguages || module.nativeLanguages.includes(nativeLanguage);
     }
-    return moduleSupportsLanguage(module, targetLanguage);
+    // Regular modules have authored English ↔ Spanish material. Expose the
+    // reversed direction only when its Spanish scaffold is available.
+    return nativeLanguage === "Spanish" && moduleSupportsLanguage(module, "Spanish");
   }
   return (
     module.learnDirection !== "en-target" &&
@@ -132,11 +134,11 @@ export const MODULES: AppModule[] = [
     emoji: "🏠",
     category: "Trades",
     blurb:
-      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in Spanish.",
+      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in English or Spanish.",
     priceCents: 999,
     languages: ["Spanish"],
     aiPersona:
-      "You are a Spanish-speaking roofing crew member, crew lead, supplier, or inspector. Use practical roofing language and ask the learner to clarify instructions. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the selected product instructions and site plan rather than assuming a universal specification.",
+      "You are a roofing crew member, crew lead, supplier, or inspector speaking the learner's target language. Use practical roofing language and ask the learner to clarify instructions. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the selected product instructions and site plan rather than assuming a universal specification.",
     userRole: "Roofing foreman",
     challengePrompts: [
       "Run a morning roofing briefing covering assignments, material staging, and fall hazards.",
@@ -1153,10 +1155,10 @@ export const MODULES: AppModule[] = [
     emoji: "🦿",
     category: "Medical",
     blurb:
-      "Exercise instruction, mobility assessments, pain scales, and home program teaching for Spanish-speaking patients.",
+      "Exercise instruction, mobility assessments, pain scales, and home program teaching with patients in English or Spanish.",
     priceCents: 1999,
     aiPersona:
-      "You are a Spanish-speaking patient recovering from surgery or injury. Ask realistic questions about your exercises, pain, and limitations.",
+      "You are a patient recovering from surgery or injury, speaking the learner's target language. Ask realistic questions about your exercises, pain, and limitations.",
     userRole: "Physical therapist",
     challengePrompts: [
       "Explain the home exercise program for a post-op knee patient.",
@@ -1184,10 +1186,10 @@ export const MODULES: AppModule[] = [
     emoji: "📋",
     category: "Medical",
     blurb:
-      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with Spanish-speaking patients.",
+      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with patients in English or Spanish.",
     priceCents: 999,
     aiPersona:
-      "You are a Spanish-speaking patient calling to schedule an appointment or arriving at the front desk. You have questions about your insurance, copay, and forms.",
+      "You are a patient speaking the learner's target language, calling to schedule an appointment or arriving at the front desk. You have questions about your insurance, copay, and forms.",
     userRole: "Medical receptionist or front-desk coordinator",
     challengePrompts: [
       "Schedule a new patient appointment over the phone.",
@@ -1215,10 +1217,10 @@ export const MODULES: AppModule[] = [
     emoji: "🤝",
     category: "Medical",
     blurb:
-      "Discharge planning, housing resources, mental health screening, and connecting Spanish-speaking patients with community services.",
+      "Discharge planning, housing resources, mental health screening, and connecting patients with community services in English or Spanish.",
     priceCents: 1999,
     aiPersona:
-      "You are a Spanish-speaking patient or family member navigating discharge, housing, or mental health services. Respond with realistic concerns and questions.",
+      "You are a patient or family member speaking the learner's target language while navigating discharge, housing, or mental health services. Respond with realistic concerns and questions.",
     userRole: "Hospital social worker or case manager",
     challengePrompts: [
       "Screen a patient for housing instability at discharge.",
@@ -1246,10 +1248,10 @@ export const MODULES: AppModule[] = [
     emoji: "⚠️",
     category: "Trades",
     blurb:
-      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting for Spanish-speaking crews.",
+      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting with crews in English or Spanish.",
     priceCents: 999,
     aiPersona:
-      "You are a Spanish-speaking crew member on a construction site. Ask questions about safety procedures, PPE, and hazard communication.",
+      "You are a construction crew member speaking the learner's target language. Ask questions about safety procedures, PPE, and hazard communication.",
     userRole: "Safety supervisor or site safety officer",
     challengePrompts: [
       "Conduct a pre-shift safety briefing with the crew.",

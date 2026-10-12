@@ -143,13 +143,16 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function finish() {
     // Language first — the Reader's passage selection keys off it.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
+    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
     if (level) dispatch({ type: "SET_LEVEL", payload: level });
     if (professionId) {
       dispatch({ type: "PURCHASE_MODULE", payload: professionId });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: professionId });
     }
     dispatch({ type: "COMPLETE_ONBOARDING" });
-    if (professionId === "lds-missionary") {
+    if (language === "English") {
+      dispatch({ type: "SET_TAB", payload: "reader" });
+    } else if (professionId === "lds-missionary") {
       dispatch({ type: "SET_TAB", payload: "discussions" });
     } else if (professionId && FIELD_PREP_IDS.has(professionId)) {
       dispatch({ type: "SET_TAB", payload: "fieldPrep" });
@@ -166,6 +169,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function skip() {
     // Preserve a language picked before the learner bailed out of setup.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
+    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: "reader" });
     onClose?.();

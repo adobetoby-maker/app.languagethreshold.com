@@ -82,7 +82,8 @@ export function FlashcardDecks() {
         title: "My Vocab",
         cards: myVocabCards,
         isMyVocab: true,
-        backLanguage: "English",
+        backLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
+          ? "Spanish" : "English",
       });
       return;
     }
@@ -101,7 +102,8 @@ export function FlashcardDecks() {
           translate({
             data: {
               phrases: chunk,
-              targetLanguage: state.selectedLanguage,
+              targetLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
+                ? "Spanish" : state.selectedLanguage,
               context: block.label,
             },
           }),
@@ -123,7 +125,8 @@ export function FlashcardDecks() {
         title: block.label,
         cards,
         isMyVocab: false,
-        backLanguage: state.selectedLanguage,
+        backLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
+          ? "Spanish" : state.selectedLanguage,
       });
     } finally {
       setLoadingBlock(null);

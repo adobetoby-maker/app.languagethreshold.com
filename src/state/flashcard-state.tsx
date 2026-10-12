@@ -7,7 +7,7 @@ import {
   useReducer,
   type ReactNode,
 } from "react";
-import type { Language } from "./app-state";
+import type { Language, NativeLanguage } from "./app-state";
 import { FREQUENCY_WORDS } from "@/data/frequency-words";
 import { DECK_PRONOUNS } from "@/data/deck-pronouns";
 import { DECK_NOUNS } from "@/data/deck-nouns";
@@ -80,10 +80,10 @@ type Action =
         seededDecks?: string[];
       };
     }
-  | { type: "SEED_STARTER"; payload: { language: Language; now?: number } }
+  | { type: "SEED_STARTER"; payload: { language: Language; nativeLanguage?: NativeLanguage; now?: number } }
   | {
       type: "SEED_DECK";
-      payload: { language: Language; category: FlashcardCategory; moduleId?: string; now?: number };
+      payload: { language: Language; nativeLanguage?: NativeLanguage; category: FlashcardCategory; moduleId?: string; now?: number };
     }
   | {
       type: "ADD_CARD";
@@ -157,6 +157,7 @@ function syncDeckCategory(
   cards: Record<string, FlashcardEntry>,
   category: FlashcardCategory,
   language: Language,
+  nativeLanguage: NativeLanguage | undefined,
   now: number,
 ): { cards: Record<string, FlashcardEntry>; changed: boolean } {
   const words = deckWordsForCategory(category);
@@ -164,27 +165,31 @@ function syncDeckCategory(
   const next = { ...cards };
   let changed = false;
   for (const entry of words) {
-    const t = entry.translations[language];
+    const reverse = language === "English" && nativeLanguage === "Spanish";
+    const t = entry.translations[reverse ? "Spanish" : language];
     if (!t) continue;
     const id = deckCardId(category, language, entry.id);
-    const example = t.note ? `${t.example}` : t.example;
+    const word = reverse ? entry.english : t.word;
+    const translation = reverse ? t.word : (t.note ? `${entry.english} — ${t.note}` : entry.english);
+    const example = reverse ? t.exampleTranslation : t.example;
+    const exampleTranslation = reverse ? t.example : t.exampleTranslation;
     const existing = next[id];
     if (existing) {
       if (
-        existing.word !== t.word ||
-        existing.romanization !== t.romanization ||
-        existing.translation !== entry.english ||
+        existing.word !== word ||
+        existing.romanization !== (reverse ? undefined : t.romanization) ||
+        existing.translation !== translation ||
         existing.example !== example ||
-        existing.exampleTranslation !== t.exampleTranslation
+        existing.exampleTranslation !== exampleTranslation
       ) {
         next[id] = {
           ...existing,
-          word: t.word,
-          romanization: t.romanization,
-          translation: t.note ? `${entry.english} — ${t.note}` : entry.english,
+          word,
+          romanization: reverse ? undefined : t.romanization,
+          translation,
           partOfSpeech: entry.partOfSpeech,
           example,
-          exampleTranslation: t.exampleTranslation,
+          exampleTranslation,
         };
         changed = true;
       }
@@ -193,12 +198,12 @@ function syncDeckCategory(
     next[id] = {
       id,
       language,
-      word: t.word,
-      romanization: t.romanization,
-      translation: t.note ? `${entry.english} — ${t.note}` : entry.english,
+      word,
+      romanization: reverse ? undefined : t.romanization,
+      translation,
       partOfSpeech: entry.partOfSpeech,
       example,
-      exampleTranslation: t.exampleTranslation,
+      exampleTranslation,
       category,
       source: "starter",
       addedAt: now,
@@ -220,23 +225,28 @@ function syncModuleDeck(
   const next = { ...cards };
   let changed = false;
   for (const entry of words) {
-    const t = entry.translations[language];
+    const t = entry.translations[language === "English" ? "Spanish" : language];
     if (!t) continue;
     const id = deckCardId("module", language, `${moduleId}:${entry.id}`);
+    const word = language === "English" ? entry.english : t.word;
+    const translation = language === "English" ? t.word : entry.english;
+    const example = language === "English" ? t.exampleTranslation : t.example;
+    const exampleTranslation = language === "English" ? t.example : t.exampleTranslation;
     const existing = next[id];
     if (existing) {
       if (
-        existing.word !== t.word ||
-        existing.translation !== entry.english ||
-        existing.example !== t.example
+        existing.word !== word ||
+        existing.translation !== translation ||
+        existing.example !== example ||
+        existing.exampleTranslation !== exampleTranslation
       ) {
         next[id] = {
           ...existing,
-          word: t.word,
-          romanization: t.romanization,
-          translation: entry.english,
-          example: t.example,
-          exampleTranslation: t.exampleTranslation,
+          word,
+          romanization: language === "English" ? undefined : t.romanization,
+          translation,
+          example,
+          exampleTranslation,
         };
         changed = true;
       }
@@ -245,12 +255,12 @@ function syncModuleDeck(
     next[id] = {
       id,
       language,
-      word: t.word,
-      romanization: t.romanization,
-      translation: entry.english,
+      word,
+      romanization: language === "English" ? undefined : t.romanization,
+      translation,
       partOfSpeech: entry.partOfSpeech,
-      example: t.example,
-      exampleTranslation: t.exampleTranslation,
+      example,
+      exampleTranslation,
       category: "module",
       moduleId,
       source: "starter",
@@ -282,32 +292,37 @@ function reducer(state: State, action: Action): State {
       // starter cards without touching their SRS progress — so content fixes
       // like "use" -> "to use" reach decks that were already seeded, instead
       // of getting stuck the way the pre-schema-validation grammar cache did.
-      const { language } = action.payload;
+      const { language, nativeLanguage } = action.payload;
       const now = action.payload.now ?? Date.now();
       const cards = { ...state.cards };
       let changed = false;
       for (const entry of FREQUENCY_WORDS) {
-        const t = entry.translations[language];
+        const reverse = language === "English" && nativeLanguage === "Spanish";
+        const t = entry.translations[reverse ? "Spanish" : language];
         if (!t) continue;
+        const word = reverse ? entry.english : t.word;
+        const translation = reverse ? t.word : entry.english;
+        const example = reverse ? t.exampleTranslation : t.example;
+        const exampleTranslation = reverse ? t.example : t.exampleTranslation;
         const id = starterId(language, entry.id);
         const existing = cards[id];
         if (existing) {
           if (
-            existing.word !== t.word ||
-            existing.romanization !== t.romanization ||
-            existing.translation !== entry.english ||
-            existing.example !== t.example ||
-            existing.exampleTranslation !== t.exampleTranslation ||
+            existing.word !== word ||
+            existing.romanization !== (reverse ? undefined : t.romanization) ||
+            existing.translation !== translation ||
+            existing.example !== example ||
+            existing.exampleTranslation !== exampleTranslation ||
             existing.frequencyId !== entry.id
           ) {
             cards[id] = {
               ...existing,
-              word: t.word,
-              romanization: t.romanization,
-              translation: entry.english,
+              word,
+              romanization: reverse ? undefined : t.romanization,
+              translation,
               partOfSpeech: entry.partOfSpeech,
-              example: t.example,
-              exampleTranslation: t.exampleTranslation,
+              example,
+              exampleTranslation,
               frequencyId: entry.id,
             };
             changed = true;
@@ -317,12 +332,12 @@ function reducer(state: State, action: Action): State {
         cards[id] = {
           id,
           language,
-          word: t.word,
-          romanization: t.romanization,
-          translation: entry.english,
+          word,
+          romanization: reverse ? undefined : t.romanization,
+          translation,
           partOfSpeech: entry.partOfSpeech,
-          example: t.example,
-          exampleTranslation: t.exampleTranslation,
+          example,
+          exampleTranslation,
           category: "verbs",
           source: "starter",
           frequencyId: entry.id,
@@ -339,14 +354,14 @@ function reducer(state: State, action: Action): State {
     }
 
     case "SEED_DECK": {
-      const { language, category, moduleId, now: nowArg } = action.payload;
+      const { language, nativeLanguage, category, moduleId, now: nowArg } = action.payload;
       const now = nowArg ?? Date.now();
       const deckKey =
         category === "module" ? `${language}:module:${moduleId}` : `${language}:${category}`;
       const { cards, changed } =
         category === "module" && moduleId
           ? syncModuleDeck(state.cards, moduleId, language, now)
-          : syncDeckCategory(state.cards, category, language, now);
+          : syncDeckCategory(state.cards, category, language, nativeLanguage, now);
       const seededDecks = state.seededDecks.includes(deckKey)
         ? state.seededDecks
         : [...state.seededDecks, deckKey];
@@ -519,8 +534,8 @@ function reducer(state: State, action: Action): State {
 
 const Ctx = createContext<{
   state: State;
-  seedStarter: (language: Language) => void;
-  seedDeck: (language: Language, category: FlashcardCategory, moduleId?: string) => void;
+  seedStarter: (language: Language, nativeLanguage?: NativeLanguage) => void;
+  seedDeck: (language: Language, category: FlashcardCategory, moduleId?: string, nativeLanguage?: NativeLanguage) => void;
   syncVocab: (
     language: Language,
     items: { word: string; translation: string; moduleId?: string }[],
@@ -593,12 +608,13 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   }, [state.cards, state.seededLanguages, state.seededDecks, state.hydrated]);
 
   const seedStarter = useCallback(
-    (language: Language) => dispatch({ type: "SEED_STARTER", payload: { language } }),
+    (language: Language, nativeLanguage?: NativeLanguage) =>
+      dispatch({ type: "SEED_STARTER", payload: { language, nativeLanguage } }),
     [],
   );
   const seedDeck = useCallback(
-    (language: Language, category: FlashcardCategory, moduleId?: string) =>
-      dispatch({ type: "SEED_DECK", payload: { language, category, moduleId } }),
+    (language: Language, category: FlashcardCategory, moduleId?: string, nativeLanguage?: NativeLanguage) =>
+      dispatch({ type: "SEED_DECK", payload: { language, nativeLanguage, category, moduleId } }),
     [],
   );
   const syncVocab = useCallback(

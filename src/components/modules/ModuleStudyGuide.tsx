@@ -61,13 +61,13 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
 
   // Pull the first 4 sentence pairs from the pre-built starter seed — no API call.
   const starterPairs = useMemo(() => {
-    if (!moduleId || language === "English") return null;
+    if (!moduleId) return null;
     const seedId = lessonIds[0];
     if (!seedId) return null;
     const entry = library.state.entries.find((e) => e.id === seedId);
     if (!entry) return null;
     return entry.sentences.slice(0, 4);
-  }, [moduleId, language, lessonIds, library.state.entries]);
+  }, [moduleId, lessonIds, library.state.entries]);
 
   // All ordered lessons for this module × language.
   const lessons = useMemo(() => {
@@ -416,8 +416,8 @@ function buildGuide(module: AppModule, language: Language, hasReading: boolean):
 
   // First-lesson destination per module type.
   let firstLessonTab: TabKey = "reader";
-  if (module.id === "lds-missionary") firstLessonTab = "missionary";
-  else if (module.id === "orthopedics") firstLessonTab = "orthopedics";
+  if (language !== "English" && module.id === "lds-missionary") firstLessonTab = "missionary";
+  else if (language !== "English" && module.id === "orthopedics") firstLessonTab = "orthopedics";
 
   const readings = hasReading
     ? [

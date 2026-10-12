@@ -211,7 +211,9 @@ export function ModulesPage() {
 
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
-    const destination = moduleDestinationTab(module.id);
+    const destination = state.selectedLanguage === "English" && module.learnDirection !== "en-target"
+      ? "reader"
+      : moduleDestinationTab(module.id);
     const hasReading =
       getAvailableModuleLessons(module.id, state.selectedLanguage, library.state.entries).length >
       0;

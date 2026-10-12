@@ -130,7 +130,7 @@ export function FlashcardsStudio() {
     [moduleId, language, library.state.entries],
   );
   const readingPairs = useMemo(() => {
-    if (moduleId === "roofing") return []; // The authored deck already includes these Reader pairs.
+    if (moduleId === "roofing") return []; // The authored deck includes both learning directions.
     const selected = new Set(readingIds);
     return library.state.entries
       .filter((entry) => selected.has(entry.id))
@@ -159,7 +159,7 @@ export function FlashcardsStudio() {
     async (force = false) => {
       const climbingHasCuratedLanguage =
         moduleId === "rock-climbing" &&
-        ["Spanish", "French", "German", "Italian", "Japanese", "Korean", "Portuguese"].includes(
+        ["Spanish", "English", "French", "German", "Italian", "Japanese", "Korean", "Portuguese"].includes(
           language,
         );
       if (
@@ -176,7 +176,9 @@ export function FlashcardsStudio() {
       setGeneratingFieldDeck(true);
       setFieldDeckError(null);
       try {
-        const result = await generateFieldDeck({ data: { moduleId, language } });
+        const result = await generateFieldDeck({
+          data: { moduleId, language, nativeLanguage: appState.nativeLanguage },
+        });
         if (result.error || !result.pairs?.length)
           throw new Error(result.error ?? "No cards returned");
         addModuleCards(language, moduleId, "generated", result.pairs);
@@ -189,6 +191,7 @@ export function FlashcardsStudio() {
     [
       moduleId,
       language,
+      appState.nativeLanguage,
       moduleName,
       state.hydrated,
       generatedCount,
@@ -230,7 +233,10 @@ export function FlashcardsStudio() {
       const block = blocks.find((b) => b.id === blockId);
       if (!block || introducing) return;
       const have = new Set(
-        cardsForCategories(language, [`block:${blockId}`]).map((c) => c.translation.toLowerCase()),
+        cardsForCategories(language, [`block:${blockId}`]).map((c) =>
+          (language === "English" && appState.nativeLanguage === "Spanish"
+            ? c.word : c.translation).toLowerCase(),
+        ),
       );
       const next = block.words.filter((w) => !have.has(w.toLowerCase())).slice(0, 24);
       if (next.length === 0) return;
@@ -242,12 +248,15 @@ export function FlashcardsStudio() {
           const res = await translate({
             data: {
               phrases: next.slice(i, i + 8),
-              targetLanguage: language,
+              targetLanguage: language === "English" && appState.nativeLanguage === "Spanish"
+                ? "Spanish" : language,
               context: `${block.label} vocabulary`,
             },
           });
           if (res.error || !res.phrases) throw new Error(res.error ?? "translation failed");
-          pairs.push(...res.phrases);
+          pairs.push(...(language === "English" && appState.nativeLanguage === "Spanish"
+            ? res.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
+            : res.phrases));
         }
         addBlockCards(language, blockId, pairs);
       } catch {
@@ -256,21 +265,21 @@ export function FlashcardsStudio() {
         setIntroducing(null);
       }
     },
-    [blocks, introducing, cardsForCategories, language, translate, addBlockCards],
+    [blocks, introducing, cardsForCategories, language, appState.nativeLanguage, translate, addBlockCards],
   );
 
   useEffect(() => {
     if (!state.hydrated) return;
-    seedStarter(language);
+    seedStarter(language, appState.nativeLanguage);
     for (const category of FLASHCARD_CATEGORIES) {
       if (category === "vocab" || category === "verbs") continue;
       if (category === "module") {
-        if (moduleAvailable && moduleId) seedDeck(language, "module", moduleId);
+        if (moduleAvailable && moduleId) seedDeck(language, "module", moduleId, appState.nativeLanguage);
         continue;
       }
-      seedDeck(language, category);
+      seedDeck(language, category, undefined, appState.nativeLanguage);
     }
-  }, [state.hydrated, language, moduleId, moduleAvailable, seedStarter, seedDeck]);
+  }, [state.hydrated, language, appState.nativeLanguage, moduleId, moduleAvailable, seedStarter, seedDeck]);
 
   useEffect(() => {
     if (!state.hydrated) return;
@@ -335,7 +344,9 @@ export function FlashcardsStudio() {
         );
         return;
       }
-      saveCards([{ english: items[0], translation: newTranslation.trim() }]);
+      saveCards(language === "English" && appState.nativeLanguage === "Spanish"
+        ? [{ english: newTranslation.trim(), translation: items[0] }]
+        : [{ english: items[0], translation: newTranslation.trim() }]);
       return;
     }
     setAdding(true);
@@ -344,13 +355,17 @@ export function FlashcardsStudio() {
       const result = await translate({
         data: {
           phrases: items,
-          targetLanguage: language,
+          targetLanguage: language === "English" && appState.nativeLanguage === "Spanish"
+            ? "Spanish"
+            : language,
           context: `${moduleName} learner flashcards`,
         },
       });
       if (result.error || !result.phrases?.length)
         throw new Error(result.error ?? "Translation failed");
-      saveCards(result.phrases);
+      saveCards(language === "English" && appState.nativeLanguage === "Spanish"
+        ? result.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
+        : result.phrases);
     } catch {
       setAddMessage("Translation is unavailable. Enter a translation for one card and try again.");
     } finally {
@@ -559,7 +574,9 @@ export function FlashcardsStudio() {
             />
           </label>
           <label className="text-xs text-muted-foreground">
-            {language} translation (optional for one card)
+            {language === "English" && appState.nativeLanguage === "Spanish"
+              ? "Spanish meaning (optional for one card)"
+              : `${language} translation (optional for one card)`}
             <input
               value={newTranslation}
               onChange={(event) => setNewTranslation(event.target.value)}

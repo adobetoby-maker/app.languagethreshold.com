@@ -100,7 +100,12 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
             {LANGUAGES.map((lang) => (
               <DropdownMenuItem
                 key={lang}
-                onSelect={() => dispatch({ type: "SET_LANGUAGE", payload: lang })}
+                onSelect={() => {
+                  dispatch({ type: "SET_LANGUAGE", payload: lang });
+                  if (lang === "English" && state.nativeLanguage === "English") {
+                    dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+                  }
+                }}
                 className="font-mono text-xs uppercase tracking-[0.16em]"
               >
                 <span className={state.selectedLanguage === lang ? "text-gold" : "opacity-60"}>

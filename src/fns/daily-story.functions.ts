@@ -1,7 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
-import { getModule, moduleSupportsLanguage } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import type { Language, NativeLanguage } from "@/state/app-state";
 
 const InputSchema = z.object({
   language: z.string().min(1).max(40),
@@ -10,14 +11,15 @@ const InputSchema = z.object({
   patternName: z.string().max(80),
   patternFormula: z.string().max(200),
   moduleId: z.string().max(80).nullable().optional(),
+  nativeLanguage: z.string().min(1).max(40).optional(),
 });
 
 export interface DailyStoryData {
   story: string; // 4-6 sentence story in target language
   vocabHighlights: string[]; // which vocab words appear in the story
-  comprehensionQ: string; // question in English
+  comprehensionQ: string; // question in the learner's native language
   correctAnswer: string; // expected answer phrase (lenient match)
-  translation: string; // English translation of the story
+  translation: string; // native-language translation of the story
 }
 
 export const generateDailyStory = createServerFn({ method: "POST" })
@@ -27,6 +29,7 @@ export const generateDailyStory = createServerFn({ method: "POST" })
     if (!KEY) return { error: "AI not configured", data: null };
 
     const client = new Anthropic({ apiKey: KEY });
+    const nativeLanguage = (data.nativeLanguage ?? "English") as NativeLanguage;
 
     const vocabClause = data.vocabWords.length
       ? `Weave these learner vocab words naturally into the story (use 2-3 of them): ${data.vocabWords.join(", ")}.`
@@ -35,7 +38,7 @@ export const generateDailyStory = createServerFn({ method: "POST" })
     const module = getModule(data.moduleId);
     const moduleClause =
       module &&
-      moduleSupportsLanguage(module, data.language as Parameters<typeof moduleSupportsLanguage>[1])
+      moduleSupportsLearningPair(module, data.language as Language, nativeLanguage)
         ? `Set this story in a realistic ${module.name} situation. The learner's role is ${module.userRole}. Draw naturally on these themes: ${module.vocabFocus.slice(0, 6).join(", ")}. A possible situation is: ${module.challengePrompts[Math.floor(Math.random() * module.challengePrompts.length)] ?? module.blurb}. Keep it a story, not an instruction manual, and do not present trade or safety specifications as universal facts.`
         : "Use an everyday situation that fits the learner's level.";
 
@@ -46,6 +49,7 @@ export const generateDailyStory = createServerFn({ method: "POST" })
     const prompt = `Write a short ${data.language} story for a ${data.level} learner.
 Requirements:
 - 4 to 6 sentences in ${data.language}, simple and clear
+- The learner's native language is ${nativeLanguage}. Write the comprehension question and full-story translation in ${nativeLanguage}; the answer must be in ${data.language}.
 - Use idiomatic ${data.language} a local speaker would use; check noun gender, agreement, and word choice before returning the story
 - Keep the scene realistic and avoid invented product names, offers, or details that do not help the learner practice
 - ${grammarClause}
@@ -56,7 +60,7 @@ ${vocabClause}
     try {
       const response = await client.messages.create({
         model: "claude-haiku-4-5",
-        max_tokens: 512,
+        max_tokens: 800,
         system: `You create short, engaging language-learning stories. Always respond via the story_output tool.`,
         messages: [{ role: "user", content: prompt }],
         tools: [
@@ -78,7 +82,7 @@ ${vocabClause}
                 },
                 comprehensionQ: {
                   type: "string",
-                  description: "One short comprehension question in English about the story.",
+                  description: `One short comprehension question in ${nativeLanguage} about the story.`,
                 },
                 correctAnswer: {
                   type: "string",
@@ -86,7 +90,7 @@ ${vocabClause}
                 },
                 translation: {
                   type: "string",
-                  description: "Plain English translation of the full story.",
+                  description: `Plain ${nativeLanguage} translation of the full story.`,
                 },
               },
               required: [

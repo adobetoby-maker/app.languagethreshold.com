@@ -34,6 +34,7 @@ export const Route = createFileRoute("/api/create-checkout")({
 
         const session = await stripe.checkout.sessions.create({
           mode: "subscription",
+          branding_settings: { display_name: "Language Threshold" },
           payment_method_types: ["card"],
           line_items: [{ price: body.priceId, quantity: 1 }],
           subscription_data: {

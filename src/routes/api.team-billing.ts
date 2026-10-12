@@ -154,6 +154,7 @@ export const Route = createFileRoute("/api/team-billing")({
             const price = await teamStripePrice(stripe, body.term);
             const checkout: Stripe.Checkout.SessionCreateParams = {
               mode: "subscription",
+              branding_settings: { display_name: "Language Threshold" },
               ...(entitlement.stripe_customer_id
                 ? { customer: entitlement.stripe_customer_id }
                 : { customer_email: org.billing_email }),
@@ -177,7 +178,7 @@ export const Route = createFileRoute("/api/team-billing")({
               cancel_url: `${origin}/team?org=${body.orgId}&checkout=cancel`,
             };
             let session = await stripe.checkout.sessions.create(checkout, {
-              idempotencyKey: `team-checkout:${body.orgId}:${body.term}:${body.seats}`,
+              idempotencyKey: `team-checkout:${body.orgId}:${randomUUID()}`,
             });
             if (session.status === "complete") {
               const previousSubscriptionId =

@@ -100,6 +100,7 @@ export const Route = createFileRoute("/api/module-request")({
           const session = await stripe.checkout.sessions.create(
             {
               mode: "payment",
+              branding_settings: { display_name: "Language Threshold" },
               payment_method_types: ["card"],
               customer_email: user.email,
               client_reference_id: user.id,

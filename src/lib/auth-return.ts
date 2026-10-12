@@ -1,16 +1,17 @@
-const MODULE_REQUEST_RETURN_KEY = "lt_module_request_auth_return";
-const MODULE_REQUEST_RETURN_MS = 15 * 60 * 1000;
+const AUTH_RETURN_KEY = "lt_auth_return";
+const AUTH_RETURN_MS = 15 * 60 * 1000;
+const RETURN_PATHS = new Set(["/module-request", "/team"]);
 
-export function rememberModuleRequestReturn(pathname: string, storage: Storage, now = Date.now()) {
-  if (pathname !== "/module-request") return;
+export function rememberAuthReturn(pathname: string, storage: Storage, now = Date.now()) {
+  if (!RETURN_PATHS.has(pathname)) return;
   try {
-    storage.setItem(MODULE_REQUEST_RETURN_KEY, String(now + MODULE_REQUEST_RETURN_MS));
+    storage.setItem(AUTH_RETURN_KEY, JSON.stringify({ pathname, expiresAt: now + AUTH_RETURN_MS }));
   } catch {
     // Storage restrictions must never prevent a learner from signing in.
   }
 }
 
-export function consumeModuleRequestReturn(
+export function consumeAuthReturn(
   pathname: string,
   hasSession: boolean,
   storage: Storage,
@@ -18,18 +19,19 @@ export function consumeModuleRequestReturn(
 ) {
   if (!hasSession || pathname !== "/") return null;
   try {
-    const expiresAt = Number(storage.getItem(MODULE_REQUEST_RETURN_KEY));
-    if (!expiresAt) return null;
-    storage.removeItem(MODULE_REQUEST_RETURN_KEY);
-    return expiresAt > now ? "/module-request" : null;
+    const saved = storage.getItem(AUTH_RETURN_KEY);
+    if (!saved) return null;
+    storage.removeItem(AUTH_RETURN_KEY);
+    const { pathname: returnPath, expiresAt } = JSON.parse(saved);
+    return RETURN_PATHS.has(returnPath) && expiresAt > now ? returnPath : null;
   } catch {
     return null;
   }
 }
 
-export function clearModuleRequestReturn(storage: Storage) {
+export function clearAuthReturn(storage: Storage) {
   try {
-    storage.removeItem(MODULE_REQUEST_RETURN_KEY);
+    storage.removeItem(AUTH_RETURN_KEY);
   } catch {
     // The sign-in result is more important than clearing this short-lived marker.
   }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { consumeModuleRequestReturn, rememberModuleRequestReturn } from "../src/lib/auth-return.ts";
+import { consumeAuthReturn, rememberAuthReturn } from "../src/lib/auth-return.ts";
 
 function storage() {
   const values = new Map();
@@ -13,19 +13,27 @@ function storage() {
 
 test("OAuth return brings a signed-in requester back to the form once", () => {
   const saved = storage();
-  rememberModuleRequestReturn("/module-request", saved, 1000);
-  assert.equal(consumeModuleRequestReturn("/", false, saved, 2000), null);
-  assert.equal(consumeModuleRequestReturn("/", true, saved, 2000), "/module-request");
-  assert.equal(consumeModuleRequestReturn("/", true, saved, 2000), null);
+  rememberAuthReturn("/module-request", saved, 1000);
+  assert.equal(consumeAuthReturn("/", false, saved, 2000), null);
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), "/module-request");
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), null);
 });
 
-test("only the request page can set a short-lived return", () => {
+test("team signup returns a new admin to company setup once", () => {
   const saved = storage();
-  rememberModuleRequestReturn("/pricing", saved, 1000);
-  assert.equal(consumeModuleRequestReturn("/", true, saved, 2000), null);
-  rememberModuleRequestReturn("/module-request", saved, 1000);
-  assert.equal(consumeModuleRequestReturn("/team", true, saved, 2000), null);
-  assert.equal(consumeModuleRequestReturn("/", true, saved, 901001), null);
+  rememberAuthReturn("/team", saved, 1000);
+  assert.equal(consumeAuthReturn("/", false, saved, 2000), null);
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), "/team");
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), null);
+});
+
+test("only supported pages can set a short-lived return", () => {
+  const saved = storage();
+  rememberAuthReturn("/pricing", saved, 1000);
+  assert.equal(consumeAuthReturn("/", true, saved, 2000), null);
+  rememberAuthReturn("/module-request", saved, 1000);
+  assert.equal(consumeAuthReturn("/team", true, saved, 2000), null);
+  assert.equal(consumeAuthReturn("/", true, saved, 901001), null);
 });
 
 test("blocked browser storage does not interrupt authentication", () => {
@@ -40,6 +48,6 @@ test("blocked browser storage does not interrupt authentication", () => {
       throw new Error("blocked");
     },
   };
-  assert.doesNotThrow(() => rememberModuleRequestReturn("/module-request", blocked));
-  assert.equal(consumeModuleRequestReturn("/", true, blocked), null);
+  assert.doesNotThrow(() => rememberAuthReturn("/module-request", blocked));
+  assert.equal(consumeAuthReturn("/", true, blocked), null);
 });

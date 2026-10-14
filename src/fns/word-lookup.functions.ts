@@ -1,3 +1,5 @@
+import { setResponseHeader } from "@tanstack/react-start/server";
+import { usageReceipt, cacheReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -80,7 +82,10 @@ export const lookupWord = createServerFn({ method: "POST" })
       const native = data.nativeLanguage ?? "English";
       const key = cacheKey(data.word, data.sentence, data.language, native);
       const hit = cacheGet(key);
-      if (hit) return { card: hit, error: null, cached: true };
+      if (hit) {
+        setResponseHeader("X-LT-AI-Usage", JSON.stringify(cacheReceipt()));
+        return { card: hit, error: null, cached: true };
+      }
 
       const isJapanese = /japanese|日本/i.test(data.language);
       const isKorean = /korean|한국/i.test(data.language);
@@ -253,6 +258,7 @@ ${japaneseSpecificInstruction}`;
           tool_choice: { type: "tool", name: "return_word_card" },
         });
 
+        setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
         const toolUse = response.content.find((c) => c.type === "tool_use");
         if (!toolUse || toolUse.type !== "tool_use") {
           return { card: null, error: "No card returned." };

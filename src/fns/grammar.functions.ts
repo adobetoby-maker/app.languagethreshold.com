@@ -1,3 +1,5 @@
+import { setResponseHeader } from "@tanstack/react-start/server";
+import { usageReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -116,6 +118,7 @@ async function callTool<T>(
       tool_choice: { type: "tool", name: toolName },
     });
 
+    setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
     const toolUse = response.content.find((c) => c.type === "tool_use");
     if (!toolUse || toolUse.type !== "tool_use") {
       return { data: null, error: "No structured result returned." };

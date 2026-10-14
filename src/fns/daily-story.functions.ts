@@ -1,3 +1,5 @@
+import { setResponseHeader } from "@tanstack/react-start/server";
+import { usageReceipt } from "@/lib/usage-cost";
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
@@ -37,8 +39,7 @@ export const generateDailyStory = createServerFn({ method: "POST" })
 
     const module = getModule(data.moduleId);
     const moduleClause =
-      module &&
-      moduleSupportsLearningPair(module, data.language as Language, nativeLanguage)
+      module && moduleSupportsLearningPair(module, data.language as Language, nativeLanguage)
         ? `Set this story in a realistic ${module.name} situation. The learner's role is ${module.userRole}. Draw naturally on these themes: ${module.vocabFocus.slice(0, 6).join(", ")}. A possible situation is: ${module.challengePrompts[Math.floor(Math.random() * module.challengePrompts.length)] ?? module.blurb}. Keep it a story, not an instruction manual, and do not present trade or safety specifications as universal facts.`
         : "Use an everyday situation that fits the learner's level.";
 
@@ -107,6 +108,7 @@ ${vocabClause}
         tool_choice: { type: "tool", name: "story_output" },
       });
 
+      setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
       const toolUse = response.content.find((c) => c.type === "tool_use");
       if (!toolUse || toolUse.type !== "tool_use") {
         return { error: "No story generated.", data: null };

@@ -1,3 +1,5 @@
+import { setResponseHeader } from "@tanstack/react-start/server";
+import { usageReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -89,6 +91,7 @@ export const buildPersonalVocab = createServerFn({ method: "POST" })
         tool_choice: { type: "tool", name: "return_vocab_list" },
       });
 
+      setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
       const toolUse = response.content.find((c) => c.type === "tool_use");
       if (!toolUse || toolUse.type !== "tool_use") {
         return { vocab: null, error: "No vocab returned." };

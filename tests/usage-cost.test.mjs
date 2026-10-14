@@ -76,3 +76,23 @@ test("voice estimates use Unicode character units and reject unknown voices", ()
   assert.equal(ttsCostUsd("unknown", 1000), null);
   assert.equal(ttsCostUsd("es-US-Neural2-A", -1), null);
 });
+
+test("standalone benchmark uses the app RPC framing without a browser or server context", async () => {
+  const { callLearningServerFn } = await import("../scripts/learning-session-transport.mjs");
+  let requested = false;
+  const value = await callLearningServerFn(
+    "https://example.invalid/_serverFn/fixture",
+    { data: { word: "techo" } },
+    async (url, init) => {
+      requested = true;
+      assert.equal(url, "https://example.invalid/_serverFn/fixture");
+      assert.equal(init.headers.get("x-tsr-serverFn"), "true");
+      assert.ok(init.body.includes("techo"));
+      return new Response(JSON.stringify({ result: { error: null } }), {
+        headers: { "Content-Type": "application/json" },
+      });
+    },
+  );
+  assert.equal(requested, true);
+  assert.equal(value.result.error, null);
+});

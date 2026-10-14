@@ -49,8 +49,8 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
     try {
       const client = new Anthropic({ apiKey: key });
       const response = await client.messages.create({
-        model: "claude-haiku-4-5",
-        max_tokens: 6000,
+        model: "claude-haiku-5-5",
+        max_tokens: 8000,
         system: `You create practical bilingual flashcards for language learners. Return 20 distinct field terms and 20 short things the learner would actually say in the field. The learner's native language is ${nativeLanguage}; the language they are learning is ${data.language}. In each card, "english" is the native-language source text and "translation" is the ${data.language} practice text. For English learners, this means "english" must contain ${nativeLanguage} (such as Spanish), and "translation" must contain English. Translate every card naturally into the requested target language. Keep source and target text paired exactly. Phrases should be learner utterances, not instructions about what to practice. Cover the full range of provided lesson themes, not only the first lesson. For medical or safety topics, teach communication and verification, never an unsupported procedure, dose, measurement, or universal specification. Avoid stereotypes and culturally insensitive assumptions. Return only the requested tool data.`,
         messages: [
           {

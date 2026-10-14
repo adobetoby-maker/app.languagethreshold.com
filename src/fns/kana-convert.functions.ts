@@ -35,8 +35,8 @@ export const convertKana = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
-          model: "claude-haiku-4-5",
-          max_tokens: 1024,
+          model: "claude-haiku-5-5",
+          max_tokens: 1400,
           system:
             "You are a Japanese linguistics expert. Always respond via the convert_kana tool.",
           messages: [{ role: "user", content: userPrompt }],

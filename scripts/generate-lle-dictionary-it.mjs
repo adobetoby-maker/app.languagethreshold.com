@@ -220,8 +220,9 @@ Rules:
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5',
-      max_tokens: 1024,
+      model: 'claude-haiku-5-5',
+      max_tokens: 1400,
+      thinking: { type: 'disabled' },
       messages: [{ role: 'user', content: prompt }],
     }),
   })
@@ -257,8 +258,9 @@ No markdown, no explanation. Just the JSON array. "target" must be natural Itali
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5',
-      max_tokens: 512,
+      model: 'claude-haiku-5-5',
+      max_tokens: 700,
+      thinking: { type: 'disabled' },
       messages: [{ role: 'user', content: prompt }],
     }),
   })

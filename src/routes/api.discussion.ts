@@ -134,8 +134,9 @@ export const Route = createFileRoute("/api/discussion")({
         if (payload.mode === "companion") {
           try {
             const response = await client.messages.create({
-              model: "claude-haiku-4-5",
-              max_tokens: 128,
+              model: "claude-haiku-5-5",
+              max_tokens: 200,
+              thinking: { type: "disabled" },
               system,
               messages: [
                 {
@@ -161,8 +162,9 @@ export const Route = createFileRoute("/api/discussion")({
         // Investigator mode: streaming
         try {
           const stream = await client.messages.create({
-            model: "claude-haiku-4-5",
-            max_tokens: 256,
+            model: "claude-haiku-5-5",
+            max_tokens: 384,
+            thinking: { type: "disabled" },
             system,
             messages: payload.messages,
             stream: true,

@@ -59,8 +59,8 @@ ${vocabClause}
 
     try {
       const response = await client.messages.create({
-        model: "claude-haiku-4-5",
-        max_tokens: 800,
+        model: "claude-haiku-5-5",
+        max_tokens: 1100,
         system: `You create short, engaging language-learning stories. Always respond via the story_output tool.`,
         messages: [{ role: "user", content: prompt }],
         tools: [

@@ -383,8 +383,8 @@ export const Route = createFileRoute("/api/speak")({
           try {
             const providerStartedAt = Date.now();
             const response = await client.messages.create({
-              model: "claude-haiku-4-5",
-              max_tokens: 512,
+              model: "claude-haiku-5-5",
+              max_tokens: 700,
               system: missionSystemPrompt(
                 mission,
                 payload.feedbackLanguage ?? "Adaptive",
@@ -528,8 +528,8 @@ export const Route = createFileRoute("/api/speak")({
           }
           try {
             const response = await client.messages.create({
-              model: "claude-haiku-4-5",
-              max_tokens: 128,
+              model: "claude-haiku-5-5",
+              max_tokens: 200,
               system: "You are a gentle language coach. Reply via the grammar_tip tool only.",
               messages: [
                 {
@@ -589,8 +589,8 @@ export const Route = createFileRoute("/api/speak")({
 
           try {
             const response = await client.messages.create({
-              model: "claude-haiku-4-5",
-              max_tokens: 256,
+              model: "claude-haiku-5-5",
+              max_tokens: 384,
               system:
                 "You design spoken language challenges. Always respond via the speak_challenge tool only.",
               messages: [{ role: "user", content: userPrompt }],
@@ -651,8 +651,9 @@ export const Route = createFileRoute("/api/speak")({
 
         try {
           const stream = await client.messages.create({
-            model: "claude-haiku-4-5",
-            max_tokens: 512,
+            model: "claude-haiku-5-5",
+            max_tokens: 700,
+            thinking: { type: "disabled" },
             system: chatSystemPrompt(
               payload.language,
               payload.level,

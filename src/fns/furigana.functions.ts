@@ -51,8 +51,8 @@ export const addFurigana = createServerFn({ method: "POST" })
     try {
       const client = new Anthropic({ apiKey: KEY });
       const response = await client.messages.create({
-        model: "claude-haiku-4-5",
-        max_tokens: 1024,
+        model: "claude-haiku-5-5",
+        max_tokens: 1400,
         system: SYSTEM,
         messages: [{ role: "user", content: `Analyze this Japanese sentence:\n\n${data.text}` }],
         tools: [

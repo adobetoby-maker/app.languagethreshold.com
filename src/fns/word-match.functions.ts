@@ -104,8 +104,8 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
           // Sonnet 4.6 — needs reliable theming + uniqueness across N pairs.
-          model: "claude-haiku-4-5",
-          max_tokens: 700,
+          model: "claude-haiku-5-5",
+          max_tokens: 1000,
           system: SYSTEM,
           messages: [{ role: "user", content: userMsg }],
           tools: [

@@ -51,8 +51,8 @@ export const buildPersonalVocab = createServerFn({ method: "POST" })
     try {
       const client = new Anthropic({ apiKey: KEY });
       const response = await client.messages.create({
-        model: "claude-haiku-4-5",
-        max_tokens: 1200,
+        model: "claude-haiku-5-5",
+        max_tokens: 1700,
         system: SYSTEM,
         messages: [{ role: "user", content: userMsg }],
         tools: [

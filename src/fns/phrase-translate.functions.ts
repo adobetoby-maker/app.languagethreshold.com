@@ -23,8 +23,8 @@ export const translatePhrases = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
-          model: "claude-haiku-4-5",
-          max_tokens: 1024,
+          model: "claude-haiku-5-5",
+          max_tokens: 1400,
           system: `You are a professional translator for language learners. Translate phrases into ${data.targetLanguage} for a ${data.context} context. Use natural, idiomatic ${data.targetLanguage} that a learner would actually hear or say. Keep translations short and direct — no explanations.`,
           messages: [
             {

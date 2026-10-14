@@ -131,8 +131,8 @@ export const generateConjugationQuestion = createServerFn({ method: "POST" })
           // Sonnet 4.6 — grammar drill quality matters a lot. A bad distractor
           // (e.g. wrong-options that are also grammatically valid for the phrase)
           // breaks the game. Sonnet's much more reliable here than Haiku.
-          model: "claude-haiku-4-5",
-          max_tokens: 600,
+          model: "claude-haiku-5-5",
+          max_tokens: 850,
           system: SYSTEM,
           messages: [{ role: "user", content: userMsg }],
           tools: [

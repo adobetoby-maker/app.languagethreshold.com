@@ -6,6 +6,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 
 export const Route = createFileRoute("/team_/accept")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    token: typeof search.token === "string" ? search.token : undefined,
+  }),
   component: () => (
     <AuthProvider>
       <AcceptInvite />
@@ -19,8 +22,7 @@ function AcceptInvite() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
-  const token =
-    typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("token") : null;
+  const { token } = Route.useSearch();
   async function accept() {
     if (!token) return;
     setBusy(true);

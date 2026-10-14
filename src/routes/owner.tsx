@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
+import { teamSeatMetrics } from "@/lib/team-seat-metrics";
 
 export const Route = createFileRoute("/owner")({
   component: () => (
@@ -181,6 +182,8 @@ function OwnerDashboard() {
     URL.revokeObjectURL(url);
   };
 
+  const seatMetrics = teamSeatMetrics(data?.entitlements ?? []);
+
   return (
     <main className="min-h-screen bg-background p-4 text-foreground sm:p-8">
       <div className="mx-auto max-w-7xl">
@@ -247,7 +250,9 @@ function OwnerDashboard() {
                 {[
                   ["Total accounts", data.counts.total_accounts],
                   ["Companies", data.counts.organizations],
-                  ["Paid learner seats", data.counts.paid_seats],
+                  ["Enabled learner seats", seatMetrics.enabled],
+                  ["Paid learner seats", seatMetrics.paid],
+                  ["Pilot learner seats", seatMetrics.pilot],
                   ["Assigned learner seats", data.counts.assigned_seats],
                   ["Adults", data.counts.adult_accounts],
                   ["Junior accounts", data.counts.junior_accounts],
@@ -734,7 +739,8 @@ function OrgRow({
                     seats,
                     term,
                     periodEnd: new Date(
-                      Date.now() + (term === "annual" ? 365 : term === "quarterly" ? 90 : 30) * 86400000,
+                      Date.now() +
+                        (term === "annual" ? 365 : term === "quarterly" ? 90 : 30) * 86400000,
                     ).toISOString(),
                   },
                   "Manual entitlement updated.",

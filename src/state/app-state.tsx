@@ -1,3 +1,4 @@
+import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
 import {
   createContext,
   useCallback,
@@ -708,7 +709,9 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "REMOVE_VOCAB_ITEM": {
       const { language, word } = action.payload;
       const current = state.vocabByLanguage[language] ?? [];
-      const next = current.filter((item) => item.word.trim().toLowerCase() !== word.trim().toLowerCase());
+      const next = current.filter(
+        (item) => item.word.trim().toLowerCase() !== word.trim().toLowerCase(),
+      );
       if (next.length === current.length) return state;
       const vocabByLanguage = { ...state.vocabByLanguage, [language]: next };
       return {
@@ -1128,33 +1131,30 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    let authSequence = 0;
-    const { data: sub } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      const sequence = ++authSequence;
-      const uid = session?.user?.id ?? null;
-      setUserId(null);
-      if (syncTimer.current) {
-        clearTimeout(syncTimer.current);
-        syncTimer.current = null;
-      }
-
-      if (uid) {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("data")
-          .eq("id", uid)
-          .maybeSingle();
-
-        if (sequence !== authSequence || error) return;
+    const profileSync = createDeferredAuthSync({
+      reset() {
+        setUserId(null);
+        if (syncTimer.current) {
+          clearTimeout(syncTimer.current);
+          syncTimer.current = null;
+        }
+      },
+      load: (uid) =>
+        Promise.resolve(supabase.from("profiles").select("data").eq("id", uid).maybeSingle()),
+      apply(uid, { data, error }) {
+        if (error) return;
         if (data?.data) {
           const remote = migrate(data.data as unknown);
           dispatch({ type: "MERGE_REMOTE", payload: remote });
         }
         setUserId(uid);
-      }
+      },
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      profileSync.handle(session);
     });
     return () => {
-      authSequence += 1;
+      profileSync.dispose();
       sub.subscription.unsubscribe();
     };
   }, []);

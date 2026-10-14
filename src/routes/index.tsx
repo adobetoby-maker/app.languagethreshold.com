@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Toaster } from "sonner";
 import { AppProvider, useApp } from "@/state/app-state";
-import { AuthProvider } from "@/state/auth-state";
+import { AuthProvider, useAuth } from "@/state/auth-state";
 import { LibraryProvider } from "@/state/library-state";
 import { NotesProvider } from "@/state/notes-state";
 import { GrammarProvider } from "@/state/grammar-state";
@@ -38,6 +38,7 @@ import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
 import { getModule } from "@/data/modules";
+import { learningLinkIdentity } from "@/lib/learning-link";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -62,23 +63,36 @@ function GatedTabShell() {
   );
 }
 
-// Reads ?module= URL param once on mount and activates the module.
+// Apply learning links after account restoration, so saved state cannot replace the assignment.
 // This powers the "Start Free →" CTAs from the marketing site.
 function UrlModuleBridge() {
-  const { state, dispatch } = useApp();
+  const { state, dispatch, profileReadyUserId } = useApp();
+  const { user, loading: authLoading } = useAuth();
+  const userId = user?.id ?? null;
+  const appliedFor = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!state.hydrated) return;
+    const identity = learningLinkIdentity({
+      hydrated: state.hydrated,
+      authLoading,
+      userId,
+      profileReadyUserId,
+      appliedFor: appliedFor.current,
+    });
+    if (identity === null) return;
+    appliedFor.current = identity;
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
     const tab = params.get("tab");
     const linkedModule = getModule(moduleId);
-    const targetLanguage = linkedModule?.learnDirection === "en-target"
-      ? "English"
-      : linkedModule?.languages?.[0];
-    if (targetLanguage && (linkedModule?.learnDirection === "en-target" ||
-      !linkedModule?.languages?.includes(state.selectedLanguage)) &&
-      state.selectedLanguage !== targetLanguage) {
+    const targetLanguage =
+      linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];
+    if (
+      targetLanguage &&
+      (linkedModule?.learnDirection === "en-target" ||
+        !linkedModule?.languages?.includes(state.selectedLanguage)) &&
+      state.selectedLanguage !== targetLanguage
+    ) {
       dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
     if (linkedModule && linkedModule.id !== state.activeModuleId) {
@@ -96,17 +110,25 @@ function UrlModuleBridge() {
       "modules",
       "games",
       "flashcards",
+      "guide",
     ]);
     if (tab && allowedTabs.has(tab)) {
       dispatch({
         type: "SET_TAB",
         payload: tab as
-          "reader" | "grammar" | "speak" | "dashboard" | "modules" | "games" | "flashcards",
+          | "reader"
+          | "grammar"
+          | "speak"
+          | "dashboard"
+          | "modules"
+          | "games"
+          | "flashcards"
+          | "guide",
       });
     }
-    // Only run once after hydration
+    // Apply the URL once per identity, after local and cloud state are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.hydrated]);
+  }, [state.hydrated, authLoading, userId, profileReadyUserId]);
 
   return null;
 }

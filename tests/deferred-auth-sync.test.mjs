@@ -4,6 +4,24 @@ import { createDeferredAuthSync } from "../src/lib/deferred-auth-sync.ts";
 
 const nextTurn = () => new Promise((resolve) => setTimeout(resolve, 10));
 
+test("a failed profile read can release link navigation without enabling cloud writes", async () => {
+  const completed = [];
+  const sync = createDeferredAuthSync({
+    reset() {},
+    async load() {
+      throw new Error("offline");
+    },
+    apply() {
+      assert.fail("failed profile must not enable cloud writes");
+    },
+    failed: (id) => completed.push(id),
+  });
+  sync.handle({ user: { id: "learner" } });
+  await nextTurn();
+  assert.deepEqual(completed, ["learner"]);
+  sync.dispose();
+});
+
 test("profile restoration releases the auth lock before calling Supabase again", async () => {
   let authLocked = true;
   let applied = false;

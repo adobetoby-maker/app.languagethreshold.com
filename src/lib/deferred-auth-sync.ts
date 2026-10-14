@@ -3,10 +3,12 @@ export function createDeferredAuthSync<T>({
   reset,
   load,
   apply,
+  failed,
 }: {
   reset: () => void;
   load: (userId: string) => Promise<T>;
   apply: (userId: string, data: T) => void;
+  failed?: (userId: string) => void;
 }) {
   let sequence = 0;
   let timer: ReturnType<typeof setTimeout> | null = null;
@@ -26,6 +28,7 @@ export function createDeferredAuthSync<T>({
           })
           .catch(() => {
             // Leave cloud writes disabled when the profile could not be read.
+            if (current === sequence) failed?.(userId);
           });
       }, 0);
     },

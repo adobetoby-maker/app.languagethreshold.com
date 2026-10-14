@@ -254,6 +254,8 @@ export const Route = createFileRoute("/api/mission-tts")({
               "Cache-Control": "no-store",
               "X-TTS-Provider": "google-cloud-tts",
               "X-TTS-Voice": voice.name,
+              "X-TTS-Characters": String(Array.from(parsed.data.text).length),
+              "X-TTS-Tier": voice.tier,
               "X-TTS-Rate": String(parsed.data.speakingRate),
               "X-TTS-Rendered-Rate": String(renderedRate),
               "Server-Timing": `google-tts;dur=${providerMs}, total;dur=${totalMs}`,

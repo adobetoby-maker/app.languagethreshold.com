@@ -28,6 +28,25 @@ export interface CultureEssay {
   englishText: string[]; // Native-language text (kept name for back-compat)
 }
 
+// Haiku 5.5 sometimes returns an array field as a JSON-encoded string
+// ("[\"...\"]"); decode those so callers always get the declared array.
+function decodeStringifiedArrays(input: unknown, parameters: Record<string, unknown>): unknown {
+  const properties = parameters.properties as Record<string, { type?: string }> | undefined;
+  if (!properties || !input || typeof input !== "object") return input;
+  const decoded: Record<string, unknown> = { ...(input as Record<string, unknown>) };
+  for (const [key, schema] of Object.entries(properties)) {
+    const value = decoded[key];
+    if (schema?.type !== "array" || typeof value !== "string") continue;
+    try {
+      const parsed: unknown = JSON.parse(value);
+      if (Array.isArray(parsed)) decoded[key] = parsed;
+    } catch {
+      // leave the value as returned
+    }
+  }
+  return decoded;
+}
+
 async function callTool<T>(
   systemPrompt: string,
   userPrompt: string,
@@ -61,7 +80,7 @@ async function callTool<T>(
     if (!toolUse || toolUse.type !== "tool_use") {
       return { data: null, error: "No structured result returned." };
     }
-    return { data: toolUse.input as T, error: null };
+    return { data: decodeStringifiedArrays(toolUse.input, parameters) as T, error: null };
   } catch (e) {
     console.error("callTool failed", e);
     return { data: null, error: "Request failed." };

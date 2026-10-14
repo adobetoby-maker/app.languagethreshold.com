@@ -197,8 +197,8 @@ export const Route = createFileRoute("/api/field-prep")({
 
         try {
           const stream = await client.messages.create({
-            model: "claude-sonnet-4-6",
-            max_tokens: 512,
+            model: "claude-sonnet-5-5",
+            max_tokens: 700,
             system: systemPrompt,
             messages,
             stream: true,

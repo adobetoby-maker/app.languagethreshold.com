@@ -77,8 +77,8 @@ export const generateVerbConjugation = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey });
         const response = await client.messages.create({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 2048,
+          model: "claude-sonnet-5-5",
+          max_tokens: 2800,
           system: SYSTEM,
           messages: [
             {
@@ -202,7 +202,7 @@ export const generateVerbConjugation = createServerFn({ method: "POST" })
               },
             },
           ],
-          tool_choice: { type: "tool", name: "return_conjugation_table" },
+          tool_choice: { type: "auto" },
         });
 
         const toolUse = response.content.find((c) => c.type === "tool_use");

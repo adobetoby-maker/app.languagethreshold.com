@@ -32,6 +32,18 @@ export interface ModuleDeckPair {
   kind: "term" | "phrase";
 }
 
+type CardInput = Omit<ModuleDeckPair, "kind">;
+
+const CARD_SCHEMA = {
+  type: "object",
+  properties: {
+    english: { type: "string" },
+    translation: { type: "string" },
+  },
+  required: ["english", "translation"],
+  additionalProperties: false,
+};
+
 export const generateModuleDeck = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => Input.parse(input))
   .handler(async ({ data }): Promise<{ pairs: ModuleDeckPair[] | null; error: string | null }> => {
@@ -75,21 +87,22 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
             input_schema: {
               type: "object" as const,
               properties: {
-                cards: {
+                terms: {
                   type: "array",
-                  items: {
-                    type: "object",
-                    properties: {
-                      english: { type: "string" },
-                      translation: { type: "string" },
-                      kind: { type: "string", enum: ["term", "phrase"] },
-                    },
-                    required: ["english", "translation", "kind"],
-                    additionalProperties: false,
-                  },
+                  description: "Exactly 20 distinct field terms.",
+                  minItems: 20,
+                  maxItems: 20,
+                  items: CARD_SCHEMA,
+                },
+                phrases: {
+                  type: "array",
+                  description: "Exactly 20 short things the learner would actually say in the field.",
+                  minItems: 20,
+                  maxItems: 20,
+                  items: CARD_SCHEMA,
                 },
               },
-              required: ["cards"],
+              required: ["terms", "phrases"],
               additionalProperties: false,
             },
           },
@@ -99,7 +112,13 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
       const tool = response.content.find((item) => item.type === "tool_use");
       if (!tool || tool.type !== "tool_use")
         return { pairs: null, error: "Card generation failed" };
-      const raw = (tool.input as { cards?: ModuleDeckPair[] }).cards ?? [];
+      // Separate term and phrase lists: with one mixed list, Haiku 5.5 often stopped
+      // after the terms and returned too few phrases to pass the check below.
+      const input = tool.input as { terms?: CardInput[]; phrases?: CardInput[] };
+      const raw: ModuleDeckPair[] = [
+        ...(input.terms ?? []).map((card) => ({ ...card, kind: "term" as const })),
+        ...(input.phrases ?? []).map((card) => ({ ...card, kind: "phrase" as const })),
+      ];
       const seen = new Set<string>();
       const pairs = raw
         .filter((pair) => {

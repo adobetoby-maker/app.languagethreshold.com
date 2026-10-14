@@ -25,7 +25,6 @@ interface AuthContextValue {
   ) => Promise<{ error: string | null; needsConfirmation: boolean }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signInWithGoogle: () => Promise<void>;
-  signInWithApple: () => Promise<void>;
   signOut: (scope?: "global" | "local" | "others") => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: string | null }>;
 }
@@ -120,19 +119,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const signInWithApple = useCallback(async () => {
-    rememberAuthReturn(window.location.pathname, window.localStorage);
-    await supabase.auth.signInWithOAuth({
-      provider: "apple",
-      options: {
-        redirectTo:
-          window.location.pathname === "/team/accept"
-            ? window.location.href
-            : `${window.location.origin}/`,
-      },
-    });
-  }, []);
-
   const resetPassword = useCallback(async (email: string) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/`,
@@ -152,11 +138,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signUp,
       signIn,
       signInWithGoogle,
-      signInWithApple,
       signOut,
       resetPassword,
     }),
-    [session, loading, signUp, signIn, signInWithGoogle, signInWithApple, signOut, resetPassword],
+    [session, loading, signUp, signIn, signInWithGoogle, signOut, resetPassword],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
@@ -169,7 +154,6 @@ const fallbackAuth: AuthContextValue = {
   signUp: async () => ({ error: "Auth not ready", needsConfirmation: false }),
   signIn: async () => ({ error: "Auth not ready" }),
   signInWithGoogle: async () => {},
-  signInWithApple: async () => {},
   signOut: async () => {},
   resetPassword: async () => ({ error: "Auth not ready" }),
 };

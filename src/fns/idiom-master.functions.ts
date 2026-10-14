@@ -121,7 +121,7 @@ export const generateIdiomQuestion = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
-          // Sonnet 4.6 — idiom authenticity is the whole game. A made-up or
+          // Idiom authenticity is the whole game. A made-up or
           // English-translated phrase silently destroys cultural credibility,
           // which is exactly what learners come here for. Sonnet's much more
           // reliable than Haiku on idiom recall + cultural notes.

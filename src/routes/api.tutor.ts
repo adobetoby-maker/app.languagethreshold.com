@@ -265,8 +265,8 @@ export const Route = createFileRoute("/api/tutor")({
 
         try {
           const stream = await client.messages.create({
-            model: "claude-sonnet-4-6",
-            max_tokens: 1500,
+            model: "claude-sonnet-5-5",
+            max_tokens: 2000,
             system,
             messages: payload.messages,
             stream: true,

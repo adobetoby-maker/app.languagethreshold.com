@@ -20,7 +20,7 @@ export function AuthModal({
   open: boolean;
   onOpenChange: (v: boolean) => void;
 }) {
-  const { signIn, signUp, resetPassword, signInWithGoogle, signInWithApple } = useAuth();
+  const { signIn, signUp, resetPassword, signInWithGoogle } = useAuth();
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,11 +32,6 @@ export function AuthModal({
   function reset(nextMode: Mode) {
     setErr(null);
     setMode(nextMode);
-  }
-
-  async function handleOAuth(provider: "google" | "apple") {
-    if (provider === "google") await signInWithGoogle();
-    else await signInWithApple();
   }
 
   const submit = async (e: React.FormEvent) => {
@@ -121,12 +116,12 @@ export function AuthModal({
             {/* Social buttons — hidden on forgot screen */}
             {mode !== "forgot" && (
               <>
-                <div className="grid grid-cols-2 gap-2">
+                <div>
                   <button
                     type="button"
-                    onClick={() => handleOAuth("google")}
+                    onClick={() => void signInWithGoogle()}
                     disabled={busy}
-                    className="flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 py-2.5 text-xs font-medium transition-colors hover:bg-muted disabled:opacity-50"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 py-2.5 text-xs font-medium transition-colors hover:bg-muted disabled:opacity-50"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden>
                       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -135,17 +130,6 @@ export function AuthModal({
                       <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                     </svg>
                     Google
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleOAuth("apple")}
-                    disabled={busy}
-                    className="flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 py-2.5 text-xs font-medium transition-colors hover:bg-muted disabled:opacity-50"
-                  >
-                    <svg width="13" height="16" viewBox="0 0 814 1000" aria-hidden>
-                      <path fill="currentColor" d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-122.6C142.6 742.7 112 631.1 112 523.2 112 291.8 247.8 174 381.7 174c60.5 0 110.6 39.5 148.4 39.5 36.4 0 93.5-41.9 162.5-41.9 25.2 0 131.2 2.3 199.3 79.3zm-234.5-156.3c28.1-36.5 47.9-87.5 47.9-138.5 0-7.1-.6-14.3-1.9-20.1-44.9 1.9-98.5 30.3-130.7 71.9-24.5 29.7-48.2 80.4-48.2 131.4 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 39.5 0 89.2-26.3 117.4-63.8z"/>
-                    </svg>
-                    Apple
                   </button>
                 </div>
 

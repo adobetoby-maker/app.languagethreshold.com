@@ -1,6 +1,11 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
-import { monthlySessionCost, RATE_DATE, RATE_SOURCE } from "../src/lib/usage-cost.ts";
+import {
+  receiptCostUsd,
+  monthlySessionCost,
+  RATE_DATE,
+  RATE_SOURCE,
+} from "../src/lib/usage-cost.ts";
 const args = Object.fromEntries(
   process.argv.slice(2).map((x) => {
     const [k, ...v] = x.replace(/^--/, "").split("=");
@@ -86,6 +91,18 @@ function session(p) {
   };
 }
 const scenarios = profiles.map(session);
+for (const p of scenarios) {
+  const tutor = rows.filter((r) => r.feature === "tutor" && r.turn <= p.turns);
+  if (p.sessionTextUsd != null && tutor.every((r) => r.metering?.model === "claude-sonnet-4-6")) {
+    const old = tutor.reduce((s, r) => s + r.costUsd, 0);
+    const normalized = tutor.reduce(
+      (s, r) => s + receiptCostUsd(r.metering, "claude-sonnet-5-5"),
+      0,
+    );
+    p.sonnet55SameTokensSessionUsd = p.sessionTextUsd - old + normalized;
+    p.sonnet55ThirtyPercentMoreTokensSessionUsd = p.sessionTextUsd - old + normalized * 1.3;
+  }
+}
 const models = [
   ...new Set(rows.flatMap((r) => (r.metering?.providerCalls ? [r.metering.model] : []))),
 ];
@@ -102,7 +119,7 @@ const data = {
     "Voice characters are modeled per session; a sample synthesis is measured only if cloud voices are configured.",
     "Rates exclude free-tier credits, discounts, tax and invoice-only retries.",
     "Shared hosting, database, email, monitoring, storage and processing fees need actual invoices.",
-    "Spanish benchmark excludes the separate Pashto/ElevenLabs path.",
+    "Spanish benchmark excludes the separate Pashto/ElevenLabs path. Sonnet 5.5 counterfactuals reuse the measured Sonnet 4.6 turns at new rates, with same-token and +30% token scenarios; these are not live Sonnet 5.5 measurements.",
   ],
 };
 await writeFile(resolve(output, "monthly-cost-model.json"), JSON.stringify(data, null, 2));
@@ -129,6 +146,21 @@ for (const p of scenarios) {
   );
 }
 await writeFile(resolve(output, "monthly-cost-scenarios.csv"), csv.join("\n") + "\n");
+const compare = [
+  "profile,current_text_monthly_usd,sonnet55_same_tokens_text_monthly_usd,sonnet55_30pct_more_tokens_text_monthly_usd",
+];
+for (const p of scenarios)
+  compare.push(
+    [
+      p.name,
+      ...[
+        p.sessionTextUsd,
+        p.sonnet55SameTokensSessionUsd,
+        p.sonnet55ThirtyPercentMoreTokensSessionUsd,
+      ].map((n) => (n == null ? "" : monthlySessionCost(n, p.sessionsPerWeek))),
+    ].join(","),
+  );
+await writeFile(resolve(output, "sonnet55-comparison-estimates.csv"), compare.join("\n") + "\n");
 const json = JSON.stringify(data).replaceAll("<", "\\u003c");
 const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Language Threshold · learner cost test</title><style>body{background:#0c1729;color:#edf2fa;font:16px/1.5 system-ui;margin:32px auto;max-width:1100px;padding:0 20px}h1,h2{color:#e5c671}section{background:#16243c;border:1px solid #34435c;padding:22px;border-radius:16px;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}label{display:block}input,select{display:block;width:95%;padding:9px;margin:6px 0;background:#0d182a;color:white;border:1px solid #68768e;border-radius:6px}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:10px;border-bottom:1px solid #46516a;text-align:left}.scroll{overflow:auto}small,.muted{color:#b4c0d4}a{color:#8ad4ed}.money{font-size:32px;font-weight:700;color:#e5c671}.unknown{color:#ffc49b}@media print{body{background:white;color:black}section{background:white}input,select{color:black;background:white}h1,h2,.money{color:#203650}}</style><h1>What does a monthly learner cost?</h1><p>Measured text API usage, with editable monthly activity and cloud voice assumptions. This is a usage estimate, not a provider invoice.</p><p id="summary"></p><section><h2>Monthly planning calculator</h2><div class="grid"><label>Learning pattern<select id="profile"><option value="light">Light</option><option value="regular" selected>Regular</option><option value="heavy">Heavy</option></select></label><label>Sessions each week<input id="sessions" type="number" min="0" max="50" step="0.5" value="5"></label><label>Voice provider scenario<select id="voice"><option value="0">Device voice · no cloud TTS</option><option value="16">Google Neural2 · $16 / million characters</option><option value="30">Google Chirp 3 HD · $30 / million characters</option></select></label><label>Cloud voice characters / session<input id="characters" type="number" min="0" max="1000000" value="4000"></label><label>Planning buffer (%)<input id="buffer" type="number" min="0" max="200" value="25"></label><label>Monthly active users<input id="users" type="number" min="1" value="100"></label><label>Shared monthly invoice costs ($)<input id="shared" type="number" min="0" step="0.01" placeholder="Enter actual hosting, database, email…"></label></div><p class="money" id="variable"></p><p id="breakdown"></p><p id="loaded"></p><small>The buffer is a planning assumption. No free-tier credits are applied. Unentered shared costs remain unknown.</small></section><section><h2>Example monthly usage scenarios</h2><p>Gross API costs before the planning buffer or shared expenses. The Heavy case uses 15 measured turns per conversation; it is unavailable if only five turns were tested.</p><div class="scroll"><table><thead><tr><th>Pattern</th><th>Sessions / week</th><th>Device voice</th><th>Neural2 voice</th><th>Chirp 3 HD voice</th></tr></thead><tbody id="scenarios"></tbody></table></div></section><section><h2>Measured session activity</h2><p>Existing flashcard reviews need no new model call. Repeated lookups use their observed receipt, which may or may not be an application-cache hit.</p><div class="scroll"><table><thead><tr><th>Action</th><th>Turn</th><th>Result</th><th>Model</th><th>Input</th><th>Output</th><th>Cache read</th><th>Cost USD</th></tr></thead><tbody id="receipts"></tbody></table></div></section><section><h2>What remains outside this estimate?</h2><ul id="notes"></ul><p>Rate sources, checked ${RATE_DATE}: <a href="${RATE_SOURCE}">Anthropic API pricing</a>; <a href="https://cloud.google.com/text-to-speech/pricing">Google voice pricing</a>.</p><p>Tutor routes currently measured on Sonnet 4.6 must not be costed as Sonnet 5.5. A future model change needs a fresh run because output length and tokenizer behavior can change.</p></section><script type="application/json" id="data">${json}</script><script>
 const d=JSON.parse(document.getElementById('data').textContent),el=id=>document.getElementById(id),money=n=>n==null?'Unmeasured':'$'+n.toFixed(n<0.01?4:2),monthly=(s,w)=>s*w*52/12;

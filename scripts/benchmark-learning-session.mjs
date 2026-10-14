@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 import { receiptCostUsd, ttsCostUsd, RATE_DATE, RATE_SOURCE } from "../src/lib/usage-cost.ts";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = Object.fromEntries(
@@ -63,15 +63,7 @@ const ids = new Map(
     m[1],
   ]),
 );
-// Use the installed app version's own transport, including its Seroval framing.
-const { serverFnFetcher } = await import(
-  pathToFileURL(
-    resolve(
-      root,
-      "node_modules/@tanstack/start-client-core/dist/esm/client-rpc/serverFnFetcher.js",
-    ),
-  ).href
-);
+const { callLearningServerFn } = await import("./learning-session-transport.mjs");
 const headers = { Origin: base, Authorization: "Bearer " + token };
 const save = () =>
   writeFile(
@@ -89,9 +81,9 @@ async function fn(feature, name, data) {
   let metering, status, returned;
   const start = Date.now();
   try {
-    const value = await serverFnFetcher(
+    const value = await callLearningServerFn(
       base + "/_serverFn/" + ids.get(name),
-      [{ method: "POST", data, headers }],
+      { data, headers },
       async (url, init) => {
         const r = await fetch(url, { ...init, signal: AbortSignal.timeout(90000) });
         status = r.status;

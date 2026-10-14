@@ -1029,6 +1029,7 @@ const AppContext = createContext<{
   state: AppState;
   dispatch: React.Dispatch<AppAction>;
   pingActivity: () => void;
+  profileReadyUserId: string | null;
 } | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
@@ -1128,12 +1129,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   ]);
 
   const [userId, setUserId] = useState<string | null>(null);
+  const [profileReadyUserId, setProfileReadyUserId] = useState<string | null>(null);
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const profileSync = createDeferredAuthSync({
       reset() {
         setUserId(null);
+        setProfileReadyUserId(null);
         if (syncTimer.current) {
           clearTimeout(syncTimer.current);
           syncTimer.current = null;
@@ -1142,6 +1145,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       load: (uid) =>
         Promise.resolve(supabase.from("profiles").select("data").eq("id", uid).maybeSingle()),
       apply(uid, { data, error }) {
+        setProfileReadyUserId(uid);
         if (error) return;
         if (data?.data) {
           const remote = migrate(data.data as unknown);
@@ -1149,6 +1153,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         }
         setUserId(uid);
       },
+      failed: setProfileReadyUserId,
     });
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       profileSync.handle(session);
@@ -1178,7 +1183,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
     dispatch({ type: "SET_LAST_ACTIVE_DATE", payload: today });
   }, [state.lastActiveDate]);
 
-  const value = useMemo(() => ({ state, dispatch, pingActivity }), [state, pingActivity]);
+  const value = useMemo(
+    () => ({ state, dispatch, pingActivity, profileReadyUserId }),
+    [state, pingActivity, profileReadyUserId],
+  );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

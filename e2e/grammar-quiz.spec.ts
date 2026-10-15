@@ -1,5 +1,10 @@
 import { expect, test, type Page } from "@playwright/test";
 
+// These tests identify server functions by the name encoded in the dev-server URL.
+// Production builds use hashed ids, so they only run against a local dev server.
+const REMOTE = /^https?:\/\/(?!localhost|127\.0\.0\.1)/.test(process.env.E2E_BASE_URL ?? "");
+test.skip(REMOTE, "server functions are named only on a dev server");
+
 // Grammar quiz: every screen must leave the learner a way forward or back.
 // The AI calls are stubbed (TanStack server-function wire format) so the quiz outcome is
 // deterministic and the test never spends tokens.

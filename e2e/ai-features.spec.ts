@@ -1,5 +1,10 @@
 import { expect, test, type Page, type Response } from "@playwright/test";
 
+// These tests identify server functions by the name encoded in the dev-server URL.
+// Production builds use hashed ids, so they only run against a local dev server.
+const REMOTE = /^https?:\/\/(?!localhost|127\.0\.0\.1)/.test(process.env.E2E_BASE_URL ?? "");
+test.skip(REMOTE, "server functions are named only on a dev server");
+
 // Each test clicks through one AI feature the way a learner would and checks
 // that the model call succeeds and its result shows up on screen.
 

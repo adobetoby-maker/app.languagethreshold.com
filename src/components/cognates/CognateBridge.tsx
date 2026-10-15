@@ -1,12 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRightLeft, ChevronLeft, ChevronRight, Sparkle, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useApp } from "@/state/app-state";
 import {
-  ALL_COGNATE_RULES,
-  COGNATE_SOURCE_LANGUAGES,
   FREQUENCY_META,
-  getCognateRulesForSource,
+  getCognateRules,
+  getCognateSources,
+  COGNATE_LANGUAGE_NOTES,
   type CognateFrequency,
   type CognateRule,
   type CognateSourceLanguage,
@@ -41,12 +41,19 @@ function FrequencyBadge({ frequency }: { frequency: CognateFrequency }) {
 
 function ReliabilityMeter({ reliability }: { reliability: number }) {
   return (
-    <div className="flex items-center gap-1.5" title={`~${reliability}% of common words transfer cleanly`}>
+    <div
+      className="flex items-center gap-1.5"
+      title={`~${reliability}% of common words transfer cleanly`}
+    >
       <div className="h-1.5 w-16 overflow-hidden rounded-full bg-border/30">
         <div
           className={cn(
             "h-full rounded-full",
-            reliability >= 85 ? "bg-emerald-400" : reliability >= 70 ? "bg-amber-400" : "bg-orange-400",
+            reliability >= 85
+              ? "bg-emerald-400"
+              : reliability >= 70
+                ? "bg-amber-400"
+                : "bg-orange-400",
           )}
           style={{ width: `${reliability}%` }}
         />
@@ -105,7 +112,9 @@ function RuleDetail({ rule, onBack }: { rule: CognateRule; onBack: () => void })
       <div className="rounded-xl border border-border/50 bg-card/40 p-5">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <FrequencyBadge frequency={rule.frequency} />
-          <span className="text-xs text-muted-foreground">{rule.sourceLanguage} → {rule.targetLanguage}</span>
+          <span className="text-xs text-muted-foreground">
+            {rule.sourceLanguage} → {rule.targetLanguage}
+          </span>
         </div>
 
         <h2 className="mb-1 text-xl font-bold text-foreground">{rule.name}</h2>
@@ -118,7 +127,12 @@ function RuleDetail({ rule, onBack }: { rule: CognateRule; onBack: () => void })
         <ReliabilityMeter reliability={rule.reliability} />
       </div>
 
-      <div className={cn("rounded-lg border p-3 text-sm", FREQUENCY_META[rule.frequency] && "bg-card/30 border-border/50")}>
+      <div
+        className={cn(
+          "rounded-lg border p-3 text-sm",
+          FREQUENCY_META[rule.frequency] && "bg-card/30 border-border/50",
+        )}
+      >
         <p className="mb-0.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Why This Matters
         </p>
@@ -136,9 +150,14 @@ function RuleDetail({ rule, onBack }: { rule: CognateRule; onBack: () => void })
       )}
 
       <div className="space-y-3 rounded-xl border border-border/50 bg-card/30 p-4">
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Examples</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Examples
+        </p>
         {rule.examples.map((ex, i) => (
-          <div key={i} className="flex items-baseline justify-between gap-3 border-l-2 border-gold/30 pl-3">
+          <div
+            key={i}
+            className="flex items-baseline justify-between gap-3 border-l-2 border-gold/30 pl-3"
+          >
             <div>
               <p className="text-sm font-medium text-foreground">
                 {ex.source} <span className="text-muted-foreground/60">→</span> {ex.target}
@@ -156,16 +175,27 @@ function RuleDetail({ rule, onBack }: { rule: CognateRule; onBack: () => void })
 
 export function CognateBridge() {
   const { state: app } = useApp();
-  const [source, setSource] = useState<CognateSourceLanguage>("English");
+  const target = app.selectedLanguage;
+  const sources = useMemo(() => getCognateSources(target), [target]);
+  // Start from the learner's native language when it has rules for this target.
+  const nativeSource = sources.find((lang) => lang === app.nativeLanguage);
+  const [picked, setPicked] = useState<CognateSourceLanguage | null>(null);
+  const source = picked && sources.includes(picked) ? picked : (nativeSource ?? sources[0] ?? null);
   const [freqFilter, setFreqFilter] = useState<FreqFilter>("all");
   const [selected, setSelected] = useState<CognateRule | null>(null);
 
-  const rules = getCognateRulesForSource(source);
+  useEffect(() => {
+    setSelected(null);
+    setPicked(null);
+  }, [target]);
+
+  const targetRules = useMemo(() => getCognateRules(target), [target]);
+  const rules = useMemo(() => (source ? getCognateRules(target, source) : []), [target, source]);
   const filtered = rules.filter((r) => freqFilter === "all" || r.frequency === freqFilter);
 
   const totalExamples = useMemo(
-    () => ALL_COGNATE_RULES.reduce((sum, r) => sum + r.examples.length, 0),
-    [],
+    () => targetRules.reduce((sum, r) => sum + r.examples.length, 0),
+    [targetRules],
   );
 
   if (selected) {
@@ -183,21 +213,24 @@ export function CognateBridge() {
           <ArrowRightLeft className="h-3.5 w-3.5" />
           Cognate Bridge
         </div>
-        <h1 className="text-2xl font-bold text-foreground">
-          Words you already know, in {app.selectedLanguage === "Italian" ? "Italian" : app.selectedLanguage}
-        </h1>
+        <h1 className="text-2xl font-bold text-foreground">Words you already know, in {target}</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          {ALL_COGNATE_RULES.length} sound-shift patterns · {totalExamples} example words · ranked by how often
-          each pattern actually pays off
+          {targetRules.length} sound-shift patterns · {totalExamples} example words · ranked by how
+          often each pattern actually pays off
         </p>
+        {COGNATE_LANGUAGE_NOTES[target] && (
+          <p className="mt-2 rounded-lg border border-gold/20 bg-gold/5 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
+            {COGNATE_LANGUAGE_NOTES[target]}
+          </p>
+        )}
       </div>
 
       {/* Source language selector */}
       <div className="mb-4 flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
-        {COGNATE_SOURCE_LANGUAGES.map((lang) => (
+        {sources.map((lang) => (
           <button
             key={lang}
-            onClick={() => setSource(lang)}
+            onClick={() => setPicked(lang)}
             className={cn(
               "shrink-0 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors",
               source === lang
@@ -236,7 +269,11 @@ export function CognateBridge() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="py-12 text-center text-sm text-muted-foreground/60">No patterns for this filter.</div>
+        <div className="py-12 text-center text-sm text-muted-foreground/60">
+          {source
+            ? "No patterns for this filter."
+            : `No cognate patterns for ${target} yet. Try the Reader or Grammar Patterns for now.`}
+        </div>
       )}
 
       {/* Frequency legend */}
@@ -247,13 +284,15 @@ export function CognateBridge() {
         {(["ultra", "high", "medium"] as const).map((f) => (
           <div key={f} className="flex items-start gap-2">
             <FrequencyBadge frequency={f} />
-            <p className="text-xs leading-relaxed text-muted-foreground">{FREQUENCY_META[f].desc}</p>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {FREQUENCY_META[f].desc}
+            </p>
           </div>
         ))}
         <p className="pt-1 text-xs leading-relaxed text-muted-foreground/70">
-          The percentage bar on each card is reliability — how often the pattern holds — which is a separate
-          question from frequency. A pattern can be common but risky (ñ → gn/nn), or rare but bulletproof
-          (-graphy → -grafia).
+          The percentage bar on each card is reliability — how often the pattern holds — which is a
+          separate question from frequency. A pattern can be common but risky (ñ → gn/nn), or rare
+          but bulletproof (-graphy → -grafia).
         </p>
       </div>
     </div>

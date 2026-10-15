@@ -1,0 +1,271 @@
+import type { CognateRule } from "../cognate-patterns.ts";
+import { cognateRule } from "./helpers.ts";
+
+// Cognate rules whose TARGET language is Chinese (Mandarin, Simplified characters), for
+// learners who already know English. English and Chinese share no inherited cognates, so
+// the bridge is (a) sound loans, (b) hybrid sound + meaning loans, (c) meaning-built words
+// (calques) and (d) productive suffixes that translate English suffixes. Every `from`/`to`
+// is a descriptive "~" pattern because the scripts differ; tests skip those, so each rule
+// has an explicit id.
+
+const zh = (o: Omit<Parameters<typeof cognateRule>[0], "target" | "source">) =>
+  cognateRule({ ...o, target: "Chinese", source: "English" });
+
+const EN_TO_ZH: CognateRule[] = [
+  zh({
+    id: "ology-xue",
+    frequency: "ultra",
+    from: "~-ology / -ics (a field of study)",
+    to: "~-学 (xué, 'study')",
+    name: "Fields of study: -ology becomes -学",
+    reliability: 90,
+    hook: "Add 学 (xué, 'study') after the subject word. 生物 shēngwù 'living things' + 学 = biology. These are meaning-built, not sound loans, so you learn the root word once and reuse it.",
+    examples: [
+      ["biology", "生物学 (shēngwùxué)", "biology"],
+      ["psychology", "心理学 (xīnlǐxué)", "psychology"],
+      ["sociology", "社会学 (shèhuìxué)", "sociology"],
+      ["geology", "地质学 (dìzhìxué)", "geology"],
+      ["physics", "物理学 (wùlǐxué)", "physics"],
+      ["economics", "经济学 (jīngjìxué)", "economics"],
+      ["linguistics", "语言学 (yǔyánxué)", "linguistics"],
+    ],
+    watchOut:
+      "Some subjects have a shorter everyday name too (e.g. 物理 wùlǐ for school physics). The -学 form is the formal name of the field.",
+  }),
+  zh({
+    id: "ism-zhuyi",
+    frequency: "high",
+    from: "~-ism (a doctrine or movement)",
+    to: "~-主义 (zhǔyì, 'doctrine')",
+    name: "Doctrines and movements: -ism becomes -主义",
+    reliability: 92,
+    hook: "Put 主义 (zhǔyì, 'doctrine, -ism') after the root. 资本 zīběn 'capital' + 主义 = capitalism. A meaning-built suffix, not a sound loan.",
+    examples: [
+      ["capitalism", "资本主义 (zīběnzhǔyì)", "capitalism"],
+      ["socialism", "社会主义 (shèhuìzhǔyì)", "socialism"],
+      ["realism", "现实主义 (xiànshízhǔyì)", "realism"],
+      ["romanticism", "浪漫主义 (làngmànzhǔyì)", "romanticism"],
+      ["nationalism", "民族主义 (mínzúzhǔyì)", "nationalism"],
+      ["individualism", "个人主义 (gèrénzhǔyì)", "individualism"],
+      ["optimism", "乐观主义 (lèguānzhǔyì)", "optimism"],
+    ],
+    watchOut:
+      "Not every English -ism maps cleanly (for example 'tourism' is 旅游业, 'criticism' is 批评). Use it for doctrines, movements and philosophies.",
+  }),
+  zh({
+    id: "ist-jia",
+    frequency: "high",
+    from: "~-ist / -er (an expert or creator in a field)",
+    to: "~-家 (jiā, 'specialist')",
+    name: "Experts and creators: -ist becomes -家",
+    reliability: 85,
+    hook: "家 (jiā, literally 'home, family') after a field means a person who is an expert or creator in it. 科学 kēxué 'science' + 家 = scientist.",
+    examples: [
+      ["scientist", "科学家 (kēxuéjiā)", "scientist"],
+      ["artist", "艺术家 (yìshùjiā)", "artist"],
+      ["musician", "音乐家 (yīnyuèjiā)", "musician"],
+      ["writer", "作家 (zuòjiā)", "writer"],
+      ["politician / statesman", "政治家 (zhèngzhìjiā)", "politician, statesman"],
+      ["entrepreneur", "企业家 (qǐyèjiā)", "entrepreneur"],
+      ["historian", "历史学家 (lìshǐxuéjiā)", "historian"],
+      ["painter", "画家 (huàjiā)", "painter"],
+    ],
+    watchOut:
+      "家 carries respect, so it suits recognised experts and creators. Jobs done for a living usually take 师 (shī) or 员 (yuán) instead.",
+  }),
+  zh({
+    id: "er-shi",
+    frequency: "high",
+    from: "~-er / -ist (a skilled professional)",
+    to: "~-师 (shī, 'master, teacher')",
+    name: "Skilled professionals: -师",
+    reliability: 85,
+    hook: "师 (shī, 'master, teacher') marks someone with a trained skill. 工程 gōngchéng 'engineering' + 师 = engineer.",
+    examples: [
+      ["engineer", "工程师 (gōngchéngshī)", "engineer"],
+      ["lawyer", "律师 (lǜshī)", "lawyer"],
+      ["designer", "设计师 (shèjìshī)", "designer"],
+      ["chef", "厨师 (chúshī)", "chef, cook"],
+      ["teacher", "教师 (jiàoshī)", "teacher (formal)"],
+      ["accountant", "会计师 (kuàijìshī)", "accountant"],
+      ["photographer", "摄影师 (shèyǐngshī)", "photographer"],
+    ],
+    watchOut:
+      "In speech a teacher is usually 老师 (lǎoshī), and a doctor is 医生 (yīshēng), not a -师 word.",
+  }),
+  zh({
+    id: "worker-yuan",
+    frequency: "high",
+    from: "~-er / -ant / -ian (a member or staff of a group)",
+    to: "~-员 (yuán, 'member, staff')",
+    name: "Roles and staff: -员",
+    reliability: 85,
+    hook: "员 (yuán, 'member, staff') names someone who holds a role in an organisation or activity: 演 yǎn 'perform' + 员 = actor.",
+    examples: [
+      ["actor", "演员 (yǎnyuán)", "actor"],
+      ["athlete", "运动员 (yùndòngyuán)", "athlete"],
+      ["pilot", "飞行员 (fēixíngyuán)", "pilot"],
+      ["waiter / attendant", "服务员 (fúwùyuán)", "waiter, service staff"],
+      ["official", "官员 (guānyuán)", "official"],
+      ["office employee", "职员 (zhíyuán)", "office employee"],
+      ["shop assistant", "售货员 (shòuhuòyuán)", "shop assistant"],
+    ],
+  }),
+  zh({
+    id: "ization-hua",
+    frequency: "high",
+    from: "~-ization / -ify (becoming or turning into)",
+    to: "~-化 (huà, 'change into')",
+    name: "Processes of change: -化",
+    reliability: 90,
+    hook: "化 (huà, 'transform') after a noun or adjective means 'becoming X' or 'making X'. 现代 xiàndài 'modern' + 化 = modernization.",
+    examples: [
+      ["modernization", "现代化 (xiàndàihuà)", "modernization"],
+      ["globalization", "全球化 (quánqiúhuà)", "globalization"],
+      ["digitalization", "数字化 (shùzìhuà)", "digitalization"],
+      ["urbanization", "城市化 (chéngshìhuà)", "urbanization"],
+      ["industrialization", "工业化 (gōngyèhuà)", "industrialization"],
+      ["standardization", "标准化 (biāozhǔnhuà)", "standardization"],
+      ["automation", "自动化 (zìdònghuà)", "automation"],
+      ["internationalization", "国际化 (guójìhuà)", "internationalization"],
+    ],
+  }),
+  zh({
+    id: "ity-xing",
+    frequency: "high",
+    from: "~-ity / -ness / -ability (an abstract quality)",
+    to: "~-性 (xìng, 'nature, property')",
+    name: "Abstract qualities: -性",
+    reliability: 85,
+    hook: "性 (xìng, 'nature, property') turns an adjective into the quality noun: 可能 kěnéng 'possible' + 性 = possibility.",
+    examples: [
+      ["possibility", "可能性 (kěnéngxìng)", "possibility"],
+      ["importance", "重要性 (zhòngyàoxìng)", "importance"],
+      ["necessity", "必要性 (bìyàoxìng)", "necessity"],
+      ["flexibility", "灵活性 (línghuóxìng)", "flexibility"],
+      ["stability", "稳定性 (wěndìngxìng)", "stability"],
+      ["reliability", "可靠性 (kěkàoxìng)", "reliability"],
+      ["creativity", "创造性 (chuàngzàoxìng)", "creativity"],
+    ],
+    watchOut:
+      "Many simple English abstract nouns are just the adjective in Chinese (importance is also 重要). -性 is the formal or technical form, so do not add it to everything.",
+  }),
+  zh({
+    id: "sound-loan-food",
+    frequency: "ultra",
+    from: "~English food and drink words copied by sound",
+    to: "~characters chosen for their sound (meaning is incidental)",
+    name: "Sound loans: food and drink",
+    reliability: 90,
+    hook: "Say the English word with Mandarin syllables and you are close. The characters were picked for sound alone, so ignore what each character means on its own.",
+    examples: [
+      ["coffee", "咖啡 (kāfēi)", "coffee"],
+      ["salad", "沙拉 (shālā)", "salad"],
+      ["chocolate", "巧克力 (qiǎokèlì)", "chocolate"],
+      ["pizza", "比萨 (bǐsà)", "pizza"],
+      ["sandwich", "三明治 (sānmíngzhì)", "sandwich"],
+      ["hamburger", "汉堡 (hànbǎo)", "hamburger (full form 汉堡包 hànbǎobāo)"],
+      ["curry", "咖喱 (gālí)", "curry"],
+    ],
+    watchOut: "Some items have more than one standard form (比萨 is also written 披萨 pīsà).",
+  }),
+  zh({
+    id: "sound-loan-things",
+    frequency: "high",
+    from: "~English object, sport and place words copied by sound",
+    to: "~characters chosen for their sound",
+    name: "Sound loans: objects, sport, culture",
+    reliability: 85,
+    hook: "Everyday objects and activities borrowed with their name: sofa becomes 沙发 shāfā, guitar becomes 吉他 jítā. Listen for the English word hidden in the syllables.",
+    examples: [
+      ["sofa", "沙发 (shāfā)", "sofa"],
+      ["guitar", "吉他 (jítā)", "guitar"],
+      ["marathon", "马拉松 (mǎlāsōng)", "marathon"],
+      ["tank", "坦克 (tǎnkè)", "tank (military vehicle)"],
+      ["salon", "沙龙 (shālóng)", "salon, social gathering"],
+      ["nylon", "尼龙 (nílóng)", "nylon"],
+    ],
+    watchOut:
+      "Mandarin has dropped final consonants and added vowels, so the match is by ear, not by spelling.",
+  }),
+  zh({
+    id: "sound-loan-tech",
+    frequency: "medium",
+    from: "~English science and technology words copied by sound",
+    to: "~characters chosen for their sound",
+    name: "Sound loans: science and technology",
+    reliability: 80,
+    hook: "A group of technical terms was borrowed by sound: radar becomes 雷达 léidá, engine becomes 引擎 yǐnqíng, clone becomes 克隆 kèlóng.",
+    examples: [
+      ["radar", "雷达 (léidá)", "radar"],
+      ["engine", "引擎 (yǐnqíng)", "engine"],
+      ["motor", "马达 (mǎdá)", "motor"],
+      ["microphone", "麦克风 (màikèfēng)", "microphone"],
+      ["clone", "克隆 (kèlóng)", "clone"],
+      ["gene", "基因 (jīyīn)", "gene"],
+    ],
+    watchOut:
+      "Most modern technology terms are meaning-built instead (see the calque rule). Only a handful were borrowed by sound.",
+  }),
+  zh({
+    id: "sound-loan-ideas",
+    frequency: "medium",
+    from: "~English words for ideas and attitudes copied by sound",
+    to: "~characters chosen for their sound",
+    name: "Sound loans: ideas and attitudes",
+    reliability: 85,
+    hook: "Some abstract words were borrowed by ear: humor becomes 幽默 yōumò, logic becomes 逻辑 luójí, romantic becomes 浪漫 làngmàn.",
+    examples: [
+      ["humor", "幽默 (yōumò)", "humor"],
+      ["logic", "逻辑 (luójí)", "logic"],
+      ["romantic", "浪漫 (làngmàn)", "romantic"],
+      ["model (fashion)", "模特 (mótè)", "fashion model"],
+      ["cool", "酷 (kù)", "cool, stylish"],
+    ],
+    watchOut:
+      "模特 means a fashion or art model; a model in the sense of a pattern is 模型 móxíng. The characters in 幽默 are chosen for sound, so do not read meaning into them.",
+  }),
+  zh({
+    id: "hybrid-loan",
+    frequency: "high",
+    from: "~English sound + a Chinese category word",
+    to: "~sound-loan syllables + a meaning character (酒, 球, 裙, 乐, 车, 鱼)",
+    name: "Hybrid loans: sound plus category word",
+    reliability: 85,
+    hook: "Chinese often copies the sound and then adds a meaning character that says what kind of thing it is: 啤 (beer sound) + 酒 (alcohol) = beer; 迷你 (mini) + 裙 (skirt) = miniskirt.",
+    examples: [
+      ["beer", "啤酒 (píjiǔ)", "beer"],
+      ["bowling", "保龄球 (bǎolíngqiú)", "bowling (球 = ball)"],
+      ["miniskirt", "迷你裙 (mínǐqún)", "miniskirt (裙 = skirt)"],
+      ["jazz", "爵士乐 (juéshìyuè)", "jazz (乐 = music)"],
+      ["ballet", "芭蕾舞 (bālěiwǔ)", "ballet (舞 = dance)"],
+      ["jeep", "吉普车 (jípǔchē)", "jeep (车 = vehicle)"],
+      ["sardine", "沙丁鱼 (shādīngyú)", "sardine (鱼 = fish)"],
+    ],
+    watchOut:
+      "These are different from pure sound loans: the last character is Chinese meaning, so the word is half borrowed and half translated.",
+  }),
+  zh({
+    id: "calque-tech",
+    frequency: "ultra",
+    from: "~English technology word translated piece by piece",
+    to: "~Chinese morphemes that mean the same thing (a calque, NOT a sound loan)",
+    name: "Meaning-built tech words (calques)",
+    reliability: 90,
+    hook: "These do not sound like English at all. The Chinese word is built from meanings: 电 diàn 'electric' + 脑 nǎo 'brain' = computer. Learn the building blocks and the vocabulary multiplies.",
+    examples: [
+      ["computer", "电脑 (diànnǎo)", "computer (electric + brain)"],
+      ["mobile phone", "手机 (shǒujī)", "mobile phone (hand + machine)"],
+      ["television", "电视 (diànshì)", "television (electric + vision)"],
+      ["telephone", "电话 (diànhuà)", "telephone (electric + speech)"],
+      ["software", "软件 (ruǎnjiàn)", "software (soft + item)"],
+      ["hardware", "硬件 (yìngjiàn)", "hardware (hard + item)"],
+      ["internet", "互联网 (hùliánwǎng)", "internet (mutually linked + net)"],
+      ["email", "电子邮件 (diànzǐ yóujiàn)", "email (electronic + mail)"],
+    ],
+    watchOut:
+      "Mainland China also uses 计算机 (jìsuànjī, 'calculating machine') for computer in formal and technical writing. 电脑 is the everyday word.",
+  }),
+];
+
+export const CHINESE_COGNATE_RULES: CognateRule[] = [...EN_TO_ZH];

@@ -1,4 +1,13 @@
 import type { Language } from "@/state/app-state";
+import { SPANISH_COGNATE_RULES } from "./cognates/spanish.ts";
+import { FRENCH_COGNATE_RULES } from "./cognates/french.ts";
+import { PORTUGUESE_COGNATE_RULES } from "./cognates/portuguese.ts";
+import { GERMAN_COGNATE_RULES } from "./cognates/german.ts";
+import { ENGLISH_COGNATE_RULES } from "./cognates/english.ts";
+import { JAPANESE_COGNATE_RULES } from "./cognates/japanese.ts";
+import { CHINESE_COGNATE_RULES } from "./cognates/chinese.ts";
+import { KOREAN_COGNATE_RULES } from "./cognates/korean.ts";
+import { PASHTO_COGNATE_RULES } from "./cognates/pashto.ts";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 //
@@ -11,7 +20,8 @@ import type { Language } from "@/state/app-state";
 export type CognateFrequency = "ultra" | "high" | "medium";
 
 /** The language the learner is transferring FROM. */
-export type CognateSourceLanguage = "English" | "Spanish" | "French" | "Portuguese";
+export type CognateSourceLanguage =
+  "English" | "Spanish" | "French" | "Portuguese" | "Italian" | "German";
 
 export interface CognateExample {
   source: string; // word in the source language
@@ -35,10 +45,7 @@ export interface CognateRule {
   watchOut?: string;
 }
 
-export const FREQUENCY_META: Record<
-  CognateFrequency,
-  { label: string; desc: string }
-> = {
+export const FREQUENCY_META: Record<CognateFrequency, { label: string; desc: string }> = {
   ultra: {
     label: "ULTRA",
     desc: "Extremely reliable and extremely common — learn this one first.",
@@ -100,7 +107,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "identity", target: "identità", gloss: "identity" },
       { source: "curiosity", target: "curiosità", gloss: "curiosity" },
     ],
-    watchOut: "Plain -ty (not -ity) is looser: city → città works, but liberty → libertà and difficulty → difficoltà both add or change letters — same target ending, less predictable source shape.",
+    watchOut:
+      "Plain -ty (not -ity) is looser: city → città works, but liberty → libertà and difficulty → difficoltà both add or change letters — same target ending, less predictable source shape.",
   },
   {
     id: "en-it-ment",
@@ -121,7 +129,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "argument", target: "argomento", gloss: "argument/topic" },
       { source: "experiment", target: "esperimento", gloss: "experiment" },
     ],
-    watchOut: "government is the famous exception — Italian is just governo, the -ment is dropped entirely.",
+    watchOut:
+      "government is the famous exception — Italian is just governo, the -ment is dropped entirely.",
   },
   {
     id: "en-it-ism",
@@ -214,7 +223,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "personal", target: "personale", gloss: "personal" },
       { source: "general", target: "generale", gloss: "general" },
     ],
-    watchOut: "hospital → ospedale keeps the meaning but reshapes more than the ending — treat it as a related exception, not a clean example.",
+    watchOut:
+      "hospital → ospedale keeps the meaning but reshapes more than the ending — treat it as a related exception, not a clean example.",
   },
   {
     id: "en-it-ic",
@@ -252,7 +262,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "anniversary", target: "anniversario", gloss: "anniversary" },
       { source: "dictionary", target: "dizionario", gloss: "dictionary" },
     ],
-    watchOut: "library is a false friend, not a cognate — Italian libreria means bookshop. 'Library' is biblioteca.",
+    watchOut:
+      "library is a false friend, not a cognate — Italian libreria means bookshop. 'Library' is biblioteca.",
   },
   {
     id: "en-it-ent-ant",
@@ -272,7 +283,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "elegant", target: "elegante", gloss: "elegant" },
       { source: "intelligent", target: "intelligente", gloss: "intelligent" },
     ],
-    watchOut: "restaurant → ristorante keeps the pattern but reorders a syllable — recognizable, not identical.",
+    watchOut:
+      "restaurant → ristorante keeps the pattern but reorders a syllable — recognizable, not identical.",
   },
   {
     id: "en-it-ive",
@@ -310,7 +322,8 @@ const EN_TO_IT: CognateRule[] = [
       { source: "patience", target: "pazienza", gloss: "patience" },
       { source: "violence", target: "violenza", gloss: "violence" },
     ],
-    watchOut: "insurance doesn't follow this rule — it's assicurazione, built on a different Latin root.",
+    watchOut:
+      "insurance doesn't follow this rule — it's assicurazione, built on a different Latin root.",
   },
   {
     id: "en-it-ble",
@@ -434,7 +447,8 @@ const ES_TO_IT: CognateRule[] = [
       { source: "felicidad", target: "felicità", gloss: "happiness" },
       { source: "universidad", target: "università", gloss: "university" },
     ],
-    watchOut: "amistad (friendship) breaks the pattern — Italian amicizia is a different root, not '-tà'.",
+    watchOut:
+      "amistad (friendship) breaks the pattern — Italian amicizia is a different root, not '-tà'.",
   },
   {
     id: "es-it-mente",
@@ -523,7 +537,8 @@ const ES_TO_IT: CognateRule[] = [
       { source: "fuego", target: "fuoco", gloss: "fire" },
       { source: "puerto", target: "porto", gloss: "port" },
     ],
-    watchOut: "This one has real exceptions and shifts in unpredictable directions (fuerte → forte drops the diphthong to a plain 'o'). Treat it as pattern recognition, not a mechanical rule.",
+    watchOut:
+      "This one has real exceptions and shifts in unpredictable directions (fuerte → forte drops the diphthong to a plain 'o'). Treat it as pattern recognition, not a mechanical rule.",
   },
   {
     id: "es-it-nasal-palatal",
@@ -544,7 +559,8 @@ const ES_TO_IT: CognateRule[] = [
       { source: "año", target: "anno", gloss: "year" },
       { source: "otoño", target: "autunno", gloss: "autumn" },
     ],
-    watchOut: "año/anno and otoño/autunno both use 'nn', while señor/signore, baño/bagno and sueño/sogno all use 'gn' — there is no spelling or position rule that predicts which family a given word falls into.",
+    watchOut:
+      "año/anno and otoño/autunno both use 'nn', while señor/signore, baño/bagno and sueño/sogno all use 'gn' — there is no spelling or position rule that predicts which family a given word falls into.",
   },
   {
     id: "es-it-latin-pl-cluster",
@@ -802,7 +818,8 @@ const PT_TO_IT: CognateRule[] = [
       { source: "filho", target: "figlio", gloss: "son (from Latin filius)" },
       { source: "mulher", target: "moglie", gloss: "wife (from Latin mulier)" },
     ],
-    watchOut: "Doesn't generalize to every 'lh' word — olho (eye) → occhio uses a completely different consonant shift, not 'gli'.",
+    watchOut:
+      "Doesn't generalize to every 'lh' word — olho (eye) → occhio uses a completely different consonant shift, not 'gli'.",
   },
   {
     id: "pt-it-nh-gn",
@@ -824,23 +841,68 @@ const PT_TO_IT: CognateRule[] = [
 // ─── Master export ──────────────────────────────────────────────────────────
 
 export const ALL_COGNATE_RULES: CognateRule[] = [
+  // Italian is the target of the four sets above.
   ...EN_TO_IT,
   ...ES_TO_IT,
   ...FR_TO_IT,
   ...PT_TO_IT,
+  // Every other target language lives in src/data/cognates/<language>.ts.
+  ...SPANISH_COGNATE_RULES,
+  ...FRENCH_COGNATE_RULES,
+  ...PORTUGUESE_COGNATE_RULES,
+  ...GERMAN_COGNATE_RULES,
+  ...ENGLISH_COGNATE_RULES,
+  ...JAPANESE_COGNATE_RULES,
+  ...CHINESE_COGNATE_RULES,
+  ...KOREAN_COGNATE_RULES,
+  ...PASHTO_COGNATE_RULES,
 ];
 
-export function getCognateRulesForSource(source: CognateSourceLanguage): CognateRule[] {
-  return ALL_COGNATE_RULES.filter((r) => r.sourceLanguage === source);
-}
-
-export function getUltraCognateRules(source: CognateSourceLanguage): CognateRule[] {
-  return getCognateRulesForSource(source).filter((r) => r.frequency === "ultra");
-}
-
-export const COGNATE_SOURCE_LANGUAGES: CognateSourceLanguage[] = [
-  "English",
+/** Every language the app teaches. The Cognate Bridge needs rules for each. */
+export const COGNATE_TARGET_LANGUAGES: Language[] = [
   "Spanish",
+  "English",
   "French",
+  "Italian",
+  "German",
   "Portuguese",
+  "Japanese",
+  "Chinese",
+  "Korean",
+  "Pashto",
 ];
+
+/** Short honest context shown above the rules for languages where "cognates" work differently. */
+export const COGNATE_LANGUAGE_NOTES: Partial<Record<Language, string>> = {
+  Japanese:
+    "English and Japanese are not related, so this bridge is about loanwords (gairaigo): English words respelled in katakana by predictable sound rules.",
+  Chinese:
+    "English and Chinese are not related. This bridge covers sound-based loanwords, word-building patterns like -ology → -学, and words built from Chinese pieces (calques).",
+  Korean:
+    "English and Korean are not related, so this bridge is about loanwords: English words respelled in hangul by predictable sound rules.",
+  Pashto:
+    "Starter set. Pashto shares few words with English, and loanword spelling varies by region, so check new words with a teacher or native speaker.",
+};
+
+/** Rules that teach `target`, optionally narrowed to one source language. */
+export function getCognateRules(target: Language, source?: CognateSourceLanguage): CognateRule[] {
+  return ALL_COGNATE_RULES.filter(
+    (r) => r.targetLanguage === target && (!source || r.sourceLanguage === source),
+  );
+}
+
+/** The languages a learner can bridge FROM when studying `target`, in listing order. */
+export function getCognateSources(target: Language): CognateSourceLanguage[] {
+  const seen: CognateSourceLanguage[] = [];
+  for (const r of getCognateRules(target)) {
+    if (!seen.includes(r.sourceLanguage)) seen.push(r.sourceLanguage);
+  }
+  return seen;
+}
+
+export function getUltraCognateRules(
+  target: Language,
+  source: CognateSourceLanguage,
+): CognateRule[] {
+  return getCognateRules(target, source).filter((r) => r.frequency === "ultra");
+}

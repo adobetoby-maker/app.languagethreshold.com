@@ -7,15 +7,20 @@ test("dictionary: Roofing chip lists entries without the Roofing module", async 
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
-  await page.evaluate(() => {
-    const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-    state.activeModuleId = null;
-    state.selectedLanguage = "Spanish";
-    state.currentTab = "dictionary";
-    localStorage.setItem("lt.app.v2", JSON.stringify(state));
-  });
-  await page.reload();
   const chip = page.getByRole("button", { name: /^\s*roofing\s*$/i }).first();
+  // A cold dev server can drop the seeded state on the first reload, so retry like core30.spec does.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await page.evaluate(() => {
+      const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
+      state.activeModuleId = null;
+      state.selectedLanguage = "Spanish";
+      state.currentTab = "dictionary";
+      localStorage.setItem("lt.app.v2", JSON.stringify(state));
+    });
+    await page.reload();
+    await chip.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
+    if (await chip.isVisible()) break;
+  }
   await expect(chip).toBeVisible({ timeout: 60_000 });
   await chip.click();
   await expect(page.getByText(/\b\d+ results?\b/i).first()).toBeVisible();

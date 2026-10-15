@@ -47,7 +47,12 @@ const visitKeys = async (page: Page, lesson: string) =>
  * (undefined = no plan started). A cold dev server can finish loading after the seed is written
  * and drop it, so the seed is written again (up to three times) until the app keeps it.
  */
-async function openCore30(page: Page, log?: ModuleLog) {
+async function openCore30(
+  page: Page,
+  log?: ModuleLog,
+  moduleId: string = MODULE,
+  language: string = "Spanish",
+) {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
@@ -63,20 +68,20 @@ async function openCore30(page: Page, log?: ModuleLog) {
           (startDate ? saved?.startDate === startDate : !saved?.startDate)
         );
       },
-      { id: MODULE, startDate: log?.startDate ?? null },
+      { id: moduleId, startDate: log?.startDate ?? null },
     );
   for (let attempt = 0; attempt < 3; attempt++) {
     await page.evaluate(
-      ({ id, seed }) => {
+      ({ id, seed, lang }) => {
         const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
         state.activeModuleId = id;
-        state.selectedLanguage = "Spanish";
+        state.selectedLanguage = lang;
         state.currentTab = "core30";
         state.lessonProgress = { ...(state.lessonProgress ?? {}), [id]: 0 };
         state.core30Log = seed ? { [id]: seed } : {};
         localStorage.setItem("lt.app.v2", JSON.stringify(state));
       },
-      { id: MODULE, seed: log ?? null },
+      { id: moduleId, seed: log ?? null, lang: language },
     );
     await page.reload();
     // A dropped seed leaves the app on its default tab, so only wait a short while before retrying.
@@ -346,5 +351,157 @@ test.describe("Core 30 plan: Roofing", () => {
     // Opening the drill step is recorded (step index 1), still inside this lesson.
     await expect.poll(() => visitKeys(page, "1")).toContain("1");
     await expect(page.getByText("✕ Exit")).toBeVisible();
+  });
+});
+
+// ─── A lesson with no authored words: the list comes from the server function ────────────
+// The server function is stubbed with page.route, so these tests need no API key or network.
+
+/** Builds the seroval-encoded body TanStack Start returns for a server function result. */
+function serverFnBody(result: {
+  words?: Array<Record<string, string>>;
+  lang?: string;
+  error?: string;
+}) {
+  let id = 0;
+  const str = (s: string) => ({ t: 1, s });
+  const obj = (entries: Array<[string, unknown]>) => ({
+    t: 10,
+    i: ++id,
+    p: { k: entries.map(([k]) => k), v: entries.map(([, v]) => v) },
+    o: 0,
+  });
+  const nil = { t: 2, s: 0 };
+  const undef = { t: 2, s: 1 };
+  const words = result.words
+    ? {
+        t: 9,
+        i: ++id,
+        a: result.words.map((w) => obj(Object.entries(w).map(([k, v]) => [k, str(v)]))),
+      }
+    : nil;
+  const payload = obj([
+    ["words", words],
+    ["lang", result.lang ? str(result.lang) : undef],
+    ["error", result.error ? str(result.error) : nil],
+  ]);
+  return JSON.stringify({
+    t: 10,
+    i: 0,
+    p: {
+      k: ["result", "error", "context"],
+      v: [payload, undef, { t: 11, i: ++id, p: { k: [], v: [] }, o: 0 }],
+    },
+    o: 0,
+  });
+}
+
+const STUB_WORDS = [
+  ...Array.from({ length: 8 }, (_, i) => ({
+    en: `stub term ${i + 1}`,
+    es: `término simulado ${i + 1}`,
+    kind: "term",
+  })),
+  ...Array.from({ length: 4 }, (_, i) => ({
+    en: `stub phrase ${i + 1}`,
+    es: `frase simulada ${i + 1}`,
+    kind: "phrase",
+  })),
+];
+
+/** Answers the lesson-words server function; `respond` is called once per request. */
+async function stubLessonWords(
+  page: Page,
+  respond: (n: number) => Parameters<typeof serverFnBody>[0],
+) {
+  const requests: string[] = [];
+  await page.route("**/_serverFn/**", async (route) => {
+    const body = route.request().postData() ?? "";
+    if (!body.includes("lessonNumber")) return route.fallback();
+    requests.push(body);
+    await route.fulfill({
+      status: 200,
+      headers: { "content-type": "application/json", "x-tss-serialized": "true" },
+      body: serverFnBody(respond(requests.length)),
+    });
+  });
+  return requests;
+}
+
+async function openOrthopedicsLesson1(page: Page) {
+  await openCore30(page, undefined, "orthopedics");
+  await page.getByRole("button", { name: /Start Lesson 1/ }).click();
+  await expect(page.getByText("✕ Exit")).toBeVisible();
+}
+
+test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored list)", () => {
+  test("8. the practice kit shows the generated words and Match plays them", async ({ page }) => {
+    const requests = await stubLessonWords(page, () => ({ words: STUB_WORDS, lang: "Spanish" }));
+    await openOrthopedicsLesson1(page);
+
+    await expect(
+      page.getByRole("heading", { name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+    ).toBeVisible();
+    const kit = page.getByTestId("practice-kit");
+    const panel = kit.getByRole("tabpanel");
+    await expect(panel.locator('li p[lang="es"]')).toHaveCount(STUB_WORDS.length);
+    expect((await panel.locator('li p[lang="es"]').allInnerTexts()).sort()).toEqual(
+      STUB_WORDS.map((w) => w.es).sort(),
+    );
+    expect(requests).toHaveLength(1);
+    expect(requests[0]).toContain("orthopedics");
+
+    // Match uses the 8 stubbed terms only.
+    await kit.getByTestId("practice-mode-match").click();
+    const terms = STUB_WORDS.filter((w) => w.kind === "term");
+    await expect(kit.getByText(`0 / ${terms.length} pairs`)).toBeVisible();
+    const enOf = new Map(terms.map((w) => [w.es, w.en]));
+    const tiles = kit.getByTestId("match-tile");
+    await expect(tiles).toHaveCount(terms.length * 2);
+    for (const term of terms) {
+      const view = await tiles.evaluateAll((els) =>
+        els.map((el, index) => ({
+          index,
+          lang: (el as HTMLElement).lang,
+          text: (el.textContent ?? "").trim(),
+          matched: (el as HTMLElement).dataset.matched === "true",
+        })),
+      );
+      const es = view.find((t) => !t.matched && t.lang === "es" && enOf.has(t.text));
+      expect(es, `an open tile for ${term.es}`).toBeTruthy();
+      const partner = view.find(
+        (t) => !t.matched && t.lang === "en" && t.text === enOf.get(es!.text),
+      );
+      expect(partner).toBeTruthy();
+      await tiles.nth(es!.index).click();
+      await tiles.nth(partner!.index).click();
+      await expect(tiles.nth(partner!.index)).toHaveAttribute("data-matched", "true");
+    }
+    await expect(kit.getByText(new RegExp(`All ${terms.length} terms matched`))).toBeVisible();
+
+    // A second visit (page reload, lesson reopened) reads the cached list: no new request.
+    await page.reload();
+    await expect(page.getByTestId("core30-plan-card")).toBeVisible();
+    await page.getByRole("button", { name: /Start Lesson 1/ }).click();
+    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+    ).toBeVisible();
+    expect(requests).toHaveLength(1);
+  });
+
+  test("9. a failed word list shows Retry, and Retry builds the kit", async ({ page }) => {
+    const requests = await stubLessonWords(page, (n) =>
+      n === 1 ? { error: "Word list failed" } : { words: STUB_WORDS, lang: "Spanish" },
+    );
+    await openOrthopedicsLesson1(page);
+    await expect(page.getByText("Couldn't build the word list")).toBeVisible();
+    await expect(page.getByTestId("practice-kit")).toHaveCount(0);
+    await page.getByRole("button", { name: "Retry" }).click();
+    await expect(
+      page.getByRole("heading", { name: `Practice this lesson's words (${STUB_WORDS.length})` }),
+    ).toBeVisible();
+    await expect(page.getByText("Couldn't build the word list")).toHaveCount(0);
+    expect(requests).toHaveLength(2);
   });
 });

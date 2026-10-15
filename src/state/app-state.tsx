@@ -17,7 +17,13 @@ import {
   saveDarkModePreference,
   THEME_PREFERENCE_KEY,
 } from "@/lib/theme-preference";
-import { mergeCore30Log, type Core30Log, type Core30LessonLog } from "@/lib/core30-plan";
+import { mergeCore30Log, type Core30Log } from "@/lib/core30-plan";
+import {
+  core30RecordReview,
+  core30SetMastered,
+  core30SetStartDate,
+  core30StepOpened,
+} from "@/lib/core30-state";
 import type { SM2Card } from "./sm2";
 import type { NextTripPlan } from "@/data/travel-destinations";
 import {
@@ -359,7 +365,8 @@ export type AppAction =
     }
   | {
       type: "CORE30_SET_MASTERED";
-      payload: { moduleId: string; lesson: number; mastered: boolean; at: string };
+      // `mastered` is the literal true: there is no un-master (cloud merge keeps the earliest masteredAt).
+      payload: { moduleId: string; lesson: number; mastered: true; at: string };
     }
   | { type: "CORE30_SET_START_DATE"; payload: { moduleId: string; date: string; at?: string } }
   | {
@@ -448,22 +455,6 @@ function withPracticeStreak(state: AppState, practiceStreak: PracticeStreakData)
     practiceStreak,
     streak: practiceStreak.current,
     lastPracticeDate: practiceStreak.lastPracticeDate,
-  };
-}
-
-function withCore30Lesson(
-  log: Core30Log,
-  moduleId: string,
-  lesson: number,
-  update: (l: Core30LessonLog) => Core30LessonLog,
-  moduleExtra?: { lastReviewAt?: string },
-): Core30Log {
-  const mod = log[moduleId] ?? { lessons: {} };
-  const key = String(lesson);
-  const current = mod.lessons[key] ?? { visits: {} };
-  return {
-    ...log,
-    [moduleId]: { ...mod, ...moduleExtra, lessons: { ...mod.lessons, [key]: update(current) } },
   };
 }
 
@@ -674,63 +665,15 @@ export function reducer(state: AppState, action: AppAction): AppState {
       );
     }
     case "CORE30_STEP_OPENED": {
-      const { moduleId, lesson, step, at } = action.payload;
-      const existing = state.core30Log[moduleId]?.lessons[String(lesson)]?.visits?.[String(step)];
-      if (existing) return state;
-      return {
-        ...state,
-        core30Log: withCore30Lesson(state.core30Log, moduleId, lesson, (l) => ({
-          ...l,
-          visits: { ...l.visits, [String(step)]: at },
-        })),
-      };
+      const core30Log = core30StepOpened(state.core30Log, action.payload);
+      return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
-    case "CORE30_SET_MASTERED": {
-      const { moduleId, lesson, mastered, at } = action.payload;
-      return {
-        ...state,
-        core30Log: withCore30Lesson(state.core30Log, moduleId, lesson, (l) => {
-          if (mastered) {
-            if (!l.needsPractice) return { ...l, masteredAt: l.masteredAt ?? at };
-            // Re-mastering after a failed review: log a passing check so the newest review
-            // wins on cloud merge, without touching the module's review cycle (lastReviewAt).
-            return {
-              ...l,
-              masteredAt: l.masteredAt ?? at,
-              needsPractice: false,
-              reviews: [...(l.reviews ?? []), { at, ok: true }],
-            };
-          }
-          const { masteredAt: _m, needsPractice: _n, ...rest } = l;
-          return rest;
-        }),
-      };
-    }
-    case "CORE30_SET_START_DATE": {
-      const { moduleId, date, at } = action.payload;
-      const mod = state.core30Log[moduleId] ?? { lessons: {} };
-      return {
-        ...state,
-        core30Log: {
-          ...state.core30Log,
-          [moduleId]: { ...mod, startDate: date, ...(at ? { startDateSetAt: at } : {}) },
-        },
-      };
-    }
-    case "CORE30_RECORD_REVIEW": {
-      const { moduleId, at, results } = action.payload;
-      let core30Log = state.core30Log;
-      const base = core30Log[moduleId] ?? { lessons: {} };
-      core30Log = { ...core30Log, [moduleId]: { ...base, lastReviewAt: at } };
-      for (const r of results) {
-        core30Log = withCore30Lesson(core30Log, moduleId, r.lesson, (l) => ({
-          ...l,
-          needsPractice: !r.ok,
-          reviews: [...(l.reviews ?? []), { at, ok: r.ok }],
-        }));
-      }
-      return { ...state, core30Log };
-    }
+    case "CORE30_SET_MASTERED":
+      return { ...state, core30Log: core30SetMastered(state.core30Log, action.payload) };
+    case "CORE30_SET_START_DATE":
+      return { ...state, core30Log: core30SetStartDate(state.core30Log, action.payload) };
+    case "CORE30_RECORD_REVIEW":
+      return { ...state, core30Log: core30RecordReview(state.core30Log, action.payload) };
     case "SET_USER_VOCAB": {
       const base = includeLegacyVocab(
         state.vocabByLanguage,

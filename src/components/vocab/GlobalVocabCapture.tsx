@@ -6,6 +6,9 @@ import { lookupWord } from "@/fns/word-lookup.functions";
 import { useApp } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 
+/** Window event the bottom bar dispatches to open the Add to My Vocab form. */
+export const ADD_WORD_EVENT = "lt:add-word";
+
 type Selection = { word: string; sentence: string; x: number; y: number };
 
 /** A single vocabulary entry point shared by games, speaking, stories and every other app tab. */
@@ -48,6 +51,20 @@ export function GlobalVocabCapture() {
       document.removeEventListener("touchend", capture);
     };
   }, [open]);
+
+  // The persistent "Add word" control lives in the bottom bar (AppSidebar), so it can
+  // never float over page content or the bar's own labels. It asks for the form here.
+  useEffect(() => {
+    const openForm = () => {
+      setWord("");
+      setSourceSentence("");
+      setTranslation("");
+      setOpen(true);
+      setSelection(null);
+    };
+    window.addEventListener(ADD_WORD_EVENT, openForm);
+    return () => window.removeEventListener(ADD_WORD_EVENT, openForm);
+  }, []);
 
   const showForm = () => {
     setWord(selection?.word ?? "");
@@ -125,14 +142,6 @@ export function GlobalVocabCapture() {
           <BookmarkPlus className="mr-1 inline h-3.5 w-3.5" /> Save to My Vocab
         </button>
       )}
-      <button
-        type="button"
-        onClick={showForm}
-        className="fixed bottom-24 left-3 z-40 flex items-center gap-1.5 rounded-full border border-gold/40 bg-card/95 px-3 py-2 text-xs font-semibold text-gold shadow-lg backdrop-blur-sm desktop:bottom-5"
-        aria-label="Add a word to My Vocab from this page"
-      >
-        <BookmarkPlus className="h-4 w-4" /> <span className="hidden sm:inline">Add word</span>
-      </button>
       {open && (
         <div
           className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"

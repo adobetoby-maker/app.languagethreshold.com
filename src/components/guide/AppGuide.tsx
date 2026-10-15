@@ -44,6 +44,7 @@ import { LessonPracticeKit, type PracticeMode } from "@/components/core30/Lesson
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { requestSpeakingMission } from "@/lib/speaking-navigation";
+import { useLessonWords } from "@/lib/lesson-words";
 import { masteredLessons, planToday, toDateKey } from "@/lib/core30-plan";
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
@@ -497,7 +498,15 @@ function LessonRunner({
   const completionLock = useRef(false);
   const kitRef = useRef<HTMLElement>(null);
   const [kitMode, setKitMode] = useState<PracticeMode>("study");
-  const hasWords = Boolean(lesson.words && lesson.words.length > 0);
+  // Authored words (roofing, Spanish) arrive at once; any other lesson gets a generated list.
+  const lessonWords = useLessonWords(
+    moduleId,
+    lesson.n,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const words = lessonWords.words;
+  const hasWords = words.length > 0;
 
   const allDone = done.size === lesson.steps.length;
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
@@ -799,25 +808,63 @@ function LessonRunner({
       </div>
 
       {/* Lesson words: the practice kit drills exactly this lesson's vocabulary */}
-      {lesson.words && lesson.words.length > 0 && (
+      {hasWords && (
         <section
           ref={kitRef}
           data-testid="lesson-practice-section"
           className="scroll-mt-44 rounded-2xl border border-white/[0.08] bg-card/40 p-4"
         >
           <h4 className="text-sm font-semibold text-white">
-            Practice this lesson's words ({lesson.words.length})
+            Practice this lesson's words ({words.length})
           </h4>
           <div className="mt-3">
             <LessonPracticeKit
-              words={lesson.words}
+              // A fresh kit per word list, so a regenerated list never shows stale rounds.
+              key={`${state.selectedLanguage}:${state.nativeLanguage}:${words.length}`}
+              words={words}
               moduleId={moduleId}
               lessonNumber={lesson.n}
+              language={state.selectedLanguage}
+              // Authored words keep English as the native side, whatever the app's native setting.
+              nativeLanguage={lessonWords.status === "authored" ? "English" : state.nativeLanguage}
               mode={kitMode}
               onModeChange={setKitMode}
               onActivity={() => recordStepOpened(wordDrillStep)}
             />
           </div>
+        </section>
+      )}
+      {lessonWords.status === "loading" && (
+        <section
+          data-testid="lesson-words-loading"
+          aria-busy="true"
+          className="rounded-2xl border border-white/[0.08] bg-card/40 p-4"
+        >
+          <p className="text-sm font-semibold text-white">Building this lesson's word list…</p>
+          <div className="mt-3 space-y-2" aria-hidden="true">
+            <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
+            <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
+            <div className="h-10 w-2/3 animate-pulse rounded-xl bg-white/[0.06]" />
+          </div>
+        </section>
+      )}
+      {lessonWords.status === "error" && (
+        <section
+          data-testid="lesson-words-error"
+          className="rounded-2xl border border-amber-300/25 bg-amber-300/[0.05] p-4"
+        >
+          <p className="text-sm font-semibold text-amber-300">Couldn't build the word list</p>
+          <p className="mt-1 text-xs text-white/60">
+            {lessonWords.error ? `${lessonWords.error}. ` : ""}You can still practice with the
+            Word Match tab in the drill step.
+          </p>
+          <button
+            type="button"
+            onClick={lessonWords.retry}
+            className="mt-3 min-h-11 rounded-lg border border-white/15 px-4 text-xs font-semibold text-white hover:border-white/30"
+          >
+            Retry
+          </button>
         </section>
       )}
 

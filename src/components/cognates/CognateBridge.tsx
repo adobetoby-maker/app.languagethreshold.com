@@ -16,6 +16,10 @@ import {
 
 type FreqFilter = "all" | CognateFrequency;
 
+// The amber triangle on a rule card is a hint, not an error. One string keeps the
+// tooltip, the screen-reader label and the legend wording in step.
+const EXCEPTIONS_LABEL = "Has exceptions — open to see Watch out";
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function FrequencyBadge({ frequency }: { frequency: CognateFrequency }) {
@@ -74,7 +78,16 @@ function RuleCard({ rule, onSelect }: { rule: CognateRule; onSelect: () => void 
       <div className="mb-2 flex items-start justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2">
           <FrequencyBadge frequency={rule.frequency} />
-          {rule.watchOut && <TriangleAlert className="h-3.5 w-3.5 text-amber-400" />}
+          {rule.watchOut && (
+            <span
+              role="img"
+              aria-label={EXCEPTIONS_LABEL}
+              title={EXCEPTIONS_LABEL}
+              className="inline-flex"
+            >
+              <TriangleAlert className="h-3.5 w-3.5 text-amber-400" aria-hidden />
+            </span>
+          )}
         </div>
         <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50 transition-colors group-hover:text-gold" />
       </div>
@@ -226,7 +239,12 @@ export function CognateBridge() {
       </div>
 
       {/* Source language selector */}
-      <div className="mb-4 flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
+      <p className="mb-1.5 text-xs font-semibold text-muted-foreground">You already know:</p>
+      <div
+        role="group"
+        aria-label="You already know"
+        className="mb-4 flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden"
+      >
         {sources.map((lang) => (
           <button
             key={lang}
@@ -289,6 +307,14 @@ export function CognateBridge() {
             </p>
           </div>
         ))}
+        <div className="flex items-start gap-2">
+          <span className="inline-flex shrink-0 items-center rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5">
+            <TriangleAlert className="h-2.5 w-2.5 text-amber-400" aria-hidden />
+          </span>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            Has exceptions — open the card to see the Watch out note.
+          </p>
+        </div>
         <p className="pt-1 text-xs leading-relaxed text-muted-foreground/70">
           The percentage bar on each card is reliability — how often the pattern holds — which is a
           separate question from frequency. A pattern can be common but risky (ñ → gn/nn), or rare

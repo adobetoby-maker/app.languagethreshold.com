@@ -4,7 +4,8 @@ import { CheckCircle2, X } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 import { getModule } from "@/data/modules";
-import type { Lesson } from "@/data/curriculum";
+import type { Lesson, LessonWord } from "@/data/curriculum";
+import { pickAuthoredWords, readCachedLessonWords } from "@/lib/lesson-words-core";
 import { masteredLessons } from "@/lib/core30-plan";
 
 const WORDS_PER_LESSON = 5;
@@ -25,7 +26,7 @@ function wordParts(text: string): string[] {
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
-        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/[^\p{L}\p{N}\s]/gu, "")
         .replace(/\s+/g, " ")
         .trim(),
     )
@@ -33,15 +34,16 @@ function wordParts(text: string): string[] {
 }
 
 /** Up to 5 words per lesson, terms before phrases. The window slides each review so a lesson
- *  is not always checked on the same words. `seen` holds every Spanish part already shown in this
- *  session; a word sharing any part with it is skipped and the next unshown word is used instead. */
+ *  is not always checked on the same words. `seen` holds every target-language part already shown
+ *  in this session; a word sharing any part with it is skipped and the next unshown word is used
+ *  instead. `words` is the lesson's authored or already-generated list (empty = use the module's
+ *  vocabulary focus). */
 function reviewWordsFor(
-  lesson: Lesson,
+  words: readonly LessonWord[],
   fallbackTerms: string[],
   reviewsSoFar: number,
   seen: Set<string>,
 ): ReviewWord[] {
-  const words = lesson.words ?? [];
   let candidates: ReviewWord[];
   if (words.length > 0) {
     const ordered = [
@@ -94,7 +96,16 @@ export function Core30Review({
       .map((lesson) => ({
         lesson,
         words: reviewWordsFor(
-          lesson,
+          // Authored (Spanish) first, else the list generated earlier for this language pair.
+          // Read-only: review never calls the network, so an unvisited lesson uses vocabFocus.
+          pickAuthoredWords(lesson.words, state.selectedLanguage) ??
+            readCachedLessonWords(
+              moduleId,
+              lesson.n,
+              state.selectedLanguage,
+              state.nativeLanguage,
+            ) ??
+            [],
           fallbackTerms,
           log?.lessons?.[String(lesson.n)]?.reviews?.length ?? 0,
           seen,

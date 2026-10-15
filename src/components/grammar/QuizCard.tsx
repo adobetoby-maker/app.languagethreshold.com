@@ -85,6 +85,9 @@ export function QuizCard({
   const [correctCount, setCorrectCount] = useState(0);
   const [done, setDone] = useState(false);
 
+  // Bumping this re-runs the load effect, so "Try again" after a failed load fetches a new quiz.
+  const [loadAttempt, setLoadAttempt] = useState(0);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -95,8 +98,13 @@ export function QuizCard({
           data: { language: state.selectedLanguage, concept: lesson.concept },
         });
         if (cancelled) return;
-        if (res.data?.questions) setQuestions(res.data.questions);
-        else if (res.error) setError(res.error);
+        if (res.data?.questions?.length) {
+          setQuestions(res.data.questions);
+        } else {
+          // Covers an error from the server, an empty question list and a missing payload:
+          // every one of them must leave the learner with something to press.
+          setError(res.error ?? "The quiz came back empty.");
+        }
       } catch {
         if (!cancelled) setError("Failed to load quiz.");
       } finally {
@@ -107,7 +115,17 @@ export function QuizCard({
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loadAttempt]);
+
+  const retryLoad = () => {
+    setQuestions([]);
+    setIdx(0);
+    setInput("");
+    setRevealed(false);
+    setCorrectCount(0);
+    setDone(false);
+    setLoadAttempt((n) => n + 1);
+  };
 
   const q = questions[idx];
   const isCorrect = q ? normalize(input) === normalize(q.answer) : false;
@@ -237,8 +255,27 @@ export function QuizCard({
         )}
 
         {error && !loading && (
-          <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 font-mono text-xs text-destructive">
-            {error}
+          <div>
+            <div
+              role="alert"
+              className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 font-mono text-xs text-destructive"
+            >
+              {error}
+            </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <button
+                onClick={retryLoad}
+                className="min-h-11 rounded-full border border-gold/50 bg-gold/5 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-gold hover:bg-gold/15"
+              >
+                Try again
+              </button>
+              <button
+                onClick={onExitToCurriculum ?? onClose}
+                className="min-h-11 rounded-full border border-border/70 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/80 hover:border-gold/40"
+              >
+                Back to Grammar
+              </button>
+            </div>
           </div>
         )}
 

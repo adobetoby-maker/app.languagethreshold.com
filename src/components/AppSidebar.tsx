@@ -21,7 +21,6 @@ import {
   Layers,
   Sparkle,
   Compass,
-  Globe2,
   Puzzle,
   ChevronDown,
   Shield,
@@ -37,6 +36,7 @@ import {
   Volume2,
   NotebookPen,
   PenLine,
+  BookmarkPlus,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -51,6 +51,8 @@ import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput"
 import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 import { useAuth } from "@/state/auth-state";
 import { useSpeech } from "@/state/speech-state";
+import { useTutor } from "@/state/tutor-state";
+import { ADD_WORD_EVENT } from "@/components/vocab/GlobalVocabCapture";
 import { useNotes } from "@/state/notes-state";
 import { getModule } from "@/data/modules";
 import { CountUp } from "./CountUp";
@@ -240,6 +242,47 @@ const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", 
 const VISITED_KEY = "lt.visitedTabs.session";
 const TAB_XP = 5;
 
+// Tabs that have their own slot in the bottom bar. Any other current tab (Core 30,
+// Story, Dictionary...) lives behind More on a phone, so More is what lights up then.
+const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
+  { key: "reader", Icon: BookOpen, label: "Reader" },
+  { key: "flashcards", Icon: Layers, label: "Cards" },
+  { key: "grammar", Icon: GraduationCap, label: "Grammar" },
+  { key: "games", Icon: Gamepad2, label: "Games" },
+  { key: "speak", Icon: Mic2, label: "Speak" },
+  { key: "dashboard", Icon: BarChart3, label: "Dashboard" },
+];
+
+function openAddWord() {
+  window.dispatchEvent(new CustomEvent(ADD_WORD_EVENT));
+}
+
+/** Lives in its own component so tutor streaming re-renders only this button, not the sidebar. */
+function TutorNavButton() {
+  const tutor = useTutor();
+  const open = tutor.state.open;
+  return (
+    <button
+      onClick={() => window.dispatchEvent(new CustomEvent("lt:open-tutor"))}
+      aria-label="Ask Tutor"
+      aria-haspopup="dialog"
+      aria-expanded={open}
+      className={cn(
+        "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] transition-colors",
+        open ? "text-gold" : "text-muted-foreground hover:text-gold",
+      )}
+    >
+      {open && (
+        <span className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full bg-gold" />
+      )}
+      <Sparkles className="h-5 w-5" strokeWidth={open ? 2 : 1.6} />
+      <span className={cn("text-[9px] tracking-wide", open ? "font-bold" : "font-medium")}>
+        Tutor
+      </span>
+    </button>
+  );
+}
+
 function fieldPrepLabel(moduleId: string | null): { label: string; short: string } {
   if (!moduleId) return { label: "Field Prep", short: "Field" };
   if (moduleId === "lds-missionary") return { label: "Mission Prep", short: "Mission" };
@@ -372,7 +415,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
       {/* ── Desktop sidebar ─────────────────────────────────── */}
       <aside className="hidden desktop:flex flex-col w-[76px] shrink-0 border-r border-border/50 bg-card/20 sticky top-0 h-screen">
         {/* Module indicator */}
-        <div className="flex h-16 items-center justify-center border-b border-border/40">
+        <div className="flex h-10 shrink-0 items-center justify-center border-b border-border/40">
           {mod ? (
             <span className="text-2xl leading-none" title={mod.name}>
               {mod.emoji}
@@ -383,7 +426,11 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         </div>
 
         {/* Tab icons */}
-        <nav className="flex flex-1 flex-col items-center gap-0.5 overflow-y-auto py-3 px-1">
+        {/* Rail items share the column: each one grows to fill a tall screen (up to
+            3.25rem) and shrinks to the 40px tap-target floor, so all of them, Core 30
+            included, fit at 1440x900 without scrolling. overflow-y stays as a fallback
+            for very short windows. */}
+        <nav className="flex min-h-0 flex-1 flex-col items-stretch overflow-y-auto px-1 py-0.5">
           {visible.map((item) => {
             const { key, Icon } = item;
             const { label, short } =
@@ -398,7 +445,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                 onClick={() => switchTab(key)}
                 title={label}
                 className={cn(
-                  "relative flex w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-2 transition-all",
+                  "relative flex min-h-10 max-h-[3.25rem] w-full flex-1 basis-0 flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 transition-all",
                   active
                     ? "bg-gold/15 text-gold"
                     : "text-muted-foreground hover:bg-card/80 hover:text-foreground",
@@ -418,11 +465,11 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
         {/* Language Match */}
         {onOpenMatch && (
-          <div className="flex justify-center px-1 pb-1">
+          <div className="flex shrink-0 justify-center px-1">
             <button
               onClick={onOpenMatch}
               title="Language Match"
-              className="flex w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-2 text-muted-foreground transition-all hover:bg-card/80 hover:text-gold"
+              className="flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1 text-muted-foreground transition-all hover:bg-card/80 hover:text-gold"
             >
               <Trophy className="h-[17px] w-[17px]" strokeWidth={1.6} />
               <span className="font-mono text-[8.5px] tracking-wide">Match</span>
@@ -431,40 +478,61 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
         )}
 
         {/* Status */}
-        <div className="border-t border-border/40 px-2 py-4 space-y-2.5">
-          <div className="flex items-center justify-center gap-1.5">
-            <Flame
-              className={cn("h-3 w-3", fiery ? "text-gold" : "text-gold/50")}
-              strokeWidth={1.8}
-            />
-            <span
-              className={cn(
-                "font-mono text-[10px]",
-                fiery ? "font-bold text-gold" : "text-foreground",
-              )}
-            >
-              {state.streak}d
+        <div className="shrink-0 space-y-1 border-t border-border/40 px-1 py-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
+            <span className="flex items-center gap-1">
+              <Flame
+                className={cn("h-3 w-3", fiery ? "text-gold" : "text-gold/50")}
+                strokeWidth={1.8}
+              />
+              <span
+                className={cn(
+                  "font-mono text-[10px]",
+                  fiery ? "font-bold text-gold" : "text-foreground",
+                )}
+              >
+                {state.streak}d
+              </span>
+            </span>
+            <span className="flex items-center gap-1">
+              <Star className="h-3 w-3 text-gold/50" strokeWidth={1.8} />
+              <CountUp value={state.xp} className="font-mono text-[10px] text-foreground" />
             </span>
           </div>
-          <div className="flex items-center justify-center gap-1.5">
-            <Star className="h-3 w-3 text-gold/50" strokeWidth={1.8} />
-            <CountUp value={state.xp} className="font-mono text-[10px] text-foreground" />
-          </div>
-          <p className="text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground/60 truncate px-1">
+          <p className="truncate px-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground/60">
             {state.tier}
           </p>
         </div>
       </aside>
 
       {/* ── Bottom nav ──────────────────────────────────────────
-         Shown on BOTH mobile and desktop per product request. */}
-      <nav className="fixed bottom-0 inset-x-0 z-40 flex flex-col border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]">
-        {/* Mobile-only: language + module strip */}
-        <div className="flex items-center gap-2 border-b border-border/30 px-3 py-1 desktop:hidden">
+         Shown on BOTH mobile and desktop per product request. On desktop it starts at
+         the right edge of the 76px rail (desktop:left-[76px]) so it never sits on top
+         of the rail's bottom items. */}
+      <nav
+        aria-label="Primary"
+        className="fixed bottom-0 inset-x-0 desktop:left-[76px] z-40 flex flex-col border-t border-border/50 bg-background/95 backdrop-blur-xl [padding-bottom:env(safe-area-inset-bottom)]"
+      >
+        {/* Mobile-only: Add word + language + module + voice + theme. One tight row that
+           fits 375px with nothing clipped: the module chip is the only flexible one and
+           truncates; every control stays reachable. Add word lives here (not floating over
+           page content), and on desktop it moves into the tab row below. */}
+        <div className="flex items-center gap-1.5 border-b border-border/30 px-3 py-1 desktop:hidden">
+          <button
+            onClick={openAddWord}
+            aria-label="Add a word to My Vocab from this page"
+            title="Add word"
+            className="flex shrink-0 items-center justify-center rounded-lg border border-gold/40 bg-card/50 px-3 py-2.5 text-gold transition-colors hover:border-gold/70"
+          >
+            <BookmarkPlus className="h-3.5 w-3.5" strokeWidth={1.8} />
+          </button>
+
           {/* Language selector */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold focus:outline-none">
-              <Globe2 className="h-3.5 w-3.5 text-gold/70" />
+            <DropdownMenuTrigger
+              aria-label={`Learning language: ${state.selectedLanguage}`}
+              className="flex shrink-0 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold focus:outline-none"
+            >
               <span>{state.selectedLanguage}</span>
               <ChevronDown className="h-3 w-3 opacity-50" />
             </DropdownMenuTrigger>
@@ -496,17 +564,21 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           {/* Module picker */}
           <button
             onClick={() => setModuleDialogOpen(true)}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border/60 bg-card/50 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold"
+            title={mod ? mod.name : "Core (Free)"}
+            className="flex min-w-0 flex-1 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold"
           >
-            <Puzzle className="h-3.5 w-3.5 text-gold/70" />
-            <span className="truncate max-w-[100px]">
+            {/* The module emoji already says "module"; the puzzle icon only earns its width on Core. */}
+            {!mod && <Puzzle className="h-3.5 w-3.5 shrink-0 text-gold/70" />}
+            <span className="min-w-0 truncate">
               {mod ? `${mod.emoji} ${mod.name}` : "Core (Free)"}
             </span>
-            <ChevronDown className="h-3 w-3 opacity-50" />
+            <ChevronDown className="h-3 w-3 shrink-0 opacity-50" />
           </button>
 
           {/* Site-wide voice choice must be reachable on phones, where TopNav is hidden. */}
-          <VoicePicker compact />
+          <div className="shrink-0">
+            <VoicePicker compact />
+          </div>
 
           {/* Theme toggle — icon-only to keep the strip compact */}
           <button
@@ -522,32 +594,49 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           </button>
         </div>
 
-        {/* Tab row */}
+        {/* Tab row. Only the item matching the current tab is highlighted. */}
         <div className="flex items-center justify-around">
-          {/* Leftmost: full tab list. Match moved out of this row — it lives in the
-             More sheet now, freeing the far-right slot for Tutor. */}
+          {/* Phone: full tab list. Lit when the current tab has no slot in this bar
+             (Core 30, Story, Dictionary...) because that is where the tab lives. */}
+          {(() => {
+            const inBar = BAR_TABS.some((t) => t.key === state.currentTab);
+            return (
+              <button
+                onClick={() => setMoreSheetOpen(true)}
+                aria-haspopup="dialog"
+                className={cn(
+                  "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] transition-colors desktop:hidden",
+                  inBar ? "text-muted-foreground hover:text-gold" : "text-gold",
+                )}
+              >
+                {!inBar && (
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full bg-gold" />
+                )}
+                <Menu className="h-5 w-5" strokeWidth={inBar ? 1.6 : 2} />
+                <span
+                  className={cn("text-[9px] tracking-wide", inBar ? "font-medium" : "font-bold")}
+                >
+                  More
+                </span>
+              </button>
+            );
+          })()}
+          {/* Desktop: Add word sits in the bar's first slot, so nothing floats over the labels. */}
           <button
-            onClick={() => setMoreSheetOpen(true)}
-            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-muted-foreground transition-colors hover:text-gold desktop:hidden"
+            onClick={openAddWord}
+            aria-label="Add a word to My Vocab from this page"
+            className="relative hidden min-h-[44px] flex-1 flex-col items-center justify-center gap-0.5 py-2.5 text-muted-foreground transition-colors hover:text-gold desktop:flex"
           >
-            <Menu className="h-5 w-5" strokeWidth={1.6} />
-            <span className="text-[9px] font-medium tracking-wide">More</span>
+            <BookmarkPlus className="h-5 w-5" strokeWidth={1.6} />
+            <span className="text-[9px] font-medium tracking-wide">Add word</span>
           </button>
-          {(
-            [
-              { key: "reader" as TabKey, Icon: BookOpen, label: "Reader" },
-              { key: "flashcards" as TabKey, Icon: Layers, label: "Cards" },
-              { key: "grammar" as TabKey, Icon: GraduationCap, label: "Grammar" },
-              { key: "games" as TabKey, Icon: Gamepad2, label: "Games" },
-              { key: "speak" as TabKey, Icon: Mic2, label: "Speak" },
-              { key: "dashboard" as TabKey, Icon: BarChart3, label: "Dashboard" },
-            ] as const
-          ).map(({ key, Icon, label }) => {
+          {BAR_TABS.map(({ key, Icon, label }) => {
             const active = state.currentTab === key;
             return (
               <button
                 key={key}
                 onClick={() => switchTab(key)}
+                aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 transition-colors min-h-[44px]",
                   active ? "text-gold" : "text-muted-foreground hover:text-foreground",
@@ -571,18 +660,9 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               </button>
             );
           })}
-          {/* Rightmost, fixed: Tutor. Previously a floating pill that covered
-             Reader text, flashcards, Dashboard cards and the nav itself at every
-             scroll position. Docking it here removes the overlap class of bug
-             entirely rather than tuning clearance around it. */}
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent("lt:open-tutor"))}
-            aria-label="Ask Tutor"
-            className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2.5 min-h-[44px] text-gold transition-colors hover:text-gold"
-          >
-            <Sparkles className="h-5 w-5" strokeWidth={1.8} />
-            <span className="text-[9px] font-bold tracking-wide">Tutor</span>
-          </button>
+          {/* Rightmost, fixed: Tutor. Docked here rather than a floating pill so it cannot
+             cover Reader text, flashcards or Dashboard cards. Lit only while the tutor is open. */}
+          <TutorNavButton />
         </div>
       </nav>
 

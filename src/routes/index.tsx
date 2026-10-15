@@ -111,6 +111,7 @@ function UrlModuleBridge() {
       "games",
       "flashcards",
       "guide",
+      "core30",
     ]);
     if (tab && allowedTabs.has(tab)) {
       dispatch({
@@ -123,7 +124,8 @@ function UrlModuleBridge() {
           | "modules"
           | "games"
           | "flashcards"
-          | "guide",
+          | "guide"
+          | "core30",
       });
     }
     // Apply the URL once per identity, after local and cloud state are ready.

@@ -130,6 +130,7 @@ export type TabKey =
   | "cognates"
   | "story"
   | "guide"
+  | "core30"
   | "climbing"
   | "fishing"
   | "fieldPrep"

@@ -12,6 +12,7 @@ import {
   Repeat2,
   AlignLeft,
   Gamepad2,
+  ListChecks,
   Headphones,
   Grid3x3,
   Quote,
@@ -231,6 +232,7 @@ const TAB_ITEMS: {
   },
   // ── Play ─────────────────────────────────────────────────────────────────────
   { key: "games", label: "Games Hub", short: "Games", group: "Play", Icon: Gamepad2 },
+  { key: "core30", label: "Core 30", short: "Core 30", group: "Play", Icon: ListChecks },
 ];
 
 const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", "Play"];

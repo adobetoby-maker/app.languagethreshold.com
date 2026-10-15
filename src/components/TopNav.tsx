@@ -52,6 +52,7 @@ const TABS: {
   { key: "discussions", label: "Discussions", module: "lds-missionary" },
   { key: "dashboard", label: "Dashboard" },
   { key: "guide", label: "App Guide" },
+  { key: "core30", label: "Core 30" },
 ];
 
 const TAB_VISIT_XP = 5;

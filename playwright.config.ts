@@ -33,13 +33,13 @@ export default defineConfig({
     },
     {
       name: "desktop",
-      testMatch: /(ai-features|auth-modal)\.spec\.ts/,
+      testMatch: /(ai-features|auth-modal|core30|dictionary-roofing)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },
     {
       name: "iphone-pwa",
-      testMatch: /(pwa-iphone|auth-modal)\.spec\.ts/,
+      testMatch: /(pwa-iphone|auth-modal|core30|dictionary-roofing)\.spec\.ts/,
       dependencies: ["setup"],
       use: { ...iPhone, browserName: "chromium", storageState: STATE },
     },

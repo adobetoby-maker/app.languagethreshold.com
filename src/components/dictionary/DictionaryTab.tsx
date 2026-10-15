@@ -445,12 +445,14 @@ export function DictionaryTab() {
   }, [state.activeModuleId, state.selectedLanguage]);
 
   const config = DICTIONARY_LANGUAGES[state.selectedLanguage];
+  // The Roofing chip is always offered, so its entries must not depend on the
+  // active module (they were empty unless the Roofing module was selected).
   const words = useMemo(
     () =>
-      state.selectedLanguage === "Spanish" && state.activeModuleId === "roofing"
+      state.selectedLanguage === "Spanish"
         ? [...(config?.words ?? []), ...ROOFING_DICTIONARY_WORDS]
         : (config?.words ?? []),
-    [config, state.selectedLanguage, state.activeModuleId],
+    [config, state.selectedLanguage],
   );
   const profiles = config?.profiles ?? {};
 

@@ -692,18 +692,11 @@ const XP_TIERS = [
 
 export function AppGuide() {
   const { state, dispatch } = useApp();
-  const [runnerActive, setRunnerActive] = useState(false);
-  const [justCompleted, setJustCompleted] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
 
   const moduleId = state.activeModuleId ?? "";
   const curriculum = getCurriculum(moduleId);
-  const currentLesson = curriculum ? getCurrentLesson(moduleId, state.lessonProgress) : null;
-  const completedCount = state.lessonProgress[moduleId] ?? 0;
-  const totalLessons = curriculum?.lessons.length ?? 30;
-  const progressPct = curriculum ? (completedCount / totalLessons) * 100 : 0;
-  const allDone = curriculum && completedCount >= totalLessons;
 
   const flow = getFlow(state.activeModuleId);
   const tip = getModuleTip(state.activeModuleId);
@@ -720,12 +713,6 @@ export function AppGuide() {
 
   function go(tab: TabKey) {
     dispatch({ type: "SET_TAB", payload: tab });
-  }
-
-  function handleComplete() {
-    setRunnerActive(false);
-    setJustCompleted(true);
-    setTimeout(() => setJustCompleted(false), 4000);
   }
 
   return (
@@ -935,131 +922,7 @@ export function AppGuide() {
 
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
-          <section>
-            {/* Curriculum header */}
-            <div className="mb-4">
-              <h1 className="font-display text-2xl font-semibold tracking-tight">
-                {curriculum.headline}
-              </h1>
-              <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-            </div>
-
-            {/* Progress bar */}
-            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                  {completedCount} / {totalLessons} lessons complete
-                </span>
-                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
-              </div>
-              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${progressPct}%`,
-                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
-                  }}
-                />
-              </div>
-              {allDone && (
-                <p className="mt-2 text-xs text-gold text-center">
-                  🎉 Curriculum complete! You are past the threshold.
-                </p>
-              )}
-            </div>
-
-            {/* Celebration banner */}
-            {justCompleted && (
-              <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
-                <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-                <p className="text-xs text-white/60 mt-1">Come back tomorrow for the next one.</p>
-              </div>
-            )}
-
-            {/* Current lesson card or all-done state */}
-            {!allDone &&
-              currentLesson &&
-              (runnerActive ? (
-                <LessonRunner
-                  lesson={currentLesson}
-                  moduleId={moduleId}
-                  onComplete={handleComplete}
-                  onExit={() => setRunnerActive(false)}
-                />
-              ) : (
-                <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                        Next Up · Lesson {currentLesson.n}
-                      </p>
-                      <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
-                    </div>
-                    <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                      <span className="text-[11px] font-mono text-gold">
-                        ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="text-sm text-white/60 mb-4">
-                    <span className="text-gold/80">Goal: </span>
-                    {currentLesson.objective}
-                  </p>
-
-                  {/* Step preview */}
-                  <div className="space-y-1.5 mb-5">
-                    {currentLesson.steps.map((step, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                      >
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                          {i + 1}
-                        </span>
-                        <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
-                        <span className="text-[10px] font-mono text-white/30">
-                          {step.durationMin}m
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={() => setRunnerActive(true)}
-                    className="w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90"
-                    style={{
-                      background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                      color: "#0B0B0F",
-                    }}
-                  >
-                    Start Lesson {currentLesson.n}
-                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                  </button>
-                </div>
-              ))}
-
-            {/* Completed lessons list (collapsed) */}
-            {completedCount > 0 && !runnerActive && (
-              <details className="mt-4 group">
-                <summary className="cursor-pointer text-[11px] text-white/30 hover:text-white/60 transition-colors select-none list-none flex items-center gap-2">
-                  <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
-                  {completedCount} completed lesson{completedCount !== 1 ? "s" : ""}
-                </summary>
-                <div className="mt-2 space-y-1 pl-4">
-                  {curriculum.lessons.slice(0, completedCount).map((l) => (
-                    <div key={l.n} className="flex items-center gap-2 text-xs text-white/30 py-0.5">
-                      <CheckCircle2
-                        className="h-3.5 w-3.5 text-gold/50 shrink-0"
-                        strokeWidth={1.5}
-                      />
-                      Lesson {l.n} — {l.title}
-                    </div>
-                  ))}
-                </div>
-              </details>
-            )}
-          </section>
+          <Core30Section />
         ) : (
           /* ── Fallback: legacy daily flow for modules without Core 30 ── */
           <section>
@@ -1220,5 +1083,185 @@ export function AppGuide() {
         </section>
       </div>
     </>
+  );
+}
+
+// ─── Core 30 ──────────────────────────────────────────────────────────────────
+
+/** The module's 30-lesson path: progress, the next lesson and the lesson runner.
+ *  Shown inside the App Guide and as the standalone Core 30 tab. */
+function Core30Section() {
+  const { state } = useApp();
+  const [runnerActive, setRunnerActive] = useState(false);
+  const [justCompleted, setJustCompleted] = useState(false);
+
+  const moduleId = state.activeModuleId ?? "";
+  const curriculum = getCurriculum(moduleId);
+  if (!curriculum) return null;
+  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
+  const completedCount = state.lessonProgress[moduleId] ?? 0;
+  const totalLessons = curriculum.lessons.length;
+  const progressPct = (completedCount / totalLessons) * 100;
+  const allDone = completedCount >= totalLessons;
+
+  function handleComplete() {
+    setRunnerActive(false);
+    setJustCompleted(true);
+    setTimeout(() => setJustCompleted(false), 4000);
+  }
+
+  return (
+        <section>
+          {/* Curriculum header */}
+          <div className="mb-4">
+            <h1 className="font-display text-2xl font-semibold tracking-tight">
+              {curriculum.headline}
+            </h1>
+            <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          </div>
+
+          {/* Progress bar */}
+          <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
+                {completedCount} / {totalLessons} lessons complete
+              </span>
+              <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-700"
+                style={{
+                  width: `${progressPct}%`,
+                  background: "linear-gradient(90deg, #C9A84C, #E8C878)",
+                }}
+              />
+            </div>
+            {allDone && (
+              <p className="mt-2 text-xs text-gold text-center">
+                🎉 Curriculum complete! You are past the threshold.
+              </p>
+            )}
+          </div>
+
+          {/* Celebration banner */}
+          {justCompleted && (
+            <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
+              <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
+              <p className="text-xs text-white/60 mt-1">Come back tomorrow for the next one.</p>
+            </div>
+          )}
+
+          {/* Current lesson card or all-done state */}
+          {!allDone &&
+            currentLesson &&
+            (runnerActive ? (
+              <LessonRunner
+                lesson={currentLesson}
+                moduleId={moduleId}
+                onComplete={handleComplete}
+                onExit={() => setRunnerActive(false)}
+              />
+            ) : (
+              <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                      Next Up · Lesson {currentLesson.n}
+                    </p>
+                    <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                    <span className="text-[11px] font-mono text-gold">
+                      ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-sm text-white/60 mb-4">
+                  <span className="text-gold/80">Goal: </span>
+                  {currentLesson.objective}
+                </p>
+
+                {/* Step preview */}
+                <div className="space-y-1.5 mb-5">
+                  {currentLesson.steps.map((step, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                        {i + 1}
+                      </span>
+                      <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
+                      <span className="text-[10px] font-mono text-white/30">
+                        {step.durationMin}m
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setRunnerActive(true)}
+                  className="w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90"
+                  style={{
+                    background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                    color: "#0B0B0F",
+                  }}
+                >
+                  Start Lesson {currentLesson.n}
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </button>
+              </div>
+            ))}
+
+          {/* Completed lessons list (collapsed) */}
+          {completedCount > 0 && !runnerActive && (
+            <details className="mt-4 group">
+              <summary className="cursor-pointer text-[11px] text-white/30 hover:text-white/60 transition-colors select-none list-none flex items-center gap-2">
+                <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
+                {completedCount} completed lesson{completedCount !== 1 ? "s" : ""}
+              </summary>
+              <div className="mt-2 space-y-1 pl-4">
+                {curriculum.lessons.slice(0, completedCount).map((l) => (
+                  <div key={l.n} className="flex items-center gap-2 text-xs text-white/30 py-0.5">
+                    <CheckCircle2
+                      className="h-3.5 w-3.5 text-gold/50 shrink-0"
+                      strokeWidth={1.5}
+                    />
+                    Lesson {l.n} — {l.title}
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
+        </section>
+  );
+}
+
+/** Standalone Core 30 tab. Without a module that has a Core 30, it points to Modules. */
+export function Core30Tab() {
+  const { state, dispatch } = useApp();
+  const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
+  return (
+    <div className="mx-auto max-w-2xl space-y-8 pb-12">
+      {hasCore30 ? (
+        <Core30Section />
+      ) : (
+        <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
+          <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Each module has a 30-lesson path built for your field. Choose a module to start yours.
+          </p>
+          <button
+            type="button"
+            onClick={() => dispatch({ type: "SET_TAB", payload: "modules" })}
+            className="mt-4 min-h-11 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold hover:bg-gold/20"
+          >
+            Choose a module
+          </button>
+        </section>
+      )}
+    </div>
   );
 }

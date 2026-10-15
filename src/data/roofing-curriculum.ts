@@ -1,5 +1,6 @@
 import type { Lesson } from "./curriculum.ts";
 import { r, sp, wm } from "./curriculum-helpers.ts";
+import { ROOFING_LESSON_WORDS } from "./roofing-lesson-words.ts";
 
 type Topic = {
   title: string;
@@ -238,6 +239,7 @@ export const ROOFING_LESSONS: Lesson[] = topics.map((topic, index) => ({
   title: topic.title,
   objective: topic.objective,
   readingTemplate: topic.seed,
+  words: ROOFING_LESSON_WORDS[index + 1],
   steps: [
     r(
       `Read the ${topic.title} roofing passage. Find the words and phrases you would use on today's job.`,

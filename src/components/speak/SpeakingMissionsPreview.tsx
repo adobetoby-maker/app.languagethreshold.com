@@ -47,7 +47,7 @@ import { AuthModal } from "@/components/auth/AuthModal";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { getTravelDestination } from "@/data/travel-destinations";
-import { consumeCoreSpeakingEntry } from "@/lib/speaking-navigation";
+import { consumeCoreSpeakingEntry, consumeSpeakingMissionRequest } from "@/lib/speaking-navigation";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
@@ -642,6 +642,35 @@ export function SpeakingMissionsPreview() {
       payload: { language: mission.language, missionId: mission.id, title: mission.title },
     });
   };
+
+  // A Core 30 lesson can ask for its own mission (id prefix). Consume the request once on mount,
+  // then select the first matching mission as soon as the catalog has it; otherwise drop it.
+  const pendingMissionPrefixRef = useRef<string | null>(null);
+  useEffect(() => {
+    const prefix = consumeSpeakingMissionRequest();
+    if (prefix) pendingMissionPrefixRef.current = prefix;
+  }, []);
+  useEffect(() => {
+    const prefix = pendingMissionPrefixRef.current;
+    if (!prefix) return;
+    // Keep the request until the selection is visible in state: the language-reset effect above
+    // can clear it once more (dev StrictMode re-runs effects), and this effect then re-applies it.
+    if (selectedMission?.id.startsWith(prefix)) {
+      pendingMissionPrefixRef.current = null;
+      return;
+    }
+    const match = languageMissions.find((mission) => mission.id.startsWith(prefix));
+    if (!match) {
+      pendingMissionPrefixRef.current = null;
+      return;
+    }
+    // Same effect as selectMission(); nothing is running yet so no exitMission() reset is needed.
+    setSelectedMission(match);
+    appDispatch({
+      type: "SET_SPEAKING_FOCUS",
+      payload: { language: match.language, missionId: match.id, title: match.title },
+    });
+  }, [languageMissions, selectedMission, appDispatch]);
 
   const activeObjective = selectedMission?.objectives.find(
     (objective) =>

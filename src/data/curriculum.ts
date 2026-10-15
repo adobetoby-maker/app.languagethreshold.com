@@ -23,12 +23,20 @@ import { ROOFING_LESSONS } from "./roofing-curriculum.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
+export interface LessonWord {
+  en: string;
+  es: string;
+  kind: "term" | "phrase";
+  note?: string;
+}
+
 export interface Lesson {
   n: number;
   title: string;
   objective: string;
   readingTemplate?: string; // seed-{lang}-xxx resolved at runtime
   steps: LessonStep[];
+  words?: LessonWord[];
 }
 
 export interface ModuleCurriculum {

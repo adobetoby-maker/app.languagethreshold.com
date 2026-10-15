@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getModule } from "@/data/modules";
+import { extractCore30Log } from "@/lib/team-core30";
 import {
   audit,
   authenticatedUser,
@@ -192,6 +193,30 @@ export const Route = createFileRoute("/api/team")({
                   .eq("organization_id", orgId)
                   .eq("user_id", user.id),
           ]);
+          // Core 30 log: only profiles.data.core30Log leaves the server, never other profile data.
+          // Admins see active members only (removed/pending members' logs stay private).
+          const memberUserIds = isAdmin
+            ? [
+                ...new Set(
+                  (members.data ?? [])
+                    .filter((m: { status?: string }) => m.status === "active")
+                    .map((m: { user_id: string }) => m.user_id),
+                ),
+              ]
+            : [user.id];
+          const core30: Record<string, ReturnType<typeof extractCore30Log>> = {};
+          if (memberUserIds.length) {
+            const { data: profiles, error: profilesError } = await db
+              .from("profiles")
+              .select("id,data")
+              .in("id", memberUserIds);
+            if (profilesError) throw profilesError;
+            for (const profile of profiles ?? []) {
+              if (!memberUserIds.includes(profile.id)) continue;
+              const log = extractCore30Log(profile.data);
+              if (Object.keys(log).length) core30[profile.id] = log;
+            }
+          }
           for (const result of [
             org,
             entitlement,
@@ -219,6 +244,7 @@ export const Route = createFileRoute("/api/team")({
             lessons: lessons.data ?? [],
             attempts: attempts.data ?? [],
             certificates: certificates.data ?? [],
+            core30,
           });
         } catch (error) {
           return teamError(error);

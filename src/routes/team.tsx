@@ -16,6 +16,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { teamRequest } from "@/lib/team-client";
 import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
+import { getCurriculum } from "@/data/curriculum";
+import type { Core30Log } from "@/lib/core30-plan";
+import { describeCore30, type Core30Display } from "@/lib/team-core30";
 
 export const Route = createFileRoute("/team")({
   component: () => (
@@ -87,6 +90,8 @@ type TeamData = {
   lessons: Lesson[];
   attempts: Attempt[];
   certificates: Certificate[];
+  /** Per-user Core 30 log; absent on older servers. */
+  core30?: Record<string, Core30Log>;
 };
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
 type InviteLink = { id: string; name: string; email: string; url: string };
@@ -581,6 +586,8 @@ function AdminWorkspace({
         "Active minutes (7d)",
         "Active minutes (30d)",
         "Lessons",
+        "Core 30 mastered",
+        "Core 30 status",
         "Best test",
         "Certificate",
       ],
@@ -609,6 +616,12 @@ function AdminWorkspace({
             c.module_id === assignment.module_id &&
             c.status === "issued",
         );
+        const core = describeCore30(
+          data.core30,
+          member.user_id,
+          assignment.module_id,
+          core30Total(assignment.module_id),
+        );
         rows.push([
           member.display_name,
           member.status,
@@ -616,6 +629,8 @@ function AdminWorkspace({
           String(Math.round(secs7 / 60)),
           String(Math.round(secs / 60)),
           String(lessons),
+          `${core.mastered}/${core.total}`,
+          core.statusLabel,
           best ? `${best}/25` : "",
           cert?.id ?? "",
         ]);
@@ -1075,7 +1090,7 @@ function AdminWorkspace({
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[750px] text-left text-sm">
+          <table className="w-full min-w-[900px] text-left text-sm">
             <thead className="border-b border-border text-xs uppercase text-muted-foreground">
               <tr>
                 {[
@@ -1084,6 +1099,7 @@ function AdminWorkspace({
                   "Practice · 7d",
                   "Practice · 30d",
                   "Lessons",
+                  "Core 30",
                   "Best test",
                   "Certificate",
                   "Action",
@@ -1112,7 +1128,7 @@ function AdminWorkspace({
                 ) : (
                   <tr key={member.id} className="border-b border-border/40">
                     <td className="p-2">{member.display_name}</td>
-                    <td className="p-2 text-muted-foreground" colSpan={6}>
+                    <td className="p-2 text-muted-foreground" colSpan={7}>
                       No module assigned
                     </td>
                     <td className="p-2">
@@ -1239,6 +1255,40 @@ function AdminWorkspace({
   );
 }
 
+function core30Total(moduleId: string): number {
+  return getCurriculum(moduleId)?.lessons.length || 30;
+}
+
+const CORE30_CHIP: Record<Core30Display["status"], string> = {
+  ahead: "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300",
+  "on-track": "bg-sky-500/15 text-sky-800 dark:text-sky-300",
+  behind: "bg-red-500/15 text-red-800 dark:text-red-300",
+  "not-started": "bg-muted text-muted-foreground",
+};
+
+function Core30Cell({ core }: { core: Core30Display }) {
+  return (
+    <div className="space-y-1">
+      <div>
+        {core.mastered}/{core.total} mastered · {core.opened} opened
+      </div>
+      <span
+        className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${CORE30_CHIP[core.status]}`}
+      >
+        {core.statusLabel}
+      </span>
+      {core.needsPractice > 0 && (
+        <div className="text-xs text-amber-700 dark:text-amber-300">
+          {core.needsPractice} need practice
+        </div>
+      )}
+      {core.lastReview && (
+        <div className="text-xs text-muted-foreground">Last review {core.lastReview}</div>
+      )}
+    </div>
+  );
+}
+
 function EmployeeRow({
   member,
   assignment,
@@ -1287,6 +1337,16 @@ function EmployeeRow({
       <td className="p-2">
         {lessons}
         {assignment.module_id === "roofing" ? "/30" : ""}
+      </td>
+      <td className="p-2">
+        <Core30Cell
+          core={describeCore30(
+            data.core30,
+            member.user_id,
+            assignment.module_id,
+            core30Total(assignment.module_id),
+          )}
+        />
       </td>
       <td className="p-2">{best ? `${best}/25` : "—"}</td>
       <td className="p-2">
@@ -1411,6 +1471,20 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               {minutes(seconds)} active practice in 30 days · {lessons}
               {a.module_id === "roofing" ? "/30" : ""} lessons recorded
             </p>
+            {user?.id && (
+              <p className="mt-1 text-sm text-muted-foreground">
+                Core 30:{" "}
+                {(() => {
+                  const core = describeCore30(
+                    data.core30,
+                    user.id,
+                    a.module_id,
+                    core30Total(a.module_id),
+                  );
+                  return `${core.mastered}/${core.total} mastered · ${core.statusLabel}`;
+                })()}
+              </p>
+            )}
             <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href={`/?module=${encodeURIComponent(a.module_id)}&tab=flashcards`}

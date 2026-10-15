@@ -40,6 +40,11 @@ import { getModule } from "@/data/modules";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
+import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
+import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { Core30Review } from "@/components/core30/Core30Review";
+import { requestSpeakingMission } from "@/lib/speaking-navigation";
+import { masteredLessons, planToday, toDateKey } from "@/lib/core30-plan";
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -462,6 +467,12 @@ function getModuleTip(moduleId: string | null): ModuleTip | null {
 
 // ─── Lesson Runner ────────────────────────────────────────────────────────────
 
+function formatOpenedDate(iso: string): string {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+}
+
 function LessonRunner({
   lesson,
   moduleId,
@@ -481,8 +492,22 @@ function LessonRunner({
   const { dispatch: libDispatch } = useLibrary();
   const [done, setDone] = useState<Set<number>>(new Set());
 
+  const [marking, setMarking] = useState(false);
+  // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
+  const completionLock = useRef(false);
+  const kitRef = useRef<HTMLElement>(null);
+  const [kitMode, setKitMode] = useState<PracticeMode>("study");
+  const hasWords = Boolean(lesson.words && lesson.words.length > 0);
+
   const allDone = done.size === lesson.steps.length;
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
+  // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
+  const isCurrentSequential = getCurrentLesson(moduleId, state.lessonProgress)?.n === lesson.n;
+  const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
+  const masteredAt = lessonLog?.masteredAt;
+  const needsPractice = Boolean(lessonLog?.needsPractice);
+  // The step whose tool drills the lesson's words; practice-kit activity counts as opening it.
+  const wordDrillStep = lesson.steps.findIndex((step) => step.tab === "wordMatch");
   const hasModuleReading =
     getAvailableModuleLessons(moduleId, state.selectedLanguage, lib.entries).length > 0;
   const moduleName = getModule(moduleId)?.name ?? "field";
@@ -552,23 +577,128 @@ function LessonRunner({
     dispatch({ type: "SET_TAB", payload: tab });
   }
 
-  async function complete() {
-    if (user && Object.keys(teamSessions.current).length) {
-      try {
-        await teamRequest("/api/team-activity", {
-          action: "lesson",
-          moduleId,
-          lessonNumber: lesson.n,
-          sessions: teamSessions.current,
-        });
-      } catch (error) {
-        toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
-        return;
-      }
+  /** Records that the learner opened step `i` (first open wins in the reducer). */
+  function recordStepOpened(i: number) {
+    if (i < 0) return;
+    dispatch({
+      type: "CORE30_STEP_OPENED",
+      payload: { moduleId, lesson: lesson.n, step: i, at: new Date().toISOString() },
+    });
+  }
+
+  function openStep(i: number) {
+    const step = lesson.steps[i];
+    recordStepOpened(i);
+    if (step.tab === "wordMatch" && hasWords) {
+      // Stay in the lesson: drill THIS lesson's words (Match mode), not the generic 24-word tab.
+      setKitMode("match");
+      requestAnimationFrame(() => {
+        const reduce =
+          typeof window !== "undefined" &&
+          window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+        kitRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      });
+      return;
     }
-    dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
-    dispatch({ type: "ADD_XP", payload: 50 });
+    if (step.tab === "speak") requestSpeakingMission(`scenario_version_${moduleId}_lesson_${lesson.n}_`);
+    goToTab(step.tab, step.tab === "reader" ? lesson.readingTemplate : undefined);
+  }
+
+  /** Posts lesson `n` to the team workspace. True when there is nothing to post or the post worked. */
+  async function postTeamLesson(n: number, sessions: Record<string, string>): Promise<boolean> {
+    if (!user || !Object.keys(sessions).length) return true;
+    try {
+      await teamRequest("/api/team-activity", {
+        action: "lesson",
+        moduleId,
+        lessonNumber: n,
+        sessions,
+      });
+      return true;
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
+      return false;
+    }
+  }
+
+  /** After lesson `fromN` completes, keep advancing over lessons the learner already mastered. */
+  async function advancePastMastered(fromN: number) {
+    const lessonsLog = state.core30Log[moduleId]?.lessons ?? {};
+    const total = getCurriculum(moduleId)?.lessons.length ?? 0;
+    let n = fromN + 1;
+    while (n <= total && lessonsLog[String(n)]?.masteredAt) {
+      let sessions: Record<string, string> = {};
+      if (user) {
+        try {
+          const started = await teamRequest<{ sessions?: Record<string, string> }>(
+            "/api/team-activity",
+            { action: "lesson_start", moduleId, lessonNumber: n },
+          );
+          sessions = started.sessions ?? {};
+        } catch (error) {
+          toast.error(
+            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+          );
+          return;
+        }
+      }
+      if (!(await postTeamLesson(n, sessions))) return;
+      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "ADD_XP", payload: 50 });
+      n += 1;
+    }
+  }
+
+  /**
+   * Team post + sequential counter + XP for THIS lesson, then the chain over later lessons that
+   * are already mastered. COMPLETE_LESSON only ever fires for the lesson the counter is on.
+   * Returns false when nothing was recorded (team post failed, or not the current lesson).
+   */
+  async function recordSequentialCompletion(): Promise<boolean> {
+    if (completionLock.current) return false;
+    if ((state.lessonProgress[moduleId] ?? 0) + 1 !== lesson.n) return false;
+    completionLock.current = true;
+    try {
+      if (!(await postTeamLesson(lesson.n, teamSessions.current))) return false;
+      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "ADD_XP", payload: 50 });
+      await advancePastMastered(lesson.n);
+      return true;
+    } finally {
+      completionLock.current = false;
+    }
+  }
+
+  /** Counter is on this lesson but it is already mastered (e.g. synced from another device). */
+  async function recordAlreadyMastered() {
+    if (marking) return;
+    setMarking(true);
+    try {
+      if (await recordSequentialCompletion()) onComplete();
+    } finally {
+      setMarking(false);
+    }
+  }
+
+  async function complete() {
+    if (!(await recordSequentialCompletion())) return;
     onComplete();
+  }
+
+  async function markMastered() {
+    if (marking) return;
+    setMarking(true);
+    try {
+      const sequential = isCurrentSequential;
+      if (sequential && !(await recordSequentialCompletion())) return;
+      dispatch({
+        type: "CORE30_SET_MASTERED",
+        payload: { moduleId, lesson: lesson.n, mastered: true, at: new Date().toISOString() },
+      });
+      if (sequential) onComplete();
+    } finally {
+      setMarking(false);
+    }
   }
 
   return (
@@ -599,6 +729,7 @@ function LessonRunner({
       <div className="space-y-2">
         {lesson.steps.map((step, i) => {
           const isDone = done.has(i);
+          const openedAt = lessonLog?.visits?.[String(i)];
           return (
             <div
               key={i}
@@ -643,14 +774,23 @@ function LessonRunner({
                       ? `Generate a ${moduleName} story in ${state.selectedLanguage}. Read it twice, then answer its comprehension question.`
                       : step.instruction}
                   </p>
+                  {openedAt && (
+                    <p
+                      data-testid="core30-step-opened"
+                      className="mt-1.5 flex items-center gap-1 text-[11px] text-gold/80"
+                    >
+                      <CheckCircle2 className="h-3 w-3" strokeWidth={2} />
+                      Opened {formatOpenedDate(openedAt)}
+                      {!isDone && " · not marked done"}
+                    </p>
+                  )}
                 </div>
                 <button
-                  onClick={() =>
-                    goToTab(step.tab, step.tab === "reader" ? lesson.readingTemplate : undefined)
-                  }
-                  className="flex items-center gap-1 shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-[11px] text-white/60 hover:text-white hover:border-white/20 transition-colors mt-0.5"
+                  onClick={() => openStep(i)}
+                  className="flex min-h-11 items-center gap-1 shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-[11px] text-white/60 hover:text-white hover:border-white/20 transition-colors"
                 >
-                  Go <ChevronRight className="h-3 w-3" />
+                  {step.tab === "wordMatch" && hasWords ? "Practice here" : "Go"}{" "}
+                  <ChevronRight className="h-3 w-3" />
                 </button>
               </div>
             </div>
@@ -658,8 +798,87 @@ function LessonRunner({
         })}
       </div>
 
-      {/* Complete button */}
-      {allDone ? (
+      {/* Lesson words: the practice kit drills exactly this lesson's vocabulary */}
+      {lesson.words && lesson.words.length > 0 && (
+        <section
+          ref={kitRef}
+          data-testid="lesson-practice-section"
+          className="scroll-mt-44 rounded-2xl border border-white/[0.08] bg-card/40 p-4"
+        >
+          <h4 className="text-sm font-semibold text-white">
+            Practice this lesson's words ({lesson.words.length})
+          </h4>
+          <div className="mt-3">
+            <LessonPracticeKit
+              words={lesson.words}
+              moduleId={moduleId}
+              lessonNumber={lesson.n}
+              mode={kitMode}
+              onModeChange={setKitMode}
+              onActivity={() => recordStepOpened(wordDrillStep)}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
+      <section className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
+        {masteredAt && !needsPractice ? (
+          <>
+            <p
+              data-testid="core30-mastered-status"
+              className="flex items-center gap-2 text-sm font-semibold text-gold"
+            >
+              <CheckCircle2 className="h-4 w-4 shrink-0" strokeWidth={2} />
+              Mastered on {formatOpenedDate(masteredAt)}
+            </p>
+            {isCurrentSequential && (
+              <button
+                type="button"
+                data-testid="core30-record-complete-button"
+                onClick={() => void recordAlreadyMastered()}
+                disabled={marking}
+                className="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-50"
+                style={{
+                  background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                  color: "#0B0B0F",
+                }}
+              >
+                <Star className="h-4 w-4" strokeWidth={2} />
+                Record lesson {lesson.n} complete
+              </button>
+            )}
+          </>
+        ) : (
+          <>
+            {needsPractice && (
+              <p className="mb-3 text-sm font-semibold text-amber-300">
+                Needs practice — review again
+              </p>
+            )}
+            <button
+              type="button"
+              data-testid="core30-mastered-button"
+              onClick={() => void markMastered()}
+              disabled={marking}
+              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-50"
+              style={{
+                background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                color: "#0B0B0F",
+              }}
+            >
+              <Star className="h-4 w-4" strokeWidth={2} />
+              {needsPractice ? "I've mastered it again" : "I've mastered this lesson"}
+            </button>
+            <p className="mt-2 text-center text-[11px] text-white/40">
+              Only you decide this. Opened steps are recorded automatically.
+            </p>
+          </>
+        )}
+      </section>
+
+      {/* Complete button (sequential counter) */}
+      {allDone && isCurrentSequential ? (
         <button
           onClick={complete}
           className="w-full py-3.5 rounded-2xl text-sm font-semibold transition-all flex items-center justify-center gap-2"
@@ -671,11 +890,11 @@ function LessonRunner({
           <Star className="h-4 w-4" strokeWidth={2} />
           Complete Lesson {lesson.n} · +50 XP
         </button>
-      ) : (
+      ) : isCurrentSequential ? (
         <p className="text-center text-xs text-white/30">
           Check off each step when done · {lesson.steps.length - done.size} remaining
         </p>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -1092,20 +1311,33 @@ export function AppGuide() {
  *  Shown inside the App Guide and as the standalone Core 30 tab. */
 function Core30Section() {
   const { state } = useApp();
-  const [runnerActive, setRunnerActive] = useState(false);
+  const [openLessonN, setOpenLessonN] = useState<number | null>(null);
+  const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
 
   const moduleId = state.activeModuleId ?? "";
   const curriculum = getCurriculum(moduleId);
   if (!curriculum) return null;
   const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
+  const openLesson =
+    openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
+  const runnerActive = openLesson !== null;
+  const core30Log = state.core30Log[moduleId];
+  const masteredSet = new Set(masteredLessons(core30Log));
   const completedCount = state.lessonProgress[moduleId] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
+  const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
+
+  function openLessonFromPlan(n: number) {
+    setReviewOpen(false);
+    setOpenLessonN(n);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   function handleComplete() {
-    setRunnerActive(false);
+    setOpenLessonN(null);
     setJustCompleted(true);
     setTimeout(() => setJustCompleted(false), 4000);
   }
@@ -1119,6 +1351,19 @@ function Core30Section() {
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
           </div>
+
+          {/* 90-day plan: start date, today's lesson, review cadence */}
+          {!reviewOpen && (
+            <Core30PlanCard
+              moduleId={moduleId}
+              totalLessons={totalLessons}
+              onOpenLesson={openLessonFromPlan}
+              onStartReview={() => {
+                setOpenLessonN(null);
+                setReviewOpen(true);
+              }}
+            />
+          )}
 
           {/* Progress bar */}
           <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
@@ -1152,17 +1397,32 @@ function Core30Section() {
             </div>
           )}
 
+          {/* Review session */}
+          {reviewOpen && (
+            <Core30Review
+              moduleId={moduleId}
+              lessons={curriculum.lessons}
+              onClose={() => setReviewOpen(false)}
+            />
+          )}
+
+          {/* Any lesson opened from the plan or the lesson list */}
+          {!reviewOpen && openLesson && (
+            <LessonRunner
+              key={openLesson.n}
+              lesson={openLesson}
+              moduleId={moduleId}
+              onComplete={handleComplete}
+              onExit={() => setOpenLessonN(null)}
+            />
+          )}
+
           {/* Current lesson card or all-done state */}
-          {!allDone &&
+          {!reviewOpen &&
+            !runnerActive &&
+            !allDone &&
             currentLesson &&
-            (runnerActive ? (
-              <LessonRunner
-                lesson={currentLesson}
-                moduleId={moduleId}
-                onComplete={handleComplete}
-                onExit={() => setRunnerActive(false)}
-              />
-            ) : (
+            (
               <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
@@ -1202,21 +1462,78 @@ function Core30Section() {
                 </div>
 
                 <button
-                  onClick={() => setRunnerActive(true)}
-                  className="w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90"
-                  style={{
-                    background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                    color: "#0B0B0F",
-                  }}
+                  onClick={() => setOpenLessonN(currentLesson.n)}
+                  className={cn(
+                    "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                    planStarted && "border border-gold/40 bg-transparent text-gold",
+                  )}
+                  style={
+                    planStarted
+                      ? undefined
+                      : {
+                          background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                          color: "#0B0B0F",
+                        }
+                  }
                 >
                   Start Lesson {currentLesson.n}
                   <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </button>
               </div>
-            ))}
+            )}
+
+          {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
+          {!reviewOpen && !runnerActive && (
+            <details className="mt-4 group">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-xs text-white/50 hover:text-white/80 transition-colors select-none">
+                <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
+                All {totalLessons} lessons · {masteredSet.size} mastered
+              </summary>
+              <ul className="mt-1 space-y-1">
+                {curriculum.lessons.map((l) => {
+                  const entry = core30Log?.lessons?.[String(l.n)];
+                  const opened = Object.keys(entry?.visits ?? {}).length;
+                  const mastered = masteredSet.has(l.n);
+                  return (
+                    <li key={l.n}>
+                      <button
+                        type="button"
+                        onClick={() => openLessonFromPlan(l.n)}
+                        className="flex min-h-11 w-full items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-left hover:border-white/20"
+                      >
+                        {mastered ? (
+                          <CheckCircle2
+                            className="h-4 w-4 shrink-0 text-gold"
+                            strokeWidth={1.8}
+                            aria-label="Mastered"
+                          />
+                        ) : (
+                          <Circle
+                            className="h-4 w-4 shrink-0 text-white/20"
+                            strokeWidth={1.5}
+                            aria-label="Not mastered"
+                          />
+                        )}
+                        <span className="min-w-0 flex-1 truncate text-xs text-white/80">
+                          {l.n}. {l.title}
+                        </span>
+                        <span className="shrink-0 text-[10px] font-mono text-white/40">
+                          {entry?.needsPractice
+                            ? "needs practice"
+                            : opened > 0
+                              ? `${opened}/${l.steps.length} opened`
+                              : ""}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          )}
 
           {/* Completed lessons list (collapsed) */}
-          {completedCount > 0 && !runnerActive && (
+          {completedCount > 0 && !runnerActive && !reviewOpen && (
             <details className="mt-4 group">
               <summary className="cursor-pointer text-[11px] text-white/30 hover:text-white/60 transition-colors select-none list-none flex items-center gap-2">
                 <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />

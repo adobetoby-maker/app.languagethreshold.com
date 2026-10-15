@@ -1133,6 +1133,35 @@ function missionFromChallenge(
   };
 }
 
+const LESSON_MISSION_VOCABULARY_CAP = 12;
+
+// A lesson that carries its own word list drills those exact words in its mission: terms first,
+// then phrases, capped at 12. Spanish missions show the Spanish forms; every other language keeps
+// the English headwords that module.vocabFocus already uses (lesson words only exist as en/es).
+function lessonMissionVocabulary(
+  module: AppModule,
+  lesson: Lesson,
+  language: SpeakingMissionLanguage,
+): string[] {
+  const words = lesson.words;
+  if (!words || words.length === 0) return module.vocabFocus.slice(0, 8);
+  const ordered = [
+    ...words.filter((word) => word.kind === "term"),
+    ...words.filter((word) => word.kind !== "term"),
+  ];
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const word of ordered) {
+    const form = (language === "Spanish" ? word.es : word.en).trim();
+    const key = form.toLocaleLowerCase();
+    if (!form || seen.has(key)) continue;
+    seen.add(key);
+    out.push(form);
+    if (out.length >= LESSON_MISSION_VOCABULARY_CAP) break;
+  }
+  return out.length > 0 ? out : module.vocabFocus.slice(0, 8);
+}
+
 function missionFromLesson(
   module: AppModule,
   specialty: SpeakingMissionSpecialty,
@@ -1168,7 +1197,7 @@ function missionFromLesson(
     targetMinutes: 12,
     language,
     locale,
-    vocabulary: module.vocabFocus.slice(0, 8),
+    vocabulary: lessonMissionVocabulary(module, lesson, language),
     sourcePrompts: projectedSteps,
     objectives: [
       {

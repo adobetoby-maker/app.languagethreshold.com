@@ -34,3 +34,7 @@ A checkpoint coordination message was sent to the authorized Claude session, ask
 4. Roofing remains the first complete module. Upgrade the other modules against the parity backlog, including lesson-specific passages, vocabulary, levels, toolkit and all three checkpoints.
 
 Canonical progress and evidence: `docs/reviews/2026-10-15-review-and-sequence.md`; specification: `docs/prd-assessments.md`; release gates: `docs/assessments/content-workflow.md`. No credentials or private exam keys belong in this repository.
+
+## Integrated checkpoint
+
+Codex incorporated the catalog removal into `5ae6d93`, preserving its tested scroll-container reset and progress-last layout. The exact combined preview passed Landscaping plan/open-lesson/guide checks and Roofing open/next/previous lesson checks at 390×844. Full release pipeline passed with 416 tests. It is staged, not promoted to the live domain; see the main review ledger for URL and evidence. Claude's `4380fd1` remains intact in its own worktree.

@@ -6,6 +6,8 @@ import {
   useMemo,
   useReducer,
   useRef,
+  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import type { LibraryText, SentencePair } from "@/data/library";
@@ -14,6 +16,21 @@ import { useApp } from "./app-state";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "./auth-state";
 import { toast } from "sonner";
+import { createLibraryRemote } from "@/lib/library-remote";
+import { LANGUAGES } from "@/data/languages";
+import {
+  createLibraryDevice,
+  readLibraryPreferences,
+  saveLibraryPreferences,
+} from "@/lib/library-device";
+
+function browserLibraryStorage() {
+  try {
+    return typeof window === "undefined" ? null : window.localStorage;
+  } catch {
+    return null;
+  }
+}
 
 export type LibrarySection = "missionary" | "classic" | "culture" | "custom";
 export type ReadStatus = "never" | "partial" | "complete";
@@ -65,13 +82,26 @@ const FLAG_BY_LANGUAGE: Record<Language, string> = {
   English: "🇬🇧",
 };
 
-function makeInitial(): LibraryState {
+function makeInitial(actor: string | null): LibraryState {
+  const saved = readLibraryPreferences(browserLibraryStorage(), actor);
+  const statuses = saved?.readStatus;
+  const readStatus: Record<string, ReadStatus> =
+    statuses && typeof statuses === "object" && !Array.isArray(statuses)
+      ? (Object.fromEntries(
+          Object.entries(statuses).filter(([, status]) =>
+            ["never", "partial", "complete"].includes(String(status)),
+          ),
+        ) as Record<string, ReadStatus>)
+      : {};
   return {
     entries: [],
-    selectedId: "seed-es-travel-train-ticket",
+    selectedId:
+      typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
     generating: false,
-    readStatus: loadReadStatus(),
-    languageFilter: loadLanguageFilter(),
+    readStatus,
+    languageFilter: Array.isArray(saved?.languageFilter)
+      ? saved.languageFilter.filter((language: Language) => LANGUAGES.includes(language))
+      : [],
   };
 }
 
@@ -138,28 +168,6 @@ function reducer(state: LibraryState, action: Action): LibraryState {
   }
 }
 
-const STORAGE_KEY = "lt.library.custom.v1";
-const READ_STATUS_KEY = "lingualens.library.readStatus.v1";
-const LANG_FILTER_KEY = "lingualens.library.languageFilter.v1";
-
-function loadReadStatus(): Record<string, ReadStatus> {
-  try {
-    const raw = localStorage.getItem(READ_STATUS_KEY);
-    return raw ? (JSON.parse(raw) as Record<string, ReadStatus>) : {};
-  } catch {
-    return {};
-  }
-}
-
-function loadLanguageFilter(): Language[] {
-  try {
-    const raw = localStorage.getItem(LANG_FILTER_KEY);
-    return raw ? (JSON.parse(raw) as Language[]) : [];
-  } catch {
-    return [];
-  }
-}
-
 interface LibraryContextValue {
   state: LibraryState;
   dispatch: React.Dispatch<Action>;
@@ -168,69 +176,64 @@ interface LibraryContextValue {
   addCustomEntry: (entry: LibraryEntry) => Promise<void>;
   removeCustomEntry: (id: string) => Promise<void>;
   syncing: boolean;
+  pendingChanges: number;
+  syncError: string | null;
+  legacySaved: boolean;
+  syncLibrary: () => void;
   setReadStatus: (id: string, status: ReadStatus) => void;
   setLanguageFilter: (langs: Language[]) => void;
 }
 
 const Ctx = createContext<LibraryContextValue | null>(null);
 
-interface DbRow {
-  id: string;
-  title: string;
-  subtitle: string;
-  language: string;
-  target_label: string;
-  flag: string;
-  section: string;
-  available: boolean;
-  chapters: BookChapter[];
-  created_at: string;
-}
-
-function rowToEntry(row: DbRow): LibraryEntry {
-  const chapters = Array.isArray(row.chapters) ? row.chapters : [];
-  return {
-    id: row.id,
-    title: row.title,
-    subtitle: row.subtitle ?? "",
-    language: row.language as Language,
-    targetLabel: row.target_label,
-    flag: row.flag || "📖",
-    section: (row.section as LibrarySection) ?? "custom",
-    available: row.available,
-    chapters: chapters.length > 0 ? chapters : undefined,
-    sentences: chapters[0]?.sentences ?? [],
-    createdAt: row.created_at ? new Date(row.created_at).getTime() : Date.now(),
-  };
-}
-
-function entryToInsert(entry: LibraryEntry, userId: string) {
-  const chapters: BookChapter[] =
-    entry.chapters && entry.chapters.length > 0
-      ? entry.chapters
-      : [{ title: entry.title, sentences: entry.sentences }];
-  return {
-    user_id: userId,
-    title: entry.title,
-    subtitle: entry.subtitle ?? "",
-    language: entry.language,
-    target_label: entry.targetLabel,
-    flag: entry.flag,
-    section: entry.section,
-    available: entry.available,
-    // Supabase typegen treats jsonb as `Json`. Our shape is JSON-serializable.
-    chapters: chapters as unknown as never,
-  };
-}
-
 export function LibraryProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, makeInitial);
-  const { user, loading: authLoading } = useAuth();
+  const { user, isCurrentUser } = useAuth();
+  const actor = user?.id ?? null;
+  const [localState, dispatch] = useReducer(reducer, actor, makeInitial);
+  const mounted = useRef(false);
+  // AppProvider remounts this subtree on identity changes; never reuse an old account's queue.
+  const [device] = useState(() =>
+    createLibraryDevice({
+      actor,
+      storage: browserLibraryStorage(),
+      isCurrent: () => mounted.current && (!actor || isCurrentUser(actor)),
+      remote: actor ? createLibraryRemote(supabase, actor, isCurrentUser) : null,
+    }),
+  );
+  const deviceState = useSyncExternalStore(
+    device.subscribe,
+    device.getSnapshot,
+    device.getSnapshot,
+  );
+  useEffect(() => {
+    mounted.current = true;
+    void device.sync();
+    const online = () => {
+      void device.sync();
+    };
+    const offline = () => device.cancel();
+    window.addEventListener("online", online);
+    window.addEventListener("offline", offline);
+    return () => {
+      mounted.current = false;
+      device.cancel();
+      window.removeEventListener("online", online);
+      window.removeEventListener("offline", offline);
+    };
+  }, [device]);
+  const state = useMemo(
+    () => ({
+      ...localState,
+      entries: [
+        ...deviceState.books,
+        ...localState.entries.filter((entry) => entry.section !== "custom"),
+      ],
+    }),
+    [localState, deviceState.books],
+  );
   const {
     state: { selectedLanguage },
   } = useApp();
-  const syncingRef = useRef(false);
-  const migratedRef = useRef<string | null>(null);
   const loadedLangPacksRef = useRef(new Set<string>());
   const selectedLangRef = useRef(selectedLanguage);
 
@@ -244,7 +247,6 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
       dispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
       triggerLdsPack(selectedLangRef.current, LDS_PACK_LOADERS);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // When the user switches language, load that language's LDS pack on demand.
@@ -262,151 +264,36 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     loader().then((entries) => dispatch({ type: "APPEND_SEEDS", payload: entries }));
   }
 
-  // Hydrate from localStorage when signed out (or while auth resolving)
   useEffect(() => {
-    if (authLoading) return;
-    if (user) return;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const parsed = raw ? (JSON.parse(raw) as LibraryEntry[]) : [];
-      dispatch({
-        type: "SET_CUSTOM_ENTRIES",
-        payload: Array.isArray(parsed) ? parsed : [],
-      });
-    } catch {
-      dispatch({ type: "SET_CUSTOM_ENTRIES", payload: [] });
-    }
-  }, [user, authLoading]);
-
-  // When the user signs in: migrate any localStorage books to Cloud, then load Cloud books.
-  useEffect(() => {
-    if (!user) return;
-    if (migratedRef.current === user.id) return;
-    migratedRef.current = user.id;
-
-    let cancelled = false;
-    (async () => {
-      syncingRef.current = true;
-      try {
-        // 1. Migrate any local books up to cloud
-        let localBooks: LibraryEntry[] = [];
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          localBooks = raw ? (JSON.parse(raw) as LibraryEntry[]) : [];
-        } catch {
-          /* ignore */
-        }
-
-        if (Array.isArray(localBooks) && localBooks.length > 0) {
-          const inserts = localBooks.map((e) => entryToInsert(e, user.id));
-          const { error } = await supabase.from("library_books").insert(inserts);
-          if (!error) {
-            localStorage.removeItem(STORAGE_KEY);
-            toast.success(
-              `Synced ${localBooks.length} book${localBooks.length === 1 ? "" : "s"} to your account`,
-            );
-          } else {
-            console.error("Migration failed:", error);
-          }
-        }
-
-        // 2. Load all cloud books
-        const { data, error } = await supabase
-          .from("library_books")
-          .select("*")
-          .order("created_at", { ascending: false });
-
-        if (cancelled) return;
-        if (error) {
-          console.error("Failed to load cloud library:", error);
-          toast.error("Couldn't load your library from the cloud.");
-          return;
-        }
-        const entries = (data ?? []).map((r) => rowToEntry(r as unknown as DbRow));
-        dispatch({ type: "SET_CUSTOM_ENTRIES", payload: entries });
-      } finally {
-        syncingRef.current = false;
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [user]);
-
-  // Reset migration tracker on sign-out so a future sign-in re-runs migration
-  useEffect(() => {
-    if (!user) migratedRef.current = null;
-  }, [user]);
-
-  // Persist to localStorage only when signed OUT
-  useEffect(() => {
-    if (user) return;
-    try {
-      const customs = state.entries.filter((e) => e.section === "custom");
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(customs));
-    } catch {
-      /* quota exceeded — ignore */
-    }
-  }, [state.entries, user]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(READ_STATUS_KEY, JSON.stringify(state.readStatus));
-    } catch {
-      /* ignore */
-    }
-  }, [state.readStatus]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(LANG_FILTER_KEY, JSON.stringify(state.languageFilter));
-    } catch {
-      /* ignore */
-    }
-  }, [state.languageFilter]);
+    saveLibraryPreferences(browserLibraryStorage(), actor, {
+      selectedId: state.selectedId,
+      readStatus: state.readStatus,
+      languageFilter: state.languageFilter,
+    });
+  }, [actor, state.selectedId, state.readStatus, state.languageFilter]);
 
   const addCustomEntry = useCallback(
     async (entry: LibraryEntry) => {
-      if (!user) {
-        // Local-only path
-        dispatch({ type: "ADD_ENTRY", payload: entry });
-        dispatch({ type: "SELECT", payload: entry.id });
-        return;
-      }
-      // Cloud path: insert and use the DB-generated id
-      const insert = entryToInsert(entry, user.id);
-      const { data, error } = await supabase
-        .from("library_books")
-        .insert(insert)
-        .select("*")
-        .single();
-      if (error || !data) {
-        console.error("Cloud insert failed:", error);
-        toast.error("Couldn't save book to cloud. Saved locally for now.");
-        dispatch({ type: "ADD_ENTRY", payload: entry });
-        dispatch({ type: "SELECT", payload: entry.id });
-        return;
-      }
-      const saved = rowToEntry(data as unknown as DbRow);
-      dispatch({ type: "ADD_ENTRY", payload: saved });
+      const saved = { ...entry, id: crypto.randomUUID(), section: "custom" as const };
+      device.add(saved); // Must persist before the modal closes or a cloud request starts.
       dispatch({ type: "SELECT", payload: saved.id });
+      void device.sync();
     },
-    [user],
+    [device],
   );
 
   const removeCustomEntry = useCallback(
     async (id: string) => {
-      // Optimistic
-      dispatch({ type: "REMOVE_ENTRY", payload: id });
-      if (!user) return;
-      const { error } = await supabase.from("library_books").delete().eq("id", id);
-      if (error) {
-        console.error("Delete failed:", error);
-        toast.error("Couldn't delete from cloud. Try again.");
+      try {
+        device.remove(id); // A durable tombstone also covers an uncertain earlier upload.
+        void device.sync();
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : "Could not save this change on your device.",
+        );
       }
     },
-    [user],
+    [device],
   );
 
   const selected = useMemo(
@@ -465,7 +352,13 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
         flagFor: (l) => FLAG_BY_LANGUAGE[l],
         addCustomEntry,
         removeCustomEntry,
-        syncing: syncingRef.current,
+        syncing: deviceState.syncing,
+        pendingChanges: deviceState.pending.length + deviceState.deleted.length,
+        syncError: deviceState.error,
+        legacySaved: deviceState.legacySaved,
+        syncLibrary: () => {
+          void device.sync();
+        },
         setReadStatus: (id, status) =>
           dispatch({ type: "SET_READ_STATUS", payload: { id, status } }),
         setLanguageFilter: (langs) => dispatch({ type: "SET_LANGUAGE_FILTER", payload: langs }),

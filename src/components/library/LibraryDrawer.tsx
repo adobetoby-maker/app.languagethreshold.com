@@ -146,7 +146,18 @@ type QuickCat = (typeof QUICK_CATEGORIES)[number] | "All";
 type LevelFilter = (typeof CEFR_LEVELS)[number] | "All";
 
 export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { state, dispatch, removeCustomEntry, setReadStatus, setLanguageFilter } = useLibrary();
+  const {
+    state,
+    dispatch,
+    removeCustomEntry,
+    setReadStatus,
+    setLanguageFilter,
+    syncing,
+    pendingChanges,
+    syncError,
+    legacySaved,
+    syncLibrary,
+  } = useLibrary();
   const { state: appState } = useApp();
   const activeModule = getModule(appState.activeModuleId);
   const focus = activeModule?.vocabFocus ?? null;
@@ -292,6 +303,32 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
         {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto px-5 py-5">
+          <div className="mb-4 text-xs leading-relaxed text-muted-foreground" aria-live="polite">
+            <p>
+              {syncing
+                ? "Syncing your library…"
+                : pendingChanges
+                  ? `${pendingChanges} library change${pendingChanges === 1 ? " is" : "s are"} saved on this device, waiting to sync.`
+                  : "Your texts stay separate from other accounts on this device."}
+            </p>
+            {syncError && <p className="mt-2 text-amber-300">{syncError}</p>}
+            {(pendingChanges > 0 || syncError) && (
+              <button
+                type="button"
+                disabled={syncing}
+                onClick={syncLibrary}
+                className="mt-2 min-h-11 rounded-lg border border-border px-3 disabled:opacity-50"
+              >
+                Retry library sync
+              </button>
+            )}
+            {legacySaved && (
+              <p className="mt-2">
+                An older library save is still on this device. It has not been imported because its
+                account owner is unknown.
+              </p>
+            )}
+          </div>
           {/* My Texts — always first */}
           <section className="mb-7">
             <div className="mb-3 flex items-center gap-2 px-1 text-gold">

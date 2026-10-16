@@ -1,4 +1,10 @@
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
+import { useAuth } from "./auth-state";
+import {
+  readProfileSnapshot,
+  saveProfileSnapshot,
+  hasUnassignedProfileSnapshot,
+} from "@/lib/profile-device-snapshot";
 import {
   createContext,
   useCallback,
@@ -871,8 +877,6 @@ export function reducer(state: AppState, action: AppAction): AppState {
   }
 }
 
-const STORAGE_KEY = "lt.app.v2";
-const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
 const SCHEMA_VERSION = 5;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
@@ -939,31 +943,6 @@ function migrate(raw: unknown): PersistedShape {
   return data;
 }
 
-function loadPersisted(): PersistedShape | null {
-  try {
-    let raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      for (const legacy of LEGACY_STORAGE_KEYS) {
-        const v = localStorage.getItem(legacy);
-        if (v) {
-          raw = v;
-          localStorage.removeItem(legacy);
-          break;
-        }
-      }
-    }
-    if (!raw) return null;
-    return migrate(JSON.parse(raw));
-  } catch {
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
-    return null;
-  }
-}
-
 const PERSIST_KEYS: (keyof AppState)[] = [
   "selectedLanguage",
   "nativeLanguage",
@@ -1028,10 +1007,42 @@ const AppContext = createContext<{
 } | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
+  const { user, loading } = useAuth();
+  const actor = user?.id ?? null;
+  return (
+    <AccountAppProvider
+      key={loading ? "auth-pending" : (actor ?? "guest")}
+      actor={actor}
+      ready={!loading}
+    >
+      {children}
+    </AccountAppProvider>
+  );
+}
+
+function AccountAppProvider({
+  children,
+  actor,
+  ready,
+}: {
+  children: ReactNode;
+  actor: string | null;
+  ready: boolean;
+}) {
+  const { isCurrentUser } = useAuth();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const parsed = loadPersisted();
+    if (!ready) return;
+    const stored = readProfileSnapshot<object>(window.localStorage, actor);
+    const parsed = stored ? migrate(stored) : null;
+    if (!parsed && hasUnassignedProfileSnapshot(window.localStorage))
+      toast("Progress from an older app version is still on this device", {
+        id: "account-progress-migration",
+        description:
+          "Reconnect while signed in to restore your account’s cloud progress. Earlier offline changes remain untouched for recovery.",
+        duration: 10000,
+      });
     if (parsed) {
       const xp = typeof parsed.xp === "number" ? parsed.xp : 0;
       const { __v: _v, ...rest } = parsed;
@@ -1047,7 +1058,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     } else {
       dispatch({ type: "HYDRATE", payload: { darkMode: readDarkModePreference() } });
     }
-  }, []);
+  }, [actor, ready]);
 
   useEffect(() => {
     const sync = (event: StorageEvent) => {
@@ -1066,17 +1077,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [state.hydrated]);
 
   useEffect(() => {
-    if (!state.hydrated) return;
+    if (!state.hydrated || !ready) return;
     try {
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
       for (const k of PERSIST_KEYS) {
         toSave[k] = (state as unknown as Record<string, unknown>)[k];
       }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+      saveProfileSnapshot(window.localStorage, actor, toSave);
     } catch {
       /* ignore quota */
     }
-  }, [state]);
+  }, [state, actor, ready]);
 
   useEffect(() => {
     if (state.hydrated) saveDarkModePreference(state.darkMode);
@@ -1128,6 +1139,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (!ready || !actor) return;
     const profileSync = createDeferredAuthSync({
       reset() {
         setUserId(null);
@@ -1140,6 +1152,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       load: (uid) =>
         Promise.resolve(supabase.from("profiles").select("data").eq("id", uid).maybeSingle()),
       apply(uid, { data, error }) {
+        if (uid !== actor || !isCurrentUser(actor)) return;
         setProfileReadyUserId(uid);
         if (error) return;
         if (data?.data) {
@@ -1148,21 +1161,31 @@ export function AppProvider({ children }: { children: ReactNode }) {
         }
         setUserId(uid);
       },
-      failed: setProfileReadyUserId,
+      failed(uid) {
+        if (uid === actor && isCurrentUser(actor)) setProfileReadyUserId(uid);
+      },
     });
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      profileSync.handle(session);
+      if (session?.user.id === actor) profileSync.handle(session);
+      else profileSync.handle(null);
     });
+    const retry = () => {
+      if (isCurrentUser(actor)) profileSync.handle({ user: { id: actor } });
+    };
+    retry();
+    window.addEventListener("online", retry);
     return () => {
       profileSync.dispose();
       sub.subscription.unsubscribe();
+      window.removeEventListener("online", retry);
     };
-  }, []);
+  }, [actor, ready, isCurrentUser]);
 
   useEffect(() => {
-    if (!state.hydrated || !userId) return;
+    if (!state.hydrated || !userId || userId !== actor || !isCurrentUser(userId)) return;
     if (syncTimer.current) clearTimeout(syncTimer.current);
     syncTimer.current = setTimeout(async () => {
+      if (userId !== actor || !isCurrentUser(userId)) return;
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
       for (const k of PERSIST_KEYS) toSave[k] = (state as unknown as Record<string, unknown>)[k];
       await supabase.from("profiles").upsert({ id: userId, data: toSave });
@@ -1170,7 +1193,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return () => {
       if (syncTimer.current) clearTimeout(syncTimer.current);
     };
-  }, [state, userId]);
+  }, [state, userId, actor, isCurrentUser]);
 
   const pingActivity = useCallback(() => {
     const today = todayKey();

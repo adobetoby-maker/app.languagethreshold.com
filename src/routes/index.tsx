@@ -187,8 +187,8 @@ function Index() {
     return () => window.removeEventListener("lt:open-personalization", handler);
   }, []);
   return (
-    <AppProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <AppProvider>
         <SubscriptionProvider>
           <AiGateProvider>
             <MatchProvider>
@@ -272,7 +272,7 @@ function Index() {
             </MatchProvider>
           </AiGateProvider>
         </SubscriptionProvider>
-      </AuthProvider>
-    </AppProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }

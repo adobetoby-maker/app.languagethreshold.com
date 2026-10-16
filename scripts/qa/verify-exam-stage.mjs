@@ -175,7 +175,7 @@ assert.equal(deniedAi.status, 409);
 const report = {
   testedAt: new Date().toISOString(),
   target: base,
-  commit: process.env.LT_QA_STAGE_COMMIT || "4bb1772",
+  commit: process.env.LT_QA_STAGE_COMMIT || null,
   catalogModules: 59,
   spanishTargetTracks: 57,
   englishTargetTracks: 59,

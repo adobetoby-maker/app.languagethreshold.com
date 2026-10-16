@@ -532,7 +532,7 @@ export function FlashcardsStudio() {
               </button>
               <button
                 type="button"
-                onClick={() => appDispatch({ type: "SET_TAB", payload: "guide" })}
+                onClick={() => appDispatch({ type: "SET_TAB", payload: "core30" })}
                 className="rounded-full border border-border px-4 py-2 text-sm text-foreground hover:border-gold/60"
               >
                 Open lesson plan

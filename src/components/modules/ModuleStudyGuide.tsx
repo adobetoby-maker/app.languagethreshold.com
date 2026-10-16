@@ -184,7 +184,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
               {lessonIds.length ? "Open Reader" : "Generate a field story"}
             </Pill>
             <Pill onClick={() => go("flashcards")}>Study {module.name} cards</Pill>
-            <Pill onClick={() => go("guide")}>Open lesson plan</Pill>
+            <Pill onClick={() => go("core30")}>Open lesson plan</Pill>
           </ActionRow>
         </Card>
 
@@ -318,7 +318,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
           </>
         ) : (
           <div className="flex flex-wrap gap-1.5">
-            <Pill onClick={() => go("guide")} primary>
+            <Pill onClick={() => go("core30")} primary>
               Start first lesson
             </Pill>
             <Pill onClick={() => go("story")}>Generate a field story</Pill>

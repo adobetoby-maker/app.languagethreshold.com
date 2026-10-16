@@ -1242,7 +1242,13 @@ const XP_TIERS = [
   { name: "Maestro", min: 3000, emoji: "✦", color: "#d4af37" },
 ];
 
+function scrollLessonPageToTop() {
+  window.scrollTo({ top: 0, behavior: "instant" });
+  document.querySelector("main")?.scrollTo({ top: 0, behavior: "instant" });
+}
+
 export function AppGuide() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
@@ -1271,6 +1277,168 @@ export function AppGuide() {
     <>
       {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
+        {/* ── Lesson Planner ────────────────────────────────────────────── */}
+        {curriculum ? (
+          <Core30Section />
+        ) : (
+          /* ── Fallback: legacy daily flow for modules without Core 30 ── */
+          <section>
+            <div className="mb-4">
+              <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                App Guide
+              </h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Your daily flow, feature map, and module-specific tips.
+              </p>
+            </div>
+            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              Daily Flow · ~20 min
+            </h2>
+            <div className="relative space-y-0">
+              {flow.map((step, i) => (
+                <div key={i} className="relative flex gap-4">
+                  {i < flow.length - 1 && (
+                    <span className="absolute left-5 top-10 bottom-0 w-px bg-border/40" />
+                  )}
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border/50 bg-card/60 text-lg">
+                    {step.icon}
+                  </div>
+                  <div className="pb-5 pt-1.5">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-sm font-semibold">{step.title}</span>
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-gold/70">
+                        {step.time}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground/70">→ {step.tab}</span>
+                    </div>
+                    <p className="mt-0.5 text-[12px] text-muted-foreground leading-relaxed">
+                      {step.value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Module Tips ─────────────────────────────────────────────────── */}
+        {tip && (
+          <section>
+            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              {tip.headline}
+            </h2>
+            <div className="space-y-2 mb-5">
+              {tip.tips.map((t, i) => (
+                <div
+                  key={i}
+                  className="flex gap-3 rounded-xl border border-border/40 bg-card/40 px-4 py-3"
+                >
+                  <span className="text-gold/70 font-bold shrink-0">·</span>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t}</p>
+                </div>
+              ))}
+            </div>
+
+            {tip.priority && (
+              <div className="mb-5">
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  Learn in this order
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {tip.priority.map((p, i) => (
+                    <span
+                      key={i}
+                      className={cn(
+                        "rounded-full border px-3 py-1 text-[11px] font-medium",
+                        i === 0
+                          ? "border-gold/60 bg-gold/10 text-gold"
+                          : "border-border/50 bg-card/40 text-muted-foreground",
+                      )}
+                    >
+                      {i + 1}. {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tip.cognates && (
+              <div>
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  High-value cognates
+                </p>
+                <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
+                  {tip.cognates.map((c) => (
+                    <div
+                      key={c.word}
+                      className="flex items-center justify-between rounded-lg border border-border/40 bg-card/40 px-3 py-2"
+                    >
+                      <span className="text-sm font-medium text-gold">{c.word}</span>
+                      <span className="text-[11px] text-muted-foreground">{c.meaning}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* ── Feature Map (collapsible) ────────────────────────────────────── */}
+        <section>
+          <button
+            onClick={() => setFeaturesOpen((o) => !o)}
+            className="flex items-center gap-2 mb-3 group"
+          >
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              The Toolkit
+            </h2>
+            <ChevronRight
+              className={cn(
+                "h-3.5 w-3.5 text-gold/60 transition-transform",
+                featuresOpen && "rotate-90",
+              )}
+            />
+          </button>
+          {featuresOpen && (
+            <div className="space-y-1.5">
+              {FEATURES.map(({ Icon, label, value }) => (
+                <div
+                  key={label}
+                  className="flex items-start gap-3 rounded-xl border border-border/30 bg-card/30 px-4 py-3 hover:border-border/60 transition-colors"
+                >
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card/80 border border-border/40">
+                    <Icon className="h-3.5 w-3.5 text-gold/80" strokeWidth={1.6} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[12px] font-semibold">{label}</p>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">{value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* ── Change Module CTA ─────────────────────────────────────────────── */}
+        <section className="rounded-2xl border border-gold/20 bg-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <Puzzle className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
+            <div>
+              <p className="text-sm font-semibold">Switch your module anytime</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Medical, trades, sports, faith — each module unlocks a vocabulary pack and a Core 30
+                curriculum tuned to your field.
+              </p>
+              <button
+                onClick={() => go("modules")}
+                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
+              >
+                Browse modules <Activity className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* ── Optional personalization remains reachable after module selection ─── */}
         <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
           <div className="flex items-start gap-4">
@@ -1500,168 +1668,6 @@ export function AppGuide() {
             </div>
           </details>
         </section>
-
-        {/* ── Lesson Planner ────────────────────────────────────────────── */}
-        {curriculum ? (
-          <Core30Section />
-        ) : (
-          /* ── Fallback: legacy daily flow for modules without Core 30 ── */
-          <section>
-            <div className="mb-4">
-              <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                App Guide
-              </h1>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Your daily flow, feature map, and module-specific tips.
-              </p>
-            </div>
-            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              Daily Flow · ~20 min
-            </h2>
-            <div className="relative space-y-0">
-              {flow.map((step, i) => (
-                <div key={i} className="relative flex gap-4">
-                  {i < flow.length - 1 && (
-                    <span className="absolute left-5 top-10 bottom-0 w-px bg-border/40" />
-                  )}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border/50 bg-card/60 text-lg">
-                    {step.icon}
-                  </div>
-                  <div className="pb-5 pt-1.5">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-sm font-semibold">{step.title}</span>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-gold/70">
-                        {step.time}
-                      </span>
-                      <span className="text-[10px] text-muted-foreground/70">→ {step.tab}</span>
-                    </div>
-                    <p className="mt-0.5 text-[12px] text-muted-foreground leading-relaxed">
-                      {step.value}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* ── Module Tips ─────────────────────────────────────────────────── */}
-        {tip && (
-          <section>
-            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              {tip.headline}
-            </h2>
-            <div className="space-y-2 mb-5">
-              {tip.tips.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex gap-3 rounded-xl border border-border/40 bg-card/40 px-4 py-3"
-                >
-                  <span className="text-gold/70 font-bold shrink-0">·</span>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t}</p>
-                </div>
-              ))}
-            </div>
-
-            {tip.priority && (
-              <div className="mb-5">
-                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  Learn in this order
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {tip.priority.map((p, i) => (
-                    <span
-                      key={i}
-                      className={cn(
-                        "rounded-full border px-3 py-1 text-[11px] font-medium",
-                        i === 0
-                          ? "border-gold/60 bg-gold/10 text-gold"
-                          : "border-border/50 bg-card/40 text-muted-foreground",
-                      )}
-                    >
-                      {i + 1}. {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {tip.cognates && (
-              <div>
-                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  High-value cognates
-                </p>
-                <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
-                  {tip.cognates.map((c) => (
-                    <div
-                      key={c.word}
-                      className="flex items-center justify-between rounded-lg border border-border/40 bg-card/40 px-3 py-2"
-                    >
-                      <span className="text-sm font-medium text-gold">{c.word}</span>
-                      <span className="text-[11px] text-muted-foreground">{c.meaning}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </section>
-        )}
-
-        {/* ── Feature Map (collapsible) ────────────────────────────────────── */}
-        <section>
-          <button
-            onClick={() => setFeaturesOpen((o) => !o)}
-            className="flex items-center gap-2 mb-3 group"
-          >
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              The Toolkit
-            </h2>
-            <ChevronRight
-              className={cn(
-                "h-3.5 w-3.5 text-gold/60 transition-transform",
-                featuresOpen && "rotate-90",
-              )}
-            />
-          </button>
-          {featuresOpen && (
-            <div className="space-y-1.5">
-              {FEATURES.map(({ Icon, label, value }) => (
-                <div
-                  key={label}
-                  className="flex items-start gap-3 rounded-xl border border-border/30 bg-card/30 px-4 py-3 hover:border-border/60 transition-colors"
-                >
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card/80 border border-border/40">
-                    <Icon className="h-3.5 w-3.5 text-gold/80" strokeWidth={1.6} />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="text-[12px] font-semibold">{label}</p>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed">{value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* ── Change Module CTA ─────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-gold/20 bg-gold/5 p-5">
-          <div className="flex items-start gap-4">
-            <Puzzle className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
-            <div>
-              <p className="text-sm font-semibold">Switch your module anytime</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Medical, trades, sports, faith — each module unlocks a vocabulary pack and a Core 30
-                curriculum tuned to your field.
-              </p>
-              <button
-                onClick={() => go("modules")}
-                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
-              >
-                Browse modules <Activity className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );
@@ -1791,7 +1797,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     setHowOpen(false);
     setInitialWay(undefined);
     setOpenLessonN(n);
-    window.scrollTo({ top: 0, behavior: scrollBehavior() });
+    scrollLessonPageToTop();
   }
 
   function handleComplete() {
@@ -2109,6 +2115,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
 /** Standalone Core 30 tab. Without a module that has a Core 30, it points to Modules. */
 export function Core30Tab() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));

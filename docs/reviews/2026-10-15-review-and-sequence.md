@@ -71,3 +71,9 @@ The updated local preview shows a contextual Lesson 1 passage, removes the dupli
 Using Chrome DevTools on the local preview tab only, simulated no network: the UI showed an offline notice and immediately offered self-comparison. Check again preserved the exact image source. Restored normal network and the retry entered recognition again. This is a recovery check of an already loaded lesson, not proof of offline cold-start availability or every module’s offline completeness.
 
 Live unauthenticated GET /api/team returned HTTP403, {"error":"Sign in to continue."}, and Cache-Control:no-store. This verifies rejection without a session; it does not prove cross-tenant access or learner synchronization.
+
+## Six-mode visit tracking correction in progress
+
+The lesson preview still maps See/Recall/Hear/Type/Say to legacy step indices and maps Write to -1; the lesson list consequently reports 3/3 opened for a six-mode lesson. The Codex branch now has a separate `wayVisits` contract and reducer action, preserving original step records and first-visit times across cloud merges. Opening handwriting alone counts toward lessons opened without implying mastery. Three new migration/merge/state tests pass; 41 relevant tests and TypeScript pass; lint has zero errors and existing app-state Fast Refresh warnings. Wiring the new runner and its UI counts is pending integration of Claude’s release.
+
+An isolated local PostgreSQL 16.14 database, `lt_exams_qa_20261015_codex`, was created for later migration and transactional behavior tests. No assessment schema has been applied to production. The browser’s current account has one active owner membership and no learner membership; a dedicated test learner has been requested for real multi-account reporting verification. No existing member roles or business records were changed.

@@ -17,12 +17,13 @@ import {
   saveDarkModePreference,
   THEME_PREFERENCE_KEY,
 } from "@/lib/theme-preference";
-import { mergeCore30Log, type Core30Log } from "@/lib/core30-plan";
+import { mergeCore30Log, type Core30Log, type Core30Way } from "@/lib/core30-plan";
 import {
   core30RecordReview,
   core30SetMastered,
   core30SetStartDate,
   core30StepOpened,
+  core30WayOpened,
 } from "@/lib/core30-state";
 import type { SM2Card } from "./sm2";
 import type { NextTripPlan } from "@/data/travel-destinations";
@@ -364,6 +365,10 @@ export type AppAction =
       payload: { moduleId: string; lesson: number; step: number; at: string };
     }
   | {
+      type: "CORE30_WAY_OPENED";
+      payload: { moduleId: string; lesson: number; way: Core30Way; at: string };
+    }
+  | {
       type: "CORE30_SET_MASTERED";
       // `mastered` is the literal true: there is no un-master (cloud merge keeps the earliest masteredAt).
       payload: { moduleId: string; lesson: number; mastered: true; at: string };
@@ -666,6 +671,10 @@ export function reducer(state: AppState, action: AppAction): AppState {
     }
     case "CORE30_STEP_OPENED": {
       const core30Log = core30StepOpened(state.core30Log, action.payload);
+      return core30Log === state.core30Log ? state : { ...state, core30Log };
+    }
+    case "CORE30_WAY_OPENED": {
+      const core30Log = core30WayOpened(state.core30Log, action.payload);
       return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
     case "CORE30_SET_MASTERED":

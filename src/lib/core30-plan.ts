@@ -6,9 +6,14 @@ export interface Core30Review {
   ok: boolean;
 }
 
+export const CORE30_WAYS = ["see", "recall", "hear", "type", "say", "write"] as const;
+export type Core30Way = (typeof CORE30_WAYS)[number];
+
 export interface Core30LessonLog {
   /** key = step index as string, value = ISO time the step was FIRST opened */
   visits: Record<string, string>;
+  /** First opening of each learning mode. Kept separate from legacy curriculum step indices. */
+  wayVisits?: Partial<Record<Core30Way, string>>;
   masteredAt?: string;
   needsPractice?: boolean;
   reviews?: Core30Review[];
@@ -280,6 +285,12 @@ function mergeLesson(
   });
 
   const out: Core30LessonLog = { visits };
+  const wayVisits: Partial<Record<Core30Way, string>> = {};
+  for (const way of CORE30_WAYS) {
+    const at = earlier(local?.wayVisits?.[way], remote?.wayVisits?.[way]);
+    if (at) wayVisits[way] = at;
+  }
+  if (Object.keys(wayVisits).length) out.wayVisits = wayVisits;
   const masteredAt = earlier(local?.masteredAt, remote?.masteredAt);
   if (masteredAt) out.masteredAt = masteredAt;
 
@@ -366,7 +377,8 @@ export function summarizeCore30(
 } {
   const plan = planToday(log, totalLessons, today);
   const lessonsOpened = Object.values(log?.lessons ?? {}).filter(
-    (l) => Object.keys(l?.visits ?? {}).length > 0,
+    (l) =>
+      Object.keys(l?.visits ?? {}).length > 0 || CORE30_WAYS.some((way) => l?.wayVisits?.[way]),
   ).length;
   return {
     started: plan.started,

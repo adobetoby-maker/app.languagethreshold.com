@@ -81,6 +81,22 @@ export function clearLessonDraftsForUser(storage: DraftStorage | null, userId: s
   }
 }
 
+export function hasUnsyncedLessonDrafts(storage: DraftStorage | null, userId: string): boolean {
+  try {
+    if (!storage) return false;
+    const prefix = `${PREFIX}${encodeURIComponent(userId)}.`;
+    for (let i = 0; i < storage.length; i++) {
+      const key = storage.key(i);
+      if (!key?.startsWith(prefix) || key.startsWith(prefix + "position.")) continue;
+      const draft = readLessonDraft(storage, key);
+      if (draft && (draft.text.trim() || draft.ink || draft.transcript.trim())) return true;
+    }
+  } catch {
+    /* Existing form warnings still cover blocked storage. */
+  }
+  return false;
+}
+
 export interface LessonPosition {
   lesson: number;
   way: import("./core30-plan.ts").Core30Way;

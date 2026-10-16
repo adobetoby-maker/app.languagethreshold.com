@@ -1,5 +1,6 @@
 import {
   createContext,
+  Fragment,
   useCallback,
   useContext,
   useEffect,
@@ -17,16 +18,18 @@ import {
   consumeAuthReturn,
   rememberAuthReturn,
 } from "@/lib/auth-return";
-import { clearLessonDraftsForUser } from "@/lib/lesson-drafts";
-import {
-  clearExamDraftsForUser,
-  hasUnsyncedExamDrafts,
-  browserExamStorage,
-} from "@/lib/assessments/drafts";
+import { hasUnsyncedLessonDrafts } from "@/lib/lesson-drafts";
+import { hasUnsyncedExamDrafts, browserExamStorage } from "@/lib/assessments/drafts";
 import { toast } from "sonner";
 import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
 import { createAuthActorAccess } from "@/lib/auth-actor-access";
+import { clearSpeechForUser, unsavedSpeechCount } from "@/lib/assessments/speech-device";
+import {
+  clearPrivateLearningDrafts,
+  discardPrivateLearningDrafts,
+  privateDraftDiscardActor,
+} from "@/lib/private-draft-discard";
 
 interface AuthContextValue {
   user: User | null;
@@ -59,47 +62,66 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const currentUser = useRef<string | null>(null);
-  const discardApprovedFor = useRef<string | null>(null);
+  const identityVersion = useRef(0);
+  const [identityEpoch, setIdentityEpoch] = useState(0);
   const signingOutFor = useRef<string | null>(null);
 
   useEffect(() => {
-    // CRITICAL: subscribe BEFORE getSession to avoid missing events
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
+    let sessionEvents = 0;
+    const acceptSession = (s: Session | null, discarded = false) => {
+      sessionEvents++;
       const previousUser = currentUser.current;
-      currentUser.current = s?.user.id ?? null;
-      if (previousUser && previousUser !== currentUser.current) {
-        try {
-          clearLessonDraftsForUser(window.localStorage, previousUser);
-          const reader = pendingLibraryChanges(window.localStorage, previousUser);
-          if (signingOutFor.current !== previousUser && (reader.count || reader.unreadable))
+      const nextUser = s?.user.id ?? null;
+      if (previousUser !== nextUser) {
+        identityVersion.current++;
+        setIdentityEpoch(identityVersion.current);
+      }
+      currentUser.current = nextUser;
+      if (previousUser && previousUser !== nextUser) {
+        const storage = browserExamStorage();
+        const hadRecording = unsavedSpeechCount(previousUser) > 0;
+        // Identity loss always stops a microphone. Durable owner-scoped answers stay
+        // recoverable until an explicit, successful sign-out discards them.
+        clearSpeechForUser(previousUser);
+        if (!discarded && signingOutFor.current !== previousUser) {
+          const reader = pendingLibraryChanges(storage, previousUser);
+          const retained =
+            hasUnsyncedExamDrafts(storage, previousUser) ||
+            hasUnsyncedLessonDrafts(storage, previousUser) ||
+            reader.count ||
+            reader.unreadable;
+          if (retained || hadRecording)
             toast.warning(
-              "Your session changed. Reader changes are kept on this device for the previous account. Sign back in to sync them.",
+              "Your session changed. Saved answers, lesson drafts and Reader changes remain under the previous account on this device. Sign back into that account to recover them. " +
+                (hadRecording ? "Unsaved recordings were discarded. " : "") +
+                "Clear this app’s site data before sharing the browser.",
+              { id: `lt-auth-recovery-${previousUser}`, duration: Infinity },
             );
-          if (
-            hasUnsyncedExamDrafts(window.localStorage, previousUser) &&
-            discardApprovedFor.current !== previousUser
-          )
-            toast.warning(
-              "Your session changed. Unsynced exam answers and recordings were cleared; synced answers remain saved.",
-            );
-        } catch {
-          /* Storage may be blocked. */
         }
-        clearExamDraftsForUser(browserExamStorage(), previousUser);
-        discardApprovedFor.current = null;
       }
       setSession(s);
+      if (nextUser) toast.dismiss(`lt-auth-recovery-${nextUser}`);
+      setLoading(false);
       restorePageAfterAuth(s);
-    });
+    };
+    const onDiscard = (event: StorageEvent) => {
+      const actor = privateDraftDiscardActor(event.key, event.newValue);
+      if (!actor) return;
+      clearPrivateLearningDrafts(browserExamStorage(), actor);
+      toast.dismiss(`lt-auth-recovery-${actor}`);
+      if (currentUser.current === actor) acceptSession(null, true);
+    };
+    window.addEventListener("storage", onDiscard);
+    // CRITICAL: subscribe BEFORE getSession to avoid missing events
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => acceptSession(s));
 
     supabase.auth
       .getSession()
       .then(({ data }) => {
-        currentUser.current = data.session?.user.id ?? null;
-        setSession(data.session);
-        restorePageAfterAuth(data.session);
+        if (sessionEvents === 0) acceptSession(data.session);
       })
       .catch(async (err) => {
+        if (sessionEvents !== 0) return;
         // Stale/invalid refresh token from a previous session — clear it silently.
         if (err?.code === "refresh_token_not_found" || err?.status === 400) {
           try {
@@ -108,13 +130,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             /* noop */
           }
         }
-        currentUser.current = null;
-        setSession(null);
+        if (sessionEvents === 0) acceptSession(null);
       })
       .finally(() => setLoading(false));
 
     return () => {
       sub.subscription.unsubscribe();
+      window.removeEventListener("storage", onDiscard);
     };
   }, []);
 
@@ -189,13 +211,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         scope,
         storage,
         examPending: !!userId && hasUnsyncedExamDrafts(storage, userId),
+        lessonPending: !!userId && hasUnsyncedLessonDrafts(storage, userId),
         confirmDiscard: (message) => typeof window !== "undefined" && window.confirm(message),
         signOut: () => supabase.auth.signOut({ scope }),
-        onExamDiscardApproved: () => {
-          discardApprovedFor.current = userId;
-        },
+        onExamDiscardApproved: () => {},
         clearExamDrafts: () => {
-          if (userId) clearExamDraftsForUser(storage, userId);
+          if (userId && !discardPrivateLearningDrafts(storage, userId))
+            throw new Error("Private device cleanup could not be confirmed.");
         },
       });
       if (!result.signedOut && !result.cancelled)
@@ -206,7 +228,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         );
       return result.signedOut;
     } finally {
-      discardApprovedFor.current = null;
       signingOutFor.current = null;
     }
   }, []);
@@ -216,8 +237,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       createAuthActorAccess(
         () => currentUser.current,
         () => signingOutFor.current,
+        { version: identityEpoch, current: () => identityVersion.current },
       ),
-    [],
+    [identityEpoch],
   );
 
   const value = useMemo<AuthContextValue>(
@@ -246,7 +268,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ],
   );
 
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+  return (
+    <Ctx.Provider value={value}>
+      <Fragment key={identityEpoch}>{children}</Fragment>
+    </Ctx.Provider>
+  );
 }
 
 const fallbackAuth: AuthContextValue = {

@@ -78,7 +78,11 @@ export function clearSpeechForUser(user: string) {
   for (const [key, entry] of captures)
     if (entry.userId === user) {
       captures.delete(key);
-      entry.cancel();
+      try {
+        entry.cancel();
+      } catch {
+        // One device cleanup failure must not keep another capture or block identity loss.
+      }
     }
   changed();
 }

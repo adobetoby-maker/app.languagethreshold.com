@@ -14,6 +14,7 @@ await build({
     b.onLoad({filter:/.*/,namespace:"fixture"},()=>({contents:`
       export const controls={calls:[],errors:[],oauthError:null,throwOAuth:false};
       export const createContext=()=>({Provider:'auth-provider-fixture'});
+      export const Fragment='fixture-fragment';
       export const useContext=()=>null;
       export const useState=(value)=>[typeof value==='function'?value():value,()=>{}];
       export const useRef=(value)=>({current:value});

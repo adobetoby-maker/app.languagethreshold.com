@@ -1263,119 +1263,111 @@ export function AppGuide() {
     <>
       {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
-        {/* ── Optional personalization remains reachable after module selection ─── */}
-        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
-          <div className="flex items-start gap-4">
-            <span className="text-2xl shrink-0">✦</span>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">
-                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
+        {/* ── Lesson Planner ────────────────────────────────────────────── */}
+        {curriculum ? (
+          <Core30Section />
+        ) : (
+          /* ── Fallback: legacy daily flow for modules without Core 30 ── */
+          <section>
+            <div className="mb-4">
+              <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                App Guide
+              </h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Your daily flow, feature map, and module-specific tips.
               </p>
-              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                Reader works without setup. Choose or update your profession and level to tailor
-                Tutor, readings, and relevant practice. Current level: {state.level}.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
-                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
-                >
-                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-                <button
-                  onClick={() => go("modules")}
-                  className="min-h-11 rounded-lg px-3 py-2 text-xs text-muted-foreground hover:text-foreground"
-                >
-                  Browse specialty modules
-                </button>
-              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-              Complete toolkit
-            </p>
-            <h2 className="mt-1 font-display text-2xl text-foreground">
-              One system, not a pile of tabs
+            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              Daily Flow · ~20 min
             </h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Start with Reader, keep important words in My Vocab, then choose the kind of practice
-              that moves them toward real use.
-            </p>
-          </div>
-
-          {(["Understand", "Remember", "Use", "Grow", "Specialize"] as LearningStage[]).map(
-            (stage) => {
-              const tools = TOOL_CATALOG_LIST.filter((tool) => tool.stage === stage);
-              return (
-                <div key={stage}>
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                    {stage}
-                  </p>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {tools.map((tool) => {
-                      const available = isToolAvailable(tool, state.activeModuleId);
-                      return (
-                        <article
-                          key={tool.key}
-                          data-activity={tool.accent}
-                          className="tool-purpose flex min-h-[116px] flex-col rounded-xl border bg-card/45 p-3.5"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span
-                              className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full"
-                              aria-hidden
-                            />
-                            <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
-                          </div>
-                          <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
-                            {tool.purpose}
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => go(available ? tool.key : "modules")}
-                            className="mt-3 min-h-11 self-start rounded-lg px-3 py-2 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-ink"
-                          >
-                            {available ? "Open" : tool.gate?.description}
-                          </button>
-                        </article>
-                      );
-                    })}
+            <div className="relative space-y-0">
+              {flow.map((step, i) => (
+                <div key={i} className="relative flex gap-4">
+                  {i < flow.length - 1 && (
+                    <span className="absolute left-5 top-10 bottom-0 w-px bg-border/40" />
+                  )}
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border/50 bg-card/60 text-lg">
+                    {step.icon}
+                  </div>
+                  <div className="pb-5 pt-1.5">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-sm font-semibold">{step.title}</span>
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-gold/70">
+                        {step.time}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground/70">→ {step.tab}</span>
+                    </div>
+                    <p className="mt-0.5 text-[12px] text-muted-foreground leading-relaxed">
+                      {step.value}
+                    </p>
                   </div>
                 </div>
-              );
-            },
-          )}
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
-          <div className="flex items-start gap-4">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
-              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
+        {/* ── Module Tips ─────────────────────────────────────────────────── */}
+        {tip && (
+          <section>
+            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              {tip.headline}
+            </h2>
+            <div className="space-y-2 mb-5">
+              {tip.tips.map((t, i) => (
+                <div
+                  key={i}
+                  className="flex gap-3 rounded-xl border border-border/40 bg-card/40 px-4 py-3"
+                >
+                  <span className="text-gold/70 font-bold shrink-0">·</span>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t}</p>
+                </div>
+              ))}
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">App Walkthrough</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
-                {state.activeModuleId
-                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
-                  : " your learning goals"}
-                .
-              </p>
-              <button
-                onClick={() => setTourOpen(true)}
-                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
-              >
-                Start Tour <ArrowRight className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </section>
+
+            {tip.priority && (
+              <div className="mb-5">
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  Learn in this order
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {tip.priority.map((p, i) => (
+                    <span
+                      key={i}
+                      className={cn(
+                        "rounded-full border px-3 py-1 text-[11px] font-medium",
+                        i === 0
+                          ? "border-gold/60 bg-gold/10 text-gold"
+                          : "border-border/50 bg-card/40 text-muted-foreground",
+                      )}
+                    >
+                      {i + 1}. {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tip.cognates && (
+              <div>
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  High-value cognates
+                </p>
+                <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
+                  {tip.cognates.map((c) => (
+                    <div
+                      key={c.word}
+                      className="flex items-center justify-between rounded-lg border border-border/40 bg-card/40 px-3 py-2"
+                    >
+                      <span className="text-sm font-medium text-gold">{c.word}</span>
+                      <span className="text-[11px] text-muted-foreground">{c.meaning}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
 
         {/* ── How Core 30 works ──────────────────────────────────────────── */}
         {curriculum && (
@@ -1493,111 +1485,30 @@ export function AppGuide() {
           </details>
         </section>
 
-        {/* ── Lesson Planner ────────────────────────────────────────────── */}
-        {curriculum ? (
-          <Core30Section />
-        ) : (
-          /* ── Fallback: legacy daily flow for modules without Core 30 ── */
-          <section>
-            <div className="mb-4">
-              <h1 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                App Guide
-              </h1>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Your daily flow, feature map, and module-specific tips.
+        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
+        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
+          <div className="flex items-start gap-4">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
+              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">App Walkthrough</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
+                {state.activeModuleId
+                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
+                  : " your learning goals"}
+                .
               </p>
+              <button
+                onClick={() => setTourOpen(true)}
+                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
+              >
+                Start Tour <ArrowRight className="h-3 w-3" />
+              </button>
             </div>
-            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              Daily Flow · ~20 min
-            </h2>
-            <div className="relative space-y-0">
-              {flow.map((step, i) => (
-                <div key={i} className="relative flex gap-4">
-                  {i < flow.length - 1 && (
-                    <span className="absolute left-5 top-10 bottom-0 w-px bg-border/40" />
-                  )}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border/50 bg-card/60 text-lg">
-                    {step.icon}
-                  </div>
-                  <div className="pb-5 pt-1.5">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-sm font-semibold">{step.title}</span>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-gold/70">
-                        {step.time}
-                      </span>
-                      <span className="text-[10px] text-muted-foreground/70">→ {step.tab}</span>
-                    </div>
-                    <p className="mt-0.5 text-[12px] text-muted-foreground leading-relaxed">
-                      {step.value}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* ── Module Tips ─────────────────────────────────────────────────── */}
-        {tip && (
-          <section>
-            <h2 className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              {tip.headline}
-            </h2>
-            <div className="space-y-2 mb-5">
-              {tip.tips.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex gap-3 rounded-xl border border-border/40 bg-card/40 px-4 py-3"
-                >
-                  <span className="text-gold/70 font-bold shrink-0">·</span>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t}</p>
-                </div>
-              ))}
-            </div>
-
-            {tip.priority && (
-              <div className="mb-5">
-                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  Learn in this order
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {tip.priority.map((p, i) => (
-                    <span
-                      key={i}
-                      className={cn(
-                        "rounded-full border px-3 py-1 text-[11px] font-medium",
-                        i === 0
-                          ? "border-gold/60 bg-gold/10 text-gold"
-                          : "border-border/50 bg-card/40 text-muted-foreground",
-                      )}
-                    >
-                      {i + 1}. {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {tip.cognates && (
-              <div>
-                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  High-value cognates
-                </p>
-                <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
-                  {tip.cognates.map((c) => (
-                    <div
-                      key={c.word}
-                      className="flex items-center justify-between rounded-lg border border-border/40 bg-card/40 px-3 py-2"
-                    >
-                      <span className="text-sm font-medium text-gold">{c.word}</span>
-                      <span className="text-[11px] text-muted-foreground">{c.meaning}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* ── Feature Map (collapsible) ────────────────────────────────────── */}
         <section>
@@ -1633,6 +1544,31 @@ export function AppGuide() {
               ))}
             </div>
           )}
+        </section>
+
+        {/* ── Optional personalization remains reachable after module selection ─── */}
+        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <span className="text-2xl shrink-0">✦</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">
+                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                Reader works without setup. Choose or update your profession and level to tailor
+                Tutor, readings, and relevant practice. Current level: {state.level}.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
+                >
+                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* ── Change Module CTA ─────────────────────────────────────────────── */}
@@ -1689,6 +1625,7 @@ function consumeCore30Philosophy(): boolean {
  *  reopens the lesson a learner left for the Speak tab or the Reader, and honors a request to
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null);
   const { state } = useApp();
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
@@ -1754,12 +1691,20 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const allDone = completedCount >= totalLessons;
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
+  // Scroll to the top of Core 30 itself, not the page: on the App Guide page other
+  // panels sit above it, so scrolling the window to 0 left the lesson off-screen.
+  function scrollToCore30() {
+    const el = sectionRef.current;
+    const top = el ? el.getBoundingClientRect().top + window.scrollY - stickyTopOffset() : 0;
+    window.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior() });
+  }
+
   function openLessonFromPlan(n: number) {
     setReviewOpen(false);
     setHowOpen(false);
     setInitialWay(undefined);
     setOpenLessonN(n);
-    window.scrollTo({ top: 0, behavior: scrollBehavior() });
+    scrollToCore30();
   }
 
   function handleComplete() {
@@ -1770,7 +1715,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }
 
   return (
-    <section>
+    <section ref={sectionRef}>
       {/* Curriculum header (an open lesson takes the whole page) */}
       {!runnerActive && (
         <div className="mb-4">
@@ -1786,7 +1731,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 setReviewOpen(false);
                 setOpenLessonN(null);
                 setHowOpen(true);
-                window.scrollTo({ top: 0, behavior: scrollBehavior() });
+                scrollToCore30();
               }}
               className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
             >

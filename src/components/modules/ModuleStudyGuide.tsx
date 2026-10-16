@@ -184,7 +184,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
               {lessonIds.length ? "Open Reader" : "Generate a field story"}
             </Pill>
             <Pill onClick={() => go("flashcards")}>Study {module.name} cards</Pill>
-            <Pill onClick={() => go("guide")}>Open lesson plan</Pill>
+            <Pill onClick={() => go("core30")}>Open lesson plan</Pill>
           </ActionRow>
         </Card>
 

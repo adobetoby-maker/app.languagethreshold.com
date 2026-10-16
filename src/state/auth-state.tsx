@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Stale/invalid refresh token from a previous session — clear it silently.
         if (err?.code === "refresh_token_not_found" || err?.status === 400) {
           try {
-            await supabase.auth.signOut();
+            await supabase.auth.signOut({ scope: "local" });
           } catch {
             /* noop */
           }
@@ -157,7 +157,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error?.message ?? null };
   }, []);
 
-  const signOut = useCallback(async (scope?: "global" | "local" | "others") => {
+  const signOut = useCallback(async (scope: "global" | "local" | "others" = "local") => {
     const userId = currentUser.current;
     if (signingOutFor.current) return false;
     // Freeze account-bound writes before inspection/confirmation; late Reader requests cannot
@@ -171,7 +171,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         storage,
         examPending: !!userId && hasUnsyncedExamDrafts(storage, userId),
         confirmDiscard: (message) => typeof window !== "undefined" && window.confirm(message),
-        signOut: () => supabase.auth.signOut(scope ? { scope } : undefined),
+        signOut: () => supabase.auth.signOut({ scope }),
         onExamDiscardApproved: () => {
           discardApprovedFor.current = userId;
         },

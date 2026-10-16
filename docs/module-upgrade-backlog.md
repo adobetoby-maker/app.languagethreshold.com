@@ -17,7 +17,7 @@ Content owner role: curriculum lead. Required sign-offs: fluent-language reviewe
 | 2: Trades | Plumber (`plumber`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 2: Trades | Drywall Finisher (`drywall`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 2: Trades | Electrician (`electrician`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
-| 2: Trades | Landscaper (`landscaper`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
+| 2: Trades | Landscaper (`landscaper`) | 30 | Central reviewed lesson words; Level/activities/passages review (phone trial: Lesson1 Morning Crew Meeting currently reads an irrigation passage); Three exams; Real personal/team pilot | Gaps identified |
 | 3: Transport and agriculture | Auto Mechanic (`auto-mechanic`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 3: Transport and agriculture | Truck Driver (`truck-driver`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 3: Transport and agriculture | Dairy Farmer (`dairy-farmer`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |

@@ -151,6 +151,28 @@ assert.equal(english.body.tracks.length, 59);
 assert.ok(english.body.tracks.some((row) => row.moduleId === "fmg"));
 assert.ok(english.body.tracks.some((row) => row.moduleId === "or-evs"));
 assert.ok(readiness.body.tracks.every((row) => row.status !== "verified"));
+const roofingSource = readiness.body.tracks.find((row) => row.moduleId === "roofing");
+assert.equal(roofingSource.authoredLessonLists, 30);
+assert.equal(roofingSource.contextualPassages, 30);
+assert.equal(roofingSource.sourceCoverage.lessonsWithTeachingSettings, 30);
+assert.equal(roofingSource.sourceCoverage.structurallyComplete, true);
+const landscaperSource = readiness.body.tracks.find((row) => row.moduleId === "landscaper");
+assert.equal(landscaperSource.authoredLessonLists, 1);
+assert.equal(landscaperSource.contextualPassages, 1);
+assert.equal(landscaperSource.sourceCoverage.lessonsWithTeachingSettings, 0);
+assert.deepEqual(
+  landscaperSource.sourceCoverage.missingWordLists,
+  Array.from({ length: 29 }, (_, index) => index + 2),
+);
+assert.equal(landscaperSource.sourceCoverage.structurallyComplete, false);
+const shortSource = readiness.body.tracks.find((row) => row.moduleId === "travel-breakfast");
+assert.deepEqual(
+  shortSource.sourceCoverage.missingLessonNumbers,
+  Array.from({ length: 15 }, (_, index) => index + 16),
+);
+const reverseRoofing = english.body.tracks.find((row) => row.moduleId === "roofing");
+assert.equal(reverseRoofing.sourceCoverage.lessonsWithWords, 0);
+assert.equal(reverseRoofing.sourceCoverage.lessonsWithPassages, 0);
 assert.equal((await request(admin, "/api/exam-content")).status, 403);
 assert.equal((await request(personal, "/api/exam-content")).status, 403);
 for (const actor of [null, personal, learner, admin]) {
@@ -218,6 +240,7 @@ const report = {
     productionUncalibratedAiDenied: true,
     unreviewedSupportExcluded: true,
     compatibleReadinessTracksHonest: true,
+    actualLessonSourceCoverageAndGaps: true,
     privateContentDeniedToUnassignedAccounts: true,
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     lessonSnapshotBindingDeniedToNonOwners: true,

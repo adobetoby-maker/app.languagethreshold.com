@@ -1,3 +1,4 @@
+import { lessonNumberRanges } from "@/lib/lesson-number-ranges";
 import type { LessonSourceCoverage } from "@/lib/lesson-source-coverage";
 import { ExamSpeechQuestion } from "./ExamSpeechQuestion";
 import { SpeechEvidencePlayback } from "./SpeechEvidencePlayback";
@@ -2053,7 +2054,10 @@ type ReadinessTrack = {
 function ReadinessPanel({ target, native }: { target: Language; native: NativeLanguage }) {
   const [tracks, setTracks] = useState<ReadinessTrack[]>([]),
     [error, setError] = useState(""),
-    [expanded, setExpanded] = useState(false);
+    [expanded, setExpanded] = useState(false),
+    [selectedModule, setSelectedModule] = useState("");
+  const selectedTrack = tracks.find((track) => track.moduleId === selectedModule);
+  const shownTracks = selectedTrack ? [selectedTrack] : tracks;
   useEffect(() => {
     if (!expanded) return;
     let active = true;
@@ -2090,15 +2094,26 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
         practice sources may be available; they do not establish reviewed readiness.
       </p>
       {error && <p role="alert">{error}</p>}
-      <div className="max-h-96 space-y-3 overflow-y-auto">
-        {tracks.map((track) => (
+      <label className="mb-4 block text-sm">
+        Module to inspect
+        <select
+          value={selectedTrack?.moduleId ?? ""}
+          onChange={(event) => setSelectedModule(event.target.value)}
+          className="mt-1 min-h-11 w-full rounded-lg border border-border bg-background px-3"
+        >
+          <option value="">All modules</option>
+          {tracks.map((track) => <option key={track.moduleId} value={track.moduleId}>{track.name}</option>)}
+        </select>
+      </label>
+      <div className={selectedTrack ? "space-y-3" : "max-h-96 space-y-3 overflow-y-auto"}>
+        {shownTracks.map((track) => (
           <article className="rounded-xl border border-border p-3 text-sm" key={track.moduleId}>
             <h3 className="font-semibold">
               {track.name} · {track.status.replaceAll("_", " ")}
             </h3>
             <p className="mt-1">
-              {track.lessonCount}/30 lessons · {track.authoredLessonLists} word lists in lesson definitions ·{" "}
-              {track.contextualPassages} lesson passages · {track.sourceCoverage.lessonsWithTeachingSettings} toolkit settings
+              {track.lessonCount}/30 lessons · Word lists: {track.authoredLessonLists} ·{" "}
+              Passages: {track.contextualPassages} · Toolkit settings: {track.sourceCoverage.lessonsWithTeachingSettings}
             </p>
             <p>
               Entrance: {track.exams.entrance} · Day 45: {track.exams.day45} · Day 90:{" "}
@@ -2117,7 +2132,7 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
                   ["No lesson toolkit settings", track.sourceCoverage.missingTeachingSettings],
                   ["No explicit recall step in the written plan", track.sourceCoverage.lessonsWithoutExplicitRecallStep],
                 ] as const).map(([label, numbers]) => (
-                  <div key={label}><dt className="font-semibold">{label}</dt><dd className="break-words">{numbers.length ? `Lessons ${numbers.join(", ")}` : "None"}</dd></div>
+                  <div key={label}><dt className="font-semibold">{label}</dt><dd className="break-words">{numbers.length ? `Lessons ${lessonNumberRanges(numbers)}` : "None"}</dd></div>
                 ))}
               </dl>
               <p className="mt-3 text-xs text-muted-foreground">An absent written recall step does not mean a matching game is unavailable: the embedded toolkit may provide it. Check the actual lesson before reporting a missing game.</p>

@@ -1,5 +1,5 @@
 import { build } from "esbuild";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -21,8 +21,10 @@ const outRoot = path.join(repoRoot, "node_modules", ".cache", "lle-tests");
  */
 export async function loadModule(entry, { stubs = [] } = {}) {
   mkdirSync(outRoot, { recursive: true });
-
-  const stubPath = path.join(outRoot, "stub.js");
+  // Test files run in parallel and can bundle the same source with different stubs.
+  // A shared output can be truncated/replaced between build completion and import.
+  const invocationRoot = mkdtempSync(path.join(outRoot, "bundle-"));
+  const stubPath = path.join(invocationRoot, "stub.js");
   writeFileSync(
     stubPath,
     [
@@ -37,28 +39,31 @@ export async function loadModule(entry, { stubs = [] } = {}) {
     ].join("\n"),
   );
 
-  const outfile = path.join(outRoot, `${path.basename(entry).replace(/\W/g, "_")}.mjs`);
+  const outfile = path.join(invocationRoot, `${path.basename(entry).replace(/\W/g, "_")}.mjs`);
 
-  await build({
-    entryPoints: [path.join(repoRoot, entry)],
-    outfile,
-    bundle: true,
-    format: "esm",
-    platform: "node",
-    target: "node22",
-    logLevel: "silent",
-    external: ["react", "react-dom", "zod"],
-    plugins: [
-      {
-        name: "stub-unrelated-imports",
-        setup(pluginBuild) {
-          pluginBuild.onResolve({ filter: /.*/ }, (args) =>
-            stubs.some((pattern) => pattern.test(args.path)) ? { path: stubPath } : null,
-          );
+  try {
+    await build({
+      entryPoints: [path.join(repoRoot, entry)],
+      outfile,
+      bundle: true,
+      format: "esm",
+      platform: "node",
+      target: "node22",
+      logLevel: "silent",
+      external: ["react", "react-dom", "zod"],
+      plugins: [
+        {
+          name: "stub-unrelated-imports",
+          setup(pluginBuild) {
+            pluginBuild.onResolve({ filter: /.*/ }, (args) =>
+              stubs.some((pattern) => pattern.test(args.path)) ? { path: stubPath } : null,
+            );
+          },
         },
-      },
-    ],
-  });
-
-  return import(`${outfile}?t=${Date.now()}`);
+      ],
+    });
+    return await import(outfile);
+  } finally {
+    rmSync(invocationRoot, { recursive: true, force: true });
+  }
 }

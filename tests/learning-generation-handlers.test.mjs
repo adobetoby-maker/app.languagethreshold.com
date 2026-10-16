@@ -61,6 +61,18 @@ for (const [name, exportName, data, resultKey] of [
     { country: "Spain", targetLanguage: "Spanish", nativeLanguage: "English" },
     "data",
   ],
+  [
+    "handwriting-read",
+    "readHandwriting",
+    { imageBase64: "A".repeat(100), language: "Spanish" },
+    "text",
+  ],
+  [
+    "handwriting-recognize",
+    "recognizeHandwriting",
+    { imageBase64: "A".repeat(100), language: "Japanese" },
+    "result",
+  ],
 ]) {
   test(`${name}: actual handler rejects exceeded/storage/cross-origin requests before the model and emits retry headers`, async () => {
     const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"],

@@ -10,7 +10,11 @@ assert.match(
 const assets = "dist/server/assets";
 const built = readdirSync(assets)
   .filter(
-    (name) => name.endsWith(".js") && /^(lesson-words|module-deck|library\.functions)/.test(name),
+    (name) =>
+      name.endsWith(".js") &&
+      /^(lesson-words|module-deck|library\.functions|handwriting-read|handwriting-recognize)/.test(
+        name,
+      ),
   )
   .map((name) => readFileSync(`${assets}/${name}`, "utf8"))
   .join("\n");
@@ -25,6 +29,8 @@ for (const [name, data] of [
     "generateCultureEssay",
     { country: "Spain", targetLanguage: "Spanish", nativeLanguage: "English" },
   ],
+  ["readHandwriting", { imageBase64: "A".repeat(100), language: "Spanish" }],
+  ["recognizeHandwriting", { imageBase64: "A".repeat(100), language: "Japanese" }],
 ]) {
   const id = built.match(new RegExp(`id: "([a-f0-9]{64})",\\s*name: "${name}"`))?.[1];
   assert.ok(id, `Current built identifier for ${name}`);
@@ -74,7 +80,7 @@ const result = {
   sourceCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
   preview: base,
   scope:
-    "Actual hosted framework CSRF and application conflicting-origin denial for three builders (six HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
+    "Actual hosted framework CSRF and application conflicting-origin denial for three content builders and two handwriting checks (ten HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
   checks,
 };
 writeFileSync(

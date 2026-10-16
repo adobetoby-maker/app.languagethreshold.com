@@ -1654,7 +1654,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const moduleId = state.activeModuleId ?? "";
   const [activeAssessmentPlan] = useState(() => {
     if (typeof window === "undefined") return undefined;
-    const value = new URLSearchParams(window.location.search).get("plan");
+    const params = new URLSearchParams(window.location.search);
+    if (
+      params.get("module") !== moduleId ||
+      params.get("target") !== state.selectedLanguage ||
+      params.get("native") !== state.nativeLanguage
+    )
+      return undefined;
+    const value = params.get("plan");
     return value && /^[0-9a-f-]{36}$/i.test(value) ? value : undefined;
   });
   const [approvedPlanTiming, setApprovedPlanTiming] = useState<AssessedPlanTiming | null>(

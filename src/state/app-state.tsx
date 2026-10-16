@@ -1009,31 +1009,27 @@ const AppContext = createContext<{
 export function AppProvider({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   const actor = user?.id ?? null;
+  if (loading)
+    return (
+      <div
+        className="flex min-h-screen items-center justify-center bg-background p-6 text-foreground"
+        role="status"
+      >
+        Loading your learning space…
+      </div>
+    );
   return (
-    <AccountAppProvider
-      key={loading ? "auth-pending" : (actor ?? "guest")}
-      actor={actor}
-      ready={!loading}
-    >
+    <AccountAppProvider key={actor ?? "guest"} actor={actor}>
       {children}
     </AccountAppProvider>
   );
 }
 
-function AccountAppProvider({
-  children,
-  actor,
-  ready,
-}: {
-  children: ReactNode;
-  actor: string | null;
-  ready: boolean;
-}) {
+function AccountAppProvider({ children, actor }: { children: ReactNode; actor: string | null }) {
   const { isCurrentUser } = useAuth();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    if (!ready) return;
     const stored = readProfileSnapshot<object>(window.localStorage, actor);
     const parsed = stored ? migrate(stored) : null;
     if (!parsed && hasUnassignedProfileSnapshot(window.localStorage))
@@ -1058,7 +1054,7 @@ function AccountAppProvider({
     } else {
       dispatch({ type: "HYDRATE", payload: { darkMode: readDarkModePreference() } });
     }
-  }, [actor, ready]);
+  }, [actor]);
 
   useEffect(() => {
     const sync = (event: StorageEvent) => {
@@ -1077,7 +1073,7 @@ function AccountAppProvider({
   }, [state.hydrated]);
 
   useEffect(() => {
-    if (!state.hydrated || !ready) return;
+    if (!state.hydrated) return;
     try {
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
       for (const k of PERSIST_KEYS) {
@@ -1087,7 +1083,7 @@ function AccountAppProvider({
     } catch {
       /* ignore quota */
     }
-  }, [state, actor, ready]);
+  }, [state, actor]);
 
   useEffect(() => {
     if (state.hydrated) saveDarkModePreference(state.darkMode);
@@ -1139,7 +1135,7 @@ function AccountAppProvider({
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (!ready || !actor) return;
+    if (!actor) return;
     const profileSync = createDeferredAuthSync({
       reset() {
         setUserId(null);
@@ -1179,7 +1175,7 @@ function AccountAppProvider({
       sub.subscription.unsubscribe();
       window.removeEventListener("online", retry);
     };
-  }, [actor, ready, isCurrentUser]);
+  }, [actor, isCurrentUser]);
 
   useEffect(() => {
     if (!state.hydrated || !userId || userId !== actor || !isCurrentUser(userId)) return;

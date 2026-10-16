@@ -83,3 +83,11 @@ An isolated local PostgreSQL 16.14 database, `lt_exams_qa_20261015_codex`, was c
 Added `lesson-definition.ts` and explicit Roofing teaching settings. All thirty Roofing objectives have stable IDs, earlier-lesson prerequisite links, source content/effort, a language-track identity, version reference and six-mode contract. Settings progress from supported words/phrases to connected responses and independent scenarios, with lesson-specific response contexts. Translation and replay suggestions are supports, not accessibility locks or proficiency ratings. Another language track cannot silently inherit Spanish content. Three relevant definition tests and TypeScript pass.
 
 These definitions intentionally remain draft. Runtime wiring, contextual listening/response activity implementation, asset manifests and curriculum/release review remain required; metadata alone does not complete those requirements.
+
+## Repeatable catalog audit and full rollout backlog
+
+Added a read-only audit CLI covering every module and every distinct compatible instruction/target language pair, normalizing the Chinese source alias. Current baseline: 59 modules, 1,510 lessons, 7,076 advertised compatible pairs, 17 modules below thirty lessons, and 1,059 lessons without an explicit recall-game step. Embedded matching may still exist in the shared kit; this last count is a curriculum mapping gap, not an unavailable-game count. Generated lists and authored lists are counted separately, and neither implies reviewer approval. Vocabulary counts check the 8–12 term/4–6 phrase baseline separately from mere presence.
+
+The complete local matrix is `/Users/drive/git-backups/language-threshold-readiness-2026-10-15.json` (approximately 4.6 MB; reproducible, not committed). `docs/module-upgrade-backlog.md` covers all 59 catalog IDs exactly once in proposed batches and records reviewer/owner dependencies. It does not invent dates or claim that all compatible pairs have been released.
+
+The isolated Codex branch now passes all 230 unit tests; TypeScript passes and lint has zero errors (existing app-state Fast Refresh warnings). Claude's final worker is still active; its initial full click run was explicitly invalidated because workers changed files and shared login state, so only its later clean run may support release acceptance.

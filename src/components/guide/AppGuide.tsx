@@ -42,7 +42,6 @@ import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
-import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
 import { Core30Review } from "@/components/core30/Core30Review";
@@ -1433,7 +1432,7 @@ export function AppGuide() {
                 onClick={() => go("modules")}
                 className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
               >
-                Browse modules <Activity className="h-3 w-3" />
+                Change module <Activity className="h-3 w-3" />
               </button>
             </div>
           </div>
@@ -1459,73 +1458,9 @@ export function AppGuide() {
                   {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </button>
-                <button
-                  onClick={() => go("modules")}
-                  className="min-h-11 rounded-lg px-3 py-2 text-xs text-muted-foreground hover:text-foreground"
-                >
-                  Browse specialty modules
-                </button>
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="space-y-4">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-              Complete toolkit
-            </p>
-            <h2 className="mt-1 font-display text-2xl text-foreground">
-              One system, not a pile of tabs
-            </h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Start with Reader, keep important words in My Vocab, then choose the kind of practice
-              that moves them toward real use.
-            </p>
-          </div>
-
-          {(["Understand", "Remember", "Use", "Grow", "Specialize"] as LearningStage[]).map(
-            (stage) => {
-              const tools = TOOL_CATALOG_LIST.filter((tool) => tool.stage === stage);
-              return (
-                <div key={stage}>
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                    {stage}
-                  </p>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {tools.map((tool) => {
-                      const available = isToolAvailable(tool, state.activeModuleId);
-                      return (
-                        <article
-                          key={tool.key}
-                          data-activity={tool.accent}
-                          className="tool-purpose flex min-h-[116px] flex-col rounded-xl border bg-card/45 p-3.5"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span
-                              className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full"
-                              aria-hidden
-                            />
-                            <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
-                          </div>
-                          <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
-                            {tool.purpose}
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => go(available ? tool.key : "modules")}
-                            className="mt-3 min-h-11 self-start rounded-lg px-3 py-2 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-ink"
-                          >
-                            {available ? "Open" : tool.gate?.description}
-                          </button>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            },
-          )}
         </section>
 
         {/* ── App Tour Banner ─────────────────────────────────────────────── */}

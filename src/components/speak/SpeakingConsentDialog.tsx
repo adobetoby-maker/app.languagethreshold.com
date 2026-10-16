@@ -11,6 +11,7 @@ type SpeakingAudioSource = "device" | "google" | "text";
 interface SpeakingConsentDialogProps {
   open: boolean;
   saving: boolean;
+  error?: string | null;
   language: string;
   audioSource: SpeakingAudioSource;
   onOpenChange: (open: boolean) => void;
@@ -20,6 +21,7 @@ interface SpeakingConsentDialogProps {
 export function SpeakingConsentDialog({
   open,
   saving,
+  error,
   language,
   audioSource,
   onOpenChange,
@@ -65,6 +67,11 @@ export function SpeakingConsentDialog({
           </p>
         </div>
 
+        {error && (
+          <p role="alert" className="text-sm text-destructive">
+            {error}
+          </p>
+        )}
         <div className="grid gap-3 pt-1">
           <button
             type="button"

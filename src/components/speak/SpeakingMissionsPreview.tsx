@@ -1136,6 +1136,7 @@ export function SpeakingMissionsPreview() {
         <SpeakingConsentDialog
           open={consentOpen}
           saving={ageSaving}
+          error={errorMessage}
           language={selectedMission.language}
           audioSource={partnerAudioSource}
           onOpenChange={setConsentOpen}
@@ -1514,6 +1515,7 @@ export function SpeakingMissionsPreview() {
         <SpeakingConsentDialog
           open={consentOpen}
           saving={ageSaving}
+          error={errorMessage}
           language={selectedMission.language}
           audioSource={partnerAudioSource}
           onOpenChange={setConsentOpen}

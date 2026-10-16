@@ -1294,7 +1294,9 @@ export function AppGuide() {
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
-          <Core30Section />
+          <Core30Section
+            key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          />
         ) : (
           /* ── Fallback: legacy daily flow for modules without Core 30 ── */
           <section>
@@ -1654,7 +1656,7 @@ function consumeCore30Philosophy(): boolean {
  *  reopens the lesson a learner left for the Speak tab or the Reader, and honors a request to
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
   const [activeAssessmentPlan] = useState(() => {
@@ -1768,10 +1770,24 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const allDone = completedCount >= totalLessons;
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
-  function openLessonFromPlan(n: number) {
+  function openLessonFromPlan(n: number, way: SectionId = "see") {
+    if (!restoreView) {
+      // All entry points use the standalone runner, which owns refreshable
+      // lesson/way links. Set the location before mounting that runner so it
+      // reads the requested position rather than falling back to the overview.
+      const next = lessonLocation(
+        window.location.href,
+        { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+        { lesson: n, way },
+      );
+      if (next) window.history.replaceState(window.history.state, "", next);
+      dispatch({ type: "SET_TAB", payload: "core30" });
+      scrollLessonPageToTop();
+      return;
+    }
     setReviewOpen(false);
     setHowOpen(false);
-    setInitialWay(undefined);
+    setInitialWay(way);
     setOpenLessonN(n);
     scrollLessonPageToTop();
   }
@@ -1830,19 +1846,6 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Continue when you’re ready, or follow the dates in your plan.
               </p>
             </div>
-          )}
-
-          {!reviewOpen && (
-            <Suspense fallback={null}>
-              <DailyLessonPlan
-                moduleId={moduleId}
-                target={state.selectedLanguage}
-                native={state.nativeLanguage}
-                lessonNumber={openLesson?.n}
-                activePlanId={activeAssessmentPlan}
-                onPlanTiming={setApprovedPlanTiming}
-              />
-            </Suspense>
           )}
 
           {/* Review session */}
@@ -1932,11 +1935,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             <button
               type="button"
               className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
-              onClick={() => {
-                setInitialWay(savedPosition.way);
-                setOpenLessonN(savedPosition.lesson);
-                setHowOpen(false);
-              }}
+              onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
             >
               {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"} Lesson{" "}
               {savedPosition.lesson} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
@@ -2013,6 +2012,19 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 </ul>
               )}
             </div>
+          )}
+
+          {!reviewOpen && (
+            <Suspense fallback={null}>
+              <DailyLessonPlan
+                moduleId={moduleId}
+                target={state.selectedLanguage}
+                native={state.nativeLanguage}
+                lessonNumber={openLesson?.n}
+                activePlanId={activeAssessmentPlan}
+                onPlanTiming={setApprovedPlanTiming}
+              />
+            </Suspense>
           )}
 
           {/* Planning and progress follow the lesson actions on every screen size. */}

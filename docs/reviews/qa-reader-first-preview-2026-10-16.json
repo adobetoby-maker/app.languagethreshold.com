@@ -1,0 +1,71 @@
+{
+  "sourceCommit": "4423632",
+  "preview": {
+    "url": "https://language-threshold-atjj6c37g-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_CQLr4TB1RTRrPvagqmPJfwFrUAVu",
+    "target": null,
+    "readyState": "READY"
+  },
+  "scope": "Actual guest Reader browser flow on local development and hosted Preview; public Roofing Spanish/English readings. Browser phone emulation, not physical iPhone/Safari.",
+  "baseline": {
+    "sourceCommit": "2fa1134",
+    "phoneWidth": 390,
+    "phoneHeight": 844,
+    "expandedGuideHeightPx": 1629.25,
+    "firstTargetParagraphTopPx": 2320.35
+  },
+  "local": {
+    "phoneWidth": 390,
+    "phoneScrollWidth": 390,
+    "firstTargetParagraphTopPx": 541.5,
+    "guideClosedInitially": true,
+    "nextReadingTwo": true,
+    "refreshPreservesReadingTwo": true,
+    "previousReturnsReadingOne": true,
+    "guideChoiceSelectsReadingThree": true,
+    "guideChoiceClosesDisclosure": true,
+    "guideChoiceFocusesSelectedReading": true,
+    "desktopSelectedReadingTopAfterGuideChoicePx": 163.5,
+    "desktopFirstTargetParagraphTopAfterGuideChoicePx": 244.5
+  },
+  "hosted": {
+    "phoneWidth": 390,
+    "phoneHeight": 844,
+    "phoneScrollWidth": 390,
+    "firstTargetParagraphTopPx": 559.12,
+    "firstTargetParagraph": "Teja asf\u00e1ltica",
+    "guideClosedInitially": true,
+    "nextReadingTwo": true,
+    "refreshPreservesReadingTwo": true,
+    "previousReading": true,
+    "guideChoiceSelectsReadingThree": true,
+    "guideChoiceClosesDisclosure": true,
+    "guideChoiceFocusesSelectedReading": true,
+    "wordCardLoadsForAsfaltica": true,
+    "wordCardContext": "Teja asf\u00e1ltica",
+    "savedWordOrMasteryOrExamSubmitted": false,
+    "normalGuestLookupXpObserved": 2
+  },
+  "verification": {
+    "tests": 583,
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "artifactMiB": 19.43,
+    "focusedHttpChecks": 9,
+    "backendApiGroupsLastVerifiedAtCommit": "2fa1134",
+    "backendApiGroups": 15
+  },
+  "captures": [
+    "/Users/drive/git-backups/language-threshold-reader-before-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-reader-after-phone-local-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-reader-first-phone-preview-2026-10-16.png"
+  ],
+  "limits": [
+    "No physical phone/Safari/audio playback acceptance",
+    "No new human curriculum review or official result",
+    "Dev client briefly retained an old module; hard refresh loaded the current component before final callback verification",
+    "Initial language choice and welcome Start reading were completed before evaluating the Reader layout",
+    "Automatic culture-series generation indicator remains visible on fresh Reader entry; cost/offline behavior remains to audit"
+  ]
+}

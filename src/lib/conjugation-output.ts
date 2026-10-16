@@ -25,3 +25,21 @@ export const ConjugationOutput = z
       context.addIssue({ code: "custom", message: "Four distinct verb forms are required." });
     }
   });
+
+const ReviewOutput = z.object({
+  acceptableAnswers: z.array(answer).max(4),
+  unambiguous: z.literal(true),
+  explanationAccurate: z.literal(true),
+  axisAccurate: z.literal(true),
+  levelAppropriate: z.literal(true),
+});
+
+/** An AI consistency gate, not a human content approval or proficiency grade. */
+export function conjugationReviewAccepts(review: unknown, correctAnswer: string): boolean {
+  const parsed = ReviewOutput.safeParse(review);
+  return (
+    parsed.success &&
+    parsed.data.acceptableAnswers.length === 1 &&
+    normalized(parsed.data.acceptableAnswers[0]) === normalized(correctAnswer)
+  );
+}

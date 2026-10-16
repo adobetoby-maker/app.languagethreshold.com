@@ -44,7 +44,11 @@ export function AuthButton() {
 
   return (
     <>
-      <DropdownMenu>
+      {/* The phone account menu is nested in the modal More sheet. A second
+          modal menu captures the sheet's body pointer lock as its restore value;
+          identity changes can unmount both layers in the same commit. Let the
+          sheet own modality so menu teardown cannot restore a stale body lock. */}
+      <DropdownMenu modal={false}>
         <DropdownMenuTrigger
           title={user.email ?? "Account"}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-display text-sm font-semibold text-gold hover:bg-gold/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"

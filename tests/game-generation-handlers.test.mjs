@@ -36,7 +36,7 @@ async function loadHandler(name, exportName) {
           b.onLoad({ filter: /.*/, namespace: "fixture" }, ({ path }) => ({
             contents:
               path === "network"
-                ? `export default class Network { static calls = 0; static next; messages = { create: async () => { Network.calls++; return { content: [{type:'tool_use', input: structuredClone(Network.next)}] }; } }; }`
+                ? `export default class Network { static calls = 0; static next; static review; static requests = []; messages = { create: async (request) => { Network.calls++; Network.requests.push(request); const name = request.tool_choice.name; return { content: [{type:'tool_use', name, input: structuredClone(name === 'review_conjugation_question' ? Network.review : Network.next)}] }; } }; }`
                 : `export const createServerFn = () => ({ inputValidator: (validate) => ({ handler: (fn) => ({data}) => fn({data: validate(data)}) }) });`,
           }));
         },
@@ -74,10 +74,18 @@ for (const [name, exportName, fixture] of [
     try {
       const { handler, Network } = await loadHandler(name, exportName);
       Network.next = fixture;
+      Network.review = {
+        acceptableAnswers: ["hablo"],
+        unambiguous: true,
+        explanationAccurate: true,
+        axisAccurate: true,
+        levelAppropriate: true,
+      };
+      const callsPerItem = name === "conjugation" ? 2 : 1;
       const publicInput = { language: "Spanish", level: 1, topic: "Roofing", axis: "person" };
       assert.equal((await handler({ data: publicInput })).cached, false);
       assert.equal((await handler({ data: publicInput })).cached, true);
-      assert.equal(Network.calls, 1);
+      assert.equal(Network.calls, callsPerItem);
       const personal = { ...publicInput, userWords: ["QA-private-A"] };
       assert.equal((await handler({ data: personal })).cached, false);
       assert.equal((await handler({ data: personal })).cached, false);
@@ -85,7 +93,7 @@ for (const [name, exportName, fixture] of [
         (await handler({ data: { ...personal, userWords: ["QA-private-B"] } })).cached,
         false,
       );
-      assert.equal(Network.calls, 4);
+      assert.equal(Network.calls, 4 * callsPerItem);
       assert.equal(
         (await handler({ data: { ...publicInput, topic: "Landscaping" } })).cached,
         false,
@@ -94,7 +102,7 @@ for (const [name, exportName, fixture] of [
       assert.equal((await handler({ data: { ...personal, topic: "Plumbing" } })).cached, false);
       assert.equal((await handler({ data: { ...publicInput, topic: "Plumbing" } })).cached, false);
       assert.equal((await handler({ data: publicInput })).cached, true);
-      assert.equal(Network.calls, 7);
+      assert.equal(Network.calls, 7 * callsPerItem);
       if (name === "conjugation") {
         Network.next = { ...fixture, wrongOptions: ["hablo", "hablas", "hablan"] };
         const invalid = await handler({ data: { ...publicInput, topic: "Invalid fixture" } });
@@ -105,7 +113,39 @@ for (const [name, exportName, fixture] of [
           (await handler({ data: { ...publicInput, topic: "Invalid fixture" } })).cached,
           false,
         );
-        assert.equal(Network.calls, 9);
+        assert.equal(Network.calls, 17);
+        const acceptedReview = Network.review;
+        for (const patch of [
+          { acceptableAnswers: [] },
+          { acceptableAnswers: ["hablas"] },
+          { acceptableAnswers: ["hablo", "hablas"] },
+          { explanationAccurate: false },
+          { unambiguous: false },
+          { axisAccurate: false },
+          { levelAppropriate: false },
+        ]) {
+          Network.review = { ...acceptedReview, ...patch };
+          const rejected = await handler({
+            data: { ...publicInput, topic: "Semantic review fixture" },
+          });
+          assert.equal(rejected.data, null);
+          assert.match(rejected.error, /AI consistency check/);
+        }
+        Network.review = acceptedReview;
+        const accepted = await handler({
+          data: { ...publicInput, topic: "Semantic review fixture" },
+        });
+        assert.equal(accepted.cached, false);
+        assert.equal(
+          (await handler({ data: { ...publicInput, topic: "Semantic review fixture" } })).cached,
+          true,
+        );
+        const reviewRequest = Network.requests.find(
+          (r) => r.tool_choice.name === "review_conjugation_question",
+        );
+        const reviewItem = JSON.parse(reviewRequest.messages[0].content);
+        assert.equal("correctConjugation" in reviewItem, false);
+        assert.deepEqual(reviewItem.options, ["hablamos", "hablan", "hablas", "hablo"]);
       }
     } finally {
       if (saved === undefined) delete process.env.ANTHROPIC_API_KEY;

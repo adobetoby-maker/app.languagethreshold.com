@@ -8,7 +8,7 @@ The proposed default is to delete raw exam voice evidence 30 days after final sc
 
 The notice must identify the actual retention period and who can listen: authorized reviewers of the named team plan, or an independent reviewer of the one personal attempt explicitly shared by the learner. Recording requires a separate learner consent and microphone action. No AI transcription is requested. An approved notice, retention period and approval identity cannot be edited in place; policy changes require a new version. Collection also requires cleanup enabled.
 
-This is a proposal for a product decision, not legal advice or a record of owner consent. The corresponding requirement is in `docs/prd-assessments.md`, Privacy and retention.
+This proposal awaits the owner’s retention decision. The corresponding requirement is in `docs/prd-assessments.md`, Privacy and retention.
 
 ## Operator command
 

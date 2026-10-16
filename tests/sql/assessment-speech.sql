@@ -15,7 +15,7 @@ insert into public.assessment_releases(id,module_id,target_language,instruction_
 insert into public.assessment_forms(id,release_id,checkpoint,version,rubric_version,definition) values('speech-fixture-form','speech-test-release','entrance','fixture','fixture','{"items":[{"id":"spoken1","type":"production","skill":"speaking","inputMethods":["speech"],"objectiveId":"fixture.speech","maximum":3,"rubric":{"dimensions":[{"id":"meaning","maximum":3}]}},{"id":"spoken2","type":"production","skill":"speaking","inputMethods":["speech"],"objectiveId":"fixture.speech2","maximum":3}]}');
 insert into public.team_assignments values('20000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','speech-fixture');
 set local role service_role;
-do $$ declare e uuid; cp uuid; a uuid; m uuid; prior_m uuid; r uuid; n integer;
+do $$ declare e uuid; cp uuid; a uuid; m uuid; expired_m uuid; prior_m uuid; r uuid; n integer;
  learner uuid:='10000000-0000-4000-8000-000000000001'; reviewer uuid:='10000000-0000-4000-8000-000000000002'; other uuid:='10000000-0000-4000-8000-000000000003';
 begin
  e:=public.assessment_create_enrollment(reviewer,learner,'20000000-0000-4000-8000-000000000001','speech-test-release','2026-10-16','America/Denver',gen_random_uuid());
@@ -28,6 +28,10 @@ begin
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',other,a,'spoken1','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'access required');
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,2,%L,%L,64,%L,1000,%L)',learner,a,'spoken1','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'revision conflict');
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',learner,a,'missing','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'Frozen speaking item');
+ expired_m:=public.assessment_reserve_speech(learner,a,'spoken1',0,'assessment-speech-pending-v1',repeat('d',64),64,'audio/webm',1000,gen_random_uuid());
+ update public.assessment_speech_evidence set created_at=now()-interval '11 minutes' where id=expired_m;
+ perform pg_temp.expect_error(format('select public.assessment_finish_speech(%L,%L)',learner,expired_m),'Speech upload expired');
+ if (select revision from public.assessment_attempts where id=a)<>0 then raise exception 'Expired upload changed saved revision'; end if;
  r:=gen_random_uuid(); m:=public.assessment_reserve_speech(learner,a,'spoken1',0,'assessment-speech-pending-v1',repeat('a',64),64,'audio/webm',1000,r);
  if public.assessment_reserve_speech(learner,a,'spoken1',0,'assessment-speech-pending-v1',repeat('a',64),64,'audio/webm',1000,r)<>m then raise exception 'Speech retry duplicated'; end if;
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',learner,a,'spoken1','assessment-speech-pending-v1',repeat('b',64),'audio/webm',r),'key reused');

@@ -394,6 +394,9 @@ export function BattleArena({
     >
       {/* Top bar */}
       <div className="relative px-6 pt-6">
+        <p className="mb-3 text-center text-xs text-white/70">
+          Practice match · Simulated opponent
+        </p>
         <div className="flex items-center justify-between gap-6">
           <PlayerStrip name={playerName} tier={playerTier} wins={playerWins} side="left" />
           <div className="text-center">

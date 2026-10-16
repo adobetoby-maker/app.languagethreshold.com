@@ -50,6 +50,7 @@ import {
 import { MultilingualNoteInput } from "@/components/notes/MultilingualNoteInput";
 import { HandwritingCanvas } from "@/components/kana/HandwritingCanvas";
 import { useAuth } from "@/state/auth-state";
+import { AuthButton } from "@/components/auth/AuthButton";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { ADD_WORD_EVENT } from "@/components/vocab/GlobalVocabCapture";
@@ -839,6 +840,11 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
             App settings
           </p>
+
+          <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/40 bg-card/30 px-4 py-3">
+            <span className="text-sm text-foreground">Your account</span>
+            <AuthButton />
+          </div>
 
           {/* Theme toggle — labeled row so the setting is discoverable */}
           <button

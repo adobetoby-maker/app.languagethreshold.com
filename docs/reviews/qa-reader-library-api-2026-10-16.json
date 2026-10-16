@@ -1,0 +1,14 @@
+{
+  "testedAt": "2026-10-16T15:22:24.311Z",
+  "sourceCommit": "3eb1b49",
+  "scope": "Hosted existing dedicated QA accounts, synthetic books only, real RLS/idempotency calls; lost acknowledgement is explicit fault injection",
+  "checks": {
+    "realInsertWithInjectedLostAcknowledgementRetainsQueue": true,
+    "stableUuidRetryProducesExactlyOneOwnedRow": true,
+    "otherLearnerCannotReadText": true,
+    "otherLearnerCannotDeleteText": true,
+    "rlsRejectsCrossAccountInsert": true,
+    "staleIdentityRejectedBeforeQuery": true,
+    "syntheticRowsCleaned": true
+  }
+}

@@ -1,3 +1,4 @@
+import { attemptMatchesOrganization } from "./scope.ts";
 import { summarizedAttempt } from "./reporting";
 import type { OverviewFilters, OverviewPage, AttemptSummary } from "./reporting";
 import { enforceSpeakingRateLimit } from "@/lib/speaking-security";
@@ -388,8 +389,21 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
     }),
   );
 }
-export async function readAttempt(db: TeamDb, actor: string, id: string, review = false) {
+export async function readAttempt(
+  db: TeamDb,
+  actor: string,
+  id: string,
+  review = false,
+  organizationId?: string,
+) {
   const { attempt, checkpoint, enrollment } = await attemptAccess(db, actor, id, review);
+  if (
+    !attemptMatchesOrganization(
+      { enrollment: { scope: enrollment.scope, organizationId: enrollment.organization_id } },
+      organizationId,
+    )
+  )
+    throw new AssessmentAccessError("This attempt is outside the selected team view.");
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
   const { data: responses, error } = await db
     .from("assessment_responses")

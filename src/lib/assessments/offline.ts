@@ -1,3 +1,4 @@
+import { attemptMatchesOrganization } from "./scope.ts";
 import {
   readExamDeviceValue,
   writeExamDeviceValue,
@@ -146,10 +147,5 @@ export function recoveryCopiesForScope<T extends OfflineExamSnapshot>(
   copies: T[],
   organizationId?: string,
 ): T[] {
-  return organizationId
-    ? copies.filter(
-        (copy) =>
-          copy.enrollment.scope === "team" && copy.enrollment.organizationId === organizationId,
-      )
-    : copies;
+  return copies.filter((copy) => attemptMatchesOrganization(copy, organizationId));
 }

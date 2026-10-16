@@ -228,6 +228,7 @@ export const Route = createFileRoute("/api/exams")({
                 user.id,
                 id.parse(url.searchParams.get("attempt")),
                 url.searchParams.get("review") === "1",
+                url.searchParams.has("org") ? id.parse(url.searchParams.get("org")) : undefined,
               ),
             );
           if (action === "speech_status") {

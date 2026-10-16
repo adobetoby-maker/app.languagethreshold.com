@@ -1,3 +1,4 @@
+import { attemptMatchesOrganization } from "@/lib/assessments/scope";
 import { lessonNumberRanges } from "@/lib/lesson-number-ranges";
 import type { LessonSourceCoverage } from "@/lib/lesson-source-coverage";
 import { ExamSpeechQuestion } from "./ExamSpeechQuestion";
@@ -180,7 +181,12 @@ function ExamsAreaContent({
   const [selection, setSelection] = useState<{ viewer: string; attempt: ExamAttemptView } | null>(
     null,
   );
-  const selected = selection && selection.viewer === user?.id ? selection.attempt : null;
+  const selected =
+    selection &&
+    selection.viewer === user?.id &&
+    attemptMatchesOrganization(selection.attempt, orgId)
+      ? selection.attempt
+      : null;
   const [pending, setPending] = useState<{
     plan: Enrollment;
     checkpoint: Enrollment["checkpoints"][number];
@@ -251,9 +257,11 @@ function ExamsAreaContent({
       setError("");
       try {
         const attempt = await examRequest<ExamAttemptView>(
-          `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}${review ? "&review=1" : ""}`,
+          `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}${review ? "&review=1" : ""}${orgId ? `&org=${encodeURIComponent(orgId)}` : ""}`,
         );
         if (isCurrentUser(viewer)) {
+          if (!attemptMatchesOrganization(attempt, orgId))
+            throw new Error("This attempt is outside this team view. Open its own Exams view.");
           saveOfflineExam(browserExamStorage(), viewer, attempt);
           setSelection({ viewer, attempt });
           setPending(null);
@@ -262,9 +270,10 @@ function ExamsAreaContent({
         if (isCurrentUser(viewer)) {
           const saved =
             navigator.onLine === false || err instanceof TypeError
-              ? readOfflineExams<ExamAttemptView>(browserExamStorage(), viewer).find(
-                  (row) => row.id === id,
-                )
+              ? recoveryCopiesForScope(
+                  readOfflineExams<ExamAttemptView>(browserExamStorage(), viewer),
+                  orgId,
+                ).find((row) => row.id === id)
               : null;
           if (saved) {
             setSelection({ viewer, attempt: saved });
@@ -282,7 +291,7 @@ function ExamsAreaContent({
         if (isCurrentUser(viewer)) setLoading(false);
       }
     },
-    [isCurrentUser, user],
+    [isCurrentUser, user, orgId],
   );
 
   useEffect(() => {
@@ -534,6 +543,10 @@ function ExamsAreaContent({
                   requestId: crypto.randomUUID(),
                 });
                 if (isCurrentUser(user.id)) {
+                  if (!attemptMatchesOrganization(attempt, orgId))
+                    throw new Error(
+                      "This attempt is outside this team view. Open its own Exams view.",
+                    );
                   setSelection({ viewer: user.id, attempt });
                   setPending(null);
                 }
@@ -2102,7 +2115,11 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
           className="mt-1 min-h-11 w-full rounded-lg border border-border bg-background px-3"
         >
           <option value="">All modules</option>
-          {tracks.map((track) => <option key={track.moduleId} value={track.moduleId}>{track.name}</option>)}
+          {tracks.map((track) => (
+            <option key={track.moduleId} value={track.moduleId}>
+              {track.name}
+            </option>
+          ))}
         </select>
       </label>
       <div className={selectedTrack ? "space-y-3" : "max-h-96 space-y-3 overflow-y-auto"}>
@@ -2112,8 +2129,9 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
               {track.name} · {track.status.replaceAll("_", " ")}
             </h3>
             <p className="mt-1">
-              {track.lessonCount}/30 lessons · Word lists: {track.authoredLessonLists} ·{" "}
-              Passages: {track.contextualPassages} · Toolkit settings: {track.sourceCoverage.lessonsWithTeachingSettings}
+              {track.lessonCount}/30 lessons · Word lists: {track.authoredLessonLists} · Passages:{" "}
+              {track.contextualPassages} · Toolkit settings:{" "}
+              {track.sourceCoverage.lessonsWithTeachingSettings}
             </p>
             <p>
               Entrance: {track.exams.entrance} · Day 45: {track.exams.day45} · Day 90:{" "}
@@ -2121,21 +2139,41 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
             </p>
             <details className="my-2 rounded-lg border border-border p-2">
               <summary className="min-h-11 cursor-pointer py-2">Inspect lesson gaps</summary>
-              <p className="mb-2 text-xs text-muted-foreground">Word-list baseline: 8–12 terms and 4–6 phrases per lesson. Source presence is separate from human review.</p>
+              <p className="mb-2 text-xs text-muted-foreground">
+                Word-list baseline: 8–12 terms and 4–6 phrases per lesson. Source presence is
+                separate from human review.
+              </p>
               <dl className="space-y-2 text-xs">
-                {([
-                  ["Missing lessons", track.sourceCoverage.missingLessonNumbers],
-                  ["Duplicate lesson numbers", track.sourceCoverage.duplicateLessonNumbers],
-                  ["No word list in lesson definition", track.sourceCoverage.missingWordLists],
-                  ["Word lists outside the quantity baseline", track.sourceCoverage.vocabularyQuantityGaps],
-                  ["No aligned lesson passage", track.sourceCoverage.missingPassages],
-                  ["No lesson toolkit settings", track.sourceCoverage.missingTeachingSettings],
-                  ["No explicit recall step in the written plan", track.sourceCoverage.lessonsWithoutExplicitRecallStep],
-                ] as const).map(([label, numbers]) => (
-                  <div key={label}><dt className="font-semibold">{label}</dt><dd className="break-words">{numbers.length ? `Lessons ${lessonNumberRanges(numbers)}` : "None"}</dd></div>
+                {(
+                  [
+                    ["Missing lessons", track.sourceCoverage.missingLessonNumbers],
+                    ["Duplicate lesson numbers", track.sourceCoverage.duplicateLessonNumbers],
+                    ["No word list in lesson definition", track.sourceCoverage.missingWordLists],
+                    [
+                      "Word lists outside the quantity baseline",
+                      track.sourceCoverage.vocabularyQuantityGaps,
+                    ],
+                    ["No aligned lesson passage", track.sourceCoverage.missingPassages],
+                    ["No lesson toolkit settings", track.sourceCoverage.missingTeachingSettings],
+                    [
+                      "No explicit recall step in the written plan",
+                      track.sourceCoverage.lessonsWithoutExplicitRecallStep,
+                    ],
+                  ] as const
+                ).map(([label, numbers]) => (
+                  <div key={label}>
+                    <dt className="font-semibold">{label}</dt>
+                    <dd className="break-words">
+                      {numbers.length ? `Lessons ${lessonNumberRanges(numbers)}` : "None"}
+                    </dd>
+                  </div>
                 ))}
               </dl>
-              <p className="mt-3 text-xs text-muted-foreground">An absent written recall step does not mean a matching game is unavailable: the embedded toolkit may provide it. Check the actual lesson before reporting a missing game.</p>
+              <p className="mt-3 text-xs text-muted-foreground">
+                An absent written recall step does not mean a matching game is unavailable: the
+                embedded toolkit may provide it. Check the actual lesson before reporting a missing
+                game.
+              </p>
             </details>
             <p className="mt-1 text-xs text-muted-foreground">
               {track.contentReviewCount} review records · Lesson review:{" "}

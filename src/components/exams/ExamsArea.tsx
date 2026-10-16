@@ -241,7 +241,8 @@ function ExamsAreaContent({
       }
     : null;
   const loading = actionLoading || report.loading,
-    error = actionError || report.error;
+    // Overview errors must not describe a separately loaded active exam as disconnected.
+    error = actionError || (selected ? "" : report.error);
   const refreshOverview = report.refresh;
   const load = useCallback(() => {
     setError("");

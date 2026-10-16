@@ -11,6 +11,7 @@ export const fixture = {
   denyMicrophone: false,
   failStart: false,
   failNext: true,
+  failureMode: "network",
   revision: 0,
   evidenceId: "",
   withdrawn: false,
@@ -79,6 +80,12 @@ export async function uploadExamSpeech(metadata: { requestId: string }, blob: Bl
   fixture.requests.push(metadata.requestId);
   if (fixture.failNext) {
     fixture.failNext = false;
+    if (fixture.failureMode === "expired") throw new ExamRequestError("Speech upload expired", 409);
+    if (fixture.failureMode === "accepted") {
+      fixture.revision++;
+      fixture.evidenceId = "30000000-0000-4000-8000-000000000001";
+      throw new ExamRequestError("Simulated lost response after the upload was accepted.", 503);
+    }
     throw new ExamRequestError("Simulated connection loss. Keep this page open to retry.", 503);
   }
   fixture.revision++;

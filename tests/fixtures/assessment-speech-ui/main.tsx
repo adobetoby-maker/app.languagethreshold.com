@@ -9,7 +9,7 @@ import {
 import { fixture, installSpeechFixture } from "./client";
 import { fixtureUser } from "./auth";
 await installSpeechFixture();
-function Fixture() {
+export function Fixture() {
   const [shown, setShown] = useState(true),
     [review, setReview] = useState(false),
     [working, setWorking] = useState(false),
@@ -63,6 +63,21 @@ function Fixture() {
           }}
         />
         Simulate recorder start failure
+      </label>
+      <label>
+        Simulated upload outcome
+        <select
+          value={fixture.failureMode}
+          onChange={(e) => {
+            fixture.failureMode = e.target.value;
+            fixture.failNext = true;
+            setEpoch((v) => v + 1);
+          }}
+        >
+          <option value="network">Temporary connection loss</option>
+          <option value="expired">Expired upload reservation</option>
+          <option value="accepted">Accepted upload with lost response</option>
+        </select>
       </label>
       <p>
         Upload requests: {fixture.requests.length} · Same retry ID:{" "}

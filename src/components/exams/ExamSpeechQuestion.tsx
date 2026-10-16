@@ -336,7 +336,26 @@ export function ExamSpeechQuestion({
                 remember(undefined);
                 setError("");
                 setConflict(false);
-                setMessage("Unsaved recording discarded. You can record again.");
+                setUploading(true);
+                setMessage(
+                  "Local take discarded. Checking whether an earlier upload reached your account…",
+                );
+                void reload()
+                  .then(() => {
+                    if (mounted.current)
+                      setMessage(
+                        "Local take discarded. Any synced recording stays attached; withdraw that copy separately if you want it removed.",
+                      );
+                  })
+                  .catch(() => {
+                    if (mounted.current)
+                      setError(
+                        "Local take discarded, but the saved copy could not be checked. Reopen this attempt to inspect or withdraw any earlier upload.",
+                      );
+                  })
+                  .finally(() => {
+                    if (mounted.current) setUploading(false);
+                  });
               }}
             >
               Discard unsaved recording
@@ -356,6 +375,7 @@ export function ExamSpeechQuestion({
                     setConsent(false);
                     remember({ ...take, upload: undefined });
                     setConflict(false);
+                    setError("");
                     setMessage(
                       "Latest saved answers loaded. Review them before retrying this recording upload.",
                     );

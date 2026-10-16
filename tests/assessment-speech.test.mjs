@@ -286,6 +286,8 @@ test("failed object deletion leaves a retryable tombstone, never a false deletio
     dryRun: false,
     selected: 1,
     deleted: 0,
+    failed: 1,
+    mayHaveMore: false,
   });
   assert.deepEqual(calls, ["assessment_claim_speech_cleanup"]);
 });
@@ -321,10 +323,97 @@ test("cleanup records deletion only after private object removal succeeds", asyn
     dryRun: false,
     selected: 1,
     deleted: 1,
+    failed: 0,
+    mayHaveMore: false,
   });
   assert.deepEqual(calls, [
     "assessment_claim_speech_cleanup",
     "object.removed",
     "assessment_finish_speech_cleanup",
   ]);
+});
+
+test("expired speech reservations return a recoverable conflict instead of trapping retry on the old key", async () => {
+  const { rpc } = await loadModule("src/lib/assessments/server.ts", {
+    stubs: [/^@tanstack\/react-start\/server-only$/],
+  });
+  await assert.rejects(
+    () =>
+      rpc(
+        { rpc: async () => ({ error: { code: "P0001", message: "Speech upload expired" } }) },
+        "fixture",
+        {},
+      ),
+    (error) => error.status === 409 && error.message === "Speech upload expired",
+  );
+});
+test("cleanup finalization failure is reported as failure after bytes are removed, keeping a retryable tombstone", async () => {
+  const { cleanupAssessmentSpeech } = await loadModule(
+    "src/lib/assessments/speech-cleanup-server.ts",
+    { stubs: [/^@tanstack\/react-start\/server-only$/] },
+  );
+  const calls = [];
+  const db = {
+    rpc: async (name) => {
+      calls.push(name);
+      return name === "assessment_claim_speech_cleanup"
+        ? { data: [{ id: evidenceId }], error: null }
+        : { data: null, error: { message: "retry finalization" } };
+    },
+    storage: {
+      getBucket: async () => ({
+        data: { public: false, file_size_limit: MAX_SPEECH_BYTES },
+        error: null,
+      }),
+      from: () => ({
+        remove: async () => {
+          calls.push("bytes.removed");
+          return { error: null };
+        },
+      }),
+    },
+  };
+  assert.deepEqual(await cleanupAssessmentSpeech(db, true), {
+    dryRun: false,
+    selected: 1,
+    deleted: 0,
+    failed: 1,
+    mayHaveMore: false,
+  });
+  assert.deepEqual(calls, [
+    "assessment_claim_speech_cleanup",
+    "bytes.removed",
+    "assessment_finish_speech_cleanup",
+  ]);
+});
+test("a full cleanup batch explicitly signals possible remaining work", async () => {
+  const { cleanupAssessmentSpeech } = await loadModule(
+    "src/lib/assessments/speech-cleanup-server.ts",
+    { stubs: [/^@tanstack\/react-start\/server-only$/] },
+  );
+  const db = {
+    rpc: async (name) => ({
+      data:
+        name === "assessment_claim_speech_cleanup"
+          ? Array.from({ length: 25 }, (_, i) => ({
+              id: `30000000-0000-4000-8000-${String(i + 1).padStart(12, "0")}`,
+            }))
+          : null,
+      error: null,
+    }),
+    storage: {
+      getBucket: async () => ({
+        data: { public: false, file_size_limit: MAX_SPEECH_BYTES },
+        error: null,
+      }),
+      from: () => ({ remove: async () => ({ error: null }) }),
+    },
+  };
+  assert.deepEqual(await cleanupAssessmentSpeech(db, true), {
+    dryRun: false,
+    selected: 25,
+    deleted: 25,
+    failed: 0,
+    mayHaveMore: true,
+  });
 });

@@ -47,7 +47,7 @@ export async function rpc<T>(db: TeamDb, name: string, args: Record<string, unkn
         message,
         /access required|confirmation required/.test(message)
           ? 403
-          : /conflict|reused|already|immutable/.test(message)
+          : /conflict|reused|already|immutable|Speech upload expired/.test(message)
             ? 409
             : 400,
       );

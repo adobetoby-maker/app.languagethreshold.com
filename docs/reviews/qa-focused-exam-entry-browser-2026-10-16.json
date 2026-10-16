@@ -1,0 +1,35 @@
+{
+  "applicationCommit": "1f05a53",
+  "preview": "https://language-threshold-2s1zypomu-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_32k9oneJZHEihLGeZoYaEeRtHhD1",
+  "target": "preview",
+  "livePromoted": false,
+  "checks": {
+    "desktopTopExamsUsesFocusedRoute": true,
+    "landscaperModulePairRetained": true,
+    "toolkitNavigationAbsentOnFocusedPage": true,
+    "googleVercelAnalyticsScriptsAbsentInDom": true,
+    "guestHasLessonPlanReturn": true,
+    "guestReturnOpensLandscaperCore30": true,
+    "phoneMoreExamsUsesFocusedRoute": true,
+    "phoneWidth": 390,
+    "phoneHeight": 844,
+    "phoneReturnPreservesModuleAndPair": true,
+    "legacyBrowserLinkUsesFocusedRoute": true,
+    "legacyReverseEnglishSpanishPairRetained": true,
+    "normalViewportRestored": true
+  },
+  "unitCompatibilityChecks": [
+    "Production ExamsTab waits for local/auth/current-profile restoration.",
+    "Explicit Reader/Core30 incoming links override a cached Exams tab.",
+    "Cleanup cancels stale deferred navigation before a changed module/pair redirects."
+  ],
+  "limits": [
+    "Guest navigation trials, not a new signed-in scoring or real-learner pilot.",
+    "No assessment answers, scores, recommendations, mastery or certificates were created.",
+    "Older cached-tab timing used production-component Node fixtures, not injected browser storage.",
+    "No new offline or physical iPhone/Safari proof.",
+    "Official question forms, speech collection and scheduler remain gated as documented."
+  ],
+  "screenshot": "language-threshold-focused-exams-phone-2026-10-16.png"
+}

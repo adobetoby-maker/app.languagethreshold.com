@@ -28,7 +28,6 @@ import { NoteBubble } from "./NoteBubble";
 import { NotesPanel } from "./NotesPanel";
 import { MiniPlayer } from "./MiniPlayer";
 import { LibraryDrawer } from "@/components/library/LibraryDrawer";
-import { useCultureGenerator } from "@/components/library/useCultureGenerator";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getAvailableModuleLessons } from "@/data/module-starters";
@@ -267,8 +266,6 @@ export function ParallelReader() {
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [selection, setSelection] = useState<SelectionInfo | null>(null);
   const [noteBubble, setNoteBubble] = useState<SelectionInfo | null>(null);
-
-  useCultureGenerator();
 
   // Track Culture Series exposure for the "Culture Buff 🌍" achievement
   useEffect(() => {
@@ -663,11 +660,6 @@ export function ParallelReader() {
           {selected.title}
         </button>
         <div className="flex items-center gap-2">
-          {lib.generating && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-              ✦ Generating Culture Series…
-            </span>
-          )}
           <button
             onClick={() => setDrawerOpen(true)}
             className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-gold hover:bg-gold/15"

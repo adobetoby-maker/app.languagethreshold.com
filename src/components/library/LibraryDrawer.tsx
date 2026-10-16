@@ -17,6 +17,7 @@ import { useApp, type Language } from "@/state/app-state";
 import { getModule } from "@/data/modules";
 import { partitionByFocus } from "@/lib/module-filter";
 import { AddTextModal } from "./AddTextModal";
+import { CultureReadingGenerator } from "./CultureReadingGenerator";
 import type { CefrLevel } from "@/fns/grammar.functions";
 import { configureUtterance } from "@/lib/voices";
 import { needsRemoteTTS, speakRemote } from "@/lib/tts";
@@ -283,16 +284,9 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
         {/* Stats + Add button */}
         <div className="flex items-center justify-between border-b border-border/40 px-6 py-3">
-          {state.generating ? (
-            <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-              <Sparkle className="h-3 w-3 animate-pulse" fill="currentColor" />
-              Generating Culture Series…
-            </span>
-          ) : (
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              {state.entries.filter((e) => e.available).length} texts ready
-            </span>
-          )}
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            {state.entries.filter((e) => e.available).length} texts ready
+          </span>
           <button
             onClick={() => setAddOpen(true)}
             className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:bg-gold/15"
@@ -303,6 +297,12 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
         {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto px-5 py-5">
+          {open && (
+            <CultureReadingGenerator
+              key={`${appState.selectedLanguage}/${appState.nativeLanguage}`}
+              onOpen={onClose}
+            />
+          )}
           <div className="mb-4 text-xs leading-relaxed text-muted-foreground" aria-live="polite">
             <p>
               {syncing

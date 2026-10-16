@@ -50,7 +50,6 @@ interface LibraryState {
   entries: LibraryEntry[];
   selectedId: string;
   selectionScope: string | null;
-  generating: boolean;
   readStatus: Record<string, ReadStatus>;
   languageFilter: Language[];
 }
@@ -58,7 +57,6 @@ interface LibraryState {
 type Action =
   | { type: "ADD_ENTRY"; payload: LibraryEntry }
   | { type: "SELECT"; payload: string; scope?: string }
-  | { type: "SET_GENERATING"; payload: boolean }
   | { type: "REPLACE_BY_ID"; payload: LibraryEntry }
   | { type: "REMOVE_ENTRY"; payload: string }
   | { type: "SET_CUSTOM_ENTRIES"; payload: LibraryEntry[] }
@@ -96,7 +94,6 @@ function makeInitial(actor: string | null): LibraryState {
     selectedId:
       typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
     selectionScope: typeof saved?.selectionScope === "string" ? saved.selectionScope : null,
-    generating: false,
     readStatus,
     languageFilter: Array.isArray(saved?.languageFilter)
       ? saved.languageFilter.filter((language: Language) => LANGUAGES.includes(language))
@@ -158,8 +155,6 @@ function reducer(state: LibraryState, action: Action): LibraryState {
         readStatus,
       };
     }
-    case "SET_GENERATING":
-      return { ...state, generating: action.payload };
     case "SET_READ_STATUS":
       return {
         ...state,

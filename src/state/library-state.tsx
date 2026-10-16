@@ -180,6 +180,7 @@ interface LibraryContextValue {
   legacySaved: boolean;
   readyToSelect: boolean;
   syncLibrary: () => void;
+  recoverOlderLibrary: (confirmed: boolean) => number;
   setReadStatus: (id: string, status: ReadStatus) => void;
   setLanguageFilter: (langs: Language[]) => void;
 }
@@ -383,6 +384,11 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
         readyToSelect,
         syncLibrary: () => {
           void device.sync();
+        },
+        recoverOlderLibrary: (confirmed) => {
+          const count = device.recoverLegacy(confirmed);
+          void device.sync();
+          return count;
         },
         setReadStatus: (id, status) =>
           dispatch({ type: "SET_READ_STATUS", payload: { id, status } }),

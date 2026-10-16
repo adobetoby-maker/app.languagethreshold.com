@@ -1,4 +1,5 @@
 import type { LibraryEntry } from "../state/library-state";
+import { prepareLegacyLibraryRecovery } from "./legacy-library.ts";
 
 export interface LibraryStorage {
   getItem(key: string): string | null;
@@ -117,8 +118,13 @@ function saveLibraryPreferences(
     return false;
   }
 }
-function loadCache(storage: LibraryStorage | null, actor: string | null): Cache {
+function loadCache(storage: LibraryStorage | null, actor: string | null, strict = false): Cache {
   const empty = { books: [], pending: [], deleted: [] };
+  const invalid = () => {
+    if (strict && storage?.getItem(libraryDeviceKey(actor)) !== null)
+      throw Error("Your current library could not be checked. It has not been replaced.");
+    return empty;
+  };
   const value = readOwned(storage, libraryDeviceKey(actor), actor);
   if (
     !value ||
@@ -126,7 +132,7 @@ function loadCache(storage: LibraryStorage | null, actor: string | null): Cache 
     !Array.isArray(value.pending) ||
     !Array.isArray(value.deleted)
   )
-    return empty;
+    return invalid();
   const validIds = (ids: unknown[]) => ids.every((id) => typeof id === "string" && UUID.test(id));
   if (
     !validIds(value.pending) ||
@@ -141,7 +147,7 @@ function loadCache(storage: LibraryStorage | null, actor: string | null): Cache 
         !Array.isArray(book.sentences),
     )
   )
-    return empty;
+    return invalid();
   return {
     books: value.books,
     pending: [...new Set<string>(value.pending)],
@@ -217,6 +223,21 @@ export function createLibraryDevice({
         pending: actor ? [...new Set([...snapshot.pending, entry.id])] : [],
         deleted: snapshot.deleted.filter((id) => id !== entry.id),
       });
+    },
+    recoverLegacy(confirmed: boolean) {
+      if (!actor || !confirmed || !storage || !currentIdentity())
+        throw Error("Sign in and confirm these older texts belong to you first.");
+      // Refuse a damaged destination instead of silently replacing it with an empty cache.
+      const cache = loadCache(storage, actor, true);
+      const entries = prepareLegacyLibraryRecovery(storage, actor);
+      const known = new Set([...cache.books.map((entry) => entry.id), ...cache.deleted]);
+      const added = entries.filter((entry) => !known.has(entry.id));
+      commit({
+        books: [...added, ...cache.books],
+        pending: [...new Set([...cache.pending, ...added.map((entry) => entry.id)])],
+        deleted: cache.deleted,
+      });
+      return added.length;
     },
     remove(id: string) {
       if (!snapshot.books.some((book) => book.id === id)) return;

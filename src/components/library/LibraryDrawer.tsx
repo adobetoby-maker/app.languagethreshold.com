@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { LegacyLibraryRecovery } from "./LegacyLibraryRecovery";
 import {
   ChevronDown,
   ChevronRight,
@@ -322,12 +323,7 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
                 Retry library sync
               </button>
             )}
-            {legacySaved && (
-              <p className="mt-2">
-                An older library save is still on this device. It has not been imported because its
-                account owner is unknown.
-              </p>
-            )}
+            {legacySaved && <LegacyLibraryRecovery />}
           </div>
           {/* My Texts — always first */}
           <section className="mb-7">

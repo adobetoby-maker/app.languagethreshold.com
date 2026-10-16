@@ -328,9 +328,14 @@ function ExamsAreaContent({
           Assess your module at entrance, day 45 and day 90. Personal results stay private. Team
           exams belong to their named team plan.
         </p>
-        <button className={primary} onClick={() => setAuthOpen(true)}>
-          Sign in to my Exams
-        </button>
+        <div className="flex flex-wrap gap-3">
+          <button className={primary} onClick={() => setAuthOpen(true)}>
+            Sign in to my Exams
+          </button>
+          <a className={button} href={returnToPlan}>
+            Return to my lesson plan
+          </a>
+        </div>
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
       </section>
     );

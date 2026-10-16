@@ -92,3 +92,31 @@ export function lessonLocation(
   }
   return url.pathname + url.search + url.hash;
 }
+
+/** A cached Core 30 screen must not replace a different incoming route during profile restore. */
+export function lessonOverviewLocation(
+  current: string,
+  context: { moduleId: string; target: string; native: string },
+) {
+  const params = new URL(current, "https://lesson.invalid").searchParams;
+  if (
+    params.get("tab") !== "core30" ||
+    params.get("module") !== context.moduleId ||
+    params.get("target") !== context.target ||
+    params.get("native") !== context.native
+  )
+    return null;
+  return lessonLocation(current, context, null);
+}
+export function canRestoreLessonReturn(
+  current: string,
+  context: { moduleId: string; target: string; native: string },
+) {
+  const params = new URL(current, "https://lesson.invalid").searchParams;
+  return Object.entries({
+    module: context.moduleId,
+    target: context.target,
+    native: context.native,
+    tab: "core30",
+  }).every(([key, value]) => !params.has(key) || params.get(key) === value);
+}

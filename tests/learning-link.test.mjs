@@ -91,3 +91,32 @@ test("lesson updates cannot redirect private pages or accept invalid positions",
   ])
     assert.equal(lessonLocation(linked, track, position), null);
 });
+
+const { lessonOverviewLocation, canRestoreLessonReturn } =
+  await import("../src/lib/learning-link.ts");
+test("a cached Core 30 overview cannot consume an incoming Reader or Exams link", () => {
+  for (const tab of ["reader", "exams", "speak"]) {
+    const incoming = linked.replace("tab=core30", `tab=${tab}`);
+    assert.equal(lessonOverviewLocation(incoming, track), null);
+    assert.equal(canRestoreLessonReturn(incoming, track), false);
+  }
+});
+test("a previous module or pair cannot rewrite a pending lesson assignment", () => {
+  for (const incoming of [
+    linked.replace("module=roofing", "module=landscaper"),
+    linked.replace("target=Spanish", "target=French"),
+    linked.replace("native=English", "native=German"),
+  ]) {
+    assert.equal(lessonOverviewLocation(incoming, track), null);
+    assert.equal(canRestoreLessonReturn(incoming, track), false);
+  }
+});
+test("Exit still clears the current track and a matching return marker may restore", () => {
+  const cleared = lessonOverviewLocation(linked, track);
+  assert.equal(new URL(cleared, "https://example.invalid").searchParams.get("lesson"), null);
+  assert.equal(canRestoreLessonReturn(linked, track), true);
+});
+test("a normal app launch without an explicit conflicting route may restore its lesson return", () => {
+  assert.equal(canRestoreLessonReturn("/", track), true);
+  assert.equal(lessonOverviewLocation("/", track), null);
+});

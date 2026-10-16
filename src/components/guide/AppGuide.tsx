@@ -1,5 +1,10 @@
 import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
-import { requestedLesson, lessonLocation } from "@/lib/learning-link";
+import {
+  requestedLesson,
+  lessonLocation,
+  lessonOverviewLocation,
+  canRestoreLessonReturn,
+} from "@/lib/learning-link";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -1679,7 +1684,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }>({ key: positionKey, position: null });
   const savedPosition = savedPositionState.key === positionKey ? savedPositionState.position : null;
   const [returnTarget] = useState(() => {
-    if (!restoreView) return null;
+    if (
+      !restoreView ||
+      !canRestoreLessonReturn(window.location.href, {
+        moduleId,
+        target: state.selectedLanguage,
+        native: state.nativeLanguage,
+      })
+    )
+      return null;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
@@ -1717,15 +1730,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }, [positionKey, moduleId, user?.id, openLessonN]);
   useEffect(() => {
     if (!restoreView || openLessonN !== null) return;
-    const next = lessonLocation(
-      window.location.href,
-      {
-        moduleId,
-        target: state.selectedLanguage,
-        native: state.nativeLanguage,
-      },
-      null,
-    );
+    const next = lessonOverviewLocation(window.location.href, {
+      moduleId,
+      target: state.selectedLanguage,
+      native: state.nativeLanguage,
+    });
     if (next && next !== window.location.pathname + window.location.search + window.location.hash)
       window.history.replaceState(window.history.state, "", next);
   }, [restoreView, openLessonN, moduleId, state.selectedLanguage, state.nativeLanguage]);

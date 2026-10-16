@@ -168,3 +168,12 @@ test("untrusted paths, duplicate files and inconsistent versions are rejected be
   assert.equal((await r.command("LESSON_PACK_INSTALL")).ok, false);
   assert.equal(r.stores.size, 0);
 });
+
+test("the worker acknowledges protocol support without reading or downloading any content", async () => {
+  const r = runtime();
+  const response = await r.command("LESSON_PACK_PING");
+  assert.equal(response.protocol, 1);
+  assert.equal(response.ok, true);
+  assert.equal(r.calls.length, 0);
+  assert.equal(r.stores.size, 0);
+});

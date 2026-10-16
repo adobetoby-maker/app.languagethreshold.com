@@ -44,6 +44,7 @@ import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPractice";
 import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
@@ -56,7 +57,6 @@ import {
   readLessonReturn,
   writeLessonReturn,
 } from "@/lib/lesson-return";
-import { requestSpeakingMission } from "@/lib/speaking-navigation";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
 import { getLessonDefinition, ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
 import {
@@ -748,17 +748,9 @@ function LessonRunner({
     setSection(sectionForMode(mode));
   }
 
-  /** Say it: the mission runs on the Speak tab; finishing or closing it brings the learner back. */
+  /** Record the opened practice without leaving the lesson. */
   function goSay() {
     recordStepOpened(speakStep);
-    writeLessonReturn(browserReturnStorage(), {
-      moduleId,
-      lesson: lesson.n,
-      section: "say",
-      at: Date.now(),
-    });
-    requestSpeakingMission(lessonMissionPrefix(moduleId, lesson.n));
-    dispatch({ type: "SET_TAB", payload: "speak" });
   }
 
   /** See it, full size: the whole Reader, with a way straight back to this lesson. */
@@ -1108,23 +1100,17 @@ function LessonRunner({
 
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
         {panelHeader(SECTIONS[4], 5)}
-        <p className="mt-3 text-sm leading-relaxed text-white/70">{speakInstruction}</p>
-        <button
-          type="button"
-          data-testid="lesson-say-go"
-          onClick={goSay}
-          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-          style={{
-            background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-            color: "#0B0B0F",
-          }}
-        >
-          <Mic className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-          Start the Lesson {lesson.n} speaking mission
-        </button>
-        <p className="mt-2 text-center text-[11px] text-white/50">
-          It opens in Speak &amp; Learn. When you finish or close it, you come back here.
-        </p>
+        {section === "say" && (
+          <LessonSpeakingPractice
+            key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            missionPrefix={lessonMissionPrefix(moduleId, lesson.n)}
+            instruction={speakInstruction}
+            definition={definition}
+            words={words}
+            language={state.selectedLanguage}
+            onOpen={goSay}
+          />
+        )}
         {section === "say" && nextButton}
       </section>
 

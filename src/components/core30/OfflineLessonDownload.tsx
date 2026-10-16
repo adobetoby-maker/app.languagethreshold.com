@@ -13,21 +13,28 @@ export function OfflineLessonDownload() {
   useEffect(() => {
     const tracker = generation.current;
     const request = ++tracker.value;
-    offlineLessonDownload("LESSON_PACK_STATUS")
-      .then((status) => {
-        if (request === tracker.value) {
-          setSaved(status);
-          setMessage("");
-        }
-      })
-      .catch(() => {
-        if (request === tracker.value)
-          setMessage(
-            "Connect and reload once before downloading. Saved files can be checked below.",
-          );
-      });
+    let sequence = 0;
+    const check = () => {
+      const currentCheck = ++sequence;
+      return offlineLessonDownload("LESSON_PACK_STATUS")
+        .then((status) => {
+          if (request === tracker.value && currentCheck === sequence) {
+            setSaved(status);
+            setMessage("");
+          }
+        })
+        .catch(() => {
+          if (request === tracker.value && currentCheck === sequence)
+            setMessage(
+              "Connect and reload once before downloading. Saved files can be checked below.",
+            );
+        });
+    };
+    check();
+    navigator.serviceWorker?.addEventListener("controllerchange", check);
     return () => {
       tracker.value++;
+      navigator.serviceWorker?.removeEventListener("controllerchange", check);
     };
   }, []);
   async function run(command: LessonDownloadCommand) {

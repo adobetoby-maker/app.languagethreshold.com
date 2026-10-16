@@ -53,6 +53,7 @@ import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
 import { PinyinText } from "@/components/reader/PinyinText";
+import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { SpeakingConsentDialog } from "./SpeakingConsentDialog";
 
 type MissionStatus = "ready" | "listening" | "thinking" | "complete" | "error";
@@ -196,7 +197,18 @@ function highStakesNotice(mission: SpeakingMission) {
   return null;
 }
 
-export function SpeakingMissionsPreview() {
+export function SpeakingMissionsPreview({
+  embeddedMissionPrefix,
+  onEmbeddedClose,
+}: {
+  embeddedMissionPrefix?: string;
+  onEmbeddedClose?: () => void;
+} = {}) {
+  useEffect(() => {
+    if (!embeddedMissionPrefix) return;
+    setSpeakingPrivacyMode(true);
+    return () => setSpeakingPrivacyMode(false);
+  }, [embeddedMissionPrefix]);
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
   const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
@@ -244,7 +256,9 @@ export function SpeakingMissionsPreview() {
   const practiceRecordedRef = useRef(false);
   const playbackGenerationRef = useRef(0);
   const finishDevicePlaybackRef = useRef<(() => void) | null>(null);
-  const [coreEntryRequested] = useState(() => consumeCoreSpeakingEntry());
+  const [coreEntryRequested] = useState(() =>
+    embeddedMissionPrefix ? false : consumeCoreSpeakingEntry(),
+  );
   const coreEntryRequestedRef = useRef(coreEntryRequested);
   const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
   const hasValidLanguagePair =
@@ -456,6 +470,7 @@ export function SpeakingMissionsPreview() {
   }, [stopActiveWork]);
 
   useEffect(() => {
+    if (embeddedMissionPrefix) return;
     const viewKey = !selectedMission
       ? `catalog:${catalogModuleId ?? "all"}`
       : !started
@@ -469,7 +484,7 @@ export function SpeakingMissionsPreview() {
       viewTopRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [catalogModuleId, selectedMission, started, status]);
+  }, [catalogModuleId, selectedMission, started, status, embeddedMissionPrefix]);
 
   useEffect(() => {
     if (!started || status === "complete" || sessionStartedAtRef.current === null) return;
@@ -648,21 +663,23 @@ export function SpeakingMissionsPreview() {
   // then select the first matching mission as soon as the catalog has it; otherwise drop it.
   const pendingMissionPrefixRef = useRef<string | null>(null);
   useEffect(() => {
+    if (embeddedMissionPrefix) return;
     const prefix = consumeSpeakingMissionRequest();
     if (prefix) pendingMissionPrefixRef.current = prefix;
-  }, []);
+  }, [embeddedMissionPrefix]);
   useEffect(() => {
-    const prefix = pendingMissionPrefixRef.current;
+    const prefix = embeddedMissionPrefix ?? pendingMissionPrefixRef.current;
     if (!prefix) return;
     // Keep the request until the selection is visible in state: the language-reset effect above
     // can clear it once more (dev StrictMode re-runs effects), and this effect then re-applies it.
-    if (selectedMission?.id.startsWith(prefix)) {
-      pendingMissionPrefixRef.current = null;
+    const match = languageMissions.find((mission) => mission.id.startsWith(prefix));
+    if (match && selectedMission?.id === match.id) {
+      if (!embeddedMissionPrefix) pendingMissionPrefixRef.current = null;
       return;
     }
-    const match = languageMissions.find((mission) => mission.id.startsWith(prefix));
     if (!match) {
       pendingMissionPrefixRef.current = null;
+      if (embeddedMissionPrefix && selectedMission) setSelectedMission(null);
       return;
     }
     // Same effect as selectMission(); nothing is running yet so no exitMission() reset is needed.
@@ -671,13 +688,14 @@ export function SpeakingMissionsPreview() {
       type: "SET_SPEAKING_FOCUS",
       payload: { language: match.language, missionId: match.id, title: match.title },
     });
-  }, [languageMissions, selectedMission, appDispatch]);
+  }, [languageMissions, selectedMission, appDispatch, embeddedMissionPrefix]);
 
   // A Core 30 lesson that sent the learner here leaves a return marker. Once that lesson's mission
   // has been on screen and is then left (back, closed after the debrief, or another mission
   // picked), send the learner back to the lesson. The marker stays for the lesson view to read.
   const lessonReturnArmedRef = useRef(false);
   useEffect(() => {
+    if (embeddedMissionPrefix) return;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
     if (!marker || marker.section !== "say") {
       lessonReturnArmedRef.current = false;
@@ -691,7 +709,7 @@ export function SpeakingMissionsPreview() {
       lessonReturnArmedRef.current = false;
       appDispatch({ type: "SET_TAB", payload: "core30" });
     }
-  }, [selectedMission, appDispatch]);
+  }, [selectedMission, appDispatch, embeddedMissionPrefix]);
 
   const activeObjective = selectedMission?.objectives.find(
     (objective) =>
@@ -916,6 +934,26 @@ export function SpeakingMissionsPreview() {
     [selectedMission],
   );
 
+  const closeMission = () => {
+    exitMission();
+    if (embeddedMissionPrefix) onEmbeddedClose?.();
+    else setSelectedMission(null);
+  };
+
+  if (!selectedMission && embeddedMissionPrefix) {
+    return (
+      <div role="status" className="mt-3 space-y-2 text-sm">
+        <p>
+          {languageMissions.some((mission) => mission.id.startsWith(embeddedMissionPrefix))
+            ? "Preparing this lesson’s mission…"
+            : "An AI mission is not available for this lesson and language pair yet. You can still rehearse the task and words here."}
+        </p>
+        <button type="button" className="min-h-11 underline" onClick={onEmbeddedClose}>
+          Close practice
+        </button>
+      </div>
+    );
+  }
   if (!selectedMission) {
     if (!missionLanguage) {
       const japaneseAwaitingReview =
@@ -1144,10 +1182,11 @@ export function SpeakingMissionsPreview() {
         />
         <button
           type="button"
-          onClick={() => setSelectedMission(null)}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          onClick={closeMission}
+          className="flex min-h-11 items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
         >
-          <ChevronLeft className="h-4 w-4" /> All missions
+          <ChevronLeft className="h-4 w-4" />{" "}
+          {embeddedMissionPrefix ? "Close practice" : "All missions"}
         </button>
         <div className="mt-5 flex items-center justify-between gap-3 text-xs">
           <span style={{ color: specialty.color }}>
@@ -1595,13 +1634,11 @@ export function SpeakingMissionsPreview() {
           </button>
           <button
             type="button"
-            onClick={() => {
-              exitMission();
-              setSelectedMission(null);
-            }}
+            onClick={closeMission}
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-3 text-sm text-foreground"
           >
-            <ChevronLeft className="h-4 w-4" /> All missions
+            <ChevronLeft className="h-4 w-4" />{" "}
+            {embeddedMissionPrefix ? "Close practice" : "All missions"}
           </button>
         </div>
       </section>

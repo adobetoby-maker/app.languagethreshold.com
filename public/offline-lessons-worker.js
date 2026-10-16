@@ -157,6 +157,11 @@ async function installLessonPack() {
 }
 
 self.addEventListener("message", (event) => {
+  if (event.data?.type === "LESSON_PACK_PING" && event.ports?.[0]) {
+    event.ports[0].postMessage({ ok: true, protocol: 1 });
+    return;
+  }
+
   if (
     !["LESSON_PACK_STATUS", "LESSON_PACK_INSTALL", "LESSON_PACK_REMOVE"].includes(
       event.data?.type,

@@ -19,6 +19,7 @@ export function LearningEntryModal({
     <Dialog.Root open modal>
       <Dialog.Portal>
         <Dialog.Content
+          aria-modal="true"
           className={className}
           onEscapeKeyDown={(event) => {
             event.preventDefault();

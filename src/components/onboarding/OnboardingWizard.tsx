@@ -180,7 +180,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
     <LearningEntryModal
       title="Set up your learning plan"
       description="Choose your language, work module and starting level, or skip setup."
-      onDismiss={skip}
+      onDismiss={onClose ?? skip}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4"
     >
       <div className="relative w-full max-w-lg">

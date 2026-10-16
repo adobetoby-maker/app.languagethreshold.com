@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -30,29 +31,7 @@ export interface IdiomQuestion {
 // ── Server-side cache ─────────────────────────────────────────────────────
 // 200-entry LRU keyed by language+level+avoid hash. Same shape as the other
 // game caches so the cross-game memory footprint is predictable.
-const MAX_CACHE = 200;
-const cache = new Map<string, IdiomQuestion>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): IdiomQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: IdiomQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<IdiomQuestion>();
 
 const SYSTEM = `You are a precise cultural-fluency drill author for adult language learners. You generate fill-in-the-blank questions built around REAL native idioms — the kind of expressions native speakers actually use, not literal translations of English idioms.
 
@@ -95,9 +74,8 @@ export const generateIdiomQuestion = createServerFn({ method: "POST" })
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash);
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
 
       const levelGuidance =
@@ -226,7 +204,7 @@ export const generateIdiomQuestion = createServerFn({ method: "POST" })
           return { data: null, error: "Missing reveal fields." };
         }
 
-        cacheSet(key, q);
+        cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
       } catch (e) {
         console.error("generateIdiomQuestion failed", e);

@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -27,29 +28,7 @@ export interface ListeningDrillQuestion {
   listenFor: string; // 1-sentence English tip on what to listen for
 }
 
-const MAX_CACHE = 200;
-const cache = new Map<string, ListeningDrillQuestion>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): ListeningDrillQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: ListeningDrillQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<ListeningDrillQuestion>();
 
 const SYSTEM = `You are a precise listening-drill author for adult language learners. The learner hears a short target-language phrase via TTS and must pick the matching transcript from 4 multiple-choice options. The point of the drill is to train EAR-LEVEL discrimination.
 
@@ -84,9 +63,8 @@ export const generateListeningDrill = createServerFn({ method: "POST" })
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash);
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
 
       const lengthGuidance =
@@ -208,7 +186,7 @@ export const generateListeningDrill = createServerFn({ method: "POST" })
           }
         }
 
-        cacheSet(key, q);
+        cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
       } catch (e) {
         console.error("generateListeningDrill failed", e);

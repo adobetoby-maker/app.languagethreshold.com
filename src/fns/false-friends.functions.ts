@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -36,29 +37,7 @@ export interface FalseFriendQuestion {
   cefr: CefrLevel;
 }
 
-const MAX_CACHE = 200;
-const cache = new Map<string, FalseFriendQuestion>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): FalseFriendQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: FalseFriendQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<FalseFriendQuestion>();
 
 const SYSTEM = `You are a precise false-friends drill author for adult language learners.
 
@@ -101,9 +80,8 @@ export const generateFalseFriend = createServerFn({ method: "POST" })
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash);
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
 
       const levelNotes =
@@ -174,7 +152,7 @@ export const generateFalseFriend = createServerFn({ method: "POST" })
 
         // Defensive sanity check: contextSentence should contain the word OR
         // a recognizable inflected form. Don't fail on it — just log.
-        cacheSet(key, q);
+        cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
       } catch (e) {
         console.error("generateFalseFriend failed", e);

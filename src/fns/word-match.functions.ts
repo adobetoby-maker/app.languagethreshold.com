@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -28,29 +29,7 @@ export interface WordMatchBoard {
   topic: string; // 1-3 words
 }
 
-const MAX_CACHE = 200;
-const cache = new Map<string, WordMatchBoard>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): WordMatchBoard | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: WordMatchBoard) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<WordMatchBoard>();
 
 const SYSTEM = `You are a precise vocabulary curator for a memory-matching game. The learner sees a board of cards: one face has a target-language word, the matching face has its English translation. Your job is to pick a coherent set of vocabulary pairs.
 
@@ -81,9 +60,8 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
       const expectedCount = data.level === 1 ? 6 : data.level === 2 ? 8 : 10;
 
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash + (data.topic ?? ""));
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
 
       const avoidLine =
@@ -103,7 +81,7 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
-          // Sonnet 4.6 — needs reliable theming + uniqueness across N pairs.
+          // Output is validated before it can enter the shared public cache.
           model: "claude-haiku-5-5",
           max_tokens: 1000,
           system: SYSTEM,
@@ -181,7 +159,7 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
         board.topic = board.topic.trim();
         if (!board.cefr) board.cefr = cefr;
 
-        cacheSet(key, board);
+        cache.set(cacheContext, board);
         return { data: board, error: null, cached: false };
       } catch (e) {
         console.error("generateWordMatchBoard failed", e);

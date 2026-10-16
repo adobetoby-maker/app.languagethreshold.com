@@ -1,4 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
+import { ConjugationOutput } from "@/lib/conjugation-output";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -39,35 +41,7 @@ export interface ConjugationQuestion {
 // ── Server-side cache ─────────────────────────────────────────────────────
 // Distinct from word-lookup cache: smaller window because each match-up
 // changes (avoid set is per-run), and prompts are cheap.
-const MAX_CACHE = 200;
-const cache = new Map<string, ConjugationQuestion>();
-
-function cacheKey(
-  language: string,
-  level: number,
-  axis: string | undefined,
-  cefr: string | undefined,
-  avoidHash: string,
-): string {
-  return `${language}|${level}|${axis ?? "auto"}|${cefr ?? "auto"}|${avoidHash}`;
-}
-
-function cacheGet(key: string): ConjugationQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: ConjugationQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<ConjugationQuestion>();
 
 const SYSTEM = `You are a precise grammar drill author for adult language learners. You generate fill-in-the-blank conjugation questions that test ONE clear thing at a time when level=1, two things at level=2, and complex multi-axis transformations at level=3.
 
@@ -97,10 +71,8 @@ export const generateConjugationQuestion = createServerFn({ method: "POST" })
         data.cefr ?? (data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2");
       const axis = data.axis ?? (data.level === 3 ? "mixed" : pickAxis(data.level));
 
-      // Avoid hash so same avoid-set hits cache; small cap on size already.
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, axis, cefr, avoidHash);
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, axis, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
 
       const avoidLine =
@@ -128,9 +100,7 @@ export const generateConjugationQuestion = createServerFn({ method: "POST" })
       try {
         const client = new Anthropic({ apiKey: KEY });
         const response = await client.messages.create({
-          // Sonnet 4.6 — grammar drill quality matters a lot. A bad distractor
-          // (e.g. wrong-options that are also grammatically valid for the phrase)
-          // breaks the game. Sonnet's much more reliable here than Haiku.
+          // Grammar quality also requires content validation beyond tool shape.
           model: "claude-haiku-5-5",
           max_tokens: 850,
           system: SYSTEM,
@@ -203,17 +173,15 @@ export const generateConjugationQuestion = createServerFn({ method: "POST" })
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const q = toolUse.input as ConjugationQuestion;
-        // Defensive: ensure exactly 3 wrong options + correct isn't in wrong list.
-        if (!Array.isArray(q.wrongOptions) || q.wrongOptions.length !== 3) {
-          return { data: null, error: "Invalid wrongOptions array." };
+        const parsed = ConjugationOutput.safeParse(toolUse.input);
+        if (!parsed.success) {
+          return {
+            data: null,
+            error: "The generated question could not be validated. Please try again.",
+          };
         }
-        if (q.wrongOptions.includes(q.correctConjugation)) {
-          // Strip and pad if needed — model occasionally duplicates.
-          q.wrongOptions = q.wrongOptions.filter((w) => w !== q.correctConjugation);
-          while (q.wrongOptions.length < 3) q.wrongOptions.push(`${q.infinitive}?`);
-        }
-        cacheSet(key, q);
+        const q = parsed.data;
+        cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
       } catch (e) {
         console.error("generateConjugationQuestion failed", e);

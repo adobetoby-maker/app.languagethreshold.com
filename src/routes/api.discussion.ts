@@ -1,3 +1,4 @@
+import { prepareConversationRequest } from "@/lib/conversation-request";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -108,21 +109,15 @@ export const Route = createFileRoute("/api/discussion")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        let payload: z.infer<typeof BodySchema>;
-        try {
-          payload = BodySchema.parse(await request.json());
-        } catch (e) {
-          return new Response(
-            JSON.stringify({ error: e instanceof Error ? e.message : "Invalid input" }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
-          );
-        }
+        const prepared = await prepareConversationRequest(request, BodySchema);
+        if (prepared.response) return prepared.response;
+        const payload = prepared.data;
 
         const KEY = process.env.ANTHROPIC_API_KEY;
         if (!KEY) {
           return new Response(JSON.stringify({ error: "AI is not configured" }), {
             status: 500,
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
           });
         }
 
@@ -149,12 +144,12 @@ export const Route = createFileRoute("/api/discussion")({
               response.content[0]?.type === "text" ? response.content[0].text.trim() : null;
             return new Response(JSON.stringify({ tip }), {
               status: 200,
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
             });
           } catch {
             return new Response(JSON.stringify({ tip: null }), {
               status: 200,
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
             });
           }
         }
@@ -174,7 +169,7 @@ export const Route = createFileRoute("/api/discussion")({
             status: 200,
             headers: {
               "Content-Type": "text/event-stream",
-              "Cache-Control": "no-cache, no-transform",
+              "Cache-Control": "no-store, no-transform",
               Connection: "keep-alive",
             },
           });
@@ -183,7 +178,7 @@ export const Route = createFileRoute("/api/discussion")({
           console.error("Discussion stream error:", e);
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
           });
         }
       },

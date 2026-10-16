@@ -13,7 +13,8 @@ export const LEARNING_GENERATION_LIMITS = { minute: 8, ipHour: 120, globalHour: 
 // Short image checks are a repeated learning action; they must not consume the
 // slower lesson/deck creation pool. Shared connections still have a bounded allowance.
 export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1200 } as const;
-export type LearningGenerationPurpose = "content" | "handwriting";
+export const CONVERSATION_LIMITS = { minute: 30, ipHour: 300, globalHour: 600 } as const;
+export type LearningGenerationPurpose = "content" | "handwriting" | "conversation";
 
 export async function checkLearningGenerationBudget(
   request: Request,
@@ -42,8 +43,13 @@ export async function checkLearningGenerationBudget(
       : process.env.VERCEL_ENV === "preview"
         ? "preview"
         : "development";
-  const prefix = `learning-generation:v1:${stage}${purpose === "handwriting" ? ":handwriting" : ""}`;
-  const limits = purpose === "handwriting" ? HANDWRITING_CHECK_LIMITS : LEARNING_GENERATION_LIMITS;
+  const prefix = `learning-generation:v1:${stage}${purpose === "content" ? "" : `:${purpose}`}`;
+  const limits =
+    purpose === "handwriting"
+      ? HANDWRITING_CHECK_LIMITS
+      : purpose === "conversation"
+        ? CONVERSATION_LIMITS
+        : LEARNING_GENERATION_LIMITS;
   try {
     const minute = await consumeServerRequestBudget(`${prefix}:ip-minute`, ip, limits.minute);
     if (!minute)

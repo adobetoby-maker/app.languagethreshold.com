@@ -4,6 +4,7 @@ import {
   checkLearningGenerationBudget,
   LEARNING_GENERATION_LIMITS,
   HANDWRITING_CHECK_LIMITS,
+  CONVERSATION_LIMITS,
 } from "../src/lib/learning-generation-security.ts";
 
 function request(headers = {}) {
@@ -95,6 +96,27 @@ test("handwriting hourly budgets deny further paid checks independently of per-m
       globalThis.fetch = async (_, init) =>
         Response.json(JSON.parse(init.body).p_request_limit !== rejectLimit);
       const denied = await checkLearningGenerationBudget(request(), "handwriting");
+      assert.equal(denied.status, 429);
+      assert.equal(denied.retryAfter, 3600);
+    }
+  }));
+test("conversation minute and hourly bounds are independent of handwriting and content", async () =>
+  fixture(async ({ calls }) => {
+    assert.deepEqual(CONVERSATION_LIMITS, { minute: 30, ipHour: 300, globalHour: 600 });
+    for (let i = 0; i < CONVERSATION_LIMITS.minute; i++)
+      assert.equal(await checkLearningGenerationBudget(request(), "conversation"), null);
+    assert.equal((await checkLearningGenerationBudget(request(), "conversation")).status, 429);
+    assert.equal(await checkLearningGenerationBudget(request(), "handwriting"), null);
+    const handwritingHash = calls.at(-3).body.p_bucket_hash;
+    assert.equal(await checkLearningGenerationBudget(request()), null);
+    assert.equal(
+      new Set([calls[0].body.p_bucket_hash, handwritingHash, calls.at(-3).body.p_bucket_hash]).size,
+      3,
+    );
+    for (const limit of [300, 600]) {
+      globalThis.fetch = async (_, init) =>
+        Response.json(JSON.parse(init.body).p_request_limit !== limit);
+      const denied = await checkLearningGenerationBudget(request(), "conversation");
       assert.equal(denied.status, 429);
       assert.equal(denied.retryAfter, 3600);
     }

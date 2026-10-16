@@ -1,3 +1,4 @@
+import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -146,10 +147,7 @@ export function TutorPanel() {
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
         body: JSON.stringify({
-          messages: [...messages, userMsg].map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: recentConversationMessages([...messages, userMsg]),
           context: {
             language: appState.selectedLanguage,
             level: cefr,
@@ -315,8 +313,7 @@ export function TutorPanel() {
         aria-label="Language Threshold Tutor"
         className="lt-tutor-panel relative flex w-full max-w-[min(100%,440px)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl"
         style={{
-          maxHeight:
-            "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
+          maxHeight: "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
         }}
       >
         {/* Header */}

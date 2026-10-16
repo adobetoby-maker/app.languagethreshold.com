@@ -1,3 +1,4 @@
+import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import {
   Send,
@@ -212,10 +213,12 @@ export function MissionaryDiscussions() {
     dispatch({ type: "ADD_TURN", payload: aiTurn });
 
     try {
-      const history = [...s.turns, userTurn].map((t) => ({
-        role: t.role === "user" ? ("user" as const) : ("assistant" as const),
-        content: t.text,
-      }));
+      const history = recentConversationMessages(
+        [...s.turns, userTurn].map((t) => ({
+          role: t.role === "user" ? ("user" as const) : ("assistant" as const),
+          content: t.text,
+        })),
+      );
 
       const res = await fetch("/api/discussion", {
         method: "POST",

@@ -1,8 +1,9 @@
 import "@tanstack/react-start/server-only";
+import type { CheckpointHeads, AttemptSummary } from "./reporting";
 import { studyPlanStart } from "./plan-timing";
 import type { TeamDb } from "@/lib/team-server";
 import { getModule } from "@/data/modules";
-import { checkpointProfiles, type Checkpoint, type ItemEvidence } from "./core";
+import { checkpointProfiles } from "./core";
 import { AssessmentAccessError, enrollmentAccess, rpc } from "./server";
 
 async function canManage(db: TeamDb, actor: string, id: string) {
@@ -19,38 +20,67 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     manage = await canManage(db, actor, id);
   if (enrollment.role !== "primary")
     throw new AssessmentAccessError("Open the primary module to manage its supporting work.", 400);
-  const [recommendations, assignments, revisions, checkpoints] = await Promise.all([
-    db
-      .from("assessment_recommendations")
-      .select(
-        "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at",
-      )
-      .eq("enrollment_id", id)
-      .order("created_at", { ascending: false })
-      .limit(50),
-    db
-      .from("assessment_support_assignments")
-      .select("*")
-      .eq("enrollment_id", id)
-      .order("approved_at", { ascending: false })
-      .limit(50),
-    db
-      .from("assessment_plan_revisions")
-      .select(
-        "id,source_attempt_id,revision,suggested_lesson,focus_ways,catchup_objectives,rationale,evidence,created_at,review_every_days",
-      )
-      .eq("enrollment_id", id)
-      .order("revision", { ascending: false })
-      .limit(50),
-    db.from("assessment_checkpoints").select("id,checkpoint").eq("enrollment_id", id),
-  ]);
-  if ([recommendations, assignments, revisions, checkpoints].some((result) => result.error))
+  const [recommendations, assignments, revisions, checkpoints, pending, current] =
+    await Promise.all([
+      db
+        .from("assessment_recommendations")
+        .select(
+          "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at",
+        )
+        .eq("enrollment_id", id)
+        .order("created_at", { ascending: false })
+        .limit(50),
+      db
+        .from("assessment_support_assignments")
+        .select("*")
+        .eq("enrollment_id", id)
+        .order("approved_at", { ascending: false })
+        .limit(50),
+      db
+        .from("assessment_plan_revisions")
+        .select(
+          "id,source_attempt_id,revision,suggested_lesson,focus_ways,catchup_objectives,rationale,evidence,created_at,review_every_days",
+        )
+        .eq("enrollment_id", id)
+        .order("revision", { ascending: false })
+        .limit(50),
+      db.from("assessment_checkpoints").select("id,checkpoint").eq("enrollment_id", id),
+      db
+        .from("assessment_recommendations")
+        .select(
+          "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at",
+        )
+        .eq("enrollment_id", id)
+        .in("decision", ["suggested", "deferred"]),
+      db
+        .from("assessment_support_assignments")
+        .select("*")
+        .eq("enrollment_id", id)
+        .in("status", ["active", "paused", "checkpoint_due"]),
+    ]);
+  if (
+    [recommendations, assignments, revisions, checkpoints, pending, current].some(
+      (result) => result.error,
+    )
+  )
     throw new AssessmentAccessError("The assessment plan could not be loaded.", 503);
+  const recommendationRows = [
+    ...new Map(
+      [...(recommendations.data ?? []), ...(pending.data ?? [])].map((row) => [row.id, row]),
+    ).values(),
+  ];
+  const assignmentRows = [
+    ...new Map(
+      [...(assignments.data ?? []), ...(current.data ?? [])].map((row) => [row.id, row]),
+    ).values(),
+  ];
   const cpIds = (checkpoints.data ?? []).map((row) => row.id);
   const { data: attempts, error: attemptError } = cpIds.length
     ? await db
         .from("assessment_attempts")
-        .select("id,checkpoint_id,attempt_number,submitted_at,designated,status,form_snapshot")
+        .select(
+          "id,checkpoint_id,attempt_number,submitted_at,designated,status,pilot:form_snapshot->pilot,calibrated:form_snapshot->calibrated",
+        )
         .in("checkpoint_id", cpIds)
         .not("submitted_at", "is", null)
         .order("submitted_at", { ascending: false })
@@ -58,20 +88,46 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     : { data: [], error: null };
   if (attemptError)
     throw new AssessmentAccessError("Assessment evidence could not be loaded.", 503);
+  const heads = cpIds.length
+    ? await rpc<CheckpointHeads[]>(db, "assessment_checkpoint_heads", {
+        p_actor: actor,
+        p_checkpoints: cpIds,
+      })
+    : [];
+  const sourceRows = [...(attempts ?? [])];
+  const extraIds = [
+    ...new Set([
+      ...heads.flatMap((head) =>
+        head.attempts.filter((row) => row.submitted_at).map((row) => row.id),
+      ),
+      ...(sourceId ? [sourceId] : []),
+    ]),
+  ].filter((value) => !sourceRows.some((row) => row.id === value));
+  if (extraIds.length) {
+    const extra = await db
+      .from("assessment_attempts")
+      .select(
+        "id,checkpoint_id,attempt_number,submitted_at,designated,status,pilot:form_snapshot->pilot,calibrated:form_snapshot->calibrated",
+      )
+      .in("id", extraIds)
+      .in("checkpoint_id", cpIds)
+      .not("submitted_at", "is", null);
+    if (extra.error)
+      throw new AssessmentAccessError("Original assessment sources could not be loaded.", 503);
+    sourceRows.push(...(extra.data ?? []));
+  }
+  sourceRows.sort((a, b) => Date.parse(b.submitted_at ?? "") - Date.parse(a.submitted_at ?? ""));
   const source = sourceId
-    ? (attempts ?? []).find((row) => row.id === sourceId)
-    : (attempts ?? []).find((row) => row.designated);
+    ? sourceRows.find((row) => row.id === sourceId)
+    : sourceRows.find((row) => row.designated);
   if (sourceId && !source)
     throw new AssessmentAccessError("Source assessment belongs to another plan.", 403);
   const summaries = source
-    ? await rpc<
-        {
-          attemptId: string;
-          checkpoint: Checkpoint;
-          calibrated: boolean;
-          evidence: ItemEvidence[];
-        }[]
-      >(db, "assessment_progress_summaries", { p_actor: actor, p_enrollments: [id] })
+    ? await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
+        p_actor: actor,
+        p_enrollments: [id],
+        p_attempts: [source.id],
+      })
     : [];
   const summary = summaries.find((row) => row.attemptId === source?.id);
   const profiles = summary
@@ -90,7 +146,7 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
           p_attempt: source.id,
         })
       : [];
-  const childIds = (assignments.data ?? []).map((row) => row.support_enrollment_id);
+  const childIds = assignmentRows.map((row) => row.support_enrollment_id);
   const { data: childCheckpoints, error: childError } = childIds.length
     ? await db
         .from("assessment_checkpoints")
@@ -99,20 +155,20 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     : { data: [], error: null };
   if (childError) throw new AssessmentAccessError("Supporting checks could not be loaded.", 503);
   const childCpIds = (childCheckpoints ?? []).map((row) => row.id);
-  const { data: childAttempts, error: childAttemptError } = childCpIds.length
-    ? await db
-        .from("assessment_attempts")
-        .select("id,checkpoint_id,status,attempt_number,submitted_at,designated")
-        .in("checkpoint_id", childCpIds)
-        .order("attempt_number", { ascending: false })
-    : { data: [], error: null };
-  if (childAttemptError)
-    throw new AssessmentAccessError("Supporting check history could not be loaded.", 503);
-  const capabilityIds = (recommendations.data ?? []).map((row) => row.capability_id);
+  const childHeads = childCpIds.length
+    ? await rpc<CheckpointHeads[]>(db, "assessment_checkpoint_heads", {
+        p_actor: actor,
+        p_checkpoints: childCpIds,
+      })
+    : [];
+  const childAttempts = childHeads.flatMap((head) => head.attempts);
+  const capabilityIds = recommendationRows.map((row) => row.capability_id);
   const { data: capabilities, error: capError } = capabilityIds.length
     ? await db
         .from("assessment_support_capabilities")
-        .select("id,title,lesson_ids,weekly_minutes,offline_available,assignment_mode,release_id")
+        .select(
+          "id,version,title,lesson_ids,weekly_minutes,offline_available,assignment_mode,release_id",
+        )
         .in("id", capabilityIds)
     : { data: [], error: null };
   if (capError)
@@ -146,12 +202,12 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
           attemptNumber: source.attempt_number,
           submittedAt: source.submitted_at,
           designated: source.designated,
-          pilot: source.form_snapshot.pilot === true,
-          calibrated: source.form_snapshot.calibrated === true,
+          pilot: source.pilot === true,
+          calibrated: source.calibrated === true,
           profiles,
         }
       : null,
-    availableSources: (attempts ?? []).map((row) => ({
+    availableSources: sourceRows.map((row) => ({
       id: row.id,
       checkpoint: checkpoints.data?.find((cp) => cp.id === row.checkpoint_id)?.checkpoint,
       attemptNumber: row.attempt_number,
@@ -163,24 +219,27 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
       ? "access_needed"
       : !source
         ? "assessment_needed"
-        : source.form_snapshot.pilot === true || source.form_snapshot.calibrated !== true
+        : source.pilot === true || source.calibrated !== true
           ? "awaiting_calibration"
           : !hasGap
             ? "evidence_needed"
             : candidates.length
               ? "ready"
               : "content_gap",
-    recommendations: (recommendations.data ?? []).map((row) => ({
+    recommendations: recommendationRows.map((row) => ({
       ...row,
-      capability: capabilities?.find((cap) => cap.id === row.capability_id),
+      capability: capabilities?.find(
+        (cap) => cap.id === row.capability_id && cap.version === row.capability_version,
+      ),
     })),
-    assignments: (assignments.data ?? []).map((row) => ({
+    assignments: assignmentRows.map((row) => ({
       ...row,
       checkpoints: (childCheckpoints ?? [])
         .filter((cp) => cp.enrollment_id === row.support_enrollment_id)
         .map((cp) => ({
           ...cp,
-          attempts: (childAttempts ?? []).filter((attempt) => attempt.checkpoint_id === cp.id),
+          attempt_count: childHeads.find((head) => head.checkpointId === cp.id)?.attemptCount ?? 0,
+          attempts: childAttempts.filter((attempt) => attempt.checkpoint_id === cp.id),
         })),
     })),
     revisions: revisions.data ?? [],
@@ -258,15 +317,13 @@ export async function readDailyAssessmentPlans(
         if (checkError)
           throw new AssessmentAccessError("Supporting checks could not be loaded.", 503);
         const checkIds = (checks ?? []).map((row) => row.id);
-        const { data: attempts, error: attemptError } = checkIds.length
-          ? await db
-              .from("assessment_attempts")
-              .select("id,checkpoint_id,status,attempt_number,submitted_at,designated")
-              .in("checkpoint_id", checkIds)
-              .order("attempt_number", { ascending: false })
-          : { data: [], error: null };
-        if (attemptError)
-          throw new AssessmentAccessError("Supporting check history could not be loaded.", 503);
+        const checkHeads = checkIds.length
+          ? await rpc<CheckpointHeads[]>(db, "assessment_checkpoint_heads", {
+              p_actor: actor,
+              p_checkpoints: checkIds,
+            })
+          : [];
+        const attempts = checkHeads.flatMap((head) => head.attempts);
         return {
           enrollmentId: en.id,
           scope: en.scope,
@@ -282,6 +339,8 @@ export async function readDailyAssessmentPlans(
               .filter((cp) => cp.enrollment_id === assignment.support_enrollment_id)
               .map((cp) => ({
                 ...cp,
+                attempt_count:
+                  checkHeads.find((head) => head.checkpointId === cp.id)?.attemptCount ?? 0,
                 attempts: (attempts ?? []).filter((attempt) => attempt.checkpoint_id === cp.id),
               })),
             reason:

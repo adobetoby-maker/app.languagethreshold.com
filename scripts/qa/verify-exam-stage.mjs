@@ -37,7 +37,13 @@ const [personal, learner, admin] = await Promise.all([
   login(qa.email, qa.password),
   login(qa.adminEmail, qa.adminPassword),
 ]);
-const base = "https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app";
+const base =
+  process.env.LT_QA_STAGE_URL ||
+  "https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app";
+assert.match(
+  base,
+  /^https:\/\/language-threshold-[a-z0-9]+-adobetoby-5572s-projects\.vercel\.app$/,
+);
 async function request(token, pathOrBody, origin = base) {
   const get = typeof pathOrBody === "string";
   const response = await fetch(base + (get ? pathOrBody : "/api/exam-plans"), {
@@ -138,7 +144,7 @@ assert.equal(deniedAi.status, 409);
 const report = {
   testedAt: new Date().toISOString(),
   target: base,
-  commit: "4bb1772",
+  commit: process.env.LT_QA_STAGE_COMMIT || "4bb1772",
   catalogModules: 59,
   spanishTargetTracks: 57,
   englishTargetTracks: 59,
@@ -160,7 +166,7 @@ const report = {
   },
 };
 writeFileSync(
-  "docs/reviews/qa-exams-stage-phone-2026-10-16.json",
+  process.env.LT_QA_REPORT_PATH || "docs/reviews/qa-exams-stage-phone-2026-10-16.json",
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(JSON.stringify(report.checks));

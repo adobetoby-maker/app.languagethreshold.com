@@ -1,3 +1,5 @@
+import { AssessmentAuditHistory } from "./AssessmentAuditHistory";
+import { CheckpointAttemptHistory } from "./CheckpointAttemptHistory";
 import {
   Dialog,
   DialogContent,
@@ -317,6 +319,13 @@ export function AssessmentPlanPanel({
                       {cp.attempts[0].submitted_at ? "View check result" : "Resume check"}
                     </button>
                   )}
+                  {(cp.attempt_count ?? cp.attempts.length) > 0 && (
+                    <CheckpointAttemptHistory
+                      checkpointId={cp.id}
+                      attemptCount={cp.attempt_count ?? cp.attempts.length}
+                      onOpen={onOpenAttempt}
+                    />
+                  )}
                   {data.isLearner &&
                     assignment.status === "active" &&
                     (!cp.attempts[0] || cp.attempts[0].submitted_at) && (
@@ -596,7 +605,7 @@ export function AssessmentPlanPanel({
       )}
       <details className={card}>
         <summary className="min-h-11 cursor-pointer py-2 font-semibold">
-          Plan and assignment history
+          Recent plan decisions
         </summary>
         <p className="my-3 text-xs text-muted-foreground">
           Latest {data.limit} records per history. Participation and self-reported mastery are
@@ -640,6 +649,7 @@ export function AssessmentPlanPanel({
             </p>
           ))}
       </details>
+      <AssessmentAuditHistory enrollmentId={data.enrollment.id} onOpenAttempt={onOpenAttempt} />
     </section>
   );
 }

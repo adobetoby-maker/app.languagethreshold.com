@@ -1,3 +1,4 @@
+import { checkpointAttemptHistory } from "@/lib/assessments/reports-server";
 import { assessmentContentAccess } from "@/lib/assessments/plans-server";
 import { proposeWritingReview } from "@/lib/assessments/ai-server";
 import { createFileRoute } from "@tanstack/react-router";
@@ -187,6 +188,19 @@ export const Route = createFileRoute("/api/exams")({
               throw new AssessmentAccessError("Reviewer status could not be loaded.", 503);
             return json({ ...queue, eligible: !!registry.data?.length });
           }
+          if (action === "checkpoint_history") {
+            await budget(user.id, "history_read");
+            return json(
+              await checkpointAttemptHistory(
+                db,
+                user.id,
+                id.parse(url.searchParams.get("checkpoint")),
+                url.searchParams.has("before")
+                  ? z.coerce.number().int().positive().parse(url.searchParams.get("before"))
+                  : undefined,
+              ),
+            );
+          }
           if (action === "attempt")
             return json(
               await readAttempt(
@@ -231,6 +245,7 @@ export const Route = createFileRoute("/api/exams")({
           }
           if (action !== "overview")
             throw new AssessmentAccessError("Unknown assessment view.", 400);
+          await budget(user.id, "overview_read");
           const orgId = url.searchParams.get("org")
             ? id.parse(url.searchParams.get("org"))
             : undefined;
@@ -247,12 +262,51 @@ export const Route = createFileRoute("/api/exams")({
               : { data: [], error: null };
           if (members.error)
             throw new AssessmentAccessError("Team learners could not be loaded.", 503);
+          const memberships = !orgId
+            ? await db
+                .from("team_members")
+                .select("organization_id")
+                .eq("user_id", user.id)
+                .eq("status", "active")
+            : { data: [], error: null };
+          if (memberships.error)
+            throw new AssessmentAccessError("Team permissions could not be loaded.", 503);
           return json({
             canManage,
+            activeOrganizationIds: (memberships.data ?? []).map((row) => row.organization_id),
             members: members.data ?? [],
-            enrollments: await listEnrollments(db, user.id, orgId),
+            ...(await listEnrollments(db, user.id, orgId, {
+              after: url.searchParams.get("after")
+                ? z.string().datetime({ offset: true }).parse(url.searchParams.get("after"))
+                : undefined,
+              afterId: url.searchParams.get("afterId")
+                ? id.parse(url.searchParams.get("afterId"))
+                : undefined,
+              moduleId: url.searchParams.get("module")
+                ? z.string().min(1).max(80).parse(url.searchParams.get("module"))
+                : undefined,
+              learnerId: url.searchParams.get("learner")
+                ? id.parse(url.searchParams.get("learner"))
+                : undefined,
+              state: z
+                .enum([
+                  "all",
+                  "active",
+                  "paused",
+                  "needs_review",
+                  "in_progress",
+                  "overdue",
+                  "upcoming",
+                ])
+                .parse(url.searchParams.get("state") ?? "all"),
+              target: url.searchParams.get("target")
+                ? target.parse(url.searchParams.get("target"))
+                : undefined,
+              native: url.searchParams.get("native")
+                ? native.parse(url.searchParams.get("native"))
+                : undefined,
+            })),
             pilot: pilotAllowed(user.id),
-            limit: 200,
           });
         } catch (error) {
           return fail(error);

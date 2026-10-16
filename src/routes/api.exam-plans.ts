@@ -1,3 +1,4 @@
+import { assessmentAuditHistory } from "@/lib/assessments/reports-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
@@ -125,6 +126,18 @@ export const Route = createFileRoute("/api/exam-plans")({
               .parse(query.get("native"));
             return json(await readDailyAssessmentPlans(db, user.id, moduleId, target, native));
           }
+          if (action === "history")
+            return json(
+              await assessmentAuditHistory(
+                db,
+                user.id,
+                id.parse(query.get("enrollment")),
+                query.get("after")
+                  ? z.string().datetime({ offset: true }).parse(query.get("after"))
+                  : undefined,
+                query.get("afterId") ? id.parse(query.get("afterId")) : undefined,
+              ),
+            );
           if (action !== "plan") throw new AssessmentAccessError("Unknown plan view.", 400);
           return json(
             await readAssessmentPlan(

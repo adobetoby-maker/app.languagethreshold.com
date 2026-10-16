@@ -1,3 +1,6 @@
+import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
+import type { OverviewState } from "@/lib/assessments/reporting";
+import { CheckpointAttemptHistory } from "./CheckpointAttemptHistory";
 import { isPrivateAssessmentContext } from "@/lib/assessment-privacy";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "@/lib/speaking-privacy";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -43,6 +46,8 @@ type Enrollment = {
   target_language: Language;
   instruction_language: NativeLanguage;
   scope: "personal" | "team";
+  organization_id: string | null;
+  organization_name?: string | null;
   role: "primary" | "support";
   status: "active" | "paused" | "archived";
   revision: number;
@@ -54,6 +59,7 @@ type Enrollment = {
     status: string;
     ready: boolean;
     pilotReady: boolean;
+    attempt_count?: number;
     attempts: {
       id: string;
       status: string;
@@ -65,13 +71,22 @@ type Enrollment = {
     }[];
   }[];
 };
-type Overview = {
-  enrollments: Enrollment[];
+type OverviewMetadata = {
+  activeOrganizationIds: string[];
   canManage: boolean;
   members: { user_id: string; display_name: string }[];
   pilot: boolean;
   limit: number;
 };
+type Overview = OverviewMetadata & { enrollments: Enrollment[]; hasMore: boolean };
+type PlanFilters = {
+  module: string;
+  learner: string;
+  state: OverviewState;
+  target: "" | Language;
+  native: "" | NativeLanguage;
+};
+const emptyFilters: PlanFilters = { module: "", learner: "", state: "all", target: "", native: "" };
 const names = { entrance: "Entrance", day45: "Day 45", day90: "Day 90" } as const;
 const checkpointName = (checkpoint: string, programScope?: string) =>
   programScope === "support_units"
@@ -118,6 +133,7 @@ type ExamsAreaProps = {
   orgId?: string;
   attemptId?: string;
   reviewMode?: boolean;
+  initialModuleFilter?: string;
 };
 function ExamsAreaContent({
   embedded = false,
@@ -127,6 +143,7 @@ function ExamsAreaContent({
   orgId,
   attemptId,
   reviewMode = false,
+  initialModuleFilter,
 }: ExamsAreaProps) {
   const { user, loading: authLoading, isCurrentUser } = useAuth();
   useEffect(() => {
@@ -138,9 +155,8 @@ function ExamsAreaContent({
   }, []);
   const Heading = embedded ? "h2" : "h1";
   const [authOpen, setAuthOpen] = useState(false),
-    [overview, setOverview] = useState<Overview | null>(null),
-    [loading, setLoading] = useState(false),
-    [error, setError] = useState("");
+    [actionLoading, setLoading] = useState(false),
+    [actionError, setError] = useState("");
   const [selection, setSelection] = useState<{ viewer: string; attempt: ExamAttemptView } | null>(
     null,
   );
@@ -164,32 +180,49 @@ function ExamsAreaContent({
   const scheduleRequest = useRef<{ payload: string; id: string } | null>(null);
   const actionLock = useRef(false),
     handledAttempt = useRef<string | null>(null);
-  const load = useCallback(async () => {
-    if (!user) return;
-    const viewer = user.id;
-    setLoading(true);
-    setError("");
-    try {
-      const data = await examRequest<Overview>(
-        `/api/exams${orgId ? `?org=${encodeURIComponent(orgId)}` : ""}`,
-      );
-      if (isCurrentUser(viewer)) {
-        setOverview(data);
-        setLearner((previous) => previous || data.members[0]?.user_id || "");
+  const [filters, setFilters] = useState<PlanFilters>(() => ({
+    ...emptyFilters,
+    ...(initialModuleFilter
+      ? { module: initialModuleFilter, target: targetLanguage, native: instructionLanguage }
+      : {}),
+  }));
+  const [draftFilters, setDraftFilters] = useState(filters);
+  const query = new URLSearchParams({
+    ...(orgId ? { org: orgId } : {}),
+    ...(filters.module ? { module: filters.module } : {}),
+    ...(filters.learner ? { learner: filters.learner } : {}),
+    ...(filters.state !== "all" ? { state: filters.state } : {}),
+    ...(filters.target ? { target: filters.target } : {}),
+    ...(filters.native ? { native: filters.native } : {}),
+  });
+  const report = usePrivatePagedReport<Enrollment, OverviewMetadata>(
+    `/api/exams?${query}`,
+    !!user,
+    "enrollments",
+  );
+  const overview: Overview | null = report.metadata
+    ? {
+        ...report.metadata,
+        enrollments: report.items.filter((plan) =>
+          orgId
+            ? report.metadata!.canManage || plan.user_id === user?.id
+            : plan.scope === "personal" ||
+              report.metadata!.activeOrganizationIds.includes(plan.organization_id ?? ""),
+        ),
+        hasMore: report.hasMore,
       }
-    } catch (err) {
-      if (isCurrentUser(viewer))
-        setError(
-          err instanceof TypeError
-            ? "Cannot connect to your account. You can resume an active exam saved on this device, then sync when the connection returns."
-            : err instanceof Error
-              ? err.message
-              : "Exams could not be loaded.",
-        );
-    } finally {
-      if (isCurrentUser(viewer)) setLoading(false);
-    }
-  }, [isCurrentUser, orgId, user]);
+    : null;
+  const loading = actionLoading || report.loading,
+    error = actionError || report.error;
+  const refreshOverview = report.refresh;
+  const load = useCallback(() => {
+    setError("");
+    refreshOverview();
+  }, [refreshOverview]);
+  useEffect(() => {
+    if (report.metadata)
+      setLearner((previous) => previous || report.metadata!.members[0]?.user_id || "");
+  }, [report.metadata]);
   const open = useCallback(
     async (id: string, review = false) => {
       if (!user) return;
@@ -231,9 +264,7 @@ function ExamsAreaContent({
     },
     [isCurrentUser, user],
   );
-  useEffect(() => {
-    void load();
-  }, [load]);
+
   useEffect(() => {
     if (user && attemptId && handledAttempt.current !== `${user.id}:${attemptId}:${reviewMode}`) {
       handledAttempt.current = `${user.id}:${attemptId}:${reviewMode}`;
@@ -288,6 +319,16 @@ function ExamsAreaContent({
   const savedCopies = recoveryCopiesForScope(
     readOfflineExams<ExamAttemptView>(browserExamStorage(), user.id),
     orgId,
+  ).filter(
+    (copy) =>
+      (!filters.module || copy.enrollment.moduleId === filters.module) &&
+      (!filters.target || copy.enrollment.targetLanguage === filters.target) &&
+      (!filters.native || copy.enrollment.instructionLanguage === filters.native) &&
+      (!filters.learner || filters.learner === user.id) &&
+      (orgId ||
+        !overview ||
+        copy.enrollment.scope === "personal" ||
+        overview.activeOrganizationIds.includes(copy.enrollment.organizationId ?? "")),
   );
   const visibleAttemptIds = new Set(
     overview?.enrollments.flatMap((plan) =>
@@ -308,7 +349,11 @@ function ExamsAreaContent({
         <header className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-widest text-gold">
-              {orgId ? "Team assessment plans" : "Private personal progress"}
+              {orgId
+                ? "Team assessment plans"
+                : overview?.enrollments.some((plan) => plan.scope === "team")
+                  ? "Your module progress"
+                  : "Private personal progress"}
             </p>
             <Heading className="mt-1 font-serif text-3xl">Exams</Heading>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
@@ -475,6 +520,143 @@ function ExamsAreaContent({
         </section>
       ) : (
         <div className="flex flex-col gap-5">
+          {(orgId ||
+            (overview && (overview.enrollments.length > 1 || overview.hasMore)) ||
+            Object.entries(filters).some(([key, value]) =>
+              key === "state" ? value !== "all" : !!value,
+            )) && (
+            <details className={card}>
+              <summary className="min-h-11 cursor-pointer py-2 font-semibold">
+                Find a module or checkpoint
+              </summary>
+              <form
+                className="mt-3 grid gap-3 sm:grid-cols-2"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setFilters({ ...draftFilters });
+                  report.refresh();
+                  setPending(null);
+                  setError("");
+                }}
+              >
+                <label className="text-sm">
+                  Module
+                  <select
+                    className={input}
+                    value={draftFilters.module}
+                    onChange={(event) =>
+                      setDraftFilters((value) => ({ ...value, module: event.target.value }))
+                    }
+                  >
+                    <option value="">All modules</option>
+                    {MODULES.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-sm">
+                  Plan activity
+                  <select
+                    className={input}
+                    value={draftFilters.state}
+                    onChange={(event) =>
+                      setDraftFilters((value) => ({
+                        ...value,
+                        state: event.target.value as OverviewState,
+                      }))
+                    }
+                  >
+                    {Object.entries({
+                      all: "All plans",
+                      active: "Active plans",
+                      paused: "Paused plans",
+                      needs_review: "Needs review or scoring",
+                      in_progress: "Exam in progress",
+                      overdue: "Uncompleted overdue checkpoint",
+                      upcoming: "Checkpoint due in the next 7 days",
+                    }).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {orgId && overview?.canManage && (
+                  <label className="text-sm">
+                    Learner
+                    <select
+                      className={input}
+                      value={draftFilters.learner}
+                      onChange={(event) =>
+                        setDraftFilters((value) => ({ ...value, learner: event.target.value }))
+                      }
+                    >
+                      <option value="">All learners</option>
+                      {overview.members.map((member) => (
+                        <option key={member.user_id} value={member.user_id}>
+                          {member.display_name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                <label className="text-sm">
+                  Target language
+                  <select
+                    className={input}
+                    value={draftFilters.target}
+                    onChange={(event) =>
+                      setDraftFilters((value) => ({
+                        ...value,
+                        target: event.target.value as "" | Language,
+                      }))
+                    }
+                  >
+                    <option value="">All target languages</option>
+                    {LANGUAGES.map((language) => (
+                      <option key={language}>{language}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-sm">
+                  Instruction language
+                  <select
+                    className={input}
+                    value={draftFilters.native}
+                    onChange={(event) =>
+                      setDraftFilters((value) => ({
+                        ...value,
+                        native: event.target.value as "" | NativeLanguage,
+                      }))
+                    }
+                  >
+                    <option value="">All instruction languages</option>
+                    {NATIVE_LANGUAGES.map((language) => (
+                      <option key={language}>{language}</option>
+                    ))}
+                  </select>
+                </label>
+                <div className="flex flex-wrap gap-3 sm:col-span-2">
+                  <button className={button} disabled={actionLoading}>
+                    Apply filters
+                  </button>
+                  <button
+                    className={button}
+                    type="button"
+                    onClick={() => {
+                      setDraftFilters({ ...emptyFilters });
+                      setFilters({ ...emptyFilters });
+                      setError("");
+                    }}
+                  >
+                    Clear filters
+                  </button>
+                </div>
+              </form>
+            </details>
+          )}
           {overview?.canManage && (
             <details className={card + (!orgId && overview.enrollments.length ? " order-2" : "")}>
               <summary className="min-h-11 cursor-pointer py-2 font-semibold">
@@ -592,8 +774,11 @@ function ExamsAreaContent({
           )}
           {!loading && overview && !overview.enrollments.length && (
             <p className={card}>
-              No exam plans yet. Add your module, or return to its lessons while the exams are
-              prepared.
+              {Object.entries(filters).some(([key, value]) =>
+                key === "state" ? value !== "all" : !!value,
+              )
+                ? "No plans match these filters. Clear the filters or choose another module."
+                : "No exam plans yet. Add your module, or return to its lessons while the exams are prepared."}
             </p>
           )}
           {overview?.enrollments.map((plan) => {
@@ -612,8 +797,11 @@ function ExamsAreaContent({
                     </h2>
                     <p className="mt-1 text-sm text-muted-foreground">
                       {plan.instruction_language} → {plan.target_language} ·{" "}
-                      {plan.scope === "personal" ? "Private personal plan" : "Team plan"} ·{" "}
-                      {plan.timezone}
+                      {plan.scope === "personal"
+                        ? "Private personal plan"
+                        : `Team plan${plan.organization_name ? ` · ${plan.organization_name}` : ""}`}{" "}
+                      · {plan.timezone} ·{" "}
+                      {plan.role === "support" ? "Supporting module" : "Primary module"}
                     </p>
                     {plan.user_id === user.id && plan.role === "primary" && (
                       <a
@@ -736,27 +924,12 @@ function ExamsAreaContent({
                                   .join(" · ")}
                           </p>
                         )}
-                        {cp.attempts.length > 0 && (
-                          <details className="mt-3">
-                            <summary className="min-h-11 cursor-pointer py-3 text-sm">
-                              {cp.attempts.length} attempt{cp.attempts.length === 1 ? "" : "s"}
-                            </summary>
-                            {cp.attempts.map((attempt) => (
-                              <button
-                                key={attempt.id}
-                                className="block min-h-11 text-left text-sm text-gold underline"
-                                onClick={() => void open(attempt.id)}
-                              >
-                                Attempt {attempt.attempt_number}
-                                {attempt.designated
-                                  ? " · original baseline/checkpoint"
-                                  : " · retake"}
-                                {attempt.submitted_at
-                                  ? ` · ${new Date(attempt.submitted_at).toLocaleDateString()}`
-                                  : " · in progress"}
-                              </button>
-                            ))}
-                          </details>
+                        {(cp.attempt_count ?? cp.attempts.length) > 0 && (
+                          <CheckpointAttemptHistory
+                            checkpointId={cp.id}
+                            attemptCount={cp.attempt_count ?? cp.attempts.length}
+                            onOpen={(id) => void open(id)}
+                          />
                         )}
                         {plan.role !== "support" &&
                           (plan.scope === "personal" || overview.canManage) &&
@@ -808,8 +981,26 @@ function ExamsAreaContent({
               </article>
             );
           })}
-          {overview && overview.enrollments.length >= overview.limit && (
-            <p className="text-sm">Showing the latest {overview.limit} exam plans.</p>
+          {overview && (
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-xs text-muted-foreground">
+                {overview.enrollments.length} plan{overview.enrollments.length === 1 ? "" : "s"}{" "}
+                shown{overview.hasMore ? " · more available" : ""}. Overview shows the latest and
+                original checkpoint attempts; open attempt history for every retake.
+              </p>
+              {overview.hasMore && (
+                <button
+                  className={button}
+                  disabled={report.moreBusy}
+                  onClick={() => void report.loadMore()}
+                >
+                  {report.moreBusy ? "Loading more plans…" : "Load more plans"}
+                </button>
+              )}
+              <button className={button} disabled={loading || report.moreBusy} onClick={load}>
+                Refresh exam plans
+              </button>
+            </div>
           )}
         </div>
       )}
@@ -821,6 +1012,8 @@ function ExamsAreaContent({
               const rows: unknown[][] = [
                 [
                   "Learner",
+                  "Learner ID",
+                  "Plan role",
                   "Module",
                   "Scope",
                   "Language pair",
@@ -850,7 +1043,10 @@ function ExamsAreaContent({
                       for (const skill of profile.skills)
                         rows.push([
                           overview.members.find((member) => member.user_id === plan.user_id)
-                            ?.display_name ?? "Me",
+                            ?.display_name ??
+                            (plan.user_id === user.id ? "Me" : "Assigned learner"),
+                          plan.user_id,
+                          plan.role,
                           getModule(plan.module_id)?.name ?? plan.module_id,
                           plan.scope,
                           `${plan.instruction_language} → ${plan.target_language}`,
@@ -870,8 +1066,10 @@ function ExamsAreaContent({
                           skill.reviewCount,
                           skill.missingCount,
                           skill.provisional,
-                          attempt.comparisons.find((row) => row.skill === skill.skill)?.change ??
-                            "Not comparable",
+                          profile.coverage === "transfer"
+                            ? "Not comparable (transfer tasks)"
+                            : (attempt.comparisons.find((row) => row.skill === skill.skill)
+                                ?.change ?? "Not comparable"),
                         ]);
               const blob = new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" });
               const url = URL.createObjectURL(blob),
@@ -885,7 +1083,8 @@ function ExamsAreaContent({
             Export shown assessed progress
           </button>
           <p className="self-center text-xs text-muted-foreground">
-            Export includes skill summaries for the plans shown. Raw responses are excluded.
+            Export includes the latest and original skill summaries for loaded plans. Load more
+            plans or open attempt history for older records. Raw responses are excluded.
           </p>
         </div>
       )}
@@ -1446,7 +1645,9 @@ function ExamResult({
           );
         })}
       </details>
-      {attempt.canReview && <ExamRubricReview attempt={attempt} onRefresh={onRefresh} />}
+      {attempt.canReview && (
+        <ExamRubricReview attempt={attempt} onRefresh={onRefresh} onResolved={onBack} />
+      )}
       {attempt.isLearner && (
         <form
           className={card}
@@ -1526,10 +1727,14 @@ function ExamResult({
 function ExamRubricReview({
   attempt,
   onRefresh,
+  onResolved,
 }: {
   attempt: ExamAttemptView;
   onRefresh: () => void;
+  onResolved: () => void;
 }) {
+  const { user } = useAuth();
+  const reviewFlight = useRef<{ payload: string; id: string } | null>(null);
   const [chosen, setChosen] = useState("");
   const [state, setState] = useState<"scored" | "not_assessed" | "needs_review">("needs_review");
   const [dimensions, setDimensions] = useState<Record<string, number>>({});
@@ -1555,7 +1760,7 @@ function ExamRubricReview({
           if (!response) return;
           setBusy(true);
           setMessage("");
-          void examRequest({
+          const payload = {
             action: "review_score",
             attemptId: attempt.id,
             responseId: response.id,
@@ -1568,9 +1773,13 @@ function ExamRubricReview({
                 : null,
             dimensions: state === "scored" && rubric ? dimensions : null,
             reason,
-            requestId: crypto.randomUUID(),
-          })
+          };
+          const fingerprint = JSON.stringify(payload);
+          if (reviewFlight.current?.payload !== fingerprint)
+            reviewFlight.current = { payload: fingerprint, id: crypto.randomUUID() };
+          void examRequest({ ...payload, requestId: reviewFlight.current.id })
             .then(() => {
+              reviewFlight.current = null;
               setMessage("Review decision saved with its evidence.");
               onRefresh();
             })
@@ -1689,10 +1898,18 @@ function ExamRubricReview({
           </p>
           <button
             className={button + " mt-3"}
-            disabled={busy || reason.trim().length < 3}
+            disabled={
+              busy ||
+              reason.trim().length < 3 ||
+              (!!review.reviewer_id && review.reviewer_id !== user?.id)
+            }
             onClick={() => {
               setBusy(true);
-              void examRequest({ action: "claim_review", reviewId: review.id })
+              void (
+                review.reviewer_id === user?.id
+                  ? Promise.resolve()
+                  : examRequest({ action: "claim_review", reviewId: review.id })
+              )
                 .then(() =>
                   examRequest({
                     action: "resolve_review",
@@ -1702,8 +1919,7 @@ function ExamRubricReview({
                   }),
                 )
                 .then(() => {
-                  setMessage("Review closed. Unassessed inputs remain unassessed.");
-                  onRefresh();
+                  onResolved();
                 })
                 .catch((err) => setMessage(err.message))
                 .finally(() => setBusy(false));

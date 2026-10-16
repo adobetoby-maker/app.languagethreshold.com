@@ -18,7 +18,7 @@ export const Route = createFileRoute("/exams")({
       typeof search.attempt === "string" && uuid.test(search.attempt) ? search.attempt : undefined,
     review:
       search.review === true || search.review === "1" || search.review === 1 ? true : undefined,
-    module: typeof search.module === "string" ? search.module : "roofing",
+    module: typeof search.module === "string" ? search.module : undefined,
     target: LANGUAGES.includes(search.target as Language)
       ? (search.target as Language)
       : ("Spanish" as Language),
@@ -45,6 +45,7 @@ function ExamsPage() {
         <main>
           <ExamsArea
             moduleId={search.module}
+            initialModuleFilter={search.module}
             targetLanguage={search.target}
             instructionLanguage={search.native}
             orgId={search.org}

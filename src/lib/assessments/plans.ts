@@ -79,6 +79,7 @@ export interface SupportAssignment {
     checkpoint: "entrance" | "day45" | "day90";
     due_date: string;
     status: string;
+    attempt_count?: number;
     attempts: {
       id: string;
       status: string;

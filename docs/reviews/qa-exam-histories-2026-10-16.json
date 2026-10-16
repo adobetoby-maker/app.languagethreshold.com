@@ -1,0 +1,22 @@
+{
+  "testedAt": "2026-10-16T10:51:35.088Z",
+  "target": "http://127.0.0.1:4311",
+  "scope": "Existing synthetic QA records; no new exam, approval, reviewer grant or learner data created",
+  "pagesRead": 2,
+  "auditRecords": 40,
+  "auditPagingExercised": true,
+  "checks": {
+    "pagedOverview": true,
+    "completeCursorRequired": true,
+    "moduleLanguageFilters": true,
+    "learnerFilterOwnership": true,
+    "privateCheckpointHistory": true,
+    "olderAttemptCursor": true,
+    "privateAuditHistory": true,
+    "allStoredAuditEventsAccountedFor": true,
+    "uniqueAuditRecords": true,
+    "noRawAnswersOrPayloadHashes": true,
+    "noStore": true,
+    "teamAdminAuditAllowed": true
+  }
+}

@@ -1,3 +1,5 @@
+import { summarizedAttempt } from "./reporting";
+import type { OverviewFilters, OverviewPage, AttemptSummary } from "./reporting";
 import { enforceSpeakingRateLimit } from "@/lib/speaking-security";
 import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
@@ -13,13 +15,7 @@ import {
   type AssessmentFormDefinition,
   type AssessmentAnswer,
 } from "./form";
-import {
-  ASSESSMENT_SKILLS,
-  compareSkillEvidence,
-  checkpointProfiles,
-  type ItemEvidence,
-  type Checkpoint,
-} from "./core";
+import { checkpointProfiles, type ItemEvidence, type Checkpoint } from "./core";
 
 export class AssessmentAccessError extends Error {
   constructor(
@@ -185,54 +181,28 @@ export async function seedDraftTrack(
   if (error) throw new AssessmentAccessError("Assessment storage is not ready.", 503);
   return releaseId;
 }
-export async function listEnrollments(db: TeamDb, actor: string, orgId?: string) {
-  let query = db
-    .from("assessment_enrollments")
-    .select("*")
-    .eq("program_scope", "full_module")
-    .order("created_at", { ascending: false })
-    .limit(200);
-  if (orgId) {
-    const role = await memberRole(db, orgId, actor);
-    if (!role) throw new AssessmentAccessError("Team assessment access required.");
-    query = query.eq("organization_id", orgId);
-    if (!["owner", "admin"].includes(role.role)) query = query.eq("user_id", actor);
-  } else query = query.eq("user_id", actor);
-  const { data: rows, error } = await query;
-  if (error) throw new AssessmentAccessError("Assessment storage is not ready.", 503);
-  let permitted = rows ?? [];
-  if (!orgId) {
-    const { data: memberships, error: membershipError } = await db
-      .from("team_members")
-      .select("organization_id")
-      .eq("user_id", actor)
-      .eq("status", "active");
-    if (membershipError)
-      throw new AssessmentAccessError("Team assessment permissions could not be loaded.", 503);
-    const active = new Set((memberships ?? []).map((row) => row.organization_id));
-    permitted = permitted.filter(
-      (row) => row.scope === "personal" || active.has(row.organization_id),
-    );
-  }
+export async function listEnrollments(
+  db: TeamDb,
+  actor: string,
+  orgId?: string,
+  filters: OverviewFilters = {},
+) {
+  const page = await rpc<OverviewPage>(db, "assessment_overview_page", {
+    p_actor: actor,
+    p_org: orgId ?? null,
+    p_after: filters.after ?? null,
+    p_after_id: filters.afterId ?? null,
+    p_module: filters.moduleId ?? null,
+    p_learner: filters.learnerId ?? null,
+    p_state: filters.state ?? "all",
+    p_target: filters.target ?? null,
+    p_native: filters.native ?? null,
+  });
+  const permitted = page.enrollments,
+    checkpoints = page.checkpoints,
+    attempts = page.attempts;
   const ids = permitted.map((enrollment) => enrollment.id);
-  if (!ids.length) return [];
-  const { data: checkpoints, error: cpError } = await db
-    .from("assessment_checkpoints")
-    .select("*")
-    .in("enrollment_id", ids);
-  if (cpError) throw new AssessmentAccessError("Assessment schedule could not be loaded.", 503);
-  const checkpointIds = (checkpoints ?? []).map((row) => row.id);
-  const { data: attempts, error: attemptError } = checkpointIds.length
-    ? await db
-        .from("assessment_attempts")
-        .select(
-          "id,checkpoint_id,attempt_number,form_id,status,revision,started_at,submitted_at,designated",
-        )
-        .in("checkpoint_id", checkpointIds)
-        .order("attempt_number", { ascending: false })
-    : { data: [], error: null };
-  if (attemptError)
-    throw new AssessmentAccessError("Assessment attempts could not be loaded.", 503);
+  if (!ids.length) return { enrollments: [], hasMore: page.hasMore, nextCursor: null, limit: 50 };
   const { data: forms, error: formsError } = await db
     .from("assessment_forms")
     .select("id,release_id,checkpoint,status,calibrated")
@@ -244,17 +214,12 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
     .in("id", [...new Set(permitted.map((row) => row.release_id))]);
   if (formsError || releasesError)
     throw new AssessmentAccessError("Assessment readiness could not be loaded.", 503);
-  const summaries = await rpc<
-    {
-      attemptId: string;
-      checkpoint: Checkpoint;
-      calibrated: boolean;
-      equivalenceApproved: boolean;
-      equivalenceGroup: string | null;
-      evidence: ItemEvidence[];
-    }[]
-  >(db, "assessment_progress_summaries", { p_actor: actor, p_enrollments: ids });
-  return permitted.map((enrollment) => ({
+  const summaries = await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
+    p_actor: actor,
+    p_enrollments: ids,
+    p_attempts: attempts.map((attempt) => attempt.id),
+  });
+  const enrollments = permitted.map((enrollment) => ({
     ...enrollment,
     checkpoints: (checkpoints ?? [])
       .filter((cp) => cp.enrollment_id === enrollment.id)
@@ -279,49 +244,30 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
         attempts: (attempts ?? [])
           .filter((attempt) => attempt.checkpoint_id === cp.id)
           .map((attempt) => {
-            const summary = summaries.find((row) => row.attemptId === attempt.id);
-            const baselineCheckpoint = (checkpoints ?? []).find(
+            const baselineCheckpoint = checkpoints.find(
               (row) => row.enrollment_id === enrollment.id && row.checkpoint === "entrance",
             );
-            const original = (attempts ?? []).find(
+            const original = attempts.find(
               (row) =>
                 row.checkpoint_id === baselineCheckpoint?.id && row.designated && row.submitted_at,
             );
-            const baseline = summaries.find((row) => row.attemptId === original?.id);
-            const comparable =
-              !!summary &&
-              !!baseline &&
-              summary.calibrated &&
-              baseline.calibrated &&
-              summary.equivalenceApproved &&
-              baseline.equivalenceApproved &&
-              !!summary.equivalenceGroup &&
-              summary.equivalenceGroup === baseline.equivalenceGroup;
-            return {
-              ...attempt,
-              profiles: summary
-                ? checkpointProfiles(
-                    cp.checkpoint as Checkpoint,
-                    summary.evidence,
-                    summary.calibrated,
-                  )
-                : [],
-              comparisons:
-                summary && cp.checkpoint !== "entrance"
-                  ? ASSESSMENT_SKILLS.map((skill) => ({
-                      skill,
-                      ...compareSkillEvidence(
-                        baseline?.evidence ?? [],
-                        summary.evidence,
-                        skill,
-                        comparable,
-                      ),
-                    }))
-                  : [],
-            };
+            return summarizedAttempt(
+              cp.checkpoint,
+              attempt,
+              summaries.find((row) => row.attemptId === attempt.id),
+              summaries.find((row) => row.attemptId === original?.id),
+            );
           }),
       })),
   }));
+  return {
+    enrollments,
+    hasMore: page.hasMore,
+    nextCursor: page.nextCursor
+      ? { after: page.nextCursor.createdAt, afterId: page.nextCursor.id }
+      : null,
+    limit: 50,
+  };
 }
 export async function readinessCatalog(db: TeamDb, target: Language, native: NativeLanguage) {
   const { data: releases, error } = await db

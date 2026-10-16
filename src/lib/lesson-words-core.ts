@@ -182,6 +182,85 @@ export function pickAuthoredWords(
   return [...authored];
 }
 
+// ─── Pre-built static decks (public/lesson-decks) ────────────────────────────
+
+/** Schema version of a deck file; the loader ignores any other version. */
+export const LESSON_DECK_VERSION = 1;
+
+/** Shape of public/lesson-decks/<code>/<moduleId>.json (written by scripts/build-lesson-decks.mts). */
+export interface LessonDeck {
+  version: number;
+  module: string;
+  /** Target language (the one being learned). */
+  language: string;
+  nativeLanguage: string;
+  model?: string;
+  generatedAt?: string;
+  /** Keyed by lesson number as a string. */
+  lessons: Record<string, LessonWord[]>;
+}
+
+/** Directory name for a language in the deck tree: its BCP-47 primary subtag ("es", "ja"). */
+export function deckLanguageDir(language: string): string {
+  return languageTag(language);
+}
+
+/** The native language a target language's deck is written for (English decks: Spanish natives). */
+export function deckNativeLanguage(targetLanguage: string): string {
+  return targetLanguage === "English" ? "Spanish" : "English";
+}
+
+/** Site-relative URL of a module's deck for one target language. */
+export function lessonDeckPath(moduleId: string, language: string): string {
+  return `/lesson-decks/${deckLanguageDir(language)}/${encodeURIComponent(moduleId)}.json`;
+}
+
+/**
+ * Validates an untrusted deck (parsed JSON): right version, matching module + language,
+ * lessons cleaned with the same rules as live generation. Null when it is unusable.
+ */
+export function parseLessonDeck(
+  raw: unknown,
+  expected: { moduleId: string; language: string },
+): LessonDeck | null {
+  if (!raw || typeof raw !== "object") return null;
+  const deck = raw as Record<string, unknown>;
+  if (deck.version !== LESSON_DECK_VERSION) return null;
+  if (deck.module !== expected.moduleId || deck.language !== expected.language) return null;
+  if (typeof deck.nativeLanguage !== "string" || !deck.nativeLanguage) return null;
+  if (!deck.lessons || typeof deck.lessons !== "object" || Array.isArray(deck.lessons)) {
+    return null;
+  }
+  const lessons: Record<string, LessonWord[]> = {};
+  for (const [number, list] of Object.entries(deck.lessons as Record<string, unknown>)) {
+    const words = cleanLessonWords(list);
+    if (hasEnoughWords(words)) lessons[number] = words;
+  }
+  return {
+    version: LESSON_DECK_VERSION,
+    module: expected.moduleId,
+    language: expected.language,
+    nativeLanguage: deck.nativeLanguage,
+    model: typeof deck.model === "string" ? deck.model : undefined,
+    generatedAt: typeof deck.generatedAt === "string" ? deck.generatedAt : undefined,
+    lessons,
+  };
+}
+
+/**
+ * Words for one lesson from a loaded deck. Only used when the deck was written for the
+ * learner's native language (a Spanish-native English deck is no use to a French native).
+ */
+export function pickDeckWords(
+  deck: LessonDeck | null | undefined,
+  lessonNumber: number,
+  nativeLanguage: string,
+): LessonWord[] | null {
+  if (!deck || deck.nativeLanguage !== nativeLanguage) return null;
+  const words = deck.lessons[String(lessonNumber)];
+  return words && words.length > 0 ? [...words] : null;
+}
+
 // ─── Languages: tags, short codes, helper keys ───────────────────────────────
 
 const LANG_TAGS: Record<string, string> = {

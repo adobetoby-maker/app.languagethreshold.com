@@ -15,6 +15,7 @@ import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { useAiGate } from "@/state/ai-gate-state";
 import { speakingRequestHeaders } from "@/lib/speaking-client";
 import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
+import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 
 const TOPIC_CHIPS: Record<Language, string[]> = {
   Spanish: [
@@ -497,6 +498,7 @@ export function SpeakLearn() {
 
   return (
     <div className="fade-in mx-auto max-w-3xl">
+      <LessonReturnPill kind="say" />
       <header className="mb-6 flex items-end justify-between">
         <div>
           <h1 className="font-serif text-4xl text-foreground">Speak & Learn</h1>

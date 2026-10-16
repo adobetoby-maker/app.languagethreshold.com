@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v9";
+const CACHE = "lt-v10";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -30,6 +30,29 @@ self.addEventListener("fetch", (event) => {
     url.hostname.includes("anthropic") ||
     request.method !== "GET"
   ) {
+    return;
+  }
+
+  // Pre-built lesson word decks: stale-while-revalidate. Serve the cached deck at once (works
+  // offline), refresh it in the background; with no cache, use the network.
+  if (url.pathname.startsWith("/lesson-decks/") && url.pathname.endsWith(".json")) {
+    event.respondWith(
+      caches.open(CACHE).then((cache) =>
+        cache.match(request).then((cached) => {
+          const refresh = fetch(request)
+            .then((response) => {
+              if (response.ok) cache.put(request, response.clone());
+              return response;
+            })
+            .catch(() => undefined);
+          if (cached) {
+            event.waitUntil(refresh);
+            return cached;
+          }
+          return refresh.then((response) => response ?? Response.error());
+        }),
+      ),
+    );
     return;
   }
 

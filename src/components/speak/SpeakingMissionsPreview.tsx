@@ -48,6 +48,7 @@ import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { getTravelDestination } from "@/data/travel-destinations";
 import { consumeCoreSpeakingEntry, consumeSpeakingMissionRequest } from "@/lib/speaking-navigation";
+import { browserReturnStorage, lessonMissionPrefix, readLessonReturn } from "@/lib/lesson-return";
 import { bestAvailableSpeechTranscript } from "@/lib/speaking-transcript";
 import { LongPressWordText } from "./LongPressWordText";
 import { FuriganaText } from "@/components/reader/FuriganaText";
@@ -671,6 +672,26 @@ export function SpeakingMissionsPreview() {
       payload: { language: match.language, missionId: match.id, title: match.title },
     });
   }, [languageMissions, selectedMission, appDispatch]);
+
+  // A Core 30 lesson that sent the learner here leaves a return marker. Once that lesson's mission
+  // has been on screen and is then left (back, closed after the debrief, or another mission
+  // picked), send the learner back to the lesson. The marker stays for the lesson view to read.
+  const lessonReturnArmedRef = useRef(false);
+  useEffect(() => {
+    const marker = readLessonReturn(browserReturnStorage(), Date.now());
+    if (!marker || marker.section !== "say") {
+      lessonReturnArmedRef.current = false;
+      return;
+    }
+    if (selectedMission?.id.startsWith(lessonMissionPrefix(marker.moduleId, marker.lesson))) {
+      lessonReturnArmedRef.current = true;
+      return;
+    }
+    if (lessonReturnArmedRef.current) {
+      lessonReturnArmedRef.current = false;
+      appDispatch({ type: "SET_TAB", payload: "core30" });
+    }
+  }, [selectedMission, appDispatch]);
 
   const activeObjective = selectedMission?.objectives.find(
     (objective) =>

@@ -34,6 +34,8 @@ import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getAvailableModuleLessons } from "@/data/module-starters";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
+import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
+import { browserReturnStorage, readLessonReturn } from "@/lib/lesson-return";
 
 type TextSize = "S" | "M" | "L";
 
@@ -120,6 +122,26 @@ export function ParallelReader() {
     libDispatch({ type: "SELECT", payload: id });
   }
 
+  // A Core 30 lesson that opened this passage leaves a marker: keep that passage selected, and go
+  // back to the lesson once the learner moves to a different text.
+  const [lessonPassageId] = useState(() => {
+    const marker = readLessonReturn(browserReturnStorage(), Date.now());
+    return marker?.section === "see" ? (marker.ref ?? null) : null;
+  });
+  const lessonPassageSeen = useRef(false);
+  useEffect(() => {
+    if (!lessonPassageId) return;
+    if (lib.selectedId === lessonPassageId) {
+      lessonPassageSeen.current = true;
+    } else if (lessonPassageSeen.current) {
+      lessonPassageSeen.current = false;
+      // Only while the trip is still live: a marker the app already dropped (the learner went
+      // elsewhere and came back to this Reader) must not pull them to Core 30.
+      const live = readLessonReturn(browserReturnStorage(), Date.now());
+      if (live?.section === "see") dispatch({ type: "SET_TAB", payload: "core30" });
+    }
+  }, [lessonPassageId, lib.selectedId, dispatch]);
+
   // Auto-load module-relevant reading when active module changes
   const lastAutoModule = useRef<string | null>(null);
   useEffect(() => {
@@ -129,7 +151,7 @@ export function ParallelReader() {
     const readingId = lessonIds[0];
     if (!readingId || lastAutoModule.current === key) return;
     lastAutoModule.current = key;
-    if (readingId && readingId !== lib.selectedId) {
+    if (readingId && readingId !== lib.selectedId && lib.selectedId !== lessonPassageId) {
       libDispatch({ type: "SELECT", payload: readingId });
     }
   }, [
@@ -139,6 +161,7 @@ export function ParallelReader() {
     lib.selectedId,
     libDispatch,
     lessonIds,
+    lessonPassageId,
   ]);
 
   // Hydrate + persist furigana / romaja preferences.
@@ -554,6 +577,7 @@ export function ParallelReader() {
 
   return (
     <div className="fade-in mx-auto w-full max-w-6xl">
+      <LessonReturnPill kind="see" />
       <ModuleStudyGuide />
       <ModuleMatchPanel surface="Reader" className="mb-4" />
       <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">

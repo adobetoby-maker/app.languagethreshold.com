@@ -17,12 +17,20 @@ import {
   Headphones,
   Keyboard,
   Layers,
+  Loader2,
+  PenLine,
   Puzzle,
   RotateCcw,
   Volume2,
   XCircle,
 } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { cn } from "@/lib/utils";
+import { readHandwriting } from "@/fns/handwriting-read.functions";
+import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
+import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
+import { compareAnswer } from "@/lib/answer-feedback";
+import { checkHandwritten, isHandwritingReadLanguage } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
@@ -47,7 +55,7 @@ import {
   SPECIAL_CHARS_BY_LANGUAGE,
 } from "@/lib/lesson-words-core";
 
-export type PracticeMode = "study" | "flashcards" | "match" | "listen" | "type";
+export type PracticeMode = "study" | "flashcards" | "match" | "listen" | "type" | "write";
 
 export interface LessonPracticeKitProps {
   words: LessonWord[];
@@ -87,7 +95,13 @@ const MODES: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
   { id: "match", label: "Match", Icon: Puzzle },
   { id: "listen", label: "Listen", Icon: Headphones },
   { id: "type", label: "Type", Icon: Keyboard },
+  { id: "write", label: "Write", Icon: PenLine },
 ];
+
+/** The modes Recall it covers; inside a lesson they get a small switch of their own. */
+const RECALL_MODES = MODES.filter(
+  ({ id }) => id === "study" || id === "flashcards" || id === "match",
+);
 
 // ─── Shared styling ───────────────────────────────────────────────────────────
 
@@ -235,7 +249,7 @@ function StudyMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
         </section>
       )}
       {done ? (
-        <DoneNotice>Nice. Now try the cards, match, listen and type modes.</DoneNotice>
+        <DoneNotice>Nice. Now try the cards, match, listen, type and write modes.</DoneNotice>
       ) : (
         <button
           type="button"
@@ -809,42 +823,579 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
         </button>
       ) : (
         <>
-          <div
-            role="status"
-            className={cn(
-              "flex items-start gap-2 rounded-xl border p-3 text-sm",
-              result === "right"
-                ? "border-emerald-500/40 bg-emerald-500/10"
-                : "border-red-500/40 bg-red-500/10",
-            )}
-          >
-            {result === "right" ? (
-              <CheckCircle2
-                className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"
-                aria-hidden="true"
-              />
-            ) : (
-              <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" aria-hidden="true" />
-            )}
-            <div className="min-w-0">
-              <p className="font-semibold">
-                {result === "right" ? "Correct" : "Not quite"}. Answer:
-              </p>
-              <p lang={languageTag(target)} className="break-words text-base font-bold text-gold">
-                {current.es}
-              </p>
-              {current.note ? (
-                <p className="mt-0.5 break-words text-xs text-muted-foreground">{current.note}</p>
-              ) : null}
-            </div>
-            <SpeakButton text={current.es} speak={speak} className="ml-auto" />
-          </div>
+          <AnswerFeedback
+            given={value}
+            expected={current.es}
+            language={target}
+            scoredCorrect={result === "right"}
+            action={<SpeakButton text={current.es} speak={speak} className="h-9 w-9" />}
+          />
+          {current.note ? (
+            <p className="break-words text-xs text-muted-foreground">{current.note}</p>
+          ) : null}
           <button type="button" className={cn(primaryBtn, "w-full")} onClick={next}>
             {index + 1 >= order.length ? "See score" : "Next word"}
           </button>
         </>
       )}
     </form>
+  );
+}
+
+// ─── 6. Write it (handwriting) ────────────────────────────────────────────────
+
+type WriteStage = "copy" | "answer";
+
+type WriteOutcome = { kind: "read"; text: string } | { kind: "manual"; message: string | null };
+
+type WriteStep =
+  | { phase: "write" }
+  | { phase: "reading"; ink: string }
+  | { phase: "result"; ink: string; outcome: WriteOutcome };
+
+const READ_TIMEOUT_MS = 12_000;
+
+function useOnline(): boolean {
+  const [online, setOnline] = useState(() =>
+    typeof navigator === "undefined" ? true : navigator.onLine !== false,
+  );
+  useEffect(() => {
+    const update = () => setOnline(navigator.onLine !== false);
+    window.addEventListener("online", update);
+    window.addEventListener("offline", update);
+    return () => {
+      window.removeEventListener("online", update);
+      window.removeEventListener("offline", update);
+    };
+  }, []);
+  return online;
+}
+
+/**
+ * Sends the ink to the handwriting reader. Anything that stops a clean reading (offline, an
+ * unsupported language, a failed or empty call) comes back as a manual outcome, so the learner
+ * can always reveal the answer and rate themselves with no network.
+ */
+function useHandwritingReader(language: string) {
+  const read = useServerFn(readHandwriting);
+  return useCallback(
+    async (imageBase64: string, expected?: string): Promise<WriteOutcome> => {
+      if (!isHandwritingReadLanguage(language)) {
+        return {
+          kind: "manual",
+          message: `Handwriting check is not available for ${language} yet. Check it yourself.`,
+        };
+      }
+      if (typeof navigator !== "undefined" && navigator.onLine === false) {
+        return { kind: "manual", message: "You are offline, so check your writing yourself." };
+      }
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      try {
+        const result = await Promise.race([
+          read({ data: { imageBase64, language, ...(expected ? { expected } : {}) } }),
+          new Promise<never>((_, reject) => {
+            timer = setTimeout(() => reject(new Error("timeout")), READ_TIMEOUT_MS);
+          }),
+        ]);
+        if (result.error) {
+          return {
+            kind: "manual",
+            message:
+              "Could not check your writing right now. Your writing is kept. Try Check again, or check it yourself.",
+          };
+        }
+        if (!result.text) {
+          return {
+            kind: "manual",
+            message:
+              "Could not read that writing. Your writing is kept. Try Check again, or check it yourself.",
+          };
+        }
+        return { kind: "read", text: result.text };
+      } catch (error) {
+        const slow = error instanceof Error && error.message === "timeout";
+        return {
+          kind: "manual",
+          message: slow
+            ? "The check is taking too long. Your writing is kept. Try Check again, or check it yourself."
+            : "Could not check your writing right now. Your writing is kept. Try Check again, or check it yourself.",
+        };
+      } finally {
+        if (timer) clearTimeout(timer);
+      }
+    },
+    [read, language],
+  );
+}
+
+function InkPreview({ png }: { png: string }) {
+  return (
+    <div>
+      <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        Your writing
+      </p>
+      <div className="rounded-xl border border-gold/30 bg-[#FAF8F3] p-2">
+        <img
+          data-testid="write-ink"
+          src={`data:image/png;base64,${png}`}
+          alt="Your writing"
+          className="mx-auto max-h-28 w-auto max-w-full object-contain"
+        />
+      </div>
+    </div>
+  );
+}
+
+function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
+  const speak = useTargetSpeaker();
+  const { target, native } = useKitLanguages();
+  const readInk = useHandwritingReader(target);
+  const online = useOnline();
+  const grouped = useMemo(() => groupByKind(words), [words]);
+  // Copy goes through the single-word terms; a lesson with no terms copies what it has.
+  const copyWords = useMemo(
+    () => (grouped.terms.length > 0 ? grouped.terms : words),
+    [grouped, words],
+  );
+  const [answerWords, setAnswerWords] = useState<LessonWord[]>(() => [
+    ...shuffle(grouped.terms),
+    ...shuffle(grouped.phrases),
+  ]);
+
+  const [stage, setStage] = useState<WriteStage>("copy");
+  const [copyIndex, setCopyIndex] = useState(0);
+  const [answerIndex, setAnswerIndex] = useState(0);
+  const [copyScore, setCopyScore] = useState(0);
+  const [answerScore, setAnswerScore] = useState(0);
+  const [copyFinished, setCopyFinished] = useState(false);
+  const [answerFinished, setAnswerFinished] = useState(false);
+  const [step, setStep] = useState<WriteStep>({ phase: "write" });
+  const [attempt, setAttempt] = useState(0);
+  const [inked, setInked] = useState(false);
+  const padRef = useRef<HandwritingPadHandle>(null);
+  const token = useRef(0);
+
+  const list = stage === "copy" ? copyWords : answerWords;
+  const index = stage === "copy" ? copyIndex : answerIndex;
+  const word = list[index];
+  const finished = stage === "copy" ? copyFinished : answerFinished;
+
+  /** A fresh pad: clears the writing. Used by Start over and when moving to another word. */
+  const resetStep = () => {
+    token.current += 1;
+    setStep({ phase: "write" });
+    setInked(false);
+    setAttempt((n) => n + 1);
+  };
+
+  /** Back to the pad with the writing kept, so the learner can add to it or fix it. */
+  const keepWriting = () => {
+    token.current += 1;
+    setStep({ phase: "write" });
+  };
+
+  const switchStage = (next: WriteStage) => {
+    if (next === stage) return;
+    resetStep();
+    setStage(next);
+  };
+
+  if (words.length === 0 || (!word && !finished)) return null;
+
+  const check = async () => {
+    const ink = padRef.current?.toPngBase64();
+    if (!ink || !word) return;
+    const mine = ++token.current;
+    setStep({ phase: "reading", ink });
+    // The copied word is passed as a hint so a hard-to-read letter is resolved in its favour;
+    // a word written from memory is read with no hint, so a wrong answer is not read as right.
+    const outcome = await readInk(ink, stage === "copy" ? word.es : undefined);
+    if (mine !== token.current) return;
+    setStep({ phase: "result", ink, outcome });
+    if (stage === "answer") speak(word.es);
+  };
+
+  const compareMyself = () => {
+    const ink = padRef.current?.toPngBase64();
+    if (!ink || !word) return;
+    token.current += 1;
+    setStep({ phase: "result", ink, outcome: { kind: "manual", message: null } });
+    if (stage === "answer") speak(word.es);
+  };
+
+  const advance = (counted: boolean) => {
+    if (stage === "copy") {
+      if (counted) setCopyScore((s) => s + 1);
+      if (copyIndex + 1 >= copyWords.length) setCopyFinished(true);
+      else setCopyIndex(copyIndex + 1);
+    } else {
+      if (counted) setAnswerScore((s) => s + 1);
+      if (answerIndex + 1 >= answerWords.length) {
+        setAnswerFinished(true);
+        onComplete();
+      } else {
+        setAnswerIndex(answerIndex + 1);
+      }
+    }
+    resetStep();
+  };
+
+  const restart = () => {
+    setAnswerWords([...shuffle(grouped.terms), ...shuffle(grouped.phrases)]);
+    setCopyIndex(0);
+    setAnswerIndex(0);
+    setCopyScore(0);
+    setAnswerScore(0);
+    setCopyFinished(false);
+    setAnswerFinished(false);
+    setStage("copy");
+    resetStep();
+  };
+
+  const toggle = (
+    <div
+      role="group"
+      aria-label="Writing stage"
+      className="inline-flex rounded-xl border border-border/50 bg-card/30 p-1"
+    >
+      {(
+        [
+          ["copy", "Copy it"],
+          ["answer", "Write the answer"],
+        ] as const
+      ).map(([id, label]) => (
+        <button
+          key={id}
+          type="button"
+          data-testid={`write-stage-${id}`}
+          aria-pressed={stage === id}
+          onClick={() => switchStage(id)}
+          className={cn(
+            "min-h-11 cursor-pointer rounded-lg px-3 text-xs font-bold transition-all duration-200",
+            stage === id
+              ? "bg-gold text-background"
+              : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+
+  if (finished) {
+    return (
+      <div className="space-y-3">
+        {toggle}
+        {stage === "copy" ? (
+          <>
+            <DoneNotice>
+              Copying finished: {copyScore} / {copyWords.length} words matched. Now write the
+              answers from memory.
+            </DoneNotice>
+            <button
+              type="button"
+              className={cn(primaryBtn, "w-full")}
+              onClick={() => switchStage("answer")}
+            >
+              Write the answers
+            </button>
+            <button
+              type="button"
+              className={cn(ghostBtn, "w-full")}
+              onClick={() => {
+                setCopyIndex(0);
+                setCopyScore(0);
+                setCopyFinished(false);
+                resetStep();
+              }}
+            >
+              <RotateCcw className="h-4 w-4" aria-hidden="true" />
+              Copy again
+            </button>
+          </>
+        ) : (
+          <>
+            <DoneNotice>
+              Writing practice finished: {answerScore} / {answerWords.length} answers right.
+            </DoneNotice>
+            <button type="button" className={cn(ghostBtn, "w-full")} onClick={restart}>
+              <RotateCcw className="h-4 w-4" aria-hidden="true" />
+              Go again
+            </button>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  const resultDone = step.phase === "result";
+  const isLast = index + 1 >= list.length;
+  const nextLabel = isLast ? (stage === "copy" ? "Finish copying" : "See score") : "Next word";
+  const result = step.phase === "result" ? step : null;
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between gap-2">
+        {toggle}
+        <span className="font-mono text-sm font-semibold text-muted-foreground">
+          {stage === "copy" ? `Matched ${copyScore}` : `Score ${answerScore}`}
+        </span>
+      </div>
+      <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground">
+        <span>
+          {index + 1} of {list.length} · {stage === "copy" ? "copy" : word.kind}
+        </span>
+        <span>{stage === "copy" ? "Terms" : "Terms, then phrases"}</span>
+      </div>
+      <ProgressBar value={index + (resultDone ? 1 : 0)} total={list.length} />
+
+      {stage === "copy" ? (
+        <div className={cn(panel, "text-center")}>
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            Copy this {target} word
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <p
+              lang={languageTag(target)}
+              data-testid="write-copy-word"
+              className="break-words text-3xl font-bold text-gold"
+            >
+              {word.es}
+            </p>
+            <SpeakButton text={word.es} speak={speak} />
+          </div>
+          <p className="mt-1 break-words text-sm text-muted-foreground">{word.en}</p>
+        </div>
+      ) : (
+        <div className={cn(panel, "text-center")}>
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            Write this in {target}
+          </p>
+          <p
+            data-testid="write-answer-prompt"
+            className="break-words text-xl font-bold text-foreground"
+          >
+            {word.en}
+          </p>
+        </div>
+      )}
+
+      {/* The pad stays mounted for the whole word, hidden while reading or showing a result, so
+          the writing survives a failed check, Check again and Try again. Only Start over (or a
+          new word) gives a fresh pad. */}
+      <HandwritingPad
+        key={`${stage}-${index}-${attempt}`}
+        ref={padRef}
+        guideText={stage === "copy" ? word.es : undefined}
+        onChange={setInked}
+        label={stage === "copy" ? `Copy the word ${word.es}` : `Write the ${target} answer`}
+        className={step.phase === "write" ? undefined : "hidden"}
+      />
+      {step.phase === "write" && (
+        <>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              data-testid="write-check"
+              disabled={!inked}
+              onClick={() => void check()}
+              className={cn(primaryBtn, "flex-1")}
+            >
+              Check
+            </button>
+            <button
+              type="button"
+              data-testid="write-compare"
+              disabled={!inked}
+              onClick={compareMyself}
+              className={cn(ghostBtn, "flex-1")}
+            >
+              {stage === "copy" ? "Done — compare" : "Show answer"}
+            </button>
+          </div>
+          {!online && (
+            <p className="text-center text-xs text-muted-foreground">
+              You are offline. Use {stage === "copy" ? "Done — compare" : "Show answer"} to check
+              your writing yourself.
+            </p>
+          )}
+        </>
+      )}
+
+      {step.phase === "reading" && (
+        <div className="space-y-3">
+          <InkPreview png={step.ink} />
+          <p
+            role="status"
+            className="flex items-center justify-center gap-2 text-sm text-muted-foreground"
+          >
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+            Reading your handwriting…
+          </p>
+        </div>
+      )}
+
+      {result && (
+        <div className="space-y-3">
+          <InkPreview png={result.ink} />
+          {result.outcome.kind === "read" ? (
+            (() => {
+              const text = result.outcome.text;
+              const matched =
+                stage === "copy"
+                  ? compareAnswer(text, word.es, target).verdict === "correct"
+                  : checkHandwritten(text, word.es, word.kind).accepted;
+              return (
+                <>
+                  <AnswerFeedback
+                    given={text}
+                    expected={word.es}
+                    language={target}
+                    recognizedText={text}
+                    scoredCorrect={matched}
+                    compact
+                    action={<SpeakButton text={word.es} speak={speak} className="h-9 w-9" />}
+                  />
+                  {word.note ? (
+                    <p className="break-words text-xs text-muted-foreground">{word.note}</p>
+                  ) : null}
+                  {stage === "copy" && !matched ? (
+                    <div className="space-y-2">
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          data-testid="write-try-again"
+                          className={cn(primaryBtn, "flex-1")}
+                          onClick={keepWriting}
+                        >
+                          Try again
+                        </button>
+                        <button
+                          type="button"
+                          data-testid="write-start-over"
+                          className={cn(ghostBtn, "flex-1")}
+                          onClick={resetStep}
+                        >
+                          Start over
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        className={cn(ghostBtn, "w-full")}
+                        onClick={() => advance(true)}
+                      >
+                        My writing matches
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <button
+                        type="button"
+                        className={cn(primaryBtn, "w-full")}
+                        onClick={() => advance(matched)}
+                      >
+                        {nextLabel}
+                      </button>
+                      {stage === "answer" && !matched && (
+                        <button
+                          type="button"
+                          className={cn(ghostBtn, "w-full")}
+                          onClick={() => advance(true)}
+                        >
+                          I wrote it correctly
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </>
+              );
+            })()
+          ) : (
+            <>
+              {result.outcome.message ? (
+                <p className="text-xs text-muted-foreground">{result.outcome.message}</p>
+              ) : null}
+              <div data-testid="write-reveal" className={cn(panel, "text-center")}>
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                  {stage === "copy" ? "The word" : `The ${target} answer`}
+                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <p
+                    lang={languageTag(target)}
+                    className="break-words text-2xl font-bold text-gold"
+                  >
+                    {word.es}
+                  </p>
+                  <SpeakButton text={word.es} speak={speak} />
+                </div>
+                {word.note ? (
+                  <p className="mt-1 break-words text-xs text-muted-foreground">{word.note}</p>
+                ) : null}
+              </div>
+              <p className="text-center text-sm text-muted-foreground">
+                {stage === "copy"
+                  ? "Does your writing match the word?"
+                  : `Did you write it right? The prompt was in ${native}.`}
+              </p>
+              {/* Check again sends the same writing; Start over is the only way to clear it. */}
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  data-testid="write-check-again"
+                  className={cn(primaryBtn, "flex-1")}
+                  onClick={() => void check()}
+                >
+                  <RotateCcw className="h-4 w-4" aria-hidden="true" />
+                  Check again
+                </button>
+                <button
+                  type="button"
+                  data-testid="write-start-over"
+                  className={cn(ghostBtn, "flex-1")}
+                  onClick={resetStep}
+                >
+                  Start over
+                </button>
+              </div>
+              <div className="flex gap-2">
+                {stage === "copy" ? (
+                  <>
+                    <button
+                      type="button"
+                      className={cn(ghostBtn, "flex-1")}
+                      onClick={() => advance(true)}
+                    >
+                      <Check className="h-4 w-4" aria-hidden="true" />
+                      Matches
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      className={cn(ghostBtn, "flex-1")}
+                      onClick={() => advance(false)}
+                    >
+                      <XCircle className="h-4 w-4" aria-hidden="true" />
+                      Missed it
+                    </button>
+                    <button
+                      type="button"
+                      className={cn(primaryBtn, "flex-1")}
+                      onClick={() => advance(true)}
+                    >
+                      <Check className="h-4 w-4" aria-hidden="true" />
+                      Got it
+                    </button>
+                  </>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -921,6 +1472,8 @@ export function LessonPracticeKit({
     setAddedCount(fresh.length);
   };
 
+  const modeTabShown = controlledMode === undefined || RECALL_MODES.some((m) => m.id === mode);
+
   return (
     <KitLanguageContext.Provider value={languages}>
       <section
@@ -930,56 +1483,105 @@ export function LessonPracticeKit({
         aria-label={`Lesson ${lessonNumber} practice kit`}
         className="space-y-3 overflow-x-hidden"
       >
-        <div className="flex items-baseline justify-between gap-2">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            {MODES.length} ways to practice
-          </p>
-          <span className="font-mono text-xs text-muted-foreground">
-            {completed.size} / {MODES.length} done
-          </span>
-        </div>
+        {/* Inside a lesson the kit is controlled and the lesson's own section bar is the only
+            navigation, so the kit shows no "ways to practice" count or six-way tab row. Recall
+            keeps a small Study / Cards / Match switch, since it covers all three. */}
+        {controlledMode === undefined ? (
+          <>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {MODES.length} ways to practice
+              </p>
+              <span className="font-mono text-xs text-muted-foreground">
+                {completed.size} / {MODES.length} done
+              </span>
+            </div>
+
+            <div
+              role="tablist"
+              aria-label="Practice mode"
+              className="grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+            >
+              {MODES.map(({ id, label, Icon }) => {
+                const active = mode === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    role="tab"
+                    id={`practice-tab-${id}`}
+                    aria-selected={active}
+                    aria-controls={`practice-panel-${id}`}
+                    data-testid={`practice-mode-${id}`}
+                    onClick={() => setMode(id)}
+                    className={cn(
+                      "relative flex min-h-12 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-lg px-1 text-[11px] font-bold transition-all duration-200",
+                      active
+                        ? "bg-gold text-background"
+                        : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
+                    )}
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    {label}
+                    {completed.has(id) && (
+                      <Check
+                        className={cn(
+                          "absolute right-1 top-1 h-3 w-3",
+                          active ? "text-background" : "text-gold",
+                        )}
+                        aria-label="completed"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : RECALL_MODES.some((m) => m.id === mode) ? (
+          <div
+            role="tablist"
+            aria-label="Recall practice"
+            data-testid="practice-recall-switch"
+            className="grid grid-cols-3 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+          >
+            {RECALL_MODES.map(({ id, label, Icon }) => {
+              const active = mode === id;
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  role="tab"
+                  id={`practice-tab-${id}`}
+                  aria-selected={active}
+                  aria-controls={`practice-panel-${id}`}
+                  data-testid={`practice-mode-${id}`}
+                  onClick={() => setMode(id)}
+                  className={cn(
+                    "relative flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-bold transition-all duration-200",
+                    active
+                      ? "bg-gold text-background"
+                      : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
+                  )}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {label}
+                  {completed.has(id) && (
+                    <Check className="h-3 w-3 text-gold" aria-label="completed" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
 
         <div
-          role="tablist"
-          aria-label="Practice mode"
-          className="grid grid-cols-5 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+          id={`practice-panel-${mode}`}
+          role="tabpanel"
+          aria-labelledby={modeTabShown ? `practice-tab-${mode}` : undefined}
+          aria-label={
+            modeTabShown ? undefined : (MODES.find((m) => m.id === mode)?.label ?? "Practice")
+          }
         >
-          {MODES.map(({ id, label, Icon }) => {
-            const active = mode === id;
-            return (
-              <button
-                key={id}
-                type="button"
-                role="tab"
-                id={`practice-tab-${id}`}
-                aria-selected={active}
-                aria-controls={`practice-panel-${id}`}
-                data-testid={`practice-mode-${id}`}
-                onClick={() => setMode(id)}
-                className={cn(
-                  "relative flex min-h-12 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-lg px-1 text-[11px] font-bold transition-all duration-200",
-                  active
-                    ? "bg-gold text-background"
-                    : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
-                )}
-              >
-                <Icon className="h-4 w-4" aria-hidden="true" />
-                {label}
-                {completed.has(id) && (
-                  <Check
-                    className={cn(
-                      "absolute right-1 top-1 h-3 w-3",
-                      active ? "text-background" : "text-gold",
-                    )}
-                    aria-label="completed"
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        <div id={`practice-panel-${mode}`} role="tabpanel" aria-labelledby={`practice-tab-${mode}`}>
           {words.length === 0 ? (
             <div className={cn(panel, "text-sm text-muted-foreground")}>
               This lesson has no vocabulary list yet.
@@ -995,6 +1597,7 @@ export function LessonPracticeKit({
                 <ListenMode words={words} onComplete={() => complete("listen")} />
               )}
               {mode === "type" && <TypeMode words={words} onComplete={() => complete("type")} />}
+              {mode === "write" && <WriteMode words={words} onComplete={() => complete("write")} />}
             </>
           )}
         </div>

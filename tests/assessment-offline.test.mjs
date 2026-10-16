@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {saveOfflineExam,readOfflineExams,clearOfflineExams} from '../src/lib/assessments/offline.ts';
+import {clearExamDraftsForUser} from '../src/lib/assessments/drafts.ts';
+const storage=()=>{const m=new Map();return {get length(){return m.size;},key:i=>[...m.keys()][i]??null,getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),removeItem:k=>m.delete(k)};};
+const exam=()=>({id:'attempt',isLearner:true,submittedAt:null,form:{id:'frozen',items:[{id:'public'}]},enrollment:{moduleId:'roofing'},feedback:[{accepted:['private key']}],evidence:[{points:1}]});
+test('device snapshots are account scoped and exclude feedback and results',()=>{const s=storage();assert.equal(saveOfflineExam(s,'one',exam(),1000),true);assert.equal(readOfflineExams(s,'two',1001).length,0);const [cached]=readOfflineExams(s,'one',1001);assert.equal(cached.feedback,undefined);assert.deepEqual(cached.evidence,[]);assert.equal(cached.form.id,'frozen');});
+test('submitted/admin-viewed and expired attempts are never resumable device copies',()=>{const s=storage();saveOfflineExam(s,'one',exam(),1000);assert.equal(readOfflineExams(s,'one',1000+86400001).length,0);assert.equal(s.length,0);assert.equal(saveOfflineExam(s,'one',{...exam(),isLearner:false},1000),false);assert.equal(saveOfflineExam(s,'one',{...exam(),submittedAt:'now'},1000),false);assert.equal(s.length,0);});
+test('submission and account exit clear only the intended private copies',()=>{const s=storage();saveOfflineExam(s,'one',exam(),1000);saveOfflineExam(s,'two',exam(),1000);clearOfflineExams(s,'one','attempt');assert.equal(readOfflineExams(s,'one',1001).length,0);assert.equal(readOfflineExams(s,'two',1001).length,1);clearExamDraftsForUser(s,'two');assert.equal(s.length,0);});

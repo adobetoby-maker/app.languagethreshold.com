@@ -31,6 +31,8 @@ export interface SkillResult {
   objectives: string[];
   evidenceCount: number;
   pendingCount: number;
+  reviewCount: number;
+  availableObjectives: string[];
   missingCount: number;
   /** Scores remain provisional until form/rubric calibration is approved. */
   provisional: boolean;
@@ -56,8 +58,9 @@ export function skillResults(evidence: readonly ItemEvidence[], calibrated = fal
       (entry) =>
         entry.state === "pending" || (entry.state === "scored" && entry.source === "ai_proposal"),
     ).length;
-    const review = rows.some((entry) => entry.state === "needs_review");
-    const missingCount = rows.length - scored.length - pendingCount;
+    const missingCount = rows.filter((entry) => entry.state === "not_assessed").length;
+    const reviewCount = rows.length - scored.length - pendingCount - missingCount;
+    const review = reviewCount > 0;
     const state = review
       ? "needs_review"
       : pendingCount
@@ -78,6 +81,8 @@ export function skillResults(evidence: readonly ItemEvidence[], calibrated = fal
       objectives,
       evidenceCount: scored.length,
       pendingCount,
+      reviewCount,
+      availableObjectives: [...new Set(rows.map((entry) => entry.objectiveId))].sort(),
       missingCount,
       provisional: !calibrated,
     };

@@ -12,6 +12,12 @@ import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { clearAuthReturn, consumeAuthReturn, rememberAuthReturn } from "@/lib/auth-return";
 import { clearLessonDraftsForUser } from "@/lib/lesson-drafts";
+import {
+  clearExamDraftsForUser,
+  hasUnsyncedExamDrafts,
+  browserExamStorage,
+} from "@/lib/assessments/drafts";
+import { toast } from "sonner";
 
 interface AuthContextValue {
   user: User | null;
@@ -24,7 +30,7 @@ interface AuthContextValue {
   ) => Promise<{ error: string | null; needsConfirmation: boolean }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signInWithGoogle: () => Promise<void>;
-  signOut: (scope?: "global" | "local" | "others") => Promise<void>;
+  signOut: (scope?: "global" | "local" | "others") => Promise<boolean>;
   resetPassword: (email: string) => Promise<{ error: string | null }>;
 }
 
@@ -39,6 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const currentUser = useRef<string | null>(null);
+  const discardApprovedFor = useRef<string | null>(null);
 
   useEffect(() => {
     // CRITICAL: subscribe BEFORE getSession to avoid missing events
@@ -48,9 +55,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (previousUser && previousUser !== currentUser.current) {
         try {
           clearLessonDraftsForUser(window.localStorage, previousUser);
+          if (
+            hasUnsyncedExamDrafts(window.localStorage, previousUser) &&
+            discardApprovedFor.current !== previousUser
+          )
+            toast.warning(
+              "Your session changed. Device-only exam answers were cleared; synced answers remain saved.",
+            );
         } catch {
           /* Storage may be blocked. */
         }
+        clearExamDraftsForUser(browserExamStorage(), previousUser);
+        discardApprovedFor.current = null;
       }
       setSession(s);
       restorePageAfterAuth(s);
@@ -134,7 +150,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = useCallback(async (scope?: "global" | "local" | "others") => {
-    await supabase.auth.signOut(scope ? { scope } : undefined);
+    const userId = currentUser.current;
+    if (
+      scope !== "others" &&
+      userId &&
+      typeof window !== "undefined" &&
+      hasUnsyncedExamDrafts(browserExamStorage(), userId)
+    ) {
+      if (
+        !window.confirm(
+          "Some exam answers are saved only on this device. Sign out will erase those unsynced answers. Cancel and reconnect to sync them first, or sign out and discard the device-only work.",
+        )
+      )
+        return false;
+      discardApprovedFor.current = userId;
+    }
+    const { error } = await supabase.auth.signOut(scope ? { scope } : undefined);
+    if (error) {
+      discardApprovedFor.current = null;
+      toast.error("Sign out could not finish. Check your connection before trying again.");
+      return false;
+    }
+    if (scope !== "others" && userId && typeof window !== "undefined")
+      clearExamDraftsForUser(browserExamStorage(), userId);
+    return true;
   }, []);
 
   const isCurrentUser = useCallback((userId: string) => currentUser.current === userId, []);
@@ -165,7 +204,7 @@ const fallbackAuth: AuthContextValue = {
   signUp: async () => ({ error: "Auth not ready", needsConfirmation: false }),
   signIn: async () => ({ error: "Auth not ready" }),
   signInWithGoogle: async () => {},
-  signOut: async () => {},
+  signOut: async () => false,
   resetPassword: async () => ({ error: "Auth not ready" }),
 };
 

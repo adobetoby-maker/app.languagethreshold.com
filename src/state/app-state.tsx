@@ -80,6 +80,7 @@ export type TabKey =
   | "story"
   | "guide"
   | "core30"
+  | "exams"
   | "climbing"
   | "fishing"
   | "fieldPrep"

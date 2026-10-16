@@ -61,23 +61,20 @@ export async function reloadNewestAppVersion() {
 }
 
 export async function resetAppToFirstRun(
-  signOutThisDevice: () => Promise<void>,
+  signOutThisDevice: () => Promise<unknown>,
   runtime?: AppResetRuntime,
 ) {
   if (typeof window === "undefined" && !runtime) return;
   const activeRuntime = runtime ?? browserResetRuntime();
 
   try {
-    await signOutThisDevice();
+    if ((await signOutThisDevice()) === false) return;
   } catch {
     // Clearing the browser session below still signs this device out when the
     // network is unavailable or the auth session has already expired.
   }
 
-  await Promise.allSettled([
-    activeRuntime.clearCaches(),
-    activeRuntime.unregisterServiceWorkers(),
-  ]);
+  await Promise.allSettled([activeRuntime.clearCaches(), activeRuntime.unregisterServiceWorkers()]);
 
   try {
     activeRuntime.clearLocalStorage();

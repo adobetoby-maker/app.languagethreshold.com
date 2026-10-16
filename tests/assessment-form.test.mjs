@@ -122,3 +122,26 @@ test("scoring separates wrong answers, unavailable evidence and unresolved recog
     "not_assessed",
   );
 });
+test("listening requires confirmed playback and keeps missing audio separate from an incorrect response", () => {
+  const item = {
+    ...roofingAssessmentForm("entrance").items.find((item) => item.skill === "listening"),
+    audioRequired: true,
+  };
+  assert.equal(
+    initialItemEvidence(item, { inputMethod: "choice", choiceId: item.correctOptionId }).state,
+    "not_assessed",
+  );
+  assert.equal(
+    initialItemEvidence(item, {
+      inputMethod: "choice",
+      choiceId: item.correctOptionId,
+      listeningHeard: true,
+    }).points,
+    1,
+  );
+  assert.equal(
+    initialItemEvidence(item, { inputMethod: "choice", choiceId: "test-b", listeningHeard: true })
+      .points,
+    0,
+  );
+});

@@ -13,6 +13,7 @@ import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
@@ -64,6 +65,11 @@ const AccountRoute = AccountRouteImport.update({
 const CertificateRoute = CertificateRouteImport.update({
   id: '/certificate',
   path: '/certificate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamsRoute = ExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FamilySetupRoute = FamilySetupRouteImport.update({
@@ -231,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
@@ -269,6 +276,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
@@ -308,6 +316,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
   '/module-request': typeof ModuleRequestRoute
@@ -348,6 +357,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/exams'
     | '/family-setup'
     | '/index'
     | '/module-request'
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/exams'
     | '/family-setup'
     | '/index'
     | '/module-request'
@@ -424,6 +435,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/exams'
     | '/family-setup'
     | '/index'
     | '/module-request'
@@ -463,6 +475,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
   CertificateRoute: typeof CertificateRoute
+  ExamsRoute: typeof ExamsRoute
   FamilySetupRoute: typeof FamilySetupRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
   ModuleRequestRoute: typeof ModuleRequestRoute
@@ -526,6 +539,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate'
       fullPath: '/certificate'
       preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exams': {
+      id: '/exams'
+      path: '/exams'
+      fullPath: '/exams'
+      preLoaderRoute: typeof ExamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/family-setup': {
@@ -759,6 +779,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
   CertificateRoute: CertificateRoute,
+  ExamsRoute: ExamsRoute,
   FamilySetupRoute: FamilySetupRoute,
   Char91indexChar93Route: Char91indexChar93Route,
   ModuleRequestRoute: ModuleRequestRoute,

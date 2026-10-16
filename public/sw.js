@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v10";
+const CACHE = "lt-v11";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -28,7 +28,8 @@ self.addEventListener("fetch", (event) => {
     url.pathname.startsWith("/api/") ||
     url.hostname.includes("supabase") ||
     url.hostname.includes("anthropic") ||
-    request.method !== "GET"
+    request.method !== "GET" ||
+    request.headers.has("Authorization")
   ) {
     return;
   }
@@ -84,7 +85,10 @@ self.addEventListener("fetch", (event) => {
           }
           return response;
         })
-        .catch(() => caches.match("/").then((r) => r ?? Response.error())),
+        .catch(
+          async () =>
+            (await caches.match(request)) ?? (await caches.match("/")) ?? Response.error(),
+        ),
     );
   }
 });

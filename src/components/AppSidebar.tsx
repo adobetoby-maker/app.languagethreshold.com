@@ -132,6 +132,7 @@ const TAB_ITEMS: {
     group: "Orientation",
     Icon: BarChart3,
   },
+  { key: "exams", label: "Exams", short: "Exams", group: "Orientation", Icon: ListChecks },
   // ── Module-specific ──────────────────────────────────────────────────────────
   {
     key: "missionary",

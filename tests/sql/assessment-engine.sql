@@ -14,6 +14,9 @@ end $$;
 \ir ../../supabase/migrations/20261016071011_assessment_engine.sql
 \ir ../../supabase/migrations/20261016071015_assessment_scoring.sql
 \ir ../../supabase/migrations/20261016071020_assessment_integrity.sql
+\ir ../../supabase/migrations/20261016074137_assessment_independent_review.sql
+\ir ../../supabase/migrations/20261016074420_assessment_rubric_review.sql
+\ir ../../supabase/migrations/20261016074739_assessment_progress_summary.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;
@@ -35,7 +38,7 @@ insert into public.team_members values
 insert into public.team_assignments values('20000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','roofing');
 insert into public.assessment_releases(id,module_id,target_language,instruction_language,content_version) values('roofing-es-en-test','roofing','Spanish','English','test-only');
 insert into public.assessment_forms(id,release_id,checkpoint,version,rubric_version,definition) values
- ('test-entrance','roofing-es-en-test','entrance','test','test','{"items":[{"id":"item1","type":"recall","skill":"recall","objectiveId":"roofing.lesson.1","maximum":1},{"id":"item2","type":"production","skill":"writing","objectiveId":"roofing.lesson.2","maximum":3},{"id":"item3","type":"production","skill":"writing","objectiveId":"roofing.lesson.3","maximum":6}]}');
+ ('test-entrance','roofing-es-en-test','entrance','test','test','{"items":[{"id":"item1","type":"recall","skill":"recall","objectiveId":"roofing.lesson.1","maximum":1},{"id":"item2","type":"production","skill":"writing","objectiveId":"roofing.lesson.2","maximum":3},{"id":"item3","type":"production","skill":"writing","objectiveId":"roofing.lesson.3","maximum":6,"rubric":{"id":"test-rubric","dimensions":[{"id":"meaning","maximum":3},{"id":"clarity","maximum":3}]}}]}');
 
 do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; new_revision integer; r1 uuid; r2 uuid; r3 uuid; score_id uuid; review_id uuid; begin
  personal:=public.assessment_create_enrollment('10000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001',null,'roofing-es-en-test','2026-10-15','America/Denver','30000000-0000-4000-8000-000000000001');
@@ -112,7 +115,11 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  insert into public.assessment_reviewers(user_id,module_id,target_language,instruction_language,created_by) values('10000000-0000-4000-8000-000000000002','roofing','Spanish','English','10000000-0000-4000-8000-000000000002');
  perform pg_temp.expect_error(format('select public.assessment_claim_review(%L,%L)','10000000-0000-4000-8000-000000000003',review_id),'reviewer access required');
  perform public.assessment_claim_review('10000000-0000-4000-8000-000000000002',review_id);
- perform public.assessment_record_score('10000000-0000-4000-8000-000000000002',r3,'scored',5,'human','Reviewed communication against frozen rubric',null,null,'30000000-0000-4000-8000-000000000025');
+ perform pg_temp.expect_error(format('select public.assessment_review_rubric(%L,%L,%L,%L,5,null,%L,%L)','10000000-0000-4000-8000-000000000002',attempt,r3,'scored','Missing dimension evidence','30000000-0000-4000-8000-000000000025'),'Frozen rubric dimensions required');
+ perform pg_temp.expect_error(format('select public.assessment_review_rubric(%L,%L,%L,%L,5,%L,%L,%L)','10000000-0000-4000-8000-000000000002',attempt,r3,'scored','{"meaning":4,"clarity":1}','Dimension out of bounds','30000000-0000-4000-8000-000000000025'),'dimension out of range');
+ perform public.assessment_review_rubric('10000000-0000-4000-8000-000000000002',attempt,r3,'scored',5,'{"meaning":3,"clarity":2}','Reviewed communication against frozen rubric','30000000-0000-4000-8000-000000000025');
+ perform public.assessment_review_rubric('10000000-0000-4000-8000-000000000002',attempt,r3,'scored',5,'{"meaning":3,"clarity":2}','Reviewed communication against frozen rubric','30000000-0000-4000-8000-000000000025');
+ if (select count(*) from public.assessment_events where action='review.rubric')<>1 then raise exception 'Rubric evidence duplicated'; end if;
  if (select count(*) from public.assessment_score_events where response_id=r3)<>2 then raise exception 'Original AI proposal not retained'; end if;
  perform pg_temp.expect_error(format('select public.assessment_record_score(%L,%L,%L,0,%L,%L,null,null,%L)','10000000-0000-4000-8000-000000000002',r2,'scored','human','Cannot invent missing evidence','30000000-0000-4000-8000-000000000026'),'Missing evidence cannot be scored');
  perform public.assessment_resolve_review('10000000-0000-4000-8000-000000000002',review_id,'Rubric reviewed; missing task remains not assessed','30000000-0000-4000-8000-000000000027');
@@ -124,6 +131,13 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  if (select form_snapshot->'definition'->'items'->0->>'coverage' from public.assessment_attempts where id=repeat_id)<>'studied' then raise exception 'Actual reported study scope not frozen'; end if;
  if (select form_snapshot->'definition'->'items'->1->>'coverage' from public.assessment_attempts where id=repeat_id)<>'transfer' then raise exception 'Unstudied question mislabeled studied'; end if;
 
+ if jsonb_array_length(public.assessment_progress_summaries('10000000-0000-4000-8000-000000000001',array[personal]))<>1 then raise exception 'Submitted result summary missing'; end if;
+ perform pg_temp.expect_error(format('select public.assessment_progress_summaries(%L,array[%L]::uuid[])','10000000-0000-4000-8000-000000000003',personal),'report access required');
+ if public.assessment_progress_summaries('10000000-0000-4000-8000-000000000001',array[personal])::text like '%"answer":%' then raise exception 'Raw answers leaked to report'; end if;
+ -- A promotion to team admin must not grant self-review rights.
+ update public.team_members set role='admin' where user_id='10000000-0000-4000-8000-000000000001';
+ if assessment_private.can_review('10000000-0000-4000-8000-000000000001',attempt) then raise exception 'Learner can review own assessment'; end if;
+ perform pg_temp.expect_error(format('update public.assessment_review_requests set reviewer_id=requested_by where id=%L',review_id),'assessment_review_independent');
  perform pg_temp.expect_error(format('update public.assessment_attempts set form_snapshot=%L where id=%L','{}',attempt),'Frozen assessment identity');
  perform pg_temp.expect_error(format('update public.assessment_responses set answer=%L where id=%L','{}',r1),'immutable');
  perform pg_temp.expect_error(format('update public.assessment_score_events set points=0 where id=%L',score_id),'append-only');

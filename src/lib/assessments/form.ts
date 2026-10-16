@@ -53,6 +53,7 @@ export interface AssessmentAnswer {
   recognitionIssue?: boolean;
   missingReason?: string;
   mediaEvidenceId?: string;
+  listeningHeard?: boolean;
 }
 
 /** Whitelist public fields: adding a private rubric/key property cannot leak it into the exam UI. */
@@ -93,6 +94,8 @@ export function initialItemEvidence(
   });
   if (answer.inputMethod === "unavailable" || answer.missingReason)
     return missing(answer.missingReason ?? "Input unavailable");
+  if (item.audioRequired && answer.listeningHeard !== true)
+    return missing("Listening playback was not confirmed; no wrong-answer score assigned.");
   if (answer.recognitionIssue)
     return {
       ...base,

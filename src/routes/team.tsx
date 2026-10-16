@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -19,6 +19,12 @@ import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import type { Core30Log } from "@/lib/core30-plan";
 import { describeCore30, type Core30Display } from "@/lib/team-core30";
+
+const TeamExamsPanel = lazy(() =>
+  import("@/components/exams/TeamExamsPanel").then((module) => ({
+    default: module.TeamExamsPanel,
+  })),
+);
 
 export const Route = createFileRoute("/team")({
   component: () => (
@@ -261,6 +267,11 @@ function TeamPage() {
           <Link to="/" className={secondary}>
             ← Learning app
           </Link>
+          {data && (
+            <a href={`/exams?org=${encodeURIComponent(data.organization.id)}`} className={button}>
+              Exams and assessment progress
+            </a>
+          )}
           {data && (data.role === "owner" || data.role === "admin") && (
             <Link to="/module-request" className={secondary}>
               Custom module request · $20
@@ -350,6 +361,11 @@ function TeamPage() {
             </button>
           </form>
         </section>
+      )}
+      {data && (
+        <Suspense fallback={<p role="status">Loading assessment tools…</p>}>
+          <TeamExamsPanel key={data.organization.id} orgId={data.organization.id} />
+        </Suspense>
       )}
       {data &&
         (data.role === "owner" || data.role === "admin" ? (

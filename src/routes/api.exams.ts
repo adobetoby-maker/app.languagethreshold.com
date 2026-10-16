@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
-import { authenticatedUser, teamAdminClient, json, requireTeamAdmin } from "@/lib/team-server";
+import {
+  authenticatedUser,
+  teamAdminClient,
+  json,
+  requireTeamAdmin,
+  memberRole,
+} from "@/lib/team-server";
 import { enforceSpeakingRateLimit, isStrictSameOrigin } from "@/lib/speaking-security";
 import { extractCore30Log } from "@/lib/team-core30";
 import { getCurriculum } from "@/data/curriculum";
@@ -43,6 +49,7 @@ const answer = z
     originalTranscript: z.string().max(4000).optional(),
     correctedTranscript: z.string().max(4000).optional(),
     recognitionIssue: z.boolean().optional(),
+    listeningHeard: z.boolean().optional(),
     missingReason: z.string().min(1).max(300).optional(),
   })
   .strict();
@@ -111,6 +118,7 @@ const bodySchema = z.discriminatedUnion("action", [
       responseId: id,
       state: z.enum(["scored", "not_assessed", "needs_review"]),
       points: z.number().min(0).max(100).nullable(),
+      dimensions: z.record(z.string().max(100), z.number().min(0).max(100)).nullable().optional(),
       reason: z.string().trim().min(3).max(2000),
       requestId: id,
     })
@@ -169,11 +177,36 @@ export const Route = createFileRoute("/api/exams")({
                 url.searchParams.get("review") === "1",
               ),
             );
+          if (action === "listening") {
+            await budget(user.id, "listening");
+            const context = await attemptAccess(
+              db,
+              user.id,
+              id.parse(url.searchParams.get("attempt")),
+            );
+            if (context.enrollment.user_id !== user.id || context.attempt.submitted_at)
+              throw new AssessmentAccessError("Active learner assessment access required.");
+            const form = context.attempt.form_snapshot
+              .definition as import("@/lib/assessments/form").AssessmentFormDefinition;
+            const item = form.items.find((row) => row.id === url.searchParams.get("item"));
+            if (!item?.audioRequired || !item.audioText)
+              throw new AssessmentAccessError("Listening audio is unavailable for this item.", 503);
+            if (!context.attempt.form_snapshot.pilot || !pilotAllowed(user.id))
+              throw new AssessmentAccessError(
+                "Reviewed assessment audio has not been published for this form.",
+                503,
+              );
+            return json({
+              text: item.audioText,
+              language: context.enrollment.target_language,
+              mode: "device_speech_qa_only",
+            });
+          }
           if (action === "readiness") {
             const targetLanguage = target.parse(url.searchParams.get("target") ?? "Spanish"),
               instructionLanguage = native.parse(url.searchParams.get("native") ?? "English");
             return json({
-              tracks: readinessCatalog(targetLanguage, instructionLanguage),
+              tracks: await readinessCatalog(db, targetLanguage, instructionLanguage),
               note: "Structural coverage is separate from curriculum review. No draft is assignable as an official exam.",
             });
           }
@@ -182,7 +215,22 @@ export const Route = createFileRoute("/api/exams")({
           const orgId = url.searchParams.get("org")
             ? id.parse(url.searchParams.get("org"))
             : undefined;
+          const role = orgId ? await memberRole(db, orgId, user.id) : null;
+          const canManage = orgId ? Boolean(role && ["owner", "admin"].includes(role.role)) : true;
+          const members =
+            orgId && canManage
+              ? await db
+                  .from("team_members")
+                  .select("user_id,display_name")
+                  .eq("organization_id", orgId)
+                  .eq("status", "active")
+                  .eq("role", "learner")
+              : { data: [], error: null };
+          if (members.error)
+            throw new AssessmentAccessError("Team learners could not be loaded.", 503);
           return json({
+            canManage,
+            members: members.data ?? [],
             enrollments: await listEnrollments(db, user.id, orgId),
             pilot: pilotAllowed(user.id),
             limit: 200,
@@ -357,15 +405,14 @@ export const Route = createFileRoute("/api/exams")({
               .maybeSingle();
             if (!response) throw new AssessmentAccessError("Response access required.");
             return json({
-              scoreId: await rpc(db, "assessment_record_score", {
+              scoreId: await rpc(db, "assessment_review_rubric", {
                 p_actor: user.id,
+                p_attempt: body.attemptId,
                 p_response: body.responseId,
                 p_state: body.state,
                 p_points: body.points,
-                p_source: "human",
+                p_dimensions: body.dimensions ?? null,
                 p_reason: body.reason,
-                p_confidence: null,
-                p_model: null,
                 p_request: body.requestId,
               }),
             });

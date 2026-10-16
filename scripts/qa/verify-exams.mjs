@@ -1,7 +1,7 @@
 /** Tests actual authenticated API/database behavior with synthetic QA accounts only. */
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
@@ -269,6 +269,11 @@ await ok(admin, {
   responseId: response.id,
   state: "scored",
   points: 5,
+  dimensions: Object.fromEntries(
+    teamAttempt.feedback
+      .find((row) => row.itemId === response.item_id)
+      .rubric.dimensions.map((dimension, index) => [dimension.id, index === 2 ? 1 : 2]),
+  ),
   reason:
     "QA ONLY: manual-review workflow test against a synthetic response; not a real learner proficiency rating.",
   requestId: qa.exams.teamReviewRequest,
@@ -340,7 +345,9 @@ const evidence = {
   },
 };
 writeFileSync(
-  "docs/reviews/qa-exams-api-2026-10-16.json",
+  existsSync("docs/reviews/qa-exams-api-2026-10-16.json")
+    ? "docs/reviews/qa-exams-api-rerun-2026-10-16.json"
+    : "docs/reviews/qa-exams-api-2026-10-16.json",
   JSON.stringify(evidence, null, 2) + "\n",
 );
 console.log(JSON.stringify(evidence.checks));

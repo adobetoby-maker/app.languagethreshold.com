@@ -53,6 +53,7 @@ const TABS: {
   { key: "dashboard", label: "Dashboard" },
   { key: "guide", label: "App Guide" },
   { key: "core30", label: "Core 30" },
+  { key: "exams", label: "Exams" },
 ];
 
 const TAB_VISIT_XP = 5;

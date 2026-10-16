@@ -12,7 +12,13 @@ import {
   type AssessmentFormDefinition,
   type AssessmentAnswer,
 } from "./form";
-import { checkpointProfiles, type ItemEvidence, type Checkpoint } from "./core";
+import {
+  ASSESSMENT_SKILLS,
+  compareSkillEvidence,
+  checkpointProfiles,
+  type ItemEvidence,
+  type Checkpoint,
+} from "./core";
 
 export class AssessmentAccessError extends Error {
   constructor(
@@ -91,11 +97,10 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
     .single();
   if (!checkpoint) throw new AssessmentAccessError("Assessment checkpoint not found.", 404);
   try {
-    return {
-      attempt,
-      checkpoint,
-      enrollment: await enrollmentAccess(db, actor, checkpoint.enrollment_id, review),
-    };
+    const enrollment = await enrollmentAccess(db, actor, checkpoint.enrollment_id, review);
+    if (review && enrollment.user_id === actor)
+      throw new AssessmentAccessError("A different reviewer must review your assessment.");
+    return { attempt, checkpoint, enrollment };
   } catch (error) {
     if (!(error instanceof AssessmentAccessError) || error.status !== 403 || !review) throw error;
     // Explicitly shared personal attempt only; no access to other attempts/profile/history.
@@ -111,7 +116,8 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
       .select("*")
       .eq("id", checkpoint.enrollment_id)
       .single();
-    if (!request || !enrollment || enrollment.scope !== "personal") throw error;
+    if (!request || !enrollment || enrollment.scope !== "personal" || enrollment.user_id === actor)
+      throw error;
     const { data: reviewer } = await db
       .from("assessment_reviewers")
       .select("user_id")
@@ -223,6 +229,16 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
     .in("id", [...new Set(permitted.map((row) => row.release_id))]);
   if (formsError || releasesError)
     throw new AssessmentAccessError("Assessment readiness could not be loaded.", 503);
+  const summaries = await rpc<
+    {
+      attemptId: string;
+      checkpoint: Checkpoint;
+      calibrated: boolean;
+      equivalenceApproved: boolean;
+      equivalenceGroup: string | null;
+      evidence: ItemEvidence[];
+    }[]
+  >(db, "assessment_progress_summaries", { p_actor: actor, p_enrollments: ids });
   return permitted.map((enrollment) => ({
     ...enrollment,
     checkpoints: (checkpoints ?? [])
@@ -245,16 +261,92 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
             (form) =>
               form.release_id === enrollment.release_id && form.checkpoint === cp.checkpoint,
           ),
-        attempts: (attempts ?? []).filter((attempt) => attempt.checkpoint_id === cp.id),
+        attempts: (attempts ?? [])
+          .filter((attempt) => attempt.checkpoint_id === cp.id)
+          .map((attempt) => {
+            const summary = summaries.find((row) => row.attemptId === attempt.id);
+            const baselineCheckpoint = (checkpoints ?? []).find(
+              (row) => row.enrollment_id === enrollment.id && row.checkpoint === "entrance",
+            );
+            const original = (attempts ?? []).find(
+              (row) =>
+                row.checkpoint_id === baselineCheckpoint?.id && row.designated && row.submitted_at,
+            );
+            const baseline = summaries.find((row) => row.attemptId === original?.id);
+            const comparable =
+              !!summary &&
+              !!baseline &&
+              summary.calibrated &&
+              baseline.calibrated &&
+              summary.equivalenceApproved &&
+              baseline.equivalenceApproved &&
+              !!summary.equivalenceGroup &&
+              summary.equivalenceGroup === baseline.equivalenceGroup;
+            return {
+              ...attempt,
+              profiles: summary
+                ? checkpointProfiles(
+                    cp.checkpoint as Checkpoint,
+                    summary.evidence,
+                    summary.calibrated,
+                  )
+                : [],
+              comparisons:
+                summary && cp.checkpoint !== "entrance"
+                  ? ASSESSMENT_SKILLS.map((skill) => ({
+                      skill,
+                      ...compareSkillEvidence(
+                        baseline?.evidence ?? [],
+                        summary.evidence,
+                        skill,
+                        comparable,
+                      ),
+                    }))
+                  : [],
+            };
+          }),
       })),
   }));
 }
-export function readinessCatalog(target: Language, native: NativeLanguage) {
+export async function readinessCatalog(db: TeamDb, target: Language, native: NativeLanguage) {
+  const { data: releases, error } = await db
+    .from("assessment_releases")
+    .select("id,module_id,status,lesson_manifest,review_records,verified_at,created_at")
+    .eq("target_language", target)
+    .eq("instruction_language", native)
+    .order("created_at", { ascending: false });
+  if (error) throw new AssessmentAccessError("Curriculum readiness could not be loaded.", 503);
+  const ids = (releases ?? []).map((row) => row.id);
+  const { data: forms, error: formError } = ids.length
+    ? await db
+        .from("assessment_forms")
+        .select("release_id,checkpoint,status,calibrated,review_records")
+        .in("release_id", ids)
+    : { data: [], error: null };
+  if (formError) throw new AssessmentAccessError("Exam readiness could not be loaded.", 503);
   return MODULES.filter(
     (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
   ).map((module) => {
     const curriculum = getCurriculum(module.id)!;
     const roofing = module.id === "roofing" && target === "Spanish" && native === "English";
+    const release =
+      (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
+      (releases ?? []).find((row) => row.module_id === module.id);
+    const examStates = Object.fromEntries(
+      (["entrance", "day45", "day90"] as const).map((checkpoint) => {
+        const matching = (forms ?? []).filter(
+          (row) => row.release_id === release?.id && row.checkpoint === checkpoint,
+        );
+        const chosen = matching.find((row) => row.status === "verified") ?? matching[0];
+        return [checkpoint, chosen?.status ?? "missing"];
+      }),
+    );
+    const reviewed = release?.lesson_manifest?.reviewed === true;
+    const verified =
+      release?.status === "verified" &&
+      reviewed &&
+      curriculum.lessons.length >= 30 &&
+      Object.values(examStates).every((status) => status === "verified");
     return {
       moduleId: module.id,
       name: module.name,
@@ -267,15 +359,25 @@ export function readinessCatalog(target: Language, native: NativeLanguage) {
         ? curriculum.lessons.filter((lesson) => lesson.words?.length).length
         : 0,
       contextualPassages: roofing ? 30 : 0,
-      exams: {
-        entrance: roofing ? "draft" : "missing",
-        day45: roofing ? "draft" : "missing",
-        day90: roofing ? "draft" : "missing",
-      },
-      status: "upgrade_in_progress",
-      reviewer: null,
-      verifiedAt: null,
-      offlineVerified: false,
+      exams: examStates,
+      status: verified ? "verified" : "upgrade_in_progress",
+      contentReviewCount: Array.isArray(release?.review_records)
+        ? release.review_records.length
+        : 0,
+      lessonsReviewed: reviewed,
+      calibrated:
+        !!release &&
+        (["entrance", "day45", "day90"] as const).every((checkpoint) =>
+          (forms ?? []).some(
+            (form) =>
+              form.release_id === release.id &&
+              form.checkpoint === checkpoint &&
+              form.status === "verified" &&
+              form.calibrated,
+          ),
+        ),
+      verifiedAt: verified ? release?.verified_at : null,
+      offlineVerified: release?.lesson_manifest?.offlineVerified === true,
     };
   });
 }
@@ -318,8 +420,26 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
         reason: score.rationale,
       }));
   }
+  let canReview = false;
+  if (enrollment.user_id !== actor && attempt.submitted_at) {
+    try {
+      await attemptAccess(db, actor, id, true);
+      canReview = true;
+    } catch {
+      /* No review authority. */
+    }
+  }
+  const { data: reviews, error: reviewError } = await db
+    .from("assessment_review_requests")
+    .select("id,status,reason,reviewer_id,created_at")
+    .eq("attempt_id", id)
+    .order("created_at", { ascending: false });
+  if (reviewError) throw new AssessmentAccessError("Review history could not be loaded.", 503);
   return {
     id: attempt.id,
+    isLearner: enrollment.user_id === actor,
+    canReview,
+    reviews: reviews ?? [],
     status: attempt.status,
     revision: attempt.revision,
     startedAt: attempt.started_at,

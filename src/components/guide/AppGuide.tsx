@@ -520,7 +520,7 @@ const SECTIONS: SectionDef[] = [
   {
     id: "see",
     label: "See it",
-    why: "Read the passage first so the words arrive in context.",
+    why: "Start with this lesson's reading or word list.",
     Icon: Eye,
   },
   {

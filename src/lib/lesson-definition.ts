@@ -1,7 +1,7 @@
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
 import { roofingTeachingSettings, type RoofingTeachingSettings } from "../data/roofing-teaching.ts";
 import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
-import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
+import { authoredLessonReading } from "./lesson-reading.ts";
 
 export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
 
@@ -43,17 +43,23 @@ export function getLessonDefinition(input: {
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
-  const words = roofingTrack ? (source.words ?? []) : [];
+  const words =
+    targetLanguage === "Spanish" && instructionLanguage === "English" ? (source.words ?? []) : [];
   const teaching = roofingTrack ? roofingTeachingSettings(lessonNumber) : null;
-  const passage = roofingTrack ? ROOFING_LESSON_PASSAGES[lessonNumber] : undefined;
+  const passage = authoredLessonReading(
+    moduleId,
+    lessonNumber,
+    targetLanguage,
+    instructionLanguage,
+  );
   const reading = passage
     ? {
         title: passage.title,
-        sentences: passage.es.map((target, index) => ({ target, native: passage.en[index] })),
+        sentences: passage.sentences.map(({ target, en }) => ({ target, native: en })),
       }
     : null;
   const listeningItems: LessonWord[] = [];
-  if (teaching?.stage === "supported" || !reading) listeningItems.push(...words);
+  if (!teaching || teaching.stage === "supported" || !reading) listeningItems.push(...words);
   else if (teaching && reading) {
     const size = teaching.stage === "independent" ? 2 : 1;
     for (let start = 0; start < reading.sentences.length; start += size) {

@@ -177,8 +177,10 @@ export function wordsFromModelOutput(input: unknown): LessonWord[] {
 export function pickAuthoredWords(
   authored: readonly LessonWord[] | undefined,
   language: string,
+  nativeLanguage = "English",
 ): LessonWord[] | null {
-  if (language !== "Spanish" || !authored || authored.length === 0) return null;
+  if (language !== "Spanish" || nativeLanguage !== "English" || !authored || authored.length === 0)
+    return null;
   return [...authored];
 }
 

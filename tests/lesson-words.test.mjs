@@ -106,10 +106,12 @@ test("model output of the wrong shape yields nothing", () => {
   }
 });
 
-test("authored words are used only for Spanish", () => {
+test("authored words are used only for the Spanish/English pair", () => {
   const authored = [{ en: "roof", es: "techo", kind: "term" }];
   assert.deepEqual(pickAuthoredWords(authored, "Spanish"), authored);
   assert.equal(pickAuthoredWords(authored, "French"), null);
+  assert.equal(pickAuthoredWords(authored, "Spanish", "French"), null);
+  assert.equal(pickAuthoredWords(authored, "Spanish", "Portuguese"), null);
   assert.equal(pickAuthoredWords(undefined, "Spanish"), null);
   assert.equal(pickAuthoredWords([], "Spanish"), null);
 });

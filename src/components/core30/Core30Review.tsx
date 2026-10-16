@@ -98,7 +98,7 @@ export function Core30Review({
         words: reviewWordsFor(
           // Authored (Spanish) first, else the list generated earlier for this language pair.
           // Read-only: review never calls the network, so an unvisited lesson uses vocabFocus.
-          pickAuthoredWords(lesson.words, state.selectedLanguage) ??
+          pickAuthoredWords(lesson.words, state.selectedLanguage, state.nativeLanguage) ??
             readCachedLessonWords(
               moduleId,
               lesson.n,

@@ -1,5 +1,5 @@
-import type { ModuleCurriculum } from "./curriculum.ts";
-import type { Lesson } from "./curriculum-helpers.ts";
+import type { ModuleCurriculum, Lesson } from "./curriculum.ts";
+import { LANDSCAPER_CREW_MEETING_WORDS } from "./landscaper-lesson-content.ts";
 import { r, sp, wm, pt, sb, ds, gr, ld } from "./curriculum-helpers.ts";
 
 // ─── EMERGENCY MEDICINE ───────────────────────────────────────────────────────
@@ -6527,11 +6527,14 @@ const LANDSCAPER_LESSONS: Lesson[] = [
   {
     n: 1,
     title: "Morning Crew Meeting",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
+    words: LANDSCAPER_CREW_MEETING_WORDS,
     objective: "Run a morning safety and task meeting for your landscape crew",
     steps: [
-      r("Read the landscaper passage. Focus on daily meeting vocabulary.", 7),
-      wm("Drill: paisajismo, césped, riego, poda, herramienta, seguridad, turno, equipo. 8/8.", 5),
+      r("Read the crew meeting passage. Find the task, schedule and clarification phrases.", 7),
+      wm(
+        "Practice the crew meeting terms and phrases. Match each task, tool and work-area expression.",
+        5,
+      ),
       sp(
         "Brief: 'Buenos días. Hoy tenemos 4 trabajos. El equipo A va al riego, el B al corte. Todos traigan sus EPP.'",
         8,

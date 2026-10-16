@@ -1,6 +1,7 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v11";
+const CACHE = "lt-v12";
+if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -13,7 +14,11 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) =>
+        Promise.all(
+          keys.filter((k) => /^lt-v\d+$/.test(k) && k !== CACHE).map((k) => caches.delete(k)),
+        ),
+      )
       .then(() => self.clients.claim()),
   );
 });
@@ -87,7 +92,12 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(
           async () =>
-            (await caches.match(request)) ?? (await caches.match("/")) ?? Response.error(),
+            (url.pathname === "/" && typeof offlineLessonShell === "function"
+              ? await offlineLessonShell()
+              : null) ??
+            (await caches.match(request)) ??
+            (await caches.match("/")) ??
+            Response.error(),
         ),
     );
   }

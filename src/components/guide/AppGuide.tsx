@@ -44,6 +44,7 @@ import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
 import { LessonReader } from "@/components/core30/LessonReader";
@@ -2024,6 +2025,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               )}
             </div>
           )}
+
+          {!reviewOpen &&
+            !runnerActive &&
+            moduleId === "roofing" &&
+            state.selectedLanguage === "Spanish" &&
+            state.nativeLanguage === "English" && <OfflineLessonDownload />}
 
           {/* Completed lessons list (collapsed) */}
           {completedCount > 0 && !runnerActive && !reviewOpen && (

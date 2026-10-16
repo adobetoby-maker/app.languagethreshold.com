@@ -8,6 +8,7 @@ import { getCurriculum } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
+import { lessonReviewSnapshot, lessonReviewFingerprint } from "@/lib/lesson-review";
 import { ROOFING_ASSESSMENT_RELEASE } from "./form";
 import {
   publicAssessmentItem,
@@ -286,62 +287,84 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
         .in("release_id", ids)
     : { data: [], error: null };
   if (formError) throw new AssessmentAccessError("Exam readiness could not be loaded.", 503);
-  return MODULES.filter(
-    (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
-  ).map((module) => {
-    const curriculum = getCurriculum(module.id)!;
-    const roofing = module.id === "roofing" && target === "Spanish" && native === "English";
-    const release =
-      (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
-      (releases ?? []).find((row) => row.module_id === module.id);
-    const examStates = Object.fromEntries(
-      (["entrance", "day45", "day90"] as const).map((checkpoint) => {
-        const matching = (forms ?? []).filter(
-          (row) => row.release_id === release?.id && row.checkpoint === checkpoint,
-        );
-        const chosen = matching.find((row) => row.status === "verified") ?? matching[0];
-        return [checkpoint, chosen?.status ?? "missing"];
-      }),
-    );
-    const reviewed = release?.lesson_manifest?.reviewed === true;
-    const verified =
-      release?.status === "verified" &&
-      reviewed &&
-      curriculum.lessons.length >= 30 &&
-      Object.values(examStates).every((status) => status === "verified");
-    return {
-      moduleId: module.id,
-      name: module.name,
-      emoji: module.emoji,
-      targetLanguage: target,
-      instructionLanguage: native,
-      lessonCount: curriculum.lessons.length,
-      requiredLessonCount: 30,
-      authoredLessonLists: roofing
-        ? curriculum.lessons.filter((lesson) => lesson.words?.length).length
-        : 0,
-      contextualPassages: roofing ? 30 : 0,
-      exams: examStates,
-      status: verified ? "verified" : "upgrade_in_progress",
-      contentReviewCount: Array.isArray(release?.review_records)
-        ? release.review_records.length
-        : 0,
-      lessonsReviewed: reviewed,
-      calibrated:
-        !!release &&
-        (["entrance", "day45", "day90"] as const).every((checkpoint) =>
-          (forms ?? []).some(
-            (form) =>
-              form.release_id === release.id &&
-              form.checkpoint === checkpoint &&
-              form.status === "verified" &&
-              form.calibrated,
+  const boundIds = (releases ?? [])
+    .filter((release) => typeof release.lesson_manifest?.lessonSnapshotFingerprint === "string")
+    .map((release) => release.id);
+  const bindings = boundIds.length
+    ? await db
+        .from("assessment_lesson_snapshots")
+        .select("release_id,fingerprint")
+        .in("release_id", boundIds)
+    : { data: [], error: null };
+  if (bindings.error)
+    throw new AssessmentAccessError("Lesson readiness could not be checked.", 503);
+  return Promise.all(
+    MODULES.filter(
+      (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
+    ).map(async (module) => {
+      const curriculum = getCurriculum(module.id)!;
+      const roofing = module.id === "roofing" && target === "Spanish" && native === "English";
+      const release =
+        (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
+        (releases ?? []).find((row) => row.module_id === module.id);
+      const examStates = Object.fromEntries(
+        (["entrance", "day45", "day90"] as const).map((checkpoint) => {
+          const matching = (forms ?? []).filter(
+            (row) => row.release_id === release?.id && row.checkpoint === checkpoint,
+          );
+          const chosen = matching.find((row) => row.status === "verified") ?? matching[0];
+          return [checkpoint, chosen?.status ?? "missing"];
+        }),
+      );
+      const binding = bindings.data?.find((row) => row.release_id === release?.id);
+      const current = binding ? lessonReviewSnapshot(module.id, target, native) : null;
+      const bindingCurrent = !!(
+        current &&
+        binding &&
+        binding.fingerprint === release?.lesson_manifest?.lessonSnapshotFingerprint &&
+        binding.fingerprint === (await lessonReviewFingerprint(current))
+      );
+      const reviewed = release?.lesson_manifest?.reviewed === true && bindingCurrent;
+      const verified =
+        release?.status === "verified" &&
+        reviewed &&
+        curriculum.lessons.length >= 30 &&
+        Object.values(examStates).every((status) => status === "verified");
+      return {
+        moduleId: module.id,
+        name: module.name,
+        emoji: module.emoji,
+        targetLanguage: target,
+        instructionLanguage: native,
+        lessonCount: curriculum.lessons.length,
+        requiredLessonCount: 30,
+        authoredLessonLists: roofing
+          ? curriculum.lessons.filter((lesson) => lesson.words?.length).length
+          : 0,
+        contextualPassages: roofing ? 30 : 0,
+        exams: examStates,
+        status: verified ? "verified" : "upgrade_in_progress",
+        contentReviewCount: Array.isArray(release?.review_records)
+          ? release.review_records.length
+          : 0,
+        lessonsReviewed: reviewed,
+        lessonSnapshotCurrent: bindingCurrent,
+        calibrated:
+          !!release &&
+          (["entrance", "day45", "day90"] as const).every((checkpoint) =>
+            (forms ?? []).some(
+              (form) =>
+                form.release_id === release.id &&
+                form.checkpoint === checkpoint &&
+                form.status === "verified" &&
+                form.calibrated,
+            ),
           ),
-        ),
-      verifiedAt: verified ? release?.verified_at : null,
-      offlineVerified: release?.lesson_manifest?.offlineVerified === true,
-    };
-  });
+        verifiedAt: verified ? release?.verified_at : null,
+        offlineVerified: verified && release?.lesson_manifest?.offlineVerified === true,
+      };
+    }),
+  );
 }
 export async function readAttempt(db: TeamDb, actor: string, id: string, review = false) {
   const { attempt, checkpoint, enrollment } = await attemptAccess(db, actor, id, review);

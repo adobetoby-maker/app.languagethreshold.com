@@ -81,6 +81,10 @@ function PrivateContent() {
     setForm("");
     setError("Content access changed. Refresh your assigned permissions before continuing.");
   }, []);
+  const onLessonsBound = useCallback(() => {
+    setDetail(null);
+    setEpoch((value) => value + 1);
+  }, []);
   useEffect(() => {
     if (!user) return;
     const actor = user.id,
@@ -224,6 +228,7 @@ function PrivateContent() {
                 key={release.id}
                 releaseId={release.id}
                 onAccessLost={onLessonAccessLost}
+                onBound={onLessonsBound}
               />
             )}
             <label className="block text-sm">

@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/state/auth-state";
 import { examRequest, ExamRequestError } from "@/lib/assessments/client";
 import { LessonReviewSnapshotView, type LessonReviewPayload } from "./LessonReviewSnapshotView";
+import { FreezeLessonSnapshot } from "./FreezeLessonSnapshot";
 
 export function LessonContentReview({
   releaseId,
   onAccessLost,
+  onBound,
 }: {
   releaseId: string;
   onAccessLost: () => void;
+  onBound: () => void;
 }) {
   const { user, isCurrentUser } = useAuth();
   const [open, setOpen] = useState(false),
@@ -41,7 +44,7 @@ export function LessonContentReview({
       <h2 className="text-xl font-semibold">Lesson materials for curriculum review</h2>
       <p className="text-sm">
         Inspect the current words, usage, passages and teaching progression before reviewing this
-        module. This is read-only; no review approval is recorded here.
+        module. Inspecting materials does not record a review approval.
       </p>
       <button
         type="button"
@@ -63,7 +66,40 @@ export function LessonContentReview({
           {error ? (
             <p role="alert">{error}</p>
           ) : data ? (
-            <LessonReviewSnapshotView data={data} />
+            <div className="space-y-4">
+              {data.bound && (
+                <section className="space-y-3 rounded-xl border border-border p-4">
+                  <h3 className="font-semibold">Frozen release lesson reference</h3>
+                  <p className="text-sm">
+                    Saved {new Date(data.bound.createdAt).toLocaleString()}.{" "}
+                    {data.matchesStoredSnapshot
+                      ? "The current app material matches this frozen copy."
+                      : "Current app lessons differ from this frozen release. Approval and new official exam starts are blocked until a current release is reviewed."}
+                  </p>
+                  <details>
+                    <summary className="min-h-11 cursor-pointer py-3">
+                      Inspect frozen release lessons
+                    </summary>
+                    <LessonReviewSnapshotView
+                      data={{
+                        ...data,
+                        snapshot: data.bound.snapshot,
+                        fingerprint: data.bound.fingerprint,
+                        matchesStoredSnapshot: true,
+                        materialKind: "frozen",
+                      }}
+                    />
+                  </details>
+                </section>
+              )}
+              <FreezeLessonSnapshot
+                key={JSON.stringify([data.releaseId, data.fingerprint, data.releaseManifest])}
+                data={data}
+                onBound={onBound}
+                onAccessLost={onAccessLost}
+              />
+              <LessonReviewSnapshotView data={data} />
+            </div>
           ) : (
             <p role="status">Loading current lesson materials…</p>
           )}

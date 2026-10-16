@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
 import { examContentRequest, ExamRequestError } from "@/lib/assessments/client";
 export type ContentReviewContext = {
+  lessonBindingCurrent?: boolean;
   fingerprint: string;
   reviewKinds: ("curriculum" | "fluent_language" | "domain")[];
   decisions: {
@@ -74,10 +75,16 @@ export function ContentReviewDecision({
     <section className="space-y-4 rounded-2xl border border-border p-4">
       <h3 className="text-xl font-semibold">Human content review</h3>
       <p className="text-sm">
-        A decision applies to the exact question, rubric and lesson-manifest version shown. Changed
-        content needs another review. These decisions do not publish the exam, calibrate scoring or
-        approve equivalence.
+        A decision applies to the exact question, rubric and frozen lesson-material reference shown.
+        Changed content needs another review. These decisions do not publish the exam, calibrate
+        scoring or approve equivalence.
       </p>
+      {context.lessonBindingCurrent !== true && (
+        <p className="text-sm">
+          Approval is unavailable until the release has frozen lesson materials matching the current
+          app. You can still record changes requested.
+        </p>
+      )}
       {context.reviewKinds.length > 0 ? (
         <form
           className="grid gap-3 sm:grid-cols-2"
@@ -116,7 +123,9 @@ export function ContentReviewDecision({
               }}
             >
               <option value="changes_requested">Changes requested</option>
-              <option value="approved">Approved for my responsibility</option>
+              <option value="approved" disabled={context.lessonBindingCurrent !== true}>
+                Approved for my responsibility
+              </option>
             </select>
           </label>
           <label className="sm:col-span-2">
@@ -151,7 +160,11 @@ export function ContentReviewDecision({
           )}
           <button
             className="min-h-11 rounded-xl border border-gold/40 px-4 py-2 font-semibold disabled:opacity-50 sm:col-span-2"
-            disabled={busy || !confirmed}
+            disabled={
+              busy ||
+              !confirmed ||
+              (decision === "approved" && context.lessonBindingCurrent !== true)
+            }
           >
             {busy ? "Recording review…" : "Record my content review"}
           </button>

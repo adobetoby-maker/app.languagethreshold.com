@@ -158,6 +158,25 @@ for (const actor of [null, personal, learner, admin]) {
   assert.equal(denied.status, 403);
   assert.equal(denied.cache, "no-store");
   assert.equal(Object.hasOwn(denied.body, "snapshot"), false);
+  const write = await fetch(base + "/api/exam-content", {
+    method: "POST",
+    headers: {
+      Origin: base,
+      "Content-Type": "application/json",
+      ...(actor ? { Authorization: `Bearer ${actor}` } : {}),
+    },
+    body: JSON.stringify({
+      action: "bind_lessons",
+      releaseId: "qa-unassigned-release",
+      fingerprint: "0".repeat(64),
+      expectedManifest: {},
+      contentVersion: "qa-unreleased",
+      requestId: randomUUID(),
+      confirmDraftSnapshot: true,
+    }),
+  });
+  assert.equal(write.status, 403);
+  assert.equal(write.headers.get("cache-control"), "no-store");
 }
 const aiItem = personalResult.body.form.items.find(
   (row) => row.type === "production" && row.skill === "writing",
@@ -201,6 +220,7 @@ const report = {
     compatibleReadinessTracksHonest: true,
     privateContentDeniedToUnassignedAccounts: true,
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
+    lessonSnapshotBindingDeniedToNonOwners: true,
     noStore: true,
   },
 };

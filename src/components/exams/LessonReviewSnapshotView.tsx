@@ -8,6 +8,10 @@ export interface LessonReviewPayload {
   fingerprint: string;
   storedFingerprint: string | null;
   matchesStoredSnapshot: boolean;
+  bound?: { snapshot: LessonReviewSnapshot; fingerprint: string; createdAt: string } | null;
+  canBind?: boolean;
+  releaseManifest?: Record<string, unknown>;
+  materialKind?: "frozen";
 }
 const ways: Record<string, string> = {
   see: "See it",
@@ -35,8 +39,11 @@ export function LessonReviewSnapshotView({ data }: { data: LessonReviewPayload }
           {snapshot.requiredLessons} required lesson plans
         </p>
         <p>
-          Current app practice drafts. Opening these materials does not approve them, expose scored
-          exam keys or create a learner result.
+          {data.materialKind === "frozen"
+            ? "Frozen release practice drafts."
+            : "Current app practice drafts."}{" "}
+          Opening these materials does not approve them, expose scored exam keys or create a learner
+          result.
         </p>
         <p>
           {data.matchesStoredSnapshot

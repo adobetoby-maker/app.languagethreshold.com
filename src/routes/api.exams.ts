@@ -4,6 +4,7 @@ import {
   readAssessmentSpeech,
 } from "@/lib/assessments/speech-server";
 import { checkpointAttemptHistory } from "@/lib/assessments/reports-server";
+import { requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
 import { assessmentContentAccess } from "@/lib/assessments/plans-server";
 import { proposeWritingReview } from "@/lib/assessments/ai-server";
 import { readAssessmentListening } from "@/lib/assessments/audio-server";
@@ -461,6 +462,8 @@ export const Route = createFileRoute("/api/exams")({
                 "This module exam is awaiting curriculum review.",
                 400,
               );
+            if (!pilotAllowed(user.id))
+              await requireCurrentLessonBinding(db, enrollment.release_id);
             if (
               form.status === "verified" &&
               officialListeningGaps(form.definition as unknown as AssessmentFormDefinition).length

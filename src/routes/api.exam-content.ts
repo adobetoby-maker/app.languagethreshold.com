@@ -1,9 +1,18 @@
-import { lessonReviewSnapshot, lessonReviewFingerprint } from "@/lib/lesson-review";
+import {
+  lessonReviewSnapshot,
+  lessonReviewFingerprint,
+  serializeLessonReviewSnapshot,
+} from "@/lib/lesson-review";
+import { boundLessonSnapshot, requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
-import { contentPrivileges, contentTrackAllowed } from "@/lib/assessments/content-server";
+import {
+  contentPrivileges,
+  contentTrackAllowed,
+  requireRegisteredAssessmentOwner,
+} from "@/lib/assessments/content-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { assessmentAudioResponse } from "@/lib/assessments/audio-server";
 import type { AssessmentFormDefinition } from "@/lib/assessments/form";
@@ -16,6 +25,17 @@ const review = z
     note: z.string().trim().min(3).max(4000),
     requestId: z.string().uuid(),
     confirmReview: z.literal(true),
+  })
+  .strict();
+const bindLessons = z
+  .object({
+    action: z.literal("bind_lessons"),
+    releaseId: z.string().min(3).max(160),
+    fingerprint: z.string().regex(/^[a-f0-9]{64}$/),
+    expectedManifest: z.record(z.unknown()),
+    contentVersion: z.string().min(1).max(160),
+    requestId: z.string().uuid(),
+    confirmDraftSnapshot: z.literal(true),
   })
   .strict();
 function fail(error: unknown) {
@@ -50,7 +70,7 @@ export const Route = createFileRoute("/api/exam-content")({
             const result = await db
               .from("assessment_releases")
               .select(
-                "id,module_id,target_language,instruction_language,content_version,lesson_manifest",
+                "id,module_id,target_language,instruction_language,content_version,status,lesson_manifest",
               )
               .eq("id", id)
               .maybeSingle();
@@ -67,6 +87,7 @@ export const Route = createFileRoute("/api/exam-content")({
             if (!snapshot)
               throw new AssessmentAccessError("Current lesson curriculum is not available.", 404);
             const fingerprint = await lessonReviewFingerprint(snapshot);
+            const bound = await boundLessonSnapshot(db, id);
             const stored = result.data.lesson_manifest?.lessonSnapshotFingerprint;
             const storedFingerprint =
               typeof stored === "string" && /^[a-f0-9]{64}$/.test(stored) ? stored : null;
@@ -77,6 +98,9 @@ export const Route = createFileRoute("/api/exam-content")({
               releaseContentVersion: result.data.content_version,
               storedFingerprint,
               matchesStoredSnapshot: storedFingerprint === fingerprint,
+              bound,
+              canBind: access.registeredOwner && result.data.status === "draft" && !bound,
+              releaseManifest: result.data.lesson_manifest,
             });
           }
           const formId = params.get("form");
@@ -117,12 +141,26 @@ export const Route = createFileRoute("/api/exam-content")({
             }
             const context =
               access.registeredOwner || access.grants.length
-                ? await rpc(db, "assessment_content_review_context", {
+                ? await rpc<Record<string, unknown>>(db, "assessment_content_review_context", {
                     p_actor: user.id,
                     p_form: id,
                   })
                 : null;
-            return json({ form: { ...result.data, reviewContext: context } });
+            let lessonBindingCurrent = false;
+            if (context) {
+              try {
+                await requireCurrentLessonBinding(db, result.data.release_id);
+                lessonBindingCurrent = true;
+              } catch (error) {
+                if (!(error instanceof AssessmentAccessError) || error.status !== 409) throw error;
+              }
+            }
+            return json({
+              form: {
+                ...result.data,
+                reviewContext: context ? { ...context, lessonBindingCurrent } : null,
+              },
+            });
           }
           let query = db
             .from("assessment_releases")
@@ -181,7 +219,61 @@ export const Route = createFileRoute("/api/exam-content")({
           } catch {
             throw new AssessmentAccessError("Invalid content review.", 400);
           }
-          const data = review.parse(body);
+          const data = z.union([review, bindLessons]).parse(body);
+          if ("action" in data) {
+            await requireRegisteredAssessmentOwner(db, user);
+            const release = await db
+              .from("assessment_releases")
+              .select("module_id,target_language,instruction_language")
+              .eq("id", data.releaseId)
+              .maybeSingle();
+            if (release.error)
+              throw new AssessmentAccessError("Lesson release could not be loaded.", 503);
+            if (!release.data)
+              throw new AssessmentAccessError("Lesson release was not found.", 404);
+            const snapshot = lessonReviewSnapshot(
+              release.data.module_id,
+              release.data.target_language,
+              release.data.instruction_language,
+            );
+            if (!snapshot || (await lessonReviewFingerprint(snapshot)) !== data.fingerprint)
+              throw new AssessmentAccessError(
+                "Lesson content conflict; refresh before freezing material.",
+                409,
+              );
+            return json(
+              await rpc(db, "assessment_bind_lesson_snapshot", {
+                p_actor: user.id,
+                p_release: data.releaseId,
+                p_snapshot: serializeLessonReviewSnapshot(snapshot),
+                p_fingerprint: data.fingerprint,
+                p_expected_manifest: data.expectedManifest,
+                p_content_version: data.contentVersion,
+                p_request: data.requestId,
+              }),
+            );
+          }
+          if (data.decision === "approved") {
+            const access = await contentPrivileges(db, user);
+            const form = await db
+              .from("assessment_forms")
+              .select("release_id")
+              .eq("id", data.formId)
+              .maybeSingle();
+            if (form.error)
+              throw new AssessmentAccessError("Content form could not be checked.", 503);
+            if (!form.data) throw new AssessmentAccessError("Content form was not found.", 404);
+            const release = await db
+              .from("assessment_releases")
+              .select("module_id,target_language,instruction_language")
+              .eq("id", form.data.release_id)
+              .single();
+            if (release.error)
+              throw new AssessmentAccessError("Content permissions could not be checked.", 503);
+            if (!contentTrackAllowed(access, release.data))
+              throw new AssessmentAccessError("Assigned content reviewer access required.", 403);
+            await requireCurrentLessonBinding(db, form.data.release_id);
+          }
           return json({
             id: await rpc(db, "assessment_record_content_review", {
               p_actor: user.id,

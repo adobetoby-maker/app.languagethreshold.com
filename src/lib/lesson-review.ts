@@ -104,7 +104,12 @@ function canonical(value: unknown): unknown {
 
 /** Identity for the exact displayed material; this hash is not an approval or signature. */
 export async function lessonReviewFingerprint(snapshot: LessonReviewSnapshot): Promise<string> {
-  const bytes = new TextEncoder().encode(JSON.stringify(canonical(snapshot)));
+  const bytes = new TextEncoder().encode(serializeLessonReviewSnapshot(snapshot));
   const hash = await crypto.subtle.digest("SHA-256", bytes);
   return [...new Uint8Array(hash)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+/** Preserve these exact UTF-8 bytes when freezing a review snapshot. */
+export function serializeLessonReviewSnapshot(snapshot: LessonReviewSnapshot): string {
+  return JSON.stringify(canonical(snapshot));
 }

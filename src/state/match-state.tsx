@@ -1,3 +1,4 @@
+import { applyPracticePoints } from "@/lib/practice-points";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
@@ -73,7 +74,7 @@ export const RANK_FLAVOR: Record<RankTier, string> = {
 
 export const POINTS_PER_TIER = 100;
 
-/** Ranked points awarded per match outcome. */
+/** Practice points awarded per simulated match outcome, subject to the floor/cap. */
 export const POINTS_WIN = 10;
 export const POINTS_LOSS = 3;
 export const POINTS_TIE = 0;
@@ -228,16 +229,8 @@ export function MatchProvider({ children }: { children: ReactNode }) {
     (n: number) => {
       if (n <= 0) return;
       setState((s) => {
-        let points = s.points + n;
-        let tierIdx = RANK_ORDER.indexOf(s.tier);
-        while (points >= POINTS_PER_TIER && tierIdx < RANK_ORDER.length - 1) {
-          points = 0;
-          tierIdx += 1;
-        }
-        if (tierIdx === RANK_ORDER.length - 1) {
-          points = Math.min(points, POINTS_PER_TIER);
-        }
-        return { ...s, tier: RANK_ORDER[tierIdx], points };
+        const next = applyPracticePoints(s.tier, s.points, n, RANK_ORDER, POINTS_PER_TIER);
+        return { ...s, tier: next.tier, points: next.points };
       });
       bumpPulse();
     },
@@ -247,7 +240,10 @@ export function MatchProvider({ children }: { children: ReactNode }) {
   const removePoints = useCallback(
     (n: number) => {
       if (n <= 0) return;
-      setState((s) => ({ ...s, points: Math.max(0, s.points - n) }));
+      setState((s) => {
+        const next = applyPracticePoints(s.tier, s.points, -n, RANK_ORDER, POINTS_PER_TIER);
+        return { ...s, tier: next.tier, points: next.points };
+      });
       bumpPulse();
     },
     [bumpPulse],

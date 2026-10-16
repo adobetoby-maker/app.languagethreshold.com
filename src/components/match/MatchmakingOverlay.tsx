@@ -1,3 +1,4 @@
+import { applyPracticePoints } from "@/lib/practice-points";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
@@ -125,19 +126,28 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
   const oldTierRef = useRef<RankTier>(tier);
 
   const handleBattleComplete = (result: BattleResult) => {
-    let delta = 0;
+    const requestedDelta =
+      result.outcome === "victory"
+        ? POINTS_WIN
+        : result.outcome === "defeat"
+          ? -POINTS_LOSS
+          : POINTS_TIE;
+    const delta = applyPracticePoints(
+      tier,
+      points,
+      requestedDelta,
+      RANK_ORDER,
+      POINTS_PER_TIER,
+    ).appliedDelta;
     oldTierRef.current = tier;
     if (result.outcome === "victory") {
-      delta = POINTS_WIN;
       addPoints(POINTS_WIN);
       dispatch({ type: "ADD_XP", payload: 25 });
       nudgeOnWin();
     } else if (result.outcome === "defeat") {
-      delta = -POINTS_LOSS;
       removePoints(POINTS_LOSS);
       dispatch({ type: "ADD_XP", payload: 10 });
     } else {
-      delta = POINTS_TIE;
       dispatch({ type: "ADD_XP", payload: 5 });
     }
     recordMatch({ outcome: result.outcome, rounds: result.rounds });

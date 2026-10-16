@@ -197,7 +197,7 @@ export function Dashboard() {
           </div>
           <div className="text-right">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Ranked Points
+              Practice Points
             </div>
             <div className="mt-1 font-display text-2xl text-foreground">
               {m.points}

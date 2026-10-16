@@ -76,6 +76,37 @@ assert.equal(personalResult.body.aiWritingAvailable, false);
 assert.equal((await request(admin, privatePath)).status, 403);
 assert.equal((await request(learner, privatePath)).status, 403);
 assert.equal((await request(null, "/api/exams")).status, 403);
+const qaCheckpoints = await service
+  .from("assessment_checkpoints")
+  .select("id")
+  .eq("enrollment_id", qa.exams.personalEnrollmentId);
+assert.equal(qaCheckpoints.error, null);
+const activeListeningAttempt = await service
+  .from("assessment_attempts")
+  .select("id")
+  .in(
+    "checkpoint_id",
+    qaCheckpoints.data.map((row) => row.id),
+  )
+  .eq("status", "in_progress")
+  .limit(1)
+  .single();
+assert.equal(activeListeningAttempt.error, null);
+const activeListeningView = await request(
+  personal,
+  `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`,
+);
+assert.equal(activeListeningView.status, 200);
+const listeningItem = activeListeningView.body.form.items.find((item) => item.audioRequired);
+assert.ok(listeningItem, "Existing synthetic QA attempt has a listening item");
+const listeningPath = `/api/exams?action=listening&attempt=${activeListeningAttempt.data.id}&item=${encodeURIComponent(listeningItem.id)}`;
+// The staged production configuration does not enable synthetic pilot speech fallback.
+const missingClip = await request(personal, listeningPath);
+assert.equal(missingClip.status, 503);
+assert.equal(missingClip.cache, "no-store");
+assert.equal("text" in missingClip.body, false);
+for (const token of [admin, learner, null])
+  assert.equal((await request(token, listeningPath)).status, 403);
 const team = await request(admin, `/api/exams?org=${qa.organizationId}`);
 assert.equal(team.status, 200);
 assert.ok(
@@ -158,6 +189,7 @@ const report = {
     teamScopeOnly: true,
     noRawResponsesInOverview: true,
     productionPilotDisabled: true,
+    privateListeningBoundaryAndMissingClipHonest: true,
     productionUncalibratedAiDenied: true,
     unreviewedSupportExcluded: true,
     compatibleReadinessTracksHonest: true,

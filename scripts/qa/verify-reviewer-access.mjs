@@ -96,6 +96,10 @@ for (const token of [personal, learner, admin, null]) {
     );
   assert.equal((await request(token, "/api/exam-content")).status, 403);
   assert.equal((await request(token, "/api/exam-content?form=not-a-visible-form")).status, 403);
+  assert.equal(
+    (await request(token, "/api/exam-content?form=not-a-visible-form&audioItem=fixture")).status,
+    403,
+  );
 }
 assert.equal((await request(admin, {}, "https://example.invalid")).status, 403);
 const contentResponse = await fetch(base + "/api/exam-content", {
@@ -160,6 +164,7 @@ const report = {
     registeredOwnerRequired: true,
     nonOwnerPostDenied: true,
     contentScopesRequired: true,
+    contentAudioRequiresAssignedScope: true,
     anonymousDenied: true,
     wrongOriginDenied: true,
     unauthorizedContentDecisionDenied: true,

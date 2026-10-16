@@ -191,3 +191,18 @@ test("unmount cancels pending round resolution and cannot create a late practice
     assert.deepEqual(results, []);
   });
 });
+
+test("Exit practice cancels pending resolution before the parent unmounts", async () => {
+  await fixture(({ render, expire, drain, results, timeouts, intervals }) => {
+    expire();
+    const tree = render();
+    assert.equal(timeouts.size, 1);
+    const exit = nodes(tree).find((n) => n.type === "button" && text(n) === "Exit practice");
+    assert.ok(exit);
+    exit.props.onClick();
+    assert.equal(timeouts.size, 0);
+    assert.equal(intervals.size, 0);
+    drain();
+    assert.deepEqual(results, []);
+  });
+});

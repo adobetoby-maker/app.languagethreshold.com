@@ -409,7 +409,11 @@ export function BattleArena({
           <p className="text-xs text-white/70">Practice match · Simulated opponent</p>
           <button
             type="button"
-            onClick={onExit}
+            onClick={() => {
+              completedRef.current = true;
+              clearTimers();
+              onExit();
+            }}
             className="min-h-11 shrink-0 rounded-lg border border-white/20 px-3 text-xs text-white/80"
           >
             Exit practice

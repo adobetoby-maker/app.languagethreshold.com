@@ -375,6 +375,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
             opponentTier={opponent.tier}
             language={language}
             onComplete={handleBattleComplete}
+            onExit={onClose}
           />
         )}
 

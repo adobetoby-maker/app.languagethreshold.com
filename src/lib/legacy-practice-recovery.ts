@@ -1,5 +1,12 @@
 import { z } from "zod";
 import {
+  LEGACY_GAMES,
+  isLegacyGameKind,
+  normalizeLegacyGame,
+  countLegacyGame,
+  mergeLegacyGame,
+} from "./legacy-game-recovery.ts";
+import {
   createLearnerDeviceStore,
   learnerDeviceKey,
   type LearnerStorage,
@@ -13,6 +20,7 @@ export const LEGACY_PRACTICE = {
   grammar: { key: "lt.grammar.v2", label: "Grammar lessons and progress" },
   speech: { key: "lt.speech.v1", label: "Listening history and voice settings" },
   heardWords: { key: "lt.speech.recentWords.v1", label: "Recently heard words" },
+  ...LEGACY_GAMES,
 } as const;
 export type LegacyPracticeKind = keyof typeof LEGACY_PRACTICE;
 const str = z.string();
@@ -154,6 +162,7 @@ function parseJson(raw: string) {
   return JSON.parse(raw) as unknown;
 }
 function normalize(kind: LegacyPracticeKind, value: unknown): unknown {
+  if (isLegacyGameKind(kind)) return normalizeLegacyGame(kind, value);
   if (kind === "notes") return notes.parse(value);
   if (kind === "flashcards") return cards.parse(value);
   if (kind === "grammar") return grammar.parse(value);
@@ -171,6 +180,7 @@ function normalize(kind: LegacyPracticeKind, value: unknown): unknown {
   );
 }
 function count(kind: LegacyPracticeKind, value: unknown): number {
+  if (isLegacyGameKind(kind)) return countLegacyGame(kind, value);
   if (kind === "notes") return notes.parse(value).length;
   if (kind === "flashcards") return Object.keys(cards.parse(value).cards).length;
   if (kind === "grammar") {
@@ -208,6 +218,7 @@ function count(kind: LegacyPracticeKind, value: unknown): number {
 }
 function merge(kind: LegacyPracticeKind, old: unknown, current: unknown): unknown {
   if (current === null) return old;
+  if (isLegacyGameKind(kind)) return mergeLegacyGame(kind, old, current);
   if (kind === "notes") return unique(notes.parse(old), notes.parse(current));
   if (kind === "heardWords")
     return [...new Set([...heardWords.parse(current), ...heardWords.parse(old)])].slice(0, 20);

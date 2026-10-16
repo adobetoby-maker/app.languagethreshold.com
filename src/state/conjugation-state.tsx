@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   useRef,
   type ReactNode,
 } from "react";
@@ -69,27 +71,16 @@ type Action =
   | { type: "END_RUN" }
   | { type: "RESET_LEADERBOARD"; payload: LeaderboardKey | "all" };
 
-const STORAGE_KEY = "lt.conjugation.leaderboard.v1";
 const RUN_LENGTH = 5;
 
-function loadLeaderboard(): Record<LeaderboardKey, ConjugationStats> {
-  if (typeof window === "undefined") return {} as Record<LeaderboardKey, ConjugationStats>;
+function loadLeaderboard(value: unknown): Record<LeaderboardKey, ConjugationStats> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     return raw
-      ? (JSON.parse(raw) as Record<LeaderboardKey, ConjugationStats>)
+      ? (raw as Record<LeaderboardKey, ConjugationStats>)
       : ({} as Record<LeaderboardKey, ConjugationStats>);
   } catch {
     return {} as Record<LeaderboardKey, ConjugationStats>;
-  }
-}
-
-function saveLeaderboard(lb: Record<LeaderboardKey, ConjugationStats>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lb));
-  } catch {
-    /* ignore quota */
   }
 }
 
@@ -100,7 +91,7 @@ function statsFor(
   return lb[key] ?? { ...EMPTY_STATS };
 }
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, leaderboard: action.payload };
@@ -160,7 +151,7 @@ function reducer(state: State, action: Action): State {
         totalAttempts: prev.totalAttempts + 1,
       };
       const newLb = { ...state.leaderboard, [key]: newStats };
-      saveLeaderboard(newLb);
+
       return { ...state, run: { ...state.run, questions: updated }, leaderboard: newLb };
     }
     case "ADVANCE": {
@@ -183,18 +174,16 @@ function reducer(state: State, action: Action): State {
           ...state.leaderboard,
           [key]: { ...prev, perfectRuns: prev.perfectRuns + 1 },
         };
-        saveLeaderboard(newLb);
       }
       return { ...state, run: null, leaderboard: newLb };
     }
     case "RESET_LEADERBOARD": {
       if (action.payload === "all") {
-        saveLeaderboard({} as Record<LeaderboardKey, ConjugationStats>);
         return { ...state, leaderboard: {} as Record<LeaderboardKey, ConjugationStats> };
       }
       const newLb = { ...state.leaderboard };
       delete newLb[action.payload];
-      saveLeaderboard(newLb);
+
       return { ...state, leaderboard: newLb };
     }
     default:
@@ -230,6 +219,8 @@ interface ConjugationContextValue {
 const Ctx = createContext<ConjugationContextValue | null>(null);
 
 export function ConjugationProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("gameConjugation");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     leaderboard: {} as Record<LeaderboardKey, ConjugationStats>,
     run: null,
@@ -239,11 +230,13 @@ export function ConjugationProvider({ children }: { children: ReactNode }) {
 
   // Hydrate from localStorage once on mount.
   useEffect(() => {
-    const lb = loadLeaderboard();
-    if (Object.keys(lb).length) {
-      dispatch({ type: "HYDRATE", payload: lb });
-    }
-  }, []);
+    dispatch({ type: "HYDRATE", payload: loadLeaderboard(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.leaderboard);
+  }, [device, hydrated, state.leaderboard]);
 
   // The fetcher is provided by the component that owns useServerFn (component
   // tree, not state file — server-fn hooks must be called from components).

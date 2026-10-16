@@ -20,7 +20,23 @@ function fixture() {
     },
   };
 }
-for (const kind of ["notes", "flashcards", "tutor", "speak", "grammar", "speech", "heardWords"]) {
+for (const kind of [
+  "notes",
+  "flashcards",
+  "tutor",
+  "speak",
+  "grammar",
+  "speech",
+  "heardWords",
+  "gameConjugation",
+  "gameWordMatch",
+  "gameListening",
+  "gameIdioms",
+  "gameFalseFriends",
+  "dailyChallenge",
+  "languageMatch",
+  "simulatedRivals",
+]) {
   test(`${kind}: private practice survives own reload, remains absent for guest/another learner, and rejects stale callbacks`, () => {
     const f = fixture();
     const a = f.make(kind, "a");
@@ -54,7 +70,23 @@ test("unowned legacy stores are neither read, reassigned nor deleted", () => {
   ];
   keys.forEach((key) => f.storage.setItem(key, JSON.stringify({ text: "unknown owner" })));
   const before = new Map(f.entries);
-  for (const kind of ["notes", "flashcards", "tutor", "speak", "grammar", "speech", "heardWords"]) {
+  for (const kind of [
+    "notes",
+    "flashcards",
+    "tutor",
+    "speak",
+    "grammar",
+    "speech",
+    "heardWords",
+    "gameConjugation",
+    "gameWordMatch",
+    "gameListening",
+    "gameIdioms",
+    "gameFalseFriends",
+    "dailyChallenge",
+    "languageMatch",
+    "simulatedRivals",
+  ]) {
     assert.equal(f.make(kind, "a").read(), null);
     f.make(kind, "a").write({ text: "new owned work" });
   }

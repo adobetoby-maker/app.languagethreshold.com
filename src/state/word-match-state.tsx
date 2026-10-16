@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   useRef,
   type ReactNode,
 } from "react";
@@ -79,31 +81,20 @@ type Action =
   | { type: "END_GAME" }
   | { type: "DISMISS_RESULT" };
 
-const STORAGE_KEY = "lt.wordMatch.leaderboard.v1";
 const MAX_FLIPPED = 2;
 
 function pairsForLevel(level: WordMatchLevel): number {
   return level === 1 ? 6 : level === 2 ? 8 : 10;
 }
 
-function loadLeaderboard(): Record<WMLeaderboardKey, WordMatchStats> {
-  if (typeof window === "undefined") return {} as Record<WMLeaderboardKey, WordMatchStats>;
+function loadLeaderboard(value: unknown): Record<WMLeaderboardKey, WordMatchStats> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     return raw
-      ? (JSON.parse(raw) as Record<WMLeaderboardKey, WordMatchStats>)
+      ? (raw as Record<WMLeaderboardKey, WordMatchStats>)
       : ({} as Record<WMLeaderboardKey, WordMatchStats>);
   } catch {
     return {} as Record<WMLeaderboardKey, WordMatchStats>;
-  }
-}
-
-function saveLeaderboard(lb: Record<WMLeaderboardKey, WordMatchStats>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lb));
-  } catch {
-    /* quota */
   }
 }
 
@@ -134,7 +125,7 @@ function buildCards(board: WordMatchBoard): WMCard[] {
   return shuffle(cards);
 }
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, leaderboard: action.payload };
@@ -149,7 +140,7 @@ function reducer(state: State, action: Action): State {
         ...state.leaderboard,
         [key]: newStats,
       };
-      saveLeaderboard(newLb);
+
       return {
         ...state,
         loading: true,
@@ -289,7 +280,6 @@ function reducer(state: State, action: Action): State {
         ...state.leaderboard,
         [key]: newStats,
       };
-      saveLeaderboard(newLb);
 
       const result: WMResult = {
         language: g.language,
@@ -341,6 +331,8 @@ interface WordMatchContextValue {
 const Ctx = createContext<WordMatchContextValue | null>(null);
 
 export function WordMatchProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("gameWordMatch");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     leaderboard: {} as Record<WMLeaderboardKey, WordMatchStats>,
     game: null,
@@ -350,9 +342,13 @@ export function WordMatchProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    const lb = loadLeaderboard();
-    if (Object.keys(lb).length) dispatch({ type: "HYDRATE", payload: lb });
-  }, []);
+    dispatch({ type: "HYDRATE", payload: loadLeaderboard(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.leaderboard);
+  }, [device, hydrated, state.leaderboard]);
 
   const fetcherRef = useRef<
     | ((args: {

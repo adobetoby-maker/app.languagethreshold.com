@@ -295,6 +295,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
               ⚔ Language Match ⚔
             </div>
             <h1 className="mt-2 font-display text-4xl italic text-white">The Arena</h1>
+            <p className="mt-2 text-sm text-white/70">Practice against a simulated opponent.</p>
           </div>
         )}
 
@@ -465,7 +466,7 @@ function PlayerCard({
       className={`relative w-[300px] shrink-0 rounded-3xl border border-gold/40 bg-gradient-to-b from-[#0e1726] to-[#070b14] p-6 shadow-[0_0_40px_-10px_rgba(201,168,76,0.4)] backdrop-blur ${animClass}`}
       style={
         {
-          ["--rank-color" as any]: glowColor,
+          "--rank-color": glowColor,
           boxShadow: `inset 0 0 40px -15px ${glowColor}55, 0 0 50px -15px ${glowColor}55`,
         } as React.CSSProperties
       }
@@ -524,7 +525,7 @@ function SearchingState({ onCancel }: { onCancel: () => void }) {
         <div className="absolute inset-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_18px_rgba(201,168,76,0.9)]" />
       </div>
       <div className="font-mono text-xs uppercase tracking-[0.28em] text-white/80">
-        Searching for an opponent at your level
+        Preparing a simulated opponent at your level
         <span className="searching-dots ml-1" />
       </div>
       <button

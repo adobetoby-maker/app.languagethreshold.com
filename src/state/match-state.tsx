@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -11,13 +12,7 @@ import {
 import type { Language } from "./app-state";
 
 export type RankTier =
-  | "Bronze"
-  | "Silver"
-  | "Gold"
-  | "Platinum"
-  | "Diamond"
-  | "Champion"
-  | "Unreal";
+  "Bronze" | "Silver" | "Gold" | "Platinum" | "Diamond" | "Champion" | "Unreal";
 
 export const RANK_ORDER: RankTier[] = [
   "Bronze",
@@ -144,7 +139,6 @@ interface MatchCtx extends MatchStateData {
 }
 
 const Ctx = createContext<MatchCtx | null>(null);
-const STORAGE_KEY = "lt.match.v2";
 
 const initialState: MatchStateData = {
   tier: "Bronze",
@@ -163,6 +157,7 @@ const initialState: MatchStateData = {
 };
 
 export function MatchProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("languageMatch");
   const [state, setState] = useState<MatchStateData>(initialState);
   const [hydrated, setHydrated] = useState(false);
   const [pendingRankUp, setPendingRankUp] = useState<RankTier | null>(null);
@@ -172,9 +167,9 @@ export function MatchProvider({ children }: { children: ReactNode }) {
   // Hydrate
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw) as Partial<MatchStateData>;
+        const parsed = raw as Partial<MatchStateData>;
         const tier =
           parsed.tier && RANK_ORDER.includes(parsed.tier as RankTier)
             ? (parsed.tier as RankTier)
@@ -197,17 +192,17 @@ export function MatchProvider({ children }: { children: ReactNode }) {
       /* ignore */
     }
     setHydrated(true);
-  }, []);
+  }, [device]);
 
   // Persist
   useEffect(() => {
     if (!hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      device.write(state);
     } catch {
       /* ignore */
     }
-  }, [state, hydrated]);
+  }, [device, state, hydrated]);
 
   // Detect rank-up (tier increase) and queue ceremony.
   useEffect(() => {

@@ -27,6 +27,7 @@ export async function loadModule(entry, { stubs = [] } = {}) {
     stubPath,
     [
       "const noop = () => {};",
+      "export const useLearnerDeviceStore = noop;",
       "export const supabase = {};",
       "export const toast = Object.assign(noop, { success: noop, error: noop, info: noop });",
       "export const initSentry = noop;",

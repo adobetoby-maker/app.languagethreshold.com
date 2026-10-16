@@ -68,13 +68,16 @@ export function LeaderboardPanel({ onClose }: { onClose: () => void }) {
           <Trophy className="h-4 w-4" />
           <span className="font-mono text-[10px] uppercase tracking-[0.3em]">⚔ Leaderboard</span>
         </div>
-        <h2 className="font-display text-3xl italic text-white">Top Language Warriors</h2>
+        <h2 className="font-display text-3xl italic text-white">Practice leaderboard</h2>
+        <p className="mt-2 text-sm text-white/70">
+          Your row uses your saved match results. Other rows are simulated practice rivals.
+        </p>
 
         {/* Tabs */}
         <div className="mt-5 inline-flex rounded-full border border-white/15 bg-white/5 p-1">
           {(
             [
-              { k: "week", label: "This Week" },
+              { k: "week", label: "Practice" },
               { k: "alltime", label: "All Time" },
               { k: "language", label: "My Language" },
             ] as { k: Tab; label: string }[]

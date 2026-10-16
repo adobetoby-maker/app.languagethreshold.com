@@ -88,6 +88,13 @@ const SIZE_CLASS: Record<TextSize, string> = {
 };
 
 export function ParallelReader() {
+  const studyGuideRef = useRef<HTMLDetailsElement>(null);
+  const readingContentRef = useRef<HTMLDivElement>(null);
+  function showSelectedReading() {
+    if (studyGuideRef.current) studyGuideRef.current.open = false;
+    readingContentRef.current?.focus({ preventScroll: true });
+    readingContentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   const { state, dispatch } = useApp();
   const { selected, state: lib, dispatch: libDispatch, readyToSelect } = useLibrary();
   const { add: addAnnotation, forText } = useNotes();
@@ -596,21 +603,14 @@ export function ParallelReader() {
   return (
     <div className="fade-in mx-auto w-full max-w-6xl">
       <LessonReturnPill kind="see" />
-      <ModuleStudyGuide />
-      <ModuleMatchPanel surface="Reader" className="mb-4" />
-      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
-        <strong>Your training demo.</strong> Tap a word on either side — {state.nativeLanguage} or{" "}
-        {state.selectedLanguage} — to see what it means in this sentence, ask the Tutor about it,
-        then save it. This disappears once you have tried both sides.
-      </ActionHint>
 
-      {/* Lesson navigation — shown when the active module has multiple lessons */}
+      {/* Library readings are separate from the module's Core 30 lessons. */}
       {lessonIds.length > 1 && (
         <div className="mb-4 flex items-center gap-2 rounded-xl border border-border/50 bg-card/40 px-4 py-2.5">
           <button
             onClick={() => goToLesson(currentLessonIndex - 1)}
             disabled={currentLessonIndex <= 0}
-            aria-label="Previous lesson"
+            aria-label="Previous reading"
             className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-background/50 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:border-gold/50 hover:text-gold disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronLeft className="h-3 w-3" /> Prev
@@ -621,8 +621,8 @@ export function ParallelReader() {
               <button
                 key={id}
                 onClick={() => goToLesson(idx)}
-                title={`Lesson ${idx + 1}`}
-                aria-label={`Go to lesson ${idx + 1}`}
+                title={`Reading ${idx + 1}`}
+                aria-label={`Go to reading ${idx + 1}`}
                 className={
                   "h-1.5 rounded-full transition-all " +
                   (idx === currentLessonIndex
@@ -635,16 +635,16 @@ export function ParallelReader() {
             ))}
           </div>
 
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          <span className="shrink-0 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
             {currentLessonIndex >= 0
-              ? `${currentLessonIndex + 1} / ${lessonIds.length}`
-              : `${lessonIds.length} lessons`}
+              ? `Reading ${currentLessonIndex + 1}/${lessonIds.length}`
+              : `${lessonIds.length} readings`}
           </span>
 
           <button
             onClick={() => goToLesson(currentLessonIndex < 0 ? 0 : currentLessonIndex + 1)}
             disabled={currentLessonIndex >= lessonIds.length - 1}
-            aria-label="Next lesson"
+            aria-label="Next reading"
             className="inline-flex items-center gap-1 rounded-full border border-gold/50 bg-gold/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-gold transition-colors hover:bg-gold/25 disabled:pointer-events-none disabled:opacity-30"
           >
             {currentLessonIndex < 0 ? "Start" : "Next"} <ChevronRight className="h-3 w-3" />
@@ -930,9 +930,18 @@ export function ParallelReader() {
         </div>
       </div>
 
+      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
+        Tap a word on either side for its meaning, audio and a flashcard. Ask the Tutor to explain
+        how it works in the sentence.
+      </ActionHint>
+
       {/* Reader */}
       <div
-        className={`relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur ${fullscreen ? "fixed inset-2 z-40 md:inset-6" : ""}`}
+        ref={readingContentRef}
+        tabIndex={-1}
+        role="region"
+        aria-label="Selected reading"
+        className={`relative scroll-mt-20 overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur md:scroll-mt-40 ${fullscreen ? "fixed inset-2 z-40 md:inset-6" : ""}`}
       >
         <div className={fullscreen ? "grid grid-cols-1" : "grid grid-cols-2"}>
           {!fullscreen && (
@@ -1034,6 +1043,24 @@ export function ParallelReader() {
           </div>
         </div>
       </div>
+
+      <details
+        ref={studyGuideRef}
+        className="mt-5 rounded-2xl border border-border/60 bg-card/40"
+        aria-label="Reader study guide"
+      >
+        <summary className="min-h-11 cursor-pointer px-4 py-3 text-sm font-semibold text-gold">
+          Study guide and practice ideas
+        </summary>
+        <div className="px-3 pb-3">
+          <ModuleStudyGuide
+            key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            embedded
+            onOpenReading={showSelectedReading}
+          />
+          <ModuleMatchPanel surface="Reader" />
+        </div>
+      </details>
 
       <LibraryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 

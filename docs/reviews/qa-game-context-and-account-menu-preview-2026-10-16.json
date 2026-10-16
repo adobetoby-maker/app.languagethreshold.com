@@ -1,0 +1,61 @@
+{
+  "sourceCommit": "ac0f9df",
+  "preview": "https://language-threshold-6p7bmpd4n-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_GSwQEo5XwULHTqiWGwSMbqjSk6nF",
+  "target": "preview",
+  "livePromoted": false,
+  "local": {
+    "tests": 567,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "artifactMiB": 19.39,
+    "privateMarkers": 96,
+    "sourceCandidates": 894,
+    "staticCandidates": 144,
+    "privateContentHits": 0
+  },
+  "browser": {
+    "qaAccountOnly": true,
+    "normalSignIn": true,
+    "conjugationFirstCandidateRejected": true,
+    "conjugationRetryReturnedQuestion": true,
+    "conjugationAnswerSelected": false,
+    "officialExamScoreOrCertificateCreated": false,
+    "acceptedSample": {
+      "language": "Spanish",
+      "cefr": "A2",
+      "axis": "person",
+      "module": "Roofing",
+      "subject": "el capataz de techos",
+      "suppliedAnswerThatFits": "revisa"
+    },
+    "phoneWidth": 390,
+    "phoneHeight": 844,
+    "moreAccountSignOutWithoutReload": true,
+    "afterSignOut": {
+      "bodyPointerEvents": "auto",
+      "dialogs": 0,
+      "menus": 0,
+      "accountButtons": 0
+    },
+    "phoneSignInReopened": true,
+    "phoneNormalSignInRestoredOriginalQaIdentity": true,
+    "afterSignIn": {
+      "bodyPointerEvents": "auto",
+      "dialogs": 0,
+      "menus": 0
+    },
+    "viewportResetAfterward": true,
+    "b6OriginalRecentLookupRestoredViaMore": "asfáltica",
+    "b6HistoryProof": "native accessibility, phone capture unreadably scaled; no visual phone acceptance claim"
+  },
+  "limits": [
+    "One accepted generated Spanish sample does not establish all-language grammatical correctness.",
+    "Separate AI consistency request is not human content approval or calibrated assessment scoring.",
+    "Phone trial used browser viewport/DOM controls, not physical iPhone/Safari.",
+    "The first More→Sign in click was made during the sheet transition and did not open the nested dialog; after inspecting the settled sheet, the normal control opened it.",
+    "Native and tab screenshots were inconsistent during emulation; reset to normal sizing and use DOM assertions for the scoped phone input-lock check.",
+    "Grammar restoration and populated legacy recovery browser trials remain pending."
+  ]
+}

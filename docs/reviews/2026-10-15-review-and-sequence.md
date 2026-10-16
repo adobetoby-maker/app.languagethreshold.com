@@ -2,6 +2,18 @@
 
 Date: October 15, 2026. Codex review, requested by Toby.
 
+## Current checkpoint — October 16, overnight
+
+The Roofing lesson/dashboard review is complete and the repaired foundation is live at `f9f8685`. Claude's work is merged into this branch, its five review findings are resolved, and Claude has acknowledged the handoff and frozen its worktree.
+
+The next Exams component is built as a gated draft in [PR37](https://github.com/adobetoby-maker/app.languagethreshold.com/pull/37). Application source `4bb1772` is staged at [the exact release](https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app/exams), with the corresponding team view available after sign-in. It has **not replaced the live app**. It includes private individual/team plans, three checkpoints, reviewable skill evidence, support approvals, lesson-plan integration, reviewer queues and optional consented AI writing proposals.
+
+Verification: 410 unit tests, type-checking, lint with zero errors, dependency audit and production artifact checks passed. Twelve authenticated checks passed against this exact staged artifact; local service-role SQL fixtures and actual independent/admin browser trials passed. Private pages load no analytics scripts and use `no-referrer`. The phone trial led to a visible Resume action, fewer secondary controls and focused schedule dialogs. Only synthetic QA accounts were used; no certificates, invitations, payments or business learner records were created or changed.
+
+**Still required:** broader admin history/pagination/filtering, reviewer/content administration, protected official audio/speech evidence, full production offline reload verification and the companion-domain rollout. Actual content stays draft: fluent-language/domain/curriculum review, scoring calibration/equivalence, a pilot and the owner's media-retention decision remain publication gates. All 59 modules remain on the reviewed parity backlog; Roofing is the first release target. The work is still in progress.
+
+Detailed findings and evidence follow chronologically. Early “outstanding” notes below describe their checkpoint; later verification records supersede them.
+
 ## Release coordination
 
 Claude desktop Code session “Languagethreshold.com model upgrades” owns the lesson release in `/Users/drive/lt-worktrees/app-haiku-5-5`. Codex owns dashboard and Exams work in `/Users/drive/lt-worktrees/admin-exams`, branch `codex/admin-exams`, initially based on a739580. No shared working-file edits.
@@ -28,7 +40,7 @@ Five findings sent to Claude:
 
 Production review found progress below large billing/invitation forms, a horizontally scrolling phone roster, an assignment form without Cancel, and a requirement checkbox that did not start from the current assignment. These are usability issues independent of the certificate fixture.
 
-The certificate and its supporting completion data were explicitly fabricated at the user’s request for demonstration. They are not evidence of real learner activity or a synchronization defect. Do not issue real credentials from QA data.
+An earlier certificate demonstration used fabricated completion data. It is not evidence of real learner activity or a synchronization defect. Demonstration records must stay clearly labeled and separate; do not issue real credentials from QA data.
 
 Draft repairs: progress before setup in document order; two-column phone summary; learner cards on phones; collapsed billing/invitations; assignment edit defaults preserved when switching away and back; Cancel; distinct labels for recorded practice, self-reported mastery and certificate test; zero-score display; General language label for legacy core identifier; assigned-module-only Core 30 summaries to avoid sharing unrelated personal study.
 
@@ -209,3 +221,12 @@ Schedule changes now open a focused accessible dialog with the reason field focu
 The staged phone console showed an optional Vercel Analytics script404; no assessment operation failed. Its debug view also exposed full assessment/team query URLs in page-view telemetry. Private exams/content/team/owner/account routes and assessment-identifying links now suppress page-view analytics and use no-referrer; generic public page URLs omit query/hash data. Embedded Exams suppress tracking while mounted, while existing speaking-privacy mode is preserved. Added a pure privacy-boundary test. No analytics service/billing setting was enabled.
 
 PR CI at a33fb0f passed verify-and-deploy and its Vercel preview checks. The workflow deploys production only on a push to main; this draft PR has not been merged. Phone/privacy follow-up source requires its own final staged build and exact-artifact checks.
+
+
+## Oct 16, final phone-refined staging checkpoint
+
+Application source4bb1772 passed410tests, typecheck, lint0errors6existingwarnings, dependency audit and19.19MiB artifact verification. New staged deployment dpl_AWi4kGNYFTrnWXVNZRvei1GNnrHR: https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app . Twelve actual staged API checks passed, including stored reviewer eligibility, private/team isolation, production pilot disabled, uncalibrated AI denied without a call, no keys/raw answers in overview and compatible language-track readiness. Report `qa-exams-stage-phone-2026-10-16.json` preserves the first stage's separate evidence.
+
+Normal QA-admin and independent sign-ins passed on the exact new deployment. The team dashboard rendered genuine QA learner activity; the private phone view showed a solid-gold ResumeDay45 action and no irrelevant reviewer queue. Read-only DOM inspection of the private staged team page showed `no-referrer` and zero analytics scripts. Final390×844/DPR2 screenshot `/Users/drive/git-backups/language-threshold-staged-exams-phone-final-2026-10-16.png` was inspected. It is a synthetic QA example with provisional results, not a real learner rating. Chrome's device toolbar was reset, No throttling retained, DevTools closed, and only the third temporary Incognito test tab was closed; the two original QA tabs remain. The regular staged dashboard is retained for review.
+
+Private-bank absence check is now reproducible with `node scripts/qa/verify-private-bank-absence.mjs /absolute/private/bank.json`; it never prints content. Current artifact check:96private form markers,735tracked source files and132static files,0hits. Report `qa-private-bank-absence-2026-10-16.json`. This is a content-leak guard, not proof of question quality or human calibration. Production remains the earlier verified foundation. Broader engineering and the genuine publication gates remain open; PR stays draft.

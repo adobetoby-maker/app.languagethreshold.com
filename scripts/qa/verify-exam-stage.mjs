@@ -37,7 +37,7 @@ const [personal, learner, admin] = await Promise.all([
   login(qa.email, qa.password),
   login(qa.adminEmail, qa.adminPassword),
 ]);
-const base = "https://language-threshold-27w6g0vhr-adobetoby-5572s-projects.vercel.app";
+const base = "https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app";
 async function request(token, pathOrBody, origin = base) {
   const get = typeof pathOrBody === "string";
   const response = await fetch(base + (get ? pathOrBody : "/api/exam-plans"), {
@@ -55,6 +55,12 @@ async function request(token, pathOrBody, origin = base) {
     body: await response.json(),
   };
 }
+const ownQueue = await request(personal, "/api/exams?action=review_queue");
+assert.equal(ownQueue.status, 200);
+assert.equal(ownQueue.body.eligible, false);
+const adminQueue = await request(admin, `/api/exams?action=review_queue&org=${qa.organizationId}`);
+assert.equal(adminQueue.status, 200);
+assert.equal(adminQueue.body.eligible, true);
 const privatePath = `/api/exams?action=attempt&attempt=${qa.exams.personalAttemptId}`;
 const personalResult = await request(personal, privatePath);
 assert.equal(personalResult.status, 200);
@@ -132,13 +138,14 @@ assert.equal(deniedAi.status, 409);
 const report = {
   testedAt: new Date().toISOString(),
   target: base,
-  commit: "a33fb0f",
+  commit: "4bb1772",
   catalogModules: 59,
   spanishTargetTracks: 57,
   englishTargetTracks: 59,
   scope:
     "Exact staged production artifact, existing synthetic QA records, no official forms published",
   checks: {
+    reviewerControlsMatchStoredRoles: true,
     authenticatedPersonalRead: true,
     privateHiddenFromOtherAccounts: true,
     anonymousDenied: true,
@@ -153,7 +160,7 @@ const report = {
   },
 };
 writeFileSync(
-  "docs/reviews/qa-exams-stage-2026-10-16.json",
+  "docs/reviews/qa-exams-stage-phone-2026-10-16.json",
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(JSON.stringify(report.checks));

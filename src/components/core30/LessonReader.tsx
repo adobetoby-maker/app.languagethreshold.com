@@ -15,6 +15,7 @@ import {
 } from "@/lib/lesson-reading";
 import { languageTag } from "@/lib/lesson-words-core";
 import { cn } from "@/lib/utils";
+import { currentTutorLesson } from "@/lib/lesson-tutor-context";
 
 const LANGUAGE_CODES: Record<Language, string> = {
   Spanish: "es",
@@ -142,6 +143,12 @@ export function LessonReader({
       sentence,
       language,
       textId: shown?.id,
+      lesson: lessonNumber
+        ? (currentTutorLesson(
+            `?module=${encodeURIComponent(moduleId)}&lesson=${lessonNumber}`,
+            state,
+          ) ?? undefined)
+        : undefined,
       textTitle: shown?.title,
       passage: sentences.map((s) => s.target).join(" "),
       sentenceIndex: index,

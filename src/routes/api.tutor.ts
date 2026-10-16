@@ -1,4 +1,6 @@
-import { prepareConversationRequest } from "@/lib/conversation-request";
+import { prepareConversationRequest, ConversationRequestError } from "@/lib/conversation-request";
+import { resolveTutorLesson, lessonTutorInstructions } from "@/lib/lesson-tutor-context";
+import { modulePracticeVersion } from "@/data/module-teaching";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
@@ -63,6 +65,19 @@ export const BodySchema = z.object({
     selectedWord: z.string().max(80).optional(),
     selectedSentence: z.string().max(1200).optional(),
     wordExplanation: z.string().max(1600).optional(),
+    lesson: z
+      .object({
+        moduleId: z
+          .string()
+          .min(1)
+          .max(80)
+          .regex(/^[a-z0-9-]+$/),
+        lessonNumber: z.number().int().min(1).max(60),
+        targetLanguage: z.string().min(1).max(40),
+        instructionLanguage: z.string().min(1).max(40),
+        contentVersion: z.string().min(1).max(100),
+      })
+      .optional(),
     readerContext: z
       .object({
         selectedWord: z.string().min(1).max(120),
@@ -159,8 +174,11 @@ function buildModuleAddendum(mod: NonNullable<z.infer<typeof BodySchema>["contex
 }
 
 export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
-  const isEnTarget = ctx.module?.learnDirection === "en-target";
-  const native = ctx.nativeLanguage ?? "Spanish";
+  const lesson = ctx.lesson ? resolveTutorLesson(ctx.lesson) : null;
+  const isEnTarget = lesson
+    ? lesson.targetLanguage === "English"
+    : ctx.module?.learnDirection === "en-target";
+  const native = lesson?.instructionLanguage ?? ctx.nativeLanguage ?? "Spanish";
 
   const base = isEnTarget
     ? [
@@ -169,25 +187,33 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
         `Your role: help them produce clear, professional American English for their specific work context.`,
         `When correcting errors, be specific and encouraging — show the correct English form, then briefly explain why it sounds more natural.`,
         `You may use ${native} briefly when a concept is genuinely hard to explain in English alone, but default to English for all coaching.`,
-        `Use Markdown for emphasis. Keep responses focused — usually 2–4 short paragraphs.`,
+        lesson
+          ? `Use Markdown for emphasis and follow the short lesson-support settings below.`
+          : `Use Markdown for emphasis. Keep responses focused — usually 2–4 short paragraphs.`,
         ``,
         `LEARNER CONTEXT:`,
         `- Native language: ${native}`,
         `- Target language: English`,
-        `- Proficiency level: ${ctx.level}`,
+        lesson
+          ? `- Follow the current lesson's support, not an inferred proficiency rating.`
+          : `- Proficiency level: ${ctx.level}`,
       ]
     : [
         `You are a warm, expert linguist and cultural ambassador for ${ctx.language}.`,
         `You have deep knowledge of grammar, literature, and the cultures of countries where ${ctx.language} is spoken.`,
         `Answer questions clearly and encouragingly. When relevant, explain grammar in the context of the text the learner is reading.`,
-        `Use Markdown for emphasis. Keep responses focused — usually 2–4 short paragraphs.`,
+        lesson
+          ? `Use Markdown for emphasis and follow the short lesson-support settings below.`
+          : `Use Markdown for emphasis. Keep responses focused — usually 2–4 short paragraphs.`,
         ctx.language === "Japanese"
           ? `CRITICAL: When writing ANY Japanese text, wrap every kanji (and kanji compounds) in HTML ruby tags so the learner can read it. Format: <ruby>食べる<rt>たべる</rt></ruby>. Apply this to EVERY kanji-containing word in your response without exception. Pure kana words do not need ruby tags.`
           : null,
         ``,
         `LEARNER CONTEXT:`,
         `- Target language: ${ctx.language}`,
-        `- CEFR level: ${ctx.level}`,
+        lesson
+          ? `- Follow the current lesson's support, not an inferred CEFR rating.`
+          : `- CEFR level: ${ctx.level}`,
         ctx.textTitle ? `- Currently reading: "${ctx.textTitle}"` : null,
         ctx.selectedWord
           ? `- Selected word from the Reader: "${ctx.selectedWord}"`
@@ -213,7 +239,7 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
               ctx.readerContext.passageExcerpt
                 ? `- Surrounding passage excerpt:\n"""\n${ctx.readerContext.passageExcerpt.slice(0, 1200)}\n"""`
                 : null,
-              ctx.readerContext.learnerLevel
+              !lesson && ctx.readerContext.learnerLevel
                 ? `- Learner level when selected: ${ctx.readerContext.learnerLevel}`
                 : null,
               `- Treat the selected sentence as the primary context for the learner's question.`,
@@ -224,16 +250,48 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
         ctx.passage
           ? `- Snippet of current passage:\n"""\n${ctx.passage.slice(0, 1200)}\n"""`
           : null,
-        ctx.userVocabWords?.length
+        !lesson && ctx.userVocabWords?.length
           ? `- Learner's personal vocabulary (weave these naturally into examples when relevant): ${ctx.userVocabWords.join(", ")}`
           : null,
-        ctx.activePatterns?.length
+        !lesson && ctx.activePatterns?.length
           ? `- Grammar patterns they're actively drilling — reinforce these:\n${ctx.activePatterns.map((p) => `  • ${p.name}: ${p.pattern}`).join("\n")}`
           : null,
       ];
 
   const baseStr = base.filter(Boolean).join("\n");
-  return ctx.module ? `${baseStr}\n${buildModuleAddendum(ctx.module)}` : baseStr;
+  const modulePrompt =
+    !lesson && ctx.module ? `${baseStr}\n${buildModuleAddendum(ctx.module)}` : baseStr;
+  return ctx.lesson && lesson
+    ? `${modulePrompt}\n\n${lessonTutorInstructions(ctx.lesson)}`
+    : modulePrompt;
+}
+
+function parseTutorRequest(input: unknown) {
+  const body = BodySchema.parse(input),
+    reference = body.context.lesson;
+  if (reference) {
+    if (
+      reference.contentVersion !==
+      modulePracticeVersion(
+        reference.moduleId,
+        reference.targetLanguage,
+        reference.instructionLanguage,
+      )
+    )
+      throw new ConversationRequestError(
+        "This lesson has changed. Reopen the lesson before using Tutor.",
+        409,
+      );
+    if (
+      !resolveTutorLesson(reference) ||
+      reference.targetLanguage !== body.context.language ||
+      (body.context.nativeLanguage && reference.instructionLanguage !== body.context.nativeLanguage)
+    )
+      throw new ConversationRequestError(
+        "Reopen the lesson in your selected language before using Tutor.",
+      );
+  }
+  return body;
 }
 
 // Wraps an Anthropic stream in a ReadableStream emitting OpenAI-compatible SSE
@@ -243,7 +301,7 @@ export const Route = createFileRoute("/api/tutor")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const prepared = await prepareConversationRequest(request, BodySchema);
+        const prepared = await prepareConversationRequest(request, { parse: parseTutorRequest });
         if (prepared.response) return prepared.response;
         const payload = prepared.data;
 

@@ -82,6 +82,7 @@ const message = z.object({
 });
 const context = z.object({
   threadId: str,
+  textTitle: str.optional(),
   selectedWord: str,
   selectedSentence: str,
   passage: str,

@@ -4,6 +4,7 @@ import { build } from "esbuild";
 import { mkdtempSync, rmSync } from "node:fs";
 import path from "node:path";
 import { MAX_CONVERSATION_BODY_BYTES } from "../src/lib/conversation-request.ts";
+import { currentTutorLesson } from "../src/lib/lesson-tutor-context.ts";
 const routes = [
   [
     "tutor",
@@ -160,6 +161,54 @@ for (const [name, data] of routes)
       assert.match(response.headers.get("cache-control"), /no-store/);
       assert.match(await response.text(), /Fictional QA reply/);
       assert.equal(controls.calls, 1);
+      if (name === "tutor") {
+        const lesson = currentTutorLesson("?lesson=1", {
+          currentTab: "core30",
+          activeModuleId: "roofing",
+          selectedLanguage: "Spanish",
+          nativeLanguage: "English",
+        });
+        const originalCalls = controls.calls;
+        response = await handler({
+          request: request(name, {
+            ...data,
+            context: { ...data.context, lesson: { ...lesson, contentVersion: "stale-version" } },
+          }),
+        });
+        assert.equal(response.status, 409);
+        assert.equal(controls.calls, originalCalls);
+        assert.match((await response.json()).error, /Reopen/);
+        response = await handler({
+          request: request(name, {
+            ...data,
+            context: { ...data.context, language: "French", lesson },
+          }),
+        });
+        assert.equal(response.status, 400);
+        assert.equal(controls.calls, originalCalls);
+        response = await handler({
+          request: request(name, {
+            ...data,
+            context: {
+              ...data.context,
+              level: "C2",
+              lesson: { ...lesson, stage: "independent" },
+              userVocabWords: ["UnrelatedSpecialistTerm"],
+              activePatterns: [
+                { name: "UnrelatedAdvancedPattern", pattern: "not from this lesson" },
+              ],
+            },
+          }),
+        });
+        assert.equal(response.status, 200);
+        await response.text();
+        assert.match(controls.body.system, /lesson 1: Name the Roof System/);
+        assert.match(controls.body.system, /Teaching stage: supported/);
+        assert.ok(!controls.body.system.includes("Teaching stage: independent"));
+        assert.ok(!controls.body.system.includes("CEFR level: C2"));
+        assert.ok(!controls.body.system.includes("UnrelatedSpecialistTerm"));
+        assert.ok(!controls.body.system.includes("UnrelatedAdvancedPattern"));
+      }
       if (name === "discussion") {
         response = await handler({
           request: request(name, { ...data, mode: "companion", userText: "QA" }),

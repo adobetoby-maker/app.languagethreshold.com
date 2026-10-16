@@ -21,6 +21,7 @@ export interface TutorMessage {
 
 export interface TutorSourceContext {
   threadId: string;
+  textTitle?: string;
   selectedWord: string;
   selectedSentence: string;
   passage: string;

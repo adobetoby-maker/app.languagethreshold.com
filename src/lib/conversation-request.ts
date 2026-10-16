@@ -3,6 +3,13 @@ import { checkLearningGenerationBudget } from "./learning-generation-security.ts
 
 export const MAX_CONVERSATION_BODY_BYTES = 96 * 1024;
 class BodyLimitError extends Error {}
+export class ConversationRequestError extends Error {
+  readonly status: 400 | 409;
+  constructor(message: string, status: 400 | 409 = 400) {
+    super(message);
+    this.status = status;
+  }
+}
 function errorResponse(error: string, status: number, retryAfter?: number) {
   return Response.json(
     { error },
@@ -57,12 +64,14 @@ export async function prepareConversationRequest<T>(
   } catch (cause) {
     return {
       response:
-        cause instanceof BodyLimitError
-          ? errorResponse(
-              "This conversation request is too large. Shorten your message or start a new thread.",
-              413,
-            )
-          : errorResponse("Check your message and try again.", 400),
+        cause instanceof ConversationRequestError
+          ? errorResponse(cause.message, cause.status)
+          : cause instanceof BodyLimitError
+            ? errorResponse(
+                "This conversation request is too large. Shorten your message or start a new thread.",
+                413,
+              )
+            : errorResponse("Check your message and try again.", 400),
     };
   }
   const denied = await checkLearningGenerationBudget(request, "conversation");

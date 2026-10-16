@@ -10,6 +10,7 @@ import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
+import { tutorLessonThread, type TutorLessonReference } from "@/lib/lesson-tutor-context";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -34,12 +35,7 @@ const MAX_CLIENT_CACHE_ENTRIES = 200;
 const wordCardCache = new Map<string, WordCardData>();
 
 function wordCardCacheKey(request: WordCardRequest, nativeLanguage: string): string {
-  return JSON.stringify([
-    request.language,
-    nativeLanguage,
-    request.word,
-    request.sentence,
-  ]);
+  return JSON.stringify([request.language, nativeLanguage, request.word, request.sentence]);
 }
 
 function getCachedWordCard(key: string): WordCardData | null {
@@ -111,6 +107,7 @@ export interface WordCardRequest {
   sentenceIndex?: number;
   chapterIndex?: number;
   passage?: string;
+  lesson?: TutorLessonReference;
   x: number;
   y: number;
 }
@@ -135,12 +132,13 @@ export function WordCard({
   });
   // A new tap can update the existing WordCard before its fetch effect runs.
   // Never show the previous word's answer during that render.
-  const currentLookup = lookupState.key === lookupKey
-    ? lookupState
-    : (() => {
-        const cached = getCachedWordCard(lookupKey);
-        return { key: lookupKey, card: cached, error: null, loading: !cached };
-      })();
+  const currentLookup =
+    lookupState.key === lookupKey
+      ? lookupState
+      : (() => {
+          const cached = getCachedWordCard(lookupKey);
+          return { key: lookupKey, card: cached, error: null, loading: !cached };
+        })();
   const { card, error, loading } = currentLookup;
   const [vocabAdded, setVocabAdded] = useState(false);
   const [showEtymology, setShowEtymology] = useState(false);
@@ -420,8 +418,8 @@ export function WordCard({
             className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
           >
             <p className="text-[13px] leading-relaxed text-muted-foreground">
-              Word details aren&rsquo;t available right now. Your sentence is above — try again in
-              a moment.
+              Word details aren&rsquo;t available right now. Your sentence is above — try again in a
+              moment.
             </p>
           </div>
         )}
@@ -621,7 +619,10 @@ export function WordCard({
                     `Can you explain more about the word "${card.headword}" and how it's used in this sentence?\n\n"${request.sentence}"`,
                     request.textId
                       ? {
-                          threadId: request.textId,
+                          threadId: request.lesson
+                            ? tutorLessonThread(request.lesson)
+                            : request.textId,
+                          textTitle: request.textTitle,
                           selectedWord: card.headword,
                           selectedSentence: request.sentence,
                           passage: request.passage ?? request.sentence,
@@ -636,7 +637,7 @@ export function WordCard({
                       passageExcerpt: request.passage,
                       textTitle: request.textTitle,
                       language: request.language,
-                      learnerLevel: state.level,
+                      learnerLevel: request.lesson ? undefined : state.level,
                       explanation,
                     },
                   );

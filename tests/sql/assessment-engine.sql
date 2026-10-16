@@ -5,7 +5,7 @@ create schema auth;
 create table auth.users(id uuid primary key);
 create table public.team_organizations(id uuid primary key);
 create table public.team_members(organization_id uuid,user_id uuid,role text,status text);
-create table public.team_assignments(organization_id uuid,user_id uuid,module_id text);
+create table public.team_assignments(organization_id uuid,user_id uuid,module_id text,unique(organization_id,user_id,module_id));
 do $$ begin
  if not exists(select 1 from pg_roles where rolname='anon') then create role anon nologin; end if;
  if not exists(select 1 from pg_roles where rolname='authenticated') then create role authenticated nologin; end if;
@@ -17,6 +17,10 @@ end $$;
 \ir ../../supabase/migrations/20261016074137_assessment_independent_review.sql
 \ir ../../supabase/migrations/20261016074420_assessment_rubric_review.sql
 \ir ../../supabase/migrations/20261016074739_assessment_progress_summary.sql
+\ir ../../supabase/migrations/20261016082845_assessment_support_plans.sql
+\ir ../../supabase/migrations/20261016083646_assessment_plan_reads.sql
+\ir ../../supabase/migrations/20261016092537_assessment_review_queue.sql
+\ir ../../supabase/migrations/20261016093121_assessment_human_decision_priority.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;
@@ -113,6 +117,10 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  perform pg_temp.expect_error(format('select public.assessment_record_score(%L,%L,%L,4,%L,%L,null,null,%L)','10000000-0000-4000-8000-000000000002',r3,'scored','human','No personal sharing yet','30000000-0000-4000-8000-000000000023'),'review access required');
  review_id:=public.assessment_request_review('10000000-0000-4000-8000-000000000001',attempt,'Please review the response','assessment-review-v1','30000000-0000-4000-8000-000000000024');
  insert into public.assessment_reviewers(user_id,module_id,target_language,instruction_language,created_by) values('10000000-0000-4000-8000-000000000002','roofing','Spanish','English','10000000-0000-4000-8000-000000000002');
+ if jsonb_array_length(public.assessment_review_queue('10000000-0000-4000-8000-000000000002')->'items')<>1 then raise exception 'Authorized reviewer cannot discover consented work'; end if;
+ if jsonb_array_length(public.assessment_review_queue('10000000-0000-4000-8000-000000000001')->'items')<>0 then raise exception 'Self-review queue exposed'; end if;
+ if public.assessment_review_queue('10000000-0000-4000-8000-000000000002')::text like '%Please review%' or public.assessment_review_queue('10000000-0000-4000-8000-000000000002')::text like '%"answer"%' then raise exception 'Queue leaked answers or private request prose'; end if;
+ if jsonb_array_length(public.assessment_review_queue('10000000-0000-4000-8000-000000000002',null,(select submitted_at from public.assessment_attempts where id=attempt),attempt)->'items')<>0 then raise exception 'Review queue cursor repeats previous attempt'; end if;
  perform pg_temp.expect_error(format('select public.assessment_claim_review(%L,%L)','10000000-0000-4000-8000-000000000003',review_id),'reviewer access required');
  perform public.assessment_claim_review('10000000-0000-4000-8000-000000000002',review_id);
  perform pg_temp.expect_error(format('select public.assessment_review_rubric(%L,%L,%L,%L,5,null,%L,%L)','10000000-0000-4000-8000-000000000002',attempt,r3,'scored','Missing dimension evidence','30000000-0000-4000-8000-000000000025'),'Frozen rubric dimensions required');
@@ -122,6 +130,8 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  if (select count(*) from public.assessment_events where action='review.rubric')<>1 then raise exception 'Rubric evidence duplicated'; end if;
  if (select count(*) from public.assessment_score_events where response_id=r3)<>2 then raise exception 'Original AI proposal not retained'; end if;
  perform pg_temp.expect_error(format('select public.assessment_record_score(%L,%L,%L,0,%L,%L,null,null,%L)','10000000-0000-4000-8000-000000000002',r2,'scored','human','Cannot invent missing evidence','30000000-0000-4000-8000-000000000026'),'Missing evidence cannot be scored');
+ perform public.assessment_record_score('10000000-0000-4000-8000-000000000002',r2,'not_assessed',null,'human','Missing task remains not assessed',null,null,'30000000-0000-4000-8000-000000000028');
+ perform pg_temp.expect_error(format('select public.assessment_record_score(%L,%L,%L,0,%L,%L,0.5,null,%L)','10000000-0000-4000-8000-000000000001',r2,'needs_review','ai_proposal','Late background proposal','30000000-0000-4000-8000-000000000029'),'Human review cannot be replaced');
  perform public.assessment_resolve_review('10000000-0000-4000-8000-000000000002',review_id,'Rubric reviewed; missing task remains not assessed','30000000-0000-4000-8000-000000000027');
  perform public.assessment_resolve_review('10000000-0000-4000-8000-000000000002',review_id,'Rubric reviewed; missing task remains not assessed','30000000-0000-4000-8000-000000000027');
  if not exists(select 1 from public.assessment_attempts where id=attempt and status='completed') then raise exception 'Reviewed result not completed'; end if;
@@ -131,6 +141,10 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  if (select form_snapshot->'definition'->'items'->0->>'coverage' from public.assessment_attempts where id=repeat_id)<>'studied' then raise exception 'Actual reported study scope not frozen'; end if;
  if (select form_snapshot->'definition'->'items'->1->>'coverage' from public.assessment_attempts where id=repeat_id)<>'transfer' then raise exception 'Unstudied question mislabeled studied'; end if;
 
+ if jsonb_array_length(public.assessment_latest_scores('10000000-0000-4000-8000-000000000001',attempt))<>3 then raise exception 'Latest score summary incomplete'; end if;
+ perform pg_temp.expect_error(format('select public.assessment_latest_scores(%L,%L)','10000000-0000-4000-8000-000000000003',attempt),'score access required');
+ if jsonb_array_length(public.assessment_review_queue('10000000-0000-4000-8000-000000000003')->'items')<>0 then raise exception 'Unregistered reviewer discovered private work'; end if;
+ perform pg_temp.expect_error('select public.assessment_review_queue(''10000000-0000-4000-8000-000000000003'',''20000000-0000-4000-8000-000000000001'')','Team review access required');
  if jsonb_array_length(public.assessment_progress_summaries('10000000-0000-4000-8000-000000000001',array[personal]))<>1 then raise exception 'Submitted result summary missing'; end if;
  perform pg_temp.expect_error(format('select public.assessment_progress_summaries(%L,array[%L]::uuid[])','10000000-0000-4000-8000-000000000003',personal),'report access required');
  if public.assessment_progress_summaries('10000000-0000-4000-8000-000000000001',array[personal])::text like '%"answer":%' then raise exception 'Raw answers leaked to report'; end if;
@@ -145,10 +159,20 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
 
 
 end $$;
+-- Match the hosted service role while exercising support RPC/table permissions.
+alter role service_role bypassrls;
+grant select,insert,update on public.team_organizations,public.team_members,public.team_assignments to service_role;
+set local role service_role;
+\ir assessment-support.sql
+reset role;
 -- Even authenticated clients cannot call pilot RPCs or read keys directly.
 set local role authenticated;
 select pg_temp.expect_error('select * from public.assessment_forms','permission denied');
+select pg_temp.expect_error('select public.assessment_review_queue(null)','permission denied');
+select pg_temp.expect_error('select public.assessment_latest_scores(null,null)','permission denied');
+select pg_temp.expect_error('select * from public.assessment_support_capabilities','permission denied');
+select pg_temp.expect_error('select public.assessment_decide_support(null,null,null,null,null,null,null,null,null,null,null,null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_start_attempt(null,null,null,null,true)','permission denied');
 reset role;
-select 'PASS: enrollment privacy, checkpoint dates, frozen forms, autosave conflicts, retries, submission, schedule history, scoring proposals, explicit review sharing and direct-client denial' as result;
+select 'PASS: private/team exams, frozen evidence, retries/conflicts, rubric review, support permissions/budgets/lifecycle, targeted vs full schedules, plan history and client denial' as result;
 rollback;

@@ -37,7 +37,8 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
-import { getModule } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
 
@@ -97,6 +98,19 @@ function UrlModuleBridge() {
     ) {
       dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
+    const requestedTarget = params.get("target") as Language,
+      requestedNative = params.get("native") as NativeLanguage;
+    if (
+      linkedModule &&
+      LANGUAGES.includes(requestedTarget) &&
+      NATIVE_LANGUAGES.includes(requestedNative) &&
+      moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)
+    ) {
+      if (state.selectedLanguage !== requestedTarget)
+        dispatch({ type: "SET_LANGUAGE", payload: requestedTarget });
+      if (state.nativeLanguage !== requestedNative)
+        dispatch({ type: "SET_NATIVE_LANGUAGE", payload: requestedNative });
+    }
     if (linkedModule && linkedModule.id !== state.activeModuleId) {
       dispatch({ type: "PURCHASE_MODULE", payload: linkedModule.id });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: linkedModule.id });
@@ -114,6 +128,7 @@ function UrlModuleBridge() {
       "flashcards",
       "guide",
       "core30",
+      "exams",
     ]);
     if (tab && allowedTabs.has(tab)) {
       dispatch({
@@ -127,7 +142,8 @@ function UrlModuleBridge() {
           | "games"
           | "flashcards"
           | "guide"
-          | "core30",
+          | "core30"
+          | "exams",
       });
     }
     // Apply the URL once per identity, after local and cloud state are ready.

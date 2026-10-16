@@ -1,3 +1,5 @@
+import { assessmentContentAccess } from "@/lib/assessments/plans-server";
+import { proposeWritingReview } from "@/lib/assessments/ai-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
@@ -8,13 +10,14 @@ import {
   requireTeamAdmin,
   memberRole,
 } from "@/lib/team-server";
-import { enforceSpeakingRateLimit, isStrictSameOrigin } from "@/lib/speaking-security";
+import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { extractCore30Log } from "@/lib/team-core30";
 import { getCurriculum } from "@/data/curriculum";
 import { lessonObjectiveId } from "@/lib/learning-identity";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
 import {
   AssessmentAccessError,
+  assessmentBudget as budget,
   attemptAccess,
   enrollmentAccess,
   initializeScores,
@@ -54,6 +57,14 @@ const answer = z
   })
   .strict();
 const bodySchema = z.discriminatedUnion("action", [
+  z
+    .object({
+      action: z.literal("ai_writing"),
+      attemptId: id,
+      responseId: id,
+      consentVersion: z.literal("assessment-ai-writing-v1"),
+    })
+    .strict(),
   z
     .object({
       action: z.literal("enroll"),
@@ -144,21 +155,6 @@ function fail(error: unknown) {
     503,
   );
 }
-async function budget(actor: string, action: string) {
-  const limit = action === "save" ? 90 : action === "enroll" || action === "start" ? 6 : 30;
-  const result = await enforceSpeakingRateLimit(actor, `exams:${action}`, limit).catch(() => ({
-    allowed: false,
-    misconfigured: true,
-  }));
-  if (!result.allowed)
-    throw new AssessmentAccessError(
-      result.misconfigured
-        ? "Assessment request controls are unavailable."
-        : "Please wait a minute before trying again.",
-      result.misconfigured ? 503 : 429,
-    );
-}
-
 export const Route = createFileRoute("/api/exams")({
   server: {
     handlers: {
@@ -168,6 +164,20 @@ export const Route = createFileRoute("/api/exams")({
             user = await authenticatedUser(request, db);
           const url = new URL(request.url),
             action = url.searchParams.get("action") ?? "overview";
+          if (action === "review_queue") {
+            await budget(user.id, "review_queue");
+            const org = url.searchParams.get("org"),
+              after = url.searchParams.get("after"),
+              afterId = url.searchParams.get("afterId");
+            return json(
+              await rpc(db, "assessment_review_queue", {
+                p_actor: user.id,
+                p_org: org ? id.parse(org) : null,
+                p_after: after ? z.string().datetime({ offset: true }).parse(after) : null,
+                p_after_id: afterId ? id.parse(afterId) : null,
+              }),
+            );
+          }
           if (action === "attempt")
             return json(
               await readAttempt(
@@ -252,10 +262,43 @@ export const Route = createFileRoute("/api/exams")({
             throw new AssessmentAccessError("Assessment request is too large.", 413);
           const body = bodySchema.parse(JSON.parse(raw));
           await budget(user.id, body.action);
+          if (body.action === "ai_writing")
+            return json(await proposeWritingReview(db, user.id, body.attemptId, body.responseId));
           if (body.action === "enroll") {
             if (body.orgId) await requireTeamAdmin(db, body.orgId, user.id);
             else if (body.learnerId && body.learnerId !== user.id)
               throw new AssessmentAccessError("Personal assessment access required.");
+            const prior = await db
+              .from("assessment_enrollments")
+              .select(
+                "id,user_id,organization_id,module_id,target_language,instruction_language,start_date,timezone",
+              )
+              .eq("created_by", user.id)
+              .eq("request_id", body.requestId)
+              .maybeSingle();
+            if (prior.error)
+              throw new AssessmentAccessError("Assessment plan could not be checked.", 503);
+            if (prior.data) {
+              const row = prior.data;
+              if (
+                row.user_id !== (body.learnerId ?? user.id) ||
+                row.organization_id !== (body.orgId ?? null) ||
+                row.module_id !== body.moduleId ||
+                row.target_language !== body.targetLanguage ||
+                row.instruction_language !== body.instructionLanguage ||
+                row.start_date !== body.startDate ||
+                row.timezone !== body.timezone
+              )
+                throw new AssessmentAccessError(
+                  "Enrollment request key reused with different details.",
+                  409,
+                );
+              return json({ enrollmentId: row.id });
+            }
+            if (!(await assessmentContentAccess(db, body.learnerId ?? user.id, body.orgId ?? null)))
+              throw new AssessmentAccessError(
+                "Current module access is required to add an exam plan.",
+              );
             const release = await seedDraftTrack(
               db,
               body.moduleId,
@@ -284,12 +327,32 @@ export const Route = createFileRoute("/api/exams")({
             const enrollment = await enrollmentAccess(db, user.id, checkpoint.enrollment_id);
             if (enrollment.user_id !== user.id)
               throw new AssessmentAccessError("Only the learner may start this exam.");
-            const { data: forms, error: formError } = await db
+            if (!(await assessmentContentAccess(db, user.id, enrollment.organization_id)))
+              throw new AssessmentAccessError(
+                "Current module access is required to start an exam. Your saved responses remain available.",
+              );
+            let formQuery = db
               .from("assessment_forms")
               .select("id,status")
               .eq("release_id", enrollment.release_id)
               .eq("checkpoint", checkpoint.checkpoint)
-              .order("created_at", { ascending: false });
+              .eq("purpose", enrollment.program_scope === "support_units" ? "support" : "module");
+            if (enrollment.program_scope === "support_units") {
+              const { data: cap } = await db
+                .from("assessment_support_capabilities")
+                .select("status,before_form_id,after_form_id")
+                .eq("id", enrollment.support_capability_id)
+                .maybeSingle();
+              if (cap?.status !== "verified")
+                throw new AssessmentAccessError("Reviewed supporting checks are unavailable.", 400);
+              formQuery = formQuery.eq(
+                "id",
+                checkpoint.checkpoint === "entrance" ? cap.before_form_id : cap.after_form_id,
+              );
+            }
+            const { data: forms, error: formError } = await formQuery.order("created_at", {
+              ascending: false,
+            });
             if (formError)
               throw new AssessmentAccessError("Assessment forms are unavailable.", 503);
             const form =
@@ -364,6 +427,12 @@ export const Route = createFileRoute("/api/exams")({
             return json({ scoringRetried: true });
           }
           if (body.action === "schedule") {
+            const scheduled = await enrollmentAccess(db, user.id, body.enrollmentId, true);
+            if (scheduled.role === "support")
+              throw new AssessmentAccessError(
+                "Adjust supporting work from the primary plan’s support controls.",
+                400,
+              );
             const revision = await rpc<number>(db, "assessment_change_schedule", {
               p_actor: user.id,
               p_enrollment: body.enrollmentId,

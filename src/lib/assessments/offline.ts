@@ -1,3 +1,9 @@
+import {
+  readExamDeviceValue,
+  writeExamDeviceValue,
+  removeExamDeviceValue,
+  examDeviceKeys,
+} from "./device-store.ts";
 import type { ExamDraftStorage } from "./drafts.ts";
 const PREFIX = "lt.examSnapshot.v1.";
 const MAX_AGE = 24 * 60 * 60 * 1000;
@@ -18,16 +24,14 @@ export function saveOfflineExam<T extends OfflineExamSnapshot>(
   now = Date.now(),
 ): boolean {
   try {
-    if (!storage) return false;
     if (!attempt.isLearner || attempt.submittedAt) {
-      storage.removeItem(key(user, attempt.id));
+      removeExamDeviceValue(storage, key(user, attempt.id));
       return false;
     }
     const safe = { ...attempt, feedback: undefined, evidence: [], profiles: [], reviews: [] };
     const raw = JSON.stringify({ savedAt: now, attempt: safe });
     if (raw.length > 500000) return false;
-    storage.setItem(key(user, attempt.id), raw);
-    return true;
+    return writeExamDeviceValue(storage, key(user, attempt.id), raw, false);
   } catch {
     return false;
   }
@@ -39,13 +43,11 @@ export function readOfflineExams<T extends OfflineExamSnapshot>(
 ): T[] {
   const result: T[] = [];
   try {
-    if (!storage) return result;
     const prefix = `${PREFIX}${encodeURIComponent(user)}.`;
-    for (let i = storage.length - 1; i >= 0; i--) {
-      const k = storage.key(i);
-      if (!k?.startsWith(prefix)) continue;
+    for (const k of examDeviceKeys(storage)) {
+      if (!k.startsWith(prefix)) continue;
       try {
-        const raw = storage.getItem(k);
+        const raw = readExamDeviceValue(storage, k);
         if (!raw || raw.length > 500000) continue;
         const saved = JSON.parse(raw);
         if (
@@ -56,12 +58,12 @@ export function readOfflineExams<T extends OfflineExamSnapshot>(
           saved.attempt.submittedAt ||
           !Array.isArray(saved.attempt.form?.items)
         ) {
-          storage.removeItem(k);
+          removeExamDeviceValue(storage, k);
           continue;
         }
         result.push(saved.attempt);
       } catch {
-        storage.removeItem(k);
+        removeExamDeviceValue(storage, k);
       }
     }
   } catch {
@@ -75,17 +77,60 @@ export function clearOfflineExams(
   attempt?: string,
 ) {
   try {
-    if (!storage) return;
     if (attempt) {
-      storage.removeItem(key(user, attempt));
+      removeExamDeviceValue(storage, key(user, attempt));
       return;
     }
     const prefix = `${PREFIX}${encodeURIComponent(user)}.`;
-    for (let i = storage.length - 1; i >= 0; i--) {
-      const k = storage.key(i);
-      if (k?.startsWith(prefix)) storage.removeItem(k);
-    }
+    const guidancePrefix = `lt.examGuidance.v1.${encodeURIComponent(user)}.`;
+    for (const k of examDeviceKeys(storage))
+      if (k.startsWith(prefix) || k.startsWith(guidancePrefix)) removeExamDeviceValue(storage, k);
   } catch {
     /* Best-effort private device cleanup. */
+  }
+}
+
+const GUIDANCE_PREFIX = "lt.examGuidance.v1.";
+export const examGuidanceKey = (user: string, moduleId: string, target: string, native: string) =>
+  `${GUIDANCE_PREFIX}${encodeURIComponent(user)}.${[moduleId, target, native].map(encodeURIComponent).join(".")}`;
+export function saveOfflineGuidance(
+  storage: ExamDraftStorage | null,
+  key: string,
+  data: { plans: unknown[]; returnContexts: unknown[]; limit: number },
+  now = Date.now(),
+) {
+  try {
+    const raw = JSON.stringify({
+      savedAt: now,
+      data: { plans: data.plans, returnContexts: data.returnContexts, limit: data.limit },
+    });
+    if (raw.length > 500000) return false;
+    return writeExamDeviceValue(storage, key, raw, false);
+  } catch {
+    return false;
+  }
+}
+export function readOfflineGuidance<T>(
+  storage: ExamDraftStorage | null,
+  key: string,
+  now = Date.now(),
+): T | null {
+  try {
+    const raw = readExamDeviceValue(storage, key);
+    if (!raw || raw.length > 500000) return null;
+    const cached = JSON.parse(raw);
+    if (
+      !Number.isFinite(cached.savedAt) ||
+      cached.savedAt > now ||
+      now - cached.savedAt > MAX_AGE ||
+      !Array.isArray(cached.data?.plans) ||
+      !Array.isArray(cached.data?.returnContexts)
+    ) {
+      removeExamDeviceValue(storage, key);
+      return null;
+    }
+    return cached.data;
+  } catch {
+    return null;
   }
 }

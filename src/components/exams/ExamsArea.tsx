@@ -1,7 +1,9 @@
+import { AIWritingProposal } from "./AIWritingProposal";
+import { moduleLessonUrl } from "@/lib/learning-link";
 import { ExamListeningQuestion } from "./ExamListeningQuestion";
 import { HandwrittenExamAnswer } from "./HandwrittenExamAnswer";
 import { hasUnconfirmedExamInk, readExamInk, examInkKey } from "@/lib/assessments/ink";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
@@ -20,6 +22,12 @@ import { examRequest } from "@/lib/assessments/client";
 import type { AssessmentAnswer, PublicAssessmentItem } from "@/lib/assessments/form";
 import { useExamDraft, type ExamAttemptView } from "@/hooks/use-exam-draft";
 
+const ExamReviewQueue = lazy(() =>
+  import("./ExamReviewQueue").then((module) => ({ default: module.ExamReviewQueue })),
+);
+const AssessmentPlanPanel = lazy(() =>
+  import("./AssessmentPlanPanel").then((module) => ({ default: module.AssessmentPlanPanel })),
+);
 type Enrollment = {
   id: string;
   user_id: string;
@@ -27,6 +35,7 @@ type Enrollment = {
   target_language: Language;
   instruction_language: NativeLanguage;
   scope: "personal" | "team";
+  role: "primary" | "support";
   status: "active" | "paused" | "archived";
   revision: number;
   timezone: string;
@@ -56,6 +65,12 @@ type Overview = {
   limit: number;
 };
 const names = { entrance: "Entrance", day45: "Day 45", day90: "Day 90" } as const;
+const checkpointName = (checkpoint: string, programScope?: string) =>
+  programScope === "support_units"
+    ? checkpoint === "entrance"
+      ? "Before supporting practice"
+      : "After supporting practice"
+    : names[checkpoint as keyof typeof names];
 const skills = {
   recognition: "Word recognition",
   recall: "Word recall",
@@ -94,6 +109,7 @@ type ExamsAreaProps = {
   instructionLanguage?: NativeLanguage;
   orgId?: string;
   attemptId?: string;
+  reviewMode?: boolean;
 };
 function ExamsAreaContent({
   embedded = false,
@@ -102,6 +118,7 @@ function ExamsAreaContent({
   instructionLanguage = "English",
   orgId,
   attemptId,
+  reviewMode = false,
 }: ExamsAreaProps) {
   const { user, loading: authLoading, isCurrentUser } = useAuth();
   const Heading = embedded ? "h2" : "h1";
@@ -158,14 +175,14 @@ function ExamsAreaContent({
     }
   }, [isCurrentUser, orgId, user]);
   const open = useCallback(
-    async (id: string) => {
+    async (id: string, review = false) => {
       if (!user) return;
       const viewer = user.id;
       setLoading(true);
       setError("");
       try {
         const attempt = await examRequest<ExamAttemptView>(
-          `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}`,
+          `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}${review ? "&review=1" : ""}`,
         );
         if (isCurrentUser(viewer)) {
           saveOfflineExam(browserExamStorage(), viewer, attempt);
@@ -202,11 +219,11 @@ function ExamsAreaContent({
     void load();
   }, [load]);
   useEffect(() => {
-    if (user && attemptId && handledAttempt.current !== `${user.id}:${attemptId}`) {
-      handledAttempt.current = `${user.id}:${attemptId}`;
-      void open(attemptId);
+    if (user && attemptId && handledAttempt.current !== `${user.id}:${attemptId}:${reviewMode}`) {
+      handledAttempt.current = `${user.id}:${attemptId}:${reviewMode}`;
+      void open(attemptId, reviewMode);
     }
-  }, [attemptId, open, user]);
+  }, [attemptId, open, user, reviewMode]);
   const act = async (work: () => Promise<void>) => {
     if (actionLock.current || !user) return;
     actionLock.current = true;
@@ -223,7 +240,15 @@ function ExamsAreaContent({
       if (isCurrentUser(viewer)) setLoading(false);
     }
   };
-  const returnToPlan = `/?module=${encodeURIComponent(selected?.enrollment.moduleId ?? module)}&tab=core30`;
+  const returnToPlan = moduleLessonUrl({
+    moduleId: selected?.enrollment.moduleId ?? module,
+    target: selected?.enrollment.targetLanguage ?? target,
+    native: selected?.enrollment.instructionLanguage ?? native,
+    planId:
+      selected?.isLearner && selected.enrollment.role === "primary"
+        ? selected.enrollment.id
+        : undefined,
+  });
   if (authLoading)
     return (
       <p className="p-5" role="status">
@@ -307,7 +332,7 @@ function ExamsAreaContent({
               onClick={() => void open(saved.id)}
             >
               {getModule(saved.enrollment.moduleId)?.name} ·{" "}
-              {names[saved.checkpoint.checkpoint as keyof typeof names]} · resume
+              {checkpointName(saved.checkpoint.checkpoint, saved.enrollment.programScope)} · resume
             </button>
           ))}
         </details>
@@ -388,6 +413,15 @@ function ExamsAreaContent({
           </p>
         </div>
       )}
+      {!selected && overview && (!orgId || overview.canManage) && (
+        <Suspense fallback={<p role="status">Loading reviews…</p>}>
+          <ExamReviewQueue
+            orgId={orgId}
+            members={overview.members}
+            onOpen={(id, review) => void open(id, review)}
+          />
+        </Suspense>
+      )}
       {!selected && <ReadinessPanel target={target} native={native} />}
       {selected ? (
         selected.submittedAt ? (
@@ -397,7 +431,8 @@ function ExamsAreaContent({
               setSelection(null);
               void load();
             }}
-            onRefresh={() => void open(selected.id)}
+            onRefresh={() => void open(selected.id, selected.canReview)}
+            onOpenAttempt={(id) => void open(id)}
           />
         ) : (
           <ExamRunner
@@ -425,6 +460,12 @@ function ExamsAreaContent({
               ? "Only you see this personal result unless you request a review."
               : "This team’s authorized admins can see the result and exam responses."}
           </p>
+          {pending.checkpoint.attempts.length > 0 && (
+            <p className="mt-3 text-sm">
+              Your original attempt stays in the history. A retake may repeat a form you have
+              already seen; familiarity can affect the result.
+            </p>
+          )}
           {pending.checkpoint.pilotReady && !pending.checkpoint.ready && (
             <p className="mt-3 rounded-xl bg-amber-500/10 p-3">
               QA draft only. Content and scoring are not approved for official use.
@@ -621,7 +662,7 @@ function ExamsAreaContent({
                     </p>
                   )}
                 </div>
-                {(plan.scope === "personal" || overview.canManage) && (
+                {plan.role !== "support" && (plan.scope === "personal" || overview.canManage) && (
                   <button
                     className={button}
                     onClick={() => {
@@ -730,7 +771,8 @@ function ExamsAreaContent({
                           ))}
                         </details>
                       )}
-                      {(plan.scope === "personal" || overview.canManage) &&
+                      {plan.role !== "support" &&
+                        (plan.scope === "personal" || overview.canManage) &&
                         !latest?.submitted_at && (
                           <button
                             className="mt-2 min-h-11 text-sm text-gold underline"
@@ -747,7 +789,8 @@ function ExamsAreaContent({
                             Change checkpoint date
                           </button>
                         )}
-                      {(plan.scope === "personal" || overview.canManage) &&
+                      {plan.role !== "support" &&
+                        (plan.scope === "personal" || overview.canManage) &&
                         !latest?.submitted_at && (
                           <button
                             className="mt-2 block min-h-11 text-sm text-gold underline"
@@ -769,6 +812,9 @@ function ExamsAreaContent({
                   );
                 })}
               </div>
+              {plan.role !== "support" && (
+                <PlanPanelDisclosure enrollmentId={plan.id} onOpenAttempt={(id) => void open(id)} />
+              )}
             </article>
           ))}
           {overview && overview.enrollments.length >= overview.limit && (
@@ -933,12 +979,24 @@ function ExamRunner({
           </p>
         </div>
         <h2 className="mt-4 text-xl font-semibold">
-          {names[attempt.checkpoint.checkpoint as keyof typeof names]} ·{" "}
+          {checkpointName(attempt.checkpoint.checkpoint, attempt.enrollment.programScope)} ·{" "}
           {getModule(attempt.enrollment.moduleId)?.name}
         </h2>
         <p className="mt-2 text-sm">
           Question {draft.index + 1} of {attempt.form.items.length} · {skills[item.skill]}
         </p>
+        {attempt.checkpoint.checkpoint === "entrance" && attempt.studiedObjectiveCount > 0 && (
+          <p className="mt-3 text-sm">
+            Current-state baseline: {attempt.studiedObjectiveCount} lesson objectives had recorded
+            study before this attempt. This is not a pre-learning measurement.
+          </p>
+        )}
+        {attempt.repeatedForm && (
+          <p className="mt-3 text-sm">
+            Repeated form: you have seen this checkpoint’s questions before. Interpret changes with
+            that exposure in mind.
+          </p>
+        )}
         {attempt.pilot && (
           <p className="mt-3 text-sm text-amber-700 dark:text-amber-300">
             QA draft · not an official or validated result.
@@ -1159,10 +1217,12 @@ function ExamResult({
   attempt,
   onBack,
   onRefresh,
+  onOpenAttempt,
 }: {
   attempt: ExamAttemptView;
   onBack: () => void;
   onRefresh: () => void;
+  onOpenAttempt: (id: string) => void;
 }) {
   const [reason, setReason] = useState(""),
     [sharing, setSharing] = useState(false),
@@ -1174,7 +1234,7 @@ function ExamResult({
           Back to Exams
         </button>
         <h2 className="mt-4 text-2xl font-semibold">
-          {names[attempt.checkpoint.checkpoint as keyof typeof names]} result
+          {checkpointName(attempt.checkpoint.checkpoint, attempt.enrollment.programScope)} result
         </h2>
         <p className="mt-2 text-sm">
           Submitted {new Date(attempt.submittedAt).toLocaleString()} ·{" "}
@@ -1241,14 +1301,56 @@ function ExamResult({
             : "This attempt’s responses and feedback"}
         </summary>
         {attempt.form.items.map((item) => {
-          const answer = attempt.responses.find((response) => response.item_id === item.id)
-              ?.answer as AssessmentAnswer | undefined,
-            feedback = attempt.feedback?.find((row) => row.itemId === item.id);
+          const response = attempt.responses.find((response) => response.item_id === item.id),
+            answer = response?.answer as AssessmentAnswer | undefined,
+            feedback = attempt.feedback?.find((row) => row.itemId === item.id),
+            proposal = attempt.aiProposals?.find((row) => row.responseId === response?.id),
+            evidence = attempt.evidence.find((row) => row.itemId === item.id);
           return (
             <section key={item.id} className="border-t border-border py-4">
               <h4 className="font-medium">{item.prompt}</h4>
               <p className="mt-2 text-sm">Your response: {answerText(answer, item)}</p>
               <p className="mt-2 text-sm text-muted-foreground">{feedback?.rationale}</p>
+              {proposal && (
+                <div className="mt-3 rounded-xl border border-border p-3 text-sm">
+                  <p className="font-semibold">AI proposal · requires human review</p>
+                  <p>
+                    {evidence?.source === "ai_proposal"
+                      ? evidence.reason
+                      : "A later review decision may supersede this proposal."}
+                  </p>
+                  <p>
+                    {Object.entries(proposal.dimensions)
+                      .map(([key, value]) => `${key}: ${value}`)
+                      .join(" · ")}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Confidence {Math.round(proposal.confidence * 100)}% · {proposal.model} · rubric{" "}
+                    {proposal.rubricVersion}
+                  </p>
+                </div>
+              )}
+              {response &&
+                answer &&
+                attempt.isLearner &&
+                attempt.aiWritingAvailable &&
+                item.type === "production" &&
+                item.skill === "writing" &&
+                feedback?.rubric &&
+                answer.inputMethod === "typed" &&
+                answer.text?.trim() &&
+                !answer.recognitionIssue &&
+                !answer.missingReason &&
+                evidence?.source !== "human" && (
+                  <AIWritingProposal
+                    attemptId={attempt.id}
+                    responseId={response.id}
+                    jobStatus={
+                      attempt.gradingJobs?.find((job) => job.response_id === response.id)?.status
+                    }
+                    onRefresh={onRefresh}
+                  />
+                )}
             </section>
           );
         })}
@@ -1304,9 +1406,25 @@ function ExamResult({
         </form>
       )}
       {message && !attempt.isLearner && <p role="status">{message}</p>}
+      {attempt.enrollment.role === "primary" &&
+        (attempt.isLearner || (attempt.enrollment.scope === "team" && attempt.canReview)) && (
+          <PlanPanelDisclosure
+            enrollmentId={attempt.enrollment.id}
+            sourceAttemptId={attempt.id}
+            onOpenAttempt={onOpenAttempt}
+          />
+        )}
       <a
         className={primary}
-        href={`/?module=${encodeURIComponent(attempt.enrollment.moduleId)}&tab=core30`}
+        href={moduleLessonUrl({
+          moduleId: attempt.enrollment.moduleId,
+          target: attempt.enrollment.targetLanguage,
+          native: attempt.enrollment.instructionLanguage,
+          planId:
+            attempt.isLearner && attempt.enrollment.role === "primary"
+              ? attempt.enrollment.id
+              : undefined,
+        })}
       >
         Continue my module lessons
       </a>
@@ -1586,6 +1704,38 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
           </article>
         ))}
       </div>
+    </details>
+  );
+}
+
+function PlanPanelDisclosure({
+  enrollmentId,
+  sourceAttemptId,
+  onOpenAttempt,
+}: {
+  enrollmentId: string;
+  sourceAttemptId?: string;
+  onOpenAttempt: (id: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <details
+      className="mt-4 rounded-xl border border-border p-4"
+      open={open}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
+      <summary className="min-h-11 cursor-pointer py-2 font-semibold">
+        Learning plan, support and decision history
+      </summary>
+      {open && (
+        <Suspense fallback={<p role="status">Loading learning plan…</p>}>
+          <AssessmentPlanPanel
+            enrollmentId={enrollmentId}
+            sourceAttemptId={sourceAttemptId}
+            onOpenAttempt={onOpenAttempt}
+          />
+        </Suspense>
+      )}
     </details>
   );
 }

@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
+import { requestedLesson } from "@/lib/learning-link";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   BookOpen,
@@ -71,6 +73,12 @@ import {
   toDateKey,
   type Core30Way,
 } from "@/lib/core30-plan";
+
+const DailyLessonPlan = lazy(() =>
+  import("@/components/exams/DailyLessonPlan").then((module) => ({
+    default: module.DailyLessonPlan,
+  })),
+);
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -1692,6 +1700,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const { state } = useApp();
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
+  const [activeAssessmentPlan] = useState(() => {
+    if (typeof window === "undefined") return undefined;
+    const value = new URLSearchParams(window.location.search).get("plan");
+    return value && /^[0-9a-f-]{36}$/i.test(value) ? value : undefined;
+  });
+  const [approvedPlanTiming, setApprovedPlanTiming] = useState<AssessedPlanTiming | null>(
+    activeAssessmentPlan ? null : { reviewEveryDays: 4 },
+  );
   const positionKey = lessonPositionKey(
     user?.id ?? "anonymous",
     moduleId,
@@ -1709,8 +1725,24 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
   });
-  const [openLessonN, setOpenLessonN] = useState<number | null>(returnTarget?.lesson ?? null);
-  const [initialWay, setInitialWay] = useState<SectionId | undefined>(returnTarget?.section);
+  const [linkedLesson] = useState(() =>
+    restoreView &&
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("target") === state.selectedLanguage &&
+    new URLSearchParams(window.location.search).get("native") === state.nativeLanguage
+      ? requestedLesson(
+          new URLSearchParams(window.location.search),
+          moduleId,
+          getCurriculum(moduleId)?.lessons.length ?? 0,
+        )
+      : null,
+  );
+  const [openLessonN, setOpenLessonN] = useState<number | null>(
+    linkedLesson?.lesson ?? returnTarget?.lesson ?? null,
+  );
+  const [initialWay, setInitialWay] = useState<SectionId | undefined>(
+    (linkedLesson?.way as SectionId | undefined) ?? returnTarget?.section,
+  );
   useEffect(() => {
     try {
       const storage = user?.id ? window.localStorage : window.sessionStorage;
@@ -1809,8 +1841,21 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {!howOpen && (
         <>
           {/* 90-day plan: start date, today's lesson, review cadence */}
-          {!reviewOpen && !runnerActive && (
+          {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
+            <p role="status" className="my-4 text-sm">
+              Connect to load this plan’s approved review schedule. Your lesson list remains
+              available.
+            </p>
+          )}
+          {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
             <Core30PlanCard
+              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+              managedPlanUrl={
+                activeAssessmentPlan
+                  ? `/exams?${new URLSearchParams({ ...(approvedPlanTiming.organizationId ? { org: approvedPlanTiming.organizationId } : {}), module: moduleId, target: state.selectedLanguage, native: state.nativeLanguage })}`
+                  : undefined
+              }
               moduleId={moduleId}
               totalLessons={totalLessons}
               onOpenLesson={openLessonFromPlan}
@@ -1855,6 +1900,19 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Continue when you’re ready, or follow the dates in your plan.
               </p>
             </div>
+          )}
+
+          {!reviewOpen && (
+            <Suspense fallback={null}>
+              <DailyLessonPlan
+                moduleId={moduleId}
+                target={state.selectedLanguage}
+                native={state.nativeLanguage}
+                lessonNumber={openLesson?.n}
+                activePlanId={activeAssessmentPlan}
+                onPlanTiming={setApprovedPlanTiming}
+              />
+            </Suspense>
           )}
 
           {/* Review session */}
@@ -2052,11 +2110,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 /** Standalone Core 30 tab. Without a module that has a Core 30, it points to Modules. */
 export function Core30Tab() {
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {hasCore30 ? (
-        <Core30Section restoreView />
+        <Core30Section
+          key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          restoreView
+        />
       ) : (
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>

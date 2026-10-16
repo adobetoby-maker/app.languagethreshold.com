@@ -80,13 +80,13 @@ export function lessonDueDate(startDate: string, lessonNumber: number): string {
 }
 
 /** start+4, +8, ... while <= start+90. */
-export function reviewDates(startDate: string): string[] {
+function reviewInterval(days: number) {
+  return Number.isInteger(days) && days >= 1 && days <= 30 ? days : CORE30_REVIEW_EVERY_DAYS;
+}
+export function reviewDates(startDate: string, everyDays = CORE30_REVIEW_EVERY_DAYS): string[] {
+  const interval = reviewInterval(everyDays);
   const out: string[] = [];
-  for (
-    let offset = CORE30_REVIEW_EVERY_DAYS;
-    offset <= CORE30_PLAN_DAYS;
-    offset += CORE30_REVIEW_EVERY_DAYS
-  ) {
+  for (let offset = interval; offset < CORE30_PLAN_DAYS; offset += interval) {
     out.push(addDays(startDate, offset));
   }
   return out;
@@ -138,6 +138,7 @@ export function planToday(
   log: Core30ModuleLog | undefined,
   totalLessons: number,
   today: string,
+  reviewEveryDays = CORE30_REVIEW_EVERY_DAYS,
 ): Core30Today {
   const mastered = masteredLessons(log);
   const needsPractice = needsPracticeLessons(log);
@@ -186,7 +187,7 @@ export function planToday(
       ? "ahead"
       : "on-track";
 
-  const dates = reviewDates(startDate);
+  const dates = reviewDates(startDate, reviewEveryDays);
   const pastDates = dates.filter((d) => d <= today);
   const lastReviewDate = pastDates.length ? pastDates[pastDates.length - 1] : undefined;
   const nextReviewDate = dates.find((d) => d > today);
@@ -223,7 +224,12 @@ export interface Core30CalendarDay {
  * One entry per plan day that has a new lesson or a review. `day` is 1-based:
  * day 1 is the start date, so lesson n lands on day 3*(n-1)+1 and the first review on day 5.
  */
-export function planCalendar(startDate: string, totalLessons: number): Core30CalendarDay[] {
+export function planCalendar(
+  startDate: string,
+  totalLessons: number,
+  reviewEveryDays = CORE30_REVIEW_EVERY_DAYS,
+): Core30CalendarDay[] {
+  const interval = reviewInterval(reviewEveryDays);
   const lastLessonDay =
     totalLessons > 0 ? CORE30_NEW_LESSON_EVERY_DAYS * (totalLessons - 1) + 1 : 0;
   const lastDay = Math.max(CORE30_PLAN_DAYS, lastLessonDay);
@@ -235,10 +241,7 @@ export function planCalendar(startDate: string, totalLessons: number): Core30Cal
       const n = offset / CORE30_NEW_LESSON_EVERY_DAYS + 1;
       if (n <= totalLessons) newLesson = n;
     }
-    const review =
-      offset >= CORE30_REVIEW_EVERY_DAYS &&
-      offset <= CORE30_PLAN_DAYS &&
-      offset % CORE30_REVIEW_EVERY_DAYS === 0;
+    const review = offset >= interval && offset < CORE30_PLAN_DAYS && offset % interval === 0;
     if (newLesson === undefined && !review) continue;
     const entry: Core30CalendarDay = { date: addDays(startDate, offset), day, review };
     if (newLesson !== undefined) entry.newLesson = newLesson;

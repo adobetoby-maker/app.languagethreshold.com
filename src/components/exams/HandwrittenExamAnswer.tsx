@@ -1,3 +1,4 @@
+import { isExamDeviceValueVolatile } from "@/lib/assessments/device-store";
 import { useEffect, useRef, useState } from "react";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
 import { useAuth } from "@/state/auth-state";
@@ -25,7 +26,7 @@ export function HandwrittenExamAnswer({
     frame = useRef<number | null>(null),
     mounted = useRef(true);
   const [drawing, setDrawing] = useState(false),
-    [saved, setSaved] = useState(true);
+    [saved, setSaved] = useState(() => !isExamDeviceValueVolatile(key));
   const registryId = `${attemptId}:ink:${itemId}`;
   const update = (next: ExamInk) => {
     if (!mounted.current || !isCurrentUser(userId)) return;
@@ -41,16 +42,6 @@ export function HandwrittenExamAnswer({
       if (frame.current !== null) cancelAnimationFrame(frame.current);
     };
   }, []);
-  useEffect(() => {
-    const before = (event: BeforeUnloadEvent) => {
-      if (!saved && current.current.ink && !current.current.confirmed) {
-        event.preventDefault();
-        event.returnValue = "";
-      }
-    };
-    window.addEventListener("beforeunload", before);
-    return () => window.removeEventListener("beforeunload", before);
-  }, [saved]);
   return (
     <div className="mt-4 space-y-3 rounded-xl border border-border p-3">
       <p className="text-sm">

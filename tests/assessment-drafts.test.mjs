@@ -70,3 +70,9 @@ test("blocked storage still warns about in-memory unsynced work", () => {
   clearExamDraftsForUser(null, "user");
   assert.equal(hasUnsyncedExamDrafts(null, "user"), false);
 });
+test('blocked device storage retains newest answers across panel remounts and clears them on account exit',()=>{
+ const blocked={get length(){throw new Error('blocked');},key(){throw new Error('blocked');},getItem(){throw new Error('blocked');},setItem(){throw new Error('blocked');},removeItem(){throw new Error('blocked');}};
+ const key=examDraftKey('blocked-remount','attempt'),value=draft();value.pending={item:{answer:{inputMethod:'typed',text:'retained in this tab'},edit:1}};
+ assert.equal(saveExamDraft(blocked,key,value),false);assert.equal(readExamDraft(blocked,key).pending.item.answer.text,'retained in this tab');assert.equal(hasUnsyncedExamDrafts(blocked,'blocked-remount'),true);
+ clearExamDraftsForUser(blocked,'blocked-remount');assert.equal(readExamDraft(blocked,key),null);
+});

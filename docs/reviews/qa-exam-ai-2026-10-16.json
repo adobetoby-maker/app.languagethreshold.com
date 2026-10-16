@@ -1,0 +1,16 @@
+{
+  "testedAt": "2026-10-16T09:31:51.526Z",
+  "target": "http://127.0.0.1:4311",
+  "scope": "Only one synthetic QA writing answer sent to Anthropic. Not a human calibration or official exam.",
+  "checks": {
+    "crossAccountDenied": true,
+    "explicitConsentRequired": true,
+    "wrongOriginDenied": true,
+    "actualProviderProposalSaved": true,
+    "dimensionsAudited": true,
+    "usageAudited": true,
+    "repeatDidNotCallProvider": true,
+    "proposalDidNotBecomeSkillScore": true,
+    "jobCompleted": true
+  }
+}

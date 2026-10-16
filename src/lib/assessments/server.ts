@@ -1,3 +1,4 @@
+import { enforceSpeakingRateLimit } from "@/lib/speaking-security";
 import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
 import type { Language, NativeLanguage } from "@/data/languages";
@@ -147,6 +148,18 @@ export async function seedDraftTrack(
     !moduleSupportsLearningPair(module, target, native)
   )
     throw new AssessmentAccessError("This module does not support that language pair.", 400);
+  const published = await db
+    .from("assessment_releases")
+    .select("id")
+    .eq("module_id", moduleId)
+    .eq("target_language", target)
+    .eq("instruction_language", native)
+    .eq("status", "verified")
+    .order("verified_at", { ascending: false })
+    .limit(1);
+  if (published.error)
+    throw new AssessmentAccessError("Assessment releases could not be loaded.", 503);
+  if (published.data?.[0]) return published.data[0].id;
   const roofing = moduleId === "roofing" && target === "Spanish" && native === "English";
   const releaseId = roofing
     ? ROOFING_ASSESSMENT_RELEASE
@@ -176,6 +189,7 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
   let query = db
     .from("assessment_enrollments")
     .select("*")
+    .eq("program_scope", "full_module")
     .order("created_at", { ascending: false })
     .limit(200);
   if (orgId) {
@@ -222,6 +236,7 @@ export async function listEnrollments(db: TeamDb, actor: string, orgId?: string)
   const { data: forms, error: formsError } = await db
     .from("assessment_forms")
     .select("id,release_id,checkpoint,status,calibrated")
+    .eq("purpose", "module")
     .in("release_id", [...new Set(permitted.map((row) => row.release_id))]);
   const { data: releases, error: releasesError } = await db
     .from("assessment_releases")
@@ -321,6 +336,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
     ? await db
         .from("assessment_forms")
         .select("release_id,checkpoint,status,calibrated,review_records")
+        .eq("purpose", "module")
         .in("release_id", ids)
     : { data: [], error: null };
   if (formError) throw new AssessmentAccessError("Exam readiness could not be loaded.", 503);
@@ -391,15 +407,23 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
   if (error) throw new AssessmentAccessError("Saved responses could not be loaded.", 503);
   let evidence: ItemEvidence[] = [];
   if (attempt.submitted_at) {
-    const responseIds = (responses ?? []).map((row) => row.id);
-    const { data: scores, error: scoreError } = responseIds.length
-      ? await db
-          .from("assessment_score_events")
-          .select("*")
-          .in("response_id", responseIds)
-          .order("revision", { ascending: false })
-      : { data: [], error: null };
-    if (scoreError) throw new AssessmentAccessError("Assessment results could not be loaded.", 503);
+    const scores = await rpc<
+      {
+        response_id: string;
+        objective_id: string;
+        skill: ItemEvidence["skill"];
+        state: ItemEvidence["state"];
+        points: number | null;
+        maximum: number;
+        source: ItemEvidence["source"];
+        comparison_group: string;
+        coverage: ItemEvidence["coverage"];
+        rationale: string;
+      }[]
+    >(db, "assessment_latest_scores", {
+      p_actor: actor,
+      p_attempt: id,
+    });
     const seen = new Set<string>();
     evidence = (scores ?? [])
       .filter((score) => {
@@ -435,7 +459,55 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
     .eq("attempt_id", id)
     .order("created_at", { ascending: false });
   if (reviewError) throw new AssessmentAccessError("Review history could not be loaded.", 503);
+  const responseIds = (responses ?? []).map((row) => row.id);
+  const priorForms = await db
+    .from("assessment_attempts")
+    .select("id")
+    .eq("checkpoint_id", checkpoint.id)
+    .eq("form_id", attempt.form_id)
+    .lt("attempt_number", attempt.attempt_number)
+    .limit(1);
+  if (priorForms.error)
+    throw new AssessmentAccessError("Assessment exposure history could not be loaded.", 503);
+  const [jobs, proposals] =
+    attempt.submitted_at && responseIds.length
+      ? await Promise.all([
+          db
+            .from("assessment_grading_jobs")
+            .select("response_id,status")
+            .in("response_id", responseIds),
+          db
+            .from("assessment_events")
+            .select("detail")
+            .eq("enrollment_id", enrollment.id)
+            .eq("action", "ai.proposal")
+            .eq("detail->>attemptId", id),
+        ])
+      : [
+          { data: [], error: null },
+          { data: [], error: null },
+        ];
+  if (jobs.error || proposals.error)
+    throw new AssessmentAccessError("Review status could not be loaded.", 503);
   return {
+    repeatedForm: !!priorForms.data?.length,
+    studiedObjectiveCount: Array.isArray(attempt.form_snapshot.reportedStudiedObjectives)
+      ? attempt.form_snapshot.reportedStudiedObjectives.length
+      : 0,
+    aiWritingAvailable:
+      (attempt.form_snapshot.pilot === true && pilotAllowed(actor)) ||
+      (attempt.form_snapshot.calibrated === true && form.status === "verified"),
+    gradingJobs: jobs.data ?? [],
+    aiProposals: (proposals.data ?? []).map(
+      (row) =>
+        row.detail as {
+          responseId: string;
+          dimensions: Record<string, number>;
+          confidence: number;
+          model: string;
+          rubricVersion: string;
+        },
+    ),
     id: attempt.id,
     isLearner: enrollment.user_id === actor,
     canReview,
@@ -451,6 +523,9 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
     enrollment: {
       id: enrollment.id,
       scope: enrollment.scope,
+      programScope: enrollment.program_scope,
+      role: enrollment.role,
+      supportCapabilityId: enrollment.support_capability_id,
       organizationId: enrollment.organization_id,
       moduleId: enrollment.module_id,
       targetLanguage: enrollment.target_language,
@@ -516,4 +591,26 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
       p_request: stableRequestId(`initial:${response.id}:${form.rubricVersion}`),
     });
   }
+}
+
+export async function assessmentBudget(actor: string, action: string) {
+  const limit =
+    action === "ai_proposal"
+      ? 3
+      : action === "save"
+        ? 90
+        : action === "enroll" || action === "start"
+          ? 6
+          : 30;
+  const result = await enforceSpeakingRateLimit(actor, `exams:${action}`, limit).catch(() => ({
+    allowed: false,
+    misconfigured: true,
+  }));
+  if (!result.allowed)
+    throw new AssessmentAccessError(
+      result.misconfigured
+        ? "Assessment request controls are unavailable."
+        : "Please wait a minute before trying again.",
+      result.misconfigured ? 503 : 429,
+    );
 }

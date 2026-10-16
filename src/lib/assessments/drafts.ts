@@ -1,3 +1,9 @@
+import {
+  readExamDeviceValue,
+  writeExamDeviceValue,
+  removeExamDeviceValue,
+  examDeviceKeys,
+} from "./device-store.ts";
 import { clearExamInk, hasUnconfirmedExamInk } from "./ink.ts";
 import { clearOfflineExams } from "./offline.ts";
 import type { AssessmentAnswer } from "./form.ts";
@@ -37,7 +43,7 @@ export function readExamDraft(
   key: string,
 ): ExamDeviceDraft | null {
   try {
-    const raw = storage?.getItem(key);
+    const raw = readExamDeviceValue(storage, key);
     if (!raw || raw.length > 400000) return null;
     const value = JSON.parse(raw);
     if (
@@ -88,11 +94,14 @@ export function saveExamDraft(
   draft: ExamDeviceDraft,
 ): boolean {
   try {
-    if (!storage) return false;
     const raw = JSON.stringify(draft);
     if (raw.length > 400000) return false;
-    storage.setItem(key, raw);
-    return true;
+    return writeExamDeviceValue(
+      storage,
+      key,
+      raw,
+      Boolean(Object.keys(draft.pending).length || draft.flight),
+    );
   } catch {
     return false;
   }
@@ -107,11 +116,9 @@ export function registerPendingExam(userId: string, attemptId: string, pending: 
 export function hasUnsyncedExamDrafts(storage: ExamDraftStorage | null, userId: string): boolean {
   if (memoryPending.get(userId)?.size || hasUnconfirmedExamInk(storage, userId)) return true;
   try {
-    if (!storage) return false;
     const prefix = `${PREFIX}${encodeURIComponent(userId)}.`;
-    for (let i = 0; i < storage.length; i++) {
-      const key = storage.key(i);
-      if (key?.startsWith(prefix)) {
+    for (const key of examDeviceKeys(storage)) {
+      if (key.startsWith(prefix)) {
         const draft = readExamDraft(storage, key);
         if (draft && (Object.keys(draft.pending).length || draft.flight)) return true;
       }
@@ -126,12 +133,9 @@ export function clearExamDraftsForUser(storage: ExamDraftStorage | null, userId:
   clearOfflineExams(storage, userId);
   clearExamInk(storage, userId);
   try {
-    if (!storage) return;
     const prefix = `${PREFIX}${encodeURIComponent(userId)}.`;
-    for (let i = storage.length - 1; i >= 0; i--) {
-      const key = storage.key(i);
-      if (key?.startsWith(prefix)) storage.removeItem(key);
-    }
+    for (const key of examDeviceKeys(storage))
+      if (key.startsWith(prefix)) removeExamDeviceValue(storage, key);
   } catch {
     /* A blocked storage implementation must not prevent sign-out. */
   }

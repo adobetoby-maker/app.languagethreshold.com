@@ -24,6 +24,7 @@ import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
 import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
+import { Route as ApiExamPlansRouteImport } from './routes/api.exam-plans'
 import { Route as ApiExamsRouteImport } from './routes/api.exams'
 import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
@@ -120,6 +121,11 @@ const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
 const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
   id: '/api/discussion',
   path: '/api/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExamPlansRoute = ApiExamPlansRouteImport.update({
+  id: '/api/exam-plans',
+  path: '/api/exam-plans',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiExamsRoute = ApiExamsRouteImport.update({
@@ -249,6 +255,7 @@ export interface FileRoutesByFullPath {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -288,6 +295,7 @@ export interface FileRoutesByTo {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -328,6 +336,7 @@ export interface FileRoutesById {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -369,6 +378,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-plans'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -408,6 +418,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-plans'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -447,6 +458,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-plans'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -487,6 +499,7 @@ export interface RootRouteChildren {
   ApiCertificateRoute: typeof ApiCertificateRoute
   ApiCreateCheckoutRoute: typeof ApiCreateCheckoutRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
+  ApiExamPlansRoute: typeof ApiExamPlansRoute
   ApiExamsRoute: typeof ApiExamsRoute
   ApiFamilyAddKidRoute: typeof ApiFamilyAddKidRoute
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
@@ -616,6 +629,13 @@ declare module '@tanstack/react-router' {
       path: '/api/discussion'
       fullPath: '/api/discussion'
       preLoaderRoute: typeof ApiDiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/exam-plans': {
+      id: '/api/exam-plans'
+      path: '/api/exam-plans'
+      fullPath: '/api/exam-plans'
+      preLoaderRoute: typeof ApiExamPlansRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/exams': {
@@ -791,6 +811,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCertificateRoute: ApiCertificateRoute,
   ApiCreateCheckoutRoute: ApiCreateCheckoutRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
+  ApiExamPlansRoute: ApiExamPlansRoute,
   ApiExamsRoute: ApiExamsRoute,
   ApiFamilyAddKidRoute: ApiFamilyAddKidRoute,
   ApiFieldPrepRoute: ApiFieldPrepRoute,

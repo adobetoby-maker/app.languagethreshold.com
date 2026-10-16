@@ -1,3 +1,9 @@
+import {
+  readExamDeviceValue,
+  writeExamDeviceValue,
+  removeExamDeviceValue,
+  examDeviceKeys,
+} from "./device-store.ts";
 import type { ExamDraftStorage } from "./drafts.ts";
 const PREFIX = "lt.examInk.v1.";
 export interface ExamInk {
@@ -9,7 +15,7 @@ export const examInkKey = (user: string, attempt: string, item: string) =>
   `${PREFIX}${encodeURIComponent(user)}.${encodeURIComponent(attempt)}.${encodeURIComponent(item)}`;
 export function readExamInk(storage: ExamDraftStorage | null, key: string): ExamInk | null {
   try {
-    const value = JSON.parse(storage?.getItem(key) ?? "null");
+    const value = JSON.parse(readExamDeviceValue(storage, key) ?? "null");
     if (
       !value ||
       typeof value.transcript !== "string" ||
@@ -28,10 +34,8 @@ export function readExamInk(storage: ExamDraftStorage | null, key: string): Exam
 }
 export function saveExamInk(storage: ExamDraftStorage | null, key: string, value: ExamInk) {
   try {
-    if (!storage || value.transcript.length > 4000 || (value.ink?.length ?? 0) > 500000)
-      return false;
-    storage.setItem(key, JSON.stringify(value));
-    return true;
+    if (value.transcript.length > 4000 || (value.ink?.length ?? 0) > 500000) return false;
+    return writeExamDeviceValue(storage, key, JSON.stringify(value), !!value.ink);
   } catch {
     return false;
   }
@@ -42,11 +46,9 @@ export function hasUnconfirmedExamInk(
   attempt?: string,
 ) {
   try {
-    if (!storage) return false;
     const prefix = `${PREFIX}${encodeURIComponent(user)}.${attempt ? encodeURIComponent(attempt) + "." : ""}`;
-    for (let i = 0; i < storage.length; i++) {
-      const k = storage.key(i);
-      if (k?.startsWith(prefix)) {
+    for (const k of examDeviceKeys(storage)) {
+      if (k.startsWith(prefix)) {
         const v = readExamInk(storage, k);
         if (v?.ink && !v.confirmed) return true;
       }
@@ -58,12 +60,9 @@ export function hasUnconfirmedExamInk(
 }
 export function clearExamInk(storage: ExamDraftStorage | null, user: string, attempt?: string) {
   try {
-    if (!storage) return;
     const prefix = `${PREFIX}${encodeURIComponent(user)}.${attempt ? encodeURIComponent(attempt) + "." : ""}`;
-    for (let i = storage.length - 1; i >= 0; i--) {
-      const k = storage.key(i);
-      if (k?.startsWith(prefix)) storage.removeItem(k);
-    }
+    for (const k of examDeviceKeys(storage))
+      if (k.startsWith(prefix)) removeExamDeviceValue(storage, k);
   } catch {
     /* Keep sign-out usable. */
   }

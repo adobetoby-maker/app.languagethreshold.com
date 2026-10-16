@@ -1,3 +1,4 @@
+import { removeExamDeviceValue, isExamDeviceValueVolatile } from "@/lib/assessments/device-store";
 import { clearExamInk } from "@/lib/assessments/ink";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
@@ -49,7 +50,6 @@ export function useExamDraft(attempt: ExamAttemptView) {
           };
   }
   const current = useRef(initial.current);
-  const deviceSaved = useRef(true);
   const [draft, setDraft] = useState(initial.current);
   const [answers, setAnswers] = useState<Record<string, AssessmentAnswer>>(() => ({
     ...answersFrom(attempt),
@@ -60,7 +60,9 @@ export function useExamDraft(attempt: ExamAttemptView) {
   const [status, setStatus] = useState<SaveStatus>(() =>
     Object.keys(initial.current!.pending).length
       ? initial.current!.revision === attempt.revision
-        ? "device"
+        ? isExamDeviceValueVolatile(key)
+          ? "unsaved"
+          : "device"
         : "conflict"
       : "synced",
   );
@@ -76,7 +78,6 @@ export function useExamDraft(attempt: ExamAttemptView) {
       const pending = Boolean(Object.keys(next.pending).length || next.flight);
       registerPendingExam(userId, attempt.id, pending);
       const saved = saveExamDraft(storage, key, next);
-      deviceSaved.current = saved;
       if (mounted.current) {
         setDraft(next);
         if (nextStatus) setStatus(nextStatus === "device" && !saved ? "unsaved" : nextStatus);
@@ -203,17 +204,9 @@ export function useExamDraft(attempt: ExamAttemptView) {
   }, [draft.pending, conflict, sync, attempt.submittedAt]);
   useEffect(() => {
     const online = () => void sync(Boolean(current.current.flight));
-    const before = (event: BeforeUnloadEvent) => {
-      if (Object.keys(current.current.pending).length && !deviceSaved.current) {
-        event.preventDefault();
-        event.returnValue = "";
-      }
-    };
     window.addEventListener("online", online);
-    window.addEventListener("beforeunload", before);
     return () => {
       window.removeEventListener("online", online);
-      window.removeEventListener("beforeunload", before);
     };
   }, [sync]);
   useEffect(() => {
@@ -275,7 +268,7 @@ export function useExamDraft(attempt: ExamAttemptView) {
   const clearSubmitted = () => {
     if (!isCurrentUser(userId)) return;
     try {
-      storage?.removeItem(key);
+      removeExamDeviceValue(storage, key);
     } catch {
       /* The server submission remains authoritative. */
     }

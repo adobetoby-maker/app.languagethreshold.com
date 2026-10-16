@@ -1,5 +1,7 @@
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
+import { planLocalDay } from "@/lib/assessments/plan-timing";
+import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
 import { CalendarCheck, CheckCircle2, ChevronRight, RefreshCw } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
@@ -34,23 +36,40 @@ export function Core30PlanCard({
   totalLessons,
   onOpenLesson,
   onStartReview,
+  reviewEveryDays = 4,
+  assessedTiming,
+  managedPlanUrl,
 }: {
   moduleId: string;
   totalLessons: number;
   onOpenLesson: (lessonNumber: number) => void;
   onStartReview: () => void;
+  reviewEveryDays?: number;
+  assessedTiming?: AssessedPlanTiming;
+  managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
-  const log = state.core30Log[moduleId];
-  const today = toDateKey(new Date());
-  const plan = planToday(log, totalLessons, today);
+  const storedLog = state.core30Log[moduleId];
+  const log = useMemo(
+    () =>
+      assessedTiming?.startDate
+        ? { ...storedLog, lessons: storedLog?.lessons ?? {}, startDate: assessedTiming.startDate }
+        : storedLog,
+    [storedLog, assessedTiming?.startDate],
+  );
+  const paused = assessedTiming?.status === "paused";
+  const today =
+    paused && assessedTiming.pausedOn
+      ? assessedTiming.pausedOn
+      : (planLocalDay(assessedTiming?.timezone) ?? toDateKey(new Date()));
+  const plan = planToday(log, totalLessons, today, reviewEveryDays);
   const [draftDate, setDraftDate] = useState(today);
   const [changingDate, setChangingDate] = useState(false);
 
   const masteredSet = useMemo(() => new Set(masteredLessons(log)), [log]);
   const calendar = useMemo(
-    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons) : []),
-    [plan.startDate, totalLessons],
+    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons, reviewEveryDays) : []),
+    [plan.startDate, totalLessons, reviewEveryDays],
   );
   const lastReviewKey = log?.lastReviewAt
     ? toDateKey(new Date(Date.parse(log.lastReviewAt)))
@@ -81,8 +100,9 @@ export function Core30PlanCard({
               Learn all {totalLessons} lessons in 90 days
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              One new lesson every 3 days. Every 4 days you review every lesson you have mastered so
-              far. You mark each lesson mastered yourself; the app records the steps you open.
+              One new lesson every 3 days. Every {reviewEveryDays} days you review every lesson you
+              have mastered so far. You mark each lesson mastered yourself; the app records the
+              steps you open.
             </p>
             <label className="mt-4 block text-[11px] text-white/50" htmlFor="core30-start-date">
               Start date
@@ -118,8 +138,9 @@ export function Core30PlanCard({
       : plan.dayNumber <= CORE30_PLAN_DAYS
         ? `Day ${plan.dayNumber} of ${CORE30_PLAN_DAYS}`
         : `Day ${plan.dayNumber} · past the ${CORE30_PLAN_DAYS}-day window`;
-  const statusLabel =
-    plan.status === "ahead"
+  const statusLabel = paused
+    ? "Paused · practice is available"
+    : plan.status === "ahead"
       ? "Ahead"
       : plan.status === "behind"
         ? `${plan.behindBy} lesson${plan.behindBy === 1 ? "" : "s"} to catch up`
@@ -160,7 +181,11 @@ export function Core30PlanCard({
         <div className="rounded-xl border border-white/[0.07] bg-card/40 p-3">
           <p className="text-white/40">Next review</p>
           <p className="mt-0.5 font-mono text-base text-white">
-            {plan.reviewDue ? "Today" : plan.nextReviewDate ? formatPlanDate(plan.nextReviewDate) : "None left"}
+            {plan.reviewDue
+              ? "Today"
+              : plan.nextReviewDate
+                ? formatPlanDate(plan.nextReviewDate)
+                : "None left"}
           </p>
         </div>
       </div>
@@ -248,15 +273,15 @@ export function Core30PlanCard({
       <details className="group mt-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-xs text-white/60 select-none hover:text-white">
           <ChevronRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
-          Plan calendar · {totalLessons} lessons, every-4-day reviews
+          Plan calendar · {totalLessons} lessons, reviews every {reviewEveryDays} days
         </summary>
         <ol className="mt-2 grid grid-cols-3 gap-1.5 sm:grid-cols-5">
           {calendar.map((entry) => {
             const lessonDone = entry.newLesson !== undefined && masteredSet.has(entry.newLesson);
-            const reviewDone = entry.review && lastReviewKey !== undefined && entry.date <= lastReviewKey;
+            const reviewDone =
+              entry.review && lastReviewKey !== undefined && entry.date <= lastReviewKey;
             const isToday = entry.date === today;
-            const overdue =
-              entry.newLesson !== undefined && !lessonDone && entry.date < today;
+            const overdue = entry.newLesson !== undefined && !lessonDone && entry.date < today;
             const body = (
               <>
                 <span className="flex items-center gap-1 text-[11px] font-semibold">
@@ -302,7 +327,14 @@ export function Core30PlanCard({
       </details>
 
       <div className="mt-3">
-        {changingDate ? (
+        {managedPlanUrl ? (
+          <a
+            href={managedPlanUrl}
+            className="inline-flex min-h-11 items-center text-sm text-gold underline"
+          >
+            Manage assessment dates and pauses
+          </a>
+        ) : changingDate ? (
           <div className="flex flex-wrap items-center gap-2">
             <label className="sr-only" htmlFor="core30-change-date">
               New start date

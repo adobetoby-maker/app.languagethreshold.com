@@ -33,9 +33,10 @@ await build({
 });
 const { startInstance, controls } = await import(outfile);
 const middleware = startInstance.requestMiddleware[0].server;
-async function invoke(handlerType, status = 200) {
+async function invoke(handlerType, status = 200, path = "/") {
   return middleware({
     handlerType,
+    request: new Request(`https://practice.example${path}`),
     next: async () => ({
       response: new Response("fixture serialized body", {
         status,
@@ -72,4 +73,30 @@ test("custom Start entry explicitly preserves framework CSRF protection for serv
   assert.equal(csrf.allowRequestsWithoutOriginCheck, undefined);
   assert.equal(csrf.origin, undefined);
   assert.equal(csrf.secFetchSite, undefined);
+});
+
+test("private page shells and scoped lesson links carry no-store/no-referrer without changing the body", async () => {
+  for (const path of [
+    "/exams",
+    "/exam-content",
+    "/exam-reviewers",
+    "/team",
+    "/account",
+    "/owner",
+    "/certificate?id=fixture",
+    "/family-setup",
+    "/subscribe/success",
+    "/?module=roofing&plan=fixture",
+  ]) {
+    const result = await invoke("router", 200, path);
+    assert.equal(result.response.headers.get("cache-control"), "no-store", path);
+    assert.equal(result.response.headers.get("referrer-policy"), "no-referrer", path);
+    assert.match(result.response.headers.get("x-robots-tag"), /noindex/);
+    assert.equal(result.response.headers.get("retry-after"), null);
+    assert.equal(await result.response.text(), "fixture serialized body");
+  }
+  for (const path of ["/", "/pricing", "/?module=roofing&tab=core30", "/exams-faq"]) {
+    const result = await invoke("router", 200, path);
+    assert.equal(result.response.headers.get("cache-control"), null, path);
+  }
 });

@@ -34,6 +34,23 @@ assert.equal(focused.status, 200);
 const html = await focused.text();
 assert.equal(/<script[^>]+src=["'][^"']*(?:googletagmanager|\/insights\/script)/.test(html), false);
 assert.match(html, /name="referrer" content="no-referrer"/);
+for (const path of [
+  "/exams",
+  "/exam-content",
+  "/exam-reviewers",
+  "/team",
+  "/account",
+  "/owner",
+  "/certificate?id=fixture",
+  "/family-setup",
+  "/subscribe/success",
+  `/?module=roofing&tab=core30&plan=${org}`,
+]) {
+  const response = await fetch(base + path, { redirect: "manual" });
+  assert.equal(response.status, 200, path);
+  assert.match(response.headers.get("cache-control") ?? "", /no-store/, path);
+  assert.equal(response.headers.get("referrer-policy"), "no-referrer", path);
+}
 const ordinary = await fetch(`${base}/?tab=reader&module=roofing&target=Spanish&native=English`, {
   redirect: "manual",
 });
@@ -53,6 +70,8 @@ const report = {
     noIndexRedirect: true,
     focusedSsrNoAnalyticsScript: true,
     focusedSsrNoReferrer: true,
+    privatePagesAndScopedLessonsNoStore: true,
+    privatePagesAndScopedLessonsNoReferrerHeader: true,
     ordinaryReadingUnchanged: true,
   },
 };

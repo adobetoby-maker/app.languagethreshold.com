@@ -1,14 +1,20 @@
 import { createCsrfMiddleware, createMiddleware, createStart } from "@tanstack/react-start";
 import { getResponseHeader } from "@tanstack/react-start/server";
+import { isPrivateAssessmentUrl } from "@/lib/assessment-privacy";
 
 // The installed server-function serializer preserves status but not ALS headers.
 // Apply RPC cache/retry policy to the final serialized response instead.
-const serverFunctionHeaders = createMiddleware().server(async ({ handlerType, next }) => {
+const serverFunctionHeaders = createMiddleware().server(async ({ handlerType, request, next }) => {
   const result = await next();
-  if (handlerType !== "serverFn") return result;
+  const privatePage = handlerType === "router" && isPrivateAssessmentUrl(request.url);
+  if (handlerType !== "serverFn" && !privatePage) return result;
   const headers = new Headers(result.response.headers);
   headers.set("Cache-Control", "no-store");
-  const retryAfter = getResponseHeader("Retry-After");
+  if (privatePage) {
+    headers.set("Referrer-Policy", "no-referrer");
+    headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+  const retryAfter = handlerType === "serverFn" ? getResponseHeader("Retry-After") : undefined;
   if (retryAfter && [429, 503].includes(result.response.status)) {
     headers.set("Retry-After", String(retryAfter));
   }

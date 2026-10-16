@@ -97,6 +97,13 @@ const activeListeningView = await request(
   `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`,
 );
 assert.equal(activeListeningView.status, 200);
+for (const path of [privatePath, `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`]) {
+  const mixedScope = await request(personal, `${path}&org=${qa.organizationId}`);
+  assert.equal(mixedScope.status, 403);
+  assert.equal(mixedScope.cache, "no-store");
+  assert.equal(Object.hasOwn(mixedScope.body, "form"), false);
+  assert.equal(Object.hasOwn(mixedScope.body, "responses"), false);
+}
 const listeningItem = activeListeningView.body.form.items.find((item) => item.audioRequired);
 assert.ok(listeningItem, "Existing synthetic QA attempt has a listening item");
 const listeningPath = `/api/exams?action=listening&attempt=${activeListeningAttempt.data.id}&item=${encodeURIComponent(listeningItem.id)}`;
@@ -123,6 +130,15 @@ const ownPlan = ownOverview.body.enrollments.find(
 );
 const teamPlan = team.body.enrollments.find((row) => row.id === qa.exams.teamEnrollmentId);
 assert.ok(ownPlan && teamPlan, "Both existing QA plans remain readable");
+const teamAttempts = await service.from("assessment_attempts").select("id")
+  .in("checkpoint_id", teamPlan.checkpoints.map(row => row.id)).limit(1).single();
+assert.equal(teamAttempts.error, null);
+const ownTeamAttempt = await request(learner,
+  `/api/exams?action=attempt&attempt=${teamAttempts.data.id}&org=${qa.organizationId}`);
+assert.equal(ownTeamAttempt.status, 200);
+assert.equal(ownTeamAttempt.body.enrollment.scope, "team");
+assert.equal(ownTeamAttempt.body.enrollment.organizationId, qa.organizationId);
+assert.equal(ownTeamAttempt.body.isLearner, true);
 for (const plan of [ownPlan, teamPlan])
   assert.ok(
     plan.checkpoints.every((cp) => cp.ready === false),
@@ -265,6 +281,7 @@ const report = {
     privateHiddenFromOtherAccounts: true,
     anonymousDenied: true,
     teamScopeOnly: true,
+    explicitTeamAttemptContextEnforced: true,
     noRawResponsesInOverview: true,
     productionPilotDisabled: true,
     privateListeningBoundaryAndMissingClipHonest: true,

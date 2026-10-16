@@ -51,7 +51,7 @@ export const readHandwriting = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<HandwritingReadResult> => {
     const key = process.env.ANTHROPIC_API_KEY;
     if (!key) return { text: null, error: "AI is not configured" };
-    const budgetError = await learningGenerationError();
+    const budgetError = await learningGenerationError("handwriting");
     if (budgetError) return { text: null, error: budgetError };
 
     const hint = data.expected?.trim()

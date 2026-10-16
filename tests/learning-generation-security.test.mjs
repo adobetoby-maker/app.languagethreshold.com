@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   checkLearningGenerationBudget,
   LEARNING_GENERATION_LIMITS,
+  HANDWRITING_CHECK_LIMITS,
 } from "../src/lib/learning-generation-security.ts";
 
 function request(headers = {}) {
@@ -63,6 +64,40 @@ test("same-origin learning requests use durable hashed minute/IP-hour/global-hou
       assert.ok(!JSON.stringify(call.body).includes("192.0.2.37"));
     }
     assert.equal(new Set(calls.map((c) => c.body.p_bucket_hash)).size, 3);
+  }));
+test("short handwriting checks share their own durable allowance without starving lesson creation", async () =>
+  fixture(async ({ calls }) => {
+    for (let i = 0; i < HANDWRITING_CHECK_LIMITS.minute; i++)
+      assert.equal(await checkLearningGenerationBudget(request(), "handwriting"), null);
+    const before = calls.length;
+    const rejected = await checkLearningGenerationBudget(request(), "handwriting");
+    assert.equal(rejected.status, 429);
+    assert.equal(rejected.retryAfter, 60);
+    assert.equal(calls.length, before + 1);
+    assert.deepEqual(
+      calls.slice(0, 3).map((c) => [c.body.p_request_limit, c.body.p_window_seconds]),
+      [
+        [30, 60],
+        [600, 3600],
+        [1200, 3600],
+      ],
+    );
+    assert.equal(await checkLearningGenerationBudget(request()), null);
+    assert.equal(calls.at(-3).body.p_request_limit, 8);
+    assert.notEqual(calls[0].body.p_bucket_hash, calls.at(-3).body.p_bucket_hash);
+  }));
+test("handwriting hourly budgets deny further paid checks independently of per-minute resets", async () =>
+  fixture(async () => {
+    for (const rejectLimit of [
+      HANDWRITING_CHECK_LIMITS.ipHour,
+      HANDWRITING_CHECK_LIMITS.globalHour,
+    ]) {
+      globalThis.fetch = async (_, init) =>
+        Response.json(JSON.parse(init.body).p_request_limit !== rejectLimit);
+      const denied = await checkLearningGenerationBudget(request(), "handwriting");
+      assert.equal(denied.status, 429);
+      assert.equal(denied.retryAfter, 3600);
+    }
   }));
 test("separate requests share the persisted allowance and the ninth minute request is rejected", async () =>
   fixture(async ({ calls }) => {

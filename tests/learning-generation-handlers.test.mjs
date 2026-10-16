@@ -84,7 +84,11 @@ for (const [name, exportName, data, resultKey] of [
     process.env.VERCEL_ENV = "preview";
     try {
       const { handler, controls } = await load(name, exportName);
-      globalThis.fetch = async () => Response.json(false);
+      let firstBudgetLimit;
+      globalThis.fetch = async (_, init) => {
+        firstBudgetLimit ??= JSON.parse(init.body).p_request_limit;
+        return Response.json(false);
+      };
       let result = await handler({ data });
       assert.equal(result[resultKey], null);
       assert.match(result.error, /Wait a minute/);
@@ -92,6 +96,7 @@ for (const [name, exportName, data, resultKey] of [
       assert.equal(controls.headers["Retry-After"], "60");
       assert.equal(controls.headers["Cache-Control"], "no-store");
       assert.equal(controls.calls, 0);
+      assert.equal(firstBudgetLimit, name.startsWith("handwriting") ? 30 : 8);
       controls.status = 200;
       controls.headers = {};
       globalThis.fetch = async () => new Response("unavailable", { status: 503 });

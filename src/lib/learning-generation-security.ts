@@ -10,9 +10,14 @@ export interface LearningGenerationDenial {
 // Shared by lesson words, field decks and optional culture readings, across server instances.
 // A team on one connection shares the IP allowance. Authored/downloaded content uses none.
 export const LEARNING_GENERATION_LIMITS = { minute: 8, ipHour: 120, globalHour: 600 } as const;
+// Short image checks are a repeated learning action; they must not consume the
+// slower lesson/deck creation pool. Shared connections still have a bounded allowance.
+export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1200 } as const;
+export type LearningGenerationPurpose = "content" | "handwriting";
 
 export async function checkLearningGenerationBudget(
   request: Request,
+  purpose: LearningGenerationPurpose = "content",
 ): Promise<LearningGenerationDenial | null> {
   if (!isStrictSameOrigin(request)) {
     return { status: 403, error: "Open the app to create new practice content." };
@@ -37,13 +42,10 @@ export async function checkLearningGenerationBudget(
       : process.env.VERCEL_ENV === "preview"
         ? "preview"
         : "development";
-  const prefix = `learning-generation:v1:${stage}`;
+  const prefix = `learning-generation:v1:${stage}${purpose === "handwriting" ? ":handwriting" : ""}`;
+  const limits = purpose === "handwriting" ? HANDWRITING_CHECK_LIMITS : LEARNING_GENERATION_LIMITS;
   try {
-    const minute = await consumeServerRequestBudget(
-      `${prefix}:ip-minute`,
-      ip,
-      LEARNING_GENERATION_LIMITS.minute,
-    );
+    const minute = await consumeServerRequestBudget(`${prefix}:ip-minute`, ip, limits.minute);
     if (!minute)
       return {
         status: 429,
@@ -51,12 +53,7 @@ export async function checkLearningGenerationBudget(
           "Too many new content requests. Wait a minute, then try again. Saved lessons still work.",
         retryAfter: 60,
       };
-    const hour = await consumeServerRequestBudget(
-      `${prefix}:ip-hour`,
-      ip,
-      LEARNING_GENERATION_LIMITS.ipHour,
-      3600,
-    );
+    const hour = await consumeServerRequestBudget(`${prefix}:ip-hour`, ip, limits.ipHour, 3600);
     if (!hour)
       return {
         status: 429,
@@ -67,7 +64,7 @@ export async function checkLearningGenerationBudget(
     const global = await consumeServerRequestBudget(
       `${prefix}:all-hour`,
       "all",
-      LEARNING_GENERATION_LIMITS.globalHour,
+      limits.globalHour,
       3600,
     );
     if (!global)

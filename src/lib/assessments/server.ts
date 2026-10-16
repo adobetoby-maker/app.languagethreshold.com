@@ -541,7 +541,7 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
 
 export async function assessmentBudget(actor: string, action: string) {
   const limit =
-    action === "ai_proposal"
+    action === "ai_proposal" || action === "speech_upload"
       ? 3
       : action === "save"
         ? 90

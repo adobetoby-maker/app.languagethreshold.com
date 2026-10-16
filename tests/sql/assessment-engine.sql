@@ -200,4 +200,5 @@ select pg_temp.expect_error('select public.assessment_start_attempt(null,null,nu
 reset role;
 select 'PASS: private/team exams, frozen evidence, retries/conflicts, rubric review, support permissions/budgets/lifecycle, targeted vs full schedules, plan history and client denial' as result;
 \ir assessment-audio-storage.sql
+\ir assessment-speech.sql
 rollback;

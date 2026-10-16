@@ -1,3 +1,8 @@
+import {
+  speechStatus,
+  uploadAssessmentSpeech,
+  readAssessmentSpeech,
+} from "@/lib/assessments/speech-server";
 import { checkpointAttemptHistory } from "@/lib/assessments/reports-server";
 import { assessmentContentAccess } from "@/lib/assessments/plans-server";
 import { proposeWritingReview } from "@/lib/assessments/ai-server";
@@ -56,10 +61,20 @@ const answer = z
     correctedTranscript: z.string().max(4000).optional(),
     recognitionIssue: z.boolean().optional(),
     listeningHeard: z.boolean().optional(),
+    mediaEvidenceId: id.optional(),
     missingReason: z.string().min(1).max(300).optional(),
   })
   .strict();
 const bodySchema = z.discriminatedUnion("action", [
+  z
+    .object({
+      action: z.literal("speech_reviewed"),
+      evidenceId: id,
+      requestId: id,
+      listened: z.literal(true),
+    })
+    .strict(),
+  z.object({ action: z.literal("speech_withdraw"), evidenceId: id, requestId: id }).strict(),
   z
     .object({
       action: z.literal("ai_writing"),
@@ -212,6 +227,18 @@ export const Route = createFileRoute("/api/exams")({
                 url.searchParams.get("review") === "1",
               ),
             );
+          if (action === "speech_status") {
+            await budget(user.id, "speech_read");
+            return json(await speechStatus(db, user.id, id.parse(url.searchParams.get("attempt"))));
+          }
+          if (action === "speech_playback") {
+            await budget(user.id, "speech_read");
+            return await readAssessmentSpeech(
+              db,
+              user.id,
+              id.parse(url.searchParams.get("evidence")),
+            );
+          }
           if (action === "listening") {
             await budget(user.id, "listening");
             return await readAssessmentListening(
@@ -302,6 +329,12 @@ export const Route = createFileRoute("/api/exams")({
         try {
           if (!isStrictSameOrigin(request))
             throw new AssessmentAccessError("Cross-origin assessment request rejected.");
+          if (new URL(request.url).searchParams.get("action") === "speech_upload") {
+            const db = teamAdminClient(),
+              user = await authenticatedUser(request, db);
+            await budget(user.id, "speech_upload");
+            return json(await uploadAssessmentSpeech(db, user.id, request));
+          }
           if (Number(request.headers.get("content-length") ?? 0) > 220000)
             throw new AssessmentAccessError("Assessment request is too large.", 413);
           const db = teamAdminClient(),
@@ -311,6 +344,22 @@ export const Route = createFileRoute("/api/exams")({
             throw new AssessmentAccessError("Assessment request is too large.", 413);
           const body = bodySchema.parse(JSON.parse(raw));
           await budget(user.id, body.action);
+          if (body.action === "speech_reviewed") {
+            await rpc(db, "assessment_ack_speech_review", {
+              p_actor: user.id,
+              p_evidence: body.evidenceId,
+              p_request: body.requestId,
+            });
+            return json({ acknowledged: true });
+          }
+          if (body.action === "speech_withdraw") {
+            await rpc(db, "assessment_withdraw_speech", {
+              p_actor: user.id,
+              p_evidence: body.evidenceId,
+              p_request: body.requestId,
+            });
+            return json({ withdrawn: true });
+          }
           if (body.action === "ai_writing")
             return json(await proposeWritingReview(db, user.id, body.attemptId, body.responseId));
           if (body.action === "enroll") {

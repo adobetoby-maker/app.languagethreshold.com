@@ -1302,6 +1302,7 @@ function scrollLessonPageToTop() {
 export function AppGuide() {
   useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
 
@@ -1332,7 +1333,7 @@ export function AppGuide() {
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
           <Core30Section
-            key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
           />
         ) : (
           /* ── Fallback: legacy daily flow for modules without Core 30 ── */

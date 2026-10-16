@@ -10,7 +10,7 @@ Content owner role: curriculum lead. Required sign-offs: fluent-language reviewe
 
 | Batch | Module | Baseline lessons | Initial gaps | State |
 | --- | --- | --- | --- | --- |
-| 0: Reference | Roofing Foreman (`roofing`) | 30 | Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
+| 0: Reference | Roofing Foreman (`roofing`) | 30 | Level/activities/passages review; Three exams; Real personal/team/device pilot; Draft Spanish/English text/app download passed disconnected Chrome trial, audio/AI remain conditional/connected | Gaps identified |
 | 1: Related construction | Construction Foreman (`construction-foreman`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 1: Related construction | Construction Safety (`construction-safety`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |
 | 1: Related construction | Framer (`framer`) | 30 | Central reviewed lesson words; Level/activities/passages review; Three exams; Real personal/team pilot | Gaps identified |

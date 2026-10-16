@@ -11,9 +11,9 @@ do $$ begin
  if not exists(select 1 from pg_roles where rolname='authenticated') then create role authenticated nologin; end if;
  if not exists(select 1 from pg_roles where rolname='service_role') then create role service_role nologin; end if;
 end $$;
-\ir ../../supabase/migrations/20261016070000_assessment_engine.sql
-\ir ../../supabase/migrations/20261016071000_assessment_scoring.sql
-\ir ../../supabase/migrations/20261016072000_assessment_integrity.sql
+\ir ../../supabase/migrations/20261016071011_assessment_engine.sql
+\ir ../../supabase/migrations/20261016071015_assessment_scoring.sql
+\ir ../../supabase/migrations/20261016071020_assessment_integrity.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;
@@ -118,6 +118,12 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
  perform public.assessment_resolve_review('10000000-0000-4000-8000-000000000002',review_id,'Rubric reviewed; missing task remains not assessed','30000000-0000-4000-8000-000000000027');
  perform public.assessment_resolve_review('10000000-0000-4000-8000-000000000002',review_id,'Rubric reviewed; missing task remains not assessed','30000000-0000-4000-8000-000000000027');
  if not exists(select 1 from public.assessment_attempts where id=attempt and status='completed') then raise exception 'Reviewed result not completed'; end if;
+ insert into public.assessment_forms(id,release_id,checkpoint,version,rubric_version,definition) select 'test-midpoint','roofing-es-en-test','day45','test','test',form_snapshot->'definition' from public.assessment_attempts where id=attempt;
+ select id into cp from public.assessment_checkpoints where enrollment_id=personal and checkpoint='day45';
+ repeat_id:=public.assessment_start_attempt('10000000-0000-4000-8000-000000000001',cp,'test-midpoint','30000000-0000-4000-8000-000000000030',true,array['roofing.lesson.1']);
+ if (select form_snapshot->'definition'->'items'->0->>'coverage' from public.assessment_attempts where id=repeat_id)<>'studied' then raise exception 'Actual reported study scope not frozen'; end if;
+ if (select form_snapshot->'definition'->'items'->1->>'coverage' from public.assessment_attempts where id=repeat_id)<>'transfer' then raise exception 'Unstudied question mislabeled studied'; end if;
+
  perform pg_temp.expect_error(format('update public.assessment_attempts set form_snapshot=%L where id=%L','{}',attempt),'Frozen assessment identity');
  perform pg_temp.expect_error(format('update public.assessment_responses set answer=%L where id=%L','{}',r1),'immutable');
  perform pg_temp.expect_error(format('update public.assessment_score_events set points=0 where id=%L',score_id),'append-only');

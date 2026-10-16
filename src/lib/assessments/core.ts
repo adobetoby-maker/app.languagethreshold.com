@@ -17,6 +17,7 @@ export interface ItemEvidence {
   skill: AssessmentSkill;
   /** Reviewed anchor/equivalence group, absent when comparisons are not supported. */
   comparisonGroup?: string;
+  coverage?: "module" | "studied" | "transfer";
   state: EvidenceState;
   points: number | null;
   maximum: number;
@@ -227,4 +228,21 @@ export function checkpointSchedule(startDate: string, timezone: string) {
     );
     return { checkpoint, date, dueAt: localNoonTimestamp(date, timezone), timezone };
   });
+}
+
+/** Midpoint results never masquerade as full-module readiness. */
+export function checkpointProfiles(
+  checkpoint: Checkpoint,
+  evidence: readonly ItemEvidence[],
+  calibrated = false,
+) {
+  if (checkpoint !== "day45")
+    return [{ coverage: "module" as const, skills: skillResults(evidence, calibrated) }];
+  return (["studied", "transfer"] as const).map((coverage) => ({
+    coverage,
+    skills: skillResults(
+      evidence.filter((item) => item.coverage === coverage),
+      calibrated,
+    ),
+  }));
 }

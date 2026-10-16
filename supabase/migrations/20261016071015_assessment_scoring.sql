@@ -50,7 +50,7 @@ do $$ declare name text; begin
 end $$;
 
 create function assessment_private.can_review(p_actor uuid,p_attempt uuid) returns boolean
-language sql stable security definer set search_path='' as $$
+language sql stable security invoker set search_path='' as $$
  select exists(select 1 from public.assessment_attempts a
  join public.assessment_checkpoints c on c.id=a.checkpoint_id
  join public.assessment_enrollments e on e.id=c.enrollment_id
@@ -64,7 +64,7 @@ $$;
 revoke all on function assessment_private.can_review(uuid,uuid) from public,anon,authenticated;
 
 create function public.assessment_request_review(p_actor uuid,p_attempt uuid,p_reason text,p_consent text,p_request uuid)
-returns uuid language plpgsql security definer set search_path='' as $$
+returns uuid language plpgsql security invoker set search_path='' as $$
 declare en public.assessment_enrollments; attempt public.assessment_attempts; result uuid;
 begin
  select * into attempt from public.assessment_attempts where id=p_attempt for update;
@@ -87,7 +87,7 @@ begin
 end $$;
 
 create function public.assessment_claim_review(p_actor uuid,p_request uuid)
-returns uuid language plpgsql security definer set search_path='' as $$
+returns uuid language plpgsql security invoker set search_path='' as $$
 declare q public.assessment_review_requests; en public.assessment_enrollments;
 begin
  select * into q from public.assessment_review_requests where id=p_request for update;
@@ -104,7 +104,7 @@ begin
 end $$;
 
 create function public.assessment_record_score(p_actor uuid,p_response uuid,p_state text,p_points numeric,p_source text,p_reason text,p_confidence numeric,p_model text,p_request uuid)
-returns uuid language plpgsql security definer set search_path='' as $$
+returns uuid language plpgsql security invoker set search_path='' as $$
 declare response public.assessment_responses; attempt public.assessment_attempts; en public.assessment_enrollments; item jsonb; next_revision integer; result uuid; next_status text;
 begin
  select * into response from public.assessment_responses where id=p_response;
@@ -131,8 +131,8 @@ begin
  -- A final score cannot be silently overwritten by a background retry/proposal.
  if p_source<>'human' and exists(select 1 from public.assessment_score_events where response_id=response.id and state='scored') then raise exception 'Reviewed score is immutable to background grading'; end if;
  select coalesce(max(revision),0)+1 into next_revision from public.assessment_score_events where response_id=response.id;
- insert into public.assessment_score_events(response_id,revision,state,skill,objective_id,comparison_group,points,maximum,source,rubric_version,model_version,confidence,rationale,reviewed_by,review_reason,request_id)
- values(response.id,next_revision,p_state,item->>'skill',item->>'objectiveId',item->>'comparisonGroup',p_points,(item->>'maximum')::numeric,p_source,attempt.form_snapshot->>'rubricVersion',p_model,p_confidence,left(coalesce(p_reason,''),4000),case when p_source='human' then p_actor else null end,case when p_source='human' then trim(p_reason) else null end,p_request) returning id into result;
+ insert into public.assessment_score_events(response_id,revision,state,skill,objective_id,comparison_group,coverage,points,maximum,source,rubric_version,model_version,confidence,rationale,reviewed_by,review_reason,request_id)
+ values(response.id,next_revision,p_state,item->>'skill',item->>'objectiveId',item->>'comparisonGroup',coalesce(item->>'coverage','module'),p_points,(item->>'maximum')::numeric,p_source,attempt.form_snapshot->>'rubricVersion',p_model,p_confidence,left(coalesce(p_reason,''),4000),case when p_source='human' then p_actor else null end,case when p_source='human' then trim(p_reason) else null end,p_request) returning id into result;
  -- All responses, including explicit missing evidence, must have a current grading state.
  select case when exists(select 1 from public.assessment_responses r where r.attempt_id=attempt.id and not exists(select 1 from public.assessment_score_events s where s.response_id=r.id)) then 'scoring'
   when exists(select 1 from public.assessment_responses r join lateral(select state from public.assessment_score_events s where s.response_id=r.id order by revision desc limit 1) latest on true where r.attempt_id=attempt.id and latest.state='needs_review') then 'needs_review'
@@ -146,7 +146,7 @@ end $$;
 
 -- Provider work is claimed once. An uncertain/failed provider call is NOT automatically billed again.
 create function public.assessment_claim_grading(p_actor uuid,p_response uuid,p_lease uuid)
-returns boolean language plpgsql security definer set search_path='' as $$
+returns boolean language plpgsql security invoker set search_path='' as $$
 declare en public.assessment_enrollments; job public.assessment_grading_jobs;
 begin
  select e.* into en from public.assessment_enrollments e join public.assessment_checkpoints c on c.enrollment_id=e.id join public.assessment_attempts a on a.checkpoint_id=c.id join public.assessment_responses r on r.attempt_id=a.id where r.id=p_response and a.submitted_at is not null;
@@ -176,7 +176,7 @@ grant execute on function public.assessment_record_score(uuid,uuid,text,numeric,
 grant execute on function public.assessment_claim_grading(uuid,uuid,uuid) to service_role;
 
 create function public.assessment_resolve_review(p_actor uuid,p_review uuid,p_reason text,p_request uuid)
-returns void language plpgsql security definer set search_path='' as $$
+returns void language plpgsql security invoker set search_path='' as $$
 declare q public.assessment_review_requests; en public.assessment_enrollments;
 begin
  select * into q from public.assessment_review_requests where id=p_review for update;
@@ -195,7 +195,7 @@ revoke all on function public.assessment_resolve_review(uuid,uuid,text,uuid) fro
 grant execute on function public.assessment_resolve_review(uuid,uuid,text,uuid) to service_role;
 
 create function public.assessment_finish_grading(p_actor uuid,p_response uuid,p_lease uuid,p_succeeded boolean,p_error text default null)
-returns void language plpgsql security definer set search_path='' as $$
+returns void language plpgsql security invoker set search_path='' as $$
 declare en public.assessment_enrollments; job public.assessment_grading_jobs;
 begin
  select e.* into en from public.assessment_enrollments e join public.assessment_checkpoints c on c.enrollment_id=e.id join public.assessment_attempts a on a.checkpoint_id=c.id join public.assessment_responses r on r.attempt_id=a.id where r.id=p_response;
@@ -208,3 +208,5 @@ begin
 end $$;
 revoke all on function public.assessment_finish_grading(uuid,uuid,uuid,boolean,text) from public,anon,authenticated;
 grant execute on function public.assessment_finish_grading(uuid,uuid,uuid,boolean,text) to service_role;
+
+grant execute on function assessment_private.can_review(uuid,uuid) to service_role;

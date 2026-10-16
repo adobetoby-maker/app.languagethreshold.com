@@ -121,6 +121,7 @@ create table public.assessment_score_events (
   skill text not null check(skill in ('recognition','recall','listening','reading','writing','speaking')),
   objective_id text not null,
   comparison_group text,
+  coverage text not null default 'module' check(coverage in ('module','studied','transfer')),
   points numeric,
   maximum numeric not null check(maximum>0),
   source text not null check(source in ('deterministic','human','ai_proposal')),
@@ -166,7 +167,7 @@ create schema if not exists assessment_private;
 revoke all on schema assessment_private from public,anon,authenticated;
 -- Service JWTs only. p_actor is the API-verified auth user, never a browser-supplied actor.
 create function assessment_private.can_read(p_actor uuid,p_enrollment uuid) returns boolean
-language sql stable security definer set search_path='' as $$
+language sql stable security invoker set search_path='' as $$
  select exists(
   select 1 from public.assessment_enrollments e where e.id=p_enrollment and (
    (e.scope='personal' and e.user_id=p_actor) or
@@ -175,7 +176,7 @@ language sql stable security definer set search_path='' as $$
  );
 $$;
 create function assessment_private.can_manage(p_actor uuid,p_enrollment uuid) returns boolean
-language sql stable security definer set search_path='' as $$
+language sql stable security invoker set search_path='' as $$
  select exists(
   select 1 from public.assessment_enrollments e where e.id=p_enrollment and (
    (e.scope='personal' and e.user_id=p_actor) or
@@ -186,7 +187,7 @@ $$;
 revoke all on all functions in schema assessment_private from public,anon,authenticated;
 
 create function public.assessment_create_enrollment(p_actor uuid,p_user uuid,p_org uuid,p_release text,p_start date,p_timezone text,p_request uuid)
-returns uuid language plpgsql security definer set search_path='' as $$
+returns uuid language plpgsql security invoker set search_path='' as $$
 declare result uuid; rel public.assessment_releases; entry record;
 begin
  if p_actor is null or p_user is null then raise exception 'Assessment access required'; end if;
@@ -217,9 +218,9 @@ begin
  return result;
 end $$;
 
-create function public.assessment_start_attempt(p_actor uuid,p_checkpoint uuid,p_form text,p_request uuid,p_allow_pilot boolean default false)
-returns uuid language plpgsql security definer set search_path='' as $$
-declare cp public.assessment_checkpoints; en public.assessment_enrollments; form public.assessment_forms; result uuid; ordinal integer;
+create function public.assessment_start_attempt(p_actor uuid,p_checkpoint uuid,p_form text,p_request uuid,p_allow_pilot boolean default false,p_studied_objectives text[] default '{}'::text[])
+returns uuid language plpgsql security invoker set search_path='' as $$
+declare cp public.assessment_checkpoints; en public.assessment_enrollments; form public.assessment_forms; result uuid; ordinal integer; frozen_definition jsonb;
 begin
  select * into cp from public.assessment_checkpoints where id=p_checkpoint for update;
  select * into en from public.assessment_enrollments where id=cp.enrollment_id;
@@ -234,16 +235,21 @@ begin
  if form.id is null then raise exception 'Assessment form unavailable'; end if;
  if not coalesce(p_allow_pilot,false) and (form.status<>'verified' or not exists(select 1 from public.assessment_releases where id=en.release_id and status='verified')) then raise exception 'Assessment content review is pending'; end if;
  if form.definition->'items' is null or jsonb_typeof(form.definition->'items')<>'array' or jsonb_array_length(form.definition->'items')<1 then raise exception 'Assessment form has no items'; end if;
+ if cardinality(coalesce(p_studied_objectives,'{}'::text[]))>1000 then raise exception 'Invalid studied coverage'; end if;
+ frozen_definition:=form.definition;
+ if cp.checkpoint='day45' then
+  frozen_definition:=jsonb_set(frozen_definition,'{items}',(select jsonb_agg(jsonb_set(item,'{coverage}',to_jsonb(case when item->>'objectiveId'=any(coalesce(p_studied_objectives,'{}'::text[])) then 'studied'::text else 'transfer'::text end)) order by items.ordinal) from jsonb_array_elements(form.definition->'items') with ordinality as items(item,ordinal)));
+ end if;
  select coalesce(max(attempt_number),0)+1 into ordinal from public.assessment_attempts where checkpoint_id=p_checkpoint;
  if ordinal>10 then raise exception 'Checkpoint attempt limit reached'; end if;
  insert into public.assessment_attempts(checkpoint_id,attempt_number,form_id,form_snapshot,start_request_id)
- values(p_checkpoint,ordinal,p_form,jsonb_build_object('formId',form.id,'version',form.version,'rubricVersion',form.rubric_version,'releaseId',en.release_id,'contentVersion',(select content_version from public.assessment_releases where id=en.release_id),'pilot',p_allow_pilot,'calibrated',form.calibrated,'equivalenceGroup',form.equivalence_group,'equivalenceApproved',form.equivalence_approved,'definition',form.definition),p_request) returning id into result;
+ values(p_checkpoint,ordinal,p_form,jsonb_build_object('formId',form.id,'version',form.version,'rubricVersion',form.rubric_version,'releaseId',en.release_id,'contentVersion',(select content_version from public.assessment_releases where id=en.release_id),'pilot',p_allow_pilot,'calibrated',form.calibrated,'equivalenceGroup',form.equivalence_group,'equivalenceApproved',form.equivalence_approved,'definition',frozen_definition,'reportedStudiedObjectives',coalesce(p_studied_objectives,'{}'::text[])),p_request) returning id into result;
  insert into public.assessment_events(enrollment_id,actor_id,action,request_id,detail) values(en.id,p_actor,'attempt.started',p_request,jsonb_build_object('attemptId',result,'formId',form.id,'attemptNumber',ordinal,'pilot',p_allow_pilot));
  return result;
 end $$;
 
 create function public.assessment_save_responses(p_actor uuid,p_attempt uuid,p_revision integer,p_updates jsonb,p_request uuid)
-returns integer language plpgsql security definer set search_path='' as $$
+returns integer language plpgsql security invoker set search_path='' as $$
 declare attempt public.assessment_attempts; cp public.assessment_checkpoints; en public.assessment_enrollments; update_row jsonb;
 begin
  select * into attempt from public.assessment_attempts where id=p_attempt for update;
@@ -271,7 +277,7 @@ begin
 end $$;
 
 create function public.assessment_submit_attempt(p_actor uuid,p_attempt uuid,p_revision integer,p_request uuid)
-returns text language plpgsql security definer set search_path='' as $$
+returns text language plpgsql security invoker set search_path='' as $$
 declare attempt public.assessment_attempts; cp public.assessment_checkpoints; en public.assessment_enrollments;
 begin
  select * into attempt from public.assessment_attempts where id=p_attempt for update;
@@ -294,17 +300,17 @@ begin
 end $$;
 
 revoke all on function public.assessment_create_enrollment(uuid,uuid,uuid,text,date,text,uuid) from public,anon,authenticated;
-revoke all on function public.assessment_start_attempt(uuid,uuid,text,uuid,boolean) from public,anon,authenticated;
+revoke all on function public.assessment_start_attempt(uuid,uuid,text,uuid,boolean,text[]) from public,anon,authenticated;
 revoke all on function public.assessment_save_responses(uuid,uuid,integer,jsonb,uuid) from public,anon,authenticated;
 revoke all on function public.assessment_submit_attempt(uuid,uuid,integer,uuid) from public,anon,authenticated;
 grant execute on function public.assessment_create_enrollment(uuid,uuid,uuid,text,date,text,uuid) to service_role;
-grant execute on function public.assessment_start_attempt(uuid,uuid,text,uuid,boolean) to service_role;
+grant execute on function public.assessment_start_attempt(uuid,uuid,text,uuid,boolean,text[]) to service_role;
 grant execute on function public.assessment_save_responses(uuid,uuid,integer,jsonb,uuid) to service_role;
 grant execute on function public.assessment_submit_attempt(uuid,uuid,integer,uuid) to service_role;
 
 -- Schedule changes preserve original attempt snapshots and emit an immutable before/after trail.
 create function public.assessment_change_schedule(p_actor uuid,p_enrollment uuid,p_revision integer,p_change text,p_checkpoint uuid,p_date date,p_reason text,p_request uuid)
-returns integer language plpgsql security definer set search_path='' as $$
+returns integer language plpgsql security invoker set search_path='' as $$
 declare en public.assessment_enrollments; cp public.assessment_checkpoints; local_day date; pause_days integer; before_state jsonb; after_state jsonb; fingerprint text;
 begin
  select * into en from public.assessment_enrollments where id=p_enrollment for update;
@@ -351,3 +357,6 @@ begin
 end $$;
 revoke all on function public.assessment_change_schedule(uuid,uuid,integer,text,uuid,date,text,uuid) from public,anon,authenticated;
 grant execute on function public.assessment_change_schedule(uuid,uuid,integer,text,uuid,date,text,uuid) to service_role;
+
+grant usage on schema assessment_private to service_role;
+grant execute on function assessment_private.can_read(uuid,uuid),assessment_private.can_manage(uuid,uuid) to service_role;

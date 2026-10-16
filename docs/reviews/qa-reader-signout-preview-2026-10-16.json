@@ -1,0 +1,22 @@
+{
+  "testedAt": "2026-10-16",
+  "sourceCommit": "e0c9e18",
+  "target": "https://language-threshold-a2d8gzwkx-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_EFe6GSkCU7JZwjTRJsd439byUujY",
+  "scope": "Actual normal QA browser sign-in/sign-out/reauthentication and hosted independent-session scope verification; 13 workflow fixtures for data-loss and cleanup edge cases",
+  "checks": {
+    "ownCloudTextVisibleBeforeSignOut": true,
+    "fullySyncedCacheHadNoRetryControl": true,
+    "normalSignOutShowsGuestAndZeroPrivateTextNodes": true,
+    "normalReauthenticationRestoresCloudText": true,
+    "secondBrowserSignOutObservedBeforeScopeVerification": true,
+    "independentQaSessionStillRefreshes": true,
+    "cloudTextCountRemainsOne": true
+  },
+  "limits": [
+    "Pending-work warning cancellation/approval and cache-key cleanup are workflow fixtures, not direct inspection of browser storage",
+    "Reader-only lifecycle protection; other private feature stores still need isolation",
+    "Unexpected-expiry preservation tested in workflow fixtures; actual expired-browser session still pending",
+    "No physical iPhone/Safari/audio or official assessment publication proved"
+  ]
+}

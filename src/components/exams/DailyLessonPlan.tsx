@@ -198,6 +198,47 @@ function DailyLessonPlanContent({
   const plans = data?.plans ?? [];
   const hasGuidance =
     plans.some((plan) => plan.revision || plan.assignments.length) || !!data?.returnContexts.length;
+  if (!hasGuidance && activePlanId) {
+    const selected = plans.find((plan) => plan.enrollmentId === activePlanId);
+    const selectedExamUrl = selected?.organizationId
+      ? `${examUrl}&org=${encodeURIComponent(selected.organizationId)}`
+      : examUrl;
+    return (
+      <aside
+        aria-label="Your selected learning plan"
+        className="my-4 space-y-2 rounded-xl border border-border p-4 text-sm"
+      >
+        {selected ? (
+          <>
+            <h3 className="font-semibold">
+              {selected.scope === "personal" ? "Private personal plan" : "Team plan"}
+            </h3>
+            <p className="text-xs text-muted-foreground">
+              Start date: {selected.startDate} · {selected.timezone} · {selected.status}
+            </p>
+            <p>
+              Approved learning guidance is not available for this plan yet. You can keep practicing
+              any lesson.
+            </p>
+            {error && (
+              <p role="status" className="text-xs">
+                {error}
+              </p>
+            )}
+          </>
+        ) : data === null && !error ? (
+          <p role="status">Loading this plan… Your lesson is available.</p>
+        ) : (
+          <p role="status">
+            This selected plan could not be loaded. Your lesson is still available.
+          </p>
+        )}
+        <a href={selectedExamUrl} className="inline-flex min-h-11 items-center text-gold underline">
+          Open my module Exams
+        </a>
+      </aside>
+    );
+  }
   if (!hasGuidance) {
     if (lessonNumber)
       return error ? (

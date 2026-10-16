@@ -3,6 +3,7 @@ import type { LibraryEntry } from "../state/library-state";
 export interface LibraryStorage {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
+  removeItem?(key: string): void;
 }
 interface Cache {
   books: LibraryEntry[];
@@ -24,6 +25,57 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export const libraryDeviceKey = (actor: string | null) =>
   `lt.library-device.v1.${actor === null ? "guest" : `user.${encodeURIComponent(actor)}`}`;
 const preferencesKey = (actor: string | null) => libraryDeviceKey(actor) + ".preferences";
+const epochKey = (actor: string | null) => libraryDeviceKey(actor) + ".epoch";
+function readEpoch(storage: LibraryStorage | null, actor: string | null) {
+  try {
+    return storage?.getItem(epochKey(actor)) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function pendingLibraryChanges(storage: LibraryStorage | null, actor: string) {
+  try {
+    if (!storage) return { count: 0, unreadable: true };
+    const raw = storage.getItem(libraryDeviceKey(actor));
+    if (!raw) return { count: 0, unreadable: false };
+    if (raw.length > MAX_BYTES) return { count: 0, unreadable: true };
+    const value = JSON.parse(raw);
+    if (
+      value?.schema !== 1 ||
+      value.actor !== actor ||
+      !Array.isArray(value.data?.pending) ||
+      !Array.isArray(value.data?.deleted)
+    )
+      return { count: 0, unreadable: true };
+    return { count: value.data.pending.length + value.data.deleted.length, unreadable: false };
+  } catch {
+    return { count: 0, unreadable: true };
+  }
+}
+
+/** Only an explicit successful sign-out clears this account's Reader cache. Never touches guest/legacy/other accounts. */
+export function clearLibraryDeviceForUser(storage: LibraryStorage | null, actor: string) {
+  if (!storage?.removeItem || !actor) return false;
+  try {
+    // Invalidates old tabs/requests before deleting their cache, preventing a late rewrite.
+    const nextEpoch = crypto.randomUUID();
+    try {
+      storage.setItem(epochKey(actor), nextEpoch);
+    } catch {
+      // A full device may have room for the invalidation marker only after removing its
+      // approved cache. Remove again after the marker so concurrent old tabs cannot restore it.
+      storage.removeItem(libraryDeviceKey(actor));
+      storage.removeItem(preferencesKey(actor));
+      storage.setItem(epochKey(actor), nextEpoch);
+    }
+    storage.removeItem(libraryDeviceKey(actor));
+    storage.removeItem(preferencesKey(actor));
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function readOwned(storage: LibraryStorage | null, key: string, actor: string | null) {
   try {
@@ -53,7 +105,7 @@ function writeOwned(
 export function readLibraryPreferences(storage: LibraryStorage | null, actor: string | null) {
   return readOwned(storage, preferencesKey(actor), actor);
 }
-export function saveLibraryPreferences(
+function saveLibraryPreferences(
   storage: LibraryStorage | null,
   actor: string | null,
   data: object,
@@ -122,6 +174,8 @@ export function createLibraryDevice({
     error: null,
     legacySaved: legacyPresent(storage),
   };
+  const epoch = readEpoch(storage, actor);
+  const currentIdentity = () => isCurrent() && readEpoch(storage, actor) === epoch;
   const listeners = new Set<() => void>();
   let generation = 0;
   let flight: { abort: AbortController; promise: Promise<void> } | null = null;
@@ -130,7 +184,8 @@ export function createLibraryDevice({
     for (const listener of listeners) listener();
   }
   function commit(cache: Cache) {
-    if (!isCurrent()) throw Error("Your account changed. Reopen this text in the current account.");
+    if (!currentIdentity())
+      throw Error("Your account changed. Reopen this text in the current account.");
     try {
       writeOwned(storage, libraryDeviceKey(actor), actor, cache);
     } catch {
@@ -145,6 +200,9 @@ export function createLibraryDevice({
   }
   const device = {
     getSnapshot: () => snapshot,
+    savePreferences(data: object) {
+      return currentIdentity() && saveLibraryPreferences(storage, actor, data);
+    },
     subscribe(listener: () => void) {
       listeners.add(listener);
       return () => {
@@ -175,11 +233,11 @@ export function createLibraryDevice({
       notify({ syncing: false });
     },
     sync(): Promise<void> {
-      if (!actor || !remote || !isCurrent()) return Promise.resolve();
+      if (!actor || !remote || !currentIdentity()) return Promise.resolve();
       if (flight) return flight.promise;
       const current = ++generation;
       const abort = new AbortController();
-      const active = () => generation === current && !abort.signal.aborted && isCurrent();
+      const active = () => generation === current && !abort.signal.aborted && currentIdentity();
       notify({ syncing: true, error: null });
       const timeout = setTimeout(() => {
         if (active()) {

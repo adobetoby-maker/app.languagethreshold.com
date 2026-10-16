@@ -18,11 +18,7 @@ import { useAuth } from "./auth-state";
 import { toast } from "sonner";
 import { createLibraryRemote } from "@/lib/library-remote";
 import { LANGUAGES } from "@/data/languages";
-import {
-  createLibraryDevice,
-  readLibraryPreferences,
-  saveLibraryPreferences,
-} from "@/lib/library-device";
+import { createLibraryDevice, readLibraryPreferences } from "@/lib/library-device";
 
 function browserLibraryStorage() {
   try {
@@ -265,12 +261,12 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    saveLibraryPreferences(browserLibraryStorage(), actor, {
+    device.savePreferences({
       selectedId: state.selectedId,
       readStatus: state.readStatus,
       languageFilter: state.languageFilter,
     });
-  }, [actor, state.selectedId, state.readStatus, state.languageFilter]);
+  }, [device, state.selectedId, state.readStatus, state.languageFilter]);
 
   const addCustomEntry = useCallback(
     async (entry: LibraryEntry) => {

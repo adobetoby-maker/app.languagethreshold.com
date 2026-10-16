@@ -18,6 +18,8 @@ import {
   browserExamStorage,
 } from "@/lib/assessments/drafts";
 import { toast } from "sonner";
+import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
+import { pendingLibraryChanges } from "@/lib/library-device";
 
 interface AuthContextValue {
   user: User | null;
@@ -46,6 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const currentUser = useRef<string | null>(null);
   const discardApprovedFor = useRef<string | null>(null);
+  const signingOutFor = useRef<string | null>(null);
 
   useEffect(() => {
     // CRITICAL: subscribe BEFORE getSession to avoid missing events
@@ -55,6 +58,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (previousUser && previousUser !== currentUser.current) {
         try {
           clearLessonDraftsForUser(window.localStorage, previousUser);
+          const reader = pendingLibraryChanges(window.localStorage, previousUser);
+          if (signingOutFor.current !== previousUser && (reader.count || reader.unreadable))
+            toast.warning(
+              "Your session changed. Reader changes are kept on this device for the previous account. Sign back in to sync them.",
+            );
           if (
             hasUnsyncedExamDrafts(window.localStorage, previousUser) &&
             discardApprovedFor.current !== previousUser
@@ -151,32 +159,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = useCallback(async (scope?: "global" | "local" | "others") => {
     const userId = currentUser.current;
-    if (
-      scope !== "others" &&
-      userId &&
-      typeof window !== "undefined" &&
-      hasUnsyncedExamDrafts(browserExamStorage(), userId)
-    ) {
-      if (
-        !window.confirm(
-          "Some exam answers or recordings have not synced. Signing out discards them. Cancel and upload or sync them first, or sign out and discard the unsaved work.",
-        )
-      )
-        return false;
-      discardApprovedFor.current = userId;
-    }
-    const { error } = await supabase.auth.signOut(scope ? { scope } : undefined);
-    if (error) {
+    if (signingOutFor.current) return false;
+    // Freeze account-bound writes before inspection/confirmation; late Reader requests cannot
+    // add new device-only work between the warning and completed sign-out.
+    if (scope !== "others") signingOutFor.current = userId;
+    const storage = browserExamStorage();
+    try {
+      const result = await signOutWithDeviceSafety({
+        actor: userId,
+        scope,
+        storage,
+        examPending: !!userId && hasUnsyncedExamDrafts(storage, userId),
+        confirmDiscard: (message) => typeof window !== "undefined" && window.confirm(message),
+        signOut: () => supabase.auth.signOut(scope ? { scope } : undefined),
+        onExamDiscardApproved: () => {
+          discardApprovedFor.current = userId;
+        },
+        clearExamDrafts: () => {
+          if (userId) clearExamDraftsForUser(storage, userId);
+        },
+      });
+      if (!result.signedOut && !result.cancelled)
+        toast.error("Sign out could not finish. Check your connection before trying again.");
+      if (result.signedOut && !result.cleanupComplete)
+        toast.warning(
+          "You are signed out, but this browser could not fully clear saved device data. Clear this app’s site data before sharing the device.",
+        );
+      return result.signedOut;
+    } finally {
       discardApprovedFor.current = null;
-      toast.error("Sign out could not finish. Check your connection before trying again.");
-      return false;
+      signingOutFor.current = null;
     }
-    if (scope !== "others" && userId && typeof window !== "undefined")
-      clearExamDraftsForUser(browserExamStorage(), userId);
-    return true;
   }, []);
 
-  const isCurrentUser = useCallback((userId: string) => currentUser.current === userId, []);
+  const isCurrentUser = useCallback(
+    (userId: string) => currentUser.current === userId && signingOutFor.current !== userId,
+    [],
+  );
 
   const value = useMemo<AuthContextValue>(
     () => ({

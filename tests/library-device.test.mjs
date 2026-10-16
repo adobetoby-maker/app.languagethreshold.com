@@ -4,7 +4,6 @@ import {
   createLibraryDevice,
   libraryDeviceKey,
   readLibraryPreferences,
-  saveLibraryPreferences,
 } from "../src/lib/library-device.ts";
 const id = (n) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
 const book = (n) => ({
@@ -292,7 +291,7 @@ test("owner envelopes and reading preferences cannot be replayed into another ac
     [],
   );
   assert.equal(
-    saveLibraryPreferences(storage, "a", {
+    a.savePreferences({
       selectedId: id(1),
       readStatus: { [id(1)]: "complete" },
     }),

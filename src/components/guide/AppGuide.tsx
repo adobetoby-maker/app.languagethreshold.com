@@ -1,5 +1,5 @@
 import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
-import { requestedLesson } from "@/lib/learning-link";
+import { requestedLesson, lessonLocation } from "@/lib/learning-link";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -598,6 +598,7 @@ function LessonRunner({
   moduleId,
   totalLessons,
   initialSection,
+  syncLocation = false,
   onComplete,
   onExit,
   onNavigate,
@@ -607,6 +608,7 @@ function LessonRunner({
   totalLessons: number;
   /** Section to open on (a learner returning from the Speak tab or the full Reader). */
   initialSection?: SectionId;
+  syncLocation?: boolean;
   onComplete: () => void;
   onExit: () => void;
   onNavigate: (n: number) => void;
@@ -677,6 +679,19 @@ function LessonRunner({
       type: "CORE30_WAY_OPENED",
       payload: { moduleId, lesson: lesson.n, way: section, at: new Date().toISOString() },
     });
+    if (syncLocation) {
+      const next = lessonLocation(
+        window.location.href,
+        {
+          moduleId,
+          target: state.selectedLanguage,
+          native: state.nativeLanguage,
+        },
+        { lesson: lesson.n, way: section },
+      );
+      if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+        window.history.replaceState(window.history.state, "", next);
+    }
     try {
       const storage = userId ? window.localStorage : window.sessionStorage;
       saveLessonPosition(
@@ -692,7 +707,16 @@ function LessonRunner({
     } catch {
       /* The lesson remains usable when device storage is unavailable. */
     }
-  }, [dispatch, moduleId, lesson.n, section, userId, state.selectedLanguage, state.nativeLanguage]);
+  }, [
+    dispatch,
+    moduleId,
+    lesson.n,
+    section,
+    userId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    syncLocation,
+  ]);
 
   useEffect(() => {
     teamSessions.current = {};
@@ -1684,6 +1708,20 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       setSavedPositionState({ key: positionKey, position: null });
     }
   }, [positionKey, moduleId, user?.id, openLessonN]);
+  useEffect(() => {
+    if (!restoreView || openLessonN !== null) return;
+    const next = lessonLocation(
+      window.location.href,
+      {
+        moduleId,
+        target: state.selectedLanguage,
+        native: state.nativeLanguage,
+      },
+      null,
+    );
+    if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+      window.history.replaceState(window.history.state, "", next);
+  }, [restoreView, openLessonN, moduleId, state.selectedLanguage, state.nativeLanguage]);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
@@ -1768,58 +1806,6 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
       {!howOpen && (
         <>
-          {/* 90-day plan: start date, today's lesson, review cadence */}
-          {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
-            <p role="status" className="my-4 text-sm">
-              Connect to load this plan’s approved review schedule. Your lesson list remains
-              available.
-            </p>
-          )}
-          {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
-            <Core30PlanCard
-              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
-              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
-              managedPlanUrl={
-                activeAssessmentPlan
-                  ? `/exams?${new URLSearchParams({ ...(approvedPlanTiming.organizationId ? { org: approvedPlanTiming.organizationId } : {}), module: moduleId, target: state.selectedLanguage, native: state.nativeLanguage })}`
-                  : undefined
-              }
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
-          )}
-
-          {/* Progress bar */}
-          {!runnerActive && (
-            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                  {completedCount} / {totalLessons} lessons complete
-                </span>
-                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
-              </div>
-              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${progressPct}%`,
-                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
-                  }}
-                />
-              </div>
-              {allDone && (
-                <p className="mt-2 text-xs text-gold text-center">
-                  🎉 Curriculum complete! You are past the threshold.
-                </p>
-              )}
-            </div>
-          )}
-
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
@@ -1860,6 +1846,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               moduleId={moduleId}
               totalLessons={totalLessons}
               initialSection={initialWay}
+              syncLocation={restoreView}
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
               onNavigate={openLessonFromPlan}
@@ -2008,6 +1995,59 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                     );
                   })}
                 </ul>
+              )}
+            </div>
+          )}
+
+          {/* Planning and progress follow the lesson actions on every screen size. */}
+          {/* 90-day plan: start date, today's lesson, review cadence */}
+          {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
+            <p role="status" className="my-4 text-sm">
+              Connect to load this plan’s approved review schedule. Your lesson list remains
+              available.
+            </p>
+          )}
+          {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
+            <Core30PlanCard
+              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+              managedPlanUrl={
+                activeAssessmentPlan
+                  ? `/exams?${new URLSearchParams({ ...(approvedPlanTiming.organizationId ? { org: approvedPlanTiming.organizationId } : {}), module: moduleId, target: state.selectedLanguage, native: state.nativeLanguage })}`
+                  : undefined
+              }
+              moduleId={moduleId}
+              totalLessons={totalLessons}
+              onOpenLesson={openLessonFromPlan}
+              onStartReview={() => {
+                setOpenLessonN(null);
+                setReviewOpen(true);
+              }}
+            />
+          )}
+
+          {/* Progress bar */}
+          {!runnerActive && (
+            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
+                  {completedCount} / {totalLessons} lessons complete
+                </span>
+                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${progressPct}%`,
+                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
+                  }}
+                />
+              </div>
+              {allDone && (
+                <p className="mt-2 text-xs text-gold text-center">
+                  🎉 Curriculum complete! You are past the threshold.
+                </p>
               )}
             </div>
           )}

@@ -55,3 +55,40 @@ export function requestedLesson(params: URLSearchParams, moduleId: string, total
     way: way && ["see", "recall", "hear", "type", "say", "write"].includes(way) ? way : "see",
   };
 }
+
+/** Keep refresh/share aligned with the visible Core 30 runner without adding history entries. */
+export function lessonLocation(
+  current: string,
+  context: { moduleId: string; target: string; native: string },
+  position: { lesson: number; way: string } | null,
+): string | null {
+  if (!context.moduleId || !context.target || !context.native) return null;
+  if (
+    position &&
+    (!Number.isInteger(position.lesson) ||
+      position.lesson < 1 ||
+      !["see", "recall", "hear", "type", "say", "write"].includes(position.way))
+  )
+    return null;
+  const url = new URL(current, "https://lesson.invalid");
+  if (url.pathname !== "/") return null;
+  const params = url.searchParams;
+  const sameTrack =
+    params.get("module") === context.moduleId &&
+    params.get("target") === context.target &&
+    params.get("native") === context.native;
+  // A plan belongs to its enrollment's module and pair, not the next module selected.
+  if (!sameTrack) params.delete("plan");
+  params.set("module", context.moduleId);
+  params.set("target", context.target);
+  params.set("native", context.native);
+  params.set("tab", "core30");
+  if (position) {
+    params.set("lesson", String(position.lesson));
+    params.set("way", position.way);
+  } else {
+    params.delete("lesson");
+    params.delete("way");
+  }
+  return url.pathname + url.search + url.hash;
+}

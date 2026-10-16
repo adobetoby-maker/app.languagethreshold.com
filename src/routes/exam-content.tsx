@@ -4,9 +4,15 @@ import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthButton } from "@/components/auth/AuthButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { examRequest } from "@/lib/assessments/client";
+import {
+  ContentReviewDecision,
+  type ContentReviewContext,
+} from "@/components/exams/ContentReviewDecision";
 import { getModule } from "@/data/modules";
 import type { AssessmentFormDefinition } from "@/lib/assessments/form";
 type Catalog = {
+  owner: boolean;
+  registeredOwner: boolean;
   releases: {
     id: string;
     module_id: string;
@@ -29,6 +35,7 @@ type Catalog = {
   formLimit: number;
 };
 type PrivateForm = {
+  reviewContext: ContentReviewContext | null;
   id: string;
   checkpoint: string;
   purpose: string;
@@ -69,6 +76,8 @@ function PrivateContent() {
     if (!user) return;
     const actor = user.id,
       controller = new AbortController();
+    setCatalog(null);
+    setDetail(null);
     void examRequest<Catalog>("/api/exam-content", controller.signal)
       .then((data) => {
         if (!controller.signal.aborted && isCurrentUser(actor)) {
@@ -86,6 +95,7 @@ function PrivateContent() {
     if (!user || !formId) return;
     const actor = user.id,
       controller = new AbortController();
+    setDetail(null);
     void examRequest<{ form: PrivateForm }>(
       `/api/exam-content?form=${encodeURIComponent(formId)}`,
       controller.signal,
@@ -106,8 +116,11 @@ function PrivateContent() {
   return (
     <div className="min-h-screen bg-background p-4 text-foreground sm:p-8">
       <header className="mx-auto mb-6 flex max-w-5xl flex-wrap items-center justify-between gap-3">
-        <a className="min-h-11 py-2 text-gold underline" href="/owner">
-          Owner dashboard
+        <a
+          className="min-h-11 py-2 text-gold underline"
+          href={catalog?.owner ? "/owner" : "/exams"}
+        >
+          {catalog?.owner ? "Owner dashboard" : "My Exams"}
         </a>
         <div className="flex items-center gap-4">
           <ThemeToggle />
@@ -117,11 +130,12 @@ function PrivateContent() {
       <main className="mx-auto max-w-5xl space-y-5">
         <h1 className="font-serif text-3xl">Private exam content review</h1>
         <p>
-          This owner-only workspace shows authored questions, answer policies and frozen rubrics for
-          review. It contains no learner responses. Viewing a draft does not approve, calibrate or
-          publish it.
+          This workspace shows questions, answer policies and rubrics to assigned content reviewers
+          and the platform owner. It contains no learner responses. Opening private keys is
+          recorded: this language-track bank cannot subsequently serve as your own official
+          assessment. Viewing a draft does not approve, calibrate or publish it.
         </p>
-        {!user && <p>Sign in with the platform owner account to continue.</p>}
+        {!user && <p>Sign in with your assigned content-reviewer or platform owner account.</p>}
         {error && (
           <div role="alert" className="rounded-xl border border-amber-500/40 p-4">
             <p>{error}</p>
@@ -137,6 +151,14 @@ function PrivateContent() {
         {formId && !shownForm && !error && <p role="status">Loading the selected form…</p>}
         {catalog && (
           <>
+            {catalog.registeredOwner && (
+              <a
+                href="/exam-reviewers"
+                className="inline-flex min-h-11 items-center text-gold underline"
+              >
+                Manage reviewer access
+              </a>
+            )}
             <label className="block text-sm">
               Module and language release
               <select
@@ -172,8 +194,8 @@ function PrivateContent() {
                 </p>
                 <p className="mt-2 text-sm">
                   Publication requires curriculum, fluent-language and domain review, plus scoring
-                  calibration and the approved evidence workflow. No review is supplied by this
-                  screen.
+                  calibration and the approved evidence workflow. Only assigned reviewers can record
+                  decisions; these do not publish content.
                 </p>
               </section>
             )}
@@ -205,7 +227,7 @@ function PrivateContent() {
                 </h2>
                 <p>
                   {shownForm.definition.items.length} tasks · rubric {shownForm.rubric_version} ·{" "}
-                  {shownForm.review_records.length} review records · calibration{" "}
+                  {shownForm.review_records.length} imported review records · calibration{" "}
                   {shownForm.calibrated ? "approved" : "pending"} · equivalence{" "}
                   {shownForm.equivalence_approved ? "approved" : "pending"}
                 </p>
@@ -250,6 +272,21 @@ function PrivateContent() {
                     <p className="text-sm">Review rationale: {item.rationale}</p>
                   </article>
                 ))}
+                {shownForm.reviewContext && (
+                  <ContentReviewDecision
+                    key={`${shownForm.id}:${shownForm.reviewContext.fingerprint}`}
+                    formId={shownForm.id}
+                    context={shownForm.reviewContext}
+                    onRecorded={() => setEpoch((value) => value + 1)}
+                    onAccessLost={() => {
+                      setDetail(null);
+                      setCatalog(null);
+                      setError(
+                        "Content access changed. Refresh your assigned permissions before continuing.",
+                      );
+                    }}
+                  />
+                )}
               </section>
             )}
           </>

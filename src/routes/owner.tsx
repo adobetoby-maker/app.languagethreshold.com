@@ -199,6 +199,9 @@ function OwnerDashboard() {
           </div>
           <div className="flex flex-wrap gap-2">
             <ThemeToggle className={secondary + " flex items-center gap-2"} />
+            <a href="/exam-reviewers" className={secondary}>
+              Reviewer access
+            </a>
             <a href="/exam-content" className={secondary}>
               Private exam content
             </a>

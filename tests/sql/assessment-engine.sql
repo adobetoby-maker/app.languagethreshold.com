@@ -3,6 +3,7 @@ begin;
 -- Isolated local integration fixture, rolled back in full. Never run against a hosted project.
 create schema auth;
 create table auth.users(id uuid primary key);
+create table public.platform_admin_roles(user_id uuid primary key references auth.users(id),role text);
 create table public.team_organizations(id uuid primary key,name text);
 create table public.team_members(organization_id uuid,user_id uuid,role text,status text);
 create table public.team_assignments(organization_id uuid,user_id uuid,module_id text,unique(organization_id,user_id,module_id));
@@ -23,6 +24,7 @@ end $$;
 \ir ../../supabase/migrations/20261016093121_assessment_human_decision_priority.sql
 \ir ../../supabase/migrations/20261016102338_assessment_paged_reports.sql
 \ir ../../supabase/migrations/20261016103623_assessment_checkpoint_heads.sql
+\ir ../../supabase/migrations/20261016113042_assessment_reviewer_administration.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;
@@ -163,14 +165,23 @@ do $$ declare personal uuid; team uuid; cp uuid; attempt uuid; repeat_id uuid; n
 end $$;
 -- Match the hosted service role while exercising support RPC/table permissions.
 alter role service_role bypassrls;
-grant select,insert,update on public.team_organizations,public.team_members,public.team_assignments to service_role;
+grant select,insert,update on public.team_organizations,public.team_members,public.team_assignments,public.platform_admin_roles to service_role;
+grant usage on schema auth to service_role;
+grant select on auth.users to service_role;
 set local role service_role;
 \ir assessment-reports.sql
 \ir assessment-support.sql
+\ir assessment-reviewer-admin.sql
 reset role;
 -- Even authenticated clients cannot call pilot RPCs or read keys directly.
 set local role authenticated;
 select pg_temp.expect_error('select * from public.assessment_forms','permission denied');
+select pg_temp.expect_error('select * from public.assessment_content_reviewers','permission denied');
+select pg_temp.expect_error('select * from public.assessment_content_decisions','permission denied');
+select pg_temp.expect_error('select * from public.assessment_content_exposures','permission denied');
+select pg_temp.expect_error('select public.assessment_manage_reviewer(null,null,null,null,null,null,null,null,null,null)','permission denied');
+select pg_temp.expect_error('select public.assessment_record_content_review(null,null,null,null,null,null,null)','permission denied');
+select pg_temp.expect_error('select public.assessment_note_content_exposure(null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_review_queue(null)','permission denied');
 select pg_temp.expect_error('select public.assessment_latest_scores(null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_overview_page(null)','permission denied');

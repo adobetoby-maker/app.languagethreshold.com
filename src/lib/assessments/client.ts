@@ -16,6 +16,12 @@ export function examPlanRequest<T>(
 ) {
   return assessmentRequest<T>(pathOrBody, "/api/exam-plans", signal);
 }
+export function examReviewerRequest<T>(body: Record<string, unknown>, signal?: AbortSignal) {
+  return assessmentRequest<T>(body, "/api/exam-reviewers", signal);
+}
+export function examContentRequest<T>(body: Record<string, unknown>, signal?: AbortSignal) {
+  return assessmentRequest<T>(body, "/api/exam-content", signal);
+}
 async function assessmentRequest<T>(
   pathOrBody: string | Record<string, unknown>,
   endpoint: string,

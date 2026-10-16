@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as ExamContentRouteImport } from './routes/exam-content'
+import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as FamilySetupRouteImport } from './routes/family-setup'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
@@ -27,6 +28,7 @@ import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-check
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
 import { Route as ApiExamContentRouteImport } from './routes/api.exam-content'
 import { Route as ApiExamPlansRouteImport } from './routes/api.exam-plans'
+import { Route as ApiExamReviewersRouteImport } from './routes/api.exam-reviewers'
 import { Route as ApiExamsRouteImport } from './routes/api.exams'
 import { Route as ApiFamilyAddKidRouteImport } from './routes/api.family-add-kid'
 import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
@@ -73,6 +75,11 @@ const CertificateRoute = CertificateRouteImport.update({
 const ExamContentRoute = ExamContentRouteImport.update({
   id: '/exam-content',
   path: '/exam-content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamReviewersRoute = ExamReviewersRouteImport.update({
+  id: '/exam-reviewers',
+  path: '/exam-reviewers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamsRoute = ExamsRouteImport.update({
@@ -138,6 +145,11 @@ const ApiExamContentRoute = ApiExamContentRouteImport.update({
 const ApiExamPlansRoute = ApiExamPlansRouteImport.update({
   id: '/api/exam-plans',
   path: '/api/exam-plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExamReviewersRoute = ApiExamReviewersRouteImport.update({
+  id: '/api/exam-reviewers',
+  path: '/api/exam-reviewers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiExamsRoute = ApiExamsRouteImport.update({
@@ -256,6 +268,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/exam-content': typeof ExamContentRoute
+  '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
@@ -270,6 +283,7 @@ export interface FileRoutesByFullPath {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
+  '/api/exam-reviewers': typeof ApiExamReviewersRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -298,6 +312,7 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/exam-content': typeof ExamContentRoute
+  '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
@@ -312,6 +327,7 @@ export interface FileRoutesByTo {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
+  '/api/exam-reviewers': typeof ApiExamReviewersRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -341,6 +357,7 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
   '/exam-content': typeof ExamContentRoute
+  '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
   '/family-setup': typeof FamilySetupRoute
   '/index': typeof Char91indexChar93Route
@@ -355,6 +372,7 @@ export interface FileRoutesById {
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
+  '/api/exam-reviewers': typeof ApiExamReviewersRoute
   '/api/exams': typeof ApiExamsRoute
   '/api/family-add-kid': typeof ApiFamilyAddKidRoute
   '/api/field-prep': typeof ApiFieldPrepRoute
@@ -385,6 +403,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/exam-content'
+    | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
     | '/index'
@@ -399,6 +418,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/exam-content'
     | '/api/exam-plans'
+    | '/api/exam-reviewers'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -427,6 +447,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/exam-content'
+    | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
     | '/index'
@@ -441,6 +462,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/exam-content'
     | '/api/exam-plans'
+    | '/api/exam-reviewers'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -469,6 +491,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/certificate'
     | '/exam-content'
+    | '/exam-reviewers'
     | '/exams'
     | '/family-setup'
     | '/index'
@@ -483,6 +506,7 @@ export interface FileRouteTypes {
     | '/api/discussion'
     | '/api/exam-content'
     | '/api/exam-plans'
+    | '/api/exam-reviewers'
     | '/api/exams'
     | '/api/family-add-kid'
     | '/api/field-prep'
@@ -512,6 +536,7 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   CertificateRoute: typeof CertificateRoute
   ExamContentRoute: typeof ExamContentRoute
+  ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
   FamilySetupRoute: typeof FamilySetupRoute
   Char91indexChar93Route: typeof Char91indexChar93Route
@@ -526,6 +551,7 @@ export interface RootRouteChildren {
   ApiDiscussionRoute: typeof ApiDiscussionRoute
   ApiExamContentRoute: typeof ApiExamContentRoute
   ApiExamPlansRoute: typeof ApiExamPlansRoute
+  ApiExamReviewersRoute: typeof ApiExamReviewersRoute
   ApiExamsRoute: typeof ApiExamsRoute
   ApiFamilyAddKidRoute: typeof ApiFamilyAddKidRoute
   ApiFieldPrepRoute: typeof ApiFieldPrepRoute
@@ -585,6 +611,13 @@ declare module '@tanstack/react-router' {
       path: '/exam-content'
       fullPath: '/exam-content'
       preLoaderRoute: typeof ExamContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam-reviewers': {
+      id: '/exam-reviewers'
+      path: '/exam-reviewers'
+      fullPath: '/exam-reviewers'
+      preLoaderRoute: typeof ExamReviewersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exams': {
@@ -676,6 +709,13 @@ declare module '@tanstack/react-router' {
       path: '/api/exam-plans'
       fullPath: '/api/exam-plans'
       preLoaderRoute: typeof ApiExamPlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/exam-reviewers': {
+      id: '/api/exam-reviewers'
+      path: '/api/exam-reviewers'
+      fullPath: '/api/exam-reviewers'
+      preLoaderRoute: typeof ApiExamReviewersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/exams': {
@@ -840,6 +880,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   CertificateRoute: CertificateRoute,
   ExamContentRoute: ExamContentRoute,
+  ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
   FamilySetupRoute: FamilySetupRoute,
   Char91indexChar93Route: Char91indexChar93Route,
@@ -854,6 +895,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiDiscussionRoute: ApiDiscussionRoute,
   ApiExamContentRoute: ApiExamContentRoute,
   ApiExamPlansRoute: ApiExamPlansRoute,
+  ApiExamReviewersRoute: ApiExamReviewersRoute,
   ApiExamsRoute: ApiExamsRoute,
   ApiFamilyAddKidRoute: ApiFamilyAddKidRoute,
   ApiFieldPrepRoute: ApiFieldPrepRoute,

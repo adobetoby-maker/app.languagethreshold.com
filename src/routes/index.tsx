@@ -39,6 +39,7 @@ import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
 import { getModule } from "@/data/modules";
 import { learningLinkIdentity } from "@/lib/learning-link";
+import { useLessonReturnGuard } from "@/lib/lesson-return";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -56,6 +57,7 @@ export const Route = createFileRoute("/")({
 
 function GatedTabShell() {
   const { state } = useApp();
+  useLessonReturnGuard(state.currentTab);
   return (
     <SubscriptionGate currentTab={state.currentTab}>
       <TabShell />

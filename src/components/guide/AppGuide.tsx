@@ -22,6 +22,13 @@ import {
   Circle,
   ChevronRight,
   ArrowRight,
+  ArrowLeft,
+  ChevronDown,
+  Check,
+  Eye,
+  Keyboard,
+  Mic,
+  PenLine,
   Star,
   Map,
 } from "lucide-react";
@@ -30,21 +37,24 @@ import { teamRequest } from "@/lib/team-client";
 import { useAuth } from "@/state/auth-state";
 import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
-import {
-  getCurriculum,
-  getCurrentLesson,
-  type Lesson,
-} from "@/data/curriculum";
-import { getAvailableModuleLessons } from "@/data/module-starters";
-import { getModule } from "@/data/modules";
+import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
 import { Core30Review } from "@/components/core30/Core30Review";
+import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
+import { LessonReader } from "@/components/core30/LessonReader";
+import {
+  browserReturnStorage,
+  clearLessonReturn,
+  lessonMissionPrefix,
+  readLessonReturn,
+  writeLessonReturn,
+} from "@/lib/lesson-return";
 import { requestSpeakingMission } from "@/lib/speaking-navigation";
-import { useLessonWords } from "@/lib/lesson-words";
+import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
 import { masteredLessons, planToday, toDateKey } from "@/lib/core30-plan";
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
@@ -474,30 +484,123 @@ function formatOpenedDate(iso: string): string {
   return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
+type SectionId = "see" | "recall" | "hear" | "type" | "say" | "write";
+
+interface SectionDef {
+  id: SectionId;
+  label: string;
+  why: string;
+  Icon: typeof Eye;
+}
+
+/** The six ways of learning, in the order the learner works through them. */
+const SECTIONS: SectionDef[] = [
+  {
+    id: "see",
+    label: "See it",
+    why: "Read the passage first so the words arrive in context.",
+    Icon: Eye,
+  },
+  {
+    id: "recall",
+    label: "Recall it",
+    why: "Pull each word back from memory with cards and matching.",
+    Icon: Layers,
+  },
+  {
+    id: "hear",
+    label: "Hear it",
+    why: "Train your ear on how the words really sound.",
+    Icon: Headphones,
+  },
+  { id: "type", label: "Type it", why: "Spell the words from memory.", Icon: Keyboard },
+  { id: "say", label: "Say it", why: "Use the words out loud in a short role-play.", Icon: Mic },
+  {
+    id: "write",
+    label: "Write it",
+    why: "Write the words by hand to lock in the spelling.",
+    Icon: PenLine,
+  },
+];
+
+/** The sections that live in the one practice kit. */
+const KIT_SECTIONS: SectionId[] = ["recall", "hear", "type", "write"];
+
+function sectionForMode(mode: PracticeMode): SectionId {
+  const m: string = mode;
+  if (m === "listen") return "hear";
+  if (m === "type") return "type";
+  if (m === "write") return "write";
+  return "recall";
+}
+
+/** The kit mode a section opens in; Recall keeps Study, Cards or Match if one is already open. */
+function modeForSection(section: SectionId, current: PracticeMode): PracticeMode {
+  if (section === "hear") return "listen";
+  if (section === "type") return "type";
+  if (section === "write") return "write";
+  return sectionForMode(current) === "recall" ? current : "flashcards";
+}
+
+function scrollBehavior(): ScrollBehavior {
+  const reduce =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  return reduce ? "auto" : "smooth";
+}
+
+/**
+ * How far down the page the desktop top bar reaches. It is sticky and wraps onto two rows at
+ * some widths, so a fixed number would leave the step bar hidden behind it. 0 when there is no
+ * top bar (phones and tablets: the lesson's own step bar is the sticky element there).
+ */
+function stickyTopOffset(): number {
+  if (typeof document === "undefined") return 0;
+  const bar = document.querySelector<HTMLElement>("header.sticky");
+  if (!bar || getComputedStyle(bar).display === "none") return 0;
+  return Math.max(0, Math.ceil(bar.getBoundingClientRect().bottom));
+}
+
+/** Scrolls the lesson's step bar to the top of the page, just below any sticky top bar. */
+function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior) {
+  if (!el) return;
+  const offset = stickyTopOffset();
+  if (offset > 0) el.style.scrollMarginTop = `${offset + 8}px`;
+  else el.style.removeProperty("scroll-margin-top");
+  el.scrollIntoView({ behavior, block: "start" });
+}
+
 function LessonRunner({
   lesson,
   moduleId,
+  totalLessons,
+  initialSection,
   onComplete,
   onExit,
+  onNavigate,
 }: {
   lesson: Lesson;
   moduleId: string;
+  totalLessons: number;
+  /** Section to open on (a learner returning from the Speak tab or the full Reader). */
+  initialSection?: SectionId;
   onComplete: () => void;
   onExit: () => void;
+  onNavigate: (n: number) => void;
 }) {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const userId = user?.id;
   const teamSessions = useRef<Record<string, string>>({});
-  const { state: lib } = useLibrary();
   const { dispatch: libDispatch } = useLibrary();
-  const [done, setDone] = useState<Set<number>>(new Set());
 
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
   const completionLock = useRef(false);
-  const kitRef = useRef<HTMLElement>(null);
-  const [kitMode, setKitMode] = useState<PracticeMode>("study");
+  const navRef = useRef<HTMLElement>(null);
+  const masteryRef = useRef<HTMLElement>(null);
+  const [section, setSection] = useState<SectionId>(initialSection ?? "see");
+  const [kitMode, setKitMode] = useState<PracticeMode>("flashcards");
   // Authored words (roofing, Spanish) arrive at once; any other lesson gets a generated list.
   const lessonWords = useLessonWords(
     moduleId,
@@ -508,18 +611,34 @@ function LessonRunner({
   const words = lessonWords.words;
   const hasWords = words.length > 0;
 
-  const allDone = done.size === lesson.steps.length;
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
   const isCurrentSequential = getCurrentLesson(moduleId, state.lessonProgress)?.n === lesson.n;
   const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
-  // The step whose tool drills the lesson's words; practice-kit activity counts as opening it.
+  // Each way of learning is recorded against the closest existing step of the lesson.
+  const readerStep = lesson.steps.findIndex((step) => step.tab === "reader");
   const wordDrillStep = lesson.steps.findIndex((step) => step.tab === "wordMatch");
-  const hasModuleReading =
-    getAvailableModuleLessons(moduleId, state.selectedLanguage, lib.entries).length > 0;
-  const moduleName = getModule(moduleId)?.name ?? "field";
+  const speakStep = lesson.steps.findIndex((step) => step.tab === "speak");
+  const stepForSection: Record<SectionId, number> = {
+    see: readerStep,
+    recall: wordDrillStep,
+    hear: wordDrillStep,
+    type: wordDrillStep,
+    say: speakStep,
+    write: -1,
+  };
+  // Steps with no section of their own (grammar, sentence builder, a module's tab) stay reachable.
+  const otherSteps = lesson.steps
+    .map((step, i) => ({ step, i }))
+    .filter(({ step }) => !["reader", "wordMatch", "speak"].includes(step.tab));
+  const speakInstruction =
+    lesson.steps[speakStep]?.instruction ?? "Say the lesson's words out loud in a short role-play.";
+  const sectionIndex = SECTIONS.findIndex((s) => s.id === section);
+  const activeDef = SECTIONS[sectionIndex];
+  const nextDef = SECTIONS[sectionIndex + 1];
+  const inKit = KIT_SECTIONS.includes(section);
 
   useEffect(() => {
     teamSessions.current = {};
@@ -544,47 +663,12 @@ function LessonRunner({
     };
   }, [userId, moduleId, lesson.n]);
 
-  function toggle(i: number) {
-    setDone((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  }
-
-  function goToTab(tab: TabKey, readingTemplate?: string) {
-    if (tab === "reader") {
-      const lang = state.selectedLanguage;
-      const templateId = readingTemplate?.replace(
-        "{lang}",
-        (
-          {
-            Spanish: "es",
-            French: "fr",
-            German: "de",
-            Italian: "it",
-            Japanese: "ja",
-            Chinese: "zh",
-            Korean: "ko",
-            Portuguese: "pt",
-            Pashto: "ps",
-            English: "en",
-          } as const
-        )[lang],
-      );
-      const available = getAvailableModuleLessons(moduleId, lang, lib.entries);
-      const resolved =
-        (templateId && available.includes(templateId) ? templateId : null) ??
-        available[0];
-      if (!resolved) {
-        dispatch({ type: "SET_TAB", payload: "story" });
-        return;
-      }
-      libDispatch({ type: "SELECT", payload: resolved });
-    }
-    dispatch({ type: "SET_TAB", payload: tab });
-  }
+  // Coming back from the Speak tab or the full Reader: bring the section nav into view.
+  useEffect(() => {
+    if (!initialSection) return;
+    const frame = requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, "auto"));
+    return () => cancelAnimationFrame(frame);
+  }, [initialSection]);
 
   /** Records that the learner opened step `i` (first open wins in the reducer). */
   function recordStepOpened(i: number) {
@@ -595,22 +679,53 @@ function LessonRunner({
     });
   }
 
-  function openStep(i: number) {
+  function selectSection(next: SectionId, scroll = false) {
+    setSection(next);
+    if (KIT_SECTIONS.includes(next)) setKitMode((current) => modeForSection(next, current));
+    // Opening a way of learning is the record; the passage (See it) is recorded on first use.
+    if (next !== "see") recordStepOpened(stepForSection[next]);
+    if (scroll) {
+      requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, scrollBehavior()));
+    }
+  }
+
+  function onKitModeChange(mode: PracticeMode) {
+    setKitMode(mode);
+    setSection(sectionForMode(mode));
+  }
+
+  /** Say it: the mission runs on the Speak tab; finishing or closing it brings the learner back. */
+  function goSay() {
+    recordStepOpened(speakStep);
+    writeLessonReturn(browserReturnStorage(), {
+      moduleId,
+      lesson: lesson.n,
+      section: "say",
+      at: Date.now(),
+    });
+    requestSpeakingMission(lessonMissionPrefix(moduleId, lesson.n));
+    dispatch({ type: "SET_TAB", payload: "speak" });
+  }
+
+  /** See it, full size: the whole Reader, with a way straight back to this lesson. */
+  function openFullReader(passageId: string) {
+    recordStepOpened(readerStep);
+    writeLessonReturn(browserReturnStorage(), {
+      moduleId,
+      lesson: lesson.n,
+      section: "see",
+      at: Date.now(),
+      ref: passageId,
+    });
+    libDispatch({ type: "SELECT", payload: passageId });
+    dispatch({ type: "SET_TAB", payload: "reader" });
+  }
+
+  /** A step with no section of its own opens its own tab, as before. */
+  function openOtherStep(i: number) {
     const step = lesson.steps[i];
     recordStepOpened(i);
-    if (step.tab === "wordMatch" && hasWords) {
-      // Stay in the lesson: drill THIS lesson's words (Match mode), not the generic 24-word tab.
-      setKitMode("match");
-      requestAnimationFrame(() => {
-        const reduce =
-          typeof window !== "undefined" &&
-          window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-        kitRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-      });
-      return;
-    }
-    if (step.tab === "speak") requestSpeakingMission(`scenario_version_${moduleId}_lesson_${lesson.n}_`);
-    goToTab(step.tab, step.tab === "reader" ? lesson.readingTemplate : undefined);
+    dispatch({ type: "SET_TAB", payload: step.tab });
   }
 
   /** Posts lesson `n` to the team workspace. True when there is nothing to post or the post worked. */
@@ -689,11 +804,6 @@ function LessonRunner({
     }
   }
 
-  async function complete() {
-    if (!(await recordSequentialCompletion())) return;
-    onComplete();
-  }
-
   async function markMastered() {
     if (marking) return;
     setMarking(true);
@@ -710,6 +820,72 @@ function LessonRunner({
     }
   }
 
+  /** "Opened" line for a section, from the app's own record of the step it maps to. */
+  function openedNote(id: SectionId) {
+    const stepIndex = stepForSection[id];
+    const openedAt = stepIndex >= 0 ? lessonLog?.visits?.[String(stepIndex)] : undefined;
+    if (!openedAt) return null;
+    return (
+      <p
+        data-testid="core30-step-opened"
+        className="mt-1.5 flex items-center gap-1 text-[11px] text-gold/80"
+      >
+        <CheckCircle2 className="h-3 w-3" strokeWidth={2} />
+        Opened {formatOpenedDate(openedAt)}
+      </p>
+    );
+  }
+
+  const lessonButtons = (position: "top" | "bottom") => (
+    <div className="flex items-center justify-between gap-2" data-testid={`lesson-nav-${position}`}>
+      <button
+        type="button"
+        onClick={() => onNavigate(lesson.n - 1)}
+        disabled={lesson.n <= 1}
+        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+      >
+        <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+        Lesson {Math.max(lesson.n - 1, 1)}
+      </button>
+      <button
+        type="button"
+        onClick={() => onNavigate(lesson.n + 1)}
+        disabled={lesson.n >= totalLessons}
+        className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
+      >
+        Lesson {Math.min(lesson.n + 1, totalLessons)}
+        <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+      </button>
+    </div>
+  );
+
+  const nextButton = (
+    <button
+      type="button"
+      data-testid="lesson-next-section"
+      onClick={() => {
+        if (nextDef) selectSection(nextDef.id, true);
+        else masteryRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+      }}
+      className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-gold/40 px-4 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+    >
+      {nextDef ? `Next: ${nextDef.label}` : "On to mastery"}
+      <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+    </button>
+  );
+
+  const panelClass = "rounded-2xl border border-white/[0.08] bg-card/40 p-4";
+  const panelHeader = (def: SectionDef, n: number) => (
+    <header>
+      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+        Step {n} of {SECTIONS.length}
+      </p>
+      <h4 className="mt-0.5 font-display text-lg font-semibold text-foreground">{def.label}</h4>
+      <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{def.why}</p>
+      {openedNote(def.id)}
+    </header>
+  );
+
   return (
     <div className="space-y-4">
       {/* Lesson header */}
@@ -723,7 +899,7 @@ function LessonRunner({
           </div>
           <button
             onClick={onExit}
-            className="text-[11px] text-white/30 hover:text-white/60 transition-colors mt-1 shrink-0"
+            className="min-h-11 shrink-0 px-1 text-[11px] text-white/50 transition-colors hover:text-white/80"
           >
             ✕ Exit
           </button>
@@ -732,144 +908,201 @@ function LessonRunner({
           <span className="text-gold/80 mr-1">Goal:</span>
           {lesson.objective}
         </p>
+        <div className="mt-3">{lessonButtons("top")}</div>
       </div>
 
-      {/* Steps */}
-      <div className="space-y-2">
-        {lesson.steps.map((step, i) => {
-          const isDone = done.has(i);
-          const openedAt = lessonLog?.visits?.[String(i)];
+      {/* Six ways of learning, one lesson, one page */}
+      <nav
+        ref={navRef}
+        aria-label="Ways of learning this lesson"
+        data-testid="lesson-section-nav"
+        className="sticky top-0 z-20 -mx-1 scroll-mt-2 desktop:scroll-mt-44 grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-background/95 p-1 backdrop-blur desktop:static"
+      >
+        {SECTIONS.map(({ id, label, Icon }) => {
+          const active = section === id;
+          const stepIndex = stepForSection[id];
+          const opened = stepIndex >= 0 && Boolean(lessonLog?.visits?.[String(stepIndex)]);
           return (
-            <div
-              key={i}
+            <button
+              key={id}
+              type="button"
+              data-testid={`lesson-nav-${id}`}
+              aria-current={active ? "step" : undefined}
+              aria-label={label}
+              onClick={() => selectSection(id)}
               className={cn(
-                "rounded-xl border transition-all",
-                isDone ? "border-gold/25 bg-gold/[0.04]" : "border-white/[0.08] bg-card/40",
+                "relative flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-lg px-0.5 text-[11px] font-bold transition-colors",
+                active
+                  ? "bg-gold text-background"
+                  : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
               )}
             >
-              <div className="flex items-start gap-3 p-4">
-                <button onClick={() => toggle(i)} className="mt-0.5 shrink-0 transition-colors">
-                  {isDone ? (
-                    <CheckCircle2 className="h-5 w-5 text-gold" strokeWidth={1.8} />
-                  ) : (
-                    <Circle
-                      className="h-5 w-5 text-white/20 hover:text-white/50"
-                      strokeWidth={1.5}
-                    />
+              <Icon className="h-4 w-4" aria-hidden="true" />
+              {label.replace(" it", "")}
+              {opened && (
+                <Check
+                  className={cn(
+                    "absolute right-0.5 top-0.5 h-3 w-3",
+                    active ? "text-background" : "text-gold",
                   )}
-                </button>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                    <span
-                      className={cn(
-                        "text-sm font-semibold",
-                        isDone ? "text-gold/70 line-through" : "text-white",
-                      )}
-                    >
-                      Step {i + 1} —{" "}
-                      {step.tab === "reader" && !hasModuleReading ? "Field Story" : step.tabLabel}
-                    </span>
-                    <span className="text-[10px] text-white/30 font-mono">
-                      {step.durationMin} min
-                    </span>
-                  </div>
-                  <p
-                    className={cn(
-                      "text-xs leading-relaxed",
-                      isDone ? "text-white/30" : "text-white/60",
-                    )}
-                  >
-                    {step.tab === "reader" && !hasModuleReading
-                      ? `Generate a ${moduleName} story in ${state.selectedLanguage}. Read it twice, then answer its comprehension question.`
-                      : step.instruction}
-                  </p>
-                  {openedAt && (
-                    <p
-                      data-testid="core30-step-opened"
-                      className="mt-1.5 flex items-center gap-1 text-[11px] text-gold/80"
-                    >
-                      <CheckCircle2 className="h-3 w-3" strokeWidth={2} />
-                      Opened {formatOpenedDate(openedAt)}
-                      {!isDone && " · not marked done"}
-                    </p>
-                  )}
-                </div>
-                <button
-                  onClick={() => openStep(i)}
-                  className="flex min-h-11 items-center gap-1 shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-[11px] text-white/60 hover:text-white hover:border-white/20 transition-colors"
-                >
-                  {step.tab === "wordMatch" && hasWords ? "Practice here" : "Go"}{" "}
-                  <ChevronRight className="h-3 w-3" />
-                </button>
-              </div>
-            </div>
+                  aria-hidden="true"
+                />
+              )}
+            </button>
           );
         })}
-      </div>
+      </nav>
 
-      {/* Lesson words: the practice kit drills exactly this lesson's vocabulary */}
-      {hasWords && (
-        <section
-          ref={kitRef}
-          data-testid="lesson-practice-section"
-          className="scroll-mt-44 rounded-2xl border border-white/[0.08] bg-card/40 p-4"
-        >
-          <h4 className="text-sm font-semibold text-white">
-            Practice this lesson's words ({words.length})
-          </h4>
-          <div className="mt-3">
-            <LessonPracticeKit
-              // A fresh kit per word list, so a regenerated list never shows stale rounds.
-              key={`${state.selectedLanguage}:${state.nativeLanguage}:${words.length}`}
-              words={words}
-              moduleId={moduleId}
-              lessonNumber={lesson.n}
-              language={state.selectedLanguage}
-              // Authored words keep English as the native side, whatever the app's native setting.
-              nativeLanguage={lessonWords.status === "authored" ? "English" : state.nativeLanguage}
-              mode={kitMode}
-              onModeChange={setKitMode}
-              onActivity={() => recordStepOpened(wordDrillStep)}
-            />
-          </div>
-        </section>
-      )}
-      {lessonWords.status === "loading" && (
-        <section
-          data-testid="lesson-words-loading"
-          aria-busy="true"
-          className="rounded-2xl border border-white/[0.08] bg-card/40 p-4"
-        >
-          <p className="text-sm font-semibold text-white">Building this lesson's word list…</p>
-          <div className="mt-3 space-y-2" aria-hidden="true">
-            <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
-            <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
-            <div className="h-10 w-2/3 animate-pulse rounded-xl bg-white/[0.06]" />
-          </div>
-        </section>
-      )}
-      {lessonWords.status === "error" && (
-        <section
-          data-testid="lesson-words-error"
-          className="rounded-2xl border border-amber-300/25 bg-amber-300/[0.05] p-4"
-        >
-          <p className="text-sm font-semibold text-amber-300">Couldn't build the word list</p>
-          <p className="mt-1 text-xs text-white/60">
-            {lessonWords.error ? `${lessonWords.error}. ` : ""}You can still practice with the
-            Word Match tab in the drill step.
-          </p>
-          <button
-            type="button"
-            onClick={lessonWords.retry}
-            className="mt-3 min-h-11 rounded-lg border border-white/15 px-4 text-xs font-semibold text-white hover:border-white/30"
+      {/* 1 · See it */}
+      <section data-testid="lesson-section-see" hidden={section !== "see"} className={panelClass}>
+        {panelHeader(SECTIONS[0], 1)}
+        <div className="mt-3">
+          <LessonReader
+            moduleId={moduleId}
+            readingTemplate={lesson.readingTemplate}
+            lessonNumber={lesson.n}
+            words={words}
+            onInteract={() => recordStepOpened(readerStep)}
+            onOpenFullReader={openFullReader}
+          />
+        </div>
+        {section === "see" && nextButton}
+      </section>
+
+      {/* 2, 3, 4, 6 · Recall it, Hear it, Type it, Write it: one practice kit, four ways in */}
+      <section data-testid="lesson-section-kit" hidden={!inKit} className={panelClass}>
+        {inKit && panelHeader(activeDef, sectionIndex + 1)}
+        {hasWords && (
+          <div
+            data-testid="lesson-practice-section"
+            className="mt-3 scroll-mt-44 border-t border-border/40 pt-3"
           >
-            Retry
-          </button>
+            <h5 className="text-sm font-semibold text-white">
+              Practice this lesson's words ({words.length})
+            </h5>
+            <div className="mt-3">
+              <LessonPracticeKit
+                // A fresh kit per word list, so a regenerated list never shows stale rounds.
+                key={`${state.selectedLanguage}:${state.nativeLanguage}:${words.length}`}
+                words={words}
+                moduleId={moduleId}
+                lessonNumber={lesson.n}
+                language={state.selectedLanguage}
+                // Authored words keep English as the native side, whatever the app's native setting.
+                nativeLanguage={
+                  lessonWords.status === "authored" ? "English" : state.nativeLanguage
+                }
+                mode={kitMode}
+                onModeChange={onKitModeChange}
+                onActivity={() => recordStepOpened(wordDrillStep)}
+              />
+            </div>
+          </div>
+        )}
+        {lessonWords.status === "loading" && (
+          <div
+            data-testid="lesson-words-loading"
+            aria-busy="true"
+            className="mt-3 border-t border-border/40 pt-3"
+          >
+            <p className="text-sm font-semibold text-white">Building this lesson's word list…</p>
+            <div className="mt-3 space-y-2" aria-hidden="true">
+              <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
+              <div className="h-10 animate-pulse rounded-xl bg-white/[0.06]" />
+              <div className="h-10 w-2/3 animate-pulse rounded-xl bg-white/[0.06]" />
+            </div>
+          </div>
+        )}
+        {lessonWords.status === "error" && (
+          <div
+            data-testid="lesson-words-error"
+            className="mt-3 rounded-xl border border-amber-300/25 bg-amber-300/[0.05] p-4"
+          >
+            <p className="text-sm font-semibold text-amber-300">Couldn't build the word list</p>
+            <p className="mt-1 text-xs text-white/60">
+              {lessonWords.error ? `${lessonWords.error}. ` : ""}You can still practice with the
+              Word Match tab.
+            </p>
+            <button
+              type="button"
+              onClick={lessonWords.retry}
+              className="mt-3 min-h-11 rounded-lg border border-white/15 px-4 text-xs font-semibold text-white hover:border-white/30"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+        {inKit && nextButton}
+      </section>
+
+      {/* 5 · Say it */}
+      <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
+        {panelHeader(SECTIONS[4], 5)}
+        <p className="mt-3 text-sm leading-relaxed text-white/70">{speakInstruction}</p>
+        <button
+          type="button"
+          data-testid="lesson-say-go"
+          onClick={goSay}
+          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
+          style={{
+            background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+            color: "#0B0B0F",
+          }}
+        >
+          <Mic className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+          Start the Lesson {lesson.n} speaking mission
+        </button>
+        <p className="mt-2 text-center text-[11px] text-white/50">
+          It opens in Speak &amp; Learn. When you finish or close it, you come back here.
+        </p>
+        {section === "say" && nextButton}
+      </section>
+
+      {/* Steps that have no section of their own */}
+      {otherSteps.length > 0 && (
+        <section className={panelClass}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+            Also in this lesson
+          </p>
+          <ul className="mt-2 space-y-2">
+            {otherSteps.map(({ step, i }) => {
+              const openedAt = lessonLog?.visits?.[String(i)];
+              return (
+                <li
+                  key={i}
+                  className="flex items-start gap-3 rounded-xl border border-white/[0.08] p-3"
+                >
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold text-white">{step.tabLabel}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-white/60">
+                      {step.instruction}
+                    </p>
+                    {openedAt && (
+                      <p
+                        data-testid="core30-step-opened"
+                        className="mt-1.5 flex items-center gap-1 text-[11px] text-gold/80"
+                      >
+                        <CheckCircle2 className="h-3 w-3" strokeWidth={2} />
+                        Opened {formatOpenedDate(openedAt)}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => openOtherStep(i)}
+                    className="flex min-h-11 shrink-0 items-center gap-1 rounded-lg border border-white/10 px-3 py-1.5 text-[11px] text-white/60 transition-colors hover:border-white/20 hover:text-white"
+                  >
+                    Go <ChevronRight className="h-3 w-3" />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </section>
       )}
 
       {/* Mastery: the learner's call. The app records the visits above; this records the verdict. */}
-      <section className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
+      <section ref={masteryRef} className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4">
         {masteredAt && !needsPractice ? (
           <>
             <p
@@ -924,24 +1157,7 @@ function LessonRunner({
         )}
       </section>
 
-      {/* Complete button (sequential counter) */}
-      {allDone && isCurrentSequential ? (
-        <button
-          onClick={complete}
-          className="w-full py-3.5 rounded-2xl text-sm font-semibold transition-all flex items-center justify-center gap-2"
-          style={{
-            background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-            color: "#0B0B0F",
-          }}
-        >
-          <Star className="h-4 w-4" strokeWidth={2} />
-          Complete Lesson {lesson.n} · +50 XP
-        </button>
-      ) : isCurrentSequential ? (
-        <p className="text-center text-xs text-white/30">
-          Check off each step when done · {lesson.steps.length - done.size} remaining
-        </p>
-      ) : null}
+      {lessonButtons("bottom")}
     </div>
   );
 }
@@ -1098,6 +1314,35 @@ export function AppGuide() {
             </div>
           </div>
         </section>
+
+        {/* ── How Core 30 works ──────────────────────────────────────────── */}
+        {curriculum && (
+          <section className="rounded-2xl border border-border/50 bg-card/40 p-5">
+            <div className="flex items-start gap-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold/10">
+                <BookOpen className="h-4 w-4 text-gold" strokeWidth={1.5} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold">How Core 30 works</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  The thinking behind the 30 lessons, the six ways you learn each one, and the
+                  90-day rhythm.
+                </p>
+                <button
+                  type="button"
+                  data-testid="guide-core30-how"
+                  onClick={() => {
+                    requestCore30Philosophy();
+                    go("core30");
+                  }}
+                  className="mt-3 flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+                >
+                  Read how it works <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── Progress Overview ────────────────────────────────────────────── */}
         <section className="space-y-4">
@@ -1356,14 +1601,58 @@ export function AppGuide() {
 
 /** The module's 30-lesson path: progress, the next lesson and the lesson runner.
  *  Shown inside the App Guide and as the standalone Core 30 tab. */
-function Core30Section() {
+const CORE30_VIEW_KEY = "lt.core30.view";
+
+/** Ask the Core 30 tab to open on "How Core 30 works" (read once by the tab). */
+function requestCore30Philosophy() {
+  try {
+    window.sessionStorage.setItem(CORE30_VIEW_KEY, "how");
+  } catch {
+    // Blocked storage: the learner lands on Core 30 and uses the "How Core 30 works" link.
+  }
+}
+
+function consumeCore30Philosophy(): boolean {
+  try {
+    const asked = window.sessionStorage.getItem(CORE30_VIEW_KEY) === "how";
+    window.sessionStorage.removeItem(CORE30_VIEW_KEY);
+    return asked;
+  } catch {
+    return false;
+  }
+}
+
+/** The module's 30-lesson path: progress, the next lesson and the lesson runner.
+ *  Shown inside the App Guide and as the standalone Core 30 tab. `restoreView` (the tab only)
+ *  reopens the lesson a learner left for the Speak tab or the Reader, and honors a request to
+ *  open on "How Core 30 works". */
+function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const { state } = useApp();
-  const [openLessonN, setOpenLessonN] = useState<number | null>(null);
+  const moduleId = state.activeModuleId ?? "";
+  const [returnTarget] = useState(() => {
+    if (!restoreView) return null;
+    const marker = readLessonReturn(browserReturnStorage(), Date.now());
+    const total = getCurriculum(moduleId)?.lessons.length ?? 0;
+    return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
+  });
+  const [openLessonN, setOpenLessonN] = useState<number | null>(returnTarget?.lesson ?? null);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
+  const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
+  const [listOpen, setListOpen] = useState(false);
+  // A return marker is spent the moment Core 30 opens, however the learner got here (return
+  // pill, auto-return, tab bar or the App Guide). The lesson to reopen was read above.
+  useEffect(() => {
+    clearLessonReturn(browserReturnStorage());
+  }, []);
 
-  const moduleId = state.activeModuleId ?? "";
   const curriculum = getCurriculum(moduleId);
+  const hasCurriculum = Boolean(curriculum);
+  // Fetch the module's whole pre-built word deck once the learner opens Core 30, so every
+  // lesson is ready and the service worker has it for offline use.
+  useEffect(() => {
+    if (hasCurriculum) prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
+  }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
   const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
   const openLesson =
@@ -1379,8 +1668,9 @@ function Core30Section() {
 
   function openLessonFromPlan(n: number) {
     setReviewOpen(false);
+    setHowOpen(false);
     setOpenLessonN(n);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
 
   function handleComplete() {
@@ -1390,17 +1680,40 @@ function Core30Section() {
   }
 
   return (
-        <section>
-          {/* Curriculum header */}
-          <div className="mb-4">
-            <h1 className="font-display text-2xl font-semibold tracking-tight">
-              {curriculum.headline}
-            </h1>
-            <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-          </div>
+    <section>
+      {/* Curriculum header (an open lesson takes the whole page) */}
+      {!runnerActive && (
+        <div className="mb-4">
+          <h1 className="font-display text-2xl font-semibold tracking-tight">
+            {curriculum.headline}
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          {!howOpen && (
+            <button
+              type="button"
+              data-testid="core30-how-link"
+              onClick={() => {
+                setReviewOpen(false);
+                setOpenLessonN(null);
+                setHowOpen(true);
+                window.scrollTo({ top: 0, behavior: scrollBehavior() });
+              }}
+              className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
+            >
+              How Core 30 works
+              <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          )}
+        </div>
+      )}
 
+      {/* How Core 30 works, in place */}
+      {howOpen && <Core30Philosophy onBack={() => setHowOpen(false)} />}
+
+      {!howOpen && (
+        <>
           {/* 90-day plan: start date, today's lesson, review cadence */}
-          {!reviewOpen && (
+          {!reviewOpen && !runnerActive && (
             <Core30PlanCard
               moduleId={moduleId}
               totalLessons={totalLessons}
@@ -1413,28 +1726,30 @@ function Core30Section() {
           )}
 
           {/* Progress bar */}
-          <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                {completedCount} / {totalLessons} lessons complete
-              </span>
-              <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+          {!runnerActive && (
+            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
+                  {completedCount} / {totalLessons} lessons complete
+                </span>
+                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${progressPct}%`,
+                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
+                  }}
+                />
+              </div>
+              {allDone && (
+                <p className="mt-2 text-xs text-gold text-center">
+                  🎉 Curriculum complete! You are past the threshold.
+                </p>
+              )}
             </div>
-            <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-700"
-                style={{
-                  width: `${progressPct}%`,
-                  background: "linear-gradient(90deg, #C9A84C, #E8C878)",
-                }}
-              />
-            </div>
-            {allDone && (
-              <p className="mt-2 text-xs text-gold text-center">
-                🎉 Curriculum complete! You are past the threshold.
-              </p>
-            )}
-          </div>
+          )}
 
           {/* Celebration banner */}
           {justCompleted && (
@@ -1459,124 +1774,146 @@ function Core30Section() {
               key={openLesson.n}
               lesson={openLesson}
               moduleId={moduleId}
+              totalLessons={totalLessons}
+              initialSection={
+                returnTarget && returnTarget.lesson === openLesson.n
+                  ? returnTarget.section === "say"
+                    ? "say"
+                    : "see"
+                  : undefined
+              }
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
+              onNavigate={openLessonFromPlan}
             />
           )}
 
           {/* Current lesson card or all-done state */}
-          {!reviewOpen &&
-            !runnerActive &&
-            !allDone &&
-            currentLesson &&
-            (
-              <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                      Next Up · Lesson {currentLesson.n}
-                    </p>
-                    <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
-                  </div>
-                  <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
-                    <span className="text-[11px] font-mono text-gold">
-                      ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
-                    </span>
-                  </div>
+          {!reviewOpen && !runnerActive && !allDone && currentLesson && (
+            <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
+                    Next Up · Lesson {currentLesson.n}
+                  </p>
+                  <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
                 </div>
-
-                <p className="text-sm text-white/60 mb-4">
-                  <span className="text-gold/80">Goal: </span>
-                  {currentLesson.objective}
-                </p>
-
-                {/* Step preview */}
-                <div className="space-y-1.5 mb-5">
-                  {currentLesson.steps.map((step, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                    >
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                        {i + 1}
-                      </span>
-                      <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
-                      <span className="text-[10px] font-mono text-white/30">
-                        {step.durationMin}m
-                      </span>
-                    </div>
-                  ))}
+                <div className="flex items-center gap-1 shrink-0 rounded-full border border-gold/25 bg-gold/10 px-3 py-1">
+                  <span className="text-[11px] font-mono text-gold">
+                    ~{currentLesson.steps.reduce((s, st) => s + st.durationMin, 0)} min
+                  </span>
                 </div>
-
-                <button
-                  onClick={() => setOpenLessonN(currentLesson.n)}
-                  className={cn(
-                    "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
-                    planStarted && "border border-gold/40 bg-transparent text-gold",
-                  )}
-                  style={
-                    planStarted
-                      ? undefined
-                      : {
-                          background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                          color: "#0B0B0F",
-                        }
-                  }
-                >
-                  Start Lesson {currentLesson.n}
-                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                </button>
               </div>
-            )}
+
+              <p className="text-sm text-white/60 mb-4">
+                <span className="text-gold/80">Goal: </span>
+                {currentLesson.objective}
+              </p>
+
+              {/* Step preview */}
+              <div className="space-y-1.5 mb-5">
+                {currentLesson.steps.map((step, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
+                    <span className="text-[10px] font-mono text-white/30">{step.durationMin}m</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setOpenLessonN(currentLesson.n)}
+                className={cn(
+                  "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                  planStarted && "border border-gold/40 bg-transparent text-gold",
+                )}
+                style={
+                  planStarted
+                    ? undefined
+                    : {
+                        background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                        color: "#0B0B0F",
+                      }
+                }
+              >
+                Start Lesson {currentLesson.n}
+                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              </button>
+            </div>
+          )}
 
           {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
           {!reviewOpen && !runnerActive && (
-            <details className="mt-4 group">
-              <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-xs text-white/50 hover:text-white/80 transition-colors select-none">
-                <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
-                All {totalLessons} lessons · {masteredSet.size} mastered
-              </summary>
-              <ul className="mt-1 space-y-1">
-                {curriculum.lessons.map((l) => {
-                  const entry = core30Log?.lessons?.[String(l.n)];
-                  const opened = Object.keys(entry?.visits ?? {}).length;
-                  const mastered = masteredSet.has(l.n);
-                  return (
-                    <li key={l.n}>
-                      <button
-                        type="button"
-                        onClick={() => openLessonFromPlan(l.n)}
-                        className="flex min-h-11 w-full items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-left hover:border-white/20"
-                      >
-                        {mastered ? (
-                          <CheckCircle2
-                            className="h-4 w-4 shrink-0 text-gold"
-                            strokeWidth={1.8}
-                            aria-label="Mastered"
-                          />
-                        ) : (
-                          <Circle
-                            className="h-4 w-4 shrink-0 text-white/20"
-                            strokeWidth={1.5}
-                            aria-label="Not mastered"
-                          />
-                        )}
-                        <span className="min-w-0 flex-1 truncate text-xs text-white/80">
-                          {l.n}. {l.title}
-                        </span>
-                        <span className="shrink-0 text-[10px] font-mono text-white/40">
-                          {entry?.needsPractice
-                            ? "needs practice"
-                            : opened > 0
-                              ? `${opened}/${l.steps.length} opened`
-                              : ""}
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </details>
+            <div className="mt-4">
+              <button
+                type="button"
+                data-testid="core30-all-lessons-toggle"
+                aria-expanded={listOpen}
+                onClick={() => setListOpen((v) => !v)}
+                className="flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border border-gold/30 bg-gold/[0.05] px-4 text-left text-sm font-semibold text-foreground transition-colors hover:bg-gold/10"
+              >
+                <span>
+                  All {totalLessons} lessons
+                  <span className="ml-2 font-mono text-xs font-normal text-muted-foreground">
+                    {masteredSet.size} mastered
+                  </span>
+                </span>
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 shrink-0 text-gold transition-transform",
+                    listOpen && "rotate-180",
+                  )}
+                  aria-hidden="true"
+                />
+              </button>
+              {listOpen && (
+                <ul className="mt-2 space-y-1">
+                  {curriculum.lessons.map((l) => {
+                    const entry = core30Log?.lessons?.[String(l.n)];
+                    const opened = Object.keys(entry?.visits ?? {}).length;
+                    const mastered = masteredSet.has(l.n);
+                    return (
+                      <li key={l.n}>
+                        <button
+                          type="button"
+                          onClick={() => openLessonFromPlan(l.n)}
+                          className="flex min-h-11 w-full items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-left hover:border-white/20"
+                        >
+                          {mastered ? (
+                            <CheckCircle2
+                              className="h-4 w-4 shrink-0 text-gold"
+                              strokeWidth={1.8}
+                              aria-label="Mastered"
+                            />
+                          ) : (
+                            <Circle
+                              className="h-4 w-4 shrink-0 text-white/20"
+                              strokeWidth={1.5}
+                              aria-label="Not mastered"
+                            />
+                          )}
+                          <span className="min-w-0 flex-1 truncate text-xs text-white/80">
+                            {l.n}. {l.title}
+                          </span>
+                          <span className="shrink-0 text-[10px] font-mono text-white/40">
+                            {entry?.needsPractice
+                              ? "needs practice"
+                              : opened > 0
+                                ? `${opened}/${l.steps.length} opened`
+                                : ""}
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           )}
 
           {/* Completed lessons list (collapsed) */}
@@ -1589,17 +1926,16 @@ function Core30Section() {
               <div className="mt-2 space-y-1 pl-4">
                 {curriculum.lessons.slice(0, completedCount).map((l) => (
                   <div key={l.n} className="flex items-center gap-2 text-xs text-white/30 py-0.5">
-                    <CheckCircle2
-                      className="h-3.5 w-3.5 text-gold/50 shrink-0"
-                      strokeWidth={1.5}
-                    />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-gold/50 shrink-0" strokeWidth={1.5} />
                     Lesson {l.n} — {l.title}
                   </div>
                 ))}
               </div>
             </details>
           )}
-        </section>
+        </>
+      )}
+    </section>
   );
 }
 
@@ -1610,7 +1946,7 @@ export function Core30Tab() {
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {hasCore30 ? (
-        <Core30Section />
+        <Core30Section restoreView />
       ) : (
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>

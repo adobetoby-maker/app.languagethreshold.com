@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  LESSON_DECK_VERSION,
   cleanLessonWords,
+  deckLanguageDir,
+  deckNativeLanguage,
+  lessonDeckPath,
+  parseLessonDeck,
+  pickDeckWords,
   hasEnoughWords,
   isCorrectTypedAnswer,
   isLatinScript,
@@ -80,9 +86,18 @@ test("cleaning caps at 12 terms and 6 phrases", () => {
 });
 
 test("too few words is not enough for a kit", () => {
-  assert.equal(hasEnoughWords(wordsFromModelOutput({ terms: terms(5), phrases: phrases(6) })), false);
-  assert.equal(hasEnoughWords(wordsFromModelOutput({ terms: terms(8), phrases: phrases(2) })), false);
-  assert.equal(hasEnoughWords(wordsFromModelOutput({ terms: terms(6), phrases: phrases(3) })), true);
+  assert.equal(
+    hasEnoughWords(wordsFromModelOutput({ terms: terms(5), phrases: phrases(6) })),
+    false,
+  );
+  assert.equal(
+    hasEnoughWords(wordsFromModelOutput({ terms: terms(8), phrases: phrases(2) })),
+    false,
+  );
+  assert.equal(
+    hasEnoughWords(wordsFromModelOutput({ terms: terms(6), phrases: phrases(3) })),
+    true,
+  );
 });
 
 test("model output of the wrong shape yields nothing", () => {
@@ -101,9 +116,7 @@ test("authored words are used only for Spanish", () => {
 
 test("cache write then read round-trips and validates", () => {
   const storage = fakeStorage();
-  const words = cleanLessonWords(
-    wordsFromModelOutput({ terms: terms(8), phrases: phrases(4) }),
-  );
+  const words = cleanLessonWords(wordsFromModelOutput({ terms: terms(8), phrases: phrases(4) }));
   const key = lessonWordsKey("m", 2, "French", "English");
   assert.equal(writeCachedWords(key, words, storage), true);
   assert.deepEqual(readCachedWords(key, storage), words);
@@ -171,4 +184,76 @@ test("non-Latin answers keep diacritics and accept slash and parenthesis variant
   assert.equal(isCorrectTypedAnswer("ドリル", "ドリル (電動)"), true);
   assert.equal(isCorrectTypedAnswer("のこぎり", "鋸 / のこぎり"), true);
   assert.equal(normalizeScriptAnswer("ＡＢＣ　テスト"), "abcテスト");
+});
+
+// ─── Static decks ────────────────────────────────────────────────────────────
+
+const deckWords = () => [
+  ...Array.from({ length: 8 }, (_, i) => ({ en: `term ${i}`, es: `terme ${i}`, kind: "term" })),
+  ...Array.from({ length: 4 }, (_, i) => ({ en: `say ${i}`, es: `dis ${i}`, kind: "phrase" })),
+];
+const makeDeck = (extra = {}) => ({
+  version: LESSON_DECK_VERSION,
+  module: "construction-foreman",
+  language: "French",
+  nativeLanguage: "English",
+  model: "claude-haiku-5-5",
+  generatedAt: "2026-10-15T00:00:00.000Z",
+  lessons: { 1: deckWords(), 2: deckWords() },
+  ...extra,
+});
+const expected = { moduleId: "construction-foreman", language: "French" };
+
+test("deck paths use the language code and the module id", () => {
+  assert.equal(
+    lessonDeckPath("construction-foreman", "Japanese"),
+    "/lesson-decks/ja/construction-foreman.json",
+  );
+  assert.equal(lessonDeckPath("m", "English"), "/lesson-decks/en/m.json");
+  assert.equal(lessonDeckPath("m", "Chinese"), "/lesson-decks/zh/m.json");
+  assert.equal(deckLanguageDir("Pashto"), "ps");
+});
+
+test("decks are written for English natives, or Spanish natives when English is the target", () => {
+  assert.equal(deckNativeLanguage("French"), "English");
+  assert.equal(deckNativeLanguage("Spanish"), "English");
+  assert.equal(deckNativeLanguage("English"), "Spanish");
+});
+
+test("parseLessonDeck accepts a valid deck and cleans each lesson", () => {
+  const deck = parseLessonDeck(makeDeck(), expected);
+  assert.ok(deck);
+  assert.equal(deck.nativeLanguage, "English");
+  assert.deepEqual(Object.keys(deck.lessons), ["1", "2"]);
+  assert.equal(deck.lessons["1"].length, 12);
+});
+
+test("parseLessonDeck rejects wrong version, module, language and shapes", () => {
+  assert.equal(parseLessonDeck(makeDeck({ version: 2 }), expected), null);
+  assert.equal(parseLessonDeck(makeDeck({ module: "other" }), expected), null);
+  assert.equal(parseLessonDeck(makeDeck({ language: "German" }), expected), null);
+  assert.equal(parseLessonDeck(makeDeck({ nativeLanguage: "" }), expected), null);
+  assert.equal(parseLessonDeck(makeDeck({ lessons: [] }), expected), null);
+  assert.equal(parseLessonDeck(null, expected), null);
+  assert.equal(parseLessonDeck("<html>", expected), null);
+});
+
+test("parseLessonDeck drops lessons that are too small or malformed", () => {
+  const deck = parseLessonDeck(
+    makeDeck({ lessons: { 1: deckWords(), 2: deckWords().slice(0, 3), 3: "nope" } }),
+    expected,
+  );
+  assert.deepEqual(Object.keys(deck.lessons), ["1"]);
+});
+
+test("pickDeckWords returns a copy only for the matching native language", () => {
+  const deck = parseLessonDeck(makeDeck(), expected);
+  const words = pickDeckWords(deck, 1, "English");
+  assert.equal(words.length, 12);
+  words.pop();
+  assert.equal(deck.lessons["1"].length, 12);
+  assert.equal(pickDeckWords(deck, 1, "Spanish"), null);
+  assert.equal(pickDeckWords(deck, 9, "English"), null);
+  assert.equal(pickDeckWords(null, 1, "English"), null);
+  assert.equal(pickDeckWords(undefined, 1, "English"), null);
 });

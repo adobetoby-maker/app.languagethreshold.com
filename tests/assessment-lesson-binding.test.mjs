@@ -2,25 +2,89 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { loadModule } from "./helpers/bundle.mjs";
 
-const { lessonReviewSnapshot, lessonReviewFingerprint, serializeLessonReviewSnapshot } = await loadModule("src/lib/lesson-review.ts");
-const { boundLessonSnapshot, requireCurrentLessonBinding } = await loadModule("src/lib/assessments/lesson-binding.ts", {stubs: [/^@tanstack\/react-start\/server-only$/]});
-const { readinessCatalog } = await loadModule("src/lib/assessments/server.ts", {stubs: [/^@tanstack\/react-start\/server-only$/]});
+const { lessonReviewSnapshot, lessonReviewFingerprint, serializeLessonReviewSnapshot } =
+  await loadModule("src/lib/lesson-review.ts");
+const { boundLessonSnapshot, requireCurrentLessonBinding } = await loadModule(
+  "src/lib/assessments/lesson-binding.ts",
+  { stubs: [/^@tanstack\/react-start\/server-only$/] },
+);
+const { readinessCatalog, listEnrollments } = await loadModule("src/lib/assessments/server.ts", {
+  stubs: [/^@tanstack\/react-start\/server-only$/],
+});
 
 async function fixture() {
   const snapshot = lessonReviewSnapshot("roofing", "Spanish", "English");
   const fingerprint = await lessonReviewFingerprint(snapshot);
-  const release = { id: "fixture-release", module_id: "roofing", target_language: "Spanish", instruction_language: "English", status: "verified", lesson_manifest: { reviewed: true, offlineVerified: true, lessonSnapshotFingerprint: fingerprint }, review_records: [{}, {}, {}] };
-  const binding = {release_id: release.id, fingerprint, snapshot_text: serializeLessonReviewSnapshot(snapshot), created_at: "2026-10-16T00:00:00Z"};
-  const rows = {assessment_releases: release, assessment_lesson_snapshots: binding};
+  const release = {
+    id: "fixture-release",
+    module_id: "roofing",
+    target_language: "Spanish",
+    instruction_language: "English",
+    status: "verified",
+    lesson_manifest: {
+      reviewed: true,
+      offlineVerified: true,
+      lessonSnapshotFingerprint: fingerprint,
+    },
+    review_records: [{}, {}, {}],
+  };
+  const binding = {
+    release_id: release.id,
+    fingerprint,
+    snapshot_text: serializeLessonReviewSnapshot(snapshot),
+    created_at: "2026-10-16T00:00:00Z",
+  };
+  const rows = { assessment_releases: release, assessment_lesson_snapshots: binding };
   const errors = {};
-  const forms = ["entrance", "day45", "day90"].map((checkpoint) => ({release_id: release.id, checkpoint, status: "verified", calibrated: true}));
-  const db = {from(table) {
-    const query = {select() {return query;}, eq() {return query;}, in() {return query;}, order() {return query;},
-      async maybeSingle() {return {data: rows[table], error: errors[table] ?? null};},
-      then(resolve, reject) {return Promise.resolve({data: table === "assessment_forms" ? forms : rows[table] ? [rows[table]] : [], error: errors[table] ?? null}).then(resolve, reject);}};
-    return query;
-  }};
-  return {db, rows, errors, snapshot};
+  const forms = ["entrance", "day45", "day90"].map((checkpoint) => ({
+    release_id: release.id,
+    checkpoint,
+    status: "verified",
+    calibrated: true,
+  }));
+  const page = {
+    enrollments: [{ id: "enrollment", release_id: release.id }],
+    checkpoints: ["entrance", "day45", "day90"].map((checkpoint) => ({
+      id: checkpoint,
+      enrollment_id: "enrollment",
+      checkpoint,
+    })),
+    attempts: [],
+    hasMore: false,
+    nextCursor: null,
+  };
+  const db = {
+    async rpc(name) {
+      return { data: name === "assessment_overview_page" ? page : [], error: null };
+    },
+    from(table) {
+      const query = {
+        select() {
+          return query;
+        },
+        eq() {
+          return query;
+        },
+        in() {
+          return query;
+        },
+        order() {
+          return query;
+        },
+        async maybeSingle() {
+          return { data: rows[table], error: errors[table] ?? null };
+        },
+        then(resolve, reject) {
+          return Promise.resolve({
+            data: table === "assessment_forms" ? forms : rows[table] ? [rows[table]] : [],
+            error: errors[table] ?? null,
+          }).then(resolve, reject);
+        },
+      };
+      return query;
+    },
+  };
+  return { db, rows, errors, snapshot, forms };
 }
 
 test("official eligibility requires the exact frozen material, manifest reference and current app to agree", async () => {
@@ -40,8 +104,13 @@ test("edited lesson material remains archived but blocks current approval/exam e
   old.snapshot_text = serializeLessonReviewSnapshot(f.snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = old.fingerprint;
   assert.deepEqual((await boundLessonSnapshot(f.db, "fixture-release")).snapshot, f.snapshot);
-  await assert.rejects(requireCurrentLessonBinding(f.db, "fixture-release"), (error) => error.status === 409);
-  const track = (await readinessCatalog(f.db, "Spanish", "English")).find((track) => track.moduleId === "roofing");
+  await assert.rejects(
+    requireCurrentLessonBinding(f.db, "fixture-release"),
+    (error) => error.status === 409,
+  );
+  const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+    (track) => track.moduleId === "roofing",
+  );
   assert.equal(track.status, "upgrade_in_progress");
   assert.equal(track.lessonsReviewed, false);
   assert.equal(track.offlineVerified, false);
@@ -50,7 +119,9 @@ test("edited lesson material remains archived but blocks current approval/exam e
 test("reviewed matching lessons can show progress before the exam release is verified", async () => {
   const f = await fixture();
   f.rows.assessment_releases.status = "draft";
-  const track = (await readinessCatalog(f.db, "Spanish", "English")).find((track) => track.moduleId === "roofing");
+  const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+    (track) => track.moduleId === "roofing",
+  );
   assert.equal(track.lessonsReviewed, true);
   assert.equal(track.lessonSnapshotCurrent, true);
   assert.equal(track.status, "upgrade_in_progress");
@@ -59,22 +130,36 @@ test("reviewed matching lessons can show progress before the exam release is ver
 
 test("missing binding, substituted manifest reference and corrupted bytes cannot pass the integrity gate", async () => {
   for (const mutate of [
-    (f) => {f.rows.assessment_lesson_snapshots = null;},
-    (f) => {f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = "0".repeat(64);},
-    (f) => {f.rows.assessment_lesson_snapshots.snapshot_text = "{}";},
+    (f) => {
+      f.rows.assessment_lesson_snapshots = null;
+    },
+    (f) => {
+      f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = "0".repeat(64);
+    },
+    (f) => {
+      f.rows.assessment_lesson_snapshots.snapshot_text = "{}";
+    },
   ]) {
-    const f = await fixture(); mutate(f);
-    await assert.rejects(requireCurrentLessonBinding(f.db, "fixture-release"), (error) => [409, 503].includes(error.status));
+    const f = await fixture();
+    mutate(f);
+    await assert.rejects(requireCurrentLessonBinding(f.db, "fixture-release"), (error) =>
+      [409, 503].includes(error.status),
+    );
   }
 });
 
 test("snapshot database failures stay unavailable rather than being reported as a successful match", async () => {
   const f = await fixture();
-  f.errors.assessment_lesson_snapshots = {message: "fixture unavailable"};
-  await assert.rejects(boundLessonSnapshot(f.db, "fixture-release"), (error) => error.status === 503);
-  await assert.rejects(readinessCatalog(f.db, "Spanish", "English"), (error) => error.status === 503);
+  f.errors.assessment_lesson_snapshots = { message: "fixture unavailable" };
+  await assert.rejects(
+    boundLessonSnapshot(f.db, "fixture-release"),
+    (error) => error.status === 503,
+  );
+  await assert.rejects(
+    readinessCatalog(f.db, "Spanish", "English"),
+    (error) => error.status === 503,
+  );
 });
-
 
 test("a claimed verified release cannot hide missing lesson source mappings", async () => {
   const f = await fixture();
@@ -83,6 +168,7 @@ test("a claimed verified release cannot hide missing lesson source mappings", as
   const fingerprint = await lessonReviewFingerprint(snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
   f.rows.assessment_lesson_snapshots.fingerprint = fingerprint;
+  f.rows.assessment_lesson_snapshots.snapshot_text = serializeLessonReviewSnapshot(snapshot);
   const catalog = await readinessCatalog(f.db, "Spanish", "English");
   const land = catalog.find((track) => track.moduleId === "landscaper");
   assert.equal(land.lessonsReviewed, true); // Deliberately fictional DB review claim.
@@ -92,4 +178,103 @@ test("a claimed verified release cannot hide missing lesson source mappings", as
   assert.equal(land.sourceCoverage.missingWordLists.length, 29);
   assert.equal(land.status, "upgrade_in_progress");
   assert.equal(land.offlineVerified, false);
+});
+
+test("complete reviewed current lessons and a calibrated form agree across enrollment, catalog and official start", async () => {
+  const f = await fixture();
+  const plans = await listEnrollments(f.db, "actor");
+  assert.deepEqual(
+    plans.enrollments[0].checkpoints.map((cp) => cp.ready),
+    [true, true, true],
+  );
+  await requireCurrentLessonBinding(f.db, "fixture-release", { officialStart: true });
+  const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+    (row) => row.moduleId === "roofing",
+  );
+  assert.equal(track.status, "verified");
+});
+
+test("missing source coverage blocks new official attempts and enrollment availability but preserves partial review", async () => {
+  const f = await fixture();
+  f.rows.assessment_releases.module_id = "landscaper";
+  const snapshot = lessonReviewSnapshot("landscaper", "Spanish", "English");
+  const fingerprint = await lessonReviewFingerprint(snapshot);
+  f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
+  Object.assign(f.rows.assessment_lesson_snapshots, {
+    fingerprint,
+    snapshot_text: serializeLessonReviewSnapshot(snapshot),
+  });
+  assert.deepEqual((await requireCurrentLessonBinding(f.db, "fixture-release")).snapshot, snapshot);
+  await assert.rejects(
+    requireCurrentLessonBinding(f.db, "fixture-release", { officialStart: true }),
+    (error) => error.status === 409 && /complete, reviewed/.test(error.message),
+  );
+  const plans = await listEnrollments(f.db, "actor");
+  assert.equal(
+    plans.enrollments[0].checkpoints.some((cp) => cp.ready),
+    false,
+  );
+});
+
+test("draft, withdrawn review and stale lessons never advertise available checkpoints", async () => {
+  for (const mutate of [
+    (f) => {
+      f.rows.assessment_releases.status = "draft";
+    },
+    (f) => {
+      f.rows.assessment_releases.lesson_manifest.reviewed = false;
+    },
+    (f) => {
+      f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = "0".repeat(64);
+    },
+  ]) {
+    const f = await fixture();
+    mutate(f);
+    const plans = await listEnrollments(f.db, "actor");
+    assert.equal(
+      plans.enrollments[0].checkpoints.some((cp) => cp.ready),
+      false,
+    );
+    await assert.rejects(
+      requireCurrentLessonBinding(f.db, "fixture-release", { officialStart: true }),
+      (error) => error.status === 409,
+    );
+  }
+});
+
+test("an uncalibrated verified form is unavailable and keeps the full track pending", async () => {
+  const f = await fixture();
+  f.forms[1].calibrated = false;
+  const plans = await listEnrollments(f.db, "actor");
+  assert.deepEqual(
+    plans.enrollments[0].checkpoints.map((cp) => cp.ready),
+    [true, false, true],
+  );
+  const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+    (row) => row.moduleId === "roofing",
+  );
+  assert.equal(track.status, "upgrade_in_progress");
+  assert.equal(track.calibrated, false);
+  assert.equal(track.offlineVerified, false);
+});
+
+test("matching fingerprint labels cannot hide corrupted frozen bytes in the catalog or enrollment", async () => {
+  const f = await fixture();
+  f.rows.assessment_lesson_snapshots.snapshot_text = "{}";
+  const plans = await listEnrollments(f.db, "actor");
+  assert.equal(
+    plans.enrollments[0].checkpoints.some((cp) => cp.ready),
+    false,
+  );
+  const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+    (row) => row.moduleId === "roofing",
+  );
+  assert.equal(track.lessonSnapshotCurrent, false);
+  assert.equal(track.status, "upgrade_in_progress");
+});
+
+test("enrollment binding lookup errors remain unavailable rather than guessed from stored status", async () => {
+  const f = await fixture();
+  f.errors.assessment_lesson_snapshots = { message: "fixture offline" };
+  await assert.rejects(listEnrollments(f.db, "actor"), (error) => error.status === 503);
 });

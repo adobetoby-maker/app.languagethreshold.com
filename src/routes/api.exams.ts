@@ -5,6 +5,7 @@ import {
 } from "@/lib/assessments/speech-server";
 import { checkpointAttemptHistory } from "@/lib/assessments/reports-server";
 import { requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
+import { officialFormAvailable } from "@/lib/assessments/release-readiness";
 import { assessmentContentAccess } from "@/lib/assessments/plans-server";
 import { proposeWritingReview } from "@/lib/assessments/ai-server";
 import { readAssessmentListening } from "@/lib/assessments/audio-server";
@@ -432,7 +433,7 @@ export const Route = createFileRoute("/api/exams")({
               );
             let formQuery = db
               .from("assessment_forms")
-              .select("id,status,definition")
+              .select("id,status,calibrated,definition")
               .eq("release_id", enrollment.release_id)
               .eq("checkpoint", checkpoint.checkpoint)
               .eq("purpose", enrollment.program_scope === "support_units" ? "support" : "module");
@@ -455,7 +456,7 @@ export const Route = createFileRoute("/api/exams")({
             if (formError)
               throw new AssessmentAccessError("Assessment forms are unavailable.", 503);
             const form =
-              forms?.find((form) => form.status === "verified") ??
+              forms?.find(officialFormAvailable) ??
               (pilotAllowed(user.id) ? forms?.[0] : undefined);
             if (!form)
               throw new AssessmentAccessError(
@@ -463,7 +464,7 @@ export const Route = createFileRoute("/api/exams")({
                 400,
               );
             if (!pilotAllowed(user.id))
-              await requireCurrentLessonBinding(db, enrollment.release_id);
+              await requireCurrentLessonBinding(db, enrollment.release_id, { officialStart: true });
             if (
               form.status === "verified" &&
               officialListeningGaps(form.definition as unknown as AssessmentFormDefinition).length

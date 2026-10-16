@@ -116,6 +116,18 @@ assert.ok(
 );
 assert.ok(team.body.enrollments.some((row) => row.id === qa.exams.teamEnrollmentId));
 assert.ok(team.body.enrollments.every((row) => row.checkpoints.every((cp) => !cp.pilotReady)));
+const ownOverview = await request(personal, "/api/exams");
+assert.equal(ownOverview.status, 200);
+const ownPlan = ownOverview.body.enrollments.find(
+  (row) => row.id === qa.exams.personalEnrollmentId,
+);
+const teamPlan = team.body.enrollments.find((row) => row.id === qa.exams.teamEnrollmentId);
+assert.ok(ownPlan && teamPlan, "Both existing QA plans remain readable");
+for (const plan of [ownPlan, teamPlan])
+  assert.ok(
+    plan.checkpoints.every((cp) => cp.ready === false),
+    "Draft QA checkpoints never advertise official availability",
+  );
 assert.equal(JSON.stringify(team.body).includes('"answer"'), false);
 assert.equal(JSON.stringify(team.body).includes("correctOptionId"), false);
 const plan = await request(personal, `/api/exam-plans?enrollment=${qa.exams.personalEnrollmentId}`);
@@ -241,6 +253,7 @@ const report = {
     unreviewedSupportExcluded: true,
     compatibleReadinessTracksHonest: true,
     actualLessonSourceCoverageAndGaps: true,
+    personalAndTeamDraftAvailabilityDenied: true,
     privateContentDeniedToUnassignedAccounts: true,
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     lessonSnapshotBindingDeniedToNonOwners: true,

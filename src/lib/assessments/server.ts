@@ -8,8 +8,7 @@ import { getCurriculum } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
-import { lessonReviewSnapshot, lessonReviewFingerprint } from "@/lib/lesson-review";
-import { lessonSourceCoverage } from "@/lib/lesson-source-coverage";
+import { lessonReleaseReadiness, officialFormAvailable } from "./release-readiness";
 import { ROOFING_ASSESSMENT_RELEASE } from "./form";
 import {
   publicAssessmentItem,
@@ -212,10 +211,31 @@ export async function listEnrollments(
     .in("release_id", [...new Set(permitted.map((row) => row.release_id))]);
   const { data: releases, error: releasesError } = await db
     .from("assessment_releases")
-    .select("id,status")
+    .select("id,module_id,target_language,instruction_language,status,lesson_manifest")
     .in("id", [...new Set(permitted.map((row) => row.release_id))]);
   if (formsError || releasesError)
     throw new AssessmentAccessError("Assessment readiness could not be loaded.", 503);
+  const bindings = await db
+    .from("assessment_lesson_snapshots")
+    .select("release_id,snapshot_text,fingerprint")
+    .in("release_id", [...new Set(permitted.map((row) => row.release_id))]);
+  if (bindings.error)
+    throw new AssessmentAccessError("Lesson readiness could not be checked.", 503);
+  const availableReleases = new Set(
+    (
+      await Promise.all(
+        (releases ?? []).map(async (release) => ({
+          id: release.id,
+          readiness: await lessonReleaseReadiness(
+            release,
+            bindings.data?.find((row) => row.release_id === release.id),
+          ),
+        })),
+      )
+    )
+      .filter((row) => row.readiness.available)
+      .map((row) => row.id),
+  );
   const summaries = await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
     p_actor: actor,
     p_enrollments: ids,
@@ -228,14 +248,12 @@ export async function listEnrollments(
       .map((cp) => ({
         ...cp,
         ready:
-          (releases ?? []).some(
-            (release) => release.id === enrollment.release_id && release.status === "verified",
-          ) &&
+          availableReleases.has(enrollment.release_id) &&
           (forms ?? []).some(
             (form) =>
               form.release_id === enrollment.release_id &&
               form.checkpoint === cp.checkpoint &&
-              form.status === "verified",
+              officialFormAvailable(form),
           ),
         pilotReady:
           pilotAllowed(actor) &&
@@ -274,7 +292,9 @@ export async function listEnrollments(
 export async function readinessCatalog(db: TeamDb, target: Language, native: NativeLanguage) {
   const { data: releases, error } = await db
     .from("assessment_releases")
-    .select("id,module_id,status,lesson_manifest,review_records,verified_at,created_at")
+    .select(
+      "id,module_id,target_language,instruction_language,status,lesson_manifest,review_records,verified_at,created_at",
+    )
     .eq("target_language", target)
     .eq("instruction_language", native)
     .order("created_at", { ascending: false });
@@ -294,7 +314,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
   const bindings = boundIds.length
     ? await db
         .from("assessment_lesson_snapshots")
-        .select("release_id,fingerprint")
+        .select("release_id,snapshot_text,fingerprint")
         .in("release_id", boundIds)
     : { data: [], error: null };
   if (bindings.error)
@@ -304,34 +324,45 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
       (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
     ).map(async (module) => {
       const curriculum = getCurriculum(module.id)!;
-      const sourceCoverage = lessonSourceCoverage(module.id, target, native);
       const release =
         (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
         (releases ?? []).find((row) => row.module_id === module.id);
+      const readiness = await lessonReleaseReadiness(
+        release ?? {
+          module_id: module.id,
+          target_language: target,
+          instruction_language: native,
+          status: "missing",
+          lesson_manifest: null,
+        },
+        bindings.data?.find((row) => row.release_id === release?.id),
+      );
+      const sourceCoverage = readiness.coverage;
       const examStates = Object.fromEntries(
         (["entrance", "day45", "day90"] as const).map((checkpoint) => {
           const matching = (forms ?? []).filter(
             (row) => row.release_id === release?.id && row.checkpoint === checkpoint,
           );
-          const chosen = matching.find((row) => row.status === "verified") ?? matching[0];
+          const chosen =
+            matching.find(officialFormAvailable) ??
+            matching.find((row) => row.status === "verified") ??
+            matching[0];
           return [checkpoint, chosen?.status ?? "missing"];
         }),
       );
-      const binding = bindings.data?.find((row) => row.release_id === release?.id);
-      const current = binding ? lessonReviewSnapshot(module.id, target, native) : null;
-      const bindingCurrent = !!(
-        current &&
-        binding &&
-        binding.fingerprint === release?.lesson_manifest?.lessonSnapshotFingerprint &&
-        binding.fingerprint === (await lessonReviewFingerprint(current))
-      );
-      const reviewed = release?.lesson_manifest?.reviewed === true && bindingCurrent;
-      const verified =
-        release?.status === "verified" &&
-        reviewed &&
-        curriculum.lessons.length >= 30 &&
-        sourceCoverage.structurallyComplete &&
-        Object.values(examStates).every((status) => status === "verified");
+      const bindingCurrent = readiness.current;
+      const reviewed = readiness.reviewed;
+      const calibrated =
+        !!release &&
+        (["entrance", "day45", "day90"] as const).every((checkpoint) =>
+          (forms ?? []).some(
+            (form) =>
+              form.release_id === release.id &&
+              form.checkpoint === checkpoint &&
+              officialFormAvailable(form),
+          ),
+        );
+      const verified = readiness.available && calibrated;
       return {
         moduleId: module.id,
         name: module.name,
@@ -350,17 +381,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
           : 0,
         lessonsReviewed: reviewed,
         lessonSnapshotCurrent: bindingCurrent,
-        calibrated:
-          !!release &&
-          (["entrance", "day45", "day90"] as const).every((checkpoint) =>
-            (forms ?? []).some(
-              (form) =>
-                form.release_id === release.id &&
-                form.checkpoint === checkpoint &&
-                form.status === "verified" &&
-                form.calibrated,
-            ),
-          ),
+        calibrated,
         verifiedAt: verified ? release?.verified_at : null,
         offlineVerified: verified && release?.lesson_manifest?.offlineVerified === true,
       };

@@ -6,12 +6,16 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
 }
 
 /** Pull ONLY the core30Log out of a profiles.data blob. Anything malformed is dropped. */
-export function extractCore30Log(profileData: unknown): Core30Log {
+export function extractCore30Log(
+  profileData: unknown,
+  allowedModuleIds?: readonly string[],
+): Core30Log {
   if (!isPlainObject(profileData)) return {};
   const raw = profileData.core30Log;
   if (!isPlainObject(raw)) return {};
   const out: Core30Log = {};
   for (const [moduleId, moduleLog] of Object.entries(raw)) {
+    if (allowedModuleIds && !allowedModuleIds.includes(moduleId)) continue;
     if (!isPlainObject(moduleLog)) continue;
     if (moduleLog.lessons !== undefined && !isPlainObject(moduleLog.lessons)) continue;
     out[moduleId] = {

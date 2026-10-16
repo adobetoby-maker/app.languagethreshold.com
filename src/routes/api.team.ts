@@ -213,7 +213,12 @@ export const Route = createFileRoute("/api/team")({
             if (profilesError) throw profilesError;
             for (const profile of profiles ?? []) {
               if (!memberUserIds.includes(profile.id)) continue;
-              const log = extractCore30Log(profile.data);
+              // A team assignment grants visibility into that module only. Other personal
+              // study and modules assigned by another organization stay private.
+              const assignedModules = (assignments.data ?? [])
+                .filter((assignment) => assignment.user_id === profile.id)
+                .map((assignment) => assignment.module_id);
+              const log = extractCore30Log(profile.data, assignedModules);
               if (Object.keys(log).length) core30[profile.id] = log;
             }
           }

@@ -1,0 +1,65 @@
+# Language Threshold review and implementation sequence
+
+Date: October 15, 2026. Codex review, requested by Toby.
+
+## Release coordination
+
+Claude desktop Code session “Languagethreshold.com model upgrades” owns the lesson release in `/Users/drive/lt-worktrees/app-haiku-5-5`. Codex owns dashboard and Exams work in `/Users/drive/lt-worktrees/admin-exams`, branch `codex/admin-exams`, initially based on a739580. No shared working-file edits.
+
+The user authorized sending this review and the implementation plan to Claude. The handoff was sent through that session and acknowledged. Claude agreed to resolve the five lesson findings and leave admin/Exams work to Codex.
+
+Canonical specification: https://chatgpt.com/space/page_8c02d8da6fa88191a18d9a2f4b75a5c5 (v1.2).
+
+## Lesson preview findings
+
+Tested the active localhost:3210 preview, desktop and 390×844 phone. These findings must be retested after the final deployment.
+
+Verified: six learning modes, previous/next lesson controls, typing feedback for an accent error, full Reader return to the same lesson, speaking mission opens the correct lesson and Back to Lesson returns to the same Say step. Phone next-step button is reachable by scrolling. Anonymous speaking correctly requires sign-in.
+
+Five findings sent to Claude:
+
+1. See it described contextual reading but displayed a 32-item materials glossary. Thirty Roofing lessons shared five reading seeds. Claude accepted and is adding thirty lesson-specific passages with progression.
+2. Handwriting recognition took roughly thirty seconds and fell back to self-comparison. Try again erased the drawing. Claude accepted preserving strokes, separate Check again/Start over and a timeout. Recognition success is not verified by this run.
+3. React logged an update to WriteMode during HandwritingPad rendering. Claude accepted the callback fix.
+4. The outer six learning modes and inner six practice modes used different lists and completion counters. Claude accepted removing duplicate kit navigation inside a lesson.
+5. Desktop automatic scrolling hid heading/step controls behind the fixed header. Claude accepted a scroll offset fix.
+
+## Dashboard baseline and repairs
+
+Production review found progress below large billing/invitation forms, a horizontally scrolling phone roster, an assignment form without Cancel, and a requirement checkbox that did not start from the current assignment. These are usability issues independent of the certificate fixture.
+
+The certificate and its supporting completion data were explicitly fabricated at the user’s request for demonstration. They are not evidence of real learner activity or a synchronization defect. Do not issue real credentials from QA data.
+
+Draft repairs: progress before setup in document order; two-column phone summary; learner cards on phones; collapsed billing/invitations; assignment edit defaults preserved when switching away and back; Cancel; distinct labels for recorded practice, self-reported mastery and certificate test; zero-score display; General language label for legacy core identifier; assigned-module-only Core 30 summaries to avoid sharing unrelated personal study.
+
+UI verified with a clearly labeled local QA fixture and no real writes/email. Tests prove defaults and Cancel; fixture showed 0/25 correctly. Production sign-in, backend integration, real learner→admin synchronization and final deployment remain outstanding.
+
+## Source catalog baseline
+
+See `module-readiness-baseline-2026-10-15.json`. Source inventory before Claude’s release:
+
+- 59 modules, 1,510 lessons.
+- 16 travel modules have 15 lessons; Sport Fishing has 10. These need expansion to meet the requested 30-lesson standard.
+- Only Roofing has authored `words` on every lesson (30/30). Generated deck availability must be audited after Claude’s release.
+- No lesson has an explicit level field in the existing curriculum schema.
+- Structural presence of a tool or generated list is not proof of reviewed content, objective alignment, offline readiness or mastery measurement.
+
+## Build sequence
+
+1. Finish and verify the lesson release on production, including the five fixes, desktop/phone flows, lesson-specific reading, signed-in speaking return and honest offline behavior.
+2. Finish dashboard repairs, integrate the lesson release into the isolated branch, verify actual backend data boundaries and real learner tracking without changing Toby’s mastery or sending invitations.
+3. Build one durable Exams engine with explicit personal/team enrollment scope, server authentication/ownership, frozen versioned forms and rubric, answer autosave, idempotent submission and retry. Preserve the old team certificate quiz separately.
+4. Ship Roofing entrance, day 45 and day 90 forms first. Six skill dimensions; deterministic fixed items plus production rubrics; uncertain recognition is pending/not assessed, never a wrong answer. Copying is practice, not recall evidence. Entrance and exit use equivalent full-module coverage; midpoint comparisons use matched objectives. Calendar offsets are +44/+89 days from day one.
+5. Permanent Exams area for individuals and teams: start/resume, schedule, results/history/comparison and targeted practice. Personal results stay private and are never inherited by joining a team.
+6. Admin Exams overview, learner skill timeline, review queue and evidence-linked support module recommendations. Admin approves team additions; independent learner approves personal additions. Show workload before assigning.
+7. Audit every module/language against the Roofing standard: 30 complete lessons, level/objective/prerequisite-driven toolkit, six learning modes, contextual usage, reviewed vocabulary/passages/assets and all three exams. Release in tracked batches, with draft/in-review/ready states rather than claims of completion from generation alone.
+8. Versioned shared packs, local practice/save recovery and explicit network requirements support offline development. Validate browser→API→database→result→authorized dashboard end to end, plus privacy, scoring, scheduling and idempotency tests.
+
+## Verification ledger
+
+- Initial dashboard TypeScript check: passed.
+- Assigned-module privacy tests: four team Core 30 tests passed, including no-assignment and unrelated-module exclusion.
+- Lint: zero errors; temporary uncommitted QA harness emitted one Fast Refresh warning. Harness will be removed before final checks/commit.
+- Dashboard branch: TypeScript passed, lint zero errors after removing the temporary harness, all 224 baseline unit tests passed, production build succeeded, git diff whitespace check passed.
+- QA fixture assignment Save emitted the expected requireCertificate:true payload. No real assignment or email was sent.
+- Final integration with Claude’s release, live review and deployment: pending.

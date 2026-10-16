@@ -2033,8 +2033,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* 90-day plan: start date, today's lesson, review cadence */}
           {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
             <p role="status" className="my-4 text-sm">
-              Connect to load this plan’s approved review schedule. Your lesson list remains
-              available.
+              This plan’s schedule is not available. Your lesson list remains available.
             </p>
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (

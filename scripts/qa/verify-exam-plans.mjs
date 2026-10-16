@@ -36,7 +36,11 @@ const [personal, learner, admin] = await Promise.all([
   login(qa.email, qa.password),
   login(qa.adminEmail, qa.adminPassword),
 ]);
-const base = "http://127.0.0.1:4311";
+const base = process.env.LT_QA_STAGE_URL || "http://127.0.0.1:4311";
+assert.ok(
+  base === "http://127.0.0.1:4311" ||
+    /^https:\/\/language-threshold-[a-z0-9]+-adobetoby-5572s-projects\.vercel\.app$/.test(base),
+);
 async function request(token, pathOrBody, origin = base) {
   const get = typeof pathOrBody === "string";
   const response = await fetch(base + (get ? pathOrBody : "/api/exam-plans"), {
@@ -186,6 +190,9 @@ const report = {
     rejectedSuggestionsCreateNoRecords: true,
   },
 };
-writeFileSync("docs/reviews/qa-exam-plans-2026-10-16.json", JSON.stringify(report, null, 2) + "\n");
+writeFileSync(
+  process.env.LT_QA_REPORT_PATH || "docs/reviews/qa-exam-plans-2026-10-16.json",
+  JSON.stringify(report, null, 2) + "\n",
+);
 console.log(JSON.stringify(report.checks));
 await Promise.all(clients.map((client) => client.auth.signOut({ scope: "local" })));

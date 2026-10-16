@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getCurriculum } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 import type { NativeLanguage } from "@/state/app-state";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 
 const Input = z.object({
   moduleId: z.string().min(1).max(80),
@@ -56,6 +57,8 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
     }
     const key = process.env.ANTHROPIC_API_KEY;
     if (!key) return { pairs: null, error: "AI is not configured" };
+    const budgetError = await learningGenerationError();
+    if (budgetError) return { pairs: null, error: budgetError };
 
     const curriculum = getCurriculum(module.id);
     try {

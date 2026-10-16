@@ -7,6 +7,7 @@ import type { LessonWord } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 import { buildLessonWordsRequest, lessonWordsFromResponse } from "@/lib/lesson-words-prompt";
 import type { NativeLanguage } from "@/state/app-state";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 
 const Input = z.object({
   moduleId: z.string().min(1).max(80),
@@ -72,6 +73,8 @@ export const generateLessonWords = createServerFn({ method: "POST" })
     if (!lesson) return { words: null, error: "Unknown lesson" };
     const key = process.env.ANTHROPIC_API_KEY;
     if (!key) return { words: null, error: "AI is not configured" };
+    const budgetError = await learningGenerationError();
+    if (budgetError) return { words: null, error: budgetError };
 
     try {
       const client = new Anthropic({ apiKey: key });

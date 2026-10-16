@@ -182,8 +182,10 @@ export function FlashcardsStudio() {
         if (result.error || !result.pairs?.length)
           throw new Error(result.error ?? "No cards returned");
         addModuleCards(language, moduleId, "generated", result.pairs);
-      } catch {
-        setFieldDeckError(`Couldn't prepare ${moduleName} practice cards. Try again.`);
+      } catch (error) {
+        setFieldDeckError(
+          error instanceof Error ? error.message : `Couldn't prepare ${moduleName} practice cards. Try again.`,
+        );
       } finally {
         setGeneratingFieldDeck(false);
       }

@@ -100,7 +100,13 @@ async function speakingBucketHash(namespace: string, value: string) {
   );
 }
 
-async function consumeSpeakingBudget(namespace: string, value: string, limit: number) {
+/** Shared server-only counter; namespaced hashes keep independent feature budgets separate. */
+export async function consumeServerRequestBudget(
+  namespace: string,
+  value: string,
+  limit: number,
+  windowSeconds = 60,
+) {
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();
   if (!url || !key) throw new Error("Speaking budget storage is unavailable.");
@@ -111,8 +117,9 @@ async function consumeSpeakingBudget(namespace: string, value: string, limit: nu
     body: JSON.stringify({
       p_bucket_hash: bucketHash,
       p_request_limit: limit,
-      p_window_seconds: 60,
+      p_window_seconds: windowSeconds,
     }),
+    signal: AbortSignal.timeout(8000),
   });
   if (!response.ok) throw new Error("Speaking budget storage rejected the request.");
   return (await response.json()) === true;
@@ -123,7 +130,7 @@ export async function enforceSpeakingPreAuthRateLimit(
 ): Promise<SpeakingLimitResult> {
   const ip = trustedClientIp(request);
   if (!ip) return { allowed: false, misconfigured: true };
-  const allowed = await consumeSpeakingBudget("ip", ip, IP_REQUESTS_PER_MINUTE);
+  const allowed = await consumeServerRequestBudget("ip", ip, IP_REQUESTS_PER_MINUTE);
   return { allowed, misconfigured: false };
 }
 
@@ -132,7 +139,7 @@ export async function enforceSpeakingRateLimit(
   purpose = "ai",
   limit = USER_REQUESTS_PER_MINUTE,
 ): Promise<SpeakingLimitResult> {
-  const allowed = await consumeSpeakingBudget(`user:${purpose}`, userId, limit);
+  const allowed = await consumeServerRequestBudget(`user:${purpose}`, userId, limit);
   return { allowed, misconfigured: false };
 }
 

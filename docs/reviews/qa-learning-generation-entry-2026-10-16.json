@@ -1,0 +1,29 @@
+{
+  "testedAt": "2026-10-16T20:02:32.429Z",
+  "sourceCommit": "4d296e6",
+  "preview": "https://language-threshold-j457xg1j0-adobetoby-5572s-projects.vercel.app",
+  "scope": "Actual hosted framework CSRF and application conflicting-origin denial for three builders (six HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
+  "checks": [
+    {
+      "handler": "generateLessonWords",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateModuleDeck",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateCultureEssay",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    }
+  ]
+}

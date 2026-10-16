@@ -29,6 +29,20 @@ for (const [name, data] of [
   const id = built.match(new RegExp(`id: "([a-f0-9]{64})",\\s*name: "${name}"`))?.[1];
   assert.ok(id, `Current built identifier for ${name}`);
   const body = JSON.stringify(await toJSONAsync({ data }));
+  const frameworkResponse = await fetch(`${base}/_serverFn/${id}`, {
+    method: "POST",
+    headers: {
+      Origin: "https://outside.invalid",
+      "Sec-Fetch-Site": "cross-site",
+      "Content-Type": "application/json",
+      "x-tsr-serverFn": "true",
+      Accept: "application/json",
+    },
+    body,
+  });
+  assert.equal(frameworkResponse.status, 403, `${name} framework CSRF status`);
+  assert.equal(frameworkResponse.headers.get("cache-control"), "no-store");
+  assert.equal(await frameworkResponse.text(), "Forbidden");
   const response = await fetch(`${base}/_serverFn/${id}`, {
     method: "POST",
     headers: {
@@ -49,7 +63,8 @@ for (const [name, data] of [
   );
   checks.push({
     handler: name,
-    crossOriginDenied: true,
+    frameworkCrossSiteDenied: true,
+    conflictingOriginMetadataDeniedByApplication: true,
     noStore: true,
     applicationBudgetGuardReached: true,
   });
@@ -59,7 +74,7 @@ const result = {
   sourceCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
   preview: base,
   scope:
-    "Actual hosted production-handler cross-origin denial. No allowed requests, quota exhaustion or model generation are attempted.",
+    "Actual hosted framework CSRF and application conflicting-origin denial for three builders (six HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
   checks,
 };
 writeFileSync(

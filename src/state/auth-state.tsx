@@ -10,7 +10,13 @@ import {
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
-import { clearAuthReturn, consumeAuthReturn, rememberAuthReturn } from "@/lib/auth-return";
+import {
+  authenticationRedirectUrl,
+  browserAuthReturnStorage,
+  clearAuthReturn,
+  consumeAuthReturn,
+  rememberAuthReturn,
+} from "@/lib/auth-return";
 import { clearLessonDraftsForUser } from "@/lib/lesson-drafts";
 import {
   clearExamDraftsForUser,
@@ -41,7 +47,11 @@ interface AuthContextValue {
 const Ctx = createContext<AuthContextValue | null>(null);
 
 function restorePageAfterAuth(session: Session | null) {
-  const returnPath = consumeAuthReturn(window.location.pathname, !!session, window.localStorage);
+  const returnPath = consumeAuthReturn(
+    window.location.pathname + window.location.search,
+    !!session,
+    browserAuthReturnStorage(),
+  );
   if (returnPath) window.location.replace(returnPath);
 }
 
@@ -109,17 +119,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
-    rememberAuthReturn(window.location.pathname, window.localStorage);
-    const redirectUrl =
-      window.location.pathname === "/team/accept"
-        ? window.location.href
-        : `${window.location.origin}/`;
+    rememberAuthReturn(
+      window.location.pathname + window.location.search,
+      browserAuthReturnStorage(),
+    );
+    const redirectUrl = authenticationRedirectUrl(window.location.href);
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: { emailRedirectTo: redirectUrl },
     });
-    if (error || data.session) clearAuthReturn(window.localStorage);
+    if (error || data.session) clearAuthReturn(browserAuthReturnStorage());
     return {
       error: error?.message ?? null,
       needsConfirmation: !error && !data.session,
@@ -127,6 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
+    clearAuthReturn(browserAuthReturnStorage());
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (!error) return { error: null };
     const msg = error.message.toLowerCase();
@@ -140,16 +151,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
-    rememberAuthReturn(window.location.pathname, window.localStorage);
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo:
-          window.location.pathname === "/team/accept"
-            ? window.location.href
-            : `${window.location.origin}/`,
-      },
-    });
+    rememberAuthReturn(
+      window.location.pathname + window.location.search,
+      browserAuthReturnStorage(),
+    );
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: authenticationRedirectUrl(window.location.href),
+        },
+      });
+      if (error) throw error;
+    } catch {
+      clearAuthReturn(browserAuthReturnStorage());
+      toast.error("Google sign-in could not start. Try again or use email sign-in.");
+    }
   }, []);
 
   const resetPassword = useCallback(async (email: string) => {

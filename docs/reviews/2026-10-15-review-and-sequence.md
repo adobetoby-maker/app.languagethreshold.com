@@ -63,3 +63,11 @@ See `module-readiness-baseline-2026-10-15.json`. Source inventory before Claude�
 - Dashboard branch: TypeScript passed, lint zero errors after removing the temporary harness, all 224 baseline unit tests passed, production build succeeded, git diff whitespace check passed.
 - QA fixture assignment Save emitted the expected requireCertificate:true payload. No real assignment or email was sent.
 - Final integration with Claude’s release, live review and deployment: pending.
+
+## Follow-up preview and boundary checks
+
+The updated local preview shows a contextual Lesson 1 passage, removes the duplicate six-way practice counter and keeps the desktop step heading below the sticky header. Handwriting recognized a deliberately drawn T accurately; Try again preserved the ink. No new WriteMode render warning appeared during that retest (earlier console history retained the original warning).
+
+Using Chrome DevTools on the local preview tab only, simulated no network: the UI showed an offline notice and immediately offered self-comparison. Check again preserved the exact image source. Restored normal network and the retry entered recognition again. This is a recovery check of an already loaded lesson, not proof of offline cold-start availability or every module’s offline completeness.
+
+Live unauthenticated GET /api/team returned HTTP403, {"error":"Sign in to continue."}, and Cache-Control:no-store. This verifies rejection without a session; it does not prove cross-tenant access or learner synchronization.

@@ -20,12 +20,14 @@ import {
 import { toast } from "sonner";
 import { signOutWithDeviceSafety } from "@/lib/device-sign-out";
 import { pendingLibraryChanges } from "@/lib/library-device";
+import { createAuthActorAccess } from "@/lib/auth-actor-access";
 
 interface AuthContextValue {
   user: User | null;
   session: Session | null;
   loading: boolean;
   isCurrentUser: (userId: string) => boolean;
+  canUseReader: (userId: string) => boolean;
   signUp: (
     email: string,
     password: string,
@@ -160,7 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = useCallback(async (scope: "global" | "local" | "others" = "local") => {
     const userId = currentUser.current;
     if (signingOutFor.current) return false;
-    // Freeze account-bound writes before inspection/confirmation; late Reader requests cannot
+    // Freeze Reader writes before inspection/confirmation; late Reader requests cannot
     // add new device-only work between the warning and completed sign-out.
     if (scope !== "others") signingOutFor.current = userId;
     const storage = browserExamStorage();
@@ -192,8 +194,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const isCurrentUser = useCallback(
-    (userId: string) => currentUser.current === userId && signingOutFor.current !== userId,
+  const { isCurrentUser, canUseReader } = useMemo(
+    () =>
+      createAuthActorAccess(
+        () => currentUser.current,
+        () => signingOutFor.current,
+      ),
     [],
   );
 
@@ -203,13 +209,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       session,
       loading,
       isCurrentUser,
+      canUseReader,
       signUp,
       signIn,
       signInWithGoogle,
       signOut,
       resetPassword,
     }),
-    [session, loading, isCurrentUser, signUp, signIn, signInWithGoogle, signOut, resetPassword],
+    [
+      session,
+      loading,
+      isCurrentUser,
+      canUseReader,
+      signUp,
+      signIn,
+      signInWithGoogle,
+      signOut,
+      resetPassword,
+    ],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
@@ -220,6 +237,7 @@ const fallbackAuth: AuthContextValue = {
   session: null,
   loading: false,
   isCurrentUser: () => false,
+  canUseReader: () => false,
   signUp: async () => ({ error: "Auth not ready", needsConfirmation: false }),
   signIn: async () => ({ error: "Auth not ready" }),
   signInWithGoogle: async () => {},

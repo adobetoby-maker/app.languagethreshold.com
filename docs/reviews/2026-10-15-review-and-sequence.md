@@ -525,3 +525,13 @@ The review browser has been restored to the dedicated team QA learner on Roofing
 
 
 Additional concurrency follow-up before promotion: the current sign-out freeze uses `isCurrentUser` for both identity checks and write permission. Exercise a failed sign-out while initial profile reads are pending; a Reader-specific write barrier would avoid suppressing a still-valid profile response when the SDK fails to sign out. The normal sign-out and independent-session checks above do not cover that overlap.
+
+## Failed sign-out/profile restoration overlap repaired — October 16
+
+The overlap above is fixed in source. Auth now keeps `isCurrentUser` tied to the actual identity and exposes a separate stable `canUseReader` guard for the Reader replica and remote adapter. Pending sign-out still freezes Reader writes/sync; profile restoration can finish and release incoming lesson-link initialization while the session remains valid. Cancellation or SDK failure restores Reader access. Successful sign-out still changes identity and invalidates the saved Reader epoch as before.
+
+Three regression cases exercise the production access guard with the real deferred-profile coordinator, sign-out coordinator and Reader device engine: successful profile response during failed sign-out, failed profile response during failed sign-out, and cancelled sign-out with Reader edits resuming. They check navigation readiness, avoid enabling profile writes after a failed profile read, reject Reader edits during the warning and reject the previous identity after an account switch.
+
+Local verification: **504 tests pass**, type-check clean, lint zero errors/nine existing warnings, production build and artifact verification pass (19.36 MiB server bundle). The built artifact/private-source audit checks96 markers across874 source candidates/143 static text assets with zero hits. This change has not yet been deployed or browser-tested; the exact Preview at the top remains application `e0c9e18`. Live remains `f9f8685`. No database, speech-policy, reviewer-role or schedule changes were made.
+
+Next available engineering work is the remaining globally keyed private stores: `lt.annotations.v1`, `lingualens.flashcards.v2`, `lt.tutor.v1` and `lt.speak.v1`. Preserve unowned legacy data for explicit recovery rather than assigning it to the next signed-in learner. Then stage the combined fixes and verify account switching, Reader recovery and lesson entry on the resulting exact deployment. All prior human content, calibration, pilot, owner-retention and companion-domain release gates remain open.

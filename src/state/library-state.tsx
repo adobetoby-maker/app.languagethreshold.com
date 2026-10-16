@@ -183,7 +183,7 @@ interface LibraryContextValue {
 const Ctx = createContext<LibraryContextValue | null>(null);
 
 export function LibraryProvider({ children }: { children: ReactNode }) {
-  const { user, isCurrentUser } = useAuth();
+  const { user, canUseReader } = useAuth();
   const actor = user?.id ?? null;
   const [localState, dispatch] = useReducer(reducer, actor, makeInitial);
   const mounted = useRef(false);
@@ -192,8 +192,8 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     createLibraryDevice({
       actor,
       storage: browserLibraryStorage(),
-      isCurrent: () => mounted.current && (!actor || isCurrentUser(actor)),
-      remote: actor ? createLibraryRemote(supabase, actor, isCurrentUser) : null,
+      isCurrent: () => mounted.current && (!actor || canUseReader(actor)),
+      remote: actor ? createLibraryRemote(supabase, actor, canUseReader) : null,
     }),
   );
   const deviceState = useSyncExternalStore(

@@ -1,0 +1,34 @@
+{
+  "testedAt": "2026-10-16T21:02:06.898Z",
+  "sourceCommit": "281ffa0",
+  "target": "https://language-threshold-p6p7e7sxr-adobetoby-5572s-projects.vercel.app",
+  "scope": "Read-only database and team API checks after actual normal browser activity on dedicated QA accounts",
+  "checks": {
+    "assignedSpanishRoofing29Saved": true,
+    "openingDidNotGrantMastery": true,
+    "independentSpanishAndItalianRecordsNotInferred": true,
+    "earlierLandscaperHistoryPreserved": true,
+    "explicitPairClaimPersisted": true,
+    "claimDidNotCreateMastery": true,
+    "scopedAdminCountMatchesLearnerActivity": true,
+    "earlierAdminCountsRemainSeparate": true
+  },
+  "teamPlan": {
+    "mastered": 0,
+    "opened": 1,
+    "statusLabel": "Behind by 1"
+  },
+  "earlierRecord": {
+    "selfMarkedMastered": 1,
+    "opened": 3
+  },
+  "claimedHistory": {
+    "lessonsOpened": 1,
+    "selfMarkedMastered": 0
+  },
+  "writes": "No profile, lesson, exam, score, certificate, role or review mutations; normal temporary QA auth sessions only.",
+  "limits": [
+    "These are functional QA records, not assessed proficiency.",
+    "Browser activity opened a lesson and explicitly linked known existing practice; no mastery or exam response was submitted."
+  ]
+}

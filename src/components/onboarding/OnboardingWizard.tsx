@@ -1,3 +1,4 @@
+import { LearningEntryModal } from "./LearningEntryModal";
 import { useState } from "react";
 import { Sparkle, ArrowRight, Check } from "lucide-react";
 import { useApp, type Language, type Level } from "@/state/app-state";
@@ -176,7 +177,12 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4">
+    <LearningEntryModal
+      title="Set up your learning plan"
+      description="Choose your language, work module and starting level, or skip setup."
+      onDismiss={skip}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4"
+    >
       <div className="relative w-full max-w-lg">
         {/* Skip */}
         <button
@@ -374,6 +380,6 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           )}
         </div>
       </div>
-    </div>
+    </LearningEntryModal>
   );
 }

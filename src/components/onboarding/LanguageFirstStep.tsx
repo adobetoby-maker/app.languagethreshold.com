@@ -1,3 +1,4 @@
+import { LearningEntryModal } from "./LearningEntryModal";
 import { useState } from "react";
 import { Sparkle } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
@@ -43,7 +44,11 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
   }
 
   return (
-    <div className="lt-safe-top-only fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-background/98 p-4 backdrop-blur-sm">
+    <LearningEntryModal
+      title="Choose your learning language"
+      description="Choose a language to continue. You can change it later."
+      className="lt-safe-top-only fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-background/98 p-4 backdrop-blur-sm"
+    >
       <div className="w-full max-w-lg">
         <div className="mb-6 flex items-center gap-2">
           <Sparkle className="h-5 w-5 text-gold" strokeWidth={1.5} fill="currentColor" />
@@ -53,9 +58,12 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
         </div>
 
         <div className="rounded-2xl border border-border/60 bg-card/90 p-6 shadow-2xl">
-          <h2 className="text-xl font-semibold mb-1">What are you learning? / ¿Qué quieres aprender?</h2>
+          <h2 className="text-xl font-semibold mb-1">
+            What are you learning? / ¿Qué quieres aprender?
+          </h2>
           <p className="text-sm text-muted-foreground mb-5">
-            We&apos;ll open a passage and tools tailored to that language. You can change this later.
+            We&apos;ll open a passage and tools tailored to that language. You can change this
+            later.
           </p>
 
           <div className="grid grid-cols-2 gap-2">
@@ -80,6 +88,6 @@ export function LanguageFirstStep({ onChosen }: { onChosen: () => void }) {
           </p>
         </div>
       </div>
-    </div>
+    </LearningEntryModal>
   );
 }

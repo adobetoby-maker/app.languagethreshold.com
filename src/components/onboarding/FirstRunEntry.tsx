@@ -1,3 +1,4 @@
+import { LearningEntryModal } from "./LearningEntryModal";
 import { useEffect, useState } from "react";
 import {
   ArrowRight,
@@ -50,7 +51,11 @@ export function FirstRunEntry() {
   }
 
   return (
-    <div className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background">
+    <LearningEntryModal
+      title="Start learning"
+      description="Choose reading, speaking or the app guide to enter your learning space."
+      className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background"
+    >
       <div className="mx-auto flex min-h-full w-full max-w-5xl items-center px-5 py-8 sm:px-8">
         <main className="grid w-full items-center gap-8 lg:grid-cols-[1.08fr_0.92fr]">
           <section>
@@ -168,6 +173,6 @@ export function FirstRunEntry() {
           </section>
         </main>
       </div>
-    </div>
+    </LearningEntryModal>
   );
 }

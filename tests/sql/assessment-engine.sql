@@ -25,6 +25,7 @@ end $$;
 \ir ../../supabase/migrations/20261016102338_assessment_paged_reports.sql
 \ir ../../supabase/migrations/20261016103623_assessment_checkpoint_heads.sql
 \ir ../../supabase/migrations/20261016113042_assessment_reviewer_administration.sql
+\ir ../../supabase/migrations/20261016114250_assessment_content_review_exposure.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;

@@ -17,6 +17,7 @@ do $$ declare owner_id uuid:='10000000-0000-4000-8000-000000000003'; reviewer uu
  perform pg_temp.expect_error(format('select public.assessment_content_review_context(%L,''test-entrance'')',admin_id),'Assigned content reviewer access required');
  req:=gen_random_uuid();
  review_id:=public.assessment_record_content_review(reviewer,'test-entrance','curriculum','changes_requested',old_hash,'Fixture review: question wording requires revision',req);
+ if not exists(select 1 from public.assessment_content_exposures where user_id=reviewer and form_id='test-entrance') then raise exception 'Review from an external authorized copy failed to record bank knowledge'; end if;
  if public.assessment_record_content_review(reviewer,'test-entrance','curriculum','changes_requested',old_hash,'Fixture review: question wording requires revision',req)<>review_id then raise exception 'Content review retry duplicated'; end if;
  perform pg_temp.expect_error(format('select public.assessment_record_content_review(%L,''test-entrance'',''domain'',''approved'',%L,''Not assigned'',%L)',reviewer,old_hash,gen_random_uuid()),'Assigned content reviewer access required');
  perform pg_temp.expect_error(format('select public.assessment_record_content_review(%L,''test-entrance'',''curriculum'',''approved'',%L,''Changed payload'',%L)',reviewer,old_hash,req),'request key reused');

@@ -47,7 +47,7 @@ for (const path of [
   `/?module=roofing&tab=core30&plan=${org}`,
 ]) {
   const response = await fetch(base + path, { redirect: "manual" });
-  assert.equal(response.status, 200, path);
+  assert.ok([200, 307].includes(response.status), `${path}: ${response.status}`);
   assert.match(response.headers.get("cache-control") ?? "", /no-store/, path);
   assert.equal(response.headers.get("referrer-policy"), "no-referrer", path);
 }

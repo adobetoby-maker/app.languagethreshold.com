@@ -40,7 +40,7 @@ const PUBLIC_EXAMS_SHELL = "/.lt-public-exams-shell";
 async function savePublicExamsShell() {
   // Fixed route, no identity/query/cookies/auth headers. Private navigation responses
   // are never stored. This public bootstrap lets the owned device draft UI reload.
-  const response = await fetch("/exams", {
+  const response = await fetch("/exams?target=Spanish&native=English", {
     credentials: "omit",
     cache: "no-store",
     redirect: "error",

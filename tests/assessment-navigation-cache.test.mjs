@@ -74,7 +74,7 @@ test("offline exam refresh uses only the fixed signed-out shell, never cached id
   const w = worker();
   assert.equal(await (await w.navigate()).text(), "private navigation fixture");
   assert.deepEqual(w.writes, ["/.lt-public-exams-shell"]);
-  assert.equal(w.network[1].request, "/exams");
+  assert.equal(w.network[1].request, "/exams?target=Spanish&native=English");
   assert.equal(w.network[1].options.credentials, "omit");
   assert.equal(w.network[1].options.cache, "no-store");
   assert.equal(w.network[1].options.redirect, "error");

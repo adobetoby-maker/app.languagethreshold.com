@@ -28,6 +28,16 @@ test("empty interrupted replies do not poison the next request, while scenario o
     [latest],
   );
 });
+test("an overlong rejected paste stays local and cannot invalidate the next shorter retry", () => {
+  const paste = { role: "user", content: "x".repeat(8001) },
+    retry = { role: "user", content: "A shorter question" };
+  assert.throws(() => recentConversationMessages([paste]), /8000 characters/);
+  assert.deepEqual(recentConversationMessages([paste, retry]), [retry]);
+  assert.equal(paste.content.length, 8001);
+  const discussionPaste = { role: "user", content: "x".repeat(3001) };
+  assert.throws(() => recentConversationMessages([discussionPaste], 3000), /3000 characters/);
+  assert.deepEqual(recentConversationMessages([discussionPaste, retry], 3000), [retry]);
+});
 test("UTF-8 context is bounded without splitting or silently truncating the latest turn", () => {
   const older = { role: "user", content: "文".repeat(8000) },
     latest = { role: "user", content: "最新".repeat(4000) };

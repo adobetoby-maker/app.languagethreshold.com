@@ -218,6 +218,7 @@ export function MissionaryDiscussions() {
           role: t.role === "user" ? ("user" as const) : ("assistant" as const),
           content: t.text,
         })),
+        3000,
       );
 
       const res = await fetch("/api/discussion", {

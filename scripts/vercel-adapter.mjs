@@ -121,6 +121,12 @@ writeFileSync(
       { src: "/sw\\.js", dest: "/sw.js" },
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
+      // Saved Core 30 lesson word decks (static JSON; the service worker also caches them).
+      {
+        src: "/lesson-decks/(.*)",
+        headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
+        dest: "/lesson-decks/$1",
+      },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },

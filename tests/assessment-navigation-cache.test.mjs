@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import vm from "node:vm";
 import { readFileSync } from "node:fs";
-function worker() {
+function worker({ publicShellFails = false } = {}) {
   const handlers = {},
     lookups = [],
     writes = [],
@@ -23,6 +23,7 @@ function worker() {
     self: {
       location: { origin: "https://app.languagethreshold.com" },
       addEventListener: (name, fn) => (handlers[name] = fn),
+      skipWaiting() {},
     },
     URL,
     Response,
@@ -35,6 +36,8 @@ function worker() {
     },
     fetch: async (request, options) => {
       if (offline) throw Error("offline");
+      if (publicShellFails && request === "/exams?target=Spanish&native=English")
+        throw Error("unavailable");
       network.push({ request, options });
       return typeof request === "string"
         ? new Response("<html>public Exams bootstrap</html>", {
@@ -51,6 +54,15 @@ function worker() {
     network,
     offline: () => {
       offline = true;
+    },
+    async install() {
+      let pending;
+      handlers.install({
+        waitUntil: (value) => {
+          pending = value;
+        },
+      });
+      await pending;
     },
     async navigate() {
       let response;
@@ -92,4 +104,25 @@ test("offline exam refresh uses only the fixed signed-out shell, never cached id
     w.handlers.fetch({ request, respondWith: () => (intercepted = true) });
     assert.equal(intercepted, false);
   }
+});
+
+test("the first installation prepares the public Exams shell before any controlled navigation", async () => {
+  const w = worker();
+  await w.install();
+  assert.deepEqual(w.writes, ["/.lt-public-exams-shell"]);
+  const bootstrap = w.network.find((row) => row.request === "/exams?target=Spanish&native=English");
+  assert.equal(bootstrap.options.credentials, "omit");
+  assert.equal(bootstrap.options.cache, "no-store");
+  assert.equal(bootstrap.options.redirect, "error");
+  assert.equal(bootstrap.options.headers, undefined);
+  w.offline();
+  assert.equal(await (await w.navigate()).text(), "<html>public Exams bootstrap</html>");
+});
+
+test("an unavailable public Exams shell does not cache private HTML or break worker installation", async () => {
+  const w = worker({ publicShellFails: true });
+  await w.install();
+  assert.deepEqual(w.writes, []);
+  w.offline();
+  assert.equal((await w.navigate()).type, "error");
 });

@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v14";
+const CACHE = "lt-v15";
 if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 function privateDocument(url) {
@@ -59,10 +59,15 @@ self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE).then(async (cache) => {
-      const shell = await fetch("/");
-      if (cacheableResponse(shell)) await cache.put("/", shell);
-    }),
+    Promise.all([
+      caches.open(CACHE).then(async (cache) => {
+        const shell = await fetch("/");
+        if (cacheableResponse(shell)) await cache.put("/", shell);
+      }),
+      // The first page was loaded before this worker controlled it. Prepare the
+      // fixed, credential-free Exams bootstrap now, before the first offline reload.
+      savePublicExamsShell().catch(() => {}),
+    ]),
   );
 });
 

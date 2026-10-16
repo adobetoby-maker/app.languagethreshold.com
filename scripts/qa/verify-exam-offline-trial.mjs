@@ -8,7 +8,9 @@ const phase = process.argv[2];
 assert.ok(["offline", "synced", "restored"].includes(phase));
 const directory = "/Users/drive/.codex/tmp/language-threshold-qa/";
 const qa = JSON.parse(readFileSync(directory + "roofing-20261015.json", "utf8"));
-const trial = JSON.parse(readFileSync(directory + "active-offline-trial.json", "utf8"));
+const trialPath = process.env.LT_QA_TRIAL_METADATA || directory + "active-offline-trial.json";
+assert.ok(trialPath.startsWith(directory) && trialPath.endsWith(".json"));
+const trial = JSON.parse(readFileSync(trialPath, "utf8"));
 assert.equal(qa.project, "pollhlkgltdkdskdzsgd");
 assert.equal(trial.run, qa.run);
 const keys = JSON.parse(
@@ -52,6 +54,8 @@ assert.equal(fingerprint === trial.responseFingerprintBefore, phase !== "synced"
 const report = {
   testedAt: new Date().toISOString(),
   phase,
+  target: process.env.LT_QA_STAGE_URL || null,
+  commit: process.env.LT_QA_STAGE_COMMIT || null,
   existingQaAttempt: true,
   revision: attempt.data.revision,
   expectedRevision,
@@ -62,7 +66,7 @@ const report = {
   rawResponsesPrinted: false,
 };
 writeFileSync(
-  `docs/reviews/qa-exam-offline-${phase}-2026-10-16.json`,
+  process.env.LT_QA_REPORT_PATH || `docs/reviews/qa-exam-offline-${phase}-2026-10-16.json`,
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(JSON.stringify(report));

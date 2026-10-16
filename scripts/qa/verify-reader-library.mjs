@@ -6,6 +6,7 @@ import { randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { createLibraryDevice } from "../../src/lib/library-device.ts";
 import { createLibraryRemote } from "../../src/lib/library-remote.ts";
+import { LEGACY_LIBRARY_KEY, inspectLegacyLibrary } from "../../src/lib/legacy-library.ts";
 const qa = JSON.parse(
   readFileSync("/Users/drive/.codex/tmp/language-threshold-qa/roofing-20261015.json", "utf8"),
 );
@@ -54,6 +55,7 @@ const entry = {
 const entries = new Map(),
   storage = { getItem: (k) => entries.get(k) ?? null, setItem: (k, v) => entries.set(k, v) };
 const checks = {};
+let recoveredId = null;
 try {
   let lostResponse = true;
   const first = createLibraryDevice({
@@ -115,11 +117,65 @@ try {
   const stale = createLibraryRemote(a, qa.personalId, () => current);
   await assert.rejects(stale.load(signal), /Account changed/);
   checks.staleIdentityRejectedBeforeQuery = true;
+  const legacy = JSON.stringify([
+    {
+      ...entry,
+      id: "fictional-older-book",
+      chapters: [
+        { title: "Morning", sentences: entry.sentences },
+        {
+          title: "Afternoon",
+          sentences: [{ en: "Confirm the work area.", target: "Confirme la zona de trabajo." }],
+        },
+      ],
+    },
+  ]);
+  const legacyValues = new Map([[LEGACY_LIBRARY_KEY, legacy]]);
+  const legacyStorage = {
+    getItem: (k) => legacyValues.get(k) ?? null,
+    setItem: (k, v) => legacyValues.set(k, v),
+  };
+  const recovery = createLibraryDevice({
+    actor: qa.personalId,
+    storage: legacyStorage,
+    remote: remoteA,
+    isCurrent: () => true,
+  });
+  assert.throws(() => recovery.recoverLegacy(false), /confirm/);
+  assert.equal(recovery.recoverLegacy(true), 1);
+  recoveredId = recovery.getSnapshot().books[0].id;
+  assert.equal(recovery.getSnapshot().pending.includes(recoveredId), true);
+  checks.olderBookExplicitlyConfirmedIntoDurableQueue = true;
+  assert.equal(inspectLegacyLibrary(legacyStorage, qa.learnerId).status, "other-account");
+  const reopened = createLibraryDevice({
+    actor: qa.personalId,
+    storage: legacyStorage,
+    remote: remoteA,
+    isCurrent: () => true,
+  });
+  assert.equal(reopened.recoverLegacy(true), 0);
+  await reopened.sync();
+  assert.equal(reopened.getSnapshot().pending.length, 0);
+  const saved = (await remoteA.load(signal)).filter((row) => row.id === recoveredId);
+  assert.equal(saved.length, 1);
+  assert.equal(saved[0].chapters.length, 2);
+  assert.equal(saved[0].chapters[1].sentences[0].target, "Confirme la zona de trabajo.");
+  assert.equal(
+    (await remoteB.load(signal)).some((row) => row.id === recoveredId),
+    false,
+  );
+  assert.equal(legacyStorage.getItem(LEGACY_LIBRARY_KEY), legacy);
+  checks.recoveredChaptersPersistOnceInRealOwnedCloud = true;
+  checks.otherLearnerCannotReadRecoveredBook = true;
+  checks.originalLegacyBytesUntouched = true;
 } finally {
+  if (recoveredId) await remoteA.remove(recoveredId, signal);
   await remoteA.remove(id, signal);
   await remoteA.remove(foreignId, signal);
   assert.equal(
-    (await remoteA.load(signal)).some((row) => row.id === id || row.id === foreignId),
+    (await remoteA.load(signal)).some(
+      (row) => row.id === id || row.id === foreignId || row.id === recoveredId,
+    ),
     false,
     "Synthetic rows cleaned",
   );

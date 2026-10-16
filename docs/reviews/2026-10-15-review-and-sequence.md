@@ -91,3 +91,19 @@ Added a read-only audit CLI covering every module and every distinct compatible 
 The complete local matrix is `/Users/drive/git-backups/language-threshold-readiness-2026-10-15.json` (approximately 4.6 MB; reproducible, not committed). `docs/module-upgrade-backlog.md` covers all 59 catalog IDs exactly once in proposed batches and records reviewer/owner dependencies. It does not invent dates or claim that all compatible pairs have been released.
 
 The isolated Codex branch now passes all 230 unit tests; TypeScript passes and lint has zero errors (existing app-state Fast Refresh warnings). Claude's final worker is still active; its initial full click run was explicitly invalidated because workers changed files and shared login state, so only its later clean run may support release acceptance.
+
+## Real QA account and learner-to-admin verification completed
+
+The dedicated-account dependency was resolved through the already authenticated Supabase CLI and the official Auth admin API. No existing key was reset. Provisioned a reserved-example-address QA learner, a scoped QA admin, and the clearly labeled “QA ONLY — Roofing trial 2026-10-15” organization. Toby’s existing account is an owner of that QA workspace for review. No business-team memberships or business learner progress changed; no invitations were sent. Generated QA credentials are mode0600 outside the repository; service credentials remain in process memory and are never logged or committed.
+
+Live server checks with the real QA learner passed: own team HTTP200, learner role, only own records; business organization HTTP403; anonymous HTTP403; no-store; no certificates. The learner signed in through the actual UI in a separate Incognito window. Started its plan, opened Roofing Lesson1, matched all10terms and submitted a correct typed answer. Actual UI activity produced90recorded active seconds. The QA mastery action recorded exactly one Lesson1 completion and advanced to Lesson2. The learner team page and Toby’s authorized owner view both displayed1recorded,1mastered,1opened,Ontrack. Database inspection confirmed one completion, saved QA mastery and zero certificates. This verifies the existing live build; the new lesson release still needs its repeat trial.
+
+Proof screenshot: `/Users/drive/git-backups/language-threshold-qa-admin-baseline-2026-10-15.jpg`. These are explicitly QA practice records, not a claim about a real worker’s proficiency.
+
+## Additional cold-entry and assignment fixes
+
+The real first-run trial found a team module card that linked only to flashcards, and generic onboarding that replaced a valid Core30 deep link with Reader. Added a primary lesson-plan link and a validated direct-entry helper preserving Core30/card destinations. Unknown modules/arbitrary tabs do not bypass onboarding; English-for-work retains its instruction-language safeguard. Three targeted tests and TypeScript passed.
+
+The repaired dashboard was then tested with a real scoped QA admin against the same live QA data on the isolated local server (port4311, independent dependencies, billing/email disabled). Desktop and390×844 phone show the saved learner result; phone cards need no horizontal scrolling. Saving the QA certificate requirement preserved a pre-existing2026-11-01T12:00Z deadline in the database. Cancel discarded an unsaved change. A subsequent save restored the QA certificate requirement to false. Reworded save feedback to avoid falsely claiming notification when email is not configured. Phone screenshot: `/Users/drive/git-backups/language-threshold-qa-admin-phone-2026-10-15.jpg`.
+
+Claude supplied frozen local checkpoint c1206351ea5422969f252959cea51618e69c73cd while its clean full suite continues; no push/deploy from that checkpoint was claimed. Integration and six-mode runtime wiring are next. The temporary async request for a test learner is resolved; no password or further owner action is needed for that test.

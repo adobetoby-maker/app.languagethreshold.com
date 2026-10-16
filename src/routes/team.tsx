@@ -1534,6 +1534,9 @@ function AssignModule({
   const [requireCertificate, setRequireCertificate] = useState(
     editableAssignment?.require_certificate ?? false,
   );
+  const selectedAssignment = assignments.find(
+    (assignment) => assignment.user_id === member.user_id && assignment.module_id === moduleId,
+  );
   return open ? (
     <div className="flex min-w-48 flex-col gap-2">
       <select
@@ -1568,8 +1571,17 @@ function AssignModule({
         className={button}
         onClick={() =>
           void act(
-            { action: "assign", orgId, memberId: member.id, moduleId, requireCertificate },
-            "Module assigned and employee notified.",
+            {
+              action: "assign",
+              orgId,
+              memberId: member.id,
+              moduleId,
+              requireCertificate,
+              dueAt: selectedAssignment?.due_at
+                ? new Date(selectedAssignment.due_at).toISOString()
+                : null,
+            },
+            "Assignment saved.",
             () => setOpen(false),
           )
         }
@@ -1643,9 +1655,12 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               </p>
             )}
             <div className="mt-4 flex flex-wrap gap-2">
+              <a href={`/?module=${encodeURIComponent(a.module_id)}&tab=core30`} className={button}>
+                Open {getModule(a.module_id)?.name ?? "assigned module"} lesson plan
+              </a>
               <a
                 href={`/?module=${encodeURIComponent(a.module_id)}&tab=flashcards`}
-                className={button}
+                className={secondary}
               >
                 Study {getModule(a.module_id)?.name ?? "assigned module"} cards
               </a>

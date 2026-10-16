@@ -3,6 +3,7 @@ import { usageReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { hasConsistentGrammarMorphology } from "@/lib/grammar-morphology";
 
 export const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"] as const;
 export type CefrLevel = (typeof CEFR_LEVELS)[number];
@@ -200,10 +201,11 @@ export const generateLessonContent = createServerFn({ method: "POST" })
     const native = data.nativeLanguage ?? "English";
     const system =
       "You are a brilliant private grammar tutor. Write clearly and warmly. Always respond by calling the provided tool. " +
-      "When the concept involves a word whose ROOT stays fixed while an ENDING changes (verb conjugation, noun declension, adjective inflection, etc.), you MUST include the `morphology` field showing the split. " +
-      "Use the dictionary / base form as `morphology.base` and provide 4–6 rows in `morphology.table` reusing the SAME root with different endings (e.g. Japanese iku → root 'i' (行), endings ka/ki/ku/ke/kō, full forms 行かない / 行きます / 行く / 行けば / 行こう). " +
-      "Always include romanization for non-Latin scripts. Omit `morphology` only for purely syntactic topics like word order or particles that don't inflect.";
-    const user = `Teach this grammar concept: "${data.concept}" for a ${data.language} learner at CEFR ${data.level}. Provide a clear ~150-word explanation IN ${native}, exactly 3 example sentences in ${data.language} each with a ${native} translation (use the field name "english" for the ${native} translation), one bold key rule (single sentence in ${native}), and — if the concept involves a word that conjugates/inflects — a morphology breakdown showing the unchanging root and the changing endings (the "english" field on each row should be the ${native} gloss).`;
+      "Include `morphology` only when a genuine unchanged stem can reconstruct the base and every table form exactly. Use actual target-script letters for root/ending, with no hyphen notation; root + ending must equal word/full. " +
+      "For irregular or changing-stem forms (for example Spanish ser: soy, eres, es, somos, sois, son), omit morphology and teach the complete forms in the explanation and examples. Never invent a shared root or force regular endings onto an irregular word. " +
+      "For a regular pattern, use the dictionary/base form as morphology.base and provide 4–6 rows with that same actual stem. Japanese 行く may use root 行 with endings く, かない, きます, けば, こう; put romanization in its separate field, never in the target-script split. " +
+      "Always include romanization for non-Latin scripts. Omit morphology for purely syntactic topics as well.";
+    const user = `Teach this grammar concept: "${data.concept}" for a ${data.language} learner at CEFR ${data.level}. Provide a clear ~150-word explanation IN ${native}, exactly 3 example sentences in ${data.language} each with a ${native} translation (use the field name "english" for the ${native} translation), and one bold key rule (single sentence in ${native}). Include a morphology breakdown only for an exact fixed-stem pattern; otherwise teach whole forms without a split. The "english" field on each morphology row is the ${native} gloss.`;
     const result = await callTool<LessonContent>(system, user, "return_lesson_content", {
       type: "object",
       properties: {
@@ -274,6 +276,9 @@ export const generateLessonContent = createServerFn({ method: "POST" })
     if (!parsed.success) {
       console.error("generateLessonContent: malformed AI response", parsed.error);
       return { data: null, error: "Lesson content came back incomplete. Please try again." };
+    }
+    if (parsed.data.morphology && !hasConsistentGrammarMorphology(parsed.data.morphology)) {
+      return { data: null, error: "This lesson's word forms were inconsistent. Please try again." };
     }
     return { data: parsed.data, error: null };
   });

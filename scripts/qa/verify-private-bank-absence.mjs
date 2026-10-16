@@ -18,14 +18,20 @@ try {
     ),
   ];
   if (!markers.length) throw new Error("No audit markers");
-  const source = execFileSync("git", ["ls-files", "-z"], { encoding: "utf8" })
+  const source = execFileSync(
+    "git",
+    ["ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+    { encoding: "utf8" },
+  )
     .split("\0")
     .filter((file) => /\.(?:[cm]?js|tsx?|json|md|html|css|sql|ya?ml|txt|csv)$/.test(file));
   const walk = (directory) =>
     readdirSync(directory, { withFileTypes: true }).flatMap((entry) =>
       entry.isDirectory() ? walk(join(directory, entry.name)) : [join(directory, entry.name)],
     );
-  const artifact = walk(".vercel/output/static").filter((file) => /\.(?:js|html|json)$/.test(file));
+  const artifact = walk(".vercel/output/static").filter((file) =>
+    /\.(?:[cm]?js|json|map|md|html|css|sql|ya?ml|txt|csv)$/.test(file),
+  );
   if (!artifact.length) throw new Error("No static artifact");
   const hits = [];
   for (const file of [...source, ...artifact]) {

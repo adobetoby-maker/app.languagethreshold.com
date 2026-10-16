@@ -1,3 +1,4 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
 import { getCurriculum } from "@/data/curriculum";
 import { getMissionArea } from "@/data/missionary-content";
 import { getModule } from "@/data/modules";
@@ -18,6 +19,7 @@ export function buildLearningReminderContext(
   state: Pick<
     AppState,
     | "selectedLanguage"
+    | "nativeLanguage"
     | "practiceReminderLanguage"
     | "activeModuleId"
     | "lessonProgress"
@@ -33,7 +35,14 @@ export function buildLearningReminderContext(
   const reminderLanguage = state.practiceReminderLanguage ?? state.selectedLanguage;
   const module = getModule(state.activeModuleId);
   const curriculum = state.activeModuleId ? getCurriculum(state.activeModuleId) : null;
-  const completedRaw = state.activeModuleId ? (state.lessonProgress[state.activeModuleId] ?? 0) : 0;
+  const completedRaw = state.activeModuleId
+    ? (state.lessonProgress[
+        core30ScopeKey(state.activeModuleId, {
+          targetLanguage: reminderLanguage,
+          instructionLanguage: state.nativeLanguage,
+        })
+      ] ?? 0)
+    : 0;
   const totalLessons = curriculum?.lessons.length ?? 0;
   const completedLessons = Math.max(0, Math.min(completedRaw, totalLessons));
   const nextLesson = curriculum?.lessons[completedLessons] ?? null;

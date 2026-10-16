@@ -2940,10 +2940,11 @@ export function getCurriculum(moduleId: string): ModuleCurriculum | null {
 export function getCurrentLesson(
   moduleId: string,
   lessonProgress: Record<string, number>,
+  progressKey: string = moduleId,
 ): Lesson | null {
   const curriculum = getCurriculum(moduleId);
   if (!curriculum) return null;
-  const completed = lessonProgress[moduleId] ?? 0;
+  const completed = lessonProgress[progressKey] ?? 0;
   if (completed >= curriculum.lessons.length) return null; // all done
   return curriculum.lessons[completed] ?? null;
 }

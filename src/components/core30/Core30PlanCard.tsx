@@ -1,3 +1,4 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
 import { planLocalDay } from "@/lib/assessments/plan-timing";
@@ -32,6 +33,7 @@ const GOLD_BUTTON = {
 } as const;
 
 export function Core30PlanCard({
+  enrollmentId,
   moduleId,
   totalLessons,
   onOpenLesson,
@@ -40,6 +42,7 @@ export function Core30PlanCard({
   assessedTiming,
   managedPlanUrl,
 }: {
+  enrollmentId?: string;
   moduleId: string;
   totalLessons: number;
   onOpenLesson: (lessonNumber: number) => void;
@@ -49,7 +52,13 @@ export function Core30PlanCard({
   managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
-  const storedLog = state.core30Log[moduleId];
+  const context = {
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    enrollmentId,
+  };
+  const progressKey = core30ScopeKey(moduleId, context);
+  const storedLog = state.core30Log[progressKey];
   const log = useMemo(
     () =>
       assessedTiming?.startDate
@@ -79,7 +88,7 @@ export function Core30PlanCard({
     if (!/^\d{4}-\d{2}-\d{2}$/.test(draftDate)) return;
     dispatch({
       type: "CORE30_SET_START_DATE",
-      payload: { moduleId, date: draftDate, at: new Date().toISOString() },
+      payload: { moduleId, context, date: draftDate, at: new Date().toISOString() },
     });
     setChangingDate(false);
   }

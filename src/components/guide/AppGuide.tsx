@@ -1,3 +1,5 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
+import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
 import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
 import {
   requestedLesson,
@@ -5,7 +7,7 @@ import {
   lessonOverviewLocation,
   canRestoreLessonReturn,
 } from "@/lib/learning-link";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { toast } from "sonner";
 import {
   BookOpen,
@@ -599,6 +601,7 @@ function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior)
 }
 
 function LessonRunner({
+  enrollmentId,
   lesson,
   moduleId,
   totalLessons,
@@ -608,6 +611,7 @@ function LessonRunner({
   onExit,
   onNavigate,
 }: {
+  enrollmentId?: string;
   lesson: Lesson;
   moduleId: string;
   totalLessons: number;
@@ -621,6 +625,15 @@ function LessonRunner({
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const userId = user?.id;
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, enrollmentId],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
   const teamSessions = useRef<Record<string, string>>({});
   const { dispatch: libDispatch } = useLibrary();
 
@@ -652,8 +665,9 @@ function LessonRunner({
 
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
-  const isCurrentSequential = getCurrentLesson(moduleId, state.lessonProgress)?.n === lesson.n;
-  const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
+  const isCurrentSequential =
+    getCurrentLesson(moduleId, state.lessonProgress, progressKey)?.n === lesson.n;
+  const lessonLog = state.core30Log[progressKey]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
   // Preserve old curriculum-step evidence; new mode evidence is independent below.
@@ -682,7 +696,13 @@ function LessonRunner({
   useEffect(() => {
     dispatch({
       type: "CORE30_WAY_OPENED",
-      payload: { moduleId, lesson: lesson.n, way: section, at: new Date().toISOString() },
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        way: section,
+        at: new Date().toISOString(),
+      },
     });
     if (syncLocation) {
       const next = lessonLocation(
@@ -706,6 +726,7 @@ function LessonRunner({
           moduleId,
           state.selectedLanguage,
           state.nativeLanguage,
+          enrollmentId,
         ),
         { lesson: lesson.n, way: section, at: new Date().toISOString() },
       );
@@ -721,6 +742,9 @@ function LessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
     syncLocation,
+    progressKey,
+    progressContext,
+    enrollmentId,
   ]);
 
   useEffect(() => {
@@ -759,7 +783,13 @@ function LessonRunner({
     if (i < 0) return;
     dispatch({
       type: "CORE30_STEP_OPENED",
-      payload: { moduleId, lesson: lesson.n, step: i, at: new Date().toISOString() },
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        step: i,
+        at: new Date().toISOString(),
+      },
     });
   }
 
@@ -823,7 +853,7 @@ function LessonRunner({
 
   /** After lesson `fromN` completes, keep advancing over lessons the learner already mastered. */
   async function advancePastMastered(fromN: number) {
-    const lessonsLog = state.core30Log[moduleId]?.lessons ?? {};
+    const lessonsLog = state.core30Log[progressKey]?.lessons ?? {};
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     let n = fromN + 1;
     while (n <= total && lessonsLog[String(n)]?.masteredAt) {
@@ -843,7 +873,7 @@ function LessonRunner({
         }
       }
       if (!(await postTeamLesson(n, sessions))) return;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       n += 1;
     }
@@ -856,11 +886,11 @@ function LessonRunner({
    */
   async function recordSequentialCompletion(): Promise<boolean> {
     if (completionLock.current) return false;
-    if ((state.lessonProgress[moduleId] ?? 0) + 1 !== lesson.n) return false;
+    if ((state.lessonProgress[progressKey] ?? 0) + 1 !== lesson.n) return false;
     completionLock.current = true;
     try {
       if (!(await postTeamLesson(lesson.n, teamSessions.current))) return false;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       await advancePastMastered(lesson.n);
       return true;
@@ -888,7 +918,13 @@ function LessonRunner({
       if (sequential && !(await recordSequentialCompletion())) return;
       dispatch({
         type: "CORE30_SET_MASTERED",
-        payload: { moduleId, lesson: lesson.n, mastered: true, at: new Date().toISOString() },
+        payload: {
+          moduleId,
+          context: progressContext,
+          lesson: lesson.n,
+          mastered: true,
+          at: new Date().toISOString(),
+        },
       });
       if (sequential) onComplete();
     } finally {
@@ -1672,6 +1708,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     const value = params.get("plan");
     return value && /^[0-9a-f-]{36}$/i.test(value) ? value : undefined;
   });
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId: activeAssessmentPlan,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, activeAssessmentPlan],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
   const [approvedPlanTiming, setApprovedPlanTiming] = useState<AssessedPlanTiming | null>(
     activeAssessmentPlan ? null : { reviewEveryDays: 4 },
   );
@@ -1680,6 +1725,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     moduleId,
     state.selectedLanguage,
     state.nativeLanguage,
+    activeAssessmentPlan,
   );
   const [savedPositionState, setSavedPositionState] = useState<{
     key: string;
@@ -1759,13 +1805,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     if (hasCurriculum) prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
-  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
+  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress, progressKey);
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
-  const core30Log = state.core30Log[moduleId];
+  const core30Log = state.core30Log[progressKey];
   const masteredSet = new Set(masteredLessons(core30Log));
-  const completedCount = state.lessonProgress[moduleId] ?? 0;
+  const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
@@ -1852,6 +1898,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* Review session */}
           {reviewOpen && (
             <Core30Review
+              enrollmentId={activeAssessmentPlan}
               moduleId={moduleId}
               lessons={curriculum.lessons}
               onClose={() => setReviewOpen(false)}
@@ -1861,7 +1908,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* Any lesson opened from the plan or the lesson list */}
           {!reviewOpen && openLesson && (
             <LessonRunner
-              key={openLesson.n}
+              enrollmentId={activeAssessmentPlan}
+              key={`${progressKey}:${openLesson.n}`}
               lesson={openLesson}
               moduleId={moduleId}
               totalLessons={totalLessons}
@@ -2038,6 +2086,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
           {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
             <Core30PlanCard
+              enrollmentId={activeAssessmentPlan}
               reviewEveryDays={approvedPlanTiming.reviewEveryDays}
               assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
               managedPlanUrl={
@@ -2054,6 +2103,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               }}
             />
           )}
+
+          {!runnerActive && <LegacyCore30History moduleId={moduleId} context={progressContext} />}
 
           {/* Progress bar */}
           {!runnerActive && (

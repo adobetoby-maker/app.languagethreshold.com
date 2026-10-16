@@ -91,8 +91,10 @@ export function lessonPositionKey(
   moduleId: string,
   target: string,
   native: string,
+  enrollmentId?: string,
 ): string {
-  return `${PREFIX}${encodeURIComponent(userId)}.position.${[moduleId, target, native].map(encodeURIComponent).join(".")}`;
+  const plan = enrollmentId ? `.plan.${encodeURIComponent(enrollmentId)}` : "";
+  return `${PREFIX}${encodeURIComponent(userId)}.position.${[moduleId, target, native].map(encodeURIComponent).join(".")}${plan}`;
 }
 export function readLessonPosition(
   storage: DraftStorage | null,

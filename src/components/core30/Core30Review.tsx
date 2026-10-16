@@ -1,3 +1,4 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
 import { CheckCircle2, X } from "lucide-react";
@@ -75,16 +76,24 @@ function reviewWordsFor(
 }
 
 export function Core30Review({
+  enrollmentId,
   moduleId,
   lessons,
   onClose,
 }: {
+  enrollmentId?: string;
   moduleId: string;
   lessons: Lesson[];
   onClose: () => void;
 }) {
   const { state, dispatch } = useApp();
-  const log = state.core30Log[moduleId];
+  const context = {
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    enrollmentId,
+  };
+  const progressKey = core30ScopeKey(moduleId, context);
+  const log = state.core30Log[progressKey];
   const fallbackTerms = useMemo(() => getModule(moduleId)?.vocabFocus ?? [], [moduleId]);
 
   // Fixed for the whole session so the list does not reshuffle while the learner works.
@@ -136,6 +145,7 @@ export function Core30Review({
       type: "CORE30_RECORD_REVIEW",
       payload: {
         moduleId,
+        context,
         at: new Date().toISOString(),
         results: items.map((it) => ({ lesson: it.lesson.n, ok: results[it.lesson.n] === true })),
       },

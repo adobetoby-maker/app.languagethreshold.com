@@ -276,7 +276,13 @@ function DailyLessonPlanContent({
         try {
           previous = readLessonPosition(
             window.localStorage,
-            lessonPositionKey(user.id, context.primaryModuleId, target, native),
+            lessonPositionKey(
+              user.id,
+              context.primaryModuleId,
+              target,
+              native,
+              context.primaryEnrollmentId,
+            ),
           );
         } catch {
           /* Default to the first primary lesson when private storage is blocked. */

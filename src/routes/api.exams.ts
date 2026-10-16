@@ -22,6 +22,7 @@ import {
 } from "@/lib/team-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { extractCore30Log } from "@/lib/team-core30";
+import { core30ScopeKey } from "@/lib/core30-scope";
 import { getCurriculum } from "@/data/curriculum";
 import { lessonObjectiveId } from "@/lib/learning-identity";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
@@ -480,9 +481,12 @@ export const Route = createFileRoute("/api/exams")({
               .maybeSingle();
             if (profileError)
               throw new AssessmentAccessError("Saved study coverage could not be loaded.", 503);
-            const log = extractCore30Log(profile?.data, [enrollment.module_id])[
-              enrollment.module_id
-            ];
+            const progressKey = core30ScopeKey(enrollment.module_id, {
+              targetLanguage: enrollment.target_language,
+              instructionLanguage: enrollment.instruction_language,
+              enrollmentId: enrollment.id,
+            });
+            const log = extractCore30Log(profile?.data, [progressKey])[progressKey];
             const studied = (getCurriculum(enrollment.module_id)?.lessons ?? [])
               .filter((lesson) => {
                 const entry = log?.lessons[String(lesson.n)];

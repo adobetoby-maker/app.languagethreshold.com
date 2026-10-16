@@ -29,6 +29,8 @@ export interface Core30LessonLog {
 }
 
 export interface Core30ModuleLog {
+  /** Learner explicitly identified the pair/plan for a copy of older unlabeled history. */
+  legacyImportedAt?: string;
   startDate?: string;
   /** ISO time the startDate was last set; the later stamp wins on cloud merge. */
   startDateSetAt?: string;
@@ -37,7 +39,7 @@ export interface Core30ModuleLog {
   lastReviewAt?: string;
 }
 
-/** key = moduleId */
+/** New keys include module, language pair and enrollment; bare module keys are archived history. */
 export type Core30Log = Record<string, Core30ModuleLog>;
 
 export const CORE30_NEW_LESSON_EVERY_DAYS = 3;
@@ -340,6 +342,8 @@ function mergeModule(
   ]);
   for (const k of keys) lessons[k] = mergeLesson(local?.lessons?.[k], remote?.lessons?.[k]);
   const out: Core30ModuleLog = { lessons };
+  const legacyImportedAt = earlier(local?.legacyImportedAt, remote?.legacyImportedAt);
+  if (legacyImportedAt) out.legacyImportedAt = legacyImportedAt;
   let startDate = local?.startDate ?? remote?.startDate;
   let startDateSetAt: string | undefined;
   if (local?.startDateSetAt && remote?.startDateSetAt) {

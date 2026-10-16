@@ -130,6 +130,27 @@ for (const plan of [ownPlan, teamPlan])
   );
 assert.equal(JSON.stringify(team.body).includes('"answer"'), false);
 assert.equal(JSON.stringify(team.body).includes("correctOptionId"), false);
+const teamWorkspace = await request(admin, `/api/team?org=${qa.organizationId}`);
+assert.equal(teamWorkspace.status, 200);
+const tracked = Object.values(teamWorkspace.body.core30Tracks ?? {}).flat();
+assert.ok(tracked.some((track) => track.enrollmentId === qa.exams.teamEnrollmentId));
+assert.ok(tracked.every((track) => track.enrollmentId !== qa.exams.personalEnrollmentId));
+const trackFields = new Set([
+  "enrollmentId",
+  "moduleId",
+  "targetLanguage",
+  "instructionLanguage",
+  "startDate",
+  "mastered",
+  "total",
+  "opened",
+  "needsPractice",
+  "status",
+  "statusLabel",
+  "lastReview",
+]);
+assert.ok(tracked.every((track) => Object.keys(track).every((key) => trackFields.has(key))));
+assert.equal(JSON.stringify(teamWorkspace.body.core30Tracks).includes("correctOptionId"), false);
 const plan = await request(personal, `/api/exam-plans?enrollment=${qa.exams.personalEnrollmentId}`);
 assert.equal(plan.status, 200);
 assert.equal(plan.body.availability, "awaiting_calibration");
@@ -254,6 +275,7 @@ const report = {
     compatibleReadinessTracksHonest: true,
     actualLessonSourceCoverageAndGaps: true,
     personalAndTeamDraftAvailabilityDenied: true,
+    scopedTeamCore30Summary: true,
     privateContentDeniedToUnassignedAccounts: true,
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     lessonSnapshotBindingDeniedToNonOwners: true,

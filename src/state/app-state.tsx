@@ -25,6 +25,7 @@ import {
   THEME_PREFERENCE_KEY,
 } from "@/lib/theme-preference";
 import { mergeCore30Log, type Core30Log, type Core30Way } from "@/lib/core30-plan";
+import { core30ScopeKey, claimLegacyCore30, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
   core30RecordReview,
   core30SetMastered,
@@ -274,24 +275,57 @@ export type AppAction =
   | { type: "UPDATE_SM2_CARD"; payload: { key: string; card: SM2Card } }
   | { type: "FIRST_SENTENCE_MOMENT" }
   | { type: "_DERIVE" }
-  | { type: "COMPLETE_LESSON"; payload: string }
+  | {
+      type: "COMPLETE_LESSON";
+      payload: string | { moduleId: string; context: Core30ProgressContext };
+    }
+  | {
+      type: "CORE30_CLAIM_LEGACY";
+      payload: { moduleId: string; context: Core30ProgressContext; at: string };
+    }
   | {
       type: "CORE30_STEP_OPENED";
-      payload: { moduleId: string; lesson: number; step: number; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        step: number;
+        at: string;
+      };
     }
   | {
       type: "CORE30_WAY_OPENED";
-      payload: { moduleId: string; lesson: number; way: Core30Way; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        way: Core30Way;
+        at: string;
+      };
     }
   | {
       type: "CORE30_SET_MASTERED";
       // `mastered` is the literal true: there is no un-master (cloud merge keeps the earliest masteredAt).
-      payload: { moduleId: string; lesson: number; mastered: true; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        mastered: true;
+        at: string;
+      };
     }
-  | { type: "CORE30_SET_START_DATE"; payload: { moduleId: string; date: string; at?: string } }
+  | {
+      type: "CORE30_SET_START_DATE";
+      payload: { moduleId: string; context?: Core30ProgressContext; date: string; at?: string };
+    }
   | {
       type: "CORE30_RECORD_REVIEW";
-      payload: { moduleId: string; at: string; results: { lesson: number; ok: boolean }[] };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        at: string;
+        results: { lesson: number; ok: boolean }[];
+      };
     }
   | { type: "MERGE_REMOTE"; payload: PersistedShape };
 
@@ -569,7 +603,17 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "COMPLETE_ONBOARDING":
       return { ...state, onboardingComplete: true };
     case "COMPLETE_LESSON": {
-      const moduleId = action.payload;
+      const payload =
+        typeof action.payload === "string" ? { moduleId: action.payload } : action.payload;
+      const moduleId = core30ScopeKey(
+        payload.moduleId,
+        "context" in payload
+          ? payload.context
+          : {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+      );
       const current = state.lessonProgress[moduleId] ?? 0;
       return withPracticeStreak(
         {
@@ -578,26 +622,92 @@ export function reducer(state: AppState, action: AppAction): AppState {
           lessonsCompleted: state.lessonsCompleted + 1,
           lastPracticeDateByLanguage: {
             ...state.lastPracticeDateByLanguage,
-            [state.selectedLanguage]: todayKey(),
+            ["context" in payload ? payload.context.targetLanguage : state.selectedLanguage]:
+              todayKey(),
           },
         },
         recordPracticeCompletion(state.practiceStreak, todayKey()),
       );
     }
+    case "CORE30_CLAIM_LEGACY": {
+      const { moduleId, context, at } = action.payload;
+      const claimed = claimLegacyCore30(
+        state.core30Log,
+        state.lessonProgress,
+        moduleId,
+        context,
+        at,
+      );
+      return { ...state, core30Log: claimed.log, lessonProgress: claimed.progress };
+    }
     case "CORE30_STEP_OPENED": {
-      const core30Log = core30StepOpened(state.core30Log, action.payload);
+      const core30Log = core30StepOpened(state.core30Log, {
+        ...action.payload,
+        moduleId: core30ScopeKey(
+          action.payload.moduleId,
+          action.payload.context ?? {
+            targetLanguage: state.selectedLanguage,
+            instructionLanguage: state.nativeLanguage,
+          },
+        ),
+      });
       return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
     case "CORE30_WAY_OPENED": {
-      const core30Log = core30WayOpened(state.core30Log, action.payload);
+      const core30Log = core30WayOpened(state.core30Log, {
+        ...action.payload,
+        moduleId: core30ScopeKey(
+          action.payload.moduleId,
+          action.payload.context ?? {
+            targetLanguage: state.selectedLanguage,
+            instructionLanguage: state.nativeLanguage,
+          },
+        ),
+      });
       return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
     case "CORE30_SET_MASTERED":
-      return { ...state, core30Log: core30SetMastered(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30SetMastered(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "CORE30_SET_START_DATE":
-      return { ...state, core30Log: core30SetStartDate(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30SetStartDate(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "CORE30_RECORD_REVIEW":
-      return { ...state, core30Log: core30RecordReview(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30RecordReview(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "SET_USER_VOCAB": {
       const base = includeLegacyVocab(
         state.vocabByLanguage,

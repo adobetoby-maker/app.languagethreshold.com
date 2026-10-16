@@ -18,7 +18,7 @@ import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-prici
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import type { Core30Log } from "@/lib/core30-plan";
-import { describeCore30, type Core30Display } from "@/lib/team-core30";
+import { describeCore30, type Core30Display, type Core30TrackDisplay } from "@/lib/team-core30";
 
 const TeamExamsPanel = lazy(() =>
   import("@/components/exams/TeamExamsPanel").then((module) => ({
@@ -98,6 +98,7 @@ type TeamData = {
   certificates: Certificate[];
   /** Per-user Core 30 log; absent on older servers. */
   core30?: Record<string, Core30Log>;
+  core30Tracks?: Record<string, Core30TrackDisplay[]>;
 };
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
 type InviteLink = { id: string; name: string; email: string; url: string };
@@ -602,8 +603,9 @@ function AdminWorkspace({
         "Active minutes (7d)",
         "Active minutes (30d)",
         "Lessons",
-        "Core 30 mastered",
-        "Core 30 status",
+        "Earlier unlabeled Core 30 mastered",
+        "Earlier unlabeled Core 30 status",
+        "Team plan Core 30 progress",
         "Best test",
         "Certificate",
       ],
@@ -648,6 +650,13 @@ function AdminWorkspace({
           String(lessons),
           `${core.mastered}/${core.total}`,
           core.statusLabel,
+          (data.core30Tracks?.[member.user_id] ?? [])
+            .filter((track) => track.moduleId === assignment.module_id)
+            .map(
+              (track) =>
+                `${track.instructionLanguage} → ${track.targetLanguage}; ${track.startDate ?? ""}; ${track.mastered}/${track.total} self-marked mastered; ${track.opened} opened; ${track.statusLabel}`,
+            )
+            .join(" | "),
           best ? `${best}/25` : "",
           cert?.id ?? "",
         ]);
@@ -792,9 +801,10 @@ function AdminWorkspace({
           </div>
         </div>
         <p className="mb-4 text-sm text-muted-foreground">
-          Recorded lessons track qualifying practice. Core 30 mastery is the learner’s own
-          assessment; opening a step does not demonstrate mastery. The certificate test is a
-          separate result.
+          Core 30 team plans show progress for their own language pair. Independent practice stays
+          private; earlier records have no language or plan label. Recorded lessons track qualifying
+          practice. Core 30 mastery is the learner’s own assessment; opening a step does not
+          demonstrate mastery. The certificate test is a separate result.
         </p>
         <div className="space-y-4 lg:hidden">
           {activeLearners.map((member) => (
@@ -1330,7 +1340,49 @@ const CORE30_CHIP: Record<Core30Display["status"], string> = {
   "not-started": "bg-muted text-muted-foreground",
 };
 
-function Core30Cell({ core }: { core: Core30Display }) {
+function Core30Cell({
+  core,
+  tracks = [],
+  showLinks = false,
+}: {
+  core: Core30Display;
+  tracks?: Core30TrackDisplay[];
+  showLinks?: boolean;
+}) {
+  const showLegacy =
+    !tracks.length || core.mastered > 0 || core.opened > 0 || core.status !== "not-started";
+  return (
+    <div className="space-y-3">
+      {tracks.map((track) => (
+        <div key={track.enrollmentId} className="space-y-1">
+          <p className="text-xs font-medium break-words">
+            {track.instructionLanguage} → {track.targetLanguage} · Team plan
+            {track.startDate ? ` · ${track.startDate}` : ""}
+          </p>
+          <Core30Summary core={track} />
+          {showLinks && (
+            <a
+              className="text-xs underline"
+              href={`/?${new URLSearchParams({ module: track.moduleId, tab: "core30", target: track.targetLanguage, native: track.instructionLanguage, plan: track.enrollmentId })}`}
+            >
+              Open this lesson plan
+            </a>
+          )}
+        </div>
+      ))}
+      {showLegacy && (
+        <div>
+          <p className="text-xs text-muted-foreground">
+            Earlier record · language and plan not recorded
+          </p>
+          <Core30Summary core={core} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Core30Summary({ core }: { core: Core30Display }) {
   return (
     <div className="space-y-1">
       <div>
@@ -1403,6 +1455,9 @@ function EmployeeRow({
             (assignment.module_id === "core" ? "General language" : assignment.module_id)}
         </h4>
         <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
           core={describeCore30(
             data.core30,
             member.user_id,
@@ -1466,6 +1521,9 @@ function EmployeeRow({
       </td>
       <td className="p-2">
         <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
           core={describeCore30(
             data.core30,
             member.user_id,
@@ -1657,18 +1715,15 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               {a.module_id === "roofing" ? "/30" : ""} lessons recorded
             </p>
             {user?.id && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                Core 30:{" "}
-                {(() => {
-                  const core = describeCore30(
-                    data.core30,
-                    user.id,
-                    a.module_id,
-                    core30Total(a.module_id),
-                  );
-                  return `${core.mastered}/${core.total} mastered · ${core.statusLabel}`;
-                })()}
-              </p>
+              <div className="mt-2 text-sm">
+                <Core30Cell
+                  showLinks
+                  tracks={data.core30Tracks?.[user.id]?.filter(
+                    (track) => track.moduleId === a.module_id,
+                  )}
+                  core={describeCore30(data.core30, user.id, a.module_id, core30Total(a.module_id))}
+                />
+              </div>
             )}
             <div className="mt-4 flex flex-wrap gap-2">
               <a href={`/?module=${encodeURIComponent(a.module_id)}&tab=core30`} className={button}>

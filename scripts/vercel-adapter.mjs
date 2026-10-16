@@ -1,5 +1,6 @@
 // Post-build script: produces a Vercel Build Output API v3 artifact.
 // Vercel detects .vercel/output/ and deploys it directly — no framework detection needed.
+import { assessmentCleanupSchedule } from "./assessment-cleanup-schedule.mjs";
 import { mkdirSync, writeFileSync, cpSync, rmSync } from "fs";
 import { execFileSync } from "child_process";
 
@@ -110,6 +111,7 @@ writeFileSync(
   `${out}/config.json`,
   JSON.stringify({
     version: 3,
+    ...assessmentCleanupSchedule(process.env),
     routes: [
       {
         src: "/assets/(.+)",

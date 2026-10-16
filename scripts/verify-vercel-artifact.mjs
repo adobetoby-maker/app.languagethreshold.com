@@ -23,6 +23,13 @@ if (output.version !== 3 || !Array.isArray(output.routes)) {
 if (runtime.runtime !== "nodejs22.x" || runtime.handler !== "entry.cjs") {
   throw new Error("Vercel function runtime or handler is not the approved Node 22 entry.");
 }
+if (
+  output.crons &&
+  (output.crons.length !== 1 ||
+    output.crons[0].path !== "/api/exam-cleanup" ||
+    output.crons[0].schedule !== "15 0 * * *")
+)
+  throw new Error("Unrecognized scheduled task in deployment artifact.");
 if (bundleText.includes("cloudflare:workers")) {
   throw new Error("Vercel server bundle still imports a Cloudflare-only runtime module.");
 }

@@ -1,6 +1,8 @@
 /** Owner/operator command. Dry-run by default. No policy activation, key files or learner output. */
 import { execFileSync } from "node:child_process";
 import { createClient } from "@supabase/supabase-js";
+import { randomUUID } from "node:crypto";
+import { runSpeechCleanup, boundedCleanupFetch } from "../src/lib/assessments/cleanup-run.ts";
 import { cleanupAssessmentSpeech } from "../src/lib/assessments/speech-cleanup.ts";
 const allowed = new Set(["--execute", "--help"]);
 if (process.argv.slice(2).some((arg) => !allowed.has(arg)))
@@ -23,20 +25,13 @@ try {
   const service = keys.find((key) => key.name === "service_role" && !key.disabled)?.api_key;
   if (!service) throw new Error("Project operator access unavailable.");
   const deadline = AbortSignal.timeout(10 * 60 * 1000);
-  const db = createClient(`https://${project}.supabase.co`, service, {
-    auth: { persistSession: false, autoRefreshToken: false },
-    global: {
-      fetch: (input, init) =>
-        fetch(input, {
-          ...init,
-          signal: AbortSignal.any([
-            deadline,
-            AbortSignal.timeout(20000),
-            ...(init?.signal ? [init.signal] : []),
-          ]),
-        }),
-    },
-  });
+  const client = (fetcher) =>
+    createClient(`https://${project}.supabase.co`, service, {
+      auth: { persistSession: false, autoRefreshToken: false },
+      global: { fetch: fetcher },
+    });
+  const db = client(boundedCleanupFetch(20000));
+  const workDb = client(boundedCleanupFetch(20000, deadline));
   const pending = await db
     .from("assessment_speech_evidence")
     .select("id", { count: "exact", head: true })
@@ -56,16 +51,9 @@ try {
     mayHaveMore: false,
   };
   if (report.mode === "execute") {
-    for (let i = 0; i < 10; i++) {
-      const batch = await cleanupAssessmentSpeech(db, true);
-      if (batch.dryRun) throw new Error("Unexpected cleanup mode.");
-      report.batches++;
-      report.selected += batch.selected;
-      report.deleted += batch.deleted;
-      report.failed += batch.failed;
-      report.mayHaveMore = batch.mayHaveMore;
-      if (batch.failed || !batch.mayHaveMore) break;
-    }
+    const result = await runSpeechCleanup(db, "operator", randomUUID(), workDb);
+    if (result.busy) throw new Error("Another cleanup operator is active.");
+    Object.assign(report, result);
   }
   console.log(JSON.stringify(report));
   if (report.failed || report.mayHaveMore) process.exitCode = 1;

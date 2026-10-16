@@ -1,3 +1,4 @@
+import { AssessmentCleanupStatus } from "@/components/exams/AssessmentCleanupStatus";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
@@ -205,6 +206,7 @@ function ReviewerAdmin() {
         {notice && <p role="status">{notice}</p>}
         {registry && (
           <>
+            <AssessmentCleanupStatus />
             <section className="rounded-2xl border border-border p-4">
               <h2 className="text-xl font-semibold">Grant or revoke one scope</h2>
               <form

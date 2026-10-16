@@ -26,6 +26,7 @@ import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
 import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
+import { Route as ApiExamCleanupRouteImport } from './routes/api.exam-cleanup'
 import { Route as ApiExamContentRouteImport } from './routes/api.exam-content'
 import { Route as ApiExamPlansRouteImport } from './routes/api.exam-plans'
 import { Route as ApiExamReviewersRouteImport } from './routes/api.exam-reviewers'
@@ -135,6 +136,11 @@ const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
 const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
   id: '/api/discussion',
   path: '/api/discussion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExamCleanupRoute = ApiExamCleanupRouteImport.update({
+  id: '/api/exam-cleanup',
+  path: '/api/exam-cleanup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiExamContentRoute = ApiExamContentRouteImport.update({
@@ -281,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exam-reviewers': typeof ApiExamReviewersRoute
@@ -325,6 +332,7 @@ export interface FileRoutesByTo {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exam-reviewers': typeof ApiExamReviewersRoute
@@ -370,6 +378,7 @@ export interface FileRoutesById {
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
   '/api/discussion': typeof ApiDiscussionRoute
+  '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
   '/api/exam-plans': typeof ApiExamPlansRoute
   '/api/exam-reviewers': typeof ApiExamReviewersRoute
@@ -416,6 +425,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
     | '/api/exam-reviewers'
@@ -460,6 +470,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
     | '/api/exam-reviewers'
@@ -504,6 +515,7 @@ export interface FileRouteTypes {
     | '/api/certificate'
     | '/api/create-checkout'
     | '/api/discussion'
+    | '/api/exam-cleanup'
     | '/api/exam-content'
     | '/api/exam-plans'
     | '/api/exam-reviewers'
@@ -549,6 +561,7 @@ export interface RootRouteChildren {
   ApiCertificateRoute: typeof ApiCertificateRoute
   ApiCreateCheckoutRoute: typeof ApiCreateCheckoutRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
+  ApiExamCleanupRoute: typeof ApiExamCleanupRoute
   ApiExamContentRoute: typeof ApiExamContentRoute
   ApiExamPlansRoute: typeof ApiExamPlansRoute
   ApiExamReviewersRoute: typeof ApiExamReviewersRoute
@@ -695,6 +708,13 @@ declare module '@tanstack/react-router' {
       path: '/api/discussion'
       fullPath: '/api/discussion'
       preLoaderRoute: typeof ApiDiscussionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/exam-cleanup': {
+      id: '/api/exam-cleanup'
+      path: '/api/exam-cleanup'
+      fullPath: '/api/exam-cleanup'
+      preLoaderRoute: typeof ApiExamCleanupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/exam-content': {
@@ -893,6 +913,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiCertificateRoute: ApiCertificateRoute,
   ApiCreateCheckoutRoute: ApiCreateCheckoutRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
+  ApiExamCleanupRoute: ApiExamCleanupRoute,
   ApiExamContentRoute: ApiExamContentRoute,
   ApiExamPlansRoute: ApiExamPlansRoute,
   ApiExamReviewersRoute: ApiExamReviewersRoute,

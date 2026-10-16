@@ -79,3 +79,5 @@ begin
 end $$;
 reset role;
 select 'PASS: speech consent/policy gate, exact learner/item binding, retries/conflicts, independent listening attestation, withdrawal, disabled/approved cleanup and restrictive storage' as result;
+
+\ir assessment-cleanup-runs.sql

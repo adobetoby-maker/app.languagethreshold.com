@@ -10,7 +10,7 @@ export async function cleanupAssessmentSpeech(db: TeamDb, execute = false) {
       .eq("cleanup_enabled", true)
       .not("approved_at", "is", null);
     if (policies.error) throw new Error("Cleanup policy is unavailable.");
-    return { dryRun: true, enabledPolicies: policies.data?.length ?? 0, deleted: 0 };
+    return { dryRun: true as const, enabledPolicies: policies.data?.length ?? 0, deleted: 0 };
   }
   const bucket = await db.storage.getBucket(ASSESSMENT_SPEECH_BUCKET);
   if (
@@ -33,7 +33,7 @@ export async function cleanupAssessmentSpeech(db: TeamDb, execute = false) {
     if (!finished.error) deleted++; // Deleted bytes remain hidden/retryable if finalization fails.
   }
   return {
-    dryRun: false,
+    dryRun: false as const,
     selected: rows.length,
     deleted,
     failed: rows.length - deleted,

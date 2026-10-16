@@ -254,8 +254,9 @@ export async function readDailyAssessmentPlans(
   moduleId: string,
   target: string,
   native: string,
+  selectedPlanId?: string,
 ) {
-  const { data: plans, error } = await db
+  let planQuery = db
     .from("assessment_enrollments")
     .select("id")
     .eq("user_id", actor)
@@ -264,8 +265,17 @@ export async function readDailyAssessmentPlans(
     .eq("instruction_language", native)
     .eq("role", "primary")
     .in("status", ["active", "paused"])
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
     .limit(20);
+  if (selectedPlanId) planQuery = planQuery.eq("id", selectedPlanId);
+  const { data: plans, error } = await planQuery;
   if (error) throw new AssessmentAccessError("Daily assessment guidance could not be loaded.", 503);
+  if (selectedPlanId && !plans?.length)
+    throw new AssessmentAccessError(
+      "This learning plan is unavailable for this account and language track.",
+      403,
+    );
   const results = await Promise.all(
     (plans ?? []).map(async (row) => {
       try {

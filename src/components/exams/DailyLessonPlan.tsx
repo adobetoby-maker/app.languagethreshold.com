@@ -65,7 +65,7 @@ export function DailyLessonPlan(props: Parameters<typeof DailyLessonPlanContent>
   const { user } = useAuth();
   return (
     <DailyLessonPlanContent
-      key={`${user?.id ?? "guest"}:${props.moduleId}:${props.target}:${props.native}`}
+      key={`${user?.id ?? "guest"}:${props.moduleId}:${props.target}:${props.native}:${props.activePlanId ?? "all"}`}
       {...props}
     />
   );
@@ -103,7 +103,7 @@ function DailyLessonPlanContent({
     const controller = new AbortController();
     setError("");
     void examPlanRequest<DailyView>(
-      `/api/exam-plans?action=daily&module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}`,
+      `/api/exam-plans?action=daily&module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}${activePlanId ? `&plan=${encodeURIComponent(activePlanId)}` : ""}`,
       controller.signal,
     )
       .then((result) => {
@@ -111,7 +111,7 @@ function DailyLessonPlanContent({
           setData(result);
           saveOfflineGuidance(
             browserExamStorage(),
-            examGuidanceKey(viewer, moduleId, target, native),
+            examGuidanceKey(viewer, moduleId, target, native, activePlanId),
             result,
           );
           const selected = result.plans.find((plan) => plan.enrollmentId === activePlanId);
@@ -137,7 +137,7 @@ function DailyLessonPlanContent({
             err instanceof TypeError || !navigator.onLine
               ? readOfflineGuidance<DailyView>(
                   browserExamStorage(),
-                  examGuidanceKey(viewer, moduleId, target, native),
+                  examGuidanceKey(viewer, moduleId, target, native, activePlanId),
                 )
               : null;
           if (cached) {

@@ -124,7 +124,16 @@ export const Route = createFileRoute("/api/exam-plans")({
             const native = z
               .enum(NATIVE_LANGUAGES as [NativeLanguage, ...NativeLanguage[]])
               .parse(query.get("native"));
-            return json(await readDailyAssessmentPlans(db, user.id, moduleId, target, native));
+            return json(
+              await readDailyAssessmentPlans(
+                db,
+                user.id,
+                moduleId,
+                target,
+                native,
+                query.get("plan") ? id.parse(query.get("plan")) : undefined,
+              ),
+            );
           }
           if (action === "history")
             return json(

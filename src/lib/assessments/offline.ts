@@ -91,8 +91,14 @@ export function clearOfflineExams(
 }
 
 const GUIDANCE_PREFIX = "lt.examGuidance.v1.";
-export const examGuidanceKey = (user: string, moduleId: string, target: string, native: string) =>
-  `${GUIDANCE_PREFIX}${encodeURIComponent(user)}.${[moduleId, target, native].map(encodeURIComponent).join(".")}`;
+export const examGuidanceKey = (
+  user: string,
+  moduleId: string,
+  target: string,
+  native: string,
+  planId?: string,
+) =>
+  `${GUIDANCE_PREFIX}${encodeURIComponent(user)}.${[moduleId, target, native, ...(planId ? [planId] : [])].map(encodeURIComponent).join(".")}`;
 export function saveOfflineGuidance(
   storage: ExamDraftStorage | null,
   key: string,

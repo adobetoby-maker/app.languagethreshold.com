@@ -15,3 +15,20 @@ test('team recovery excludes personal, other-team and legacy unscoped device cop
  const copies=[{id:'personal',enrollment:{moduleId:'roofing',scope:'personal',organizationId:null}},{id:'team-a',enrollment:{moduleId:'roofing',scope:'team',organizationId:'a'}},{id:'team-b',enrollment:{moduleId:'roofing',scope:'team',organizationId:'b'}},{id:'legacy',enrollment:{moduleId:'roofing'}}];
  assert.deepEqual(recoveryCopiesForScope(copies,'a').map(copy=>copy.id),['team-a']);assert.deepEqual(recoveryCopiesForScope(copies).map(copy=>copy.id),copies.map(copy=>copy.id));
 });
+
+test('offline guidance cannot substitute another selected personal or team plan', async () => {
+  const { examGuidanceKey, saveOfflineGuidance, readOfflineGuidance } = await import('../src/lib/assessments/offline.ts');
+  const s = storage();
+  const key = plan => examGuidanceKey('plan-reader', 'roofing', 'Spanish', 'English', plan);
+  const personal = { plans: [{ enrollmentId: 'personal', revision: { review_every_days: 4 } }], returnContexts: [], limit: 20 };
+  const team = { plans: [{ enrollmentId: 'team', revision: { review_every_days: 2 } }], returnContexts: [], limit: 20 };
+  saveOfflineGuidance(s, key('personal'), personal, 1000);
+  saveOfflineGuidance(s, key('team'), team, 1000);
+  assert.equal(readOfflineGuidance(s, key('personal'), 1001).plans[0].revision.review_every_days, 4);
+  assert.equal(readOfflineGuidance(s, key('team'), 1001).plans[0].revision.review_every_days, 2);
+  assert.equal(readOfflineGuidance(s, key('unloaded'), 1001), null);
+  assert.equal(readOfflineGuidance(s, key(undefined), 1001), null);
+  clearExamDraftsForUser(s, 'plan-reader');
+  assert.equal(readOfflineGuidance(s, key('personal'), 1001), null);
+  assert.equal(readOfflineGuidance(s, key('team'), 1001), null);
+});

@@ -104,6 +104,27 @@ assert.equal(daily.status, 200);
 assert.ok(daily.body.plans.length >= 1);
 assert.ok(daily.body.plans.every((plan) => plan.scope === "personal"));
 assert.deepEqual(daily.body.returnContexts, []);
+const selectedPath =
+  "/api/exam-plans?action=daily&module=roofing&target=Spanish&native=English&plan=";
+const selectedDaily = await request(personal, selectedPath + qa.exams.personalEnrollmentId);
+assert.equal(selectedDaily.status, 200);
+assert.deepEqual(
+  selectedDaily.body.plans.map((plan) => plan.enrollmentId),
+  [qa.exams.personalEnrollmentId],
+);
+assert.equal((await request(admin, selectedPath + qa.exams.personalEnrollmentId)).status, 403);
+assert.equal((await request(learner, selectedPath + qa.exams.personalEnrollmentId)).status, 403);
+assert.equal((await request(personal, selectedPath + qa.exams.teamEnrollmentId)).status, 403);
+assert.equal((await request(personal, selectedPath + "not-a-plan")).status, 400);
+assert.equal(
+  (
+    await request(
+      personal,
+      selectedPath.replace("module=roofing", "module=orthopedics") + qa.exams.personalEnrollmentId,
+    )
+  ).status,
+  403,
+);
 const before = await service
   .from("assessment_recommendations")
   .select("id", { count: "exact", head: true })
@@ -156,6 +177,7 @@ const report = {
     adminTeamManage: true,
     learnerCannotApproveTeamPlan: true,
     dailyOwnScope: true,
+    selectedDailyPlanScope: true,
     unreviewedContentExcluded: true,
     crossPlanSourceDenied: true,
     wrongOriginDenied: true,

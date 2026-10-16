@@ -178,9 +178,11 @@ function ExamsAreaContent({
   const [authOpen, setAuthOpen] = useState(false),
     [actionLoading, setLoading] = useState(false),
     [actionError, setError] = useState("");
-  const [selection, setSelection] = useState<{ viewer: string; attempt: ExamAttemptView } | null>(
-    null,
-  );
+  const [selection, setSelection] = useState<{
+    viewer: string;
+    attempt: ExamAttemptView;
+    fromDevice?: boolean;
+  } | null>(null);
   const selected =
     selection &&
     selection.viewer === user?.id &&
@@ -263,7 +265,7 @@ function ExamsAreaContent({
           if (!attemptMatchesOrganization(attempt, orgId))
             throw new Error("This attempt is outside this team view. Open its own Exams view.");
           saveOfflineExam(browserExamStorage(), viewer, attempt);
-          setSelection({ viewer, attempt });
+          setSelection({ viewer, attempt, fromDevice: false });
           setPending(null);
         }
       } catch (err) {
@@ -276,7 +278,7 @@ function ExamsAreaContent({
                 ).find((row) => row.id === id)
               : null;
           if (saved) {
-            setSelection({ viewer, attempt: saved });
+            setSelection({ viewer, attempt: saved, fromDevice: true });
             setPending(null);
           }
           setError(
@@ -295,11 +297,15 @@ function ExamsAreaContent({
   );
 
   useEffect(() => {
-    if (user && attemptId && handledAttempt.current !== `${user.id}:${attemptId}:${reviewMode}`) {
-      handledAttempt.current = `${user.id}:${attemptId}:${reviewMode}`;
+    if (
+      user &&
+      attemptId &&
+      handledAttempt.current !== `${user.id}:${orgId ?? ""}:${attemptId}:${reviewMode}`
+    ) {
+      handledAttempt.current = `${user.id}:${orgId ?? ""}:${attemptId}:${reviewMode}`;
       void open(attemptId, reviewMode);
     }
-  }, [attemptId, open, user, reviewMode]);
+  }, [attemptId, open, user, reviewMode, orgId]);
   const act = async (work: () => Promise<void>) => {
     if (actionLock.current || !user) return;
     actionLock.current = true;
@@ -469,8 +475,11 @@ function ExamsAreaContent({
           />
         ) : (
           <ExamRunner
-            key={`${user.id}:${selected.id}`}
+            key={`${user.id}:${selected.id}:${selection?.fromDevice ? "device" : "server"}`}
             attempt={selected}
+            fromDevice={!!selection?.fromDevice}
+            checkingServer={loading}
+            onCheckServer={() => void open(selected.id)}
             onBack={() => {
               setSelection(null);
               void load();
@@ -1224,10 +1233,16 @@ function ExamsAreaContent({
 
 function ExamRunner({
   attempt,
+  fromDevice,
+  checkingServer,
+  onCheckServer,
   onBack,
   onSubmitted,
 }: {
   attempt: ExamAttemptView;
+  fromDevice: boolean;
+  checkingServer: boolean;
+  onCheckServer: () => void;
   onBack: () => void;
   onSubmitted: () => void;
 }) {
@@ -1239,7 +1254,7 @@ function ExamRunner({
     () => 0,
   );
   const [inputModes, setInputModes] = useState<Record<string, boolean>>({});
-  const draft = useExamDraft(attempt),
+  const draft = useExamDraft(attempt, fromDevice),
     item = attempt.form.items[draft.index];
   const handwrite =
     inputModes[item.id] ??
@@ -1305,7 +1320,7 @@ function ExamRunner({
           </button>
           <p className="text-sm" role="status">
             {draft.status === "synced"
-              ? "Synced to your account"
+              ? "Last synced to your account"
               : draft.status === "syncing"
                 ? "Syncing…"
                 : draft.status === "device"
@@ -1315,6 +1330,31 @@ function ExamRunner({
                     : "Not saved — keep this page open"}
           </p>
         </div>
+        {fromDevice && (
+          <div className="mt-3 space-y-2 text-sm">
+            <p>
+              Opened from this device’s saved copy. Connect and check the server copy for its
+              current status.
+            </p>
+            <button
+              className={button}
+              onClick={onCheckServer}
+              disabled={
+                checkingServer ||
+                submitting ||
+                speechWorking ||
+                unsavedSpeech > 0 ||
+                draft.pendingCount > 0 ||
+                draft.status !== "synced"
+              }
+            >
+              {checkingServer ? "Checking server copy…" : "Check server copy"}
+            </button>
+            {(draft.pendingCount > 0 || unsavedSpeech > 0) && (
+              <p>Sync answers and upload or discard recordings before checking another copy.</p>
+            )}
+          </div>
+        )}
         <h2 className="mt-4 text-xl font-semibold">
           {checkpointName(attempt.checkpoint.checkpoint, attempt.enrollment.programScope)} ·{" "}
           {getModule(attempt.enrollment.moduleId)?.name}

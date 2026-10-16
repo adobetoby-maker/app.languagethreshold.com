@@ -10,6 +10,7 @@ import {
   examDraftKey,
   nextDraftFlight,
   readExamDraft,
+  resumeExamDraft,
   registerPendingExam,
   saveExamDraft,
   type ExamDeviceDraft,
@@ -25,7 +26,7 @@ const answersFrom = (attempt: ExamAttemptView) =>
   );
 
 /** One authoritative revision and one persisted idempotent save flight at a time. */
-export function useExamDraft(attempt: ExamAttemptView) {
+export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   const { user, isCurrentUser } = useAuth();
   const userId = user?.id ?? "",
     key = examDraftKey(userId, attempt.id),
@@ -37,29 +38,28 @@ export function useExamDraft(attempt: ExamAttemptView) {
   const initial = useRef<ExamDeviceDraft | null>(null);
   if (!initial.current) {
     const saved = readExamDraft(storage, key);
-    initial.current =
-      saved?.formId === attempt.form.id
-        ? { ...saved, index: Math.min(saved.index, attempt.form.items.length - 1) }
-        : {
-            formId: attempt.form.id,
-            revision: attempt.revision,
-            index: 0,
-            sequence: 0,
-            pending: {},
-            flight: null,
-            savedAt: attempt.savedAt,
-          };
+    initial.current = resumeExamDraft(
+      saved,
+      {
+        formId: attempt.form.id,
+        revision: attempt.revision,
+        savedAt: attempt.savedAt,
+        itemCount: attempt.form.items.length,
+      },
+      fromDevice,
+    );
   }
   const current = useRef(initial.current);
   const [draft, setDraft] = useState(initial.current);
   const [answers, setAnswers] = useState<Record<string, AssessmentAnswer>>(() => ({
     ...answersFrom(attempt),
+    ...initial.current!.acknowledged,
     ...Object.fromEntries(
       Object.entries(initial.current!.pending).map(([id, entry]) => [id, entry.answer]),
     ),
   }));
   const [status, setStatus] = useState<SaveStatus>(() =>
-    Object.keys(initial.current!.pending).length
+    Object.keys(initial.current!.pending).length || initial.current!.flight
       ? initial.current!.revision === attempt.revision
         ? isExamDeviceValueVolatile(key)
           ? "unsaved"
@@ -139,6 +139,7 @@ export function useExamDraft(attempt: ExamAttemptView) {
           }
           next.revision = Math.max(result.revision, remote.current.revision);
           next.savedAt = result.syncedAt;
+          if (anotherDevice) next.acknowledged = undefined;
           update(next, Object.keys(next.pending).length ? "device" : "synced");
           if (mounted.current) {
             if (anotherDevice) setAnswers(answersFrom(remote.current));
@@ -256,6 +257,7 @@ export function useExamDraft(attempt: ExamAttemptView) {
       revision: latest.revision,
       flight: null,
       pending: keepDevice ? current.current.pending : {},
+      acknowledged: undefined,
     };
     update(next, keepDevice && Object.keys(next.pending).length ? "device" : "synced");
     setAnswers({

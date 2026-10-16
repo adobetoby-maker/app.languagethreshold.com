@@ -28,6 +28,33 @@ export interface ExamDeviceDraft {
   pending: Record<string, PendingAnswer>;
   flight: DraftFlight | null;
   savedAt: string;
+  /** Acknowledged answer changes retained atomically with their revision until a fresh server read. */
+  acknowledged?: Record<string, AssessmentAnswer>;
+}
+
+/** Clean drafts adopt a fresh server revision; outstanding work keeps its original base. */
+export function resumeExamDraft(
+  saved: ExamDeviceDraft | null,
+  source: { formId: string; revision: number; savedAt: string; itemCount: number },
+  fromDevice = false,
+): ExamDeviceDraft {
+  if (!saved || saved.formId !== source.formId)
+    return {
+      formId: source.formId,
+      revision: source.revision,
+      savedAt: source.savedAt,
+      index: 0,
+      sequence: 0,
+      pending: {},
+      flight: null,
+    };
+  const localWork = !!(Object.keys(saved.pending).length || saved.flight);
+  return {
+    ...saved,
+    index: Math.max(0, Math.min(saved.index, source.itemCount - 1)),
+    ...(!fromDevice && !localWork ? { revision: source.revision, savedAt: source.savedAt } : {}),
+    acknowledged: fromDevice && saved.revision >= source.revision ? saved.acknowledged : undefined,
+  };
 }
 export interface ExamDraftStorage {
   readonly length: number;
@@ -73,6 +100,29 @@ export function readExamDraft(
         )
       )
         return null;
+    }
+    if (value.acknowledged !== undefined) {
+      if (
+        !value.acknowledged ||
+        typeof value.acknowledged !== "object" ||
+        Array.isArray(value.acknowledged) ||
+        Object.keys(value.acknowledged).length > 200
+      )
+        return null;
+      for (const [item, answer] of Object.entries(value.acknowledged) as [
+        string,
+        AssessmentAnswer,
+      ][]) {
+        if (
+          item.length > 160 ||
+          !answer ||
+          typeof answer !== "object" ||
+          !["choice", "typed", "handwriting", "speech_transcript", "unavailable"].includes(
+            answer.inputMethod,
+          )
+        )
+          return null;
+      }
     }
     if (
       value.flight !== null &&
@@ -153,7 +203,16 @@ export function acknowledgeFlight(draft: ExamDeviceDraft, revision: number): Exa
   for (const [item, edit] of Object.entries(draft.flight?.edits ?? {})) {
     if (pending[item]?.edit === edit) delete pending[item];
   }
-  return { ...draft, revision, pending, flight: null };
+  return {
+    ...draft,
+    revision,
+    pending,
+    flight: null,
+    acknowledged: {
+      ...draft.acknowledged,
+      ...Object.fromEntries((draft.flight?.updates ?? []).map((row) => [row.itemId, row.answer])),
+    },
+  };
 }
 export function nextDraftFlight(draft: ExamDeviceDraft, requestId: string): DraftFlight | null {
   if (draft.flight) return draft.flight;
@@ -186,5 +245,5 @@ export function adoptExternalDraft(
     throw new Error("Sync answers and resolve conflicts before adopting the recording.");
   if (!Number.isInteger(revision) || revision < draft.revision)
     throw new Error("Server revision is older than this device draft.");
-  return { ...draft, revision, pending: {}, flight: null, savedAt };
+  return { ...draft, revision, pending: {}, flight: null, savedAt, acknowledged: undefined };
 }

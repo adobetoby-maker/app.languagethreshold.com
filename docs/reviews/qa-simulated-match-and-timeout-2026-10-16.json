@@ -1,0 +1,64 @@
+{
+  "testedAt": "2026-10-16T22:05:44.989794+00:00",
+  "applicationCommit": "f0a609a",
+  "target": "https://language-threshold-hfotvhpxw-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_6fGhnfkG2n5LDxbNLtX58PbLUfGf",
+  "deploymentTarget": null,
+  "findings": {
+    "simulationDisclosurePreviouslyDisappearedDuringBattleAndResult": true,
+    "actualTimeoutHangReproducedOn2ebb2d8": true,
+    "rootCause": "The interval called a loading-render handleLockIn/revealRound closure whose question data was null. Timeout locked the round and remained waiting.",
+    "incompleteExitCallbackCaughtByTypecheckOnIntermediate2b62bfc": true
+  },
+  "repair": {
+    "latestCommittedHandlerForTimeout": true,
+    "stableClockCallbackDependency": true,
+    "simulationLabelDuringPlayAndAllResultBranches": true,
+    "resultPointsLabeledPractice": true,
+    "exitPracticeImmediateCancellation": true,
+    "unmountCancelsPendingResult": true
+  },
+  "verification": {
+    "tests": 672,
+    "newClockRaceAndExitRegressions": 4,
+    "timeoutRegressionFailsAgainst2ebb2d8Source": true,
+    "typecheck": "clean",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "buildArtifactMiB": 19.51,
+    "hostedAssessmentTeamGroups": 18,
+    "hostedFocusedEntryHeaderGroups": 11
+  },
+  "actualBrowser": {
+    "account": "Guest; no signed-in learner or official assessment record",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "nativeCorrectTabActivatedAndWindowRaised": true,
+    "entryDisclosureVerified": true,
+    "leaderboardSimulatedRivalDisclosureVerifiedOnPreceding2ebb2d8": true,
+    "natural15SecondTimeoutReachedResult": true,
+    "observedOutcome": "defeat",
+    "resultLabel": "Practice result \u00b7 Simulated opponent \u00b7 Not an exam score",
+    "returnControlsVisible": true,
+    "secondMatchExitReturnedToCore30": true,
+    "afterExitNoLateResultOverlay": true,
+    "afterExitDashboardMatchRecord": "0 W \u00b7 1 L \u00b7 0 T",
+    "afterExitDashboardXp": 15,
+    "afterExitCompletedLessons": 0,
+    "viewportReset": true
+  },
+  "screenshots": [
+    "/Users/drive/git-backups/language-threshold-practice-timeout-result-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-practice-exit-phone-2026-10-16.png"
+  ],
+  "limits": [
+    "Actual result visual acceptance covers defeat; the shared disclosure is above all3 outcome branches in source.",
+    "The guest gained ordinary practice/achievement XP from one completed simulated match; no official score, mastery or certificate was generated.",
+    "Dashboard still says Ranked Points on its match card; consistent practice labeling there remains a follow-up.",
+    "A displayed nominal defeat penalty can exceed the actual deduction at the zero-point floor; follow-up should display the applied delta.",
+    "No physical phone, actual opponent, calibrated proficiency or human content approval is claimed.",
+    "Production was not promoted."
+  ]
+}

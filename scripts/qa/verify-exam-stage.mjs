@@ -161,7 +161,7 @@ const report = {
     productionUncalibratedAiDenied: true,
     unreviewedSupportExcluded: true,
     compatibleReadinessTracksHonest: true,
-    ownerContentDeniedToNonOwners: true,
+    privateContentDeniedToUnassignedAccounts: true,
     noStore: true,
   },
 };

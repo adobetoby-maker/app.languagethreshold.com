@@ -171,7 +171,7 @@ const report = {
   target: base,
   scope: "Synthetic QA only; forms remain draft; no support assignments or plan revisions created",
   checks: {
-    ownerContentHiddenFromNonOwners: true,
+    privateContentHiddenFromUnassignedAccounts: true,
     reviewerQueuePrivateAndScoped: true,
     independentPlanVisible: true,
     personalHiddenFromAdminAndOtherLearner: true,

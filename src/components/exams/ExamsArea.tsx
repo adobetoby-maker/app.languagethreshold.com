@@ -341,7 +341,7 @@ function ExamsAreaContent({
   return (
     <section
       data-private-assessment
-      className="mx-auto max-w-5xl space-y-5 pb-32"
+      className={cn("mx-auto max-w-5xl space-y-5", embedded ? "pb-4" : "pb-32")}
       aria-label="Exams area"
     >
       {selected && <Heading className="sr-only">Exams</Heading>}

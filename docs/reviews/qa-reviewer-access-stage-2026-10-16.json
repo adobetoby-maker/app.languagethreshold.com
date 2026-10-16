@@ -1,0 +1,19 @@
+{
+  "testedAt": "2026-10-16T11:37:03.115Z",
+  "target": "https://language-threshold-2sl4k9h4a-adobetoby-5572s-projects.vercel.app",
+  "scope": "Existing synthetic QA accounts, denied requests only. No hosted grants, owner roles, decisions, exposures, certificates or invitations created.",
+  "checks": {
+    "registeredOwnerRequired": true,
+    "nonOwnerPostDenied": true,
+    "contentScopesRequired": true,
+    "anonymousDenied": true,
+    "wrongOriginDenied": true,
+    "unauthorizedContentDecisionDenied": true,
+    "directDatabaseAndRpcDenied": true,
+    "denialsCreateNoRecords": true,
+    "noStore": true
+  },
+  "limits": [
+    "Positive owner/reviewer UI requires a genuine authorized account; local SQL verifies fictional positive workflows in a rollback transaction."
+  ]
+}

@@ -61,6 +61,7 @@ async function request(token, pathOrBody, origin = base) {
 // These existing hosted QA accounts have no platform-owner or content-reviewer grants.
 const before = await Promise.all(
   [
+    "assessment_reviewers",
     "assessment_content_reviewers",
     "assessment_reviewer_admin_events",
     "assessment_content_decisions",
@@ -75,23 +76,24 @@ for (const token of [personal, learner, admin, null]) {
   const registry = await request(token, "/api/exam-reviewers?module=roofing");
   assert.equal(registry.status, 403);
   assert.equal(registry.cache, "no-store");
-  assert.equal(
-    (
-      await request(token, {
-        userId: qa.personalId,
-        moduleId: "roofing",
-        target: "Spanish",
-        native: "English",
-        kind: "curriculum",
-        active: true,
-        expectedRevision: 0,
-        reason: "Rejected unauthorized QA request",
-        requestId: randomUUID(),
-        confirmScope: true,
-      })
-    ).status,
-    403,
-  );
+  for (const kind of ["response", "curriculum", "fluent_language", "domain"])
+    assert.equal(
+      (
+        await request(token, {
+          userId: qa.personalId,
+          moduleId: "roofing",
+          target: "Spanish",
+          native: "English",
+          kind,
+          active: true,
+          expectedRevision: 0,
+          reason: "Rejected unauthorized QA request",
+          requestId: randomUUID(),
+          confirmScope: true,
+        })
+      ).status,
+      403,
+    );
   assert.equal((await request(token, "/api/exam-content")).status, 403);
   assert.equal((await request(token, "/api/exam-content?form=not-a-visible-form")).status, 403);
 }

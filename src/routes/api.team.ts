@@ -218,6 +218,7 @@ export const Route = createFileRoute("/api/team")({
                 )
                 .eq("organization_id", orgId)
                 .eq("scope", "team")
+                .eq("program_scope", "full_module")
                 .in("user_id", memberUserIds),
             ]);
             if (profileResult.error) throw profileResult.error;

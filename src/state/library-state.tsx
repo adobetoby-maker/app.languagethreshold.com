@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { createLibraryRemote } from "@/lib/library-remote";
 import { LANGUAGES } from "@/data/languages";
 import { createLibraryDevice, readLibraryPreferences } from "@/lib/library-device";
+import { readerSelectionScope } from "@/lib/reader-selection";
 
 function browserLibraryStorage() {
   try {
@@ -48,6 +49,7 @@ export interface LibraryEntry extends LibraryText {
 interface LibraryState {
   entries: LibraryEntry[];
   selectedId: string;
+  selectionScope: string | null;
   generating: boolean;
   readStatus: Record<string, ReadStatus>;
   languageFilter: Language[];
@@ -55,7 +57,7 @@ interface LibraryState {
 
 type Action =
   | { type: "ADD_ENTRY"; payload: LibraryEntry }
-  | { type: "SELECT"; payload: string }
+  | { type: "SELECT"; payload: string; scope?: string }
   | { type: "SET_GENERATING"; payload: boolean }
   | { type: "REPLACE_BY_ID"; payload: LibraryEntry }
   | { type: "REMOVE_ENTRY"; payload: string }
@@ -93,6 +95,7 @@ function makeInitial(actor: string | null): LibraryState {
     entries: [],
     selectedId:
       typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
+    selectionScope: typeof saved?.selectionScope === "string" ? saved.selectionScope : null,
     generating: false,
     readStatus,
     languageFilter: Array.isArray(saved?.languageFilter)
@@ -148,7 +151,12 @@ function reducer(state: LibraryState, action: Action): LibraryState {
         !cur || cur === "never"
           ? { ...state.readStatus, [action.payload]: "partial" as ReadStatus }
           : state.readStatus;
-      return { ...state, selectedId: action.payload, readStatus };
+      return {
+        ...state,
+        selectedId: action.payload,
+        selectionScope: action.scope ?? null,
+        readStatus,
+      };
     }
     case "SET_GENERATING":
       return { ...state, generating: action.payload };
@@ -175,6 +183,7 @@ interface LibraryContextValue {
   pendingChanges: number;
   syncError: string | null;
   legacySaved: boolean;
+  readyToSelect: boolean;
   syncLibrary: () => void;
   setReadStatus: (id: string, status: ReadStatus) => void;
   setLanguageFilter: (langs: Language[]) => void;
@@ -185,7 +194,18 @@ const Ctx = createContext<LibraryContextValue | null>(null);
 export function LibraryProvider({ children }: { children: ReactNode }) {
   const { user, canUseReader } = useAuth();
   const actor = user?.id ?? null;
-  const [localState, dispatch] = useReducer(reducer, actor, makeInitial);
+  const { state: appState, profileReadyUserId } = useApp();
+  const scope = readerSelectionScope(
+    appState.activeModuleId,
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+  );
+  const [localState, rawDispatch] = useReducer(reducer, actor, makeInitial);
+  const dispatch = useCallback(
+    (action: Action) => rawDispatch(action.type === "SELECT" ? { ...action, scope } : action),
+    [scope],
+  );
+  const [initialLibraryReady, setInitialLibraryReady] = useState(!actor);
   const mounted = useRef(false);
   // AppProvider remounts this subtree on identity changes; never reuse an old account's queue.
   const [device] = useState(() =>
@@ -202,8 +222,11 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     device.getSnapshot,
   );
   useEffect(() => {
+    let active = true;
     mounted.current = true;
-    void device.sync();
+    void device.sync().finally(() => {
+      if (active && mounted.current) setInitialLibraryReady(true);
+    });
     const online = () => {
       void device.sync();
     };
@@ -211,6 +234,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     window.addEventListener("online", online);
     window.addEventListener("offline", offline);
     return () => {
+      active = false;
       mounted.current = false;
       device.cancel();
       window.removeEventListener("online", online);
@@ -227,11 +251,24 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     }),
     [localState, deviceState.books],
   );
-  const {
-    state: { selectedLanguage },
-  } = useApp();
+  const readyToSelect =
+    appState.hydrated &&
+    (!actor || profileReadyUserId === actor) &&
+    (initialLibraryReady ||
+      state.entries.some((entry) => entry.id === state.selectedId && entry.available));
+  const selectedLanguage = appState.selectedLanguage;
   const loadedLangPacksRef = useRef(new Set<string>());
   const selectedLangRef = useRef(selectedLanguage);
+  const triggerLdsPack = useCallback(
+    (lang: string, loaders: Record<string, () => Promise<LibraryEntry[]>>) => {
+      if (loadedLangPacksRef.current.has(lang)) return;
+      const loader = loaders[lang];
+      if (!loader) return;
+      loadedLangPacksRef.current.add(lang);
+      loader().then((entries) => rawDispatch({ type: "APPEND_SEEDS", payload: entries }));
+    },
+    [],
+  );
 
   useEffect(() => {
     selectedLangRef.current = selectedLanguage;
@@ -240,33 +277,26 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   // Load all-seeds lazily, then immediately load the active language's LDS pack.
   useEffect(() => {
     import("@/data/all-seeds").then(({ ALL_SEEDS, LDS_PACK_LOADERS }) => {
-      dispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
+      rawDispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
       triggerLdsPack(selectedLangRef.current, LDS_PACK_LOADERS);
     });
-  }, []);
+  }, [triggerLdsPack]);
 
   // When the user switches language, load that language's LDS pack on demand.
   useEffect(() => {
     import("@/data/all-seeds").then(({ LDS_PACK_LOADERS }) => {
       triggerLdsPack(selectedLanguage, LDS_PACK_LOADERS);
     });
-  }, [selectedLanguage]);
-
-  function triggerLdsPack(lang: string, loaders: Record<string, () => Promise<LibraryEntry[]>>) {
-    if (loadedLangPacksRef.current.has(lang)) return;
-    const loader = loaders[lang];
-    if (!loader) return;
-    loadedLangPacksRef.current.add(lang);
-    loader().then((entries) => dispatch({ type: "APPEND_SEEDS", payload: entries }));
-  }
+  }, [selectedLanguage, triggerLdsPack]);
 
   useEffect(() => {
     device.savePreferences({
       selectedId: state.selectedId,
+      selectionScope: state.selectionScope,
       readStatus: state.readStatus,
       languageFilter: state.languageFilter,
     });
-  }, [device, state.selectedId, state.readStatus, state.languageFilter]);
+  }, [device, state.selectedId, state.selectionScope, state.readStatus, state.languageFilter]);
 
   const addCustomEntry = useCallback(
     async (entry: LibraryEntry) => {
@@ -275,7 +305,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
       dispatch({ type: "SELECT", payload: saved.id });
       void device.sync();
     },
-    [device],
+    [device, dispatch],
   );
 
   const removeCustomEntry = useCallback(
@@ -318,6 +348,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   // so picking French left you on the Spanish default — and that default is
   // `classic-quixote`, a C2 text, shown to absolute beginners. DUO-002 P0-4.
   useEffect(() => {
+    if (!readyToSelect) return;
     const cur = state.entries.find((e) => e.id === state.selectedId);
     const needsReselect = !cur || !cur.available || cur.language !== selectedLanguage;
     if (!needsReselect) return;
@@ -335,9 +366,11 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     };
     const easiest = [...forLanguage].sort((a, b) => rank(a) - rank(b))[0];
     if (easiest && easiest.id !== state.selectedId) {
-      dispatch({ type: "SELECT", payload: easiest.id });
+      // A temporary language fallback must not masquerade as a deliberate text choice.
+      // Module passages can arrive in a later seed chunk and still need to take priority.
+      rawDispatch({ type: "SELECT", payload: easiest.id });
     }
-  }, [state.entries, state.selectedId, selectedLanguage]);
+  }, [state.entries, state.selectedId, selectedLanguage, readyToSelect]);
 
   return (
     <Ctx.Provider
@@ -352,6 +385,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
         pendingChanges: deviceState.pending.length + deviceState.deleted.length,
         syncError: deviceState.error,
         legacySaved: deviceState.legacySaved,
+        readyToSelect,
         syncLibrary: () => {
           void device.sync();
         },

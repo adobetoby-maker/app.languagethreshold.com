@@ -36,6 +36,7 @@ import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 import { browserReturnStorage, readLessonReturn } from "@/lib/lesson-return";
+import { moduleReaderSelection, readerSelectionScope } from "@/lib/reader-selection";
 
 type TextSize = "S" | "M" | "L";
 
@@ -88,7 +89,7 @@ const SIZE_CLASS: Record<TextSize, string> = {
 
 export function ParallelReader() {
   const { state, dispatch } = useApp();
-  const { selected, state: lib, dispatch: libDispatch } = useLibrary();
+  const { selected, state: lib, dispatch: libDispatch, readyToSelect } = useLibrary();
   const { add: addAnnotation, forText } = useNotes();
   const { activeSentenceIndex, speakSentence, speakSentences, stop, playing } = useSpeech();
   const tutor = useTutor();
@@ -142,21 +143,30 @@ export function ParallelReader() {
     }
   }, [lessonPassageId, lib.selectedId, dispatch]);
 
-  // Auto-load module-relevant reading when active module changes
-  const lastAutoModule = useRef<string | null>(null);
+  // Resume the learner's chosen text in this context; deliberate module/pair changes choose
+  // relevant reading. Persisted scope survives leaving Reader and a full page reload.
   useEffect(() => {
     const moduleId = state.activeModuleId;
     if (!moduleId) return;
-    const key = `${moduleId}:${state.selectedLanguage}`;
-    const readingId = lessonIds[0];
-    if (!readingId || lastAutoModule.current === key) return;
-    lastAutoModule.current = key;
-    if (readingId && readingId !== lib.selectedId && lib.selectedId !== lessonPassageId) {
+    const readingId = moduleReaderSelection({
+      ready: readyToSelect,
+      scope: readerSelectionScope(moduleId, state.selectedLanguage, state.nativeLanguage),
+      savedScope: lib.selectionScope,
+      selectedId: lib.selectedId,
+      selected: lib.entries.find((entry) => entry.id === lib.selectedId),
+      target: state.selectedLanguage,
+      firstLessonId: lessonIds[0],
+      lessonPassageId,
+    });
+    if (readingId) {
       libDispatch({ type: "SELECT", payload: readingId });
     }
   }, [
     state.activeModuleId,
     state.selectedLanguage,
+    state.nativeLanguage,
+    readyToSelect,
+    lib.selectionScope,
     lib.entries,
     lib.selectedId,
     libDispatch,
@@ -574,6 +584,14 @@ export function ParallelReader() {
       }
     });
   }, [activeSentenceIndex, autoScroll]);
+
+  if (!readyToSelect) {
+    return (
+      <p role="status" className="mx-auto max-w-6xl p-6 text-muted-foreground">
+        Loading your saved reading…
+      </p>
+    );
+  }
 
   return (
     <div className="fade-in mx-auto w-full max-w-6xl">

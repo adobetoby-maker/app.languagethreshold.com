@@ -1,4 +1,5 @@
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
+import type { AppTab } from "@/lib/app-navigation";
 import { useAuth } from "./auth-state";
 import {
   readProfileSnapshot,
@@ -57,41 +58,7 @@ import {
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 export { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 
-export type TabKey =
-  | "missionary"
-  | "orthopedics"
-  | "reader"
-  | "grammar"
-  | "speak"
-  | "discussions"
-  | "dashboard"
-  | "anatomy"
-  | "modules"
-  | "kana"
-  | "characters"
-  | "conjugation"
-  | "sentenceBuild"
-  | "games"
-  | "listeningDrill"
-  | "wordMatch"
-  | "idiomMaster"
-  | "falseFriends"
-  | "soccer"
-  | "baseball"
-  | "orEvs"
-  | "fmg"
-  | "penpal"
-  | "patterns"
-  | "cognates"
-  | "story"
-  | "guide"
-  | "core30"
-  | "exams"
-  | "climbing"
-  | "fishing"
-  | "fieldPrep"
-  | "dictionary"
-  | "flashcards";
+export type TabKey = AppTab;
 
 // Learner CEFR-ish self level (used elsewhere for AI prompts)
 export type Level = "Beginner" | "Intermediate" | "Advanced" | "Fluent";

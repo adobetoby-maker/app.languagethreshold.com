@@ -40,6 +40,7 @@ import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
+import { appNavigationLocation, appTab } from "@/lib/app-navigation";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
 
 export const Route = createFileRoute("/")({
@@ -73,6 +74,7 @@ function UrlModuleBridge() {
   const { user, loading: authLoading } = useAuth();
   const userId = user?.id ?? null;
   const appliedFor = useRef<string | null>(null);
+  const [navigationReadyFor, setNavigationReadyFor] = useState<string | null>(null);
 
   useEffect(() => {
     const identity = learningLinkIdentity({
@@ -86,7 +88,8 @@ function UrlModuleBridge() {
     appliedFor.current = identity;
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
-    const tab = params.get("tab");
+    const coreLink = moduleId === "core";
+    const tab = appTab(params.get("tab"));
     const linkedModule = getModule(moduleId);
     const targetLanguage =
       linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];
@@ -101,16 +104,19 @@ function UrlModuleBridge() {
     const requestedTarget = params.get("target") as Language,
       requestedNative = params.get("native") as NativeLanguage;
     if (
-      linkedModule &&
       LANGUAGES.includes(requestedTarget) &&
       NATIVE_LANGUAGES.includes(requestedNative) &&
-      moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)
+      (coreLink ||
+        (linkedModule &&
+          moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)))
     ) {
       if (state.selectedLanguage !== requestedTarget)
         dispatch({ type: "SET_LANGUAGE", payload: requestedTarget });
       if (state.nativeLanguage !== requestedNative)
         dispatch({ type: "SET_NATIVE_LANGUAGE", payload: requestedNative });
     }
+    if (coreLink && state.activeModuleId !== null)
+      dispatch({ type: "SET_ACTIVE_MODULE", payload: null });
     if (linkedModule && linkedModule.id !== state.activeModuleId) {
       dispatch({ type: "PURCHASE_MODULE", payload: linkedModule.id });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: linkedModule.id });
@@ -118,37 +124,40 @@ function UrlModuleBridge() {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
     }
-    const allowedTabs = new Set([
-      "reader",
-      "grammar",
-      "speak",
-      "dashboard",
-      "modules",
-      "games",
-      "flashcards",
-      "guide",
-      "core30",
-      "exams",
-    ]);
-    if (tab && allowedTabs.has(tab)) {
-      dispatch({
-        type: "SET_TAB",
-        payload: tab as
-          | "reader"
-          | "grammar"
-          | "speak"
-          | "dashboard"
-          | "modules"
-          | "games"
-          | "flashcards"
-          | "guide"
-          | "core30"
-          | "exams",
-      });
-    }
+    if (tab) dispatch({ type: "SET_TAB", payload: tab });
+    // This state update is batched with the URL's app-state actions. A ref alone would
+    // let the writer below run against the previous render and erase the incoming link.
+    setNavigationReadyFor(identity);
     // Apply the URL once per identity, after local and cloud state are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated, authLoading, userId, profileReadyUserId]);
+
+  useEffect(() => {
+    const identity = userId ?? "guest";
+    const next = appNavigationLocation(window.location.href, {
+      ready:
+        navigationReadyFor === identity &&
+        state.hydrated &&
+        !authLoading &&
+        (!userId || profileReadyUserId === userId),
+      moduleId: state.activeModuleId,
+      target: state.selectedLanguage,
+      native: state.nativeLanguage,
+      tab: state.currentTab,
+    });
+    if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+      window.history.replaceState(window.history.state, "", next);
+  }, [
+    navigationReadyFor,
+    userId,
+    authLoading,
+    profileReadyUserId,
+    state.hydrated,
+    state.activeModuleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    state.currentTab,
+  ]);
 
   return null;
 }

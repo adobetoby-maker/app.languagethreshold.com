@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { examRequest } from "@/lib/assessments/client";
+import { examAudioRequest } from "@/lib/assessments/client";
 import type { AssessmentAnswer, PublicAssessmentItem } from "@/lib/assessments/form";
 import { ACCENTS_BY_LANGUAGE } from "@/state/speech-state";
 import type { Language } from "@/data/languages";
@@ -19,10 +19,21 @@ export function ExamListeningQuestion({
     [heard, setHeard] = useState(answer?.listeningHeard === true),
     [error, setError] = useState("");
   const mounted = useRef(true);
+  const clip = useRef<HTMLAudioElement | null>(null),
+    clipUrl = useRef<string | null>(null),
+    pending = useRef<AbortController | null>(null);
+  const releaseClip = () => {
+    clip.current?.pause();
+    clip.current = null;
+    if (clipUrl.current) URL.revokeObjectURL(clipUrl.current);
+    clipUrl.current = null;
+  };
   useEffect(() => {
     mounted.current = true;
     return () => {
       mounted.current = false;
+      pending.current?.abort();
+      releaseClip();
       window.speechSynthesis?.cancel();
     };
   }, []);
@@ -31,10 +42,33 @@ export function ExamListeningQuestion({
     setPlaying(true);
     setError("");
     try {
-      const audio = await examRequest<{ text: string; language: string; mode: string }>(
+      pending.current = new AbortController();
+      const audio = await examAudioRequest(
         `/api/exams?action=listening&attempt=${encodeURIComponent(attemptId)}&item=${encodeURIComponent(item.id)}`,
+        pending.current.signal,
       );
       if (!mounted.current) return;
+      if (audio.mode === "private_clip") {
+        releaseClip();
+        clipUrl.current = URL.createObjectURL(audio.blob);
+        clip.current = new Audio(clipUrl.current);
+        clip.current.onended = () => {
+          releaseClip();
+          if (mounted.current) {
+            setHeard(true);
+            setPlaying(false);
+          }
+        };
+        clip.current.onerror = () => {
+          releaseClip();
+          if (mounted.current) {
+            setPlaying(false);
+            setError("The clip could not play. Try again or mark this input not assessed.");
+          }
+        };
+        await clip.current.play();
+        return;
+      }
       if (!window.speechSynthesis) throw new Error("This device cannot play the listening clip.");
       const locale = ACCENTS_BY_LANGUAGE[audio.language as Language]?.[0]?.code;
       const voice = locale ? getVoicesForLocale(locale)[0] : undefined;
@@ -61,6 +95,7 @@ export function ExamListeningQuestion({
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
     } catch (err) {
+      releaseClip();
       if (mounted.current) {
         setPlaying(false);
         setError(err instanceof Error ? err.message : "Listening playback unavailable.");
@@ -70,8 +105,8 @@ export function ExamListeningQuestion({
   return (
     <div className="mt-4 space-y-3">
       <p className="text-xs text-muted-foreground">
-        QA listening uses this device’s voice. Official listening requires reviewed, consistent
-        audio. The transcript is hidden during the question.
+        Play the complete message before answering. Official exams use the clip saved with this exam
+        version; QA drafts may use this device’s voice. Playback requires a connection.
       </p>
       <button
         type="button"

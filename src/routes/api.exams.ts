@@ -1,6 +1,8 @@
 import { checkpointAttemptHistory } from "@/lib/assessments/reports-server";
 import { assessmentContentAccess } from "@/lib/assessments/plans-server";
 import { proposeWritingReview } from "@/lib/assessments/ai-server";
+import { readAssessmentListening } from "@/lib/assessments/audio-server";
+import { officialListeningGaps, type AssessmentFormDefinition } from "@/lib/assessments/form";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
@@ -212,28 +214,12 @@ export const Route = createFileRoute("/api/exams")({
             );
           if (action === "listening") {
             await budget(user.id, "listening");
-            const context = await attemptAccess(
+            return await readAssessmentListening(
               db,
               user.id,
               id.parse(url.searchParams.get("attempt")),
+              z.string().min(1).max(160).parse(url.searchParams.get("item")),
             );
-            if (context.enrollment.user_id !== user.id || context.attempt.submitted_at)
-              throw new AssessmentAccessError("Active learner assessment access required.");
-            const form = context.attempt.form_snapshot
-              .definition as import("@/lib/assessments/form").AssessmentFormDefinition;
-            const item = form.items.find((row) => row.id === url.searchParams.get("item"));
-            if (!item?.audioRequired || !item.audioText)
-              throw new AssessmentAccessError("Listening audio is unavailable for this item.", 503);
-            if (!context.attempt.form_snapshot.pilot || !pilotAllowed(user.id))
-              throw new AssessmentAccessError(
-                "Reviewed assessment audio has not been published for this form.",
-                503,
-              );
-            return json({
-              text: item.audioText,
-              language: context.enrollment.target_language,
-              mode: "device_speech_qa_only",
-            });
           }
           if (action === "readiness") {
             const targetLanguage = target.parse(url.searchParams.get("target") ?? "Spanish"),
@@ -396,7 +382,7 @@ export const Route = createFileRoute("/api/exams")({
               );
             let formQuery = db
               .from("assessment_forms")
-              .select("id,status")
+              .select("id,status,definition")
               .eq("release_id", enrollment.release_id)
               .eq("checkpoint", checkpoint.checkpoint)
               .eq("purpose", enrollment.program_scope === "support_units" ? "support" : "module");
@@ -425,6 +411,14 @@ export const Route = createFileRoute("/api/exams")({
               throw new AssessmentAccessError(
                 "This module exam is awaiting curriculum review.",
                 400,
+              );
+            if (
+              form.status === "verified" &&
+              officialListeningGaps(form.definition as unknown as AssessmentFormDefinition).length
+            )
+              throw new AssessmentAccessError(
+                "This exam needs reviewed, versioned listening clips before it can start.",
+                503,
               );
             const { data: profile, error: profileError } = await db
               .from("profiles")

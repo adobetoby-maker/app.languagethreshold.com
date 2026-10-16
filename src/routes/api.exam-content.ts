@@ -4,6 +4,8 @@ import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
 import { contentPrivileges, contentTrackAllowed } from "@/lib/assessments/content-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
+import { assessmentAudioResponse } from "@/lib/assessments/audio-server";
+import type { AssessmentFormDefinition } from "@/lib/assessments/form";
 const review = z
   .object({
     formId: z.string().min(3).max(160),
@@ -64,6 +66,18 @@ export const Route = createFileRoute("/api/exam-content")({
             if (!contentTrackAllowed(access, release.data))
               throw new AssessmentAccessError("Assigned content reviewer access required.", 403);
             await rpc(db, "assessment_note_content_exposure", { p_actor: user.id, p_form: id });
+            const audioItem = new URL(request.url).searchParams.get("audioItem");
+            if (audioItem) {
+              const item = (
+                result.data.definition as unknown as AssessmentFormDefinition
+              ).items.find((row) => row.id === audioItem);
+              if (!item?.audioRequired || !item.audioAsset)
+                throw new AssessmentAccessError(
+                  "A versioned listening clip is not attached to this item.",
+                  404,
+                );
+              return await assessmentAudioResponse(db, item.audioAsset);
+            }
             const context =
               access.registeredOwner || access.grants.length
                 ? await rpc(db, "assessment_content_review_context", {

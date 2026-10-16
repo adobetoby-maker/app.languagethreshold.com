@@ -1,6 +1,7 @@
 export const ROOFING_ASSESSMENT_RELEASE = "roofing-es-en-assessment-draft-20261016";
 import type { AnswerPolicy, AssessmentSkill, Checkpoint, ItemEvidence } from "./core.ts";
 import { scoreFixedAnswer } from "./core.ts";
+import { validAssessmentAudioAsset, type AssessmentAudioAsset } from "./audio.ts";
 
 export interface AssessmentOption {
   id: string;
@@ -26,6 +27,7 @@ export interface PrivateAssessmentItem extends PublicAssessmentItem {
   correctOptionId?: string;
   policy?: AnswerPolicy;
   audioText?: string;
+  audioAsset?: AssessmentAudioAsset;
   rubric?: {
     id: string;
     dimensions: { id: string; label: string; maximum: number; description: string }[];
@@ -175,6 +177,8 @@ export function validateFormDefinition(form: AssessmentFormDefinition): string[]
     )
       gaps.push(`Missing production rubric: ${item.id}`);
     if (item.audioRequired && !item.audioText) gaps.push(`Missing listening source: ${item.id}`);
+    if (item.audioAsset && !validAssessmentAudioAsset(item.audioAsset))
+      gaps.push(`Invalid private audio reference: ${item.id}`);
   }
   for (const skill of [
     "recognition",
@@ -189,5 +193,16 @@ export function validateFormDefinition(form: AssessmentFormDefinition): string[]
     );
     if (objectives.size < 3) gaps.push(`${skill} needs at least three objectives.`);
   }
-  return gaps;
+  return form.status === "verified" ? [...gaps, ...officialListeningGaps(form)] : gaps;
+}
+
+/** Targeted support checks intentionally do not assess all six skills. */
+export function officialListeningGaps(form: Pick<AssessmentFormDefinition, "items">): string[] {
+  return form.items
+    .filter(
+      (item) =>
+        (item.skill === "listening" || item.audioRequired) &&
+        (!item.audioRequired || !item.audioText || !validAssessmentAudioAsset(item.audioAsset)),
+    )
+    .map((item) => `Official listening requires a versioned private clip: ${item.id}`);
 }

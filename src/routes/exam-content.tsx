@@ -10,6 +10,7 @@ import {
 } from "@/components/exams/ContentReviewDecision";
 import { getModule } from "@/data/modules";
 import type { AssessmentFormDefinition } from "@/lib/assessments/form";
+import { PrivateExamAudio } from "@/components/exams/PrivateExamAudio";
 type Catalog = {
   owner: boolean;
   registeredOwner: boolean;
@@ -246,6 +247,25 @@ function PrivateContent() {
                         Listening source: {item.audioText}
                       </p>
                     )}
+                    {item.audioRequired &&
+                      (item.audioAsset ? (
+                        <PrivateExamAudio
+                          key={`${shownForm.id}:${item.id}:${item.audioAsset.sha256}`}
+                          path={`/api/exam-content?form=${encodeURIComponent(shownForm.id)}&audioItem=${encodeURIComponent(item.id)}`}
+                          onAccessLost={() => {
+                            setDetail(null);
+                            setCatalog(null);
+                            setError(
+                              "Content access changed. Refresh your assigned permissions before continuing.",
+                            );
+                          }}
+                        />
+                      ) : (
+                        <p className="text-sm">
+                          Versioned listening clip: missing. This item is not ready for official
+                          use.
+                        </p>
+                      ))}
                     {item.options && (
                       <ul>
                         {item.options.map((option) => (

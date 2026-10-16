@@ -9,8 +9,17 @@ export interface Core30Review {
 export const CORE30_WAYS = ["see", "recall", "hear", "type", "say", "write"] as const;
 export type Core30Way = (typeof CORE30_WAYS)[number];
 
+/** Namespaced visits survive older clients, whose merge preserves visits but drops new fields. */
+export function wayVisitAt(log: Core30LessonLog | undefined, way: Core30Way): string | undefined {
+  return earlier(log?.wayVisits?.[way], log?.visits?.[`way:${way}`]);
+}
+
+export function openedWayCount(log: Core30LessonLog | undefined): number {
+  return CORE30_WAYS.filter((way) => Boolean(wayVisitAt(log, way))).length;
+}
+
 export interface Core30LessonLog {
-  /** key = step index as string, value = ISO time the step was FIRST opened */
+  /** Legacy step indices and namespaced way:<id> keys; value = first-open ISO time. */
   visits: Record<string, string>;
   /** First opening of each learning mode. Kept separate from legacy curriculum step indices. */
   wayVisits?: Partial<Record<Core30Way, string>>;
@@ -287,8 +296,11 @@ function mergeLesson(
   const out: Core30LessonLog = { visits };
   const wayVisits: Partial<Record<Core30Way, string>> = {};
   for (const way of CORE30_WAYS) {
-    const at = earlier(local?.wayVisits?.[way], remote?.wayVisits?.[way]);
-    if (at) wayVisits[way] = at;
+    const at = earlier(wayVisitAt(local, way), wayVisitAt(remote, way));
+    if (at) {
+      wayVisits[way] = at;
+      visits[`way:${way}`] = at;
+    }
   }
   if (Object.keys(wayVisits).length) out.wayVisits = wayVisits;
   const masteredAt = earlier(local?.masteredAt, remote?.masteredAt);

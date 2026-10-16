@@ -65,6 +65,7 @@ export function LessonReader({
   words,
   onInteract,
   onOpenFullReader,
+  initialTranslationVisible = false,
 }: {
   moduleId: string;
   /** The lesson's number; roofing uses it to pick the lesson's own reading passage. */
@@ -75,19 +76,22 @@ export function LessonReader({
   /** Called on the learner's first real use of the passage (tap a word, play audio). */
   onInteract: () => void;
   onOpenFullReader: (passageId: string) => void;
+  initialTranslationVisible?: boolean;
 }) {
   const { state, dispatch } = useApp();
   const { state: lib } = useLibrary();
   const { speakSentence, speakSentences, stop, playing, activeSentenceIndex } = useSpeech();
   const language = state.selectedLanguage;
-  const [showEnglish, setShowEnglish] = useState(false);
+  const [showEnglish, setShowEnglish] = useState(initialTranslationVisible);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [waited, setWaited] = useState(false);
 
   const passageId = resolveLessonPassageId(moduleId, language, readingTemplate, lib.entries);
   const entry = passageId ? (lib.entries.find((e) => e.id === passageId) ?? null) : null;
   // The seeds arrive after first paint; the first non-custom, non-missionary entry means they have.
-  const libraryLoaded = lib.entries.some((e) => e.section !== "custom" && e.section !== "missionary");
+  const libraryLoaded = lib.entries.some(
+    (e) => e.section !== "custom" && e.section !== "missionary",
+  );
 
   useEffect(() => {
     const timer = window.setTimeout(() => setWaited(true), LIBRARY_WAIT_MS);
@@ -131,8 +135,8 @@ export function LessonReader({
     return (
       <div data-testid="lesson-reader-fallback">
         <p className="rounded-xl border border-amber-300/25 bg-amber-300/[0.05] px-3 py-2 text-xs leading-relaxed text-foreground/80">
-          There is no reading passage for this lesson in {language} yet. Here are the lesson's
-          words to study instead.
+          There is no reading passage for this lesson in {language} yet. Here are the lesson's words
+          to study instead.
         </p>
         {words.length > 0 && (
           <ul className="mt-3 space-y-1.5">

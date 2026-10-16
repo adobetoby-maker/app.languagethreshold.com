@@ -1,6 +1,7 @@
 // Pure Core 30 state transitions. The reducer in src/state/app-state.tsx delegates here so the
 // logic can be unit tested under node (the .tsx reducer cannot be imported by node tests).
 import type { Core30Log, Core30LessonLog, Core30Way } from "./core30-plan";
+import { wayVisitAt } from "./core30-plan.ts";
 
 function withLesson(
   log: Core30Log,
@@ -36,10 +37,13 @@ export function core30WayOpened(
   payload: { moduleId: string; lesson: number; way: Core30Way; at: string },
 ): Core30Log {
   const { moduleId, lesson, way, at } = payload;
-  if (log[moduleId]?.lessons[String(lesson)]?.wayVisits?.[way]) return log;
+  const previous = log[moduleId]?.lessons[String(lesson)];
+  const first = wayVisitAt(previous, way) ?? at;
+  if (previous?.wayVisits?.[way] && previous?.visits?.[`way:${way}`]) return log;
   return withLesson(log, moduleId, lesson, (current) => ({
     ...current,
-    wayVisits: { ...current.wayVisits, [way]: at },
+    wayVisits: { ...current.wayVisits, [way]: first },
+    visits: { ...current.visits, [`way:${way}`]: first },
   }));
 }
 

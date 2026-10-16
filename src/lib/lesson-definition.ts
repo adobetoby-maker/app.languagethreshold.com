@@ -1,17 +1,13 @@
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
 import { roofingTeachingSettings, type RoofingTeachingSettings } from "../data/roofing-teaching.ts";
 import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
+import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 
-/** The same objective identity is used by lessons, practice evidence and assessment mappings. */
-export function lessonObjectiveId(moduleId: string, lessonNumber: number): string {
-  if (
-    !/^[a-z][a-z0-9-]{0,79}$/.test(moduleId) ||
-    !Number.isInteger(lessonNumber) ||
-    lessonNumber < 1
-  )
-    throw new Error("Invalid lesson identity.");
-  return `${moduleId}.lesson.${lessonNumber}`;
-}
+export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
+
+import { lessonObjectiveId } from "./learning-identity.ts";
+export { lessonObjectiveId } from "./learning-identity.ts";
+
 export interface LessonDefinition {
   id: string;
   objectiveId: string;
@@ -28,6 +24,8 @@ export interface LessonDefinition {
   words: LessonWord[];
   modes: readonly Core30Way[];
   teaching: RoofingTeachingSettings | null;
+  reading: { title: string; sentences: { target: string; native: string }[] } | null;
+  listeningItems: LessonWord[];
   /** Structural coverage is not reviewer approval or a claim that the module is complete. */
   readiness: "draft" | "in-review" | "verified";
   gaps: string[];
@@ -46,6 +44,27 @@ export function getLessonDefinition(input: {
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
   const words = roofingTrack ? (source.words ?? []) : [];
+  const teaching = roofingTrack ? roofingTeachingSettings(lessonNumber) : null;
+  const passage = roofingTrack ? ROOFING_LESSON_PASSAGES[lessonNumber] : undefined;
+  const reading = passage
+    ? {
+        title: passage.title,
+        sentences: passage.es.map((target, index) => ({ target, native: passage.en[index] })),
+      }
+    : null;
+  const listeningItems: LessonWord[] = [];
+  if (teaching?.stage === "supported" || !reading) listeningItems.push(...words);
+  else if (teaching && reading) {
+    const size = teaching.stage === "independent" ? 2 : 1;
+    for (let start = 0; start < reading.sentences.length; start += size) {
+      const chunk = reading.sentences.slice(start, start + size);
+      listeningItems.push({
+        kind: "phrase",
+        es: chunk.map((s) => s.target).join(" "),
+        en: chunk.map((s) => s.native).join(" "),
+      });
+    }
+  }
   const gaps: string[] = [];
   if (!roofingTrack)
     gaps.push(
@@ -53,7 +72,7 @@ export function getLessonDefinition(input: {
     );
   if (!words.length) gaps.push("No reviewed lesson word list in the shared definition.");
   gaps.push(
-    "Activity settings require runtime wiring and review; offline assets and release approval are pending.",
+    "Activity settings are wired for this draft; teaching review, offline asset verification and release approval are pending.",
   );
   return {
     id: `${moduleId}.${targetLanguage}.${instructionLanguage}.lesson.${lessonNumber}`,
@@ -70,7 +89,9 @@ export function getLessonDefinition(input: {
     source,
     words,
     modes: CORE30_WAYS,
-    teaching: roofingTrack ? roofingTeachingSettings(lessonNumber) : null,
+    teaching,
+    reading,
+    listeningItems,
     readiness: "draft",
     gaps,
   };

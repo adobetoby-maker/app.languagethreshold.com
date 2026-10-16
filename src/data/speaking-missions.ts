@@ -12,19 +12,16 @@ import {
   type CoreVerb,
   type DailyLivingTopic,
 } from "./core-speaking.ts";
+import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
+import { roofingTeachingSettings, type RoofingTeachingSettings } from "./roofing-teaching.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
 export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP" | "zh-CN" | "en-US";
 type SpeakingMissionCode = "es" | "it" | "ja" | "zh" | "en";
 export type SpeakingMissionRisk =
-  | "medical"
-  | "emergency"
-  | "financial"
-  | "legal"
-  | "minor-data"
-  | "intimacy";
+  "medical" | "emergency" | "financial" | "legal" | "minor-data" | "intimacy";
 
 export interface SpeakingModuleDefinition {
   id: string;
@@ -60,6 +57,8 @@ export interface SpeakingMission {
   locale: SpeakingMissionLocale;
   vocabulary: string[];
   sourcePrompts?: string[];
+  sourceObjectiveId?: string;
+  lessonTeaching?: Pick<RoofingTeachingSettings, "stage" | "speaking">;
   coreSection?: CoreSpeakingSection;
   coreOrder?: number;
   objectives: SpeakingMissionObjective[];
@@ -596,7 +595,10 @@ export const SPEAKING_LANGUAGES: Array<{
 
 function projectTextForLanguage(text: string, language: SpeakingMissionLanguage): string {
   return text
-    .replace(/\b(?:Spanish|Italian|Japanese|Chinese|Portuguese|English)-speaking\b/g, `${language}-speaking`)
+    .replace(
+      /\b(?:Spanish|Italian|Japanese|Chinese|Portuguese|English)-speaking\b/g,
+      `${language}-speaking`,
+    )
     .replace(/\bin (?:Spanish|Italian|Japanese|Chinese|Portuguese|English)\b/g, `in ${language}`)
     .replace(
       /\bwithout (?:Spanish|Italian|Japanese|Chinese|Portuguese|English)\b/g,
@@ -766,8 +768,10 @@ const TRAVEL_MODULE_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string
     "travel-hotels-lodging": "Welcome. Do you have a reservation?",
     "travel-taxi-rideshare": "Hello. Where are you going, and do you have luggage?",
     "travel-trains-transit": "Good morning. Where do you need to travel?",
-    "travel-scooter-car-rental": "Hello. Are you looking for a scooter or a car, and for how many days?",
-    "travel-roadside-mechanics": "Good morning. Tell me what the vehicle is doing and when it started.",
+    "travel-scooter-car-rental":
+      "Hello. Are you looking for a scooter or a car, and for how many days?",
+    "travel-roadside-mechanics":
+      "Good morning. Tell me what the vehicle is doing and when it started.",
     "travel-guides-attractions": "Welcome. Before we begin, what are you most interested in?",
     "travel-airport-luggage": "Good morning. What is your flight, and how can I help?",
     "travel-pharmacy-health": "Good morning. What symptoms do you have, and when did they start?",
@@ -791,7 +795,10 @@ function riskClassForModule(module: AppModule): SpeakingMissionRisk | undefined 
   return undefined;
 }
 
-function riskClassForMission(module: AppModule, sourceText: string): SpeakingMissionRisk | undefined {
+function riskClassForMission(
+  module: AppModule,
+  sourceText: string,
+): SpeakingMissionRisk | undefined {
   const moduleRisk = riskClassForModule(module);
   if (moduleRisk) return moduleRisk;
   const text = sourceText.toLocaleLowerCase();
@@ -1010,12 +1017,16 @@ const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string,
   },
   English: {
     "dating-interest": "I enjoy talking with you. Would you like to get coffee sometime?",
-    "relationship-status": "I would like to talk about us. How would you describe our relationship?",
+    "relationship-status":
+      "I would like to talk about us. How would you describe our relationship?",
     "affection-appreciation": "I care about you very much, and I appreciate you.",
-    "relationship-expectations": "I would like to understand what you expect from our relationship. Can we talk about it?",
+    "relationship-expectations":
+      "I would like to understand what you expect from our relationship. Can we talk about it?",
     "consent-boundaries": "Would it be okay if I hugged you? You can say no.",
-    "safer-intimacy": "Before we become intimate, I would like to talk about what helps both of us feel safe and comfortable.",
-    "relationship-conflict": "What happened hurt me, but I want to listen and work through it together.",
+    "safer-intimacy":
+      "Before we become intimate, I would like to talk about what helps both of us feel safe and comfortable.",
+    "relationship-conflict":
+      "What happened hurt me, but I want to listen and work through it together.",
     "end-relationship": "I want to be honest with you. I have decided to end our relationship.",
   },
 };
@@ -1171,6 +1182,8 @@ function missionFromLesson(
   lesson: Lesson,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
+  const teaching =
+    module.id === "roofing" && language === "Spanish" ? roofingTeachingSettings(lesson.n) : null;
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>
@@ -1199,6 +1212,8 @@ function missionFromLesson(
     locale,
     vocabulary: lessonMissionVocabulary(module, lesson, language),
     sourcePrompts: projectedSteps,
+    sourceObjectiveId: lessonObjectiveId(module.id, lesson.n),
+    ...(teaching ? { lessonTeaching: { stage: teaching.stage, speaking: teaching.speaking } } : {}),
     objectives: [
       {
         id: `objective_${stableBase}_lesson`,
@@ -1396,11 +1411,10 @@ function getSpecialtySpeakingModules(
   language: SpeakingMissionLanguage,
   nativeLanguage?: NativeLanguage,
 ) {
-  return MODULES.filter(
-    (module): module is SpecialtySpeakingModule =>
-      language === "English" && nativeLanguage
-        ? moduleSupportsLearningPair(module, language, nativeLanguage)
-        : language === "English"
+  return MODULES.filter((module): module is SpecialtySpeakingModule =>
+    language === "English" && nativeLanguage
+      ? moduleSupportsLearningPair(module, language, nativeLanguage)
+      : language === "English"
         ? module.learnDirection === "en-target" ||
           (module.learnDirection !== "en-target" &&
             (!module.languages || module.languages.includes(language)))

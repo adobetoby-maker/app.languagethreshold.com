@@ -46,6 +46,7 @@ import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
 import { LessonReader } from "@/components/core30/LessonReader";
+import { LessonResponsePractice } from "@/components/core30/LessonResponsePractice";
 import {
   browserReturnStorage,
   clearLessonReturn,
@@ -55,7 +56,21 @@ import {
 } from "@/lib/lesson-return";
 import { requestSpeakingMission } from "@/lib/speaking-navigation";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
-import { masteredLessons, planToday, toDateKey } from "@/lib/core30-plan";
+import { getLessonDefinition, ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
+import {
+  lessonPositionKey,
+  readLessonPosition,
+  saveLessonPosition,
+  type LessonPosition,
+} from "@/lib/lesson-drafts";
+import {
+  masteredLessons,
+  openedWayCount,
+  wayVisitAt,
+  planToday,
+  toDateKey,
+  type Core30Way,
+} from "@/lib/core30-plan";
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -484,7 +499,7 @@ function formatOpenedDate(iso: string): string {
   return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-type SectionId = "see" | "recall" | "hear" | "type" | "say" | "write";
+type SectionId = Core30Way;
 
 interface SectionDef {
   id: SectionId;
@@ -518,7 +533,7 @@ const SECTIONS: SectionDef[] = [
   {
     id: "write",
     label: "Write it",
-    why: "Write the words by hand to lock in the spelling.",
+    why: "Copy the words, recall their spelling, then write a response.",
     Icon: PenLine,
   },
 ];
@@ -600,7 +615,9 @@ function LessonRunner({
   const navRef = useRef<HTMLElement>(null);
   const masteryRef = useRef<HTMLElement>(null);
   const [section, setSection] = useState<SectionId>(initialSection ?? "see");
-  const [kitMode, setKitMode] = useState<PracticeMode>("flashcards");
+  const [kitMode, setKitMode] = useState<PracticeMode>(() =>
+    modeForSection(initialSection ?? "see", "flashcards"),
+  );
   // Authored words (roofing, Spanish) arrive at once; any other lesson gets a generated list.
   const lessonWords = useLessonWords(
     moduleId,
@@ -610,6 +627,13 @@ function LessonRunner({
   );
   const words = lessonWords.words;
   const hasWords = words.length > 0;
+  const definition = getLessonDefinition({
+    moduleId,
+    lessonNumber: lesson.n,
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    contentVersion: ROOFING_PRACTICE_VERSION,
+  });
 
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
@@ -617,7 +641,7 @@ function LessonRunner({
   const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
-  // Each way of learning is recorded against the closest existing step of the lesson.
+  // Preserve old curriculum-step evidence; new mode evidence is independent below.
   const readerStep = lesson.steps.findIndex((step) => step.tab === "reader");
   const wordDrillStep = lesson.steps.findIndex((step) => step.tab === "wordMatch");
   const speakStep = lesson.steps.findIndex((step) => step.tab === "speak");
@@ -639,6 +663,28 @@ function LessonRunner({
   const activeDef = SECTIONS[sectionIndex];
   const nextDef = SECTIONS[sectionIndex + 1];
   const inKit = KIT_SECTIONS.includes(section);
+
+  useEffect(() => {
+    dispatch({
+      type: "CORE30_WAY_OPENED",
+      payload: { moduleId, lesson: lesson.n, way: section, at: new Date().toISOString() },
+    });
+    try {
+      const storage = userId ? window.localStorage : window.sessionStorage;
+      saveLessonPosition(
+        storage,
+        lessonPositionKey(
+          userId ?? "anonymous",
+          moduleId,
+          state.selectedLanguage,
+          state.nativeLanguage,
+        ),
+        { lesson: lesson.n, way: section, at: new Date().toISOString() },
+      );
+    } catch {
+      /* The lesson remains usable when device storage is unavailable. */
+    }
+  }, [dispatch, moduleId, lesson.n, section, userId, state.selectedLanguage, state.nativeLanguage]);
 
   useEffect(() => {
     teamSessions.current = {};
@@ -820,10 +866,9 @@ function LessonRunner({
     }
   }
 
-  /** "Opened" line for a section, from the app's own record of the step it maps to. */
+  /** Each mode shows its own first visit; older step records cannot imply a mode visit. */
   function openedNote(id: SectionId) {
-    const stepIndex = stepForSection[id];
-    const openedAt = stepIndex >= 0 ? lessonLog?.visits?.[String(stepIndex)] : undefined;
+    const openedAt = wayVisitAt(lessonLog, id);
     if (!openedAt) return null;
     return (
       <p
@@ -920,8 +965,7 @@ function LessonRunner({
       >
         {SECTIONS.map(({ id, label, Icon }) => {
           const active = section === id;
-          const stepIndex = stepForSection[id];
-          const opened = stepIndex >= 0 && Boolean(lessonLog?.visits?.[String(stepIndex)]);
+          const opened = Boolean(wayVisitAt(lessonLog, id));
           return (
             <button
               key={id}
@@ -961,6 +1005,7 @@ function LessonRunner({
             moduleId={moduleId}
             readingTemplate={lesson.readingTemplate}
             lessonNumber={lesson.n}
+            initialTranslationVisible={definition?.teaching?.translationInitiallyVisible}
             words={words}
             onInteract={() => recordStepOpened(readerStep)}
             onOpenFullReader={openFullReader}
@@ -987,6 +1032,12 @@ function LessonRunner({
                 words={words}
                 moduleId={moduleId}
                 lessonNumber={lesson.n}
+                matchingBatchSize={definition?.teaching?.matchingBatchSize}
+                listeningItems={
+                  definition?.teaching && definition.teaching.stage !== "supported"
+                    ? definition.listeningItems
+                    : undefined
+                }
                 language={state.selectedLanguage}
                 // Authored words keep English as the native side, whatever the app's native setting.
                 nativeLanguage={
@@ -1032,10 +1083,21 @@ function LessonRunner({
             </button>
           </div>
         )}
+        {definition?.teaching &&
+          (["type", "write"] as const).map((mode) => (
+            <div
+              key={`${userId ?? "anonymous"}:${definition.id}:${mode}`}
+              hidden={section !== mode}
+            >
+              <LessonResponsePractice definition={definition} mode={mode} />
+            </div>
+          ))}
+
         {inKit && nextButton}
       </section>
 
       {/* 5 · Say it */}
+
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
         {panelHeader(SECTIONS[4], 5)}
         <p className="mt-3 text-sm leading-relaxed text-white/70">{speakInstruction}</p>
@@ -1628,7 +1690,19 @@ function consumeCore30Philosophy(): boolean {
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const { state } = useApp();
+  const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
+  const positionKey = lessonPositionKey(
+    user?.id ?? "anonymous",
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const [savedPositionState, setSavedPositionState] = useState<{
+    key: string;
+    position: LessonPosition | null;
+  }>({ key: positionKey, position: null });
+  const savedPosition = savedPositionState.key === positionKey ? savedPositionState.position : null;
   const [returnTarget] = useState(() => {
     if (!restoreView) return null;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
@@ -1636,6 +1710,20 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
   });
   const [openLessonN, setOpenLessonN] = useState<number | null>(returnTarget?.lesson ?? null);
+  const [initialWay, setInitialWay] = useState<SectionId | undefined>(returnTarget?.section);
+  useEffect(() => {
+    try {
+      const storage = user?.id ? window.localStorage : window.sessionStorage;
+      const position = readLessonPosition(storage, positionKey);
+      const valid =
+        position && getCurriculum(moduleId)?.lessons.some((l) => l.n === position.lesson)
+          ? position
+          : null;
+      setSavedPositionState({ key: positionKey, position: valid });
+    } catch {
+      setSavedPositionState({ key: positionKey, position: null });
+    }
+  }, [positionKey, moduleId, user?.id, openLessonN]);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
@@ -1669,11 +1757,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   function openLessonFromPlan(n: number) {
     setReviewOpen(false);
     setHowOpen(false);
+    setInitialWay(undefined);
     setOpenLessonN(n);
     window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
 
   function handleComplete() {
+    setInitialWay(undefined);
     setOpenLessonN(null);
     setJustCompleted(true);
     setTimeout(() => setJustCompleted(false), 4000);
@@ -1755,7 +1845,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">Come back tomorrow for the next one.</p>
+              <p className="text-xs text-white/60 mt-1">
+                Continue when you’re ready, or follow the dates in your plan.
+              </p>
             </div>
           )}
 
@@ -1775,13 +1867,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               lesson={openLesson}
               moduleId={moduleId}
               totalLessons={totalLessons}
-              initialSection={
-                returnTarget && returnTarget.lesson === openLesson.n
-                  ? returnTarget.section === "say"
-                    ? "say"
-                    : "see"
-                  : undefined
-              }
+              initialSection={initialWay}
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
               onNavigate={openLessonFromPlan}
@@ -1812,22 +1898,21 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
               {/* Step preview */}
               <div className="space-y-1.5 mb-5">
-                {currentLesson.steps.map((step, i) => (
+                {SECTIONS.map((step, i) => (
                   <div
-                    key={i}
+                    key={step.id}
                     className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
                   >
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
                       {i + 1}
                     </span>
-                    <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
-                    <span className="text-[10px] font-mono text-white/30">{step.durationMin}m</span>
+                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
                   </div>
                 ))}
               </div>
 
               <button
-                onClick={() => setOpenLessonN(currentLesson.n)}
+                onClick={() => openLessonFromPlan(currentLesson.n)}
                 className={cn(
                   "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
                   planStarted && "border border-gold/40 bg-transparent text-gold",
@@ -1848,6 +1933,20 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
 
           {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
+          {!reviewOpen && !runnerActive && savedPosition && (
+            <button
+              type="button"
+              className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
+              onClick={() => {
+                setInitialWay(savedPosition.way);
+                setOpenLessonN(savedPosition.lesson);
+                setHowOpen(false);
+              }}
+            >
+              {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"} Lesson{" "}
+              {savedPosition.lesson} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
+            </button>
+          )}
           {!reviewOpen && !runnerActive && (
             <div className="mt-4">
               <button
@@ -1875,7 +1974,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 <ul className="mt-2 space-y-1">
                   {curriculum.lessons.map((l) => {
                     const entry = core30Log?.lessons?.[String(l.n)];
-                    const opened = Object.keys(entry?.visits ?? {}).length;
+                    const opened = openedWayCount(entry);
+                    const priorSteps = Object.keys(entry?.visits ?? {}).filter((key) =>
+                      /^\d+$/.test(key),
+                    ).length;
                     const mastered = masteredSet.has(l.n);
                     return (
                       <li key={l.n}>
@@ -1904,8 +2006,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                             {entry?.needsPractice
                               ? "needs practice"
                               : opened > 0
-                                ? `${opened}/${l.steps.length} opened`
-                                : ""}
+                                ? `${opened}/6 ways opened`
+                                : priorSteps > 0
+                                  ? `${priorSteps} prior steps opened`
+                                  : ""}
                           </span>
                         </button>
                       </li>

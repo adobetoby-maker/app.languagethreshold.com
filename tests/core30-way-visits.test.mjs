@@ -10,7 +10,10 @@ test("six modes keep separate first visits without creating mastery or legacy st
     log = core30WayOpened(log, { moduleId: "roofing", lesson: 1, way, at: first });
   const lesson = log.roofing.lessons["1"];
   assert.equal(Object.keys(lesson.wayVisits).length, 6);
-  assert.deepEqual(lesson.visits, {});
+  assert.deepEqual(
+    Object.keys(lesson.visits).filter((key) => /^\d+$/.test(key)),
+    [],
+  );
   assert.equal(lesson.masteredAt, undefined);
   assert.equal(
     core30WayOpened(log, { moduleId: "roofing", lesson: 1, way: "write", at: later }),
@@ -26,7 +29,8 @@ test("cloud merge unions mode visits, keeps earliest timestamps, and preserves o
   };
   for (const merged of [mergeCore30Log(local, remote), mergeCore30Log(remote, local)]) {
     const lesson = merged.roofing.lessons["1"];
-    assert.deepEqual(lesson.visits, { 0: first, 2: later });
+    assert.equal(lesson.visits[0], first);
+    assert.equal(lesson.visits[2], later);
     assert.deepEqual(lesson.wayVisits, { hear: later, say: first, write: first });
     assert.equal(lesson.masteredAt, undefined);
   }
@@ -39,4 +43,17 @@ test("opening only handwriting counts as a lesson opened for the team summary", 
   assert.equal(summary.mastered, 0);
   const old = mergeCore30Log({ roofing: { lessons: { 1: { visits: { 0: first } } } } }, {});
   assert.equal(old.roofing.lessons["1"].wayVisits, undefined);
+});
+
+test("a round trip through an old visits-only client does not erase six-mode evidence", () => {
+  const original = core30WayOpened({}, { moduleId: "roofing", lesson: 1, way: "write", at: first });
+  // The previous app version preserves visits but reconstructs/drops unknown lesson fields.
+  const oldClient = {
+    roofing: { lessons: { 1: { visits: { ...original.roofing.lessons[1].visits, 0: later } } } },
+  };
+  const restored = mergeCore30Log({}, oldClient);
+  assert.equal(restored.roofing.lessons[1].wayVisits.write, first);
+  assert.equal(restored.roofing.lessons[1].visits[0], later);
+  assert.equal(restored.roofing.lessons[1].wayVisits.hear, undefined);
+  assert.equal(restored.roofing.lessons[1].masteredAt, undefined);
 });

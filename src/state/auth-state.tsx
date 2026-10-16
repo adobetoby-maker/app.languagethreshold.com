@@ -4,21 +4,20 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
-import {
-  clearAuthReturn,
-  consumeAuthReturn,
-  rememberAuthReturn,
-} from "@/lib/auth-return";
+import { clearAuthReturn, consumeAuthReturn, rememberAuthReturn } from "@/lib/auth-return";
+import { clearLessonDraftsForUser } from "@/lib/lesson-drafts";
 
 interface AuthContextValue {
   user: User | null;
   session: Session | null;
   loading: boolean;
+  isCurrentUser: (userId: string) => boolean;
   signUp: (
     email: string,
     password: string,
@@ -32,21 +31,27 @@ interface AuthContextValue {
 const Ctx = createContext<AuthContextValue | null>(null);
 
 function restorePageAfterAuth(session: Session | null) {
-  const returnPath = consumeAuthReturn(
-    window.location.pathname,
-    !!session,
-    window.localStorage,
-  );
+  const returnPath = consumeAuthReturn(window.location.pathname, !!session, window.localStorage);
   if (returnPath) window.location.replace(returnPath);
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const currentUser = useRef<string | null>(null);
 
   useEffect(() => {
     // CRITICAL: subscribe BEFORE getSession to avoid missing events
     const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
+      const previousUser = currentUser.current;
+      currentUser.current = s?.user.id ?? null;
+      if (previousUser && previousUser !== currentUser.current) {
+        try {
+          clearLessonDraftsForUser(window.localStorage, previousUser);
+        } catch {
+          /* Storage may be blocked. */
+        }
+      }
       setSession(s);
       restorePageAfterAuth(s);
     });
@@ -54,6 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth
       .getSession()
       .then(({ data }) => {
+        currentUser.current = data.session?.user.id ?? null;
         setSession(data.session);
         restorePageAfterAuth(data.session);
       })
@@ -66,6 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             /* noop */
           }
         }
+        currentUser.current = null;
         setSession(null);
       })
       .finally(() => setLoading(false));
@@ -130,18 +137,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut(scope ? { scope } : undefined);
   }, []);
 
+  const isCurrentUser = useCallback((userId: string) => currentUser.current === userId, []);
+
   const value = useMemo<AuthContextValue>(
     () => ({
       user: session?.user ?? null,
       session,
       loading,
+      isCurrentUser,
       signUp,
       signIn,
       signInWithGoogle,
       signOut,
       resetPassword,
     }),
-    [session, loading, signUp, signIn, signInWithGoogle, signOut, resetPassword],
+    [session, loading, isCurrentUser, signUp, signIn, signInWithGoogle, signOut, resetPassword],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
@@ -151,6 +161,7 @@ const fallbackAuth: AuthContextValue = {
   user: null,
   session: null,
   loading: false,
+  isCurrentUser: () => false,
   signUp: async () => ({ error: "Auth not ready", needsConfirmation: false }),
   signIn: async () => ({ error: "Auth not ready" }),
   signInWithGoogle: async () => {},

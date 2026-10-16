@@ -44,3 +44,28 @@ test("a new language track cannot inherit Spanish content or verified readiness"
   assert.equal(d.objectiveId, lessonObjectiveId("roofing", 1));
   assert.throws(() => lessonObjectiveId("../private", 1));
 });
+
+test("listening grows from the word list to aligned connected passage messages", () => {
+  const first = getLessonDefinition({ ...input, lessonNumber: 1 });
+  const middle = getLessonDefinition({ ...input, lessonNumber: 15 });
+  const last = getLessonDefinition({ ...input, lessonNumber: 30 });
+  assert.equal(first.listeningItems.length, first.words.length);
+  assert.equal(middle.listeningItems.length, middle.reading.sentences.length);
+  assert.ok(last.listeningItems.length < last.reading.sentences.length);
+  assert.equal(
+    last.listeningItems[0].es,
+    last.reading.sentences
+      .slice(0, 2)
+      .map((s) => s.target)
+      .join(" "),
+  );
+  assert.equal(
+    last.listeningItems[0].en,
+    last.reading.sentences
+      .slice(0, 2)
+      .map((s) => s.native)
+      .join(" "),
+  );
+  for (const lesson of [first, middle, last])
+    assert.ok(lesson.listeningItems.every((item) => item.en && item.es));
+});

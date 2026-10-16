@@ -1191,10 +1191,15 @@ export function SpeakingMissionsPreview() {
               ))}
             </ul>
           </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          <details
+            open={
+              !selectedMission.lessonTeaching ||
+              selectedMission.lessonTeaching.speaking.wordBank === "visible"
+            }
+          >
+            <summary className="min-h-11 cursor-pointer py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               Words you may use · reference
-            </p>
+            </summary>
             <div className="mt-2 flex flex-wrap gap-2">
               {selectedMission.vocabulary.map((word) => (
                 <span
@@ -1211,7 +1216,7 @@ export function SpeakingMissionsPreview() {
                 </span>
               ))}
             </div>
-          </div>
+          </details>
         </div>
 
         <div className="mt-6 rounded-2xl border-2 border-gold/30 bg-background/50 p-4">
@@ -1693,9 +1698,16 @@ export function SpeakingMissionsPreview() {
           </div>
         )}
         {selectedMission.vocabulary.length > 0 && activeObjective && (
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Useful words: {selectedMission.vocabulary.slice(0, 6).join(" · ")}
-          </p>
+          <details
+            open={
+              !selectedMission.lessonTeaching ||
+              selectedMission.lessonTeaching.speaking.wordBank === "visible"
+            }
+            className="mt-2 text-xs leading-relaxed text-muted-foreground"
+          >
+            <summary className="min-h-11 cursor-pointer py-3">Useful words</summary>
+            <p>{selectedMission.vocabulary.slice(0, 6).join(" · ")}</p>
+          </details>
         )}
       </div>
 

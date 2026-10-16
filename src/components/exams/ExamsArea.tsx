@@ -1,3 +1,4 @@
+import type { LessonSourceCoverage } from "@/lib/lesson-source-coverage";
 import { ExamSpeechQuestion } from "./ExamSpeechQuestion";
 import { SpeechEvidencePlayback } from "./SpeechEvidencePlayback";
 import {
@@ -2041,6 +2042,7 @@ type ReadinessTrack = {
   lessonCount: number;
   authoredLessonLists: number;
   contextualPassages: number;
+  sourceCoverage: LessonSourceCoverage;
   exams: Record<string, string>;
   status: string;
   contentReviewCount: number;
@@ -2074,7 +2076,9 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
     <details
       className={card}
       open={expanded}
-      onToggle={(event) => setExpanded(event.currentTarget.open)}
+      onToggle={(event) => {
+        if (event.target === event.currentTarget) setExpanded(event.currentTarget.open);
+      }}
     >
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">
         Module readiness · {native} → {target}
@@ -2082,7 +2086,8 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
       <p className="my-3 text-sm">
         Roofing sets the first complete standard. Each language track needs 30 reviewed lessons, six
         learning modes, three reviewed exams, calibration and offline verification. A lesson count
-        alone does not verify a module.
+        alone does not verify a module. These counts describe shared lesson definitions. Other
+        practice sources may be available; they do not establish reviewed readiness.
       </p>
       {error && <p role="alert">{error}</p>}
       <div className="max-h-96 space-y-3 overflow-y-auto">
@@ -2092,13 +2097,31 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
               {track.name} · {track.status.replaceAll("_", " ")}
             </h3>
             <p className="mt-1">
-              {track.lessonCount}/30 lessons · {track.authoredLessonLists} authored lesson lists ·{" "}
-              {track.contextualPassages} contextual passages
+              {track.lessonCount}/30 lessons · {track.authoredLessonLists} word lists in lesson definitions ·{" "}
+              {track.contextualPassages} lesson passages · {track.sourceCoverage.lessonsWithTeachingSettings} toolkit settings
             </p>
             <p>
               Entrance: {track.exams.entrance} · Day 45: {track.exams.day45} · Day 90:{" "}
               {track.exams.day90}
             </p>
+            <details className="my-2 rounded-lg border border-border p-2">
+              <summary className="min-h-11 cursor-pointer py-2">Inspect lesson gaps</summary>
+              <p className="mb-2 text-xs text-muted-foreground">Word-list baseline: 8–12 terms and 4–6 phrases per lesson. Source presence is separate from human review.</p>
+              <dl className="space-y-2 text-xs">
+                {([
+                  ["Missing lessons", track.sourceCoverage.missingLessonNumbers],
+                  ["Duplicate lesson numbers", track.sourceCoverage.duplicateLessonNumbers],
+                  ["No word list in lesson definition", track.sourceCoverage.missingWordLists],
+                  ["Word lists outside the quantity baseline", track.sourceCoverage.vocabularyQuantityGaps],
+                  ["No aligned lesson passage", track.sourceCoverage.missingPassages],
+                  ["No lesson toolkit settings", track.sourceCoverage.missingTeachingSettings],
+                  ["No explicit recall step in the written plan", track.sourceCoverage.lessonsWithoutExplicitRecallStep],
+                ] as const).map(([label, numbers]) => (
+                  <div key={label}><dt className="font-semibold">{label}</dt><dd className="break-words">{numbers.length ? `Lessons ${numbers.join(", ")}` : "None"}</dd></div>
+                ))}
+              </dl>
+              <p className="mt-3 text-xs text-muted-foreground">An absent written recall step does not mean a matching game is unavailable: the embedded toolkit may provide it. Check the actual lesson before reporting a missing game.</p>
+            </details>
             <p className="mt-1 text-xs text-muted-foreground">
               {track.contentReviewCount} review records · Lesson review:{" "}
               {track.lessonsReviewed ? "complete" : "pending"} · Calibration:{" "}

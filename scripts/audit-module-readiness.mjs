@@ -8,12 +8,14 @@ const [
   { ALL_SEEDS },
   { getAvailableModuleLessons },
   { LANGUAGES, NATIVE_LANGUAGES },
+  { lessonSourceCoverage },
 ] = await Promise.all([
   loadModule("src/data/modules.ts"),
   loadModule("src/data/curriculum.ts"),
   loadModule("src/data/all-seeds.ts"),
   loadModule("src/data/module-starters.ts"),
   loadModule("src/state/app-state.tsx", { stubs: [/^sonner$/, /supabase\/client$/] }),
+  loadModule("src/lib/lesson-source-coverage.ts"),
 ]);
 const codes = {
   Spanish: "es",
@@ -27,9 +29,6 @@ const codes = {
   Pashto: "ps",
   English: "en",
 };
-const passages = existsSync("src/data/roofing-lesson-passages.ts")
-  ? (await loadModule("src/data/roofing-lesson-passages.ts")).ROOFING_LESSON_PASSAGES
-  : {};
 const canonicalLanguage = (language) =>
   language === "Chinese (Simplified)" ? "Chinese" : language;
 const meetsVocabularyBaseline = (words) => {
@@ -65,15 +64,7 @@ const modules = MODULES.map((module) => {
       const mapped = lessons
         .filter((l) => ids.includes(l.readingTemplate?.replace("{lang}", codes[target])))
         .map((l) => l.n);
-      const ownPassages =
-        module.id === "roofing" && target === "Spanish" && native === "English"
-          ? lessons
-              .filter(
-                (l) =>
-                  passages[l.n]?.es?.length && passages[l.n].es.length === passages[l.n].en?.length,
-              )
-              .map((l) => l.n)
-          : [];
+      const sourceCoverage = lessonSourceCoverage(module.id, target, native);
       let packLessons = [];
       let packListsWithinBaseline = 0;
       const file = `public/lesson-decks/${codes[target]}/${module.id}.json`;
@@ -105,7 +96,9 @@ const modules = MODULES.map((module) => {
         loadedTargetReaderTexts: ids.length,
         instructionLanguageScaffold: "unverified",
         lessonsWithMappedReader: mapped.length,
-        lessonSpecificPassages: ownPassages.length,
+        lessonSpecificPassages: sourceCoverage.lessonsWithPassages,
+        lessonsWithToolkitSettings: sourceCoverage.lessonsWithTeachingSettings,
+        sharedDefinitionsStructurallyComplete: sourceCoverage.structurallyComplete,
         reviewState: "unverified",
         exams: { entrance: "unverified", day45: "unverified", day90: "unverified" },
       });

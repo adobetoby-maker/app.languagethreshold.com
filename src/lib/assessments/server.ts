@@ -9,6 +9,7 @@ import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
 import { lessonReviewSnapshot, lessonReviewFingerprint } from "@/lib/lesson-review";
+import { lessonSourceCoverage } from "@/lib/lesson-source-coverage";
 import { ROOFING_ASSESSMENT_RELEASE } from "./form";
 import {
   publicAssessmentItem,
@@ -303,7 +304,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
       (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
     ).map(async (module) => {
       const curriculum = getCurriculum(module.id)!;
-      const roofing = module.id === "roofing" && target === "Spanish" && native === "English";
+      const sourceCoverage = lessonSourceCoverage(module.id, target, native);
       const release =
         (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
         (releases ?? []).find((row) => row.module_id === module.id);
@@ -329,6 +330,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
         release?.status === "verified" &&
         reviewed &&
         curriculum.lessons.length >= 30 &&
+        sourceCoverage.structurallyComplete &&
         Object.values(examStates).every((status) => status === "verified");
       return {
         moduleId: module.id,
@@ -338,10 +340,9 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
         instructionLanguage: native,
         lessonCount: curriculum.lessons.length,
         requiredLessonCount: 30,
-        authoredLessonLists: roofing
-          ? curriculum.lessons.filter((lesson) => lesson.words?.length).length
-          : 0,
-        contextualPassages: roofing ? 30 : 0,
+        authoredLessonLists: sourceCoverage.lessonsWithWords,
+        contextualPassages: sourceCoverage.lessonsWithPassages,
+        sourceCoverage,
         exams: examStates,
         status: verified ? "verified" : "upgrade_in_progress",
         contentReviewCount: Array.isArray(release?.review_records)

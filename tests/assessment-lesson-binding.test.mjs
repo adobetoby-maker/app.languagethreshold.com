@@ -74,3 +74,22 @@ test("snapshot database failures stay unavailable rather than being reported as 
   await assert.rejects(boundLessonSnapshot(f.db, "fixture-release"), (error) => error.status === 503);
   await assert.rejects(readinessCatalog(f.db, "Spanish", "English"), (error) => error.status === 503);
 });
+
+
+test("a claimed verified release cannot hide missing lesson source mappings", async () => {
+  const f = await fixture();
+  f.rows.assessment_releases.module_id = "landscaper";
+  const snapshot = lessonReviewSnapshot("landscaper", "Spanish", "English");
+  const fingerprint = await lessonReviewFingerprint(snapshot);
+  f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
+  f.rows.assessment_lesson_snapshots.fingerprint = fingerprint;
+  const catalog = await readinessCatalog(f.db, "Spanish", "English");
+  const land = catalog.find((track) => track.moduleId === "landscaper");
+  assert.equal(land.lessonsReviewed, true); // Deliberately fictional DB review claim.
+  assert.equal(land.authoredLessonLists, 1);
+  assert.equal(land.contextualPassages, 1);
+  assert.equal(land.sourceCoverage.lessonsWithTeachingSettings, 0);
+  assert.equal(land.sourceCoverage.missingWordLists.length, 29);
+  assert.equal(land.status, "upgrade_in_progress");
+  assert.equal(land.offlineVerified, false);
+});

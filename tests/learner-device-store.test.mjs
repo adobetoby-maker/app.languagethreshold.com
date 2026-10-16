@@ -20,7 +20,7 @@ function fixture() {
     },
   };
 }
-for (const kind of ["notes", "flashcards", "tutor", "speak"]) {
+for (const kind of ["notes", "flashcards", "tutor", "speak", "grammar", "speech", "heardWords"]) {
   test(`${kind}: private practice survives own reload, remains absent for guest/another learner, and rejects stale callbacks`, () => {
     const f = fixture();
     const a = f.make(kind, "a");
@@ -43,10 +43,18 @@ for (const kind of ["notes", "flashcards", "tutor", "speak"]) {
 }
 test("unowned legacy stores are neither read, reassigned nor deleted", () => {
   const f = fixture();
-  const keys = ["lt.annotations.v1", "lingualens.flashcards.v2", "lt.tutor.v1", "lt.speak.v1"];
+  const keys = [
+    "lt.annotations.v1",
+    "lingualens.flashcards.v2",
+    "lt.tutor.v1",
+    "lt.speak.v1",
+    "lt.grammar.v2",
+    "lt.speech.v1",
+    "lt.speech.recentWords.v1",
+  ];
   keys.forEach((key) => f.storage.setItem(key, JSON.stringify({ text: "unknown owner" })));
   const before = new Map(f.entries);
-  for (const kind of ["notes", "flashcards", "tutor", "speak"]) {
+  for (const kind of ["notes", "flashcards", "tutor", "speak", "grammar", "speech", "heardWords"]) {
     assert.equal(f.make(kind, "a").read(), null);
     f.make(kind, "a").write({ text: "new owned work" });
   }

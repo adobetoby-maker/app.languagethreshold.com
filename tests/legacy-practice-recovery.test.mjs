@@ -41,6 +41,115 @@ const card = {
 const message = { id: "m1", role: "user", content: "QA old", createdAt: 1 };
 const turn = { id: "t1", role: "user", text: "QA old", createdAt: 1 };
 
+test("grammar recovery preserves current decisions and missing lessons without duplicate badges", () => {
+  const stub = { id: "qa1", title: "QA grammar", concept: "QA concept" };
+  const content = {
+    explanation: "QA",
+    keyRule: "QA rule",
+    examples: [{ target: "QA", english: "QA" }],
+  };
+  const old = {
+    store: {
+      Spanish: {
+        A1: {
+          lessons: [stub, { ...stub, id: "qa2" }],
+          contents: { qa1: content },
+          completed: { qa1: true, qa2: true },
+        },
+      },
+    },
+    badges: ["QA badge"],
+  };
+  const f = setup("grammar", old);
+  f.owned.write({
+    store: {
+      Spanish: {
+        A1: {
+          lessons: [{ ...stub, title: "Current title" }],
+          contents: { qa1: { ...content, keyRule: "Current rule" } },
+          completed: { qa1: false },
+        },
+      },
+      French: { A2: { lessons: [stub], contents: {}, completed: {} } },
+    },
+    badges: ["QA badge", "Current badge"],
+  });
+  const original = f.storage.getItem(LEGACY_PRACTICE.grammar.key);
+  recoverLegacyPractice(f.options);
+  recoverLegacyPractice(f.options);
+  const saved = f.owned.read();
+  assert.equal(saved.store.Spanish.A1.lessons.length, 2);
+  assert.equal(saved.store.Spanish.A1.lessons[0].title, "Current title");
+  assert.equal(saved.store.Spanish.A1.contents.qa1.keyRule, "Current rule");
+  assert.equal(saved.store.Spanish.A1.completed.qa1, false);
+  assert.equal(saved.store.Spanish.A1.completed.qa2, true);
+  assert.equal(saved.store.French.A2.lessons.length, 1);
+  assert.deepEqual(saved.badges, ["QA badge", "Current badge"]);
+  assert.equal(f.storage.getItem(LEGACY_PRACTICE.grammar.key), original);
+});
+test("listening recovery keeps current voice choices and never doubles listen counts", () => {
+  const f = setup("speech", {
+    rate: 0.8,
+    listenedCount: 20,
+    voiceByLang: { Spanish: "old", French: "fr" },
+    accentByLang: { Spanish: "es-MX" },
+  });
+  f.owned.write({
+    rate: 1,
+    listenedCount: 4,
+    voiceByLang: { Spanish: "current" },
+    accentByLang: { Spanish: "es-CR" },
+  });
+  recoverLegacyPractice(f.options);
+  recoverLegacyPractice(f.options);
+  assert.deepEqual(f.owned.read(), {
+    rate: 1,
+    listenedCount: 20,
+    voiceByLang: { Spanish: "current", French: "fr" },
+    accentByLang: { Spanish: "es-CR" },
+  });
+  assert.equal(
+    inspectLegacyPractice(f.storage, "b").find((i) => i.kind === "speech").status,
+    "other-account",
+  );
+});
+test("recent-word recovery keeps current recency first and caps the history without duplicates", () => {
+  const f = setup(
+    "heardWords",
+    Array.from({ length: 25 }, (_, i) => `old${i}`),
+  );
+  f.owned.write(["current", "old1"]);
+  recoverLegacyPractice(f.options);
+  recoverLegacyPractice(f.options);
+  assert.equal(f.owned.read().length, 20);
+  assert.deepEqual(f.owned.read().slice(0, 4), ["current", "old1", "old0", "old2"]);
+  assert.equal(new Set(f.owned.read()).size, 20);
+});
+test("invalid grammar, listening and word history stay untouched rather than importing broken records", () => {
+  for (const [kind, data] of [
+    [
+      "grammar",
+      {
+        store: {
+          Spanish: { A1: { lessons: [], contents: { qa: { explanation: {} } }, completed: {} } },
+        },
+        badges: [],
+      },
+    ],
+    ["speech", { listenedCount: -1 }],
+    ["heardWords", ["valid", { foreign: true }]],
+  ]) {
+    const f = setup(kind, data),
+      before = new Map(f.entries);
+    assert.equal(
+      inspectLegacyPractice(f.storage, "a").find((i) => i.kind === kind).status,
+      "unreadable",
+    );
+    assert.throws(() => recoverLegacyPractice(f.options));
+    assert.deepEqual(f.entries, before);
+  }
+});
+
 test("recovery requires explicit confirmation and the current signed-in identity", () => {
   const f = setup("notes", [note]),
     before = new Map(f.entries);

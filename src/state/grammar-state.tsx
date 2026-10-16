@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -56,7 +57,7 @@ type Action =
 
 // v2: invalidates lesson content cached before the server-side zod
 // validation existed — stale malformed morphology objects crashed the UI.
-const STORAGE_KEY = "lt.grammar.v2";
+// Account-owned device data includes generated lessons and personal completion.
 
 function emptyLevel(): LevelState {
   return { lessons: [], contents: {}, completed: {} };
@@ -126,6 +127,7 @@ const Ctx = createContext<{
 } | null>(null);
 
 export function GrammarProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("grammar");
   const [state, dispatch] = useReducer(reducer, {
     store: {},
     badges: [],
@@ -134,9 +136,9 @@ export function GrammarProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw);
+        const parsed = raw as Partial<State>;
         dispatch({
           type: "HYDRATE",
           payload: {
@@ -150,19 +152,16 @@ export function GrammarProvider({ children }: { children: ReactNode }) {
     } catch {
       dispatch({ type: "HYDRATE", payload: { store: {}, badges: [] } });
     }
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!state.hydrated) return;
     try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ store: state.store, badges: state.badges }),
-      );
+      device.write({ store: state.store, badges: state.badges });
     } catch {
       /* ignore */
     }
-  }, [state.store, state.badges, state.hydrated]);
+  }, [device, state.store, state.badges, state.hydrated]);
 
   const setLessons = useCallback(
     (language: Language, level: CefrLevel, lessons: LessonStub[]) =>

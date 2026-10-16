@@ -10,6 +10,9 @@ export const LEGACY_PRACTICE = {
   flashcards: { key: "lingualens.flashcards.v2", label: "Flashcards and review schedules" },
   tutor: { key: "lt.tutor.v1", label: "Tutor conversations" },
   speak: { key: "lt.speak.v1", label: "Speaking practice history" },
+  grammar: { key: "lt.grammar.v2", label: "Grammar lessons and progress" },
+  speech: { key: "lt.speech.v1", label: "Listening history and voice settings" },
+  heardWords: { key: "lt.speech.recentWords.v1", label: "Recently heard words" },
 } as const;
 export type LegacyPracticeKind = keyof typeof LEGACY_PRACTICE;
 const str = z.string();
@@ -92,6 +95,53 @@ const turn = z.object({
 const speak = z.record(
   z.union([z.array(turn), z.object({ turns: z.array(turn), exchanges: num, totalSeconds: num })]),
 );
+const grammarContent = z.object({
+  explanation: str,
+  examples: z.array(z.object({ target: str, english: str })),
+  keyRule: str,
+  morphology: z
+    .object({
+      summary: str,
+      base: z.object({
+        word: str,
+        romanization: str.optional(),
+        root: str,
+        ending: str,
+        gloss: str,
+      }),
+      table: z.array(
+        z.object({
+          form: str,
+          root: str,
+          ending: str,
+          full: str,
+          romanization: str.optional(),
+          english: str,
+        }),
+      ),
+    })
+    .optional(),
+});
+const grammar = z.object({
+  store: z.record(
+    z.record(
+      z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]),
+      z.object({
+        lessons: z.array(z.object({ id: str, title: str, concept: str })),
+        contents: z.record(grammarContent),
+        completed: z.record(z.boolean()),
+      }),
+    ),
+  ),
+  badges: z.array(str).default([]),
+});
+const speech = z.object({
+  rate: num.optional(),
+  listenedCount: num.nonnegative().default(0),
+  voiceByLang: z.record(str).default({}),
+  accentByLang: z.record(str).default({}),
+});
+const heardWords = z.array(str);
 const safeEntries = <T>(record: Record<string, T>) =>
   Object.entries(record).filter(
     ([key]) => !["__proto__", "constructor", "prototype"].includes(key),
@@ -106,6 +156,9 @@ function parseJson(raw: string) {
 function normalize(kind: LegacyPracticeKind, value: unknown): unknown {
   if (kind === "notes") return notes.parse(value);
   if (kind === "flashcards") return cards.parse(value);
+  if (kind === "grammar") return grammar.parse(value);
+  if (kind === "speech") return speech.parse(value);
+  if (kind === "heardWords") return [...new Set(heardWords.parse(value))].slice(0, 20);
   if (kind === "tutor") {
     const object = value && typeof value === "object" ? value : {};
     return tutor.parse("threads" in object ? value : { threads: value, sourceContexts: {} });
@@ -120,6 +173,32 @@ function normalize(kind: LegacyPracticeKind, value: unknown): unknown {
 function count(kind: LegacyPracticeKind, value: unknown): number {
   if (kind === "notes") return notes.parse(value).length;
   if (kind === "flashcards") return Object.keys(cards.parse(value).cards).length;
+  if (kind === "grammar") {
+    const data = grammar.parse(value);
+    return (
+      data.badges.length +
+      Object.values(data.store).reduce(
+        (total, levels) =>
+          total +
+          Object.values(levels).reduce(
+            (n, level) =>
+              n +
+              Math.max(
+                level.lessons.length,
+                Object.keys(level.contents).length,
+                Object.keys(level.completed).length,
+              ),
+            0,
+          ),
+        0,
+      )
+    );
+  }
+  if (kind === "speech") {
+    speech.parse(value);
+    return 1;
+  }
+  if (kind === "heardWords") return heardWords.parse(value).length;
   if (kind === "tutor")
     return Object.values(tutor.parse(value).threads).reduce((n, thread) => n + thread.length, 0);
   return Object.values(speak.parse(value)).reduce(
@@ -130,6 +209,52 @@ function count(kind: LegacyPracticeKind, value: unknown): number {
 function merge(kind: LegacyPracticeKind, old: unknown, current: unknown): unknown {
   if (current === null) return old;
   if (kind === "notes") return unique(notes.parse(old), notes.parse(current));
+  if (kind === "heardWords")
+    return [...new Set([...heardWords.parse(current), ...heardWords.parse(old)])].slice(0, 20);
+  if (kind === "speech") {
+    const a = speech.parse(old),
+      b = speech.parse(current);
+    return {
+      ...a,
+      ...b,
+      listenedCount: Math.max(a.listenedCount, b.listenedCount),
+      voiceByLang: Object.fromEntries([
+        ...safeEntries(a.voiceByLang),
+        ...safeEntries(b.voiceByLang),
+      ]),
+      accentByLang: Object.fromEntries([
+        ...safeEntries(a.accentByLang),
+        ...safeEntries(b.accentByLang),
+      ]),
+    };
+  }
+  if (kind === "grammar") {
+    const a = grammar.parse(old),
+      b = grammar.parse(current);
+    const store = Object.fromEntries(safeEntries(a.store));
+    for (const [language, levels] of safeEntries(b.store)) {
+      const next = { ...store[language] };
+      for (const [level, data] of Object.entries(levels)) {
+        const key = level as keyof typeof levels;
+        const prev = next[key];
+        next[key] = prev
+          ? {
+              lessons: unique(prev.lessons, data.lessons),
+              contents: Object.fromEntries([
+                ...safeEntries(prev.contents),
+                ...safeEntries(data.contents),
+              ]),
+              completed: Object.fromEntries([
+                ...safeEntries(prev.completed),
+                ...safeEntries(data.completed),
+              ]),
+            }
+          : data;
+      }
+      store[language] = next;
+    }
+    return { store, badges: [...new Set([...a.badges, ...b.badges])] };
+  }
   if (kind === "flashcards") {
     const a = cards.parse(old),
       b = cards.parse(current);

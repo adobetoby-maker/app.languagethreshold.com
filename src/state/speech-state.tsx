@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -108,8 +109,12 @@ interface SpeechCtx {
 const Ctx = createContext<SpeechCtx | null>(null);
 
 const ACHIEVEMENT_LISTENER = "Good Listener 👂";
-const STORAGE_KEY = "lt.speech.v1";
-const RECENT_WORDS_KEY = "lt.speech.recentWords.v1";
+interface SavedSpeech {
+  rate?: number;
+  listenedCount?: number;
+  voiceByLang?: Record<string, string>;
+  accentByLang?: Record<string, string>;
+}
 const RECENT_WORDS_CAP = 20;
 
 export function SpeechProvider({
@@ -125,6 +130,9 @@ export function SpeechProvider({
   onAchievement: (name: string) => void;
   hasAchievement: (name: string) => boolean;
 }) {
+  const device = useLearnerDeviceStore("speech");
+  const recentDevice = useLearnerDeviceStore("heardWords");
+  const [historyHydrated, setHistoryHydrated] = useState(false);
   const accentsForLanguage = ACCENTS_BY_LANGUAGE[language];
   const [rate, setRateState] = useState(1);
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
@@ -141,9 +149,9 @@ export function SpeechProvider({
   // Hydrate
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw);
+        const parsed = raw as SavedSpeech;
         if (typeof parsed.rate === "number") setRateState(parsed.rate);
         if (typeof parsed.listenedCount === "number") setListenedCount(parsed.listenedCount);
         if (parsed.voiceByLang && typeof parsed.voiceByLang === "object") {
@@ -157,73 +165,50 @@ export function SpeechProvider({
       setSettingsHydrated(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [device]);
 
   // Persist
   useEffect(() => {
     if (!settingsHydrated || voiceLanguageRef.current !== language) return;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const prev = raw ? JSON.parse(raw) : {};
+      const raw = device.read();
+      const prev = (raw as SavedSpeech | null) ?? {};
       const voiceByLang = { ...(prev.voiceByLang ?? {}) };
       if (voiceURI) voiceByLang[language] = voiceURI;
       else delete voiceByLang[language];
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ ...prev, rate, listenedCount, voiceByLang }),
-      );
+      device.write({ ...prev, rate, listenedCount, voiceByLang });
     } catch {
       /* ignore */
     }
-  }, [rate, listenedCount, voiceURI, language, settingsHydrated]);
+  }, [device, rate, listenedCount, voiceURI, language, settingsHydrated]);
 
-  // Hydrate recent-words history (separate localStorage key from the main
-  // speech-settings blob above — kept independent so it can grow/shrink
-  // without touching rate/accent/voice persistence).
+  // The account-keyed provider remounts on identity change. Never hydrate another learner's history.
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(RECENT_WORDS_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) {
-          setRecentWords(parsed.filter((w): w is string => typeof w === "string"));
-        }
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
+    const saved = recentDevice.read();
+    setRecentWords(
+      Array.isArray(saved)
+        ? saved.filter((w): w is string => typeof w === "string").slice(0, RECENT_WORDS_CAP)
+        : [],
+    );
+    setHistoryHydrated(true);
+  }, [recentDevice]);
 
-  // Persist recent-words history. MUST skip its first invocation — it runs in
-  // the same commit as the hydrate effect above, while recentWords still
-  // holds its default ([]) rather than the value just read from
-  // localStorage, so without this it would silently wipe the saved history
-  // on every mount. Same pattern as the furigana/romaja persist effects in
-  // ParallelReader.tsx.
-  const skipRecentWordsPersist = useRef(true);
   useEffect(() => {
-    if (skipRecentWordsPersist.current) {
-      skipRecentWordsPersist.current = false;
-      return;
-    }
-    try {
-      localStorage.setItem(RECENT_WORDS_KEY, JSON.stringify(recentWords));
-    } catch {
-      /* ignore */
-    }
-  }, [recentWords]);
+    if (historyHydrated) recentDevice.write(recentWords);
+  }, [recentDevice, recentWords, historyHydrated]);
 
   // Reset accent + voice when language changes (load voice for new language)
   useEffect(() => {
     voiceLanguageRef.current = language;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const parsed = raw ? JSON.parse(raw) : {};
+      const raw = device.read();
+      const parsed = (raw as SavedSpeech | null) ?? {};
       const v = parsed.voiceByLang?.[language];
       setVoiceURIState(typeof v === "string" ? v : null);
       const savedAccent = parsed.accentByLang?.[language];
       setAccentState(
-        accentsForLanguage.some((option) => option.code === savedAccent)
+        typeof savedAccent === "string" &&
+          accentsForLanguage.some((option) => option.code === savedAccent)
           ? savedAccent
           : accentsForLanguage[0].code,
       );
@@ -240,7 +225,7 @@ export function SpeechProvider({
     setCurrent(null);
     setActiveSentenceIndex(-1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [language]);
+  }, [language, device]);
 
   // Stop on unmount
   useEffect(() => {
@@ -279,15 +264,15 @@ export function SpeechProvider({
         current && !decodeGoogleVoicePreference(current) ? DEVICE_DEFAULT_VOICE : null,
       );
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        const prev = raw ? JSON.parse(raw) : {};
+        const raw = device.read();
+        const prev = (raw as SavedSpeech | null) ?? {};
         const accentByLang = { ...(prev.accentByLang ?? {}), [language]: c };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...prev, accentByLang }));
+        device.write({ ...prev, accentByLang });
       } catch {
         /* ignore */
       }
     },
-    [language],
+    [language, device],
   );
   const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
   const setLastWord = useCallback((w: string) => {

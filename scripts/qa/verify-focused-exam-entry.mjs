@@ -50,6 +50,15 @@ for (const path of [
   assert.ok([200, 307].includes(response.status), `${path}: ${response.status}`);
   assert.match(response.headers.get("cache-control") ?? "", /no-store/, path);
   assert.equal(response.headers.get("referrer-policy"), "no-referrer", path);
+  if (response.status === 307) {
+    const canonical = new URL(response.headers.get("location"), base);
+    assert.equal(canonical.origin, base);
+    assert.equal(canonical.pathname, new URL(path, base).pathname);
+    const final = await fetch(canonical, { redirect: "manual" });
+    assert.equal(final.status, 200, canonical.pathname);
+    assert.match(final.headers.get("cache-control") ?? "", /no-store/);
+    assert.equal(final.headers.get("referrer-policy"), "no-referrer");
+  }
 }
 const ordinary = await fetch(`${base}/?tab=reader&module=roofing&target=Spanish&native=English`, {
   redirect: "manual",

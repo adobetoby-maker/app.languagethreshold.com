@@ -5,6 +5,9 @@ import type { TeamDb } from "@/lib/team-server";
 import { getModule } from "@/data/modules";
 import { checkpointProfiles } from "./core";
 import { AssessmentAccessError, enrollmentAccess, rpc } from "./server";
+import type { LearnerGoal } from "./goals";
+const recommendationFields =
+  "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at,basis,goal_snapshot";
 
 async function canManage(db: TeamDb, actor: string, id: string) {
   try {
@@ -24,9 +27,7 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     await Promise.all([
       db
         .from("assessment_recommendations")
-        .select(
-          "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at",
-        )
+        .select(recommendationFields)
         .eq("enrollment_id", id)
         .order("created_at", { ascending: false })
         .limit(50),
@@ -47,9 +48,7 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
       db.from("assessment_checkpoints").select("id,checkpoint").eq("enrollment_id", id),
       db
         .from("assessment_recommendations")
-        .select(
-          "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at",
-        )
+        .select(recommendationFields)
         .eq("enrollment_id", id)
         .in("decision", ["suggested", "deferred"]),
       db
@@ -138,12 +137,24 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     enrollment.user_id,
     enrollment.organization_id,
   );
+  const goalResult = await db
+    .from("assessment_learner_goals")
+    .select("revision,topics,offline_preferred,updated_at")
+    .eq("enrollment_id", id)
+    .maybeSingle();
+  if (goalResult.error) throw new AssessmentAccessError("Learner goals could not be loaded.", 503);
+  const goals = {
+    revision: goalResult.data?.revision ?? 0,
+    topics: (goalResult.data?.topics ?? []) as LearnerGoal[],
+    offlinePreferred: goalResult.data?.offline_preferred === true,
+    updatedAt: goalResult.data?.updated_at ?? null,
+  };
   const candidates =
-    source && manage && accessAvailable
+    manage && accessAvailable
       ? await rpc<Record<string, unknown>[]>(db, "assessment_support_candidates", {
           p_actor: actor,
           p_enrollment: id,
-          p_attempt: source.id,
+          p_attempt: source?.id ?? null,
         })
       : [];
   const childIds = assignmentRows.map((row) => row.support_enrollment_id);
@@ -181,6 +192,37 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
       ),
   );
   return {
+    goals,
+    goalAvailability: !accessAvailable
+      ? "access_needed"
+      : !goals.topics.length
+        ? "not_selected"
+        : !manage
+          ? "admin_review"
+          : assignmentRows.some(
+                (row) =>
+                  ["active", "paused", "checkpoint_due"].includes(row.status) &&
+                  row.capability_snapshot.basis === "learner_goal" &&
+                  row.capability_snapshot.goalSnapshot?.topics?.some((topic: string) =>
+                    goals.topics.includes(topic as LearnerGoal),
+                  ),
+              )
+            ? "assigned"
+            : candidates.some(
+                  (row) =>
+                    row.basis === "learner_goal" ||
+                    (Array.isArray(row.matchedGoals) && row.matchedGoals.length > 0),
+                )
+              ? "ready"
+              : recommendationRows.filter((row) => ["suggested", "deferred"].includes(row.decision))
+                    .length >= 2 ||
+                  recommendationRows.some(
+                    (row) =>
+                      row.basis === "learner_goal" &&
+                      ["suggested", "deferred"].includes(row.decision),
+                  )
+                ? "review_pending"
+                : "content_gap",
     enrollment: {
       id: enrollment.id,
       moduleId: enrollment.module_id,

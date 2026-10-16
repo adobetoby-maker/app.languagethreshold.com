@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
-import { examPlanRequest, examRequest } from "@/lib/assessments/client";
+import { examPlanRequest, examRequest, ExamRequestError } from "@/lib/assessments/client";
 import type {
   AssessmentPlanView,
   SupportRecommendation,
@@ -19,6 +19,8 @@ import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import { toDateKey } from "@/lib/core30-plan";
 import { moduleLessonUrl } from "@/lib/learning-link";
+import { LearnerGoalsEditor } from "./LearnerGoalsEditor";
+import { LEARNER_GOALS } from "@/lib/assessments/goals";
 const card = "rounded-xl border border-border p-4";
 const button =
   "min-h-11 rounded-xl border border-gold/40 px-4 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50";
@@ -112,10 +114,25 @@ export function AssessmentPlanPanel({
       setChange(null);
       setSupportReason("");
       if (body.action === "revise") setPlanReason("");
-      setNotice("Saved. The plan history keeps the decision and its reason.");
+      setNotice(
+        body.action === "save_goals"
+          ? "Goals saved. Your work module and current assignments are unchanged."
+          : "Saved. The plan history keeps the decision and its reason.",
+      );
       await load();
     } catch (err) {
-      if (isCurrentUser(viewer))
+      if (
+        isCurrentUser(viewer) &&
+        body.action === "save_goals" &&
+        err instanceof ExamRequestError &&
+        err.status === 409
+      ) {
+        await load();
+        if (isCurrentUser(viewer))
+          setNotice(
+            "Your saved goals changed elsewhere. Review the latest choices and save again if needed.",
+          );
+      } else if (isCurrentUser(viewer))
         setError(err instanceof Error ? err.message : "The plan could not be changed.");
     } finally {
       actionLock.current = false;
@@ -163,6 +180,37 @@ export function AssessmentPlanPanel({
           {notice}
         </p>
       )}
+      <LearnerGoalsEditor
+        key={`${enrollmentId}:${data.goals.revision}:${data.enrollment.userId}:${viewerId}`}
+        goals={data.goals}
+        isLearner={data.isLearner}
+        scope={data.enrollment.scope}
+        busy={busy}
+        onSave={(topics, offlinePreferred) =>
+          void act({
+            action: "save_goals",
+            enrollmentId,
+            topics,
+            offlinePreferred,
+            expectedRevision: data.goals.revision,
+          })
+        }
+      />
+      {data.goals.topics.length > 0 && (
+        <p className={card + " text-sm"}>
+          {data.goalAvailability === "assigned"
+            ? "An approved supporting assignment already addresses these goals. Review its workload and follow-up below."
+            : data.goalAvailability === "content_gap"
+              ? "Content gap: no eligible reviewed support is available for these goals. Continue your primary module; no unrelated content will be assigned."
+              : data.goalAvailability === "review_pending"
+                ? "Review the current supporting suggestions before preparing more work."
+                : !data.canManage
+                  ? "Your team admin can review supporting work for these goals."
+                  : data.goalAvailability === "access_needed"
+                    ? "Active learning access is needed before adding supporting work."
+                    : "Reviewed matches below can support your selected goals. Approval and a study-time budget are still required."}
+        </p>
+      )}
       <label className="block text-sm">
         Assessment evidence
         <select
@@ -195,7 +243,7 @@ export function AssessmentPlanPanel({
                 assessment_needed:
                   "Submit an entrance assessment to build an evidence-based learning plan.",
                 awaiting_calibration:
-                  "This assessment is a draft or is awaiting calibration. It can be reviewed, but its scores cannot assign supporting work or change the learning plan.",
+                  "This assessment is a draft or is awaiting calibration. Its scores cannot drive supporting work or a lesson-plan change. Optional learner goals are considered separately.",
                 evidence_needed:
                   "No sufficiently assessed gap is available for a supporting-content suggestion. Missing inputs stay unassessed.",
                 content_gap:
@@ -405,8 +453,16 @@ export function AssessmentPlanPanel({
           <h4 className="font-semibold">Suggested: {rec.capability?.title ?? rec.capability_id}</h4>
           <p className="mt-2 text-sm">{rec.why}</p>
           <p className="mt-2 text-xs">
-            {rec.evidence.length} scored task records ·{" "}
-            {new Set(rec.evidence.map((item) => item.objectiveId)).size} objectives · {rec.decision}
+            {rec.basis === "learner_goal" ? (
+              `Learner goal · ${rec.goal_snapshot?.topics.map((topic) => LEARNER_GOALS[topic]).join(", ")} · no assessed weakness claimed`
+            ) : (
+              <>
+                {rec.evidence.length} scored task records ·{" "}
+                {new Set(rec.evidence.map((item) => item.objectiveId)).size} objectives
+              </>
+            )}
+            {" · "}
+            {rec.decision}
           </p>
           {data.canManage && (
             <div className="mt-3 flex flex-wrap gap-2">
@@ -444,20 +500,38 @@ export function AssessmentPlanPanel({
               {candidate.offlineAvailable ? "offline verified" : "connection required"}
             </p>
             <p className="mt-2 text-xs">
-              Source: {new Date(candidate.assessedAt).toLocaleDateString()} ·{" "}
-              {new Set(candidate.evidence.map((item) => item.objectiveId)).size} assessed
-              objectives. Missing inputs were excluded.
+              {candidate.basis === "learner_goal" ? (
+                <>
+                  Learner-selected goal:{" "}
+                  {candidate.matchedGoals.map((topic) => LEARNER_GOALS[topic]).join(", ")}. No
+                  assessment weakness or score is inferred.
+                </>
+              ) : (
+                <>
+                  Source:{" "}
+                  {candidate.assessedAt
+                    ? new Date(candidate.assessedAt).toLocaleDateString()
+                    : "Reviewed assessment"}{" "}
+                  · {new Set(candidate.evidence.map((item) => item.objectiveId)).size} assessed
+                  objectives. Missing inputs were excluded.
+                </>
+              )}
             </p>
             <button
               className={button + " mt-3"}
               disabled={busy}
               onClick={() =>
                 void act({
-                  action: "suggest",
+                  action: candidate.basis === "learner_goal" ? "suggest_goal" : "suggest",
                   enrollmentId,
-                  attemptId: candidate.sourceAttemptId,
+                  ...(candidate.basis === "learner_goal"
+                    ? { goalRevision: candidate.goalRevision }
+                    : { attemptId: candidate.sourceAttemptId }),
                   capabilityId: candidate.capabilityId,
-                  reason: `Reviewed supporting units address the assessed ${[...new Set(candidate.evidence.map((item) => item.skill))].join(", ")} evidence on ${[...new Set(candidate.evidence.map((item) => item.objectiveId))].map(lessonLabel).join("; ")}.`,
+                  reason:
+                    candidate.basis === "learner_goal"
+                      ? `Optional supporting work for the learner's selected goals: ${candidate.matchedGoals.map((topic) => LEARNER_GOALS[topic]).join(", ")}. The primary module remains the main focus.`
+                      : `Reviewed supporting units address the assessed ${[...new Set(candidate.evidence.map((item) => item.skill))].join(", ")} evidence on ${[...new Set(candidate.evidence.map((item) => item.objectiveId))].map(lessonLabel).join("; ")}.`,
                 })
               }
             >
@@ -693,6 +767,16 @@ function SupportDecision({
             Check the units, learner goal and weekly workload before approving.
           </DialogDescription>
         </DialogHeader>
+        <p className="font-semibold">
+          {recommendation.capability?.title ?? recommendation.capability_id}
+        </p>
+        <p className="text-sm">{recommendation.why}</p>
+        {recommendation.basis === "learner_goal" && (
+          <p className="text-xs text-muted-foreground">
+            Learner-selected goal, revision {recommendation.goal_snapshot?.revision}. This is
+            optional enrichment; no assessed weakness is claimed.
+          </p>
+        )}
         {error && (
           <p role="alert" className="rounded-xl border border-amber-500/40 p-3 text-sm">
             {error}

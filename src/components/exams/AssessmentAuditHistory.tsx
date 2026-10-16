@@ -24,6 +24,8 @@ const labels: Record<string, string> = {
   "review.rubric": "Rubric decision",
   "review.resolved": "Review closed",
   "plan.revised": "Learning plan revised",
+  "goals.changed": "Learner goals changed",
+  "recommendation.created": "Supporting work suggested",
   "support.suggested": "Supporting work suggested",
   "support.decision": "Supporting work decision",
   "support.changed": "Supporting work changed",

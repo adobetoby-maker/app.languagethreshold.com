@@ -1,0 +1,20 @@
+{
+  "testedAt": "2026-10-16T12:18:19.863Z",
+  "target": "http://127.0.0.1:4311",
+  "commit": null,
+  "scope": "Dedicated QA choices saved and restored; no business learner data, assignments, reviews or certificates changed",
+  "checks": {
+    "personalSaveAndRead": true,
+    "teamLearnerSaveAdminRead": true,
+    "adminCannotChangeLearnerChoice": true,
+    "staleRevisionAndRetryPayloadProtected": true,
+    "wrongOriginAndOtherAccountDenied": true,
+    "anonymousDenied": true,
+    "duplicatesRejected": true,
+    "noUnreviewedSuggestions": true,
+    "teamLearnerCannotApprove": true,
+    "preferencesRestored": true,
+    "noAssignmentsCreated": true,
+    "noStore": true
+  }
+}

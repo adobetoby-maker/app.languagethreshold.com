@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { getModule } from "@/data/modules";
+import { LEARNER_GOALS, type LearnerGoal } from "@/lib/assessments/goals";
 import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
@@ -32,6 +33,29 @@ const timezone = z
     }
   }, "Choose a valid timezone.");
 const command = z.discriminatedUnion("action", [
+  z
+    .object({
+      action: z.literal("save_goals"),
+      enrollmentId: id,
+      topics: z
+        .array(z.enum(Object.keys(LEARNER_GOALS) as [LearnerGoal, ...LearnerGoal[]]))
+        .max(3)
+        .refine((topics) => new Set(topics).size === topics.length),
+      offlinePreferred: z.boolean(),
+      expectedRevision: z.number().int().min(0),
+      requestId: id,
+    })
+    .strict(),
+  z
+    .object({
+      action: z.literal("suggest_goal"),
+      enrollmentId: id,
+      capabilityId: z.string().min(3).max(160),
+      goalRevision: z.number().int().min(1),
+      reason,
+      requestId: id,
+    })
+    .strict(),
   z
     .object({
       action: z.literal("suggest"),
@@ -177,8 +201,23 @@ export const Route = createFileRoute("/api/exam-plans")({
           }
           const body = command.parse(parsed);
           await assessmentBudget(user.id, `plan_${body.action}`);
-          if (body.action === "suggest" || body.action === "approve") {
-            let enrollmentId = body.action === "suggest" ? body.enrollmentId : null;
+          if (body.action === "save_goals")
+            return json({
+              revision: await rpc(db, "assessment_save_goals", {
+                p_actor: user.id,
+                p_enrollment: body.enrollmentId,
+                p_topics: body.topics,
+                p_offline: body.offlinePreferred,
+                p_expected: body.expectedRevision,
+                p_request: body.requestId,
+              }),
+            });
+          if (
+            body.action === "suggest" ||
+            body.action === "suggest_goal" ||
+            body.action === "approve"
+          ) {
+            let enrollmentId = body.action !== "approve" ? body.enrollmentId : null;
             if (body.action === "approve") {
               const { data: recommendation } = await db
                 .from("assessment_recommendations")
@@ -198,6 +237,17 @@ export const Route = createFileRoute("/api/exam-plans")({
                 403,
               );
           }
+          if (body.action === "suggest_goal")
+            return json({
+              recommendationId: await rpc(db, "assessment_suggest_goal_support", {
+                p_actor: user.id,
+                p_enrollment: body.enrollmentId,
+                p_capability: body.capabilityId,
+                p_revision: body.goalRevision,
+                p_why: body.reason,
+                p_request: body.requestId,
+              }),
+            });
           if (body.action === "suggest")
             return json({
               recommendationId: await rpc(db, "assessment_suggest_support", {

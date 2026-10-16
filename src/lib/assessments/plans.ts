@@ -1,4 +1,5 @@
 import type { checkpointProfiles, AssessmentSkill } from "./core";
+import type { LearnerGoals, LearnerGoal } from "./goals";
 export interface PlanEvidence {
   itemId: string;
   scoreEventId: string;
@@ -16,8 +17,11 @@ export interface SupportCandidate {
   weeklyMinutes: number;
   offlineAvailable: boolean;
   assignmentMode: "units" | "full_module";
-  sourceAttemptId: string;
-  assessedAt: string;
+  sourceAttemptId: string | null;
+  assessedAt: string | null;
+  basis: "assessment_gap" | "learner_goal";
+  goalRevision: number | null;
+  matchedGoals: LearnerGoal[];
   evidence: PlanEvidence[];
 }
 export interface PlanRevision {
@@ -33,7 +37,9 @@ export interface PlanRevision {
 }
 export interface SupportRecommendation {
   id: string;
-  attempt_id: string;
+  attempt_id: string | null;
+  basis: "assessment_gap" | "learner_goal";
+  goal_snapshot: { revision: number; topics: LearnerGoal[]; offlinePreferred: boolean } | null;
   capability_id: string;
   capability_version: string;
   evidence: PlanEvidence[];
@@ -66,6 +72,8 @@ export interface SupportAssignment {
     version: string;
     offlineAvailable: boolean;
     estimatedWeeklyMinutes: number;
+    basis?: "assessment_gap" | "learner_goal";
+    goalSnapshot?: { revision: number; topics: LearnerGoal[]; offlinePreferred: boolean } | null;
   };
   primary_weekly_minutes: number;
   support_weekly_minutes: number;
@@ -90,6 +98,15 @@ export interface SupportAssignment {
   }[];
 }
 export interface AssessmentPlanView {
+  goals: LearnerGoals;
+  goalAvailability:
+    | "not_selected"
+    | "content_gap"
+    | "ready"
+    | "review_pending"
+    | "access_needed"
+    | "admin_review"
+    | "assigned";
   enrollment: {
     id: string;
     moduleId: string;

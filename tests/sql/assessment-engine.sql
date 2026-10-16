@@ -26,6 +26,8 @@ end $$;
 \ir ../../supabase/migrations/20261016103623_assessment_checkpoint_heads.sql
 \ir ../../supabase/migrations/20261016113042_assessment_reviewer_administration.sql
 \ir ../../supabase/migrations/20261016114250_assessment_content_review_exposure.sql
+\ir ../../supabase/migrations/20261016121557_assessment_learner_goals.sql
+\ir ../../supabase/migrations/20261016121803_assessment_goal_full_module_coverage.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;
@@ -172,6 +174,7 @@ grant select on auth.users to service_role;
 set local role service_role;
 \ir assessment-reports.sql
 \ir assessment-support.sql
+\ir assessment-goals.sql
 \ir assessment-reviewer-admin.sql
 reset role;
 -- Even authenticated clients cannot call pilot RPCs or read keys directly.
@@ -189,6 +192,9 @@ select pg_temp.expect_error('select public.assessment_overview_page(null)','perm
 select pg_temp.expect_error('select public.assessment_selected_summaries(null,null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_checkpoint_heads(null,null)','permission denied');
 select pg_temp.expect_error('select * from public.assessment_support_capabilities','permission denied');
+select pg_temp.expect_error('select * from public.assessment_learner_goals','permission denied');
+select pg_temp.expect_error('select public.assessment_save_goals(null,null,null,null,null,null)','permission denied');
+select pg_temp.expect_error('select public.assessment_suggest_goal_support(null,null,null,null,null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_decide_support(null,null,null,null,null,null,null,null,null,null,null,null,null)','permission denied');
 select pg_temp.expect_error('select public.assessment_start_attempt(null,null,null,null,true)','permission denied');
 reset role;

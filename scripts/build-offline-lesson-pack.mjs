@@ -31,7 +31,7 @@ export function offlineAssetInventory(staticRoot) {
   return assets;
 }
 
-export async function buildOfflineLessonPack(staticRoot) {
+export async function buildOfflineLessonPack(staticRoot, packId = "roofing-es-en") {
   const compiled = await build({
     entryPoints: ["src/lib/lesson-offline-pack.ts"],
     bundle: true,
@@ -40,18 +40,18 @@ export async function buildOfflineLessonPack(staticRoot) {
     write: false,
     logLevel: "silent",
   });
-  const { roofingOfflinePack } = await import(
+  const { publicLessonOfflinePack } = await import(
     "data:text/javascript;base64," +
       Buffer.from(compiled.outputFiles[0].contents).toString("base64")
   );
-  const content = JSON.stringify(roofingOfflinePack());
+  const content = JSON.stringify(publicLessonOfflinePack(packId));
   const hash = digest(content);
-  const filename = `roofing-es-en-${hash}.json`;
+  const filename = `${packId}-${hash}.json`;
   const assets = offlineAssetInventory(staticRoot);
   const appVersion = digest(JSON.stringify(assets));
   const manifest = {
     schema: 1,
-    packId: "roofing-es-en",
+    packId,
     version: digest(`${hash}:${appVersion}`),
     appVersion,
     content: { url: `/lesson-packs/${filename}`, bytes: Buffer.byteLength(content), sha256: hash },
@@ -63,9 +63,9 @@ export async function buildOfflineLessonPack(staticRoot) {
   const directory = path.join(staticRoot, "lesson-packs");
   mkdirSync(directory, { recursive: true });
   writeFileSync(path.join(directory, filename), content);
-  writeFileSync(path.join(directory, "roofing-es-en.json"), JSON.stringify(manifest));
+  writeFileSync(path.join(directory, `${packId}.json`), JSON.stringify(manifest));
   console.log(
-    `✓ Roofing draft pack: 30 lessons, ${assets.length} hashed app assets, ${manifest.totalBytes} bytes; installation is separate`,
+    `✓ ${packId} draft pack: 30 lessons, ${assets.length} hashed app assets, ${manifest.totalBytes} bytes; installation is separate`,
   );
   return manifest;
 }

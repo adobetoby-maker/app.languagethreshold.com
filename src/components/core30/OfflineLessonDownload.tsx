@@ -1,3 +1,4 @@
+import { OFFLINE_LESSON_TRACKS, type OfflineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { useEffect, useRef, useState } from "react";
 import {
   offlineLessonDownload,
@@ -5,18 +6,22 @@ import {
   type LessonDownloadStatus,
 } from "@/lib/offline-lesson-download";
 
-export function OfflineLessonDownload() {
+export function OfflineLessonDownload({ packId }: { packId: OfflineLessonPackId }) {
+  const label = OFFLINE_LESSON_TRACKS[packId].label;
   const generation = useRef({ value: 0 });
   const [saved, setSaved] = useState<LessonDownloadStatus | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("Checking saved lesson files…");
   useEffect(() => {
+    setSaved(null);
+    setBusy(false);
+    setMessage("Checking saved lesson files…");
     const tracker = generation.current;
     const request = ++tracker.value;
     let sequence = 0;
     const check = () => {
       const currentCheck = ++sequence;
-      return offlineLessonDownload("LESSON_PACK_STATUS")
+      return offlineLessonDownload("LESSON_PACK_STATUS", packId)
         .then((status) => {
           if (request === tracker.value && currentCheck === sequence) {
             setSaved(status);
@@ -36,7 +41,7 @@ export function OfflineLessonDownload() {
       tracker.value++;
       navigator.serviceWorker?.removeEventListener("controllerchange", check);
     };
-  }, []);
+  }, [packId]);
   async function run(command: LessonDownloadCommand) {
     const tracker = generation.current;
     const request = ++tracker.value;
@@ -47,7 +52,7 @@ export function OfflineLessonDownload() {
         : "Checking saved files…",
     );
     try {
-      const status = await offlineLessonDownload(command);
+      const status = await offlineLessonDownload(command, packId);
       if (request !== tracker.value) return;
       setSaved(status);
       setMessage(
@@ -71,7 +76,7 @@ export function OfflineLessonDownload() {
       data-testid="offline-lesson-download"
     >
       <summary className="min-h-11 cursor-pointer text-sm font-semibold">
-        Roofing lessons for offline practice
+        {label} lessons for offline practice
       </summary>
       <p className="mt-2 text-sm">
         {saved?.ready
@@ -113,7 +118,7 @@ export function OfflineLessonDownload() {
           onClick={() => void run("LESSON_PACK_INSTALL")}
           className="min-h-11 rounded-lg border border-gold/40 px-3 text-sm text-gold disabled:opacity-50"
         >
-          {saved?.ready ? "Check for a newer download" : "Download Roofing lessons"}
+          {saved?.ready ? "Check for a newer download" : `Download ${label} lessons`}
         </button>
         <button
           type="button"

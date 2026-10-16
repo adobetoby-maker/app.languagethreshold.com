@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v13";
+const CACHE = "lt-v14";
 if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 function privateDocument(url) {
@@ -167,7 +167,13 @@ self.addEventListener("fetch", (event) => {
         .catch(
           async () =>
             (url.pathname === "/" && typeof offlineLessonShell === "function"
-              ? await offlineLessonShell()
+              ? await offlineLessonShell(
+                  url.searchParams.get("target") === "Spanish" &&
+                    url.searchParams.get("native") === "English" &&
+                    ["roofing", "landscaper"].includes(url.searchParams.get("module"))
+                    ? `${url.searchParams.get("module")}-es-en`
+                    : null,
+                )
               : null) ??
             (!privateContext(url) ? await caches.match(request) : null) ??
             (await caches.match("/")) ??

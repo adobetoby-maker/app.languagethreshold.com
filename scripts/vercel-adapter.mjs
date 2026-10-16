@@ -13,6 +13,7 @@ mkdirSync(`${out}/functions/index.func`, { recursive: true });
 // Static client assets → served from Vercel's CDN
 cpSync("dist/client", `${out}/static`, { recursive: true });
 await buildOfflineLessonPack(`${out}/static`);
+await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
 
 // Bundle server.js + all npm dependencies (h3-v2, @tanstack/*, seroval, etc.)
 // into a single CJS file. Vercel function has no node_modules at runtime so
@@ -123,16 +124,20 @@ writeFileSync(
       { src: "/favicon\\.svg", dest: "/favicon.svg" },
       { src: "/manifest\\.webmanifest", dest: "/manifest.webmanifest" },
       { src: "/sw\\.js", dest: "/sw.js" },
-      { src: "/offline-lessons-worker\\.js", headers: { "cache-control": "no-store" }, dest: "/offline-lessons-worker.js" },
+      {
+        src: "/offline-lessons-worker\\.js",
+        headers: { "cache-control": "no-store" },
+        dest: "/offline-lessons-worker.js",
+      },
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
       {
-        src: "/lesson-packs/roofing-es-en\\.json",
+        src: "/lesson-packs/((?:roofing|landscaper)-es-en\\.json)",
         headers: { "cache-control": "no-store" },
-        dest: "/lesson-packs/roofing-es-en.json",
+        dest: "/lesson-packs/$1",
       },
       {
-        src: "/lesson-packs/(roofing-es-en-[a-f0-9]{64}\\.json)",
+        src: "/lesson-packs/((?:roofing|landscaper)-es-en-[a-f0-9]{64}\\.json)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
         dest: "/lesson-packs/$1",
       },

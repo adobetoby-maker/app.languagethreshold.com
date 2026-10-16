@@ -9,7 +9,9 @@ import {
   offlineAssetInventory,
   buildOfflineLessonPack,
 } from "../scripts/build-offline-lesson-pack.mjs";
-const { roofingOfflinePack } = await loadModule("src/lib/lesson-offline-pack.ts");
+const { roofingOfflinePack, publicLessonOfflinePack } = await loadModule(
+  "src/lib/lesson-offline-pack.ts",
+);
 const { getLessonDefinition } = await loadModule("src/lib/lesson-definition.ts");
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 
@@ -91,4 +93,62 @@ test("build emits content-addressed lesson data and bounded app inventory, exclu
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test("Landscaper pack uses its own30 contextual definitions and refuses another track's data", () => {
+  const pack = publicLessonOfflinePack("landscaper-es-en");
+  assert.equal(pack.moduleId, "landscaper");
+  assert.equal(pack.contentStatus, "draft");
+  assert.equal(pack.lessons.length, 30);
+  assert.equal(pack.lessons[1].reading.title, "El plan de corte");
+  assert.equal(pack.lessons[29].teaching.response.suggestedSentences, 3);
+  assert.equal(pack.officialAssessmentsIncluded, false);
+  assert.equal(pack.audioFilesIncluded, false);
+  const roof = Array.from({ length: 30 }, (_, i) =>
+    getLessonDefinition({
+      moduleId: "roofing",
+      lessonNumber: i + 1,
+      targetLanguage: "Spanish",
+      instructionLanguage: "English",
+      contentVersion: "qa",
+    }),
+  );
+  assert.throws(() => publicLessonOfflinePack("landscaper-es-en", roof), /complete/);
+});
+
+test("building both manifests keeps each module's data, version and shared app assets distinct", async () => {
+  const root = mkdtempSync(path.join(tmpdir(), "lt-multi-pack-"));
+  try {
+    mkdirSync(path.join(root, "assets"));
+    writeFileSync(path.join(root, "assets", "app.js"), "public app");
+    const roof = await buildOfflineLessonPack(root),
+      land = await buildOfflineLessonPack(root, "landscaper-es-en");
+    assert.equal(land.packId, "landscaper-es-en");
+    assert.notEqual(roof.version, land.version);
+    assert.equal(roof.appVersion, land.appVersion);
+    assert.deepEqual(roof.assets, land.assets);
+    assert.equal(
+      JSON.parse(readFileSync(path.join(root, land.content.url))).moduleId,
+      "landscaper",
+    );
+    assert.equal(
+      JSON.parse(readFileSync(path.join(root, "lesson-packs", "roofing-es-en.json"))).packId,
+      "roofing-es-en",
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("download availability belongs to an authored exact pair, not every module or translation", async () => {
+  const { offlineLessonPackId } = await loadModule("src/lib/offline-lesson-tracks.ts");
+  assert.equal(offlineLessonPackId("landscaper", "Spanish", "English"), "landscaper-es-en");
+  assert.equal(offlineLessonPackId("roofing", "Spanish", "English"), "roofing-es-en");
+  for (const input of [
+    ["landscaper", "Spanish", "French"],
+    ["landscaper", "French", "English"],
+    ["roofing", "English", "Spanish"],
+    ["construction-foreman", "Spanish", "English"],
+  ])
+    assert.equal(offlineLessonPackId(...input), null);
 });

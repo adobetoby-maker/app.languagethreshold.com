@@ -1,18 +1,24 @@
+import { OFFLINE_LESSON_TRACKS, type OfflineLessonPackId } from "./offline-lesson-tracks.ts";
 import {
   getLessonDefinition,
-  ROOFING_PRACTICE_VERSION,
+  modulePracticeVersion,
   type LessonDefinition,
 } from "./lesson-definition.ts";
 
 /** Public lesson practice only. Exam banks and learner drafts are never pack inputs. */
-export function roofingOfflinePack(
+export function publicLessonOfflinePack(
+  packId: OfflineLessonPackId,
   definitions: LessonDefinition[] = Array.from({ length: 30 }, (_, index) =>
     getLessonDefinition({
-      moduleId: "roofing",
+      moduleId: OFFLINE_LESSON_TRACKS[packId].moduleId,
       lessonNumber: index + 1,
       targetLanguage: "Spanish",
       instructionLanguage: "English",
-      contentVersion: ROOFING_PRACTICE_VERSION,
+      contentVersion: modulePracticeVersion(
+        OFFLINE_LESSON_TRACKS[packId].moduleId,
+        "Spanish",
+        "English",
+      ),
     }),
   ).filter((lesson): lesson is LessonDefinition => lesson !== null),
 ) {
@@ -20,7 +26,7 @@ export function roofingOfflinePack(
     definitions.length !== 30 ||
     definitions.some(
       (lesson, index) =>
-        lesson.moduleId !== "roofing" ||
+        lesson.moduleId !== OFFLINE_LESSON_TRACKS[packId].moduleId ||
         lesson.lessonNumber !== index + 1 ||
         lesson.targetLanguage !== "Spanish" ||
         lesson.instructionLanguage !== "English" ||
@@ -31,15 +37,17 @@ export function roofingOfflinePack(
         lesson.words.filter((word) => word.kind === "phrase").length < 4,
     )
   )
-    throw new Error(
-      "Roofing pack requires thirty ordered, complete Spanish/English lesson drafts.",
-    );
+    throw new Error("Lesson pack requires thirty ordered, complete Spanish/English lesson drafts.");
   return {
     schema: 1,
-    moduleId: "roofing",
+    moduleId: OFFLINE_LESSON_TRACKS[packId].moduleId,
     targetLanguage: "Spanish",
     instructionLanguage: "English",
-    contentVersion: ROOFING_PRACTICE_VERSION,
+    contentVersion: modulePracticeVersion(
+      OFFLINE_LESSON_TRACKS[packId].moduleId,
+      "Spanish",
+      "English",
+    ),
     contentStatus: "draft",
     purpose: "lesson-practice",
     audioFilesIncluded: false,
@@ -67,4 +75,9 @@ export function roofingOfflinePack(
       modes: lesson.modes,
     })),
   };
+}
+
+/** Preserve the original public API for existing Roofing tooling. */
+export function roofingOfflinePack(definitions?: LessonDefinition[]) {
+  return publicLessonOfflinePack("roofing-es-en", definitions);
 }

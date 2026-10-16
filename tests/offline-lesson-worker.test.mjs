@@ -4,21 +4,21 @@ import vm from "node:vm";
 import { readFileSync } from "node:fs";
 import { createHash, webcrypto } from "node:crypto";
 const sha = (text) => createHash("sha256").update(text).digest("hex");
-function fixture(version = "one") {
+function fixture(version = "one", packId = "roofing-es-en") {
   const content = JSON.stringify({ syntheticPublicLessonFixture: version });
   const js = `export const version='${version}';`;
   const asset = { url: `/assets/app-${version}.js`, bytes: Buffer.byteLength(js), sha256: sha(js) };
   const assets = [asset],
     appVersion = sha(JSON.stringify(assets));
   const data = {
-    url: `/lesson-packs/roofing-es-en-${sha(content)}.json`,
+    url: `/lesson-packs/${packId}-${sha(content)}.json`,
     bytes: Buffer.byteLength(content),
     sha256: sha(content),
   };
   return {
     manifest: {
       schema: 1,
-      packId: "roofing-es-en",
+      packId,
       version: sha(`${data.sha256}:${appVersion}`),
       appVersion,
       shell: "/",
@@ -66,7 +66,7 @@ function runtime() {
     console,
     fetch: async (url, options) => {
       calls.push({ url, options });
-      if (url === "/lesson-packs/roofing-es-en.json")
+      if (url === `/lesson-packs/${current.manifest.packId}.json`)
         return new Response(JSON.stringify(current.manifest));
       if (url === current.manifest.content.url) return new Response(current.content);
       if (url === current.manifest.assets[0].url)
@@ -89,10 +89,10 @@ function runtime() {
     setCurrent: (next) => (current = next),
     setCorrupt: (next) => (corrupt = next),
     setBadShell: (next) => (badShell = next),
-    command: async (type) => {
+    command: async (type, packId = "roofing-es-en") => {
       let job, result;
       listeners.message({
-        data: { type, url: "https://untrusted.example/private" },
+        data: { type, packId, url: "https://untrusted.example/private" },
         ports: [{ postMessage: (value) => (result = value) }],
         waitUntil: (p) => (job = p),
       });
@@ -172,8 +172,63 @@ test("untrusted paths, duplicate files and inconsistent versions are rejected be
 test("the worker acknowledges protocol support without reading or downloading any content", async () => {
   const r = runtime();
   const response = await r.command("LESSON_PACK_PING");
-  assert.equal(response.protocol, 1);
+  assert.equal(response.protocol, 2);
+  assert.deepEqual(Array.from(response.packIds), ["roofing-es-en", "landscaper-es-en"]);
   assert.equal(response.ok, true);
   assert.equal(r.calls.length, 0);
   assert.equal(r.stores.size, 0);
+});
+
+test("two module downloads coexist; status, replacement and removal stay in their exact pack", async () => {
+  const r = runtime();
+  const roofing = await r.command("LESSON_PACK_INSTALL", "roofing-es-en");
+  assert.equal(roofing.ready, true);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).ready, false);
+  r.setCurrent(fixture("land-one", "landscaper-es-en"));
+  const land = await r.command("LESSON_PACK_INSTALL", "landscaper-es-en");
+  assert.equal(land.ready, true);
+  assert.equal(land.packId, "landscaper-es-en");
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).version, roofing.version);
+  r.setCurrent(fixture("land-two", "landscaper-es-en"));
+  r.setCorrupt(true);
+  assert.equal((await r.command("LESSON_PACK_INSTALL", "landscaper-es-en")).ok, false);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).version, land.version);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).version, roofing.version);
+  r.setCorrupt(false);
+  assert.equal((await r.command("LESSON_PACK_INSTALL", "landscaper-es-en")).ready, true);
+  assert.match(
+    await (await vm.runInContext('offlineLessonShell("landscaper-es-en")', r.context)).text(),
+    /land-two/,
+  );
+  assert.equal((await r.command("LESSON_PACK_REMOVE", "landscaper-es-en")).ready, false);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).version, roofing.version);
+});
+
+test("unsupported tracks and substituted manifests cannot masquerade as another module", async () => {
+  const r = runtime();
+  assert.equal((await r.command("LESSON_PACK_INSTALL", "../../api/exams")).ok, false);
+  assert.equal(r.calls.length, 0);
+  assert.equal((await r.command("LESSON_PACK_INSTALL", "landscaper-es-en")).ok, false);
+  assert.equal(r.stores.size, 0);
+  const bad = fixture("land", "landscaper-es-en");
+  bad.manifest.packId = "roofing-es-en";
+  r.setCurrent(bad);
+  assert.equal((await r.command("LESSON_PACK_INSTALL", "roofing-es-en")).ok, false);
+  assert.equal(r.stores.size, 0);
+});
+
+test("old Roofing cache names remain readable and replacement removes only that track", async () => {
+  const r = runtime();
+  const roof = await r.command("LESSON_PACK_INSTALL");
+  const name = [...r.stores.keys()][0],
+    store = r.stores.get(name);
+  r.stores.delete(name);
+  r.stores.set(`lt-lesson-pack-${roof.version}`, store);
+  assert.equal((await r.command("LESSON_PACK_STATUS")).ready, true);
+  r.setCurrent(fixture("land", "landscaper-es-en"));
+  await r.command("LESSON_PACK_INSTALL", "landscaper-es-en");
+  r.setCurrent(fixture("two"));
+  await r.command("LESSON_PACK_INSTALL");
+  assert.equal(r.stores.has(`lt-lesson-pack-${roof.version}`), false);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).ready, true);
 });

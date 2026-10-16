@@ -106,7 +106,7 @@ function runtime() {
 }
 test("private routes and legacy Exams entry never read or write the public cache, even offline", async () => {
   const r = runtime();
-  const cache = await r.caches.open("lt-v13");
+  const cache = await r.caches.open("lt-v14");
   await cache.put("/", new Response("public shell"));
   for (const path of [
     "/exam-content",
@@ -137,7 +137,7 @@ test("no-store and private navigation responses are delivered without being cach
     const r = runtime();
     r.network(new Response("sensitive", { headers: { "Cache-Control": directive } }));
     assert.equal(await (await r.fetch("/public-page")).text(), "sensitive");
-    assert.equal(await (await r.caches.open("lt-v13")).match("/public-page"), undefined);
+    assert.equal(await (await r.caches.open("lt-v14")).match("/public-page"), undefined);
   }
 });
 test("public root stays cacheable while a private-context lesson URL uses only the public shell offline", async () => {
@@ -146,7 +146,7 @@ test("public root stays cacheable while a private-context lesson URL uses only t
   r.network(new Response("context fixture"));
   await r.fetch("/?module=roofing&tab=core30&plan=private");
   assert.equal(
-    await (await r.caches.open("lt-v13")).match("/?module=roofing&tab=core30&plan=private"),
+    await (await r.caches.open("lt-v14")).match("/?module=roofing&tab=core30&plan=private"),
     undefined,
   );
   r.offline();
@@ -167,14 +167,14 @@ test("protected responses and authenticated or cross-origin assets never become 
 test("worker activation purges the previous general cache but retains complete public lesson packs", async () => {
   const r = runtime();
   await r.caches.open("lt-v12");
-  await r.caches.open("lt-v13");
+  await r.caches.open("lt-v14");
   await r.caches.open("lt-lesson-pack-fixture");
   await r.activate();
-  assert.deepEqual([...r.stores.keys()], ["lt-v13", "lt-lesson-pack-fixture"]);
+  assert.deepEqual([...r.stores.keys()], ["lt-v14", "lt-lesson-pack-fixture"]);
 });
 test("initial automatic shell caching also honors private response policy", async () => {
   const r = runtime();
   r.network(new Response("private shell", { headers: { "Cache-Control": "no-store" } }));
   await r.install();
-  assert.equal(await (await r.caches.open("lt-v13")).match("/"), undefined);
+  assert.equal(await (await r.caches.open("lt-v14")).match("/"), undefined);
 });

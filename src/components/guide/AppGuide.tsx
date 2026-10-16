@@ -1,3 +1,4 @@
+import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey } from "@/lib/core30-scope";
 import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
 import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
@@ -1697,6 +1698,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
+  const downloadPackId = offlineLessonPackId(
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
   const [activeAssessmentPlan] = useState(() => {
     if (typeof window === "undefined") return undefined;
     const params = new URLSearchParams(window.location.search);
@@ -2133,11 +2139,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </div>
           )}
 
-          {!reviewOpen &&
-            !runnerActive &&
-            moduleId === "roofing" &&
-            state.selectedLanguage === "Spanish" &&
-            state.nativeLanguage === "English" && <OfflineLessonDownload />}
+          {!reviewOpen && !runnerActive && downloadPackId && (
+            <OfflineLessonDownload
+              key={`${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              packId={downloadPackId}
+            />
+          )}
 
           {/* Completed lessons list (collapsed) */}
           {completedCount > 0 && !runnerActive && !reviewOpen && (

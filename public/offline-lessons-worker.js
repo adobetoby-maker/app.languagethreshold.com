@@ -1,8 +1,8 @@
 /* Public lesson downloads only. Never accepts arbitrary URLs or learner/exam responses. */
 const LESSON_PACK_PREFIX = "lt-lesson-pack-";
-const LESSON_PACK_MANIFEST = "/lesson-packs/roofing-es-en.json";
+const LESSON_PACK_IDS = ["roofing-es-en", "landscaper-es-en"];
 const LESSON_PACK_READY = "/.lt-lesson-pack-ready";
-let lessonPackInstallation = null;
+const lessonPackInstallations = new Map();
 
 async function lessonPackHash(bytes) {
   return Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)))
@@ -10,17 +10,18 @@ async function lessonPackHash(bytes) {
     .join("");
 }
 
-function validateLessonPackManifest(manifest) {
+function validateLessonPackManifest(manifest, packId = manifest?.packId) {
   if (
     manifest?.schema !== 1 ||
-    manifest.packId !== "roofing-es-en" ||
+    !LESSON_PACK_IDS.includes(packId) ||
+    manifest.packId !== packId ||
     !/^[a-f0-9]{64}$/.test(manifest.version) ||
     !/^[a-f0-9]{64}$/.test(manifest.appVersion) ||
     manifest.shell !== "/" ||
     !Array.isArray(manifest.assets) ||
     !manifest.assets.length ||
     manifest.assets.length > 512 ||
-    !/^\/lesson-packs\/roofing-es-en-[a-f0-9]{64}\.json$/.test(manifest.content?.url)
+    !new RegExp(`^/lesson-packs/${packId}-[a-f0-9]{64}\\.json$`).test(manifest.content?.url)
   )
     throw new Error("Invalid lesson download manifest.");
   const files = [...manifest.assets, manifest.content];
@@ -62,7 +63,7 @@ async function lessonPackFetch(url, deadline = Date.now() + 30000) {
   return response;
 }
 
-async function installedLessonPack(verifyHashes = false) {
+async function installedLessonPack(verifyHashes = false, packId = null) {
   const names = (await caches.keys()).filter((name) => name.startsWith(LESSON_PACK_PREFIX));
   for (const name of names.reverse()) {
     const cache = await caches.open(name);
@@ -70,6 +71,7 @@ async function installedLessonPack(verifyHashes = false) {
     if (!ready) continue;
     try {
       const manifest = await ready.json();
+      if (packId && manifest.packId !== packId) continue;
       const files = validateLessonPackManifest(manifest);
       const present = await Promise.all(
         ["/", ...files.map((f) => f.url)].map((url) => cache.match(url)),
@@ -92,17 +94,17 @@ async function installedLessonPack(verifyHashes = false) {
   return null;
 }
 
-async function offlineLessonShell() {
-  return (await installedLessonPack())?.cache.match("/");
+async function offlineLessonShell(packId = null) {
+  return (await installedLessonPack(false, packId))?.cache.match("/");
 }
 
-async function installLessonPack() {
+async function installLessonPack(packId) {
   const deadline = Date.now() + 180000;
-  const manifestResponse = await lessonPackFetch(LESSON_PACK_MANIFEST, deadline);
+  const manifestResponse = await lessonPackFetch(`/lesson-packs/${packId}.json`, deadline);
   const manifestText = await manifestResponse.text();
   if (manifestText.length > 256000) throw new Error("Lesson manifest is too large.");
   const manifest = JSON.parse(manifestText);
-  const files = validateLessonPackManifest(manifest);
+  const files = validateLessonPackManifest(manifest, packId);
   if (
     (await lessonPackHash(new TextEncoder().encode(JSON.stringify(manifest.assets)))) !==
       manifest.appVersion ||
@@ -111,8 +113,8 @@ async function installLessonPack() {
     )) !== manifest.version
   )
     throw new Error("Lesson manifest version does not match its files.");
-  const name = LESSON_PACK_PREFIX + manifest.version;
-  const existing = await installedLessonPack(true);
+  const name = LESSON_PACK_PREFIX + packId + "-" + manifest.version;
+  const existing = await installedLessonPack(true, packId);
   if (existing?.manifest.version === manifest.version) return manifest;
   const cache = await caches.open(name);
   try {
@@ -147,7 +149,7 @@ async function installLessonPack() {
     );
     // Retain the previous complete release until its replacement has committed.
     for (const old of await caches.keys()) {
-      if (old.startsWith(LESSON_PACK_PREFIX) && old !== name) await caches.delete(old);
+      if (old !== name && (await lessonCacheBelongsTo(old, packId))) await caches.delete(old);
     }
     return manifest;
   } catch (error) {
@@ -156,12 +158,26 @@ async function installLessonPack() {
   }
 }
 
+/** Recognize old Roofing cache names by their validated marker without claiming other packs. */
+async function lessonCacheBelongsTo(name, packId) {
+  if (!name.startsWith(LESSON_PACK_PREFIX)) return false;
+  if (name.startsWith(LESSON_PACK_PREFIX + packId + "-")) return true;
+  try {
+    const marker = await (await caches.open(name)).match(LESSON_PACK_READY);
+    if (!marker) return false;
+    const manifest = await marker.json();
+    validateLessonPackManifest(manifest, packId);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 self.addEventListener("message", (event) => {
   if (event.data?.type === "LESSON_PACK_PING" && event.ports?.[0]) {
-    event.ports[0].postMessage({ ok: true, protocol: 1 });
+    event.ports[0].postMessage({ ok: true, protocol: 2, packIds: LESSON_PACK_IDS });
     return;
   }
-
   if (
     !["LESSON_PACK_STATUS", "LESSON_PACK_INSTALL", "LESSON_PACK_REMOVE"].includes(
       event.data?.type,
@@ -172,23 +188,31 @@ self.addEventListener("message", (event) => {
   event.waitUntil(
     (async () => {
       try {
+        // Legacy clients only knew Roofing. New clients must send an allowlisted exact track.
+        const packId = event.data.packId ?? "roofing-es-en";
+        if (!LESSON_PACK_IDS.includes(packId))
+          throw new Error("This lesson track has no downloadable pack yet.");
         if (event.data.type === "LESSON_PACK_INSTALL") {
-          if (!lessonPackInstallation)
-            lessonPackInstallation = installLessonPack().finally(() => {
-              lessonPackInstallation = null;
-            });
-          await lessonPackInstallation;
+          if (!lessonPackInstallations.has(packId)) {
+            lessonPackInstallations.set(
+              packId,
+              installLessonPack(packId).finally(() => lessonPackInstallations.delete(packId)),
+            );
+          }
+          await lessonPackInstallations.get(packId);
         } else if (event.data.type === "LESSON_PACK_REMOVE") {
-          if (lessonPackInstallation) throw new Error("Wait for the current download to finish.");
-          await Promise.all(
-            (await caches.keys())
-              .filter((name) => name.startsWith(LESSON_PACK_PREFIX))
-              .map((name) => caches.delete(name)),
-          );
+          if (lessonPackInstallations.has(packId))
+            throw new Error("Wait for the current download to finish.");
+          for (const name of await caches.keys())
+            if (await lessonCacheBelongsTo(name, packId)) await caches.delete(name);
         }
-        const installed = await installedLessonPack(event.data.type === "LESSON_PACK_STATUS");
+        const installed = await installedLessonPack(
+          event.data.type === "LESSON_PACK_STATUS",
+          packId,
+        );
         event.ports[0].postMessage({
           ok: true,
+          packId,
           ready: !!installed,
           version: installed?.manifest.version ?? null,
           bytes: installed?.manifest.totalBytes ?? 0,

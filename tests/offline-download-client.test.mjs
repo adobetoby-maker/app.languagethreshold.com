@@ -68,8 +68,14 @@ test("a compatible worker receives a command only after acknowledgement and retu
       port.onmessage({
         data:
           message.type === "LESSON_PACK_PING"
-            ? { ok: true, protocol: 1 }
-            : { ok: true, ready: true, version: "synthetic-version", bytes: 123 },
+            ? { ok: true, protocol: 2, packIds: ["roofing-es-en", "landscaper-es-en"] }
+            : {
+                ok: true,
+                packId: message.packId,
+                ready: true,
+                version: "synthetic-version",
+                bytes: 123,
+              },
       }),
     async ({ sent, closed }) => {
       assert.deepEqual(await offlineLessonDownload("LESSON_PACK_INSTALL"), {
@@ -87,11 +93,44 @@ test("a controller replacement during handshake cannot start an install against 
   await withBrowser(
     (_message, port, serviceWorker) => {
       serviceWorker.controller = {};
-      port.onmessage({ data: { ok: true, protocol: 1 } });
+      port.onmessage({
+        data: { ok: true, protocol: 2, packIds: ["roofing-es-en", "landscaper-es-en"] },
+      });
     },
     async ({ sent }) => {
       await assert.rejects(offlineLessonDownload("LESSON_PACK_INSTALL"), /app is updating/);
       assert.deepEqual(sent, ["LESSON_PACK_PING"]);
+    },
+  );
+});
+
+test("a Roofing-only old worker cannot start a Landscaper install", async () => {
+  await withBrowser(
+    (_message, port) => port.onmessage({ data: { ok: true, protocol: 1 } }),
+    async ({ sent }) => {
+      await assert.rejects(
+        offlineLessonDownload("LESSON_PACK_INSTALL", "landscaper-es-en"),
+        /app is updating/,
+      );
+      assert.deepEqual(sent, ["LESSON_PACK_PING"]);
+    },
+  );
+});
+
+test("a returned other-module status cannot earn a saved label", async () => {
+  await withBrowser(
+    (message, port) =>
+      port.onmessage({
+        data:
+          message.type === "LESSON_PACK_PING"
+            ? { ok: true, protocol: 2, packIds: ["roofing-es-en", "landscaper-es-en"] }
+            : { ok: true, packId: "roofing-es-en", ready: true },
+      }),
+    async () => {
+      await assert.rejects(
+        offlineLessonDownload("LESSON_PACK_STATUS", "landscaper-es-en"),
+        /different lesson track/,
+      );
     },
   );
 });

@@ -1,4 +1,8 @@
+import { isPrivateAssessmentContext } from "@/lib/assessment-privacy";
+import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "@/lib/speaking-privacy";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { AIWritingProposal } from "./AIWritingProposal";
+import { cn } from "@/lib/utils";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { ExamListeningQuestion } from "./ExamListeningQuestion";
 import { HandwrittenExamAnswer } from "./HandwrittenExamAnswer";
@@ -17,7 +21,11 @@ import type {
 } from "@/lib/assessments/core";
 import { toDateKey } from "@/lib/core30-plan";
 import { browserExamStorage } from "@/lib/assessments/drafts";
-import { readOfflineExams, saveOfflineExam } from "@/lib/assessments/offline";
+import {
+  readOfflineExams,
+  saveOfflineExam,
+  recoveryCopiesForScope,
+} from "@/lib/assessments/offline";
 import { examRequest } from "@/lib/assessments/client";
 import type { AssessmentAnswer, PublicAssessmentItem } from "@/lib/assessments/form";
 import { useExamDraft, type ExamAttemptView } from "@/hooks/use-exam-draft";
@@ -81,7 +89,7 @@ const skills = {
 } as const;
 const button =
   "inline-flex min-h-11 items-center justify-center rounded-xl border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-foreground hover:bg-gold/20 disabled:opacity-50 disabled:cursor-not-allowed";
-const primary = button + " bg-gold text-background hover:bg-gold/90";
+const primary = cn(button, "bg-gold text-background hover:bg-gold/90");
 const input = "mt-1 min-h-11 w-full rounded-xl border border-border bg-background p-3 text-sm";
 const card = "rounded-2xl border border-border bg-card/60 p-4 sm:p-5";
 const dateLabel = (date: string) =>
@@ -121,6 +129,13 @@ function ExamsAreaContent({
   reviewMode = false,
 }: ExamsAreaProps) {
   const { user, loading: authLoading, isCurrentUser } = useAuth();
+  useEffect(() => {
+    window[`ga-disable-${LANGUAGE_THRESHOLD_GA_ID}`] = true;
+    return () => {
+      window[`ga-disable-${LANGUAGE_THRESHOLD_GA_ID}`] =
+        isSpeakingPrivacyMode() || isPrivateAssessmentContext();
+    };
+  }, []);
   const Heading = embedded ? "h2" : "h1";
   const [authOpen, setAuthOpen] = useState(false),
     [overview, setOverview] = useState<Overview | null>(null),
@@ -146,6 +161,7 @@ function ExamsAreaContent({
       date?: string;
     } | null>(null),
     [reason, setReason] = useState("");
+  const scheduleRequest = useRef<{ payload: string; id: string } | null>(null);
   const actionLock = useRef(false),
     handledAttempt = useRef<string | null>(null);
   const load = useCallback(async () => {
@@ -257,7 +273,7 @@ function ExamsAreaContent({
     );
   if (!user)
     return (
-      <section className={card}>
+      <section data-private-assessment className={card}>
         <Heading className="font-serif text-3xl">Exams</Heading>
         <p className="my-4">
           Assess your module at entrance, day 45 and day 90. Personal results stay private. Team
@@ -269,8 +285,24 @@ function ExamsAreaContent({
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
       </section>
     );
+  const savedCopies = recoveryCopiesForScope(
+    readOfflineExams<ExamAttemptView>(browserExamStorage(), user.id),
+    orgId,
+  );
+  const visibleAttemptIds = new Set(
+    overview?.enrollments.flatMap((plan) =>
+      plan.checkpoints.flatMap((cp) => cp.attempts.map((attempt) => attempt.id)),
+    ) ?? [],
+  );
+  const needsDeviceRecovery =
+    savedCopies.length > 0 &&
+    (!overview || !!error || savedCopies.some((copy) => !visibleAttemptIds.has(copy.id)));
   return (
-    <section className="mx-auto max-w-5xl space-y-5 pb-32" aria-label="Exams area">
+    <section
+      data-private-assessment
+      className="mx-auto max-w-5xl space-y-5 pb-32"
+      aria-label="Exams area"
+    >
       {selected && <Heading className="sr-only">Exams</Heading>}
       {!selected && (
         <header className="flex flex-wrap items-start justify-between gap-3">
@@ -280,8 +312,8 @@ function ExamsAreaContent({
             </p>
             <Heading className="mt-1 font-serif text-3xl">Exams</Heading>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              Entrance, day 45 and day 90 show separate skills and the evidence behind them. Exams
-              do not grant trade or safety certification.
+              Entrance, day 45 and day 90 show progress by skill. These assess language, not trade
+              or safety certification.
             </p>
           </div>
           <a className={button} href={returnToPlan}>
@@ -299,8 +331,7 @@ function ExamsAreaContent({
           </p>
         ) : (
           <p className="text-sm text-muted-foreground">
-            Personal exams are not shared with a team when you join one. Team-assigned exams are
-            labeled separately below.
+            Personal exams stay private. Team-assigned plans are labeled separately.
           </p>
         ))}
       {error && (
@@ -316,7 +347,7 @@ function ExamsAreaContent({
           Loading assessment data…
         </p>
       )}
-      {!selected && readOfflineExams<ExamAttemptView>(browserExamStorage(), user.id).length > 0 && (
+      {!selected && needsDeviceRecovery && (
         <details className={card}>
           <summary className="min-h-11 cursor-pointer py-2 font-semibold">
             Resume an exam saved on this device
@@ -325,7 +356,7 @@ function ExamsAreaContent({
             Active exam copies expire after 24 hours. Opening and final submission need a
             connection; a saved attempt can continue during a short interruption.
           </p>
-          {readOfflineExams<ExamAttemptView>(browserExamStorage(), user.id).map((saved) => (
+          {savedCopies.map((saved) => (
             <button
               key={saved.id}
               className={button + " mr-2 mt-2"}
@@ -337,82 +368,6 @@ function ExamsAreaContent({
           ))}
         </details>
       )}
-      {!selected && overview && (
-        <div className="flex flex-wrap gap-3">
-          <button
-            className={button}
-            onClick={() => {
-              const rows: unknown[][] = [
-                [
-                  "Learner",
-                  "Module",
-                  "Scope",
-                  "Language pair",
-                  "Timezone",
-                  "Checkpoint",
-                  "Due date",
-                  "Attempt",
-                  "Original",
-                  "Status",
-                  "Submitted",
-                  "Coverage",
-                  "Skill",
-                  "Score",
-                  "State",
-                  "Scored items",
-                  "Objectives",
-                  "Needs review",
-                  "Not assessed",
-                  "Provisional",
-                  "Change on comparable objectives",
-                ],
-              ];
-              for (const plan of overview.enrollments)
-                for (const cp of plan.checkpoints)
-                  for (const attempt of cp.attempts)
-                    for (const profile of attempt.profiles)
-                      for (const skill of profile.skills)
-                        rows.push([
-                          overview.members.find((member) => member.user_id === plan.user_id)
-                            ?.display_name ?? "Me",
-                          getModule(plan.module_id)?.name ?? plan.module_id,
-                          plan.scope,
-                          `${plan.instruction_language} → ${plan.target_language}`,
-                          plan.timezone,
-                          cp.checkpoint,
-                          cp.due_date,
-                          attempt.attempt_number,
-                          attempt.designated,
-                          attempt.status,
-                          attempt.submitted_at,
-                          profile.coverage,
-                          skills[skill.skill],
-                          skill.score,
-                          skill.state,
-                          skill.evidenceCount,
-                          skill.objectives.length,
-                          skill.reviewCount,
-                          skill.missingCount,
-                          skill.provisional,
-                          attempt.comparisons.find((row) => row.skill === skill.skill)?.change ??
-                            "Not comparable",
-                        ]);
-              const blob = new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" });
-              const url = URL.createObjectURL(blob),
-                link = document.createElement("a");
-              link.href = url;
-              link.download = "language-threshold-assessed-progress.csv";
-              link.click();
-              setTimeout(() => URL.revokeObjectURL(url), 1000);
-            }}
-          >
-            Export shown assessed progress
-          </button>
-          <p className="self-center text-xs text-muted-foreground">
-            Export includes skill summaries for the plans shown. Raw responses are excluded.
-          </p>
-        </div>
-      )}
       {!selected && overview && (!orgId || overview.canManage) && (
         <Suspense fallback={<p role="status">Loading reviews…</p>}>
           <ExamReviewQueue
@@ -422,7 +377,6 @@ function ExamsAreaContent({
           />
         </Suspense>
       )}
-      {!selected && <ReadinessPanel target={target} native={native} />}
       {selected ? (
         selected.submittedAt ? (
           <ExamResult
@@ -520,9 +474,9 @@ function ExamsAreaContent({
           </button>
         </section>
       ) : (
-        <>
+        <div className="flex flex-col gap-5">
           {overview?.canManage && (
-            <details className={card}>
+            <details className={card + (!orgId && overview.enrollments.length ? " order-2" : "")}>
               <summary className="min-h-11 cursor-pointer py-2 font-semibold">
                 {orgId ? "Create a learner’s exam plan" : "Add a module to my Exams"}
               </summary>
@@ -642,266 +596,390 @@ function ExamsAreaContent({
               prepared.
             </p>
           )}
-          {overview?.enrollments.map((plan) => (
-            <article key={plan.id} className={card}>
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h2 className="text-xl font-semibold">
-                    {getModule(plan.module_id)?.emoji}{" "}
-                    {getModule(plan.module_id)?.name ?? plan.module_id}
-                  </h2>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {plan.instruction_language} → {plan.target_language} ·{" "}
-                    {plan.scope === "personal" ? "Private personal plan" : "Team plan"} ·{" "}
-                    {plan.timezone}
-                  </p>
-                  {plan.user_id === user.id && plan.role === "primary" && (
-                    <a
-                      className="mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
-                      href={moduleLessonUrl({
-                        moduleId: plan.module_id,
-                        target: plan.target_language,
-                        native: plan.instruction_language,
-                        planId: plan.id,
-                      })}
-                    >
-                      Open this lesson plan
-                    </a>
-                  )}
-                  {orgId && (
-                    <p className="mt-1 text-sm">
-                      {overview.members.find((member) => member.user_id === plan.user_id)
-                        ?.display_name ?? "Assigned learner"}
+          {overview?.enrollments.map((plan) => {
+            const resumable = plan.checkpoints.flatMap((cp) =>
+              cp.attempts
+                .filter((attempt) => attempt.status === "in_progress")
+                .map((attempt) => ({ cp, attempt })),
+            )[0];
+            return (
+              <article key={plan.id} className={card}>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-semibold">
+                      {getModule(plan.module_id)?.emoji}{" "}
+                      {getModule(plan.module_id)?.name ?? plan.module_id}
+                    </h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {plan.instruction_language} → {plan.target_language} ·{" "}
+                      {plan.scope === "personal" ? "Private personal plan" : "Team plan"} ·{" "}
+                      {plan.timezone}
                     </p>
+                    {plan.user_id === user.id && plan.role === "primary" && (
+                      <a
+                        className="mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+                        href={moduleLessonUrl({
+                          moduleId: plan.module_id,
+                          target: plan.target_language,
+                          native: plan.instruction_language,
+                          planId: plan.id,
+                        })}
+                      >
+                        Open this lesson plan
+                      </a>
+                    )}
+                    {orgId && (
+                      <p className="mt-1 text-sm">
+                        {overview.members.find((member) => member.user_id === plan.user_id)
+                          ?.display_name ?? "Assigned learner"}
+                      </p>
+                    )}
+                  </div>
+                  {resumable && plan.user_id === user.id && (
+                    <button
+                      className={primary}
+                      disabled={loading}
+                      onClick={() => void open(resumable.attempt.id)}
+                    >
+                      Resume {names[resumable.cp.checkpoint]} exam
+                    </button>
+                  )}
+                  {plan.role !== "support" && (plan.scope === "personal" || overview.canManage) && (
+                    <button
+                      className={button}
+                      onClick={() => {
+                        setReason("");
+                        setSchedule({
+                          plan,
+                          change: plan.status === "paused" ? "resume" : "pause",
+                        });
+                      }}
+                    >
+                      {plan.status === "paused" ? "Resume plan" : "Pause plan"}
+                    </button>
                   )}
                 </div>
-                {plan.role !== "support" && (plan.scope === "personal" || overview.canManage) && (
-                  <button
-                    className={button}
-                    onClick={() => {
-                      setReason("");
-                      setSchedule({ plan, change: plan.status === "paused" ? "resume" : "pause" });
-                    }}
-                  >
-                    {plan.status === "paused" ? "Resume plan" : "Pause plan"}
-                  </button>
-                )}
-              </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-3">
-                {plan.checkpoints.map((cp) => {
-                  const latest = cp.attempts[0];
-                  return (
-                    <section key={cp.id} className="rounded-xl border border-border p-4">
-                      <h3 className="font-semibold">
-                        {names[cp.checkpoint as keyof typeof names]}
-                      </h3>
-                      <p className="mt-1 text-sm">Recommended {dateLabel(cp.due_date)}</p>
-                      <p className="mt-2 text-sm text-muted-foreground">
-                        {cp.status === "exempt"
-                          ? "Exempt"
-                          : latest
-                            ? latest.status.replaceAll("_", " ")
-                            : cp.ready
-                              ? "Ready"
-                              : cp.pilotReady
-                                ? "QA draft available"
-                                : "Not yet available"}
-                      </p>
-                      {latest && (
-                        <button
-                          className={button + " mt-3 w-full"}
-                          onClick={() => void open(latest.id)}
-                        >
-                          {latest.submitted_at ? "View result" : "Resume exam"}
-                        </button>
-                      )}
-                      {cp.status !== "exempt" &&
-                        (cp.ready || cp.pilotReady) &&
-                        plan.status === "active" &&
-                        (!latest || latest.submitted_at) &&
-                        plan.user_id === user.id && (
-                          <button
-                            className={button + " mt-2 w-full"}
-                            onClick={() => setPending({ plan, checkpoint: cp })}
-                          >
-                            {latest
-                              ? "Retake — keep original"
+                <div className="mt-4 grid gap-3 md:grid-cols-3">
+                  {plan.checkpoints.map((cp) => {
+                    const latest = cp.attempts[0];
+                    return (
+                      <section key={cp.id} className="rounded-xl border border-border p-4">
+                        <h3 className="font-semibold">
+                          {names[cp.checkpoint as keyof typeof names]}
+                        </h3>
+                        <p className="mt-1 text-sm">Recommended {dateLabel(cp.due_date)}</p>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          {cp.status === "exempt"
+                            ? "Exempt"
+                            : latest
+                              ? latest.status.replaceAll("_", " ")
                               : cp.ready
-                                ? "Start exam"
-                                : "Try QA draft"}
-                          </button>
-                        )}
-                      {latest?.profiles?.map((profile) => (
-                        <div className="mt-3 space-y-1 text-xs" key={profile.coverage}>
-                          <p className="font-semibold">
-                            {profile.coverage === "module"
-                              ? "Sampled skills"
-                              : profile.coverage === "studied"
-                                ? "Reported studied objectives"
-                                : "Transfer objectives"}
-                          </p>
-                          {profile.skills.map((skill) => (
-                            <p key={skill.skill}>
-                              {skills[skill.skill]}:{" "}
-                              {skill.score === null
-                                ? skill.state.replaceAll("_", " ")
-                                : `${skill.score}/100`}
-                              {skill.provisional ? " · provisional" : ""}
-                            </p>
-                          ))}
-                        </div>
-                      ))}
-                      {latest?.comparisons?.length > 0 && (
-                        <p className="mt-3 text-xs">
-                          {latest.comparisons.every((row) => row.change === null)
-                            ? "Growth comparison unavailable: equivalent reviewed forms and sufficient shared evidence are required."
-                            : latest.comparisons
-                                .filter((row) => row.change !== null)
-                                .map(
-                                  (row) =>
-                                    `${skills[row.skill]}: ${row.change! > 0 ? "+" : ""}${row.change} points on ${row.objectives.length} shared objectives`,
-                                )
-                                .join(" · ")}
+                                ? "Ready"
+                                : cp.pilotReady
+                                  ? "QA draft available"
+                                  : "Not yet available"}
                         </p>
-                      )}
-                      {cp.attempts.length > 0 && (
-                        <details className="mt-3">
-                          <summary className="min-h-11 cursor-pointer py-3 text-sm">
-                            {cp.attempts.length} attempt{cp.attempts.length === 1 ? "" : "s"}
-                          </summary>
-                          {cp.attempts.map((attempt) => (
+                        {latest && (
+                          <button
+                            className={button + " mt-3 w-full"}
+                            onClick={() => void open(latest.id)}
+                          >
+                            {latest.submitted_at ? "View result" : "Resume exam"}
+                          </button>
+                        )}
+                        {cp.status !== "exempt" &&
+                          (cp.ready || cp.pilotReady) &&
+                          plan.status === "active" &&
+                          (!latest || latest.submitted_at) &&
+                          plan.user_id === user.id && (
                             <button
-                              key={attempt.id}
-                              className="block min-h-11 text-left text-sm text-gold underline"
-                              onClick={() => void open(attempt.id)}
+                              className={button + " mt-2 w-full"}
+                              onClick={() => setPending({ plan, checkpoint: cp })}
                             >
-                              Attempt {attempt.attempt_number}
-                              {attempt.designated ? " · original baseline/checkpoint" : " · retake"}
-                              {attempt.submitted_at
-                                ? ` · ${new Date(attempt.submitted_at).toLocaleDateString()}`
-                                : " · in progress"}
+                              {latest
+                                ? "Retake — keep original"
+                                : cp.ready
+                                  ? "Start exam"
+                                  : "Try QA draft"}
                             </button>
-                          ))}
-                        </details>
-                      )}
-                      {plan.role !== "support" &&
-                        (plan.scope === "personal" || overview.canManage) &&
-                        !latest?.submitted_at && (
-                          <button
-                            className="mt-2 min-h-11 text-sm text-gold underline"
-                            onClick={() => {
-                              setReason("");
-                              setSchedule({
-                                plan,
-                                change: "reschedule",
-                                checkpoint: cp.id,
-                                date: cp.due_date,
-                              });
-                            }}
-                          >
-                            Change checkpoint date
-                          </button>
+                          )}
+                        {latest?.profiles?.map((profile) => (
+                          <div className="mt-3 space-y-1 text-xs" key={profile.coverage}>
+                            <p className="font-semibold">
+                              {profile.coverage === "module"
+                                ? "Sampled skills"
+                                : profile.coverage === "studied"
+                                  ? "Reported studied objectives"
+                                  : "Transfer objectives"}
+                            </p>
+                            {profile.skills.map((skill) => (
+                              <p key={skill.skill}>
+                                {skills[skill.skill]}:{" "}
+                                {skill.score === null
+                                  ? skill.state.replaceAll("_", " ")
+                                  : `${skill.score}/100`}
+                                {skill.provisional ? " · provisional" : ""}
+                              </p>
+                            ))}
+                          </div>
+                        ))}
+                        {latest?.comparisons?.length > 0 && (
+                          <p className="mt-3 text-xs">
+                            {latest.comparisons.every((row) => row.change === null)
+                              ? "Growth comparison unavailable: equivalent reviewed forms and sufficient shared evidence are required."
+                              : latest.comparisons
+                                  .filter((row) => row.change !== null)
+                                  .map(
+                                    (row) =>
+                                      `${skills[row.skill]}: ${row.change! > 0 ? "+" : ""}${row.change} points on ${row.objectives.length} shared objectives`,
+                                  )
+                                  .join(" · ")}
+                          </p>
                         )}
-                      {plan.role !== "support" &&
-                        (plan.scope === "personal" || overview.canManage) &&
-                        !latest?.submitted_at && (
-                          <button
-                            className="mt-2 block min-h-11 text-sm text-gold underline"
-                            onClick={() => {
-                              setReason("");
-                              setSchedule({
-                                plan,
-                                change: cp.status === "exempt" ? "restore" : "exempt",
-                                checkpoint: cp.id,
-                              });
-                            }}
-                          >
-                            {cp.status === "exempt"
-                              ? "Restore checkpoint"
-                              : "Exempt this checkpoint"}
-                          </button>
+                        {cp.attempts.length > 0 && (
+                          <details className="mt-3">
+                            <summary className="min-h-11 cursor-pointer py-3 text-sm">
+                              {cp.attempts.length} attempt{cp.attempts.length === 1 ? "" : "s"}
+                            </summary>
+                            {cp.attempts.map((attempt) => (
+                              <button
+                                key={attempt.id}
+                                className="block min-h-11 text-left text-sm text-gold underline"
+                                onClick={() => void open(attempt.id)}
+                              >
+                                Attempt {attempt.attempt_number}
+                                {attempt.designated
+                                  ? " · original baseline/checkpoint"
+                                  : " · retake"}
+                                {attempt.submitted_at
+                                  ? ` · ${new Date(attempt.submitted_at).toLocaleDateString()}`
+                                  : " · in progress"}
+                              </button>
+                            ))}
+                          </details>
                         )}
-                    </section>
-                  );
-                })}
-              </div>
-              {plan.role !== "support" && (
-                <PlanPanelDisclosure enrollmentId={plan.id} onOpenAttempt={(id) => void open(id)} />
-              )}
-            </article>
-          ))}
+                        {plan.role !== "support" &&
+                          (plan.scope === "personal" || overview.canManage) &&
+                          !latest?.submitted_at && (
+                            <button
+                              className="mt-2 min-h-11 text-sm text-gold underline"
+                              onClick={() => {
+                                setReason("");
+                                setSchedule({
+                                  plan,
+                                  change: "reschedule",
+                                  checkpoint: cp.id,
+                                  date: cp.due_date,
+                                });
+                              }}
+                            >
+                              Change checkpoint date
+                            </button>
+                          )}
+                        {plan.role !== "support" &&
+                          (plan.scope === "personal" || overview.canManage) &&
+                          !latest?.submitted_at && (
+                            <button
+                              className="mt-2 block min-h-11 text-sm text-gold underline"
+                              onClick={() => {
+                                setReason("");
+                                setSchedule({
+                                  plan,
+                                  change: cp.status === "exempt" ? "restore" : "exempt",
+                                  checkpoint: cp.id,
+                                });
+                              }}
+                            >
+                              {cp.status === "exempt"
+                                ? "Restore checkpoint"
+                                : "Exempt this checkpoint"}
+                            </button>
+                          )}
+                      </section>
+                    );
+                  })}
+                </div>
+                {plan.role !== "support" && (
+                  <PlanPanelDisclosure
+                    enrollmentId={plan.id}
+                    onOpenAttempt={(id) => void open(id)}
+                  />
+                )}
+              </article>
+            );
+          })}
           {overview && overview.enrollments.length >= overview.limit && (
             <p className="text-sm">Showing the latest {overview.limit} exam plans.</p>
           )}
-        </>
+        </div>
       )}
+      {!selected && !pending && overview && (
+        <div className="flex flex-wrap gap-3">
+          <button
+            className={button}
+            onClick={() => {
+              const rows: unknown[][] = [
+                [
+                  "Learner",
+                  "Module",
+                  "Scope",
+                  "Language pair",
+                  "Timezone",
+                  "Checkpoint",
+                  "Due date",
+                  "Attempt",
+                  "Original",
+                  "Status",
+                  "Submitted",
+                  "Coverage",
+                  "Skill",
+                  "Score",
+                  "State",
+                  "Scored items",
+                  "Objectives",
+                  "Needs review",
+                  "Not assessed",
+                  "Provisional",
+                  "Change on comparable objectives",
+                ],
+              ];
+              for (const plan of overview.enrollments)
+                for (const cp of plan.checkpoints)
+                  for (const attempt of cp.attempts)
+                    for (const profile of attempt.profiles)
+                      for (const skill of profile.skills)
+                        rows.push([
+                          overview.members.find((member) => member.user_id === plan.user_id)
+                            ?.display_name ?? "Me",
+                          getModule(plan.module_id)?.name ?? plan.module_id,
+                          plan.scope,
+                          `${plan.instruction_language} → ${plan.target_language}`,
+                          plan.timezone,
+                          cp.checkpoint,
+                          cp.due_date,
+                          attempt.attempt_number,
+                          attempt.designated,
+                          attempt.status,
+                          attempt.submitted_at,
+                          profile.coverage,
+                          skills[skill.skill],
+                          skill.score,
+                          skill.state,
+                          skill.evidenceCount,
+                          skill.objectives.length,
+                          skill.reviewCount,
+                          skill.missingCount,
+                          skill.provisional,
+                          attempt.comparisons.find((row) => row.skill === skill.skill)?.change ??
+                            "Not comparable",
+                        ]);
+              const blob = new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" });
+              const url = URL.createObjectURL(blob),
+                link = document.createElement("a");
+              link.href = url;
+              link.download = "language-threshold-assessed-progress.csv";
+              link.click();
+              setTimeout(() => URL.revokeObjectURL(url), 1000);
+            }}
+          >
+            Export shown assessed progress
+          </button>
+          <p className="self-center text-xs text-muted-foreground">
+            Export includes skill summaries for the plans shown. Raw responses are excluded.
+          </p>
+        </div>
+      )}
+      {!selected && !pending && <ReadinessPanel target={target} native={native} />}
       {schedule && (
-        <form
-          className={card}
-          onSubmit={(event) => {
-            event.preventDefault();
-            void act(async () => {
-              await examRequest({
-                action: "schedule",
-                enrollmentId: schedule.plan.id,
-                revision: schedule.plan.revision,
-                change: schedule.change,
-                checkpointId: schedule.checkpoint,
-                date: schedule.date,
-                reason,
-                requestId: crypto.randomUUID(),
-              });
-              setSchedule(null);
-              await load();
-            });
+        <Dialog
+          open
+          onOpenChange={(open) => {
+            if (!open && !loading) setSchedule(null);
           }}
         >
-          <h2 className="font-semibold">
-            {schedule.change === "reschedule"
-              ? "Change checkpoint date"
-              : schedule.change === "pause"
-                ? "Pause this plan"
-                : schedule.change === "exempt"
-                  ? "Exempt this checkpoint"
-                  : schedule.change === "restore"
-                    ? "Restore this checkpoint"
-                    : "Resume this plan"}
-          </h2>
-          {schedule.date && (
-            <label className="mt-3 block">
-              New date
-              <input
-                className={input}
-                type="date"
-                value={schedule.date}
-                onChange={(event) => setSchedule({ ...schedule, date: event.target.value })}
-              />
-            </label>
-          )}
-          <label className="mt-3 block">
-            Reason
-            <input
-              className={input}
-              value={reason}
-              onChange={(event) => setReason(event.target.value)}
-              minLength={3}
-              maxLength={1000}
-              required
-            />
-          </label>
-          <p className="my-3 text-sm text-muted-foreground">
-            Changes are recorded in the plan history. Completed checkpoints keep their original
-            dates and results.
-          </p>
-          <div className="flex gap-3">
-            <button className={primary} disabled={loading}>
-              Save schedule change
-            </button>
-            <button type="button" className={button} onClick={() => setSchedule(null)}>
-              Cancel
-            </button>
-          </div>
-        </form>
+          <DialogContent className="max-h-[90dvh] overflow-y-auto">
+            <form
+              className={card}
+              onSubmit={(event) => {
+                event.preventDefault();
+                void act(async () => {
+                  const payload = {
+                    action: "schedule",
+                    enrollmentId: schedule.plan.id,
+                    revision: schedule.plan.revision,
+                    change: schedule.change,
+                    checkpointId: schedule.checkpoint,
+                    date: schedule.date,
+                    reason,
+                  };
+                  const fingerprint = JSON.stringify(payload);
+                  if (scheduleRequest.current?.payload !== fingerprint)
+                    scheduleRequest.current = { payload: fingerprint, id: crypto.randomUUID() };
+                  await examRequest({ ...payload, requestId: scheduleRequest.current.id });
+                  scheduleRequest.current = null;
+                  setSchedule(null);
+                  await load();
+                });
+              }}
+            >
+              <DialogTitle>
+                {schedule.change === "reschedule"
+                  ? "Change checkpoint date"
+                  : schedule.change === "pause"
+                    ? "Pause this plan"
+                    : schedule.change === "exempt"
+                      ? "Exempt this checkpoint"
+                      : schedule.change === "restore"
+                        ? "Restore this checkpoint"
+                        : "Resume this plan"}
+              </DialogTitle>
+              {schedule.date && (
+                <label className="mt-3 block">
+                  New date
+                  <input
+                    className={input}
+                    type="date"
+                    value={schedule.date}
+                    onChange={(event) => setSchedule({ ...schedule, date: event.target.value })}
+                  />
+                </label>
+              )}
+              <label className="mt-3 block">
+                Reason
+                <input
+                  className={input}
+                  value={reason}
+                  onChange={(event) => setReason(event.target.value)}
+                  minLength={3}
+                  maxLength={1000}
+                  required
+                />
+              </label>
+              <DialogDescription className="my-3 text-sm text-muted-foreground">
+                Changes are recorded in the plan history. Completed checkpoints keep their original
+                dates and results.
+              </DialogDescription>
+              {error && (
+                <p role="alert" className="my-3 text-sm text-amber-700 dark:text-amber-300">
+                  {error}
+                </p>
+              )}
+              <div className="flex gap-3">
+                <button className={primary} disabled={loading}>
+                  {loading ? "Saving schedule change…" : "Save schedule change"}
+                </button>
+                <button
+                  type="button"
+                  className={button}
+                  disabled={loading}
+                  onClick={() => setSchedule(null)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </DialogContent>
+        </Dialog>
       )}
     </section>
   );

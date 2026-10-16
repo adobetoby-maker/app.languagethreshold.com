@@ -169,14 +169,23 @@ export const Route = createFileRoute("/api/exams")({
             const org = url.searchParams.get("org"),
               after = url.searchParams.get("after"),
               afterId = url.searchParams.get("afterId");
-            return json(
-              await rpc(db, "assessment_review_queue", {
-                p_actor: user.id,
-                p_org: org ? id.parse(org) : null,
-                p_after: after ? z.string().datetime({ offset: true }).parse(after) : null,
-                p_after_id: afterId ? id.parse(afterId) : null,
-              }),
-            );
+            const queue = await rpc<Record<string, unknown>>(db, "assessment_review_queue", {
+              p_actor: user.id,
+              p_org: org ? id.parse(org) : null,
+              p_after: after ? z.string().datetime({ offset: true }).parse(after) : null,
+              p_after_id: afterId ? id.parse(afterId) : null,
+            });
+            const registry = !org
+              ? await db
+                  .from("assessment_reviewers")
+                  .select("user_id")
+                  .eq("user_id", user.id)
+                  .eq("active", true)
+                  .limit(1)
+              : { data: [{ user_id: user.id }], error: null };
+            if (registry.error)
+              throw new AssessmentAccessError("Reviewer status could not be loaded.", 503);
+            return json({ ...queue, eligible: !!registry.data?.length });
           }
           if (action === "attempt")
             return json(

@@ -16,6 +16,7 @@ type QueueRow = {
   reviewer_id: string | null;
 };
 type QueuePage = {
+  eligible: boolean;
   items: QueueRow[];
   hasMore: boolean;
   nextCursor: { submittedAt: string; id: string } | null;
@@ -52,7 +53,7 @@ export function ExamReviewQueue({
       });
     return () => controller.abort();
   }, [orgId, user, isCurrentUser, epoch]);
-  if (!user) return null;
+  if (!user || (!orgId && !error && (!page || !page.eligible))) return null;
   const loadMore = async () => {
     if (busy || !page?.nextCursor) return;
     const actor = user.id;

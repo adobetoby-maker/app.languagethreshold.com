@@ -12,7 +12,7 @@ export interface OfflineExamSnapshot {
   submittedAt: string | null;
   isLearner: boolean;
   form: { id: string; items: unknown[] };
-  enrollment: { moduleId: string };
+  enrollment: { moduleId: string; scope?: "personal" | "team"; organizationId?: string | null };
 }
 const key = (user: string, attempt: string) =>
   `${PREFIX}${encodeURIComponent(user)}.${encodeURIComponent(attempt)}`;
@@ -133,4 +133,17 @@ export function readOfflineGuidance<T>(
   } catch {
     return null;
   }
+}
+
+/** A team view never automatically displays the viewer's personal or other-team device copies. */
+export function recoveryCopiesForScope<T extends OfflineExamSnapshot>(
+  copies: T[],
+  organizationId?: string,
+): T[] {
+  return organizationId
+    ? copies.filter(
+        (copy) =>
+          copy.enrollment.scope === "team" && copy.enrollment.organizationId === organizationId,
+      )
+    : copies;
 }

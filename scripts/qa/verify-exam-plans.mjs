@@ -59,10 +59,12 @@ assert.equal((await request(personal, "/api/exam-content?form=missing-reference"
 assert.equal((await request(null, "/api/exam-content")).status, 403);
 const personalQueue = await request(personal, "/api/exams?action=review_queue");
 assert.equal(personalQueue.status, 200);
+assert.equal(personalQueue.body.eligible, false);
 assert.deepEqual(personalQueue.body.items, []);
 assert.equal(personalQueue.cache, "no-store");
 const teamQueue = await request(admin, `/api/exams?action=review_queue&org=${qa.organizationId}`);
 assert.equal(teamQueue.status, 200);
+assert.equal(teamQueue.body.eligible, true);
 assert.ok(teamQueue.body.items.every((row) => row.learner_id !== qa.adminId));
 assert.equal(
   (await request(learner, `/api/exams?action=review_queue&org=${qa.organizationId}`)).status,

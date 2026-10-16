@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -80,10 +81,19 @@ type Action =
         seededDecks?: string[];
       };
     }
-  | { type: "SEED_STARTER"; payload: { language: Language; nativeLanguage?: NativeLanguage; now?: number } }
+  | {
+      type: "SEED_STARTER";
+      payload: { language: Language; nativeLanguage?: NativeLanguage; now?: number };
+    }
   | {
       type: "SEED_DECK";
-      payload: { language: Language; nativeLanguage?: NativeLanguage; category: FlashcardCategory; moduleId?: string; now?: number };
+      payload: {
+        language: Language;
+        nativeLanguage?: NativeLanguage;
+        category: FlashcardCategory;
+        moduleId?: string;
+        now?: number;
+      };
     }
   | {
       type: "ADD_CARD";
@@ -120,8 +130,6 @@ type Action =
     }
   | { type: "REVIEW_CARD"; payload: { id: string; grade: SrsGrade; now?: number } }
   | { type: "REMOVE_CARD"; payload: { id: string } };
-
-const STORAGE_KEY = "lingualens.flashcards.v2";
 
 function starterId(language: Language, wordId: string) {
   return `starter:${language}:${wordId}`;
@@ -170,7 +178,7 @@ function syncDeckCategory(
     if (!t) continue;
     const id = deckCardId(category, language, entry.id);
     const word = reverse ? entry.english : t.word;
-    const translation = reverse ? t.word : (t.note ? `${entry.english} — ${t.note}` : entry.english);
+    const translation = reverse ? t.word : t.note ? `${entry.english} — ${t.note}` : entry.english;
     const example = reverse ? t.exampleTranslation : t.example;
     const exampleTranslation = reverse ? t.example : t.exampleTranslation;
     const existing = next[id];
@@ -535,7 +543,12 @@ function reducer(state: State, action: Action): State {
 const Ctx = createContext<{
   state: State;
   seedStarter: (language: Language, nativeLanguage?: NativeLanguage) => void;
-  seedDeck: (language: Language, category: FlashcardCategory, moduleId?: string, nativeLanguage?: NativeLanguage) => void;
+  seedDeck: (
+    language: Language,
+    category: FlashcardCategory,
+    moduleId?: string,
+    nativeLanguage?: NativeLanguage,
+  ) => void;
   syncVocab: (
     language: Language,
     items: { word: string; translation: string; moduleId?: string }[],
@@ -563,6 +576,7 @@ const Ctx = createContext<{
 } | null>(null);
 
 export function FlashcardProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("flashcards");
   const [state, dispatch] = useReducer(reducer, {
     cards: {},
     seededLanguages: [],
@@ -572,9 +586,9 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw);
+        const parsed = raw as Partial<State>;
         dispatch({
           type: "HYDRATE",
           payload: {
@@ -589,23 +603,20 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     } catch {
       dispatch({ type: "HYDRATE", payload: { cards: {}, seededLanguages: [], seededDecks: [] } });
     }
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!state.hydrated) return;
     try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          cards: state.cards,
-          seededLanguages: state.seededLanguages,
-          seededDecks: state.seededDecks,
-        }),
-      );
+      device.write({
+        cards: state.cards,
+        seededLanguages: state.seededLanguages,
+        seededDecks: state.seededDecks,
+      });
     } catch {
       /* ignore quota */
     }
-  }, [state.cards, state.seededLanguages, state.seededDecks, state.hydrated]);
+  }, [device, state.cards, state.seededLanguages, state.seededDecks, state.hydrated]);
 
   const seedStarter = useCallback(
     (language: Language, nativeLanguage?: NativeLanguage) =>
@@ -613,8 +624,12 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     [],
   );
   const seedDeck = useCallback(
-    (language: Language, category: FlashcardCategory, moduleId?: string, nativeLanguage?: NativeLanguage) =>
-      dispatch({ type: "SEED_DECK", payload: { language, nativeLanguage, category, moduleId } }),
+    (
+      language: Language,
+      category: FlashcardCategory,
+      moduleId?: string,
+      nativeLanguage?: NativeLanguage,
+    ) => dispatch({ type: "SEED_DECK", payload: { language, nativeLanguage, category, moduleId } }),
     [],
   );
   const syncVocab = useCallback(

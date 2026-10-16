@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -31,8 +32,6 @@ type Action =
   | { type: "UPDATE"; payload: { id: string; noteText: string } }
   | { type: "REMOVE"; payload: string };
 
-const STORAGE_KEY = "lt.annotations.v1";
-
 function reducer(state: NotesState, action: Action): NotesState {
   switch (action.type) {
     case "HYDRATE":
@@ -62,13 +61,14 @@ const Ctx = createContext<{
 } | null>(null);
 
 export function NotesProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("notes");
   const [state, dispatch] = useReducer(reducer, { annotations: [], hydrated: false });
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw) as Annotation[];
+        const parsed = raw as Annotation[];
         if (Array.isArray(parsed)) dispatch({ type: "HYDRATE", payload: parsed });
         else dispatch({ type: "HYDRATE", payload: [] });
       } else {
@@ -77,16 +77,16 @@ export function NotesProvider({ children }: { children: ReactNode }) {
     } catch {
       dispatch({ type: "HYDRATE", payload: [] });
     }
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!state.hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.annotations));
+      device.write(state.annotations);
     } catch {
       /* ignore quota errors */
     }
-  }, [state.annotations, state.hydrated]);
+  }, [device, state.annotations, state.hydrated]);
 
   const add = useCallback((a: Omit<Annotation, "id" | "createdAt">) => {
     const full: Annotation = {

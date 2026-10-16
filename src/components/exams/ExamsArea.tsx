@@ -655,6 +655,19 @@ function ExamsAreaContent({
                     {plan.scope === "personal" ? "Private personal plan" : "Team plan"} ·{" "}
                     {plan.timezone}
                   </p>
+                  {plan.user_id === user.id && plan.role === "primary" && (
+                    <a
+                      className="mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+                      href={moduleLessonUrl({
+                        moduleId: plan.module_id,
+                        target: plan.target_language,
+                        native: plan.instruction_language,
+                        planId: plan.id,
+                      })}
+                    >
+                      Open this lesson plan
+                    </a>
+                  )}
                   {orgId && (
                     <p className="mt-1 text-sm">
                       {overview.members.find((member) => member.user_id === plan.user_id)

@@ -54,6 +54,9 @@ async function request(token, pathOrBody, origin = base) {
     body: await response.json(),
   };
 }
+assert.equal((await request(admin, "/api/exam-content")).status, 403);
+assert.equal((await request(personal, "/api/exam-content?form=missing-reference")).status, 403);
+assert.equal((await request(null, "/api/exam-content")).status, 403);
 const personalQueue = await request(personal, "/api/exams?action=review_queue");
 assert.equal(personalQueue.status, 200);
 assert.deepEqual(personalQueue.body.items, []);
@@ -141,6 +144,7 @@ const report = {
   target: base,
   scope: "Synthetic QA only; forms remain draft; no support assignments or plan revisions created",
   checks: {
+    ownerContentHiddenFromNonOwners: true,
     reviewerQueuePrivateAndScoped: true,
     independentPlanVisible: true,
     personalHiddenFromAdminAndOtherLearner: true,

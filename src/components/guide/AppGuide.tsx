@@ -1811,7 +1811,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
           <a
-            className="mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+            className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
             href={`/exams?module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(state.selectedLanguage)}&native=${encodeURIComponent(state.nativeLanguage)}`}
           >
             Entrance, day 45 and day 90 exams

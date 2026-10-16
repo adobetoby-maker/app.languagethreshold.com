@@ -72,6 +72,7 @@ function fixture({ withdrawn = false, publicBucket = false, corrupt = false } = 
 test("speech policy requires enabled collection, actual approval identity/date and bounded retention", () => {
   const policy = {
     collection_enabled: true,
+    cleanup_enabled: true,
     approved_at: "2026-10-16",
     approved_by: learner,
     retention_days: 30,
@@ -79,6 +80,7 @@ test("speech policy requires enabled collection, actual approval identity/date a
   assert.equal(speechPolicyEnabled(policy), true);
   for (const patch of [
     { collection_enabled: false },
+    { cleanup_enabled: false },
     { approved_at: null },
     { approved_by: null },
     { retention_days: null },

@@ -23,6 +23,7 @@ export function speechPolicyEnabled(
   policy:
     | {
         collection_enabled?: boolean;
+        cleanup_enabled?: boolean;
         approved_at?: string | null;
         approved_by?: string | null;
         retention_days?: number | null;
@@ -32,6 +33,7 @@ export function speechPolicyEnabled(
 ) {
   return Boolean(
     policy?.collection_enabled === true &&
+    policy.cleanup_enabled === true &&
     policy.approved_at &&
     policy.approved_by &&
     Number.isInteger(policy.retention_days) &&

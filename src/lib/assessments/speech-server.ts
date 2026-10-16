@@ -30,7 +30,9 @@ const uploadSchema = z
 export async function speechPolicy(db: TeamDb) {
   const result = await db
     .from("assessment_media_policies")
-    .select("version,notice,retention_days,approved_at,approved_by,collection_enabled")
+    .select(
+      "version,notice,retention_days,approved_at,approved_by,collection_enabled,cleanup_enabled",
+    )
     .eq("collection_enabled", true)
     .maybeSingle();
   if (result.error) throw new AssessmentAccessError("Speech policy is unavailable.", 503);

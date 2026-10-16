@@ -1,5 +1,6 @@
 -- Fictional speech workflow. Runs only inside the local fixture's outer ROLLBACK.
 \ir ../../supabase/migrations/20261016124934_assessment_speech_evidence.sql
+\ir ../../supabase/migrations/20261016130745_assessment_speech_replacements.sql
 insert into storage.objects(bucket_id,name) values('assessment-speech-private','fixture');
 set local role authenticated;
 select pg_temp.expect_error('select * from public.assessment_speech_evidence','permission denied');
@@ -14,7 +15,7 @@ insert into public.assessment_releases(id,module_id,target_language,instruction_
 insert into public.assessment_forms(id,release_id,checkpoint,version,rubric_version,definition) values('speech-fixture-form','speech-test-release','entrance','fixture','fixture','{"items":[{"id":"spoken1","type":"production","skill":"speaking","inputMethods":["speech"],"objectiveId":"fixture.speech","maximum":3,"rubric":{"dimensions":[{"id":"meaning","maximum":3}]}},{"id":"spoken2","type":"production","skill":"speaking","inputMethods":["speech"],"objectiveId":"fixture.speech2","maximum":3}]}');
 insert into public.team_assignments values('20000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','speech-fixture');
 set local role service_role;
-do $$ declare e uuid; cp uuid; a uuid; m uuid; r uuid; n integer;
+do $$ declare e uuid; cp uuid; a uuid; m uuid; prior_m uuid; r uuid; n integer;
  learner uuid:='10000000-0000-4000-8000-000000000001'; reviewer uuid:='10000000-0000-4000-8000-000000000002'; other uuid:='10000000-0000-4000-8000-000000000003';
 begin
  e:=public.assessment_create_enrollment(reviewer,learner,'20000000-0000-4000-8000-000000000001','speech-test-release','2026-10-16','America/Denver',gen_random_uuid());
@@ -22,7 +23,8 @@ begin
  a:=public.assessment_start_attempt(learner,cp,'speech-fixture-form',gen_random_uuid(),true);
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',learner,a,'spoken1','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'policy is not enabled');
  if exists(select 1 from public.assessment_speech_evidence) then raise exception 'Disabled collection wrote evidence'; end if;
- update public.assessment_media_policies set retention_days=30,approved_by=reviewer,approved_at=now(),collection_enabled=true where version='assessment-speech-pending-v1';
+ perform pg_temp.expect_error(format('update public.assessment_media_policies set retention_days=30,approved_by=%L,approved_at=now(),collection_enabled=true where version=%L',reviewer,'assessment-speech-pending-v1'),'collection_requires_cleanup');
+ update public.assessment_media_policies set retention_days=30,approved_by=reviewer,approved_at=now(),collection_enabled=true,cleanup_enabled=true where version='assessment-speech-pending-v1';
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',other,a,'spoken1','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'access required');
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,2,%L,%L,64,%L,1000,%L)',learner,a,'spoken1','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'revision conflict');
  perform pg_temp.expect_error(format('select public.assessment_reserve_speech(%L,%L,%L,0,%L,%L,64,%L,1000,%L)',learner,a,'missing','assessment-speech-pending-v1',repeat('a',64),'audio/webm',gen_random_uuid()),'Frozen speaking item');
@@ -33,22 +35,27 @@ begin
  n:=public.assessment_finish_speech(learner,m);
  if n<>1 or public.assessment_finish_speech(learner,m)<>1 then raise exception 'Speech attach retry changed revision'; end if;
  if not exists(select 1 from public.assessment_responses where attempt_id=a and item_id='spoken1' and answer->>'mediaEvidenceId'=m::text) then raise exception 'Recording not attached atomically'; end if;
- perform pg_temp.expect_error(format('select public.assessment_save_responses(%L,%L,1,%L,%L)',learner,a,jsonb_build_array(jsonb_build_object('itemId','spoken2','answer',jsonb_build_object('inputMethod','speech_transcript','mediaEvidenceId',m))),gen_random_uuid()),'Verified speech reference');
+ prior_m:=m; m:=public.assessment_reserve_speech(learner,a,'spoken1',1,'assessment-speech-pending-v1',repeat('b',64),64,'audio/webm',1000,gen_random_uuid());
+ if public.assessment_finish_speech(learner,m)<>2 then raise exception 'Replacement revision wrong'; end if;
+ if not exists(select 1 from public.assessment_speech_evidence where id=prior_m and delete_requested_at is not null) then raise exception 'Replaced recording still playable'; end if;
+ perform pg_temp.expect_error(format('select public.assessment_save_responses(%L,%L,2,%L,%L)',learner,a,jsonb_build_array(jsonb_build_object('itemId','spoken2','answer',jsonb_build_object('inputMethod','speech_transcript','mediaEvidenceId',m))),gen_random_uuid()),'Verified speech reference');
  perform pg_temp.expect_error(format('select public.assessment_ack_speech_review(%L,%L,%L)',reviewer,m,gen_random_uuid()),'Submitted speech review access');
- perform public.assessment_submit_attempt(learner,a,1,gen_random_uuid());
+ perform public.assessment_submit_attempt(learner,a,2,gen_random_uuid());
  select id into r from public.assessment_responses where attempt_id=a and item_id='spoken1';
  perform pg_temp.expect_error(format('select public.assessment_review_rubric(%L,%L,%L,%L,3,%L,%L,%L)',reviewer,a,r,'scored','{"meaning":3}','Fixture review only',gen_random_uuid()),'Verified spoken evidence');
  perform pg_temp.expect_error(format('select public.assessment_ack_speech_review(%L,%L,%L)',learner,m,gen_random_uuid()),'Submitted speech review access');
  perform pg_temp.expect_error(format('select public.assessment_ack_speech_review(%L,%L,%L)',other,m,gen_random_uuid()),'Submitted speech review access');
  perform public.assessment_ack_speech_review(reviewer,m,gen_random_uuid());
  perform public.assessment_review_rubric(reviewer,a,r,'scored',3,'{"meaning":3}','Fictional local rubric review',gen_random_uuid());
+ update public.assessment_media_policies set collection_enabled=false,cleanup_enabled=false where version='assessment-speech-pending-v1';
  if exists(select 1 from public.assessment_claim_speech_cleanup()) then raise exception 'Disabled cleanup returned work'; end if;
  perform pg_temp.expect_error(format('select public.assessment_withdraw_speech(%L,%L,%L)',other,m,gen_random_uuid()),'access required');
  perform public.assessment_withdraw_speech(learner,m,gen_random_uuid());
  perform pg_temp.expect_error(format('select public.assessment_review_rubric(%L,%L,%L,%L,2,%L,%L,%L)',reviewer,a,r,'scored','{"meaning":2}','After withdrawal',gen_random_uuid()),'Verified spoken evidence');
  update public.assessment_media_policies set cleanup_enabled=true where version='assessment-speech-pending-v1';
- if (select count(*) from public.assessment_claim_speech_cleanup())<>1 then raise exception 'Withdrawn recording not selected for cleanup'; end if;
+ if (select count(*) from public.assessment_claim_speech_cleanup())<>2 then raise exception 'Withdrawn recording not selected for cleanup'; end if;
  perform public.assessment_finish_speech_cleanup(m);
+ perform public.assessment_finish_speech_cleanup(prior_m);
  if exists(select 1 from public.assessment_claim_speech_cleanup()) then raise exception 'Deleted recording selected again'; end if;
  perform pg_temp.expect_error($q$update public.assessment_media_policies set retention_days=1 where version='assessment-speech-pending-v1'$q$,'policy is immutable');
  -- Historical fixture tests actual retention/dispute cutoffs, not just withdrawal.

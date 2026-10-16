@@ -80,3 +80,45 @@ async function assessmentRequest<T>(
     );
   return body as T;
 }
+
+export async function uploadExamSpeech(
+  metadata: {
+    attemptId: string;
+    itemId: string;
+    revision: number;
+    policyVersion: string;
+    consent: true;
+    mime: string;
+    durationMs: number;
+    requestId: string;
+  },
+  blob: Blob,
+  signal?: AbortSignal,
+) {
+  const { data } = await supabase.auth.getSession();
+  if (!data.session?.access_token)
+    throw new ExamRequestError("Sign in to upload this recording.", 403);
+  const response = await fetch("/api/exams?action=speech_upload", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${data.session.access_token}`,
+      "Content-Type": metadata.mime,
+      "X-Assessment-Speech": JSON.stringify(metadata),
+    },
+    body: blob,
+    cache: "no-store",
+    signal,
+  });
+  const body = await response.json().catch(() => null);
+  if (!response.ok)
+    throw new ExamRequestError(
+      body?.error ?? "Recording upload failed. Keep this page open to retry.",
+      response.status,
+    );
+  if (body?.attached !== true || typeof body.evidenceId !== "string")
+    throw new ExamRequestError(
+      "Recording attachment could not be confirmed. Keep this page open to retry.",
+      503,
+    );
+  return body as { evidenceId: string; attached: true };
+}

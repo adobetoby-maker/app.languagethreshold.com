@@ -78,6 +78,7 @@ export function publicAssessmentItem(item: PrivateAssessmentItem): PublicAssessm
 export function initialItemEvidence(
   item: PrivateAssessmentItem,
   answer: AssessmentAnswer,
+  verifiedSpeechId?: string,
 ): ItemEvidence {
   const base = {
     itemId: item.id,
@@ -106,6 +107,17 @@ export function initialItemEvidence(
       reason: "Recognition needs review; no wrong-answer score assigned.",
     };
   if (item.skill === "speaking") {
+    if (
+      verifiedSpeechId &&
+      answer.mediaEvidenceId === verifiedSpeechId &&
+      answer.inputMethod === "speech_transcript"
+    )
+      return {
+        ...base,
+        state: "needs_review",
+        points: null,
+        reason: "Protected recording saved; independent speaking rubric review pending.",
+      };
     return missing(
       "Spoken production needs authorized audio evidence and review; a typed or unverified transcript is not a spoken score.",
     );

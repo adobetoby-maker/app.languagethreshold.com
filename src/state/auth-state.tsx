@@ -60,7 +60,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             discardApprovedFor.current !== previousUser
           )
             toast.warning(
-              "Your session changed. Device-only exam answers were cleared; synced answers remain saved.",
+              "Your session changed. Unsynced exam answers and recordings were cleared; synced answers remain saved.",
             );
         } catch {
           /* Storage may be blocked. */
@@ -159,7 +159,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ) {
       if (
         !window.confirm(
-          "Some exam answers are saved only on this device. Sign out will erase those unsynced answers. Cancel and reconnect to sync them first, or sign out and discard the device-only work.",
+          "Some exam answers or recordings have not synced. Signing out discards them. Cancel and upload or sync them first, or sign out and discard the unsaved work.",
         )
       )
         return false;

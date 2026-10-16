@@ -5,6 +5,7 @@ import { useAuth } from "@/state/auth-state";
 import { examRequest, ExamRequestError } from "@/lib/assessments/client";
 import {
   acknowledgeFlight,
+  adoptExternalDraft,
   browserExamStorage,
   examDraftKey,
   nextDraftFlight,
@@ -265,6 +266,30 @@ export function useExamDraft(attempt: ExamAttemptView) {
     setConflict(null);
     setError("");
   };
+  // Upload attaches a response atomically on the server. Flush first and adopt its
+  // current revision without inventing a local answer or overwriting pending edits.
+  const reloadAfterExternal = async () => {
+    if (!(await flush()))
+      throw new Error("Sync answers and resolve conflicts before loading the recording.");
+    const latest = await examRequest<ExamAttemptView>(
+      `/api/exams?action=attempt&attempt=${attempt.id}`,
+    );
+    if (!isCurrentUser(userId)) throw new Error("Your session changed.");
+    if (Object.keys(current.current.pending).length || current.current.flight)
+      throw new Error("Answers changed while loading. Sync them before continuing.");
+    if (latest.submittedAt)
+      throw new Error(
+        "This attempt was submitted on another device. Return to Exams to view its saved result.",
+      );
+    const adopted = adoptExternalDraft(current.current, latest.revision, latest.savedAt);
+    remote.current = latest;
+    update(adopted, "synced");
+    setAnswers(answersFrom(latest));
+    conflictBlocked.current = false;
+    setConflict(null);
+    setError("");
+    return latest;
+  };
   const clearSubmitted = () => {
     if (!isCurrentUser(userId)) return;
     try {
@@ -288,8 +313,10 @@ export function useExamDraft(attempt: ExamAttemptView) {
     flush,
     resolve,
     clearSubmitted,
+    reloadAfterExternal,
     revision: () => current.current.revision,
     pendingCount: Object.keys(draft.pending).length,
     serverAnswers: conflict ? answersFrom(conflict) : {},
+    speechEvidence: remote.current.speechEvidence ?? [],
   };
 }

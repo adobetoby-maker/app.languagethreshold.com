@@ -145,3 +145,21 @@ test("listening requires confirmed playback and keeps missing audio separate fro
     0,
   );
 });
+
+test("speaking IDs alone never become assessed evidence; a server-verified exact recording stays pending human review", () => {
+  const item = roofingAssessmentForm("entrance").items.find((i) => i.skill === "speaking");
+  const answer = { inputMethod: "speech_transcript", mediaEvidenceId: "fixture-recording" };
+  assert.equal(initialItemEvidence(item, answer).state, "not_assessed");
+  assert.equal(initialItemEvidence(item, answer, "another-recording").state, "not_assessed");
+  const verified = initialItemEvidence(item, answer, "fixture-recording");
+  assert.equal(verified.state, "needs_review");
+  assert.equal(verified.points, null);
+  assert.equal(
+    initialItemEvidence(
+      item,
+      { ...answer, inputMethod: "typed", text: "cannot replace speech" },
+      "fixture-recording",
+    ).state,
+    "not_assessed",
+  );
+});

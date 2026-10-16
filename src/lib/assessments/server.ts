@@ -351,6 +351,18 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
     .select("id,item_id,answer,saved_at")
     .eq("attempt_id", id);
   if (error) throw new AssessmentAccessError("Saved responses could not be loaded.", 503);
+  const mediaIds = (responses ?? [])
+    .map((r) => r.answer?.mediaEvidenceId)
+    .filter((id): id is string => typeof id === "string");
+  const media = mediaIds.length
+    ? await db
+        .from("assessment_speech_evidence")
+        .select("id,item_id,state,delete_requested_at,ready_at")
+        .eq("attempt_id", id)
+        .in("id", mediaIds)
+    : { data: [], error: null };
+  if (media.error)
+    throw new AssessmentAccessError("Speech evidence status could not be loaded.", 503);
   let evidence: ItemEvidence[] = [];
   if (attempt.submitted_at) {
     const scores = await rpc<
@@ -454,6 +466,13 @@ export async function readAttempt(db: TeamDb, actor: string, id: string, review 
           rubricVersion: string;
         },
     ),
+    speechEvidence: (media.data ?? []).map((row) => ({
+      id: row.id,
+      itemId: row.item_id,
+      available: row.state === "ready" && !row.delete_requested_at,
+      state: row.delete_requested_at ? "withdrawn" : row.state,
+      readyAt: row.ready_at,
+    })),
     id: attempt.id,
     isLearner: enrollment.user_id === actor,
     canReview,
@@ -521,10 +540,43 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
     .select("id,item_id,answer")
     .eq("attempt_id", id);
   if (error) throw new AssessmentAccessError("Submitted responses could not be loaded.", 503);
+  const media = (responses ?? []).some((row) => row.answer?.mediaEvidenceId)
+    ? await db
+        .from("assessment_speech_evidence")
+        .select("id,item_id,policy_version,state,delete_requested_at")
+        .eq("attempt_id", id)
+        .eq("state", "ready")
+        .is("delete_requested_at", null)
+    : { data: [], error: null };
+  if (media.error)
+    throw new AssessmentAccessError("Submitted recording status could not be loaded.", 503);
+  const policies = media.data?.length
+    ? await db
+        .from("assessment_media_policies")
+        .select("version")
+        .in(
+          "version",
+          media.data.map((m) => m.policy_version),
+        )
+        .not("approved_at", "is", null)
+    : { data: [], error: null };
+  if (policies.error)
+    throw new AssessmentAccessError("Recording consent policy could not be checked.", 503);
+  const approved = new Set((policies.data ?? []).map((p) => p.version));
   for (const response of responses ?? []) {
     const item = form.items.find((item) => item.id === response.item_id);
     if (!item) throw new AssessmentAccessError("Frozen assessment item is unavailable.", 503);
-    const evidence = initialItemEvidence(item, response.answer as AssessmentAnswer);
+    const verifiedSpeechId = media.data?.find(
+      (m) =>
+        m.id === response.answer?.mediaEvidenceId &&
+        m.item_id === response.item_id &&
+        approved.has(m.policy_version),
+    )?.id;
+    const evidence = initialItemEvidence(
+      item,
+      response.answer as AssessmentAnswer,
+      verifiedSpeechId,
+    );
     await rpc(db, "assessment_record_score", {
       p_actor: actor,
       p_response: response.id,

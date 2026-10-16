@@ -1,3 +1,4 @@
+import { clearSpeechForUser, unsavedSpeechCount } from "./speech-device.ts";
 import {
   readExamDeviceValue,
   writeExamDeviceValue,
@@ -114,7 +115,12 @@ export function registerPendingExam(userId: string, attemptId: string, pending: 
   else memoryPending.delete(userId);
 }
 export function hasUnsyncedExamDrafts(storage: ExamDraftStorage | null, userId: string): boolean {
-  if (memoryPending.get(userId)?.size || hasUnconfirmedExamInk(storage, userId)) return true;
+  if (
+    memoryPending.get(userId)?.size ||
+    hasUnconfirmedExamInk(storage, userId) ||
+    unsavedSpeechCount(userId)
+  )
+    return true;
   try {
     const prefix = `${PREFIX}${encodeURIComponent(userId)}.`;
     for (const key of examDeviceKeys(storage)) {
@@ -130,6 +136,7 @@ export function hasUnsyncedExamDrafts(storage: ExamDraftStorage | null, userId: 
 }
 export function clearExamDraftsForUser(storage: ExamDraftStorage | null, userId: string): void {
   memoryPending.delete(userId);
+  clearSpeechForUser(userId);
   clearOfflineExams(storage, userId);
   clearExamInk(storage, userId);
   try {
@@ -166,4 +173,18 @@ export function browserExamStorage(): Storage | null {
   } catch {
     return null;
   }
+}
+
+/** Used only after a separately authenticated server mutation (e.g. speech upload).
+ * Pending device edits and uncertain save flights must never be overwritten. */
+export function adoptExternalDraft(
+  draft: ExamDeviceDraft,
+  revision: number,
+  savedAt: string,
+): ExamDeviceDraft {
+  if (Object.keys(draft.pending).length || draft.flight)
+    throw new Error("Sync answers and resolve conflicts before adopting the recording.");
+  if (!Number.isInteger(revision) || revision < draft.revision)
+    throw new Error("Server revision is older than this device draft.");
+  return { ...draft, revision, pending: {}, flight: null, savedAt };
 }

@@ -1,3 +1,10 @@
+import { ExamSpeechQuestion } from "./ExamSpeechQuestion";
+import { SpeechEvidencePlayback } from "./SpeechEvidencePlayback";
+import {
+  subscribeSpeechDrafts,
+  unsavedSpeechCount,
+  readSpeechTake,
+} from "@/lib/assessments/speech-device";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
 import type { OverviewState } from "@/lib/assessments/reporting";
 import { CheckpointAttemptHistory } from "./CheckpointAttemptHistory";
@@ -10,7 +17,15 @@ import { moduleLessonUrl } from "@/lib/learning-link";
 import { ExamListeningQuestion } from "./ExamListeningQuestion";
 import { HandwrittenExamAnswer } from "./HandwrittenExamAnswer";
 import { hasUnconfirmedExamInk, readExamInk, examInkKey } from "@/lib/assessments/ink";
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
@@ -113,6 +128,9 @@ const dateLabel = (date: string) =>
   );
 const answerText = (answer: AssessmentAnswer | undefined, item: PublicAssessmentItem) =>
   answer?.missingReason ??
+  (answer?.mediaEvidenceId
+    ? "Protected recording attached; availability is checked on playback"
+    : undefined) ??
   (answer?.choiceId
     ? item.options?.find((option) => option.id === answer.choiceId)?.text
     : (answer?.correctedTranscript ?? answer?.text ?? answer?.originalTranscript)) ??
@@ -1194,6 +1212,12 @@ function ExamRunner({
   onSubmitted: () => void;
 }) {
   const { user } = useAuth();
+  const [speechWorking, setSpeechWorking] = useState(false);
+  const unsavedSpeech = useSyncExternalStore(
+    subscribeSpeechDrafts,
+    () => unsavedSpeechCount(user?.id ?? "", attempt.id),
+    () => 0,
+  );
   const [inputModes, setInputModes] = useState<Record<string, boolean>>({});
   const draft = useExamDraft(attempt),
     item = attempt.form.items[draft.index];
@@ -1218,13 +1242,16 @@ function ExamRunner({
       (!answer.choiceId &&
         !answer.text &&
         !answer.correctedTranscript &&
-        !answer.originalTranscript)
+        !answer.originalTranscript &&
+        !answer.mediaEvidenceId)
     );
   }).length;
   const submit = async () => {
     setSubmitting(true);
     setError("");
     try {
+      if (user && unsavedSpeechCount(user.id, attempt.id))
+        throw new Error("Upload or explicitly discard your unsaved recordings before submitting.");
       if (user && hasUnconfirmedExamInk(browserExamStorage(), user.id, attempt.id)) {
         setError(
           "A handwritten response has no confirmed transcript. Return to that question and confirm its transcript before submitting.",
@@ -1253,7 +1280,7 @@ function ExamRunner({
     <section ref={runnerTop} className="space-y-4 scroll-mt-4">
       <div className={card}>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <button className={button} onClick={onBack} disabled={submitting}>
+          <button className={button} onClick={onBack} disabled={submitting || speechWorking}>
             Back to Exams
           </button>
           <p className="text-sm" role="status">
@@ -1298,6 +1325,13 @@ function ExamRunner({
           value={draft.index + 1}
         />
       </div>
+      {unsavedSpeech > 0 && (
+        <p role="status" className="rounded-xl border border-amber-500/40 p-3 text-sm">
+          You have an unsaved recording or active microphone for this attempt. Upload or discard it
+          before submitting. Audio lives only in memory and is lost if you close or refresh this
+          site.
+        </p>
+      )}
       {(draft.error || error) && (
         <p role="alert" className="rounded-xl border border-amber-500/40 p-4">
           {error || draft.error}
@@ -1367,10 +1401,21 @@ function ExamRunner({
             onAnswer={(answer) => draft.edit(item.id, answer)}
           />
         ) : item.skill === "speaking" ? (
-          <p className="my-4 text-sm">
-            Authorized speech recording and evidence retention are being prepared. This draft cannot
-            report a spoken score from typed text.
-          </p>
+          <ExamSpeechQuestion
+            key={`${attempt.id}:${item.id}`}
+            attemptId={attempt.id}
+            itemId={item.id}
+            scope={attempt.enrollment.scope}
+            evidenceId={draft.answers[item.id]?.mediaEvidenceId}
+            evidenceAvailable={
+              draft.speechEvidence.find((row) => row.id === draft.answers[item.id]?.mediaEvidenceId)
+                ?.available
+            }
+            flush={draft.flush}
+            revision={draft.revision}
+            reload={draft.reloadAfterExternal}
+            onWorkingChange={setSpeechWorking}
+          />
         ) : item.type === "choice" ? (
           <div className="mt-4 grid gap-3">
             {item.options?.map((option) => (
@@ -1429,6 +1474,7 @@ function ExamRunner({
         )}
         <button
           className={button + " mt-4"}
+          disabled={speechWorking || !!(user && readSpeechTake(user.id, attempt.id, item.id))}
           onClick={() =>
             draft.edit(item.id, {
               inputMethod: "unavailable",
@@ -1449,7 +1495,7 @@ function ExamRunner({
       <div className="flex flex-wrap justify-between gap-3">
         <button
           className={button}
-          disabled={!draft.index || submitting}
+          disabled={!draft.index || submitting || speechWorking}
           onClick={() => draft.setIndex(draft.index - 1)}
         >
           Previous question
@@ -1457,20 +1503,24 @@ function ExamRunner({
         <button
           className={button}
           onClick={() => void draft.sync()}
-          disabled={submitting || draft.status === "synced"}
+          disabled={submitting || speechWorking || draft.status === "synced"}
         >
           Sync now
         </button>
         {draft.index < attempt.form.items.length - 1 ? (
           <button
             className={primary}
-            disabled={submitting}
+            disabled={submitting || speechWorking}
             onClick={() => draft.setIndex(draft.index + 1)}
           >
             Next question
           </button>
         ) : (
-          <button className={primary} disabled={submitting} onClick={() => setConfirm(true)}>
+          <button
+            className={primary}
+            disabled={submitting || speechWorking}
+            onClick={() => setConfirm(true)}
+          >
             Review submission
           </button>
         )}
@@ -1488,12 +1538,18 @@ function ExamRunner({
           <div className="flex flex-wrap gap-3">
             <button
               className={primary}
-              disabled={submitting || draft.status === "conflict"}
+              disabled={
+                submitting || speechWorking || unsavedSpeech > 0 || draft.status === "conflict"
+              }
               onClick={() => void submit()}
             >
               {submitting ? "Saving and submitting…" : "Sync and submit exam"}
             </button>
-            <button className={button} onClick={() => setConfirm(false)} disabled={submitting}>
+            <button
+              className={button}
+              onClick={() => setConfirm(false)}
+              disabled={submitting || speechWorking}
+            >
               Keep working
             </button>
           </div>
@@ -1601,6 +1657,18 @@ function ExamResult({
               <h4 className="font-medium">{item.prompt}</h4>
               <p className="mt-2 text-sm">Your response: {answerText(answer, item)}</p>
               <p className="mt-2 text-sm text-muted-foreground">{feedback?.rationale}</p>
+              {attempt.isLearner && answer?.mediaEvidenceId && (
+                <SpeechEvidencePlayback
+                  key={answer.mediaEvidenceId}
+                  evidenceId={answer.mediaEvidenceId}
+                  available={
+                    attempt.speechEvidence.find((row) => row.id === answer.mediaEvidenceId)
+                      ?.available
+                  }
+                  learner
+                  onChanged={onRefresh}
+                />
+              )}
               {proposal && (
                 <div className="mt-3 rounded-xl border border-border p-3 text-sm">
                   <p className="font-semibold">AI proposal · requires human review</p>
@@ -1736,6 +1804,7 @@ function ExamRubricReview({
   const { user } = useAuth();
   const reviewFlight = useRef<{ payload: string; id: string } | null>(null);
   const [chosen, setChosen] = useState("");
+  const [speechReady, setSpeechReady] = useState(false);
   const [state, setState] = useState<"scored" | "not_assessed" | "needs_review">("needs_review");
   const [dimensions, setDimensions] = useState<Record<string, number>>({});
   const [points, setPoints] = useState(0),
@@ -1746,18 +1815,26 @@ function ExamRubricReview({
   const item = attempt.form.items.find((row) => row.id === chosen);
   const feedback = attempt.feedback?.find((row) => row.itemId === chosen);
   const rubric = feedback?.rubric;
+  const speechAvailable = attempt.speechEvidence.some(
+    (row) => row.id === response?.answer?.mediaEvidenceId && row.available,
+  );
   const review = attempt.reviews.find((row) => row.status !== "resolved");
   return (
     <section className={card}>
       <h3 className="font-semibold">Review against the frozen rubric</h3>
       <p className="my-3 text-sm">
         Decisions keep the original scoring history, the reviewer, and a reason. A score requires
-        available evidence. Speaking remains unassessed until protected audio evidence is enabled.
+        available evidence. Speaking also requires its protected recording and your listening
+        acknowledgement.
       </p>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          if (!response) return;
+          if (
+            !response ||
+            (item?.skill === "speaking" && state === "scored" && (!speechReady || !speechAvailable))
+          )
+            return;
           setBusy(true);
           setMessage("");
           const payload = {
@@ -1796,6 +1873,7 @@ function ExamRubricReview({
             required
             onChange={(event) => {
               setChosen(event.target.value);
+              setSpeechReady(false);
               setState("needs_review");
               setDimensions({});
               setPoints(0);
@@ -1815,6 +1893,17 @@ function ExamRubricReview({
             <p className="rounded-xl border border-border p-3 text-sm">
               Learner response: {answerText(response?.answer as AssessmentAnswer | undefined, item)}
             </p>
+            {item.skill === "speaking" && response?.answer?.mediaEvidenceId && (
+              <SpeechEvidencePlayback
+                key={response.answer.mediaEvidenceId}
+                evidenceId={response.answer.mediaEvidenceId}
+                available={
+                  attempt.speechEvidence.find((row) => row.id === response.answer.mediaEvidenceId)
+                    ?.available
+                }
+                onReviewReady={setSpeechReady}
+              />
+            )}
             <p className="text-sm">
               Frozen rubric version: {attempt.form.rubricVersion}. {feedback?.rationale}
             </p>
@@ -1827,7 +1916,10 @@ function ExamRubricReview({
               >
                 <option value="needs_review">Needs review</option>
                 <option value="not_assessed">Not assessed</option>
-                <option value="scored" disabled={item.skill === "speaking"}>
+                <option
+                  value="scored"
+                  disabled={item.skill === "speaking" && (!speechReady || !speechAvailable)}
+                >
                   Scored against the rubric
                 </option>
               </select>

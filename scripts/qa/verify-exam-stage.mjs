@@ -153,6 +153,12 @@ assert.ok(english.body.tracks.some((row) => row.moduleId === "or-evs"));
 assert.ok(readiness.body.tracks.every((row) => row.status !== "verified"));
 assert.equal((await request(admin, "/api/exam-content")).status, 403);
 assert.equal((await request(personal, "/api/exam-content")).status, 403);
+for (const actor of [null, personal, learner, admin]) {
+  const denied = await request(actor, "/api/exam-content?lessons=qa-unassigned-release");
+  assert.equal(denied.status, 403);
+  assert.equal(denied.cache, "no-store");
+  assert.equal(Object.hasOwn(denied.body, "snapshot"), false);
+}
 const aiItem = personalResult.body.form.items.find(
   (row) => row.type === "production" && row.skill === "writing",
 );
@@ -194,6 +200,7 @@ const report = {
     unreviewedSupportExcluded: true,
     compatibleReadinessTracksHonest: true,
     privateContentDeniedToUnassignedAccounts: true,
+    lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     noStore: true,
   },
 };

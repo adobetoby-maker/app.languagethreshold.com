@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { LessonContentReview } from "@/components/exams/LessonContentReview";
+import { useCallback, useEffect, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthButton } from "@/components/auth/AuthButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -73,6 +74,13 @@ function PrivateContent() {
     [form, setDetail] = useState<PrivateForm | null>(null),
     [error, setError] = useState(""),
     [epoch, setEpoch] = useState(0);
+  const onLessonAccessLost = useCallback(() => {
+    setCatalog(null);
+    setDetail(null);
+    setRelease("");
+    setForm("");
+    setError("Content access changed. Refresh your assigned permissions before continuing.");
+  }, []);
   useEffect(() => {
     if (!user) return;
     const actor = user.id,
@@ -83,7 +91,18 @@ function PrivateContent() {
       .then((data) => {
         if (!controller.signal.aborted && isCurrentUser(actor)) {
           setCatalog(data);
-          setRelease((current) => current || data.releases[0]?.id || "");
+          setRelease(
+            (current) =>
+              current ||
+              data.releases.find(
+                (release) =>
+                  release.module_id === "roofing" &&
+                  release.target_language === "Spanish" &&
+                  release.instruction_language === "English",
+              )?.id ||
+              data.releases[0]?.id ||
+              "",
+          );
           setError("");
         }
       })
@@ -199,6 +218,13 @@ function PrivateContent() {
                   decisions; these do not publish content.
                 </p>
               </section>
+            )}
+            {release && (
+              <LessonContentReview
+                key={release.id}
+                releaseId={release.id}
+                onAccessLost={onLessonAccessLost}
+              />
             )}
             <label className="block text-sm">
               Assessment form

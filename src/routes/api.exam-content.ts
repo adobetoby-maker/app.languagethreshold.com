@@ -1,3 +1,4 @@
+import { lessonReviewSnapshot, lessonReviewFingerprint } from "@/lib/lesson-review";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
@@ -42,7 +43,43 @@ export const Route = createFileRoute("/api/exam-content")({
               403,
             );
           await assessmentBudget(user.id, "content_review");
-          const formId = new URL(request.url).searchParams.get("form");
+          const params = new URL(request.url).searchParams;
+          const lessonRelease = params.get("lessons");
+          if (lessonRelease) {
+            const id = z.string().min(3).max(160).parse(lessonRelease);
+            const result = await db
+              .from("assessment_releases")
+              .select(
+                "id,module_id,target_language,instruction_language,content_version,lesson_manifest",
+              )
+              .eq("id", id)
+              .maybeSingle();
+            if (result.error)
+              throw new AssessmentAccessError("Lesson release could not be loaded.", 503);
+            if (!result.data) throw new AssessmentAccessError("Lesson release was not found.", 404);
+            if (!contentTrackAllowed(access, result.data))
+              throw new AssessmentAccessError("Assigned content reviewer access required.", 403);
+            const snapshot = lessonReviewSnapshot(
+              result.data.module_id,
+              result.data.target_language,
+              result.data.instruction_language,
+            );
+            if (!snapshot)
+              throw new AssessmentAccessError("Current lesson curriculum is not available.", 404);
+            const fingerprint = await lessonReviewFingerprint(snapshot);
+            const stored = result.data.lesson_manifest?.lessonSnapshotFingerprint;
+            const storedFingerprint =
+              typeof stored === "string" && /^[a-f0-9]{64}$/.test(stored) ? stored : null;
+            return json({
+              snapshot,
+              fingerprint,
+              releaseId: id,
+              releaseContentVersion: result.data.content_version,
+              storedFingerprint,
+              matchesStoredSnapshot: storedFingerprint === fingerprint,
+            });
+          }
+          const formId = params.get("form");
           if (formId) {
             const id = z.string().min(3).max(160).parse(formId),
               result = await db

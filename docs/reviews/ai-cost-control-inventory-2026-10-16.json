@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "6b182e6",
+  "sourceCommit": "cb02d79",
   "method": "Static regex inventory of direct Anthropic messages.create/stream call sites in fns/routes/assessment library; imported request builders and indirect providers are not exhaustively discovered",
   "interpretation": "Triage only. A guard name is not proof that every paid branch is protected. No guard name does not prove an unprotected reachable route; caller-level guards must be inspected.",
   "files": [
@@ -280,10 +280,12 @@
     {
       "file": "src/routes/api.discussion.ts",
       "directPaidCallLines": [
-        136,
-        164
+        131,
+        159
       ],
-      "guardNamesSeenInFile": [],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
       "numericOutputCapsSeen": [
         200,
         384
@@ -293,9 +295,11 @@
     {
       "file": "src/routes/api.field-prep.ts",
       "directPaidCallLines": [
-        199
+        194
       ],
-      "guardNamesSeenInFile": [],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
       "numericOutputCapsSeen": [
         700
       ],
@@ -304,9 +308,11 @@
     {
       "file": "src/routes/api.module-field-prep.ts",
       "directPaidCallLines": [
-        182
+        177
       ],
-      "guardNamesSeenInFile": [],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
       "numericOutputCapsSeen": [
         700
       ],
@@ -333,9 +339,11 @@
     {
       "file": "src/routes/api.tutor.ts",
       "directPaidCallLines": [
-        267
+        262
       ],
-      "guardNamesSeenInFile": [],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
       "numericOutputCapsSeen": [
         2000
       ],
@@ -354,13 +362,13 @@
     }
   ],
   "verifiedThisChange": [
-    "handwriting-read.functions.ts rejects budget/storage/origin denial before the paid call",
-    "handwriting-recognize.functions.ts rejects budget/storage/origin denial before the paid call"
+    "Four actual route denial/allowed contracts under controlled provider tests",
+    "Sixteen hosted entry denials and one real synthetic Tutor inference"
   ],
   "remainingReviewPriority": [
-    "Interactive tutor/discussion/field-prep routes",
     "Grammar and per-game generators",
     "Reader lookup and translation/romanization helpers",
+    "Indirect request builders and other API paths",
     "Assessment scoring caller protections remain separate from public practice"
   ],
   "handwritingPool": {
@@ -368,5 +376,13 @@
     "perIpHour": 600,
     "perEnvironmentHour": 1200,
     "independentOfContentBuilders": true
-  }
+  },
+  "conversationPool": {
+    "perIpMinute": 30,
+    "perIpHour": 300,
+    "perEnvironmentHour": 600,
+    "independentOfHandwritingAndContent": true,
+    "maxRequestBodyBytes": 98304
+  },
+  "providerAcceptanceEvidence": "qa-conversation-provider-smoke-2026-10-16.json (8f727f8; same conversation server handlers)"
 }

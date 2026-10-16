@@ -4,6 +4,7 @@ export function isPrivateAssessmentUrl(value: string): boolean {
     const url = new URL(value, "https://app.languagethreshold.com");
     return (
       /^\/(?:exams|exam-content|exam-reviewers|team|owner|account)(?:\/|$)/.test(url.pathname) ||
+      (url.pathname === "/" && url.searchParams.get("tab") === "exams") ||
       [
         "org",
         "attempt",

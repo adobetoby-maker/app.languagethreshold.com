@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { legacyExamsLocation } from "@/lib/exam-navigation";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Toaster } from "sonner";
 import { AppProvider, useApp } from "@/state/app-state";
@@ -44,6 +45,20 @@ import { appNavigationLocation, appTab } from "@/lib/app-navigation";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: ({ location }) => {
+    const destination = legacyExamsLocation(location.href);
+    if (destination)
+      throw redirect({
+        href: destination,
+        reloadDocument: true,
+        replace: true,
+        headers: {
+          "Cache-Control": "no-store",
+          "Referrer-Policy": "no-referrer",
+          "X-Robots-Tag": "noindex, nofollow",
+        },
+      });
+  },
   component: Index,
   head: () => ({
     meta: [

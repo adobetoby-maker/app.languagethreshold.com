@@ -1,3 +1,4 @@
+import { examsLocation } from "@/lib/exam-navigation";
 import { useState } from "react";
 import { Moon, Sun, Sparkle, ChevronDown, Puzzle } from "lucide-react";
 import {
@@ -64,6 +65,17 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
 
   function handleTabSwitch(key: TabKey) {
+    if (key === "exams") {
+      window.location.assign(
+        examsLocation({
+          moduleId: state.activeModuleId,
+          target: state.selectedLanguage,
+          native: state.nativeLanguage,
+          orgId: new URLSearchParams(window.location.search).get("org"),
+        }),
+      );
+      return;
+    }
     if (key === state.currentTab) return;
     dispatch({ type: "SET_TAB", payload: key });
     try {

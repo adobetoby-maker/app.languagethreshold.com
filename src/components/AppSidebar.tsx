@@ -1,3 +1,4 @@
+import { examsLocation } from "@/lib/exam-navigation";
 import {
   BookOpen,
   GraduationCap,
@@ -399,6 +400,17 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   });
 
   function switchTab(key: TabKey) {
+    if (key === "exams") {
+      window.location.assign(
+        examsLocation({
+          moduleId: state.activeModuleId,
+          target: state.selectedLanguage,
+          native: state.nativeLanguage,
+          orgId: new URLSearchParams(window.location.search).get("org"),
+        }),
+      );
+      return;
+    }
     if (key === state.currentTab) return;
     dispatch({ type: "SET_TAB", payload: key });
     try {

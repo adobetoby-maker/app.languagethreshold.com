@@ -1,5 +1,5 @@
 import type { ModuleCurriculum, Lesson } from "./curriculum.ts";
-import { LANDSCAPER_CREW_MEETING_WORDS } from "./landscaper-lesson-content.ts";
+import { LANDSCAPER_LESSON_CONTENT } from "./landscaper-lesson-content.ts";
 import { r, sp, wm, pt, sb, ds, gr, ld } from "./curriculum-helpers.ts";
 
 // ─── EMERGENCY MEDICINE ───────────────────────────────────────────────────────
@@ -6523,510 +6523,60 @@ const DRYWALL_LESSONS: Lesson[] = [
 
 // ─── LANDSCAPER ──────────────────────────────────────────────────────────────
 
-const LANDSCAPER_LESSONS: Lesson[] = [
-  {
-    n: 1,
-    title: "Morning Crew Meeting",
-    words: LANDSCAPER_CREW_MEETING_WORDS,
-    objective: "Run a morning safety and task meeting for your landscape crew",
-    steps: [
-      r("Read the crew meeting passage. Find the task, schedule and clarification phrases.", 7),
-      wm(
-        "Practice the crew meeting terms and phrases. Match each task, tool and work-area expression.",
-        5,
-      ),
-      sp(
-        "Brief: 'Buenos días. Hoy tenemos 4 trabajos. El equipo A va al riego, el B al corte. Todos traigan sus EPP.'",
-        8,
-      ),
-    ],
-  },
-  {
-    n: 2,
-    title: "Mowing Instructions",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Give mowing assignments and height instructions",
-    steps: [
-      r("Read the landscaper passage. Focus on mowing vocabulary.", 7),
-      pt(
-        "Pattern: 'Corta el césped a [height] pulgadas. El patrón es [direction]. Evita [obstacle]. El borde va con la bordeadora.' Build 3 mowing instructions.",
-        7,
-      ),
-      sp(
-        "Direct: 'Corta a 3 pulgadas. Patrón de rayas. Evita la zona de flores. Después bordeadora y soplador.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 3,
-    title: "Irrigation System Operation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Operate and communicate about an irrigation system",
-    steps: [
-      r("Read the irrigation passage fully. This is your core scenario.", 8),
-      wm(
-        "Drill: aspersor, zona, válvula, controlador, goteo, cobertura, presión, programación. 8/8.",
-        5,
-      ),
-      sp(
-        "Set the timer: 'La zona 1 riega el césped del frente — 15 minutos, 3 veces por semana. La zona 2 riega las flores.'",
-        7,
-      ),
-    ],
-  },
-  {
-    n: 4,
-    title: "Irrigation Leak Repair",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Diagnose and repair an irrigation leak",
-    steps: [
-      r("Read the irrigation passage. Focus on repair vocabulary.", 7),
-      pt(
-        "Pattern: 'La fuga está en [zone/location]. El aspersor [broke/clogged/sank]. Lo reparo con [method] y pruebo la cobertura.' Build repair workflow.",
-        7,
-      ),
-      sp(
-        "Report to customer: 'Encontré una fuga en la zona 3. Era un aspersor roto. Ya lo reemplacé y probé la cobertura.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 5,
-    title: "Pruning & Hedge Trimming",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Direct pruning and hedge trimming work",
-    steps: [
-      r("Read the landscaper passage. Focus on pruning vocabulary.", 6),
-      wm(
-        "Drill: poda, recorte, motosierra, tijera, seto, formación, sanitaria, correctiva. 8/8.",
-        5,
-      ),
-      sp(
-        "Direct: 'Recorta el seto a 4 pies de alto. Línea recta desde la calle. Las esquinas en ángulo de 45 grados.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 6,
-    title: "Fertilization & Soil",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Apply fertilizer and explain soil treatment to a customer",
-    steps: [
-      r("Read the landscaper passage. Focus on soil vocabulary.", 6),
-      wm(
-        "Drill: fertilizante, nitrógeno, fósforo, potasio, pH, compost, enmienda, granulado. 8/8.",
-        5,
-      ),
-      sp(
-        "Recommend: 'Su césped necesita fertilizante con alto nitrógeno en primavera. El suelo está demasiado ácido — añadimos cal.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 7,
-    title: "Pest & Weed Control",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Identify pests and explain treatment options",
-    steps: [
-      r("Read the landscaper passage. Focus on pest vocabulary.", 6),
-      wm(
-        "Drill: plaga, maleza, herbicida, insecticida, aplicación, etiqueta, PPE, re-entrada. 8/8.",
-        5,
-      ),
-      sp(
-        "Explain: 'Tiene chinches de jardín. Voy a aplicar un insecticida orgánico. No puede entrar al área por 24 horas.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 8,
-    title: "Tree Trimming & Removal",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Explain and execute safe tree work",
-    steps: [
-      r("Read the landscaper passage. Focus on tree work vocabulary.", 7),
-      pt(
-        "Pattern: 'El árbol necesita [service] porque [reason]. El riesgo es [hazard]. El costo es [amount].' Build tree proposal.",
-        7,
-      ),
-      sp(
-        "Propose tree removal: 'Este árbol tiene raíces que dañan su fundación. Necesita quitarse. El trabajo toma medio día.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 9,
-    title: "Mulch & Ground Cover",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Apply mulch correctly and explain its benefits",
-    steps: [
-      r("Read the landscaper passage. Focus on mulch vocabulary.", 6),
-      wm(
-        "Drill: mantillo, cobertura, profundidad, volcán, humedad, maleza, descomposición. 7/7.",
-        5,
-      ),
-      sp(
-        "Explain: 'Aplico 3 pulgadas de mantillo — sin que toque el tronco. Retiene la humedad y bloquea las malezas.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 10,
-    title: "Planting Instructions",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Direct plant installation with proper technique",
-    steps: [
-      r("Read the landscaper passage. Focus on planting vocabulary.", 7),
-      pt(
-        "Pattern: 'Cava el hoyo [2x] el ancho y [same depth] que la raíz. Coloca la planta al nivel del suelo. Rellena con [soil mix].' Build planting instructions.",
-        7,
-      ),
-      sp(
-        "Direct: 'El hoyo debe ser el doble de ancho que la maceta. Planta al mismo nivel que estaba. Apisonaa bien y riega.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 11,
-    title: "Sod Installation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Install sod and explain the process to a customer",
-    steps: [
-      r("Read the landscaper passage. Focus on sod vocabulary.", 6),
-      wm(
-        "Drill: pasto en rollo, preparación, nivelación, juntas, rodillo, riego, arraigo. 7/7.",
-        5,
-      ),
-      sp(
-        "Explain: 'Quitamos el pasto viejo, nivelamos el suelo, y colocamos el rollo en patrón de ladrillo. Riega dos veces al día por 2 semanas.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 12,
-    title: "Customer Quote Presentation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Present a landscape maintenance or installation quote",
-    steps: [
-      r("Read the landscaper passage. Focus on estimate vocabulary.", 6),
-      ds("Role-play: present a seasonal maintenance contract to a homeowner.", 9),
-      sp(
-        "Present: 'El servicio mensual incluye corte, bordeado, soplado, y fertilización trimestral. El total es [amount] al mes.'",
-        5,
-      ),
-    ],
-  },
-  {
-    n: 13,
-    title: "Drainage Problems & Solutions",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Assess drainage issues and explain solutions",
-    steps: [
-      r("Read the landscaper passage. Find drainage vocabulary.", 6),
-      wm(
-        "Drill: drenaje, charco, pendiente, dreno francés, zanja, geotextil, grava, desbordamiento. 8/8.",
-        5,
-      ),
-      sp(
-        "Diagnose: 'El agua se acumula porque el suelo no tiene pendiente. Instalamos un drenaje francés a lo largo de la cerca.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 14,
-    title: "Seasonal Cleanup",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Brief the crew on a seasonal cleanup job",
-    steps: [
-      r("Read the landscaper passage. Focus on cleanup vocabulary.", 6),
-      pt(
-        "Pattern: 'Hoy hacemos limpieza de [spring/fall]. Incluye: [task list]. El orden es [priority sequence]. Terminamos en [time].' Build cleanup brief.",
-        7,
-      ),
-      sp(
-        "Brief: 'Limpieza de otoño — recojan las hojas, corten el pasto, podad los perennes, y cubran las plantas sensibles.'",
-        7,
-      ),
-    ],
-  },
-  {
-    n: 15,
-    title: "Landscape Design Consultation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Discuss a landscape design plan with a customer",
-    steps: [
-      r("Read the landscaper passage. Focus on design vocabulary.", 6),
-      ds(
-        "Role-play: customer wants a full backyard landscape redesign with a budget of $15,000.",
-        9,
-      ),
-      sp(
-        "Consult: 'Para su presupuesto, puedo incluir: patio de concreto, plantas nativas, riego automático, y iluminación básica.'",
-        5,
-      ),
-    ],
-  },
-  {
-    n: 16,
-    title: "Equipment Maintenance Communication",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Direct daily equipment maintenance in the target language",
-    steps: [
-      r("Read the landscaper passage. Focus on equipment vocabulary.", 7),
-      pt(
-        "Pattern: 'Al final del día: limpia [tool], revisa [fluid], afila [blade], reporta si [problem].' Build end-of-day protocol.",
-        7,
-      ),
-      sp(
-        "Direct: 'Antes de guardar las máquinas, limpien el filtro de aire, revisen el aceite, y reporten cualquier daño.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 17,
-    title: "Sod vs Seed Discussion",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Help a customer decide between sod and seeding",
-    steps: [
-      r("Read the landscaper passage. Find sod and seed vocabulary.", 6),
-      sb(
-        "Compare: cost, time to establish, maintenance, success rate, and best use case for each option.",
-        5,
-      ),
-      sp(
-        "Recommend: 'Para resultados inmediatos, el rollo es mejor pero cuesta más. La semilla tarda 3 meses pero es más económica.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 18,
-    title: "Irrigation Winterization",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Explain and perform irrigation system winterization",
-    steps: [
-      r("Read the irrigation passage. Focus on winterization vocabulary.", 6),
-      wm(
-        "Drill: soplado, compresor, invierno, válvulas, daño por congelación, drenaje, desconexión. 7/7.",
-        5,
-      ),
-      sp(
-        "Explain: 'Para winterizar el riego, apago el agua, abro las válvulas de drenaje, y soplo con compresor para sacar el agua restante.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 19,
-    title: "Hardscape Installation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Communicate during patio or walkway installation",
-    steps: [
-      r("Read the landscaper passage. Focus on hardscape vocabulary.", 6),
-      wm("Drill: patio, adoquín, base, arena, nivelación, compactación, borde, sello. 8/8.", 5),
-      sp(
-        "Direct: 'Excaven 6 pulgadas. Base de grava de 4 pulgadas, compactada. Arena de 1 pulgada. Luego los adoquines con 1/8 pulgada de separación.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 20,
-    title: "Retaining Wall Construction",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Explain retaining wall installation to a customer and crew",
-    steps: [
-      r("Read the landscaper passage. Focus on retaining wall vocabulary.", 7),
-      pt(
-        "Pattern: 'El muro de contención va a [location]. Los bloques se entierran [X] pulgadas. El drenaje atrás es esencial para evitar presión.' Build wall explanation.",
-        7,
-      ),
-      sp(
-        "Explain: 'El muro de 4 pies necesita cimentación de grava y un tubo de drenaje atrás para evitar que el agua presione el muro.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 21,
-    title: "Lighting Installation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Install and explain landscape lighting",
-    steps: [
-      r("Read the landscaper passage. Focus on lighting vocabulary.", 6),
-      wm(
-        "Drill: bajo voltaje, transformador, led, spot, camino, temporizador, fotocelda, cable. 8/8.",
-        5,
-      ),
-      sp(
-        "Install: 'Las luces de camino van a 6 pies de distancia. El cable se entierra 6 pulgadas. El transformador se instala cerca de la toma.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 22,
-    title: "Contract & Service Agreement",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Review a landscape service contract with a customer",
-    steps: [
-      r("Read the landscaper passage. Focus on contract vocabulary.", 6),
-      ds(
-        "Role-play: customer wants to negotiate out of a winter salt-spreading clause. Handle professionally.",
-        9,
-      ),
-      sp(
-        "Explain: 'El contrato cubre servicio semanal de abril a noviembre. Los servicios de invierno son adicionales. ¿Quiere incluirlos?'",
-        5,
-      ),
-    ],
-  },
-  {
-    n: 23,
-    title: "Xeriscape & Water Conservation",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Recommend xeriscape design for water conservation",
-    steps: [
-      r("Read the landscaper passage. Focus on xeriscape vocabulary.", 6),
-      wm(
-        "Drill: xeriscaping, nativa, tolerante a la sequía, roca decorativa, goteo, mulch, adaptada. 7/7.",
-        5,
-      ),
-      sp(
-        "Recommend: 'Para reducir su factura de agua, puedo convertir esta área a plantas nativas con riego por goteo.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 24,
-    title: "Irrigation Programming",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Program a smart irrigation controller and explain it to the customer",
-    steps: [
-      r("Read the irrigation passage. Focus on controller vocabulary.", 7),
-      pt(
-        "Pattern: 'La zona [X] riega [area]. Programa [days/week], [start time], [duration]. El sensor de lluvia la pausará automáticamente.' Build program settings.",
-        7,
-      ),
-      sp(
-        "Teach customer: 'Le programé el riego inteligente. Se ajusta automáticamente según el clima. Aquí le explico cómo cambiarlo.'",
-        6,
-      ),
-    ],
-  },
-  {
-    n: 25,
-    title: "Storm Cleanup",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Coordinate an emergency storm cleanup crew",
-    steps: [
-      r("Read the landscaper passage. Focus on emergency vocabulary.", 6),
-      wm(
-        "Drill: tormenta, árbol caído, daño, emergencia, motosierra, seguridad, prioridad, desvío. 8/8.",
-        5,
-      ),
-      sp(
-        "Brief: 'Emergencia de tormenta. Equipo 1: árboles sobre estructuras. Equipo 2: vías bloqueadas. Seguridad primero — si hay cables, llamamos a la empresa eléctrica.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 26,
-    title: "Aeration & Overseeding",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Explain lawn aeration and overseeding to a customer",
-    steps: [
-      r("Read the landscaper passage. Focus on aeration vocabulary.", 6),
-      wm(
-        "Drill: aireación, núcleo, compactación, semilla, contacto suelo, fertilizante inicial, riego. 7/7.",
-        5,
-      ),
-      sp(
-        "Explain: 'La aireación hace hoyos en el suelo para que el agua y los nutrientes lleguen a las raíces. Luego sembramos encima.'",
-        9,
-      ),
-    ],
-  },
-  {
-    n: 27,
-    title: "Dealing with HOA Requirements",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Communicate HOA landscape requirements to a customer",
-    steps: [
-      r("Read the landscaper passage. Find HOA vocabulary.", 6),
-      ds(
-        "Role-play: customer received an HOA violation for lawn height. Explain, fix, and help them respond to the HOA.",
-        9,
-      ),
-      sp(
-        "Help: 'Le ayudo a llevar el césped a las especificaciones del HOA esta semana. También le preparo una carta de respuesta.'",
-        5,
-      ),
-    ],
-  },
-  {
-    n: 28,
-    title: "Employee Safety & Injury Response",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Respond to and communicate a job-site injury",
-    steps: [
-      r("Read the landscaper passage. Focus on injury vocabulary.", 6),
-      pt(
-        "Pattern: '[Employee] se lastimó [body part] con [tool]. Hice [first aid]. Fue a [clinic]. Reporte en camino.' Build incident report.",
-        7,
-      ),
-      sp(
-        "Report the incident: 'Carlos tuvo un accidente — la bordeadora le cortó el pie. Llamé al 911. Están en el hospital.'",
-        7,
-      ),
-    ],
-  },
-  {
-    n: 29,
-    title: "Seasonal Planting Plan",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective: "Present a seasonal color rotation plan to a commercial client",
-    steps: [
-      r("Read the landscaper passage as a seasonal plan prep.", 7),
-      ds("Role-play: present a 4-season planting rotation to a commercial property manager.", 9),
-      sp(
-        "Present: 'En primavera: petunias. Verano: vincas. Otoño: crisantemos. Invierno: pansies. El precio por cambio es [amount].'",
-        4,
-      ),
-    ],
-  },
-  {
-    n: 30,
-    title: "THRESHOLD — Full Landscape Service Day",
-    readingTemplate: "seed-{lang}-landscaper-irrigation",
-    objective:
-      "Manage a full landscape service day — crew briefing to customer closeout — without switching languages",
-    steps: [
-      r("Read the landscaper passage as your morning prep.", 5),
-      ds(
-        "AI-assisted full service day: crew meeting → job site → customer check-in → issue resolution → closeout. Target language only.",
-        12,
-      ),
-      sp(
-        "Close the day: 'Terminamos su propiedad. Cortamos, bordeamos, aplicamos fertilizante, y reparamos el aspersor de la zona 3.'",
-        3,
-      ),
-    ],
-  },
+const LANDSCAPER_TITLES = [
+  "Morning Crew Meeting",
+  "Mowing Instructions",
+  "Irrigation System Operation",
+  "Irrigation Leak Repair",
+  "Pruning & Hedge Trimming",
+  "Fertilization & Soil",
+  "Pest & Weed Control",
+  "Tree Trimming & Removal",
+  "Mulch & Ground Cover",
+  "Planting Instructions",
+  "Sod Installation",
+  "Customer Quote Presentation",
+  "Drainage Problems & Solutions",
+  "Seasonal Cleanup",
+  "Landscape Design Consultation",
+  "Equipment Maintenance Communication",
+  "Sod vs Seed Discussion",
+  "Irrigation Winterization",
+  "Hardscape Installation",
+  "Retaining Wall Construction",
+  "Lighting Installation",
+  "Contract & Service Agreement",
+  "Xeriscape & Water Conservation",
+  "Irrigation Programming",
+  "Storm Cleanup",
+  "Aeration & Overseeding",
+  "Dealing with HOA Requirements",
+  "Employee Safety & Injury Response",
+  "Seasonal Planting Plan",
+  "THRESHOLD — Full Landscape Service Day",
 ];
+
+const LANDSCAPER_LESSONS: Lesson[] = LANDSCAPER_TITLES.map((title, index) => {
+  const n = index + 1;
+  const content = LANDSCAPER_LESSON_CONTENT[n];
+  return {
+    n,
+    title,
+    objective: content.objective,
+    words: content.words,
+    steps: [
+      r(
+        `Read this lesson's own passage. Identify the people, task, observations and questions that need clarification. ${content.objective}`,
+        7,
+      ),
+      wm(
+        "Recall this lesson's terms and phrases using flashcards, matching and listening. Then type and handwrite a response to its scenario.",
+        5,
+      ),
+      sp(content.objective, 8),
+    ],
+  };
+});
 
 // ─── AUTO MECHANIC ────────────────────────────────────────────────────────────
 
@@ -17737,7 +17287,7 @@ export const EXTENDED_CURRICULA: Record<string, ModuleCurriculum> = {
   },
   landscaper: {
     moduleId: "landscaper",
-    headline: "Landscaping Spanish",
+    headline: "The Landscaper Core 30",
     threshold:
       "By Lesson 30, you can run a full landscaping day — crew assignment, install communication, and client handoff — in the target language.",
     lessons: LANDSCAPER_LESSONS,

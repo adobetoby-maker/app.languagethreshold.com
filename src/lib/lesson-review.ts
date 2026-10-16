@@ -1,7 +1,7 @@
 import { getCurriculum, type LessonStep } from "../data/curriculum.ts";
 import {
   getLessonDefinition,
-  ROOFING_PRACTICE_VERSION,
+  modulePracticeVersion,
   type LessonDefinition,
 } from "./lesson-definition.ts";
 
@@ -41,10 +41,7 @@ export function lessonReviewSnapshot(
 ): LessonReviewSnapshot | null {
   const curriculum = getCurriculum(moduleId);
   if (!curriculum) return null;
-  const sourceVersion =
-    moduleId === "roofing" && target === "Spanish" && native === "English"
-      ? ROOFING_PRACTICE_VERSION
-      : "unversioned-app-draft";
+  const sourceVersion = modulePracticeVersion(moduleId, target, native);
   const lessons = curriculum.lessons.map((lesson) => {
     const definition = getLessonDefinition({
       moduleId,

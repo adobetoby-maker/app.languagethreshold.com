@@ -14,7 +14,8 @@ import {
 } from "./core-speaking.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
-import { roofingTeachingSettings, type RoofingTeachingSettings } from "./roofing-teaching.ts";
+import { moduleTeachingSettings } from "./module-teaching.ts";
+import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
@@ -58,7 +59,7 @@ export interface SpeakingMission {
   vocabulary: string[];
   sourcePrompts?: string[];
   sourceObjectiveId?: string;
-  lessonTeaching?: Pick<RoofingTeachingSettings, "stage" | "speaking">;
+  lessonTeaching?: Pick<LessonTeachingSettings, "stage" | "speaking">;
   coreSection?: CoreSpeakingSection;
   coreOrder?: number;
   objectives: SpeakingMissionObjective[];
@@ -1182,8 +1183,7 @@ function missionFromLesson(
   lesson: Lesson,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
-  const teaching =
-    module.id === "roofing" && language === "Spanish" ? roofingTeachingSettings(lesson.n) : null;
+  const teaching = moduleTeachingSettings(module.id, lesson.n, language, "English");
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   const projectedSteps = lesson.steps.map((step) =>

@@ -23,16 +23,14 @@ test("Roofing actual source covers30 word lists, aligned passages and toolkit se
   assert.equal(coverage.structurallyComplete, true);
   assert.equal("verified" in coverage, false);
 });
-test("Landscaper gets its actual authored first lesson rather than the old hard-coded zero", () => {
+test("Landscaper covers all30 draft sources without implying qualified review", () => {
   const coverage = lessonSourceCoverage("landscaper", "Spanish", "English");
-  assert.equal(coverage.lessonsWithWords, 1);
-  assert.equal(coverage.lessonsWithPassages, 1);
-  assert.equal(coverage.lessonsWithTeachingSettings, 0);
-  assert.deepEqual(
-    coverage.missingWordLists,
-    Array.from({ length: 29 }, (_, i) => i + 2),
-  );
-  assert.equal(coverage.structurallyComplete, false);
+  assert.equal(coverage.lessonsWithWords, 30);
+  assert.equal(coverage.lessonsWithPassages, 30);
+  assert.equal(coverage.lessonsWithTeachingSettings, 30);
+  assert.deepEqual(coverage.missingWordLists, []);
+  assert.equal(coverage.structurallyComplete, true);
+  assert.equal("verified" in coverage, false);
 });
 test("a different language pair cannot inherit the Roofing Spanish source coverage", () => {
   const coverage = lessonSourceCoverage("roofing", "French", "English");

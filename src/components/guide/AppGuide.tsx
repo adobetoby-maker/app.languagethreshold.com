@@ -65,7 +65,7 @@ import {
   writeLessonReturn,
 } from "@/lib/lesson-return";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
-import { getLessonDefinition, ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
+import { getLessonDefinition, modulePracticeVersion } from "@/lib/lesson-definition";
 import {
   lessonPositionKey,
   readLessonPosition,
@@ -660,7 +660,7 @@ function LessonRunner({
     lessonNumber: lesson.n,
     targetLanguage: state.selectedLanguage,
     instructionLanguage: state.nativeLanguage,
-    contentVersion: ROOFING_PRACTICE_VERSION,
+    contentVersion: modulePracticeVersion(moduleId, state.selectedLanguage, state.nativeLanguage),
   });
 
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);

@@ -190,14 +190,12 @@ assert.equal(roofingSource.contextualPassages, 30);
 assert.equal(roofingSource.sourceCoverage.lessonsWithTeachingSettings, 30);
 assert.equal(roofingSource.sourceCoverage.structurallyComplete, true);
 const landscaperSource = readiness.body.tracks.find((row) => row.moduleId === "landscaper");
-assert.equal(landscaperSource.authoredLessonLists, 1);
-assert.equal(landscaperSource.contextualPassages, 1);
-assert.equal(landscaperSource.sourceCoverage.lessonsWithTeachingSettings, 0);
-assert.deepEqual(
-  landscaperSource.sourceCoverage.missingWordLists,
-  Array.from({ length: 29 }, (_, index) => index + 2),
-);
-assert.equal(landscaperSource.sourceCoverage.structurallyComplete, false);
+assert.equal(landscaperSource.authoredLessonLists, 30);
+assert.equal(landscaperSource.contextualPassages, 30);
+assert.equal(landscaperSource.sourceCoverage.lessonsWithTeachingSettings, 30);
+assert.deepEqual(landscaperSource.sourceCoverage.missingWordLists, []);
+assert.equal(landscaperSource.sourceCoverage.structurallyComplete, true);
+assert.equal(landscaperSource.status, "upgrade_in_progress");
 const shortSource = readiness.body.tracks.find((row) => row.moduleId === "travel-breakfast");
 assert.deepEqual(
   shortSource.sourceCoverage.missingLessonNumbers,

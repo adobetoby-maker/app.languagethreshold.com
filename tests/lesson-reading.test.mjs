@@ -34,7 +34,7 @@ test("all thirty Roofing passages bind exact lesson and instruction language", (
   assert.equal(authoredLessonReading("roofing", 31, "Spanish", "English"), null);
 });
 
-test("Landscaping crew meeting has aligned draft words and reading, without claiming other lessons", () => {
+test("Landscaping crew meeting has aligned draft words and reading, with its original aligned material", () => {
   const d = getLessonDefinition({
     moduleId: "landscaper",
     lessonNumber: 1,
@@ -56,6 +56,9 @@ test("Landscaping crew meeting has aligned draft words and reading, without clai
   assert.match(reading, /¿Puede repetirlo\?/);
   assert.doesNotMatch(reading, /riego|irrigación/i);
   assert.ok(d.reading.sentences.every((s) => s.native && s.target));
-  assert.equal(authoredLessonReading("landscaper", 2, "Spanish", "English"), null);
+  assert.equal(
+    authoredLessonReading("landscaper", 2, "Spanish", "English").title,
+    "El plan de corte",
+  );
   assert.equal(authoredLessonReading("landscaper", 1, "Spanish", "French"), null);
 });

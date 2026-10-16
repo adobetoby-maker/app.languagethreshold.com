@@ -1,7 +1,11 @@
+import {
+  LANDSCAPER_EXPANDED_DRAFTS,
+  type LandscaperLessonDraft,
+} from "./landscaper-practice-drafts.ts";
 import type { LessonWord } from "./curriculum.ts";
 
 // Spanish/English editorial draft. This is language practice, not a site safety plan.
-// Expand lesson by lesson after content review; never substitute this for another objective.
+// These drafts require language and trade review before release approval.
 export const LANDSCAPER_CREW_MEETING_WORDS: LessonWord[] = [
   { kind: "term", es: "Cuadrilla", en: "Crew" },
   { kind: "term", es: "Reunión", en: "Meeting" },
@@ -47,3 +51,17 @@ export const LANDSCAPER_CREW_MEETING_READING = {
     "The person in charge repeats the instructions and says: Confirm your work area.",
   ],
 };
+
+/** Public practice only. Source coverage is not human approval. */
+export const LANDSCAPER_LESSON_CONTENT: Record<number, LandscaperLessonDraft> = Object.fromEntries(
+  [
+    {
+      n: 1,
+      objective:
+        "Brief a crew on the day's tasks, schedule and work areas, and ask for clarification.",
+      words: LANDSCAPER_CREW_MEETING_WORDS,
+      reading: LANDSCAPER_CREW_MEETING_READING,
+    },
+    ...LANDSCAPER_EXPANDED_DRAFTS,
+  ].map((lesson) => [lesson.n, lesson]),
+);

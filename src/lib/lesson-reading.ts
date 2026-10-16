@@ -1,5 +1,5 @@
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
-import { LANDSCAPER_CREW_MEETING_READING } from "../data/landscaper-lesson-content.ts";
+import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
 
 /** Authored translations belong to an exact pair, never just a target language. */
 export function authoredLessonReading(
@@ -13,8 +13,8 @@ export function authoredLessonReading(
   const passage =
     moduleId === "roofing"
       ? ROOFING_LESSON_PASSAGES[lessonNumber]
-      : moduleId === "landscaper" && lessonNumber === 1
-        ? LANDSCAPER_CREW_MEETING_READING
+      : moduleId === "landscaper"
+        ? LANDSCAPER_LESSON_CONTENT[lessonNumber]?.reading
         : null;
   return passage
     ? {

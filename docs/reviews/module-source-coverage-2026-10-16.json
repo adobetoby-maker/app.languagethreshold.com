@@ -1,6 +1,6 @@
 {
-  "sourceCommit": "fcc6b6e1ec538d3c62d99899c7e06d7a2b8b8b89",
-  "generatedAt": "2026-10-16T20:38:12.370Z",
+  "sourceCommit": "d7b76a92de7aa7bd3d57e4168e2ab23efd505d7f",
+  "generatedAt": "2026-10-16T21:37:26.888Z",
   "scope": "All 59 modules; initial-track details use English → Spanish when supported, otherwise Spanish → English. The full artifact includes all 7,076 compatible tracks. Source presence is not human review or runtime availability.",
   "totals": {
     "modules": 59,
@@ -8,9 +8,9 @@
     "lessonsToAdd": 260,
     "compatibleTracks": 7076,
     "shortModules": 17,
-    "initialTrackSharedWordLists": 31,
-    "initialTrackLessonPassages": 31,
-    "initialTrackToolkitSettings": 30
+    "initialTrackSharedWordLists": 60,
+    "initialTrackLessonPassages": 60,
+    "initialTrackToolkitSettings": 60
   },
   "fullArtifact": "/Users/drive/git-backups/language-threshold-module-audit-2026-10-16.json",
   "modules": [
@@ -644,16 +644,16 @@
       "initialTrack": {
         "targetLanguage": "Spanish",
         "instructionLanguage": "English",
-        "authoredWordLists": 1,
-        "authoredListsWithinVocabularyBaseline": 1,
+        "authoredWordLists": 30,
+        "authoredListsWithinVocabularyBaseline": 30,
         "generatedPackWordLists": 0,
         "generatedListsWithinVocabularyBaseline": 0,
         "loadedTargetReaderTexts": 1,
         "instructionLanguageScaffold": "unverified",
-        "lessonsWithMappedReader": 29,
-        "lessonSpecificPassages": 1,
-        "lessonsWithToolkitSettings": 0,
-        "sharedDefinitionsStructurallyComplete": false,
+        "lessonsWithMappedReader": 0,
+        "lessonSpecificPassages": 30,
+        "lessonsWithToolkitSettings": 30,
+        "sharedDefinitionsStructurallyComplete": true,
         "reviewState": "unverified",
         "exams": {
           "entrance": "unverified",
@@ -661,24 +661,7 @@
           "day90": "unverified"
         }
       },
-      "writtenRecallStepGaps": [
-        2,
-        4,
-        8,
-        10,
-        12,
-        14,
-        15,
-        16,
-        17,
-        20,
-        22,
-        24,
-        27,
-        28,
-        29,
-        30
-      ]
+      "writtenRecallStepGaps": []
     },
     {
       "moduleId": "auto-mechanic",
@@ -2782,5 +2765,6 @@
       },
       "writtenRecallStepGaps": []
     }
-  ]
+  ],
+  "sourceState": "Working tree with Landscaper draft expansion; exact application commit recorded in review ledger"
 }

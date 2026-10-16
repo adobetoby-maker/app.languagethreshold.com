@@ -746,9 +746,10 @@ function LessonRunner({
     };
   }, [userId, moduleId, lesson.n]);
 
-  // Coming back from the Speak tab or the full Reader: bring the section nav into view.
+  // Later practice steps resume at their controls. Starting/reopening See it
+  // keeps the lesson title and Previous/Next controls visible at the page top.
   useEffect(() => {
-    if (!initialSection) return;
+    if (!initialSection || initialSection === "see") return;
     const frame = requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, "auto"));
     return () => cancelAnimationFrame(frame);
   }, [initialSection]);
@@ -1894,25 +1895,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 {currentLesson.objective}
               </p>
 
-              {/* Step preview */}
-              <div className="space-y-1.5 mb-5">
-                {SECTIONS.map((step, i) => (
-                  <div
-                    key={step.id}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
-                  </div>
-                ))}
-              </div>
-
+              {/* Start stays reachable before the detailed six-mode preview. */}
               <button
                 onClick={() => openLessonFromPlan(currentLesson.n)}
                 className={cn(
-                  "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                  "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
                   planStarted && "border border-gold/40 bg-transparent text-gold",
                 )}
                 style={
@@ -1927,6 +1914,21 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Start Lesson {currentLesson.n}
                 <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+
+              {/* Step preview */}
+              <div className="space-y-1.5 mb-5">
+                {SECTIONS.map((step, i) => (
+                  <div
+                    key={step.id}
+                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

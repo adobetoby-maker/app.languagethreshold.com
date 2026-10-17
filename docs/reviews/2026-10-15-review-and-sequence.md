@@ -4,6 +4,16 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Pen Pal bounded checks and practice credit — October 17
+
+Source `c991a6a` is locally verified and not deployed. The active Pen Pal checker had unbounded image/target/language inputs, no explicit paid-request guards and a direct cast of model-selected XP into the practice result. It now caps image strings at1,000,000characters, target text at2,000 and language at40; requires same origin/no-store; and consumes the existing handwriting pool before provider construction. The provider uses the existing key,0automatic retries and a30-second total deadline/incoming abort signal. No new budget store or database policy is added.
+
+Only bounded boolean/recognition/feedback fields are accepted. Extra provider fields are stripped; the existing intended5points for word/sentence and10for free practice are assigned by server code. A provider response requesting999,999XP still receives only the fixed practice amount. Failed/invalid responses yield no result/credit. These are practice points, not assessed proficiency, mastery or a certificate; handwriting/feedback accuracy is not approved by structural validation.
+
+All832tests/type-check/stage build pass, lint0errors44mixed-export warnings, artifact19.66MiB; scan96markers/1140source/148static/0hits. Actual-handler controlled tests prove input/origin/budget denials before construction, fixed credit, malformed output rejection, options/abort propagation and safe failure results. No paid model calls, browser actions, hosted writes or physical/provider-timeout/billing acceptance. See `qa-penpal-check-guards-2026-10-17.json`.
+
+Hosted development remains `8da3abb`; accepted companion `d4ad837`, live app and main remain unchanged. This includes prior local phonetic helper guards but neither follow-up is deployed yet. The routing schema question remains pending; no schema/role/active-policy/speech/schedule changes. Broader endpoint audit and full release gates remain open.
+
 ### Paid reading-aid helper guards — October 17
 
 Source `fa769e5` is locally verified and not deployed. The three active phonetic server helpers (Furigana/Pinyin/Romaja) now require strict same origin, emit no-store, and consume the existing durable lookup allowance before paid work. They fail closed on exhausted/unavailable budgets. Limits remain the existing lookup40/IP/minute,600/IP/hour,1000/environment/hour; no new store, schema or policy was added. Each paid call disables automatic retries and combines a30-second total deadline with incoming request abort. Plain text without the relevant script uses no model/key/budget. Returned named-tool segments must preserve the exact source and meet format/shape/size bounds; extra top-level fields are omitted. Caught errors log only fixed route labels.

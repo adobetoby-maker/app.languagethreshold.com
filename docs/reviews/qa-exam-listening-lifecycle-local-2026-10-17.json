@@ -1,0 +1,41 @@
+{
+  "testedAt": "2026-10-17T21:01:40.697Z",
+  "sourceCommit": "a11ef03",
+  "deployed": false,
+  "latestHostedApplication": "0d8508a",
+  "validation": {
+    "tests": 980,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "artifactMiB": 19.75,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1255,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "evidence": [
+    "tests/exam-listening-lifecycle.test.mjs",
+    "tests/fallback-tts-lifecycle.test.mjs"
+  ],
+  "controlledChecks": [
+    "Attempt/item/account scope",
+    "Duplicate play guard",
+    "Late blob cannot create audio URL",
+    "Old terminal callbacks/rejection cannot affect retry",
+    "Clip cleanup clears handlers/source and revokes URL",
+    "Choices require current successful or saved heard state",
+    "QA text device-only bypasses Google and remote Pashto",
+    "Native cleanup cannot globally cancel another surface"
+  ],
+  "limits": [
+    "No physical/browser audio or SDK expiry proof",
+    "No hosted answer/result/model/provider call",
+    "Source follow-up not deployed",
+    "SpeakingMissionsPreview lifecycle remains open",
+    "All full-goal release gates remain open"
+  ]
+}

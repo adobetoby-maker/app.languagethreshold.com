@@ -381,7 +381,7 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "0d8508afa227a47c16c8c0c48d2e2b3d20816948",
+  "latestLocalSourceCommit": "a11ef03",
   "latestLocalPrivacyEvidence": "docs/reviews/qa-owned-audio-preview-2026-10-17.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
@@ -391,15 +391,10 @@
     "backendChangesAuthorized": false
   },
   "latestLocalSpeakerFollowup": {
-    "application": "0d8508a",
-    "includes": [
-      "2ca123d",
-      "c1c6448",
-      "51b9890",
-      "756cc90"
-    ],
-    "deployed": true,
-    "evidence": "docs/reviews/qa-owned-audio-preview-2026-10-17.json"
+    "application": "a11ef03",
+    "includes": "0d8508a",
+    "deployed": false,
+    "evidence": "docs/reviews/qa-exam-listening-lifecycle-local-2026-10-17.json"
   },
   "liveApplicationObserved": {
     "application": "9f90996f99635647aab2d8e490e12b3275786b52",
@@ -416,6 +411,7 @@
     "applicationMatchesHosted": true,
     "githubRestMergeable": true,
     "externalChecksState": "unstable",
-    "evidence": "docs/reviews/qa-main-lesson-first-reconcile-2026-10-17.json"
+    "evidence": "docs/reviews/qa-main-lesson-first-reconcile-2026-10-17.json",
+    "applicationComparisonVerifiedAtCommit": "c4327d1"
   }
 }

@@ -19,8 +19,7 @@ import { useLibrary } from "@/state/library-state";
 import { authoredModuleDeck } from "@/lib/authored-module-deck";
 import { generateModuleDeck } from "@/fns/module-deck.functions";
 import { getCuratedModulePairs } from "@/data/curated-module-pairs";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
 import { FuriganaText } from "@/components/reader/FuriganaText";
@@ -444,6 +443,9 @@ export function FlashcardsStudio() {
     [dueCardsForCategories, language, selectedCategories],
   );
   const current = dueCards[0];
+  const speakOwned = useOwnedSpeaker(
+    JSON.stringify([language, moduleId, current?.id, accent, voiceURI]),
+  );
 
   const nextUp = useMemo(() => {
     if (dueCards.length > 0) return null;
@@ -506,17 +508,7 @@ export function FlashcardsStudio() {
   }, [current, flipped, grade]);
 
   function speak(word: string) {
-    if (typeof window === "undefined") return;
-    if (needsRemoteTTS(accent, voiceURI)) {
-      void speakRemote(word, accent, { rate: 0.9, voiceURI });
-      return;
-    }
-    if (!("speechSynthesis" in window)) return;
-    const utter = new SpeechSynthesisUtterance(word);
-    configureUtterance(utter, accent, voiceURI);
-    utter.rate = 0.9;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
+    speakOwned(word, accent, voiceURI);
   }
 
   return (

@@ -7,8 +7,7 @@ import { lookupWord } from "@/fns/word-lookup.functions";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { useApp, type Language } from "@/state/app-state";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
@@ -110,6 +109,7 @@ export function WordCard({
   const tutor = useTutor();
   const { state, dispatch } = useApp();
   const lookupKey = wordCardCacheKey(request, state.nativeLanguage);
+  const speakOwned = useOwnedSpeaker(JSON.stringify([lookupKey, accent, voiceURI]));
   const [lookupState, setLookupState] = useState(() => {
     const cached = cache.get(lookupKey);
     return {
@@ -283,20 +283,8 @@ export function WordCard({
   ]);
 
   const speak = () => {
-    if (typeof window === "undefined") return;
     const text = card?.headword ?? request.word;
-    const remoteLocale = accent || LOCALE[request.language];
-    if (needsRemoteTTS(remoteLocale)) {
-      void speakRemote(text, remoteLocale, { rate: 0.9 });
-      return;
-    }
-    if (!("speechSynthesis" in window)) return;
-    const utter = new SpeechSynthesisUtterance(text);
-    const locale = remoteLocale;
-    configureUtterance(utter, locale, voiceURI);
-    utter.rate = 0.9;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
+    speakOwned(text, accent || LOCALE[request.language], voiceURI);
   };
 
   return (

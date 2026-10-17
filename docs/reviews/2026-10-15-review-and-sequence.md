@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Private sentence reading caches — October 17
+
+Sourced5820df is committed and locally verified, not deployed. Component/lib storage audit found Japanese furigana, Chinese pinyin and Korean romaja sentence caches using unownedlocalStorage plus module-global memory. These surfaces render private Reader sentences and speaking transcripts, not just public lessons. They now use three existing account/guest-owned envelope kinds, at most80validated entries each, with exact concatenated-source and per-format/size validation. No module-wide private sentence state remains in those components. The hook returns only results for the exact current store/text, cancels late effect work and falls back to current plain text. Originalunownedlt.furigana.v3/lt.pinyin.v1/lt.romaja.v1bytes are neither read, claimed nor deleted; no recovery/history claim is made.
+
+All826tests/type-check/build pass; lint0errors43mixed-export warnings (the two newly touched reading components already export hooks alongside components); artifact19.65MiB. Scan96markers/1129source/148static/0hits. Production-store tests cover the three formats through own reload→guest→B→own restore and stale callbacks, with original keys retained. Pure cache tests cover malformed/wrong-format/altered-source rejection and eviction. The actual hook is tested with controlled React/store boundaries for delayed sentences/accounts, own cached return and disabled fetch. React review preserves word-click/accessibility/rendering and finds no conditional hooks or render-time sentence storage IO. This is controlled source evidence, not actual browser/offline/physical acceptance.
+
+No browser actions, paid model calls, hosted writes, schema/role/active-policy/speech/schedule changes. Hosted development stayscfa32b6, accepted companiond4ad837 and live app unchanged; main untouched. Broader cache privacy remains open, including conjugation registry/user-cache ownership, old AI email-capture storage and other in-memory/private-context caches. Durable adaptive routing and human/content/pilot/device/operational release gates remain open. See qa-reading-hint-ownership-2026-10-17.json.
+
 ### Combined routing/conversation Preview — October 17
 
 Applicationcfa32b6 (implementation4e667ad) is READY at https://language-threshold-hy2xxpvz4-adobetoby-5572s-projects.vercel.app, deploymentdpl_5iKaF2jJz3NB95pivLGFKXAN72AD, true Preview/target null on the expected app project/team. This includes the private routing foundation and conversation retry/deadline/interruption/cancellation changes. Vercel metadata independently reports the exact fullcfa32b6 commit; the checked prebuilt source matches the committed implementation. Acceptedexams.languagethreshold.com remains pinned tod4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; live app remainsdpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. No alias reassignment or main push.

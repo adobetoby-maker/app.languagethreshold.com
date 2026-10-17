@@ -5,6 +5,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Fallback TTS cancellation and retained source cleanup — October 17
+
+Source9450c0f adds generation/cancellation ownership across the site-wide TTS wrapper. New request/Stop settles superseded Pashto/device fallback without old caller notification. Stop clears source/handlers and reloads the audio element; normal terminal fallback also removes its learner-text URL. Old play rejection/end cannot clear newer audio. Device fallback clears utterance handlers and cancels synthesis on Stop. Google wrapper checks generation before notification/fallback, so late old success/failure cannot notify or start fallback speech after stop. Endpoint/request/provider unchanged; network request history is not erased by clearing the element source.
+
+All963tests/type-check pass; lint0errors/45existing warnings; local stage artifact19.73MiB passes target/artifact guards. Private-bank96markers/1223source/148static/0hits. One controlled actual-wrapper group covers A→B source ownership, old end/play rejection, Stop/source clearing/settlement, duplicate terminal callbacks, device cancellation and late Google success/failure without fallback/notification. Fixtures only: no provider/browser/physical audio proof. Existing failure callbacks retain terminal-notification semantics; this is not proof the learner heard audio. Evidence: qa-fallback-tts-local-2026-10-17.json.
+
+Latest hosted remains last-observed eda1f26 at https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app (dpl_bCovgdgjSyaFedqVN34AHtoveM6h), READY/targetnull. No deployment/hosted rerun/alias inspection. Local387f24c/04a0181/84f3f9a/9450c0f remain undeployed. Accepted companion last-observed d4ad837 and live f9f8685 unchanged; main untouched.
+
+NEXT: SpeechProvider delayed30ms callbacks and completion counter updater side effects, VoicePicker unmount/current-owner preview integration, direct device utterance callbacks, analytics session/event identity and Reader/device guidance. No app-wide privacy completion claimed. Prepared-start additional RPC permission remains pending; do not repeat/apply/wire. No browser/model/hosted learner writes/schema/role/active speech/retention/schedule changes. Adaptive capability stays off; full goal/all release gates remain open.
+
+
 ### TTS late-work isolation and explicit voice preference — October 17
 
 Source84f3f9a guards Mission TTS with generation/current-controller checks after credentials, response/error payload and blob. Stop rejects AbortError, preventing stale work from starting audio, invoking old start callbacks or triggering the remote wrapper's fallback speech. Active request remains cancellable through playback. Late play rejection cannot clear a newer source/handler/object URL; matching completion alone clears its controller. VoicePicker treats cancellation silently. Device/remote voice helpers no longer read the unowned lt.speech.v1 key: owned provider callers pass explicit choices, unspecified callers get public device defaults. Legacy bytes and explicit recovery remain unchanged; no owned Speech store edits.

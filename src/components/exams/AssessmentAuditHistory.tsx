@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
 import { examHistoryExport } from "@/lib/assessments/client";
 import type { AssessmentAuditSummary } from "@/lib/assessments/audit";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
 const labels: Record<string, string> = {
   "enrollment.created": "Plan created",
@@ -23,71 +24,94 @@ const labels: Record<string, string> = {
   "ai.requested": "AI writing feedback requested",
   "ai.proposal": "AI feedback proposal",
 };
-export function AssessmentAuditHistory({
-  enrollmentId,
-  onOpenAttempt,
-}: {
-  enrollmentId: string;
-  onOpenAttempt: (id: string) => void;
-}) {
+type Props = { enrollmentId: string; onOpenAttempt: (id: string) => void };
+export function AssessmentAuditHistory(props: Props) {
+  const { user } = useAuth();
+  return (
+    <OwnedAssessmentAuditHistory
+      key={JSON.stringify([user?.id ?? null, props.enrollmentId])}
+      {...props}
+    />
+  );
+}
+function OwnedAssessmentAuditHistory({ enrollmentId, onOpenAttempt }: Props) {
   const [open, setOpen] = useState(false),
     page = usePrivatePagedReport<AssessmentAuditSummary>(
       `/api/exam-plans?action=history&enrollment=${encodeURIComponent(enrollmentId)}`,
       open,
     );
-  const { user, isCurrentUser } = useAuth();
-  const exportFlight = useRef<AbortController | null>(null);
+  const { actor, capture } = usePracticeLifecycle(enrollmentId);
+  const exportFlight = useRef<{ controller: AbortController; dispose: () => void } | null>(null);
   const [exportBusy, setExportBusy] = useState(false),
     [exportNotice, setExportNotice] = useState(""),
     [exportError, setExportError] = useState("");
-  useEffect(
-    () => () => {
-      exportFlight.current?.abort();
-      exportFlight.current = null;
-    },
-    [enrollmentId, user?.id],
-  );
   async function exportHistory() {
-    if (!user || exportFlight.current) return;
-    const viewer = user.id,
-      controller = new AbortController();
-    exportFlight.current = controller;
+    const lease = capture();
+    if (!actor || !lease.isCurrent() || exportFlight.current) return;
+    const controller = new AbortController();
+    let release = () => {};
+    const flight = {
+      controller,
+      dispose: () => {
+        release();
+        controller.abort();
+        if (exportFlight.current === flight) exportFlight.current = null;
+      },
+    };
+    exportFlight.current = flight;
+    release = lease.own(flight.dispose);
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && exportFlight.current === flight;
     setExportBusy(true);
     setExportError("");
     setExportNotice("");
     try {
       const result = await examHistoryExport(enrollmentId, controller.signal);
-      if (controller.signal.aborted || !isCurrentUser(viewer)) return;
-      const url = URL.createObjectURL(result.blob),
-        link = document.createElement("a");
-      link.href = url;
-      link.download = "language-threshold-plan-history.csv";
+      if (!current()) return;
+      const url = URL.createObjectURL(result.blob);
+      let timer: ReturnType<typeof setTimeout> | null = null;
+      let released = false,
+        releaseUrl = () => {};
+      const disposeUrl = () => {
+        if (released) return;
+        released = true;
+        if (timer !== null) clearTimeout(timer);
+        URL.revokeObjectURL(url);
+        releaseUrl();
+      };
+      releaseUrl = lease.own(disposeUrl);
       try {
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "language-threshold-plan-history.csv";
         link.click();
-      } finally {
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        timer = setTimeout(disposeUrl, 1000);
+      } catch (error) {
+        disposeUrl();
+        throw error;
       }
-      setExportNotice(
-        `Prepared ${result.eventCount} recorded event${result.eventCount === 1 ? "" : "s"} for download. Raw responses and media are excluded.`,
-      );
+      if (current())
+        setExportNotice(
+          `Prepared ${result.eventCount} recorded event${result.eventCount === 1 ? "" : "s"} for download. Raw responses and media are excluded.`,
+        );
     } catch (error) {
-      if (!controller.signal.aborted && isCurrentUser(viewer))
+      if (current())
         setExportError(
           error instanceof Error
             ? error.message
             : "History could not be exported. No partial file was downloaded.",
         );
     } finally {
-      if (exportFlight.current === controller) {
-        exportFlight.current = null;
-        if (!controller.signal.aborted && isCurrentUser(viewer)) setExportBusy(false);
-      }
+      if (current()) setExportBusy(false);
+      flight.dispose();
     }
   }
   return (
     <details
       open={open}
-      onToggle={(event) => setOpen(event.currentTarget.open)}
+      onToggle={(event) => {
+        if (capture().isCurrent()) setOpen(event.currentTarget.open);
+      }}
       className="rounded-xl border border-border p-4"
     >
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">All plan activity</summary>
@@ -135,7 +159,9 @@ export function AssessmentAuditHistory({
                 {event.attemptId && (
                   <button
                     className="min-h-11 text-gold underline"
-                    onClick={() => onOpenAttempt(event.attemptId!)}
+                    onClick={() => {
+                      if (capture().isCurrent()) onOpenAttempt(event.attemptId!);
+                    }}
                   >
                     View this attempt’s evidence
                   </button>
@@ -156,7 +182,7 @@ export function AssessmentAuditHistory({
           <div className="flex flex-wrap gap-3">
             <button
               className="min-h-11 text-sm text-gold underline"
-              disabled={exportBusy || !user}
+              disabled={exportBusy || !actor}
               onClick={() => void exportHistory()}
             >
               {exportBusy
@@ -167,8 +193,8 @@ export function AssessmentAuditHistory({
               <button
                 className="min-h-11 text-sm text-gold underline"
                 onClick={() => {
-                  exportFlight.current?.abort();
-                  exportFlight.current = null;
+                  if (!capture().isCurrent() || !exportFlight.current) return;
+                  exportFlight.current.dispose();
                   setExportBusy(false);
                   setExportNotice("Export canceled. No file was downloaded.");
                 }}

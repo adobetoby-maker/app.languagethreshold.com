@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Combined routing/conversation Preview — October 17
+
+Applicationcfa32b6 (implementation4e667ad) is READY at https://language-threshold-hy2xxpvz4-adobetoby-5572s-projects.vercel.app, deploymentdpl_5iKaF2jJz3NB95pivLGFKXAN72AD, true Preview/target null on the expected app project/team. This includes the private routing foundation and conversation retry/deadline/interruption/cancellation changes. Vercel metadata independently reports the exact fullcfa32b6 commit; the checked prebuilt source matches the committed implementation. Acceptedexams.languagethreshold.com remains pinned tod4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; live app remainsdpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. No alias reassignment or main push.
+
+Current hosted20authenticated Exams groups,12routing/private-header groups,3public pack hash/header groups,7read-only scope groups and16rejected conversation input groups pass. Conversation checks send only cross-origin/missing-origin/invalid/oversized payloads:0valid model requests and no paid provider calls. The saved personal draft remainsrevision12/in_progress/unsubmitted; teamB remains2opened/0mastered. Local821tests/type-check/build and artifact19.66MiB pass; lint0errors41existing warnings. Current scan96markers/1124source/148static/0hits, including the new QA script. No browser actions, new phone/physical/offline proof, schema/role/active-policy/speech/schedule changes. See qa-combined-routing-stream-preview-2026-10-17.json and qa-conversation-http-guards-2026-10-17.json.
+
+This is staged regression evidence, not actual provider-timeout/billing/browser-cancellation acceptance. Durable adaptive runtime remains incomplete/disabled; human/content/pilot/device/operational gates remain open. The conditional main-push authorization has not reached its completion condition.
+
 ### Conversation stream lifecycle — October 17
 
 Source4e667ad is locally verified, not deployed. The shared Anthropic text stream now requires an actualmessage_stop before emitting DONE or a complete usage receipt; early EOF/provider iteration failures error the response with fixed text instead of closing successfully or exposing raw provider exceptions. Cancelling the response aborts the SDK controller and suppresses later writes. Discussion and both Field Prep routes now reuse that bridge alongside Tutor and Speak. This does not enable speech collection or change speech policy.

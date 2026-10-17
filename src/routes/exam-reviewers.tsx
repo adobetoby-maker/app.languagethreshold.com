@@ -1,10 +1,11 @@
 import { AssessmentCleanupStatus } from "@/components/exams/AssessmentCleanupStatus";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthButton } from "@/components/auth/AuthButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { examRequest, examReviewerRequest, ExamRequestError } from "@/lib/assessments/client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { MODULES } from "@/data/modules";
 import { LANGUAGES, NATIVE_LANGUAGES } from "@/data/languages";
 const labels = {
@@ -58,10 +59,10 @@ function ReviewerPage() {
   return <ReviewerAdmin key={user?.id ?? "guest"} />;
 }
 function ReviewerAdmin() {
-  const { user, isCurrentUser } = useAuth();
+  const { user } = useAuth();
   const [moduleId, setModule] = useState("roofing"),
     [filterUser, setFilterUser] = useState("");
-  const [registry, setRegistry] = useState<Registry | null>(null),
+  const [registryState, setRegistryState] = useState<{ key: string; data: Registry } | null>(null),
     [epoch, setEpoch] = useState(0),
     [loading, setLoading] = useState(false),
     [error, setError] = useState(""),
@@ -71,14 +72,24 @@ function ReviewerAdmin() {
     [native, setNative] = useState("English"),
     [kind, setKind] = useState<Kind>("curriculum"),
     [reason, setReason] = useState(""),
-    [confirmed, setConfirmed] = useState(false),
-    [busy, setBusy] = useState(false);
+    [confirmation, setConfirmation] = useState<string | null>(null);
+  const [busyState, setBusyState] = useState<{ key: string; busy: boolean } | null>(null);
+  const { key: viewKey, capture: captureView } = usePracticeLifecycle(
+    JSON.stringify([moduleId, filterUser]),
+  );
+  const registry = registryState?.key === viewKey ? registryState.data : null;
+  const setRegistry = useCallback(
+    (data: Registry | null) => setRegistryState(data ? { key: viewKey, data } : null),
+    [viewKey],
+  );
   const flight = useRef(false),
     request = useRef<{ key: string; id: string } | null>(null);
   useEffect(() => {
-    if (!user) return;
-    const actor = user.id,
-      controller = new AbortController();
+    const lease = captureView();
+    if (!user || !lease.isCurrent()) return;
+    const controller = new AbortController();
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() && !controller.signal.aborted;
     setRegistry(null);
     setLoading(true);
     setError("");
@@ -87,16 +98,19 @@ function ReviewerAdmin() {
       controller.signal,
     )
       .then((result) => {
-        if (!controller.signal.aborted && isCurrentUser(actor)) setRegistry(result);
+        if (current()) setRegistry(result);
       })
       .catch((err) => {
-        if (!controller.signal.aborted && isCurrentUser(actor)) setError(err.message);
+        if (current()) setError(err.message);
       })
       .finally(() => {
-        if (!controller.signal.aborted && isCurrentUser(actor)) setLoading(false);
+        if (current()) setLoading(false);
       });
-    return () => controller.abort();
-  }, [user, isCurrentUser, moduleId, filterUser, epoch]);
+    return () => {
+      release();
+      controller.abort();
+    };
+  }, [user, captureView, moduleId, filterUser, epoch, setRegistry]);
   const existing = registry?.grants.find(
     (g) =>
       g.user_id === targetId.trim().toLowerCase() &&
@@ -104,44 +118,92 @@ function ReviewerAdmin() {
       g.instruction_language === native &&
       g.kind === kind,
   );
+  const confirmationKey = JSON.stringify([
+    viewKey,
+    targetId.trim().toLowerCase(),
+    target,
+    native,
+    kind,
+    reason.trim(),
+    existing?.revision ?? 0,
+    existing?.active ?? null,
+  ]);
+  const confirmed = confirmation === confirmationKey;
+  const { key: mutationKey, capture: captureMutation } = usePracticeLifecycle(confirmationKey);
+  const pending = useRef<AbortController | null>(null);
+  const busy = busyState?.key === mutationKey && busyState.busy;
+  const editable = () => captureMutation().isCurrent() && !flight.current;
   async function submit(active: boolean) {
-    if (!user || !registry || flight.current) return;
-    const actor = user.id,
-      body = {
-        userId: targetId.trim().toLowerCase(),
-        moduleId,
-        target,
-        native,
-        kind,
-        active,
-        expectedRevision: existing?.revision ?? 0,
-        reason: reason.trim(),
-        confirmScope: confirmed,
-      };
+    const lease = captureMutation();
+    const normalized = targetId.trim().toLowerCase();
+    if (
+      !user ||
+      !lease.isCurrent() ||
+      !registry ||
+      flight.current ||
+      !confirmed ||
+      !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(normalized) ||
+      reason.trim().length < 3 ||
+      reason.trim().length > 2000 ||
+      !Object.hasOwn(labels, kind) ||
+      !MODULES.some((m) => m.id === moduleId) ||
+      !LANGUAGES.includes(target as (typeof LANGUAGES)[number]) ||
+      !NATIVE_LANGUAGES.includes(native as (typeof NATIVE_LANGUAGES)[number]) ||
+      (active && normalized === user.id) ||
+      (!active && !existing?.active)
+    )
+      return;
+    const body = {
+      userId: targetId.trim().toLowerCase(),
+      moduleId,
+      target,
+      native,
+      kind,
+      active,
+      expectedRevision: existing?.revision ?? 0,
+      reason: reason.trim(),
+      confirmScope: confirmed,
+    };
     const key = JSON.stringify(body);
     if (request.current?.key !== key) request.current = { key, id: crypto.randomUUID() };
     flight.current = true;
-    setBusy(true);
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) {
+        pending.current = null;
+        flight.current = false;
+      }
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && pending.current === controller;
+    setBusyState({ key: mutationKey, busy: true });
     setError("");
     setNotice("");
     try {
-      await examReviewerRequest({ ...body, requestId: request.current.id });
-      if (isCurrentUser(actor)) {
-        setConfirmed(false);
+      await examReviewerRequest({ ...body, requestId: request.current.id }, controller.signal);
+      if (current()) {
+        setConfirmation(null);
         setReason("");
         request.current = null;
         setNotice("Access change recorded. Refreshing the current scopes…");
         setEpoch((n) => n + 1);
       }
     } catch (err) {
-      if (isCurrentUser(actor)) {
+      if (current()) {
         if (err instanceof ExamRequestError && (err.status === 401 || err.status === 403))
           setRegistry(null);
         setError(err instanceof Error ? err.message : "Reviewer access could not be updated.");
       }
     } finally {
-      flight.current = false;
-      if (isCurrentUser(actor)) setBusy(false);
+      if (current()) setBusyState({ key: mutationKey, busy: false });
+      if (pending.current === controller) {
+        pending.current = null;
+        flight.current = false;
+      }
+      release();
+      controller.abort();
     }
   }
   return (
@@ -177,8 +239,9 @@ function ReviewerAdmin() {
               value={moduleId}
               disabled={busy}
               onChange={(event) => {
+                if (!editable()) return;
                 setModule(event.target.value);
-                setConfirmed(false);
+                setConfirmation(null);
                 setNotice("");
               }}
             >
@@ -197,7 +260,12 @@ function ReviewerAdmin() {
             <button
               className={button + " mt-3"}
               disabled={busy}
-              onClick={() => setEpoch((n) => n + 1)}
+              onClick={() => {
+                if (editable()) {
+                  setConfirmation(null);
+                  setEpoch((n) => n + 1);
+                }
+              }}
             >
               Refresh reviewer access
             </button>
@@ -225,8 +293,9 @@ function ReviewerAdmin() {
                     disabled={busy}
                     pattern="[0-9a-fA-F-]{36}"
                     onChange={(e) => {
+                      if (!editable()) return;
                       setTargetId(e.target.value);
-                      setConfirmed(false);
+                      setConfirmation(null);
                     }}
                     autoComplete="off"
                     spellCheck={false}
@@ -239,8 +308,9 @@ function ReviewerAdmin() {
                     value={kind}
                     disabled={busy}
                     onChange={(e) => {
+                      if (!editable()) return;
                       setKind(e.target.value as Kind);
-                      setConfirmed(false);
+                      setConfirmation(null);
                     }}
                   >
                     {Object.entries(labels).map(([value, label]) => (
@@ -257,8 +327,9 @@ function ReviewerAdmin() {
                     value={target}
                     disabled={busy}
                     onChange={(e) => {
+                      if (!editable()) return;
                       setTarget(e.target.value);
-                      setConfirmed(false);
+                      setConfirmation(null);
                     }}
                   >
                     {LANGUAGES.map((l) => (
@@ -273,8 +344,9 @@ function ReviewerAdmin() {
                     value={native}
                     disabled={busy}
                     onChange={(e) => {
+                      if (!editable()) return;
                       setNative(e.target.value);
-                      setConfirmed(false);
+                      setConfirmation(null);
                     }}
                   >
                     {NATIVE_LANGUAGES.map((l) => (
@@ -291,7 +363,12 @@ function ReviewerAdmin() {
                     maxLength={2000}
                     value={reason}
                     disabled={busy}
-                    onChange={(e) => setReason(e.target.value)}
+                    onChange={(e) => {
+                      if (editable()) {
+                        setReason(e.target.value);
+                        setConfirmation(null);
+                      }
+                    }}
                   />
                 </label>
                 <label className="flex min-h-11 items-start gap-3 sm:col-span-2">
@@ -300,7 +377,9 @@ function ReviewerAdmin() {
                     className="mt-1"
                     checked={confirmed}
                     disabled={busy}
-                    onChange={(e) => setConfirmed(e.target.checked)}
+                    onChange={(e) => {
+                      if (editable()) setConfirmation(e.target.checked ? confirmationKey : null);
+                    }}
                   />
                   <span>
                     I checked this account and the reviewer’s qualifications, and intend to change
@@ -337,14 +416,28 @@ function ReviewerAdmin() {
                   type="button"
                   className={button}
                   disabled={busy || !/^[0-9a-fA-F-]{36}$/.test(targetId.trim())}
-                  onClick={() => setFilterUser(targetId.trim().toLowerCase())}
+                  onClick={() => {
+                    if (editable()) {
+                      setFilterUser(targetId.trim().toLowerCase());
+                      setConfirmation(null);
+                    }
+                  }}
                 >
                   Load this account’s scopes
                 </button>
                 {filterUser && (
                   <>
                     <span className="break-all text-sm">Filtered account: {filterUser}</span>
-                    <button className={button} disabled={busy} onClick={() => setFilterUser("")}>
+                    <button
+                      className={button}
+                      disabled={busy}
+                      onClick={() => {
+                        if (editable()) {
+                          setFilterUser("");
+                          setConfirmation(null);
+                        }
+                      }}
+                    >
                       Show all module reviewers
                     </button>
                   </>
@@ -373,11 +466,12 @@ function ReviewerAdmin() {
                     className="min-h-11 text-gold underline"
                     disabled={busy}
                     onClick={() => {
+                      if (!editable()) return;
                       setTargetId(g.user_id);
                       setTarget(g.target_language);
                       setNative(g.instruction_language);
                       setKind(g.kind);
-                      setConfirmed(false);
+                      setConfirmation(null);
                       setReason("");
                       setNotice("");
                     }}

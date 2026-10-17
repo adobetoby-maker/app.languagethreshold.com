@@ -34,11 +34,25 @@ test("a compound does not lend its meaning to one token and unmatched words stay
   const ref = reference("roofing", 15),
     lesson = resolveTutorLesson(ref);
   const compound = lesson.words.find(
-    (x) => x.es.includes(" ") && !lesson.words.some((y) => y.es === x.es.split(" ")[0]),
+    (x) =>
+      x.es.includes(" ") &&
+      !x.es.includes("/") &&
+      !lesson.words.some((y) => y.es === x.es.split(" ")[0]),
   );
   assert.ok(compound);
   assert.equal(lessonWordCard(ref, compound.es.split(" ")[0], "Spanish", "English"), null);
   assert.equal(lessonWordCard(ref, "missing-qa-word", "Spanish", "English"), null);
+});
+test("explicitly listed slash-separated term alternatives retain their shared lesson definition", () => {
+  const ref = reference("roofing", 15);
+  for (const word of ["limahoya", "valle"])
+    assert.equal(lessonWordCard(ref, word, "Spanish", "English").baseDefinition, "valley");
+  assert.equal(lessonWordCard(ref, "lima", "Spanish", "English"), null);
+  assert.equal(
+    lessonWordCard(ref, "membrana impermeable", "Spanish", "English").baseDefinition,
+    "ice and water shield",
+  );
+  assert.equal(lessonWordCard(ref, "impermeable", "Spanish", "English"), null);
 });
 test("lesson word recovery rejects stale sources, unrelated language pairs and unknown lessons", () => {
   const ref = reference("roofing", 15),

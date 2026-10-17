@@ -25,7 +25,11 @@ export function lessonWordCard(
   )
     return null;
   const lesson = resolveTutorLesson(reference);
-  const entry = lesson?.words.find((item) => exactWord(item.es) === exactWord(word));
+  const entry = lesson?.words.find((item) =>
+    (item.kind === "term" ? [item.es, ...item.es.split(/\s+\/\s+/u)] : [item.es]).some(
+      (candidate) => exactWord(candidate) === exactWord(word),
+    ),
+  );
   if (!entry?.es.trim() || !entry.en.trim()) return null;
   return {
     headword: entry.es,

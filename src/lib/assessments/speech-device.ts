@@ -66,6 +66,15 @@ export function registerSpeechCapture(
     changed();
   };
 }
+/** A delayed recorder must not replace a newer capture/take for the same question. */
+export function isSpeechCaptureCurrent(
+  user: string,
+  attempt: string,
+  item: string,
+  cancel: () => void,
+) {
+  return captures.get(keyFor(user, attempt, item))?.cancel === cancel;
+}
 export function unsavedSpeechCount(userId: string, attemptId?: string) {
   const matching = (v: { userId: string; attemptId: string }) =>
     v.userId === userId && (!attemptId || v.attemptId === attemptId);

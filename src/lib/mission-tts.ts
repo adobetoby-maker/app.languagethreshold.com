@@ -99,6 +99,7 @@ export async function speakMissionTts({
   speakingRate,
   usage = "mission",
   onPlaybackStart,
+  signal,
 }: {
   text: string;
   voiceName: string;
@@ -106,7 +107,9 @@ export async function speakMissionTts({
   speakingRate: number;
   usage?: "learning" | "mission";
   onPlaybackStart?: () => void;
+  signal?: AbortSignal;
 }) {
+  if (signal?.aborted) throw new DOMException("The request was aborted.", "AbortError");
   stopMissionTts();
   const controller = new AbortController();
   const generation = playbackGeneration;
@@ -116,6 +119,10 @@ export async function speakMissionTts({
     if (!current()) throw new DOMException("The request was aborted.", "AbortError");
   };
 
+  const abortOwnedPlayback = () => {
+    if (current()) stopMissionTts();
+  };
+  signal?.addEventListener("abort", abortOwnedPlayback, { once: true });
   try {
     const headers = await speakingRequestHeaders();
     checkCurrent();
@@ -172,6 +179,7 @@ export async function speakMissionTts({
     checkCurrent();
     throw error;
   } finally {
+    signal?.removeEventListener("abort", abortOwnedPlayback);
     if (activeController === controller) activeController = null;
   }
 }

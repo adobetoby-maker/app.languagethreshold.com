@@ -38,7 +38,20 @@ test("actual mission playback rejects stopped/late work without touching newer a
     const third=m.speakMissionTts({...opts,onPlaybackStart:()=>starts++}).then(()=>"finished",e=>e.name);
     await tick();requests[3].resolve(response());await tick();m.stopMissionTts();assert.equal(await third,"AbortError");
     plays[2].resolve();await tick();assert.equal(starts,0,"late play success cannot call prior owner callback");assert.equal(audio.src,"");
-    assert.deepEqual(revoked,["blob:qa-1","blob:qa-2","blob:qa-3"]);
+    const owner = new AbortController();
+    const owned=m.speakMissionTts({...opts,signal:owner.signal}).then(()=>"finished",e=>e.name);
+    await tick();requests[4].resolve(response());await tick();
+    const newer=run();owner.abort();await tick();assert.equal(await owned,"AbortError");
+    requests[5].resolve(response());await tick();assert.equal(audio.src,"blob:qa-5");
+    const preAborted=new AbortController();preAborted.abort();
+    await assert.rejects(m.speakMissionTts({...opts,signal:preAborted.signal}),{name:"AbortError"});
+    assert.equal(requests.length,6);assert.equal(audio.src,"blob:qa-5");
+    audio.onended();await newer;
+    const liveOwner=new AbortController();
+    const ownedStop=m.speakMissionTts({...opts,signal:liveOwner.signal}).then(()=>"finished",e=>e.name);
+    await tick();requests[6].resolve(response());await tick();liveOwner.abort();
+    assert.equal(await ownedStop,"AbortError");assert.equal(audio.src,"");
+    assert.deepEqual(revoked,["blob:qa-1","blob:qa-2","blob:qa-3","blob:qa-4","blob:qa-5","blob:qa-6"]);
   } finally {globalThis.fetch=saved.fetch;globalThis.Audio=saved.Audio;URL.createObjectURL=saved.create;URL.revokeObjectURL=saved.revoke;rmSync(dir,{recursive:true,force:true});}
 });
 

@@ -4,6 +4,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Studio and Reader word-card playback ownership — October 17
+
+Source2ca123d adopts the existing component-owned speaker in FlashcardsStudio and Reader WordCard. Studio scope includes current card/module/language/accent/voice; WordCard scope includes lookup context/accent/voice. Hook cleanup aborts only that surface's pending/current generation on scope/account/unmount, preserving another surface's newer playback. Both use the existing explicit selected voice and shared device/remote routing; WordCard now passes its selected voice on the remote path too. No endpoint/provider/storage/counter or grading changes.
+
+All973tests/type-check pass; lint0errors/45existing warnings; stage artifact19.74MiB passes target/artifact guards. Existing actual-hook+actual-TTS controlled lifecycle group verifies old surface cleanup/new surface isolation, old scope/actor/unmount callbacks and guest cleanup. No new test that merely mirrors these two wiring changes. This is not browser/physical audio proof. React review: unconditional hook calls, primitive scope string, existing controls/accessible labels unchanged, no render-time side effects. Private-bank96markers/1243source/148static/0hits. An audit attempted while build was replacing static output failed closed; the completed artifact was then verified and scanned successfully. Evidence qa-word-card-speaker-local-2026-10-17.json.
+
+Reader/device guidance inventory: lt.guide.reader.tapCounts contains only left/right onboarding tap totals; ActionHint stores device dismissal and receives the matching dismiss event. Reader script/furigana/romaja/pinyin and Studio furigana values are presentation preferences. These are not learner word text, XP, proficiency or entitlement; no ownership migration/recovery/reset performed. Wider direct-utterance and device-state inventory remains incomplete.
+
+Latest hosted application remains5b00bd2 at https://language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app (last independently READY/targetnull). This source follow-up is not deployed and has no hosted rerun/alias inspection/browser actions. Accepted companion last-observed d4ad837 and app live f9f8685; main untouched. Prepared-start RPC approval/application is already complete, keep adaptive runtime off. Analytics remains disabled.
+
+NEXT: inspect remaining ListeningDrill/Battle/FieldPrep/Speak/device-preview utterance cleanup, then securely stage combined source changes and actual browser/phone/audio acceptance when appropriate. No schema/role/active speech/retention/schedule changes, model call, hosted learner writes or fabricated approvals. Retention/reviewer questions remain pending; do not repeat. Full goal/all content/calibration/equivalence/reviewer/pilot/catalog/device/operational gates remain open.
+
+
 
 ### Owner-approved prepared-start RPC applied and gated API wired — October 17
 

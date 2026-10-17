@@ -5,6 +5,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Adaptive readiness cumulative deadline staged — October 17
+
+Application62e0441 adds one cumulative10second deadline across adaptive readiness metadata discovery and all private definition batches. The same abort signal reaches each Supabase request. Timeout/storage failure returns fixed503 with no partial availability. Deadline checks after replies/before each batch/row prevent a noncooperative late transport from returning partial results or launching more queries. Timer/request cleanup runs on success and failure. Default-off behavior performs no extra private bank reads or timer allocation. This bounds the adaptive readiness stage, not every surrounding API operation.
+
+All931tests/type-check pass; lint0errors/44existing warnings; stage build/artifact19.72MiB. Five new controlled groups cover stalled discovery, cumulative later-batch expiry, no late next batch/partial result, success/error cleanup and safe errors, actual installed Supabase SDK abort/no retry with synthetic fetch, and600candidates across60batches of10. Timer callbacks are controlled; this is not a hosted outage or platform worst-case latency claim. Private-bank final counts are in qa-readiness-deadline-preview-2026-10-17.json; zero hits.
+
+True Preview READY/targetnull/exact full62e0441 metadata: https://language-threshold-ao2c8ffb7-adobetoby-5572s-projects.vercel.app, dpl_6QgSym9vBLoJxWJYac5ampWvTyPW. Deployment command explicitly pins LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED=false; the GET deployment metadata does not expose its environment value. No project-wide environment change or adaptive activation. Current21authenticated Exams/12entry-private-header/3public-pack/7read-only-scope groups pass with existing flat QA data. Personal draft staysrevision12/in_progress/unsubmitted; teamB2opened/0mastered. Alias inspection confirms accepted companion remainsd4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT and live remainsf9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. No main/alias/production changes. Evidence qa-readiness-deadline-preview-2026-10-17.json and qa-exams-readiness-deadline-preview-2026-10-17.json.
+
+NEXT: the additional prepared-start RPC proposal remains pending owner authorization; do not repeat the question or apply/wire it meanwhile. Its local race proof and proposed locks are in the preceding source-only checkpoint below. Continue independent activation/rollback and remaining component/cache privacy review. Runtime capability staysoff. No browser/provider/hosted adaptive learner-write/DDL/role/active speech/retention/schedule changes. Existing routing migration remains immutable. Human/content/calibration/equivalence/reviewer/consented-pilot/catalog/device/operational gates and full goal/conditional main push remain incomplete. Older heartbeat source1277ed8 is stale; this ledger is authoritative. Retention/reviewer questions remain pending without inferred approval.
+
+
 ### Prepared-start source race reproduced; additive fix proposed locally — October 17
 
 Source-only follow-up on unchanged application252311c. The actual legacy start RPC can freeze an uncalibrated nonpilot attempt when calibration is removed after the API reads its source. It also does not bind its source reread to the bytes validated by the API. Adaptive runtime stays explicitly off, so this is a pre-activation defect rather than a claim of a hosted adaptive incident.

@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T17:42:38.932878+00:00",
+  "auditedAt": "2026-10-17T18:00:16.438972+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "252311c",
+  "application": "62e0441",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-c8jp3ng4v-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-ao2c8ffb7-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-adaptive-runtime-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-readiness-deadline-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -365,5 +365,11 @@
     }
   },
   "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00",
-  "latestLocalLifecycleEvidence": "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json"
+  "latestLocalLifecycleEvidence": "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json",
+  "preparedStartSchemaProposal": {
+    "status": "Pending owner authorization; concrete additive RPC locally verified, not applied/wired",
+    "proposal": "docs/assessments/prepared-start-migration-proposal.md",
+    "evidence": "docs/reviews/qa-prepared-start-local-2026-10-17.json",
+    "requiredBeforeAdaptiveActivation": true
+  }
 }

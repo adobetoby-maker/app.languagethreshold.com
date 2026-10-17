@@ -4,6 +4,12 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Durable routing migration proposal — October 17
+
+The principal adaptive-runtime dependency is now a concrete reviewable proposal in `docs/assessments/adaptive-routing-migration-proposal.md`. It specifies one private immutable route record, source/core byte binding, learner authorization, ordered attempt locking, retry identity/conflicts, atomic route/revision/audit writes, selected-item guards, flat-history compatibility and a concurrent/failure/access/deletion acceptance matrix. It explicitly recognizes that the existing backend is shared with the live app; a Preview URL does not isolate database changes. No migration was generated or applied, and no local/hosted schema, role, active policy, speech collection or schedule was changed.
+
+The current heartbeat explicitly says “No schema/role/policy/speechcollection/schedule changes.” A new route table and atomic RPC cannot be implemented/applied within that constraint. Owner clarification is therefore required before database mutation work; the proposal does not itself supply authorization. Existing accepted companion/live/main remain unchanged. Current application source remains `2ade3af` locally (828 passing tests); hosted development remains `cfa32b6`. No new browser/model/learner writes or repeated local checks were performed for this documentation-only proposal. Other previously authorized work can continue while the database scope is pending; full goal is not complete.
+
 ### Dictionary sentence cache boundaries — October 17
 
 Source `2ade3af` is locally verified and not deployed. The conjugation trace found no current UI callers for its learner-cache write/ensure helpers; that dormant registry remains a future-use concern, not a demonstrated active learner path. The active dictionary path did retain arbitrary source sentences in module-wide client and server maps. Client cards now live in a bounded provider inside the account-keyed app subtree, clear on unmount, and render only for the current cache instance/request key. Existing fetch-effect cleanup excludes late replies. No dictionary cache is persisted.

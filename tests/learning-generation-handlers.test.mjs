@@ -100,9 +100,10 @@ for (const [name, exportName, data, resultKey] of [
       const { handler, controls } = await load(name, exportName);
       let firstBudgetLimit;
       globalThis.fetch = async (url, init) => {
-        if (String(url).endsWith("claim_lesson_word_draft"))
+        if (String(url).match(/claim_(lesson_word|module_deck)_draft$/))
           return Response.json({ status: "claimed" });
-        if (String(url).endsWith("release_lesson_word_draft")) return Response.json(true);
+        if (String(url).match(/release_(lesson_word|module_deck)_draft$/))
+          return Response.json(true);
         firstBudgetLimit ??= JSON.parse(init.body).p_request_limit;
         return Response.json(false);
       };
@@ -132,7 +133,7 @@ for (const [name, exportName, data, resultKey] of [
       controls.status = 200;
       controls.headers = {};
       globalThis.fetch = async (url) =>
-        String(url).endsWith("claim_lesson_word_draft")
+        String(url).match(/claim_(lesson_word|module_deck)_draft$/)
           ? Response.json({ status: "claimed" })
           : Response.json(true);
       await handler({ data });

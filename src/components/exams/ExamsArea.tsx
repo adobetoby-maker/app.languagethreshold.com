@@ -1,4 +1,5 @@
 import { examLessonReturn, examLessonNumber } from "@/lib/exam-navigation";
+import { CheckpointScheduleSummary } from "./CheckpointScheduleSummary";
 import { TeamAssessmentInsights } from "./TeamAssessmentInsights";
 import { attemptMatchesOrganization } from "@/lib/assessments/scope";
 import { lessonNumberRanges } from "@/lib/lesson-number-ranges";
@@ -72,6 +73,7 @@ type Enrollment = {
   status: "active" | "paused" | "archived";
   revision: number;
   timezone: string;
+  program_scope?: "full_module" | "support_units";
   checkpoints: {
     id: string;
     checkpoint: "entrance" | "day45" | "day90";
@@ -260,6 +262,19 @@ function ExamsAreaContent({
   const loading = actionLoading || report.loading,
     // Overview errors must not describe a separately loaded active exam as disconnected.
     error = actionError || (selected ? "" : report.error);
+  const [scheduleNow, setScheduleNow] = useState(() => Date.now());
+  const scheduleVisible = !!user && !selected && !!overview?.enrollments.length;
+  useEffect(() => {
+    if (!scheduleVisible) return;
+    const tick = () => setScheduleNow(Date.now());
+    tick();
+    const timer = window.setInterval(tick, 60_000);
+    document.addEventListener("visibilitychange", tick);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", tick);
+    };
+  }, [scheduleVisible]);
   const refreshOverview = report.refresh;
   const load = useCallback(() => {
     setError("");
@@ -525,7 +540,7 @@ function ExamsAreaContent({
             Back to Exams
           </button>
           <h2 className="mt-4 text-2xl font-semibold">
-            {names[pending.checkpoint.checkpoint as keyof typeof names]} ·{" "}
+            {checkpointName(pending.checkpoint.checkpoint,pending.plan.program_scope)} ·{" "}
             {getModule(pending.plan.module_id)?.name}
           </h2>
           <p className="mt-3">
@@ -594,7 +609,7 @@ function ExamsAreaContent({
               })
             }
           >
-            Start {names[pending.checkpoint.checkpoint as keyof typeof names]} exam
+            Start {checkpointName(pending.checkpoint.checkpoint,pending.plan.program_scope)} {pending.plan.program_scope === "support_units" ? "check" : "exam"}
           </button>
         </section>
       ) : (
@@ -914,7 +929,7 @@ function ExamsAreaContent({
                         ? "Private personal plan"
                         : `Team plan${plan.organization_name ? ` · ${plan.organization_name}` : ""}`}{" "}
                       · {plan.timezone} ·{" "}
-                      {plan.role === "support" ? "Supporting module" : "Primary module"}
+                      {plan.program_scope === "support_units" ? "Targeted supporting units" : plan.role === "support" ? "Supporting module" : "Primary module"}
                     </p>
                     {plan.user_id === user.id && plan.role === "primary" && (
                       <a
@@ -942,7 +957,7 @@ function ExamsAreaContent({
                       disabled={loading}
                       onClick={() => void open(resumable.attempt.id)}
                     >
-                      Resume {names[resumable.cp.checkpoint]} exam
+                      Resume {checkpointName(resumable.cp.checkpoint,plan.program_scope)} {plan.program_scope === "support_units" ? "check" : "exam"}
                     </button>
                   )}
                   {plan.role !== "support" && (plan.scope === "personal" || overview.canManage) && (
@@ -960,6 +975,7 @@ function ExamsAreaContent({
                     </button>
                   )}
                 </div>
+                <CheckpointScheduleSummary plan={plan} now={scheduleNow} />
                 <div className="mt-4 grid gap-3 md:grid-cols-3">
                   {plan.checkpoints.map((cp) => {
                     const latest = cp.attempts[0];
@@ -972,7 +988,7 @@ function ExamsAreaContent({
                         }
                       >
                         <h3 className="font-semibold">
-                          {names[cp.checkpoint as keyof typeof names]}
+                          {checkpointName(cp.checkpoint,plan.program_scope)}
                         </h3>
                         <p className="mt-1 text-sm">Recommended {dateLabel(cp.due_date)}</p>
                         <p className="mt-2 text-sm text-muted-foreground">
@@ -991,7 +1007,7 @@ function ExamsAreaContent({
                             className={button + " mt-3 w-full"}
                             onClick={() => void open(latest.id)}
                           >
-                            {latest.submitted_at ? "View result" : "Resume exam"}
+                            {latest.submitted_at ? "View result" : plan.program_scope === "support_units" ? "Resume check" : "Resume exam"}
                           </button>
                         )}
                         {cp.status !== "exempt" &&
@@ -1006,7 +1022,7 @@ function ExamsAreaContent({
                               {latest
                                 ? "Retake — keep original"
                                 : cp.ready
-                                  ? "Start exam"
+                                ? plan.program_scope === "support_units" ? "Start check" : "Start exam"
                                   : "Try QA draft"}
                             </button>
                           )}

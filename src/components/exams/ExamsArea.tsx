@@ -598,6 +598,7 @@ function ExamsAreaContent({
         </section>
       ) : (
         <div className="flex flex-col gap-5">
+          <ExamInputPractice />
           {orgId && overview?.canManage && (
             <TeamAssessmentInsights
               orgId={orgId}

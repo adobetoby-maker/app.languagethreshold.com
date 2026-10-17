@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-17T17:16:50.768543+00:00",
+  "auditedAt": "2026-10-17T17:22:51.576482+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
   "application": "921b436",
@@ -111,9 +111,10 @@
         "docs/reviews/qa-core-team-preview-2026-10-17.json",
         "docs/reviews/qa-core-summary-preview-2026-10-17.json",
         "docs/reviews/qa-selected-review-preview-2026-10-17.json",
-        "docs/reviews/qa-routing-ui-preview-2026-10-17.json"
+        "docs/reviews/qa-routing-ui-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json"
       ],
-      "finding": "Private routing, selected saves/media/reads/scoring/human and AI review, fixed-core team patterns and selected overview/history/CSV/source-plan normalization have scoped evidence. The explicit core-to-branch runner now flushes saves, retains owned continuation retry identity, locks uncertain core edits and adopts only a matching fresh selected snapshot; definitive core errors unlock editing and concurrent saves require explicit resolution. Controlled coordinator/draft and actual runner server-rendering tests pass. Guarded preparation/start/submission integration and real adaptive browser/phone/reconnect/expiry/consented-pilot acceptance remain unfinished; adaptive starts/submission stay server-gated."
+      "finding": "Private routing, selected saves/media/reads/scoring/human and AI review, fixed-core team patterns and selected overview/history/CSV/source-plan normalization have scoped evidence. The explicit core-to-branch runner now flushes saves, retains owned continuation retry identity, locks uncertain core edits and adopts only a matching fresh selected snapshot; definitive core errors unlock editing and concurrent saves require explicit resolution. Controlled coordinator/draft and actual runner server-rendering tests pass. Guarded preparation/start/submission integration and real adaptive browser/phone/reconnect/expiry/consented-pilot acceptance remain unfinished; adaptive starts/submission stay server-gated. Actual production draft-hook controlled lifecycle tests now cover save/route ordering, replay, offline remount, account/unmount/late-save/read rejection, explicit conflicts, quota warnings, cleanup and a bounded continuation timeout. They do not establish real browser/SDK/physical acceptance."
     },
     {
       "sections": [
@@ -362,5 +363,6 @@
       "name": "assessment_adaptive_route_records"
     }
   },
-  "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00"
+  "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00",
+  "latestLocalLifecycleEvidence": "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json"
 }

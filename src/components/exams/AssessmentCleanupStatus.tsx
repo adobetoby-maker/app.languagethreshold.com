@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examRequest } from "@/lib/assessments/client";
 import type { CleanupRun } from "@/lib/assessments/cleanup-run";
 type Status = {
@@ -16,18 +17,61 @@ const labels = {
 };
 /** Rendered only after platform-owner registry access; the API independently checks it. */
 export function AssessmentCleanupStatus() {
-  const [status, setStatus] = useState<Status | null>(null),
-    [error, setError] = useState(""),
-    [epoch, setEpoch] = useState(0);
+  const [epoch, setEpoch] = useState(0);
+  const { key, actor, capture } = usePracticeLifecycle(String(epoch));
+  const [result, setResult] = useState<{
+    key: string;
+    status: Status | null;
+    error: string;
+    checkedAt: string | null;
+  } | null>(null);
+  const pending = useRef<AbortController | null>(null);
+  const { status, error, checkedAt } =
+    result?.key === key ? result : { status: null, error: "", checkedAt: null };
+  const loading = !status && !error;
   useEffect(() => {
-    const abort = new AbortController();
-    void examRequest<Status>("/api/exam-cleanup?view=status", abort.signal)
-      .then(setStatus)
-      .catch((e) => {
-        if (!abort.signal.aborted) setError(e.message);
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    if (!actor) {
+      setResult({
+        key,
+        status: null,
+        error: "Sign in with an authorized owner account to load operations status.",
+        checkedAt: null,
       });
-    return () => abort.abort();
-  }, [epoch]);
+      return;
+    }
+    const abort = new AbortController();
+    pending.current = abort;
+    const release = lease.own(() => {
+      abort.abort();
+      if (pending.current === abort) pending.current = null;
+    });
+    const current = () => lease.isCurrent() && !abort.signal.aborted && pending.current === abort;
+    setResult({ key, status: null, error: "", checkedAt: null });
+    void examRequest<Status>("/api/exam-cleanup?view=status", abort.signal)
+      .then((status) => {
+        if (current()) setResult({ key, status, error: "", checkedAt: new Date().toISOString() });
+      })
+      .catch((e) => {
+        if (current())
+          setResult({
+            key,
+            status: null,
+            error: e instanceof Error ? e.message : "Operations status could not be loaded.",
+            checkedAt: null,
+          });
+      })
+      .finally(() => {
+        if (pending.current === abort) pending.current = null;
+        release();
+      });
+    return () => {
+      release();
+      abort.abort();
+      if (pending.current === abort) pending.current = null;
+    };
+  }, [key, actor, capture]);
   return (
     <section className="space-y-3 rounded-2xl border border-border p-4">
       <h2 className="text-xl font-semibold">Recording cleanup operations</h2>
@@ -38,6 +82,11 @@ export function AssessmentCleanupStatus() {
             ? "Operations status is unavailable"
             : "Loading private operations status…"}
       </p>
+      {checkedAt && (
+        <p className="text-xs text-muted-foreground">
+          Status checked {new Date(checkedAt).toLocaleString()}.
+        </p>
+      )}
       {status && (
         <>
           <p className="text-sm">
@@ -81,9 +130,9 @@ export function AssessmentCleanupStatus() {
       <button
         type="button"
         className="min-h-11 rounded-xl border border-border px-4 py-2 text-sm"
+        disabled={loading || !actor}
         onClick={() => {
-          setError("");
-          setEpoch((e) => e + 1);
+          if (actor && capture().isCurrent() && !pending.current) setEpoch((e) => e + 1);
         }}
       >
         Refresh cleanup status

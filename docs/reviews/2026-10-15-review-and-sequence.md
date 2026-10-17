@@ -5,6 +5,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Grammar and Daily Story staging verification — October 17
+
+Application `858c47a` (including Grammar `31d487a`) is READY at https://language-threshold-cmp1vplwv-adobetoby-5572s-projects.vercel.app, deployment `dpl_Ay9rTNv5tPqsf1CdnxgzmQXPtmQq`, true Preview/target null. Target/artifact guards passed; independent inspection matches project/team and full Git commit. The accepted Exams hostname remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias/main/production change. This supersedes the preceding Grammar entry's undeployed status.
+
+Daily Story now uses the existing same-origin/no-store/durable content guards, zero automatic retries and a 30-second SDK/total deadline combined with incoming abort. Its formerly unchecked model cast is replaced with bounded whitelisted story/translation/question/answer/highlight fields. Highlights are unique and highlights/answer must occur in story text under case/canonical-Unicode matching. This is substring/source consistency, not full-word, semantic or linguistic correctness. Invalid results produce a retryable error; caught provider exceptions log only a fixed label. No module/learner progress field is accepted from the provider.
+
+All 839 tests, type-check and stage build pass; lint has 0 errors/44 mixed-export warnings; artifact 19.67 MiB. Private-bank scan: 96 markers/1150 source/148 static/0 hits. The controlled actual-handler test exercises pre-provider denials/outage, options/abort, malformed/null/oversize/missing fields, unsupported/duplicate highlights, answer-source inclusion and safe failure. See `qa-daily-story-guards-2026-10-17.json`.
+
+Current hosted checks pass: 20 authenticated Exams groups, 12 routing/private-header groups, 3 public pack groups, 7 read-only scope groups and 16 rejected conversation inputs. Saved personal draft remains revision 12/in_progress/unsubmitted; team B remains 2 opened/0 mastered. See `qa-grammar-story-preview-2026-10-17.json` and `qa-exams-grammar-story-preview-2026-10-17.json`. No valid model request, browser action, new learner write, schema/role/active-policy/speech/schedule change. Positive helper/provider/browser and physical acceptance remain open. The already-sent routing schema clarification remains pending; no question repeated or approval inferred. Remaining game generators, durable adaptive runtime and human/content/pilot/device/operational gates still prevent completion/main push.
+
+
+
 ### Grammar generation request and output guards — October 17
 
 Source `31d487a` is locally verified and not deployed. The three active Grammar generators now require same origin/no-store and the existing durable content pool before constructing the provider. Each paid call uses zero automatic retries, a 30-second SDK/total deadline and the incoming request abort signal. Caught provider failures log only a fixed label. No schema, new pool or active policy was added.

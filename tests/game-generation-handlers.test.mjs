@@ -29,7 +29,7 @@ async function loadHandler(name, exportName) {
             path: "network",
             namespace: "fixture",
           }));
-          b.onResolve({ filter: /^@tanstack\/react-start$/ }, () => ({
+          b.onResolve({ filter: /^@tanstack\/react-start(\/server)?$/ }, () => ({
             path: "registration",
             namespace: "fixture",
           }));
@@ -37,7 +37,7 @@ async function loadHandler(name, exportName) {
             contents:
               path === "network"
                 ? `export default class Network { static calls = 0; static next; static review; static requests = []; messages = { create: async (request) => { Network.calls++; Network.requests.push(request); const name = request.tool_choice.name; return { content: [{type:'tool_use', name, input: structuredClone(name === 'review_conjugation_question' ? Network.review : Network.next)}] }; } }; }`
-                : `export const createServerFn = () => ({ inputValidator: (validate) => ({ handler: (fn) => ({data}) => fn({data: validate(data)}) }) });`,
+                : `export const getRequest=()=>new Request("https://fixture.invalid/_serverFn/qa",{method:"POST",headers:{Origin:"https://fixture.invalid","x-vercel-forwarded-for":"192.0.2.40"}}); export const setResponseHeader=()=>{}; export const setResponseStatus=()=>{}; export const createServerFn = () => ({ inputValidator: (validate) => ({ handler: (fn) => ({data}) => fn({data: validate(data)}) }) });`,
           }));
         },
       },
@@ -69,8 +69,16 @@ for (const [name, exportName, fixture] of [
   ["word-match", "generateWordMatchBoard", board],
 ]) {
   test(`${name} handler isolates topics and never reads or stores personalized results`, async () => {
-    const saved = process.env.ANTHROPIC_API_KEY;
-    process.env.ANTHROPIC_API_KEY = "test-only-no-network";
+    const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"];
+    const saved = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+    const savedFetch = globalThis.fetch;
+    Object.assign(process.env, {
+      ANTHROPIC_API_KEY: "test-only-no-network",
+      SUPABASE_URL: "https://budget.invalid",
+      SUPABASE_SERVICE_ROLE_KEY: "test-only",
+      VERCEL_ENV: "preview",
+    });
+    globalThis.fetch = async () => Response.json(true);
     try {
       const { handler, Network } = await loadHandler(name, exportName);
       Network.next = fixture;
@@ -148,8 +156,11 @@ for (const [name, exportName, fixture] of [
         assert.deepEqual(reviewItem.options, ["hablamos", "hablan", "hablas", "hablo"]);
       }
     } finally {
-      if (saved === undefined) delete process.env.ANTHROPIC_API_KEY;
-      else process.env.ANTHROPIC_API_KEY = saved;
+      globalThis.fetch = savedFetch;
+      for (const key of keys) {
+        if (saved[key] === undefined) delete process.env[key];
+        else process.env[key] = saved[key];
+      }
     }
   });
 }

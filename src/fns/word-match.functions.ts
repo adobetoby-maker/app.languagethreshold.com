@@ -1,3 +1,6 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 import Anthropic from "@anthropic-ai/sdk";
 import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
@@ -54,8 +57,13 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
     async ({
       data,
     }): Promise<{ data: WordMatchBoard | null; error: string | null; cached?: boolean }> => {
-      const KEY = process.env.ANTHROPIC_API_KEY;
-      if (!KEY) return { data: null, error: "AI is not configured" };
+      const request = getRequest();
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(request);
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { data: null, error: originError.error };
+      }
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
       const expectedCount = data.level === 1 ? 6 : data.level === 2 ? 8 : 10;
@@ -63,6 +71,10 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
       const cacheContext = { ...data, cefr };
       const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
+      const KEY = process.env.ANTHROPIC_API_KEY;
+      if (!KEY) return { data: null, error: "AI is not configured" };
+      const budgetError = await learningGenerationError("content");
+      if (budgetError) return { data: null, error: budgetError };
 
       const avoidLine =
         data.avoid && data.avoid.length
@@ -79,90 +91,89 @@ export const generateWordMatchBoard = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE Word Match board for ${data.language} learners at CEFR ${cefr}.\nProduce EXACTLY ${expectedCount} pairs, all from a single coherent topic.${topicLine}${userWordsLine}${avoidLine}\n\nReturn the board via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
-        const response = await client.messages.create({
-          // Output is validated before it can enter the shared public cache.
-          model: "claude-haiku-5-5",
-          max_tokens: 1000,
-          system: SYSTEM,
-          messages: [{ role: "user", content: userMsg }],
-          tools: [
-            {
-              name: "return_word_match_board",
-              description: "Return a memory-matching board of target↔english vocabulary pairs.",
-              input_schema: {
-                type: "object" as const,
-                properties: {
-                  pairs: {
-                    type: "array",
-                    minItems: expectedCount,
-                    maxItems: expectedCount,
-                    items: {
-                      type: "object",
-                      properties: {
-                        target: {
-                          type: "string",
-                          description: "Target-language word or short phrase.",
+        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const response = await client.messages.create(
+          {
+            // Output is validated before it can enter the shared public cache.
+            model: "claude-haiku-5-5",
+            max_tokens: 1000,
+            system: SYSTEM,
+            messages: [{ role: "user", content: userMsg }],
+            tools: [
+              {
+                name: "return_word_match_board",
+                description: "Return a memory-matching board of target↔english vocabulary pairs.",
+                input_schema: {
+                  type: "object" as const,
+                  properties: {
+                    pairs: {
+                      type: "array",
+                      minItems: expectedCount,
+                      maxItems: expectedCount,
+                      items: {
+                        type: "object",
+                        properties: {
+                          target: {
+                            type: "string",
+                            description: "Target-language word or short phrase.",
+                          },
+                          english: { type: "string", description: "English translation." },
                         },
-                        english: { type: "string", description: "English translation." },
+                        required: ["target", "english"],
+                        additionalProperties: false,
                       },
-                      required: ["target", "english"],
-                      additionalProperties: false,
                     },
+                    topic: {
+                      type: "string",
+                      description: "1-3 word topic label, e.g. 'kitchen' or 'weather'.",
+                    },
+                    cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
                   },
-                  topic: {
-                    type: "string",
-                    description: "1-3 word topic label, e.g. 'kitchen' or 'weather'.",
-                  },
-                  cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
+                  required: ["pairs", "topic", "cefr"],
+                  additionalProperties: false,
                 },
-                required: ["pairs", "topic", "cefr"],
-                additionalProperties: false,
               },
-            },
-          ],
-          tool_choice: { type: "tool", name: "return_word_match_board" },
-        });
+            ],
+            tool_choice: { type: "tool", name: "return_word_match_board" },
+          },
+          { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+        );
 
-        const toolUse = response.content.find((c) => c.type === "tool_use");
+        const toolUse = response.content.find(
+          (c) => c.type === "tool_use" && c.name === "return_word_match_board",
+        );
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No board returned." };
         }
-        const board = toolUse.input as WordMatchBoard;
-
-        // Defensive validation
-        if (!Array.isArray(board.pairs) || board.pairs.length !== expectedCount) {
-          return {
-            data: null,
-            error: `Expected ${expectedCount} pairs, got ${Array.isArray(board.pairs) ? board.pairs.length : 0}.`,
-          };
+        const parsed = z
+          .object({
+            pairs: z
+              .array(
+                z.object({
+                  target: z.string().trim().min(1).max(80),
+                  english: z.string().trim().min(1).max(160),
+                }),
+              )
+              .length(expectedCount),
+            topic: z.string().trim().min(1).max(80),
+            cefr: z.literal(cefr),
+          })
+          .safeParse(toolUse.input);
+        if (!parsed.success)
+          return { data: null, error: "Board content came back incomplete. Please try again." };
+        const board = parsed.data;
+        const key = (value: string) => value.normalize("NFC").toLowerCase();
+        if (
+          new Set(board.pairs.map((pair) => key(pair.target))).size !== expectedCount ||
+          new Set(board.pairs.map((pair) => key(pair.english))).size !== expectedCount
+        ) {
+          return { data: null, error: "Board pairs must have distinct words and meanings." };
         }
-        const targets = new Set<string>();
-        const englishes = new Set<string>();
-        for (const p of board.pairs) {
-          if (!p || typeof p.target !== "string" || typeof p.english !== "string") {
-            return { data: null, error: "Malformed pair." };
-          }
-          const t = p.target.trim();
-          const e = p.english.trim();
-          if (!t || !e) return { data: null, error: "Empty pair string." };
-          if (targets.has(t)) return { data: null, error: `Duplicate target: ${t}` };
-          if (englishes.has(e)) return { data: null, error: `Duplicate english: ${e}` };
-          targets.add(t);
-          englishes.add(e);
-          p.target = t;
-          p.english = e;
-        }
-        if (typeof board.topic !== "string" || !board.topic.trim()) {
-          return { data: null, error: "Missing topic." };
-        }
-        board.topic = board.topic.trim();
-        if (!board.cefr) board.cefr = cefr;
 
         cache.set(cacheContext, board);
         return { data: board, error: null, cached: false };
-      } catch (e) {
-        console.error("generateWordMatchBoard failed", e);
+      } catch {
+        console.error("Word Match generation failed");
         return { data: null, error: "Generation failed." };
       }
     },

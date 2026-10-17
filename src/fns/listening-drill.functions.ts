@@ -1,3 +1,6 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 import Anthropic from "@anthropic-ai/sdk";
 import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
@@ -58,14 +61,23 @@ export const generateListeningDrill = createServerFn({ method: "POST" })
       error: string | null;
       cached?: boolean;
     }> => {
-      const KEY = process.env.ANTHROPIC_API_KEY;
-      if (!KEY) return { data: null, error: "AI is not configured" };
+      const request = getRequest();
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(request);
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { data: null, error: originError.error };
+      }
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
       const cacheContext = { ...data, cefr };
       const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
+      const KEY = process.env.ANTHROPIC_API_KEY;
+      if (!KEY) return { data: null, error: "AI is not configured" };
+      const budgetError = await learningGenerationError("content");
+      if (budgetError) return { data: null, error: budgetError };
 
       const lengthGuidance =
         data.level === 1
@@ -86,110 +98,98 @@ export const generateListeningDrill = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE ${data.language} listening-drill question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
-        const response = await client.messages.create({
-          // Sonnet 4.6 — quality matters because bad distractors destroy the
-          // game. A distractor that doesn't share sound profile with the phrase
-          // makes the answer obvious from text alone, defeating the listening
-          // drill entirely.
-          model: "claude-haiku-5-5",
-          max_tokens: 1000,
-          system: SYSTEM,
-          messages: [{ role: "user", content: userMsg }],
-          tools: [
-            {
-              name: "return_listening_question",
-              description: "Return one listening-drill question.",
-              input_schema: {
-                type: "object" as const,
-                properties: {
-                  phrase: {
-                    type: "string",
-                    description: "Target-language phrase the learner will hear.",
+        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const response = await client.messages.create(
+          {
+            model: "claude-haiku-5-5",
+            max_tokens: 1000,
+            system: SYSTEM,
+            messages: [{ role: "user", content: userMsg }],
+            tools: [
+              {
+                name: "return_listening_question",
+                description: "Return one listening-drill question.",
+                input_schema: {
+                  type: "object" as const,
+                  properties: {
+                    phrase: {
+                      type: "string",
+                      description: "Target-language phrase the learner will hear.",
+                    },
+                    englishTranslation: {
+                      type: "string",
+                      description: "English translation of the phrase.",
+                    },
+                    cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
+                    topic: { type: "string", description: "1-3 word topic label." },
+                    options: {
+                      type: "array",
+                      items: { type: "string" },
+                      minItems: 4,
+                      maxItems: 4,
+                      description: "Exactly 4 candidate transcripts; one equals phrase exactly.",
+                    },
+                    correctIndex: {
+                      type: "integer",
+                      minimum: 0,
+                      maximum: 3,
+                      description: "Index in options whose text equals phrase exactly.",
+                    },
+                    listenFor: {
+                      type: "string",
+                      description: "One short English sentence on the discrimination target.",
+                    },
                   },
-                  englishTranslation: {
-                    type: "string",
-                    description: "English translation of the phrase.",
-                  },
-                  cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
-                  topic: { type: "string", description: "1-3 word topic label." },
-                  options: {
-                    type: "array",
-                    items: { type: "string" },
-                    minItems: 4,
-                    maxItems: 4,
-                    description: "Exactly 4 candidate transcripts; one equals phrase exactly.",
-                  },
-                  correctIndex: {
-                    type: "integer",
-                    minimum: 0,
-                    maximum: 3,
-                    description: "Index in options whose text equals phrase exactly.",
-                  },
-                  listenFor: {
-                    type: "string",
-                    description: "One short English sentence on the discrimination target.",
-                  },
+                  required: [
+                    "phrase",
+                    "englishTranslation",
+                    "cefr",
+                    "topic",
+                    "options",
+                    "correctIndex",
+                    "listenFor",
+                  ],
+                  additionalProperties: false,
                 },
-                required: [
-                  "phrase",
-                  "englishTranslation",
-                  "cefr",
-                  "topic",
-                  "options",
-                  "correctIndex",
-                  "listenFor",
-                ],
-                additionalProperties: false,
               },
-            },
-          ],
-          tool_choice: { type: "tool", name: "return_listening_question" },
-        });
+            ],
+            tool_choice: { type: "tool", name: "return_listening_question" },
+          },
+          { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+        );
 
-        const toolUse = response.content.find((c) => c.type === "tool_use");
+        const toolUse = response.content.find(
+          (c) => c.type === "tool_use" && c.name === "return_listening_question",
+        );
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const q = toolUse.input as ListeningDrillQuestion;
-
-        // Defensive validation. The drill silently breaks if any of these are
-        // wrong, so we'd rather fail fast and let the client retry than ship a
-        // broken question.
-        if (!Array.isArray(q.options) || q.options.length !== 4) {
-          return { data: null, error: "Options must be exactly 4." };
+        const parsed = z
+          .object({
+            phrase: z.string().trim().min(1).max(200),
+            englishTranslation: z.string().trim().min(1).max(1000),
+            cefr: z.literal(cefr),
+            topic: z.string().trim().min(1).max(100),
+            options: z.array(z.string().trim().min(1).max(200)).length(4),
+            correctIndex: z.number().int().min(0).max(3),
+            listenFor: z.string().trim().min(1).max(1000),
+          })
+          .safeParse(toolUse.input);
+        if (!parsed.success)
+          return { data: null, error: "Question content came back incomplete. Please try again." };
+        const q = parsed.data;
+        if (new Set(q.options.map((option) => option.normalize("NFC").toLowerCase())).size !== 4) {
+          return { data: null, error: "Options must be four distinct transcripts." };
         }
-        if (!q.options.every((o): o is string => typeof o === "string" && o.trim().length > 0)) {
-          return { data: null, error: "Each option must be a non-empty string." };
-        }
-        if (
-          typeof q.correctIndex !== "number" ||
-          q.correctIndex < 0 ||
-          q.correctIndex > 3 ||
-          !Number.isInteger(q.correctIndex)
-        ) {
-          return { data: null, error: "correctIndex must be an integer 0..3." };
-        }
-        if (typeof q.phrase !== "string" || q.phrase.trim().length === 0) {
-          return { data: null, error: "phrase must be a non-empty string." };
-        }
-
-        // The model occasionally puts the phrase at a different index than it
-        // claims. If options[correctIndex] doesn't match phrase exactly, try to
-        // recover by searching for an exact match; otherwise fail.
-        if (q.options[q.correctIndex] !== q.phrase) {
-          const found = q.options.indexOf(q.phrase);
-          if (found >= 0) {
-            q.correctIndex = found;
-          } else {
-            return { data: null, error: "phrase not present in options." };
-          }
-        }
+        // Preserve the existing exact-match recovery when the model mislabels the index.
+        const found = q.options.indexOf(q.phrase);
+        if (found < 0) return { data: null, error: "Phrase not present in options." };
+        q.correctIndex = found;
 
         cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
-      } catch (e) {
-        console.error("generateListeningDrill failed", e);
+      } catch {
+        console.error("Listening Drill generation failed");
         return { data: null, error: "Generation failed." };
       }
     },

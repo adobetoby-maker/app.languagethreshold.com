@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useAuth } from "@/state/auth-state";
+import { useEffect, useRef, useState } from "react";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examRequest, ExamRequestError } from "@/lib/assessments/client";
 interface PrivatePage<T> {
   items: T[];
@@ -13,35 +13,39 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
   enabled: boolean,
   itemKey: "items" | "enrollments" = "items",
 ) {
-  const { user, isCurrentUser } = useAuth(),
-    actor = user?.id,
-    key = `${actor ?? "guest"}:${path}`;
-  const [epoch, setEpoch] = useState(0),
-    [snapshot, setSnapshot] = useState<
-      PrivatePage<T> & {
-        metadata: M | null;
-        key: string;
-        loading: boolean;
-        moreBusy: boolean;
-        error: string;
-      }
-    >({
-      key: "",
-      metadata: null,
-      items: [],
-      hasMore: false,
-      nextCursor: null,
-      limit: 0,
-      loading: false,
-      moreBusy: false,
-      error: "",
-    });
+  const [epoch, setEpoch] = useState(0);
+  const { actor, capture, cancel } = usePracticeLifecycle(
+    JSON.stringify([path, enabled, itemKey, epoch]),
+  );
+  const key = JSON.stringify([actor, path, enabled, itemKey, epoch]);
+  const view = capture();
+  const [snapshot, setSnapshot] = useState<
+    PrivatePage<T> & {
+      metadata: M | null;
+      key: string;
+      loading: boolean;
+      moreBusy: boolean;
+      error: string;
+    }
+  >({
+    key: "",
+    metadata: null,
+    items: [],
+    hasMore: false,
+    nextCursor: null,
+    limit: 0,
+    loading: false,
+    moreBusy: false,
+    error: "",
+  });
   const version = useRef(0),
     more = useRef<{ controller: AbortController; version: number } | null>(null);
   useEffect(() => {
-    if (!actor || !enabled) return;
+    const lease = capture();
+    if (!actor || !enabled || !lease.isCurrent()) return;
     const controller = new AbortController(),
       revision = ++version.current;
+    const release = lease.own(() => controller.abort());
     more.current?.controller.abort();
     more.current = null;
     setSnapshot({
@@ -65,11 +69,11 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
         )
           throw new Error("Report data could not be read. Try again.");
         const page = { ...raw, items, metadata: raw as M };
-        if (!controller.signal.aborted && version.current === revision && isCurrentUser(actor))
+        if (!controller.signal.aborted && version.current === revision && lease.isCurrent())
           setSnapshot({ ...page, key, loading: false, moreBusy: false, error: "" });
       })
       .catch((error) => {
-        if (!controller.signal.aborted && version.current === revision && isCurrentUser(actor))
+        if (!controller.signal.aborted && version.current === revision && lease.isCurrent())
           setSnapshot((current) => ({
             ...current,
             loading: false,
@@ -84,10 +88,11 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
     return () => {
       controller.abort();
       more.current?.controller.abort();
+      release();
     };
-  }, [actor, enabled, epoch, isCurrentUser, key, path, itemKey]);
+  }, [actor, enabled, capture, key, path, itemKey]);
   const visible =
-    snapshot.key === key
+    actor && enabled && snapshot.key === key
       ? snapshot
       : {
           key,
@@ -96,14 +101,24 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
           hasMore: false,
           nextCursor: null,
           limit: 0,
-          loading: enabled,
+          loading: !!actor && enabled,
           moreBusy: false,
           error: "",
         };
   const loadMore = async () => {
-    if (!actor || !enabled || more.current || !visible.hasMore || !visible.nextCursor) return;
+    const lease = view;
+    if (
+      !actor ||
+      !enabled ||
+      !lease.isCurrent() ||
+      more.current ||
+      !visible.hasMore ||
+      !visible.nextCursor
+    )
+      return;
     const flight = { controller: new AbortController(), version: version.current };
     more.current = flight;
+    const release = lease.own(() => flight.controller.abort());
     setSnapshot((current) => ({ ...current, moreBusy: true, error: "" }));
     const url = new URL(path, window.location.origin);
     for (const [name, value] of Object.entries(visible.nextCursor))
@@ -124,7 +139,7 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
       if (
         !flight.controller.signal.aborted &&
         version.current === flight.version &&
-        isCurrentUser(actor)
+        lease.isCurrent()
       )
         setSnapshot((current) =>
           current.key === key
@@ -145,14 +160,13 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
       if (
         !flight.controller.signal.aborted &&
         version.current === flight.version &&
-        isCurrentUser(actor)
+        lease.isCurrent()
       )
         setSnapshot((current) => ({
           ...current,
-          items:
-            error instanceof ExamRequestError && [401, 403].includes(error.status)
-              ? []
-              : current.items,
+          ...(error instanceof ExamRequestError && [401, 403].includes(error.status)
+            ? { items: [], metadata: null, hasMore: false, nextCursor: null, limit: 0 }
+            : {}),
           moreBusy: false,
           error: error instanceof Error ? error.message : "More records could not be loaded.",
         }));
@@ -161,11 +175,17 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
       if (
         !flight.controller.signal.aborted &&
         version.current === flight.version &&
-        isCurrentUser(actor)
+        lease.isCurrent()
       )
         setSnapshot((current) => ({ ...current, moreBusy: false }));
+      release();
+      flight.controller.abort();
     }
   };
-  const refresh = useCallback(() => setEpoch((value) => value + 1), []);
+  const refresh = () => {
+    if (!actor || !enabled || !view.isCurrent()) return;
+    cancel();
+    setEpoch((value) => value + 1);
+  };
   return { ...visible, loadMore, refresh };
 }

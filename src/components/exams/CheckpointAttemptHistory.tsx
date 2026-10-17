@@ -1,22 +1,38 @@
 import { useState } from "react";
+import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
 import type { ReportedAttempt } from "@/lib/assessments/reporting";
-export function CheckpointAttemptHistory({
-  checkpointId,
-  attemptCount,
-  onOpen,
-}: {
+type Props = {
   checkpointId: string;
   attemptCount?: number;
   onOpen: (id: string) => void;
-}) {
+};
+export function CheckpointAttemptHistory(props: Props) {
+  const { user } = useAuth();
+  return (
+    <OwnedCheckpointAttemptHistory
+      key={JSON.stringify([user?.id, props.checkpointId])}
+      {...props}
+    />
+  );
+}
+function OwnedCheckpointAttemptHistory({ checkpointId, attemptCount, onOpen }: Props) {
+  const { capture } = usePracticeLifecycle(checkpointId);
+  const view = capture();
   const [open, setOpen] = useState(false),
     page = usePrivatePagedReport<ReportedAttempt>(
       `/api/exams?action=checkpoint_history&checkpoint=${encodeURIComponent(checkpointId)}`,
       open,
     );
   return (
-    <details open={open} onToggle={(event) => setOpen(event.currentTarget.open)} className="mt-3">
+    <details
+      open={open}
+      onToggle={(event) => {
+        if (view.isCurrent()) setOpen(event.currentTarget.open);
+      }}
+      className="mt-3"
+    >
       <summary className="min-h-11 cursor-pointer py-3 text-sm">
         {attemptCount === undefined
           ? "Attempt history"
@@ -41,7 +57,9 @@ export function CheckpointAttemptHistory({
             <div key={attempt.id}>
               <button
                 className="block min-h-11 text-left text-sm text-gold underline"
-                onClick={() => onOpen(attempt.id)}
+                onClick={() => {
+                  if (view.isCurrent()) onOpen(attempt.id);
+                }}
               >
                 Attempt {attempt.attempt_number}
                 {attempt.designated ? " · original baseline/checkpoint" : " · retake"}
@@ -56,7 +74,9 @@ export function CheckpointAttemptHistory({
               <button
                 className="min-h-11 text-sm text-gold underline"
                 disabled={page.moreBusy}
-                onClick={() => void page.loadMore()}
+                onClick={() => {
+                  if (view.isCurrent()) void page.loadMore();
+                }}
               >
                 {page.moreBusy ? "Loading…" : "Load older attempts"}
               </button>
@@ -64,7 +84,9 @@ export function CheckpointAttemptHistory({
             <button
               className="min-h-11 text-sm text-gold underline"
               disabled={page.loading || page.moreBusy}
-              onClick={page.refresh}
+              onClick={() => {
+                if (view.isCurrent()) page.refresh();
+              }}
             >
               Refresh history
             </button>

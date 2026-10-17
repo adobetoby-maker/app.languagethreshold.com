@@ -5,6 +5,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Conjugation two-call request bounds — October 17
+
+Source `a762d27` is locally verified and not deployed. Conjugation now enforces same-origin/no-store before cache access and the existing content allowance before a paid miss. One logical miss uses at most two provider requests: generation and the existing independent consistency check. Both have zero automatic retries and share one 30-second total AbortSignal combined with incoming request cancellation; the review does not restart the deadline. Explicit checks between calls and after review prevent cancelled work from starting a review or reaching the cache, even if a transport returns a late payload.
+
+The existing bounded output parser and independent solver are retained. Output must also match the requested CEFR and grammar axis before a review is attempted. Warm public reuse needs no key/budget/model; private vocabulary remains excluded from shared cache read/write. Caught provider exceptions log only a fixed label. This is request bounding and an AI consistency check, not fluent review, content approval or calibrated proficiency.
+
+All 844 tests/type-check/stage build pass; lint 0 errors/44 mixed-export warnings; artifact 19.67 MiB. Scan: 96 markers/1160 source/148 static/0 hits. Five focused tests retain the existing structural/semantic-review/cache cases and add actual-handler guard, shared-signal, two-call limit, late-cancellation, invalid-output, independent-answer-exclusion, cache/private and safe-failure coverage. The shared controlled transport harness now supports tool-specific fixture responses and abort hooks; the full suite verifies existing helper tests still pass. See `qa-conjugation-request-guards-2026-10-17.json`.
+
+No paid provider calls, browser actions, new learner writes or schema/role/active-policy/speech/schedule changes. Hosted development remains `7e8e779`; accepted companion `d4ad837`, live app and main are unchanged. Remaining generators, free-text shared cache context, durable routing and human/content/pilot/device/operational acceptance remain open. The routing schema question remains pending; no repeated question or inferred approval.
+
+
+
 ### Four game generator guards staged — October 17
 
 Application `7e8e779` (including Word Match/Listening `158fad4`) is READY at https://language-threshold-j45wb6rb9-adobetoby-5572s-projects.vercel.app, deployment `dpl_94Zd2cHvhwfhFjZAxUe2jjPbDz41`, true Preview/target null. Project/team/artifact guards passed and independent inspection matches the full Git commit. Accepted companion remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias/main/production change. This supersedes the preceding Word Match/Listening entry's undeployed status.

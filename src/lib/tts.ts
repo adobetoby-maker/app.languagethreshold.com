@@ -104,85 +104,97 @@ export async function speakRemote(
     onerror?: () => void;
     voiceURI?: string | null;
     usage?: "learning" | "mission";
+    signal?: AbortSignal;
   },
 ): Promise<void> {
+  if (opts?.signal?.aborted) return;
   stopRemoteTTS();
   const playbackGeneration = generation;
   const current = () => generation === playbackGeneration;
-  let notified = false;
-  const notify = (heard = true) => {
-    if (!current() || notified) return;
-    notified = true;
-    if (heard) opts?.onend?.();
-    else opts?.onerror?.();
+  const abortOwned = () => {
+    if (current()) stopRemoteTTS();
   };
-  const rate = opts?.rate ?? 1;
-  const googleVoice = selectedGoogleVoice(locale, opts?.voiceURI);
-  if (googleVoice) {
-    try {
-      await speakMissionTts({
-        text,
-        voiceName: googleVoice.voiceName,
-        languageCode: googleVoice.languageCode,
-        speakingRate: rate,
-        usage: opts?.usage ?? "learning",
-      });
-      notify();
-      return;
-    } catch (error) {
-      if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
-      if (
-        !warnedAboutMobileFallback &&
-        typeof navigator !== "undefined" &&
-        isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
-      ) {
-        warnedAboutMobileFallback = true;
-        toast.warning("Clear voice unavailable", {
-          description:
-            "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
-          duration: 7000,
+  opts?.signal?.addEventListener("abort", abortOwned, { once: true });
+  try {
+    let notified = false;
+    const notify = (heard = true) => {
+      if (!current() || notified) return;
+      notified = true;
+      if (heard) opts?.onend?.();
+      else opts?.onerror?.();
+    };
+    const rate = opts?.rate ?? 1;
+    const googleVoice = selectedGoogleVoice(locale, opts?.voiceURI);
+    if (googleVoice) {
+      try {
+        await speakMissionTts({
+          text,
+          voiceName: googleVoice.voiceName,
+          languageCode: googleVoice.languageCode,
+          speakingRate: rate,
+          usage: opts?.usage ?? "learning",
         });
+        notify();
+        return;
+      } catch (error) {
+        if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
+        if (
+          !warnedAboutMobileFallback &&
+          typeof navigator !== "undefined" &&
+          isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
+        ) {
+          warnedAboutMobileFallback = true;
+          toast.warning("Clear voice unavailable", {
+            description:
+              "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
+            duration: 7000,
+          });
+        }
+        const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
+        if (heard !== null) notify(heard);
+        return;
       }
+    }
+
+    const lang = needsRemoteTTS(locale, opts?.voiceURI)
+      ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
+      : undefined;
+    if (!lang) {
       const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
       if (heard !== null) notify(heard);
       return;
     }
-  }
 
-  const lang = REMOTE_TTS_BY_FAMILY[languageFamily(locale)];
-  if (!lang) {
-    const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
-    if (heard !== null) notify(heard);
-    return;
-  }
+    const el = audioEl();
+    el.pause();
+    el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
+    el.playbackRate = rate;
 
-  const el = audioEl();
-  el.pause();
-  el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
-  el.playbackRate = rate;
-
-  const completed = await new Promise<boolean | null>((resolve) => {
-    let settled = false;
-    const done = (heard: boolean | null) => {
-      if (settled) return;
-      settled = true;
-      if (current()) {
-        cancelPlayback = null;
-        el.onended = null;
-        el.onerror = null;
-        el.removeAttribute("src");
-        el.load();
+    const completed = await new Promise<boolean | null>((resolve) => {
+      let settled = false;
+      const done = (heard: boolean | null) => {
+        if (settled) return;
+        settled = true;
+        if (current()) {
+          cancelPlayback = null;
+          el.onended = null;
+          el.onerror = null;
+          el.removeAttribute("src");
+          el.load();
+        }
+        resolve(current() ? heard : null);
+      };
+      cancelPlayback = () => done(null);
+      el.onended = () => done(true);
+      el.onerror = () => done(false);
+      try {
+        el.play().catch(() => done(false));
+      } catch {
+        done(false);
       }
-      resolve(current() ? heard : null);
-    };
-    cancelPlayback = () => done(null);
-    el.onended = () => done(true);
-    el.onerror = () => done(false);
-    try {
-      el.play().catch(() => done(false));
-    } catch {
-      done(false);
-    }
-  });
-  if (completed !== null) notify(completed);
+    });
+    if (completed !== null) notify(completed);
+  } finally {
+    opts?.signal?.removeEventListener("abort", abortOwned);
+  }
 }

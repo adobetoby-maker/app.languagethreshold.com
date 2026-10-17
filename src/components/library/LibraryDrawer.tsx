@@ -20,8 +20,7 @@ import { partitionByFocus } from "@/lib/module-filter";
 import { AddTextModal } from "./AddTextModal";
 import { CultureReadingGenerator } from "./CultureReadingGenerator";
 import type { CefrLevel } from "@/fns/grammar.functions";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 
 const LEVEL_TONE: Record<CefrLevel, string> = {
   A1: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
@@ -548,22 +547,8 @@ function BattleVocabularySection({
   moduleName: string | null;
 }) {
   const { savedVocab, removeVocabWord } = useMatch();
-  const speak = (word: SavedVocabWord) => {
-    try {
-      const locale = SPEECH_LOCALE[word.language];
-      if (needsRemoteTTS(locale)) {
-        void speakRemote(word.word, locale, { rate: 0.9 });
-        return;
-      }
-      const u = new SpeechSynthesisUtterance(word.word);
-      configureUtterance(u, locale);
-      u.rate = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch {
-      /* ignore */
-    }
-  };
+  const speakOwned = useOwnedSpeaker();
+  const speak = (word: SavedVocabWord) => speakOwned(word.word, SPEECH_LOCALE[word.language]);
 
   const { inModule, core } = partitionByFocus(
     savedVocab,

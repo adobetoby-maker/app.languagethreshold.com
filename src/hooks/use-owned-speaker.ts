@@ -4,6 +4,11 @@ import { speakRemote } from "@/lib/tts";
 
 /** Component-owned playback. Cleanup cannot cancel another surface's newer generation. */
 export function useOwnedSpeaker(scope?: string) {
+  return useOwnedPlayback(scope).speak;
+}
+
+/** Explicit Stop has the same actor/scope boundaries as starting playback. */
+export function useOwnedPlayback(scope?: string) {
   const { user, isCurrentUser } = useAuth();
   const actor = user?.id ?? null;
   const mounted = useRef(false);
@@ -18,7 +23,17 @@ export function useOwnedSpeaker(scope?: string) {
       pending.current = null;
     };
   }, [scope, actor]);
-  return useCallback(
+  const stop = useCallback(() => {
+    if (
+      !mounted.current ||
+      activeScope.current !== scope ||
+      (actor !== null && !isCurrentUser(actor))
+    )
+      return;
+    pending.current?.abort();
+    pending.current = null;
+  }, [actor, isCurrentUser, scope]);
+  const speak = useCallback(
     (text: string, locale: string, voiceURI?: string | null, rate = 0.9) => {
       if (
         !mounted.current ||
@@ -40,4 +55,5 @@ export function useOwnedSpeaker(scope?: string) {
     },
     [actor, isCurrentUser, scope],
   );
+  return { speak, stop };
 }

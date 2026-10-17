@@ -5,8 +5,8 @@ import { RANK_BADGE, RANK_COLOR, RANK_TITLE, type RankTier } from "@/state/match
 import { celebrate } from "@/lib/confetti";
 import { generateBattleWord, type BattleWord } from "@/fns/battle.functions";
 import { RankBadge } from "./RankBadge";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useSpeech } from "@/state/speech-state";
 
 const SPEECH_LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -100,6 +100,10 @@ export function BattleArena({
   const [phase, setPhase] = useState<Phase>("loading");
   const [data, setData] = useState<RoundData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { voiceURI } = useSpeech();
+  const speakOwned = useOwnedSpeaker(
+    JSON.stringify([language, round, phase, data?.word.word, voiceURI]),
+  );
 
   const [playerPick, setPlayerPick] = useState<number | null>(null);
   const [opponentPick, setOpponentPick] = useState<number | null>(null);
@@ -148,14 +152,6 @@ export function BattleArena({
     return () => {
       mountedRef.current = false;
       clearTimers();
-      // Cancel any pending speech we might have started.
-      try {
-        if (typeof window !== "undefined" && window.speechSynthesis) {
-          window.speechSynthesis.cancel();
-        }
-      } catch {
-        /* ignore */
-      }
     };
   }, [clearTimers]);
 
@@ -367,30 +363,7 @@ export function BattleArena({
   };
 
   const speak = () => {
-    if (!data) return;
-    try {
-      if (
-        typeof window === "undefined" ||
-        !window.speechSynthesis ||
-        typeof SpeechSynthesisUtterance === "undefined"
-      ) {
-        return;
-      }
-      // Cancel any in-flight utterance before starting a new one (Safari is
-      // particularly stateful here — back-to-back speak() calls can deadlock
-      // the queue without a cancel first).
-      if (needsRemoteTTS(SPEECH_LOCALE[language])) {
-        void speakRemote(data.word.word, SPEECH_LOCALE[language], { rate: 0.9 });
-        return;
-      }
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(data.word.word);
-      configureUtterance(u, SPEECH_LOCALE[language]);
-      u.rate = 0.9;
-      window.speechSynthesis.speak(u);
-    } catch {
-      /* ignore */
-    }
+    if (data) speakOwned(data.word.word, SPEECH_LOCALE[language], voiceURI);
   };
 
   // Background gets slightly darker each round

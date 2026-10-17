@@ -4,8 +4,8 @@ import { toast } from "sonner";
 import { useApp, type Language } from "@/state/app-state";
 import { useMatch } from "@/state/match-state";
 import type { ReviewedWord } from "./BattleArena";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useSpeech } from "@/state/speech-state";
 
 const SPEECH_LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -91,28 +91,11 @@ function WordRow({ word }: { word: ReviewedWord }) {
     (v) => v.word.toLowerCase() === word.word.toLowerCase() && v.language === word.language,
   );
   const [saved, setSaved] = useState(alreadySaved);
+  const { voiceURI } = useSpeech();
+  const speakOwned = useOwnedSpeaker(JSON.stringify([word.word, word.language, voiceURI]));
 
   const speak = () => {
-    try {
-      if (
-        typeof window === "undefined" ||
-        !window.speechSynthesis ||
-        typeof SpeechSynthesisUtterance === "undefined"
-      ) {
-        return;
-      }
-      if (needsRemoteTTS(SPEECH_LOCALE[word.language])) {
-        void speakRemote(word.word, SPEECH_LOCALE[word.language], { rate: 0.9 });
-        return;
-      }
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(word.word);
-      configureUtterance(u, SPEECH_LOCALE[word.language]);
-      u.rate = 0.9;
-      window.speechSynthesis.speak(u);
-    } catch {
-      /* ignore */
-    }
+    speakOwned(word.word, SPEECH_LOCALE[word.language], voiceURI);
   };
 
   const handleSave = () => {

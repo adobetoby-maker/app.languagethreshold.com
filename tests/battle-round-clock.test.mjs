@@ -24,7 +24,7 @@ await build({
         b.onResolve(
           {
             filter:
-              /^(test-controls|react|lucide-react|@\/state\/(app|match)-state|@\/lib\/(confetti|voices|tts)|@\/fns\/battle.functions|\.\/RankBadge)$/,
+              /^(test-controls|react|lucide-react|@\/state\/(app|match|speech)-state|@\/hooks\/use-owned-speaker|@\/lib\/(confetti|voices|tts)|@\/fns\/battle.functions|\.\/RankBadge)$/,
           },
           () => ({ path: "controls", namespace: "fixture" }),
         );
@@ -42,6 +42,7 @@ await build({
  export const generateBattleWord=async input=>{controls.requests.push(input);return {data:{word:'casa',correctDefinition:'house',wrongDefinitions:['car','garden','school']},error:null};};
  export const RANK_BADGE={Bronze:'badge'},RANK_COLOR={Bronze:'gold'},RANK_TITLE={Bronze:'practice'};
  export const RankBadge='badge',Volume2='span';export const celebrate=()=>{};
+ export const useSpeech=()=>({voiceURI:null}),useOwnedSpeaker=()=>()=>{};
  export const configureUtterance=()=>{},needsRemoteTTS=()=>false,speakRemote=()=>{};
  `,
         }));

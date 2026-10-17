@@ -29,7 +29,7 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
     const outfile = join(dir, "hook.mjs");
     await build({
       stdin: {
-        contents: `export {useOwnedSpeaker} from './src/hooks/use-owned-speaker';export {controls} from 'fixture';`,
+        contents: `export {useOwnedSpeaker,useOwnedPlayback} from './src/hooks/use-owned-speaker';export {controls} from 'fixture';`,
         resolveDir: process.cwd(),
       },
       outfile,
@@ -55,7 +55,7 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
         },
       ],
     });
-    const { useOwnedSpeaker, controls: c } = await import(outfile);
+    const { useOwnedSpeaker, useOwnedPlayback, controls: c } = await import(outfile);
     const host = () => ({ slots: [], effects: [], cursor: 0 });
     const a = host(),
       b = host();
@@ -65,6 +65,13 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
       const speak = useOwnedSpeaker(scope);
       for (const f of h.effects.splice(0)) f();
       return speak;
+    };
+    const renderPlayback = (h, scope) => {
+      c.host = h;
+      h.cursor = 0;
+      const playback = useOwnedPlayback(scope);
+      for (const f of h.effects.splice(0)) f();
+      return playback;
     };
     const unmount = (h) => {
       for (const s of h.slots) s?.cleanup?.();
@@ -99,6 +106,33 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
     unmount(b);
     speakA("unmounted", "en-US");
     assert.equal(utterances.length, count + 1);
+    const owned = host(),
+      other = host();
+    const previous = renderPlayback(owned, "question-1");
+    previous.speak("question one", "en-US");
+    const next = renderPlayback(owned, "question-2");
+    next.speak("question two", "en-US");
+    const questionEnd = utterances.at(-1).onend;
+    const beforeStaleStop = cancellations;
+    previous.stop();
+    assert.equal(cancellations, beforeStaleStop, "old question Stop cannot stop the new question");
+    assert.equal(utterances.at(-1).onend, questionEnd);
+    next.stop();
+    assert.equal(cancellations, beforeStaleStop + 1, "current Stop cancels owned playback");
+    assert.equal(utterances.at(-1).onend, null);
+    next.speak("question two replay", "en-US");
+    const otherPlayback = renderPlayback(other, "other");
+    otherPlayback.speak("other surface", "en-US");
+    const otherEnd = utterances.at(-1).onend;
+    const beforeOtherStop = cancellations;
+    next.stop();
+    assert.equal(cancellations, beforeOtherStop, "owned Stop cannot stop another surface");
+    assert.equal(utterances.at(-1).onend, otherEnd);
+    c.actor = "changed";
+    otherPlayback.stop();
+    assert.equal(cancellations, beforeOtherStop, "old actor Stop is ignored");
+    unmount(owned);
+    unmount(other);
     const guest = host();
     c.actor = null;
     const guestSpeak = render(guest, "guest");

@@ -238,6 +238,26 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     assert.equal(c.actions.length, actions);
     assert.equal(rec.aborted, true);
     assert.equal(timers.size, 0);
+    c.slots = [];
+    c.actor = "a";
+    c.confirmed = true;
+    tree = await begin();
+    c.waitHeaders = true;
+    const beforeHeaders = requests.length;
+    send(tree, "QA pending credentials");
+    await tick();
+    assert.equal(c.headers.length, 1);
+    unmount();
+    const afterHeaderCleanup = c.writes;
+    c.headers.shift()({});
+    await tick();
+    assert.equal(
+      requests.length,
+      beforeHeaders,
+      "cancelled mission credentials cannot dispatch a model request",
+    );
+    assert.equal(c.writes, afterHeaderCleanup);
+    c.waitHeaders = false;
     // Consent save is user-invoked in fixtures only; late acknowledgement cannot start a mission.
     c.slots = [];
     c.actor = "a";

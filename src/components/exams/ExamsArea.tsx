@@ -1904,7 +1904,26 @@ function OwnedExamResult({
   );
 }
 
-function ExamRubricReview({
+type RubricReviewProps = {
+  attempt: ExamAttemptView;
+  onRefresh: () => void;
+  onResolved: () => void;
+};
+function ExamRubricReview(props: RubricReviewProps) {
+  const { user } = useAuth();
+  return (
+    <OwnedExamRubricReview
+      key={JSON.stringify([
+        user?.id,
+        props.attempt.id,
+        props.attempt.canReview,
+        props.attempt.form.rubricVersion,
+      ])}
+      {...props}
+    />
+  );
+}
+function OwnedExamRubricReview({
   attempt,
   onRefresh,
   onResolved,
@@ -1917,12 +1936,13 @@ function ExamRubricReview({
   const reviewFlight = useRef<{ payload: string; id: string } | null>(null);
   const [chosen, setChosen] = useState("");
   const [speechReady, setSpeechReady] = useState(false);
-  const [state, setState] = useState<"scored" | "not_assessed" | "needs_review">("needs_review");
+  const [state, setState] = useState<
+    "scored" | "not_assessed" | "needs_review"
+  >("needs_review");
   const [dimensions, setDimensions] = useState<Record<string, number>>({});
   const [points, setPoints] = useState(0),
     [reason, setReason] = useState("");
-  const [busy, setBusy] = useState(false),
-    [message, setMessage] = useState("");
+  const [notice, setNotice] = useState("");
   const response = attempt.responses.find((row) => row.item_id === chosen);
   const item = attempt.form.items.find((row) => row.id === chosen);
   const feedback = attempt.feedback?.find((row) => row.itemId === chosen);
@@ -1931,49 +1951,116 @@ function ExamRubricReview({
     (row) => row.id === response?.answer?.mediaEvidenceId && row.available,
   );
   const review = attempt.reviews.find((row) => row.status !== "resolved");
+  const { capture } = usePracticeLifecycle(
+    JSON.stringify([
+      attempt.id,
+      chosen,
+      response?.id,
+      review?.id,
+      review?.status,
+      review?.reviewer_id,
+    ]),
+  );
+  const onStart = useCallback(() => setNotice(""), []);
+  const { act, busy, error, isPending } = useExamMutation(
+    JSON.stringify([
+      attempt.id,
+      attempt.canReview,
+      chosen,
+      response?.id,
+      state,
+      dimensions,
+      points,
+      reason,
+      speechReady,
+      speechAvailable,
+      review?.id,
+      review?.status,
+      review?.reviewer_id,
+    ]),
+    onStart,
+  );
+  const canEdit = () =>
+    !!user && attempt.canReview && capture().isCurrent() && !isPending();
+  const message = error || notice;
+  if (!attempt.canReview)
+    return (
+      <p role="status">Review access is not available for this attempt.</p>
+    );
+
   return (
     <section className={card}>
       <h3 className="font-semibold">Review against the frozen rubric</h3>
       <p className="my-3 text-sm">
-        Decisions keep the original scoring history, the reviewer, and a reason. A score requires
-        available evidence. Speaking also requires its protected recording and your listening
-        acknowledgement.
+        Decisions keep the original scoring history, the reviewer, and a reason.
+        A score requires available evidence. Speaking also requires its
+        protected recording and your listening acknowledgement.
       </p>
       <form
         onSubmit={(event) => {
           event.preventDefault();
           if (
+            !canEdit() ||
             !response ||
-            (item?.skill === "speaking" && state === "scored" && (!speechReady || !speechAvailable))
+            !item ||
+            reason.trim().length < 3 ||
+            reason.trim().length > 2000 ||
+            !["scored", "not_assessed", "needs_review"].includes(state) ||
+            (item.skill === "speaking" &&
+              state === "scored" &&
+              (!speechReady || !speechAvailable))
           )
             return;
-          setBusy(true);
-          setMessage("");
-          const payload = {
-            action: "review_score",
-            attemptId: attempt.id,
-            responseId: response.id,
-            state,
-            points:
-              state === "scored"
-                ? rubric
-                  ? Object.values(dimensions).reduce((a, b) => a + b, 0)
-                  : points
-                : null,
-            dimensions: state === "scored" && rubric ? dimensions : null,
-            reason,
-          };
-          const fingerprint = JSON.stringify(payload);
-          if (reviewFlight.current?.payload !== fingerprint)
-            reviewFlight.current = { payload: fingerprint, id: crypto.randomUUID() };
-          void examRequest({ ...payload, requestId: reviewFlight.current.id })
-            .then(() => {
+          if (
+            state === "scored" &&
+            (rubric
+              ? rubric.dimensions.some(
+                  (dimension) =>
+                    !Number.isFinite(dimensions[dimension.id]) ||
+                    dimensions[dimension.id] < 0 ||
+                    dimensions[dimension.id] > dimension.maximum,
+                ) ||
+                Object.keys(dimensions).some(
+                  (id) =>
+                    !rubric.dimensions.some((dimension) => dimension.id === id),
+                )
+              : !Number.isFinite(points) ||
+                points < 0 ||
+                points >
+                  (attempt.evidence.find((e) => e.itemId === chosen)?.maximum ??
+                    1))
+          )
+            return;
+          void act(
+            () => {
+              const payload = {
+                action: "review_score",
+                attemptId: attempt.id,
+                responseId: response.id,
+                state,
+                points:
+                  state === "scored"
+                    ? rubric
+                      ? Object.values(dimensions).reduce((a, b) => a + b, 0)
+                      : points
+                    : null,
+                dimensions: state === "scored" && rubric ? dimensions : null,
+                reason,
+              };
+              const fingerprint = JSON.stringify(payload);
+              if (reviewFlight.current?.payload !== fingerprint)
+                reviewFlight.current = {
+                  payload: fingerprint,
+                  id: crypto.randomUUID(),
+                };
+              return { ...payload, requestId: reviewFlight.current.id };
+            },
+            () => {
               reviewFlight.current = null;
-              setMessage("Review decision saved with its evidence.");
+              setNotice("Review decision saved with its evidence.");
               onRefresh();
-            })
-            .catch((err) => setMessage(err.message))
-            .finally(() => setBusy(false));
+            },
+          );
         }}
         className="space-y-4"
       >
@@ -1982,8 +2069,10 @@ function ExamRubricReview({
           <select
             className={input}
             value={chosen}
+            disabled={busy}
             required
             onChange={(event) => {
+              if (!canEdit()) return;
               setChosen(event.target.value);
               setSpeechReady(false);
               setState("needs_review");
@@ -2003,34 +2092,48 @@ function ExamRubricReview({
         {item && (
           <>
             <p className="rounded-xl border border-border p-3 text-sm">
-              Learner response: {answerText(response?.answer as AssessmentAnswer | undefined, item)}
+              Learner response:{" "}
+              {answerText(
+                response?.answer as AssessmentAnswer | undefined,
+                item,
+              )}
             </p>
             {item.skill === "speaking" && response?.answer?.mediaEvidenceId && (
               <SpeechEvidencePlayback
                 key={response.answer.mediaEvidenceId}
                 evidenceId={response.answer.mediaEvidenceId}
                 available={
-                  attempt.speechEvidence.find((row) => row.id === response.answer.mediaEvidenceId)
-                    ?.available
+                  attempt.speechEvidence.find(
+                    (row) => row.id === response.answer.mediaEvidenceId,
+                  )?.available
                 }
-                onReviewReady={setSpeechReady}
+                onReviewReady={(ready) => {
+                  if (capture().isCurrent()) setSpeechReady(ready);
+                }}
               />
             )}
             <p className="text-sm">
-              Frozen rubric version: {attempt.form.rubricVersion}. {feedback?.rationale}
+              Frozen rubric version: {attempt.form.rubricVersion}.{" "}
+              {feedback?.rationale}
             </p>
             <label className="block text-sm">
               Decision
               <select
                 className={input}
                 value={state}
-                onChange={(event) => setState(event.target.value as typeof state)}
+                disabled={busy}
+                onChange={(event) => {
+                  if (canEdit()) setState(event.target.value as typeof state);
+                }}
               >
                 <option value="needs_review">Needs review</option>
                 <option value="not_assessed">Not assessed</option>
                 <option
                   value="scored"
-                  disabled={item.skill === "speaking" && (!speechReady || !speechAvailable)}
+                  disabled={
+                    item.skill === "speaking" &&
+                    (!speechReady || !speechAvailable)
+                  }
                 >
                   Scored against the rubric
                 </option>
@@ -2053,12 +2156,14 @@ function ExamRubricReview({
                         step={0.5}
                         required
                         value={dimensions[dimension.id] ?? ""}
-                        onChange={(event) =>
-                          setDimensions((old) => ({
-                            ...old,
-                            [dimension.id]: Number(event.target.value),
-                          }))
-                        }
+                        disabled={busy}
+                        onChange={(event) => {
+                          if (canEdit())
+                            setDimensions((old) => ({
+                              ...old,
+                              [dimension.id]: Number(event.target.value),
+                            }));
+                        }}
                       />
                     </label>
                   ))}
@@ -2070,10 +2175,16 @@ function ExamRubricReview({
                     className={input}
                     type="number"
                     min={0}
-                    max={attempt.evidence.find((e) => e.itemId === chosen)?.maximum ?? 1}
+                    max={
+                      attempt.evidence.find((e) => e.itemId === chosen)
+                        ?.maximum ?? 1
+                    }
                     step={0.5}
                     value={points}
-                    onChange={(event) => setPoints(Number(event.target.value))}
+                    disabled={busy}
+                    onChange={(event) => {
+                      if (canEdit()) setPoints(Number(event.target.value));
+                    }}
                     required
                   />
                 </label>
@@ -2086,7 +2197,13 @@ function ExamRubricReview({
                 maxLength={2000}
                 required
                 value={reason}
-                onChange={(event) => setReason(event.target.value)}
+                disabled={busy}
+                onChange={(event) => {
+                  if (canEdit()) {
+                    setReason(event.target.value);
+                    setNotice("");
+                  }
+                }}
               />
             </label>
             <button className={primary} disabled={busy}>
@@ -2108,25 +2225,42 @@ function ExamRubricReview({
               (!!review.reviewer_id && review.reviewer_id !== user?.id)
             }
             onClick={() => {
-              setBusy(true);
-              void (
-                review.reviewer_id === user?.id
-                  ? Promise.resolve()
-                  : examRequest({ action: "claim_review", reviewId: review.id })
+              if (
+                !canEdit() ||
+                !review ||
+                reason.trim().length < 3 ||
+                reason.trim().length > 2000 ||
+                (!!review.reviewer_id && review.reviewer_id !== user!.id)
               )
-                .then(() =>
-                  examRequest({
-                    action: "resolve_review",
-                    reviewId: review.id,
-                    reason,
-                    requestId: crypto.randomUUID(),
-                  }),
-                )
-                .then(() => {
+                return;
+              const needsClaim = review.reviewer_id !== user!.id;
+              void act(
+                () =>
+                  needsClaim
+                    ? { action: "claim_review", reviewId: review.id }
+                    : {
+                        action: "resolve_review",
+                        reviewId: review.id,
+                        reason,
+                        requestId: crypto.randomUUID(),
+                      },
+                async (_, context) => {
+                  if (needsClaim) {
+                    if (!context.isCurrent()) return;
+                    await examRequest(
+                      {
+                        action: "resolve_review",
+                        reviewId: review.id,
+                        reason,
+                        requestId: crypto.randomUUID(),
+                      },
+                      context.signal,
+                    );
+                    if (!context.isCurrent()) return;
+                  }
                   onResolved();
-                })
-                .catch((err) => setMessage(err.message))
-                .finally(() => setBusy(false));
+                },
+              );
             }}
           >
             Close review with this reason

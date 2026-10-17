@@ -12,7 +12,10 @@ export function useExamMutation(context: string, onStart: () => void) {
   }, [capture, key]);
   async function act<T>(
     body: Record<string, unknown> | (() => Record<string, unknown>),
-    onSuccess: (result: T) => void | Promise<void>,
+    onSuccess: (
+      result: T,
+      context: { signal: AbortSignal; isCurrent: () => boolean },
+    ) => void | Promise<void>,
   ) {
     const lease = capture();
     if (!actor || !lease.isCurrent() || pending.current) return;
@@ -31,7 +34,7 @@ export function useExamMutation(context: string, onStart: () => void) {
         typeof body === "function" ? body() : body,
         controller.signal,
       );
-      if (current()) await onSuccess(result);
+      if (current()) await onSuccess(result, { signal: controller.signal, isCurrent: current });
     } catch (error) {
       if (current())
         setStatus({
@@ -57,6 +60,7 @@ export function useExamMutation(context: string, onStart: () => void) {
     act,
     cancel,
     clearError,
+    isPending: () => pending.current !== null,
     busy: status?.key === key && status.busy,
     error: status?.key === key ? status.error : "",
   };

@@ -4,6 +4,16 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Dictionary sentence cache boundaries — October 17
+
+Source `2ade3af` is locally verified and not deployed. The conjugation trace found no current UI callers for its learner-cache write/ensure helpers; that dormant registry remains a future-use concern, not a demonstrated active learner path. The active dictionary path did retain arbitrary source sentences in module-wide client and server maps. Client cards now live in a bounded provider inside the account-keyed app subtree, clear on unmount, and render only for the current cache instance/request key. Existing fetch-effect cleanup excludes late replies. No dictionary cache is persisted.
+
+The shared server cache now accepts only exact current public-authored lesson reading sentences or vocabulary entries, with the requested word present in the same public text. A valid lesson reference cannot turn an arbitrary private sentence/transcript into public cache content. Other lookups remain request-local on the server and reusable in the live account's client cache. Caught provider exceptions log only a fixed label. These are privacy boundaries, not content review/approval or a claim about SDK-internal logging.
+
+All 828 tests, type-check and stage build pass; lint has 0 errors/44 mixed-export warnings and artifact size is 19.66 MiB. The private-bank scan checks 96 markers/1133 source files/148 static artifacts with 0 hits. Controlled production-handler tests prove repeated private/custom contexts are uncached even with a valid lesson reference; exact public content reuses the server cache without a new provider/budget call; a word absent from the public sentence cannot enter that cache. Client factory tests prove separate-instance exclusion, clearing, context/pair/lesson keys and bounded eviction. No current browser/hosted provider/offline acceptance is claimed. See `qa-word-card-cache-privacy-2026-10-17.json`.
+
+No paid model calls, browser actions, hosted writes, schema/role/active-policy/speech/schedule changes. Hosted development remains `cfa32b6`; accepted companion remains `d4ad837`; live app and main are unchanged. The preceding reading-hint ownership source is included locally but also remains undeployed. Wider cache/cost review, durable adaptive routing and human/content/pilot/device/operational acceptance remain open.
+
 ### Private sentence reading caches — October 17
 
 Sourced5820df is committed and locally verified, not deployed. Component/lib storage audit found Japanese furigana, Chinese pinyin and Korean romaja sentence caches using unownedlocalStorage plus module-global memory. These surfaces render private Reader sentences and speaking transcripts, not just public lessons. They now use three existing account/guest-owned envelope kinds, at most80validated entries each, with exact concatenated-source and per-format/size validation. No module-wide private sentence state remains in those components. The hook returns only results for the exact current store/text, cancels late effect work and falls back to current plain text. Originalunownedlt.furigana.v3/lt.pinyin.v1/lt.romaja.v1bytes are neither read, claimed nor deleted; no recovery/history claim is made.

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examPlanRequest, examRequest, ExamRequestError } from "@/lib/assessments/client";
 import type {
   AssessmentPlanView,
@@ -44,19 +45,41 @@ function lessonLabel(id: string) {
   const lesson = getCurriculum(match[1])?.lessons.find((row) => row.n === Number(match[2]));
   return lesson ? `Lesson ${lesson.n}: ${lesson.title}` : "Reviewed unit";
 }
-export function AssessmentPlanPanel({
-  enrollmentId,
-  sourceAttemptId,
-  onOpenAttempt,
-}: {
+type PlanPanelProps = {
   enrollmentId: string;
   sourceAttemptId?: string;
   onOpenAttempt: (id: string) => void;
+};
+export function AssessmentPlanPanel(props: PlanPanelProps) {
+  const { user } = useAuth();
+  return (
+    <PlanSourceSelection
+      key={JSON.stringify([user?.id, props.enrollmentId, props.sourceAttemptId])}
+      {...props}
+    />
+  );
+}
+function PlanSourceSelection(props: PlanPanelProps) {
+  const [source, setSource] = useState(props.sourceAttemptId ?? "");
+  return <OwnedAssessmentPlanPanel key={source} {...props} source={source} setSource={setSource} />;
+}
+function OwnedAssessmentPlanPanel({
+  enrollmentId,
+  onOpenAttempt: navigate,
+  source,
+  setSource,
+}: PlanPanelProps & {
+  source: string;
+  setSource: (source: string) => void;
 }) {
-  const { user, isCurrentUser } = useAuth();
+  const { user } = useAuth();
   const viewerId = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify([enrollmentId, source]));
+  const view = capture();
+  const onOpenAttempt = (id: string) => {
+    if (view.isCurrent()) navigate(id);
+  };
   const [data, setData] = useState<AssessmentPlanView | null>(null),
-    [source, setSource] = useState(sourceAttemptId ?? ""),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false),
     [notice, setNotice] = useState("");
@@ -70,45 +93,57 @@ export function AssessmentPlanPanel({
     [reviewDays, setReviewDays] = useState(4);
   const actionLock = useRef(false),
     flight = useRef<{ signature: string; requestId: string } | null>(null);
-  const load = useCallback(
-    async (signal?: AbortSignal) => {
-      if (!viewerId) return;
-      const viewer = viewerId;
-      try {
-        const result = await examPlanRequest<AssessmentPlanView>(
-          `/api/exam-plans?enrollment=${encodeURIComponent(enrollmentId)}${source ? `&attempt=${encodeURIComponent(source)}` : ""}`,
-          signal,
-        );
-        if (isCurrentUser(viewer) && !signal?.aborted) {
-          setData(result);
-          setError("");
-        }
-      } catch (err) {
-        if (isCurrentUser(viewer) && !signal?.aborted)
-          setError(err instanceof Error ? err.message : "The learning plan could not be loaded.");
-      }
-    },
-    [enrollmentId, isCurrentUser, source, viewerId],
-  );
-  useEffect(() => {
+  const read = useRef<AbortController | null>(null);
+  const pendingAction = useRef<AbortController | null>(null);
+  const load = useCallback(async () => {
+    const lease = capture();
+    if (!viewerId || !lease.isCurrent()) return;
+    read.current?.abort();
     const controller = new AbortController();
-    setData(null);
-    void load(controller.signal);
-    return () => controller.abort();
+    read.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && read.current === controller && !controller.signal.aborted;
+    try {
+      const result = await examPlanRequest<AssessmentPlanView>(
+        `/api/exam-plans?enrollment=${encodeURIComponent(enrollmentId)}${source ? `&attempt=${encodeURIComponent(source)}` : ""}`,
+        controller.signal,
+      );
+      if (current()) {
+        setData(result);
+        setError("");
+      }
+    } catch (err) {
+      if (current())
+        setError(err instanceof Error ? err.message : "The learning plan could not be loaded.");
+    } finally {
+      if (read.current === controller) read.current = null;
+      release();
+      controller.abort();
+    }
+  }, [capture, enrollmentId, source, viewerId]);
+  useEffect(() => {
+    void load();
+    return () => read.current?.abort();
   }, [load]);
   const act = async (body: Record<string, unknown>) => {
-    if (actionLock.current || !user) return;
+    const lease = capture();
+    if (actionLock.current || !user || !lease.isCurrent()) return;
     actionLock.current = true;
     setBusy(true);
     setError("");
     setNotice("");
-    const viewer = user.id,
-      signature = JSON.stringify(body);
+    const controller = new AbortController();
+    pendingAction.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pendingAction.current === controller && !controller.signal.aborted;
+    const signature = JSON.stringify(body);
     if (flight.current?.signature !== signature)
       flight.current = { signature, requestId: crypto.randomUUID() };
     try {
-      await examPlanRequest({ ...body, requestId: flight.current!.requestId });
-      if (!isCurrentUser(viewer)) return;
+      await examPlanRequest({ ...body, requestId: flight.current!.requestId }, controller.signal);
+      if (!current()) return;
       flight.current = null;
       setDecision(null);
       setChange(null);
@@ -122,21 +157,26 @@ export function AssessmentPlanPanel({
       await load();
     } catch (err) {
       if (
-        isCurrentUser(viewer) &&
+        current() &&
         body.action === "save_goals" &&
         err instanceof ExamRequestError &&
         err.status === 409
       ) {
         await load();
-        if (isCurrentUser(viewer))
+        if (current())
           setNotice(
             "Your saved goals changed elsewhere. Review the latest choices and save again if needed.",
           );
-      } else if (isCurrentUser(viewer))
+      } else if (current())
         setError(err instanceof Error ? err.message : "The plan could not be changed.");
     } finally {
-      actionLock.current = false;
-      if (isCurrentUser(viewer)) setBusy(false);
+      if (current()) setBusy(false);
+      if (pendingAction.current === controller) {
+        pendingAction.current = null;
+        actionLock.current = false;
+      }
+      release();
+      controller.abort();
     }
   };
   if (!data)
@@ -216,7 +256,9 @@ export function AssessmentPlanPanel({
         <select
           className={input}
           value={source || data.source?.id || ""}
-          onChange={(event) => setSource(event.target.value)}
+          onChange={(event) => {
+            if (view.isCurrent() && !actionLock.current) setSource(event.target.value);
+          }}
           disabled={busy}
         >
           {!data.availableSources.length && <option value="">No submitted assessment yet</option>}
@@ -381,20 +423,45 @@ export function AssessmentPlanPanel({
                         className={button + " mt-2"}
                         disabled={busy}
                         onClick={() => {
-                          if (actionLock.current) return;
+                          const lease = capture();
+                          if (!user || !lease.isCurrent() || actionLock.current) return;
                           actionLock.current = true;
+                          const controller = new AbortController();
+                          pendingAction.current = controller;
+                          const release = lease.own(() => controller.abort());
+                          const current = () =>
+                            lease.isCurrent() &&
+                            pendingAction.current === controller &&
+                            !controller.signal.aborted;
                           setBusy(true);
                           setError("");
-                          void examRequest<{ id: string }>({
-                            action: "start",
-                            checkpointId: cp.id,
-                            requestId: crypto.randomUUID(),
-                          })
-                            .then((attempt) => onOpenAttempt(attempt.id))
-                            .catch((err) => setError(err.message))
+                          void examRequest<{ id: string }>(
+                            {
+                              action: "start",
+                              checkpointId: cp.id,
+                              requestId: crypto.randomUUID(),
+                            },
+                            controller.signal,
+                          )
+                            .then((attempt) => {
+                              if (current()) onOpenAttempt(attempt.id);
+                            })
+                            .catch((err) => {
+                              if (current())
+                                setError(
+                                  err instanceof Error
+                                    ? err.message
+                                    : "The check could not be started.",
+                                );
+                            })
                             .finally(() => {
-                              actionLock.current = false;
-                              setBusy(false);
+                              if (current()) setBusy(false);
+                              if (pendingAction.current === controller) {
+                                pendingAction.current = null;
+                                actionLock.current = false;
+                              }
+                              release();
+                              controller.abort();
                             });
                         }}
                       >

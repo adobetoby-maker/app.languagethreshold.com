@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T17:03:28.733077+00:00",
+  "auditedAt": "2026-10-17T17:16:50.768543+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "3ab3f73",
+  "application": "921b436",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-oqp8hblbc-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-74woq70dx-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -110,9 +110,10 @@
         "docs/reviews/qa-selected-scoring-preview-2026-10-17.json",
         "docs/reviews/qa-core-team-preview-2026-10-17.json",
         "docs/reviews/qa-core-summary-preview-2026-10-17.json",
-        "docs/reviews/qa-selected-review-preview-2026-10-17.json"
+        "docs/reviews/qa-selected-review-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-ui-preview-2026-10-17.json"
       ],
-      "finding": "Private routing, selected saves/media/direct reads/initial scoring, core team patterns and selected overview/history/CSV/source-plan normalization are implemented with scoped evidence. Human rubric review and AI proposals now require the valid saved path and exact selected response; current reviewer/owner, calibration/rubric, durable claim and human-decision requirements remain. Positive adaptive review/comparison/export tests are controlled local only. Core-to-branch Continue/reconnect/resume UI and acceptance remain unfinished; adaptive preparation/start and submission stay gated."
+      "finding": "Private routing, selected saves/media/reads/scoring/human and AI review, fixed-core team patterns and selected overview/history/CSV/source-plan normalization have scoped evidence. The explicit core-to-branch runner now flushes saves, retains owned continuation retry identity, locks uncertain core edits and adopts only a matching fresh selected snapshot; definitive core errors unlock editing and concurrent saves require explicit resolution. Controlled coordinator/draft and actual runner server-rendering tests pass. Guarded preparation/start/submission integration and real adaptive browser/phone/reconnect/expiry/consented-pilot acceptance remain unfinished; adaptive starts/submission stay server-gated."
     },
     {
       "sections": [
@@ -348,7 +349,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-selected-review-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-routing-ui-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",

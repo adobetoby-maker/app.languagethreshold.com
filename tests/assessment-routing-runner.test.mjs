@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+mkdirSync(resolve("node_modules/.cache/lle-tests"), { recursive: true });
 const root = mkdtempSync(resolve("node_modules/.cache/lle-tests/routing-runner-"));
 let module;
 try {

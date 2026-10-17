@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Cache privacy staging verification — October 17
+
+Application `8da3abb` (implementation `2ade3af`, including reading-hint ownership) is READY at https://language-threshold-emyd83rw8-adobetoby-5572s-projects.vercel.app, deployment `dpl_C1nMbiq1Vk9VjcG95R4yTxXWh3Nx`, true Preview/target null. The project/team guards and artifact verification passed; Vercel's generic `gitCommitSha` independently matches the full `8da3abb` commit. Accepted companion `exams.languagethreshold.com` remains on `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias reassignment or main push.
+
+Current hosted checks pass: 20 authenticated Exams groups, 12 focused routing/private-header groups, 3 public lesson-pack hash/header groups, 7 read-only scope groups and 16 rejected conversation-input groups. The saved personal draft remains revision 12/in_progress/unsubmitted, and team B remains 2 opened/0 mastered. Private-bank scan: 96 markers/1136 source files/148 static artifacts/0 hits. Local 828 tests, type-check and stage build pass; lint has 0 errors/44 mixed-export warnings and artifact size is 19.66 MiB. See `qa-cache-privacy-preview-2026-10-17.json` and `qa-exams-cache-privacy-preview-2026-10-17.json`.
+
+This HTTP regression evidence does not prove browser account-switch/cache behavior or a positive provider flow. Those changes retain the controlled local tests and still need actual browser acceptance. No browser actions, new learner writes, paid model calls, schema/role/active-policy/speech/schedule changes. The durable-routing database proposal remains unapplied pending the owner's response to the already-sent schema exception question; do not repeat it or infer approval from a heartbeat. Full adaptive runtime, wider endpoint cost/privacy coverage and human/content/pilot/device/operational gates remain open.
+
 ### Durable routing migration proposal — October 17
 
 The principal adaptive-runtime dependency is now a concrete reviewable proposal in `docs/assessments/adaptive-routing-migration-proposal.md`. It specifies one private immutable route record, source/core byte binding, learner authorization, ordered attempt locking, retry identity/conflicts, atomic route/revision/audit writes, selected-item guards, flat-history compatibility and a concurrent/failure/access/deletion acceptance matrix. It explicitly recognizes that the existing backend is shared with the live app; a Preview URL does not isolate database changes. No migration was generated or applied, and no local/hosted schema, role, active policy, speech collection or schedule was changed.

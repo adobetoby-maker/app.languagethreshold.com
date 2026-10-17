@@ -30,6 +30,7 @@ end $$;
 \ir ../../supabase/migrations/20261016114250_assessment_content_review_exposure.sql
 \ir ../../supabase/migrations/20261016121557_assessment_learner_goals.sql
 \ir ../../supabase/migrations/20261016121803_assessment_goal_full_module_coverage.sql
+\ir ../../supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$
 begin
  begin execute sql_text;

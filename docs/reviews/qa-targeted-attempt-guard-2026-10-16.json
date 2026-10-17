@@ -1,0 +1,82 @@
+{
+  "testedAt": "2026-10-17T02:34:30.946Z",
+  "scope": "Insertion-time targeted support attempt validation; local fictional fixtures plus hosted metadata and existing synthetic API regression",
+  "migration": {
+    "file": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+    "hostedVersion": "20261017023410",
+    "name": "assessment_targeted_attempt_guard",
+    "project": "pollhlkgltdkdskdzsgd",
+    "applied": true
+  },
+  "checks": {
+    "localRollbackSuite": true,
+    "preMigrationRegressionFailsForRetiredMapping": true,
+    "retiredMappingRejected": true,
+    "everyAssignedUnitRequired": true,
+    "rejectedStartCreatesNoAttempt": true,
+    "alteredFrozenUnitsRejected": true,
+    "alteredFrozenItemsRejected": true,
+    "staleContentVersionRejected": true,
+    "malformedAssignmentIdRejected": true,
+    "existingRequestRetryPreserved": true,
+    "existingOpenAttemptPreserved": true,
+    "fullModuleSuiteUnchanged": true,
+    "securityInvoker": true,
+    "fixedEmptySearchPath": true,
+    "anonymousExecute": false,
+    "authenticatedExecute": false,
+    "serviceRoleExecute": true,
+    "triggerEnabled": true,
+    "unitTestsPassed": 789,
+    "hostedApiGroupsPassed": 19
+  },
+  "hostedAvailability": {
+    "targetedEnrollments": 0,
+    "verifiedUnitMappings": 0,
+    "verifiedSupportForms": 0
+  },
+  "advisors": [
+    {
+      "name": "rls_enabled_no_policy",
+      "count": 43,
+      "level": "INFO",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+    },
+    {
+      "name": "function_search_path_mutable",
+      "count": 3,
+      "level": "WARN",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0011_function_search_path_mutable"
+    },
+    {
+      "name": "extension_in_public",
+      "count": 1,
+      "level": "WARN",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public"
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "count": 2,
+      "level": "WARN",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable"
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "count": 2,
+      "level": "WARN",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+    },
+    {
+      "name": "auth_leaked_password_protection",
+      "count": 1,
+      "level": "WARN",
+      "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+    }
+  ],
+  "limitations": [
+    "No live positive targeted-support acceptance without actual reviewed content.",
+    "Local fictional review fixtures are rolled back and were never hosted.",
+    "No simultaneous mutation or serializability claim.",
+    "No official result, approval, certificate or production app promotion."
+  ]
+}

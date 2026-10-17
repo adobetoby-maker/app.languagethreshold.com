@@ -66,8 +66,48 @@ begin
  perform pg_temp.expect_error(format('select public.assessment_decide_support(%L,%L,%L,%L,null,80,20,20,%L,current_date,%L,8,%L)','10000000-0000-4000-8000-000000000001',rec2,'approved','Synthetic full-module learner goal','full_module','America/Denver','90000000-0000-4000-8000-000000000011'),'existing active supporting module');
  select id into cp from public.assessment_checkpoints where enrollment_id=child and checkpoint='entrance';
  perform pg_temp.expect_error(format('select public.assessment_start_attempt(%L,%L,%L,%L)','10000000-0000-4000-8000-000000000001',cp,'support-fixture-entrance','90000000-0000-4000-8000-000000000012'),'Targeted support check unavailable');
+ -- LOCAL fictional reviews only: final DB insertion must independently reject
+ -- a retired mapping or a reviewed form missing one of the assigned units.
+ update public.assessment_support_capabilities set status='retired' where id='fixture-units';
+ perform pg_temp.expect_error(format('select public.assessment_start_attempt(%L,%L,%L,%L)','10000000-0000-4000-8000-000000000001',cp,'fixture-units-entrance','92000000-0000-4000-8000-000000000001'),'Targeted support mapping unavailable');
+ update public.assessment_support_capabilities set status='verified' where id='fixture-units';
+ declare original_definition jsonb; before_count bigint;
+ begin
+  select definition into original_definition from public.assessment_forms where id='fixture-units-entrance';
+  select count(*) into before_count from public.assessment_attempts where checkpoint_id=cp;
+  update public.assessment_forms set status='draft' where id='fixture-units-entrance';
+  update public.assessment_forms set definition=jsonb_set(definition,'{items}',(definition->'items')-2) where id='fixture-units-entrance';
+  update public.assessment_forms set status='verified' where id='fixture-units-entrance';
+  perform pg_temp.expect_error(format('select public.assessment_start_attempt(%L,%L,%L,%L)','10000000-0000-4000-8000-000000000001',cp,'fixture-units-entrance','92000000-0000-4000-8000-000000000002'),'must cover every assigned unit');
+  if (select count(*) from public.assessment_attempts where checkpoint_id=cp)<>before_count then raise exception 'Rejected targeted check created an attempt'; end if;
+  update public.assessment_forms set status='draft' where id='fixture-units-entrance';
+  update public.assessment_forms set definition=original_definition where id='fixture-units-entrance';
+  update public.assessment_forms set status='verified' where id='fixture-units-entrance';
+ end;
  short_attempt:=public.assessment_start_attempt('10000000-0000-4000-8000-000000000001',cp,'fixture-units-entrance','90000000-0000-4000-8000-000000000013');
  if (select jsonb_array_length(form_snapshot->'definition'->'items') from public.assessment_attempts where id=short_attempt)<>3 then raise exception 'Short check did not freeze assigned-unit items'; end if;
+ declare frozen jsonb; invalid jsonb;
+ begin
+  select form_snapshot into frozen from public.assessment_attempts where id=short_attempt;
+  invalid:=jsonb_set(frozen,'{unitLessonIds}','["support-fixture.lesson.1"]');
+  perform pg_temp.expect_error(format('insert into public.assessment_attempts(checkpoint_id,attempt_number,form_id,form_snapshot,start_request_id) values(%L,99,%L,%L,gen_random_uuid())',cp,'fixture-units-entrance',invalid),'Targeted support frozen units conflict');
+  invalid:=jsonb_set(frozen,'{definition,items}',(frozen->'definition'->'items')-0);
+  perform pg_temp.expect_error(format('insert into public.assessment_attempts(checkpoint_id,attempt_number,form_id,form_snapshot,start_request_id) values(%L,99,%L,%L,gen_random_uuid())',cp,'fixture-units-entrance',invalid),'Targeted support frozen items conflict');
+  invalid:=jsonb_set(frozen,'{contentVersion}','"stale-version"');
+  perform pg_temp.expect_error(format('insert into public.assessment_attempts(checkpoint_id,attempt_number,form_id,form_snapshot,start_request_id) values(%L,99,%L,%L,gen_random_uuid())',cp,'fixture-units-entrance',invalid),'Targeted support frozen version conflict');
+  invalid:=jsonb_set(frozen,'{supportAssignmentId}','"not-an-assignment"');
+  perform pg_temp.expect_error(format('insert into public.assessment_attempts(checkpoint_id,attempt_number,form_id,form_snapshot,start_request_id) values(%L,99,%L,%L,gen_random_uuid())',cp,'fixture-units-entrance',invalid),'Targeted support assignment unavailable');
+  if has_function_privilege('anon','assessment_private.guard_targeted_attempt_insert()','execute')
+   or has_function_privilege('authenticated','assessment_private.guard_targeted_attempt_insert()','execute')
+   or not has_function_privilege('service_role','assessment_private.guard_targeted_attempt_insert()','execute')
+   or (select prosecdef from pg_proc where oid='assessment_private.guard_targeted_attempt_insert()'::regprocedure) then
+   raise exception 'Targeted guard role privileges changed';
+  end if;
+ end;
+ update public.assessment_support_capabilities set status='retired' where id='fixture-units';
+ if public.assessment_start_attempt('10000000-0000-4000-8000-000000000001',cp,'fixture-units-entrance','90000000-0000-4000-8000-000000000013')<>short_attempt then raise exception 'Retired mapping broke an existing attempt retry'; end if;
+ if public.assessment_start_attempt('10000000-0000-4000-8000-000000000001',cp,'fixture-units-entrance','92000000-0000-4000-8000-000000000003')<>short_attempt then raise exception 'Retired mapping duplicated an existing open attempt'; end if;
+ update public.assessment_support_capabilities set status='verified' where id='fixture-units';
  perform public.assessment_acknowledge_support('10000000-0000-4000-8000-000000000001',assignment,'90000000-0000-4000-8000-000000000014');
  perform public.assessment_change_support('10000000-0000-4000-8000-000000000001',assignment,'paused','Synthetic pause reason','90000000-0000-4000-8000-000000000015');
  if not exists(select 1 from public.assessment_enrollments where id=child and status='paused') then raise exception 'Supporting enrollment did not pause'; end if;

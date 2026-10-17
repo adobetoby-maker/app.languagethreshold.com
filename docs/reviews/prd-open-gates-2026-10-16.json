@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T15:59:24.088662+00:00",
+  "auditedAt": "2026-10-17T16:19:39.351785+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "7767de7",
+  "application": "0d51153",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-eqn7jjeja-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-de8dx9689-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -104,9 +104,11 @@
         "src/components/exams/ExamsArea.tsx",
         "docs/assessments/adaptive-routing.md",
         "docs/reviews/qa-adaptive-routing-foundation-2026-10-17.json",
-        "docs/reviews/qa-routing-database-preview-2026-10-17.json"
+        "docs/reviews/qa-routing-database-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-api-preview-2026-10-17.json",
+        "docs/reviews/qa-selected-path-preview-2026-10-17.json"
       ],
-      "finding": "Versioned policy/selector/public projection and immutable private route table/RPC are implemented, with source-byte validation, one revision/audit transaction, selected SQL response/submission/speech guards and local concurrency/failure coverage. API/Continue-resume UI, selected scoring/reporting and complete media integration remain incomplete; adaptive forms stay unavailable."
+      "finding": "Versioned policy/selector/projection, immutable private route table/RPC and authenticated selection coordinator are implemented. Original-source retries, one revision/audit transaction and selected SQL guards retain scoped concurrency/failure evidence. Saves and listening/speech media now enforce core/selected membership. Ordinary attempt reads, selected scoring/reporting/comparison anchors, AI review and Continue/resume remain unfinished. Adaptive preparation/start and submission stay gated."
     },
     {
       "sections": [
@@ -318,7 +320,7 @@
       "No universal threshold or production form approval is inferred from a draft policy"
     ],
     "followUps": [
-      "Wire the installed route transaction into the authenticated API and Continue/resume UI; finish selected-item media/scoring/reporting and fixed-core comparison anchors before enabling adaptive forms",
+      "Finish selected ordinary attempt reads, scoring/reporting and fixed-core comparison anchors, then AI review and core-to-branch Continue/resume UI before enabling adaptive forms",
       "Accept pre-start disclosure against genuinely reviewed form metadata",
       "Finish additional acceptance and cost/privacy gaps identified above"
     ]
@@ -342,7 +344,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-routing-database-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-selected-path-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -354,5 +356,6 @@
       "version": "20261017155354",
       "name": "assessment_adaptive_route_records"
     }
-  }
+  },
+  "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00"
 }

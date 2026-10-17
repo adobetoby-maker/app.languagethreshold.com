@@ -5,6 +5,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Word Match and Listening Drill generation guards — October 17
+
+Source `158fad4` is locally verified and not deployed. Both active generators now reject missing/foreign Origin before any cache access, emit no-store and use the existing durable content allowance before paid misses. Public warm entries require no provider/key/budget; personal Word Match vocabulary still cannot read or populate shared cache entries. Calls disable retries and combine a 30-second SDK/total deadline with incoming abort. Caught raw provider exceptions are replaced with fixed content-free labels.
+
+Model output is parsed into bounded whitelisted fields before caching. Word Match requires the exact requested 6/8/10 pairs and CEFR bucket, with distinct normalized targets and meanings. Target/topic caps remain compatible with the next request's input bounds. Listening requires exactly four distinct bounded transcripts, a valid integer index, bounded reveal fields and the requested CEFR bucket. The existing index recovery is retained only when the exact phrase occurs among options. Invalid output never seeds the cache. This is structural consistency, not linguistic quality, calibrated difficulty or official assessment evidence.
+
+All 841 tests, type-check and stage build pass; lint has 0 errors/44 mixed-export warnings; artifact 19.67 MiB. Scan: 96 markers/1154 source/148 static/0 hits. Seven focused tests cover guards, cache warm/private/miss paths, 6/8/10 pair counts, malformed/null/oversize/mismatched/duplicate output, index recovery, abort/options and safe errors. An initial test-file collision was corrected before final verification: the existing conjugation semantic-review/private-cache and Word Match cache regressions are retained, with the new guard tests in their own file. See `qa-word-match-listening-guards-2026-10-17.json`.
+
+No paid calls, browser actions, new learner writes, schema/role/active-policy/speech/schedule changes. Hosted development stays `858c47a`; accepted companion `d4ad837`, live app and main remain unchanged. Remaining conjugation/idiom/false-friend/other game generators and free-text shared cache contexts still need review; do not claim app-wide privacy/cost completion. The already-sent routing schema question is pending; human/content/pilot/device/operational release gates remain open.
+
+
+
 ### Grammar and Daily Story staging verification — October 17
 
 Application `858c47a` (including Grammar `31d487a`) is READY at https://language-threshold-cmp1vplwv-adobetoby-5572s-projects.vercel.app, deployment `dpl_Ay9rTNv5tPqsf1CdnxgzmQXPtmQq`, true Preview/target null. Target/artifact guards passed; independent inspection matches project/team and full Git commit. The accepted Exams hostname remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias/main/production change. This supersedes the preceding Grammar entry's undeployed status.

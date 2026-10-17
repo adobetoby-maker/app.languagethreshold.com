@@ -30,7 +30,7 @@ import {
 } from "@/data/roleplay-scenarios";
 import { MissionBanner } from "./MissionBanner";
 import { PostSessionFeedback } from "./PostSessionFeedback";
-import { ltAnalytics } from "@/lib/lt-analytics";
+import { useFieldPrepAnalytics } from "@/hooks/use-field-prep-analytics";
 import { cn } from "@/lib/utils";
 import { useAiGate } from "@/state/ai-gate-state";
 
@@ -93,6 +93,7 @@ function speakAloud(
 
 export function FieldPrepMode() {
   const { state, dispatch } = useApp();
+  const ltAnalytics = useFieldPrepAnalytics();
   const { gated } = useAiGate();
   const { voiceURI } = useSpeech();
   const [phase, setPhase] = useState<"select" | "roleplay">("select");
@@ -470,6 +471,7 @@ export function FieldPrepMode() {
       )}
       {showFeedback && scenario && (
         <PostSessionFeedback
+          analytics={ltAnalytics}
           scenarioId={scenario.id}
           scenarioTitle={scenario.title}
           language={state.selectedLanguage}

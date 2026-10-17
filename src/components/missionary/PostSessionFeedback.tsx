@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Star, X } from "lucide-react";
-import { ltAnalytics } from "@/lib/lt-analytics";
+import type { LtAnalytics } from "@/lib/lt-analytics";
 import { cn } from "@/lib/utils";
 
 interface PostSessionFeedbackProps {
+  analytics: LtAnalytics;
   scenarioId: string;
   scenarioTitle: string;
   language: string;
@@ -12,12 +13,24 @@ interface PostSessionFeedbackProps {
 }
 
 export function PostSessionFeedback({
+  analytics,
   scenarioId,
   scenarioTitle,
   language,
   missionArea,
   onClose,
 }: PostSessionFeedbackProps) {
+  const alive = useRef(false);
+  const flight = useRef(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    alive.current = true;
+    return () => {
+      alive.current = false;
+      if (closeTimer.current !== null) clearTimeout(closeTimer.current);
+    };
+  }, []);
+  const [error, setError] = useState<string | null>(null);
   const [rating, setRating] = useState(0);
   const [hovered, setHovered] = useState(0);
   const [comment, setComment] = useState("");
@@ -25,9 +38,11 @@ export function PostSessionFeedback({
   const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
-    if (!rating) return;
+    if (!rating || flight.current || !alive.current) return;
+    flight.current = true;
+    setError(null);
     setSubmitting(true);
-    await ltAnalytics.submitFeedback({
+    const saved = await analytics.submitFeedback({
       feedbackType: "field_prep_session",
       rating,
       comment: comment.trim() || undefined,
@@ -35,9 +50,17 @@ export function PostSessionFeedback({
       language,
       missionArea,
     });
-    setSubmitted(true);
+    flight.current = false;
+    if (!alive.current) return;
     setSubmitting(false);
-    setTimeout(onClose, 1400);
+    if (!saved) {
+      setError("Feedback save could not be confirmed. Try again.");
+      return;
+    }
+    setSubmitted(true);
+    closeTimer.current = setTimeout(() => {
+      if (alive.current) onClose();
+    }, 1400);
   };
 
   return (
@@ -78,6 +101,8 @@ export function PostSessionFeedback({
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n}
+                  aria-label={`${n} star${n === 1 ? "" : "s"}`}
+                  aria-pressed={rating === n}
                   onClick={() => setRating(n)}
                   onMouseEnter={() => setHovered(n)}
                   onMouseLeave={() => setHovered(0)}
@@ -105,9 +130,15 @@ export function PostSessionFeedback({
               onChange={(e) => setComment(e.target.value)}
               placeholder="Any thoughts? (optional)"
               rows={2}
+              maxLength={2000}
               className="mt-4 w-full resize-none rounded-xl border border-border/70 bg-background/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/50 focus:outline-none"
             />
 
+            {error && (
+              <p role="alert" className="mt-2 text-sm text-destructive">
+                {error}
+              </p>
+            )}
             {/* Actions */}
             <div className="mt-4 flex gap-2 justify-end">
               <button

@@ -1,0 +1,13 @@
+# Construction Foreman lesson draft
+
+October 16, 2026. Initial track: English instructions → Spanish target. This is the first related-construction batch after the Roofing reference and the owner's Landscaper usability report. Roofing remains the first release target; this batch does not bypass its review gates.
+
+All30 existing lesson numbers and titles are retained. Each has10 terms,5 crew phrases, an original bilingual scene and a communication objective. Source: `src/data/construction-foreman-lesson-content.ts`. Foreman receives its own curriculum projection; the old shared Framer lessons are not rewritten. Authored words take precedence over earlier generated decks for this exact pair. Other instruction/target pairs do not inherit the Spanish translations, readings or teaching settings.
+
+The six-mode engine uses supported settings for1–10, connected settings for11–20 and independent settings for21–30. Matching batches progress4→6→8, listening moves from words/phrases to sentences and paired sentences, and response suggestions progress1→2→3 sentences. Speaking uses the current lesson objective and an increasingly optional word bank. Writing begins with copying, then recall and a response to that lesson's task. These settings are draft teaching choices, not calibrated proficiency levels.
+
+The old repeated framing passage is replaced by each lesson's own scene. Fixed construction prescriptions in the old Foreman steps are replaced by language for identifying the applicable document, clarifying an instruction, reporting a concern and confirming the responsible contact. Emergency practice uses fictional communication and does not place a call or teach first-aid treatment. Billing and hiring scenes practice clarification without substituting for the organization's formal processes.
+
+The separate versioned practice pack contains all30 definitions, words, passages, prompts and app assets. It does not contain official exams, private learner evidence or recorded audio. Listening depends on a device voice; AI conversation, expanded dictionary information and handwriting recognition require connectivity. Installation/integrity and actual cold-offline behavior are separate acceptance checks.
+
+Required review: fluent Spanish with regional terminology; construction-domain meaning and scenario realism; curriculum progression, cognitive load and recall coverage; and an owner-observed individual/team pilot. No human approval or calibrated exam form is asserted. All three checkpoint forms still need separate authoring, review and calibration through the private assessment workflow. The source audit and runtime evidence are recorded in `docs/reviews/2026-10-15-review-and-sequence.md`; structural completeness is not release approval.

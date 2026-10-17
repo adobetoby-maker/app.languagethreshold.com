@@ -1,0 +1,123 @@
+{
+  "testedAt": "2026-10-17T23:05:47.744158+00:00",
+  "applicationCommit": "e0c2d4c20693813159af8ceea36b0d76a41db67f",
+  "preview": "https://language-threshold-g8d5ign8x-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-g8d5ign8x-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DzZKjQCyevqaCubigYtHLHR6MuMN",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-g8d5ign8x-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "e0c2d4c20693813159af8ceea36b0d76a41db67f",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1031,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.77,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1296,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/exam-entry-lifecycle.test.mjs",
+    "tests/assessment-client-cancellation.test.mjs"
+  ],
+  "checks": [
+    "ExamsArea uses production useExamAttemptOpen hook with owned actor/org/mount lease and newest-request identity",
+    "Superseded, cancelled, departed or actor-lost open replies cannot select, cache, recover a saved copy, write error or clear newer loading",
+    "Back from result/runner/pending and selecting a checkpoint cancel pending attempt opening",
+    "Current read retains review/team query fields, team-scope validation, original account-owned offline cache and network-only recovery behavior",
+    "Production useExamPreparation owns checkpoint/actor transport cancellation and current reply guards; old data/error is hidden on changed scope",
+    "Back clears preparation; reopening the same checkpoint refetches, with no prior prepared form reused; current errors remain honest"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-history-export-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real microphone, recording, consent, upload, reviewer acknowledgement, withdrawal, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write",
+    "Helper cancellation applies when callers supply/abort a signal; it does not add automatic identity subscriptions or prove every caller has a mounted guard/deadline",
+    "No real human review, lesson binding, reviewer assignment or approval was performed; positive callbacks are controlled fixtures only",
+    "No actual grant, revocation, role assignment, qualification check or human review was performed; all positive mutation responses are synthetic fixtures",
+    "Healthy/attention/not-observed results in the new component fixture are synthetic, not actual cleanup or scheduler/platform proof; receipt time is client read time",
+    "No actual private CSV file or native browser download was created; controlled transport, blob, anchor and timer fixtures only",
+    "Cancellation/resource cleanup cannot undo a browser download already handed off; current browser/Safari handoff acceptance remains open",
+    "Plan-panel positive saves, conflicts and checkpoint starts use synthetic component transport only; no actual plan/goal/support write or hosted checkpoint start was performed",
+    "Client cancellation cannot undo an accepted server write; abort is not server revocation",
+    "Private-report tests use synthetic auth, rows, metadata and deferred transport; no real private report content or current browser acceptance was manufactured",
+    "Team-insights acceptance uses controlled public catalog/auth/transport and synthetic metadata; no actual team-admin browser acceptance or learner cohort evidence was manufactured",
+    "New tests exercise extracted production hooks with controlled auth/transport/cache callbacks; full ExamsArea/browser navigation and actual SDK expiry acceptance remain open",
+    "No actual private attempt snapshot, recovered browser record or positive hosted prepare/start was created by new hook fixtures",
+    "ExamsArea start/enrollment/schedule act mutations and result/reviewer callbacks remain next audit; broader helper/endpoint/cache/device inventory remains incomplete"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-insights-preview-2026-10-17.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false
+}

@@ -5,6 +5,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### TTS late-work isolation and explicit voice preference — October 17
+
+Source84f3f9a guards Mission TTS with generation/current-controller checks after credentials, response/error payload and blob. Stop rejects AbortError, preventing stale work from starting audio, invoking old start callbacks or triggering the remote wrapper's fallback speech. Active request remains cancellable through playback. Late play rejection cannot clear a newer source/handler/object URL; matching completion alone clears its controller. VoicePicker treats cancellation silently. Device/remote voice helpers no longer read the unowned lt.speech.v1 key: owned provider callers pass explicit choices, unspecified callers get public device defaults. Legacy bytes and explicit recovery remain unchanged; no owned Speech store edits.
+
+All962tests/type-check pass; lint0errors/45existing mixed-export/ignored warnings; local stage artifact19.73MiB passes target/artifact guards; private-bank96markers/1221source/148static/0hits. Two controlled production-helper groups cover delayed credentials/no request after stop, delayed blob/no playback, old play failure/new playback isolation, late play success/no old callback, normal completion/URL cleanup and explicit/default voice selection with forbidden legacy-storage getter. These are fixtures, not browser/provider/physical audio/current-account acceptance. Evidence: qa-voice-lifecycle-local-2026-10-17.json.
+
+Hosted application remains last-observed eda1f26/READY/targetnull at https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app (dpl_bCovgdgjSyaFedqVN34AHtoveM6h); no deployment/hosted rerun/alias inspection this turn. Local387f24c/04a0181/84f3f9a remain undeployed. Accepted companion last-observed d4ad837 and live f9f8685 unchanged. No main/production changes.
+
+NEXT: audit Pashto/device fallback audio and VoicePicker unmount/current-owner integration, speech completion counters, analytics session/event identity and Reader/device guidance flags. AppProvider owns the component subtree and Speech cleanup calls stopRemoteTTS, but that source observation is not full browser account-switch proof. Additional prepared-start RPC permission remains pending; do not apply/wire/repeat question. No browser/model/hosted learner writes/schema/role/active speech/retention/schedule changes. All release gates/full goal remain open.
+
+
 ### Guest banner eligibility and disabled gate storage — October 17
 
 Source04a0181 removes the disabled AI gate's live device-wide usage-counter write and dormant raw-email storage helpers/modal write. Client gate remains open and server limits are unchanged. SaveProgressBanner now mounts a guest-only child after auth loading; loading/authenticated boundaries unmount eligibility, auth modal and event listeners. Meaningful signed-in activity cannot qualify the later guest banner. Earned eligibility is current-visit memory only. Old email/count/earned keys remain unread and untouched; optional device-wide presentation dismissal remains.

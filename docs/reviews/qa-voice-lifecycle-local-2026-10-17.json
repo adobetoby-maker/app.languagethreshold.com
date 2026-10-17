@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-17T18:47:00.775426+00:00",
+  "sourceCommit": "84f3f9a42546c8978e00ee4484bbbb90134bd776",
+  "scope": "Local TTS helper lifecycle and explicit voice selection; not deployed or browser/audio acceptance",
+  "latestHostedApplication": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "latestHostedPreview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "localVerification": {
+    "tests": 962,
+    "newControlledGroups": 2,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "localStageArtifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:46:08.377Z",
+      "sourceCommit": "84f3f9a",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1221,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "changes": [
+    "Mission TTS generation token/current-controller checks after credentials, response, error payload and blob; stopped work rejects AbortError before stale playback/fallback.",
+    "Play result callbacks/cleanup cannot mutate a newer playback; active request remains cancellable through playback; matching completion clears controller. Stop releases source/object URL and cancels completion.",
+    "VoicePicker silently handles cancellation.",
+    "Removed implicit legacy lt.speech.v1 reads from device and remote TTS selection; owned provider callers still pass explicit preference; unspecified callers use public device defaults. Explicit recovery path retains legacy key handling."
+  ],
+  "controlledProof": [
+    "Stop during delayed credential lookup sends no request",
+    "Stop during delayed blob prevents audio playback",
+    "Old play rejection leaves newer source, end handler and URL intact",
+    "Old play success after stop cannot invoke stale playback-start callback",
+    "Current playback completion succeeds; each created object URL revoked once",
+    "Explicit available preference honored; unknown/unspecified preference falls back to current device voice; throwing legacy storage getter never touched"
+  ],
+  "limits": [
+    "Tests bundle actual production helpers with controlled headers/fetch/blob/audio/voice fixtures; no real provider call, browser click, physical audio or SDK account-switch proof.",
+    "Legacy bytes remain untouched; no current owned speech-state storage changes.",
+    "Remaining inventory includes Pashto/device fallback TTS lifecycle, VoicePicker unmount/current-owner integration, speech completion counters, analytics session/event identity and Reader/device guidance flags; no app-wide privacy completion claimed.",
+    "No deployment, hosted QA, alias inspection, model requests, schema/role/active speech/retention/schedule/main/production changes. Hosted evidence remains eda1f26.",
+    "Additional prepared-start RPC authorization remains pending; no apply/wiring; adaptive capability remains off. Full goal and release gates remain open."
+  ]
+}

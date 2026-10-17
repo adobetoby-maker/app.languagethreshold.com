@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T02:55:00Z",
+  "auditedAt": "2026-10-17T12:38:56.094895+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "08d9981",
+  "application": "d4ad837",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-rhnnomrs2-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-r9iaxlapf-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -50,14 +50,15 @@
         "4"
       ],
       "requirement": "Focused Exams entry, lesson/assignment return and shared companion sign-in",
-      "status": "partial",
+      "status": "implemented_with_scoped_evidence",
       "evidence": [
         "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
-        "docs/reviews/qa-exam-return-context-2026-10-16.json"
+        "docs/reviews/qa-exam-return-context-2026-10-16.json",
+        "docs/reviews/qa-exams-companion-setup-2026-10-17.json"
       ],
       "remaining": [
-        "DNS/hosting/shared-auth rollout for owner-selected exams.languagethreshold.com",
-        "Google return configuration acceptance; email return was tested"
+        "Launch acceptance and intentional production rollout remain gated",
+        "No automatic cross-origin browser-session sharing or global cross-origin sign-out is claimed"
       ]
     },
     {
@@ -110,13 +111,20 @@
         "6"
       ],
       "requirement": "Show form effort before starting and keep the learner informed",
-      "status": "engineering_incomplete",
+      "status": "implemented_with_scoped_evidence",
       "evidence": [
-        "src/lib/assessments/form.ts",
-        "src/lib/assessments/server.ts",
-        "src/components/exams/ExamsArea.tsx"
+        "src/lib/assessments/preparation.ts",
+        "src/routes/api.exams.ts",
+        "src/components/exams/ExamsArea.tsx",
+        "tests/assessment-support-start.test.mjs",
+        "docs/reviews/qa-exams-companion-setup-2026-10-17.json"
       ],
-      "finding": "estimatedMinutes exists in the form/attempt contract but is not shown in the pre-start screen. Estimates require reviewed form metadata rather than an invented universal duration."
+      "finding": "Read-only preparation shares Start access/form selection, discloses positive authored timing, explicitly leaves unknown/targeted-subset timing unavailable, and checks a private-form digest before the existing start RPC.",
+      "remaining": [
+        "Positive pre-start browser acceptance with genuinely reviewed forms; hosted official forms remain unavailable",
+        "Reviewed timing for targeted checks; no proportional estimate is invented",
+        "No atomic protection against a concurrent draft definition mutation inside the existing start RPC is claimed"
+      ]
     },
     {
       "sections": [
@@ -301,7 +309,7 @@
       "No universal threshold or production form approval is inferred from a draft policy"
     ],
     "followUps": [
-      "Show reviewed effort metadata before Start",
+      "Accept pre-start disclosure against genuinely reviewed form metadata",
       "Finish additional acceptance and cost/privacy gaps identified above"
     ]
   },
@@ -314,6 +322,8 @@
     "hostname": "exams.languagethreshold.com",
     "decidedOn": "2026-10-17",
     "source": "Direct owner reply to pending hostname question",
-    "status": "selected; DNS, hosting and shared-auth rollout not yet verified"
+    "status": "Staged DNS, certificate, Preview hosting, email/Google sign-in and return-context acceptance verified",
+    "setupAuthorizedOn": "2026-10-17",
+    "launchConstraint": "Staged until launch acceptance is complete"
   }
 }

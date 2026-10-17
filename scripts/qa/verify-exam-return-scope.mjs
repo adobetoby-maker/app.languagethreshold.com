@@ -1,3 +1,4 @@
+import { assertQaStage } from "./stage-origin.mjs";
 /** Read-only verification after the documented normal QA learner/admin browser trial. */
 import assert from "node:assert/strict";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -10,10 +11,7 @@ const qa = JSON.parse(
 assert.equal(qa.project, "pollhlkgltdkdskdzsgd");
 assert.equal(qa.run, "roofing-20261015");
 const base = process.env.LT_QA_STAGE_URL;
-assert.match(
-  base ?? "",
-  /^https:\/\/language-threshold-[a-z0-9]+-adobetoby-5572s-projects\.vercel\.app$/,
-);
+assertQaStage(base);
 const keys = JSON.parse(
   execFileSync(
     "/opt/homebrew/bin/supabase",

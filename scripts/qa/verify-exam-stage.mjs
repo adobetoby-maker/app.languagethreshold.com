@@ -1,3 +1,4 @@
+import { assertQaStage } from "./stage-origin.mjs";
 /** Actual authenticated plan API checks. Synthetic QA accounts, rejected mutations only. */
 import assert from "node:assert/strict";
 import { loadModule } from "../../tests/helpers/bundle.mjs";
@@ -5,6 +6,10 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
+const base =
+  process.env.LT_QA_STAGE_URL ||
+  "https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app";
+assertQaStage(base);
 const qa = JSON.parse(
   readFileSync("/Users/drive/.codex/tmp/language-threshold-qa/roofing-20261015.json", "utf8"),
 );
@@ -37,13 +42,7 @@ const [personal, learner, admin] = await Promise.all([
   login(qa.email, qa.password),
   login(qa.adminEmail, qa.adminPassword),
 ]);
-const base =
-  process.env.LT_QA_STAGE_URL ||
-  "https://language-threshold-dhj2i3aj1-adobetoby-5572s-projects.vercel.app";
-assert.match(
-  base,
-  /^https:\/\/language-threshold-[a-z0-9]+-adobetoby-5572s-projects\.vercel\.app$/,
-);
+
 async function request(token, pathOrBody, origin = base) {
   const get = typeof pathOrBody === "string";
   const response = await fetch(base + (get ? pathOrBody : "/api/exam-plans"), {
@@ -81,6 +80,15 @@ const qaCheckpoints = await service
   .select("id")
   .eq("enrollment_id", qa.exams.personalEnrollmentId);
 assert.equal(qaCheckpoints.error, null);
+for (const [token, expected] of [[personal, 400], [learner, 403]]) {
+  const prepared = await fetch(base + "/api/exams", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, Origin: base, "Content-Type": "application/json" },
+    body: JSON.stringify({ action: "prepare", checkpointId: qaCheckpoints.data[0].id }),
+  });
+  assert.equal(prepared.status, expected);
+  assert.equal(prepared.headers.get("cache-control"), "no-store");
+}
 const activeListeningAttempt = await service
   .from("assessment_attempts")
   .select("id")
@@ -274,7 +282,7 @@ const report = {
   spanishTargetTracks: 57,
   englishTargetTracks: 59,
   scope:
-    "Exact staged production artifact, existing synthetic QA records, no official forms published",
+    "Exact staged Preview artifact, existing synthetic QA records, no official forms published",
   checks: {
     reviewerControlsMatchStoredRoles: true,
     authenticatedPersonalRead: true,
@@ -294,6 +302,7 @@ const report = {
     privateContentDeniedToUnassignedAccounts: true,
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     lessonSnapshotBindingDeniedToNonOwners: true,
+    preStartDraftAndForeignScopeDenied: true,
     noStore: true,
   },
 };

@@ -1,10 +1,8 @@
+import { assertQaStage } from "./stage-origin.mjs";
 import assert from "node:assert/strict";
 import { writeFileSync } from "node:fs";
 const base = process.env.LT_QA_STAGE_URL;
-assert.match(
-  base ?? "",
-  /^https:\/\/language-threshold-[a-z0-9]+-adobetoby-5572s-projects\.vercel\.app$/,
-);
+assertQaStage(base);
 const org = "11111111-2222-4333-8444-555555555555";
 const attempt = "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee";
 const legacy = await fetch(

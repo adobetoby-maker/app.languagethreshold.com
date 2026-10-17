@@ -1,0 +1,23 @@
+{
+  "testedAt": "2026-10-17T19:54:22.292Z",
+  "project": "pollhlkgltdkdskdzsgd",
+  "scope": "Actual SDK anonymous/authenticated direct-RPC denials; no learner write or source/form supplied",
+  "results": [
+    {
+      "role": "anon",
+      "status": 401,
+      "code": "42501",
+      "deniedBeforeFunctionBody": true
+    },
+    {
+      "role": "authenticated",
+      "status": 403,
+      "code": "42501",
+      "deniedBeforeFunctionBody": true
+    }
+  ],
+  "limits": [
+    "Function existence/version/grants are independently checked with read-only database metadata; a PostgREST404 alone is not version proof.",
+    "No service-role positive adaptive start or content approval is created."
+  ]
+}

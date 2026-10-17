@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T19:37:54.370516+00:00",
+  "auditedAt": "2026-10-17T19:56:58.056089+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "7dbf4cf",
+  "application": "5b00bd2",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -367,14 +367,22 @@
   "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00",
   "latestLocalLifecycleEvidence": "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json",
   "preparedStartSchemaProposal": {
-    "status": "Pending owner authorization; concrete additive RPC locally verified, not applied/wired",
+    "status": "Owner approved; final migration applied and API wired behind disabled Preview capability; activation remains gated",
+    "authorization": "Direct owner answer: Approve additional RPC; keep launch gated",
     "proposal": "docs/assessments/prepared-start-migration-proposal.md",
-    "evidence": "docs/reviews/qa-prepared-start-local-2026-10-17.json",
-    "requiredBeforeAdaptiveActivation": true
+    "evidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
+    "localMigration": "20261017194728_assessment_prepared_start.sql",
+    "hostedMigration": {
+      "version": "20261017194816",
+      "name": "assessment_prepared_start"
+    },
+    "migrationApplied": true,
+    "applicationWired": true,
+    "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "7dbf4cffc6eb664e9150c1422372c5d42fc80e4d",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
+  "latestLocalSourceCommit": "5b00bd2c9348883763c3cdd3dc8098648a98d15c",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,

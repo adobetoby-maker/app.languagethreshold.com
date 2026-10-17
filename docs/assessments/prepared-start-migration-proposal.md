@@ -1,6 +1,6 @@
 # Proposal: bind adaptive start to the validated source
 
-Status: locally tested proposal; **not applied, not wired into the application, not an activation approval**. The existing Preview capability stays explicitly off. Owner approval for the earlier durable-routing migration does not automatically approve this additional RPC.
+Status: owner approved (“Approve additional RPC; keep launch gated”), applied as hosted migration20261017194816 and wired behind the disabled Preview capability. Final immutable source: `../../supabase/migrations/20261017194728_assessment_prepared_start.sql`. Current staged proof: `../reviews/qa-prepared-start-preview-2026-10-17.json`. This is **not activation or launch approval**.
 
 The API checks the prepared disclosure digest and reviewed/calibrated private form before invoking `assessment_start_attempt`. The existing RPC reads that source again without holding a source-row lock and does not require calibration. A calibration/content edit between those operations can create an attempt different from the source the API validated. The fixed local QA database reproduced an actual nonpilot start freezing `calibrated=false` after the previously read source was calibrated. No hosted adaptive attempt or content was created.
 
@@ -16,13 +16,13 @@ An existing start request for a different form conflicts. The original frozen at
 
 ## Local proof
 
-Run `node scripts/qa/test-prepared-start-db.mjs`. This refuses any nonempty database and uses only the fixed `/tmp` PostgreSQL socket and `lt_exams_qa_20261015_codex`. It runs all fixed-form, routing and adaptive-runtime SQL baselines, then installs the proposal locally. Synthetic metadata remains local. Separate real PostgreSQL connections use explicit held transactions and observed `pg_stat_activity` lock waits; no timer alone is counted as a concurrency pass.
+Run `node scripts/qa/test-prepared-start-db.mjs`. This refuses any nonempty database and uses only the fixed `/tmp` PostgreSQL socket and `lt_exams_qa_20261015_codex`. It runs all fixed-form, routing and adaptive-runtime SQL baselines, then installs the final migration locally. Synthetic metadata remains local. Separate real PostgreSQL connections use explicit held transactions and observed `pg_stat_activity` lock waits; no timer alone is counted as a concurrency pass.
 
 Ten result groups cover the legacy gap; calibration/definition/version/review edits winning before start; start winning before form/release edits; stale release review rejection; concurrent new/legacy starts without deadlock; exact frozen bytes and single-event retry/resume; foreign actor/source/browser-role denial; audit-failure rollback and changed-form retry; current private-key exposure denial; current uncalibrated/flat rejection. All pass. Fixture objects are removed in finally and the database is verified empty afterward. Evidence: `../reviews/qa-prepared-start-local-2026-10-17.json`.
 
-## Requested authorization and rollout
+## Authorized rollout
 
-Approve this additional additive database RPC on the existing shared backend, then wire only the disabled adaptive Preview start path to it. Generate a fresh migration with the CLI; never edit the applied routing migration or historical start functions. Repeat local proof against the final migration; apply once, verify function grants/signature and advisors, then deploy a true Preview with the capability explicitly false and repeat the existing authenticated compatibility checks. Existing flat live callers keep their current RPC.
+The owner approved the additional RPC and disabled-path wiring on October17. A fresh CLI migration was locally verified, applied once, and inspected for source hash, service-only execution, invoker/empty search path and unchanged legacy body. The application is staged with the capability explicitly false and authenticated compatibility checks pass. Existing flat live callers keep their current RPC. Applied migrations remain immutable.
 
 This does not authorize enabling the capability, advancing the accepted companion alias, pushing main, promoting production, publishing forms, creating approvals/results, recording speech, changing retention or scheduling cleanup. Rollback is to leave the capability off and stop calling the new RPC; retain existing attempts and immutable migration history. Genuine content/calibration, browser/device/reviewer/consented-pilot and other launch acceptance remain required.
 

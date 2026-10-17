@@ -1,0 +1,216 @@
+{
+  "testedAt": "2026-10-17T19:56:58.056089+00:00",
+  "applicationCommit": "5b00bd2c9348883763c3cdd3dc8098648a98d15c",
+  "preview": "https://language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_GZbr7mEvhR1HSL5ZSZouWL3pGsyP",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "5b00bd2c9348883763c3cdd3dc8098648a98d15c",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "authorization": {
+    "source": "Direct owner answer October17",
+    "answer": "Approve additional RPC; keep launch gated",
+    "scope": "Apply reviewed additive prepared-start RPC and wire disabled adaptive Preview path; not activation/main/production/content approval"
+  },
+  "database": {
+    "project": "pollhlkgltdkdskdzsgd",
+    "localMigration": "20261017194728_assessment_prepared_start.sql",
+    "hostedMigration": {
+      "version": "20261017194816",
+      "name": "assessment_prepared_start"
+    },
+    "applied": true,
+    "signature": "assessment_start_prepared_attempt(uuid,uuid,text,uuid,jsonb,jsonb,text[])",
+    "securityInvoker": true,
+    "emptySearchPath": true,
+    "bodyHash": "bee22ee51b7c7b82dcc9da9f615e8a85",
+    "bodyMatchesFinalMigration": true,
+    "anonExecute": false,
+    "authenticatedExecute": false,
+    "serviceExecute": true,
+    "aclRoles": [
+      "postgres",
+      "service_role"
+    ],
+    "legacyStartHashBefore": "1c24df7fb5591a247aa4fdb10dc3ceaf",
+    "legacyStartHashAfter": "1c24df7fb5591a247aa4fdb10dc3ceaf",
+    "localChecks": {
+      "localDatabase": "lt_exams_qa_20261015_codex",
+      "proposalOnly": false,
+      "migration": "20261017194728_assessment_prepared_start.sql",
+      "noHostedWrites": true,
+      "syntheticFixturesOnly": true,
+      "checks": {
+        "legacyCalibrationTransitionGapReproduced": true,
+        "concurrentCalibrationDefinitionVersionAndReviewChangesRejectWithoutAttempt": true,
+        "startWinsContentEditWaitsAndFrozenRetryResumeSingleEvent": true,
+        "releaseReviewTransitionRejectsWithoutAttempt": true,
+        "newAndLegacyStartsSerializeWithoutDeadlock": true,
+        "foreignActorChangedPayloadAndBrowserRoleDenial": true,
+        "auditFailureRollsBackAndChangedFormRetryRejected": true,
+        "startWinsReleaseReviewEditWaits": true,
+        "currentPrivateKeyExposureStillDenied": true,
+        "currentUncalibratedAndFlatSourcesCannotUsePreparedAdaptiveRpc": true
+      }
+    },
+    "localFixtureDatabaseEmptyAfterCleanup": true,
+    "advisorSummary": [
+      {
+        "type": "security",
+        "notices": [
+          {
+            "name": "rls_enabled_no_policy",
+            "level": "INFO",
+            "count": 45,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+          },
+          {
+            "name": "function_search_path_mutable",
+            "level": "WARN",
+            "count": 3,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0011_function_search_path_mutable"
+          },
+          {
+            "name": "extension_in_public",
+            "level": "WARN",
+            "count": 1,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public"
+          },
+          {
+            "name": "anon_security_definer_function_executable",
+            "level": "WARN",
+            "count": 2,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable"
+          },
+          {
+            "name": "authenticated_security_definer_function_executable",
+            "level": "WARN",
+            "count": 2,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+          },
+          {
+            "name": "auth_leaked_password_protection",
+            "level": "WARN",
+            "count": 1,
+            "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+          }
+        ],
+        "findingsForPreparedStart": []
+      },
+      {
+        "type": "performance",
+        "notices": [
+          {
+            "name": "unindexed_foreign_keys",
+            "level": "INFO",
+            "count": 42,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+          },
+          {
+            "name": "auth_rls_initplan",
+            "level": "WARN",
+            "count": 9,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0003_auth_rls_initplan"
+          },
+          {
+            "name": "unused_index",
+            "level": "INFO",
+            "count": 42,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index"
+          },
+          {
+            "name": "multiple_permissive_policies",
+            "level": "WARN",
+            "count": 13,
+            "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0006_multiple_permissive_policies"
+          },
+          {
+            "name": "auth_db_connections_absolute",
+            "level": "INFO",
+            "count": 1,
+            "remediation": "https://supabase.com/docs/guides/deployment/going-into-prod"
+          }
+        ],
+        "findingsForPreparedStart": []
+      }
+    ]
+  },
+  "wiring": [
+    "Adaptive starts re-fetch complete private form/release rows, validate prepared digest/calibration/whole form/current lesson binding against that exact release row, then send trusted rows to source-locking RPC. Browser schema never accepts expected source rows.",
+    "Fresh-start SQL compares rows under locks; changed-source error mapped409. Existing flat/support starts keep original RPC and arguments.",
+    "Adaptive retries/new-device resume resolve trusted saved form identity and validated full-module calibrated frozen snapshot; SQL repeats current authorization/exposure/status. Empty expected objects are only used for existing-attempt path; disappearance fails closed. No source/alternate branch is serialized to learner.",
+    "Default-off/production gating preserved. Component-owned card/Core30/saved-vocabulary speaker cleanup included with controlled surface/actor/scope tests."
+  ],
+  "activation": {
+    "adaptiveDeploymentCommandOverride": "false",
+    "adaptiveActivated": false,
+    "capabilityValueExposedByMetadata": null,
+    "fieldPrepAnalyticsEnabled": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 973,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.74,
+    "privateBank": {
+      "testedAt": "2026-10-17T19:54:53.389Z",
+      "sourceCommit": "5b00bd2",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1241,
+      "checkedStaticFiles": 149,
+      "privateContentHits": 0
+    }
+  },
+  "hostedGroups": {
+    "generationEntryHandlers": 14,
+    "generationRejectionHttpRequests": 28,
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7,
+    "directBrowserRoleRpcDenials": 2
+  },
+  "preserved": {
+    "personalExam": {
+      "revision": 12,
+      "status": "in_progress",
+      "unsubmitted": true
+    },
+    "teamActivity": {
+      "opened": 2,
+      "currentMastered": 0,
+      "previousOpened": 1,
+      "newOpenedLesson": 1,
+      "originalOpenedLesson": 29
+    },
+    "companionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeploymentId": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "mainPromoted": false,
+    "productionPromoted": false
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-prepared-start-preview-2026-10-17.json",
+    "docs/reviews/qa-prepared-start-browser-grants-2026-10-17.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json"
+  ],
+  "limits": [
+    "Positive adaptive handler/concurrency content fixtures are local and fictional; no hosted calibrated form/review approval, positive adaptive start, official response/score or pilot was created. No allowed model request or browser action.",
+    "Post-DDL advisors report project notices; none names the new RPC. These summaries are not a claim the project has no advisories or a before/after count comparison. Remediation URLs retained for review; no unrelated policies/roles/indexes changed.",
+    "Function grants alone are not full browser/phone/SDK expiry/reconnect/physical audio/offline/pilot acceptance. Activation, content/calibration/equivalence, reviewers, catalog and operations remain gated.",
+    "Analytics backend remains absent/capabilityoff; other direct utterance surfaces and Reader/device guidance audit remain open.",
+    "Only approved additive RPC applied. Existing applied migrations/legacy functions unchanged; no role membership/policy/speech collection/retention/schedule/main/alias/production changes. Full goal remains incomplete."
+  ]
+}

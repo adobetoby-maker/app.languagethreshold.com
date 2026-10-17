@@ -5,6 +5,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Field Prep analytics scope and honest feedback acknowledgement — October 17
+
+Local source4cb03c7 replaces the browser-wide analytics ID/singleton/anon fallback with a per-mounted-instance factory; FieldPrepMode shares the instance with its feedback child. No sessionStorage reads/writes, persistent actor singleton or legacy assignment; original key untouched. Effect setup creates a fresh instance, cleanup disposes/aborts pending transports. Adapter checks SDK session identity against captured actor before existing insert and supplies abort signal. Known fields/metadata only, bounded counts/strings/comment2000 and20pending calls; unused arbitrary error-log API removed. Feedback shows success only for a confirmed current-instance save, blocks duplicate click, shows retryable error, and suppresses unmounted replies/close timers. Rating buttons have accessible labels.
+
+All968tests/type-check pass; lint0errors/45existing warnings; local stage artifact19.74MiB passes target/artifact guards; private-bank96markers/1231source/148static/0hits. Four controlled production factory/component groups prove separate identifiers/same-instance grouping, no old storage IO, bounded known payload/pending cap, errors/throws/late-owner reply false, disposed signals abort, feedback failure/retry/double-click/unmount/timer behavior. Hook adapter source reviewed, not actual SDK account-switch/hosted analytics delivery or RLS proof. Repository migrations/generated types do not list these analytics tables; do not infer hosted existence or change schema/policies to force success. Aborting cannot undo accepted server writes. Evidence: qa-owned-analytics-local-2026-10-17.json. React review: unconditional hooks, effect-owned factory cleanup/recreation, pending refs, close timer cleanup, labelled ratings.
+
+Hosted remains last-observed78b3f5b/READY/targetnull at https://language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app (dpl_3aD3wo155ig78CJSDModz1tGkNfZ), with separately dated964tests/current14entry-rejection/21Exams/12entry/3packs/7scope evidence. No deploy/hosted rerun/alias inspection or feedback/telemetry writes this turn. Companion last-observed d4ad837 and live f9f8685 unchanged; main untouched.
+
+NEXT: direct utterance/device sample cleanup and Reader/device guidance inventory; actual analytics hook/SDK/hosted permissions acceptance remains open. No app-wide privacy completion. Prepared-start additional RPC approval remains pending; do not repeat/apply/wire. No browser/model/schema/role/active speech/retention/schedule changes. Adaptive capability off; full goal/all human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational gates remain open.
+
+
 ### Combined privacy/audio group staged; exact hosted checks pass — October 17
 
 Application78b3f5b adds owned picker Google-preview cancellation through an optional Mission TTS signal. Picker close/accent/unmount/device-preview replacement aborts its own controller; authenticated actor checks precede dispatch/error toast. Helper signal abort only stops its still-current generation; an old owner's signal cannot stop a replacement and pre-aborted incoming work cannot interrupt current audio. Listeners removed in finally. Actual helper fixtures cover these cases; integration source reviewed, no browser click/unmount/audio proof. Public device sample cleanup and other direct utterance surfaces remain open.

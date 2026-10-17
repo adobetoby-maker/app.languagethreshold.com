@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { X, Volume2, MessageCircle, Sparkle, BookmarkPlus, BookmarkCheck } from "lucide-react";
 import { lookupWord, type WordCardData } from "@/fns/word-lookup.functions";
@@ -11,6 +11,7 @@ import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
 import { tutorLessonThread, type TutorLessonReference } from "@/lib/lesson-tutor-context";
+import { lessonWordCard } from "@/lib/lesson-word-card";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -145,7 +146,13 @@ export function WordCard({
           const cached = getCachedWordCard(lookupKey);
           return { key: lookupKey, card: cached, error: null, loading: !cached };
         })();
-  const { card, error, loading } = currentLookup;
+  const { error, loading } = currentLookup;
+  const fallbackCard = useMemo(
+    () => lessonWordCard(request.lesson, request.word, request.language, state.nativeLanguage),
+    [request.lesson, request.word, request.language, state.nativeLanguage],
+  );
+  const card = currentLookup.card ?? (!loading ? fallbackCard : null);
+  const showingLessonWord = Boolean(card && !currentLookup.card);
   const [vocabAdded, setVocabAdded] = useState(false);
   const [showEtymology, setShowEtymology] = useState(false);
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
@@ -237,6 +244,10 @@ export function WordCard({
       return;
     }
     let active = true;
+    if (typeof navigator !== "undefined" && navigator.onLine === false) {
+      setLookupState({ key: lookupKey, card: null, error: "offline", loading: false });
+      return;
+    }
     setLookupState({ key: lookupKey, card: null, error: null, loading: true });
     lookup({
       data: {
@@ -427,14 +438,15 @@ export function WordCard({
         {/* Learner-facing copy. The raw server string ("AI is not configured")
             is operator language and was being rendered verbatim, in red, to a
             learner. It is kept on `title` so it stays diagnosable. */}
-        {!loading && error && (
+        {!loading && error && !card && (
           <div
             title={error}
             className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
           >
             <p className="text-[13px] leading-relaxed text-muted-foreground">
-              Word details aren&rsquo;t available right now. Your sentence is above — try again in a
-              moment.
+              {error === "offline"
+                ? "You're offline. This word has no exact match in this lesson's saved word list. Your sentence is above; reconnect for dictionary details."
+                : "Word details aren’t available right now. Your sentence is above — try again later."}
             </p>
           </div>
         )}
@@ -449,10 +461,14 @@ export function WordCard({
               )}
             </h3>
             <div className="mt-0.5 flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs text-gold">{card.phonetic}</span>
-              <span className="inline-flex items-center rounded-full border border-border/70 bg-background/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                {card.partOfSpeech}
-              </span>
+              {card.phonetic && (
+                <span className="font-mono text-xs text-gold">{card.phonetic}</span>
+              )}
+              {card.partOfSpeech && (
+                <span className="inline-flex items-center rounded-full border border-border/70 bg-background/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  {card.partOfSpeech}
+                </span>
+              )}
               {card.pitchAccent && (
                 <span
                   title="Tokyo-dialect pitch accent"
@@ -464,6 +480,12 @@ export function WordCard({
             </div>
 
             <p className="mt-3 text-sm leading-relaxed text-foreground/90">{card.baseDefinition}</p>
+            {showingLessonWord && (
+              <p role="status" className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                From this lesson’s word list · draft content. More dictionary detail and Tutor
+                replies require a connection.
+              </p>
+            )}
 
             <div className="my-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-border/70" />
@@ -502,10 +524,12 @@ export function WordCard({
                   </>
                 )}
               </p>
-              <p className="text-[13px] leading-relaxed text-foreground/90">
-                {card.conjugationNote}
-                {card.contextNuance ? ` ${card.contextNuance}` : ""}
-              </p>
+              {(card.conjugationNote || card.contextNuance) && (
+                <p className="text-[13px] leading-relaxed text-foreground/90">
+                  {card.conjugationNote}
+                  {card.contextNuance ? ` ${card.contextNuance}` : ""}
+                </p>
+              )}
             </div>
 
             <ActionHint storageKey="lt.guide.reader.tutor" className="mt-3">
@@ -513,27 +537,29 @@ export function WordCard({
               question starts from what you are reading now.
             </ActionHint>
 
-            <div className="mt-4">
-              {/* Labelled explicitly: this is a generated example, not the
+            {card.exampleSentence && (
+              <div className="mt-4">
+                {/* Labelled explicitly: this is a generated example, not the
                   sentence the learner tapped. Unlabelled — and with the source
                   sentence absent — it was being read as the source sentence. */}
-              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                ⊕ Another example
-              </div>
-              {/* Deliberately one size below the source sentence above: this is
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  ⊕ Another example
+                </div>
+                {/* Deliberately one size below the source sentence above: this is
                   generated illustration, not what the learner tapped. The gloss
                   drops out of mono — it is English prose, not UI chrome. */}
-              <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
-                {request.language === "Japanese" ? (
-                  <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
-                ) : (
-                  `"${card.exampleSentence}"`
-                )}
-              </p>
-              <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                {card.exampleTranslation}
-              </p>
-            </div>
+                <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
+                  {request.language === "Japanese" ? (
+                    <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
+                  ) : (
+                    `"${card.exampleSentence}"`
+                  )}
+                </p>
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                  {card.exampleTranslation}
+                </p>
+              </div>
+            )}
 
             {card.commonCollocations && card.commonCollocations.length > 0 && (
               <div className="mt-4">

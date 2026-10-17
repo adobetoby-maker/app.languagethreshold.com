@@ -11,6 +11,7 @@ import {
   unsavedSpeechCount,
   readSpeechTake,
 } from "@/lib/assessments/speech-device";
+import { useExamMutation } from "@/hooks/use-exam-mutation";
 import { useExamAttemptOpen, useExamPreparation } from "@/hooks/use-exam-entry";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
 import type { OverviewState } from "@/lib/assessments/reporting";
@@ -195,7 +196,7 @@ function ExamsAreaContent({
   }, []);
   const Heading = embedded ? "h2" : "h1";
   const [authOpen, setAuthOpen] = useState(false),
-    [actionLoading, setLoading] = useState(false),
+    [opening, setLoading] = useState(false),
     [actionError, setError] = useState("");
   const [selection, setSelection] = useState<{
     viewer: string;
@@ -226,8 +227,7 @@ function ExamsAreaContent({
     } | null>(null),
     [reason, setReason] = useState("");
   const scheduleRequest = useRef<{ payload: string; id: string } | null>(null);
-  const actionLock = useRef(false),
-    handledAttempt = useRef<string | null>(null);
+  const handledAttempt = useRef<string | null>(null);
   const [filters, setFilters] = useState<PlanFilters>(() => ({
     ...emptyFilters,
     ...(initialModuleFilter
@@ -261,9 +261,6 @@ function ExamsAreaContent({
         hasMore: report.hasMore,
       }
     : null;
-  const loading = actionLoading || report.loading,
-    // Overview errors must not describe a separately loaded active exam as disconnected.
-    error = actionError || (selected ? "" : report.error);
   const [scheduleNow, setScheduleNow] = useState(() => Date.now());
   const scheduleVisible = !!user && !selected && !!overview?.enrollments.length;
   useEffect(() => {
@@ -277,15 +274,6 @@ function ExamsAreaContent({
       document.removeEventListener("visibilitychange", tick);
     };
   }, [scheduleVisible]);
-  const refreshOverview = report.refresh;
-  const load = useCallback(() => {
-    setError("");
-    refreshOverview();
-  }, [refreshOverview]);
-  useEffect(() => {
-    if (report.metadata)
-      setLearner((previous) => previous || report.metadata!.members[0]?.user_id || "");
-  }, [report.metadata]);
   const onOpened = useCallback((next: { viewer: string; attempt: ExamAttemptView; fromDevice?: boolean }) => {
     setSelection(next);
     setPending(null);
@@ -302,22 +290,24 @@ function ExamsAreaContent({
       void open(attemptId, reviewMode);
     }
   }, [attemptId, open, user, reviewMode, orgId]);
-  const act = async (work: () => Promise<void>) => {
-    if (actionLock.current || !user) return;
-    actionLock.current = true;
-    const viewer = user.id;
-    setLoading(true);
+  const onMutationStart = useCallback(() => { cancelOpen(); setError(""); }, [cancelOpen]);
+  const { act, cancel: cancelMutation, busy: mutating, error: mutationError, clearError: clearMutationError } = useExamMutation(
+    JSON.stringify([orgId, pending?.checkpoint.id, prepared?.preparedForm, selected?.id, schedule, reason, module, target, native, start, learner, filters]),
+    onMutationStart,
+  );
+  const actionLoading = opening || mutating;
+  const loading = actionLoading || report.loading;
+  const error = actionError || mutationError || (selected ? "" : report.error);
+  const refreshOverview = report.refresh;
+  const load = useCallback(() => {
     setError("");
-    try {
-      await work();
-    } catch (err) {
-      if (isCurrentUser(viewer))
-        setError(err instanceof Error ? err.message : "Exam action could not finish.");
-    } finally {
-      actionLock.current = false;
-      if (isCurrentUser(viewer)) setLoading(false);
-    }
-  };
+    clearMutationError();
+    refreshOverview();
+  }, [refreshOverview, clearMutationError]);
+  useEffect(() => {
+    if (report.metadata)
+      setLearner((previous) => previous || report.metadata!.members[0]?.user_id || "");
+  }, [report.metadata]);
   const explicitReturn = examLessonReturn({
     moduleId,
     target: targetLanguage,
@@ -478,6 +468,7 @@ function ExamsAreaContent({
             attempt={selected}
             onBack={() => {
               cancelOpen();
+              cancelMutation();
               setSelection(null);
               void load();
             }}
@@ -493,6 +484,7 @@ function ExamsAreaContent({
             onCheckServer={() => void open(selected.id)}
             onBack={() => {
               cancelOpen();
+              cancelMutation();
               setSelection(null);
               void load();
             }}
@@ -508,7 +500,7 @@ function ExamsAreaContent({
         )
       ) : pending ? (
         <section className={card}>
-          <button className={button} onClick={() => { cancelOpen(); setPending(null); }}>
+          <button className={button} onClick={() => { cancelOpen(); cancelMutation(); setPending(null); }}>
             Back to Exams
           </button>
           <h2 className="mt-4 text-2xl font-semibold">
@@ -554,22 +546,16 @@ function ExamsAreaContent({
             className={primary}
             disabled={loading || !prepared}
             onClick={() =>
-              void act(async () => {
-                if (!prepared) return;
-                const attempt = await examRequest<ExamAttemptView>({
-                  action: "start",
-                  checkpointId: pending.checkpoint.id,
-                  requestId: crypto.randomUUID(),
-                  preparedForm: prepared.preparedForm,
-                });
-                if (isCurrentUser(user.id)) {
-                  if (!attemptMatchesOrganization(attempt, orgId))
-                    throw new Error(
-                      "This attempt is outside this team view. Open its own Exams view.",
-                    );
-                  setSelection({ viewer: user.id, attempt });
-                  setPending(null);
-                }
+              prepared && void act<ExamAttemptView>({
+                action: "start",
+                checkpointId: pending.checkpoint.id,
+                requestId: crypto.randomUUID(),
+                preparedForm: prepared.preparedForm,
+              }, (attempt) => {
+                if (!attemptMatchesOrganization(attempt, orgId))
+                  throw new Error("This attempt is outside this team view. Open its own Exams view.");
+                setSelection({ viewer: user.id, attempt });
+                setPending(null);
               })
             }
           >
@@ -753,25 +739,23 @@ function ExamsAreaContent({
                 className="mt-4 grid gap-4 sm:grid-cols-2"
                 onSubmit={(event) => {
                   event.preventDefault();
-                  void act(async () => {
-                    await examRequest({
-                      action: "enroll",
-                      moduleId: module,
-                      targetLanguage: target,
-                      instructionLanguage: native,
-                      startDate: start,
-                      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                      ...(orgId ? { orgId, learnerId: learner } : {}),
-                      requestId: crypto.randomUUID(),
-                    });
-                    await load();
-                  });
+                  void act({
+                    action: "enroll",
+                    moduleId: module,
+                    targetLanguage: target,
+                    instructionLanguage: native,
+                    startDate: start,
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    ...(orgId ? { orgId, learnerId: learner } : {}),
+                    requestId: crypto.randomUUID(),
+                  }, () => { load(); });
                 }}
               >
                 {orgId && (
                   <label>
                     Learner
                     <select
+                      disabled={actionLoading}
                       className={input}
                       value={learner}
                       onChange={(event) => setLearner(event.target.value)}
@@ -789,6 +773,7 @@ function ExamsAreaContent({
                 <label>
                   Module
                   <select
+                      disabled={actionLoading}
                     className={input}
                     value={module}
                     onChange={(event) => {
@@ -809,6 +794,7 @@ function ExamsAreaContent({
                 <label>
                   Language to learn
                   <select
+                      disabled={actionLoading}
                     className={input}
                     value={target}
                     onChange={(event) => setTarget(event.target.value as Language)}
@@ -821,6 +807,7 @@ function ExamsAreaContent({
                 <label>
                   Instruction language
                   <select
+                      disabled={actionLoading}
                     className={input}
                     value={native}
                     onChange={(event) => setNative(event.target.value as NativeLanguage)}
@@ -833,6 +820,7 @@ function ExamsAreaContent({
                 <label>
                   Plan start date
                   <input
+                    disabled={actionLoading}
                     className={input}
                     type="date"
                     value={start}
@@ -982,7 +970,7 @@ function ExamsAreaContent({
                           plan.user_id === user.id && (
                             <button
                               className={button + " mt-2 w-full"}
-                              onClick={() => { cancelOpen(); setPending({ plan, checkpoint: cp }); }}
+                              onClick={() => { cancelOpen(); cancelMutation(); setPending({ plan, checkpoint: cp }); }}
                             >
                               {latest
                                 ? "Retake — keep original"
@@ -1147,23 +1135,20 @@ function ExamsAreaContent({
               className={card}
               onSubmit={(event) => {
                 event.preventDefault();
-                void act(async () => {
+                void act(() => {
                   const payload = {
-                    action: "schedule",
-                    enrollmentId: schedule.plan.id,
-                    revision: schedule.plan.revision,
-                    change: schedule.change,
-                    checkpointId: schedule.checkpoint,
-                    date: schedule.date,
-                    reason,
+                    action: "schedule", enrollmentId: schedule.plan.id,
+                    revision: schedule.plan.revision, change: schedule.change,
+                    checkpointId: schedule.checkpoint, date: schedule.date, reason,
                   };
                   const fingerprint = JSON.stringify(payload);
                   if (scheduleRequest.current?.payload !== fingerprint)
                     scheduleRequest.current = { payload: fingerprint, id: crypto.randomUUID() };
-                  await examRequest({ ...payload, requestId: scheduleRequest.current.id });
+                  return { ...payload, requestId: scheduleRequest.current.id };
+                }, () => {
                   scheduleRequest.current = null;
                   setSchedule(null);
-                  await load();
+                  load();
                 });
               }}
             >
@@ -1184,6 +1169,7 @@ function ExamsAreaContent({
                   <input
                     className={input}
                     type="date"
+                    disabled={actionLoading}
                     value={schedule.date}
                     onChange={(event) => setSchedule({ ...schedule, date: event.target.value })}
                   />
@@ -1193,6 +1179,7 @@ function ExamsAreaContent({
                 Reason
                 <input
                   className={input}
+                  disabled={actionLoading}
                   value={reason}
                   onChange={(event) => setReason(event.target.value)}
                   minLength={3}

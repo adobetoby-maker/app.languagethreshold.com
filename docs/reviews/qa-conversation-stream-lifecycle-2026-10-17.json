@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-17T13:13:29.263640+00:00",
+  "applicationSource": "4e667ad",
+  "deployed": false,
+  "scope": "Shared Anthropic text stream bridge used by Tutor and Speak, now also Discussion and both Field Prep routes.",
+  "changes": [
+    "Normal completion marker and complete usage receipt require message_stop.",
+    "Unexpected early EOF or provider iteration failure errors the response with fixed text, without exposing raw provider payloads.",
+    "Response cancellation aborts the upstream SDK controller, suppresses later writes, and permits iterator cleanup.",
+    "Removed three duplicate streaming bridges."
+  ],
+  "verification": {
+    "tests": 821,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 41,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T13:13:05.561Z",
+      "sourceCommit": "4e667ad",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1120,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Partial delta followed by early EOF or thrown private error never emits DONE; next read receives fixed generic error.",
+    "Cancellation aborts controller and closes generator without writing after cancel.",
+    "Installed SDK with synthetic local SSE transport receives abort after response headers when the output reader cancels.",
+    "Complete usage/text/DONE contracts and actual four conversation route handlers remain covered."
+  ],
+  "externalModelCalls": 0,
+  "hostedWrites": false,
+  "browserActions": false,
+  "limitations": [
+    "No actual browser/platform disconnect, hosted streaming timeout, billing or browser partial-response recovery acceptance.",
+    "SDK internal parser logging is not comprehensively audited.",
+    "No schema/role/active-policy/speech-collection/schedule changes.",
+    "Adaptive durable runtime remains incomplete/disabled; human and launch acceptance gates remain open.",
+    "Companion stays d4ad837; isolated development stays 0cea7dc; live app unchanged."
+  ]
+}

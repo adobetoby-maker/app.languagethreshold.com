@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Conversation stream lifecycle — October 17
+
+Source4e667ad is locally verified, not deployed. The shared Anthropic text stream now requires an actualmessage_stop before emitting DONE or a complete usage receipt; early EOF/provider iteration failures error the response with fixed text instead of closing successfully or exposing raw provider exceptions. Cancelling the response aborts the SDK controller and suppresses later writes. Discussion and both Field Prep routes now reuse that bridge alongside Tutor and Speak. This does not enable speech collection or change speech policy.
+
+All821tests/type-check/stage build pass; lint0errors41existing warnings and artifact19.66MiB. Private-bank scan96markers/1119source/148static/0hits. Tests preserve the first partial delta, reject the next read on early EOF/failure without DONE, verify cancellation/iterator cleanup, and use the installed SDK with a synthetic local SSE transport to prove response cancellation reaches upstream after headers. No paid model calls, hosted record writes, browser actions, schema/role/active-policy/schedule changes or new physical/offline proof. Actual browser/platform disconnect, hosted timeout/billing and browser partial-response recovery remain unverified; SDK internal parser logging is not comprehensively audited. See qa-conversation-stream-lifecycle-2026-10-17.json.
+
+Accepted companiond4ad837, isolated hosted development0cea7dc and live app remain unchanged. Main stays untouched because completion/launch acceptance is still pending. Durable adaptive routing remains incomplete and disabled; no full-goal completion claim.
+
 ### Conversation provider bounds — October 17
 
 Source88eb156 is committed and locally verified, not deployed. Tutor, Discussion (including companion tips) and both Field Prep routes now disable automatic provider retries and use a45-second timeout plus an independent total AbortSignal deadline covering stream reads. Incoming request abort is forwarded. Caught initial provider errors emit a content-free route label rather than logging the provider exception. Existing origin/body/durable-budget checks remain. This is scoped to those four routes; stream parser logging and client partial-response recovery are not audited here.

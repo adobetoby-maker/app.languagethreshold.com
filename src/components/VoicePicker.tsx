@@ -20,10 +20,11 @@ import {
   preferredMobileCloudVoice,
   shouldAutoSelectMobileVoice,
 } from "@/data/mobile-voice";
-import { getMissionTtsCapabilities, speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
+import { getMissionTtsCapabilities, speakMissionTts } from "@/lib/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
 import { getVoicesForLocale, pickVoice, subscribeVoices } from "@/lib/voices";
 import { useAuth } from "@/state/auth-state";
+import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { useSpeech } from "@/state/speech-state";
 
 const SAMPLES: Record<string, string> = {
@@ -60,13 +61,17 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
     useSpeech();
   const { session, user, isCurrentUser } = useAuth();
   const previewRef = useRef<AbortController | null>(null);
-  useEffect(
-    () => () => {
+  const { speak: speakDevice, stop: stopDevice } = useOwnedPlayback(JSON.stringify([accent, rate]));
+  const previewScope = JSON.stringify([accent, user?.id]);
+  const mountedPreviewScope = useRef<string | null>(null);
+  useEffect(() => {
+    mountedPreviewScope.current = previewScope;
+    return () => {
+      mountedPreviewScope.current = null;
       previewRef.current?.abort();
       previewRef.current = null;
-    },
-    [accent],
-  );
+    };
+  }, [previewScope]);
   const [mounted, setMounted] = useState(false);
   const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [googleVoices, setGoogleVoices] = useState<GoogleTtsVoice[]>([]);
@@ -86,10 +91,12 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
     const controller = new AbortController();
     getMissionTtsCapabilities(accent, controller.signal)
       .then((capabilities) => {
+        if (controller.signal.aborted) return;
         setGoogleReady(capabilities.ready);
         setGoogleVoices(googleVoicesForLocale(capabilities.voices, accent));
       })
       .catch((error) => {
+        if (controller.signal.aborted) return;
         if (error instanceof DOMException && error.name === "AbortError") return;
         setGoogleReady(false);
         setGoogleVoices([]);
@@ -159,24 +166,17 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   const previewDevice = (voice: SpeechSynthesisVoice) => {
     previewRef.current?.abort();
     previewRef.current = null;
-    stopMissionTts();
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(sample);
-    utterance.voice = voice;
-    utterance.lang = voice.lang;
-    utterance.rate = rate;
-    window.speechSynthesis.speak(utterance);
+    speakDevice(sample, voice.lang, voice.voiceURI, rate);
   };
 
   const previewGoogle = async (voice: GoogleTtsVoice) => {
-    if (!user || !isCurrentUser(user.id)) return;
+    if (mountedPreviewScope.current !== previewScope || !user || !isCurrentUser(user.id)) return;
     const languageCode = voice.languageCodes[0];
     if (!languageCode) return;
     previewRef.current?.abort();
     const controller = new AbortController();
     previewRef.current = controller;
-    window.speechSynthesis?.cancel();
+    stopDevice();
     try {
       await speakMissionTts({
         text: sample,
@@ -205,6 +205,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         if (!open) {
           previewRef.current?.abort();
           previewRef.current = null;
+          stopDevice();
           setVoiceSearch("");
           setShowAllVoices(false);
         }
@@ -287,8 +288,9 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         </div>
         <DropdownMenuItem
           onSelect={() => {
-            stopMissionTts();
-            window.speechSynthesis?.cancel();
+            previewRef.current?.abort();
+            previewRef.current = null;
+            stopDevice();
             setVoiceURI(DEVICE_DEFAULT_VOICE);
           }}
           className="font-mono text-xs"

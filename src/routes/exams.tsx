@@ -1,3 +1,4 @@
+import { examLessonNumber } from "@/lib/exam-navigation";
 import { createFileRoute } from "@tanstack/react-router";
 import { AuthProvider } from "@/state/auth-state";
 import { AuthButton } from "@/components/auth/AuthButton";
@@ -13,6 +14,18 @@ export const Route = createFileRoute("/exams")({
     ],
   }),
   validateSearch: (search: Record<string, unknown>) => ({
+    fromPlan:
+      typeof search.module === "string" &&
+      typeof search.fromPlan === "string" &&
+      uuid.test(search.fromPlan)
+        ? search.fromPlan
+        : undefined,
+    lesson: typeof search.module === "string" ? examLessonNumber(search.lesson) : undefined,
+    way:
+      typeof search.way === "string" &&
+      ["see", "recall", "hear", "type", "say", "write"].includes(search.way)
+        ? search.way
+        : undefined,
     org: typeof search.org === "string" && uuid.test(search.org) ? search.org : undefined,
     attempt:
       typeof search.attempt === "string" && uuid.test(search.attempt) ? search.attempt : undefined,
@@ -51,6 +64,9 @@ function ExamsPage() {
             orgId={search.org}
             attemptId={search.attempt}
             reviewMode={search.review}
+            returnPlanId={search.fromPlan}
+            returnLesson={search.lesson}
+            returnWay={search.way}
           />
         </main>
       </div>

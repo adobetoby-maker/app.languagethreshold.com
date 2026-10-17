@@ -1,4 +1,4 @@
-import { examsLocation } from "@/lib/exam-navigation";
+import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import {
   BookOpen,
   GraduationCap,
@@ -402,7 +402,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   function switchTab(key: TabKey) {
     if (key === "exams") {
       window.location.assign(
-        examsLocation({
+        examsFromLessonLocation(window.location.href, {
           moduleId: state.activeModuleId,
           target: state.selectedLanguage,
           native: state.nativeLanguage,

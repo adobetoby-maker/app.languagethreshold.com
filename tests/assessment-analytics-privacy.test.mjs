@@ -15,6 +15,7 @@ test("private assessment, account and team pages and links are excluded from pag
     "/subscribe/success",
     "/?module=roofing&plan=private",
     "/?org=private",
+    "/?fromPlan=private",
     "/?attempt=private",
     "/#access_token=private",
   ])

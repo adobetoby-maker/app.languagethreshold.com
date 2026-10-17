@@ -1,5 +1,5 @@
 import { appTab } from "./app-navigation.ts";
-import { examsLocation, legacyExamsLocation } from "./exam-navigation.ts";
+import { examsLocation, legacyExamsLocation, examLessonNumber } from "./exam-navigation.ts";
 import {
   LANGUAGES,
   NATIVE_LANGUAGES,
@@ -38,6 +38,9 @@ export function authReturnPath(value: string): string | null {
       native: url.searchParams.get("native") ?? "English",
       orgId: url.searchParams.get("org"),
       attemptId: url.searchParams.get("attempt"),
+      returnPlanId: url.searchParams.get("fromPlan"),
+      lesson: examLessonNumber(url.searchParams.get("lesson")),
+      way: url.searchParams.get("way"),
       review: url.searchParams.get("review") === "1" || url.searchParams.get("review") === "true",
     });
   }

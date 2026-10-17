@@ -1,3 +1,4 @@
+import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey } from "@/lib/core30-scope";
 import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
@@ -611,6 +612,7 @@ function LessonRunner({
   onComplete,
   onExit,
   onNavigate,
+  onSectionChange,
 }: {
   enrollmentId?: string;
   lesson: Lesson;
@@ -622,6 +624,7 @@ function LessonRunner({
   onComplete: () => void;
   onExit: () => void;
   onNavigate: (n: number) => void;
+  onSectionChange?: (section: SectionId) => void;
 }) {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
@@ -705,6 +708,7 @@ function LessonRunner({
         at: new Date().toISOString(),
       },
     });
+    onSectionChange?.(section);
     if (syncLocation) {
       const next = lessonLocation(
         window.location.href,
@@ -739,6 +743,7 @@ function LessonRunner({
     moduleId,
     lesson.n,
     section,
+    onSectionChange,
     userId,
     state.selectedLanguage,
     state.nativeLanguage,
@@ -1868,7 +1873,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
           <a
             className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
-            href={`/exams?module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(state.selectedLanguage)}&native=${encodeURIComponent(state.nativeLanguage)}`}
+            href={examsLocation({
+              moduleId,
+              target: state.selectedLanguage,
+              native: state.nativeLanguage,
+              returnPlanId: activeAssessmentPlan,
+              orgId: approvedPlanTiming?.organizationId,
+            })}
           >
             Entrance, day 45 and day 90 exams
           </a>
@@ -1925,6 +1936,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               moduleId={moduleId}
               totalLessons={totalLessons}
               initialSection={initialWay}
+              onSectionChange={setInitialWay}
               syncLocation={restoreView}
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
@@ -2082,6 +2094,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 target={state.selectedLanguage}
                 native={state.nativeLanguage}
                 lessonNumber={openLesson?.n}
+                lessonWay={initialWay}
                 activePlanId={activeAssessmentPlan}
                 onPlanTiming={setApprovedPlanTiming}
               />
@@ -2102,7 +2115,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
               managedPlanUrl={
                 activeAssessmentPlan
-                  ? `/exams?${new URLSearchParams({ ...(approvedPlanTiming.organizationId ? { org: approvedPlanTiming.organizationId } : {}), module: moduleId, target: state.selectedLanguage, native: state.nativeLanguage })}`
+                  ? examsLocation({
+                      moduleId,
+                      target: state.selectedLanguage,
+                      native: state.nativeLanguage,
+                      orgId: approvedPlanTiming.organizationId,
+                      returnPlanId: activeAssessmentPlan,
+                    })
                   : undefined
               }
               moduleId={moduleId}

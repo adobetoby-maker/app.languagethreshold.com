@@ -66,3 +66,97 @@ test("ordinary app/private routes neither redirect to Exams nor lose their desti
     assert.equal(legacyExamsLocation(current), null);
   assert.equal(isPrivateAssessmentUrl("/?tab=reader&module=roofing"), false);
 });
+
+test("lesson → Exams → lesson preserves plan and activity through a safe relative return", async () => {
+  const { examsFromLessonLocation, examLessonReturn } =
+    await import("../src/lib/exam-navigation.ts");
+  const source = `/?module=landscaper&tab=core30&target=Spanish&native=English&plan=${org}&lesson=15&way=write&access_token=secret#refresh_token=secret`;
+  const entry = new URL(
+    examsFromLessonLocation(source, {
+      moduleId: "landscaper",
+      target: "Spanish",
+      native: "English",
+    }),
+    "https://owned.invalid",
+  );
+  assert.equal(entry.searchParams.get("fromPlan"), org);
+  assert.equal(entry.searchParams.get("lesson"), "15");
+  assert.equal(entry.searchParams.get("way"), "write");
+  assert.equal(entry.searchParams.has("access_token"), false);
+  assert.equal(entry.hash, "");
+  const result = new URL(
+    examLessonReturn({
+      moduleId: entry.searchParams.get("module"),
+      target: entry.searchParams.get("target"),
+      native: entry.searchParams.get("native"),
+      returnPlanId: entry.searchParams.get("fromPlan"),
+      lesson: Number(entry.searchParams.get("lesson")),
+      way: entry.searchParams.get("way"),
+    }),
+    "https://owned.invalid",
+  );
+  assert.equal(result.pathname, "/");
+  assert.equal(result.searchParams.get("plan"), org);
+  assert.equal(result.searchParams.get("lesson"), "15");
+  assert.equal(result.searchParams.get("way"), "write");
+  assert.equal(result.searchParams.get("tab"), "core30");
+});
+test("a stale route from another module, pair or tab cannot supply a lesson return", async () => {
+  const { examsFromLessonLocation } = await import("../src/lib/exam-navigation.ts");
+  for (const source of [
+    `/?tab=core30&module=roofing&target=Spanish&native=English&plan=${org}&lesson=15&way=write`,
+    `/?tab=core30&module=landscaper&target=French&native=English&plan=${org}&lesson=15&way=write`,
+    `/?tab=reader&module=landscaper&target=Spanish&native=English&plan=${org}&lesson=15&way=write`,
+  ]) {
+    const entry = new URL(
+      examsFromLessonLocation(source, {
+        moduleId: "landscaper",
+        target: "Spanish",
+        native: "English",
+      }),
+      "https://owned.invalid",
+    );
+    for (const key of ["fromPlan", "lesson", "way"])
+      assert.equal(entry.searchParams.has(key), false);
+  }
+});
+test("return metadata drops malformed plan/lesson/activity and never accepts an arbitrary return URL", async () => {
+  const { examLessonReturn, examLessonNumber } = await import("../src/lib/exam-navigation.ts");
+  for (const value of [0, -1, 31, 1.5, "1e1", "../15", null, {}, Infinity])
+    assert.equal(examLessonNumber(value), undefined);
+  assert.equal(examLessonNumber("015"), 15);
+  assert.equal(
+    examLessonReturn({
+      moduleId: "roofing",
+      target: "Spanish",
+      native: "English",
+      returnPlanId: "https://outside.invalid",
+      lesson: 99,
+      way: "script",
+    }),
+    null,
+  );
+  const destination = new URL(
+    examsLocation({
+      moduleId: "roofing",
+      target: "Spanish",
+      native: "English",
+      returnPlanId: org,
+      lesson: 2,
+      way: "script",
+    }),
+    "https://owned.invalid",
+  );
+  assert.equal(destination.searchParams.has("way"), false);
+  assert.equal(destination.searchParams.get("fromPlan"), org);
+  assert.equal(
+    examLessonReturn({
+      moduleId: "core",
+      target: "Spanish",
+      native: "English",
+      returnPlanId: org,
+      lesson: 2,
+    }),
+    null,
+  );
+});

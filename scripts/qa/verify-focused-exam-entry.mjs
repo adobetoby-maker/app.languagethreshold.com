@@ -8,7 +8,7 @@ assert.match(
 const org = "11111111-2222-4333-8444-555555555555";
 const attempt = "aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee";
 const legacy = await fetch(
-  `${base}/?tab=exams&module=roofing&target=English&native=Spanish&org=${org}&attempt=${attempt}&review=1&access_token=QA_SYNTHETIC_DO_NOT_FORWARD&return=https://outside.invalid`,
+  `${base}/?tab=exams&module=roofing&target=English&native=Spanish&org=${org}&attempt=${attempt}&review=1&fromPlan=${org}&lesson=15&way=write&access_token=QA_SYNTHETIC_DO_NOT_FORWARD&return=https://outside.invalid`,
   { redirect: "manual" },
 );
 assert.equal(legacy.status, 307);
@@ -22,6 +22,9 @@ for (const [key, value] of Object.entries({
   org,
   attempt,
   review: "1",
+  fromPlan: org,
+  lesson: "15",
+  way: "write",
 }))
   assert.equal(location.searchParams.get(key), value);
 for (const key of ["access_token", "return", "tab"])
@@ -45,6 +48,7 @@ for (const path of [
   "/family-setup",
   "/subscribe/success",
   `/?module=roofing&tab=core30&plan=${org}`,
+  `/?module=roofing&tab=core30&fromPlan=${org}`,
 ]) {
   const response = await fetch(base + path, { redirect: "manual" });
   assert.ok([200, 307].includes(response.status), `${path}: ${response.status}`);
@@ -73,6 +77,7 @@ const report = {
   checks: {
     legacyServerRedirect: true,
     modulePairTeamAttemptRetained: true,
+    explicitLessonPlanReturnRetained: true,
     credentialsAndArbitraryReturnExcluded: true,
     noStoreRedirect: true,
     noReferrerRedirect: true,

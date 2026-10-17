@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v15";
+const CACHE = "lt-v16";
 if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 function privateDocument(url) {
@@ -17,6 +17,7 @@ function privateContext(url) {
     "org",
     "attempt",
     "plan",
+    "fromPlan",
     "enrollment",
     "token",
     "access_token",

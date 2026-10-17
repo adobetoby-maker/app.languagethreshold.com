@@ -1,4 +1,4 @@
-import { examsLocation } from "@/lib/exam-navigation";
+import { examsFromLessonLocation } from "@/lib/exam-navigation";
 import { useState } from "react";
 import { Moon, Sun, Sparkle, ChevronDown, Puzzle } from "lucide-react";
 import {
@@ -67,7 +67,7 @@ export function TopNav({ onOpenMatch }: { onOpenMatch?: () => void }) {
   function handleTabSwitch(key: TabKey) {
     if (key === "exams") {
       window.location.assign(
-        examsLocation({
+        examsFromLessonLocation(window.location.href, {
           moduleId: state.activeModuleId,
           target: state.selectedLanguage,
           native: state.nativeLanguage,

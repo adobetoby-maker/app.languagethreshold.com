@@ -11,6 +11,7 @@ export function isPrivateAssessmentUrl(value: string): boolean {
         "org",
         "attempt",
         "plan",
+        "fromPlan",
         "enrollment",
         "token",
         "access_token",

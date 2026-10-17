@@ -1,3 +1,4 @@
+import { examsLocation } from "@/lib/exam-navigation";
 import { browserExamStorage } from "@/lib/assessments/drafts";
 import {
   examGuidanceKey,
@@ -75,6 +76,7 @@ function DailyLessonPlanContent({
   target,
   native,
   lessonNumber,
+  lessonWay,
   activePlanId,
   onPlanTiming,
 }: {
@@ -82,6 +84,7 @@ function DailyLessonPlanContent({
   target: Language;
   native: NativeLanguage;
   lessonNumber?: number;
+  lessonWay?: string;
   activePlanId?: string;
   onPlanTiming?: (timing: AssessedPlanTiming | null) => void;
 }) {
@@ -177,7 +180,14 @@ function DailyLessonPlanContent({
     connectionEpoch,
   ]);
   if (!user) return null;
-  const examUrl = `/exams?module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}`;
+  const examUrl = examsLocation({
+    moduleId,
+    target,
+    native,
+    returnPlanId: activePlanId,
+    lesson: lessonNumber,
+    way: lessonWay,
+  });
   if (attemptId)
     return (
       <section className="my-4 rounded-2xl border border-gold/30 p-4">
@@ -191,6 +201,9 @@ function DailyLessonPlanContent({
             targetLanguage={target}
             instructionLanguage={native}
             attemptId={attemptId}
+            returnPlanId={activePlanId}
+            returnLesson={lessonNumber}
+            returnWay={lessonWay}
           />
         </Suspense>
       </section>
@@ -512,7 +525,15 @@ function DailyLessonPlanContent({
             ))}
           <a
             className="inline-flex min-h-11 items-center text-sm text-gold underline"
-            href={`${examUrl}${plan.organizationId ? `&org=${encodeURIComponent(plan.organizationId)}` : ""}`}
+            href={examsLocation({
+              moduleId,
+              target,
+              native,
+              orgId: plan.organizationId,
+              returnPlanId: plan.enrollmentId,
+              lesson: lessonNumber,
+              way: lessonWay,
+            })}
           >
             Review this plan’s evidence and history
           </a>

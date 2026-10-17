@@ -1,3 +1,4 @@
+import { examLessonReturn, examLessonNumber } from "@/lib/exam-navigation";
 import { TeamAssessmentInsights } from "./TeamAssessmentInsights";
 import { attemptMatchesOrganization } from "@/lib/assessments/scope";
 import { lessonNumberRanges } from "@/lib/lesson-number-ranges";
@@ -164,6 +165,9 @@ type ExamsAreaProps = {
   attemptId?: string;
   reviewMode?: boolean;
   initialModuleFilter?: string;
+  returnPlanId?: string;
+  returnLesson?: number;
+  returnWay?: string;
 };
 function ExamsAreaContent({
   embedded = false,
@@ -174,6 +178,9 @@ function ExamsAreaContent({
   attemptId,
   reviewMode = false,
   initialModuleFilter,
+  returnPlanId,
+  returnLesson,
+  returnWay,
 }: ExamsAreaProps) {
   const { user, loading: authLoading, isCurrentUser } = useAuth();
   useEffect(() => {
@@ -333,15 +340,29 @@ function ExamsAreaContent({
       if (isCurrentUser(viewer)) setLoading(false);
     }
   };
-  const returnToPlan = moduleLessonUrl({
-    moduleId: selected?.enrollment.moduleId ?? module,
-    target: selected?.enrollment.targetLanguage ?? target,
-    native: selected?.enrollment.instructionLanguage ?? native,
-    planId:
-      selected?.isLearner && selected.enrollment.role === "primary"
-        ? selected.enrollment.id
-        : undefined,
+  const explicitReturn = examLessonReturn({
+    moduleId,
+    target: targetLanguage,
+    native: instructionLanguage,
+    returnPlanId,
+    lesson: returnLesson,
+    way: returnWay,
   });
+  const returnLabel =
+    explicitReturn && examLessonNumber(returnLesson) !== undefined
+      ? `Return to lesson ${examLessonNumber(returnLesson)}`
+      : "Return to my lesson plan";
+  const returnToPlan =
+    explicitReturn ??
+    moduleLessonUrl({
+      moduleId: selected?.enrollment.moduleId ?? module,
+      target: selected?.enrollment.targetLanguage ?? target,
+      native: selected?.enrollment.instructionLanguage ?? native,
+      planId:
+        selected?.isLearner && selected.enrollment.role === "primary"
+          ? selected.enrollment.id
+          : undefined,
+    });
   if (authLoading)
     return (
       <p className="p-5" role="status">
@@ -361,7 +382,7 @@ function ExamsAreaContent({
             Sign in to my Exams
           </button>
           <a className={button} href={returnToPlan}>
-            Return to my lesson plan
+            {returnLabel}
           </a>
         </div>
         <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
@@ -413,7 +434,7 @@ function ExamsAreaContent({
             </p>
           </div>
           <a className={button} href={returnToPlan}>
-            Return to my lesson plan
+            {returnLabel}
           </a>
         </header>
       )}

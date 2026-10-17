@@ -1,10 +1,10 @@
 # Staging proposal: durable adaptive routing
 
-Status: design for owner review. No migration was created or applied. Routing remains disabled. This proposal requests an exception only to the current instruction against schema changes; it does not approve content, placement thresholds, recording, retention, schedules or production deployment.
+Status: approved by the owner on October 17, 2026, with launch kept gated. The private database foundation and selected SQL guards were locally tested and applied. Repository migration `20261017153951_assessment_adaptive_route_records.sql` corresponds to hosted migration `20261017155354` (`assessment_adaptive_route_records`); neither is to be rewritten. Runtime API/UI/scoring/reporting integration remains incomplete, and adaptive forms stay unavailable. This approval covers the reviewed database work; it does not approve content, placement thresholds, recording, retention, schedules or production deployment. Evidence: `docs/reviews/qa-routing-database-preview-2026-10-17.json`.
 
 The pure selector cannot provide durable routing by itself. Current saves/submission lock the attempt row, and the frozen snapshot trigger prohibits rewriting the form. Submission also creates unavailable-response rows for every frozen item. Enabling adaptive forms without changing these boundaries would permit unselected answers and distort evidence denominators.
 
-## Proposed database scope
+## Approved database scope
 
 Add one deny-by-default table, `public.assessment_attempt_routes`, rather than changing historical snapshots. It contains one immutable route per attempt:
 
@@ -70,3 +70,9 @@ The migration must first be generated with the existing CLI, reviewed, and teste
 After local SQL/concurrency tests, scoped source tests, type-check, lint, private-bank absence and the staged build pass, inspect actual database advisors and review the new object grants. Apply only to the existing staged backend, verify those objects and negative access boundaries, and deploy a separate true Preview. Keep unsupported-form guards until all runtime/UI/media/reporting integration passes. Shared backend means existing live flat-form compatibility is mandatory; a Preview URL alone is not database isolation.
 
 The accepted Exams hostname stays pinned until intentional acceptance. No push to main or production promotion occurs until the owner's completion condition and remaining launch gates are satisfied. A failure rolls back application use by keeping adaptive forms unavailable; it does not delete immutable decisions or rewrite published migrations to hide a failed rollout.
+
+## Implementation checkpoint
+
+Private route insertion validates the frozen source/core bytes and decision identity. The insert trigger also advances the revision and appends the routing event in the same transaction, covering direct service inserts as well as the RPC. Row updates/deletes/truncation are denied to service; authorized parent deletion still cascades. Same-request retries compare the complete JSONB payload; other retry identities recover the original decision and current revision. SQL guards restrict response writes, missing-response fill and speech references to the selected path. Local real-connection races and an injected audit failure passed with fictional data, then restored the empty local QA database. Browser roles fail actual table/RPC access probes; no hosted adaptive form or route was created.
+
+The application retains its unsupported-adaptive guards. Next work is the authenticated route API, learner Continue/resume, selected scoring/reporting and full media boundaries. The database foundation alone does not satisfy the adaptive Exams requirement or launch acceptance.

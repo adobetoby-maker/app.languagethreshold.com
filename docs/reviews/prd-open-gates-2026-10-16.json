@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T15:33:59.075733+00:00",
+  "auditedAt": "2026-10-17T15:59:24.088662+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "7e8e779",
+  "application": "7767de7",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-j45wb6rb9-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-eqn7jjeja-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -103,9 +103,10 @@
         "src/lib/assessments/server.ts",
         "src/components/exams/ExamsArea.tsx",
         "docs/assessments/adaptive-routing.md",
-        "docs/reviews/qa-adaptive-routing-foundation-2026-10-17.json"
+        "docs/reviews/qa-adaptive-routing-foundation-2026-10-17.json",
+        "docs/reviews/qa-routing-database-preview-2026-10-17.json"
       ],
-      "finding": "Private versioned routing contract, deterministic selector, exact-attempt question projection and compatibility/exposure guards are implemented. No durable branch decision, core-to-branch UI or selected-path scoring/reporting exists; adaptive forms remain disabled."
+      "finding": "Versioned policy/selector/public projection and immutable private route table/RPC are implemented, with source-byte validation, one revision/audit transaction, selected SQL response/submission/speech guards and local concurrency/failure coverage. API/Continue-resume UI, selected scoring/reporting and complete media integration remain incomplete; adaptive forms stay unavailable."
     },
     {
       "sections": [
@@ -317,7 +318,7 @@
       "No universal threshold or production form approval is inferred from a draft policy"
     ],
     "followUps": [
-      "Implement atomic private decision persistence and selected-item access/scoring/reporting plus the core-to-branch UI; do not treat the pure selector as a durable runtime",
+      "Wire the installed route transaction into the authenticated API and Continue/resume UI; finish selected-item media/scoring/reporting and fixed-core comparison anchors before enabling adaptive forms",
       "Accept pre-start disclosure against genuinely reviewed form metadata",
       "Finish additional acceptance and cost/privacy gaps identified above"
     ]
@@ -341,12 +342,17 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-game-generators-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-routing-database-preview-2026-10-17.json",
   "routingSchemaScope": {
-    "status": "owner clarification pending",
+    "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
-    "constraint": "Current heartbeat forbids schema changes",
-    "noMigrationApplied": true
-  },
-  "latestUndeployedSource": "a762d27"
+    "authorization": "Direct owner reply October 17: Allow the proposed database work; keep launch gated",
+    "scope": "Exception to the prior schema freeze is limited to the reviewed durable-routing proposal",
+    "migrationApplied": true,
+    "localMigration": "20261017153951_assessment_adaptive_route_records.sql",
+    "hostedMigration": {
+      "version": "20261017155354",
+      "name": "assessment_adaptive_route_records"
+    }
+  }
 }

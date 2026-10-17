@@ -292,6 +292,12 @@ test("scored decisions require current evidence and bounded rubric dimensions; s
     tree = render("component", speechProps);
     submit(tree);
     assert.equal(c.requests.length, 2);
+    const changed = {
+      attempt: { ...speechProps.attempt, speechEvidence: [{ id: "audio-a", available: false }] },
+    };
+    const reset = render("component", changed);
+    assert.equal(selects(reset)[0].props.value, "");
+    assert.equal(c.requests[1].signal.aborted, true);
     render("component", { attempt: attempt("other") });
     const writes = c.stateWrites;
     playback.props.onReviewReady(true);

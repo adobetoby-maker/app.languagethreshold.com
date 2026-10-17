@@ -1918,6 +1918,11 @@ function ExamRubricReview(props: RubricReviewProps) {
         props.attempt.id,
         props.attempt.canReview,
         props.attempt.form.rubricVersion,
+        props.attempt.responses.map((row) => [
+          row.id,
+          row.answer?.mediaEvidenceId,
+        ]),
+        props.attempt.speechEvidence.map((row) => [row.id, row.available]),
       ])}
       {...props}
     />
@@ -1983,7 +1988,7 @@ function OwnedExamRubricReview({
   const canEdit = () =>
     !!user && attempt.canReview && capture().isCurrent() && !isPending();
   const message = error || notice;
-  if (!attempt.canReview)
+  if (!user || !attempt.canReview)
     return (
       <p role="status">Review access is not available for this attempt.</p>
     );

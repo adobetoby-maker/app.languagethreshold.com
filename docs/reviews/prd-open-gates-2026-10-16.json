@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "514e002",
+  "application": "c784192",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-gihjxf8h4-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-hztdwnjyp-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-exam-mutation-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-ai-writing-consent-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "514e0024d3eeb56a9eaf2ac30cd72a382f788096",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-exam-mutation-preview-2026-10-17.json",
+  "latestLocalSourceCommit": "c784192f671cc5827f1f8521f971227f1e78c9ee",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-ai-writing-consent-preview-2026-10-17.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -462,5 +462,11 @@
     "includes": "e0c2d4c",
     "deployed": true,
     "evidence": "docs/reviews/qa-exam-mutation-preview-2026-10-17.json"
+  },
+  "latestLocalAIWritingConsentFollowup": {
+    "application": "c784192",
+    "includes": "514e002",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-ai-writing-consent-preview-2026-10-17.json"
   }
 }

@@ -29,7 +29,9 @@ export function MissionaryLessonReader() {
   const { state, dispatch } = useApp();
   const [activeLessonId, setActiveLessonId] = useState<string>(PMG_LESSONS[0].id);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
-  const { rate, cycleRate, speak, speaking } = useMissionarySpeech();
+  const { rate, cycleRate, speak, speaking } = useMissionarySpeech(
+    JSON.stringify([activeLessonId, state.selectedLanguage]),
+  );
 
   const lesson: PmgLesson = PMG_LESSONS.find((l) => l.id === activeLessonId) ?? PMG_LESSONS[0];
 

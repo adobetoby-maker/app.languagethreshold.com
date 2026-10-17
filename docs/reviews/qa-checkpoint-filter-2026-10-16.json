@@ -1,0 +1,41 @@
+{
+  "testedAt": "2026-10-17T00:59:13.160Z",
+  "sourceCommit": "d2e782c",
+  "preview": "https://language-threshold-92zijz93e-adobetoby-5572s-projects.vercel.app",
+  "requests": 15,
+  "checks": {
+    "threeCheckpointFiltersOnTeamAndPersonal": true,
+    "checkpointActivityDoesNotMatchAnotherCheckpoint": true,
+    "allThreeComparisonSummariesRetained": true,
+    "invalidCheckpointRejected": true,
+    "teamCannotReadPersonal": true,
+    "nonmemberCannotReadTeam": true,
+    "anonymousDenied": true,
+    "directRpcActorSpoofDenied": true,
+    "noStoreAndNoRawEvidence": true,
+    "oldAllCheckpointViewPreserved": true
+  },
+  "limits": [
+    "Existing synthetic QA records only; no exam, score, review, schedule, assignment, approval or certificate mutation",
+    "Pagination beyond50 is proven by rolled-back local SQL, not invented hosted learners"
+  ],
+  "browser": {
+    "normalQaAdminSignIn": true,
+    "day45InProgressEmptyState": true,
+    "day45AllPlansRestoresTeamEnrollment": true,
+    "allThreeCheckpointSummariesVisible": true,
+    "day45CardHighlighted": true,
+    "clearFiltersResetsCheckpoint": true,
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "checkpointControlWidth": 324,
+      "checkpointControlHeight": 45
+    },
+    "screenshot": "/Users/drive/git-backups/language-threshold-team-checkpoint-filter-phone-2026-10-16.png",
+    "viewportReset": true,
+    "qaAdminSignedOut": true,
+    "privateCardsHiddenAfterSignOut": true
+  }
+}

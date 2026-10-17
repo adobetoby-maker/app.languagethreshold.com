@@ -1,16 +1,29 @@
 import { createCsrfMiddleware, createMiddleware, createStart } from "@tanstack/react-start";
 import { getResponseHeader } from "@tanstack/react-start/server";
+import { examsHostEntry, EXAMS_HOST } from "@/lib/exams-host";
 import { isPrivateAssessmentUrl } from "@/lib/assessment-privacy";
 
 // The installed server-function serializer preserves status but not ALS headers.
 // Apply RPC cache/retry policy to the final serialized response instead.
 const serverFunctionHeaders = createMiddleware().server(async ({ handlerType, request, next }) => {
+  const companionEntry = examsHostEntry(request.url, request.method);
+  if (companionEntry)
+    return new Response(null, {
+      status: 307,
+      headers: {
+        Location: companionEntry,
+        "Cache-Control": "no-store",
+        "Referrer-Policy": "no-referrer",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
   const result = await next();
   const privatePage = handlerType === "router" && isPrivateAssessmentUrl(request.url);
-  if (handlerType !== "serverFn" && !privatePage) return result;
+  const companion = new URL(request.url).hostname === EXAMS_HOST;
+  if (handlerType !== "serverFn" && !privatePage && !companion) return result;
   const headers = new Headers(result.response.headers);
   headers.set("Cache-Control", "no-store");
-  if (privatePage) {
+  if (privatePage || companion) {
     headers.set("Referrer-Policy", "no-referrer");
     headers.set("X-Robots-Tag", "noindex, nofollow");
   }

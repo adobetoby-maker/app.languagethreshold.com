@@ -1,38 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { build } from "esbuild";
-import { mkdirSync } from "node:fs";
-import { resolve } from "node:path";
-const dir = resolve("node_modules/.cache/lle-tests");
-mkdirSync(dir, { recursive: true });
-const outfile = resolve(dir, "grammar-content-handler.mjs");
-await build({
-  stdin: {
-    contents: `export {generateLessonContent} from ${JSON.stringify(resolve("src/fns/grammar.functions.ts"))}; export {controls} from 'test-controls';`,
-    resolveDir: process.cwd(),
-  },
-  outfile,
-  bundle: true,
-  format: "esm",
-  platform: "node",
-  external: ["zod"],
-  logLevel: "silent",
-  plugins: [
-    {
-      name: "grammar-model-boundary",
-      setup(b) {
-        b.onResolve(
-          { filter: /^(test-controls|@anthropic-ai\/sdk|@tanstack\/react-start(\/server)?)$/ },
-          () => ({ path: "controls", namespace: "fixture" }),
-        );
-        b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-          contents: `export const controls={next:null}; export const setResponseHeader=()=>{}; export const createServerFn=()=>({inputValidator:validate=>({handler:fn=>({data})=>fn({data:validate(data)})})}); export default class Model{messages={create:async()=>({usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',name:'return_lesson_content',input:controls.next}]})};}`,
-        }));
-      },
-    },
-  ],
-});
-const { generateLessonContent, controls } = await import(outfile);
+import { loadPaidFunction } from "./helpers/paid-function-fixture.mjs";
+const loaded = await loadPaidFunction("grammar", "generateLessonContent");
+const { handler: generateLessonContent, controls } = loaded;
+test.after(() => loaded.close());
 const base = () => ({
   explanation: "Synthetic QA teaching text.",
   keyRule: "Synthetic QA rule.",
@@ -47,18 +18,29 @@ const request = {
   },
 };
 async function withKey(run) {
-  const saved = process.env.ANTHROPIC_API_KEY;
-  process.env.ANTHROPIC_API_KEY = "fixture-no-network";
+  const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"];
+  const saved = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+  const savedFetch = globalThis.fetch;
+  Object.assign(process.env, {
+    ANTHROPIC_API_KEY: "fixture-no-network",
+    SUPABASE_URL: "https://budget.invalid",
+    SUPABASE_SERVICE_ROLE_KEY: "fixture-only",
+    VERCEL_ENV: "preview",
+  });
+  globalThis.fetch = async () => Response.json(true);
   try {
     await run();
   } finally {
-    if (saved === undefined) delete process.env.ANTHROPIC_API_KEY;
-    else process.env.ANTHROPIC_API_KEY = saved;
+    globalThis.fetch = savedFetch;
+    for (const key of keys) {
+      if (saved[key] === undefined) delete process.env[key];
+      else process.env[key] = saved[key];
+    }
   }
 }
 test("production content handler refuses structurally valid but impossible fixed-stem splits", async () =>
   withKey(async () => {
-    controls.next = {
+    controls.output = {
       ...base(),
       morphology: {
         summary: "Synthetic wrong fixed root.",
@@ -72,9 +54,9 @@ test("production content handler refuses structurally valid but impossible fixed
   }));
 test("production content handler accepts complete irregular teaching without a split and exact regular splits", async () =>
   withKey(async () => {
-    controls.next = base();
+    controls.output = base();
     assert.ok((await generateLessonContent(request)).data);
-    controls.next = {
+    controls.output = {
       ...base(),
       morphology: {
         summary: "Synthetic regular pattern.",

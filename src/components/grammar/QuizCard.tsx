@@ -1,3 +1,4 @@
+import { normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { useServerFn } from "@tanstack/react-start";
@@ -46,14 +47,6 @@ function fireConfetti() {
       }),
     150,
   );
-}
-
-function normalize(s: string) {
-  return s
-    .toLowerCase()
-    .trim()
-    .replace(/[.,;:!?¿¡«»"'()[\]]+$/g, "")
-    .replace(/^[¿¡«"'([]+/g, "");
 }
 
 export function QuizCard({
@@ -237,7 +230,9 @@ export function QuizCard({
               ✦ Practice quiz · {level}
             </div>
             <h3 className="mt-1 font-display text-xl italic text-foreground">{lesson.title}</h3>
-            <p className="mt-2 text-xs text-muted-foreground">Grammar practice. Module assessments are in Exams.</p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Grammar practice. Module assessments are in Exams.
+            </p>
           </div>
           {!done && questions.length > 0 && (
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -390,7 +385,9 @@ export function QuizCard({
             </h4>
             <p className="mb-6 font-display text-sm italic text-muted-foreground">
               {correctCount === questions.length
-                ? earnedCompletion ? "Practice complete. +50 XP awarded." : "Practice complete. Your earlier completion is saved."
+                ? earnedCompletion
+                  ? "Practice complete. +50 XP awarded."
+                  : "Practice complete. Your earlier completion is saved."
                 : "Almost there — review the lesson and try again."}
             </p>
             <div className="flex justify-center gap-2">

@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T16:40:37.787705+00:00",
+  "auditedAt": "2026-10-17T16:54:11.842435+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "c6a4de9",
+  "application": "89cacb5",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-bmugac5eh-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-pr6dyliu2-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -108,9 +108,10 @@
         "docs/reviews/qa-routing-api-preview-2026-10-17.json",
         "docs/reviews/qa-selected-path-preview-2026-10-17.json",
         "docs/reviews/qa-selected-scoring-preview-2026-10-17.json",
-        "docs/reviews/qa-core-team-preview-2026-10-17.json"
+        "docs/reviews/qa-core-team-preview-2026-10-17.json",
+        "docs/reviews/qa-core-summary-preview-2026-10-17.json"
       ],
-      "finding": "Private route table/RPC, authenticated selection, selected saves/media, direct reads/initial scoring and shared-core team patterns are implemented with scoped evidence. Branch results cannot alter the team core pattern or create missing unused items; privacy suppression remains unchanged. Direct attempt branch evidence has no comparison anchor. Overview/history/export longitudinal comparisons, human/AI review and Continue/resume remain unfinished; adaptive starts/submission stay gated."
+      "finding": "Private routing, selected saves/media/direct reads/initial scoring, core team patterns and authorized selected summary normalization for overview/history/CSV/source plans are implemented with scoped evidence. Growth retains only core anchors and still requires calibrated equivalent forms; branch individual evidence and missing/pending states remain distinct. Human/AI reviewer integration and core-to-branch Continue/reconnect/resume remain unfinished; adaptive preparation/start and submission stay gated. Positive adaptive comparison and export acceptance is controlled local only."
     },
     {
       "sections": [
@@ -311,7 +312,7 @@
     }
   ],
   "nextEngineering": {
-    "task": "Implement versioned, server-selected routing after the fixed core",
+    "task": "Complete selected reviewer boundaries and core-to-branch learner flow",
     "constraints": [
       "Preserve existing fixed-form attempts and all original results",
       "Private reviewed policy selects only valid frozen item IDs",
@@ -322,7 +323,7 @@
       "No universal threshold or production form approval is inferred from a draft policy"
     ],
     "followUps": [
-      "Integrate selected overview/history/export longitudinal summaries and fixed-core comparison anchors, selected human/AI review, then core-to-branch Continue/resume and gated start/submission acceptance",
+      "Integrate selected human/AI review, core-to-branch Continue/reconnect/resume UI and then guarded start/submission acceptance; retain human content/equivalence gates",
       "Accept pre-start disclosure against genuinely reviewed form metadata",
       "Finish additional acceptance and cost/privacy gaps identified above"
     ]
@@ -346,7 +347,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-core-team-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-core-summary-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",

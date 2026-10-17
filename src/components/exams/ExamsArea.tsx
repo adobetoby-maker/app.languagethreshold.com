@@ -11,6 +11,7 @@ import {
   unsavedSpeechCount,
   readSpeechTake,
 } from "@/lib/assessments/speech-device";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useExamMutation } from "@/hooks/use-exam-mutation";
 import { useExamAttemptOpen, useExamPreparation } from "@/hooks/use-exam-entry";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
@@ -1663,20 +1664,36 @@ function ExamRunner({
   );
 }
 
-function ExamResult({
+type ExamResultProps = {
+  attempt: ExamAttemptView;
+  onBack: () => void;
+  onRefresh: () => void;
+  onOpenAttempt: (id: string) => void;
+};
+function ExamResult(props: ExamResultProps) {
+  const { user } = useAuth();
+  return <OwnedExamResult key={JSON.stringify([user?.id, props.attempt.id, props.attempt.isLearner, props.attempt.canReview])} {...props} />;
+}
+function OwnedExamResult({
   attempt,
-  onBack,
-  onRefresh,
-  onOpenAttempt,
+  onBack: leave,
+  onRefresh: refresh,
+  onOpenAttempt: openAttempt,
 }: {
   attempt: ExamAttemptView;
   onBack: () => void;
   onRefresh: () => void;
   onOpenAttempt: (id: string) => void;
 }) {
-  const [reason, setReason] = useState(""),
-    [sharing, setSharing] = useState(false),
-    [message, setMessage] = useState("");
+  const [reason, setReason] = useState(""), [notice, setNotice] = useState("");
+  const { capture } = usePracticeLifecycle(attempt.id);
+  const current = () => capture().isCurrent();
+  const onStart = useCallback(() => setNotice(""), []);
+  const { act, cancel, busy, error } = useExamMutation(JSON.stringify([attempt.id, attempt.status, attempt.isLearner, attempt.canReview, reason]), onStart);
+  const message = error || notice;
+  const onBack = () => { if (current()) { cancel(); leave(); } };
+  const onRefresh = () => { if (current()) refresh(); };
+  const onOpenAttempt = (id: string) => { if (current()) { cancel(); openAttempt(id); } };
   return (
     <section className="space-y-4">
       <div className={card}>
@@ -1735,11 +1752,11 @@ function ExamResult({
       {attempt.isLearner && (attempt.status === "submitted" || attempt.status === "scoring") && (
         <button
           className={button}
-          onClick={() =>
-            void examRequest({ action: "retry_scoring", attemptId: attempt.id })
-              .then(onRefresh)
-              .catch((err) => setMessage(err.message))
-          }
+          disabled={busy}
+          onClick={() => {
+            if (!attempt.isLearner || !["submitted", "scoring"].includes(attempt.status)) return;
+            void act({ action: "retry_scoring", attemptId: attempt.id }, () => onRefresh());
+          }}
         >
           Retry pending scoring
         </button>
@@ -1825,21 +1842,11 @@ function ExamResult({
           className={card}
           onSubmit={(event) => {
             event.preventDefault();
-            setSharing(true);
-            void examRequest({
-              action: "request_review",
-              attemptId: attempt.id,
-              reason,
-              consentVersion: "assessment-review-v1",
-              requestId: crypto.randomUUID(),
-            })
-              .then(() =>
-                setMessage(
-                  "Review requested. This does not invent a score while evidence is unresolved.",
-                ),
-              )
-              .catch((err) => setMessage(err.message))
-              .finally(() => setSharing(false));
+            if (!attempt.isLearner || reason.trim().length < 3 || reason.trim().length > 2000) return;
+            void act({
+              action: "request_review", attemptId: attempt.id, reason,
+              consentVersion: "assessment-review-v1", requestId: crypto.randomUUID(),
+            }, () => setNotice("Review requested. This does not invent a score while evidence is unresolved."));
           }}
         >
           <h3 className="font-semibold">Request a review</h3>
@@ -1853,14 +1860,15 @@ function ExamResult({
             <textarea
               className={input}
               value={reason}
-              onChange={(event) => setReason(event.target.value)}
+              disabled={busy}
+              onChange={(event) => { if (current() && !busy) { setReason(event.target.value); setNotice(""); } }}
               minLength={3}
               maxLength={2000}
               required
             />
           </label>
-          <button className={button + " mt-3"} disabled={sharing}>
-            {sharing ? "Requesting…" : "Share this exam for review"}
+          <button className={button + " mt-3"} disabled={busy}>
+            {busy ? "Working…" : "Share this exam for review"}
           </button>
           {message && (
             <p className="mt-3 text-sm" role="status">

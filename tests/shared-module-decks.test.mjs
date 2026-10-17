@@ -196,16 +196,38 @@ test("unavailable or malformed shared storage fails before inference", () =>
   }));
 
 test("deck validation keeps bounded distinct native labels and requires enough terms and phrases", () =>
-  fixture(async ({cleanModuleDeck}) => {
-    const raw = ['term','phrase'].flatMap(kind => Array.from({length:20},(_,i)=>({english:kind+' '+i,translation:'target '+kind+' '+i,kind})));
-    assert.equal(cleanModuleDeck(raw).length,40);
-    assert.equal(cleanModuleDeck(raw.filter(p=>p.kind==='term')),null);
-    assert.equal(cleanModuleDeck(raw.map(p=>({...p,english:'same'}))),null);
-    assert.equal(cleanModuleDeck(raw.map(p=>({...p,translation:'x'.repeat(241)}))),null);
-    assert.equal(cleanModuleDeck(raw.map(p=>({...p,translation:'Spanish'})),'Spanish'),null);
-    const dirty=[null,{},...raw.map(p=>({...p,english:' '+p.english+' ',privateAnswer:'discard'}))];
-    assert.deepEqual(cleanModuleDeck(dirty),raw);
-    const oversized=['term','phrase'].flatMap(kind=>Array.from({length:25},(_,i)=>({english:kind+' '+i,translation:'target '+kind+' '+i,kind})));
-    assert.equal(cleanModuleDeck(oversized).filter(p=>p.kind==='term').length,20);
-    assert.equal(cleanModuleDeck(oversized).filter(p=>p.kind==='phrase').length,20);
+  fixture(async ({ cleanModuleDeck }) => {
+    const raw = ["term", "phrase"].flatMap((kind) =>
+      Array.from({ length: 20 }, (_, i) => ({
+        english: kind + " " + i,
+        translation: "target " + kind + " " + i,
+        kind,
+      })),
+    );
+    assert.equal(cleanModuleDeck(raw).length, 40);
+    assert.equal(cleanModuleDeck(raw.filter((p) => p.kind === "term")), null);
+    assert.equal(cleanModuleDeck(raw.map((p) => ({ ...p, english: "same" }))), null);
+    assert.equal(cleanModuleDeck(raw.map((p) => ({ ...p, translation: "x".repeat(241) }))), null);
+    assert.equal(
+      cleanModuleDeck(
+        raw.map((p) => ({ ...p, translation: "Spanish" })),
+        "Spanish",
+      ),
+      null,
+    );
+    const dirty = [
+      null,
+      {},
+      ...raw.map((p) => ({ ...p, english: " " + p.english + " ", privateAnswer: "discard" })),
+    ];
+    assert.deepEqual(cleanModuleDeck(dirty), raw);
+    const oversized = ["term", "phrase"].flatMap((kind) =>
+      Array.from({ length: 25 }, (_, i) => ({
+        english: kind + " " + i,
+        translation: "target " + kind + " " + i,
+        kind,
+      })),
+    );
+    assert.equal(cleanModuleDeck(oversized).filter((p) => p.kind === "term").length, 20);
+    assert.equal(cleanModuleDeck(oversized).filter((p) => p.kind === "phrase").length, 20);
   }));

@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Conversation provider bounds — October 17
+
+Source88eb156 is committed and locally verified, not deployed. Tutor, Discussion (including companion tips) and both Field Prep routes now disable automatic provider retries and use a45-second timeout plus an independent total AbortSignal deadline covering stream reads. Incoming request abort is forwarded. Caught initial provider errors emit a content-free route label rather than logging the provider exception. Existing origin/body/durable-budget checks remain. This is scoped to those four routes; stream parser logging and client partial-response recovery are not audited here.
+
+All817tests pass, type-check clean, lint0errors41existing warnings and stage artifact19.66MiB pass; marker96/source1118/static148/0hits. Controlled actual-route tests cover options, signal propagation, allowed contracts and initial-failure redaction. Installed-SDK tests use only synthetic local fetch: retryable429 makes one request; abort reaches an already-open streaming response. No paid model, hosted record, browser, schema, role, active policy, speech collection or schedule changes. No actual provider timeout/billing or platform/browser disconnect proof is claimed. See qa-conversation-provider-bounds-2026-10-17.json.
+
+Accepted companion applicationd4ad837, separate hosted development application0cea7dc and live app remain unchanged. The owner has authorized pushing to main **when complete**; remaining engineering and launch acceptance gates mean that condition has not been met. Durable adaptive routing remains the next principal engineering requirement and stays disabled. No completion or production rollout is claimed.
+
 ### Private routing foundation — October 17
 
 Development application0cea7dc is READY on the separate true Preview https://language-threshold-3srvyhwcl-adobetoby-5572s-projects.vercel.app, deploymentdpl_984UtmtpmXtRtKSvyhTtLjwunWcP, target null. The acceptedexams.languagethreshold.com hostname remains pinned to applicationd4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT on dedicatedcodex/exams-staging; neither that alias nor the live app was promoted or changed by this source follow-up.

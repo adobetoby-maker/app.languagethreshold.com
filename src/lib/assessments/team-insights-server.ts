@@ -27,7 +27,13 @@ export async function teamAssessmentInsights(
     throw new AssessmentAccessError("Team insight admin access required.", 403);
   const module = getModule(moduleId),
     curriculum = getCurriculum(moduleId);
-  if (!module || !curriculum || !moduleSupportsLearningPair(module, target, native))
+  if (
+    target === native ||
+    (target === "Chinese" && native === "Chinese (Simplified)") ||
+    !module ||
+    !curriculum ||
+    !moduleSupportsLearningPair(module, target, native)
+  )
     throw new AssessmentAccessError("This module does not support that language pair.", 400);
   const releases = await db
     .from("assessment_releases")

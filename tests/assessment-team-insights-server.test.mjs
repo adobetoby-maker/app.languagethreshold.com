@@ -145,3 +145,17 @@ test("missing objective mapping cannot be reported as learner weakness", async (
   await assert.rejects(run(f), (error) => error.status === 503);
   assert.deepEqual(f.rpcCalls, []);
 });
+
+test("same-language insight scopes are invalid rather than missing curriculum", async () => {
+  for (const [target, native] of [
+    ["Spanish", "Spanish"],
+    ["Chinese", "Chinese (Simplified)"],
+  ]) {
+    const f = await fixture();
+    await assert.rejects(
+      teamAssessmentInsights(f.db, "admin", "team", "roofing", target, native, "entrance"),
+      (error) => error.status === 400,
+    );
+    assert.deepEqual(f.seen, ["team_members"]);
+  }
+});

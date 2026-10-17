@@ -12,7 +12,7 @@ const built = readdirSync(assets)
   .filter(
     (name) =>
       name.endsWith(".js") &&
-      /^(lesson-words|module-deck|library\.functions|handwriting-read|handwriting-recognize|word-lookup|battle|pattern-drill|sentence-build)/.test(
+      /^(lesson-words|module-deck|library\.functions|handwriting-read|handwriting-recognize|word-lookup|battle|pattern-drill|sentence-build|conjugation|word-match|listening-drill|idiom-master|false-friends)/.test(
         name,
       ),
   )
@@ -20,6 +20,11 @@ const built = readdirSync(assets)
   .join("\n");
 const checks = [];
 for (const [name, data] of [
+  ["generateConjugationQuestion", { language: "Spanish", level: 1, axis: "person" }],
+  ["generateWordMatchBoard", { language: "Spanish", level: 1 }],
+  ["generateListeningDrill", { language: "Spanish", level: 1 }],
+  ["generateIdiomQuestion", { language: "Spanish", level: 1 }],
+  ["generateFalseFriend", { language: "Spanish", level: 1 }],
   ["generateBattleWord", { language: "Spanish", round: 1, cefr: "A2" }],
   [
     "generatePatternDrill",
@@ -101,7 +106,7 @@ const result = {
   sourceCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
   preview: base,
   scope:
-    "Actual hosted framework CSRF and application conflicting-origin denial for six content builders, two handwriting checks and word lookup (eighteen HTTP requests); unused novel-verb function has local source coverage only. No allowed requests, quota exhaustion or model generation are attempted.",
+    "Actual hosted framework CSRF and application conflicting-origin denial for eleven content builders, two handwriting checks and word lookup (twenty-eight HTTP requests); unused novel-verb function has local source coverage only. No allowed requests, quota exhaustion or model generation are attempted.",
   checks,
 };
 writeFileSync(

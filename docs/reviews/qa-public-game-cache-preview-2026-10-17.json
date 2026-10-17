@@ -1,0 +1,82 @@
+{
+  "testedAt": "2026-10-17T18:20:15.140457+00:00",
+  "applicationCommit": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "preview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_bCovgdgjSyaFedqVN34AHtoveM6h",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "readyState": "READY",
+    "target": null,
+    "commit": "eda1f26b6cd904660664da621ad96c59ba0911e9"
+  },
+  "activation": {
+    "deploymentCommandAdaptiveOverride": "false",
+    "capabilityValueExposedByDeploymentMetadata": null,
+    "adaptiveActivated": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 950,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:20:17.835Z",
+      "sourceCommit": "eda1f26",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1216,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "publicGameCache": {
+    "consumers": [
+      "conjugation",
+      "word-match",
+      "listening-drill",
+      "idiom-master",
+      "false-friends"
+    ],
+    "supportedLanguageAndBoundedLevelAxisCefrOnly": true,
+    "topicMatchesExactAuthoredModuleNameOrCallerTemplateOnly": true,
+    "allAuthoredTopicStringsVerified": true,
+    "arbitraryTopicLanguageAndAvoidedTextBypassReadsAndWrites": true,
+    "personalVocabularyBypassesReadsAndWrites": true,
+    "defaultCapacity": 200,
+    "absoluteTtlMilliseconds": 600000,
+    "readsDoNotExtendExpiry": true,
+    "expiredEntriesReclaimedBeforeEviction": true,
+    "capacityAndTtlConfigurationBounded": true,
+    "newControlledGroups": 4,
+    "strengthenedActualHandlerTestsForAllConsumers": true,
+    "noPrivateTextInSharedKeyOrRetainedResult": true,
+    "uncacheableRequestsRegenerateUnderExistingBudget": true
+  },
+  "hostedGroups": {
+    "generationEntryHandlers": 14,
+    "generationRejectionHttpRequests": 28,
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Positive cache reuse/expiry and private bypass use local fixtures only; hosted generation checks are rejection-only, not allowed model or billing proof.",
+    "Private/recent-input requests deliberately do not reuse shared results; existing durable budgets still apply.",
+    "Exact authored topic matching establishes public context only, not linguistic/content/module-release approval.",
+    "Unused legacy conjugation-cache helper and broader component/helper privacy audit remain open.",
+    "Prepared-start RPC approval remains pending; no new migration/application wiring or adaptive activation.",
+    "No browser, model, schema, role, speech policy/collection, retention/schedule, main/accepted-alias/production change; full goal and launch gates remain open."
+  ]
+}

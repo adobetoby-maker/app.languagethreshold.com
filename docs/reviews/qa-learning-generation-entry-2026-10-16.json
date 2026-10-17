@@ -1,9 +1,44 @@
 {
-  "testedAt": "2026-10-17T18:10:20.898Z",
-  "sourceCommit": "c0469cc5e8bf1e5a3067f913d5e28de45d4cc4da",
-  "preview": "https://language-threshold-k670s6b7q-adobetoby-5572s-projects.vercel.app",
-  "scope": "Actual hosted framework CSRF and application conflicting-origin denial for six content builders, two handwriting checks and word lookup (eighteen HTTP requests); unused novel-verb function has local source coverage only. No allowed requests, quota exhaustion or model generation are attempted.",
+  "testedAt": "2026-10-17T18:19:16.157Z",
+  "sourceCommit": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "preview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "scope": "Actual hosted framework CSRF and application conflicting-origin denial for eleven content builders, two handwriting checks and word lookup (twenty-eight HTTP requests); unused novel-verb function has local source coverage only. No allowed requests, quota exhaustion or model generation are attempted.",
   "checks": [
+    {
+      "handler": "generateConjugationQuestion",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateWordMatchBoard",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateListeningDrill",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateIdiomQuestion",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateFalseFriend",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
     {
       "handler": "generateBattleWord",
       "frameworkCrossSiteDenied": true,

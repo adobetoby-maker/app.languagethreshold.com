@@ -14,6 +14,7 @@ mkdirSync(`${out}/functions/index.func`, { recursive: true });
 cpSync("dist/client", `${out}/static`, { recursive: true });
 await buildOfflineLessonPack(`${out}/static`);
 await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
+await buildOfflineLessonPack(`${out}/static`, "construction-foreman-es-en");
 
 // Bundle server.js + all npm dependencies (h3-v2, @tanstack/*, seroval, etc.)
 // into a single CJS file. Vercel function has no node_modules at runtime so

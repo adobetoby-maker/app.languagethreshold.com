@@ -173,10 +173,28 @@ test("the worker acknowledges protocol support without reading or downloading an
   const r = runtime();
   const response = await r.command("LESSON_PACK_PING");
   assert.equal(response.protocol, 2);
-  assert.deepEqual(Array.from(response.packIds), ["roofing-es-en", "landscaper-es-en"]);
+  assert.deepEqual(Array.from(response.packIds), ["roofing-es-en", "landscaper-es-en", "construction-foreman-es-en"]);
   assert.equal(response.ok, true);
   assert.equal(r.calls.length, 0);
   assert.equal(r.stores.size, 0);
+});
+
+test("Foreman pack installation and removal cannot change the other two modules' readiness", async () => {
+  const r = runtime();
+  const roof = await r.command("LESSON_PACK_INSTALL", "roofing-es-en");
+  r.setCurrent(fixture("land", "landscaper-es-en"));
+  const land = await r.command("LESSON_PACK_INSTALL", "landscaper-es-en");
+  assert.equal((await r.command("LESSON_PACK_STATUS", "construction-foreman-es-en")).ready,false);
+  r.setCurrent(fixture("foreman", "construction-foreman-es-en"));
+  const foreman = await r.command("LESSON_PACK_INSTALL", "construction-foreman-es-en");
+  assert.equal(foreman.ready,true);
+  assert.equal(foreman.packId,"construction-foreman-es-en");
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).version,roof.version);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).version,land.version);
+  await r.command("LESSON_PACK_REMOVE", "construction-foreman-es-en");
+  assert.equal((await r.command("LESSON_PACK_STATUS", "construction-foreman-es-en")).ready,false);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "roofing-es-en")).ready,true);
+  assert.equal((await r.command("LESSON_PACK_STATUS", "landscaper-es-en")).ready,true);
 });
 
 test("two module downloads coexist; status, replacement and removal stay in their exact pack", async () => {

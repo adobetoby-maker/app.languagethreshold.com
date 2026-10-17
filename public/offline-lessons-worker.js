@@ -1,6 +1,6 @@
 /* Public lesson downloads only. Never accepts arbitrary URLs or learner/exam responses. */
 const LESSON_PACK_PREFIX = "lt-lesson-pack-";
-const LESSON_PACK_IDS = ["roofing-es-en", "landscaper-es-en"];
+const LESSON_PACK_IDS = ["roofing-es-en", "landscaper-es-en", "construction-foreman-es-en"];
 const LESSON_PACK_READY = "/.lt-lesson-pack-ready";
 const lessonPackInstallations = new Map();
 

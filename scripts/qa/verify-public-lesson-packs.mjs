@@ -9,7 +9,7 @@ assert.match(
 );
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const results = [];
-for (const moduleId of ["roofing", "landscaper"]) {
+for (const moduleId of ["roofing", "landscaper", "construction-foreman"]) {
   const packId = `${moduleId}-es-en`;
   const response = await fetch(`${base}/lesson-packs/${packId}.json`, {
     redirect: "error",
@@ -60,7 +60,7 @@ for (const moduleId of ["roofing", "landscaper"]) {
     contentImmutable: true,
   });
 }
-assert.notEqual(results[0].version, results[1].version);
+assert.equal(new Set(results.map(result => result.version)).size, results.length);
 const report = {
   testedAt: new Date().toISOString(),
   applicationCommit: process.env.LT_QA_STAGE_COMMIT,
@@ -76,7 +76,7 @@ writeFileSync(
 );
 console.log(
   JSON.stringify({
-    publicPacks: 2,
+    publicPacks: results.length,
     lessonsPerPack: 30,
     hashesAndCacheHeaders: true,
     privateExamPayloadsIncluded: false,

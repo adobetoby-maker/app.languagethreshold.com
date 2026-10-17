@@ -144,11 +144,13 @@ test("download availability belongs to an authored exact pair, not every module 
   const { offlineLessonPackId } = await loadModule("src/lib/offline-lesson-tracks.ts");
   assert.equal(offlineLessonPackId("landscaper", "Spanish", "English"), "landscaper-es-en");
   assert.equal(offlineLessonPackId("roofing", "Spanish", "English"), "roofing-es-en");
+  assert.equal(offlineLessonPackId("construction-foreman", "Spanish", "English"), "construction-foreman-es-en");
   for (const input of [
     ["landscaper", "Spanish", "French"],
     ["landscaper", "French", "English"],
     ["roofing", "English", "Spanish"],
-    ["construction-foreman", "Spanish", "English"],
+    ["construction-foreman", "Spanish", "French"],
+    ["framer", "Spanish", "English"],
   ])
     assert.equal(offlineLessonPackId(...input), null);
 });

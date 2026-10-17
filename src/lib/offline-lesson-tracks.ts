@@ -2,6 +2,7 @@
 export const OFFLINE_LESSON_TRACKS = {
   "roofing-es-en": { moduleId: "roofing", label: "Roofing" },
   "landscaper-es-en": { moduleId: "landscaper", label: "Landscaper" },
+  "construction-foreman-es-en": { moduleId: "construction-foreman", label: "Construction Foreman" },
 } as const;
 export type OfflineLessonPackId = keyof typeof OFFLINE_LESSON_TRACKS;
 export function offlineLessonPackId(

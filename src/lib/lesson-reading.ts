@@ -1,5 +1,6 @@
 import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
 import { LANDSCAPER_LESSON_CONTENT } from "../data/landscaper-lesson-content.ts";
+import { FOREMAN_LESSON_CONTENT } from "../data/construction-foreman-lesson-content.ts";
 
 /** Authored translations belong to an exact pair, never just a target language. */
 export function authoredLessonReading(
@@ -15,7 +16,9 @@ export function authoredLessonReading(
       ? ROOFING_LESSON_PASSAGES[lessonNumber]
       : moduleId === "landscaper"
         ? LANDSCAPER_LESSON_CONTENT[lessonNumber]?.reading
-        : null;
+        : moduleId === "construction-foreman"
+          ? FOREMAN_LESSON_CONTENT[lessonNumber]?.reading
+          : null;
   return passage
     ? {
         id: `${moduleId}-lesson-${lessonNumber}`,

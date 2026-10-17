@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T19:56:58.056089+00:00",
+  "auditedAt": "2026-10-17T20:44:00.594917+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "5b00bd2",
+  "application": "0d8508a",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-hsya76mk6-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-owned-audio-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "5b00bd2c9348883763c3cdd3dc8098648a98d15c",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
+  "latestLocalSourceCommit": "0d8508afa227a47c16c8c0c48d2e2b3d20816948",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-owned-audio-preview-2026-10-17.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -391,13 +391,22 @@
     "backendChangesAuthorized": false
   },
   "latestLocalSpeakerFollowup": {
-    "application": "756cc90",
+    "application": "0d8508a",
     "includes": [
       "2ca123d",
       "c1c6448",
-      "51b9890"
+      "51b9890",
+      "756cc90"
     ],
-    "deployed": false,
-    "evidence": "docs/reviews/qa-field-prep-lifecycle-local-2026-10-17.json"
+    "deployed": true,
+    "evidence": "docs/reviews/qa-owned-audio-preview-2026-10-17.json"
+  },
+  "liveApplicationObserved": {
+    "application": "9f90996f99635647aab2d8e490e12b3275786b52",
+    "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+    "readyAt": "2026-10-17T19:58:14.424000+00:00",
+    "observedAt": "2026-10-17T20:44:00.594917+00:00",
+    "mainBranchReadOnlyVerified": true,
+    "promotedByThisRun": false
   }
 }

@@ -5,6 +5,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Guest banner eligibility and disabled gate storage — October 17
+
+Source04a0181 removes the disabled AI gate's live device-wide usage-counter write and dormant raw-email storage helpers/modal write. Client gate remains open and server limits are unchanged. SaveProgressBanner now mounts a guest-only child after auth loading; loading/authenticated boundaries unmount eligibility, auth modal and event listeners. Meaningful signed-in activity cannot qualify the later guest banner. Earned eligibility is current-visit memory only. Old email/count/earned keys remain unread and untouched; optional device-wide presentation dismissal remains.
+
+All960tests/type-check pass; lint0errors/45warnings (the newly included existing ai-gate-state mixed-export warning plus previous44). One new controlled component group exercises actual source with hooks/events/storage: legacy-earned rejection, guest action, signed-in activity isolation, loading boundary reset, dismissal/remount, preserved legacy bytes and no gate storage IO. React checklist: unconditional hooks in each component, explicit guest mount boundary, listener cleanup, existing button semantics retained. Local stage artifact19.73MiB passes target/artifact guards; private-bank96markers/1219source/148static/0hits. This is not browser/phone acceptance. Evidence: qa-guest-banner-local-2026-10-17.json.
+
+Hosted application remains last-observed eda1f26/READY/targetnull at https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app (dpl_bCovgdgjSyaFedqVN34AHtoveM6h); no deployment/hosted rerun/alias inspection this turn. Latest local387f24c and04a0181 changes are not deployed. Accepted companion last-observed d4ad837 and live f9f8685 unchanged. No main/production changes.
+
+NEXT component/lib inventory: Reader pane guidance/visited flags, analytics session/event handling, legacy voice preference consumers and active TTS playback cleanup. Public voice capability cache contains availability metadata, not generated learner text; explicit Start over is the destructive storage-clear path, ordinary update only clears prefixed app caches. These observations are not app-wide privacy proof. Additional prepared-start RPC permission remains pending; do not apply/wire or repeat question. No browser actions, model calls, hosted learner writes, schema/role/active speech/retention/schedule changes. All release gates and goal remain open.
+
+
 ### Legacy conjugation utility now requires an owned instance — October 17
 
 Source387f24c replaces unused global generated-conjugation read/write/ensure/profile-seed functions with createOwnedConjugationCache. It requires an explicit conjugationTables device store/current-subtree guard and disposal; no application consumer was added. The unowned old key is never read/claimed/changed. Generated/profile-derived values stay in owned bounded entries, never promote into the static authored catalog, and static lookups/returns are copied. The authored catalog uses a Map, so prototype-like novel keys cannot become catalog properties. Known authored lookups need no fetch/owned-storage access. Existing profile conversion is structurally checked, not linguistically approved.

@@ -169,6 +169,23 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     m.controls.requests[1].resolve();
     await h;
     assert.equal(ends, 2);
+    const providerCalls = m.controls.requests.length,
+      remotePlays = plays.length;
+    for (const voiceURI of [pref, undefined]) {
+      const nativeOnly = m.speakRemote("Protected QA sample", "ps-AF", {
+        deviceOnly: true,
+        voiceURI,
+      });
+      await tick();
+      assert.equal(
+        m.controls.requests.length,
+        providerCalls,
+        "device-only ignores Google preference",
+      );
+      assert.equal(plays.length, remotePlays, "device-only cannot use remote Pashto fallback");
+      utterances.at(-1).onend();
+      await nativeOnly;
+    }
   } finally {
     globalThis.window = saved.window;
     globalThis.Audio = saved.Audio;

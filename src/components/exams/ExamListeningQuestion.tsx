@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { examAudioRequest } from "@/lib/assessments/client";
 import type { AssessmentAnswer, PublicAssessmentItem } from "@/lib/assessments/form";
 import { ACCENTS_BY_LANGUAGE } from "@/state/speech-state";
 import type { Language } from "@/data/languages";
 import { getVoicesForLocale } from "@/lib/voices";
+import { speakRemote } from "@/lib/tts";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 export function ExamListeningQuestion({
   attemptId,
   item,
@@ -15,91 +17,92 @@ export function ExamListeningQuestion({
   answer?: AssessmentAnswer;
   onAnswer: (answer: AssessmentAnswer) => void;
 }) {
-  const [playing, setPlaying] = useState(false),
-    [heard, setHeard] = useState(answer?.listeningHeard === true),
-    [error, setError] = useState("");
-  const mounted = useRef(true);
-  const clip = useRef<HTMLAudioElement | null>(null),
-    clipUrl = useRef<string | null>(null),
-    pending = useRef<AbortController | null>(null);
-  const releaseClip = () => {
-    clip.current?.pause();
-    clip.current = null;
-    if (clipUrl.current) URL.revokeObjectURL(clipUrl.current);
-    clipUrl.current = null;
-  };
-  useEffect(() => {
-    mounted.current = true;
-    return () => {
-      mounted.current = false;
-      pending.current?.abort();
-      releaseClip();
-      window.speechSynthesis?.cancel();
-    };
-  }, []);
+  const { key, capture } = usePracticeLifecycle(JSON.stringify([attemptId, item.id]));
+  const [playback, setPlayback] = useState({
+    key,
+    playing: false,
+    heard: answer?.listeningHeard === true,
+    error: "",
+  });
+  const { playing, heard, error } =
+    playback.key === key
+      ? playback
+      : {
+          playing: false,
+          heard: answer?.listeningHeard === true,
+          error: "",
+        };
+  const pending = useRef<AbortController | null>(null);
   const play = async () => {
-    if (playing) return;
-    setPlaying(true);
-    setError("");
+    const lease = capture();
+    if (!lease.isCurrent() || pending.current) return;
+    const controller = new AbortController();
+    pending.current = controller;
+    setPlayback({ key, playing: true, heard, error: "" });
+    let clip: HTMLAudioElement | null = null;
+    let clipUrl: string | null = null;
+    const releaseClip = () => {
+      if (clip) {
+        clip.onended = null;
+        clip.onerror = null;
+        clip.pause();
+        clip.removeAttribute("src");
+        clip.load();
+        clip = null;
+      }
+      if (clipUrl) URL.revokeObjectURL(clipUrl);
+      clipUrl = null;
+    };
+    const release = lease.own(() => {
+      controller.abort();
+      releaseClip();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && pending.current === controller;
+    let settled = false;
+    const finish = (success: boolean, message = "") => {
+      if (settled || !current()) return;
+      settled = true;
+      release();
+      releaseClip();
+      pending.current = null;
+      setPlayback({ key, playing: false, heard: heard || success, error: message });
+    };
+    const unavailable = "Audio did not finish. Try again or mark this input not assessed.";
     try {
-      pending.current = new AbortController();
       const audio = await examAudioRequest(
         `/api/exams?action=listening&attempt=${encodeURIComponent(attemptId)}&item=${encodeURIComponent(item.id)}`,
-        pending.current.signal,
+        controller.signal,
       );
-      if (!mounted.current) return;
+      if (!current()) return;
       if (audio.mode === "private_clip") {
-        releaseClip();
-        clipUrl.current = URL.createObjectURL(audio.blob);
-        clip.current = new Audio(clipUrl.current);
-        clip.current.onended = () => {
-          releaseClip();
-          if (mounted.current) {
-            setHeard(true);
-            setPlaying(false);
-          }
-        };
-        clip.current.onerror = () => {
-          releaseClip();
-          if (mounted.current) {
-            setPlaying(false);
-            setError("The clip could not play. Try again or mark this input not assessed.");
-          }
-        };
-        await clip.current.play();
+        clipUrl = URL.createObjectURL(audio.blob);
+        clip = new Audio(clipUrl);
+        clip.onended = () => finish(true);
+        clip.onerror = () =>
+          finish(false, "The clip could not play. Try again or mark this input not assessed.");
+        await clip.play();
         return;
       }
-      if (!window.speechSynthesis) throw new Error("This device cannot play the listening clip.");
       const locale = ACCENTS_BY_LANGUAGE[audio.language as Language]?.[0]?.code;
       const voice = locale ? getVoicesForLocale(locale)[0] : undefined;
       if (!voice)
         throw new Error(
           "A voice for this language is unavailable on this device. This input can stay not assessed.",
         );
-      const utterance = new SpeechSynthesisUtterance(audio.text);
-      utterance.lang = locale!;
-      utterance.voice = voice;
-      utterance.rate = 0.9;
-      utterance.onend = () => {
-        if (mounted.current) {
-          setHeard(true);
-          setPlaying(false);
-        }
-      };
-      utterance.onerror = () => {
-        if (mounted.current) {
-          setPlaying(false);
-          setError("Audio did not finish. Try again or mark this input not assessed.");
-        }
-      };
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
+      await speakRemote(audio.text, locale!, {
+        voiceURI: voice.voiceURI,
+        rate: 0.9,
+        deviceOnly: true,
+        signal: controller.signal,
+        onend: () => finish(true),
+        onerror: () => finish(false, unavailable),
+      });
+      // Another surface can replace native speech without a success/error callback.
+      if (current() && !settled) finish(false, unavailable);
     } catch (err) {
-      releaseClip();
-      if (mounted.current) {
-        setPlaying(false);
-        setError(err instanceof Error ? err.message : "Listening playback unavailable.");
-      }
+      finish(false, err instanceof Error ? err.message : "Listening playback unavailable.");
     }
   };
   return (
@@ -133,9 +136,11 @@ export function ExamListeningQuestion({
               className="mt-1"
               disabled={!heard}
               checked={answer?.choiceId === option.id}
-              onChange={() =>
-                onAnswer({ inputMethod: "choice", choiceId: option.id, listeningHeard: true })
-              }
+              onChange={() => {
+                if (heard && capture().isCurrent()) {
+                  onAnswer({ inputMethod: "choice", choiceId: option.id, listeningHeard: true });
+                }
+              }}
             />
             {option.text}
           </label>

@@ -105,6 +105,8 @@ export async function speakRemote(
     voiceURI?: string | null;
     usage?: "learning" | "mission";
     signal?: AbortSignal;
+    /** Protected QA listening text must never fall back to a remote provider. */
+    deviceOnly?: boolean;
   },
 ): Promise<void> {
   if (opts?.signal?.aborted) return;
@@ -124,7 +126,7 @@ export async function speakRemote(
       else opts?.onerror?.();
     };
     const rate = opts?.rate ?? 1;
-    const googleVoice = selectedGoogleVoice(locale, opts?.voiceURI);
+    const googleVoice = opts?.deviceOnly ? null : selectedGoogleVoice(locale, opts?.voiceURI);
     if (googleVoice) {
       try {
         await speakMissionTts({
@@ -156,9 +158,10 @@ export async function speakRemote(
       }
     }
 
-    const lang = needsRemoteTTS(locale, opts?.voiceURI)
-      ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
-      : undefined;
+    const lang =
+      !opts?.deviceOnly && needsRemoteTTS(locale, opts?.voiceURI)
+        ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
+        : undefined;
     if (!lang) {
       const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
       if (heard !== null) notify(heard);

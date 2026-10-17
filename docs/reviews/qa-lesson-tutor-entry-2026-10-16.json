@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-10-17T00:09:28.725Z",
+  "sourceCommit": "6f34723",
+  "preview": "https://language-threshold-g81x0bwta-adobetoby-5572s-projects.vercel.app",
+  "scope": "Actual hosted lesson-reference rejection before budget/provider use; no allowed inference or learner/assessment changes",
+  "checks": [
+    {
+      "name": "stale-source-version",
+      "status": 409,
+      "noStore": true
+    },
+    {
+      "name": "wrong-target-language",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "name": "missing-lesson",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "name": "unknown-module",
+      "status": 400,
+      "noStore": true
+    }
+  ]
+}

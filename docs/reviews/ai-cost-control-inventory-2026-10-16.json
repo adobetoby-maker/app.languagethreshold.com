@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "cb02d79",
+  "sourceCommit": "6f34723",
   "method": "Static regex inventory of direct Anthropic messages.create/stream call sites in fns/routes/assessment library; imported request builders and indirect providers are not exhaustively discovered",
   "interpretation": "Triage only. A guard name is not proof that every paid branch is protected. No guard name does not prove an unprotected reachable route; caller-level guards must be inspected.",
   "files": [
@@ -258,9 +258,11 @@
     {
       "file": "src/fns/word-lookup.functions.ts",
       "directPaidCallLines": [
-        240
+        282
       ],
-      "guardNamesSeenInFile": [],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
       "numericOutputCapsSeen": [
         2000
       ],
@@ -326,9 +328,7 @@
         575,
         637
       ],
-      "guardNamesSeenInFile": [
-        "enforceSpeakingRateLimit"
-      ],
+      "guardNamesSeenInFile": [],
       "numericOutputCapsSeen": [
         200,
         384,
@@ -339,7 +339,7 @@
     {
       "file": "src/routes/api.tutor.ts",
       "directPaidCallLines": [
-        262
+        312
       ],
       "guardNamesSeenInFile": [
         "prepareConversationRequest"
@@ -363,18 +363,20 @@
   ],
   "verifiedThisChange": [
     "Four actual route denial/allowed contracts under controlled provider tests",
-    "Sixteen hosted entry denials and one real synthetic Tutor inference"
+    "Sixteen hosted entry denials and one real synthetic Tutor inference",
+    "Actual dictionary handler mock-provider tests separate general/lesson caches and validate canonical domain prompts",
+    "Browser retest on e1f7e59 exposed an allowance above the SQL RPC maximum; 6f34723 reduces both lookup/handwriting global pools to 1000 and tests the SQL contract"
   ],
   "remainingReviewPriority": [
     "Grammar and per-game generators",
-    "Reader lookup and translation/romanization helpers",
+    "Translation/romanization helpers and indirect Reader callers",
     "Indirect request builders and other API paths",
     "Assessment scoring caller protections remain separate from public practice"
   ],
   "handwritingPool": {
     "perIpMinute": 30,
     "perIpHour": 600,
-    "perEnvironmentHour": 1200,
+    "perEnvironmentHour": 1000,
     "independentOfContentBuilders": true
   },
   "conversationPool": {
@@ -384,5 +386,12 @@
     "independentOfHandwritingAndContent": true,
     "maxRequestBodyBytes": 98304
   },
-  "providerAcceptanceEvidence": "qa-conversation-provider-smoke-2026-10-16.json (8f727f8; same conversation server handlers)"
+  "providerAcceptanceEvidence": "Earlier conversation smoke plus one actual lesson15 Tutor response on81237d0. Final lookup browser acceptance recorded separately; native/domain approval remains open.",
+  "lookupPool": {
+    "perIpMinute": 40,
+    "perIpHour": 600,
+    "perEnvironmentHour": 1000,
+    "cacheHitConsumesBudget": false,
+    "lessonCacheIncludesModulePairNumberAndVersion": true
+  }
 }

@@ -551,7 +551,7 @@ function ExamsAreaContent({
           />
         ) : (
           <ExamRunner
-            key={`${user.id}:${selected.id}:${selection?.fromDevice ? "device" : "server"}`}
+            key={`${user.id}:${selected.id}:${selection?.fromDevice ? "device" : "server"}:${selected.routing?.state ?? "flat"}`}
             attempt={selected}
             fromDevice={!!selection?.fromDevice}
             checkingServer={loading}
@@ -561,6 +561,13 @@ function ExamsAreaContent({
               void load();
             }}
             onSubmitted={() => void open(selected.id)}
+            onContinued={(attempt) => {
+              if (
+                isCurrentUser(user.id) && attempt.id === selected.id &&
+                attemptMatchesOrganization(attempt, orgId)
+              )
+                setSelection({ viewer: user.id, attempt, fromDevice: false });
+            }}
           />
         )
       ) : pending ? (
@@ -1294,6 +1301,7 @@ function ExamRunner({
   onCheckServer,
   onBack,
   onSubmitted,
+  onContinued,
 }: {
   attempt: ExamAttemptView;
   fromDevice: boolean;
@@ -1301,6 +1309,7 @@ function ExamRunner({
   onCheckServer: () => void;
   onBack: () => void;
   onSubmitted: () => void;
+  onContinued: (attempt: ExamAttemptView) => void;
 }) {
   const { user } = useAuth();
   const [speechWorking, setSpeechWorking] = useState(false);
@@ -1325,6 +1334,38 @@ function ExamRunner({
   const [submitting, setSubmitting] = useState(false),
     [confirm, setConfirm] = useState(false),
     [error, setError] = useState("");
+  const coreStep = attempt.routing?.state === "core";
+  const continueRouting = async () => {
+    setSubmitting(true);
+    setError("");
+    try {
+      if (
+        unsavedSpeech ||
+        (user && hasUnconfirmedExamInk(browserExamStorage(), user.id, attempt.id))
+      )
+        throw new Error(
+          "Upload or discard recordings and confirm handwritten transcripts before continuing.",
+        );
+      const latest = await draft.continueRouting();
+      onContinued(latest);
+    } catch (err) {
+      setError(
+        err instanceof Error && err.name !== "AbortError"
+          ? err.message
+          : "Connection could not be confirmed. Connect and retry the saved continuation.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  const resolveConflict = async (keepDevice: boolean) => {
+    try {
+      const latest = await draft.resolve(keepDevice);
+      if (latest && latest.routing?.state !== attempt.routing?.state) onContinued(latest);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "The server copy could not be checked.");
+    }
+  };
   const unanswered = attempt.form.items.filter((question) => {
     const answer = draft.answers[question.id];
     return (
@@ -1418,6 +1459,13 @@ function ExamRunner({
         <p className="mt-2 text-sm">
           Question {draft.index + 1} of {attempt.form.items.length} · {skills[item.skill]}
         </p>
+        {attempt.routing && (
+          <p className="mt-2 text-sm" role="status">
+            {coreStep
+              ? "Core questions. Answer each question or explicitly mark its input not assessed, then connect to continue to your follow-up questions."
+              : "Your saved follow-up questions are included. Revisiting a core answer keeps the same follow-up questions."}
+          </p>
+        )}
         {attempt.checkpoint.checkpoint === "entrance" && attempt.studiedObjectiveCount > 0 && (
           <p className="mt-3 text-sm">
             Current-state baseline: {attempt.studiedObjectiveCount} lesson objectives had recorded
@@ -1453,6 +1501,17 @@ function ExamRunner({
           {error || draft.error}
         </p>
       )}
+      {coreStep && draft.routePending && (
+        <div className={card} role="status">
+          <p>
+            Continuation needs confirmation. Core edits are paused until the saved server choice is recovered.
+          </p>
+          <button className={button + " mt-3"} disabled={submitting || speechWorking}
+            onClick={() => void continueRouting()}>
+            {submitting ? "Recovering follow-up questions…" : "Connect and retry continuation"}
+          </button>
+        </div>
+      )}
       {draft.conflict && (
         <section className={card}>
           <h3 className="font-semibold">Review both copies</h3>
@@ -1477,20 +1536,20 @@ function ExamRunner({
           <div className="flex flex-wrap gap-3">
             <button
               className={button}
-              onClick={() => void draft.resolve(true).catch((err) => setError(err.message))}
+              onClick={() => void resolveConflict(true)}
             >
               Keep my changed device answers
             </button>
             <button
               className={button}
-              onClick={() => void draft.resolve(false).catch((err) => setError(err.message))}
+              onClick={() => void resolveConflict(false)}
             >
               Use the server copy
             </button>
           </div>
         </section>
       )}
-      <fieldset disabled={submitting} className={card}>
+      <fieldset disabled={submitting || draft.routePending} className={card}>
         <legend className="sr-only">Question {draft.index + 1}</legend>
         <h3
           ref={questionTitle}
@@ -1631,6 +1690,12 @@ function ExamRunner({
           >
             Next question
           </button>
+        ) : coreStep ? (
+          <button className={primary}
+            disabled={submitting || speechWorking || unsavedSpeech > 0 || draft.status === "conflict"}
+            onClick={() => void continueRouting()}>
+            {submitting ? "Loading follow-up questions…" : "Continue to follow-up questions"}
+          </button>
         ) : (
           <button
             className={primary}
@@ -1641,7 +1706,7 @@ function ExamRunner({
           </button>
         )}
       </div>
-      {confirm && (
+      {confirm && !coreStep && (
         <section className={card}>
           <h3 className="font-semibold">Submit this attempt</h3>
           <p className="my-3">

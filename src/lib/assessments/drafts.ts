@@ -30,12 +30,21 @@ export interface ExamDeviceDraft {
   savedAt: string;
   /** Acknowledged answer changes retained atomically with their revision until a fresh server read. */
   acknowledged?: Record<string, AssessmentAnswer>;
+  /** Uncertain core continuation must retry the same source revision and identity. */
+  routeFlight?: { revision: number; requestId: string };
 }
 
 /** Clean drafts adopt a fresh server revision; outstanding work keeps its original base. */
 export function resumeExamDraft(
   saved: ExamDeviceDraft | null,
-  source: { formId: string; revision: number; savedAt: string; itemCount: number },
+  source: {
+    formId: string;
+    revision: number;
+    savedAt: string;
+    itemCount: number;
+    routingState?: "core" | "selected";
+    coreItemCount?: number;
+  },
   fromDevice = false,
 ): ExamDeviceDraft {
   if (!saved || saved.formId !== source.formId)
@@ -48,10 +57,22 @@ export function resumeExamDraft(
       pending: {},
       flight: null,
     };
-  const localWork = !!(Object.keys(saved.pending).length || saved.flight);
+  const recoveredRoute = source.routingState === "selected" && !!saved.routeFlight;
+  const localWork = !!(
+    Object.keys(saved.pending).length ||
+    saved.flight ||
+    (saved.routeFlight && !recoveredRoute)
+  );
   return {
     ...saved,
-    index: Math.max(0, Math.min(saved.index, source.itemCount - 1)),
+    index: Math.max(
+      0,
+      Math.min(
+        recoveredRoute ? (source.coreItemCount ?? saved.index) : saved.index,
+        source.itemCount - 1,
+      ),
+    ),
+    ...(recoveredRoute ? { routeFlight: undefined } : {}),
     ...(!fromDevice && !localWork ? { revision: source.revision, savedAt: source.savedAt } : {}),
     acknowledged: fromDevice && saved.revision >= source.revision ? saved.acknowledged : undefined,
   };
@@ -134,6 +155,17 @@ export function readExamDraft(
         !value.flight.edits)
     )
       return null;
+    if (
+      value.routeFlight !== undefined &&
+      (!value.routeFlight ||
+        !Number.isSafeInteger(value.routeFlight.revision) ||
+        value.routeFlight.revision < 0 ||
+        typeof value.routeFlight.requestId !== "string" ||
+        !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+          value.routeFlight.requestId,
+        ))
+    )
+      return null;
     return value;
   } catch {
     return null;
@@ -151,7 +183,7 @@ export function saveExamDraft(
       storage,
       key,
       raw,
-      Boolean(Object.keys(draft.pending).length || draft.flight),
+      Boolean(Object.keys(draft.pending).length || draft.flight || draft.routeFlight),
     );
   } catch {
     return false;
@@ -176,7 +208,8 @@ export function hasUnsyncedExamDrafts(storage: ExamDraftStorage | null, userId: 
     for (const key of examDeviceKeys(storage)) {
       if (key.startsWith(prefix)) {
         const draft = readExamDraft(storage, key);
-        if (draft && (Object.keys(draft.pending).length || draft.flight)) return true;
+        if (draft && (Object.keys(draft.pending).length || draft.flight || draft.routeFlight))
+          return true;
       }
     }
   } catch {

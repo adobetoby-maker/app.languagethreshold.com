@@ -18,6 +18,7 @@ import {
 import { clearOfflineExams, saveOfflineExam } from "@/lib/assessments/offline";
 import type { AssessmentAnswer } from "@/lib/assessments/form";
 import type { readAttempt } from "@/lib/assessments/server";
+import { continueExamRouting } from "@/lib/assessments/routing-client";
 export type ExamAttemptView = Awaited<ReturnType<typeof readAttempt>>;
 type SaveStatus = "synced" | "device" | "unsaved" | "syncing" | "conflict";
 const answersFrom = (attempt: ExamAttemptView) =>
@@ -34,6 +35,8 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   const remote = useRef(attempt),
     mounted = useRef(true),
     saving = useRef<Promise<boolean> | null>(null),
+    continuing = useRef<Promise<ExamAttemptView> | null>(null),
+    continuationAbort = useRef<AbortController | null>(null),
     controller = useRef<AbortController | null>(null);
   const initial = useRef<ExamDeviceDraft | null>(null);
   if (!initial.current) {
@@ -45,6 +48,8 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
         revision: attempt.revision,
         savedAt: attempt.savedAt,
         itemCount: attempt.form.items.length,
+        routingState: attempt.routing?.state,
+        coreItemCount: attempt.routing?.coreItemCount,
       },
       fromDevice,
     );
@@ -76,7 +81,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     (next: ExamDeviceDraft, nextStatus?: SaveStatus) => {
       if (!isCurrentUser(userId)) return false;
       current.current = next;
-      const pending = Boolean(Object.keys(next.pending).length || next.flight);
+      const pending = Boolean(Object.keys(next.pending).length || next.flight || next.routeFlight);
       registerPendingExam(userId, attempt.id, pending);
       const saved = saveExamDraft(storage, key, next);
       if (mounted.current) {
@@ -89,6 +94,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   );
   const edit = useCallback(
     (itemId: string, answer: AssessmentAnswer) => {
+      if (current.current.routeFlight) return;
       const seq = current.current.sequence + 1;
       const next = {
         ...current.current,
@@ -192,11 +198,16 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     registerPendingExam(
       userId,
       attempt.id,
-      Boolean(Object.keys(current.current.pending).length || current.current.flight),
+      Boolean(
+        Object.keys(current.current.pending).length ||
+        current.current.flight ||
+        current.current.routeFlight,
+      ),
     );
     return () => {
       mounted.current = false;
       controller.current?.abort();
+      continuationAbort.current?.abort();
     };
   }, [attempt.id, userId]);
   useEffect(() => {
@@ -212,10 +223,17 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     };
   }, [sync]);
   useEffect(() => {
+    // A fresh selected snapshot may have recovered an uncertain route during
+    // initialization. Persist that receipt so sign-out checks see the same state.
+    if (attempt.routing?.state === "selected" && !current.current.routeFlight)
+      saveExamDraft(storage, key, current.current);
+  }, [attempt.routing?.state, key, storage]);
+  useEffect(() => {
     if (current.current.flight && current.current.revision !== attempt.revision) void sync(true);
   }, [attempt.revision, sync]);
   useEffect(() => {
     if (!isCurrentUser(userId) || attempt.submittedAt) return;
+    if (remote.current.routing?.state === "selected" && attempt.routing?.state === "core") return;
     saveOfflineExam(storage, userId, {
       ...attempt,
       revision: draft.revision,
@@ -241,9 +259,12 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     return false;
   };
   const resolve = async (keepDevice: boolean) => {
+    if (current.current.routeFlight)
+      throw new Error("Recover the saved continuation before changing core answers.");
     const latest = await examRequest<ExamAttemptView>(
       `/api/exams?action=attempt&attempt=${attempt.id}`,
     );
+    if (!mounted.current || !isCurrentUser(userId)) throw new Error("Your session changed.");
     remote.current = latest;
     if (latest.submittedAt) {
       setConflict(latest);
@@ -255,6 +276,10 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     const next = {
       ...current.current,
       revision: latest.revision,
+      index:
+        attempt.routing?.state === "core" && latest.routing?.state === "selected"
+          ? latest.routing.coreItemCount
+          : current.current.index,
       flight: null,
       pending: keepDevice ? current.current.pending : {},
       acknowledged: undefined,
@@ -267,6 +292,54 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     conflictBlocked.current = false;
     setConflict(null);
     setError("");
+    saveOfflineExam(storage, userId, latest);
+    return latest;
+  };
+  const continueRouting = (): Promise<ExamAttemptView> => {
+    if (continuing.current) return continuing.current;
+    const abort = new AbortController();
+    continuationAbort.current = abort;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const work = (async () => {
+      const latest = await continueExamRouting({
+        attempt,
+        current: () => current.current,
+        update: (next) => {
+          update(next, "synced");
+        },
+        flush,
+        isCurrent: () => mounted.current && isCurrentUser(userId),
+        online: () => typeof navigator !== "undefined" && navigator.onLine !== false,
+        requestId: () => crypto.randomUUID(),
+        select: (flight) => {
+          timer = setTimeout(() => abort.abort(), 30000);
+          return examRequest({ action: "route", attemptId: attempt.id, ...flight }, abort.signal);
+        },
+        read: () =>
+          examRequest<ExamAttemptView>(
+            `/api/exams?action=attempt&attempt=${attempt.id}`,
+            abort.signal,
+          ),
+        conflict: (latest) => {
+          remote.current = latest;
+          conflictBlocked.current = true;
+          setConflict(latest);
+          setStatus("conflict");
+        },
+      });
+      remote.current = latest;
+      saveOfflineExam(storage, userId, latest);
+      return latest;
+    })();
+    continuing.current = work;
+    void work
+      .finally(() => {
+        if (timer) clearTimeout(timer);
+        if (continuationAbort.current === abort) continuationAbort.current = null;
+        if (continuing.current === work) continuing.current = null;
+      })
+      .catch(() => undefined);
+    return work;
   };
   // Upload attaches a response atomically on the server. Flush first and adopt its
   // current revision without inventing a local answer or overwriting pending edits.
@@ -316,6 +389,8 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     resolve,
     clearSubmitted,
     reloadAfterExternal,
+    continueRouting,
+    routePending: !!draft.routeFlight,
     revision: () => current.current.revision,
     pendingCount: Object.keys(draft.pending).length,
     serverAnswers: conflict ? answersFrom(conflict) : {},

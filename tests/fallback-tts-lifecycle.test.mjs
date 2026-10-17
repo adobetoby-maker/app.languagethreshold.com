@@ -82,9 +82,10 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
       ],
     });
     const m = await import(outfile);
-    let ends = 0;
+    let ends = 0,
+      failures = 0;
     const start = (text, locale = "ps-AF", voiceURI) =>
-      m.speakRemote(text, locale, { voiceURI, onend: () => ends++ });
+      m.speakRemote(text, locale, { voiceURI, onend: () => ends++, onerror: () => failures++ });
     const a = start("Synthetic private A");
     await tick();
     assert.match(audio.src, /Synthetic%20private%20A/);
@@ -133,6 +134,24 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     done();
     await deviceB;
     assert.equal(ends, 2);
+    const broken = start("Failed device", "en-US");
+    await tick();
+    const failedDevice = utterances.at(-1),
+      fail = failedDevice.onerror,
+      oldFinish = failedDevice.onend;
+    fail();
+    oldFinish();
+    await broken;
+    assert.equal(ends, 2);
+    assert.equal(failures, 1);
+    const brokenRemote = start("Failed Pashto");
+    const failRemote = audio.onerror,
+      oldRemoteEnd = audio.onended;
+    failRemote();
+    oldRemoteEnd();
+    await brokenRemote;
+    assert.equal(ends, 2);
+    assert.equal(failures, 2);
     // Use the real preference encoding accepted by the production decoder.
     const { encodeGoogleVoicePreference } = await import("../src/data/mission-tts.ts");
     const pref = encodeGoogleVoicePreference({ name: "fixture", languageCodes: ["es-CR"] });
@@ -142,7 +161,7 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     m.stopRemoteTTS();
     m.controls.requests[0].reject(new Error("late network failure"));
     await g;
-    assert.equal(utterances.length, 2);
+    assert.equal(utterances.length, 3);
     assert.equal(ends, 2);
     const h = start("Old success", "es-CR", pref);
     await tick();

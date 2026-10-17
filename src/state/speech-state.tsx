@@ -1,3 +1,4 @@
+import { useAuth } from "@/state/auth-state";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
@@ -130,6 +131,25 @@ export function SpeechProvider({
   onAchievement: (name: string) => void;
   hasAchievement: (name: string) => boolean;
 }) {
+  const { user, isCurrentUser } = useAuth();
+  const actor = user?.id ?? null;
+  const mountedRef = useRef(false);
+  const playbackEpochRef = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const queueRef = useRef<Array<{ text: string; index: number }>>([]);
+  const cancelledRef = useRef(true);
+  const listenedCountRef = useRef(0);
+  const ownsPlayback = useCallback(
+    () => mountedRef.current && (actor === null || isCurrentUser(actor)),
+    [actor, isCurrentUser],
+  );
+  const invalidatePlayback = useCallback(() => {
+    playbackEpochRef.current += 1;
+    cancelledRef.current = true;
+    queueRef.current = [];
+    if (timerRef.current !== null) clearTimeout(timerRef.current);
+    timerRef.current = null;
+  }, []);
   const device = useLearnerDeviceStore("speech");
   const recentDevice = useLearnerDeviceStore("heardWords");
   const [historyHydrated, setHistoryHydrated] = useState(false);
@@ -153,7 +173,10 @@ export function SpeechProvider({
       if (raw) {
         const parsed = raw as SavedSpeech;
         if (typeof parsed.rate === "number") setRateState(parsed.rate);
-        if (typeof parsed.listenedCount === "number") setListenedCount(parsed.listenedCount);
+        if (Number.isSafeInteger(parsed.listenedCount) && (parsed.listenedCount ?? -1) >= 0) {
+          listenedCountRef.current = parsed.listenedCount!;
+          setListenedCount(parsed.listenedCount!);
+        }
         if (parsed.voiceByLang && typeof parsed.voiceByLang === "object") {
           const v = parsed.voiceByLang[language];
           if (typeof v === "string") setVoiceURIState(v);
@@ -216,6 +239,7 @@ export function SpeechProvider({
       setVoiceURIState(null);
       setAccentState(accentsForLanguage[0].code);
     }
+    invalidatePlayback();
     // Stop any active speech
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -227,22 +251,21 @@ export function SpeechProvider({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language, device]);
 
-  // Stop on unmount
+  // Invalidate queued text and callbacks before releasing this account subtree.
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
+      invalidatePlayback();
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
       stopRemoteTTS();
     };
-  }, []);
-
-  const queueRef = useRef<Array<{ text: string; index: number }>>([]);
-  const cancelledRef = useRef(false);
+  }, [invalidatePlayback]);
 
   const stop = useCallback(() => {
-    cancelledRef.current = true;
-    queueRef.current = [];
+    invalidatePlayback();
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
@@ -250,7 +273,7 @@ export function SpeechProvider({
     setPlaying(false);
     setCurrent(null);
     setActiveSentenceIndex(-1);
-  }, []);
+  }, [invalidatePlayback]);
 
   const setRate = useCallback((n: number) => {
     setRateState(n);
@@ -286,22 +309,32 @@ export function SpeechProvider({
   }, []);
 
   const incListened = useCallback(() => {
-    setListenedCount((c) => {
-      const next = c + 1;
-      onXp(1);
-      if (next === 10 && !hasAchievement(ACHIEVEMENT_LISTENER)) {
-        onAchievement(ACHIEVEMENT_LISTENER);
-        toast("👂 Achievement unlocked", {
-          description: `${ACHIEVEMENT_LISTENER} — 10 sentences read aloud`,
-        });
-      }
-      return next;
-    });
-  }, [hasAchievement, onAchievement, onXp]);
+    if (!ownsPlayback()) return;
+    const next = listenedCountRef.current + 1;
+    listenedCountRef.current = next;
+    setListenedCount(next);
+    onXp(1);
+    if (next === 10 && !hasAchievement(ACHIEVEMENT_LISTENER)) {
+      onAchievement(ACHIEVEMENT_LISTENER);
+      toast("👂 Achievement unlocked", {
+        description: `${ACHIEVEMENT_LISTENER} — 10 sentences read aloud`,
+      });
+    }
+  }, [hasAchievement, onAchievement, onXp, ownsPlayback]);
 
   const speakOne = useCallback(
     (text: string, sentenceIndex: number, mode: SpeechMode, onEnd?: () => void) => {
-      if (typeof window === "undefined") return;
+      const epoch = playbackEpochRef.current;
+      const valid = () =>
+        ownsPlayback() && epoch === playbackEpochRef.current && !cancelledRef.current;
+      if (typeof window === "undefined" || !valid()) return;
+      let settled = false;
+      const finish = (heard: boolean) => {
+        if (settled || !valid()) return;
+        settled = true;
+        if (heard && sentenceIndex >= 0) incListened();
+        onEnd?.();
+      };
       if (needsRemoteTTS(accent, voiceURI)) {
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
@@ -309,10 +342,8 @@ export function SpeechProvider({
         void speakRemote(text, accent, {
           rate,
           voiceURI,
-          onend: () => {
-            if (sentenceIndex >= 0) incListened();
-            onEnd?.();
-          },
+          onend: () => finish(true),
+          onerror: () => finish(false),
         });
         return;
       }
@@ -321,24 +352,25 @@ export function SpeechProvider({
       configureUtterance(u, accent, voiceURI);
       u.rate = rate;
       u.onstart = () => {
+        if (!valid() || settled) return;
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
         if (sentenceIndex >= 0) setActiveSentenceIndex(sentenceIndex);
       };
-      u.onend = () => {
-        if (sentenceIndex >= 0) incListened();
-        onEnd?.();
-      };
-      u.onerror = () => {
-        onEnd?.();
-      };
-      window.speechSynthesis.speak(u);
+      u.onend = () => finish(true);
+      u.onerror = () => finish(false);
+      try {
+        window.speechSynthesis.speak(u);
+      } catch {
+        finish(false);
+      }
     },
-    [accent, rate, voiceURI, incListened],
+    [accent, rate, voiceURI, incListened, ownsPlayback],
   );
 
   const speakWord = useCallback(
     (word?: string) => {
+      if (!ownsPlayback()) return;
       const target = (word ?? lastWord ?? "").trim();
       if (!target) {
         toast("No word selected yet", {
@@ -348,21 +380,28 @@ export function SpeechProvider({
       }
       stop();
       cancelledRef.current = false;
-      setTimeout(() => {
+      const epoch = playbackEpochRef.current;
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
         speakOne(target, -1, "word", () => {
           setPlaying(false);
           setCurrent(null);
         });
       }, 30);
     },
-    [lastWord, speakOne, stop],
+    [lastWord, speakOne, stop, ownsPlayback],
   );
 
   const speakSentence = useCallback(
     (text: string, sentenceIndex: number) => {
+      if (!ownsPlayback()) return;
       stop();
       cancelledRef.current = false;
-      setTimeout(() => {
+      const epoch = playbackEpochRef.current;
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
         speakOne(text, sentenceIndex, "sentence", () => {
           setPlaying(false);
           setCurrent(null);
@@ -370,18 +409,21 @@ export function SpeechProvider({
         });
       }, 30);
     },
-    [speakOne, stop],
+    [speakOne, stop, ownsPlayback],
   );
 
   const speakSentences = useCallback(
     (sentences: { text: string; index: number }[], onMove?: (i: number) => void) => {
-      if (sentences.length === 0) return;
+      if (!ownsPlayback() || sentences.length === 0) return;
       stop();
       cancelledRef.current = false;
       queueRef.current = [...sentences];
 
+      const epoch = playbackEpochRef.current;
+      const valid = () =>
+        ownsPlayback() && epoch === playbackEpochRef.current && !cancelledRef.current;
       const next = () => {
-        if (cancelledRef.current) return;
+        if (!valid()) return;
         const item = queueRef.current.shift();
         if (!item) {
           setPlaying(false);
@@ -390,12 +432,16 @@ export function SpeechProvider({
           return;
         }
         onMove?.(item.index);
+        if (!valid()) return;
         speakOne(item.text, item.index, "paragraph", next);
       };
 
-      setTimeout(next, 30);
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        next();
+      }, 30);
     },
-    [speakOne, stop],
+    [speakOne, stop, ownsPlayback],
   );
 
   const value = useMemo(

@@ -84,6 +84,7 @@ export function useMissionarySpeech() {
         void speakRemote(text, localeCode, {
           rate,
           voiceURI,
+          onerror: () => setSpeaking(null),
           onend: () => {
             setSpeaking((s) => (s && s.id === id ? { ...s, fading: true } : s));
             window.setTimeout(() => {

@@ -57,7 +57,7 @@ function speakOnDevice(
   current: () => boolean,
 ) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
-    return Promise.resolve(false);
+    return Promise.resolve(false as boolean | null);
   }
   const utterance = new SpeechSynthesisUtterance(text);
   configureUtterance(
@@ -66,27 +66,27 @@ function speakOnDevice(
     decodeGoogleVoicePreference(preferredVoiceURI) ? null : preferredVoiceURI,
   );
   utterance.rate = rate;
-  return new Promise<boolean>((resolve) => {
+  return new Promise<boolean | null>((resolve) => {
     let settled = false;
-    const done = () => {
+    const done = (heard: boolean | null) => {
       if (settled) return;
       settled = true;
       utterance.onend = null;
       utterance.onerror = null;
       if (current()) cancelPlayback = null;
-      resolve(current());
+      resolve(current() ? heard : null);
     };
     cancelPlayback = () => {
-      done();
+      done(null);
       window.speechSynthesis.cancel();
     };
-    utterance.onend = done;
-    utterance.onerror = done;
+    utterance.onend = () => done(true);
+    utterance.onerror = () => done(false);
     window.speechSynthesis.cancel();
     try {
       window.speechSynthesis.speak(utterance);
     } catch {
-      done();
+      done(false);
     }
   });
 }
@@ -101,6 +101,7 @@ export async function speakRemote(
   opts?: {
     rate?: number;
     onend?: () => void;
+    onerror?: () => void;
     voiceURI?: string | null;
     usage?: "learning" | "mission";
   },
@@ -109,10 +110,11 @@ export async function speakRemote(
   const playbackGeneration = generation;
   const current = () => generation === playbackGeneration;
   let notified = false;
-  const notify = () => {
+  const notify = (heard = true) => {
     if (!current() || notified) return;
     notified = true;
-    opts?.onend?.();
+    if (heard) opts?.onend?.();
+    else opts?.onerror?.();
   };
   const rate = opts?.rate ?? 1;
   const googleVoice = selectedGoogleVoice(locale, opts?.voiceURI);
@@ -141,14 +143,16 @@ export async function speakRemote(
           duration: 7000,
         });
       }
-      if (await speakOnDevice(text, locale, rate, opts?.voiceURI, current)) notify();
+      const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
+      if (heard !== null) notify(heard);
       return;
     }
   }
 
   const lang = REMOTE_TTS_BY_FAMILY[languageFamily(locale)];
   if (!lang) {
-    if (await speakOnDevice(text, locale, rate, opts?.voiceURI, current)) notify();
+    const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
+    if (heard !== null) notify(heard);
     return;
   }
 
@@ -157,9 +161,9 @@ export async function speakRemote(
   el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
   el.playbackRate = rate;
 
-  const completed = await new Promise<boolean>((resolve) => {
+  const completed = await new Promise<boolean | null>((resolve) => {
     let settled = false;
-    const done = () => {
+    const done = (heard: boolean | null) => {
       if (settled) return;
       settled = true;
       if (current()) {
@@ -169,16 +173,16 @@ export async function speakRemote(
         el.removeAttribute("src");
         el.load();
       }
-      resolve(current());
+      resolve(current() ? heard : null);
     };
-    cancelPlayback = done;
-    el.onended = done;
-    el.onerror = done;
+    cancelPlayback = () => done(null);
+    el.onended = () => done(true);
+    el.onerror = () => done(false);
     try {
-      el.play().catch(done);
+      el.play().catch(() => done(false));
     } catch {
-      done();
+      done(false);
     }
   });
-  if (completed) notify();
+  if (completed !== null) notify(completed);
 }

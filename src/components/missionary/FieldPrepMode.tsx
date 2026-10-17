@@ -76,7 +76,7 @@ function speakAloud(
     return;
   }
   if (needsRemoteTTS(locale, voiceURI)) {
-    void speakRemote(clean, locale, { voiceURI, onend: onEnd });
+    void speakRemote(clean, locale, { voiceURI, onend: onEnd, onerror: onEnd });
     return;
   }
   if (!window.speechSynthesis) {

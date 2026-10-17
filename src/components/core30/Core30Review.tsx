@@ -198,7 +198,8 @@ export function Core30Review({
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-              Review · {items.length} mastered lesson{items.length === 1 ? "" : "s"}
+              Review · {items.length} lesson{items.length === 1 ? "" : "s"} previously marked
+              mastered
             </p>
             <h3 className="mt-1 text-lg font-semibold text-white">Quick check</h3>
             <p className="mt-1 text-xs leading-relaxed text-white/60">

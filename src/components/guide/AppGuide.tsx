@@ -1812,11 +1812,15 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     if (hasCurriculum) prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
-  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress, progressKey);
+  const core30Log = state.core30Log[progressKey];
+  const practiceLesson = curriculum.lessons.find(
+    (lesson) => core30Log?.lessons[String(lesson.n)]?.needsPractice,
+  );
+  const currentLesson =
+    practiceLesson ?? getCurrentLesson(moduleId, state.lessonProgress, progressKey);
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
-  const core30Log = state.core30Log[progressKey];
   const masteredSet = new Set(masteredLessons(core30Log));
   const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
@@ -1929,12 +1933,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
 
           {/* Current lesson card or all-done state */}
-          {!reviewOpen && !runnerActive && !allDone && currentLesson && (
+          {!reviewOpen && !runnerActive && (!allDone || practiceLesson) && currentLesson && (
             <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    Next Up · Lesson {currentLesson.n}
+                    {practiceLesson ? "Practice again" : "Next Up"} · Lesson {currentLesson.n}
                   </p>
                   <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
                 </div>
@@ -1966,7 +1970,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                       }
                 }
               >
-                Start Lesson {currentLesson.n}
+                {practiceLesson ? "Practice" : "Start"} Lesson {currentLesson.n}
                 <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
 

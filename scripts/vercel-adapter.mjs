@@ -133,12 +133,12 @@ writeFileSync(
       { src: "/icons/(.*)", dest: "/icons/$1" },
       { src: "/images/(.*)", dest: "/images/$1" },
       {
-        src: "/lesson-packs/((?:roofing|landscaper)-es-en\\.json)",
+        src: "/lesson-packs/((?:roofing|landscaper|construction-foreman)-es-en\\.json)",
         headers: { "cache-control": "no-store" },
         dest: "/lesson-packs/$1",
       },
       {
-        src: "/lesson-packs/((?:roofing|landscaper)-es-en-[a-f0-9]{64}\\.json)",
+        src: "/lesson-packs/((?:roofing|landscaper|construction-foreman)-es-en-[a-f0-9]{64}\\.json)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
         dest: "/lesson-packs/$1",
       },

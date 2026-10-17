@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { verifyLessonPackRoutes } from "./verify-lesson-pack-routes.mjs";
 
 const outputConfig = ".vercel/output/config.json";
 const functionConfig = ".vercel/output/functions/index.func/.vc-config.json";
@@ -20,6 +21,11 @@ const bundleBytes = statSync(serverBundle).size;
 if (output.version !== 3 || !Array.isArray(output.routes)) {
   throw new Error("Vercel Build Output API config is not version 3.");
 }
+const packDirectory = ".vercel/output/static/lesson-packs";
+const manifests = readdirSync(packDirectory)
+  .filter(name => /^[a-z0-9-]+\.json$/.test(name) && !/-[a-f0-9]{64}\.json$/.test(name))
+  .map(name => JSON.parse(readFileSync(`${packDirectory}/${name}`, "utf8")));
+verifyLessonPackRoutes(output.routes, manifests);
 if (runtime.runtime !== "nodejs22.x" || runtime.handler !== "entry.cjs") {
   throw new Error("Vercel function runtime or handler is not the approved Node 22 entry.");
 }

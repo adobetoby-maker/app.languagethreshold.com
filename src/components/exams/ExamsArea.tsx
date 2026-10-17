@@ -11,6 +11,7 @@ import {
   unsavedSpeechCount,
   readSpeechTake,
 } from "@/lib/assessments/speech-device";
+import { useExamAttemptOpen, useExamPreparation } from "@/hooks/use-exam-entry";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
 import type { OverviewState } from "@/lib/assessments/reporting";
 import { CheckpointAttemptHistory } from "./CheckpointAttemptHistory";
@@ -48,7 +49,6 @@ import { toDateKey } from "@/lib/core30-plan";
 import { browserExamStorage } from "@/lib/assessments/drafts";
 import {
   readOfflineExams,
-  saveOfflineExam,
   recoveryCopiesForScope,
 } from "@/lib/assessments/offline";
 import { examRequest } from "@/lib/assessments/client";
@@ -212,34 +212,7 @@ function ExamsAreaContent({
     plan: Enrollment;
     checkpoint: Enrollment["checkpoints"][number];
   } | null>(null);
-  const [preparation, setPreparation] = useState<{
-    checkpointId: string;
-    actor: string;
-    preparedForm: string;
-    estimatedMinutes: number | null;
-    provisional: boolean;
-  } | null>(null);
-  const [preparationError, setPreparationError] = useState("");
-  const pendingCheckpointId = pending?.checkpoint.id;
-  const preparingActor = user?.id;
-  useEffect(() => {
-    let cancelled = false;
-    setPreparation(null);
-    setPreparationError("");
-    if (pendingCheckpointId && preparingActor)
-      void examRequest<{ preparedForm: string; estimatedMinutes: number | null; provisional: boolean }>({
-        action: "prepare", checkpointId: pendingCheckpointId,
-      }).then((details) => {
-        if (!cancelled && isCurrentUser(preparingActor))
-          setPreparation({ ...details, checkpointId: pendingCheckpointId, actor: preparingActor });
-      }).catch((error: unknown) => {
-        if (!cancelled && isCurrentUser(preparingActor))
-          setPreparationError(error instanceof Error ? error.message : "Start details could not be loaded.");
-      });
-    return () => { cancelled = true; };
-  }, [pendingCheckpointId, preparingActor, isCurrentUser]);
-  const prepared = preparation?.checkpointId === pendingCheckpointId && preparation?.actor === user?.id
-    ? preparation : null;
+  const { prepared, error: preparationError } = useExamPreparation(pending?.checkpoint.id);
   const [module, setModule] = useState(moduleId),
     [target, setTarget] = useState(targetLanguage),
     [native, setNative] = useState(instructionLanguage),
@@ -313,50 +286,11 @@ function ExamsAreaContent({
     if (report.metadata)
       setLearner((previous) => previous || report.metadata!.members[0]?.user_id || "");
   }, [report.metadata]);
-  const open = useCallback(
-    async (id: string, review = false) => {
-      if (!user) return;
-      const viewer = user.id;
-      setLoading(true);
-      setError("");
-      try {
-        const attempt = await examRequest<ExamAttemptView>(
-          `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}${review ? "&review=1" : ""}${orgId ? `&org=${encodeURIComponent(orgId)}` : ""}`,
-        );
-        if (isCurrentUser(viewer)) {
-          if (!attemptMatchesOrganization(attempt, orgId))
-            throw new Error("This attempt is outside this team view. Open its own Exams view.");
-          saveOfflineExam(browserExamStorage(), viewer, attempt);
-          setSelection({ viewer, attempt, fromDevice: false });
-          setPending(null);
-        }
-      } catch (err) {
-        if (isCurrentUser(viewer)) {
-          const saved =
-            navigator.onLine === false || err instanceof TypeError
-              ? recoveryCopiesForScope(
-                  readOfflineExams<ExamAttemptView>(browserExamStorage(), viewer),
-                  orgId,
-                ).find((row) => row.id === id)
-              : null;
-          if (saved) {
-            setSelection({ viewer, attempt: saved, fromDevice: true });
-            setPending(null);
-          }
-          setError(
-            saved
-              ? "Resumed this device’s saved copy. Check the sync status before submitting."
-              : err instanceof Error
-                ? err.message
-                : "Exam could not be opened.",
-          );
-        }
-      } finally {
-        if (isCurrentUser(viewer)) setLoading(false);
-      }
-    },
-    [isCurrentUser, user, orgId],
-  );
+  const onOpened = useCallback((next: { viewer: string; attempt: ExamAttemptView; fromDevice?: boolean }) => {
+    setSelection(next);
+    setPending(null);
+  }, []);
+  const { open, cancelOpen } = useExamAttemptOpen(orgId, { onOpened, onLoading: setLoading, onError: setError });
 
   useEffect(() => {
     if (
@@ -543,6 +477,7 @@ function ExamsAreaContent({
           <ExamResult
             attempt={selected}
             onBack={() => {
+              cancelOpen();
               setSelection(null);
               void load();
             }}
@@ -557,6 +492,7 @@ function ExamsAreaContent({
             checkingServer={loading}
             onCheckServer={() => void open(selected.id)}
             onBack={() => {
+              cancelOpen();
               setSelection(null);
               void load();
             }}
@@ -572,7 +508,7 @@ function ExamsAreaContent({
         )
       ) : pending ? (
         <section className={card}>
-          <button className={button} onClick={() => setPending(null)}>
+          <button className={button} onClick={() => { cancelOpen(); setPending(null); }}>
             Back to Exams
           </button>
           <h2 className="mt-4 text-2xl font-semibold">
@@ -1046,7 +982,7 @@ function ExamsAreaContent({
                           plan.user_id === user.id && (
                             <button
                               className={button + " mt-2 w-full"}
-                              onClick={() => setPending({ plan, checkpoint: cp })}
+                              onClick={() => { cancelOpen(); setPending({ plan, checkpoint: cp }); }}
                             >
                               {latest
                                 ? "Retake — keep original"

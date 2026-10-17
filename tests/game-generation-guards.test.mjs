@@ -157,6 +157,21 @@ for (const [name, exported, valid, invalid] of [
           "personal vocabulary must not read or write shared cache",
         );
       }
+      controls.output = valid();
+      for (const patch of [
+        { topic: "QA private learner topic" },
+        { avoid: ["QA private previous result"] },
+        { language: "Spanish private fixture context" },
+      ]) {
+        const before = controls.calls;
+        for (let i = 0; i < 2; i++) {
+          const generated = await handler({ data: { ...input, ...patch } });
+          assert.equal(generated.cached, false);
+          assert.ok(generated.data);
+        }
+        assert.equal(controls.calls, before + 2);
+      }
+      assert.equal((await handler({ data: input })).cached, true);
       controls.fail = true;
       const failed = await handler({ data: { ...input, avoid: ["failed-request"] } });
       assert.equal(failed.data, null);

@@ -90,7 +90,12 @@ for (const [name, exportName, fixture] of [
         levelAppropriate: true,
       };
       const callsPerItem = name === "conjugation" ? 2 : 1;
-      const publicInput = { language: "Spanish", level: 1, topic: "Roofing", axis: "person" };
+      const publicInput = {
+        language: "Spanish",
+        level: 1,
+        topic: "Roofing Foreman",
+        axis: "person",
+      };
       assert.equal((await handler({ data: publicInput })).cached, false);
       assert.equal((await handler({ data: publicInput })).cached, true);
       assert.equal(Network.calls, callsPerItem);
@@ -103,12 +108,12 @@ for (const [name, exportName, fixture] of [
       );
       assert.equal(Network.calls, 4 * callsPerItem);
       assert.equal(
-        (await handler({ data: { ...publicInput, topic: "Landscaping" } })).cached,
+        (await handler({ data: { ...publicInput, topic: "Landscaper" } })).cached,
         false,
       );
       // A private request for a previously uncached topic must not seed its public cache.
-      assert.equal((await handler({ data: { ...personal, topic: "Plumbing" } })).cached, false);
-      assert.equal((await handler({ data: { ...publicInput, topic: "Plumbing" } })).cached, false);
+      assert.equal((await handler({ data: { ...personal, topic: "Plumber" } })).cached, false);
+      assert.equal((await handler({ data: { ...publicInput, topic: "Plumber" } })).cached, false);
       assert.equal((await handler({ data: publicInput })).cached, true);
       assert.equal(Network.calls, 7 * callsPerItem);
       if (name === "conjugation") {
@@ -146,7 +151,7 @@ for (const [name, exportName, fixture] of [
         assert.equal(accepted.cached, false);
         assert.equal(
           (await handler({ data: { ...publicInput, topic: "Semantic review fixture" } })).cached,
-          true,
+          false,
         );
         const reviewRequest = Network.requests.find(
           (r) => r.tool_choice.name === "review_conjugation_question",
@@ -155,6 +160,17 @@ for (const [name, exportName, fixture] of [
         assert.equal("correctConjugation" in reviewItem, false);
         assert.deepEqual(reviewItem.options, ["hablamos", "hablan", "hablas", "hablo"]);
       }
+      for (const patch of [
+        { topic: "QA private learner topic" },
+        { avoid: ["QA private previous result"] },
+        { language: "Spanish private fixture context" },
+      ]) {
+        const before = Network.calls;
+        for (let i = 0; i < 2; i++)
+          assert.equal((await handler({ data: { ...publicInput, ...patch } })).cached, false);
+        assert.equal(Network.calls, before + 2 * callsPerItem);
+      }
+      assert.equal((await handler({ data: publicInput })).cached, true);
     } finally {
       globalThis.fetch = savedFetch;
       for (const key of keys) {

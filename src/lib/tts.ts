@@ -14,6 +14,8 @@ const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
 };
 
 let shared: HTMLAudioElement | null = null;
+let generation = 0;
+let cancelPlayback: (() => void) | null = null;
 let warnedAboutMobileFallback = false;
 function audioEl(): HTMLAudioElement {
   if (!shared) shared = new Audio();
@@ -33,10 +35,17 @@ export function needsRemoteTTS(locale: string, preferredVoiceURI?: string | null
 }
 
 export function stopRemoteTTS(): void {
+  generation += 1;
+  const cancel = cancelPlayback;
+  cancelPlayback = null;
+  cancel?.();
   stopMissionTts();
   if (shared) {
     shared.pause();
-    shared.currentTime = 0;
+    shared.onended = null;
+    shared.onerror = null;
+    shared.removeAttribute("src");
+    shared.load();
   }
 }
 
@@ -45,11 +54,10 @@ function speakOnDevice(
   locale: string,
   rate: number,
   preferredVoiceURI: string | null | undefined,
-  onend?: () => void,
+  current: () => boolean,
 ) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
-    onend?.();
-    return Promise.resolve();
+    return Promise.resolve(false);
   }
   const utterance = new SpeechSynthesisUtterance(text);
   configureUtterance(
@@ -58,15 +66,28 @@ function speakOnDevice(
     decodeGoogleVoicePreference(preferredVoiceURI) ? null : preferredVoiceURI,
   );
   utterance.rate = rate;
-  return new Promise<void>((resolve) => {
+  return new Promise<boolean>((resolve) => {
+    let settled = false;
     const done = () => {
-      onend?.();
-      resolve();
+      if (settled) return;
+      settled = true;
+      utterance.onend = null;
+      utterance.onerror = null;
+      if (current()) cancelPlayback = null;
+      resolve(current());
+    };
+    cancelPlayback = () => {
+      done();
+      window.speechSynthesis.cancel();
     };
     utterance.onend = done;
     utterance.onerror = done;
     window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+    try {
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      done();
+    }
   });
 }
 
@@ -84,6 +105,15 @@ export async function speakRemote(
     usage?: "learning" | "mission";
   },
 ): Promise<void> {
+  stopRemoteTTS();
+  const playbackGeneration = generation;
+  const current = () => generation === playbackGeneration;
+  let notified = false;
+  const notify = () => {
+    if (!current() || notified) return;
+    notified = true;
+    opts?.onend?.();
+  };
   const rate = opts?.rate ?? 1;
   const googleVoice = selectedGoogleVoice(locale, opts?.voiceURI);
   if (googleVoice) {
@@ -95,10 +125,10 @@ export async function speakRemote(
         speakingRate: rate,
         usage: opts?.usage ?? "learning",
       });
-      opts?.onend?.();
+      notify();
       return;
     } catch (error) {
-      if (error instanceof DOMException && error.name === "AbortError") return;
+      if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
       if (
         !warnedAboutMobileFallback &&
         typeof navigator !== "undefined" &&
@@ -111,14 +141,14 @@ export async function speakRemote(
           duration: 7000,
         });
       }
-      await speakOnDevice(text, locale, rate, opts?.voiceURI, opts?.onend);
+      if (await speakOnDevice(text, locale, rate, opts?.voiceURI, current)) notify();
       return;
     }
   }
 
   const lang = REMOTE_TTS_BY_FAMILY[languageFamily(locale)];
   if (!lang) {
-    await speakOnDevice(text, locale, rate, opts?.voiceURI, opts?.onend);
+    if (await speakOnDevice(text, locale, rate, opts?.voiceURI, current)) notify();
     return;
   }
 
@@ -127,15 +157,28 @@ export async function speakRemote(
   el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
   el.playbackRate = rate;
 
-  await new Promise<void>((resolve) => {
+  const completed = await new Promise<boolean>((resolve) => {
+    let settled = false;
     const done = () => {
-      el.onended = null;
-      el.onerror = null;
-      opts?.onend?.();
-      resolve();
+      if (settled) return;
+      settled = true;
+      if (current()) {
+        cancelPlayback = null;
+        el.onended = null;
+        el.onerror = null;
+        el.removeAttribute("src");
+        el.load();
+      }
+      resolve(current());
     };
+    cancelPlayback = done;
     el.onended = done;
     el.onerror = done;
-    el.play().catch(done);
+    try {
+      el.play().catch(done);
+    } catch {
+      done();
+    }
   });
+  if (completed) notify();
 }

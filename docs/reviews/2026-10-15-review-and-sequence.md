@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Combined privacy/audio group staged; exact hosted checks pass — October 17
+
+Application78b3f5b adds owned picker Google-preview cancellation through an optional Mission TTS signal. Picker close/accent/unmount/device-preview replacement aborts its own controller; authenticated actor checks precede dispatch/error toast. Helper signal abort only stops its still-current generation; an old owner's signal cannot stop a replacement and pre-aborted incoming work cannot interrupt current audio. Listeners removed in finally. Actual helper fixtures cover these cases; integration source reviewed, no browser click/unmount/audio proof. Public device sample cleanup and other direct utterance surfaces remain open.
+
+Combined Preview now includes previously local387f24c/04a0181/84f3f9a/9450c0f/c7a026f: owned unused conjugation utility, guest-only eligibility/disabled gate storage cleanup, TTS lifetime/source cleanup and owned SpeechProvider timer/success accounting. All964tests/type-check pass; lint0errors/45existing warnings; production audit0vulnerabilities; stage artifact19.73MiB passes target/artifact guards. Private-bank96markers/1226source/148static/0hits.
+
+True Preview https://language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app is independently READY/targetnull with exact full78b3f5b commit, deploymentdpl_3aD3wo155ig78CJSDModz1tGkNfZ, correct project/team. Secure prebuilt deploy reused existing app key in child memory/name-only CLI input and explicitly pinned LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED=false. Deployment metadata does not expose that env value; do not claim metadata-confirmed false. No project-wide env changes. Accepted companion remains d4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; app live remains f9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA by independent alias inspection; no promotion/main/alias changes.
+
+Exact current Preview14generation-entry groups/28rejected HTTP requests,21authenticated Exams groups,12focused routing/private-header groups,3public pack hash/header groups and7read-only scope groups pass. Personal draft remainsrevision12/in_progress/unsubmitted; teamB2opened/0mastered. No allowed model call, browser action, real audio, learner score or approval was created. Reports: qa-picker-preview-2026-10-17.json and qa-exams-picker-preview-2026-10-17.json plus rerun dated entry/pack/scope/generation reports.
+
+NEXT: remaining direct utterance/device sample cleanup and analytics identity/Reader-device guidance inventory; genuine browser/phone/audio/SDK expiry/reconnect/cleared-cache offline acceptance still open, with no fabricated positive proof. Additional prepared-start RPC approval remains pending; do not apply/wire/repeat question. Adaptive capability off; no schema/role/active speech/retention/schedule changes. Full goal and all human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational gates remain open.
+
+
 ### Owned SpeechProvider timers and completion accounting — October 17
 
 Sourcec7a026f retains/cancels the provider's30ms timer and clears queued text/increments playback epoch on Stop/language change/unmount. Commands and callbacks check mounted/current authenticated actor/epoch; paragraph continuation rechecks after onMove. Captured old timer/end callbacks cannot speak, count or advance after stop/unmount/identity loss. A per-request settled guard counts each completion once. Hydrated owned listened count uses a ref/direct setState; XP/achievement side effects no longer run inside a React state updater. Existing owned persistence is unchanged. Device failure completes UI without XP, including synchronous speak failure. Fallback wrapper now distinguishes onerror from onend; missing/failed device/Pashto playback cannot count as heard. FieldPrep/ModuleFieldPrep and missionary highlighting perform error cleanup without success attribution.

@@ -1,0 +1,92 @@
+{
+  "testedAt": "2026-10-17T19:17:32.236098+00:00",
+  "applicationCommit": "78b3f5bc9344400b3e0511a53a4db9406b2db898",
+  "preview": "https://language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3aD3wo155ig78CJSDModz1tGkNfZ",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "78b3f5bc9344400b3e0511a53a4db9406b2db898",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "activation": {
+    "deploymentCommandAdaptiveOverride": "false",
+    "capabilityValueExposedByDeploymentMetadata": null,
+    "adaptiveActivated": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 964,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T19:15:45.154Z",
+      "sourceCommit": "78b3f5b",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1226,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "combinedScope": [
+    "Previously local owned conjugation utility, guest-only banner/disabled gate storage cleanup, Mission/fallback TTS lifetime and source cleanup, owned SpeechProvider timers/completion accounting now included in this Preview.",
+    "Picker uses its own AbortController; close/accent/unmount/device-preview replacement cancels only its owned Google preview; current authenticated actor checked before dispatch and error notification.",
+    "Mission TTS optional signal aborts only its still-current generation. Pre-aborted incoming work cannot stop current audio. Abort listeners removed in finally."
+  ],
+  "controlledSignalChecks": [
+    "Current owning signal cancels playback",
+    "Old owning signal cannot cancel replacement generation",
+    "Already-aborted incoming signal makes no request/does not interrupt newer source",
+    "Existing delayed credentials/blob/play and owned-provider/fallback fixtures all pass"
+  ],
+  "hostedGroups": {
+    "generationEntryHandlers": 14,
+    "generationRejectionHttpRequests": 28,
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "personalExam": {
+      "revision": 12,
+      "status": "in_progress",
+      "unsubmitted": true
+    },
+    "teamActivity": {
+      "opened": 2,
+      "currentMastered": 0,
+      "previousOpened": 1,
+      "newOpenedLesson": 1,
+      "originalOpenedLesson": 29
+    },
+    "acceptedCompanionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveApplicationDeploymentId": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "mainPromoted": false,
+    "productionPromoted": false
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-picker-preview-2026-10-17.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-speech-provider-local-2026-10-17.json"
+  ],
+  "limits": [
+    "Hosted endpoint checks do not prove browser voice-picker actions, real audio, physical iPhone/Safari, SDK expiry/reconnect, cleared-cache offline operation, linguistic approval or provider billing behavior. No allowed model request or browser action this turn.",
+    "Signal helper tests use actual production code with controlled audio/fetch fixtures; picker integration source reviewed but no browser click/unmount proof. Public device sample cleanup and other direct utterance surfaces remain to audit.",
+    "Analytics session/event identity, Reader/device guidance and wider component/helper audit remain open; not app-wide privacy completion.",
+    "Metadata does not expose adaptive env value; explicit false is recorded from deployment command, not inferred from metadata. Accepted companion remains d4ad837 and live f9f8685 by unchanged pinned deployment handles.",
+    "No hosted schema/role/active speech/retention/schedule/main/alias/production changes. Additional prepared-start RPC approval remains pending; no apply/wiring.",
+    "Human/content/calibration/equivalence/reviewer/consented-pilot/catalog/device/operational gates/full goal remain open."
+  ]
+}

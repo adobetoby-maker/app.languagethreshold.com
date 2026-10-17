@@ -80,7 +80,7 @@ let setup =
   );
 setup = setup.replace(
   /rollback;\s*$/,
-  () => readFileSync("docs/assessments/proposals/prepared-start-rpc.sql", "utf8") + "\ncommit;",
+  () => readFileSync("supabase/migrations/20261017194728_assessment_prepared_start.sql", "utf8") + "\ncommit;",
 );
 let initialized = false;
 function prepare() {
@@ -325,7 +325,8 @@ try {
   console.log(
     JSON.stringify({
       localDatabase: db,
-      proposalOnly: true,
+      proposalOnly: false,
+      migration: "20261017194728_assessment_prepared_start.sql",
       noHostedWrites: true,
       syntheticFixturesOnly: true,
       checks,

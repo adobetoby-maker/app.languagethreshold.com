@@ -23,7 +23,10 @@ async function load(name, exportName) {
         name: "handler-network-boundaries",
         setup(b) {
           b.onResolve(
-            { filter: /^(test-controls|@anthropic-ai\/sdk|@tanstack\/react-start(\/server)?)$/ },
+            {
+              filter:
+                /^(test-controls|@anthropic-ai\/sdk|@tanstack\/react-start(\/server(?:-only)?)?)$/,
+            },
             () => ({ path: "controls", namespace: "fixture" }),
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
@@ -96,7 +99,10 @@ for (const [name, exportName, data, resultKey] of [
     try {
       const { handler, controls } = await load(name, exportName);
       let firstBudgetLimit;
-      globalThis.fetch = async (_, init) => {
+      globalThis.fetch = async (url, init) => {
+        if (String(url).endsWith("claim_lesson_word_draft"))
+          return Response.json({ status: "claimed" });
+        if (String(url).endsWith("release_lesson_word_draft")) return Response.json(true);
         firstBudgetLimit ??= JSON.parse(init.body).p_request_limit;
         return Response.json(false);
       };
@@ -125,7 +131,10 @@ for (const [name, exportName, data, resultKey] of [
       controls.origin = "https://owned-preview.invalid";
       controls.status = 200;
       controls.headers = {};
-      globalThis.fetch = async () => Response.json(true);
+      globalThis.fetch = async (url) =>
+        String(url).endsWith("claim_lesson_word_draft")
+          ? Response.json({ status: "claimed" })
+          : Response.json(true);
       await handler({ data });
       assert.equal(controls.calls, 1);
       assert.equal(controls.status, 200);

@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T12:38:56.094895+00:00",
+  "auditedAt": "2026-10-17T12:57:39.528578+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "d4ad837",
+  "application": "0cea7dc",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-r9iaxlapf-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-3srvyhwcl-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -101,9 +101,11 @@
       "evidence": [
         "src/lib/assessments/form.ts",
         "src/lib/assessments/server.ts",
-        "src/components/exams/ExamsArea.tsx"
+        "src/components/exams/ExamsArea.tsx",
+        "docs/assessments/adaptive-routing.md",
+        "docs/reviews/qa-adaptive-routing-foundation-2026-10-17.json"
       ],
-      "finding": "Form contract and attempt serialization use a flat fixed items array; no reviewed routing policy, frozen branch decision or branch progression is implemented."
+      "finding": "Private versioned routing contract, deterministic selector, exact-attempt question projection and compatibility/exposure guards are implemented. No durable branch decision, core-to-branch UI or selected-path scoring/reporting exists; adaptive forms remain disabled."
     },
     {
       "sections": [
@@ -309,6 +311,7 @@
       "No universal threshold or production form approval is inferred from a draft policy"
     ],
     "followUps": [
+      "Implement atomic private decision persistence and selected-item access/scoring/reporting plus the core-to-branch UI; do not treat the pure selector as a durable runtime",
       "Accept pre-start disclosure against genuinely reviewed form metadata",
       "Finish additional acceptance and cost/privacy gaps identified above"
     ]
@@ -325,5 +328,6 @@
     "status": "Staged DNS, certificate, Preview hosting, email/Google sign-in and return-context acceptance verified",
     "setupAuthorizedOn": "2026-10-17",
     "launchConstraint": "Staged until launch acceptance is complete"
-  }
+  },
+  "acceptedCompanionApplication": "d4ad837"
 }

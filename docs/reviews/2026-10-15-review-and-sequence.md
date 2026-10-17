@@ -2,7 +2,17 @@
 
 Date: October 15, 2026. Codex review, requested by Toby.
 
-## Current checkpoint — October 16
+## Current checkpoint — October 17
+
+### Private routing foundation — October 17
+
+Development application0cea7dc is READY on the separate true Preview https://language-threshold-3srvyhwcl-adobetoby-5572s-projects.vercel.app, deploymentdpl_984UtmtpmXtRtKSvyhTtLjwunWcP, target null. The acceptedexams.languagethreshold.com hostname remains pinned to applicationd4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT on dedicatedcodex/exams-staging; neither that alias nor the live app was promoted or changed by this source follow-up.
+
+The private routing contract now validates a bounded disjoint fixed core/branches, explicit authored evidence/objective minima, complete non-overlapping bands and a separate insufficient-evidence branch. The server-only deterministic selector uses frozen objective keys, ignores client score claims/production/branch inputs, leaves missing or uncertain evidence out of score denominators and records a private candidate digest tied to attempt/revision/form/rubric/policy/core bytes. It does not persist or approve a decision. The exact-attempt public helper includes only core+selected items through the existing whitelist; the comparison helper returns core IDs only and is not yet wired to final reporting. No actual private routing policy or placement cutoff was authored/published; thresholds in tests are fictional.
+
+Unsupported adaptive metadata, including malformed/null fields, cannot enter flat-form preparation/start/read paths or readiness. A compatible flat alternative stays selectable. Controlled production-source tests cover these boundaries, old snapshot access, content coverage and private projection. A read-only hosted query confirms3forms/3flat/0routing and accepts the JSON-path SQL NULL filter. A local read-only SELECT confirms absent metadata differs from JSONnull/object. No schema/role/active-policy/speech/schedule changes and no hosted learner or approval writes. No browser actions or new phone/physical/offline trial this follow-up.
+
+All814tests/type-check pass, lint0errors41warnings, artifact19.66MiB; private-bank marker96/static148/0hits, latest source count in the audit report. Exact isolated Preview20authenticated API groups,12routing/header groups,3public-pack hash/header groups and7read-only scope groups pass. Saved personal draft staysrevision12/in_progress/unsubmitted; teamB stays2opened/0mastered. Full adaptive runtime remains incomplete: atomic durable selection/event, concurrent save/submit/retry protection, selected-media/write/scoring/reporting membership and core→branch/resume UI still need implementation. Existing snapshot immutability must remain intact. See docs/assessments/adaptive-routing.md and qa-adaptive-routing-foundation-2026-10-17.json. Human review/calibration/real pilots and physical/operational release gates remain open; full goal is not complete.
 
 ### Companion setup and pre-start effort — October 17
 

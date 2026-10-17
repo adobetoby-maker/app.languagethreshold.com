@@ -8,7 +8,7 @@ The strict `POST /api/exams` action `route` accepts only `attemptId`, saved `rev
 
 Retries validate and reuse the original core snapshot and decision, even after later answer edits. A new request UUID cannot reroute; the same UUID with a changed source revision conflicts. Every retry still reaches the RPC for global request-identity conflicts and fresh authorization. If another route wins concurrently, only its immutable validated decision is projected. Malformed audit/receipt data fails closed. The response contains current revision, a selected-state/core-count summary and whitelisted core/selected questions; private routing reason, percentage, evidence counts, digest, policy, keys and unselected branches remain server-only.
 
-Adaptive preparation/start, ordinary attempt serialization, scoring and AI review still retain their existing blanket guard. Submission also checks that guard before its durable RPC, avoiding an unfinished adaptive submission. This action does not enable new adaptive exams. Selected ordinary reads/scoring/reporting, fixed-core comparison and Continue/resume UI remain required before starts can be enabled. Positive route fixtures are controlled local tests, not hosted content or an approved policy.
+Adaptive preparation/start and AI review still retain their existing blanket guard. Submission also checks that guard before its durable RPC while reporting, review and learner UI remain unfinished. This action does not enable new adaptive exams. Positive route fixtures are controlled local tests, not hosted content or an approved policy.
 
 ## Selected answers and media
 
@@ -18,6 +18,14 @@ The save handler rejects unselected updates before calling the existing save RPC
 
 These paths do not activate adaptive starts or supply a new form, reviewed clip, speech policy, score or growth claim. Controlled media tests use synthetic local byte fixtures; they are not microphone, physical-device, linguistic or reviewer acceptance.
 
+## Selected attempt reads and initial scores
+
+Authorized attempt reads expose only core or core-plus-selected questions, a safe routing state/core count and that path's responses. Submitted attempts require a durable route and exactly one saved response per selected item, including explicit unavailable answers supplied by submission. Duplicate/unknown/unselected response identities, malformed answers or unrelated score references fail closed. Submitted feedback keys are restricted to selected items; active attempts still receive no feedback keys. Speech status, grading-job and proposal projections cannot introduce unselected item/response records, and proposal audit details are whitelisted.
+
+Initial scoring resolves the same immutable path, validates the complete selected response set and prepares every deterministic result before its first scoring RPC. It uses final saved answers, without recomputing the routing decision from later core edits. Missing evidence remains not assessed, and production remains pending review. Partial storage failures resume through the existing stable per-response scoring identities. No missing responses are invented for unused branches. Flat historical forms retain their original item/feedback order without a route query.
+
+The attempt's returned branch evidence has no comparison anchor; fixed-core evidence retains its authored anchor. Overview/history/export/team comparison paths still need integration before any adaptive growth claim or release. Adaptive AI and human-review controls remain unavailable in this checkpoint. Positive score/read/retry fixtures are local only; no hosted result or content approval is manufactured.
+
 ## Implemented source boundaries
 
 `routing-contract.ts` defines schema/version, ordered core IDs, authored evidence/objective minima, bounded disjoint branches, complete ordered percentage bands and a separate insufficient-evidence branch. There are no engine-supplied placement cutoffs. The fixed core retains the existing requirement of three objectives per skill, so a branch cannot provide the only sample for a skill. The branch cap of 30 items (and no more than the core) is a resource bound, not a validated effort promise.
@@ -26,9 +34,9 @@ These paths do not activate adaptive starts or supply a new form, reviewed clip,
 
 A candidate decision records attempt/revision, form/rubric/policy versions, evidence counts, private reason and a SHA-256 digest of canonical frozen form/core-response data. This is calculation output; it is **not** a saved decision, signature or authorization token. Candidate band counts and percentages are not final proficiency scores.
 
-The public projection helper requires a trusted decision for the exact attempt and frozen form versions and exposes only core plus selected-branch questions through the existing whitelist. It omits the policy, answer keys, private listening text and alternative branches. This helper still needs the durable authorization path described below; caller-supplied decision objects are not trusted. The comparison helper returns fixed-core IDs only. It is not yet wired to the final reporting pipeline and does not establish calibrated equivalence.
+The public projection helper requires a trusted decision for the exact attempt and frozen form versions and exposes only core plus selected-branch questions through the existing whitelist. It omits the policy, answer keys, private listening text and alternative branches. The authenticated coordinator and selected-path resolver provide the durable authorization boundary; caller-supplied decision objects are never trusted. The comparison helper returns fixed-core IDs only. It is not yet wired to every reporting pipeline and does not establish calibrated equivalence.
 
-Until that path exists, forms with any routing metadata cannot be prepared/started or read through the legacy serializer. This includes malformed metadata. Module/catalog queries exclude any routing field using JSON-path SQL NULL semantics; JSON `null` is not silently treated as an absent field. Targeted-support readiness excludes routing definitions, too. A future adaptive form does not displace an available compatible flat form. Existing frozen flat attempts retain their previous behavior.
+Forms with any routing metadata still cannot be prepared/started. Valid adaptive reads use the selected-path serializer; malformed metadata fails closed rather than falling back to a flat exam. Module/catalog queries exclude any routing field using JSON-path SQL NULL semantics; JSON `null` is not silently treated as an absent field. Targeted-support readiness excludes routing definitions, too. A future adaptive form does not displace an available compatible flat form. Existing frozen flat attempts retain their previous behavior.
 
 ## Engine integration checklist
 

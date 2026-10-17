@@ -1,5 +1,6 @@
 import { hasAdaptiveRouting } from "./routing-contract";
 import { AssessmentAccessError } from "./errors";
+import { selectedAttemptPath, requireSelectedResponses } from "./routing-path-server";
 export { AssessmentAccessError } from "./errors";
 import { attemptMatchesOrganization } from "./scope.ts";
 import {
@@ -432,7 +433,8 @@ export async function readAttempt(
   review = false,
   organizationId?: string,
 ) {
-  const { attempt, checkpoint, enrollment } = await attemptAccess(db, actor, id, review);
+  const context = await attemptAccess(db, actor, id, review, "routing");
+  const { attempt, checkpoint, enrollment } = context;
   if (
     !attemptMatchesOrganization(
       { enrollment: { scope: enrollment.scope, organizationId: enrollment.organization_id } },
@@ -441,11 +443,15 @@ export async function readAttempt(
   )
     throw new AssessmentAccessError("This attempt is outside the selected team view.");
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
+  const path = hasAdaptiveRouting(form)
+    ? await selectedAttemptPath(db, context, !!attempt.submitted_at)
+    : { items: form.items, routing: undefined };
   const { data: responses, error } = await db
     .from("assessment_responses")
     .select("id,item_id,answer,saved_at")
     .eq("attempt_id", id);
   if (error) throw new AssessmentAccessError("Saved responses could not be loaded.", 503);
+  requireSelectedResponses(path, responses ?? [], !!attempt.submitted_at);
   const mediaIds = (responses ?? [])
     .map((r) => r.answer?.mediaEvidenceId)
     .filter((id): id is string => typeof id === "string");
@@ -478,6 +484,13 @@ export async function readAttempt(
       p_attempt: id,
     });
     const seen = new Set<string>();
+    if (
+      path.routing &&
+      (scores ?? []).some(
+        (score) => !(responses ?? []).some((response) => response.id === score.response_id),
+      )
+    )
+      throw new AssessmentAccessError("Saved scores do not match selected responses.", 503);
     evidence = (scores ?? [])
       .filter((score) => {
         if (seen.has(score.response_id)) return false;
@@ -492,13 +505,19 @@ export async function readAttempt(
         points: score.points === null ? null : Number(score.points),
         maximum: Number(score.maximum),
         source: score.source,
-        comparisonGroup: score.comparison_group,
+        comparisonGroup:
+          path.routing &&
+          !form.routing!.coreItemIds.includes(
+            (responses ?? []).find((row) => row.id === score.response_id)!.item_id,
+          )
+            ? undefined
+            : score.comparison_group,
         coverage: score.coverage,
         reason: score.rationale,
       }));
   }
   let canReview = false;
-  if (enrollment.user_id !== actor && attempt.submitted_at) {
+  if (!path.routing && enrollment.user_id !== actor && attempt.submitted_at) {
     try {
       await attemptAccess(db, actor, id, true);
       canReview = true;
@@ -548,32 +567,44 @@ export async function readAttempt(
       ? attempt.form_snapshot.reportedStudiedObjectives.length
       : 0,
     aiWritingAvailable:
-      (attempt.form_snapshot.pilot === true && pilotAllowed(actor)) ||
-      (attempt.form_snapshot.calibrated === true && form.status === "verified"),
+      !path.routing &&
+      ((attempt.form_snapshot.pilot === true && pilotAllowed(actor)) ||
+        (attempt.form_snapshot.calibrated === true && form.status === "verified")),
     gradingJobs: jobs.data ?? [],
-    aiProposals: (proposals.data ?? []).map(
-      (row) =>
-        row.detail as {
+    aiProposals: (proposals.data ?? [])
+      .filter((row) => !path.routing || responseIds.includes(row.detail?.responseId))
+      .map((row) => {
+        const detail = row.detail as {
           responseId: string;
           dimensions: Record<string, number>;
           confidence: number;
           model: string;
           rubricVersion: string;
-        },
-    ),
-    speechEvidence: (media.data ?? []).map((row) => ({
-      id: row.id,
-      itemId: row.item_id,
-      available: row.state === "ready" && !row.delete_requested_at,
-      state: row.delete_requested_at ? "withdrawn" : row.state,
-      readyAt: row.ready_at,
-    })),
+        };
+        return {
+          responseId: detail.responseId,
+          dimensions: detail.dimensions,
+          confidence: detail.confidence,
+          model: detail.model,
+          rubricVersion: detail.rubricVersion,
+        };
+      }),
+    speechEvidence: (media.data ?? [])
+      .filter((row) => !path.routing || path.items.some((item) => item.id === row.item_id))
+      .map((row) => ({
+        id: row.id,
+        itemId: row.item_id,
+        available: row.state === "ready" && !row.delete_requested_at,
+        state: row.delete_requested_at ? "withdrawn" : row.state,
+        readyAt: row.ready_at,
+      })),
     id: attempt.id,
     isLearner: enrollment.user_id === actor,
     canReview,
     reviews: reviews ?? [],
     status: attempt.status,
     revision: attempt.revision,
+    ...(path.routing ? { routing: path.routing } : {}),
     startedAt: attempt.started_at,
     savedAt: attempt.saved_at,
     submittedAt: attempt.submitted_at,
@@ -604,7 +635,7 @@ export async function readAttempt(
       version: form.version,
       rubricVersion: form.rubricVersion,
       estimatedMinutes: form.estimatedMinutes,
-      items: form.items.map(publicAssessmentItem),
+      items: path.items.map(publicAssessmentItem),
     },
     responses: responses ?? [],
     profiles: attempt.submitted_at
@@ -616,7 +647,7 @@ export async function readAttempt(
       : [],
     evidence,
     feedback: attempt.submitted_at
-      ? form.items.map((item) => ({
+      ? path.items.map((item) => ({
           itemId: item.id,
           accepted: item.accepted,
           correctOptionId: item.correctOptionId,
@@ -627,14 +658,19 @@ export async function readAttempt(
   };
 }
 export async function initializeScores(db: TeamDb, actor: string, id: string) {
-  const { attempt } = await attemptAccess(db, actor, id);
+  const context = await attemptAccess(db, actor, id, false, "routing");
+  const { attempt } = context;
   if (!attempt.submitted_at) throw new AssessmentAccessError("Submit this assessment first.", 400);
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
+  const path = hasAdaptiveRouting(form)
+    ? await selectedAttemptPath(db, context, true)
+    : { items: form.items, routing: undefined };
   const { data: responses, error } = await db
     .from("assessment_responses")
     .select("id,item_id,answer")
     .eq("attempt_id", id);
   if (error) throw new AssessmentAccessError("Submitted responses could not be loaded.", 503);
+  requireSelectedResponses(path, responses ?? [], true);
   const media = (responses ?? []).some((row) => row.answer?.mediaEvidenceId)
     ? await db
         .from("assessment_speech_evidence")
@@ -658,8 +694,10 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
   if (policies.error)
     throw new AssessmentAccessError("Recording consent policy could not be checked.", 503);
   const approved = new Set((policies.data ?? []).map((p) => p.version));
-  for (const response of responses ?? []) {
-    const item = form.items.find((item) => item.id === response.item_id);
+  // Validate every selected answer before recording the first score. Retrying the
+  // stable per-response request IDs resumes a partial RPC failure without rerouting.
+  const prepared = (responses ?? []).map((response) => {
+    const item = path.items.find((item) => item.id === response.item_id);
     if (!item) throw new AssessmentAccessError("Frozen assessment item is unavailable.", 503);
     const verifiedSpeechId = media.data?.find(
       (m) =>
@@ -667,11 +705,18 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
         m.item_id === response.item_id &&
         approved.has(m.policy_version),
     )?.id;
-    const evidence = initialItemEvidence(
-      item,
-      response.answer as AssessmentAnswer,
-      verifiedSpeechId,
-    );
+    let evidence: ItemEvidence;
+    try {
+      evidence = initialItemEvidence(item, response.answer as AssessmentAnswer, verifiedSpeechId);
+    } catch {
+      throw new AssessmentAccessError(
+        "Submitted answer cannot be scored against its frozen item.",
+        503,
+      );
+    }
+    return { response, evidence };
+  });
+  for (const { response, evidence } of prepared) {
     await rpc(db, "assessment_record_score", {
       p_actor: actor,
       p_response: response.id,

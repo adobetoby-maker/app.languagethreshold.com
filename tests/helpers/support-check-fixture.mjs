@@ -120,11 +120,21 @@ export async function supportCheckFixture() {
     from(table) {
       const filters = [],
         nullPaths = [],
+        predicates = [],
         q = { table, columns: "*", filters, maximum: Infinity };
       queries.push(q);
       const result = () => ({
         data: (rows[table] ?? [])
-          .filter((row) => filters.every(([column, values]) => values.includes(row[column])))
+          .filter((row) =>
+            filters.every(([column, values]) =>
+              values.includes(
+                column.includes("->>")
+                  ? row[column.split("->>")[0]]?.[column.split("->>")[1]]
+                  : row[column],
+              ),
+            ),
+          )
+          .filter((row) => predicates.every((predicate) => predicate(row)))
           .filter((row) =>
             nullPaths.every((path) => {
               const keys = path.split("->");
@@ -160,6 +170,16 @@ export async function supportCheckFixture() {
         },
         in(column, values) {
           filters.push([column, values]);
+          return query;
+        },
+        lt(column, value) {
+          predicates.push((row) => row[column] < value);
+          return query;
+        },
+        not(column, operator, value) {
+          if (operator !== "is" || value !== null)
+            throw new Error("Fixture supports IS NOT NULL only.");
+          predicates.push((row) => row[column] != null);
           return query;
         },
         limit(maximum) {

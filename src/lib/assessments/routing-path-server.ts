@@ -8,6 +8,42 @@ import { routingPublicItems, type FrozenRoutingDecision } from "./routing";
 
 type Context = Awaited<ReturnType<typeof attemptAccess>>;
 
+/** Validate the whole adaptive response set before serialization or any scoring write. */
+export function requireSelectedResponses(
+  path: Awaited<ReturnType<typeof selectedAttemptPath>>,
+  responses: readonly { id: string; item_id: string; answer?: unknown }[],
+  complete = false,
+) {
+  if (!path.routing) return;
+  const selected = new Set(path.items.map((item) => item.id));
+  const ids = new Set<string>(),
+    items = new Set<string>();
+  for (const response of responses) {
+    if (
+      !response ||
+      typeof response.id !== "string" ||
+      !response.id ||
+      ids.has(response.id) ||
+      !selected.has(response.item_id) ||
+      items.has(response.item_id) ||
+      !response.answer ||
+      typeof response.answer !== "object" ||
+      Array.isArray(response.answer) ||
+      !["choice", "typed", "handwriting", "speech_transcript", "unavailable"].includes(
+        (response.answer as { inputMethod: string }).inputMethod,
+      )
+    )
+      throw new AssessmentAccessError(
+        "Saved responses do not match the selected assessment path.",
+        503,
+      );
+    ids.add(response.id);
+    items.add(response.item_id);
+  }
+  if (complete && items.size !== selected.size)
+    throw new AssessmentAccessError("Submitted selected responses are incomplete.", 503);
+}
+
 /** Internal only: caller must first authorize this exact attempt with attemptAccess.
  * Reads the immutable decision, not its private original answer/audit snapshot.
  * Flat historical forms preserve their original item order and need no route query.

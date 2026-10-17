@@ -19,6 +19,9 @@ export function createLearnerDeviceStore({
 }) {
   const key = learnerDeviceKey(kind, actor);
   return {
+    get kind() {
+      return kind;
+    },
     read(): unknown {
       if (!isCurrent()) return null;
       try {

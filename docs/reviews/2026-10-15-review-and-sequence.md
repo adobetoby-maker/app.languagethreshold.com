@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Authenticated durable route coordinator staged — October 17
+
+Application `25a0f10` adds strict authenticated `route` selection using only attempt ID, saved revision and retry UUID. Existing origin/body-size/no-store/account request controls apply. Actual learner ownership is required before original route/core reads; team report/admin access cannot select another learner's branch. The server calculates from frozen form and authoritative saved core answers and calls the already-applied service RPC. That RPC repeats actor, source and revision checks under the attempt lock. No client actor/answer/policy/decision is trusted.
+
+An exact retry validates/reuses the original immutable source, even after later core edits. Another retry UUID recovers the same route/current revision; globally reused identities and revoked access still reach the authoritative RPC. A concurrent winner is validated against its own original audit basis before projection. Corrupt audits/receipts fail closed. Output contains only current revision, selected/core-count state and whitelisted core/selected questions: no private reason, counts/percentage/digest, keys, policy or unselected branch. The internal routing access option does not change default attempt authorization or remove any flat-runtime guard.
+
+All855tests/type-check pass; lint0errors/44existing warnings; dependency audit0; build/artifact19.69MiB. Eleven new controlled production-coordinator/actual-POST tests cover ownership, strict input, stale/incomplete/inactive/corrupt states, insufficient evidence, original-source retries, global identity conflict, RPC authorization, concurrent winner and save conflict. Fixtures are fictional/local; no hosted adaptive form or result was created. Final marker96/source1175/static148scan has0hits. See `qa-routing-api-preview-2026-10-17.json`.
+
+True Preview is READY/targetnull at https://language-threshold-55h8tesoa-adobetoby-5572s-projects.vercel.app, deployment `dpl_BZwmWeKKvN4Mky9j3x2RN8wJednF`; independent inspection matches full source25a0f10. Hosted21authenticated APIgroups (including only rejected routing requests),12focused entry/private-header groups,3public packs and7read-only scope groups pass. Existing QA draft remainsrevision12/in_progress/unsubmitted; teamB remains2opened/0mastered. Accepted companion staysd4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; live app staysf9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. No alias/main/production change.
+
+NEXT: selected read/save/media/scoring/reporting and fixed-core comparison, then core→Continue/connection-required→branch/resume UI. Adaptive preparation/start and ordinary reads/scoring/media remain blanket-gated until those paths are complete. No browser actions, paid requests, new hosted learner-response writes, schema/role/active speech policy/collection/schedule changes. Owner-authorized database migration remains applied and must not be rewritten. Full human/content/calibration/reviewer/pilot/catalog/device/operational requirements remain open; do not mark complete or push main yet. Retention/reviewer questions remain pending; do not repeat them.
+
+
 ### Authorized durable-routing database foundation applied — October 17
 
 The owner's direct reply, “Allow the proposed database work; keep launch gated,” supersedes the earlier schema freeze only for the reviewed proposal. Source `7767de7` adds the private immutable route record, service-only atomic RPC, frozen definition/core JSONB source checks, exact retry payload matching, current-revision recovery and selected response/submission/speech guards. BEFORE/AFTER insertion triggers validate the route and commit its one revision/audit event atomically, including direct service inserts. No historical snapshot is rewritten; parent deletion still cascades without granting direct service UPDATE/DELETE/TRUNCATE.

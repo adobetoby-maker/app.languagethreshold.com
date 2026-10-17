@@ -26,7 +26,13 @@ Adaptive read access and the explicit organization scope are checked again after
 
 Initial scoring resolves the same immutable path, validates the complete selected response set and prepares every deterministic result before its first scoring RPC. It uses final saved answers, without recomputing the routing decision from later core edits. Missing evidence remains not assessed, and production remains pending review. Partial storage failures resume through the existing stable per-response scoring identities. No missing responses are invented for unused branches. Flat historical forms retain their original item/feedback order without a route query.
 
-The attempt's returned branch evidence has no comparison anchor; fixed-core evidence retains its authored anchor. Overview/history/export/team comparison paths still need integration before any adaptive growth claim or release. Adaptive AI and human-review controls remain unavailable in this checkpoint. Positive score/read/retry fixtures are local only; no hosted result or content approval is manufactured.
+The attempt's returned branch evidence has no comparison anchor; fixed-core evidence retains its authored anchor. Overview/history/export comparison paths still need integration before any adaptive growth claim or release. Adaptive AI and human-review controls remain unavailable in this checkpoint. Positive score/read/retry fixtures are local only; no hosted result or content approval is manufactured.
+
+## Fixed-core team patterns
+
+For a reviewed adaptive form, team patterns use the fixed core common to every route. Individual results retain their selected branch evidence. Before reading learner evidence, the server validates mappings across the entire form, then the private routing policy and exact form/rubric/checkpoint/language identity. Malformed or null routing metadata never falls back to a flat form. Different branch choices or scores cannot change the core-only aggregate, and unused branches do not become missing answers. Existing minimum cohort and complementary-category suppression apply unchanged.
+
+Available adaptive reports expose only a `fixed_core` scope label alongside existing aggregate metadata. The UI explains that scope; it receives no core IDs, private policy, branch distribution or learner evidence. Legacy flat reports preserve their existing full-form behavior. The existing SQL cohort/resource bounds remain conservative across the whole frozen bank. Positive adaptive cohorts and the scope label still need genuine hosted/browser/device acceptance; controlled tests are fictional local data only. No database function, grant, policy or approved content changed for this reporting checkpoint.
 
 ## Implemented source boundaries
 

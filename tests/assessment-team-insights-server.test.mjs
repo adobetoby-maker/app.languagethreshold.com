@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { loadModule } from "./helpers/bundle.mjs";
+import { routingFixture } from "./helpers/routing-fixture.mjs";
 const { teamAssessmentInsights } = await loadModule("src/lib/assessments/team-insights-server.ts", {
   stubs: [/^@tanstack\/react-start\/server-only$/],
 });
@@ -157,5 +158,122 @@ test("same-language insight scopes are invalid rather than missing curriculum", 
       (error) => error.status === 400,
     );
     assert.deepEqual(f.seen, ["team_members"]);
+  }
+});
+
+async function adaptiveFixture() {
+  const f = await fixture(),
+    { form } = routingFixture(),
+    row = f.rows.assessment_forms[0];
+  form.id = row.id;
+  form.version = row.version;
+  form.rubricVersion = row.rubric_version;
+  for (const item of form.items) {
+    item.objectiveId = item.id.startsWith("core-")
+      ? `roofing.lesson.${item.id.at(-1)}`
+      : "roofing.lesson.4";
+  }
+  row.definition = form;
+  const learners = Array.from({ length: 5 }, (_, index) => ({
+    learnerId: `fictional-${index}`,
+    attemptState: "completed",
+    evidence: [
+      ...form.items
+        .filter((item) => form.routing.coreItemIds.includes(item.id))
+        .map((item) => ({
+          itemId: item.id,
+          objectiveId: item.objectiveId,
+          skill: item.skill,
+          maximum: item.maximum,
+          points: 1,
+          state: "scored",
+          source: "human",
+        })),
+      {
+        itemId: form.routing.branches[index % 3].itemIds[0],
+        objectiveId: "roofing.lesson.4",
+        skill: "recognition",
+        maximum: 1,
+        points: 0,
+        state: "scored",
+        source: "human",
+      },
+    ],
+  }));
+  f.db.rpc = async (name, args) => {
+    f.rpcCalls.push({ name, args });
+    return { data: { status: "available", learners }, error: null };
+  };
+  return { ...f, form, learners };
+}
+
+test("adaptive team patterns use the shared core without inventing missing unused branches", async () => {
+  const f = await adaptiveFixture(),
+    report = await run(f);
+  assert.equal(report.status, "available");
+  assert.equal(report.evidenceScope, "fixed_core");
+  assert.equal(report.learnerCount, 5);
+  const skills = report.items.filter((item) => item.kind === "skill");
+  assert.equal(skills.length, 6);
+  assert.ok(skills.every((item) => item.meanScore === 100 && item.counts.scored === 5));
+  assert.ok(!report.items.some((item) => item.objectiveId === "roofing.lesson.4"));
+  for (const marker of [
+    "coreItemIds",
+    "branch-band",
+    "private-fixture-answer",
+    "accepted",
+    "learnerId",
+    "fictional-0",
+  ])
+    assert.ok(!JSON.stringify(report).includes(marker), marker);
+});
+
+test("different adaptive branch results cannot change a fixed-core cohort pattern", async () => {
+  const f = await adaptiveFixture(),
+    before = await run(f);
+  for (const learner of f.learners) {
+    learner.evidence.at(-1).itemId = "branch-more-evidence";
+    learner.evidence.at(-1).points = 1;
+    learner.evidence.at(-1).objectiveId = "roofing.lesson.5";
+  }
+  assert.deepEqual(await run(f), before);
+});
+
+test("unavailable core evidence stays insufficient and small review categories remain suppressed", async () => {
+  const missing = await adaptiveFixture();
+  for (const learner of missing.learners) {
+    const row = learner.evidence.find((item) => item.itemId === "core-listening-1");
+    row.state = "not_assessed";
+    row.points = null;
+  }
+  const missingReport = await run(missing),
+    listening = missingReport.items.find((item) => item.id === "skill:listening");
+  assert.equal(listening.meanScore, null);
+  assert.equal(listening.counts.insufficient_coverage, 5);
+  const review = await adaptiveFixture(),
+    row = review.learners[0].evidence[0];
+  row.state = "needs_review";
+  row.points = null;
+  const cell = (await run(review)).items.find((item) => item.id === "skill:recognition");
+  assert.equal(cell.visibility, "suppressed");
+  assert.equal(cell.counts, null);
+  assert.equal(cell.meanScore, null);
+});
+
+test("adaptive insight policy, version and all-branch mappings fail closed before learner evidence", async () => {
+  for (const change of [
+    (f) => (f.form.routing = null),
+    (f) => (f.form.version = "wrong-version"),
+    (f) => (f.form.rubricVersion = "wrong-rubric"),
+    (f) => (f.form.checkpoint = "day90"),
+    (f) => (f.form.targetLanguage = "French"),
+    (f) => (f.form.routing.coreItemIds[0] = "missing-core"),
+    (f) => (f.form.routing.bands[0].maximumPercent = 99),
+    (f) => (f.form.items.at(-1).objectiveId = "different-module.lesson.1"),
+  ]) {
+    const f = await adaptiveFixture();
+    change(f);
+    await assert.rejects(run(f), { status: 503 });
+    assert.equal(f.rpcCalls.length, 0);
   }
 });

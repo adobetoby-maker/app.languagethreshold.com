@@ -34,6 +34,7 @@ export interface TeamInsightReport {
   learnerCount: number | null;
   formVersion?: string;
   rubricVersion?: string;
+  evidenceScope?: "fixed_core";
   items: InsightCell[];
   hasMore: false;
   nextCursor: null;

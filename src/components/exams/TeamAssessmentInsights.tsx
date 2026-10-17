@@ -161,6 +161,12 @@ export function TeamAssessmentInsights({
                 cell, including its average. Averages include final scored evidence only; copying
                 and practice points are excluded.
               </p>
+              {metadata.evidenceScope === "fixed_core" && (
+                <p className="text-sm text-muted-foreground">
+                  Team patterns use the fixed core shared by all learners. Individual results
+                  include each learner’s selected branch.
+                </p>
+              )}
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {report.items
                   .filter((cell) => cell.kind === "skill")

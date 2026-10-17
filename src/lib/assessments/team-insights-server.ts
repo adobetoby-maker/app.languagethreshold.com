@@ -7,6 +7,9 @@ import { lessonObjectiveId } from "@/lib/learning-identity";
 import { ASSESSMENT_SKILLS, type Checkpoint } from "./core";
 import { lessonReleaseReadiness } from "./release-readiness";
 import { AssessmentAccessError, rpc } from "./server";
+import { hasAdaptiveRouting } from "./routing-contract";
+import { routingComparisonItems } from "./routing";
+import type { AssessmentFormDefinition } from "./form";
 import {
   aggregateTeamInsights,
   emptyTeamInsights,
@@ -71,16 +74,16 @@ export async function teamAssessmentInsights(
     throw new AssessmentAccessError("Team insight exam version could not be checked.", 503);
   const form = forms.data?.[0];
   if (!form) return emptyTeamInsights("content_pending");
-  const expected = (form.definition as { items?: InsightItem[] }).items;
+  const allItems = (form.definition as { items?: InsightItem[] }).items;
   const objectives = new Set(
     curriculum.lessons.map((lesson) => lessonObjectiveId(moduleId, lesson.n)),
   );
   if (
-    !Array.isArray(expected) ||
-    !expected.length ||
-    expected.length > 1000 ||
-    new Set(expected.map((item) => item.id)).size !== expected.length ||
-    expected.some(
+    !Array.isArray(allItems) ||
+    !allItems.length ||
+    allItems.length > 1000 ||
+    new Set(allItems.map((item) => item.id)).size !== allItems.length ||
+    allItems.some(
       (item) =>
         !item.id ||
         !objectives.has(item.objectiveId) ||
@@ -90,11 +93,40 @@ export async function teamAssessmentInsights(
     )
   )
     throw new AssessmentAccessError("Reviewed team insight mappings could not be checked.", 503);
+  const adaptive = hasAdaptiveRouting(form.definition);
+  let expected = allItems;
+  if (adaptive) {
+    const definition = form.definition as AssessmentFormDefinition;
+    try {
+      if (
+        definition.id !== form.id ||
+        definition.version !== form.version ||
+        definition.rubricVersion !== form.rubric_version ||
+        definition.checkpoint !== checkpoint ||
+        definition.targetLanguage !== target ||
+        definition.instructionLanguage !== native
+      )
+        throw new Error("Frozen form identity mismatch");
+      const core = routingComparisonItems(definition);
+      const items = new Map(allItems.map((item) => [item.id, item]));
+      expected = core.map((id) => items.get(id)!);
+    } catch {
+      throw new AssessmentAccessError(
+        "Reviewed fixed-core insight mappings could not be checked.",
+        503,
+      );
+    }
+  }
   const evidence = await rpc<{
     status: "available" | "small_group" | "too_large";
     learners: InsightLearner[];
   }>(db, "assessment_team_insight_evidence", { p_actor: actor, p_org: org, p_form: form.id });
   if (evidence.status !== "available") return emptyTeamInsights(evidence.status);
   const report = aggregateTeamInsights(expected, evidence.learners);
-  return { ...report, formVersion: form.version, rubricVersion: form.rubric_version };
+  return {
+    ...report,
+    formVersion: form.version,
+    rubricVersion: form.rubric_version,
+    ...(adaptive ? { evidenceScope: "fixed_core" as const } : {}),
+  };
 }

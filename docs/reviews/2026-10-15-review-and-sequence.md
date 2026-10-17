@@ -5,6 +5,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Grammar generation request and output guards — October 17
+
+Source `31d487a` is locally verified and not deployed. The three active Grammar generators now require same origin/no-store and the existing durable content pool before constructing the provider. Each paid call uses zero automatic retries, a 30-second SDK/total deadline and the incoming request abort signal. Caught provider failures log only a fixed label. No schema, new pool or active policy was added.
+
+Titles must contain exactly six unique bounded slug IDs/titles/concepts. Lessons have exactly three bounded examples, bounded explanation/rule/morphology fields and the existing fixed-stem reconstruction check. Quizzes must contain exactly three bounded questions; multiple choice needs three or four distinct options and an answer matching one option; fill-blank needs one blank and no options. Server validation and the existing UI answer checker now share the same comparison function, including punctuation/case handling. Unknown provider fields are stripped. This establishes structural consistency, not linguistic review, assessed proficiency or curriculum approval.
+
+All 838 tests, type-check and stage build pass; lint has 0 errors/44 mixed-export warnings; artifact 19.67 MiB. Private-bank scan: 96 markers/1148 source/148 static/0 hits. Eight targeted handler/morphology/practice-completion tests cover fail-closed origin/budget/outage guards, bounded valid/invalid payloads, abort/options, safe errors and existing completion behavior. See `qa-grammar-generation-guards-2026-10-17.json`. Existing morphology regression fixtures now use the shared paid-handler transport harness and retain the impossible-stem rejection/regular-irregular acceptance checks.
+
+No browser actions, paid provider calls, new learner writes, schema/role/active-policy/speech/schedule changes. Hosted development stays `d575a77`; accepted companion `d4ad837`, live app and main are unchanged. The routing schema question remains pending without repeated requests or inferred consent. Remaining game/story endpoint audit, adaptive runtime and human/content/pilot/device/operational acceptance remain open.
+
+
+
 ### Combined helper guards staging verification — October 17
 
 Application `d575a77` (implementation `8d77c64`, including phonetic `fa769e5` and Pen Pal `c991a6a`) is READY at https://language-threshold-io06fr4re-adobetoby-5572s-projects.vercel.app, deployment `dpl_2dkpz4Y2TWswt1Dc4ysNzgdBgGtA`, true Preview/target null. Project/team guards and artifact verification passed; independently inspected Git metadata matches the full deployed commit. This supersedes the preceding helper entries' undeployed status. Accepted companion remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. Main and aliases were not changed.

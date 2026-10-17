@@ -4,6 +4,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Listening drill and simulated battle playback ownership — October 17
+
+Sourcec1c6448 adds explicit owned Stop controls alongside the existing useOwnedSpeaker API. Stop checks mounted/current actor/scope and aborts only that instance's pending generation. ListeningDrill uses these controls for answer/advance and owned cleanup for question/language/module/voice/account/unmount boundaries. BattleArena and BattleReviewPanel word rows adopt owned playback; the arena no longer performs global synthesis cancellation during unmount. Shared routing receives the explicit selected voice and existing language locale. Existing replay/answer/practice XP counters and simulated labels are unchanged.
+
+All973tests/type-check pass; lint0errors/45existing warnings; local stage artifact19.74MiB passes target/artifact guards; private-bank96markers/1244source/148static/0hits. Expanded controlled actual-hook+actual-TTS group verifies old-question Stop cannot cancel next-question playback, current Stop cancels its own playback, Stop cannot interrupt another surface, and old-actor Stop is ignored. Existing surface/unmount/guest checks retained. Initial broad run exposed the battle clock harness missing mocks for the newly imported audio hook/Speech preference; updated only those boundaries, preserving all clock assertions. All four actual-arena clock groups pass. This is not browser/physical audio/account-switch acceptance. React review: unconditional hooks, primitive scopes, stable speak/stop callbacks, owned effect cleanup; existing controls/layout unchanged. Evidence qa-drill-battle-speaker-local-2026-10-17.json.
+
+Latest hosted application remains last-observed5b00bd2 at https://language-threshold-bnlanesxa-adobetoby-5572s-projects.vercel.app, READY/targetnull. Local2ca123d andc1c6448 remain undeployed. No hosted rerun/alias inspection/browser actions/model calls/hosted learner writes. Accepted companion last-observed d4ad837; app live f9f8685; main untouched. Adaptive runtime and optional analytics remain off. Approved prepared-start RPC already applied; no further schema/role/policy/speechcollection/retention/schedule changes.
+
+NEXT: remaining FieldPrep/ModuleFieldPrep/useMissionarySpeech/SpeakLearn and device voice-preview cleanup; securely stage combined audio group then actual browser/phone/audio acceptance. Broader privacy/device-state inventory remains incomplete. Retention/reviewer questions remain pending; do not repeat. Full goal/all human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open.
+
+
 ### Studio and Reader word-card playback ownership — October 17
 
 Source2ca123d adopts the existing component-owned speaker in FlashcardsStudio and Reader WordCard. Studio scope includes current card/module/language/accent/voice; WordCard scope includes lookup context/accent/voice. Hook cleanup aborts only that surface's pending/current generation on scope/account/unmount, preserving another surface's newer playback. Both use the existing explicit selected voice and shared device/remote routing; WordCard now passes its selected voice on the remote path too. No endpoint/provider/storage/counter or grading changes.

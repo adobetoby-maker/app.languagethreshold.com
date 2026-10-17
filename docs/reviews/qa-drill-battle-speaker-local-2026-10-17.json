@@ -1,0 +1,38 @@
+{
+  "testedAt": "2026-10-17T20:09:47.948Z",
+  "sourceCommit": "c1c6448",
+  "deployed": false,
+  "latestHostedApplication": "5b00bd2",
+  "surfaces": [
+    "ListeningDrill",
+    "BattleArena",
+    "BattleReviewPanel word rows"
+  ],
+  "validation": {
+    "tests": 973,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "artifactMiB": 19.74,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1244,
+    "staticFiles": 148,
+    "privateHits": 0
+  },
+  "controlledLifecycleEvidence": [
+    "Old question Stop preserves next question",
+    "Current Stop cancels its own generation",
+    "Stop preserves newer other surface",
+    "Old actor Stop ignored",
+    "Existing unmount and guest isolation retained"
+  ],
+  "clockFixture": "New audio boundaries mocked; all four existing actual-arena clock groups pass without changed assertions",
+  "limitations": [
+    "Not browser or physical audio acceptance",
+    "Remaining direct speech surfaces and wider inventory",
+    "Full PRD release gates remain open"
+  ]
+}

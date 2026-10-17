@@ -135,3 +135,19 @@ test("actor denial precedes support reads and QA access cannot turn a draft form
     else process.env.LT_EXAMS_PILOT_USER_IDS = old;
   }
 });
+
+test("unsupported routing cannot advertise official or QA readiness in module or targeted overviews", async () => {
+  for (const targeted of [true, false]) for (const routing of [null, { schema: 1 }, { schema: 99 }]) {
+    const f = await supportCheckFixture();
+    if (!targeted) {
+      f.enrollment.program_scope = "full_module";
+      for (const form of f.forms) form.purpose = "module";
+    }
+    for (const form of f.forms) form.definition.routing = routing;
+    const report = await listEnrollments(f.db, "learner");
+    for (const checkpoint of report.enrollments[0].checkpoints) {
+      assert.equal(checkpoint.ready, false);
+      assert.equal(checkpoint.pilotReady, false);
+    }
+  }
+});

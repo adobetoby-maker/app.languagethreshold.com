@@ -119,11 +119,23 @@ export async function supportCheckFixture() {
     },
     from(table) {
       const filters = [],
+        nullPaths = [],
         q = { table, columns: "*", filters, maximum: Infinity };
       queries.push(q);
       const result = () => ({
         data: (rows[table] ?? [])
           .filter((row) => filters.every(([column, values]) => values.includes(row[column])))
+          .filter((row) =>
+            nullPaths.every((path) => {
+              const keys = path.split("->");
+              let value = row;
+              for (const key of keys) {
+                if (value == null || !Object.prototype.hasOwnProperty.call(value, key)) return true;
+                value = value[key];
+              }
+              return keys.length === 1 ? value === null : false;
+            }),
+          )
           .slice(0, q.maximum)
           .map((row) =>
             q.columns === "*"
@@ -135,6 +147,11 @@ export async function supportCheckFixture() {
       const query = {
         select(columns) {
           q.columns = columns;
+          return query;
+        },
+        is(column, value) {
+          if (value !== null) throw new Error("Fixture supports SQL NULL predicates only.");
+          nullPaths.push(column);
           return query;
         },
         eq(column, value) {
@@ -151,6 +168,10 @@ export async function supportCheckFixture() {
         },
         order() {
           return query;
+        },
+        async single() {
+          const r = result();
+          return { ...r, data: r.data[0] ?? null };
         },
         async maybeSingle() {
           const r = result();

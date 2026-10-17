@@ -1,3 +1,4 @@
+import { hasAdaptiveRouting } from "./routing-contract";
 import {
   lessonReviewSnapshot,
   lessonReviewFingerprint,
@@ -60,6 +61,12 @@ export async function lessonReleaseReadiness(
   };
 }
 
-export function officialFormAvailable(form: { status: string; calibrated?: boolean }) {
-  return form.status === "verified" && form.calibrated === true;
+export function officialFormAvailable(form: {
+  status: string;
+  calibrated?: boolean;
+  definition?: unknown;
+}) {
+  return (
+    form.status === "verified" && form.calibrated === true && !hasAdaptiveRouting(form.definition)
+  );
 }

@@ -173,3 +173,33 @@ test("preparation shares ownership/coverage checks and never scales full-form ti
   assert.equal((await postPrepared(f, { action: "prepare" })).status, 400);
   assert.equal(f.rpcs.some(r => r.name === "assessment_start_attempt"), false);
 });
+
+test("adaptive metadata cannot be prepared or started through the flat-form runtime, even in malformed form", async () => {
+  for (const routing of [null, { schema: 1, version: "fixture" }, { schema: 99 }]) {
+    const f = await supportCheckFixture();
+    f.enrollment.program_scope = "full_module";
+    for (const form of f.forms) form.purpose = "module";
+    f.forms[0].definition.routing = routing;
+    for (const action of ["prepare", "start"]) {
+      const response = await postPrepared(f, {
+        action, ...(action === "start" ? { requestId: "33333333-3333-4333-8333-333333333333" } : {}),
+      });
+      assert.equal(response.status, 503);
+      assert.doesNotMatch(await response.text(), /CONTROLLED_PRIVATE/);
+    }
+    assert.equal(f.rpcs.some(r => r.name === "assessment_start_attempt"), false);
+  }
+});
+
+test("a future adaptive form cannot displace an available legacy form", async () => {
+  const f = await supportCheckFixture();
+  f.enrollment.program_scope = "full_module";
+  for (const form of f.forms) form.purpose = "module";
+  const legacy = structuredClone(f.forms[0]);
+  legacy.id = "controlled-legacy-flat";
+  f.forms[0].definition.routing = { schema: 1 };
+  f.forms.push(legacy);
+  const response = await start(f);
+  assert.equal(response.status, 200, await response.clone().text());
+  assert.equal(f.rpcs.find(r => r.name === "assessment_start_attempt").args.p_form, legacy.id);
+});

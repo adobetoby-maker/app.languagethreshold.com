@@ -1,3 +1,4 @@
+import { hasAdaptiveRouting } from "./routing-contract";
 import "@tanstack/react-start/server-only";
 import type { TeamDb } from "@/lib/team-server";
 import { getCurriculum } from "@/data/curriculum";
@@ -130,6 +131,7 @@ export async function readSupportingChecks(
       const items: unknown = form?.definition?.items;
       if (
         !form ||
+        hasAdaptiveRouting(form.definition) ||
         !Array.isArray(items) ||
         !items.length ||
         items.length > 1000 ||

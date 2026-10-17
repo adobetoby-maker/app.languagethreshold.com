@@ -1,3 +1,4 @@
+import { hasAdaptiveRouting } from "./routing-contract";
 import { attemptMatchesOrganization } from "./scope.ts";
 import {
   readSupportingChecks,
@@ -31,6 +32,11 @@ export class AssessmentAccessError extends Error {
   ) {
     super(message);
   }
+}
+/** Adaptive drafts cannot run through the legacy flat-form serializer/scorer. */
+export function requireFixedAssessmentRuntime(definition: unknown) {
+  if (hasAdaptiveRouting(definition))
+    throw new AssessmentAccessError("Adaptive routing is not enabled for this form yet.", 503);
 }
 export function pilotAllowed(userId: string): boolean {
   return (process.env.LT_EXAMS_PILOT_USER_IDS ?? "")
@@ -114,6 +120,7 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
     const enrollment = await enrollmentAccess(db, actor, checkpoint.enrollment_id, review);
     if (review && enrollment.user_id === actor)
       throw new AssessmentAccessError("A different reviewer must review your assessment.");
+    requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   } catch (error) {
     if (!(error instanceof AssessmentAccessError) || error.status !== 403 || !review) throw error;
@@ -142,6 +149,7 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
       .eq("active", true)
       .maybeSingle();
     if (!reviewer) throw error;
+    requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   }
 }
@@ -228,6 +236,7 @@ export async function listEnrollments(
   const { data: forms, error: formsError } = await db
     .from("assessment_forms")
     .select("id,release_id,checkpoint,status,calibrated")
+    .is("definition->routing", null)
     .eq("purpose", "module")
     .in("release_id", [...new Set(permitted.map((row) => row.release_id))]);
   const { data: releases, error: releasesError } = await db
@@ -330,6 +339,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
     ? await db
         .from("assessment_forms")
         .select("release_id,checkpoint,status,calibrated,review_records")
+        .is("definition->routing", null)
         .eq("purpose", "module")
         .in("release_id", ids)
     : { data: [], error: null };

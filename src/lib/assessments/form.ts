@@ -1,3 +1,4 @@
+import { routingPolicyIssues, type AssessmentRoutingPolicy } from "./routing-contract.ts";
 export const ROOFING_ASSESSMENT_RELEASE = "roofing-es-en-assessment-draft-20261016";
 import type { AnswerPolicy, AssessmentSkill, Checkpoint, ItemEvidence } from "./core.ts";
 import { scoreFixedAnswer } from "./core.ts";
@@ -43,6 +44,8 @@ export interface AssessmentFormDefinition {
   instructionLanguage: string;
   items: PrivateAssessmentItem[];
   estimatedMinutes: number;
+  /** Private draft routing policy; runtime remains gated until durable selection is implemented. */
+  routing?: AssessmentRoutingPolicy;
   /** Drafts are only usable in the explicitly scoped QA pilot, not published assessments. */
   status: "draft" | "in_review" | "verified";
 }
@@ -160,7 +163,7 @@ export function initialItemEvidence(
 }
 
 export function validateFormDefinition(form: AssessmentFormDefinition): string[] {
-  const gaps: string[] = [];
+  const gaps: string[] = routingPolicyIssues(form);
   const ids = new Set<string>();
   for (const item of form.items) {
     if (ids.has(item.id)) gaps.push(`Duplicate item: ${item.id}`);

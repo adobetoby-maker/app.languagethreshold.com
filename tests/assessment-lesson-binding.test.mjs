@@ -58,8 +58,15 @@ async function fixture() {
       return { data: name === "assessment_overview_page" ? page : [], error: null };
     },
     from(table) {
+      let flatOnly = false;
       const query = {
         select() {
+          return query;
+        },
+        is(column, value) {
+          assert.equal(column, "definition->routing");
+          assert.equal(value, null);
+          flatOnly = true;
           return query;
         },
         eq() {
@@ -76,7 +83,16 @@ async function fixture() {
         },
         then(resolve, reject) {
           return Promise.resolve({
-            data: table === "assessment_forms" ? forms : rows[table] ? [rows[table]] : [],
+            data:
+              table === "assessment_forms"
+                ? forms.filter(
+                    (form) =>
+                      !flatOnly ||
+                      !Object.prototype.hasOwnProperty.call(form.definition ?? {}, "routing"),
+                  )
+                : rows[table]
+                  ? [rows[table]]
+                  : [],
             error: errors[table] ?? null,
           }).then(resolve, reject);
         },
@@ -279,4 +295,21 @@ test("enrollment binding lookup errors remain unavailable rather than guessed fr
   const f = await fixture();
   f.errors.assessment_lesson_snapshots = { message: "fixture offline" };
   await assert.rejects(listEnrollments(f.db, "actor"), (error) => error.status === 503);
+});
+
+test("a reviewed release cannot advertise an unsupported adaptive form as a complete calibrated track", async () => {
+  for (const routing of [null, { schema: 1 }]) {
+    const f = await fixture();
+    f.forms[1].definition = { routing };
+    const plans = await listEnrollments(f.db, "actor");
+    assert.deepEqual(
+      plans.enrollments[0].checkpoints.map((cp) => cp.ready),
+      [true, false, true],
+    );
+    const track = (await readinessCatalog(f.db, "Spanish", "English")).find(
+      (row) => row.moduleId === "roofing",
+    );
+    assert.equal(track.calibrated, false);
+    assert.equal(track.status, "upgrade_in_progress");
+  }
 });

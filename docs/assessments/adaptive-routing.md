@@ -1,0 +1,33 @@
+# Adaptive routing foundation — runtime inactive
+
+The PRD requires a fixed core followed by a short evidence-driven branch. This checkpoint implements a private contract and deterministic calculation, plus guards preventing that contract from entering the existing flat-form runtime. It does **not** implement a durable learner branch flow. No hosted form, review approval, threshold policy, schema, role, speech policy or schedule was changed.
+
+## Implemented source boundaries
+
+`routing-contract.ts` defines schema/version, ordered core IDs, authored evidence/objective minima, bounded disjoint branches, complete ordered percentage bands and a separate insufficient-evidence branch. There are no engine-supplied placement cutoffs. The fixed core retains the existing requirement of three objectives per skill, so a branch cannot provide the only sample for a skill. The branch cap of 30 items (and no more than the core) is a resource bound, not a validated effort promise.
+
+`routing.ts` is server-only. It evaluates saved core responses against frozen objective keys using the same deterministic scorer as the existing engine. Written/spoken production and client-provided score claims cannot supply routing points. Missing/unheard audio, uncertain recognition and unavailable inputs do not become wrong-answer zeroes. The policy's evidence and objective minima decide whether the result can select an ability band; otherwise the separate diagnostic branch is chosen, with no percentage or low-ability classification. All core responses must be attempted or explicitly unavailable first.
+
+A candidate decision records attempt/revision, form/rubric/policy versions, evidence counts, private reason and a SHA-256 digest of canonical frozen form/core-response data. This is calculation output; it is **not** a saved decision, signature or authorization token. Candidate band counts and percentages are not final proficiency scores.
+
+The public projection helper requires a trusted decision for the exact attempt and frozen form versions and exposes only core plus selected-branch questions through the existing whitelist. It omits the policy, answer keys, private listening text and alternative branches. This helper still needs the durable authorization path described below; caller-supplied decision objects are not trusted. The comparison helper returns fixed-core IDs only. It is not yet wired to the final reporting pipeline and does not establish calibrated equivalence.
+
+Until that path exists, forms with any routing metadata cannot be prepared/started or read through the legacy serializer. This includes malformed metadata. Module/catalog queries exclude any routing field using JSON-path SQL NULL semantics; JSON `null` is not silently treated as an absent field. Targeted-support readiness excludes routing definitions, too. A future adaptive form does not displace an available compatible flat form. Existing frozen flat attempts retain their previous behavior.
+
+## Remaining atomic engine work
+
+1. Add a separate private, append-only attempt-routing record keyed uniquely by attempt, rather than rewriting the immutable `form_snapshot`. Bind the original core response snapshot, revision, policy/form/rubric versions, selection reason and retry identity. Keep clients without direct read/write grants and authorize the actual learner within the service RPC.
+2. Lock the attempt in the same order as saves/submission. Require the authoritative saved revision before accepting a server-computed candidate; freeze exactly one decision. Concurrent saves, reconnects and new request keys must return the same existing decision or a conflict, never choose another branch. A failed transaction must not leave half a decision/event.
+3. Preserve the original decision if the learner later revisits a core answer. Its audit basis is the source revision/core snapshot; final scoring uses the actual submitted answers. Do not silently re-route after a different save or label the routing percentage as a final score.
+4. Enforce selected item membership for response writes, listening/speech access, AI review, submission, scoring and saved/offline views. An unselected branch must not receive fake missing responses or influence evidence denominators. Do not change historical flat attempts or their receipts.
+5. Add the explicit core → continue/connection-required → branch UI. Selection requires confirmed server saves and connectivity. No browser-side routing decision or background publication is allowed. An offline core remains recoverable under its existing account; a saved selected branch must not unlock alternatives.
+6. Carry fixed-core comparison anchors through histories, exports and team insights. Branch-specific additional evidence remains identified separately. Different paths, missing evidence or familiar repeated forms do not manufacture comparable growth.
+7. Bind authored routing policy bytes to content review, calibration and equivalence. Keep targeted supporting checks flat until their independently reviewed routing design exists. No universal threshold, language level, approval identity or release readiness is inferred from fixture cutoffs.
+
+Required acceptance includes true concurrent save/route/submit transactions, replay and payload conflicts, malformed snapshots, late identity changes, permission boundaries, reconnect/expiry recovery, selected-media authorization, original-history compatibility and private-bank absence. The existing flat engine is not a substitute for these checks.
+
+## Scoped verification
+
+Production-source controlled tests cover fixture 0/boundary/maximum bands; insufficient, uncertain and unheard evidence; minimum objective coverage; blank/missing core responses; ignored branch/client-score inputs; duplicates/unknown IDs; stable canonical digests and changed versions/revisions; exact-attempt projections and key/branch exclusion; legacy attempt access; unsupported metadata readiness; and start/read exposure guards. Fixture thresholds and verified statuses are deliberately fictional and are never inserted into the hosted project.
+
+A read-only hosted query confirms the JSON-path filter is accepted and all three current forms remain flat. A read-only local PostgreSQL SELECT separately checks absent routing versus JSON `null`/object semantics. Current hosted content still has no adaptive policy; these checks are not a real learner pilot or a published assessment.

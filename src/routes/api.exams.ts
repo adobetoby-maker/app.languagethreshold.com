@@ -1,3 +1,4 @@
+import { hasAdaptiveRouting } from "@/lib/assessments/routing-contract";
 import { preparationKey, preparationMinutes } from "@/lib/assessments/preparation";
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
@@ -31,6 +32,7 @@ import { lessonObjectiveId } from "@/lib/learning-identity";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
 import {
   AssessmentAccessError,
+  requireFixedAssessmentRuntime,
   assessmentBudget as budget,
   attemptAccess,
   enrollmentAccess,
@@ -476,14 +478,18 @@ export const Route = createFileRoute("/api/exams")({
             });
             if (formError)
               throw new AssessmentAccessError("Assessment forms are unavailable.", 503);
+            const compatibleForms = forms?.filter(form => !hasAdaptiveRouting(form.definition));
             const form =
-              forms?.find(officialFormAvailable) ??
-              (pilotAllowed(user.id) ? forms?.[0] : undefined);
+              compatibleForms?.find(officialFormAvailable) ??
+              (pilotAllowed(user.id) ? compatibleForms?.[0] : undefined);
+            if (!form && forms?.some(form => hasAdaptiveRouting(form.definition)))
+              throw new AssessmentAccessError("Adaptive routing is not enabled for this form yet.", 503);
             if (!form)
               throw new AssessmentAccessError(
                 "This module exam is awaiting curriculum review.",
                 400,
               );
+            requireFixedAssessmentRuntime(form.definition);
             if (!pilotAllowed(user.id))
               await requireCurrentLessonBinding(db, enrollment.release_id, { officialStart: true });
             if (

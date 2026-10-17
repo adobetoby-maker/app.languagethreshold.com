@@ -48,7 +48,7 @@ Existing admin visibility must expand explicitly for assessment information. Ent
 
 # 4 Entry points and connected navigation
 
-**Proposed hostname:** assessment.languagethreshold.com. The final hostname and DNS setup are owner decisions; no domain availability is assumed.
+**Owner-selected hostname (October 17, 2026):** exams.languagethreshold.com. DNS, hosting and shared sign-in configuration still require implementation and verification before launch.
 
 Entry points: a permanent **Exams** destination in the app’s primary learning navigation; a checkpoint card inside each module’s Core 30 plan; the learner’s Progress dashboard; and team assignment links where applicable. Exams uses the existing navigation pattern rather than adding another competing navigation system. Links carry an opaque enrollment or assignment reference rather than a learner name or score.
 
@@ -439,7 +439,7 @@ Each module’s release requires 30 complete reviewed lessons, all three approve
 
 | Decision | Proposed default |
 | --- | --- |
-| Companion hostname | assessment.languagethreshold.com |
+| Companion hostname | **Owner selected October 17, 2026:** exams.languagethreshold.com |
 | First supported track | Roofing Foreman, English instructions and Spanish target; other tracks follow reviewed content |
 | Required catalog scope | Every module: 30 complete lessons plus entrance, day 45 and day 90 exams; Roofing first |
 | Rollout order | Audited backlog prioritized by active learners, demand, domain reuse and reviewer capacity |

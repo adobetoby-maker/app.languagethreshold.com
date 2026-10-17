@@ -4,6 +4,14 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Paid reading-aid helper guards — October 17
+
+Source `fa769e5` is locally verified and not deployed. The three active phonetic server helpers (Furigana/Pinyin/Romaja) now require strict same origin, emit no-store, and consume the existing durable lookup allowance before paid work. They fail closed on exhausted/unavailable budgets. Limits remain the existing lookup40/IP/minute,600/IP/hour,1000/environment/hour; no new store, schema or policy was added. Each paid call disables automatic retries and combines a30-second total deadline with incoming request abort. Plain text without the relevant script uses no model/key/budget. Returned named-tool segments must preserve the exact source and meet format/shape/size bounds; extra top-level fields are omitted. Caught errors log only fixed route labels.
+
+All831tests/type-check/stage build pass, lint0errors44mixed-export warnings, artifact19.66MiB. Scan96markers/1138source/148static/0hits. Actual-handler controlled SDK/transport tests prove origin/budget denials before provider construction/use, accepted response/options/signal, no paid plain-text path, invalid/altered/overlong output rejection and fixed error logs. No external model calls, hosted writes or browser actions. This is source/local evidence, not a hosted timeout/billing/physical trial; structural validation does not approve linguistic correctness. See `qa-reading-aid-server-guards-2026-10-17.json`.
+
+Hosted development remains `8da3abb`; accepted companion `d4ad837`, live app and main remain unchanged. No schema/role/active-policy/speech/schedule changes. The already-sent routing schema exception question is still pending; do not repeat it or infer consent from heartbeats. Wider endpoint/privacy review and human/content/pilot/device/operational gates remain open.
+
 ### Cache privacy staging verification — October 17
 
 Application `8da3abb` (implementation `2ade3af`, including reading-hint ownership) is READY at https://language-threshold-emyd83rw8-adobetoby-5572s-projects.vercel.app, deployment `dpl_C1nMbiq1Vk9VjcG95R4yTxXWh3Nx`, true Preview/target null. The project/team guards and artifact verification passed; Vercel's generic `gitCommitSha` independently matches the full `8da3abb` commit. Accepted companion `exams.languagethreshold.com` remains on `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias reassignment or main push.

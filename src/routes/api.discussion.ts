@@ -1,3 +1,4 @@
+import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import Anthropic from "@anthropic-ai/sdk";
@@ -85,26 +86,6 @@ function companionPrompt(p: z.infer<typeof BodySchema>) {
 
 // Wraps an Anthropic stream in a ReadableStream emitting OpenAI-compatible SSE
 // so existing client parsers (choices[0].delta.content) work without changes.
-function anthropicStreamToSSE(
-  stream: AsyncIterable<Anthropic.MessageStreamEvent>,
-): ReadableStream<Uint8Array> {
-  const enc = new TextEncoder();
-  return new ReadableStream({
-    async start(controller) {
-      try {
-        for await (const event of stream) {
-          if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-            const chunk = `data: ${JSON.stringify({ choices: [{ delta: { content: event.delta.text } }] })}\n\n`;
-            controller.enqueue(enc.encode(chunk));
-          }
-        }
-        controller.enqueue(enc.encode("data: [DONE]\n\n"));
-      } finally {
-        controller.close();
-      }
-    },
-  });
-}
 
 export const Route = createFileRoute("/api/discussion")({
   server: {
@@ -172,7 +153,7 @@ export const Route = createFileRoute("/api/discussion")({
             conversationCallOptions(request),
           );
 
-          return new Response(anthropicStreamToSSE(stream), {
+          return new Response(anthropicTextStream(stream), {
             status: 200,
             headers: {
               "Content-Type": "text/event-stream",

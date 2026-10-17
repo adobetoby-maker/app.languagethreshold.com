@@ -1095,27 +1095,7 @@ function ExamsAreaContent({
       )}
       {!selected && !pending && overview && (
         <div className="flex flex-wrap gap-3">
-          <button
-            className={button}
-            onClick={() => {
-              const rows = assessedProgressRows(overview.enrollments, {
-                learner: (id) =>
-                  overview.members.find((member) => member.user_id === id)?.display_name ??
-                  (id === user.id ? "Me" : "Assigned learner"),
-                module: (id) => getModule(id)?.name ?? id,
-                skill: (id) => skills[id as AssessmentSkill] ?? id,
-              });
-              const blob = new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" });
-              const url = URL.createObjectURL(blob),
-                link = document.createElement("a");
-              link.href = url;
-              link.download = "language-threshold-assessed-progress.csv";
-              link.click();
-              setTimeout(() => URL.revokeObjectURL(url), 1000);
-            }}
-          >
-            Export shown assessed progress
-          </button>
+          <ShownProgressExport overview={overview} context={report.key} />
           <p className="self-center text-xs text-muted-foreground">
             Export includes all three checkpoint statuses and the latest/original skill summaries
             for loaded plans. Unstarted and unfinished exams have blank scores. Load more plans or
@@ -2281,6 +2261,76 @@ function OwnedExamRubricReview({
   );
 }
 
+type ShownProgressExportProps = { overview: Overview; context: string };
+function ShownProgressExport(props: ShownProgressExportProps) {
+  const { user } = useAuth();
+  if (!user) return null;
+  return <OwnedShownProgressExport key={JSON.stringify([user.id, props.context])} {...props} />;
+}
+function OwnedShownProgressExport({ overview, context }: ShownProgressExportProps) {
+  const { actor, capture } = usePracticeLifecycle(context);
+  const activeSnapshot = useRef<Overview | null>(null);
+  const download = useRef<(() => void) | null>(null);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    activeSnapshot.current = overview;
+    setError("");
+    return () => {
+      activeSnapshot.current = null;
+      download.current?.();
+    };
+  }, [overview]);
+  function exportShown() {
+    const lease = capture();
+    if (!actor || !lease.isCurrent() || activeSnapshot.current !== overview || download.current)
+      return;
+    setError("");
+    let dispose = () => {};
+    try {
+      const rows = assessedProgressRows(overview.enrollments, {
+        learner: (id) =>
+          overview.members.find((member) => member.user_id === id)?.display_name ??
+          (id === actor ? "Me" : "Assigned learner"),
+        module: (id) => getModule(id)?.name ?? id,
+        skill: (id) => skills[id as AssessmentSkill] ?? id,
+      });
+      const url = URL.createObjectURL(
+        new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" }),
+      );
+      let timer: ReturnType<typeof setTimeout> | null = null;
+      let disposed = false,
+        release = () => {};
+      dispose = () => {
+        if (disposed) return;
+        disposed = true;
+        if (timer !== null) clearTimeout(timer);
+        URL.revokeObjectURL(url);
+        release();
+        if (download.current === dispose) download.current = null;
+      };
+      download.current = dispose;
+      release = lease.own(dispose);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "language-threshold-assessed-progress.csv";
+      link.click();
+      timer = setTimeout(dispose, 1000);
+    } catch (err) {
+      dispose();
+      if (lease.isCurrent() && activeSnapshot.current === overview)
+        setError(err instanceof Error ? err.message : "Shown progress could not be exported.");
+    }
+  }
+  return (
+    <div>
+      <button className={button} onClick={exportShown}>
+        Export shown assessed progress
+      </button>
+      {error && <p role="alert">{error}</p>}
+    </div>
+  );
+}
+
 type ReadinessTrack = {
   moduleId: string;
   name: string;
@@ -2295,37 +2345,61 @@ type ReadinessTrack = {
   calibrated: boolean;
   offlineVerified: boolean;
 };
-function ReadinessPanel({ target, native }: { target: Language; native: NativeLanguage }) {
+function ReadinessPanel(props: { target: Language; native: NativeLanguage }) {
+  const { user } = useAuth();
+  if (!user) return null;
+  return (
+    <OwnedReadinessPanel key={JSON.stringify([user.id, props.target, props.native])} {...props} />
+  );
+}
+function OwnedReadinessPanel({ target, native }: { target: Language; native: NativeLanguage }) {
   const [tracks, setTracks] = useState<ReadinessTrack[]>([]),
     [error, setError] = useState(""),
     [expanded, setExpanded] = useState(false),
-    [selectedModule, setSelectedModule] = useState("");
+    [selectedModule, setSelectedModule] = useState(""),
+    [loading, setLoading] = useState(false),
+    [retry, setRetry] = useState(0);
+  const { actor, capture, cancel } = usePracticeLifecycle(JSON.stringify([target, native]));
   const selectedTrack = tracks.find((track) => track.moduleId === selectedModule);
   const shownTracks = selectedTrack ? [selectedTrack] : tracks;
   useEffect(() => {
-    if (!expanded) return;
-    let active = true;
+    if (!expanded || !actor) return;
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    const controller = new AbortController();
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() && !controller.signal.aborted;
     setTracks([]);
     setError("");
+    setLoading(true);
     void examRequest<{ tracks: ReadinessTrack[] }>(
       `/api/exams?action=readiness&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}`,
+      controller.signal,
     )
       .then((data) => {
-        if (active) setTracks(data.tracks);
+        if (current()) setTracks(data.tracks);
       })
       .catch((err) => {
-        if (active) setError(err.message);
+        if (current())
+          setError(err instanceof Error ? err.message : "Readiness could not be loaded.");
+      })
+      .finally(() => {
+        if (current()) setLoading(false);
+        release();
       });
     return () => {
-      active = false;
+      controller.abort();
+      release();
     };
-  }, [expanded, target, native]);
+  }, [expanded, target, native, actor, capture, retry]);
   return (
     <details
       className={card}
       open={expanded}
       onToggle={(event) => {
-        if (event.target === event.currentTarget) setExpanded(event.currentTarget.open);
+        if (event.target !== event.currentTarget || !capture().isCurrent()) return;
+        if (!event.currentTarget.open) cancel();
+        setExpanded(event.currentTarget.open);
       }}
     >
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">
@@ -2337,12 +2411,32 @@ function ReadinessPanel({ target, native }: { target: Language; native: NativeLa
         alone does not verify a module. These counts describe shared lesson definitions. Other
         practice sources may be available; they do not establish reviewed readiness.
       </p>
-      {error && <p role="alert">{error}</p>}
+      {expanded && loading && <p role="status">Loading module readiness…</p>}
+      {expanded && error && (
+        <div>
+          <p role="alert">{error}</p>
+          <button
+            className={button}
+            onClick={() => {
+              if (capture().isCurrent() && !loading) setRetry((value) => value + 1);
+            }}
+          >
+            Retry readiness
+          </button>
+        </div>
+      )}
+      {expanded && !loading && !error && !tracks.length && (
+        <p>No readiness records for this language pair.</p>
+      )}
       <label className="mb-4 block text-sm">
         Module to inspect
         <select
           value={selectedTrack?.moduleId ?? ""}
-          onChange={(event) => setSelectedModule(event.target.value)}
+          disabled={!expanded || loading}
+          onChange={(event) => {
+            if (expanded && !loading && capture().isCurrent())
+              setSelectedModule(event.target.value);
+          }}
           className="mt-1 min-h-11 w-full rounded-lg border border-border bg-background px-3"
         >
           <option value="">All modules</option>

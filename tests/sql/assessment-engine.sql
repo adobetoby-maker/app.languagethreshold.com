@@ -208,4 +208,9 @@ select 'PASS: private/team exams, frozen evidence, retries/conflicts, rubric rev
 \ir assessment-speech.sql
 \ir ../../supabase/migrations/20261016184243_assessment_lesson_snapshots.sql
 \ir assessment-lesson-snapshots.sql
+\if :{?assessment_adaptive_route_tests}
+select json_build_object('baselineResponseGuard',md5(pg_get_functiondef('assessment_private.guard_response_write()'::regprocedure)),'baselineSubmit',md5(pg_get_functiondef('public.assessment_submit_attempt(uuid,uuid,integer,uuid)'::regprocedure))) as adaptive_baseline_signatures;
+\ir ../../supabase/migrations/20261017153951_assessment_adaptive_route_records.sql
+\ir assessment-adaptive-route-cases.sql
+\endif
 rollback;

@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { ExamListeningQuestion } from "./ExamListeningQuestion";
 import { HandwrittenExamAnswer } from "./HandwrittenExamAnswer";
+import { ExamInputPractice } from "./ExamInputPractice";
 import { hasUnconfirmedExamInk, readExamInk, examInkKey } from "@/lib/assessments/ink";
 import {
   lazy,
@@ -565,24 +566,7 @@ function ExamsAreaContent({
             online. Device-only answers must sync before submission. Unavailable inputs are marked
             “Not assessed”.
           </p>
-          <details className="my-4">
-            <summary className="min-h-11 cursor-pointer py-3 font-medium">
-              Try the inputs — unscored practice
-            </summary>
-            <label className="block text-sm">
-              Try typing any word
-              <input className={input} aria-label="Unscored input practice" />
-            </label>
-            <fieldset className="mt-3 flex gap-4">
-              <legend className="mb-2">Try selecting an answer</legend>
-              {["Practice A", "Practice B"].map((value) => (
-                <label key={value} className="flex min-h-11 items-center gap-2">
-                  <input type="radio" name="unscored-example" />
-                  {value}
-                </label>
-              ))}
-            </fieldset>
-          </details>
+          <ExamInputPractice />
           <p className="mb-4 text-sm text-muted-foreground">
             Written responses are reviewed for task completion, understandable meaning and useful
             target language. Draft forms remain provisional; repeated forms are labeled in your

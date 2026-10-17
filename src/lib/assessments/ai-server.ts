@@ -11,6 +11,7 @@ import {
   rpc,
 } from "./server";
 import type { AssessmentFormDefinition, AssessmentAnswer } from "./form";
+import { selectedAttemptPath } from "./routing-path-server";
 import {
   ASSESSMENT_AI_CONSENT,
   ASSESSMENT_AI_MODEL,
@@ -24,7 +25,8 @@ export async function proposeWritingReview(
   attemptId: string,
   responseId: string,
 ) {
-  const { attempt, checkpoint, enrollment } = await attemptAccess(db, actor, attemptId);
+  const context = await attemptAccess(db, actor, attemptId, false, "routing");
+  const { attempt, checkpoint, enrollment } = context;
   if (enrollment.user_id !== actor || !attempt.submitted_at)
     throw new AssessmentAccessError("Submitted learner assessment access required.");
   if (
@@ -35,12 +37,7 @@ export async function proposeWritingReview(
       "AI-supported review needs a calibrated form or the explicit QA pilot.",
       409,
     );
-  const key = process.env.ANTHROPIC_API_KEY?.trim();
-  if (!key)
-    throw new AssessmentAccessError(
-      "AI review is unavailable. Human review remains available.",
-      503,
-    );
+  const path = await selectedAttemptPath(db, context, true);
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
   const { data: response, error } = await db
     .from("assessment_responses")
@@ -49,12 +46,19 @@ export async function proposeWritingReview(
     .eq("attempt_id", attemptId)
     .maybeSingle();
   if (error || !response) throw new AssessmentAccessError("This response is unavailable.", 404);
-  const item = form.items.find((row) => row.id === response.item_id),
+  const item = path.items.find((row) => row.id === response.item_id),
     answer = response.answer as AssessmentAnswer;
-  if (!item || !aiWritingEligible(item, answer))
+  if (!item) throw new AssessmentAccessError("Response access required.");
+  if (!aiWritingEligible(item, answer))
     throw new AssessmentAccessError(
       "AI proposals are available for typed writing with a frozen rubric. Missing, spoken and uncertain handwriting inputs need human review.",
       400,
+    );
+  const key = process.env.ANTHROPIC_API_KEY?.trim();
+  if (!key)
+    throw new AssessmentAccessError(
+      "AI review is unavailable. Human review remains available.",
+      503,
     );
   const finalReview = await db
     .from("assessment_score_events")

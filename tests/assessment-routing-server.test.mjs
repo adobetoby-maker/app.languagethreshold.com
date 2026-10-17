@@ -17,7 +17,7 @@ let route;
 try {
   await build({
     stdin: {
-      contents: `export {Route} from './src/routes/api.exams.ts';export {controls} from 'test-controls';`,
+      contents: `export {Route} from './src/routes/api.exams.ts';export {proposeWritingReview} from './src/lib/assessments/ai-server.ts';export {controls} from 'test-controls';`,
       resolveDir: process.cwd(),
     },
     outfile,
@@ -33,13 +33,25 @@ try {
           b.onResolve(
             {
               filter:
-                /^(test-controls|@tanstack\/react-router|@tanstack\/react-start\/server-only|@\/lib\/team-server|@\/lib\/assessments\/server|@\/lib\/assessments\/plans-server)$/,
+                /^(test-controls|@anthropic-ai\/sdk|@tanstack\/react-router|@tanstack\/react-start\/server-only|@\/lib\/team-server|@\/lib\/speaking-security|@\/lib\/assessments\/server|@\/lib\/assessments\/plans-server)$/,
             },
             (args) => ({ path: args.path, namespace: "fixture" }),
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, (args) => {
             if (args.path === "test-controls")
-              return { contents: "export const controls={db:null,actor:'learner',budgets:[]};" };
+              return {
+                contents:
+                  "export const controls={db:null,actor:'learner',budgets:[],providerCalls:[]};",
+              };
+            if (args.path === "@anthropic-ai/sdk")
+              return {
+                contents: `import {controls} from 'test-controls';export default class Anthropic {messages={create:async input=>{controls.providerCalls.push(input);return {model:'controlled-local-only',usage:{input_tokens:0,output_tokens:0},stop_reason:'tool_use',content:[{type:'tool_use',name:'propose_writing_review',input:{dimensions:{task:1},confidence:0.6,reason:'Synthetic local proposal'}}]};}};}`,
+              };
+            if (args.path === "@/lib/speaking-security")
+              return {
+                contents: `export * from ${JSON.stringify(resolve("src/lib/speaking-security.ts"))};export const enforceSpeakingRateLimit=async()=>({allowed:true});`,
+                resolveDir: process.cwd(),
+              };
             if (args.path === "@tanstack/react-start/server-only") return { contents: "" };
             if (args.path === "@tanstack/react-router")
               return { contents: "export const createFileRoute=()=>options=>options;" };
@@ -375,4 +387,283 @@ test("actual save handler permits core and selected branch only; adaptive submit
   const submit = await post(f, { action: "submit" });
   assert.equal(submit.status, 503);
   assert.equal(f.rpcs.length, before);
+});
+
+// Actual human POST and AI pipeline, using fictional local submitted attempts.
+// No hosted review/approval/result or provider request is made.
+const responseId = "44444444-4444-4444-8444-444444444444";
+async function reviewFixture({ flat = false } = {}) {
+  const f = await fixture();
+  // Make both selected and unused branches eligible writing, so membership,
+  // rather than writing eligibility, must reject the unused branch.
+  for (const item of f.form.items.filter((row) => row.id.startsWith("branch-"))) {
+    item.skill = "writing";
+    item.type = "production";
+    item.inputMethods = ["typed"];
+  }
+  f.form.status = "verified"; // Fictional local fixture, never hosted approval.
+  for (const item of f.form.items.filter((row) => row.audioRequired))
+    item.audioAsset = { sha256: "a".repeat(64), bytes: 32, mime: "audio/wav" };
+  if (flat) delete f.form.routing;
+  else await selectAttemptRoute(f.db, "learner", input);
+  f.rows.assessment_attempts[0].submitted_at = "2026-10-17T16:00:00Z";
+  f.rows.assessment_attempts[0].status = "submitted";
+  f.rows.assessment_attempts[0].form_snapshot.calibrated = true;
+  f.rows.assessment_responses = [
+    {
+      id: responseId,
+      attempt_id: attemptId,
+      item_id: "branch-band-b",
+      answer: { inputMethod: "typed", text: "Synthetic selected writing" },
+    },
+  ];
+  f.rows.assessment_review_requests = [
+    { id: "local-request", attempt_id: attemptId, reviewer_id: "reviewer", status: "claimed" },
+  ];
+  f.rows.assessment_reviewers = [
+    {
+      user_id: "reviewer",
+      module_id: f.enrollment.module_id,
+      target_language: f.enrollment.target_language,
+      instruction_language: f.enrollment.instruction_language,
+      active: true,
+    },
+  ];
+  f.rpcs.length = 0;
+  f.queries.length = 0;
+  route.controls.budgets = [];
+  route.controls.providerCalls = [];
+  return f;
+}
+async function reviewPost(f, actor = "reviewer") {
+  route.controls.db = f.db;
+  route.controls.actor = actor;
+  return route.Route.server.handlers.POST({
+    request: new Request("https://routing.invalid/api/exams", {
+      method: "POST",
+      headers: { Origin: "https://routing.invalid", "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "review_score",
+        attemptId,
+        responseId,
+        state: "scored",
+        points: 1,
+        dimensions: { task: 1 },
+        reason: "Synthetic independent review",
+        requestId,
+      }),
+    }),
+  });
+}
+
+test("human review POST checks selected membership and preserves rubric/RPC retry identity for adaptive and flat forms", async () => {
+  for (const flat of [false, true]) {
+    const f = await reviewFixture({ flat });
+    const response = await reviewPost(f);
+    assert.equal(response.status, 200, await response.text());
+    const writes = f.rpcs.filter((r) => r.name === "assessment_review_rubric");
+    assert.equal(writes.length, 1);
+    assert.deepEqual(writes[0].args, {
+      p_actor: "reviewer",
+      p_attempt: attemptId,
+      p_response: responseId,
+      p_state: "scored",
+      p_points: 1,
+      p_dimensions: { task: 1 },
+      p_reason: "Synthetic independent review",
+      p_request: requestId,
+    });
+    assert.equal(
+      f.queries.some((q) => q.table === "assessment_attempt_routes"),
+      !flat,
+    );
+  }
+});
+
+test("human review denies self, unassigned reviewer, unused/foreign response and missing/corrupt route before score writes", async () => {
+  for (const mode of [
+    "self",
+    "unassigned",
+    "unused",
+    "foreign",
+    "missing-route",
+    "corrupt-route",
+    "storage",
+    "unsubmitted",
+  ]) {
+    const f = await reviewFixture();
+    if (mode === "unassigned") f.rows.assessment_review_requests = [];
+    if (mode === "unused") f.rows.assessment_responses[0].item_id = "branch-band-a";
+    if (mode === "foreign") f.rows.assessment_responses[0].attempt_id = requestId;
+    if (mode === "missing-route") f.rows.assessment_attempt_routes = [];
+    if (mode === "corrupt-route") f.rows.assessment_attempt_routes[0].decision.branchId = "unknown";
+    if (mode === "storage") f.errors.assessment_responses = { message: "controlled error" };
+    if (mode === "unsubmitted") f.rows.assessment_attempts[0].submitted_at = null;
+    const response = await reviewPost(f, mode === "self" ? "learner" : "reviewer");
+    assert.ok(response.status >= 400, mode);
+    assert.equal(f.rpcs.length, 0, mode);
+    if (["self", "unassigned"].includes(mode))
+      assert.ok(!f.queries.some((q) => q.table === "assessment_attempt_routes"), mode);
+  }
+});
+
+async function withLocalAiKey(fn) {
+  const previous = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = "synthetic-local-stub-only";
+  try {
+    return await fn();
+  } finally {
+    if (previous === undefined) delete process.env.ANTHROPIC_API_KEY;
+    else process.env.ANTHROPIC_API_KEY = previous;
+  }
+}
+function allowLocalProposal(f) {
+  const baseFrom = f.db.from;
+  f.events = [];
+  f.db.from = (table) => {
+    if (table !== "assessment_events") return baseFrom(table);
+    const query = {
+      select: () => query,
+      in: () => query,
+      eq: () => query,
+      gte: async () => ({ error: null, count: 0 }),
+      insert: async (value) => {
+        f.events.push(value);
+        return { error: null };
+      },
+    };
+    return query;
+  };
+  const baseRpc = f.db.rpc;
+  f.db.rpc = async (name, args) => {
+    if (
+      ![
+        "assessment_claim_grading",
+        "assessment_record_score",
+        "assessment_finish_grading",
+      ].includes(name)
+    )
+      return baseRpc(name, args);
+    f.rpcs.push({ name, args: structuredClone(args) });
+    return { data: name === "assessment_claim_grading" ? true : "local-score", error: null };
+  };
+}
+
+test("AI selected writing uses only selected rubric/answer and remains a human-review proposal for adaptive and flat", async () => {
+  await withLocalAiKey(async () => {
+    for (const flat of [false, true]) {
+      const f = await reviewFixture({ flat });
+      allowLocalProposal(f);
+      const result = await route.proposeWritingReview(f.db, "learner", attemptId, responseId);
+      assert.equal(result.state, "needs_review");
+      assert.equal(route.controls.providerCalls.length, 1);
+      const payload = JSON.parse(route.controls.providerCalls[0].messages[0].content);
+      assert.equal(payload.response, "Synthetic selected writing");
+      assert.deepEqual(payload.rubric, f.form.items.find((i) => i.id === "branch-band-b").rubric);
+      assert.ok(!JSON.stringify(payload).includes("branch-band-a"));
+      const score = f.rpcs.find((r) => r.name === "assessment_record_score");
+      assert.equal(score.args.p_source, "ai_proposal");
+      assert.equal(score.args.p_state, "needs_review");
+      assert.equal(f.events.length, 2);
+      assert.equal(f.rpcs.at(-1).args.p_succeeded, true);
+    }
+  });
+});
+
+test("AI denies unused/foreign responses, non-owner, unsubmitted, missing/corrupt route and storage error before claim/audit/provider", async () => {
+  await withLocalAiKey(async () => {
+    for (const mode of [
+      "unused",
+      "foreign",
+      "non-owner",
+      "unsubmitted",
+      "missing-route",
+      "corrupt-route",
+      "storage",
+      "uncalibrated",
+    ]) {
+      const f = await reviewFixture();
+      allowLocalProposal(f);
+      if (mode === "unused") f.rows.assessment_responses[0].item_id = "branch-band-a";
+      if (mode === "foreign") f.rows.assessment_responses[0].attempt_id = requestId;
+      if (mode === "unsubmitted") f.rows.assessment_attempts[0].submitted_at = null;
+      if (mode === "missing-route") f.rows.assessment_attempt_routes = [];
+      if (mode === "corrupt-route")
+        f.rows.assessment_attempt_routes[0].decision.branchId = "unknown";
+      if (mode === "storage") f.errors.assessment_responses = { message: "controlled error" };
+      if (mode === "uncalibrated") f.rows.assessment_attempts[0].form_snapshot.calibrated = false;
+      await assert.rejects(
+        route.proposeWritingReview(
+          f.db,
+          mode === "non-owner" ? "reviewer" : "learner",
+          attemptId,
+          responseId,
+        ),
+        undefined,
+        mode,
+      );
+      assert.equal(f.rpcs.length, 0, mode);
+      assert.equal(f.events.length, 0, mode);
+      assert.equal(route.controls.providerCalls.length, 0, mode);
+    }
+  });
+});
+
+test("selected writing with a final human score never claims or invokes AI; unavailable input remains ineligible", async () => {
+  await withLocalAiKey(async () => {
+    const f = await reviewFixture();
+    allowLocalProposal(f);
+    f.rows.assessment_score_events = [
+      { id: "local-human-score", response_id: responseId, source: "human" },
+    ];
+    assert.equal(
+      (await route.proposeWritingReview(f.db, "learner", attemptId, responseId)).state,
+      "already_reviewed",
+    );
+    assert.equal(route.controls.providerCalls.length, 0);
+    assert.equal(f.rpcs.length, 0);
+    assert.equal(f.events.length, 0);
+    f.rows.assessment_score_events = [];
+    f.rows.assessment_responses[0].answer = {
+      inputMethod: "unavailable",
+      missingReason: "Synthetic unavailable input",
+    };
+    await assert.rejects(route.proposeWritingReview(f.db, "learner", attemptId, responseId), {
+      status: 400,
+    });
+    assert.equal(route.controls.providerCalls.length, 0);
+    assert.equal(f.rpcs.length, 0);
+    assert.equal(f.events.length, 0);
+  });
+});
+
+test("human review still reaches authoritative rubric authorization, including a late grant revocation", async () => {
+  const f = await reviewFixture();
+  f.db.rpc = async (name, args) => {
+    f.rpcs.push({ name, args });
+    return { data: null, error: { code: "P0001", message: "Reviewer access required" } };
+  };
+  const response = await reviewPost(f);
+  assert.equal(response.status, 403);
+  assert.deepEqual(
+    f.rpcs.map((r) => r.name),
+    ["assessment_review_rubric"],
+  );
+});
+
+test("AI durable claim refusal prevents repeat audit and provider invocation for selected writing", async () => {
+  await withLocalAiKey(async () => {
+    const f = await reviewFixture();
+    allowLocalProposal(f);
+    f.db.rpc = async (name, args) => {
+      f.rpcs.push({ name, args });
+      assert.equal(name, "assessment_claim_grading");
+      return { data: false, error: null };
+    };
+    const result = await route.proposeWritingReview(f.db, "learner", attemptId, responseId);
+    assert.equal(result.state, "already_requested");
+    assert.equal(route.controls.providerCalls.length, 0);
+    assert.equal(f.events.length, 0);
+    assert.equal(f.rpcs.length, 1);
+  });
 });

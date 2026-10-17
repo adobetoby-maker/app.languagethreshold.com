@@ -634,16 +634,20 @@ export const Route = createFileRoute("/api/exams")({
               }),
             });
           if (body.action === "review_score") {
-            const context = await attemptAccess(db, user.id, body.attemptId, true);
+            const context = await attemptAccess(db, user.id, body.attemptId, true, "routing");
             if (!context.attempt.submitted_at)
               throw new AssessmentAccessError("Submit this assessment first.", 400);
-            const { data: response } = await db
+            const path = await selectedAttemptPath(db, context, true);
+            const { data: response, error: responseError } = await db
               .from("assessment_responses")
-              .select("id")
+              .select("id,item_id")
               .eq("id", body.responseId)
               .eq("attempt_id", body.attemptId)
               .maybeSingle();
-            if (!response) throw new AssessmentAccessError("Response access required.");
+            if (responseError)
+              throw new AssessmentAccessError("Review response could not be checked.", 503);
+            if (!response || !path.items.some((item) => item.id === response.item_id))
+              throw new AssessmentAccessError("Response access required.");
             return json({
               scoreId: await rpc(db, "assessment_review_rubric", {
                 p_actor: user.id,

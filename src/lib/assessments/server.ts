@@ -544,9 +544,9 @@ export async function readAttempt(
     if (path.routing) evidence = normalizePathEvidence(path, evidence);
   }
   let canReview = false;
-  if (!path.routing && enrollment.user_id !== actor && attempt.submitted_at) {
+  if (enrollment.user_id !== actor && attempt.submitted_at) {
     try {
-      await attemptAccess(db, actor, id, true);
+      await attemptAccess(db, actor, id, true, "routing");
       canReview = true;
     } catch {
       /* No review authority. */
@@ -611,9 +611,8 @@ export async function readAttempt(
       ? attempt.form_snapshot.reportedStudiedObjectives.length
       : 0,
     aiWritingAvailable:
-      !path.routing &&
-      ((attempt.form_snapshot.pilot === true && pilotAllowed(actor)) ||
-        (attempt.form_snapshot.calibrated === true && form.status === "verified")),
+      (attempt.form_snapshot.pilot === true && pilotAllowed(actor)) ||
+      (attempt.form_snapshot.calibrated === true && form.status === "verified"),
     gradingJobs: jobs.data ?? [],
     aiProposals: (proposals.data ?? [])
       .filter((row) => !path.routing || responseIds.includes(row.detail?.responseId))

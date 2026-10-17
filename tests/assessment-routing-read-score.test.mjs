@@ -304,3 +304,38 @@ test("legacy flat frozen form keeps its historical item/feedback order without a
   assert.equal(value.feedback.length, 21);
   assert.ok(!f.queries.some((q) => q.table === "assessment_attempt_routes"));
 });
+
+test("selected submitted views expose qualified reviewer controls and calibrated AI eligibility without granting self-review", async () => {
+  const f = await fixture({ selected: true, submitted: true });
+  f.form.status = "verified"; // Synthetic local metadata, never a hosted approval.
+  for (const item of f.form.items.filter((row) => row.audioRequired))
+    item.audioAsset = { sha256: "a".repeat(64), bytes: 32, mime: "audio/wav" };
+  f.attempt.form_snapshot.calibrated = true;
+  const { answers } = routingFixture();
+  f.rows.assessment_attempt_routes[0].decision = evaluateRouting(
+    f.form,
+    attemptId,
+    4,
+    answers,
+  ).decision;
+  f.rows.assessment_review_requests = [
+    { id: "local-review", attempt_id: attemptId, reviewer_id: "reviewer", status: "claimed" },
+  ];
+  f.rows.assessment_reviewers = [
+    {
+      user_id: "reviewer",
+      module_id: f.enrollment.module_id,
+      target_language: f.enrollment.target_language,
+      instruction_language: f.enrollment.instruction_language,
+      active: true,
+    },
+  ];
+  const learner = await readAttempt(f.db, "learner", attemptId);
+  assert.equal(learner.canReview, false);
+  assert.equal(learner.aiWritingAvailable, true);
+  const reviewer = await readAttempt(f.db, "reviewer", attemptId, true);
+  assert.equal(reviewer.canReview, true);
+  assert.equal(reviewer.form.items.length, 19);
+  f.rows.assessment_reviewers[0].active = false;
+  await assert.rejects(readAttempt(f.db, "reviewer", attemptId, true), { status: 403 });
+});

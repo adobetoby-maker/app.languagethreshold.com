@@ -26,7 +26,15 @@ Adaptive read access and the explicit organization scope are checked again after
 
 Initial scoring resolves the same immutable path, validates the complete selected response set and prepares every deterministic result before its first scoring RPC. It uses final saved answers, without recomputing the routing decision from later core edits. Missing evidence remains not assessed, and production remains pending review. Partial storage failures resume through the existing stable per-response scoring identities. No missing responses are invented for unused branches. Flat historical forms retain their original item/feedback order without a route query.
 
-The attempt's returned branch evidence has no comparison anchor; fixed-core evidence retains its authored anchor. The same evidence normalization now applies to overview/history/export/source-plan summaries. Adaptive AI and human-review controls remain unavailable in this checkpoint. Positive score/read/retry fixtures are local only; no hosted result or content approval is manufactured.
+The attempt's returned branch evidence has no comparison anchor; fixed-core evidence retains its authored anchor. The same evidence normalization now applies to overview/history/export/source-plan summaries. Selected human and AI review now use the same validated immutable path, as described below. Positive score/read/retry fixtures are local only; no hosted result or content approval is manufactured.
+
+## Selected human and AI review
+
+Human rubric review authorizes the independent reviewer first, requires a submitted attempt and valid saved route, and checks the response belongs to that attempt and its selected items before calling the existing rubric RPC. Storage errors fail closed. The RPC retains authoritative current reviewer qualification/scope, exact frozen rubric dimensions/total, speech-listened requirements and retry identity checks. The selected view can expose review controls only after normal reviewer authorization; learners cannot review themselves.
+
+AI writing proposals require the actual learner, submission, calibrated verified form or explicit QA-pilot eligibility, and the same saved selected path. Unused/foreign responses fail before grading claims, consent audit or provider work. Existing typed-writing/rubric eligibility, final-human-review protection, account budget, durable single-call claim, proposal validation and human-decision requirement remain. The provider receives only the selected item's prompt/rubric and that response. This does not create a calibrated form, consent, final grade or reviewer approval. Flat forms retain their item order and require no routing-table read.
+
+Controlled production-source tests exercise the actual human POST and AI pipeline with fictional local records and a stubbed SDK. They include selected/flat success, self/unassigned reviewer denial, unused/foreign responses, missing/corrupt routes, storage errors, unsubmitted/uncalibrated attempts, final human review, authoritative RPC revocation and duplicate provider-claim refusal. No hosted score/approval or paid call is made. Real assigned-reviewer, linguistic and consented pilot acceptance remain open.
 
 ## Core comparison summaries and exports
 
@@ -34,7 +42,7 @@ Overview, paged attempt history, source plans and their progress CSV now share o
 
 Individual profiles retain all selected evidence. Growth uses only the fixed core because branch comparison anchors are removed, even if an authored branch accidentally shares an anchor with a core item. Missing selected grades remain pending, and actual unavailable evidence stays not assessed. Unused branch items add no rows or denominator. Existing calibration, equivalent-form approval and three-shared-objective requirements remain unchanged; matching IDs/anchors cannot grant an approval. After adaptive enrichment, an empty attempt selection repeats current enrollment authorization without fetching scores again. Historical flat summaries retain their original evidence/order and require no routing/private-definition reads.
 
-Controlled tests cover actual summary normalization, comparison and CSV output, bounded multi-batch recovery/denial and revoked access. They do not establish genuine reviewed form equivalence, real learner longitudinal growth, hosted adaptive export/browser acceptance or worst-case platform latency at the existing 600-attempt cap. Adaptive starts and submission remain disabled while review and the core-to-branch UI are incomplete.
+Controlled tests cover actual summary normalization, comparison and CSV output, bounded multi-batch recovery/denial and revoked access. They do not establish genuine reviewed form equivalence, real learner longitudinal growth, hosted adaptive export/browser acceptance or worst-case platform latency at the existing 600-attempt cap. Adaptive starts and submission remain disabled while the core-to-branch UI and acceptance are incomplete.
 
 ## Fixed-core team patterns
 

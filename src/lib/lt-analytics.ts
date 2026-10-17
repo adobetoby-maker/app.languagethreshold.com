@@ -1,3 +1,7 @@
+// The shared backend was checked read-only: legacy analytics/feedback tables are absent.
+// Enable only after separately authorized backend setup and delivery/access acceptance.
+export const FIELD_PREP_ANALYTICS_ENABLED = false;
+
 type Payload = Record<string, unknown>;
 export type AnalyticsInsert = (
   table: string,

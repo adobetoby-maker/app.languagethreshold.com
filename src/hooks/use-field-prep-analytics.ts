@@ -1,13 +1,18 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useAuth } from "@/state/auth-state";
 import { supabase } from "@/integrations/supabase/client";
-import { createLtAnalytics, type LtAnalytics } from "@/lib/lt-analytics";
+import {
+  createLtAnalytics,
+  FIELD_PREP_ANALYTICS_ENABLED,
+  type LtAnalytics,
+} from "@/lib/lt-analytics";
 
 export function useFieldPrepAnalytics(): LtAnalytics {
   const { user, isCurrentUser } = useAuth();
   const actor = user?.id ?? null;
   const instance = useRef<LtAnalytics | null>(null);
   useEffect(() => {
+    if (!FIELD_PREP_ANALYTICS_ENABLED) return;
     let mounted = true;
     const current = () => mounted && (actor === null || isCurrentUser(actor));
     const analytics = createLtAnalytics({

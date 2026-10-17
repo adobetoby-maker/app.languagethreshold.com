@@ -30,6 +30,7 @@ import {
 } from "@/data/roleplay-scenarios";
 import { MissionBanner } from "./MissionBanner";
 import { PostSessionFeedback } from "./PostSessionFeedback";
+import { FIELD_PREP_ANALYTICS_ENABLED } from "@/lib/lt-analytics";
 import { useFieldPrepAnalytics } from "@/hooks/use-field-prep-analytics";
 import { cn } from "@/lib/utils";
 import { useAiGate } from "@/state/ai-gate-state";
@@ -189,7 +190,7 @@ export function FieldPrepMode() {
         durationSeconds: duration,
         completed: exchanges >= 3,
       });
-      if (exchanges >= 2) {
+      if (exchanges >= 2 && FIELD_PREP_ANALYTICS_ENABLED) {
         setShowFeedback(true);
         return; // feedback dialog will then close and navigate
       }

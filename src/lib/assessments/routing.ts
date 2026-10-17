@@ -170,6 +170,24 @@ export function routingPublicItems(
   let branch: AssessmentRoutingPolicy["branches"][number] | undefined;
   if (decision) {
     branch = p.branches.find((branch) => branch.id === decision.branchId);
+    const objectiveItems = form.items.filter(
+      (item) =>
+        p.coreItemIds.includes(item.id) &&
+        item.type !== "production" &&
+        item.skill !== "speaking" &&
+        item.skill !== "writing",
+    );
+    const sufficient =
+      decision.scoredCount >= p.minimumEvidence && decision.scoredObjectives >= p.minimumObjectives;
+    const band =
+      typeof decision.percent === "number" && Number.isFinite(decision.percent)
+        ? p.bands.find(
+            (band) =>
+              decision.percent! >= band.minimumPercent &&
+              (decision.percent! < band.maximumPercent ||
+                (decision.percent === 100 && band.maximumPercent === 100)),
+          )
+        : undefined;
     if (
       decision.schema !== 1 ||
       decision.attemptId !== attemptId ||
@@ -180,6 +198,24 @@ export function routingPublicItems(
       decision.rubricVersion !== form.rubricVersion ||
       decision.policyVersion !== p.version ||
       !branch ||
+      !Number.isInteger(decision.scoredCount) ||
+      decision.scoredCount < 0 ||
+      decision.scoredCount > objectiveItems.length ||
+      !Number.isInteger(decision.scoredObjectives) ||
+      decision.scoredObjectives < 0 ||
+      decision.scoredObjectives >
+        Math.min(
+          decision.scoredCount,
+          new Set(objectiveItems.map((item) => item.objectiveId)).size,
+        ) ||
+      (decision.scoredCount > 0 && decision.scoredObjectives === 0) ||
+      !(
+        (decision.reason === "insufficient_evidence" &&
+          !sufficient &&
+          decision.percent === null &&
+          decision.branchId === p.insufficientEvidenceBranchId) ||
+        (decision.reason === "score_band" && sufficient && band?.branchId === decision.branchId)
+      ) ||
       !/^[a-f0-9]{64}$/.test(decision.sourceDigest)
     )
       throw new Error("Routing decision does not match the frozen form.");

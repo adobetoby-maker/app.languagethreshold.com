@@ -2,7 +2,7 @@ import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
 import { json, type TeamDb } from "@/lib/team-server";
 import { AssessmentAccessError, attemptAccess, pilotAllowed } from "./server";
-import type { AssessmentFormDefinition } from "./form";
+import { selectedAttemptPath } from "./routing-path-server";
 import {
   ASSESSMENT_AUDIO_BUCKET,
   assessmentAudioPath,
@@ -17,7 +17,7 @@ export async function readAssessmentListening(
   attemptId: string,
   itemId: string,
 ) {
-  const context = await attemptAccess(db, actor, attemptId);
+  const context = await attemptAccess(db, actor, attemptId, false, "routing");
   if (
     context.enrollment.user_id !== actor ||
     context.attempt.submitted_at ||
@@ -25,11 +25,28 @@ export async function readAssessmentListening(
     context.enrollment.status !== "active"
   )
     throw new AssessmentAccessError("Active learner assessment access required.");
-  const form = context.attempt.form_snapshot.definition as AssessmentFormDefinition;
-  const item = form.items.find((row) => row.id === itemId);
+  const path = await selectedAttemptPath(db, context);
+  const item = path.items.find((row) => row.id === itemId);
+  if (!item)
+    throw new AssessmentAccessError(
+      "Listening audio is unavailable outside the selected assessment path.",
+      404,
+    );
   if (!item?.audioRequired || !item.audioText)
     throw new AssessmentAccessError("Listening audio is unavailable for this item.", 503);
-  if (item.audioAsset) return assessmentAudioResponse(db, item.audioAsset);
+  if (item.audioAsset) {
+    const response = await assessmentAudioResponse(db, item.audioAsset);
+    // Recheck membership/status after the protected storage read.
+    const current = await attemptAccess(db, actor, attemptId, false, "routing");
+    if (
+      current.enrollment.user_id !== actor ||
+      current.attempt.submitted_at ||
+      current.attempt.status !== "in_progress" ||
+      current.enrollment.status !== "active"
+    )
+      throw new AssessmentAccessError("Active learner assessment access required.");
+    return response;
+  }
   if (!context.attempt.form_snapshot.pilot || !pilotAllowed(actor))
     throw new AssessmentAccessError(
       "Reviewed assessment audio has not been published for this form.",

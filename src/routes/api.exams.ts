@@ -1,5 +1,6 @@
 import { hasAdaptiveRouting } from "@/lib/assessments/routing-contract";
 import { selectAttemptRoute } from "@/lib/assessments/routing-server";
+import { selectedAttemptPath } from "@/lib/assessments/routing-path-server";
 import { preparationKey, preparationMinutes } from "@/lib/assessments/preparation";
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
@@ -558,7 +559,14 @@ export const Route = createFileRoute("/api/exams")({
             return json(await readAttempt(db, user.id, attemptId));
           }
           if (body.action === "save") {
-            await attemptAccess(db, user.id, body.attemptId);
+            const context = await attemptAccess(db, user.id, body.attemptId, false, "routing");
+            if (hasAdaptiveRouting(context.attempt.form_snapshot?.definition)) {
+              if (context.enrollment.user_id !== user.id)
+                throw new AssessmentAccessError("Learner assessment access required.");
+              const path = await selectedAttemptPath(db, context);
+              if (body.updates.some(update => !path.items.some(item => item.id === update.itemId)))
+                throw new AssessmentAccessError("Response item is not in the selected assessment path.", 400);
+            }
             const revision = await rpc<number>(db, "assessment_save_responses", {
               p_actor: user.id,
               p_attempt: body.attemptId,
@@ -569,6 +577,8 @@ export const Route = createFileRoute("/api/exams")({
             return json({ revision, syncedAt: new Date().toISOString() });
           }
           if (body.action === "submit") {
+            // Keep adaptive submission gated until selected scoring/reporting is integrated.
+            await attemptAccess(db, user.id, body.attemptId);
             await rpc(db, "assessment_submit_attempt", {
               p_actor: user.id,
               p_attempt: body.attemptId,

@@ -82,9 +82,10 @@ async function fixture() {
     {
       id: attemptId,
       checkpoint_id: f.checkpoints[0].id,
+      form_id: form.id,
       revision: 4,
       status: "in_progress",
-      form_snapshot: { definition: form },
+      form_snapshot: { definition: form, version: form.version, rubricVersion: form.rubricVersion },
     },
   ];
   f.rows.assessment_responses = answers.map(({ itemId, answer }) => ({
@@ -353,4 +354,25 @@ test("a save winning the atomic lock yields a conflict without exposing a branch
   await assert.rejects(selectAttemptRoute(f.db, "learner", input), { status: 409 });
   assert.equal(f.rows.assessment_attempt_routes.length, 0);
   assert.deepEqual({ form: f.form, responses: f.rows.assessment_responses }, before);
+});
+
+test("actual save handler permits core and selected branch only; adaptive submit stays gated before mutation", async () => {
+  const f = await fixture();
+  const save = (itemId) =>
+    post(f, {
+      action: "save",
+      updates: [{ itemId, answer: { inputMethod: "choice", choiceId: "a" } }],
+    });
+  assert.equal((await save("branch-band-b")).status, 400);
+  assert.equal(f.rpcs.length, 0);
+  assert.equal((await save(f.form.routing.coreItemIds[0])).status, 200);
+  assert.equal(f.rpcs.at(-1).name, "assessment_save_responses");
+  await selectAttemptRoute(f.db, "learner", input);
+  assert.equal((await save("branch-band-b")).status, 200);
+  const before = f.rpcs.length;
+  assert.equal((await save("branch-band-a")).status, 400);
+  assert.equal(f.rpcs.length, before);
+  const submit = await post(f, { action: "submit" });
+  assert.equal(submit.status, 503);
+  assert.equal(f.rpcs.length, before);
 });

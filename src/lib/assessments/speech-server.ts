@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { z } from "zod";
 import type { TeamDb } from "@/lib/team-server";
 import { AssessmentAccessError, attemptAccess, rpc } from "./server";
-import type { AssessmentFormDefinition } from "./form";
+import { selectedAttemptPath } from "./routing-path-server";
 import {
   ASSESSMENT_SPEECH_BUCKET,
   MAX_SPEECH_BYTES,
@@ -47,7 +47,8 @@ export async function speechPolicy(db: TeamDb) {
   };
 }
 export async function speechStatus(db: TeamDb, actor: string, attemptId: string) {
-  await attemptAccess(db, actor, attemptId);
+  const context = await attemptAccess(db, actor, attemptId, false, "routing");
+  await selectedAttemptPath(db, context);
   return speechPolicy(db);
 }
 export async function boundedSpeechBody(request: Request) {
@@ -95,7 +96,7 @@ export async function uploadAssessmentSpeech(db: TeamDb, actor: string, request:
   const input = uploadSchema.parse(
     JSON.parse(request.headers.get("X-Assessment-Speech") ?? "null"),
   );
-  const context = await attemptAccess(db, actor, input.attemptId);
+  const context = await attemptAccess(db, actor, input.attemptId, false, "routing");
   if (
     context.enrollment.user_id !== actor ||
     context.enrollment.status !== "active" ||
@@ -103,14 +104,13 @@ export async function uploadAssessmentSpeech(db: TeamDb, actor: string, request:
     context.attempt.submitted_at
   )
     throw new AssessmentAccessError("Active learner assessment access required.");
+  const selectedPath = await selectedAttemptPath(db, context);
+  const item = selectedPath.items.find((i) => i.id === input.itemId);
+  if (item?.skill !== "speaking" || !item.inputMethods.includes("speech"))
+    throw new AssessmentAccessError("Selected frozen speaking item required.", 400);
   const policy = await speechPolicy(db);
   if (!policy.enabled || input.policyVersion !== policy.version)
     throw new AssessmentAccessError("Speech collection policy is not enabled.", 409);
-  const item = (context.attempt.form_snapshot.definition as AssessmentFormDefinition).items.find(
-    (i) => i.id === input.itemId,
-  );
-  if (item?.skill !== "speaking" || !item.inputMethods.includes("speech"))
-    throw new AssessmentAccessError("Frozen speaking item required.", 400);
   if (request.headers.get("Content-Type")?.split(";")[0] !== input.mime)
     throw new AssessmentAccessError("Recording format does not match.", 400);
   const storage = await privateSpeechBucket(db);
@@ -170,9 +170,19 @@ export async function readAssessmentSpeech(db: TeamDb, actor: string, evidenceId
   const row = result.data;
   if (result.error || !row?.attempt_id || row.state !== "ready" || row.delete_requested_at)
     throw new AssessmentAccessError("Speech evidence is unavailable.", 404);
-  const context = await attemptAccess(db, actor, row.attempt_id, actor !== row.learner_id);
+  const context = await attemptAccess(
+    db,
+    actor,
+    row.attempt_id,
+    actor !== row.learner_id,
+    "routing",
+  );
   if (actor !== row.learner_id && !context.attempt.submitted_at)
     throw new AssessmentAccessError("Submit this assessment before review.");
+  const path = await selectedAttemptPath(db, context);
+  const item = path.items.find((item) => item.id === row.item_id);
+  if (item?.skill !== "speaking" || !item.inputMethods.includes("speech"))
+    throw new AssessmentAccessError("Selected frozen speaking evidence required.", 404);
   const response = await db
     .from("assessment_responses")
     .select("answer")
@@ -203,7 +213,7 @@ export async function readAssessmentSpeech(db: TeamDb, actor: string, evidenceId
     .maybeSingle();
   if (current.error || current.data?.state !== "ready" || current.data.delete_requested_at)
     throw new AssessmentAccessError("Speech evidence is unavailable.", 404);
-  await attemptAccess(db, actor, row.attempt_id, actor !== row.learner_id);
+  await attemptAccess(db, actor, row.attempt_id, actor !== row.learner_id, "routing");
   return new Response(bytes, {
     headers: {
       "Content-Type": row.mime,

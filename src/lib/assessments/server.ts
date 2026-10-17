@@ -1,4 +1,6 @@
 import { hasAdaptiveRouting } from "./routing-contract";
+import { AssessmentAccessError } from "./errors";
+export { AssessmentAccessError } from "./errors";
 import { attemptMatchesOrganization } from "./scope.ts";
 import {
   readSupportingChecks,
@@ -25,14 +27,6 @@ import {
 } from "./form";
 import { checkpointProfiles, type ItemEvidence, type Checkpoint } from "./core";
 
-export class AssessmentAccessError extends Error {
-  constructor(
-    message: string,
-    readonly status = 403,
-  ) {
-    super(message);
-  }
-}
 /** Adaptive drafts cannot run through the legacy flat-form serializer/scorer. */
 export function requireFixedAssessmentRuntime(definition: unknown) {
   if (hasAdaptiveRouting(definition))

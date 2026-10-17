@@ -8,7 +8,15 @@ The strict `POST /api/exams` action `route` accepts only `attemptId`, saved `rev
 
 Retries validate and reuse the original core snapshot and decision, even after later answer edits. A new request UUID cannot reroute; the same UUID with a changed source revision conflicts. Every retry still reaches the RPC for global request-identity conflicts and fresh authorization. If another route wins concurrently, only its immutable validated decision is projected. Malformed audit/receipt data fails closed. The response contains current revision, a selected-state/core-count summary and whitelisted core/selected questions; private routing reason, percentage, evidence counts, digest, policy, keys and unselected branches remain server-only.
 
-Adaptive preparation/start, ordinary attempt serialization, scoring and media paths still retain their existing blanket guard. This action does not enable new adaptive exams. Selected read/save/media/scoring/reporting, fixed-core comparison and Continue/resume UI remain required before that guard can be removed. Positive route fixtures are controlled local tests, not hosted content or an approved policy.
+Adaptive preparation/start, ordinary attempt serialization, scoring and AI review still retain their existing blanket guard. Submission also checks that guard before its durable RPC, avoiding an unfinished adaptive submission. This action does not enable new adaptive exams. Selected ordinary reads/scoring/reporting, fixed-core comparison and Continue/resume UI remain required before starts can be enabled. Positive route fixtures are controlled local tests, not hosted content or an approved policy.
+
+## Selected answers and media
+
+The internal selected-path resolver accepts an already-authorized attempt context. Historical flat forms retain their original order without reading the route table. Adaptive forms require valid full-module metadata and matching frozen form/rubric identity. Before selection only core items are usable; after selection only core plus the immutable branch are usable, including after later core edits. The resolver reads only decision/revision fields, not original core answers or the retry audit payload. Malformed identity, evidence/band metadata, revisions or storage errors fail closed.
+
+The save handler rejects unselected updates before calling the existing save RPC; database selected-item guards repeat membership checks under lock. Listening requires an active learner and selected frozen item before a protected clip read or QA-only device-speech fallback, and rechecks active access after fetching clip bytes. Speech status validates the selected path; upload requires a selected speaking item before policy checks, request-body consumption or storage. Playback requires selected speaking evidence plus the exact attached response and retains withdrawal/byte-integrity/access rechecks. Collection/cleanup policy gates remain unchanged and disabled on the shared backend.
+
+These paths do not activate adaptive starts or supply a new form, reviewed clip, speech policy, score or growth claim. Controlled media tests use synthetic local byte fixtures; they are not microphone, physical-device, linguistic or reviewer acceptance.
 
 ## Implemented source boundaries
 

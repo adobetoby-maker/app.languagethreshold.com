@@ -33,7 +33,14 @@ function fixture({ withdrawn = false, publicBucket = false, corrupt = false } = 
   };
   const tables = {
     assessment_speech_evidence: row,
-    assessment_attempts: { id: "attempt", checkpoint_id: "cp", submitted_at: "2026-10-16" },
+    assessment_attempts: {
+      id: "attempt",
+      checkpoint_id: "cp",
+      submitted_at: "2026-10-16",
+      form_snapshot: {
+        definition: { items: [{ id: "spoken", skill: "speaking", inputMethods: ["speech"] }] },
+      },
+    },
     assessment_checkpoints: { id: "cp", enrollment_id: "enrollment" },
     assessment_enrollments: { id: "enrollment", scope: "personal", user_id: learner },
     assessment_responses: {

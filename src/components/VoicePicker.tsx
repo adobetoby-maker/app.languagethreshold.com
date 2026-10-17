@@ -171,6 +171,7 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         usage: "learning",
       });
     } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
       toast.error(error instanceof Error ? error.message : "Google voice preview failed.");
     }
   };

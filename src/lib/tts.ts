@@ -6,7 +6,7 @@
 import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
 import { speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
-import { configureUtterance, getStoredVoicePreference, getVoicesForLocale } from "@/lib/voices";
+import { configureUtterance, getVoicesForLocale } from "@/lib/voices";
 import { toast } from "sonner";
 
 const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
@@ -21,9 +21,7 @@ function audioEl(): HTMLAudioElement {
 }
 
 function selectedGoogleVoice(locale: string, preferredVoiceURI?: string | null) {
-  const preference =
-    preferredVoiceURI === undefined ? getStoredVoicePreference(locale) : preferredVoiceURI;
-  return decodeGoogleVoicePreference(preference);
+  return decodeGoogleVoicePreference(preferredVoiceURI ?? null);
 }
 
 /** True when playback should use a selected server voice or needs the Pashto fallback. */

@@ -1,4 +1,9 @@
 import { attemptMatchesOrganization } from "./scope.ts";
+import {
+  readSupportingChecks,
+  supportingCheckKey,
+  type SupportingCheckEnrollment,
+} from "./support-check-readiness";
 import { summarizedAttempt } from "./reporting";
 import type { OverviewFilters, OverviewPage, AttemptSummary } from "./reporting";
 import { enforceSpeakingRateLimit } from "@/lib/speaking-security";
@@ -32,6 +37,16 @@ export function pilotAllowed(userId: string): boolean {
     .split(",")
     .map((value) => value.trim())
     .includes(userId);
+}
+export async function supportingChecks(
+  db: TeamDb,
+  enrollments: readonly SupportingCheckEnrollment[],
+) {
+  try {
+    return await readSupportingChecks(db, enrollments);
+  } catch {
+    throw new AssessmentAccessError("Supporting check readiness could not be loaded.", 503);
+  }
 }
 export function stableRequestId(value: string): string {
   const bytes = Buffer.from(createHash("sha256").update(value).digest().subarray(0, 16));
@@ -247,6 +262,7 @@ export async function listEnrollments(
     p_enrollments: ids,
     p_attempts: attempts.map((attempt) => attempt.id),
   });
+  const support = await supportingChecks(db, permitted);
   const enrollments = permitted.map((enrollment) => ({
     ...enrollment,
     checkpoints: (checkpoints ?? [])
@@ -255,18 +271,22 @@ export async function listEnrollments(
         ...cp,
         ready:
           availableReleases.has(enrollment.release_id) &&
-          (forms ?? []).some(
-            (form) =>
-              form.release_id === enrollment.release_id &&
-              form.checkpoint === cp.checkpoint &&
-              officialFormAvailable(form),
-          ),
+          (enrollment.program_scope === "support_units"
+            ? support.get(supportingCheckKey(enrollment.id, cp.checkpoint))?.reviewed === true
+            : (forms ?? []).some(
+                (form) =>
+                  form.release_id === enrollment.release_id &&
+                  form.checkpoint === cp.checkpoint &&
+                  officialFormAvailable(form),
+              )),
         pilotReady:
           pilotAllowed(actor) &&
-          (forms ?? []).some(
-            (form) =>
-              form.release_id === enrollment.release_id && form.checkpoint === cp.checkpoint,
-          ),
+          (enrollment.program_scope === "support_units"
+            ? support.has(supportingCheckKey(enrollment.id, cp.checkpoint))
+            : (forms ?? []).some(
+                (form) =>
+                  form.release_id === enrollment.release_id && form.checkpoint === cp.checkpoint,
+              )),
         attempts: (attempts ?? [])
           .filter((attempt) => attempt.checkpoint_id === cp.id)
           .map((attempt) => {

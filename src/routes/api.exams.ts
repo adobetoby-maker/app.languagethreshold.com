@@ -1,4 +1,5 @@
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
+import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
 import {
   speechStatus,
   uploadAssessmentSpeech,
@@ -34,6 +35,7 @@ import {
   enrollmentAccess,
   initializeScores,
   listEnrollments,
+  supportingChecks,
   pilotAllowed,
   readAttempt,
   readinessCatalog,
@@ -458,17 +460,12 @@ export const Route = createFileRoute("/api/exams")({
               .eq("checkpoint", checkpoint.checkpoint)
               .eq("purpose", enrollment.program_scope === "support_units" ? "support" : "module");
             if (enrollment.program_scope === "support_units") {
-              const { data: cap } = await db
-                .from("assessment_support_capabilities")
-                .select("status,before_form_id,after_form_id")
-                .eq("id", enrollment.support_capability_id)
-                .maybeSingle();
-              if (cap?.status !== "verified")
-                throw new AssessmentAccessError("Reviewed supporting checks are unavailable.", 400);
-              formQuery = formQuery.eq(
-                "id",
-                checkpoint.checkpoint === "entrance" ? cap.before_form_id : cap.after_form_id,
+              const support = (await supportingChecks(db, [enrollment])).get(
+                supportingCheckKey(enrollment.id, checkpoint.checkpoint),
               );
+              if (!support || (!support.reviewed && !pilotAllowed(user.id)))
+                throw new AssessmentAccessError("Reviewed supporting checks are unavailable.", 400);
+              formQuery = formQuery.eq("id", support.formId);
             }
             const { data: forms, error: formError } = await formQuery.order("created_at", {
               ascending: false,

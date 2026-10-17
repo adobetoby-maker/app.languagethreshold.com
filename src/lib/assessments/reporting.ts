@@ -28,6 +28,8 @@ export interface RawExamEnrollment {
   timezone: string;
   start_date: string;
   created_at: string;
+  program_scope?: "full_module" | "support_units";
+  support_capability_id?: string | null;
 }
 export interface RawExamCheckpoint {
   id: string;

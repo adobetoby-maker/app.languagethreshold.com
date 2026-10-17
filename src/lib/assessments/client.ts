@@ -1,4 +1,8 @@
 import { supabase } from "@/integrations/supabase/client";
+/** Cancellation must also survive transports/parsers that finish after abort. */
+function requireActive(signal?: AbortSignal) {
+  if (signal?.aborted) throw new DOMException("Assessment request cancelled.", "AbortError");
+}
 export class ExamRequestError extends Error {
   constructor(
     message: string,
@@ -29,7 +33,9 @@ export async function examAudioRequest(
   path: string,
   signal?: AbortSignal,
 ): Promise<ExamAudioInput> {
+  requireActive(signal);
   const { data } = await supabase.auth.getSession();
+  requireActive(signal);
   if (!data.session?.access_token)
     throw new ExamRequestError("Sign in to play this assessment clip.", 403);
   const response = await fetch(path, {
@@ -37,9 +43,14 @@ export async function examAudioRequest(
     cache: "no-store",
     signal,
   });
-  if (response.ok && response.headers.get("Content-Type")?.startsWith("audio/"))
-    return { mode: "private_clip", blob: await response.blob() };
+  requireActive(signal);
+  if (response.ok && response.headers.get("Content-Type")?.startsWith("audio/")) {
+    const blob = await response.blob();
+    requireActive(signal);
+    return { mode: "private_clip", blob };
+  }
   const body = await response.json().catch(() => null);
+  requireActive(signal);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "The assessment clip could not be played.",
@@ -58,7 +69,9 @@ async function assessmentRequest<T>(
   endpoint: string,
   signal?: AbortSignal,
 ): Promise<T> {
+  requireActive(signal);
   const { data } = await supabase.auth.getSession();
+  requireActive(signal);
   if (!data.session?.access_token)
     throw new ExamRequestError("Sign in to continue this assessment.", 403);
   const get = typeof pathOrBody === "string";
@@ -72,7 +85,9 @@ async function assessmentRequest<T>(
     cache: "no-store",
     signal,
   });
+  requireActive(signal);
   const body = await response.json().catch(() => null);
+  requireActive(signal);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "Assessment request failed. Your device draft is kept.",
@@ -95,7 +110,9 @@ export async function uploadExamSpeech(
   blob: Blob,
   signal?: AbortSignal,
 ) {
+  requireActive(signal);
   const { data } = await supabase.auth.getSession();
+  requireActive(signal);
   if (!data.session?.access_token)
     throw new ExamRequestError("Sign in to upload this recording.", 403);
   const response = await fetch("/api/exams?action=speech_upload", {
@@ -109,7 +126,9 @@ export async function uploadExamSpeech(
     cache: "no-store",
     signal,
   });
+  requireActive(signal);
   const body = await response.json().catch(() => null);
+  requireActive(signal);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "Recording upload failed. Keep this page open to retry.",
@@ -125,7 +144,9 @@ export async function uploadExamSpeech(
 
 /** Download private CSV through authenticated fetch; never put a bearer token in a link. */
 export async function examHistoryExport(enrollmentId: string, signal?: AbortSignal) {
+  requireActive(signal);
   const { data } = await supabase.auth.getSession();
+  requireActive(signal);
   if (!data.session?.access_token) throw new ExamRequestError("Sign in to export this plan.", 403);
   const response = await fetch(
     `/api/exam-plans?${new URLSearchParams({ action: "history_export", enrollment: enrollmentId })}`,
@@ -135,8 +156,10 @@ export async function examHistoryExport(enrollmentId: string, signal?: AbortSign
       signal,
     },
   );
+  requireActive(signal);
   if (!response.ok) {
     const result = await response.json().catch(() => null);
+    requireActive(signal);
     throw new ExamRequestError(
       result?.error ?? "Plan history could not be exported. No partial file was created.",
       response.status,
@@ -153,5 +176,7 @@ export async function examHistoryExport(enrollmentId: string, signal?: AbortSign
     eventCount > 10000
   )
     throw new ExamRequestError("The export count was invalid. No file was downloaded.", 503);
-  return { blob: await response.blob(), eventCount };
+  const blob = await response.blob();
+  requireActive(signal);
+  return { blob, eventCount };
 }

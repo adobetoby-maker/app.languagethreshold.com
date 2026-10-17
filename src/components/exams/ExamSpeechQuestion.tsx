@@ -12,6 +12,7 @@ import {
   type SpeechDeviceTake,
 } from "@/lib/assessments/speech-device";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+import { LocalExamTakeAudio } from "./LocalExamTakeAudio";
 import { SpeechEvidencePlayback } from "./SpeechEvidencePlayback";
 type Policy = {
   enabled: boolean;
@@ -457,7 +458,7 @@ function OwnedExamSpeechQuestion({
             Recording held in this page’s memory — not synced. Refreshing or closing this site loses
             it. It stays here if you visit another question. Listen before uploading.
           </p>
-          <LocalTakeAudio blob={take.blob} />
+          <LocalExamTakeAudio blob={take.blob} />
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
@@ -511,22 +512,5 @@ function OwnedExamSpeechQuestion({
         </p>
       )}
     </div>
-  );
-}
-function LocalTakeAudio({ blob }: { blob: Blob }) {
-  const [url, setUrl] = useState("");
-  useEffect(() => {
-    const next = URL.createObjectURL(blob);
-    setUrl(next);
-    return () => URL.revokeObjectURL(next);
-  }, [blob]);
-  return (
-    <audio
-      className="max-w-full"
-      aria-label="Listen to your unsaved answer"
-      controls
-      preload="metadata"
-      src={url || undefined}
-    />
   );
 }

@@ -123,7 +123,7 @@ type Action =
       payload: {
         language: Language;
         moduleId: string;
-        origin: "reading" | "generated" | "curated";
+        origin: "reading" | "generated" | "curated" | "lesson";
         pairs: { english: string; translation: string; kind: "term" | "phrase" }[];
         now?: number;
       };
@@ -484,11 +484,33 @@ function reducer(state: State, action: Action): State {
       const now = action.payload.now ?? Date.now();
       const cards = { ...state.cards };
       let changed = false;
+      // Existing matching cards retain their IDs, examples and review schedules.
+      const knownLessonPairs = new Set(
+        origin === "lesson"
+          ? Object.values(cards)
+              .filter((card) => card.language === language && card.moduleId === moduleId)
+              .map((card) =>
+                JSON.stringify([
+                  card.translation.normalize("NFC").trim().toLocaleLowerCase("en"),
+                  card.word.normalize("NFC").trim().toLocaleLowerCase("en"),
+                ]),
+              )
+          : [],
+      );
       for (const pair of pairs) {
         const english = pair.english?.trim();
         const translation = pair.translation?.trim();
         if (!english || !translation) continue;
-        const id = `module-${origin}:${language}:${moduleId}:${english.toLocaleLowerCase("en")}`;
+        const lessonPair = JSON.stringify([
+          english.normalize("NFC").toLocaleLowerCase("en"),
+          translation.normalize("NFC").toLocaleLowerCase("en"),
+        ]);
+        if (origin === "lesson" && knownLessonPairs.has(lessonPair)) continue;
+        if (origin === "lesson") knownLessonPairs.add(lessonPair);
+        const id =
+          origin === "lesson"
+            ? `module-lesson:${language}:${moduleId}:${lessonPair}`
+            : `module-${origin}:${language}:${moduleId}:${english.toLocaleLowerCase("en")}`;
         const existing = cards[id];
         if (existing) {
           if (existing.word !== translation || existing.translation !== english) {
@@ -561,7 +583,7 @@ const Ctx = createContext<{
   addModuleCards: (
     language: Language,
     moduleId: string,
-    origin: "reading" | "generated" | "curated",
+    origin: "reading" | "generated" | "curated" | "lesson",
     pairs: { english: string; translation: string; kind: "term" | "phrase" }[],
   ) => void;
   addCard: (entry: Omit<FlashcardEntry, "id" | "srs" | "addedAt" | "source" | "category">) => void;
@@ -646,7 +668,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     (
       language: Language,
       moduleId: string,
-      origin: "reading" | "generated" | "curated",
+      origin: "reading" | "generated" | "curated" | "lesson",
       pairs: { english: string; translation: string; kind: "term" | "phrase" }[],
     ) => dispatch({ type: "ADD_MODULE_CARDS", payload: { language, moduleId, origin, pairs } }),
     [],

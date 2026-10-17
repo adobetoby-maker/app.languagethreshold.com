@@ -6,14 +6,14 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { checkGate, incrementCallCount, type GateStatus } from "@/lib/ai-gate";
+import { checkGate, type GateStatus } from "@/lib/ai-gate";
 import { AiGateModal } from "@/components/AiGateModal";
 import { useSubscription } from "@/state/subscription-state";
 
 interface AiGateContextValue {
   /**
    * Call this BEFORE making any AI API request.
-   * Increments the counter and either:
+   * Either:
    *   - Runs fn() immediately if gate is open
    *   - Shows email modal, then runs fn() after capture
    *   - Shows paywall modal (fn is not run)
@@ -32,7 +32,6 @@ export function AiGateProvider({ children }: { children: ReactNode }) {
 
   const gated = useCallback(
     (fn: () => void | Promise<void>) => {
-      const count = incrementCallCount();
       const status = checkGate(isActive);
 
       if (status === "open") {

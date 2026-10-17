@@ -5,6 +5,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Four game generator guards staged — October 17
+
+Application `7e8e779` (including Word Match/Listening `158fad4`) is READY at https://language-threshold-j45wb6rb9-adobetoby-5572s-projects.vercel.app, deployment `dpl_94Zd2cHvhwfhFjZAxUe2jjPbDz41`, true Preview/target null. Project/team/artifact guards passed and independent inspection matches the full Git commit. Accepted companion remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. No alias/main/production change. This supersedes the preceding Word Match/Listening entry's undeployed status.
+
+Idiom Master and False Friends now enforce same-origin/no-store before cache access and the existing content allowance before paid misses, with zero retries and a 30-second SDK/total deadline/incoming abort. Warm public cache reuse needs no key/provider/budget. Bounded whitelisted output must carry the requested CEFR bucket. Idioms require four distinct options, the exact answer among them, one exact three-underscore blank and reconstruction of the full phrase. False Friends requires a real boolean and bounded reveal fields; a false candidate cannot have the identical normalized gloss as its revealed meaning. Different glosses may be synonyms, so true-friend output is not forced into literal string equality. These checks do not certify idiom attestation, semantic accuracy or calibrated difficulty.
+
+All 843 tests/type-check/stage build pass; lint 0 errors/44 mixed-export warnings; artifact 19.67 MiB. Scan: 96 markers/1156 source/148 static/0 hits. Two new actual-handler fixture tests cover denials/outage before construction, warm reuse, keyless misses, abort/options, null/malformed/oversize/wrong-CEFR/contradictory output, invalid-output cache exclusion and content-free failures. See `qa-idiom-false-friend-guards-2026-10-17.json`.
+
+Current hosted groups all pass: 20 authenticated Exams, 12 focused routing/private headers, 3 public packs, 7 read-only scope and 16 rejected conversation inputs. Personal QA draft remains revision 12/in_progress/unsubmitted; team B remains 2 opened/0 mastered. See `qa-game-generators-preview-2026-10-17.json` and `qa-exams-game-generators-preview-2026-10-17.json`. No valid model request, browser action, new learner write or schema/role/active-policy/speech/schedule change. Positive game/browser/provider and linguistic acceptance remain open. Conjugation's two-call path, other generators and free-text shared cache contexts still need review. The already-sent routing schema question remains pending, and adaptive runtime/human/content/pilot/device/operational gates still prevent completion/main push.
+
+
+
 ### Word Match and Listening Drill generation guards — October 17
 
 Source `158fad4` is locally verified and not deployed. Both active generators now reject missing/foreign Origin before any cache access, emit no-store and use the existing durable content allowance before paid misses. Public warm entries require no provider/key/budget; personal Word Match vocabulary still cannot read or populate shared cache entries. Calls disable retries and combine a 30-second SDK/total deadline with incoming abort. Caught raw provider exceptions are replaced with fixed content-free labels.

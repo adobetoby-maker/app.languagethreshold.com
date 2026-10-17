@@ -1,0 +1,49 @@
+{
+  "testedAt": "2026-10-17T15:23:38.331899+00:00",
+  "sourceCommit": "7e8e779",
+  "scope": "Active Idiom Master and False Friends handlers; controlled SDK/budget fixtures",
+  "checks": {
+    "strictOriginBeforeCache": true,
+    "noStore": true,
+    "existingContentBudgetBeforePaidMiss": true,
+    "budgetDenialAndOutageBeforeConstruction": true,
+    "publicWarmNoKeyBudgetOrProvider": true,
+    "maxRetries": 0,
+    "sdkTimeoutMs": 30000,
+    "totalDeadlineMs": 30000,
+    "incomingAbort": true,
+    "boundedWhitelistedOutputBeforeCache": true,
+    "requestedCefrBucketRequired": true,
+    "idiomFourDistinctOptionsAndExactAnswerPresence": true,
+    "exactOneThreeUnderscoreBlank": true,
+    "idiomAnswerReconstructsFullPhrase": true,
+    "falseFriendBooleanRequired": true,
+    "falseCandidateCannotHaveIdenticalRevealedGloss": true,
+    "differentTrueGlossesNotRejectedAsSemanticMismatch": true,
+    "invalidOutputNeverCached": true,
+    "caughtProviderErrorsContentFree": true
+  },
+  "localVerification": {
+    "tests": 843,
+    "newFocusedTests": 2,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "stageBuild": "pass",
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T15:23:26.430Z",
+      "sourceCommit": "7e8e779",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1156,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "limitations": [
+    "No paid provider requests, actual timeouts/billing, positive browser/provider or physical acceptance",
+    "Idiom reconstruction and false-candidate gloss comparison are structural checks; no attestation, semantic correctness or calibrated difficulty claim",
+    "No browser actions, new learner writes, schema/role/active-policy/speech/schedule changes",
+    "Remaining game generators/free-text cache contexts and full Exams release gates remain open"
+  ]
+}

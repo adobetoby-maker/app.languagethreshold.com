@@ -4,6 +4,16 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+### Personal practice generation boundaries — October 17
+
+Source `8d77c64` is locally verified and not deployed. Active personal vocabulary, phrase translation and kana conversion helpers now enforce strict origin/no-store, the existing content/lookup durable pools,0automatic retries and a30-second total deadline/incoming abort. Returned named-tool fields are bounded and whitelisted; caught raw provider exceptions no longer enter responses/logs. Vocabulary's requested integer count now drives prompt, tool bounds and output validation, removing the fixed25/min20 conflict with the real15-word “more” action. New words have correctCount0 with no model-selected module/progress fields; duplicates/avoided words are rejected.
+
+Translation batches must cover the exact requested phrase multiset and return in original request order; partial/substituted/language-name-echo output fails rather than becoming an incomplete deck. Kana output/breakdown fields have size/shape limits. These checks establish structure and source-request coverage, not linguistic review or proficiency.
+
+All835tests/type-check/stage build pass; lint0errors44mixed-export warnings; artifact19.66MiB; scan96markers/1143source/148static/0hits. Actual-handler controlled tests exercise denials before provider construction, options/abort,5/15vocab requests, zero progress, duplicate/avoid rejection, complete/reordered/duplicated phrase coverage, malformed kana and safe failures. See `qa-personal-practice-guards-2026-10-17.json`. No external model calls, hosted writes, browser actions or actual provider timing/billing/physical acceptance.
+
+Prior local phonetic/Pen Pal source is included but also remains undeployed. Hosted development stays `8da3abb`, companion `d4ad837`, live app/main unchanged. No schema/role/active-policy/speech/schedule changes. The routing schema question remains pending; do not repeat/infer approval. Remaining paid-function audit includes game/grammar/story generators, alongside adaptive runtime and human/content/pilot/device/operational release gates.
+
 ### Pen Pal bounded checks and practice credit — October 17
 
 Source `c991a6a` is locally verified and not deployed. The active Pen Pal checker had unbounded image/target/language inputs, no explicit paid-request guards and a direct cast of model-selected XP into the practice result. It now caps image strings at1,000,000characters, target text at2,000 and language at40; requires same origin/no-store; and consumes the existing handwriting pool before provider construction. The provider uses the existing key,0automatic retries and a30-second total deadline/incoming abort signal. No new budget store or database policy is added.

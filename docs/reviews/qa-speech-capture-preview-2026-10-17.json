@@ -1,0 +1,112 @@
+{
+  "testedAt": "2026-10-17T21:35:15.807447+00:00",
+  "applicationCommit": "f73e38380944ace4f5c0fa0b5cabb2974ca5f1e8",
+  "preview": "https://language-threshold-eeak0vpts-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-eeak0vpts-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DG5RKX2AgCdRJbXsTu9DkeFHgZav",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-eeak0vpts-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "f73e38380944ace4f5c0fa0b5cabb2974ca5f1e8",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 990,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.76,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1266,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/exam-speech-capture-lifecycle.test.mjs",
+    "tests/assessment-speech-device.test.mjs",
+    "tests/auth-draft-recovery-integration.test.mjs"
+  ],
+  "checks": [
+    "Question scope remounts policy/consent/recording/error state by actual account, attempt, item and enrollment scope",
+    "Ref guards microphone permission, uploads and reload operations before next render; owned signals and current leases reject departed completions",
+    "Late microphone permission resolves by stopping all obtained tracks without recorder creation",
+    "Policy changes block microphone until renewed explicit consent",
+    "Recorder stop consumes once, clears callbacks/timer/chunks and unregisters only its own capture",
+    "Same-account navigation preserves completed original memory-only take, without UI writes into a replacement question",
+    "Current-capture registration check prevents delayed stop from overwriting newer same-question take; identity loss cannot repopulate cleared memory",
+    "Upload checks current scope after answer flush, transport and reload; uncertain upload retry retains original request ID",
+    "Discard/reload/conflict flow ignores late errors or policy replies and cannot clear another question or actor state"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-capture-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real microphone, recording, consent, upload, reviewer acknowledgement, withdrawal, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write",
+    "Unsaved-take native audio controls and broader upload/client helper lifecycle remain separate audit work; no all-audio or app-wide privacy completion claim"
+  ]
+}

@@ -86,15 +86,15 @@ export function OfflineLessonDownload({ packId }: { packId: OfflineLessonPackId 
       <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-relaxed text-muted-foreground">
         <li>
           Reading, cards, matching, answer comparison and handwriting copy-and-compare use local
-          content.
+          content. Tapped words can show exact matches from this lesson’s word list.
         </li>
         <li>
           Listening needs a Spanish voice installed on your device. Audio recordings are not
           included.
         </li>
         <li>
-          Speaking prompts can be rehearsed aloud. AI conversation, word lookup and handwriting
-          recognition require a connection.
+          Speaking prompts can be rehearsed aloud. AI conversation, expanded dictionary details and
+          handwriting recognition require a connection.
         </li>
         <li>
           Official exams and cloud sync require a connection. Downloading does not complete lessons

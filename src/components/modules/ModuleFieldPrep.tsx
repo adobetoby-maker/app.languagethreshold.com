@@ -1,5 +1,5 @@
 import { recentConversationMessages } from "@/lib/conversation-history";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type SetStateAction } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import {
@@ -17,8 +17,9 @@ import {
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
+import { speakRemote } from "@/lib/tts";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import {
@@ -85,33 +86,6 @@ function speechLocale(language: string): string {
   return map[language] ?? "es-419";
 }
 
-function speakAloud(
-  text: string,
-  locale: string,
-  voiceURI: string | null | undefined,
-  onEnd?: () => void,
-) {
-  const clean = text.replace(/[*_`~#[\]]/g, "").trim();
-  if (!clean) {
-    onEnd?.();
-    return;
-  }
-  if (needsRemoteTTS(locale, voiceURI)) {
-    void speakRemote(clean, locale, { voiceURI, onend: onEnd, onerror: onEnd });
-    return;
-  }
-  if (!window.speechSynthesis) {
-    onEnd?.();
-    return;
-  }
-  const utter = new SpeechSynthesisUtterance(clean);
-  configureUtterance(utter, locale, voiceURI);
-  utter.onend = () => onEnd?.();
-  utter.onerror = () => onEnd?.();
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utter);
-}
-
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
@@ -123,7 +97,14 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
 
   const [phase, setPhase] = useState<"select" | "roleplay">("select");
   const [scenario, setScenario] = useState<PracticeScenario | null>(null);
-  const [messages, setMessages] = useState<PrepMessage[]>([]);
+  const scenarioRef = useRef<PracticeScenario | null>(null);
+  const [messages, setMessagesState] = useState<PrepMessage[]>([]);
+  const messagesRef = useRef(messages);
+  const setMessages = useCallback((update: SetStateAction<PrepMessage[]>) => {
+    const next = typeof update === "function" ? update(messagesRef.current) : update;
+    messagesRef.current = next;
+    setMessagesState(next);
+  }, []);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
   const [speaking, setSpeaking] = useState(false);
@@ -148,27 +129,95 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
     }
   }, [messages, streaming]);
 
-  function toggleVoiceMode() {
-    setVoiceMode((prev) => {
-      const next = !prev;
-      try {
-        localStorage.setItem(VOICE_MODE_KEY, next ? "on" : "off");
-      } catch {
-        /* */
-      }
-      if (!next) {
-        stopRemoteTTS();
-        window.speechSynthesis?.cancel();
-        recRef.current?.stop();
-        setSpeaking(false);
-        setListening(false);
-        setInterimBubble("");
-      }
-      return next;
+  const {
+    key: lifecycleKey,
+    actor,
+    capture,
+    cancel,
+  } = usePracticeLifecycle(
+    JSON.stringify([state.selectedLanguage, state.activeModuleId, moduleGroup, locale, voiceURI]),
+  );
+  const speechRef = useRef<AbortController | null>(null);
+  const conversationKey = JSON.stringify([
+    actor,
+    state.selectedLanguage,
+    state.activeModuleId,
+    moduleGroup,
+  ]);
+  const conversationScope = useRef(conversationKey);
+  useEffect(() => {
+    conversationScope.current = conversationKey;
+    scenarioRef.current = null;
+    setScenario(null);
+    setPhase("select");
+    setMessages([]);
+    setInput("");
+    setWordReq(null);
+  }, [conversationKey, setMessages]);
+  useEffect(() => {
+    setStreaming(false);
+    setSpeaking(false);
+    setListening(false);
+    setInterimBubble("");
+  }, [lifecycleKey]);
+  function stopPractice() {
+    if (!capture().isCurrent()) return;
+    cancel();
+    setStreaming(false);
+    setSpeaking(false);
+    setListening(false);
+    setInterimBubble("");
+  }
+  function speakAloud(text: string, onEnd?: () => void) {
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    speechRef.current?.abort();
+    const controller = new AbortController();
+    speechRef.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (speechRef.current === controller) speechRef.current = null;
     });
+    controller.signal.addEventListener("abort", release, { once: true });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && speechRef.current === controller;
+    let settled = false;
+    const done = (success: boolean) => {
+      if (settled || !current()) return;
+      settled = true;
+      release();
+      speechRef.current = null;
+      setSpeaking(false);
+      if (success) onEnd?.();
+    };
+    const clean = text.replace(/[*_`~#[\]]/g, "").trim();
+    if (!clean) {
+      done(false);
+      return;
+    }
+    void speakRemote(clean, locale, {
+      voiceURI,
+      signal: controller.signal,
+      onend: () => done(true),
+      onerror: () => done(false),
+    }).catch(() => done(false));
+  }
+
+  function toggleVoiceMode() {
+    const next = !voiceMode;
+    setVoiceMode(next);
+    try {
+      localStorage.setItem(VOICE_MODE_KEY, next ? "on" : "off");
+    } catch {
+      /* Optional preference. */
+    }
+    if (!next) stopPractice();
   }
 
   const startScenario = async (s: PracticeScenario) => {
+    if (!capture().isCurrent()) return;
+    stopPractice();
+    scenarioRef.current = s;
     setScenario(s);
     setMessages([]);
     setInput("");
@@ -178,7 +227,10 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
   };
 
   const exitToSelect = () => {
+    if (!capture().isCurrent()) return;
+    stopPractice();
     setPhase("select");
+    scenarioRef.current = null;
     setScenario(null);
     setMessages([]);
   };
@@ -188,7 +240,8 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
     history: PrepMessage[],
     requestFeedback: boolean,
   ) => {
-    if (streaming) return;
+    const lease = capture();
+    if (!lease.isCurrent() || abortRef.current) return;
     setStreaming(true);
 
     const assistantId = crypto.randomUUID();
@@ -203,7 +256,14 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
 
     const controller = new AbortController();
     abortRef.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (abortRef.current === controller) abortRef.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && abortRef.current === controller;
 
+    let closeReader: (() => void) | undefined;
     try {
       const resp = await fetch("/api/module-field-prep", {
         method: "POST",
@@ -223,12 +283,25 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
         }),
       });
 
+      if (!current()) {
+        void resp.body?.cancel().catch(() => {});
+        return;
+      }
       if (!resp.ok || !resp.body) {
         const j = await resp.json().catch(() => ({ error: "Request failed" }));
+        if (!current()) return;
         throw new Error(j.error ?? `Request failed (${resp.status})`);
       }
 
       const reader = resp.body.getReader();
+      const disposeReader = () => {
+        void reader.cancel().catch(() => {});
+      };
+      const releaseReader = lease.own(disposeReader);
+      closeReader = () => {
+        releaseReader();
+        disposeReader();
+      };
       const decoder = new TextDecoder();
       let buffer = "";
       let done = false;
@@ -236,6 +309,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
 
       while (!done) {
         const { done: streamDone, value } = await reader.read();
+        if (!current()) return;
         if (streamDone) break;
         buffer += decoder.decode(value, { stream: true });
 
@@ -267,30 +341,36 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
         }
       }
 
+      if (!current()) return;
       if (!requestFeedback) {
         dispatch({ type: "INC_COUNTER", payload: "conversationExchanges" });
         if (voiceMode && accumulated) {
           setSpeaking(true);
-          speakAloud(accumulated, locale, voiceURI, () => {
+          speakAloud(accumulated, () => {
             setSpeaking(false);
             startListening(true);
           });
         }
       }
     } catch (e) {
-      if ((e as Error).name === "AbortError") return;
+      if (!current() || (e as Error).name === "AbortError") return;
       const msg = e instanceof Error ? e.message : "Something went wrong";
       toast.error("Field Prep error", { description: msg });
       setMessages((prev) => prev.filter((m) => m.id !== assistantId));
     } finally {
-      setStreaming(false);
-      abortRef.current = null;
+      closeReader?.();
+      if (current()) {
+        setStreaming(false);
+        abortRef.current = null;
+      }
+      release();
     }
   };
 
   const sendMessage = async () => {
+    if (!capture().isCurrent()) return;
     const trimmed = input.trim();
-    if (!trimmed || streaming || !scenario) return;
+    if (!trimmed || streaming || abortRef.current || !scenario) return;
 
     const userMsg: PrepMessage = {
       id: crypto.randomUUID(),
@@ -307,11 +387,15 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
   };
 
   const requestFeedback = async () => {
-    if (!scenario || streaming) return;
+    if (!capture().isCurrent()) return;
+    if (!scenario || streaming || abortRef.current) return;
     await callFieldPrep(scenario, messages, true);
   };
 
   const startListening = (autoSend = false) => {
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    stopListening();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const w = window as any;
     const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
@@ -322,8 +406,27 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
     const rec = new SR();
     rec.lang = locale;
     rec.interimResults = true;
+    let consumed = false;
+    const current = () => lease.isCurrent() && recRef.current === rec;
+    const dispose = () => {
+      rec.onresult = null;
+      rec.onerror = null;
+      rec.onend = null;
+      if (recRef.current === rec) recRef.current = null;
+      try {
+        rec.abort?.();
+      } catch {
+        /* Browser recognition may already be stopped. */
+      }
+    };
+    const release = lease.own(dispose);
+    rec.cleanupPractice = () => {
+      release();
+      dispose();
+    };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     rec.onresult = (e: any) => {
+      if (!current() || consumed) return;
       let interim = "";
       let final = "";
       for (let i = 0; i < e.results.length; i++) {
@@ -336,10 +439,13 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
       }
 
       if (final) {
+        consumed = true;
+        rec.cleanupPractice();
         const transcript = final.trim();
         setInterimBubble("");
         setListening(false);
-        if (autoSend && transcript && scenario) {
+        const activeScenario = scenarioRef.current;
+        if (autoSend && transcript && activeScenario) {
           const userMsg: PrepMessage = {
             id: crypto.randomUUID(),
             role: "user",
@@ -347,39 +453,51 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
             isFeedback: false,
             createdAt: Date.now(),
           };
-          setMessages((prev) => {
-            const next = [...prev, userMsg];
-            dispatch({ type: "ADD_XP", payload: 8 });
-            callFieldPrep(scenario, next, false);
-            return next;
-          });
+          const next = [...messagesRef.current, userMsg];
+          setMessages(next);
+          dispatch({ type: "ADD_XP", payload: 8 });
+          void callFieldPrep(activeScenario, next, false);
         } else {
           setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
         }
       }
     };
     rec.onerror = () => {
+      if (!current()) return;
+      release();
+      dispose();
       setListening(false);
       setInterimBubble("");
     };
     rec.onend = () => {
+      if (!current()) return;
+      release();
+      dispose();
       setListening(false);
       setInterimBubble("");
     };
     recRef.current = rec;
-    rec.start();
-    setListening(true);
+    try {
+      rec.start();
+      setListening(true);
+    } catch {
+      release();
+      dispose();
+      setListening(false);
+    }
   };
 
   const stopListening = () => {
-    recRef.current?.stop();
+    const rec = recRef.current;
+    recRef.current = null;
+    rec?.cleanupPractice?.();
     setListening(false);
     setInterimBubble("");
   };
 
   // ── Scenario select view ───────────────────────────────────────────────────
 
-  if (phase === "select") {
+  if (phase === "select" || conversationScope.current !== conversationKey) {
     const tiers: PracticeDifficulty[] = ["beginner", "intermediate", "advanced"];
     return (
       <div className="mx-auto max-w-4xl space-y-6">
@@ -499,7 +617,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
                 locale={locale}
                 voiceURI={voiceURI}
                 onWordTap={(word, sentence, x, y) => {
-                  speakAloud(word, locale, voiceURI);
+                  speakAloud(word);
                   setWordReq({ word, sentence, language: state.selectedLanguage, x, y });
                 }}
               />
@@ -581,9 +699,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
             {(streaming || speaking) && (
               <button
                 onClick={() => {
-                  abortRef.current?.abort();
-                  stopRemoteTTS();
-                  window.speechSynthesis?.cancel();
+                  stopPractice();
                   setSpeaking(false);
                   recRef.current?.stop();
                   setListening(false);
@@ -768,6 +884,7 @@ function PartnerBubble({
   voiceURI?: string | null;
   onWordTap: (word: string, sentence: string, x: number, y: number) => void;
 }) {
+  const speakOwned = useOwnedSpeaker(JSON.stringify([message.id, locale, voiceURI]));
   return (
     <div className="flex gap-2.5">
       <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/8 font-mono text-[11px] text-gold/80">
@@ -786,7 +903,9 @@ function PartnerBubble({
         </div>
         {message.content && (
           <button
-            onClick={() => speakAloud(message.content, locale, voiceURI)}
+            onClick={() =>
+              speakOwned(message.content.replace(/[*_`~#[\]]/g, "").trim(), locale, voiceURI)
+            }
             className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 font-mono text-[9px] text-muted-foreground/50 hover:text-gold"
           >
             <Volume2 className="h-3 w-3" />

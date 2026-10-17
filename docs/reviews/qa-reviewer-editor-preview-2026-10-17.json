@@ -1,0 +1,114 @@
+{
+  "testedAt": "2026-10-17T22:06:57.253005+00:00",
+  "applicationCommit": "29926443a8966a227cdb28de2a55e11ccbed39d0",
+  "preview": "https://language-threshold-ocur81huk-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ocur81huk-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3nQbTBs8eK1ozJGDQd1hid7pNVYa",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ocur81huk-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "29926443a8966a227cdb28de2a55e11ccbed39d0",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1004,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.77,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1277,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/reviewer-admin-lifecycle.test.mjs",
+    "tests/content-review-lifecycle.test.mjs",
+    "tests/assessment-client-cancellation.test.mjs"
+  ],
+  "checks": [
+    "Registry data is keyed by actual actor/module/filter and cannot render as a different module registry before a replacement read",
+    "Registry reads and access mutations own abort signals/current leases across scope/actor/unmount; late callbacks cannot update replacement views",
+    "Confirmation belongs to exact selected actor/module/filter/account/pair/responsibility/reason/loaded grant revision/active state",
+    "Scope/reason/registry revision changes invalidate confirmation; scoped busy state and ref locks reject duplicate and stale form events",
+    "Mutation validates current loaded registry, explicit confirmation, UUID/reason bounds/enumerated scope, existing active grant for revoke and no self-grant before request",
+    "Identical-body retry retains original request ID and expectedRevision; active success clears confirmation/reason and reloads registry",
+    "Current access denial clears editor; stale module/actor/unmount transport replies cannot expose rows or change notices/errors/flights"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-reviewer-editor-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real microphone, recording, consent, upload, reviewer acknowledgement, withdrawal, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write",
+    "Helper cancellation applies when callers supply/abort a signal; it does not add automatic identity subscriptions or prove every caller has a mounted guard/deadline",
+    "No real human review, lesson binding, reviewer assignment or approval was performed; positive callbacks are controlled fixtures only",
+    "No actual grant, revocation, role assignment, qualification check or human review was performed; all positive mutation responses are synthetic fixtures",
+    "AssessmentCleanupStatus still needs honest refresh/error/stale status review; wider client caller/endpoint/cache/device inventory remains incomplete"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-content-form-preview-2026-10-17.json"
+}

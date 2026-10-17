@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T21:55:11.051718+00:00",
+  "auditedAt": "2026-10-17T22:06:57.253005+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "a2ff84a",
+  "application": "2992644",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-3wqa8hpxo-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-ocur81huk-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-content-form-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-reviewer-editor-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "a2ff84a52336373378456cea0c378c23f4ff0902",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-content-form-preview-2026-10-17.json",
+  "latestLocalSourceCommit": "29926443a8966a227cdb28de2a55e11ccbed39d0",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-reviewer-editor-preview-2026-10-17.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -413,5 +413,11 @@
     "externalChecksState": "unstable",
     "evidence": "docs/reviews/qa-main-lesson-first-reconcile-2026-10-17.json",
     "applicationComparisonVerifiedAtCommit": "c4327d1"
+  },
+  "latestLocalReviewerFollowup": {
+    "application": "2992644",
+    "includes": "a2ff84a",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-reviewer-editor-preview-2026-10-17.json"
   }
 }

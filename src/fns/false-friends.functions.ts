@@ -1,3 +1,6 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 import Anthropic from "@anthropic-ai/sdk";
 import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
@@ -75,14 +78,23 @@ export const generateFalseFriend = createServerFn({ method: "POST" })
     async ({
       data,
     }): Promise<{ data: FalseFriendQuestion | null; error: string | null; cached?: boolean }> => {
-      const KEY = process.env.ANTHROPIC_API_KEY;
-      if (!KEY) return { data: null, error: "AI is not configured" };
+      const request = getRequest();
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(request);
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { data: null, error: originError.error };
+      }
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
       const cacheContext = { ...data, cefr };
       const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
+      const KEY = process.env.ANTHROPIC_API_KEY;
+      if (!KEY) return { data: null, error: "AI is not configured" };
+      const budgetError = await learningGenerationError("content");
+      if (budgetError) return { data: null, error: budgetError };
 
       const levelNotes =
         data.level === 1
@@ -103,59 +115,86 @@ export const generateFalseFriend = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE ${data.language} false-friends question at CEFR ${cefr}.\n${levelNotes}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
-        const response = await client.messages.create({
-          model: "claude-haiku-5-5",
-          max_tokens: 700,
-          system: SYSTEM,
-          messages: [{ role: "user", content: userMsg }],
-          tools: [
-            {
-              name: "return_false_friend",
-              description: "Return one false-friend / true-friend question.",
-              input_schema: {
-                type: "object" as const,
-                properties: {
-                  word: { type: "string" },
-                  englishLookAlike: { type: "string" },
-                  contextSentence: { type: "string" },
-                  contextTranslation: { type: "string" },
-                  candidateMeaning: { type: "string" },
-                  isTrueFriend: { type: "boolean" },
-                  actualMeaning: { type: "string" },
-                  trapExplanation: { type: "string" },
-                  cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
+        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const response = await client.messages.create(
+          {
+            model: "claude-haiku-5-5",
+            max_tokens: 700,
+            system: SYSTEM,
+            messages: [{ role: "user", content: userMsg }],
+            tools: [
+              {
+                name: "return_false_friend",
+                description: "Return one false-friend / true-friend question.",
+                input_schema: {
+                  type: "object" as const,
+                  properties: {
+                    word: { type: "string" },
+                    englishLookAlike: { type: "string" },
+                    contextSentence: { type: "string" },
+                    contextTranslation: { type: "string" },
+                    candidateMeaning: { type: "string" },
+                    isTrueFriend: { type: "boolean" },
+                    actualMeaning: { type: "string" },
+                    trapExplanation: { type: "string" },
+                    cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
+                  },
+                  required: [
+                    "word",
+                    "englishLookAlike",
+                    "contextSentence",
+                    "contextTranslation",
+                    "candidateMeaning",
+                    "isTrueFriend",
+                    "actualMeaning",
+                    "trapExplanation",
+                    "cefr",
+                  ],
+                  additionalProperties: false,
                 },
-                required: [
-                  "word",
-                  "englishLookAlike",
-                  "contextSentence",
-                  "contextTranslation",
-                  "candidateMeaning",
-                  "isTrueFriend",
-                  "actualMeaning",
-                  "trapExplanation",
-                  "cefr",
-                ],
-                additionalProperties: false,
               },
-            },
-          ],
-          tool_choice: { type: "tool", name: "return_false_friend" },
-        });
+            ],
+            tool_choice: { type: "tool", name: "return_false_friend" },
+          },
+          { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+        );
 
-        const toolUse = response.content.find((c) => c.type === "tool_use");
+        const toolUse = response.content.find(
+          (c) => c.type === "tool_use" && c.name === "return_false_friend",
+        );
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const q = toolUse.input as FalseFriendQuestion;
+        const parsed = z
+          .object({
+            word: z.string().trim().min(1).max(120),
+            englishLookAlike: z.string().trim().min(1).max(120),
+            contextSentence: z.string().trim().min(1).max(1000),
+            contextTranslation: z.string().trim().min(1).max(1000),
+            candidateMeaning: z.string().trim().min(1).max(200),
+            isTrueFriend: z.boolean(),
+            actualMeaning: z.string().trim().min(1).max(200),
+            trapExplanation: z.string().trim().min(1).max(1000),
+            cefr: z.literal(cefr),
+          })
+          .safeParse(toolUse.input);
+        if (!parsed.success)
+          return { data: null, error: "Question content came back incomplete. Please try again." };
+        const q = parsed.data;
+        // Identical glosses cannot present a false candidate. Different glosses
+        // may be synonyms; this check does not certify linguistic correctness.
+        const key = (value: string) => value.normalize("NFC").toLowerCase();
+        if (!q.isTrueFriend && key(q.candidateMeaning) === key(q.actualMeaning)) {
+          return {
+            data: null,
+            error: "Candidate and revealed meaning were inconsistent. Please try again.",
+          };
+        }
 
-        // Defensive sanity check: contextSentence should contain the word OR
-        // a recognizable inflected form. Don't fail on it — just log.
         cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
-      } catch (e) {
-        console.error("generateFalseFriend failed", e);
+      } catch {
+        console.error("False Friends generation failed");
         return { data: null, error: "Generation failed." };
       }
     },

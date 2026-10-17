@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Selected human and AI review staged — October 17
+
+Application `3ab3f73` authorizes independent human reviewers, requires submission and a valid immutable route, and verifies exact attempt/selected-response membership before the existing rubric RPC. Storage errors fail closed. The RPC still owns current reviewer scope/qualification, exact frozen rubric dimensions/total, speaking-listened and retry checks. Selected attempt views can expose normal qualified review controls; self-review remains denied.
+
+AI writing proposals require the actual learner, submitted attempt, calibrated verified form or existing explicit pilot eligibility, and the same selected path before grading claims, audit or provider work. Only the selected prompt/rubric/answer enters the provider payload. Typed-input eligibility, final-human-score protection, budgets, durable single-call claim, validated needs_review proposal and independent human decision remain. Flat forms need no route-table read. No content approval, role, consent, grade or policy is manufactured.
+
+All896tests/type-check pass; lint0errors/44existing warnings; build/artifact19.71MiB. Eight new controlled groups cover actual human POST/AI pipeline, selected/flat success, self/unassigned/foreign/unused/uncalibrated/unsubmitted denial, missing/corrupt routes/storage, current RPC revocation, final human scores and refused duplicate claims, plus qualified selected-view controls/revoked reviewer denial. Fictional local records and a stubbed SDK only; no hosted approval/score or paid call. Private-bank96markers/1189source/148static/0hits.
+
+True Preview READY/targetnull: https://language-threshold-oqp8hblbc-adobetoby-5572s-projects.vercel.app, deployment `dpl_F3Nrb8STZj6NvTcxL2f2iQVJo4vc`; independent inspection matches full source3ab3f73. Current21authenticated APIgroups,12focused entry/private-header groups,3public packs and7read-only scope groups pass using existing flat QA records. Personal draft staysrevision12/in_progress/unsubmitted; teamB2opened/0mastered. Accepted companion staysd4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; live staysf9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. Main/production unchanged. Reports: qa-selected-review-preview-2026-10-17.json and qa-exams-selected-review-preview-2026-10-17.json.
+
+NEXT: core→Continue/connection-required→branch/reconnect/resume UI, then guarded start/submission acceptance. Adaptive starts/submission remain disabled. Real reviewed forms/qualified reviewers, linguistic/calibration/equivalence, consented pilots, current adaptive browser/physical/catalog/operational acceptance remain open. No browser actions, paid calls, new hosted learner responses/scores, DDL/roles/active speech policy/collection/schedule changes. Authorized database migration remains applied/immutable. Goal and conditional main push remain incomplete. Retention/reviewer questions remain pending; do not repeat or infer approval.
+
+
 ### Shared selected-summary and core-growth boundary staged — October 17
 
 Application `89cacb5` routes overview, paged attempt history, source-plan profiles and progress CSV through one authorized selected-summary boundary. The existing service RPC checks actor/enrollment/attempt scope before discovery. Only adaptive IDs among those authorized results are discovered; flat private definitions are not downloaded. Frozen adaptive definitions are processed in batches of at most10 with exact checkpoint/enrollment, version/calibration/equivalence and immutable-route checks. Unknown/duplicate/unselected score mappings or any later-batch error fail closed without a partial report. Minimal decision fields only; no original core/response answers or routing retry audit is read. Empty-attempt RPC selection rechecks current enrollment access after adaptive enrichment without fetching scores again.

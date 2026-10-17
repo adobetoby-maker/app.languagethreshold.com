@@ -182,7 +182,7 @@ export function Core30PlanCard({
 
       <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
         <div className="rounded-xl border border-white/[0.07] bg-card/40 p-3">
-          <p className="text-white/40">Mastered</p>
+          <p className="text-white/40">Currently mastered</p>
           <p className="mt-0.5 font-mono text-base text-white">
             {plan.masteredCount} / {totalLessons}
           </p>
@@ -204,7 +204,7 @@ export function Core30PlanCard({
       ) : null}
 
       {/* One gold primary action: the review when it is due, otherwise today's lesson. */}
-      {plan.masteredCount > 0 && plan.reviewDue && (
+      {plan.previouslyMasteredCount > 0 && plan.reviewDue && (
         <button
           type="button"
           onClick={onStartReview}
@@ -222,26 +222,28 @@ export function Core30PlanCard({
           onClick={() => onOpenLesson(plan.nextLesson!.n)}
           className={cn(
             "mt-3 flex min-h-12 w-full items-center justify-between gap-3 rounded-xl px-4 py-2 text-left transition-colors",
-            plan.reviewDue && plan.masteredCount > 0
+            plan.reviewDue && plan.previouslyMasteredCount > 0
               ? "border border-gold/30 bg-transparent hover:bg-gold/10"
               : "hover:opacity-90",
           )}
-          style={plan.reviewDue && plan.masteredCount > 0 ? undefined : GOLD_BUTTON}
+          style={plan.reviewDue && plan.previouslyMasteredCount > 0 ? undefined : GOLD_BUTTON}
         >
           <span className="min-w-0">
             <span
               className={cn(
                 "block text-sm font-semibold",
-                plan.reviewDue && plan.masteredCount > 0 ? "text-white" : "text-[#0B0B0F]",
+                plan.reviewDue && plan.previouslyMasteredCount > 0
+                  ? "text-white"
+                  : "text-[#0B0B0F]",
               )}
             >
-              {plan.reviewDue && plan.masteredCount > 0 ? "Then" : "Today"}: Lesson{" "}
+              {plan.reviewDue && plan.previouslyMasteredCount > 0 ? "Then" : "Today"}: Lesson{" "}
               {plan.nextLesson.n}
             </span>
             <span
               className={cn(
                 "block text-[11px]",
-                plan.reviewDue && plan.masteredCount > 0
+                plan.reviewDue && plan.previouslyMasteredCount > 0
                   ? plan.nextLesson.overdue
                     ? "text-amber-300"
                     : "text-white/50"
@@ -255,7 +257,9 @@ export function Core30PlanCard({
           <ChevronRight
             className={cn(
               "h-4 w-4 shrink-0",
-              plan.reviewDue && plan.masteredCount > 0 ? "text-white/50" : "text-[#0B0B0F]/70",
+              plan.reviewDue && plan.previouslyMasteredCount > 0
+                ? "text-white/50"
+                : "text-[#0B0B0F]/70",
             )}
           />
         </button>
@@ -264,11 +268,12 @@ export function Core30PlanCard({
       {plan.needsPractice.length > 0 && (
         <p className="mt-3 text-[11px] text-amber-300">
           Needs practice: Lesson{plan.needsPractice.length > 1 ? "s" : ""}{" "}
-          {plan.needsPractice.join(", ")}
+          {plan.needsPractice.join(", ")}. These lessons are excluded from the mastered total; your
+          earlier history is kept.
         </p>
       )}
 
-      {plan.masteredCount > 0 && !plan.reviewDue && (
+      {plan.previouslyMasteredCount > 0 && !plan.reviewDue && (
         <button
           type="button"
           onClick={onStartReview}

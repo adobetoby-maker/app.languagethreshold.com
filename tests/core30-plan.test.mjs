@@ -5,6 +5,7 @@ import {
   daysBetween,
   lessonDueDate,
   masteredLessons,
+  previouslyMasteredLessons,
   mergeCore30Log,
   planCalendar,
   planToday,
@@ -313,11 +314,11 @@ test("summarizeCore30 counts opened, mastered and needs-practice lessons", () =>
   assert.equal(s.started, true);
   assert.equal(s.startDate, START);
   assert.equal(s.lessonsOpened, 3);
-  assert.equal(s.mastered, 2);
+  assert.equal(s.mastered, 1);
   assert.equal(s.needsPractice, 1);
   assert.equal(s.lastReviewAt, log.lastReviewAt);
   assert.equal(s.status, "behind");
-  assert.equal(s.behindBy, 2);
+  assert.equal(s.behindBy, 3);
   assert.equal(s.totalLessons, 30);
   const empty = summarizeCore30(undefined, 30, START);
   assert.equal(empty.started, false);
@@ -326,7 +327,11 @@ test("summarizeCore30 counts opened, mastered and needs-practice lessons", () =>
 });
 
 const startLog = (startDate, startDateSetAt) => ({
-  m1: { lessons: {}, ...(startDate ? { startDate } : {}), ...(startDateSetAt ? { startDateSetAt } : {}) },
+  m1: {
+    lessons: {},
+    ...(startDate ? { startDate } : {}),
+    ...(startDateSetAt ? { startDateSetAt } : {}),
+  },
 });
 
 test("mergeCore30Log startDate: both stamped, the later edit wins either way", () => {
@@ -363,4 +368,18 @@ test("mergeCore30Log startDate: neither stamped keeps local, falls back to remot
   assert.equal("startDateSetAt" in m, false);
   assert.equal(mergeCore30Log(startLog(undefined), remote).m1.startDate, "2026-01-05");
   assert.equal(mergeCore30Log(undefined, remote).m1.startDate, "2026-01-05");
+});
+
+test("all lessons needing practice remain reviewable and due without losing original mastery history", () => {
+  const lessons = { 1: { visits: {}, masteredAt: iso(START), needsPractice: true } };
+  const plan = planToday({ startDate: START, lessons }, 30, addDays(START, 4));
+  assert.equal(plan.masteredCount, 0);
+  assert.equal(plan.previouslyMasteredCount, 1);
+  assert.deepEqual(previouslyMasteredLessons({ lessons }), [1]);
+  assert.deepEqual(masteredLessons({ lessons }), []);
+  assert.equal(plan.reviewDue, true);
+  assert.deepEqual(plan.reviewLessons, [1]);
+  assert.equal(plan.nextLesson.n, 1);
+  assert.equal(plan.status, "behind");
+  assert.equal(lessons[1].masteredAt, iso(START));
 });

@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { mergeCore30Log } from "../src/lib/core30-plan.ts";
+import {
+  mergeCore30Log,
+  masteredLessons,
+  previouslyMasteredLessons,
+} from "../src/lib/core30-plan.ts";
 import {
   core30RecordReview,
   core30SetMastered,
@@ -40,11 +44,14 @@ test("re-master on needsPractice clears it and appends an ok review without touc
   let log = core30SetMastered({}, { moduleId: M, lesson: 1, at: T1 });
   log = core30RecordReview(log, { moduleId: M, at: T2, results: [{ lesson: 1, ok: false }] });
   assert.equal(log[M].lessons["1"].needsPractice, true);
+  assert.deepEqual(masteredLessons(log[M]), []);
+  assert.deepEqual(previouslyMasteredLessons(log[M]), [1]);
   assert.equal(log[M].lastReviewAt, T2);
   const re = core30SetMastered(log, { moduleId: M, lesson: 1, at: T3 });
   const lesson = re[M].lessons["1"];
   assert.equal(lesson.needsPractice, false);
   assert.equal(lesson.masteredAt, T1);
+  assert.deepEqual(masteredLessons(re[M]), [1]);
   assert.deepEqual(lesson.reviews, [
     { at: T2, ok: false },
     { at: T3, ok: true },

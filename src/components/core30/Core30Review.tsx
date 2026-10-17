@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { getModule } from "@/data/modules";
 import type { Lesson, LessonWord } from "@/data/curriculum";
 import { pickAuthoredWords, readCachedLessonWords } from "@/lib/lesson-words-core";
-import { masteredLessons } from "@/lib/core30-plan";
+import { previouslyMasteredLessons } from "@/lib/core30-plan";
 
 const WORDS_PER_LESSON = 5;
 
@@ -99,7 +99,7 @@ export function Core30Review({
   // Fixed for the whole session so the list does not reshuffle while the learner works.
   const items = useMemo(() => {
     const seen = new Set<string>();
-    return masteredLessons(log)
+    return previouslyMasteredLessons(log)
       .map((n) => lessons.find((l) => l.n === n))
       .filter((l): l is Lesson => !!l)
       .map((lesson) => ({
@@ -173,7 +173,9 @@ export function Core30Review({
             your list until you mark them mastered again.
           </p>
         ) : (
-          <p className="mt-2 text-sm text-white/60">Everything held. Next review in 4 days.</p>
+          <p className="mt-2 text-sm text-white/60">
+            Everything held. Your plan shows the next review.
+          </p>
         )}
         <button
           type="button"

@@ -94,14 +94,19 @@ export function reviewDates(startDate: string, everyDays = CORE30_REVIEW_EVERY_D
   return out;
 }
 
-/** Sorted lesson numbers that carry a masteredAt stamp. */
-export function masteredLessons(log: Core30ModuleLog | undefined): number[] {
+/** Historical declarations stay available for reviews, even after a failed recall. */
+export function previouslyMasteredLessons(log: Core30ModuleLog | undefined): number[] {
   if (!log?.lessons) return [];
   return Object.entries(log.lessons)
     .filter(([, l]) => !!l?.masteredAt)
     .map(([k]) => Number(k))
     .filter((n) => Number.isFinite(n))
     .sort((a, b) => a - b);
+}
+
+/** Current self-reported mastery excludes lessons the learner says need practice. */
+export function masteredLessons(log: Core30ModuleLog | undefined): number[] {
+  return previouslyMasteredLessons(log).filter((n) => !log?.lessons[String(n)]?.needsPractice);
 }
 
 function needsPracticeLessons(log: Core30ModuleLog | undefined): number[] {
@@ -119,6 +124,7 @@ export interface Core30Today {
   dayNumber: number;
   totalLessons: number;
   masteredCount: number;
+  previouslyMasteredCount: number;
   expectedMastered: number;
   status: "not-started" | "ahead" | "on-track" | "behind";
   behindBy: number;
@@ -143,6 +149,7 @@ export function planToday(
   reviewEveryDays = CORE30_REVIEW_EVERY_DAYS,
 ): Core30Today {
   const mastered = masteredLessons(log);
+  const previouslyMastered = previouslyMasteredLessons(log);
   const needsPractice = needsPracticeLessons(log);
   const startDate = log?.startDate;
   if (!startDate || Number.isNaN(parseKey(startDate))) {
@@ -151,6 +158,7 @@ export function planToday(
       dayNumber: 0,
       totalLessons,
       masteredCount: mastered.length,
+      previouslyMasteredCount: previouslyMastered.length,
       expectedMastered: 0,
       status: "not-started",
       behindBy: 0,
@@ -195,7 +203,8 @@ export function planToday(
   const nextReviewDate = dates.find((d) => d > today);
   const lastDoneKey = log?.lastReviewAt ? isoToDateKey(log.lastReviewAt) : undefined;
   const reviewDue =
-    masteredCount > 0 && pastDates.some((d) => lastDoneKey === undefined || d > lastDoneKey);
+    previouslyMastered.length > 0 &&
+    pastDates.some((d) => lastDoneKey === undefined || d > lastDoneKey);
 
   return {
     started: true,
@@ -203,6 +212,7 @@ export function planToday(
     dayNumber,
     totalLessons,
     masteredCount,
+    previouslyMasteredCount: previouslyMastered.length,
     expectedMastered,
     status,
     behindBy,
@@ -210,7 +220,7 @@ export function planToday(
     reviewDue,
     lastReviewDate,
     nextReviewDate,
-    reviewLessons: reviewDue ? mastered : [],
+    reviewLessons: reviewDue ? previouslyMastered : [],
     needsPractice,
   };
 }

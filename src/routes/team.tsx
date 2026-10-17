@@ -603,7 +603,7 @@ function AdminWorkspace({
         "Active minutes (7d)",
         "Active minutes (30d)",
         "Lessons",
-        "Earlier unlabeled Core 30 mastered",
+        "Earlier unlabeled Core 30 currently mastered",
         "Earlier unlabeled Core 30 status",
         "Team plan Core 30 progress",
         "Best test",
@@ -654,7 +654,7 @@ function AdminWorkspace({
             .filter((track) => track.moduleId === assignment.module_id)
             .map(
               (track) =>
-                `${track.instructionLanguage} → ${track.targetLanguage}; ${track.startDate ?? ""}; ${track.mastered}/${track.total} self-marked mastered; ${track.opened} opened; ${track.statusLabel}`,
+                `${track.instructionLanguage} → ${track.targetLanguage}; ${track.startDate ?? ""}; ${track.mastered}/${track.total} currently self-marked mastered; ${track.opened} opened; ${track.statusLabel}`,
             )
             .join(" | "),
           best ? `${best}/25` : "",
@@ -1386,7 +1386,7 @@ function Core30Summary({ core }: { core: Core30Display }) {
   return (
     <div className="space-y-1">
       <div>
-        {core.mastered}/{core.total} mastered · {core.opened} opened
+        {core.mastered}/{core.total} currently mastered · {core.opened} opened
       </div>
       <span
         className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${CORE30_CHIP[core.status]}`}

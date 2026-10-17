@@ -561,6 +561,23 @@ export async function readAttempt(
         ];
   if (jobs.error || proposals.error)
     throw new AssessmentAccessError("Review status could not be loaded.", 503);
+  if (path.routing) {
+    // The private selected view can span several reads. Do not serialize it after
+    // team/reviewer access is revoked while scores and review state are loading.
+    const current = await attemptAccess(db, actor, id, review, "routing");
+    if (
+      !attemptMatchesOrganization(
+        {
+          enrollment: {
+            scope: current.enrollment.scope,
+            organizationId: current.enrollment.organization_id,
+          },
+        },
+        organizationId,
+      )
+    )
+      throw new AssessmentAccessError("This attempt is outside the selected team view.");
+  }
   return {
     repeatedForm: !!priorForms.data?.length,
     studiedObjectiveCount: Array.isArray(attempt.form_snapshot.reportedStudiedObjectives)

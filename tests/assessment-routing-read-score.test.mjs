@@ -200,6 +200,17 @@ test("foreign account or explicit wrong-team view fails before private route and
   }
 });
 
+test("adaptive read rechecks access after loading score/review state", async () => {
+  const f = await fixture({ selected: true, submitted: true }),
+    original = f.db.rpc;
+  f.db.rpc = async (name, args) => {
+    const result = await original(name, args);
+    if (name === "assessment_latest_scores") f.enrollment.user_id = "new-owner";
+    return result;
+  };
+  await assert.rejects(readAttempt(f.db, "learner", attemptId), { status: 403 });
+});
+
 test("corrupt adaptive response sets fail before serialization or first grading RPC", async () => {
   for (const change of [
     (f) =>

@@ -30,15 +30,16 @@ import {
 import {
   getMissionTtsCapabilities,
   speakMissionTts,
-  stopMissionTts,
   type MissionTtsCapabilities,
 } from "@/lib/mission-tts";
-import { configureUtterance, pickVoice, subscribeVoices } from "@/lib/voices";
+import { pickVoice, subscribeVoices } from "@/lib/voices";
 import {
   getSpeakingAgeAttestation,
   saveSpeakingAgeAttestation,
   speakingRequestHeaders,
 } from "@/lib/speaking-client";
+import { speakRemote } from "@/lib/tts";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAiGate } from "@/state/ai-gate-state";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
@@ -212,7 +213,7 @@ export function SpeakingMissionsPreview({
   const { gated } = useAiGate();
   const { state: appState, dispatch: appDispatch } = useApp();
   const { accent, rate, setAccent, setRate, voiceURI, setVoiceURI } = useSpeech();
-  const { session } = useAuth();
+  const { session, isCurrentUser } = useAuth();
   const [selectedMission, setSelectedMission] = useState<SpeakingMission | null>(null);
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -254,8 +255,9 @@ export function SpeakingMissionsPreview({
   const previousViewKeyRef = useRef<string | null>(null);
   const sessionStartedAtRef = useRef<number | null>(null);
   const practiceRecordedRef = useRef(false);
-  const playbackGenerationRef = useRef(0);
-  const finishDevicePlaybackRef = useRef<(() => void) | null>(null);
+  const ageSaveRef = useRef<AbortController | null>(null);
+  const audioRef = useRef<AbortController | null>(null);
+  const sessionOwnerRef = useRef<string | null>(null);
   const [coreEntryRequested] = useState(() =>
     embeddedMissionPrefix ? false : consumeCoreSpeakingEntry(),
   );
@@ -294,6 +296,24 @@ export function SpeakingMissionsPreview({
   }, [languageModules, missionLanguage]);
   const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
+  const {
+    key: lifecycleKey,
+    actor,
+    capture,
+    cancel,
+  } = usePracticeLifecycle(
+    JSON.stringify([
+      appState.selectedLanguage,
+      appState.activeModuleId,
+      selectedMission?.id,
+      embeddedMissionPrefix,
+    ]),
+  );
+  const cancelRef = useRef(cancel);
+  useEffect(() => {
+    cancelRef.current = cancel;
+    setAgeSaving(false);
+  }, [cancel]);
   const availableGoogleVoices = useMemo(
     () => recommendedGoogleVoices(ttsCapabilities?.voices ?? [], missionLocale, partnerVersion),
     [missionLocale, partnerVersion, ttsCapabilities?.voices],
@@ -371,11 +391,17 @@ export function SpeakingMissionsPreview({
   }, [accent, activeTravelDestination, setAccent]);
 
   useEffect(() => {
+    let active = true;
     const refreshAvailability = () => {
+      if (!active) return;
       setDeviceVoiceAvailable(Boolean(pickVoice(missionLocale, voiceURI)));
     };
     refreshAvailability();
-    return subscribeVoices(refreshAvailability);
+    const unsubscribe = subscribeVoices(refreshAvailability);
+    return () => {
+      active = false;
+      unsubscribe();
+    };
   }, [missionLocale, voiceURI]);
 
   useEffect(() => {
@@ -388,27 +414,31 @@ export function SpeakingMissionsPreview({
     setAgeLoaded(false);
     getSpeakingAgeAttestation(controller.signal)
       .then((confirmed) => {
+        if (controller.signal.aborted || !isCurrentUser(session.user.id)) return;
         setAgeConfirmed(confirmed);
         setAgeLoaded(true);
       })
       .catch((error) => {
+        if (controller.signal.aborted || !isCurrentUser(session.user.id)) return;
         if (error instanceof DOMException && error.name === "AbortError") return;
         setAgeConfirmed(false);
         setAgeLoaded(true);
         setErrorMessage("Speaking confirmation could not be loaded. Please try again.");
       });
     return () => controller.abort();
-  }, [session]);
+  }, [session, isCurrentUser]);
 
   useEffect(() => {
     const controller = new AbortController();
     setTtsStatus("checking");
     getMissionTtsCapabilities(missionLocale, controller.signal)
       .then((capabilities) => {
+        if (controller.signal.aborted) return;
         setTtsCapabilities(capabilities);
         setTtsStatus(capabilities.ready ? "ready" : "unavailable");
       })
       .catch((error) => {
+        if (controller.signal.aborted) return;
         if (error instanceof DOMException && error.name === "AbortError") return;
         setTtsStatus("unavailable");
       });
@@ -432,24 +462,27 @@ export function SpeakingMissionsPreview({
   }, [turns, interim, status]);
 
   const stopAudio = useCallback(() => {
-    playbackGenerationRef.current += 1;
-    stopMissionTts();
-    if (typeof window !== "undefined") window.speechSynthesis?.cancel();
-    finishDevicePlaybackRef.current?.();
-    finishDevicePlaybackRef.current = null;
+    audioRef.current?.abort();
+    audioRef.current = null;
     setPartnerSpeaking(false);
   }, []);
 
   const stopActiveWork = useCallback(() => {
-    recognitionRef.current?.abort();
-    recognitionRef.current = null;
-    requestRef.current?.abort();
-    requestRef.current = null;
+    cancelRef.current();
     stopAudio();
   }, [stopAudio]);
 
   useEffect(() => {
-    stopActiveWork();
+    sessionOwnerRef.current = null;
+    setAgeSaving(false);
+    setConsentOpen(false);
+    setStarted(false);
+    setTurns([]);
+    setTypedTurn("");
+    setInterim("");
+    setObjectiveIds([]);
+    setPartnerSpeaking(false);
+    setStatus("ready");
     setWordRequest(null);
     setSelectedMission(null);
     setCatalogModuleId(coreEntryRequestedRef.current ? "core-speaking" : null);
@@ -458,16 +491,12 @@ export function SpeakingMissionsPreview({
     setCatalogSearch("");
     setCoreSection("Essential verbs");
     setPartnerAudioSource("device");
-  }, [appState.selectedLanguage, stopActiveWork]);
+  }, [appState.selectedLanguage, appState.activeModuleId, actor]);
 
   useEffect(() => {
     if (started) return;
     setPartnerAudioSource(decodeGoogleVoicePreference(voiceURI) ? "google" : "device");
   }, [appState.selectedLanguage, started, voiceURI]);
-
-  useEffect(() => {
-    return () => stopActiveWork();
-  }, [stopActiveWork]);
 
   useEffect(() => {
     if (embeddedMissionPrefix) return;
@@ -490,17 +519,21 @@ export function SpeakingMissionsPreview({
     if (!started || status === "complete" || sessionStartedAtRef.current === null) return;
     const elapsed = Date.now() - sessionStartedAtRef.current;
     const remaining = Math.max(0, 18 * 60 * 1000 - elapsed);
+    const lease = capture();
     const hardCap = window.setTimeout(() => {
+      if (!lease.isCurrent()) return;
       stopActiveWork();
       setCompletionReason("limit");
       setStatus("complete");
       setErrorMessage("This UX-preview mission reached its 18-minute limit.");
     }, remaining);
     return () => window.clearTimeout(hardCap);
-  }, [started, status, stopActiveWork]);
+  }, [started, status, stopActiveWork, capture]);
 
   useEffect(() => {
+    const lease = capture();
     const stopOnBackground = () => {
+      if (!lease.isCurrent()) return;
       if (document.visibilityState !== "hidden" || !started || status === "complete") return;
       stopActiveWork();
       setInterim("");
@@ -511,68 +544,98 @@ export function SpeakingMissionsPreview({
     };
     document.addEventListener("visibilitychange", stopOnBackground);
     return () => document.removeEventListener("visibilitychange", stopOnBackground);
-  }, [started, status, stopActiveWork]);
+  }, [started, status, stopActiveWork, capture]);
 
+  const audioScope = JSON.stringify([
+    missionLocale,
+    partnerAudioSource,
+    partnerSpeed,
+    partnerVoice?.name,
+    voiceURI,
+  ]);
+  const activeAudioScope = useRef<string | null>(null);
+  useEffect(() => {
+    activeAudioScope.current = audioScope;
+    stopAudio();
+  }, [audioScope, stopAudio]);
   const speakPartnerText = useCallback(
     async (text: string, onPlaybackStart?: () => void) => {
+      const lease = capture();
+      if (!lease.isCurrent() || activeAudioScope.current !== audioScope) return;
       stopAudio();
       if (partnerAudioSource === "text") return;
-      const playbackGeneration = ++playbackGenerationRef.current;
+      const controller = new AbortController();
+      audioRef.current = controller;
+      const release = lease.own(() => {
+        controller.abort();
+        if (audioRef.current === controller) audioRef.current = null;
+      });
+      const current = () =>
+        lease.isCurrent() &&
+        activeAudioScope.current === audioScope &&
+        !controller.signal.aborted &&
+        audioRef.current === controller;
       setPartnerSpeaking(true);
       try {
         if (partnerAudioSource === "device") {
-          if (typeof window === "undefined" || !window.speechSynthesis) {
-            setErrorMessage("A device voice is unavailable in this browser.");
-            return;
-          }
-          const utterance = new SpeechSynthesisUtterance(text);
-          configureUtterance(utterance, missionLocale, voiceURI);
-          utterance.rate = partnerSpeed;
-          utterance.onstart = () => onPlaybackStart?.();
-          await new Promise<void>((resolve, reject) => {
-            const finish = () => {
-              finishDevicePlaybackRef.current = null;
-              resolve();
-            };
-            finishDevicePlaybackRef.current = finish;
-            utterance.onend = finish;
-            utterance.onerror = (event) => {
-              finishDevicePlaybackRef.current = null;
-              reject(new Error(event.error || "The device voice could not play."));
-            };
-            window.speechSynthesis.speak(utterance);
+          if (!pickVoice(missionLocale, voiceURI))
+            throw new Error("A device voice is unavailable in this browser.");
+          await speakRemote(text, missionLocale, {
+            voiceURI,
+            rate: partnerSpeed,
+            deviceOnly: true,
+            signal: controller.signal,
+            onPlaybackStart: () => {
+              if (current()) onPlaybackStart?.();
+            },
+            onerror: () => {
+              if (current()) setErrorMessage("The device voice could not play.");
+            },
           });
-          return;
+        } else {
+          if (ttsStatus !== "ready")
+            throw new Error("Google partner voices are unavailable for this deployment.");
+          if (!partnerVoice) throw new Error(`No Google voice is available for ${missionLocale}.`);
+          await speakMissionTts({
+            text,
+            voiceName: partnerVoice.name,
+            languageCode: partnerVoice.languageCodes[0] ?? missionLocale,
+            speakingRate: partnerSpeed,
+            usage: "mission",
+            signal: controller.signal,
+            onPlaybackStart: () => {
+              if (current()) onPlaybackStart?.();
+            },
+          });
         }
-        if (ttsStatus !== "ready") {
-          setErrorMessage("Google partner voices are unavailable for this deployment.");
-          return;
-        }
-        if (!partnerVoice) {
-          setErrorMessage(`No Google voice is available for ${missionLocale}.`);
-          return;
-        }
-        await speakMissionTts({
-          text,
-          voiceName: partnerVoice.name,
-          languageCode: partnerVoice.languageCodes[0] ?? missionLocale,
-          speakingRate: partnerSpeed,
-          usage: "mission",
-          onPlaybackStart,
-        });
       } catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") return;
+        if (!current() || (error instanceof DOMException && error.name === "AbortError")) return;
         setErrorMessage(error instanceof Error ? error.message : "Partner voice playback failed.");
       } finally {
-        if (playbackGenerationRef.current === playbackGeneration) setPartnerSpeaking(false);
+        if (current()) {
+          setPartnerSpeaking(false);
+          audioRef.current = null;
+        }
+        release();
       }
     },
-    [missionLocale, partnerAudioSource, partnerSpeed, partnerVoice, stopAudio, ttsStatus, voiceURI],
+    [
+      capture,
+      audioScope,
+      missionLocale,
+      partnerAudioSource,
+      partnerSpeed,
+      partnerVoice,
+      stopAudio,
+      ttsStatus,
+      voiceURI,
+    ],
   );
 
   const startMissionSession = () => {
-    if (!selectedMission || !partnerAudioReady) return;
+    if (!capture().isCurrent() || !selectedMission || !partnerAudioReady) return;
     stopActiveWork();
+    sessionOwnerRef.current = lifecycleKey;
     practiceRecordedRef.current = false;
     setWordRequest(null);
     const opening: MissionTurn = {
@@ -597,28 +660,48 @@ export function SpeakingMissionsPreview({
   };
 
   const confirmAgeAndBegin = async () => {
+    const lease = capture();
+    if (!lease.isCurrent() || ageSaveRef.current) return;
     if (!session) {
       setConsentOpen(false);
       setAuthOpen(true);
       return;
     }
+    const controller = new AbortController();
+    ageSaveRef.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (ageSaveRef.current === controller) ageSaveRef.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && ageSaveRef.current === controller;
     setAgeSaving(true);
     setErrorMessage(null);
     try {
-      const saved = await saveSpeakingAgeAttestation(true);
+      const saved = await saveSpeakingAgeAttestation(true, controller.signal, current);
+      if (!current()) return;
       if (!saved) throw new Error("Speaking confirmation was not saved.");
       setAgeConfirmed(true);
       setAgeLoaded(true);
       setConsentOpen(false);
+      setAgeSaving(false);
+      ageSaveRef.current = null;
+      release();
       startMissionSession();
     } catch {
-      setErrorMessage("The one-time speaking confirmation could not be saved. Please try again.");
+      if (current())
+        setErrorMessage("The one-time speaking confirmation could not be saved. Please try again.");
     } finally {
-      setAgeSaving(false);
+      if (current()) {
+        setAgeSaving(false);
+        ageSaveRef.current = null;
+      }
+      release();
     }
   };
 
   const requestMissionStart = () => {
+    if (!capture().isCurrent()) return;
     if (!selectedMission || !partnerAudioReady || ageSaving) return;
     if (!session) {
       setAuthOpen(true);
@@ -633,7 +716,9 @@ export function SpeakingMissionsPreview({
   };
 
   const exitMission = () => {
+    if (!capture().isCurrent()) return;
     stopActiveWork();
+    sessionOwnerRef.current = null;
     setWordRequest(null);
     setStarted(false);
     setTurns([]);
@@ -651,6 +736,7 @@ export function SpeakingMissionsPreview({
   };
 
   const selectMission = (mission: SpeakingMission) => {
+    if (!capture().isCurrent()) return;
     exitMission();
     setSelectedMission(mission);
     appDispatch({
@@ -682,13 +768,22 @@ export function SpeakingMissionsPreview({
       if (embeddedMissionPrefix && selectedMission) setSelectedMission(null);
       return;
     }
-    // Same effect as selectMission(); nothing is running yet so no exitMission() reset is needed.
+    // An embedded lesson can replace its mission while the previous one is active.
+    stopActiveWork();
+    sessionOwnerRef.current = null;
+    setStarted(false);
+    setTurns([]);
+    setInterim("");
+    setTypedTurn("");
+    setObjectiveIds([]);
+    setSkippedObjectiveIds([]);
+    setStatus("ready");
     setSelectedMission(match);
     appDispatch({
       type: "SET_SPEAKING_FOCUS",
       payload: { language: match.language, missionId: match.id, title: match.title },
     });
-  }, [languageMissions, selectedMission, appDispatch, embeddedMissionPrefix]);
+  }, [languageMissions, selectedMission, appDispatch, embeddedMissionPrefix, stopActiveWork]);
 
   // A Core 30 lesson that sent the learner here leaves a return marker. Once that lesson's mission
   // has been on screen and is then left (back, closed after the debrief, or another mission
@@ -720,7 +815,14 @@ export function SpeakingMissionsPreview({
     text: string,
     transcriptSourceOverride?: "dictation" | "typed",
   ) => {
-    if (!selectedMission) return;
+    const lease = capture();
+    if (
+      !lease.isCurrent() ||
+      !selectedMission ||
+      requestRef.current ||
+      sessionOwnerRef.current !== lifecycleKey
+    )
+      return;
     const learnerText = text.trim();
     if (!learnerText) {
       setStatus("ready");
@@ -741,8 +843,13 @@ export function SpeakingMissionsPreview({
     setStatus("thinking");
     setErrorMessage(null);
     const controller = new AbortController();
-    requestRef.current?.abort();
     requestRef.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (requestRef.current === controller) requestRef.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && requestRef.current === controller;
 
     try {
       const history: Array<{ role: "user" | "assistant"; content: string }> = previousTurns
@@ -752,9 +859,11 @@ export function SpeakingMissionsPreview({
           content: turn.text,
         }));
       history.push({ role: "user", content: learnerText });
+      const headers = await speakingRequestHeaders();
+      if (!current()) return;
       const response = await fetch("/api/speak", {
         method: "POST",
-        headers: await speakingRequestHeaders(),
+        headers,
         body: JSON.stringify({
           mode: "mission",
           language: selectedMission.language,
@@ -773,7 +882,12 @@ export function SpeakingMissionsPreview({
         signal: controller.signal,
       });
 
+      if (!current()) {
+        void response.body?.cancel().catch(() => {});
+        return;
+      }
       const payload = (await response.json()) as MissionTurnResponse | { error?: string };
+      if (!current()) return;
       if (!response.ok || !("assistantText" in payload)) {
         throw new Error(
           "error" in payload && payload.error
@@ -804,7 +918,7 @@ export function SpeakingMissionsPreview({
         });
       });
     } catch (error) {
-      requestRef.current = null;
+      if (!current()) return;
       if (error instanceof DOMException && error.name === "AbortError") return;
       setTurns((current) => current.filter((turn) => turn.id !== learnerTurn.id));
       setTypedTurn(learnerText);
@@ -813,10 +927,21 @@ export function SpeakingMissionsPreview({
       setErrorMessage(
         error instanceof Error ? error.message : "The mission partner could not respond.",
       );
+    } finally {
+      if (current()) requestRef.current = null;
+      release();
     }
   };
 
   const startListening = () => {
+    const lease = capture();
+    if (
+      !lease.isCurrent() ||
+      recognitionRef.current ||
+      requestRef.current ||
+      sessionOwnerRef.current !== lifecycleKey
+    )
+      return;
     if (partnerSpeaking || status === "thinking") return;
     const Constructor = recognitionConstructor();
     if (!Constructor) {
@@ -832,20 +957,41 @@ export function SpeakingMissionsPreview({
       recognition.lang = missionLocale;
       recognition.continuous = false;
       recognition.interimResults = true;
+      let ended = false;
+      const current = () => lease.isCurrent() && recognitionRef.current === recognition && !ended;
+      const dispose = () => {
+        recognition.onresult = null;
+        recognition.onerror = null;
+        recognition.onend = null;
+        if (recognitionRef.current === recognition) recognitionRef.current = null;
+        try {
+          recognition.abort();
+        } catch {
+          /* Already stopped. */
+        }
+      };
+      const release = lease.own(dispose);
+      const finalResults = new Map<number, string>();
       let finalText = "";
       let latestInterimText = "";
       let recognitionError: string | null = null;
       recognition.onresult = (event) => {
+        if (!current()) return;
         let interimText = "";
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index];
-          if (result.isFinal) finalText = `${finalText} ${result[0].transcript}`.trim();
+          if (result.isFinal) finalResults.set(index, result[0].transcript);
           else interimText = `${interimText} ${result[0].transcript}`.trim();
         }
+        finalText = [...finalResults]
+          .sort(([a], [b]) => a - b)
+          .map(([, value]) => value)
+          .join(" ");
         if (interimText) latestInterimText = interimText;
         setInterim(interimText);
       };
       recognition.onerror = (event) => {
+        if (!current()) return;
         recognitionError = event?.error ?? "unknown";
         if (recognitionError !== "no-speech" && recognitionError !== "aborted") {
           setErrorMessage(`Microphone error: ${recognitionError}. Try again or type your answer.`);
@@ -853,8 +999,10 @@ export function SpeakingMissionsPreview({
         }
       };
       recognition.onend = () => {
-        if (recognitionRef.current !== recognition) return;
-        recognitionRef.current = null;
+        if (!current()) return;
+        ended = true;
+        release();
+        dispose();
         setInterim("");
         const capturedText = bestAvailableSpeechTranscript(finalText, latestInterimText);
         if (capturedText) {
@@ -876,10 +1024,17 @@ export function SpeakingMissionsPreview({
         );
       };
       recognitionRef.current = recognition;
-      recognition.start();
+      try {
+        recognition.start();
+      } catch (error) {
+        release();
+        dispose();
+        throw error;
+      }
       setStatus("listening");
       setErrorMessage(null);
     } catch (error) {
+      if (!lease.isCurrent()) return;
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "The microphone could not start.");
     }
@@ -895,6 +1050,8 @@ export function SpeakingMissionsPreview({
 
   useEffect(() => {
     if (
+      !capture().isCurrent() ||
+      sessionOwnerRef.current !== lifecycleKey ||
       status !== "complete" ||
       !selectedMission ||
       practiceRecordedRef.current ||
@@ -907,9 +1064,10 @@ export function SpeakingMissionsPreview({
       type: "MARK_PRACTICE",
       payload: { language: selectedMission.language },
     });
-  }, [appDispatch, selectedMission, status, turns]);
+  }, [appDispatch, selectedMission, status, turns, capture, lifecycleKey]);
 
   const finishMission = () => {
+    if (!capture().isCurrent()) return;
     stopActiveWork();
     setWordRequest(null);
     setInterim("");

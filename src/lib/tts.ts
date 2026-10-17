@@ -42,6 +42,7 @@ export function stopRemoteTTS(): void {
   stopMissionTts();
   if (shared) {
     shared.pause();
+    shared.onplaying = null;
     shared.onended = null;
     shared.onerror = null;
     shared.removeAttribute("src");
@@ -55,6 +56,7 @@ function speakOnDevice(
   rate: number,
   preferredVoiceURI: string | null | undefined,
   current: () => boolean,
+  onPlaybackStart?: () => void,
 ) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     return Promise.resolve(false as boolean | null);
@@ -71,6 +73,7 @@ function speakOnDevice(
     const done = (heard: boolean | null) => {
       if (settled) return;
       settled = true;
+      utterance.onstart = null;
       utterance.onend = null;
       utterance.onerror = null;
       if (current()) cancelPlayback = null;
@@ -79,6 +82,9 @@ function speakOnDevice(
     cancelPlayback = () => {
       done(null);
       window.speechSynthesis.cancel();
+    };
+    utterance.onstart = () => {
+      if (!settled && current()) onPlaybackStart?.();
     };
     utterance.onend = () => done(true);
     utterance.onerror = () => done(false);
@@ -107,6 +113,7 @@ export async function speakRemote(
     signal?: AbortSignal;
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
+    onPlaybackStart?: () => void;
   },
 ): Promise<void> {
   if (opts?.signal?.aborted) return;
@@ -118,6 +125,13 @@ export async function speakRemote(
   };
   opts?.signal?.addEventListener("abort", abortOwned, { once: true });
   try {
+    let started = false;
+    const notifyStart = () => {
+      if (current() && !started) {
+        started = true;
+        opts?.onPlaybackStart?.();
+      }
+    };
     let notified = false;
     const notify = (heard = true) => {
       if (!current() || notified) return;
@@ -135,6 +149,7 @@ export async function speakRemote(
           languageCode: googleVoice.languageCode,
           speakingRate: rate,
           usage: opts?.usage ?? "learning",
+          onPlaybackStart: notifyStart,
         });
         notify();
         return;
@@ -152,7 +167,7 @@ export async function speakRemote(
             duration: 7000,
           });
         }
-        const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
+        const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current, notifyStart);
         if (heard !== null) notify(heard);
         return;
       }
@@ -163,7 +178,7 @@ export async function speakRemote(
         ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
         : undefined;
     if (!lang) {
-      const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current);
+      const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current, notifyStart);
       if (heard !== null) notify(heard);
       return;
     }
@@ -172,6 +187,7 @@ export async function speakRemote(
     el.pause();
     el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
     el.playbackRate = rate;
+    el.onplaying = notifyStart;
 
     const completed = await new Promise<boolean | null>((resolve) => {
       let settled = false;
@@ -180,6 +196,7 @@ export async function speakRemote(
         settled = true;
         if (current()) {
           cancelPlayback = null;
+          el.onplaying = null;
           el.onended = null;
           el.onerror = null;
           el.removeAttribute("src");

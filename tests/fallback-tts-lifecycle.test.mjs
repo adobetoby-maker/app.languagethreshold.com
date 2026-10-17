@@ -75,7 +75,7 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `export const controls={requests:[],warnings:0};export const speakMissionTts=()=>new Promise((resolve,reject)=>controls.requests.push({resolve,reject}));export const stopMissionTts=()=>{};export const getVoicesForLocale=()=>[];export const configureUtterance=(u,locale)=>u.lang=locale;export const isIosDevice=()=>false;export const toast={warning:()=>controls.warnings++};`,
+              contents: `export const controls={requests:[],warnings:0};export const speakMissionTts=opts=>new Promise((resolve,reject)=>controls.requests.push({resolve,reject,onPlaybackStart:opts.onPlaybackStart}));export const stopMissionTts=()=>{};export const getVoicesForLocale=()=>[];export const configureUtterance=(u,locale)=>u.lang=locale;export const isIosDevice=()=>false;export const toast={warning:()=>controls.warnings++};`,
             }));
           },
         },
@@ -186,6 +186,37 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
       utterances.at(-1).onend();
       await nativeOnly;
     }
+    let starts = 0;
+    const timed = m.speakRemote("Device timing", "en-US", {
+      deviceOnly: true,
+      onPlaybackStart: () => starts++,
+    });
+    await tick();
+    const timingUtterance = utterances.at(-1),
+      timingStart = timingUtterance.onstart;
+    timingStart();
+    timingStart();
+    assert.equal(starts, 1);
+    m.stopRemoteTTS();
+    await timed;
+    assert.equal(timingUtterance.onstart, null);
+    timingStart();
+    assert.equal(starts, 1, "stopped native start cannot update timing");
+    const cloudTiming = m.speakRemote("Google timing", "es-CR", {
+      voiceURI: pref,
+      onPlaybackStart: () => starts++,
+    });
+    await tick();
+    const cloudRequest = m.controls.requests.at(-1),
+      cloudStart = cloudRequest.onPlaybackStart;
+    cloudStart();
+    cloudStart();
+    assert.equal(starts, 2);
+    m.stopRemoteTTS();
+    cloudStart();
+    cloudRequest.resolve();
+    await cloudTiming;
+    assert.equal(starts, 2, "stopped Google start cannot update timing");
   } finally {
     globalThis.window = saved.window;
     globalThis.Audio = saved.Audio;

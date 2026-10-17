@@ -1,3 +1,4 @@
+import { TeamAssessmentInsights } from "./TeamAssessmentInsights";
 import { attemptMatchesOrganization } from "@/lib/assessments/scope";
 import { lessonNumberRanges } from "@/lib/lesson-number-ranges";
 import type { LessonSourceCoverage } from "@/lib/lesson-source-coverage";
@@ -577,6 +578,14 @@ function ExamsAreaContent({
         </section>
       ) : (
         <div className="flex flex-col gap-5">
+          {orgId && overview?.canManage && (
+            <TeamAssessmentInsights
+              orgId={orgId}
+              moduleId={filters.module || module}
+              target={filters.target || target}
+              native={filters.native || native}
+            />
+          )}
           {(orgId ||
             (overview && (overview.enrollments.length > 1 || overview.hasMore)) ||
             Object.entries(filters).some(([key, value]) =>

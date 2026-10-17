@@ -25,6 +25,7 @@ end $$;
 \ir ../../supabase/migrations/20261016102338_assessment_paged_reports.sql
 \ir ../../supabase/migrations/20261016103623_assessment_checkpoint_heads.sql
 \ir ../../supabase/migrations/20261017005745_assessment_checkpoint_overview_filter.sql
+\ir ../../supabase/migrations/20261017010752_assessment_team_insight_evidence.sql
 \ir ../../supabase/migrations/20261016113042_assessment_reviewer_administration.sql
 \ir ../../supabase/migrations/20261016114250_assessment_content_review_exposure.sql
 \ir ../../supabase/migrations/20261016121557_assessment_learner_goals.sql
@@ -175,6 +176,7 @@ grant select on auth.users to service_role;
 set local role service_role;
 \ir assessment-reports.sql
 \ir assessment-checkpoint-filter.sql
+\ir assessment-team-insights.sql
 \ir assessment-support.sql
 \ir assessment-goals.sql
 \ir assessment-reviewer-admin.sql

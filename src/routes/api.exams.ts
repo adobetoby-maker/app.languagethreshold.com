@@ -1,3 +1,4 @@
+import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import {
   speechStatus,
   uploadAssessmentSpeech,
@@ -250,6 +251,20 @@ export const Route = createFileRoute("/api/exams")({
               user.id,
               id.parse(url.searchParams.get("attempt")),
               z.string().min(1).max(160).parse(url.searchParams.get("item")),
+            );
+          }
+          if (action === "team_insights") {
+            await budget(user.id, "overview_read");
+            return json(
+              await teamAssessmentInsights(
+                db,
+                user.id,
+                id.parse(url.searchParams.get("org")),
+                z.string().min(1).max(80).parse(url.searchParams.get("module")),
+                target.parse(url.searchParams.get("target")),
+                native.parse(url.searchParams.get("native")),
+                z.enum(["entrance", "day45", "day90"]).parse(url.searchParams.get("checkpoint")),
+              ),
             );
           }
           if (action === "readiness") {

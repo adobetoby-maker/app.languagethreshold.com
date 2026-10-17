@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Prepared-start source race reproduced; additive fix proposed locally — October 17
+
+Source-only follow-up on unchanged application252311c. The actual legacy start RPC can freeze an uncalibrated nonpilot attempt when calibration is removed after the API reads its source. It also does not bind its source reread to the bytes validated by the API. Adaptive runtime stays explicitly off, so this is a pre-activation defect rather than a claim of a hosted adaptive incident.
+
+Concrete proposal docs/assessments/prepared-start-migration-proposal.md and proposals/prepared-start-rpc.sql add a service-only security-invoker wrapper, without altering historical functions/tables/migrations. For new adaptive attempts it compares complete trusted private source rows under form/release SHARE locks, verifies reviewed/calibrated full-module identity and stored30lesson binding, then delegates the original creation transaction with pilot=false. Existing track advisory and enrollment→checkpoint ordering are retained. Original frozen retry/resume stays authoritative; changed-form same-request conflicts. Browser bodies never supply expected source rows. This additional RPC is not covered automatically by the earlier limited routing-foundation approval. Owner authorization is requested before shared-backend DDL/application wiring; no new migration was generated/applied and no runtime call site changed.
+
+Ten local result groups pass using real independent connections, explicit held transactions and observed PostgreSQL lock waits: actual legacy calibration gap; stale calibration/definition/version/review and release changes rejecting without an attempt; start winning and freezing original bytes while source edits wait; single-event retry/resume; new/legacy serialization without deadlock; actor/payload/browser-grant denial; injected audit rollback; private-key exposure denial; current uncalibrated/flat rejection. All existing fixed/routing/runtime SQL baselines pass. The named local QA database is verified empty after full fixture cleanup. Evidence qa-prepared-start-local-2026-10-17.json; command node scripts/qa/test-prepared-start-db.mjs. These fixtures are fictional and never hosted approvals or content.
+
+Lint0errors/44existing warnings; private-bank96markers/1209source/148static/0hits. No typed/application changes, new build, deployment, hosted rerun or browser/provider calls. Prior926tests/type/build/hosted21/12/3/7 remain explicitly inherited from252311c. Latest true Preview remains c8jp3ng4v/dpl_AFDdqYKZqUB2YHUgpGcFWAsLbbWe with capabilityfalse; accepted companiond4ad837 and livef9f8685 retain their last verified deployment evidence. No main/alias/production/schema/role/speech/retention/schedule changes. Full goal and conditional main push remain incomplete. Existing retention/reviewer questions stay pending; do not repeat/infer approval.
+
+NEXT: owner decision on this concrete additional RPC; then fresh additive migration/final local and hosted grant/advisor proof before wiring disabled Preview start. Continue activation/rollback and bounded readiness-latency review independently. Genuine reviewed content, calibration/equivalence, browser/device/reviewer/consented-pilot/catalog/operational launch gates remain open.
+
+
 ### Adaptive runtime wired behind disabled Preview capability — October 17
 
 Application `252311c` connects preparation/start, catalog/overview readiness and selected submission behind exact `LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED=true` plus `VERCEL_ENV=preview`. This deployment explicitly pins the capability tofalse; production/development ignore it. No project-wide environment setting was changed and no adaptive content/runtime was activated. Default compatible flat behavior is preserved.

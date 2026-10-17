@@ -1,3 +1,4 @@
+import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
@@ -121,25 +122,28 @@ export const Route = createFileRoute("/api/discussion")({
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
+        const client = new Anthropic(conversationProviderOptions(KEY));
         const system =
           payload.mode === "investigator" ? investigatorPrompt(payload) : companionPrompt(payload);
 
         // Companion mode: single short tip (non-streaming)
         if (payload.mode === "companion") {
           try {
-            const response = await client.messages.create({
-              model: "claude-haiku-5-5",
-              max_tokens: 200,
-              thinking: { type: "disabled" },
-              system,
-              messages: [
-                {
-                  role: "user",
-                  content: `Missionary just said (in ${payload.language}): "${payload.userText ?? ""}"`,
-                },
-              ],
-            });
+            const response = await client.messages.create(
+              {
+                model: "claude-haiku-5-5",
+                max_tokens: 200,
+                thinking: { type: "disabled" },
+                system,
+                messages: [
+                  {
+                    role: "user",
+                    content: `Missionary just said (in ${payload.language}): "${payload.userText ?? ""}"`,
+                  },
+                ],
+              },
+              conversationCallOptions(request),
+            );
             const tip =
               response.content[0]?.type === "text" ? response.content[0].text.trim() : null;
             return new Response(JSON.stringify({ tip }), {
@@ -156,14 +160,17 @@ export const Route = createFileRoute("/api/discussion")({
 
         // Investigator mode: streaming
         try {
-          const stream = await client.messages.create({
-            model: "claude-haiku-5-5",
-            max_tokens: 384,
-            thinking: { type: "disabled" },
-            system,
-            messages: payload.messages,
-            stream: true,
-          });
+          const stream = await client.messages.create(
+            {
+              model: "claude-haiku-5-5",
+              max_tokens: 384,
+              thinking: { type: "disabled" },
+              system,
+              messages: payload.messages,
+              stream: true,
+            },
+            conversationCallOptions(request),
+          );
 
           return new Response(anthropicStreamToSSE(stream), {
             status: 200,
@@ -173,9 +180,8 @@ export const Route = createFileRoute("/api/discussion")({
               Connection: "keep-alive",
             },
           });
-        } catch (e) {
-          Sentry.captureException(e);
-          console.error("Discussion stream error:", e);
+        } catch {
+          Sentry.captureException(new Error("discussion provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
             headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },

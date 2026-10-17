@@ -1,3 +1,4 @@
+import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
 import { prepareConversationRequest, ConversationRequestError } from "@/lib/conversation-request";
 import {
   resolveTutorLesson,
@@ -305,17 +306,20 @@ export const Route = createFileRoute("/api/tutor")({
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
+        const client = new Anthropic(conversationProviderOptions(KEY));
         const system = buildSystemPrompt(payload.context);
 
         try {
-          const stream = await client.messages.create({
-            model: "claude-sonnet-5-5",
-            max_tokens: 2000,
-            system,
-            messages: payload.messages,
-            stream: true,
-          });
+          const stream = await client.messages.create(
+            {
+              model: "claude-sonnet-5-5",
+              max_tokens: 2000,
+              system,
+              messages: payload.messages,
+              stream: true,
+            },
+            conversationCallOptions(request),
+          );
 
           return new Response(anthropicTextStream(stream), {
             status: 200,
@@ -325,9 +329,8 @@ export const Route = createFileRoute("/api/tutor")({
               Connection: "keep-alive",
             },
           });
-        } catch (e) {
-          Sentry.captureException(e);
-          console.error("Tutor stream error:", e);
+        } catch {
+          Sentry.captureException(new Error("tutor provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
             headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },

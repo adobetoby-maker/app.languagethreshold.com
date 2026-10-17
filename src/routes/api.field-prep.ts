@@ -1,3 +1,4 @@
+import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
@@ -175,7 +176,7 @@ export const Route = createFileRoute("/api/field-prep")({
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
+        const client = new Anthropic(conversationProviderOptions(KEY));
         const systemPrompt = buildSystemPrompt(payload);
 
         // If no messages yet, seed with the scenario start signal so the AI opens first
@@ -191,13 +192,16 @@ export const Route = createFileRoute("/api/field-prep")({
             : payload.messages.map((m) => ({ role: m.role, content: m.content }));
 
         try {
-          const stream = await client.messages.create({
-            model: "claude-sonnet-5-5",
-            max_tokens: 700,
-            system: systemPrompt,
-            messages,
-            stream: true,
-          });
+          const stream = await client.messages.create(
+            {
+              model: "claude-sonnet-5-5",
+              max_tokens: 700,
+              system: systemPrompt,
+              messages,
+              stream: true,
+            },
+            conversationCallOptions(request),
+          );
 
           return new Response(anthropicStreamToSSE(stream), {
             status: 200,
@@ -207,8 +211,8 @@ export const Route = createFileRoute("/api/field-prep")({
               Connection: "keep-alive",
             },
           });
-        } catch (e) {
-          Sentry.captureException(e);
+        } catch {
+          Sentry.captureException(new Error("field-prep provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
             headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },

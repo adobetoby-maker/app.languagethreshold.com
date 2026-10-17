@@ -84,7 +84,7 @@ async function load(name) {
             () => ({ path: "fixture", namespace: "fixture" }),
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-            contents: `export const controls={calls:0};export const createFileRoute=()=>config=>config;export const initSentry=()=>{};export const Sentry={captureException(){}};export default class Model{messages={create:async body=>{controls.calls++;controls.body=body;if(!body.stream)return {content:[{type:'text',text:'Fictional QA tip'}]};return (async function*(){yield {type:'content_block_delta',delta:{type:'text_delta',text:'Fictional QA reply'}};yield {type:'message_stop'};})();}};}`,
+            contents: `export const controls={calls:0};export const createFileRoute=()=>config=>config;export const initSentry=()=>{};export const Sentry={captureException(error){controls.telemetry=error.message;}};export default class Model{constructor(options){controls.clientOptions=options;}messages={create:async (body, options)=>{controls.calls++;controls.body=body;controls.callOptions=options;if(controls.fail)throw new Error("PRIVATE learner content and provider response");if(!body.stream)return {content:[{type:'text',text:'Fictional QA tip'}]};return (async function*(){yield {type:'content_block_delta',delta:{type:'text_delta',text:'Fictional QA reply'}};yield {type:'message_stop'};})();}};}`,
           }));
         },
       },
@@ -96,9 +96,10 @@ async function load(name) {
     rmSync(root, { recursive: true, force: true });
   }
 }
-function request(name, body, headers = {}) {
+function request(name, body, headers = {}, signal) {
   return new Request(`https://owned-preview.invalid/api/${name}`, {
     method: "POST",
+    signal,
     headers: {
       Origin: "https://owned-preview.invalid",
       "Content-Type": "application/json",
@@ -156,7 +157,13 @@ for (const [name, data] of routes)
       assert.equal(response.status, 503);
       assert.equal(controls.calls, 0);
       globalThis.fetch = async () => Response.json(true);
-      response = await handler({ request: request(name, data) });
+      const disconnect = new AbortController();
+      response = await handler({ request: request(name, data, {}, disconnect.signal) });
+      assert.equal(controls.clientOptions.timeout, 45_000);
+      assert.equal(controls.clientOptions.maxRetries, 0);
+      assert.equal(controls.callOptions.signal.aborted, false);
+      disconnect.abort();
+      assert.equal(controls.callOptions.signal.aborted, true);
       assert.equal(response.status, 200);
       assert.match(response.headers.get("cache-control"), /no-store/);
       assert.match(await response.text(), /Fictional QA reply/);
@@ -217,7 +224,16 @@ for (const [name, data] of routes)
         assert.equal(response.headers.get("cache-control"), "no-store");
         assert.equal((await response.json()).tip, "Fictional QA tip");
         assert.equal(controls.calls, 2);
+        assert.equal(controls.clientOptions.maxRetries, 0);
+        assert.ok(controls.callOptions.signal instanceof AbortSignal);
       }
+      controls.fail = true;
+      const callsBeforeFailure = controls.calls;
+      response = await handler({ request: request(name, data) });
+      assert.equal(response.status, 500);
+      assert.equal(controls.calls, callsBeforeFailure + 1);
+      assert.equal(controls.telemetry, `${name} provider request failed`);
+      assert.ok(!(await response.text()).includes("PRIVATE"));
     } finally {
       globalThis.fetch = oldFetch;
       for (const key of keys) {

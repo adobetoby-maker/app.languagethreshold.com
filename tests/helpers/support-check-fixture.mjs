@@ -115,7 +115,12 @@ export async function supportCheckFixture() {
           };
         return { data: page, error: null };
       }
-      return { data: name === "assessment_start_attempt" ? "controlled-attempt" : [], error: null };
+      return {
+        data: ["assessment_start_attempt", "assessment_start_prepared_attempt"].includes(name)
+          ? "controlled-attempt"
+          : [],
+        error: null,
+      };
     },
     from(table) {
       const filters = [],

@@ -686,7 +686,7 @@ async function withAdaptiveCapability(fn, enabled = "true", stage = "preview") {
     });
   }
 }
-async function adaptiveStartFixture() {
+async function adaptiveStartFixture(fresh = false) {
   const f = await reviewFixture();
   f.rows.assessment_attempts[0].submitted_at = null;
   f.rows.assessment_attempts[0].status = "in_progress";
@@ -708,9 +708,13 @@ async function adaptiveStartFixture() {
       definition: f.form,
     },
   ];
+  const startAttempt = f.rows.assessment_attempts[0];
+  if (fresh) f.rows.assessment_attempts = [];
   const base = f.db.rpc;
   f.db.rpc = async (name, args) => {
-    if (name === "assessment_start_attempt") {
+    if (name === "assessment_start_attempt" || name === "assessment_start_prepared_attempt") {
+      if (fresh && !f.rows.assessment_attempts.length)
+        f.rows.assessment_attempts.push(startAttempt);
       f.rpcs.push({ name, args });
       return { data: attemptId, error: null };
     }
@@ -733,7 +737,7 @@ async function postAction(f, body, actor = "learner") {
 
 test("Preview capability coordinates real prepare/start/core read while adaptive pilot bypass stays disabled", async () =>
   withAdaptiveCapability(async () => {
-    const f = await adaptiveStartFixture();
+    const f = await adaptiveStartFixture(true);
     const prepared = await postAction(f, { action: "prepare", checkpointId: f.checkpoints[0].id });
     assert.equal(prepared.status, 200, await prepared.clone().text());
     const details = await prepared.json();
@@ -751,10 +755,11 @@ test("Preview capability coordinates real prepare/start/core read while adaptive
     assert.equal(value.id, attemptId);
     assert.deepEqual(value.routing, { state: "core", coreItemCount: 18 });
     assert.equal(value.form.items.length, 18);
-    assert.equal(
-      f.rpcs.find((r) => r.name === "assessment_start_attempt").args.p_allow_pilot,
-      false,
-    );
+    const started = f.rpcs.find((r) => r.name === "assessment_start_prepared_attempt");
+    assert.ok(started);
+    assert.ok(!("p_allow_pilot" in started.args));
+    assert.deepEqual(started.args.p_expected_form, f.rows.assessment_forms[0]);
+    assert.deepEqual(started.args.p_expected_release, f.rows.assessment_releases[0]);
     assert.ok(!JSON.stringify(value).includes("branch-band-a"));
     assert.ok(!JSON.stringify(value).includes("private-fixture-answer"));
   }));
@@ -778,7 +783,7 @@ test("adaptive capability defaults closed, is Preview-only and never accepts sup
   ]) {
     await withAdaptiveCapability(
       async () => {
-        const f = await adaptiveStartFixture();
+        const f = await adaptiveStartFixture(true);
         if (mode === "uncalibrated") f.rows.assessment_forms[0].calibrated = false;
         if (mode === "draft") f.rows.assessment_forms[0].status = "draft";
         if (mode === "definition-draft") f.form.status = "draft";
@@ -803,7 +808,12 @@ test("adaptive capability defaults closed, is Preview-only and never accepts sup
           mode === "foreign" ? "other" : "learner",
         );
         assert.ok(response.status >= 400, mode);
-        assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"), mode);
+        assert.ok(
+          !f.rpcs.some((r) =>
+            ["assessment_start_attempt", "assessment_start_prepared_attempt"].includes(r.name),
+          ),
+          mode,
+        );
       },
       mode === "off" ? "false" : "true",
       mode === "production" ? "production" : mode === "local" ? "development" : "preview",
@@ -813,7 +823,7 @@ test("adaptive capability defaults closed, is Preview-only and never accepts sup
 
 test("adaptive preparation digest rejects changed private policy before start RPC", async () =>
   withAdaptiveCapability(async () => {
-    const f = await adaptiveStartFixture();
+    const f = await adaptiveStartFixture(true);
     const response = await postAction(f, { action: "prepare", checkpointId: f.checkpoints[0].id });
     const prepared = await response.json();
     f.form.routing.version = "changed-reviewed-local-fixture-version";
@@ -824,7 +834,11 @@ test("adaptive preparation digest rejects changed private policy before start RP
       preparedForm: prepared.preparedForm,
     });
     assert.equal(changed.status, 409);
-    assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"));
+    assert.ok(
+      !f.rpcs.some((r) =>
+        ["assessment_start_attempt", "assessment_start_prepared_attempt"].includes(r.name),
+      ),
+    );
   }));
 
 test("gated adaptive submit validates frozen path before durable RPC and scores only selected saved responses", async () =>
@@ -904,12 +918,16 @@ test("adaptive submit denies missing route, unselected/corrupt response, non-own
 
 test("adaptive Start requires the prepared disclosure identity before its durable RPC", async () =>
   withAdaptiveCapability(async () => {
-    const f = await adaptiveStartFixture();
+    const f = await adaptiveStartFixture(true);
     const response = await postAction(f, {
       action: "start",
       checkpointId: f.checkpoints[0].id,
       requestId,
     });
     assert.equal(response.status, 409);
-    assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"));
+    assert.ok(
+      !f.rpcs.some((r) =>
+        ["assessment_start_attempt", "assessment_start_prepared_attempt"].includes(r.name),
+      ),
+    );
   }));

@@ -80,7 +80,9 @@ let setup =
   );
 setup = setup.replace(
   /rollback;\s*$/,
-  () => readFileSync("supabase/migrations/20261017194728_assessment_prepared_start.sql", "utf8") + "\ncommit;",
+  () =>
+    readFileSync("supabase/migrations/20261017194728_assessment_prepared_start.sql", "utf8") +
+    "\ncommit;",
 );
 let initialized = false;
 function prepare() {

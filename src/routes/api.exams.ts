@@ -1,3 +1,7 @@
+import {
+  resumePreparedAssessment,
+  startPreparedAssessment,
+} from "@/lib/assessments/prepared-start-server";
 import { hasAdaptiveRouting } from "@/lib/assessments/routing-contract";
 import { selectAttemptRoute } from "@/lib/assessments/routing-server";
 import {
@@ -485,6 +489,19 @@ export const Route = createFileRoute("/api/exams")({
               throw new AssessmentAccessError(
                 "Current module access is required to start an exam. Your saved responses remain available.",
               );
+            if (
+              body.action === "start" &&
+              adaptivePreviewRuntimeEnabled() &&
+              enrollment.program_scope === "full_module"
+            ) {
+              const resumed = await resumePreparedAssessment(
+                db,
+                user.id,
+                body.checkpointId,
+                body.requestId,
+              );
+              if (resumed) return json(await readAttempt(db, user.id, resumed));
+            }
             let formQuery = db
               .from("assessment_forms")
               .select("id,status,calibrated,version,rubric_version,definition")
@@ -593,14 +610,25 @@ export const Route = createFileRoute("/api/exams")({
                 );
               })
               .map((lesson) => lessonObjectiveId(enrollment.module_id, lesson.n));
-            const attemptId = await rpc<string>(db, "assessment_start_attempt", {
-              p_actor: user.id,
-              p_checkpoint: body.checkpointId,
-              p_form: form.id,
-              p_request: body.requestId,
-              p_allow_pilot: !adaptive && pilotAllowed(user.id),
-              p_studied_objectives: studied,
-            });
+            const attemptId = adaptive
+              ? await startPreparedAssessment(db, {
+                  actor: user.id,
+                  checkpoint: body.checkpointId,
+                  checkpointKind: checkpoint.checkpoint,
+                  request: body.requestId,
+                  formId: form.id,
+                  preparedForm: body.preparedForm!,
+                  enrollment,
+                  studied,
+                })
+              : await rpc<string>(db, "assessment_start_attempt", {
+                  p_actor: user.id,
+                  p_checkpoint: body.checkpointId,
+                  p_form: form.id,
+                  p_request: body.requestId,
+                  p_allow_pilot: !adaptive && pilotAllowed(user.id),
+                  p_studied_objectives: studied,
+                });
             return json(await readAttempt(db, user.id, attemptId));
           }
           if (body.action === "save") {

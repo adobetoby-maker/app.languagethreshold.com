@@ -6,7 +6,7 @@ import {
   type LessonReviewSnapshot,
 } from "@/lib/lesson-review";
 import { AssessmentAccessError } from "./server";
-import { lessonReleaseReadiness } from "./release-readiness";
+import { lessonReleaseReadiness, type LessonReleaseRecord } from "./release-readiness";
 
 export interface BoundLessonSnapshot {
   snapshot: LessonReviewSnapshot;
@@ -43,13 +43,17 @@ export async function boundLessonSnapshot(
 export async function requireCurrentLessonBinding(
   db: TeamDb,
   releaseId: string,
-  options: { officialStart?: boolean } = {},
+  options: { officialStart?: boolean; release?: LessonReleaseRecord & { id: string } } = {},
 ): Promise<BoundLessonSnapshot> {
-  const release = await db
-    .from("assessment_releases")
-    .select("module_id,target_language,instruction_language,status,lesson_manifest")
-    .eq("id", releaseId)
-    .maybeSingle();
+  if (options.release && options.release.id !== releaseId)
+    throw new AssessmentAccessError("Lesson release changed.", 409);
+  const release = options.release
+    ? { data: options.release, error: null }
+    : await db
+        .from("assessment_releases")
+        .select("module_id,target_language,instruction_language,status,lesson_manifest")
+        .eq("id", releaseId)
+        .maybeSingle();
   if (release.error) throw new AssessmentAccessError("Lesson release could not be checked.", 503);
   if (!release.data) throw new AssessmentAccessError("Lesson release was not found.", 404);
   const bound = await boundLessonSnapshot(db, releaseId);

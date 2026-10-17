@@ -102,7 +102,14 @@ export async function enrollmentAccess(db: TeamDb, actor: string, id: string, ma
   }
   return enrollment;
 }
-export async function attemptAccess(db: TeamDb, actor: string, id: string, review = false) {
+/** Routing is an internal coordinator capability, never a client-selected runtime. */
+export async function attemptAccess(
+  db: TeamDb,
+  actor: string,
+  id: string,
+  review = false,
+  runtime: "fixed" | "routing" = "fixed",
+) {
   const { data: attempt, error } = await db
     .from("assessment_attempts")
     .select("*")
@@ -120,7 +127,7 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
     const enrollment = await enrollmentAccess(db, actor, checkpoint.enrollment_id, review);
     if (review && enrollment.user_id === actor)
       throw new AssessmentAccessError("A different reviewer must review your assessment.");
-    requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
+    if (runtime === "fixed") requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   } catch (error) {
     if (!(error instanceof AssessmentAccessError) || error.status !== 403 || !review) throw error;
@@ -149,7 +156,7 @@ export async function attemptAccess(db: TeamDb, actor: string, id: string, revie
       .eq("active", true)
       .maybeSingle();
     if (!reviewer) throw error;
-    requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
+    if (runtime === "fixed") requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   }
 }

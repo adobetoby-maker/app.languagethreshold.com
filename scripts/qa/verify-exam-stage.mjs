@@ -105,6 +105,31 @@ const activeListeningView = await request(
   `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`,
 );
 assert.equal(activeListeningView.status, 200);
+// Only rejected routing requests against existing flat QA attempts. No adaptive
+// content/route fixtures or learner response writes are created on the shared DB.
+for (const [token, fields, expected, origin] of [
+  [personal, {}, 400, base],
+  [learner, {}, 403, base],
+  [admin, {}, 403, base],
+  [null, {}, 403, base],
+  [personal, { decision: {} }, 400, base],
+  [personal, {}, 403, "https://foreign.invalid"],
+]) {
+  const response = await fetch(base + "/api/exams", {
+    method: "POST",
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      Origin: origin, "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ action: "route", attemptId: activeListeningAttempt.data.id,
+      revision: activeListeningView.body.revision, requestId: randomUUID(), ...fields }),
+  });
+  assert.equal(response.status, expected);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+  const rejected = await response.json();
+  assert.equal(Object.hasOwn(rejected, "items"), false);
+  assert.equal(Object.hasOwn(rejected, "decision"), false);
+}
 for (const path of [privatePath, `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`]) {
   const mixedScope = await request(personal, `${path}&org=${qa.organizationId}`);
   assert.equal(mixedScope.status, 403);
@@ -303,6 +328,7 @@ const report = {
     lessonSnapshotsDeniedToAnonymousAndUnassignedAccounts: true,
     lessonSnapshotBindingDeniedToNonOwners: true,
     preStartDraftAndForeignScopeDenied: true,
+    flatForeignAnonymousAndCallerSuppliedRoutesDenied: true,
     noStore: true,
   },
 };

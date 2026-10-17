@@ -1,6 +1,14 @@
-# Adaptive routing foundation — runtime inactive
+# Adaptive routing foundation — learner runtime inactive
 
-The PRD requires a fixed core followed by a short evidence-driven branch. This checkpoint implements a private contract and deterministic calculation, plus guards preventing that contract from entering the existing flat-form runtime. It does **not** implement a durable learner branch flow. No hosted form, review approval, threshold policy, schema, role, speech policy or schedule was changed.
+The PRD requires a fixed core followed by a short evidence-driven branch. The private durable database foundation has been applied under the owner's explicit approval; see `adaptive-routing-migration-proposal.md`. The authenticated route coordinator now uses that foundation, but the full learner branch flow remains disabled. No hosted adaptive form, review approval, threshold policy, role, active speech policy or schedule was changed by this API checkpoint.
+
+## Authenticated selection API
+
+The strict `POST /api/exams` action `route` accepts only `attemptId`, saved `revision` and `requestId`. Existing authentication, same-origin, body-size, no-store and durable request-budget controls apply. The coordinator verifies actual learner ownership before reading original route evidence or saved core answers; team report access is insufficient. It computes from the frozen full-module form and authoritative saved core responses, then calls the service-only RPC, which repeats actor/source/revision checks under the attempt lock.
+
+Retries validate and reuse the original core snapshot and decision, even after later answer edits. A new request UUID cannot reroute; the same UUID with a changed source revision conflicts. Every retry still reaches the RPC for global request-identity conflicts and fresh authorization. If another route wins concurrently, only its immutable validated decision is projected. Malformed audit/receipt data fails closed. The response contains current revision, a selected-state/core-count summary and whitelisted core/selected questions; private routing reason, percentage, evidence counts, digest, policy, keys and unselected branches remain server-only.
+
+Adaptive preparation/start, ordinary attempt serialization, scoring and media paths still retain their existing blanket guard. This action does not enable new adaptive exams. Selected read/save/media/scoring/reporting, fixed-core comparison and Continue/resume UI remain required before that guard can be removed. Positive route fixtures are controlled local tests, not hosted content or an approved policy.
 
 ## Implemented source boundaries
 

@@ -1,4 +1,5 @@
 import { hasAdaptiveRouting } from "@/lib/assessments/routing-contract";
+import { selectAttemptRoute } from "@/lib/assessments/routing-server";
 import { preparationKey, preparationMinutes } from "@/lib/assessments/preparation";
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
@@ -75,6 +76,14 @@ const answer = z
   })
   .strict();
 const bodySchema = z.discriminatedUnion("action", [
+  z
+    .object({
+      action: z.literal("route"),
+      attemptId: id,
+      revision: z.number().int().min(0).max(2147483647),
+      requestId: id,
+    })
+    .strict(),
   z
     .object({
       action: z.literal("speech_reviewed"),
@@ -374,6 +383,7 @@ export const Route = createFileRoute("/api/exams")({
             throw new AssessmentAccessError("Assessment request is too large.", 413);
           const body = bodySchema.parse(JSON.parse(raw));
           await budget(user.id, body.action);
+          if (body.action === "route") return json(await selectAttemptRoute(db, user.id, body));
           if (body.action === "speech_reviewed") {
             await rpc(db, "assessment_ack_speech_review", {
               p_actor: user.id,

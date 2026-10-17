@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { examAudioRequest, ExamRequestError } from "@/lib/assessments/client";
-type Playback = { abort: AbortController; audio?: HTMLAudioElement; url?: string };
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+type Playback = { abort: AbortController; dispose: () => void };
 
 /** Each replay reauthorizes. Blobs live in memory only and are revoked on completion/unmount. */
 export function PrivateExamAudio({
@@ -14,58 +15,64 @@ export function PrivateExamAudio({
   label?: string;
   onEnded?: () => void;
 }) {
-  const [playing, setPlaying] = useState(false),
-    [error, setError] = useState("");
+  const { key, capture } = usePracticeLifecycle(path);
+  const [state, setState] = useState({ key, playing: false, error: "" });
+  const { playing, error } = state.key === key ? state : { playing: false, error: "" };
   const playback = useRef<Playback | null>(null);
-  useEffect(
-    () => () => {
-      const current = playback.current;
-      current?.abort.abort();
-      current?.audio?.pause();
-      if (current?.url) URL.revokeObjectURL(current.url);
-      playback.current = null;
-    },
-    [path],
-  );
   const stop = () => {
-    const current = playback.current;
-    playback.current = null;
-    current?.abort.abort();
-    current?.audio?.pause();
-    if (current?.url) URL.revokeObjectURL(current.url);
-    setPlaying(false);
+    if (!capture().isCurrent()) return;
+    playback.current?.dispose();
+    setState({ key, playing: false, error: "" });
   };
   const play = async () => {
-    if (playback.current) return;
-    const current: Playback = { abort: new AbortController() };
+    const lease = capture();
+    if (!lease.isCurrent() || playback.current) return;
+    let audio: HTMLAudioElement | undefined, url: string | undefined;
+    let release = () => {};
+    const current: Playback = {
+      abort: new AbortController(),
+      dispose: () => {
+        release();
+        current.abort.abort();
+        if (audio) {
+          audio.onended = null;
+          audio.onerror = null;
+          audio.pause();
+          audio.removeAttribute("src");
+          audio.load();
+          audio = undefined;
+        }
+        if (url) URL.revokeObjectURL(url);
+        url = undefined;
+        if (playback.current === current) playback.current = null;
+      },
+    };
     playback.current = current;
-    setPlaying(true);
-    setError("");
+    release = lease.own(current.dispose);
+    const isCurrent = () =>
+      lease.isCurrent() && playback.current === current && !current.abort.signal.aborted;
+    setState({ key, playing: true, error: "" });
     const finish = (message = "") => {
-      if (playback.current !== current) return;
-      current.audio?.pause();
-      if (current.url) URL.revokeObjectURL(current.url);
-      playback.current = null;
-      setPlaying(false);
-      setError(message);
+      if (!isCurrent()) return false;
+      current.dispose();
+      setState({ key, playing: false, error: message });
+      return true;
     };
     try {
       const input = await examAudioRequest(path, current.abort.signal);
-      if (playback.current !== current) return;
+      if (!isCurrent()) return;
       if (input.mode !== "private_clip")
         throw new Error("This review requires a versioned audio clip.");
-      current.url = URL.createObjectURL(input.blob);
-      current.audio = new Audio(current.url);
-      current.audio.onended = () => {
-        if (playback.current !== current) return;
-        finish();
-        onEnded?.();
+      url = URL.createObjectURL(input.blob);
+      audio = new Audio(url);
+      audio.onended = () => {
+        if (finish()) onEnded?.();
       };
-      current.audio.onerror = () =>
+      audio.onerror = () =>
         finish("This device could not play the clip. Record that issue in your review.");
-      await current.audio.play();
+      await audio.play();
     } catch (err) {
-      if (playback.current !== current) return;
+      if (!isCurrent()) return;
       finish(err instanceof Error ? err.message : "The clip is unavailable.");
       if (err instanceof ExamRequestError && [401, 403].includes(err.status)) onAccessLost();
     }

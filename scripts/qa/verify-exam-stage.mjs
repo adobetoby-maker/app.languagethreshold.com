@@ -37,11 +37,15 @@ async function login(email, password) {
   assert.ok(!result.error && result.data.session, "QA authentication");
   return result.data.session.access_token;
 }
-const [personal, learner, admin] = await Promise.all([
+try {
+const logins = await Promise.allSettled([
   login(qa.personalEmail, qa.personalPassword),
   login(qa.email, qa.password),
   login(qa.adminEmail, qa.adminPassword),
 ]);
+const failedLogin = logins.find(result => result.status === "rejected");
+if (failedLogin) throw failedLogin.reason;
+const [personal, learner, admin] = logins.map(result => result.value);
 
 async function request(token, pathOrBody, origin = base) {
   const get = typeof pathOrBody === "string";
@@ -337,4 +341,6 @@ writeFileSync(
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(JSON.stringify(report.checks));
-await Promise.all(clients.map((client) => client.auth.signOut({ scope: "local" })));
+} finally {
+  await Promise.allSettled(clients.map((client) => client.auth.signOut({ scope: "local" })));
+}

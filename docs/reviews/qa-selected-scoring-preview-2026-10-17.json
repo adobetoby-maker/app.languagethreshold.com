@@ -1,0 +1,71 @@
+{
+  "testedAt": "2026-10-17T16:32:04.936977+00:00",
+  "applicationCommit": "4c03ae1ff640c07a5ab228e19ecefaa9143d3ad5",
+  "implementationCommit": "b5df3b1",
+  "accessRecheckCommit": "4c03ae1",
+  "preview": "https://language-threshold-nl83fvlnk-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_8z4Ej7iDX9PUs9pQgj4DrXpviDZF",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "readyState": "READY",
+    "target": null
+  },
+  "localVerification": {
+    "tests": 873,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.7,
+    "privateBank": {
+      "testedAt": "2026-10-17T16:32:06.976Z",
+      "sourceCommit": "4c03ae1",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1183,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "controlledReadScoreChecks": {
+    "coreOnlyBeforeSelectionAndNoFeedbackKeys": true,
+    "selectedResumeCurrentRevisionAndNoPrivateDecision": true,
+    "submittedFeedbackAndProfilesSelectedOnly": true,
+    "branchEvidenceHasNoComparisonAnchorInAttemptView": true,
+    "selectedProposalAndJobWhitelisting": true,
+    "foreignAndWrongOrganizationDeniedBeforePrivateReads": true,
+    "accessRecheckedBeforePrivateSerialization": true,
+    "corruptDuplicateUnselectedMissingResponsesFailBeforeScoringWrites": true,
+    "submittedRouteRequiredAndForeignScoreReferenceDenied": true,
+    "finalSavedAnswersScoredWithoutRerouting": true,
+    "unavailableEvidenceRemainsNotAssessed": true,
+    "lateInvalidAnswerRejectedBeforeAnyScoreWrite": true,
+    "partialRpcFailureRetainsStablePerResponseRetryIds": true,
+    "historicalFlatItemFeedbackOrderAndNoRoutingQuery": true
+  },
+  "hostedGroups": {
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "hostedRetry": {
+    "firstFinalRun": "Supabase DNS ENOTFOUND before QA sign-in; no authenticated application result from that run",
+    "cleanRerun": "All 21 groups pass on exact final application",
+    "tooling": "Verifier awaits all sign-in outcomes and runs local sign-out cleanup in finally on failure as well as success"
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Adaptive preparation/start and submission remain gated. Initial scoring and attempt reads are selected-aware, but overview/history/export/team comparison, human/AI review and Continue/resume remain unfinished.",
+    "Positive adaptive reads/scoring/retry/revocation fixtures are controlled local synthetic data only; no hosted adaptive form/route/result or new learner response/score write is created.",
+    "Branch anchor removal applies to the direct attempt view; it does not establish every reporting path or calibrated comparable growth.",
+    "No browser actions, paid provider calls, new schema migration, role change, active speech policy/collection or schedule changes this checkpoint.",
+    "Accepted companion/live aliases unchanged. Full human content/calibration/reviewer/pilot/catalog/device/operational gates remain open; no main push or production promotion."
+  ]
+}

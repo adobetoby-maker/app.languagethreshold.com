@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { MODULES } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
@@ -16,17 +18,22 @@ const names = { entrance: "Entrance", day45: "Day 45", day90: "Day 90" };
 const input = "mt-1 min-h-11 w-full rounded-xl border border-border bg-background px-3 py-2";
 const button =
   "min-h-11 rounded-xl border border-gold/50 px-4 py-2 text-sm font-semibold text-gold disabled:opacity-50";
-export function TeamAssessmentInsights({
-  orgId,
-  moduleId,
-  target,
-  native,
-}: {
+type Props = {
   orgId: string;
   moduleId: string;
   target: Language;
   native: NativeLanguage;
-}) {
+};
+export function TeamAssessmentInsights(props: Props) {
+  const { user } = useAuth();
+  return (
+    <OwnedTeamAssessmentInsights
+      key={JSON.stringify([user?.id, props.orgId, props.moduleId, props.target, props.native])}
+      {...props}
+    />
+  );
+}
+function OwnedTeamAssessmentInsights({ orgId, moduleId, target, native }: Props) {
   const [open, setOpen] = useState(false);
   const [scope, setScope] = useState({
     module: moduleId,
@@ -38,13 +45,17 @@ export function TeamAssessmentInsights({
   const path =
     "/api/exams?" + new URLSearchParams({ action: "team_insights", org: orgId, ...scope });
   const report = usePrivatePagedReport<InsightCell, TeamInsightReport>(path, open);
+  const { capture } = usePracticeLifecycle(JSON.stringify([orgId, scope, draft, open, report.key]));
+  const current = () => capture().isCurrent();
   const metadata = report.metadata;
   const source = getCurriculum(scope.module);
   return (
     <details
       className="rounded-2xl border border-border bg-card/50 p-4 sm:p-6"
       open={open}
-      onToggle={(event) => setOpen(event.currentTarget.open)}
+      onToggle={(event) => {
+        if (current()) setOpen(event.currentTarget.open);
+      }}
     >
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">
         Team learning evidence
@@ -60,7 +71,7 @@ export function TeamAssessmentInsights({
             className="grid gap-3 sm:grid-cols-2"
             onSubmit={(event) => {
               event.preventDefault();
-              setScope({ ...draft });
+              if (current() && !report.loading) setScope({ ...draft });
             }}
           >
             <label className="text-sm">
@@ -68,9 +79,9 @@ export function TeamAssessmentInsights({
               <select
                 className={input}
                 value={draft.module}
-                onChange={(event) =>
-                  setDraft((value) => ({ ...value, module: event.target.value }))
-                }
+                onChange={(event) => {
+                  if (current()) setDraft((value) => ({ ...value, module: event.target.value }));
+                }}
               >
                 {MODULES.map((module) => (
                   <option key={module.id} value={module.id}>
@@ -84,12 +95,13 @@ export function TeamAssessmentInsights({
               <select
                 className={input}
                 value={draft.checkpoint}
-                onChange={(event) =>
-                  setDraft((value) => ({
-                    ...value,
-                    checkpoint: event.target.value as keyof typeof names,
-                  }))
-                }
+                onChange={(event) => {
+                  if (current())
+                    setDraft((value) => ({
+                      ...value,
+                      checkpoint: event.target.value as keyof typeof names,
+                    }));
+                }}
               >
                 {Object.entries(names).map(([value, label]) => (
                   <option key={value} value={value}>
@@ -103,9 +115,10 @@ export function TeamAssessmentInsights({
               <select
                 className={input}
                 value={draft.target}
-                onChange={(event) =>
-                  setDraft((value) => ({ ...value, target: event.target.value as Language }))
-                }
+                onChange={(event) => {
+                  if (current())
+                    setDraft((value) => ({ ...value, target: event.target.value as Language }));
+                }}
               >
                 {LANGUAGES.map((value) => (
                   <option key={value}>{value}</option>
@@ -117,9 +130,13 @@ export function TeamAssessmentInsights({
               <select
                 className={input}
                 value={draft.native}
-                onChange={(event) =>
-                  setDraft((value) => ({ ...value, native: event.target.value as NativeLanguage }))
-                }
+                onChange={(event) => {
+                  if (current())
+                    setDraft((value) => ({
+                      ...value,
+                      native: event.target.value as NativeLanguage,
+                    }));
+                }}
               >
                 {NATIVE_LANGUAGES.map((value) => (
                   <option key={value}>{value}</option>
@@ -206,7 +223,9 @@ export function TeamAssessmentInsights({
           <button
             className={button}
             disabled={report.loading}
-            onClick={() => void report.refresh()}
+            onClick={() => {
+              if (current() && !report.loading) report.refresh();
+            }}
           >
             Refresh team evidence
           </button>

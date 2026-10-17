@@ -1,0 +1,124 @@
+{
+  "testedAt": "2026-10-17T19:37:54.370516+00:00",
+  "applicationCommit": "7dbf4cffc6eb664e9150c1422372c5d42fc80e4d",
+  "preview": "https://language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_FK77bAmnx2QTBS6p6R9XRci7eo5E",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "7dbf4cffc6eb664e9150c1422372c5d42fc80e4d",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "activation": {
+    "adaptiveDeploymentCommandOverride": "false",
+    "capabilityValueExposedByMetadata": null,
+    "adaptiveActivated": false,
+    "fieldPrepAnalyticsEnabled": false,
+    "feedbackPromptEnabled": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "backendMetadataRead": {
+    "project": "pollhlkgltdkdskdzsgd",
+    "observedOn": "2026-10-17",
+    "scope": "SELECT of public relation presence/RLS/policy counts only; no learner rows read or written",
+    "tables": [
+      {
+        "schema": "public",
+        "name": "lt_app_events",
+        "relationPresent": false,
+        "rlsEnabled": null,
+        "policyCount": 0
+      },
+      {
+        "schema": "public",
+        "name": "lt_field_prep_events",
+        "relationPresent": false,
+        "rlsEnabled": null,
+        "policyCount": 0
+      },
+      {
+        "schema": "public",
+        "name": "lt_feedback",
+        "relationPresent": false,
+        "rlsEnabled": null,
+        "policyCount": 0
+      },
+      {
+        "schema": "public",
+        "name": "lt_error_logs",
+        "relationPresent": false,
+        "rlsEnabled": null,
+        "policyCount": 0
+      }
+    ],
+    "ddlOrPolicyChanges": false,
+    "conclusion": "Legacy public analytics/feedback relations absent; existing feedback cannot be delivered. Do not interpret null RLS as an existing unprotected table."
+  },
+  "localVerification": {
+    "tests": 969,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T19:35:55.482Z",
+      "sourceCommit": "7dbf4cf",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1233,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "checks": [
+    "Default-off hook actual controlled lifecycle makes no SDK call across account/guest mounts and cleanup/setup.",
+    "Field Prep does not offer feedback prompt while capability is off; facade methods return false without transport.",
+    "Prepared owned factory/feedback error handling from4cb03c7 included but not activated; factory/dialog positive fixtures do not establish delivery."
+  ],
+  "hostedGroups": {
+    "generationEntryHandlers": 14,
+    "generationRejectionHttpRequests": 28,
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "personalExam": {
+      "revision": 12,
+      "status": "in_progress",
+      "unsubmitted": true
+    },
+    "teamActivity": {
+      "opened": 2,
+      "currentMastered": 0,
+      "previousOpened": 1,
+      "newOpenedLesson": 1,
+      "originalOpenedLesson": 29
+    },
+    "acceptedCompanionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveApplicationDeploymentId": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "mainPromoted": false,
+    "productionPromoted": false
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-analytics-gate-preview-2026-10-17.json",
+    "docs/reviews/qa-owned-analytics-local-2026-10-17.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json"
+  ],
+  "limits": [
+    "Optional feedback backend remains unavailable. No tables, grants or policies were fabricated; enabling analytics requires separate backend authorization and delivery/access acceptance.",
+    "No browser actions or accepted model request, hosted feedback/telemetry writes or official scores/approvals. Endpoint checks do not prove browser prompt/audio behavior, physical device, SDK expiry/reconnect or cleared-cache offline operation.",
+    "Direct utterance/device sample cleanup, Reader/device guidance and wider component/lib privacy inventory remain open; not app-wide privacy completion.",
+    "Adaptive false comes from explicit deployment command; metadata does not expose env value. Existing companion and production alias handles remain unchanged.",
+    "No schema/role/active speech/retention/schedule/main/alias/production changes. Prepared-start additional RPC permission pending; no apply/wiring. All release gates/full goal remain open."
+  ]
+}

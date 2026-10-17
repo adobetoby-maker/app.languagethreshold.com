@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 17
 
 
+### Missing optional analytics backend verified; unavailable feedback prompt gated — October 17
+
+Read-only hosted metadata SELECT on projectpollhlkgltdkdskdzsgd found no public lt_app_events/lt_field_prep_events/lt_feedback/lt_error_logs relations (to_regclass join null;0policies each). Null RLS means no relation, not an existing exposed table. No learner rows read/written or schema/policies created. Current feedback cannot be delivered. Application7dbf4cf explicitly keeps FIELD_PREP_ANALYTICS_ENABLED=false, skips factory/SDK setup and hides the optional feedback solicitation at exit. Prepared owned factory/save acknowledgement from4cb03c7 remains locally tested but inactive. Enabling needs separately authorized backend setup and delivery/access acceptance; do not create tables/policies to force a positive trial.
+
+All969tests/type-check pass; lint0errors/45existing warnings; audit0vulnerabilities; stage artifact19.73MiB passes guards. New actual default-off hook controlled lifecycle proves no SDK access across A/guest/B setup/cleanup. Prior4factory/dialog groups retained. Private-bank96markers/1233source/148static/0hits. This does not prove SDK account-switch insertion or actual feedback delivery; the feature is deliberately unavailable.
+
+Secure prebuilt Preview https://language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app independently READY/targetnull/exact full7dbf4cf, deploymentdpl_FK77bAmnx2QTBS6p6R9XRci7eo5E, correctproject/team. Adaptive runtime explicitlyfalse in deployment command; metadata env unavailable. No project-wide env changes. Independent alias inspection: companion remains d4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT; app live remains f9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA. No main/alias/production promotion.
+
+Exact current Preview14generation-entry/28rejected HTTP requests,21authenticated Exams,12focused routing/private-header,3public packs and7read-only scope groups pass. Personal draftrevision12/in_progress/unsubmitted; teamB2opened/0mastered. No browser actions/allowed model call/hosted feedback-telemetry/official scores or approvals. Reports qa-analytics-gate-preview-2026-10-17.json and qa-exams-analytics-gate-preview-2026-10-17.json plus rerun dated entry/generation/pack/scope files.
+
+NEXT: direct utterance/device sample cleanup and Reader/device guidance inventory; actual browser/phone/audio/SDK/cleared-cache offline acceptance remains open. Optional analytics backend remains absent, capabilityoff. Prepared-start additional RPC permission remains pending; do not repeat/apply/wire. No schema/role/active speech/retention/schedule changes. Full goal/all human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational gates remain open.
+
+
 ### Field Prep analytics scope and honest feedback acknowledgement — October 17
 
 Local source4cb03c7 replaces the browser-wide analytics ID/singleton/anon fallback with a per-mounted-instance factory; FieldPrepMode shares the instance with its feedback child. No sessionStorage reads/writes, persistent actor singleton or legacy assignment; original key untouched. Effect setup creates a fresh instance, cleanup disposes/aborts pending transports. Adapter checks SDK session identity against captured actor before existing insert and supplies abort signal. Known fields/metadata only, bounded counts/strings/comment2000 and20pending calls; unused arbitrary error-log API removed. Feedback shows success only for a confirmed current-instance save, blocks duplicate click, shows retryable error, and suppresses unmounted replies/close timers. Rating buttons have accessible labels.

@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T19:17:32.236098+00:00",
+  "auditedAt": "2026-10-17T19:37:54.370516+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "78b3f5b",
+  "application": "7dbf4cf",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-exxzzb1bx-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-picker-preview-2026-10-17.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -373,6 +373,13 @@
     "requiredBeforeAdaptiveActivation": true
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "4cb03c7e80b9861dc221480126c11a31012d26a8",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-owned-analytics-local-2026-10-17.json"
+  "latestLocalSourceCommit": "7dbf4cffc6eb664e9150c1422372c5d42fc80e4d",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
+  "optionalFieldPrepAnalytics": {
+    "enabled": false,
+    "feedbackPromptEnabled": false,
+    "reason": "Public legacy analytics/feedback tables absent in read-only hosted metadata check",
+    "evidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
+    "backendChangesAuthorized": false
+  }
 }

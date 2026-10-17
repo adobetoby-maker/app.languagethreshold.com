@@ -1,0 +1,108 @@
+{
+  "testedAt": "2026-10-17T21:25:10.371413+00:00",
+  "applicationCommit": "62c3976032a8c92674ab1d45218981200c6d0435",
+  "preview": "https://language-threshold-msp5v7biu-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-msp5v7biu-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_4Z3MtgTzxYipiTazd3y7dThGPh44",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-msp5v7biu-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "62c3976032a8c92674ab1d45218981200c6d0435",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 985,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.76,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1263,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/private-review-audio-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Private reviewer playback scoped to mounted path and actual account; new scope immediately clears displayed playing/error state",
+    "Stop, completion, failure, navigation and unmount detach handlers, pause/clear/reload audio source and revoke object URL",
+    "Delayed request, old end/error/play rejection cannot complete or clear replacement playback",
+    "Speech acknowledgement/withdrawal state remounts by evidence/account/role/availability",
+    "Single request guarded before next render; acknowledgement requires full playback and withdrawal requires explicit confirmation",
+    "Late acknowledgement/withdrawal cannot mark replacement evidence ready, notify changed or write departed state",
+    "Playback access loss cancels pending acknowledgement; unavailable evidence resets readiness",
+    "Controlled successful acknowledgement/withdrawal, failed-action retry and current 403/late 401 boundaries"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-private-review-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real speech recording, reviewer acknowledgement, withdrawal, consent, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write"
+  ]
+}

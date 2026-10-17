@@ -182,3 +182,183 @@ test("catalog and owned overview use the same gated adaptive readiness while kee
       assert.ok(hidden.enrollments[0].checkpoints.every((cp) => cp.ready === false));
     }, "false");
   }));
+
+async function controlledReadinessClock(run) {
+  const originalSet = globalThis.setTimeout,
+    originalClear = globalThis.clearTimeout,
+    timers = [],
+    cleared = [];
+  globalThis.setTimeout = (callback, delay, ...args) => {
+    if (delay !== 10_000) return originalSet(callback, delay, ...args);
+    const id = Symbol("readiness deadline");
+    timers.push({ id, callback });
+    return id;
+  };
+  globalThis.clearTimeout = (id) => {
+    if (typeof id === "symbol") cleared.push(id);
+    else originalClear(id);
+  };
+  try {
+    await run({ timers, cleared });
+  } finally {
+    globalThis.setTimeout = originalSet;
+    globalThis.clearTimeout = originalClear;
+  }
+}
+async function untilReadiness(predicate) {
+  for (let i = 0; i < 20 && !predicate(); i++)
+    await new Promise((resolve) => setImmediate(resolve));
+  assert.ok(predicate(), "Expected the controlled query to enter");
+}
+
+test("one readiness deadline aborts stalled discovery and rejects without exposing transport detail", async () =>
+  capability(() =>
+    controlledReadinessClock(async ({ timers, cleared }) => {
+      const f = await supportCheckFixture(),
+        from = f.db.from;
+      let release;
+      const pending = new Promise((resolve) => {
+        release = resolve;
+      });
+      f.db.from = (table) => {
+        const q = from(table),
+          then = q.then.bind(q);
+        q.then = (resolve, reject) => pending.then(() => then(resolve, reject));
+        return q;
+      };
+      const request = adaptiveReadyForms(f.db, releases);
+      await untilReadiness(() => f.queries.length === 1);
+      assert.equal(timers.length, 1);
+      assert.equal(f.queries[0].signal.aborted, false);
+      timers[0].callback();
+      await assert.rejects(request, {
+        status: 503,
+        message: "Adaptive form readiness is unavailable.",
+      });
+      assert.equal(f.queries[0].signal.aborted, true);
+      assert.deepEqual(cleared, [timers[0].id]);
+      release();
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.equal(f.queries.length, 1, "Late discovery must not launch private definition reads");
+    }),
+  ));
+
+test("deadline is cumulative across batches and late completion cannot return partial readiness or start another batch", async () =>
+  capability(() =>
+    controlledReadinessClock(async ({ timers, cleared }) => {
+      const f = await supportCheckFixture(),
+        from = f.db.from;
+      f.rows.assessment_forms = Array.from({ length: 25 }, (_, i) => formRow(`deadline-${i}`));
+      let calls = 0,
+        release;
+      const pending = new Promise((resolve) => {
+        release = resolve;
+      });
+      f.db.from = (table) => {
+        const q = from(table);
+        if (++calls === 3) {
+          const then = q.then.bind(q);
+          q.then = (resolve, reject) => pending.then(() => then(resolve, reject));
+        }
+        return q;
+      };
+      const request = adaptiveReadyForms(f.db, releases);
+      await untilReadiness(() => calls === 3);
+      assert.equal(timers.length, 1, "Later batches must not reset the total deadline");
+      assert.ok(f.queries.every((q) => q.signal === f.queries[0].signal));
+      timers[0].callback();
+      await assert.rejects(request, { status: 503 });
+      release();
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.equal(calls, 3);
+      assert.deepEqual(cleared, [timers[0].id]);
+      assert.ok(f.queries.every((q) => q.signal.aborted));
+    }),
+  ));
+
+test("readiness releases its deadline on complete success and sanitizes rejected transports", async () =>
+  capability(() =>
+    controlledReadinessClock(async ({ timers, cleared }) => {
+      const f = await supportCheckFixture();
+      f.rows.assessment_forms = [formRow()];
+      assert.deepEqual(
+        [...(await adaptiveReadyForms(f.db, releases))],
+        ["controlled-release:entrance"],
+      );
+      assert.equal(timers.length, 1);
+      assert.deepEqual(cleared, [timers[0].id]);
+      const broken = {
+        from() {
+          throw Error("private fixture transport detail");
+        },
+      };
+      await assert.rejects(adaptiveReadyForms(broken, releases), {
+        status: 503,
+        message: "Adaptive form readiness is unavailable.",
+      });
+      assert.equal(timers.length, 2);
+      assert.deepEqual(
+        cleared,
+        timers.map((timer) => timer.id),
+      );
+    }),
+  ));
+
+test("installed Supabase transport receives the cumulative abort signal and performs no retry after expiry", async () =>
+  capability(() =>
+    controlledReadinessClock(async ({ timers }) => {
+      const { createClient } = await import("@supabase/supabase-js");
+      let calls = 0,
+        signal,
+        aborted = false;
+      const db = createClient("https://local-fixture.invalid", "local-fixture-key", {
+        auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+        global: {
+          fetch: async (_url, options) => {
+            calls++;
+            signal = options.signal;
+            return new Promise((_resolve, reject) => {
+              signal.addEventListener(
+                "abort",
+                () => {
+                  aborted = true;
+                  reject(new DOMException("Synthetic local cancellation", "AbortError"));
+                },
+                { once: true },
+              );
+            });
+          },
+        },
+      });
+      const request = adaptiveReadyForms(db, releases);
+      await untilReadiness(() => calls === 1);
+      assert.equal(timers.length, 1);
+      assert.equal(signal.aborted, false);
+      timers[0].callback();
+      await assert.rejects(request, { status: 503 });
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.equal(aborted, true);
+      assert.equal(calls, 1);
+    }),
+  ));
+
+test("maximum allowed discovery remains sixty bounded definition batches under one total deadline", async () =>
+  capability(() =>
+    controlledReadinessClock(async ({ timers, cleared }) => {
+      const f = await supportCheckFixture();
+      f.rows.assessment_forms = Array.from({ length: 600 }, (_, i) => formRow(`maximum-${i}`));
+      assert.deepEqual(
+        [...(await adaptiveReadyForms(f.db, releases))],
+        ["controlled-release:entrance"],
+      );
+      const definitions = f.queries.filter((q) => q.columns.includes(",definition"));
+      assert.equal(definitions.length, 60);
+      assert.ok(
+        definitions.every(
+          (q) => q.maximum === 11 && q.filters.find(([name]) => name === "id")[1].length === 10,
+        ),
+      );
+      assert.equal(timers.length, 1);
+      assert.deepEqual(cleared, [timers[0].id]);
+    }),
+  ));

@@ -72,51 +72,84 @@ export async function adaptiveReadyForms(
     new AssessmentAccessError("Adaptive form readiness is unavailable.", 503);
   const byRelease = new Map(releases.map((release) => [release.id, release]));
   if (byRelease.size !== releases.length || releases.length > 600) throw unavailable();
-  const discovery = await db
-    .from("assessment_forms")
-    .select("id,release_id,checkpoint")
-    .eq("purpose", "module")
-    .eq("status", "verified")
-    .eq("calibrated", true)
-    .not("definition->routing", "is", null)
-    .in("release_id", [...byRelease.keys()])
-    .limit(601);
-  if (discovery.error || !Array.isArray(discovery.data) || discovery.data.length > 600)
-    throw unavailable();
-  const ids = discovery.data.map((row) => row.id);
-  if (
-    new Set(ids).size !== ids.length ||
-    discovery.data.some((row) => !byRelease.has(row.release_id))
-  )
-    throw unavailable();
-  for (let offset = 0; offset < ids.length; offset += 10) {
-    const batch = ids.slice(offset, offset + 10);
-    const result = await db
-      .from("assessment_forms")
-      .select("id,release_id,checkpoint,status,calibrated,version,rubric_version,definition")
-      .in("id", batch)
-      .limit(11);
-    if (
-      result.error ||
-      !Array.isArray(result.data) ||
-      result.data.length !== batch.length ||
-      new Set(result.data.map((row) => row.id)).size !== batch.length
-    )
-      throw unavailable();
-    for (const row of result.data) {
-      const expected = discovery.data.find((item) => item.id === row.id),
-        release = byRelease.get(row.release_id);
+  // One cumulative bound across discovery and every batch, including a stalled transport.
+  const controller = new AbortController();
+  const expires = performance.now() + 10_000;
+  const checkDeadline = () => {
+    if (controller.signal.aborted || performance.now() >= expires) throw unavailable();
+  };
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const deadline = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(unavailable());
+    }, 10_000);
+  });
+  try {
+    const load = async () => {
+      checkDeadline();
+      const discovery = await db
+        .from("assessment_forms")
+        .select("id,release_id,checkpoint")
+        .eq("purpose", "module")
+        .eq("status", "verified")
+        .eq("calibrated", true)
+        .not("definition->routing", "is", null)
+        .in("release_id", [...byRelease.keys()])
+        .limit(601)
+        .abortSignal(controller.signal);
+      checkDeadline();
+      if (discovery.error || !Array.isArray(discovery.data) || discovery.data.length > 600)
+        throw unavailable();
+      const ids = discovery.data.map((row) => row.id);
       if (
-        !batch.includes(row.id) ||
-        !expected ||
-        !release ||
-        expected.release_id !== row.release_id ||
-        expected.checkpoint !== row.checkpoint
+        new Set(ids).size !== ids.length ||
+        discovery.data.some((row) => !byRelease.has(row.release_id))
       )
         throw unavailable();
-      if (adaptiveFormAvailable(row, { ...release, program_scope: "full_module" }, row.checkpoint))
-        ready.add(adaptiveReadyKey(row.release_id, row.checkpoint));
-    }
+      for (let offset = 0; offset < ids.length; offset += 10) {
+        checkDeadline();
+        const batch = ids.slice(offset, offset + 10);
+        const result = await db
+          .from("assessment_forms")
+          .select("id,release_id,checkpoint,status,calibrated,version,rubric_version,definition")
+          .in("id", batch)
+          .limit(11)
+          .abortSignal(controller.signal);
+        checkDeadline();
+        if (
+          result.error ||
+          !Array.isArray(result.data) ||
+          result.data.length !== batch.length ||
+          new Set(result.data.map((row) => row.id)).size !== batch.length
+        )
+          throw unavailable();
+        for (const row of result.data) {
+          checkDeadline();
+          const expected = discovery.data.find((item) => item.id === row.id),
+            release = byRelease.get(row.release_id);
+          if (
+            !batch.includes(row.id) ||
+            !expected ||
+            !release ||
+            expected.release_id !== row.release_id ||
+            expected.checkpoint !== row.checkpoint
+          )
+            throw unavailable();
+          if (
+            adaptiveFormAvailable(row, { ...release, program_scope: "full_module" }, row.checkpoint)
+          )
+            ready.add(adaptiveReadyKey(row.release_id, row.checkpoint));
+        }
+      }
+      checkDeadline();
+      return ready;
+    };
+    return await Promise.race([load(), deadline]);
+  } catch {
+    throw unavailable();
+  } finally {
+    clearTimeout(timer);
+    controller.abort();
   }
-  return ready;
 }

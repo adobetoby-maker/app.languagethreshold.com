@@ -192,6 +192,10 @@ export async function supportCheckFixture() {
           });
           return query;
         },
+        abortSignal(signal) {
+          q.signal = signal;
+          return query;
+        },
         limit(maximum) {
           q.maximum = maximum;
           return query;

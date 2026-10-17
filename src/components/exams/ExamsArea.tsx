@@ -212,6 +212,34 @@ function ExamsAreaContent({
     plan: Enrollment;
     checkpoint: Enrollment["checkpoints"][number];
   } | null>(null);
+  const [preparation, setPreparation] = useState<{
+    checkpointId: string;
+    actor: string;
+    preparedForm: string;
+    estimatedMinutes: number | null;
+    provisional: boolean;
+  } | null>(null);
+  const [preparationError, setPreparationError] = useState("");
+  const pendingCheckpointId = pending?.checkpoint.id;
+  const preparingActor = user?.id;
+  useEffect(() => {
+    let cancelled = false;
+    setPreparation(null);
+    setPreparationError("");
+    if (pendingCheckpointId && preparingActor)
+      void examRequest<{ preparedForm: string; estimatedMinutes: number | null; provisional: boolean }>({
+        action: "prepare", checkpointId: pendingCheckpointId,
+      }).then((details) => {
+        if (!cancelled && isCurrentUser(preparingActor))
+          setPreparation({ ...details, checkpointId: pendingCheckpointId, actor: preparingActor });
+      }).catch((error: unknown) => {
+        if (!cancelled && isCurrentUser(preparingActor))
+          setPreparationError(error instanceof Error ? error.message : "Start details could not be loaded.");
+      });
+    return () => { cancelled = true; };
+  }, [pendingCheckpointId, preparingActor, isCurrentUser]);
+  const prepared = preparation?.checkpointId === pendingCheckpointId && preparation?.actor === user?.id
+    ? preparation : null;
   const [module, setModule] = useState(moduleId),
     [target, setTarget] = useState(targetLanguage),
     [native, setNative] = useState(instructionLanguage),
@@ -566,6 +594,13 @@ function ExamsAreaContent({
             online. Device-only answers must sync before submission. Unavailable inputs are marked
             “Not assessed”.
           </p>
+          <p className="mt-3 text-sm" role="status">
+            {preparationError || (prepared
+              ? prepared.estimatedMinutes === null
+                ? "Estimated time is not available for this form yet."
+                : `Estimated time: about ${prepared.estimatedMinutes} minutes${prepared.provisional ? " (provisional draft estimate)" : ""}. This is not a time limit.`
+              : "Loading the current exam’s start details…")}
+          </p>
           <ExamInputPractice />
           <p className="mb-4 text-sm text-muted-foreground">
             Written responses are reviewed for task completion, understandable meaning and useful
@@ -574,13 +609,15 @@ function ExamsAreaContent({
           </p>
           <button
             className={primary}
-            disabled={loading}
+            disabled={loading || !prepared}
             onClick={() =>
               void act(async () => {
+                if (!prepared) return;
                 const attempt = await examRequest<ExamAttemptView>({
                   action: "start",
                   checkpointId: pending.checkpoint.id,
                   requestId: crypto.randomUUID(),
+                  preparedForm: prepared.preparedForm,
                 });
                 if (isCurrentUser(user.id)) {
                   if (!attemptMatchesOrganization(attempt, orgId))

@@ -1,3 +1,4 @@
+import { preparationKey, preparationMinutes } from "@/lib/assessments/preparation";
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
 import {
@@ -102,7 +103,10 @@ const bodySchema = z.discriminatedUnion("action", [
       requestId: id,
     })
     .strict(),
-  z.object({ action: z.literal("start"), checkpointId: id, requestId: id }).strict(),
+  z.object({ action: z.literal("prepare"), checkpointId: id }).strict(),
+  z.object({ action: z.literal("start"), checkpointId: id, requestId: id,
+    preparedForm: z.string().regex(/^[a-f0-9]{64}$/).optional(),
+  }).strict(),
   z
     .object({
       action: z.literal("save"),
@@ -438,7 +442,7 @@ export const Route = createFileRoute("/api/exams")({
             });
             return json({ enrollmentId });
           }
-          if (body.action === "start") {
+          if (body.action === "start" || body.action === "prepare") {
             const { data: checkpoint, error } = await db
               .from("assessment_checkpoints")
               .select("*")
@@ -489,6 +493,17 @@ export const Route = createFileRoute("/api/exams")({
               throw new AssessmentAccessError(
                 "This exam needs reviewed, versioned listening clips before it can start.",
                 503,
+              );
+            if (body.action === "prepare")
+              return json({
+                preparedForm: preparationKey(form),
+                estimatedMinutes: preparationMinutes(form.definition, enrollment.program_scope === "support_units"),
+                provisional: !officialFormAvailable(form),
+              });
+            if (body.preparedForm && body.preparedForm !== preparationKey(form))
+              throw new AssessmentAccessError(
+                "The exam form changed. Go back to Exams and reopen the start details.",
+                409,
               );
             const { data: profile, error: profileError } = await db
               .from("profiles")

@@ -125,3 +125,51 @@ test("actual Start denies another learner and fails closed on support-store erro
     false,
   );
 });
+
+async function postPrepared(f, body, actor = "learner") {
+  route.controls.db = f.db;
+  route.controls.actor = actor;
+  return route.Route.server.handlers.POST({
+    request: new Request("https://support.invalid/api/exams", {
+      method: "POST",
+      headers: { Origin: "https://support.invalid", "Content-Type": "application/json" },
+      body: JSON.stringify({ checkpointId: f.checkpoints[0].id, ...body }),
+    }),
+  });
+}
+
+test("actual pre-start check exposes only effort and a form binding, with no attempt or response writes", async () => {
+  const f = await supportCheckFixture();
+  f.enrollment.program_scope = "full_module";
+  for (const form of f.forms) form.purpose = "module";
+  f.forms[0].definition.estimatedMinutes = 17;
+  const response = await postPrepared(f, { action: "prepare" });
+  assert.equal(response.status, 200, await response.clone().text());
+  const details = await response.json();
+  assert.deepEqual(Object.keys(details).sort(), ["estimatedMinutes", "preparedForm", "provisional"]);
+  assert.equal(details.estimatedMinutes, 17);
+  assert.equal(details.provisional, false);
+  assert.match(details.preparedForm, /^[a-f0-9]{64}$/);
+  assert.equal(f.rpcs.some(r => r.name === "assessment_start_attempt"), false);
+  assert.equal(f.queries.some(q => q.table === "profiles"), false);
+  // Same ID and version, changed private content: the preparation is stale.
+  f.forms[0].definition.items[0].prompt += " changed";
+  const changed = await postPrepared(f, {
+    action: "start", preparedForm: details.preparedForm,
+    requestId: "33333333-3333-4333-8333-333333333333",
+  });
+  assert.equal(changed.status, 409);
+  assert.equal(f.rpcs.some(r => r.name === "assessment_start_attempt"), false);
+});
+
+test("preparation shares ownership/coverage checks and never scales full-form timing for selected units", async () => {
+  const f = await supportCheckFixture();
+  f.forms[0].definition.estimatedMinutes = 17;
+  assert.equal((await postPrepared(f, { action: "prepare" }, "outsider")).status, 403);
+  const valid = await postPrepared(f, { action: "prepare" });
+  assert.equal(valid.status, 200);
+  assert.equal((await valid.json()).estimatedMinutes, null);
+  f.forms[0].definition.items.pop();
+  assert.equal((await postPrepared(f, { action: "prepare" })).status, 400);
+  assert.equal(f.rpcs.some(r => r.name === "assessment_start_attempt"), false);
+});

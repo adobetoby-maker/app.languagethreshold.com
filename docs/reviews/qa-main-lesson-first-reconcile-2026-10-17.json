@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-17T20:50:34.986054+00:00",
+  "mergeCommit": "c4327d1d44bb391749eb0ec21bf74ee0d79b545b",
+  "parents": [
+    "78f1c0b697ecf85ee2d37bcb45a19aff9d6543fd",
+    "9f90996f99635647aab2d8e490e12b3275786b52"
+  ],
+  "mainAncestorVerified": true,
+  "treeBeforeAndAfter": "d5f6014a806780cffb63477ca7047330e898e05a",
+  "fileTreeChanged": false,
+  "applicationFilesMatchPreviewCommit": "0d8508afa227a47c16c8c0c48d2e2b3d20816948",
+  "comparedPaths": [
+    "src",
+    "public",
+    "scripts",
+    "supabase",
+    "package.json",
+    "package-lock.json"
+  ],
+  "tests": 978,
+  "failed": 0,
+  "typecheck": "pass",
+  "githubRest": {
+    "head": "c4327d1d44bb391749eb0ec21bf74ee0d79b545b",
+    "base": "9f90996f99635647aab2d8e490e12b3275786b52",
+    "mergeable": true,
+    "mergeableState": "unstable",
+    "draft": true
+  },
+  "githubGraphql": "Returned older head78f1c0b/base904295/CONFLICTING after push; rejected as stale, current REST and git refs used instead.",
+  "resolution": "Single AppGuide conflict reviewed. Current branch already has Core30-first layout and updated entry labels; retain account/pair remount key and standalone refreshable lesson routing, avoiding duplicate dashboard blocks or legacy inline scroll behavior. No blanket merge strategy applied to repository.",
+  "deployment": "No redeploy: merge adds ancestry only and file tree is byte-identical. Hosted application remains0d8508a. No production/accepted alias/main change.",
+  "auditFollowup": [
+    "SpeakingMissionsPreview has separate native/Google playback and microphone/stream callbacks; needs lifecycle review",
+    "ExamListeningQuestion has separate private-clip/device playback; review item/attempt/retry ownership and cleanup",
+    "lesson-words static deck/inflight maps are keyed by public module/language/lesson/pair; no private-state proof inferred",
+    "roofing-assessment byId map indexes the existing authored legacy bank; it is distinct from private adaptive exam bank"
+  ],
+  "limitations": [
+    "Mergeable is not passing all external checks (mergeable_state unstable)",
+    "No browser/device/audio/SDK acceptance",
+    "Wider inventory and all full-goal release gates remain open"
+  ]
+}

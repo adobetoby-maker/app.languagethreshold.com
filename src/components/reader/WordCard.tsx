@@ -35,7 +35,13 @@ const MAX_CLIENT_CACHE_ENTRIES = 200;
 const wordCardCache = new Map<string, WordCardData>();
 
 function wordCardCacheKey(request: WordCardRequest, nativeLanguage: string): string {
-  return JSON.stringify([request.language, nativeLanguage, request.word, request.sentence]);
+  return JSON.stringify([
+    request.language,
+    nativeLanguage,
+    request.word,
+    request.sentence,
+    request.lesson ? tutorLessonThread(request.lesson) : null,
+  ]);
 }
 
 function getCachedWordCard(key: string): WordCardData | null {
@@ -238,6 +244,7 @@ export function WordCard({
         sentence: request.sentence,
         language: request.language,
         nativeLanguage: state.nativeLanguage,
+        lesson: request.lesson,
       },
     })
       .then((res) => {
@@ -262,7 +269,15 @@ export function WordCard({
     return () => {
       active = false;
     };
-  }, [lookupKey, request.word, request.sentence, request.language, state.nativeLanguage, lookup]);
+  }, [
+    lookupKey,
+    request.word,
+    request.sentence,
+    request.language,
+    request.lesson,
+    state.nativeLanguage,
+    lookup,
+  ]);
 
   const speak = () => {
     if (typeof window === "undefined") return;

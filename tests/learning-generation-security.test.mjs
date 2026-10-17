@@ -5,6 +5,7 @@ import {
   LEARNING_GENERATION_LIMITS,
   HANDWRITING_CHECK_LIMITS,
   CONVERSATION_LIMITS,
+  WORD_LOOKUP_LIMITS,
 } from "../src/lib/learning-generation-security.ts";
 
 function request(headers = {}) {
@@ -120,6 +121,18 @@ test("conversation minute and hourly bounds are independent of handwriting and c
       assert.equal(denied.status, 429);
       assert.equal(denied.retryAfter, 3600);
     }
+  }));
+test("lookup request bounds are independent of the content and conversation pools", async () =>
+  fixture(async ({ calls }) => {
+    assert.deepEqual(WORD_LOOKUP_LIMITS, { minute: 40, ipHour: 600, globalHour: 1200 });
+    for (let i = 0; i < 40; i++)
+      assert.equal(await checkLearningGenerationBudget(request(), "lookup"), null);
+    assert.equal((await checkLearningGenerationBudget(request(), "lookup")).status, 429);
+    const hash = calls[0].body.p_bucket_hash;
+    assert.equal(await checkLearningGenerationBudget(request(), "conversation"), null);
+    assert.notEqual(hash, calls.at(-3).body.p_bucket_hash);
+    assert.equal(await checkLearningGenerationBudget(request()), null);
+    assert.notEqual(hash, calls.at(-3).body.p_bucket_hash);
   }));
 test("separate requests share the persisted allowance and the ninth minute request is rejected", async () =>
   fixture(async ({ calls }) => {

@@ -1,4 +1,13 @@
-import { setResponseHeader } from "@tanstack/react-start/server";
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationError } from "@/lib/learning-generation-server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import {
+  TutorLessonReferenceSchema,
+  resolveTutorLesson,
+  tutorLessonThread,
+  lessonLookupInstructions,
+  type TutorLessonReference,
+} from "@/lib/lesson-tutor-context";
 import { usageReceipt, cacheReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
@@ -9,6 +18,7 @@ const InputSchema = z.object({
   sentence: z.string().min(1).max(2000),
   language: z.string().min(1).max(40),
   nativeLanguage: z.string().min(1).max(40).optional(),
+  lesson: TutorLessonReferenceSchema.optional(),
 });
 
 export interface RelatedWord {
@@ -46,9 +56,21 @@ export interface WordCardData {
 const MAX_CACHE_ENTRIES = 500;
 const cache = new Map<string, WordCardData>();
 
-function cacheKey(word: string, sentence: string, language: string, native: string): string {
+function cacheKey(
+  word: string,
+  sentence: string,
+  language: string,
+  native: string,
+  lesson?: TutorLessonReference,
+): string {
   // Cheap, stable key. Sentence is included verbatim because click context matters.
-  return `${language}|${native}|${word}|${sentence}`;
+  return JSON.stringify([
+    language,
+    native,
+    word,
+    sentence,
+    lesson ? tutorLessonThread(lesson) : null,
+  ]);
 }
 
 function cacheGet(key: string): WordCardData | undefined {
@@ -76,16 +98,36 @@ export const lookupWord = createServerFn({ method: "POST" })
     async ({
       data,
     }): Promise<{ card: WordCardData | null; error: string | null; cached?: boolean }> => {
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(getRequest());
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { card: null, error: originError.error };
+      }
       const KEY = process.env.ANTHROPIC_API_KEY;
       if (!KEY) return { card: null, error: "AI is not configured" };
 
       const native = data.nativeLanguage ?? "English";
-      const key = cacheKey(data.word, data.sentence, data.language, native);
+      if (
+        data.lesson &&
+        (!resolveTutorLesson(data.lesson) ||
+          data.lesson.targetLanguage !== data.language ||
+          data.lesson.instructionLanguage !== native)
+      ) {
+        setResponseStatus(409);
+        return {
+          card: null,
+          error: "Reopen the lesson in your selected language before looking up this word.",
+        };
+      }
+      const key = cacheKey(data.word, data.sentence, data.language, native, data.lesson);
       const hit = cacheGet(key);
       if (hit) {
         setResponseHeader("X-LT-AI-Usage", JSON.stringify(cacheReceipt()));
         return { card: hit, error: null, cached: true };
       }
+      const budgetError = await learningGenerationError("lookup");
+      if (budgetError) return { card: null, error: budgetError };
 
       const isJapanese = /japanese|日本/i.test(data.language);
       const isKorean = /korean|한국/i.test(data.language);
@@ -113,7 +155,7 @@ export const lookupWord = createServerFn({ method: "POST" })
 - pitchAccent: OMIT (Japanese-only).
 - alternativeReadings: OMIT (Japanese-only).`;
 
-      const systemPrompt = `You are a precise multilingual dictionary for adult learners. You ALWAYS respond by calling the provided tool. Be accurate and concise — every field is one sentence or a short list. Never over-explain.`;
+      const systemPrompt = `You are a precise multilingual dictionary for adult learners. You ALWAYS respond by calling the provided tool. Be accurate and concise — every field is one sentence or a short list. Never over-explain.${data.lesson ? `\n\n${lessonLookupInstructions(data.lesson)}` : ""}`;
 
       const userPrompt = `The user clicked the word "${data.word}" in this sentence:
 

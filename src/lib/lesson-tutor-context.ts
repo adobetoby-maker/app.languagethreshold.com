@@ -2,14 +2,20 @@ import { getLessonDefinition } from "./lesson-definition.ts";
 import { modulePracticeVersion } from "../data/module-teaching.ts";
 import { getModule, moduleSupportsLearningPair } from "../data/modules.ts";
 import { LANGUAGES, NATIVE_LANGUAGES } from "../data/languages.ts";
+import { z } from "zod";
 
-export interface TutorLessonReference {
-  moduleId: string;
-  lessonNumber: number;
-  targetLanguage: string;
-  instructionLanguage: string;
-  contentVersion: string;
-}
+export const TutorLessonReferenceSchema = z.object({
+  moduleId: z
+    .string()
+    .min(1)
+    .max(80)
+    .regex(/^[a-z0-9-]+$/),
+  lessonNumber: z.number().int().min(1).max(60),
+  targetLanguage: z.string().min(1).max(40),
+  instructionLanguage: z.string().min(1).max(40),
+  contentVersion: z.string().min(1).max(100),
+});
+export type TutorLessonReference = z.infer<typeof TutorLessonReferenceSchema>;
 export function resolveTutorLesson(reference: TutorLessonReference) {
   const module = getModule(reference.moduleId);
   const target = LANGUAGES.find((value) => value === reference.targetLanguage);
@@ -92,6 +98,26 @@ export function lessonTutorInstructions(reference: TutorLessonReference) {
       ? `Prefer this lesson's vocabulary and phrases: ${lesson.words.map((word) => word.es).join("; ")}`
       : null,
     "Teaching stage describes this lesson's support, not assessed proficiency or CEFR. Do not grant mastery, scores or certificates. Keep trade advice within language practice and defer technical procedures to the learner's approved job instructions.",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+export function lessonLookupInstructions(reference: TutorLessonReference) {
+  const lesson = resolveTutorLesson(reference);
+  if (!lesson) return null;
+  return [
+    `CURRENT LESSON DOMAIN: ${getModule(lesson.moduleId)?.name ?? lesson.moduleId}; lesson ${lesson.lessonNumber}: ${lesson.title}.`,
+    `Learning objective: ${lesson.objective}`,
+    "Choose the meaning used in this lesson's domain, not a different generic or geographic sense. Examples, collocations and related words must fit this domain too.",
+    lesson.words.length
+      ? `Authored vocabulary anchors in target/instruction languages: ${lesson.words.map((word) => `${word.es} — ${word.en}`).join("; ")}`
+      : null,
+    lesson.teaching?.stage === "supported"
+      ? "Use plain short explanations suitable for the first supported lessons."
+      : lesson.teaching?.stage === "connected"
+        ? "Relate the word to a short instruction or exchange in this lesson."
+        : "Explain natural use within the lesson task; avoid unnecessary jargon.",
+    "Explain language use, not technical trade procedures or safety qualifications.",
   ]
     .filter(Boolean)
     .join("\n");

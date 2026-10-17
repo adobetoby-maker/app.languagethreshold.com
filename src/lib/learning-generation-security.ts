@@ -14,15 +14,20 @@ export const LEARNING_GENERATION_LIMITS = { minute: 8, ipHour: 120, globalHour: 
 // slower lesson/deck creation pool. Shared connections still have a bounded allowance.
 export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1200 } as const;
 export const CONVERSATION_LIMITS = { minute: 30, ipHour: 300, globalHour: 600 } as const;
-export type LearningGenerationPurpose = "content" | "handwriting" | "conversation";
+export const WORD_LOOKUP_LIMITS = { minute: 40, ipHour: 600, globalHour: 1200 } as const;
+export type LearningGenerationPurpose = "content" | "handwriting" | "conversation" | "lookup";
+export function learningGenerationOriginError(request: Request): LearningGenerationDenial | null {
+  return isStrictSameOrigin(request)
+    ? null
+    : { status: 403, error: "Open the app to create new practice content." };
+}
 
 export async function checkLearningGenerationBudget(
   request: Request,
   purpose: LearningGenerationPurpose = "content",
 ): Promise<LearningGenerationDenial | null> {
-  if (!isStrictSameOrigin(request)) {
-    return { status: 403, error: "Open the app to create new practice content." };
-  }
+  const originError = learningGenerationOriginError(request);
+  if (originError) return originError;
   // Only use the platform's canonical IP header; caller-provided forwarding fallbacks
   // must not let a client choose a fresh budget. Loopback development has one shared bucket.
   const forwarded = request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim();
@@ -45,11 +50,13 @@ export async function checkLearningGenerationBudget(
         : "development";
   const prefix = `learning-generation:v1:${stage}${purpose === "content" ? "" : `:${purpose}`}`;
   const limits =
-    purpose === "handwriting"
-      ? HANDWRITING_CHECK_LIMITS
-      : purpose === "conversation"
-        ? CONVERSATION_LIMITS
-        : LEARNING_GENERATION_LIMITS;
+    purpose === "lookup"
+      ? WORD_LOOKUP_LIMITS
+      : purpose === "handwriting"
+        ? HANDWRITING_CHECK_LIMITS
+        : purpose === "conversation"
+          ? CONVERSATION_LIMITS
+          : LEARNING_GENERATION_LIMITS;
   try {
     const minute = await consumeServerRequestBudget(`${prefix}:ip-minute`, ip, limits.minute);
     if (!minute)

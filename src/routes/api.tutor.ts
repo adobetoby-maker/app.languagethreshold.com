@@ -1,5 +1,9 @@
 import { prepareConversationRequest, ConversationRequestError } from "@/lib/conversation-request";
-import { resolveTutorLesson, lessonTutorInstructions } from "@/lib/lesson-tutor-context";
+import {
+  resolveTutorLesson,
+  lessonTutorInstructions,
+  TutorLessonReferenceSchema,
+} from "@/lib/lesson-tutor-context";
 import { modulePracticeVersion } from "@/data/module-teaching";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import Anthropic from "@anthropic-ai/sdk";
@@ -65,19 +69,7 @@ export const BodySchema = z.object({
     selectedWord: z.string().max(80).optional(),
     selectedSentence: z.string().max(1200).optional(),
     wordExplanation: z.string().max(1600).optional(),
-    lesson: z
-      .object({
-        moduleId: z
-          .string()
-          .min(1)
-          .max(80)
-          .regex(/^[a-z0-9-]+$/),
-        lessonNumber: z.number().int().min(1).max(60),
-        targetLanguage: z.string().min(1).max(40),
-        instructionLanguage: z.string().min(1).max(40),
-        contentVersion: z.string().min(1).max(100),
-      })
-      .optional(),
+    lesson: TutorLessonReferenceSchema.optional(),
     readerContext: z
       .object({
         selectedWord: z.string().min(1).max(120),

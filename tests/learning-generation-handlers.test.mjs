@@ -33,7 +33,7 @@ async function load(name, exportName) {
       export const getRequest=()=>new Request('https://owned-preview.invalid/_serverFn/generate',{method:'POST',headers:{Origin:controls.origin,'x-vercel-forwarded-for':'192.0.2.37'}});
       export const setResponseHeader=(key,value)=>{controls.headers[key]=value;};
       export const setResponseStatus=status=>{controls.status=status;};
-      export default class Model {messages={create:async()=>{controls.calls++;return {content:[]};}};}
+      export default class Model {messages={create:async()=>{controls.calls++;return {model:'fixture',usage:{input_tokens:1,output_tokens:1},content:[]};}};}
     `,
           }));
         },
@@ -73,6 +73,17 @@ for (const [name, exportName, data, resultKey] of [
     { imageBase64: "A".repeat(100), language: "Japanese" },
     "result",
   ],
+  [
+    "word-lookup",
+    "lookupWord",
+    {
+      word: "qa",
+      sentence: "Synthetic lookup guard check",
+      language: "Spanish",
+      nativeLanguage: "English",
+    },
+    "card",
+  ],
 ]) {
   test(`${name}: actual handler rejects exceeded/storage/cross-origin requests before the model and emits retry headers`, async () => {
     const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"],
@@ -96,7 +107,10 @@ for (const [name, exportName, data, resultKey] of [
       assert.equal(controls.headers["Retry-After"], "60");
       assert.equal(controls.headers["Cache-Control"], "no-store");
       assert.equal(controls.calls, 0);
-      assert.equal(firstBudgetLimit, name.startsWith("handwriting") ? 30 : 8);
+      assert.equal(
+        firstBudgetLimit,
+        name === "word-lookup" ? 40 : name.startsWith("handwriting") ? 30 : 8,
+      );
       controls.status = 200;
       controls.headers = {};
       globalThis.fetch = async () => new Response("unavailable", { status: 503 });

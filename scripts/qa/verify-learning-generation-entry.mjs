@@ -12,7 +12,7 @@ const built = readdirSync(assets)
   .filter(
     (name) =>
       name.endsWith(".js") &&
-      /^(lesson-words|module-deck|library\.functions|handwriting-read|handwriting-recognize)/.test(
+      /^(lesson-words|module-deck|library\.functions|handwriting-read|handwriting-recognize|word-lookup)/.test(
         name,
       ),
   )
@@ -31,6 +31,15 @@ for (const [name, data] of [
   ],
   ["readHandwriting", { imageBase64: "A".repeat(100), language: "Spanish" }],
   ["recognizeHandwriting", { imageBase64: "A".repeat(100), language: "Japanese" }],
+  [
+    "lookupWord",
+    {
+      word: "qa",
+      sentence: "Synthetic lookup guard check",
+      language: "Spanish",
+      nativeLanguage: "English",
+    },
+  ],
 ]) {
   const id = built.match(new RegExp(`id: "([a-f0-9]{64})",\\s*name: "${name}"`))?.[1];
   assert.ok(id, `Current built identifier for ${name}`);
@@ -80,7 +89,7 @@ const result = {
   sourceCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
   preview: base,
   scope:
-    "Actual hosted framework CSRF and application conflicting-origin denial for three content builders and two handwriting checks (ten HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
+    "Actual hosted framework CSRF and application conflicting-origin denial for three content builders, two handwriting checks and word lookup (twelve HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
   checks,
 };
 writeFileSync(

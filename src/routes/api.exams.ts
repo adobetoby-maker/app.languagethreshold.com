@@ -1,6 +1,13 @@
 import { hasAdaptiveRouting } from "@/lib/assessments/routing-contract";
 import { selectAttemptRoute } from "@/lib/assessments/routing-server";
-import { selectedAttemptPath } from "@/lib/assessments/routing-path-server";
+import {
+  selectedAttemptPath,
+  requireSelectedResponses,
+} from "@/lib/assessments/routing-path-server";
+import {
+  adaptiveFormAvailable,
+  adaptivePreviewRuntimeEnabled,
+} from "@/lib/assessments/runtime-server";
 import { preparationKey, preparationMinutes } from "@/lib/assessments/preparation";
 import { teamAssessmentInsights } from "@/lib/assessments/team-insights-server";
 import { supportingCheckKey } from "@/lib/assessments/support-check-readiness";
@@ -116,9 +123,17 @@ const bodySchema = z.discriminatedUnion("action", [
     })
     .strict(),
   z.object({ action: z.literal("prepare"), checkpointId: id }).strict(),
-  z.object({ action: z.literal("start"), checkpointId: id, requestId: id,
-    preparedForm: z.string().regex(/^[a-f0-9]{64}$/).optional(),
-  }).strict(),
+  z
+    .object({
+      action: z.literal("start"),
+      checkpointId: id,
+      requestId: id,
+      preparedForm: z
+        .string()
+        .regex(/^[a-f0-9]{64}$/)
+        .optional(),
+    })
+    .strict(),
   z
     .object({
       action: z.literal("save"),
@@ -472,7 +487,7 @@ export const Route = createFileRoute("/api/exams")({
               );
             let formQuery = db
               .from("assessment_forms")
-              .select("id,status,calibrated,definition")
+              .select("id,status,calibrated,version,rubric_version,definition")
               .eq("release_id", enrollment.release_id)
               .eq("checkpoint", checkpoint.checkpoint)
               .eq("purpose", enrollment.program_scope === "support_units" ? "support" : "module");
@@ -484,24 +499,48 @@ export const Route = createFileRoute("/api/exams")({
                 throw new AssessmentAccessError("Reviewed supporting checks are unavailable.", 400);
               formQuery = formQuery.eq("id", support.formId);
             }
-            const { data: forms, error: formError } = await formQuery.order("created_at", {
+            const orderedForms = formQuery.order("created_at", {
               ascending: false,
             });
+            const { data: forms, error: formError } = await (adaptivePreviewRuntimeEnabled()
+              ? orderedForms.limit(51)
+              : orderedForms);
             if (formError)
               throw new AssessmentAccessError("Assessment forms are unavailable.", 503);
-            const compatibleForms = forms?.filter(form => !hasAdaptiveRouting(form.definition));
+            if (adaptivePreviewRuntimeEnabled() && (forms?.length ?? 0) > 50)
+              throw new AssessmentAccessError("Assessment form selection is unavailable.", 503);
+            const compatibleForms = forms?.filter(
+              (form) =>
+                !hasAdaptiveRouting(form.definition) ||
+                adaptiveFormAvailable(form, enrollment, checkpoint.checkpoint),
+            );
             const form =
-              compatibleForms?.find(officialFormAvailable) ??
-              (pilotAllowed(user.id) ? compatibleForms?.[0] : undefined);
-            if (!form && forms?.some(form => hasAdaptiveRouting(form.definition)))
-              throw new AssessmentAccessError("Adaptive routing is not enabled for this form yet.", 503);
+              compatibleForms?.find(
+                (form) =>
+                  officialFormAvailable(form) ||
+                  adaptiveFormAvailable(form, enrollment, checkpoint.checkpoint),
+              ) ??
+              (pilotAllowed(user.id)
+                ? compatibleForms?.find((form) => !hasAdaptiveRouting(form.definition))
+                : undefined);
+            if (!form && forms?.some((form) => hasAdaptiveRouting(form.definition)))
+              throw new AssessmentAccessError(
+                "Adaptive routing is not enabled for this form yet.",
+                503,
+              );
             if (!form)
               throw new AssessmentAccessError(
                 "This module exam is awaiting curriculum review.",
                 400,
               );
-            requireFixedAssessmentRuntime(form.definition);
-            if (!pilotAllowed(user.id))
+            const adaptive = hasAdaptiveRouting(form.definition);
+            if (!adaptive) requireFixedAssessmentRuntime(form.definition);
+            if (adaptive && body.action === "start" && !body.preparedForm)
+              throw new AssessmentAccessError(
+                "Reopen the exam start details before starting this form.",
+                409,
+              );
+            if (adaptive || !pilotAllowed(user.id))
               await requireCurrentLessonBinding(db, enrollment.release_id, { officialStart: true });
             if (
               form.status === "verified" &&
@@ -514,8 +553,14 @@ export const Route = createFileRoute("/api/exams")({
             if (body.action === "prepare")
               return json({
                 preparedForm: preparationKey(form),
-                estimatedMinutes: preparationMinutes(form.definition, enrollment.program_scope === "support_units"),
-                provisional: !officialFormAvailable(form),
+                estimatedMinutes: preparationMinutes(
+                  form.definition,
+                  enrollment.program_scope === "support_units",
+                ),
+                provisional: !(
+                  officialFormAvailable(form) ||
+                  adaptiveFormAvailable(form, enrollment, checkpoint.checkpoint)
+                ),
               });
             if (body.preparedForm && body.preparedForm !== preparationKey(form))
               throw new AssessmentAccessError(
@@ -553,7 +598,7 @@ export const Route = createFileRoute("/api/exams")({
               p_checkpoint: body.checkpointId,
               p_form: form.id,
               p_request: body.requestId,
-              p_allow_pilot: pilotAllowed(user.id),
+              p_allow_pilot: !adaptive && pilotAllowed(user.id),
               p_studied_objectives: studied,
             });
             return json(await readAttempt(db, user.id, attemptId));
@@ -564,8 +609,13 @@ export const Route = createFileRoute("/api/exams")({
               if (context.enrollment.user_id !== user.id)
                 throw new AssessmentAccessError("Learner assessment access required.");
               const path = await selectedAttemptPath(db, context);
-              if (body.updates.some(update => !path.items.some(item => item.id === update.itemId)))
-                throw new AssessmentAccessError("Response item is not in the selected assessment path.", 400);
+              if (
+                body.updates.some((update) => !path.items.some((item) => item.id === update.itemId))
+              )
+                throw new AssessmentAccessError(
+                  "Response item is not in the selected assessment path.",
+                  400,
+                );
             }
             const revision = await rpc<number>(db, "assessment_save_responses", {
               p_actor: user.id,
@@ -577,8 +627,40 @@ export const Route = createFileRoute("/api/exams")({
             return json({ revision, syncedAt: new Date().toISOString() });
           }
           if (body.action === "submit") {
-            // Keep adaptive submission gated until selected scoring/reporting is integrated.
-            await attemptAccess(db, user.id, body.attemptId);
+            const context = await attemptAccess(db, user.id, body.attemptId, false, "routing");
+            if (hasAdaptiveRouting(context.attempt.form_snapshot?.definition)) {
+              const snapshot = context.attempt.form_snapshot;
+              if (
+                !adaptivePreviewRuntimeEnabled() ||
+                snapshot.pilot !== false ||
+                !adaptiveFormAvailable(
+                  {
+                    id: context.attempt.form_id,
+                    status: snapshot.definition?.status,
+                    calibrated: snapshot.calibrated,
+                    version: snapshot.version,
+                    rubric_version: snapshot.rubricVersion,
+                    definition: snapshot.definition,
+                  },
+                  context.enrollment,
+                  context.checkpoint.checkpoint,
+                )
+              )
+                throw new AssessmentAccessError(
+                  "Adaptive routing is not enabled for this form yet.",
+                  503,
+                );
+              if (context.enrollment.user_id !== user.id)
+                throw new AssessmentAccessError("Learner assessment access required.");
+              const path = await selectedAttemptPath(db, context, true);
+              const responses = await db
+                .from("assessment_responses")
+                .select("id,item_id,answer")
+                .eq("attempt_id", body.attemptId);
+              if (responses.error)
+                throw new AssessmentAccessError("Saved responses could not be checked.", 503);
+              requireSelectedResponses(path, responses.data ?? []);
+            }
             await rpc(db, "assessment_submit_attempt", {
               p_actor: user.id,
               p_attempt: body.attemptId,

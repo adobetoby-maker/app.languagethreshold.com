@@ -7,8 +7,8 @@ import { routingFixture } from "./helpers/routing-fixture.mjs";
 import { loadModule } from "./helpers/bundle.mjs";
 import { supportCheckFixture } from "./helpers/support-check-fixture.mjs";
 
-// Real POST handler and readiness/binding logic; auth, billing, budget and final
-// attempt serialization are controlled boundaries. No hosted approval/result.
+// Real POST handler, readiness/binding and attempt serialization. Auth, billing
+// and budgets are controlled boundaries. No hosted approval/result.
 const root = resolve("node_modules/.cache/lle-tests");
 mkdirSync(root, { recursive: true });
 const directory = mkdtempSync(resolve(root, "routing-api-"));
@@ -62,7 +62,7 @@ try {
               };
             if (args.path === "@/lib/assessments/server")
               return {
-                contents: `export * from ${JSON.stringify(resolve("src/lib/assessments/server.ts"))};import {controls} from 'test-controls';export const assessmentBudget=async(actor,action)=>{controls.budgets.push({actor,action});};export const readAttempt=async(_db,_actor,id)=>({id,controlledSerialization:true});`,
+                contents: `export * from ${JSON.stringify(resolve("src/lib/assessments/server.ts"))};import {controls} from 'test-controls';export const assessmentBudget=async(actor,action)=>{controls.budgets.push({actor,action});};`,
                 resolveDir: process.cwd(),
               };
             return {
@@ -80,6 +80,9 @@ try {
 }
 
 const { selectAttemptRoute } = await loadModule("src/lib/assessments/routing-server.ts", {
+  stubs: [/^@tanstack\/react-start\/server-only$/],
+});
+const { preparationKey } = await loadModule("src/lib/assessments/preparation.ts", {
   stubs: [/^@tanstack\/react-start\/server-only$/],
 });
 const attemptId = "11111111-2222-4333-8444-555555555555";
@@ -667,3 +670,246 @@ test("AI durable claim refusal prevents repeat audit and provider invocation for
     assert.equal(f.rpcs.length, 1);
   });
 });
+
+async function withAdaptiveCapability(fn, enabled = "true", stage = "preview") {
+  const names = ["LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED", "VERCEL_ENV", "LT_EXAMS_PILOT_USER_IDS"],
+    previous = names.map((key) => process.env[key]);
+  process.env.LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED = enabled;
+  process.env.VERCEL_ENV = stage;
+  process.env.LT_EXAMS_PILOT_USER_IDS = "learner"; // Must not bypass adaptive official-content checks.
+  try {
+    return await fn();
+  } finally {
+    names.forEach((key, i) => {
+      if (previous[i] === undefined) delete process.env[key];
+      else process.env[key] = previous[i];
+    });
+  }
+}
+async function adaptiveStartFixture() {
+  const f = await reviewFixture();
+  f.rows.assessment_attempts[0].submitted_at = null;
+  f.rows.assessment_attempts[0].status = "in_progress";
+  f.rows.assessment_attempts[0].revision = 4;
+  f.rows.assessment_attempts[0].attempt_number = 1;
+  f.rows.assessment_attempts[0].form_snapshot.pilot = false;
+  f.rows.assessment_attempt_routes = [];
+  f.rows.assessment_responses = [];
+  f.rows.assessment_forms = [
+    {
+      id: f.form.id,
+      release_id: f.enrollment.release_id,
+      checkpoint: "entrance",
+      purpose: "module",
+      status: "verified",
+      calibrated: true,
+      version: f.form.version,
+      rubric_version: f.form.rubricVersion,
+      definition: f.form,
+    },
+  ];
+  const base = f.db.rpc;
+  f.db.rpc = async (name, args) => {
+    if (name === "assessment_start_attempt") {
+      f.rpcs.push({ name, args });
+      return { data: attemptId, error: null };
+    }
+    return base(name, args);
+  };
+  f.rpcs.length = 0;
+  return f;
+}
+async function postAction(f, body, actor = "learner") {
+  route.controls.db = f.db;
+  route.controls.actor = actor;
+  return route.Route.server.handlers.POST({
+    request: new Request("https://routing.invalid/api/exams", {
+      method: "POST",
+      headers: { Origin: "https://routing.invalid", "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }),
+  });
+}
+
+test("Preview capability coordinates real prepare/start/core read while adaptive pilot bypass stays disabled", async () =>
+  withAdaptiveCapability(async () => {
+    const f = await adaptiveStartFixture();
+    const prepared = await postAction(f, { action: "prepare", checkpointId: f.checkpoints[0].id });
+    assert.equal(prepared.status, 200, await prepared.clone().text());
+    const details = await prepared.json();
+    assert.match(details.preparedForm, /^[a-f0-9]{64}$/);
+    assert.equal(details.provisional, false);
+    assert.equal(f.rpcs.length, 0);
+    const response = await postAction(f, {
+      action: "start",
+      checkpointId: f.checkpoints[0].id,
+      requestId,
+      preparedForm: details.preparedForm,
+    });
+    assert.equal(response.status, 200, await response.clone().text());
+    const value = await response.json();
+    assert.equal(value.id, attemptId);
+    assert.deepEqual(value.routing, { state: "core", coreItemCount: 18 });
+    assert.equal(value.form.items.length, 18);
+    assert.equal(
+      f.rpcs.find((r) => r.name === "assessment_start_attempt").args.p_allow_pilot,
+      false,
+    );
+    assert.ok(!JSON.stringify(value).includes("branch-band-a"));
+    assert.ok(!JSON.stringify(value).includes("private-fixture-answer"));
+  }));
+
+test("adaptive capability defaults closed, is Preview-only and never accepts support, unreviewed, malformed or stale forms", async () => {
+  for (const mode of [
+    "off",
+    "production",
+    "local",
+    "uncalibrated",
+    "draft",
+    "definition-draft",
+    "null-policy",
+    "version",
+    "pair",
+    "support",
+    "release",
+    "binding",
+    "foreign",
+    "too-many",
+  ]) {
+    await withAdaptiveCapability(
+      async () => {
+        const f = await adaptiveStartFixture();
+        if (mode === "uncalibrated") f.rows.assessment_forms[0].calibrated = false;
+        if (mode === "draft") f.rows.assessment_forms[0].status = "draft";
+        if (mode === "definition-draft") f.form.status = "draft";
+        if (mode === "null-policy") f.form.routing = null;
+        if (mode === "version") f.rows.assessment_forms[0].version = "changed";
+        if (mode === "pair") f.form.targetLanguage = "French";
+        if (mode === "support") f.enrollment.program_scope = "support_units";
+        if (mode === "release") f.rows.assessment_releases[0].lesson_manifest.reviewed = false;
+        if (mode === "binding") f.rows.assessment_lesson_snapshots[0].fingerprint = "changed";
+        if (mode === "too-many")
+          f.rows.assessment_forms = Array.from({ length: 51 }, () => ({
+            ...f.rows.assessment_forms[0],
+          }));
+        const response = await postAction(
+          f,
+          {
+            action: "start",
+            checkpointId: f.checkpoints[0].id,
+            requestId,
+            preparedForm: preparationKey(f.rows.assessment_forms[0]),
+          },
+          mode === "foreign" ? "other" : "learner",
+        );
+        assert.ok(response.status >= 400, mode);
+        assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"), mode);
+      },
+      mode === "off" ? "false" : "true",
+      mode === "production" ? "production" : mode === "local" ? "development" : "preview",
+    );
+  }
+});
+
+test("adaptive preparation digest rejects changed private policy before start RPC", async () =>
+  withAdaptiveCapability(async () => {
+    const f = await adaptiveStartFixture();
+    const response = await postAction(f, { action: "prepare", checkpointId: f.checkpoints[0].id });
+    const prepared = await response.json();
+    f.form.routing.version = "changed-reviewed-local-fixture-version";
+    const changed = await postAction(f, {
+      action: "start",
+      checkpointId: f.checkpoints[0].id,
+      requestId,
+      preparedForm: prepared.preparedForm,
+    });
+    assert.equal(changed.status, 409);
+    assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"));
+  }));
+
+test("gated adaptive submit validates frozen path before durable RPC and scores only selected saved responses", async () =>
+  withAdaptiveCapability(async () => {
+    const f = await adaptiveStartFixture();
+    f.rows.assessment_responses = f.answers.map(({ itemId, answer }, i) => ({
+      id: `core-response-${i}`,
+      attempt_id: attemptId,
+      item_id: itemId,
+      answer,
+    }));
+    await selectAttemptRoute(f.db, "learner", input);
+    f.rows.assessment_responses.push({
+      id: responseId,
+      attempt_id: attemptId,
+      item_id: "branch-band-b",
+      answer: { inputMethod: "typed", text: "Selected writing" },
+    });
+    const prior = f.db.rpc;
+    f.db.rpc = async (name, args) => {
+      if (name === "assessment_submit_attempt") {
+        f.rpcs.push({ name, args });
+        f.rows.assessment_attempts[0].submitted_at = "2026-10-17T17:30:00Z";
+        return { data: "submitted", error: null };
+      }
+      if (name === "assessment_record_score") {
+        f.rpcs.push({ name, args });
+        return { data: "local-score", error: null };
+      }
+      return prior(name, args);
+    };
+    f.rpcs.length = 0;
+    const response = await postAction(f, { action: "submit", attemptId, revision: 5, requestId });
+    assert.equal(response.status, 200, await response.clone().text());
+    assert.equal((await response.json()).scoringPending, undefined);
+    const scores = f.rpcs.filter((r) => r.name === "assessment_record_score");
+    assert.equal(scores.length, 19);
+    assert.ok(scores.some((r) => r.args.p_response === responseId));
+    assert.equal(f.rpcs[0].name, "assessment_submit_attempt");
+  }));
+
+test("adaptive submit denies missing route, unselected/corrupt response, non-owner, pilot and changed frozen metadata before durable write", async () =>
+  withAdaptiveCapability(async () => {
+    for (const mode of [
+      "missing-route",
+      "unselected",
+      "corrupt-answer",
+      "pilot",
+      "uncalibrated",
+      "version",
+      "foreign",
+    ]) {
+      const f = await adaptiveStartFixture();
+      f.rows.assessment_responses = f.answers.map(({ itemId, answer }, i) => ({
+        id: `core-response-${i}`,
+        attempt_id: attemptId,
+        item_id: itemId,
+        answer,
+      }));
+      await selectAttemptRoute(f.db, "learner", input);
+      if (mode === "missing-route") f.rows.assessment_attempt_routes = [];
+      if (mode === "unselected") f.rows.assessment_responses[0].item_id = "branch-band-a";
+      if (mode === "corrupt-answer") f.rows.assessment_responses[0].answer = null;
+      if (mode === "pilot") f.rows.assessment_attempts[0].form_snapshot.pilot = true;
+      if (mode === "uncalibrated") f.rows.assessment_attempts[0].form_snapshot.calibrated = false;
+      if (mode === "version") f.rows.assessment_attempts[0].form_snapshot.version = "changed";
+      f.rpcs.length = 0;
+      const response = await postAction(
+        f,
+        { action: "submit", attemptId, revision: 5, requestId },
+        mode === "foreign" ? "other" : "learner",
+      );
+      assert.ok(response.status >= 400, mode);
+      assert.ok(!f.rpcs.some((r) => r.name === "assessment_submit_attempt"), mode);
+    }
+  }));
+
+test("adaptive Start requires the prepared disclosure identity before its durable RPC", async () =>
+  withAdaptiveCapability(async () => {
+    const f = await adaptiveStartFixture();
+    const response = await postAction(f, {
+      action: "start",
+      checkpointId: f.checkpoints[0].id,
+      requestId,
+    });
+    assert.equal(response.status, 409);
+    assert.ok(!f.rpcs.some((r) => r.name === "assessment_start_attempt"));
+  }));

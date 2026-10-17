@@ -24,6 +24,7 @@ import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
 import { lessonReleaseReadiness, officialFormAvailable } from "./release-readiness";
+import { adaptiveReadyForms, adaptiveReadyKey } from "./runtime-server";
 import { ROOFING_ASSESSMENT_RELEASE } from "./form";
 import {
   publicAssessmentItem,
@@ -278,6 +279,7 @@ export async function listEnrollments(
     .in("id", [...new Set(permitted.map((row) => row.release_id))]);
   if (formsError || releasesError)
     throw new AssessmentAccessError("Assessment readiness could not be loaded.", 503);
+  const adaptiveReady = await adaptiveReadyForms(db, releases ?? []);
   const bindings = await db
     .from("assessment_lesson_snapshots")
     .select("release_id,snapshot_text,fingerprint")
@@ -316,7 +318,8 @@ export async function listEnrollments(
           availableReleases.has(enrollment.release_id) &&
           (enrollment.program_scope === "support_units"
             ? support.get(supportingCheckKey(enrollment.id, cp.checkpoint))?.reviewed === true
-            : (forms ?? []).some(
+            : adaptiveReady.has(adaptiveReadyKey(enrollment.release_id, cp.checkpoint)) ||
+              (forms ?? []).some(
                 (form) =>
                   form.release_id === enrollment.release_id &&
                   form.checkpoint === cp.checkpoint &&
@@ -378,6 +381,7 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
         .in("release_id", ids)
     : { data: [], error: null };
   if (formError) throw new AssessmentAccessError("Exam readiness could not be loaded.", 503);
+  const adaptiveReady = await adaptiveReadyForms(db, releases ?? []);
   const boundIds = (releases ?? [])
     .filter((release) => typeof release.lesson_manifest?.lessonSnapshotFingerprint === "string")
     .map((release) => release.id);
@@ -417,20 +421,27 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
             matching.find(officialFormAvailable) ??
             matching.find((row) => row.status === "verified") ??
             matching[0];
-          return [checkpoint, chosen?.status ?? "missing"];
+          return [
+            checkpoint,
+            adaptiveReady.has(adaptiveReadyKey(release?.id ?? "", checkpoint))
+              ? "verified"
+              : (chosen?.status ?? "missing"),
+          ];
         }),
       );
       const bindingCurrent = readiness.current;
       const reviewed = readiness.reviewed;
       const calibrated =
         !!release &&
-        (["entrance", "day45", "day90"] as const).every((checkpoint) =>
-          (forms ?? []).some(
-            (form) =>
-              form.release_id === release.id &&
-              form.checkpoint === checkpoint &&
-              officialFormAvailable(form),
-          ),
+        (["entrance", "day45", "day90"] as const).every(
+          (checkpoint) =>
+            adaptiveReady.has(adaptiveReadyKey(release.id, checkpoint)) ||
+            (forms ?? []).some(
+              (form) =>
+                form.release_id === release.id &&
+                form.checkpoint === checkpoint &&
+                officialFormAvailable(form),
+            ),
         );
       const verified = readiness.available && calibrated;
       return {

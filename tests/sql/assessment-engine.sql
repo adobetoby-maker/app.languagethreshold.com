@@ -212,5 +212,8 @@ select 'PASS: private/team exams, frozen evidence, retries/conflicts, rubric rev
 select json_build_object('baselineResponseGuard',md5(pg_get_functiondef('assessment_private.guard_response_write()'::regprocedure)),'baselineSubmit',md5(pg_get_functiondef('public.assessment_submit_attempt(uuid,uuid,integer,uuid)'::regprocedure))) as adaptive_baseline_signatures;
 \ir ../../supabase/migrations/20261017153951_assessment_adaptive_route_records.sql
 \ir assessment-adaptive-route-cases.sql
+\if :{?assessment_adaptive_runtime_tests}
+\ir assessment-adaptive-runtime-cases.sql
+\endif
 \endif
 rollback;

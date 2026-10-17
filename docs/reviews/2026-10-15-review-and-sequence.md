@@ -4,6 +4,16 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 17
 
+
+### Combined helper guards staging verification — October 17
+
+Application `d575a77` (implementation `8d77c64`, including phonetic `fa769e5` and Pen Pal `c991a6a`) is READY at https://language-threshold-io06fr4re-adobetoby-5572s-projects.vercel.app, deployment `dpl_2dkpz4Y2TWswt1Dc4ysNzgdBgGtA`, true Preview/target null. Project/team guards and artifact verification passed; independently inspected Git metadata matches the full deployed commit. This supersedes the preceding helper entries' undeployed status. Accepted companion remains `d4ad837`/`dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT`; live app remains `f9f8685`/`dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA`. Main and aliases were not changed.
+
+All current hosted regression groups pass:20authenticated Exams,12focused routing/private headers,3public lesson-pack hash/header,7read-only scope and16rejected conversation inputs. Saved personal draft remains revision12/in_progress/unsubmitted; team B remains2opened/0mastered. Local835tests/type-check/build pass; lint0errors44mixed-export warnings, artifact19.66MiB. Current private-bank scan:96markers/1144source/148static/0hits. See `qa-practice-guards-preview-2026-10-17.json` and `qa-exams-practice-guards-preview-2026-10-17.json`.
+
+These hosted checks verify regressions and rejected conversation inputs, not positive helper generation or actual provider timing/billing, linguistic correctness, browser cache/account switching or physical acceptance. Helper guards retain their separately scoped controlled actual-handler tests. No browser actions, new learner writes, paid model calls, schema/role/active-policy/speech/schedule changes. The routing database proposal remains unapplied pending the already-sent owner clarification; no repeated question or inferred consent. Remaining game/grammar/story endpoint audit, adaptive runtime and human/content/pilot/device/operational gates remain open; the conditional main push is not yet due.
+
+
 ### Personal practice generation boundaries — October 17
 
 Source `8d77c64` is locally verified and not deployed. Active personal vocabulary, phrase translation and kana conversion helpers now enforce strict origin/no-store, the existing content/lookup durable pools,0automatic retries and a30-second total deadline/incoming abort. Returned named-tool fields are bounded and whitelisted; caught raw provider exceptions no longer enter responses/logs. Vocabulary's requested integer count now drives prompt, tool bounds and output validation, removing the fixed25/min20 conflict with the real15-word “more” action. New words have correctCount0 with no model-selected module/progress fields; duplicates/avoided words are rejected.

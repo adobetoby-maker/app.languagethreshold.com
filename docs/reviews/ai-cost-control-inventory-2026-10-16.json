@@ -393,5 +393,14 @@
     "perEnvironmentHour": 1000,
     "cacheHitConsumesBudget": false,
     "lessonCacheIncludesModulePairNumberAndVersion": true
+  },
+  "sharedLessonDraftFollowup": {
+    "sourceCommit": "5547311",
+    "scope": "generateLessonWords only",
+    "ttlDays": 30,
+    "leaseSeconds": 120,
+    "sharedHitProviderCalls": 0,
+    "hostedProof": "qa-shared-lesson-drafts-2026-10-16.json",
+    "otherGeneratorsSharedCache": false
   }
 }

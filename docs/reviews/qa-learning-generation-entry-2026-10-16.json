@@ -1,9 +1,30 @@
 {
-  "testedAt": "2026-10-17T00:54:16.603Z",
-  "sourceCommit": "5547311",
-  "preview": "https://language-threshold-9a97m0yt0-adobetoby-5572s-projects.vercel.app",
-  "scope": "Actual hosted framework CSRF and application conflicting-origin denial for three content builders, two handwriting checks and word lookup (twelve HTTP requests). No allowed requests, quota exhaustion or model generation are attempted.",
+  "testedAt": "2026-10-17T18:10:20.898Z",
+  "sourceCommit": "c0469cc5e8bf1e5a3067f913d5e28de45d4cc4da",
+  "preview": "https://language-threshold-k670s6b7q-adobetoby-5572s-projects.vercel.app",
+  "scope": "Actual hosted framework CSRF and application conflicting-origin denial for six content builders, two handwriting checks and word lookup (eighteen HTTP requests); unused novel-verb function has local source coverage only. No allowed requests, quota exhaustion or model generation are attempted.",
   "checks": [
+    {
+      "handler": "generateBattleWord",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generatePatternDrill",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
+    {
+      "handler": "generateSentenceBuilder",
+      "frameworkCrossSiteDenied": true,
+      "conflictingOriginMetadataDeniedByApplication": true,
+      "noStore": true,
+      "applicationBudgetGuardReached": true
+    },
     {
       "handler": "generateLessonWords",
       "frameworkCrossSiteDenied": true,

@@ -46,6 +46,7 @@ export interface WordCardData {
 }
 
 // ── Server-side cache ──────────────────────────────────────────────────────
+// Public-authored lesson sentences only. Private/custom contexts are never retained here.
 // Per-instance LRU cache keyed by (language, word, sentence). Reduces Anthropic
 // costs on repeat clicks (very common in a reading app — users click the same
 // word multiple times to study it). Sentence is part of the key because the
@@ -121,7 +122,15 @@ export const lookupWord = createServerFn({ method: "POST" })
         };
       }
       const key = cacheKey(data.word, data.sentence, data.language, native, data.lesson);
-      const hit = cacheGet(key);
+      // A valid lesson reference alone cannot make arbitrary Reader/transcript text public.
+      const publicLesson = data.lesson ? resolveTutorLesson(data.lesson) : null;
+      const shareable = Boolean(
+        publicLesson &&
+        data.sentence.includes(data.word) &&
+        (publicLesson.reading?.sentences.some((sentence) => sentence.target === data.sentence) ||
+          publicLesson.words.some((word) => word.es === data.sentence)),
+      );
+      const hit = shareable ? cacheGet(key) : undefined;
       if (hit) {
         setResponseHeader("X-LT-AI-Usage", JSON.stringify(cacheReceipt()));
         return { card: hit, error: null, cached: true };
@@ -306,10 +315,10 @@ ${japaneseSpecificInstruction}`;
           return { card: null, error: "No card returned." };
         }
         const card = toolUse.input as WordCardData;
-        cacheSet(key, card);
+        if (shareable) cacheSet(key, card);
         return { card, error: null, cached: false };
-      } catch (e) {
-        console.error("lookupWord failed", e);
+      } catch {
+        console.error("lookupWord provider request failed");
         return { card: null, error: "Lookup failed." };
       }
     },

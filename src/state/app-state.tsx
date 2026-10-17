@@ -1,3 +1,4 @@
+import { WordCardCacheProvider } from "./word-card-cache";
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
 import type { AppTab } from "@/lib/app-navigation";
 import { useAuth } from "./auth-state";
@@ -1279,7 +1280,11 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
     [state, pingActivity, profileReadyUserId],
   );
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <WordCardCacheProvider>{children}</WordCardCacheProvider>
+    </AppContext.Provider>
+  );
 }
 
 export function useApp() {

@@ -3,7 +3,7 @@ import test from "node:test";
 import { build } from "esbuild";
 import { mkdtempSync, rmSync } from "node:fs";
 import path from "node:path";
-import { currentTutorLesson } from "../src/lib/lesson-tutor-context.ts";
+import { currentTutorLesson, resolveTutorLesson } from "../src/lib/lesson-tutor-context.ts";
 test("actual dictionary cache separates lesson senses, anchors prompts and rejects stale contexts before provider use", async () => {
   const root = mkdtempSync(path.resolve("node_modules/.cache/lookup-context-")),
     file = path.join(root, "handler.mjs");
@@ -51,7 +51,7 @@ test("actual dictionary cache separates lesson senses, anchors prompts and rejec
     const { lookupWord, controls } = await import(file);
     const data = {
       word: "limahoya",
-      sentence: "La limahoya es un lugar donde el agua corre con fuerza.",
+      sentence: "La limahoya aparece en un texto privado QA ajeno a la lección.",
       language: "Spanish",
       nativeLanguage: "English",
     };
@@ -70,23 +70,35 @@ test("actual dictionary cache separates lesson senses, anchors prompts and rejec
     assert.match(controls.request.system, /Roofing Foreman; lesson 15: Valley Protection/);
     assert.match(controls.request.system, /Authored vocabulary anchors/);
     assert.match(controls.request.system, /not a different generic or geographic sense/);
+    // General/private context remains request-local, even with a valid lesson reference.
+    assert.equal((await lookupWord({ data: { ...data, lesson } })).cached, false);
+    assert.equal(controls.calls, 3);
+    assert.equal((await lookupWord({ data })).cached, false);
+    assert.equal(controls.calls, 4);
+    const sentence = resolveTutorLesson(lesson).reading.sentences[0].target;
+    const publicInput = { ...data, lesson, sentence, word: sentence.split(/\s+/)[0] };
+    assert.equal((await lookupWord({ data: publicInput })).cached, false);
     const before = budgetCalls;
-    assert.equal((await lookupWord({ data: { ...data, lesson } })).cached, true);
+    assert.equal((await lookupWord({ data: publicInput })).cached, true);
     assert.equal(budgetCalls, before);
-    assert.equal(controls.calls, 2);
+    assert.equal(controls.calls, 5);
     assert.equal(JSON.parse(controls.headers["X-LT-AI-Usage"]).providerCalls, 0);
-    assert.equal((await lookupWord({ data })).card.baseDefinition, "General-context fixture");
+    const wrongWord = { ...publicInput, word: "PRIVATE-not-in-public-sentence" };
+    assert.equal((await lookupWord({ data: wrongWord })).cached, false);
+    assert.equal((await lookupWord({ data: wrongWord })).cached, false);
+    const finalCalls = controls.calls,
+      finalBudgets = budgetCalls;
     const bad = await lookupWord({
       data: { ...data, lesson: { ...lesson, contentVersion: "old" } },
     });
     assert.equal(bad.card, null);
     assert.equal(controls.status, 409);
-    assert.equal(controls.calls, 2);
-    assert.equal(budgetCalls, before);
+    assert.equal(controls.calls, finalCalls);
+    assert.equal(budgetCalls, finalBudgets);
     controls.origin = "https://outside.invalid";
     assert.equal((await lookupWord({ data })).card, null);
     assert.equal(controls.status, 403);
-    assert.equal(controls.calls, 2);
+    assert.equal(controls.calls, finalCalls);
     assert.equal(controls.headers["Cache-Control"], "no-store");
   } finally {
     globalThis.fetch = oldFetch;

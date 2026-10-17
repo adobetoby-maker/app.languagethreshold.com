@@ -1,7 +1,9 @@
+import { useWordCardCache } from "@/state/word-card-cache";
+import { wordCardCacheKey } from "@/lib/word-card-cache";
 import { useEffect, useLayoutEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { X, Volume2, MessageCircle, Sparkle, BookmarkPlus, BookmarkCheck } from "lucide-react";
-import { lookupWord, type WordCardData } from "@/fns/word-lookup.functions";
+import { lookupWord } from "@/fns/word-lookup.functions";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { useApp, type Language } from "@/state/app-state";
@@ -32,32 +34,6 @@ const CARD_W_CJK = 340;
 // the visible height with overflow-y scroll so the card still fits a phone
 // viewport. Used only for the smart-positioning math, not as a hard limit.
 const CARD_H = 560;
-const MAX_CLIENT_CACHE_ENTRIES = 200;
-const wordCardCache = new Map<string, WordCardData>();
-
-function wordCardCacheKey(request: WordCardRequest, nativeLanguage: string): string {
-  return JSON.stringify([
-    request.language,
-    nativeLanguage,
-    request.word,
-    request.sentence,
-    request.lesson ? tutorLessonThread(request.lesson) : null,
-  ]);
-}
-
-function getCachedWordCard(key: string): WordCardData | null {
-  return wordCardCache.get(key) ?? null;
-}
-
-function cacheWordCard(key: string, card: WordCardData): void {
-  wordCardCache.delete(key);
-  wordCardCache.set(key, card);
-  if (wordCardCache.size > MAX_CLIENT_CACHE_ENTRIES) {
-    const oldest = wordCardCache.keys().next().value;
-    if (oldest) wordCardCache.delete(oldest);
-  }
-}
-
 function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
 }
@@ -129,21 +105,28 @@ export function WordCard({
   onXp: (n: number) => void;
 }) {
   const lookup = useServerFn(lookupWord);
+  const cache = useWordCardCache();
   const { setLastWord, accent, voiceURI } = useSpeech();
   const tutor = useTutor();
   const { state, dispatch } = useApp();
   const lookupKey = wordCardCacheKey(request, state.nativeLanguage);
   const [lookupState, setLookupState] = useState(() => {
-    const cached = getCachedWordCard(lookupKey);
-    return { key: lookupKey, card: cached, error: null as string | null, loading: !cached };
+    const cached = cache.get(lookupKey);
+    return {
+      scope: cache,
+      key: lookupKey,
+      card: cached,
+      error: null as string | null,
+      loading: !cached,
+    };
   });
   // A new tap can update the existing WordCard before its fetch effect runs.
   // Never show the previous word's answer during that render.
   const currentLookup =
-    lookupState.key === lookupKey
+    lookupState.scope === cache && lookupState.key === lookupKey
       ? lookupState
       : (() => {
-          const cached = getCachedWordCard(lookupKey);
+          const cached = cache.get(lookupKey);
           return { key: lookupKey, card: cached, error: null, loading: !cached };
         })();
   const { error, loading } = currentLookup;
@@ -238,17 +221,23 @@ export function WordCard({
 
   // Fetch card
   useEffect(() => {
-    const cached = getCachedWordCard(lookupKey);
+    const cached = cache.get(lookupKey);
     if (cached) {
-      setLookupState({ key: lookupKey, card: cached, error: null, loading: false });
+      setLookupState({ scope: cache, key: lookupKey, card: cached, error: null, loading: false });
       return;
     }
     let active = true;
     if (typeof navigator !== "undefined" && navigator.onLine === false) {
-      setLookupState({ key: lookupKey, card: null, error: "offline", loading: false });
+      setLookupState({
+        scope: cache,
+        key: lookupKey,
+        card: null,
+        error: "offline",
+        loading: false,
+      });
       return;
     }
-    setLookupState({ key: lookupKey, card: null, error: null, loading: true });
+    setLookupState({ scope: cache, key: lookupKey, card: null, error: null, loading: true });
     lookup({
       data: {
         word: request.word,
@@ -260,8 +249,9 @@ export function WordCard({
     })
       .then((res) => {
         if (!active) return;
-        if (res.card) cacheWordCard(lookupKey, res.card);
+        if (res.card) cache.set(lookupKey, res.card);
         setLookupState({
+          scope: cache,
           key: lookupKey,
           card: res.card,
           error: res.error ?? (res.card ? null : "No data returned — tap to retry"),
@@ -271,6 +261,7 @@ export function WordCard({
       .catch((e) => {
         if (!active) return;
         setLookupState({
+          scope: cache,
           key: lookupKey,
           card: null,
           error: e?.message || "Lookup failed — tap to retry",
@@ -282,6 +273,7 @@ export function WordCard({
     };
   }, [
     lookupKey,
+    cache,
     request.word,
     request.sentence,
     request.language,

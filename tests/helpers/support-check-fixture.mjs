@@ -179,7 +179,17 @@ export async function supportCheckFixture() {
         not(column, operator, value) {
           if (operator !== "is" || value !== null)
             throw new Error("Fixture supports IS NOT NULL only.");
-          predicates.push((row) => row[column] != null);
+          predicates.push((row) => {
+            if (!column.includes("->")) return row[column] != null;
+            let current = row;
+            for (const key of column.split(/->>?/)) {
+              if (current == null || !Object.prototype.hasOwnProperty.call(current, key))
+                return false;
+              current = current[key];
+            }
+            // A present JSON null is distinct from SQL NULL on a JSON-path select.
+            return true;
+          });
           return query;
         },
         limit(maximum) {

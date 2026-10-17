@@ -200,6 +200,19 @@ test("foreign account or explicit wrong-team view fails before private route and
   }
 });
 
+test("partially graded selected attempts retain pending evidence for every remaining selected question", async () => {
+  const f = await fixture({ selected: true, submitted: true });
+  f.scores = f.scores.slice(0, 1);
+  const value = await readAttempt(f.db, "learner", attemptId);
+  assert.equal(value.evidence.length, 19);
+  assert.equal(
+    value.evidence.filter((row) => row.state === "pending" && row.points === null).length,
+    18,
+  );
+  assert.ok(value.profiles[0].skills.every((skill) => skill.state === "pending"));
+  assert.ok(!value.evidence.some((row) => row.itemId === "branch-band-a"));
+});
+
 test("adaptive read rechecks access after loading score/review state", async () => {
   const f = await fixture({ selected: true, submitted: true }),
     original = f.db.rpc;

@@ -1,10 +1,10 @@
 import "@tanstack/react-start/server-only";
-import type { CheckpointHeads, AttemptSummary } from "./reporting";
+import type { CheckpointHeads } from "./reporting";
 import { studyPlanStart } from "./plan-timing";
 import type { TeamDb } from "@/lib/team-server";
 import { getModule } from "@/data/modules";
 import { checkpointProfiles } from "./core";
-import { AssessmentAccessError, enrollmentAccess, rpc } from "./server";
+import { AssessmentAccessError, enrollmentAccess, rpc, selectedSummaries } from "./server";
 import type { LearnerGoal } from "./goals";
 const recommendationFields =
   "id,attempt_id,capability_id,capability_version,evidence,why,decision,decision_reason,decided_at,created_at,basis,goal_snapshot";
@@ -121,13 +121,7 @@ export async function readAssessmentPlan(db: TeamDb, actor: string, id: string, 
     : sourceRows.find((row) => row.designated);
   if (sourceId && !source)
     throw new AssessmentAccessError("Source assessment belongs to another plan.", 403);
-  const summaries = source
-    ? await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
-        p_actor: actor,
-        p_enrollments: [id],
-        p_attempts: [source.id],
-      })
-    : [];
+  const summaries = source ? await selectedSummaries(db, actor, [id], [source.id]) : [];
   const summary = summaries.find((row) => row.attemptId === source?.id);
   const profiles = summary
     ? checkpointProfiles(summary.checkpoint, summary.evidence, summary.calibrated)

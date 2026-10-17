@@ -1,6 +1,11 @@
 import { hasAdaptiveRouting } from "./routing-contract";
 import { AssessmentAccessError } from "./errors";
-import { selectedAttemptPath, requireSelectedResponses } from "./routing-path-server";
+import {
+  selectedAttemptPath,
+  requireSelectedResponses,
+  normalizePathEvidence,
+} from "./routing-path-server";
+import { normalizeAdaptiveSummaries } from "./summary-path-server";
 export { AssessmentAccessError } from "./errors";
 import { attemptMatchesOrganization } from "./scope.ts";
 import {
@@ -77,6 +82,32 @@ export async function rpc<T>(db: TeamDb, name: string, args: Record<string, unkn
     );
   }
   return result.data as T;
+}
+/** One authorized summary boundary shared by overview, history, CSV and source plans. */
+export async function selectedSummaries(
+  db: TeamDb,
+  actor: string,
+  enrollments: string[],
+  attempts: string[],
+) {
+  if (enrollments.length > 50 || attempts.length > 600)
+    throw new AssessmentAccessError("Assessment report limit exceeded.", 400);
+  const raw = await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
+    p_actor: actor,
+    p_enrollments: enrollments,
+    p_attempts: attempts,
+  });
+  const result = await normalizeAdaptiveSummaries(db, raw, enrollments, attempts);
+  if (result.adaptive) {
+    // Empty attempt selection repeats current enrollment authorization without
+    // fetching the private evidence again after batched snapshot/route reads.
+    await rpc(db, "assessment_selected_summaries", {
+      p_actor: actor,
+      p_enrollments: enrollments,
+      p_attempts: [],
+    });
+  }
+  return result.summaries;
 }
 export async function enrollmentAccess(db: TeamDb, actor: string, id: string, manage = false) {
   const { data: enrollment, error } = await db
@@ -268,11 +299,12 @@ export async function listEnrollments(
       .filter((row) => row.readiness.available)
       .map((row) => row.id),
   );
-  const summaries = await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
-    p_actor: actor,
-    p_enrollments: ids,
-    p_attempts: attempts.map((attempt) => attempt.id),
-  });
+  const summaries = await selectedSummaries(
+    db,
+    actor,
+    ids,
+    attempts.map((attempt) => attempt.id),
+  );
   const support = await supportingChecks(db, permitted);
   const enrollments = permitted.map((enrollment) => ({
     ...enrollment,
@@ -505,16 +537,11 @@ export async function readAttempt(
         points: score.points === null ? null : Number(score.points),
         maximum: Number(score.maximum),
         source: score.source,
-        comparisonGroup:
-          path.routing &&
-          !form.routing!.coreItemIds.includes(
-            (responses ?? []).find((row) => row.id === score.response_id)!.item_id,
-          )
-            ? undefined
-            : score.comparison_group,
+        comparisonGroup: score.comparison_group,
         coverage: score.coverage,
         reason: score.rationale,
       }));
+    if (path.routing) evidence = normalizePathEvidence(path, evidence);
   }
   let canReview = false;
   if (!path.routing && enrollment.user_id !== actor && attempt.submitted_at) {

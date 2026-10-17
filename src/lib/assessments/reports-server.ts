@@ -1,8 +1,8 @@
 import { assessmentAuditSummary } from "./audit";
 import "@tanstack/react-start/server-only";
 import type { TeamDb } from "@/lib/team-server";
-import { AssessmentAccessError, enrollmentAccess, rpc } from "./server";
-import { summarizedAttempt, type AttemptSummary, type RawExamAttempt } from "./reporting";
+import { AssessmentAccessError, enrollmentAccess, selectedSummaries } from "./server";
+import { summarizedAttempt, type RawExamAttempt } from "./reporting";
 import type { Checkpoint } from "./core";
 /** Keyset-paged attempts; preserve the original entrance baseline for every comparison. */
 export async function checkpointAttemptHistory(
@@ -45,13 +45,12 @@ export async function checkpointAttemptHistory(
   if (baselineResult.error)
     throw new AssessmentAccessError("The original baseline could not be loaded.", 503);
   const baselineId = baselineResult.data?.[0]?.id;
-  const summaries = await rpc<AttemptSummary[]>(db, "assessment_selected_summaries", {
-    p_actor: actor,
-    p_enrollments: [cp.enrollment_id],
-    p_attempts: [
-      ...new Set([...attempts.map((row) => row.id), ...(baselineId ? [baselineId] : [])]),
-    ],
-  });
+  const summaries = await selectedSummaries(
+    db,
+    actor,
+    [cp.enrollment_id],
+    [...new Set([...attempts.map((row) => row.id), ...(baselineId ? [baselineId] : [])])],
+  );
   const baseline = summaries.find((row) => row.attemptId === baselineId);
   return {
     items: attempts.map((row) =>

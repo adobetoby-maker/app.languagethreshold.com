@@ -122,3 +122,36 @@ export async function uploadExamSpeech(
     );
   return body as { evidenceId: string; attached: true };
 }
+
+/** Download private CSV through authenticated fetch; never put a bearer token in a link. */
+export async function examHistoryExport(enrollmentId: string, signal?: AbortSignal) {
+  const { data } = await supabase.auth.getSession();
+  if (!data.session?.access_token) throw new ExamRequestError("Sign in to export this plan.", 403);
+  const response = await fetch(
+    `/api/exam-plans?${new URLSearchParams({ action: "history_export", enrollment: enrollmentId })}`,
+    {
+      headers: { Authorization: `Bearer ${data.session.access_token}` },
+      cache: "no-store",
+      signal,
+    },
+  );
+  if (!response.ok) {
+    const result = await response.json().catch(() => null);
+    throw new ExamRequestError(
+      result?.error ?? "Plan history could not be exported. No partial file was created.",
+      response.status,
+    );
+  }
+  if (!response.headers.get("content-type")?.startsWith("text/csv"))
+    throw new ExamRequestError("The export response was invalid.", 503);
+  const rawCount = response.headers.get("x-lt-export-events"),
+    eventCount = Number(rawCount);
+  if (
+    rawCount === null ||
+    !Number.isSafeInteger(eventCount) ||
+    eventCount < 0 ||
+    eventCount > 10000
+  )
+    throw new ExamRequestError("The export count was invalid. No file was downloaded.", 503);
+  return { blob: await response.blob(), eventCount };
+}

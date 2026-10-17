@@ -1,3 +1,4 @@
+import { assessmentAuditSummary } from "./audit";
 import "@tanstack/react-start/server-only";
 import type { TeamDb } from "@/lib/team-server";
 import { AssessmentAccessError, enrollmentAccess, rpc } from "./server";
@@ -90,23 +91,7 @@ export async function assessmentAuditHistory(
   if (result.error) throw new AssessmentAccessError("Plan history could not be loaded.", 503);
   const page = (result.data ?? []).slice(0, 20);
   return {
-    items: page.map((row) => {
-      const detail = row.detail as Record<string, unknown>,
-        decision = detail.result as Record<string, unknown> | undefined;
-      return {
-        id: row.id,
-        actor: row.actor_id === actor ? "You" : "Authorized plan participant",
-        action: row.action,
-        createdAt: row.created_at,
-        reason: typeof detail.reason === "string" ? detail.reason.slice(0, 2000) : null,
-        change: typeof detail.change === "string" ? detail.change : null,
-        decision: typeof decision?.decision === "string" ? decision.decision : null,
-        attemptId: typeof detail.attemptId === "string" ? detail.attemptId : null,
-        state: typeof detail.state === "string" ? detail.state : null,
-        source: typeof detail.source === "string" ? detail.source : null,
-        revision: typeof detail.revision === "number" ? detail.revision : null,
-      };
-    }),
+    items: page.map((row) => assessmentAuditSummary(row, actor)),
     hasMore: (result.data?.length ?? 0) > 20,
     nextCursor: page.length ? { after: page.at(-1)!.created_at, afterId: page.at(-1)!.id } : null,
     limit: 20,

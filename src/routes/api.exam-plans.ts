@@ -1,3 +1,4 @@
+import { assessmentHistoryCsv } from "@/lib/assessments/history-export-server";
 import { assessmentAuditHistory } from "@/lib/assessments/reports-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -158,6 +159,23 @@ export const Route = createFileRoute("/api/exam-plans")({
                 query.get("plan") ? id.parse(query.get("plan")) : undefined,
               ),
             );
+          }
+          if (action === "history_export") {
+            const enrollmentId = id.parse(query.get("enrollment"));
+            await enrollmentAccess(db, user.id, enrollmentId);
+            await assessmentBudget(user.id, "history_export");
+            const exported = await assessmentHistoryCsv(db, user.id, enrollmentId, request.signal);
+            return new Response(exported.csv, {
+              headers: {
+                "Content-Type": "text/csv;charset=utf-8",
+                "Content-Disposition": 'attachment; filename="language-threshold-plan-history.csv"',
+                "Cache-Control": "no-store",
+                "Referrer-Policy": "no-referrer",
+                "X-Robots-Tag": "noindex,nofollow",
+                "X-Content-Type-Options": "nosniff",
+                "X-LT-Export-Events": String(exported.eventCount),
+              },
+            });
           }
           if (action === "history")
             return json(

@@ -35,7 +35,7 @@ import { AuthModal } from "@/components/auth/AuthModal";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { getCurriculum } from "@/data/curriculum";
-import { assessmentCsv } from "@/lib/assessments/export";
+import { assessmentCsv, assessedProgressRows } from "@/lib/assessments/export";
 import type {
   checkpointProfiles,
   compareSkillEvidence,
@@ -1107,68 +1107,13 @@ function ExamsAreaContent({
           <button
             className={button}
             onClick={() => {
-              const rows: unknown[][] = [
-                [
-                  "Learner",
-                  "Learner ID",
-                  "Plan role",
-                  "Module",
-                  "Scope",
-                  "Language pair",
-                  "Timezone",
-                  "Checkpoint",
-                  "Due date",
-                  "Attempt",
-                  "Original",
-                  "Status",
-                  "Submitted",
-                  "Coverage",
-                  "Skill",
-                  "Score",
-                  "State",
-                  "Scored items",
-                  "Objectives",
-                  "Needs review",
-                  "Not assessed",
-                  "Provisional",
-                  "Change on comparable objectives",
-                ],
-              ];
-              for (const plan of overview.enrollments)
-                for (const cp of plan.checkpoints)
-                  for (const attempt of cp.attempts)
-                    for (const profile of attempt.profiles)
-                      for (const skill of profile.skills)
-                        rows.push([
-                          overview.members.find((member) => member.user_id === plan.user_id)
-                            ?.display_name ??
-                            (plan.user_id === user.id ? "Me" : "Assigned learner"),
-                          plan.user_id,
-                          plan.role,
-                          getModule(plan.module_id)?.name ?? plan.module_id,
-                          plan.scope,
-                          `${plan.instruction_language} → ${plan.target_language}`,
-                          plan.timezone,
-                          cp.checkpoint,
-                          cp.due_date,
-                          attempt.attempt_number,
-                          attempt.designated,
-                          attempt.status,
-                          attempt.submitted_at,
-                          profile.coverage,
-                          skills[skill.skill],
-                          skill.score,
-                          skill.state,
-                          skill.evidenceCount,
-                          skill.objectives.length,
-                          skill.reviewCount,
-                          skill.missingCount,
-                          skill.provisional,
-                          profile.coverage === "transfer"
-                            ? "Not comparable (transfer tasks)"
-                            : (attempt.comparisons.find((row) => row.skill === skill.skill)
-                                ?.change ?? "Not comparable"),
-                        ]);
+              const rows = assessedProgressRows(overview.enrollments, {
+                learner: (id) =>
+                  overview.members.find((member) => member.user_id === id)?.display_name ??
+                  (id === user.id ? "Me" : "Assigned learner"),
+                module: (id) => getModule(id)?.name ?? id,
+                skill: (id) => skills[id as AssessmentSkill] ?? id,
+              });
               const blob = new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" });
               const url = URL.createObjectURL(blob),
                 link = document.createElement("a");
@@ -1181,8 +1126,9 @@ function ExamsAreaContent({
             Export shown assessed progress
           </button>
           <p className="self-center text-xs text-muted-foreground">
-            Export includes the latest and original skill summaries for loaded plans. Load more
-            plans or open attempt history for older records. Raw responses are excluded.
+            Export includes all three checkpoint statuses and the latest/original skill summaries
+            for loaded plans. Unstarted and unfinished exams have blank scores. Load more plans or
+            open attempt history for older records. Raw responses are excluded.
           </p>
         </div>
       )}

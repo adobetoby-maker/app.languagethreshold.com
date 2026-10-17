@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-10-17T00:40:15.988659+00:00",
+  "sourceCommit": "ea54a27",
+  "preview": "https://language-threshold-leefe4nda-adobetoby-5572s-projects.vercel.app",
+  "scope": "Normal existing QA-admin sign-in; read-only real QA team data and phone390x844 UI",
+  "checks": {
+    "normalAdminSignIn": true,
+    "qaOnlyOrganizationIdentified": true,
+    "teamTrackCurrentMastered": 0,
+    "teamTrackOpened": 1,
+    "earlierUnlabeledMastered": 1,
+    "earlierUnlabeledOpened": 3,
+    "recordedLessons": 1,
+    "certificateTest": "Not taken",
+    "certificatesIssued": 0,
+    "teamExamsEmbeddedLoaded": true,
+    "teamEnrollmentNamedAndScoped": true,
+    "savedEntranceResultSixSkillStatusLabels": true,
+    "entranceLabelsProvisionalAndInsufficientEvidence": true,
+    "day45And90NotYetAvailable": true,
+    "draftScoresCannotDriveLessonChangesExplained": true,
+    "learnerGoalsAdminReadOnly": true,
+    "phoneCardWidth": 316,
+    "phoneDocumentWidth": 390,
+    "phoneViewportWidth": 390,
+    "viewportReset": true,
+    "normalQaAdminSignOutConfirmed": true
+  },
+  "readOnlyVerifier": "qa-core30-scope-storage-2026-10-16.json:8 groups pass on current Preview, including profile/track separation and preserved earlier history",
+  "screenshots": [
+    "/Users/drive/git-backups/language-threshold-current-team-progress-ea54-phone-2026-10-16.png"
+  ],
+  "limits": [
+    "No new learner mastery transition, checkpoint change, module assignment, invitation, review, scoring or certificate mutation",
+    "These are dedicated synthetic QA records, not a consented real learner pilot",
+    "Zero reviewed forms/catalog mappings still prevent official launch and validated recommendations",
+    "No physical phone, new media/retention or scheduler acceptance"
+  ],
+  "cleanup": "Signed out through the normal account menu; Sign in visible and QA account menu absent. Viewport reset. Current public Landscaper1 reopened."
+}

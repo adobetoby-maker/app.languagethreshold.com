@@ -31,7 +31,7 @@ export async function loadPaidFunction(name, exportName) {
         export const getRequest=()=>new Request('https://owned-preview.invalid/_serverFn/fixture',{method:'POST',signal:controls.abort.signal,headers:{...(controls.origin?{Origin:controls.origin}:{}),'x-vercel-forwarded-for':'192.0.2.40'}});
         export const setResponseHeader=(key,value)=>controls.headers[key]=value;
         export const setResponseStatus=status=>controls.status=status;
-        export default class Model{constructor(options){controls.constructed++;controls.options=options;}messages={create:async(body,options)=>{controls.calls++;controls.body=body;controls.callOptions=options;if(controls.fail)throw Error('PRIVATE provider request and payload');return {model:'fixture',usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',name:body.tool_choice.name,input:controls.output}]};}};}
+        export default class Model{constructor(options){controls.constructed++;controls.options=options;}messages={create:async(body,options)=>{controls.calls++;controls.body=body;controls.callOptions=options;(controls.requests??=[]).push({body,options});if(controls.fail||controls.failOnTool===body.tool_choice.name)throw Error('PRIVATE provider request and payload');if(controls.beforeReturn)await controls.beforeReturn(body,options);return {model:'fixture',usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',name:body.tool_choice.name,input:controls.outputByTool?.[body.tool_choice.name]??controls.output}]};}};}
       `,
             }));
           },

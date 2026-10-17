@@ -1,21 +1,66 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examRequest } from "@/lib/assessments/client";
-export function AIWritingProposal({
-  attemptId,
-  responseId,
-  jobStatus,
-  onRefresh,
-}: {
+type Props = {
   attemptId: string;
   responseId: string;
   jobStatus?: string;
   onRefresh: () => void;
-}) {
-  const { user, isCurrentUser } = useAuth();
+};
+export function AIWritingProposal(props: Props) {
+  const { user } = useAuth();
+  return (
+    <OwnedAIWritingProposal
+      key={JSON.stringify([user?.id, props.attemptId, props.responseId, props.jobStatus])}
+      {...props}
+    />
+  );
+}
+function OwnedAIWritingProposal({ attemptId, responseId, jobStatus, onRefresh }: Props) {
+  const { user } = useAuth();
+  const { capture } = usePracticeLifecycle(JSON.stringify([attemptId, responseId, jobStatus]));
   const [consent, setConsent] = useState(false),
     [busy, setBusy] = useState(false),
     [message, setMessage] = useState("");
+  const pending = useRef<AbortController | null>(null);
+  async function requestFeedback() {
+    const lease = capture();
+    if (!user || jobStatus || !consent || pending.current || !lease.isCurrent()) return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
+    setBusy(true);
+    setMessage("");
+    try {
+      const result = await examRequest<{ message: string }>(
+        {
+          action: "ai_writing",
+          attemptId,
+          responseId,
+          consentVersion: "assessment-ai-writing-v1",
+        },
+        controller.signal,
+      );
+      if (current()) {
+        setMessage(result.message);
+        onRefresh();
+      }
+    } catch (err) {
+      if (current()) {
+        setMessage(err instanceof Error ? err.message : "AI review could not finish.");
+        // Observe any durable job outcome even if this request returned an error.
+        onRefresh();
+      }
+    } finally {
+      if (current()) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
   return (
     <div className="mt-3 space-y-2 rounded-xl border border-border p-3 text-sm">
       {jobStatus ? (
@@ -33,7 +78,10 @@ export function AIWritingProposal({
               className="mt-1 h-5 w-5 shrink-0"
               type="checkbox"
               checked={consent}
-              onChange={(event) => setConsent(event.target.checked)}
+              disabled={busy}
+              onChange={(event) => {
+                if (capture().isCurrent() && !pending.current) setConsent(event.target.checked);
+              }}
             />
             <span>
               For this answer, I agree to send my typed response, the question and its rubric to
@@ -44,31 +92,7 @@ export function AIWritingProposal({
           <button
             className="min-h-11 rounded-xl border border-gold/40 px-4 py-2 font-semibold disabled:opacity-50"
             disabled={!consent || busy || !user}
-            onClick={async () => {
-              if (!user || busy || !consent) return;
-              const actor = user.id;
-              setBusy(true);
-              setMessage("");
-              try {
-                const result = await examRequest<{ message: string }>({
-                  action: "ai_writing",
-                  attemptId,
-                  responseId,
-                  consentVersion: "assessment-ai-writing-v1",
-                });
-                if (isCurrentUser(actor)) {
-                  setMessage(result.message);
-                  onRefresh();
-                }
-              } catch (err) {
-                if (isCurrentUser(actor)) {
-                  setMessage(err instanceof Error ? err.message : "AI review could not finish.");
-                  onRefresh();
-                }
-              } finally {
-                if (isCurrentUser(actor)) setBusy(false);
-              }
-            }}
+            onClick={() => void requestFeedback()}
           >
             {busy ? "Requesting rubric feedback…" : "Request optional AI writing feedback"}
           </button>

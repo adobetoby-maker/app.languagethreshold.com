@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examContentRequest, ExamRequestError } from "@/lib/assessments/client";
 export type ContentReviewContext = {
   lessonBindingCurrent?: boolean;
@@ -21,30 +22,56 @@ const labels: Record<string, string> = {
   fluent_language: "Fluent language",
   domain: "Domain",
 };
-export function ContentReviewDecision({
-  formId,
-  context,
-  onRecorded,
-  onAccessLost,
-}: {
+type Props = {
   formId: string;
   context: ContentReviewContext;
   onRecorded: () => void;
   onAccessLost: () => void;
-}) {
-  const { user, isCurrentUser } = useAuth(),
+};
+export function ContentReviewDecision(props: Props) {
+  const { user } = useAuth();
+  const scope = JSON.stringify([
+    user?.id ?? null,
+    props.formId,
+    props.context.fingerprint,
+    props.context.reviewKinds,
+    props.context.lessonBindingCurrent,
+  ]);
+  return <OwnedContentReviewDecision key={scope} {...props} scope={scope} />;
+}
+function OwnedContentReviewDecision({
+  formId,
+  context,
+  onRecorded,
+  onAccessLost,
+  scope,
+}: Props & { scope: string }) {
+  const { user } = useAuth(),
     [kind, setKind] = useState(context.reviewKinds[0] ?? "curriculum"),
     [decision, setDecision] = useState("changes_requested"),
     [note, setNote] = useState(""),
     [confirmed, setConfirmed] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
+  const { capture } = usePracticeLifecycle(scope);
+  const pending = useRef<AbortController | null>(null);
   const lock = useRef(false),
     request = useRef<{ key: string; id: string } | null>(null);
   async function submit() {
-    if (!user || lock.current) return;
-    const actor = user.id,
-      body = {
+    const lease = capture();
+    if (
+      !user ||
+      !lease.isCurrent() ||
+      lock.current ||
+      !confirmed ||
+      !context.reviewKinds.includes(kind) ||
+      note.trim().length < 3 ||
+      note.trim().length > 4000 ||
+      !["changes_requested", "approved"].includes(decision) ||
+      (decision === "approved" && context.lessonBindingCurrent !== true)
+    )
+      return;
+    const body = {
         formId,
         kind,
         decision,
@@ -55,20 +82,30 @@ export function ContentReviewDecision({
       key = JSON.stringify(body);
     if (request.current?.key !== key) request.current = { key, id: crypto.randomUUID() };
     lock.current = true;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
     setBusy(true);
     setError("");
     try {
-      await examContentRequest({ ...body, requestId: request.current.id });
-      if (isCurrentUser(actor)) onRecorded();
+      await examContentRequest({ ...body, requestId: request.current.id }, controller.signal);
+      if (current()) onRecorded();
     } catch (err) {
-      if (isCurrentUser(actor)) {
+      if (current()) {
         if (err instanceof ExamRequestError && (err.status === 401 || err.status === 403))
           onAccessLost();
         else setError(err instanceof Error ? err.message : "Review could not be recorded.");
       }
     } finally {
-      lock.current = false;
-      if (isCurrentUser(actor)) setBusy(false);
+      if (current()) setBusy(false);
+      if (pending.current === controller) {
+        pending.current = null;
+        lock.current = false;
+      }
+      release();
+      controller.abort();
     }
   }
   return (
@@ -100,6 +137,7 @@ export function ContentReviewDecision({
               value={kind}
               disabled={busy}
               onChange={(e) => {
+                if (!capture().isCurrent() || lock.current) return;
                 setKind(e.target.value as typeof kind);
                 setConfirmed(false);
               }}
@@ -118,6 +156,7 @@ export function ContentReviewDecision({
               value={decision}
               disabled={busy}
               onChange={(e) => {
+                if (!capture().isCurrent() || lock.current) return;
                 setDecision(e.target.value);
                 setConfirmed(false);
               }}
@@ -137,7 +176,12 @@ export function ContentReviewDecision({
               maxLength={4000}
               value={note}
               disabled={busy}
-              onChange={(e) => setNote(e.target.value)}
+              onChange={(e) => {
+                if (capture().isCurrent() && !lock.current) {
+                  setNote(e.target.value);
+                  setConfirmed(false);
+                }
+              }}
             />
           </label>
           <label className="flex min-h-11 items-start gap-3 sm:col-span-2">
@@ -146,7 +190,9 @@ export function ContentReviewDecision({
               className="mt-1"
               checked={confirmed}
               disabled={busy}
-              onChange={(e) => setConfirmed(e.target.checked)}
+              onChange={(e) => {
+                if (capture().isCurrent() && !lock.current) setConfirmed(e.target.checked);
+              }}
             />
             <span>
               I personally reviewed the displayed content in my assigned responsibility. These

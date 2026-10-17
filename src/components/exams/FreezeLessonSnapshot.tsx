@@ -1,26 +1,51 @@
 import { useRef, useState } from "react";
 import { useAuth } from "@/state/auth-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { examContentRequest, ExamRequestError } from "@/lib/assessments/client";
 import type { LessonReviewPayload } from "./LessonReviewSnapshotView";
 
-export function FreezeLessonSnapshot({
-  data,
-  onBound,
-  onAccessLost,
-}: {
+type Props = {
   data: LessonReviewPayload;
   onBound: () => void;
   onAccessLost: () => void;
-}) {
-  const { user, isCurrentUser } = useAuth();
+};
+export function FreezeLessonSnapshot(props: Props) {
+  const { user } = useAuth();
+  const scope = JSON.stringify([
+    user?.id ?? null,
+    props.data.releaseId,
+    props.data.fingerprint,
+    props.data.releaseManifest,
+    props.data.releaseContentVersion,
+    props.data.canBind,
+  ]);
+  return <OwnedFreezeLessonSnapshot key={scope} {...props} scope={scope} />;
+}
+function OwnedFreezeLessonSnapshot({
+  data,
+  onBound,
+  onAccessLost,
+  scope,
+}: Props & { scope: string }) {
+  const { user } = useAuth();
+  const { capture } = usePracticeLifecycle(scope);
+  const pending = useRef<AbortController | null>(null);
   const [confirmed, setConfirmed] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
   const lock = useRef(false),
     retry = useRef<{ key: string; id: string } | null>(null);
   async function freeze() {
-    if (!user || !data.canBind || !data.releaseManifest || !confirmed || lock.current) return;
-    const actor = user.id;
+    const lease = capture();
+    if (
+      !user ||
+      !lease.isCurrent() ||
+      !data.canBind ||
+      !data.releaseManifest ||
+      !confirmed ||
+      lock.current
+    )
+      return;
     const body = {
       action: "bind_lessons",
       releaseId: data.releaseId,
@@ -32,20 +57,30 @@ export function FreezeLessonSnapshot({
     const key = JSON.stringify(body);
     if (retry.current?.key !== key) retry.current = { key, id: crypto.randomUUID() };
     lock.current = true;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
     setBusy(true);
     setError("");
     try {
-      await examContentRequest({ ...body, requestId: retry.current.id });
-      if (isCurrentUser(actor)) onBound();
+      await examContentRequest({ ...body, requestId: retry.current.id }, controller.signal);
+      if (current()) onBound();
     } catch (err) {
-      if (isCurrentUser(actor)) {
+      if (current()) {
         if (err instanceof ExamRequestError && (err.status === 401 || err.status === 403))
           onAccessLost();
         else setError(err instanceof Error ? err.message : "Lesson snapshot could not be frozen.");
       }
     } finally {
-      lock.current = false;
-      if (isCurrentUser(actor)) setBusy(false);
+      if (current()) setBusy(false);
+      if (pending.current === controller) {
+        pending.current = null;
+        lock.current = false;
+      }
+      release();
+      controller.abort();
     }
   }
   if (!data.canBind) return null;
@@ -69,7 +104,9 @@ export function FreezeLessonSnapshot({
           className="mt-1"
           checked={confirmed}
           disabled={busy}
-          onChange={(event) => setConfirmed(event.target.checked)}
+          onChange={(event) => {
+            if (capture().isCurrent() && !lock.current) setConfirmed(event.target.checked);
+          }}
         />
         <span>I want this exact draft material attached to this release for human review.</span>
       </label>

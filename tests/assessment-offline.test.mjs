@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {saveOfflineExam,readOfflineExams,clearOfflineExams} from '../src/lib/assessments/offline.ts';
+import {clearExamDraftsForUser} from '../src/lib/assessments/drafts.ts';
+const storage=()=>{const m=new Map();return {get length(){return m.size;},key:i=>[...m.keys()][i]??null,getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),removeItem:k=>m.delete(k)};};
+const exam=()=>({id:'attempt',isLearner:true,submittedAt:null,form:{id:'frozen',items:[{id:'public'}]},enrollment:{moduleId:'roofing'},feedback:[{accepted:['private key']}],evidence:[{points:1}]});
+test('device snapshots are account scoped and exclude feedback and results',()=>{const s=storage();assert.equal(saveOfflineExam(s,'one',exam(),1000),true);assert.equal(readOfflineExams(s,'two',1001).length,0);const [cached]=readOfflineExams(s,'one',1001);assert.equal(cached.feedback,undefined);assert.deepEqual(cached.evidence,[]);assert.equal(cached.form.id,'frozen');});
+test('submitted/admin-viewed and expired attempts are never resumable device copies',()=>{const s=storage();saveOfflineExam(s,'one',exam(),1000);assert.equal(readOfflineExams(s,'one',1000+86400001).length,0);assert.equal(s.length,0);assert.equal(saveOfflineExam(s,'one',{...exam(),isLearner:false},1000),false);assert.equal(saveOfflineExam(s,'one',{...exam(),submittedAt:'now'},1000),false);assert.equal(s.length,0);});
+test('submission and account exit clear only the intended private copies',()=>{const s=storage();saveOfflineExam(s,'one',exam(),1000);saveOfflineExam(s,'two',exam(),1000);clearOfflineExams(s,'one','attempt');assert.equal(readOfflineExams(s,'one',1001).length,0);assert.equal(readOfflineExams(s,'two',1001).length,1);clearExamDraftsForUser(s,'two');assert.equal(s.length,0);});
+test('an active public form remains resumable in this tab when persistent storage is blocked',()=>{const blocked={get length(){throw Error('blocked');},getItem(){throw Error('blocked');},setItem(){throw Error('blocked');},removeItem(){throw Error('blocked');}};assert.equal(saveOfflineExam(blocked,'blocked-snapshot',exam(),1000),false);assert.equal(readOfflineExams(blocked,'blocked-snapshot',1001)[0].id,'attempt');clearOfflineExams(blocked,'blocked-snapshot');assert.equal(readOfflineExams(blocked,'blocked-snapshot',1001).length,0);});
+test('approved daily guidance is private, expires after a short outage and clears with account drafts',async()=>{const {examGuidanceKey,saveOfflineGuidance,readOfflineGuidance}=await import('../src/lib/assessments/offline.ts');const s=storage(),key=examGuidanceKey('guide-user','roofing','Spanish','English'),data={plans:[{enrollmentId:'private-plan',revision:{review_every_days:2}}],returnContexts:[],limit:20};saveOfflineGuidance(s,key,data,1000);assert.equal(readOfflineGuidance(s,key,1001).plans[0].revision.review_every_days,2);assert.equal(readOfflineGuidance(s,examGuidanceKey('other','roofing','Spanish','English'),1001),null);clearExamDraftsForUser(s,'guide-user');assert.equal(readOfflineGuidance(s,key,1001),null);saveOfflineGuidance(s,key,data,1000);assert.equal(readOfflineGuidance(s,key,86401001),null);});
+
+test('team recovery excludes personal, other-team and legacy unscoped device copies',async()=>{
+ const {recoveryCopiesForScope}=await import('../src/lib/assessments/offline.ts');
+ const copies=[{id:'personal',enrollment:{moduleId:'roofing',scope:'personal',organizationId:null}},{id:'team-a',enrollment:{moduleId:'roofing',scope:'team',organizationId:'a'}},{id:'team-b',enrollment:{moduleId:'roofing',scope:'team',organizationId:'b'}},{id:'legacy',enrollment:{moduleId:'roofing'}}];
+ assert.deepEqual(recoveryCopiesForScope(copies,'a').map(copy=>copy.id),['team-a']);assert.deepEqual(recoveryCopiesForScope(copies).map(copy=>copy.id),copies.map(copy=>copy.id));
+});
+
+test('offline guidance cannot substitute another selected personal or team plan', async () => {
+  const { examGuidanceKey, saveOfflineGuidance, readOfflineGuidance } = await import('../src/lib/assessments/offline.ts');
+  const s = storage();
+  const key = plan => examGuidanceKey('plan-reader', 'roofing', 'Spanish', 'English', plan);
+  const personal = { plans: [{ enrollmentId: 'personal', revision: { review_every_days: 4 } }], returnContexts: [], limit: 20 };
+  const team = { plans: [{ enrollmentId: 'team', revision: { review_every_days: 2 } }], returnContexts: [], limit: 20 };
+  saveOfflineGuidance(s, key('personal'), personal, 1000);
+  saveOfflineGuidance(s, key('team'), team, 1000);
+  assert.equal(readOfflineGuidance(s, key('personal'), 1001).plans[0].revision.review_every_days, 4);
+  assert.equal(readOfflineGuidance(s, key('team'), 1001).plans[0].revision.review_every_days, 2);
+  assert.equal(readOfflineGuidance(s, key('unloaded'), 1001), null);
+  assert.equal(readOfflineGuidance(s, key(undefined), 1001), null);
+  clearExamDraftsForUser(s, 'plan-reader');
+  assert.equal(readOfflineGuidance(s, key('personal'), 1001), null);
+  assert.equal(readOfflineGuidance(s, key('team'), 1001), null);
+});

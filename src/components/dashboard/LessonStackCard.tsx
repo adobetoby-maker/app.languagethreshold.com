@@ -81,7 +81,7 @@ export function LessonStackCard() {
               </div>
               <button
                 type="button"
-                onClick={() => dispatch({ type: "SET_TAB", payload: "guide" })}
+                onClick={() => dispatch({ type: "SET_TAB", payload: "core30" })}
                 className="min-h-11 shrink-0 rounded-lg px-3 py-2 text-xs font-semibold text-gold hover:bg-gold/10"
               >
                 Continue

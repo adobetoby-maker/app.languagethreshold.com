@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
+import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
@@ -48,14 +49,6 @@ function fireConfetti() {
   );
 }
 
-function normalize(s: string) {
-  return s
-    .toLowerCase()
-    .trim()
-    .replace(/[.,;:!?¿¡«»"'()[\]]+$/g, "")
-    .replace(/^[¿¡«"'([]+/g, "");
-}
-
 export function QuizCard({
   level,
   lesson,
@@ -84,6 +77,9 @@ export function QuizCard({
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [done, setDone] = useState(false);
+  const [earnedCompletion, setEarnedCompletion] = useState(false);
+  const answerLocked = useRef(false);
+  const finishLocked = useRef(false);
 
   // Bumping this re-runs the load effect, so "Try again" after a failed load fetches a new quiz.
   const [loadAttempt, setLoadAttempt] = useState(0);
@@ -118,12 +114,15 @@ export function QuizCard({
   }, [loadAttempt]);
 
   const retryLoad = () => {
+    answerLocked.current = false;
+    finishLocked.current = false;
     setQuestions([]);
     setIdx(0);
     setInput("");
     setRevealed(false);
     setCorrectCount(0);
     setDone(false);
+    setEarnedCompletion(false);
     setLoadAttempt((n) => n + 1);
   };
 
@@ -131,13 +130,15 @@ export function QuizCard({
   const isCorrect = q ? normalize(input) === normalize(q.answer) : false;
 
   const submit = () => {
-    if (!q || !input.trim()) return;
+    if (!q || !input.trim() || answerLocked.current) return;
+    answerLocked.current = true;
     if (isCorrect) setCorrectCount((c) => c + 1);
     setRevealed(true);
   };
 
   const next = () => {
     if (idx + 1 < questions.length) {
+      answerLocked.current = false;
       setIdx(idx + 1);
       setInput("");
       setRevealed(false);
@@ -147,19 +148,23 @@ export function QuizCard({
   };
 
   const restart = () => {
+    answerLocked.current = false;
+    finishLocked.current = false;
     setIdx(0);
     setInput("");
     setRevealed(false);
     setCorrectCount(0);
     setDone(false);
+    setEarnedCompletion(false);
   };
 
   const finish = () => {
+    if (finishLocked.current || !questions.length) return;
+    finishLocked.current = true;
     setDone(true);
-    if (correctCount + (revealed && isCorrect ? 0 : 0) === questions.length) {
-      // Already counted, fall-through.
-    }
-    if (correctCount === questions.length) {
+    const alreadyComplete = !!getLevel(state.selectedLanguage, level)?.completed[lesson.id];
+    if (correctCount === questions.length && !alreadyComplete) {
+      setEarnedCompletion(true);
       markComplete(state.selectedLanguage, level, lesson.id);
       dispatch({ type: "INC_COUNTER", payload: "lessonsCompleted" });
       dispatch({ type: "ADD_XP", payload: 50 });
@@ -222,9 +227,12 @@ export function QuizCard({
         <div className="mb-5 flex items-center justify-between gap-3 pr-8">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-              ✦ Quiz · {level}
+              ✦ Practice quiz · {level}
             </div>
             <h3 className="mt-1 font-display text-xl italic text-foreground">{lesson.title}</h3>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Grammar practice. Module assessments are in Exams.
+            </p>
           </div>
           {!done && questions.length > 0 && (
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -377,7 +385,9 @@ export function QuizCard({
             </h4>
             <p className="mb-6 font-display text-sm italic text-muted-foreground">
               {correctCount === questions.length
-                ? "Lesson mastered. +50 XP awarded."
+                ? earnedCompletion
+                  ? "Practice complete. +50 XP awarded."
+                  : "Practice complete. Your earlier completion is saved."
                 : "Almost there — review the lesson and try again."}
             </p>
             <div className="flex justify-center gap-2">

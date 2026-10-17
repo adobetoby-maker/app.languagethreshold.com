@@ -31,7 +31,11 @@ test("describeCore30 tolerates missing core30 and summarizes a log", () => {
         lastReviewAt: "2026-10-13T10:00:00.000Z",
         lessons: {
           1: { visits: { 0: "2026-10-01T10:00:00.000Z" }, masteredAt: "2026-10-01T11:00:00.000Z" },
-          2: { visits: { 0: "2026-10-04T10:00:00.000Z" }, needsPractice: true },
+          2: {
+            visits: { 0: "2026-10-04T10:00:00.000Z" },
+            masteredAt: "2026-10-04T11:00:00.000Z",
+            needsPractice: true,
+          },
         },
       },
     },
@@ -54,4 +58,18 @@ test("describeCore30 shows lastReview as the local calendar date, not the UTC sl
   };
   const d = describeCore30(core30, "u1", "roofing", 30, "2026-10-14");
   assert.equal(d.lastReview, "2026-10-13");
+});
+
+test("team summary excludes personal modules without an assignment in this organization", () => {
+  const profile = {
+    core30Log: {
+      roofing: { lessons: { 1: { masteredAt: "2026-10-15T12:00:00Z" } } },
+      nursing: { startDate: "2026-10-01", lessons: {} },
+    },
+    privateNotes: "Do not share",
+  };
+  assert.deepEqual(Object.keys(extractCore30Log(profile, ["roofing"])), ["roofing"]);
+  assert.deepEqual(extractCore30Log(profile, []), {});
+  assert.deepEqual(extractCore30Log(profile, ["unassigned"]), {});
+  assert.equal(profile.core30Log.nursing.startDate, "2026-10-01");
 });

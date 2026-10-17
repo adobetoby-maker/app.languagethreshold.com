@@ -1,0 +1,108 @@
+{
+  "testedAt": "2026-10-17T15:56:38.424Z",
+  "base": "https://language-threshold-eqn7jjeja-adobetoby-5572s-projects.vercel.app",
+  "sourceCommit": "7767de7",
+  "checks": [
+    {
+      "route": "tutor",
+      "input": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "input": "missing-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "input": "invalid-payload",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "input": "oversize-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "input": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "input": "missing-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "input": "invalid-payload",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "input": "oversize-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "input": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "input": "missing-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "input": "invalid-payload",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "input": "oversize-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "input": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "input": "missing-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "input": "invalid-payload",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "input": "oversize-body",
+      "status": 413,
+      "noStore": true
+    }
+  ],
+  "validModelRequests": 0,
+  "limits": [
+    "Rejected request/origin/body HTTP boundaries only.",
+    "No actual model call, billing, stream timeout/cancellation or browser acceptance is claimed."
+  ]
+}

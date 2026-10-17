@@ -145,6 +145,9 @@ function missionSystemPrompt(
     destination ? destinationPromptContext(destination) : "",
     `Speak natural ${mission.language} (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
     `Mission: ${mission.summary}`,
+    mission.lessonTeaching
+      ? `Lesson practice context: ${mission.lessonTeaching.speaking.context} Teaching support: ${mission.lessonTeaching.stage === "supported" ? "Ask one concrete question at a time; offer a short sentence starter when needed." : mission.lessonTeaching.stage === "connected" ? "Ask for a short connected instruction or clarification; let the learner try before offering a model." : "Ask the learner to connect the work plan, a changed condition and a next step. Offer a model only when help is requested."}`
+      : "",
     `Objectives: ${mission.objectives.map((objective) => `${objective.id}: ${objective.description}`).join(" | ")}`,
     completedObjectiveIds.length
       ? `Already observed objectives: ${completedObjectiveIds.join(", ")}. Do not force the learner to repeat them.`

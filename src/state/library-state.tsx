@@ -6,6 +6,8 @@ import {
   useMemo,
   useReducer,
   useRef,
+  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import type { LibraryText, SentencePair } from "@/data/library";
@@ -14,6 +16,18 @@ import { useApp } from "./app-state";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "./auth-state";
 import { toast } from "sonner";
+import { createLibraryRemote } from "@/lib/library-remote";
+import { LANGUAGES } from "@/data/languages";
+import { createLibraryDevice, readLibraryPreferences } from "@/lib/library-device";
+import { readerSelectionScope } from "@/lib/reader-selection";
+
+function browserLibraryStorage() {
+  try {
+    return typeof window === "undefined" ? null : window.localStorage;
+  } catch {
+    return null;
+  }
+}
 
 export type LibrarySection = "missionary" | "classic" | "culture" | "custom";
 export type ReadStatus = "never" | "partial" | "complete";
@@ -35,15 +49,14 @@ export interface LibraryEntry extends LibraryText {
 interface LibraryState {
   entries: LibraryEntry[];
   selectedId: string;
-  generating: boolean;
+  selectionScope: string | null;
   readStatus: Record<string, ReadStatus>;
   languageFilter: Language[];
 }
 
 type Action =
   | { type: "ADD_ENTRY"; payload: LibraryEntry }
-  | { type: "SELECT"; payload: string }
-  | { type: "SET_GENERATING"; payload: boolean }
+  | { type: "SELECT"; payload: string; scope?: string }
   | { type: "REPLACE_BY_ID"; payload: LibraryEntry }
   | { type: "REMOVE_ENTRY"; payload: string }
   | { type: "SET_CUSTOM_ENTRIES"; payload: LibraryEntry[] }
@@ -65,13 +78,26 @@ const FLAG_BY_LANGUAGE: Record<Language, string> = {
   English: "🇬🇧",
 };
 
-function makeInitial(): LibraryState {
+function makeInitial(actor: string | null): LibraryState {
+  const saved = readLibraryPreferences(browserLibraryStorage(), actor);
+  const statuses = saved?.readStatus;
+  const readStatus: Record<string, ReadStatus> =
+    statuses && typeof statuses === "object" && !Array.isArray(statuses)
+      ? (Object.fromEntries(
+          Object.entries(statuses).filter(([, status]) =>
+            ["never", "partial", "complete"].includes(String(status)),
+          ),
+        ) as Record<string, ReadStatus>)
+      : {};
   return {
     entries: [],
-    selectedId: "seed-es-travel-train-ticket",
-    generating: false,
-    readStatus: loadReadStatus(),
-    languageFilter: loadLanguageFilter(),
+    selectedId:
+      typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
+    selectionScope: typeof saved?.selectionScope === "string" ? saved.selectionScope : null,
+    readStatus,
+    languageFilter: Array.isArray(saved?.languageFilter)
+      ? saved.languageFilter.filter((language: Language) => LANGUAGES.includes(language))
+      : [],
   };
 }
 
@@ -122,10 +148,13 @@ function reducer(state: LibraryState, action: Action): LibraryState {
         !cur || cur === "never"
           ? { ...state.readStatus, [action.payload]: "partial" as ReadStatus }
           : state.readStatus;
-      return { ...state, selectedId: action.payload, readStatus };
+      return {
+        ...state,
+        selectedId: action.payload,
+        selectionScope: action.scope ?? null,
+        readStatus,
+      };
     }
-    case "SET_GENERATING":
-      return { ...state, generating: action.payload };
     case "SET_READ_STATUS":
       return {
         ...state,
@@ -138,28 +167,6 @@ function reducer(state: LibraryState, action: Action): LibraryState {
   }
 }
 
-const STORAGE_KEY = "lt.library.custom.v1";
-const READ_STATUS_KEY = "lingualens.library.readStatus.v1";
-const LANG_FILTER_KEY = "lingualens.library.languageFilter.v1";
-
-function loadReadStatus(): Record<string, ReadStatus> {
-  try {
-    const raw = localStorage.getItem(READ_STATUS_KEY);
-    return raw ? (JSON.parse(raw) as Record<string, ReadStatus>) : {};
-  } catch {
-    return {};
-  }
-}
-
-function loadLanguageFilter(): Language[] {
-  try {
-    const raw = localStorage.getItem(LANG_FILTER_KEY);
-    return raw ? (JSON.parse(raw) as Language[]) : [];
-  } catch {
-    return [];
-  }
-}
-
 interface LibraryContextValue {
   state: LibraryState;
   dispatch: React.Dispatch<Action>;
@@ -168,71 +175,96 @@ interface LibraryContextValue {
   addCustomEntry: (entry: LibraryEntry) => Promise<void>;
   removeCustomEntry: (id: string) => Promise<void>;
   syncing: boolean;
+  pendingChanges: number;
+  syncError: string | null;
+  legacySaved: boolean;
+  readyToSelect: boolean;
+  syncLibrary: () => void;
+  recoverOlderLibrary: (confirmed: boolean) => number;
   setReadStatus: (id: string, status: ReadStatus) => void;
   setLanguageFilter: (langs: Language[]) => void;
 }
 
 const Ctx = createContext<LibraryContextValue | null>(null);
 
-interface DbRow {
-  id: string;
-  title: string;
-  subtitle: string;
-  language: string;
-  target_label: string;
-  flag: string;
-  section: string;
-  available: boolean;
-  chapters: BookChapter[];
-  created_at: string;
-}
-
-function rowToEntry(row: DbRow): LibraryEntry {
-  const chapters = Array.isArray(row.chapters) ? row.chapters : [];
-  return {
-    id: row.id,
-    title: row.title,
-    subtitle: row.subtitle ?? "",
-    language: row.language as Language,
-    targetLabel: row.target_label,
-    flag: row.flag || "📖",
-    section: (row.section as LibrarySection) ?? "custom",
-    available: row.available,
-    chapters: chapters.length > 0 ? chapters : undefined,
-    sentences: chapters[0]?.sentences ?? [],
-    createdAt: row.created_at ? new Date(row.created_at).getTime() : Date.now(),
-  };
-}
-
-function entryToInsert(entry: LibraryEntry, userId: string) {
-  const chapters: BookChapter[] =
-    entry.chapters && entry.chapters.length > 0
-      ? entry.chapters
-      : [{ title: entry.title, sentences: entry.sentences }];
-  return {
-    user_id: userId,
-    title: entry.title,
-    subtitle: entry.subtitle ?? "",
-    language: entry.language,
-    target_label: entry.targetLabel,
-    flag: entry.flag,
-    section: entry.section,
-    available: entry.available,
-    // Supabase typegen treats jsonb as `Json`. Our shape is JSON-serializable.
-    chapters: chapters as unknown as never,
-  };
-}
-
 export function LibraryProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, makeInitial);
-  const { user, loading: authLoading } = useAuth();
-  const {
-    state: { selectedLanguage },
-  } = useApp();
-  const syncingRef = useRef(false);
-  const migratedRef = useRef<string | null>(null);
+  const { user, canUseReader } = useAuth();
+  const actor = user?.id ?? null;
+  const { state: appState, profileReadyUserId } = useApp();
+  const scope = readerSelectionScope(
+    appState.activeModuleId,
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+  );
+  const [localState, rawDispatch] = useReducer(reducer, actor, makeInitial);
+  const dispatch = useCallback(
+    (action: Action) => rawDispatch(action.type === "SELECT" ? { ...action, scope } : action),
+    [scope],
+  );
+  const [initialLibraryReady, setInitialLibraryReady] = useState(!actor);
+  const mounted = useRef(false);
+  // AppProvider remounts this subtree on identity changes; never reuse an old account's queue.
+  const [device] = useState(() =>
+    createLibraryDevice({
+      actor,
+      storage: browserLibraryStorage(),
+      isCurrent: () => mounted.current && (!actor || canUseReader(actor)),
+      remote: actor ? createLibraryRemote(supabase, actor, canUseReader) : null,
+    }),
+  );
+  const deviceState = useSyncExternalStore(
+    device.subscribe,
+    device.getSnapshot,
+    device.getSnapshot,
+  );
+  useEffect(() => {
+    let active = true;
+    mounted.current = true;
+    void device.sync().finally(() => {
+      if (active && mounted.current) setInitialLibraryReady(true);
+    });
+    const online = () => {
+      void device.sync();
+    };
+    const offline = () => device.cancel();
+    window.addEventListener("online", online);
+    window.addEventListener("offline", offline);
+    return () => {
+      active = false;
+      mounted.current = false;
+      device.cancel();
+      window.removeEventListener("online", online);
+      window.removeEventListener("offline", offline);
+    };
+  }, [device]);
+  const state = useMemo(
+    () => ({
+      ...localState,
+      entries: [
+        ...deviceState.books,
+        ...localState.entries.filter((entry) => entry.section !== "custom"),
+      ],
+    }),
+    [localState, deviceState.books],
+  );
+  const readyToSelect =
+    appState.hydrated &&
+    (!actor || profileReadyUserId === actor) &&
+    (initialLibraryReady ||
+      state.entries.some((entry) => entry.id === state.selectedId && entry.available));
+  const selectedLanguage = appState.selectedLanguage;
   const loadedLangPacksRef = useRef(new Set<string>());
   const selectedLangRef = useRef(selectedLanguage);
+  const triggerLdsPack = useCallback(
+    (lang: string, loaders: Record<string, () => Promise<LibraryEntry[]>>) => {
+      if (loadedLangPacksRef.current.has(lang)) return;
+      const loader = loaders[lang];
+      if (!loader) return;
+      loadedLangPacksRef.current.add(lang);
+      loader().then((entries) => rawDispatch({ type: "APPEND_SEEDS", payload: entries }));
+    },
+    [],
+  );
 
   useEffect(() => {
     selectedLangRef.current = selectedLanguage;
@@ -241,172 +273,49 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   // Load all-seeds lazily, then immediately load the active language's LDS pack.
   useEffect(() => {
     import("@/data/all-seeds").then(({ ALL_SEEDS, LDS_PACK_LOADERS }) => {
-      dispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
+      rawDispatch({ type: "LOAD_SEEDS", payload: ALL_SEEDS });
       triggerLdsPack(selectedLangRef.current, LDS_PACK_LOADERS);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [triggerLdsPack]);
 
   // When the user switches language, load that language's LDS pack on demand.
   useEffect(() => {
     import("@/data/all-seeds").then(({ LDS_PACK_LOADERS }) => {
       triggerLdsPack(selectedLanguage, LDS_PACK_LOADERS);
     });
-  }, [selectedLanguage]);
-
-  function triggerLdsPack(lang: string, loaders: Record<string, () => Promise<LibraryEntry[]>>) {
-    if (loadedLangPacksRef.current.has(lang)) return;
-    const loader = loaders[lang];
-    if (!loader) return;
-    loadedLangPacksRef.current.add(lang);
-    loader().then((entries) => dispatch({ type: "APPEND_SEEDS", payload: entries }));
-  }
-
-  // Hydrate from localStorage when signed out (or while auth resolving)
-  useEffect(() => {
-    if (authLoading) return;
-    if (user) return;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const parsed = raw ? (JSON.parse(raw) as LibraryEntry[]) : [];
-      dispatch({
-        type: "SET_CUSTOM_ENTRIES",
-        payload: Array.isArray(parsed) ? parsed : [],
-      });
-    } catch {
-      dispatch({ type: "SET_CUSTOM_ENTRIES", payload: [] });
-    }
-  }, [user, authLoading]);
-
-  // When the user signs in: migrate any localStorage books to Cloud, then load Cloud books.
-  useEffect(() => {
-    if (!user) return;
-    if (migratedRef.current === user.id) return;
-    migratedRef.current = user.id;
-
-    let cancelled = false;
-    (async () => {
-      syncingRef.current = true;
-      try {
-        // 1. Migrate any local books up to cloud
-        let localBooks: LibraryEntry[] = [];
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          localBooks = raw ? (JSON.parse(raw) as LibraryEntry[]) : [];
-        } catch {
-          /* ignore */
-        }
-
-        if (Array.isArray(localBooks) && localBooks.length > 0) {
-          const inserts = localBooks.map((e) => entryToInsert(e, user.id));
-          const { error } = await supabase.from("library_books").insert(inserts);
-          if (!error) {
-            localStorage.removeItem(STORAGE_KEY);
-            toast.success(
-              `Synced ${localBooks.length} book${localBooks.length === 1 ? "" : "s"} to your account`,
-            );
-          } else {
-            console.error("Migration failed:", error);
-          }
-        }
-
-        // 2. Load all cloud books
-        const { data, error } = await supabase
-          .from("library_books")
-          .select("*")
-          .order("created_at", { ascending: false });
-
-        if (cancelled) return;
-        if (error) {
-          console.error("Failed to load cloud library:", error);
-          toast.error("Couldn't load your library from the cloud.");
-          return;
-        }
-        const entries = (data ?? []).map((r) => rowToEntry(r as unknown as DbRow));
-        dispatch({ type: "SET_CUSTOM_ENTRIES", payload: entries });
-      } finally {
-        syncingRef.current = false;
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [user]);
-
-  // Reset migration tracker on sign-out so a future sign-in re-runs migration
-  useEffect(() => {
-    if (!user) migratedRef.current = null;
-  }, [user]);
-
-  // Persist to localStorage only when signed OUT
-  useEffect(() => {
-    if (user) return;
-    try {
-      const customs = state.entries.filter((e) => e.section === "custom");
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(customs));
-    } catch {
-      /* quota exceeded — ignore */
-    }
-  }, [state.entries, user]);
+  }, [selectedLanguage, triggerLdsPack]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(READ_STATUS_KEY, JSON.stringify(state.readStatus));
-    } catch {
-      /* ignore */
-    }
-  }, [state.readStatus]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(LANG_FILTER_KEY, JSON.stringify(state.languageFilter));
-    } catch {
-      /* ignore */
-    }
-  }, [state.languageFilter]);
+    device.savePreferences({
+      selectedId: state.selectedId,
+      selectionScope: state.selectionScope,
+      readStatus: state.readStatus,
+      languageFilter: state.languageFilter,
+    });
+  }, [device, state.selectedId, state.selectionScope, state.readStatus, state.languageFilter]);
 
   const addCustomEntry = useCallback(
     async (entry: LibraryEntry) => {
-      if (!user) {
-        // Local-only path
-        dispatch({ type: "ADD_ENTRY", payload: entry });
-        dispatch({ type: "SELECT", payload: entry.id });
-        return;
-      }
-      // Cloud path: insert and use the DB-generated id
-      const insert = entryToInsert(entry, user.id);
-      const { data, error } = await supabase
-        .from("library_books")
-        .insert(insert)
-        .select("*")
-        .single();
-      if (error || !data) {
-        console.error("Cloud insert failed:", error);
-        toast.error("Couldn't save book to cloud. Saved locally for now.");
-        dispatch({ type: "ADD_ENTRY", payload: entry });
-        dispatch({ type: "SELECT", payload: entry.id });
-        return;
-      }
-      const saved = rowToEntry(data as unknown as DbRow);
-      dispatch({ type: "ADD_ENTRY", payload: saved });
+      const saved = { ...entry, id: crypto.randomUUID(), section: "custom" as const };
+      device.add(saved); // Must persist before the modal closes or a cloud request starts.
       dispatch({ type: "SELECT", payload: saved.id });
+      void device.sync();
     },
-    [user],
+    [device, dispatch],
   );
 
   const removeCustomEntry = useCallback(
     async (id: string) => {
-      // Optimistic
-      dispatch({ type: "REMOVE_ENTRY", payload: id });
-      if (!user) return;
-      const { error } = await supabase.from("library_books").delete().eq("id", id);
-      if (error) {
-        console.error("Delete failed:", error);
-        toast.error("Couldn't delete from cloud. Try again.");
+      try {
+        device.remove(id); // A durable tombstone also covers an uncertain earlier upload.
+        void device.sync();
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : "Could not save this change on your device.",
+        );
       }
     },
-    [user],
+    [device],
   );
 
   const selected = useMemo(
@@ -435,6 +344,7 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
   // so picking French left you on the Spanish default — and that default is
   // `classic-quixote`, a C2 text, shown to absolute beginners. DUO-002 P0-4.
   useEffect(() => {
+    if (!readyToSelect) return;
     const cur = state.entries.find((e) => e.id === state.selectedId);
     const needsReselect = !cur || !cur.available || cur.language !== selectedLanguage;
     if (!needsReselect) return;
@@ -452,9 +362,11 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
     };
     const easiest = [...forLanguage].sort((a, b) => rank(a) - rank(b))[0];
     if (easiest && easiest.id !== state.selectedId) {
-      dispatch({ type: "SELECT", payload: easiest.id });
+      // A temporary language fallback must not masquerade as a deliberate text choice.
+      // Module passages can arrive in a later seed chunk and still need to take priority.
+      rawDispatch({ type: "SELECT", payload: easiest.id });
     }
-  }, [state.entries, state.selectedId, selectedLanguage]);
+  }, [state.entries, state.selectedId, selectedLanguage, readyToSelect]);
 
   return (
     <Ctx.Provider
@@ -465,7 +377,19 @@ export function LibraryProvider({ children }: { children: ReactNode }) {
         flagFor: (l) => FLAG_BY_LANGUAGE[l],
         addCustomEntry,
         removeCustomEntry,
-        syncing: syncingRef.current,
+        syncing: deviceState.syncing,
+        pendingChanges: deviceState.pending.length + deviceState.deleted.length,
+        syncError: deviceState.error,
+        legacySaved: deviceState.legacySaved,
+        readyToSelect,
+        syncLibrary: () => {
+          void device.sync();
+        },
+        recoverOlderLibrary: (confirmed) => {
+          const count = device.recoverLegacy(confirmed);
+          void device.sync();
+          return count;
+        },
         setReadStatus: (id, status) =>
           dispatch({ type: "SET_READ_STATUS", payload: { id, status } }),
         setLanguageFilter: (langs) => dispatch({ type: "SET_LANGUAGE_FILTER", payload: langs }),

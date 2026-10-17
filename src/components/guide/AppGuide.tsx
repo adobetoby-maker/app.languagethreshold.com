@@ -1,4 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { examsLocation } from "@/lib/exam-navigation";
+import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
+import { core30ScopeKey } from "@/lib/core30-scope";
+import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
+import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
+import {
+  requestedLesson,
+  lessonLocation,
+  lessonOverviewLocation,
+  canRestoreLessonReturn,
+} from "@/lib/learning-link";
+import { lazy, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { toast } from "sonner";
 import {
   BookOpen,
@@ -40,12 +51,14 @@ import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
-import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPractice";
+import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
 import { LessonReader } from "@/components/core30/LessonReader";
+import { LessonResponsePractice } from "@/components/core30/LessonResponsePractice";
 import {
   browserReturnStorage,
   clearLessonReturn,
@@ -53,9 +66,28 @@ import {
   readLessonReturn,
   writeLessonReturn,
 } from "@/lib/lesson-return";
-import { requestSpeakingMission } from "@/lib/speaking-navigation";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
-import { masteredLessons, planToday, toDateKey } from "@/lib/core30-plan";
+import { getLessonDefinition, modulePracticeVersion } from "@/lib/lesson-definition";
+import {
+  lessonPositionKey,
+  readLessonPosition,
+  saveLessonPosition,
+  type LessonPosition,
+} from "@/lib/lesson-drafts";
+import {
+  masteredLessons,
+  openedWayCount,
+  wayVisitAt,
+  planToday,
+  toDateKey,
+  type Core30Way,
+} from "@/lib/core30-plan";
+
+const DailyLessonPlan = lazy(() =>
+  import("@/components/exams/DailyLessonPlan").then((module) => ({
+    default: module.DailyLessonPlan,
+  })),
+);
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -484,7 +516,7 @@ function formatOpenedDate(iso: string): string {
   return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-type SectionId = "see" | "recall" | "hear" | "type" | "say" | "write";
+type SectionId = Core30Way;
 
 interface SectionDef {
   id: SectionId;
@@ -498,7 +530,7 @@ const SECTIONS: SectionDef[] = [
   {
     id: "see",
     label: "See it",
-    why: "Read the passage first so the words arrive in context.",
+    why: "Start with this lesson's reading or word list.",
     Icon: Eye,
   },
   {
@@ -518,7 +550,7 @@ const SECTIONS: SectionDef[] = [
   {
     id: "write",
     label: "Write it",
-    why: "Write the words by hand to lock in the spelling.",
+    why: "Copy the words, recall their spelling, then write a response.",
     Icon: PenLine,
   },
 ];
@@ -571,26 +603,41 @@ function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior)
 }
 
 function LessonRunner({
+  enrollmentId,
   lesson,
   moduleId,
   totalLessons,
   initialSection,
+  syncLocation = false,
   onComplete,
   onExit,
   onNavigate,
+  onSectionChange,
 }: {
+  enrollmentId?: string;
   lesson: Lesson;
   moduleId: string;
   totalLessons: number;
   /** Section to open on (a learner returning from the Speak tab or the full Reader). */
   initialSection?: SectionId;
+  syncLocation?: boolean;
   onComplete: () => void;
   onExit: () => void;
   onNavigate: (n: number) => void;
+  onSectionChange?: (section: SectionId) => void;
 }) {
   const { state, dispatch } = useApp();
   const { user } = useAuth();
   const userId = user?.id;
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, enrollmentId],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
   const teamSessions = useRef<Record<string, string>>({});
   const { dispatch: libDispatch } = useLibrary();
 
@@ -600,7 +647,9 @@ function LessonRunner({
   const navRef = useRef<HTMLElement>(null);
   const masteryRef = useRef<HTMLElement>(null);
   const [section, setSection] = useState<SectionId>(initialSection ?? "see");
-  const [kitMode, setKitMode] = useState<PracticeMode>("flashcards");
+  const [kitMode, setKitMode] = useState<PracticeMode>(() =>
+    modeForSection(initialSection ?? "see", "flashcards"),
+  );
   // Authored words (roofing, Spanish) arrive at once; any other lesson gets a generated list.
   const lessonWords = useLessonWords(
     moduleId,
@@ -610,14 +659,22 @@ function LessonRunner({
   );
   const words = lessonWords.words;
   const hasWords = words.length > 0;
+  const definition = getLessonDefinition({
+    moduleId,
+    lessonNumber: lesson.n,
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    contentVersion: modulePracticeVersion(moduleId, state.selectedLanguage, state.nativeLanguage),
+  });
 
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
-  const isCurrentSequential = getCurrentLesson(moduleId, state.lessonProgress)?.n === lesson.n;
-  const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
+  const isCurrentSequential =
+    getCurrentLesson(moduleId, state.lessonProgress, progressKey)?.n === lesson.n;
+  const lessonLog = state.core30Log[progressKey]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
-  // Each way of learning is recorded against the closest existing step of the lesson.
+  // Preserve old curriculum-step evidence; new mode evidence is independent below.
   const readerStep = lesson.steps.findIndex((step) => step.tab === "reader");
   const wordDrillStep = lesson.steps.findIndex((step) => step.tab === "wordMatch");
   const speakStep = lesson.steps.findIndex((step) => step.tab === "speak");
@@ -639,6 +696,62 @@ function LessonRunner({
   const activeDef = SECTIONS[sectionIndex];
   const nextDef = SECTIONS[sectionIndex + 1];
   const inKit = KIT_SECTIONS.includes(section);
+
+  useEffect(() => {
+    dispatch({
+      type: "CORE30_WAY_OPENED",
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        way: section,
+        at: new Date().toISOString(),
+      },
+    });
+    onSectionChange?.(section);
+    if (syncLocation) {
+      const next = lessonLocation(
+        window.location.href,
+        {
+          moduleId,
+          target: state.selectedLanguage,
+          native: state.nativeLanguage,
+        },
+        { lesson: lesson.n, way: section },
+      );
+      if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+        window.history.replaceState(window.history.state, "", next);
+    }
+    try {
+      const storage = userId ? window.localStorage : window.sessionStorage;
+      saveLessonPosition(
+        storage,
+        lessonPositionKey(
+          userId ?? "anonymous",
+          moduleId,
+          state.selectedLanguage,
+          state.nativeLanguage,
+          enrollmentId,
+        ),
+        { lesson: lesson.n, way: section, at: new Date().toISOString() },
+      );
+    } catch {
+      /* The lesson remains usable when device storage is unavailable. */
+    }
+  }, [
+    dispatch,
+    moduleId,
+    lesson.n,
+    section,
+    onSectionChange,
+    userId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    syncLocation,
+    progressKey,
+    progressContext,
+    enrollmentId,
+  ]);
 
   useEffect(() => {
     teamSessions.current = {};
@@ -663,9 +776,10 @@ function LessonRunner({
     };
   }, [userId, moduleId, lesson.n]);
 
-  // Coming back from the Speak tab or the full Reader: bring the section nav into view.
+  // Later practice steps resume at their controls. Starting/reopening See it
+  // keeps the lesson title and Previous/Next controls visible at the page top.
   useEffect(() => {
-    if (!initialSection) return;
+    if (!initialSection || initialSection === "see") return;
     const frame = requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, "auto"));
     return () => cancelAnimationFrame(frame);
   }, [initialSection]);
@@ -675,7 +789,13 @@ function LessonRunner({
     if (i < 0) return;
     dispatch({
       type: "CORE30_STEP_OPENED",
-      payload: { moduleId, lesson: lesson.n, step: i, at: new Date().toISOString() },
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        step: i,
+        at: new Date().toISOString(),
+      },
     });
   }
 
@@ -694,17 +814,9 @@ function LessonRunner({
     setSection(sectionForMode(mode));
   }
 
-  /** Say it: the mission runs on the Speak tab; finishing or closing it brings the learner back. */
+  /** Record the opened practice without leaving the lesson. */
   function goSay() {
     recordStepOpened(speakStep);
-    writeLessonReturn(browserReturnStorage(), {
-      moduleId,
-      lesson: lesson.n,
-      section: "say",
-      at: Date.now(),
-    });
-    requestSpeakingMission(lessonMissionPrefix(moduleId, lesson.n));
-    dispatch({ type: "SET_TAB", payload: "speak" });
   }
 
   /** See it, full size: the whole Reader, with a way straight back to this lesson. */
@@ -747,7 +859,7 @@ function LessonRunner({
 
   /** After lesson `fromN` completes, keep advancing over lessons the learner already mastered. */
   async function advancePastMastered(fromN: number) {
-    const lessonsLog = state.core30Log[moduleId]?.lessons ?? {};
+    const lessonsLog = state.core30Log[progressKey]?.lessons ?? {};
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     let n = fromN + 1;
     while (n <= total && lessonsLog[String(n)]?.masteredAt) {
@@ -767,7 +879,7 @@ function LessonRunner({
         }
       }
       if (!(await postTeamLesson(n, sessions))) return;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       n += 1;
     }
@@ -780,11 +892,11 @@ function LessonRunner({
    */
   async function recordSequentialCompletion(): Promise<boolean> {
     if (completionLock.current) return false;
-    if ((state.lessonProgress[moduleId] ?? 0) + 1 !== lesson.n) return false;
+    if ((state.lessonProgress[progressKey] ?? 0) + 1 !== lesson.n) return false;
     completionLock.current = true;
     try {
       if (!(await postTeamLesson(lesson.n, teamSessions.current))) return false;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       await advancePastMastered(lesson.n);
       return true;
@@ -812,7 +924,13 @@ function LessonRunner({
       if (sequential && !(await recordSequentialCompletion())) return;
       dispatch({
         type: "CORE30_SET_MASTERED",
-        payload: { moduleId, lesson: lesson.n, mastered: true, at: new Date().toISOString() },
+        payload: {
+          moduleId,
+          context: progressContext,
+          lesson: lesson.n,
+          mastered: true,
+          at: new Date().toISOString(),
+        },
       });
       if (sequential) onComplete();
     } finally {
@@ -820,10 +938,9 @@ function LessonRunner({
     }
   }
 
-  /** "Opened" line for a section, from the app's own record of the step it maps to. */
+  /** Each mode shows its own first visit; older step records cannot imply a mode visit. */
   function openedNote(id: SectionId) {
-    const stepIndex = stepForSection[id];
-    const openedAt = stepIndex >= 0 ? lessonLog?.visits?.[String(stepIndex)] : undefined;
+    const openedAt = wayVisitAt(lessonLog, id);
     if (!openedAt) return null;
     return (
       <p
@@ -920,8 +1037,7 @@ function LessonRunner({
       >
         {SECTIONS.map(({ id, label, Icon }) => {
           const active = section === id;
-          const stepIndex = stepForSection[id];
-          const opened = stepIndex >= 0 && Boolean(lessonLog?.visits?.[String(stepIndex)]);
+          const opened = Boolean(wayVisitAt(lessonLog, id));
           return (
             <button
               key={id}
@@ -961,6 +1077,7 @@ function LessonRunner({
             moduleId={moduleId}
             readingTemplate={lesson.readingTemplate}
             lessonNumber={lesson.n}
+            initialTranslationVisible={definition?.teaching?.translationInitiallyVisible}
             words={words}
             onInteract={() => recordStepOpened(readerStep)}
             onOpenFullReader={openFullReader}
@@ -987,6 +1104,12 @@ function LessonRunner({
                 words={words}
                 moduleId={moduleId}
                 lessonNumber={lesson.n}
+                matchingBatchSize={definition?.teaching?.matchingBatchSize}
+                listeningItems={
+                  definition?.teaching && definition.teaching.stage !== "supported"
+                    ? definition.listeningItems
+                    : undefined
+                }
                 language={state.selectedLanguage}
                 // Authored words keep English as the native side, whatever the app's native setting.
                 nativeLanguage={
@@ -1032,29 +1155,34 @@ function LessonRunner({
             </button>
           </div>
         )}
+        {definition?.teaching &&
+          (["type", "write"] as const).map((mode) => (
+            <div
+              key={`${userId ?? "anonymous"}:${definition.id}:${mode}`}
+              hidden={section !== mode}
+            >
+              <LessonResponsePractice definition={definition} mode={mode} />
+            </div>
+          ))}
+
         {inKit && nextButton}
       </section>
 
       {/* 5 · Say it */}
+
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
         {panelHeader(SECTIONS[4], 5)}
-        <p className="mt-3 text-sm leading-relaxed text-white/70">{speakInstruction}</p>
-        <button
-          type="button"
-          data-testid="lesson-say-go"
-          onClick={goSay}
-          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-          style={{
-            background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-            color: "#0B0B0F",
-          }}
-        >
-          <Mic className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-          Start the Lesson {lesson.n} speaking mission
-        </button>
-        <p className="mt-2 text-center text-[11px] text-white/50">
-          It opens in Speak &amp; Learn. When you finish or close it, you come back here.
-        </p>
+        {section === "say" && (
+          <LessonSpeakingPractice
+            key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            missionPrefix={lessonMissionPrefix(moduleId, lesson.n)}
+            instruction={speakInstruction}
+            definition={definition}
+            words={words}
+            language={state.selectedLanguage}
+            onOpen={goSay}
+          />
+        )}
         {section === "say" && nextButton}
       </section>
 
@@ -1172,8 +1300,15 @@ const XP_TIERS = [
   { name: "Maestro", min: 3000, emoji: "✦", color: "#d4af37" },
 ];
 
+function scrollLessonPageToTop() {
+  window.scrollTo({ top: 0, behavior: "instant" });
+  document.querySelector("main")?.scrollTo({ top: 0, behavior: "instant" });
+}
+
 export function AppGuide() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
 
@@ -1201,239 +1336,11 @@ export function AppGuide() {
     <>
       {tourOpen && <AppTour onClose={() => setTourOpen(false)} />}
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
-        {/* ── Optional personalization remains reachable after module selection ─── */}
-        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
-          <div className="flex items-start gap-4">
-            <span className="text-2xl shrink-0">✦</span>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">
-                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                Reader works without setup. Choose or update your profession and level to tailor
-                Tutor, readings, and relevant practice. Current level: {state.level}.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
-                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
-                >
-                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-                <button
-                  onClick={() => go("modules")}
-                  className="min-h-11 rounded-lg px-3 py-2 text-xs text-muted-foreground hover:text-foreground"
-                >
-                  Browse specialty modules
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-              Complete toolkit
-            </p>
-            <h2 className="mt-1 font-display text-2xl text-foreground">
-              One system, not a pile of tabs
-            </h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              Start with Reader, keep important words in My Vocab, then choose the kind of practice
-              that moves them toward real use.
-            </p>
-          </div>
-
-          {(["Understand", "Remember", "Use", "Grow", "Specialize"] as LearningStage[]).map(
-            (stage) => {
-              const tools = TOOL_CATALOG_LIST.filter((tool) => tool.stage === stage);
-              return (
-                <div key={stage}>
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                    {stage}
-                  </p>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {tools.map((tool) => {
-                      const available = isToolAvailable(tool, state.activeModuleId);
-                      return (
-                        <article
-                          key={tool.key}
-                          data-activity={tool.accent}
-                          className="tool-purpose flex min-h-[116px] flex-col rounded-xl border bg-card/45 p-3.5"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span
-                              className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full"
-                              aria-hidden
-                            />
-                            <h3 className="text-sm font-semibold text-foreground">{tool.name}</h3>
-                          </div>
-                          <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
-                            {tool.purpose}
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => go(available ? tool.key : "modules")}
-                            className="mt-3 min-h-11 self-start rounded-lg px-3 py-2 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-ink"
-                          >
-                            {available ? "Open" : tool.gate?.description}
-                          </button>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            },
-          )}
-        </section>
-
-        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
-          <div className="flex items-start gap-4">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
-              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">App Walkthrough</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
-                {state.activeModuleId
-                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
-                  : " your learning goals"}
-                .
-              </p>
-              <button
-                onClick={() => setTourOpen(true)}
-                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
-              >
-                Start Tour <ArrowRight className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* ── How Core 30 works ──────────────────────────────────────────── */}
-        {curriculum && (
-          <section className="rounded-2xl border border-border/50 bg-card/40 p-5">
-            <div className="flex items-start gap-4">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold/10">
-                <BookOpen className="h-4 w-4 text-gold" strokeWidth={1.5} />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold">How Core 30 works</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  The thinking behind the 30 lessons, the six ways you learn each one, and the
-                  90-day rhythm.
-                </p>
-                <button
-                  type="button"
-                  data-testid="guide-core30-how"
-                  onClick={() => {
-                    requestCore30Philosophy();
-                    go("core30");
-                  }}
-                  className="mt-3 flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-                >
-                  Read how it works <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ── Progress Overview ────────────────────────────────────────────── */}
-        <section className="space-y-4">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-            Your Progress
-          </h2>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center">
-              <p className="text-2xl font-bold tabular-nums">{xp.toLocaleString()}</p>
-              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                XP
-              </p>
-            </div>
-            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center">
-              <p className="text-2xl font-bold tabular-nums">
-                {state.streak ?? 0}
-                <span className="text-base ml-0.5">🔥</span>
-              </p>
-              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                Day Streak
-              </p>
-            </div>
-            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center col-span-2">
-              <p className="text-lg font-semibold" style={{ color: curTier.color }}>
-                {curTier.emoji} {curTier.name}
-              </p>
-              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                Current Tier
-              </p>
-            </div>
-          </div>
-
-          {/* XP Tier progress */}
-          <div className="rounded-xl border border-border/40 bg-card/40 p-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] text-muted-foreground">
-                {curTier.emoji} {curTier.name}
-              </span>
-              {nextTier && (
-                <span className="font-mono text-[10px] text-muted-foreground">
-                  {nextTier.emoji} {nextTier.name} at {nextTier.min.toLocaleString()} XP
-                </span>
-              )}
-            </div>
-            <div className="h-2 rounded-full bg-border/40 overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-700"
-                style={{
-                  width: `${tierPct}%`,
-                  background: `linear-gradient(90deg, ${curTier.color}99, ${curTier.color})`,
-                }}
-              />
-            </div>
-            {nextTier ? (
-              <p className="font-mono text-[10px] text-muted-foreground text-right">
-                {(nextTier.min - xp).toLocaleString()} XP to {nextTier.name}
-              </p>
-            ) : (
-              <p className="font-mono text-[10px] text-gold text-center">✦ Maximum tier reached</p>
-            )}
-          </div>
-
-          {/* How XP works */}
-          <details className="group rounded-xl border border-border/30 bg-card/20">
-            <summary className="flex cursor-pointer items-center justify-between px-4 py-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors list-none">
-              How XP works
-              <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
-            </summary>
-            <div className="px-4 pb-4 space-y-1.5">
-              {[
-                ["Open a new tab", "+5 XP"],
-                ["Send a message in Speak or Field Prep", "+8 XP"],
-                ["Start a scenario or session", "+10 XP"],
-                ["Complete a Guide lesson", "+50 XP"],
-              ].map(([action, reward]) => (
-                <div
-                  key={action}
-                  className="flex items-center justify-between py-1 border-b border-border/20 last:border-0"
-                >
-                  <span className="text-xs text-muted-foreground">{action}</span>
-                  <span className="font-mono text-[11px] text-gold">{reward}</span>
-                </div>
-              ))}
-            </div>
-          </details>
-        </section>
-
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
-          <Core30Section />
+          <Core30Section
+            key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          />
         ) : (
           /* ── Fallback: legacy daily flow for modules without Core 30 ── */
           <section>
@@ -1587,10 +1494,176 @@ export function AppGuide() {
                 onClick={() => go("modules")}
                 className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
               >
-                Browse modules <Activity className="h-3 w-3" />
+                Change module <Activity className="h-3 w-3" />
               </button>
             </div>
           </div>
+        </section>
+
+        {/* ── Optional personalization remains reachable after module selection ─── */}
+        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <span className="text-2xl shrink-0">✦</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">
+                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                Reader works without setup. Choose or update your profession and level to tailor
+                Tutor, readings, and relevant practice. Current level: {state.level}.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
+                >
+                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
+        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
+          <div className="flex items-start gap-4">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
+              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">App Walkthrough</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
+                {state.activeModuleId
+                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
+                  : " your learning goals"}
+                .
+              </p>
+              <button
+                onClick={() => setTourOpen(true)}
+                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
+              >
+                Start Tour <ArrowRight className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* ── How Core 30 works ──────────────────────────────────────────── */}
+        {curriculum && (
+          <section className="rounded-2xl border border-border/50 bg-card/40 p-5">
+            <div className="flex items-start gap-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-gold/20 bg-gold/10">
+                <BookOpen className="h-4 w-4 text-gold" strokeWidth={1.5} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold">How Core 30 works</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  The thinking behind the 30 lessons, the six ways you learn each one, and the
+                  90-day rhythm.
+                </p>
+                <button
+                  type="button"
+                  data-testid="guide-core30-how"
+                  onClick={() => {
+                    requestCore30Philosophy();
+                    go("core30");
+                  }}
+                  className="mt-3 flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+                >
+                  Read how it works <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── Progress Overview ────────────────────────────────────────────── */}
+        <section className="space-y-4">
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+            Your Progress
+          </h2>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center">
+              <p className="text-2xl font-bold tabular-nums">{xp.toLocaleString()}</p>
+              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                XP
+              </p>
+            </div>
+            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center">
+              <p className="text-2xl font-bold tabular-nums">
+                {state.streak ?? 0}
+                <span className="text-base ml-0.5">🔥</span>
+              </p>
+              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                Day Streak
+              </p>
+            </div>
+            <div className="rounded-xl border border-border/40 bg-card/40 p-3 text-center col-span-2">
+              <p className="text-lg font-semibold" style={{ color: curTier.color }}>
+                {curTier.emoji} {curTier.name}
+              </p>
+              <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                Current Tier
+              </p>
+            </div>
+          </div>
+
+          {/* XP Tier progress */}
+          <div className="rounded-xl border border-border/40 bg-card/40 p-4 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[10px] text-muted-foreground">
+                {curTier.emoji} {curTier.name}
+              </span>
+              {nextTier && (
+                <span className="font-mono text-[10px] text-muted-foreground">
+                  {nextTier.emoji} {nextTier.name} at {nextTier.min.toLocaleString()} XP
+                </span>
+              )}
+            </div>
+            <div className="h-2 rounded-full bg-border/40 overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-700"
+                style={{
+                  width: `${tierPct}%`,
+                  background: `linear-gradient(90deg, ${curTier.color}99, ${curTier.color})`,
+                }}
+              />
+            </div>
+            {nextTier ? (
+              <p className="font-mono text-[10px] text-muted-foreground text-right">
+                {(nextTier.min - xp).toLocaleString()} XP to {nextTier.name}
+              </p>
+            ) : (
+              <p className="font-mono text-[10px] text-gold text-center">✦ Maximum tier reached</p>
+            )}
+          </div>
+
+          {/* How XP works */}
+          <details className="group rounded-xl border border-border/30 bg-card/20">
+            <summary className="flex cursor-pointer items-center justify-between px-4 py-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors list-none">
+              How XP works
+              <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
+            </summary>
+            <div className="px-4 pb-4 space-y-1.5">
+              {[
+                ["Open a new tab", "+5 XP"],
+                ["Send a message in Speak or Field Prep", "+8 XP"],
+                ["Start a scenario or session", "+10 XP"],
+                ["Complete a Guide lesson", "+50 XP"],
+              ].map(([action, reward]) => (
+                <div
+                  key={action}
+                  className="flex items-center justify-between py-1 border-b border-border/20 last:border-0"
+                >
+                  <span className="text-xs text-muted-foreground">{action}</span>
+                  <span className="font-mono text-[11px] text-gold">{reward}</span>
+                </div>
+              ))}
+            </div>
+          </details>
         </section>
       </div>
     </>
@@ -1627,15 +1700,105 @@ function consumeCore30Philosophy(): boolean {
  *  reopens the lesson a learner left for the Speak tab or the Reader, and honors a request to
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
+  const downloadPackId = offlineLessonPackId(
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const [activeAssessmentPlan] = useState(() => {
+    if (typeof window === "undefined") return undefined;
+    const params = new URLSearchParams(window.location.search);
+    if (
+      params.get("module") !== moduleId ||
+      params.get("target") !== state.selectedLanguage ||
+      params.get("native") !== state.nativeLanguage
+    )
+      return undefined;
+    const value = params.get("plan");
+    return value && /^[0-9a-f-]{36}$/i.test(value) ? value : undefined;
+  });
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId: activeAssessmentPlan,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, activeAssessmentPlan],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
+  const [approvedPlanTiming, setApprovedPlanTiming] = useState<AssessedPlanTiming | null>(
+    activeAssessmentPlan ? null : { reviewEveryDays: 4 },
+  );
+  const positionKey = lessonPositionKey(
+    user?.id ?? "anonymous",
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    activeAssessmentPlan,
+  );
+  const [savedPositionState, setSavedPositionState] = useState<{
+    key: string;
+    position: LessonPosition | null;
+  }>({ key: positionKey, position: null });
+  const savedPosition = savedPositionState.key === positionKey ? savedPositionState.position : null;
   const [returnTarget] = useState(() => {
-    if (!restoreView) return null;
+    if (
+      !restoreView ||
+      !canRestoreLessonReturn(window.location.href, {
+        moduleId,
+        target: state.selectedLanguage,
+        native: state.nativeLanguage,
+      })
+    )
+      return null;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
   });
-  const [openLessonN, setOpenLessonN] = useState<number | null>(returnTarget?.lesson ?? null);
+  const [linkedLesson] = useState(() =>
+    restoreView &&
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("target") === state.selectedLanguage &&
+    new URLSearchParams(window.location.search).get("native") === state.nativeLanguage
+      ? requestedLesson(
+          new URLSearchParams(window.location.search),
+          moduleId,
+          getCurriculum(moduleId)?.lessons.length ?? 0,
+        )
+      : null,
+  );
+  const [openLessonN, setOpenLessonN] = useState<number | null>(
+    linkedLesson?.lesson ?? returnTarget?.lesson ?? null,
+  );
+  const [initialWay, setInitialWay] = useState<SectionId | undefined>(
+    (linkedLesson?.way as SectionId | undefined) ?? returnTarget?.section,
+  );
+  useEffect(() => {
+    try {
+      const storage = user?.id ? window.localStorage : window.sessionStorage;
+      const position = readLessonPosition(storage, positionKey);
+      const valid =
+        position && getCurriculum(moduleId)?.lessons.some((l) => l.n === position.lesson)
+          ? position
+          : null;
+      setSavedPositionState({ key: positionKey, position: valid });
+    } catch {
+      setSavedPositionState({ key: positionKey, position: null });
+    }
+  }, [positionKey, moduleId, user?.id, openLessonN]);
+  useEffect(() => {
+    if (!restoreView || openLessonN !== null) return;
+    const next = lessonOverviewLocation(window.location.href, {
+      moduleId,
+      target: state.selectedLanguage,
+      native: state.nativeLanguage,
+    });
+    if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+      window.history.replaceState(window.history.state, "", next);
+  }, [restoreView, openLessonN, moduleId, state.selectedLanguage, state.nativeLanguage]);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
@@ -1654,26 +1817,46 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     if (hasCurriculum) prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
-  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
+  const core30Log = state.core30Log[progressKey];
+  const practiceLesson = curriculum.lessons.find(
+    (lesson) => core30Log?.lessons[String(lesson.n)]?.needsPractice,
+  );
+  const currentLesson =
+    practiceLesson ?? getCurrentLesson(moduleId, state.lessonProgress, progressKey);
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
-  const core30Log = state.core30Log[moduleId];
   const masteredSet = new Set(masteredLessons(core30Log));
-  const completedCount = state.lessonProgress[moduleId] ?? 0;
+  const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
-  function openLessonFromPlan(n: number) {
+  function openLessonFromPlan(n: number, way: SectionId = "see") {
+    if (!restoreView) {
+      // All entry points use the standalone runner, which owns refreshable
+      // lesson/way links. Set the location before mounting that runner so it
+      // reads the requested position rather than falling back to the overview.
+      const next = lessonLocation(
+        window.location.href,
+        { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+        { lesson: n, way },
+      );
+      if (next) window.history.replaceState(window.history.state, "", next);
+      dispatch({ type: "SET_TAB", payload: "core30" });
+      scrollLessonPageToTop();
+      return;
+    }
     setReviewOpen(false);
     setHowOpen(false);
+    setInitialWay(way);
     setOpenLessonN(n);
-    window.scrollTo({ top: 0, behavior: scrollBehavior() });
+    scrollLessonPageToTop();
   }
 
   function handleComplete() {
+    setInitialWay(undefined);
     setOpenLessonN(null);
     setJustCompleted(true);
     setTimeout(() => setJustCompleted(false), 4000);
@@ -1688,6 +1871,18 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          <a
+            className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+            href={examsLocation({
+              moduleId,
+              target: state.selectedLanguage,
+              native: state.nativeLanguage,
+              returnPlanId: activeAssessmentPlan,
+              orgId: approvedPlanTiming?.organizationId,
+            })}
+          >
+            Entrance, day 45 and day 90 exams
+          </a>
           {!howOpen && (
             <button
               type="button"
@@ -1712,56 +1907,20 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
       {!howOpen && (
         <>
-          {/* 90-day plan: start date, today's lesson, review cadence */}
-          {!reviewOpen && !runnerActive && (
-            <Core30PlanCard
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
-          )}
-
-          {/* Progress bar */}
-          {!runnerActive && (
-            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                  {completedCount} / {totalLessons} lessons complete
-                </span>
-                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
-              </div>
-              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${progressPct}%`,
-                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
-                  }}
-                />
-              </div>
-              {allDone && (
-                <p className="mt-2 text-xs text-gold text-center">
-                  🎉 Curriculum complete! You are past the threshold.
-                </p>
-              )}
-            </div>
-          )}
-
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
               <p className="text-gold font-semibold">✓ Lesson complete! +50 XP</p>
-              <p className="text-xs text-white/60 mt-1">Come back tomorrow for the next one.</p>
+              <p className="text-xs text-white/60 mt-1">
+                Continue when you’re ready, or follow the dates in your plan.
+              </p>
             </div>
           )}
 
           {/* Review session */}
           {reviewOpen && (
             <Core30Review
+              enrollmentId={activeAssessmentPlan}
               moduleId={moduleId}
               lessons={curriculum.lessons}
               onClose={() => setReviewOpen(false)}
@@ -1771,17 +1930,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* Any lesson opened from the plan or the lesson list */}
           {!reviewOpen && openLesson && (
             <LessonRunner
-              key={openLesson.n}
+              enrollmentId={activeAssessmentPlan}
+              key={`${progressKey}:${openLesson.n}`}
               lesson={openLesson}
               moduleId={moduleId}
               totalLessons={totalLessons}
-              initialSection={
-                returnTarget && returnTarget.lesson === openLesson.n
-                  ? returnTarget.section === "say"
-                    ? "say"
-                    : "see"
-                  : undefined
-              }
+              initialSection={initialWay}
+              onSectionChange={setInitialWay}
+              syncLocation={restoreView}
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
               onNavigate={openLessonFromPlan}
@@ -1789,12 +1945,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
 
           {/* Current lesson card or all-done state */}
-          {!reviewOpen && !runnerActive && !allDone && currentLesson && (
+          {!reviewOpen && !runnerActive && (!allDone || practiceLesson) && currentLesson && (
             <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    Next Up · Lesson {currentLesson.n}
+                    {practiceLesson ? "Practice again" : "Next Up"} · Lesson {currentLesson.n}
                   </p>
                   <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
                 </div>
@@ -1810,26 +1966,11 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 {currentLesson.objective}
               </p>
 
-              {/* Step preview */}
-              <div className="space-y-1.5 mb-5">
-                {currentLesson.steps.map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
-                      {i + 1}
-                    </span>
-                    <span className="text-xs text-white/70 flex-1">{step.tabLabel}</span>
-                    <span className="text-[10px] font-mono text-white/30">{step.durationMin}m</span>
-                  </div>
-                ))}
-              </div>
-
+              {/* Start stays reachable before the detailed six-mode preview. */}
               <button
-                onClick={() => setOpenLessonN(currentLesson.n)}
+                onClick={() => openLessonFromPlan(currentLesson.n)}
                 className={cn(
-                  "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                  "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
                   planStarted && "border border-gold/40 bg-transparent text-gold",
                 )}
                 style={
@@ -1841,13 +1982,38 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                       }
                 }
               >
-                Start Lesson {currentLesson.n}
+                {practiceLesson ? "Practice" : "Start"} Lesson {currentLesson.n}
                 <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
+
+              {/* Step preview */}
+              <div className="space-y-1.5 mb-5">
+                {SECTIONS.map((step, i) => (
+                  <div
+                    key={step.id}
+                    className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] text-white/40">
+                      {i + 1}
+                    </span>
+                    <span className="text-xs text-white/70 flex-1">{step.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Every lesson, with the app's record (opened) next to the learner's (mastered) */}
+          {!reviewOpen && !runnerActive && savedPosition && (
+            <button
+              type="button"
+              className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
+              onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
+            >
+              {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"} Lesson{" "}
+              {savedPosition.lesson} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
+            </button>
+          )}
           {!reviewOpen && !runnerActive && (
             <div className="mt-4">
               <button
@@ -1875,7 +2041,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 <ul className="mt-2 space-y-1">
                   {curriculum.lessons.map((l) => {
                     const entry = core30Log?.lessons?.[String(l.n)];
-                    const opened = Object.keys(entry?.visits ?? {}).length;
+                    const opened = openedWayCount(entry);
+                    const priorSteps = Object.keys(entry?.visits ?? {}).filter((key) =>
+                      /^\d+$/.test(key),
+                    ).length;
                     const mastered = masteredSet.has(l.n);
                     return (
                       <li key={l.n}>
@@ -1904,8 +2073,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                             {entry?.needsPractice
                               ? "needs practice"
                               : opened > 0
-                                ? `${opened}/${l.steps.length} opened`
-                                : ""}
+                                ? `${opened}/6 ways opened`
+                                : priorSteps > 0
+                                  ? `${priorSteps} prior steps opened`
+                                  : ""}
                           </span>
                         </button>
                       </li>
@@ -1914,6 +2085,88 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 </ul>
               )}
             </div>
+          )}
+
+          {!reviewOpen && (
+            <Suspense fallback={null}>
+              <DailyLessonPlan
+                moduleId={moduleId}
+                target={state.selectedLanguage}
+                native={state.nativeLanguage}
+                lessonNumber={openLesson?.n}
+                lessonWay={initialWay}
+                activePlanId={activeAssessmentPlan}
+                onPlanTiming={setApprovedPlanTiming}
+              />
+            </Suspense>
+          )}
+
+          {/* Planning and progress follow the lesson actions on every screen size. */}
+          {/* 90-day plan: start date, today's lesson, review cadence */}
+          {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
+            <p role="status" className="my-4 text-sm">
+              This plan’s schedule is not available. Your lesson list remains available.
+            </p>
+          )}
+          {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
+            <Core30PlanCard
+              enrollmentId={activeAssessmentPlan}
+              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+              managedPlanUrl={
+                activeAssessmentPlan
+                  ? examsLocation({
+                      moduleId,
+                      target: state.selectedLanguage,
+                      native: state.nativeLanguage,
+                      orgId: approvedPlanTiming.organizationId,
+                      returnPlanId: activeAssessmentPlan,
+                    })
+                  : undefined
+              }
+              moduleId={moduleId}
+              totalLessons={totalLessons}
+              onOpenLesson={openLessonFromPlan}
+              onStartReview={() => {
+                setOpenLessonN(null);
+                setReviewOpen(true);
+              }}
+            />
+          )}
+
+          {!runnerActive && <LegacyCore30History moduleId={moduleId} context={progressContext} />}
+
+          {/* Progress bar */}
+          {!runnerActive && (
+            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
+                  {completedCount} / {totalLessons} lessons complete
+                </span>
+                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${progressPct}%`,
+                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
+                  }}
+                />
+              </div>
+              {allDone && (
+                <p className="mt-2 text-xs text-gold text-center">
+                  🎉 Curriculum complete! You are past the threshold.
+                </p>
+              )}
+            </div>
+          )}
+
+          {!reviewOpen && !runnerActive && downloadPackId && (
+            <OfflineLessonDownload
+              key={`${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              packId={downloadPackId}
+            />
           )}
 
           {/* Completed lessons list (collapsed) */}
@@ -1941,12 +2194,17 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
 /** Standalone Core 30 tab. Without a module that has a Core 30, it points to Modules. */
 export function Core30Tab() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {hasCore30 ? (
-        <Core30Section restoreView />
+        <Core30Section
+          key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          restoreView
+        />
       ) : (
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>

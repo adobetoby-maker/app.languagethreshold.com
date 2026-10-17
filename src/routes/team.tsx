@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -18,7 +18,13 @@ import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-prici
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import type { Core30Log } from "@/lib/core30-plan";
-import { describeCore30, type Core30Display } from "@/lib/team-core30";
+import { describeCore30, type Core30Display, type Core30TrackDisplay } from "@/lib/team-core30";
+
+const TeamExamsPanel = lazy(() =>
+  import("@/components/exams/TeamExamsPanel").then((module) => ({
+    default: module.TeamExamsPanel,
+  })),
+);
 
 export const Route = createFileRoute("/team")({
   component: () => (
@@ -92,6 +98,7 @@ type TeamData = {
   certificates: Certificate[];
   /** Per-user Core 30 log; absent on older servers. */
   core30?: Record<string, Core30Log>;
+  core30Tracks?: Record<string, Core30TrackDisplay[]>;
 };
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
 type InviteLink = { id: string; name: string; email: string; url: string };
@@ -261,6 +268,11 @@ function TeamPage() {
           <Link to="/" className={secondary}>
             ← Learning app
           </Link>
+          {data && (
+            <a href={`/exams?org=${encodeURIComponent(data.organization.id)}`} className={button}>
+              Exams and assessment progress
+            </a>
+          )}
           {data && (data.role === "owner" || data.role === "admin") && (
             <Link to="/module-request" className={secondary}>
               Custom module request · $20
@@ -350,6 +362,11 @@ function TeamPage() {
             </button>
           </form>
         </section>
+      )}
+      {data && (
+        <Suspense fallback={<p role="status">Loading assessment tools…</p>}>
+          <TeamExamsPanel key={data.organization.id} orgId={data.organization.id} />
+        </Suspense>
       )}
       {data &&
         (data.role === "owner" || data.role === "admin" ? (
@@ -586,8 +603,9 @@ function AdminWorkspace({
         "Active minutes (7d)",
         "Active minutes (30d)",
         "Lessons",
-        "Core 30 mastered",
-        "Core 30 status",
+        "Earlier unlabeled Core 30 currently mastered",
+        "Earlier unlabeled Core 30 status",
+        "Team plan Core 30 progress",
         "Best test",
         "Certificate",
       ],
@@ -625,12 +643,20 @@ function AdminWorkspace({
         rows.push([
           member.display_name,
           member.status,
-          getModule(assignment.module_id)?.name ?? assignment.module_id,
+          getModule(assignment.module_id)?.name ??
+            (assignment.module_id === "core" ? "General language" : assignment.module_id),
           String(Math.round(secs7 / 60)),
           String(Math.round(secs / 60)),
           String(lessons),
           `${core.mastered}/${core.total}`,
           core.statusLabel,
+          (data.core30Tracks?.[member.user_id] ?? [])
+            .filter((track) => track.moduleId === assignment.module_id)
+            .map(
+              (track) =>
+                `${track.instructionLanguage} → ${track.targetLanguage}; ${track.startDate ?? ""}; ${track.mastered}/${track.total} currently self-marked mastered; ${track.opened} opened; ${track.statusLabel}`,
+            )
+            .join(" | "),
           best ? `${best}/25` : "",
           cert?.id ?? "",
         ]);
@@ -649,7 +675,7 @@ function AdminWorkspace({
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
         {[
           ["Learner seats", data.entitlement.seat_limit],
           ["Assigned", activeLearners.length],
@@ -733,11 +759,151 @@ function AdminWorkspace({
           </div>
         </section>
       )}
+      <section className={card}>
+        <div className="mb-4 flex flex-wrap justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-semibold">Learner progress</h2>
+            <p className="text-sm text-muted-foreground">
+              {active30} learners practiced in the last 30 days. Active minutes are app usage, not
+              work hours or a proficiency score.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button className={secondary} onClick={csv}>
+              <FileDown className="mr-1 inline h-4 w-4" /> Export CSV
+            </button>
+            <button
+              className={secondary}
+              onClick={() => {
+                setTourStep(1);
+                setShowTour(true);
+              }}
+            >
+              Admin walkthrough
+            </button>
+            <button
+              className={secondary}
+              onClick={() => void copyText(adminSummary(), "Admin summary copied.")}
+            >
+              Copy admin summary
+            </button>
+            {data.emailEnabled && (
+              <button
+                disabled={busy}
+                className={secondary}
+                onClick={() =>
+                  void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
+                }
+              >
+                <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
+              </button>
+            )}
+          </div>
+        </div>
+        <p className="mb-4 text-sm text-muted-foreground">
+          Core 30 team plans show progress for their own language pair. Independent practice stays
+          private; earlier records have no language or plan label. Recorded lessons track qualifying
+          practice. Core 30 mastery is the learner’s own assessment; opening a step does not
+          demonstrate mastery. The certificate test is a separate result.
+        </p>
+        <div className="space-y-4 lg:hidden">
+          {activeLearners.map((member) => (
+            <article key={member.id} className="rounded-xl border border-border p-4">
+              <h3 className="mb-3 font-semibold">{member.display_name}</h3>
+              {memberModules(data, member.user_id).map((assignment) => (
+                <EmployeeRow
+                  key={assignment.id}
+                  member={member}
+                  assignment={assignment}
+                  data={data}
+                  busy={busy}
+                  act={act}
+                  orgId={orgId}
+                  asCard
+                />
+              ))}
+              {!memberModules(data, member.user_id).length && (
+                <p className="mb-3 text-sm text-muted-foreground">No module assigned.</p>
+              )}
+              <AssignModule
+                member={member}
+                orgId={orgId}
+                busy={busy}
+                act={act}
+                assignments={data.assignments}
+              />
+              <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
+            </article>
+          ))}
+        </div>
+        {!activeLearners.length && (
+          <p className="py-4 text-sm text-muted-foreground">
+            No active learners yet. Invite a learner below to get started.
+          </p>
+        )}
+        <div className="hidden overflow-x-auto lg:block">
+          <table className="w-full min-w-[900px] text-left text-sm">
+            <thead className="border-b border-border text-xs uppercase text-muted-foreground">
+              <tr>
+                {[
+                  "Employee",
+                  "Module",
+                  "Practice · 7d",
+                  "Practice · 30d",
+                  "Recorded lessons",
+                  "Self-reported Core 30",
+                  "Best certificate test",
+                  "Certificate",
+                  "Action",
+                ].map((h) => (
+                  <th key={h} className="p-2">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {activeLearners.map((member) => {
+                const memberAssignments = memberModules(data, member.user_id);
+                return memberAssignments.length ? (
+                  memberAssignments.map((a) => (
+                    <EmployeeRow
+                      key={a.id}
+                      member={member}
+                      assignment={a}
+                      data={data}
+                      busy={busy}
+                      act={act}
+                      orgId={orgId}
+                    />
+                  ))
+                ) : (
+                  <tr key={member.id} className="border-b border-border/40">
+                    <td className="p-2">{member.display_name}</td>
+                    <td className="p-2 text-muted-foreground" colSpan={7}>
+                      No module assigned
+                    </td>
+                    <td className="p-2">
+                      <AssignModule
+                        member={member}
+                        orgId={orgId}
+                        busy={busy}
+                        act={act}
+                        assignments={data.assignments}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className={card}>
-          <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
-            <CreditCard className="h-5 w-5 text-gold-ink dark:text-gold" /> Team billing
-          </h2>
+        <details className={card}>
+          <summary className="mb-2 cursor-pointer text-xl font-semibold">
+            <CreditCard className="mr-2 inline h-5 w-5 text-gold-ink dark:text-gold" /> Team billing
+          </summary>
           <p className="mb-4 text-sm text-muted-foreground">
             {data.entitlement.status} {data.entitlement.term ? `· ${data.entitlement.term}` : ""}{" "}
             {data.entitlement.period_end
@@ -866,11 +1032,12 @@ function AdminWorkspace({
               )}
             </div>
           )}
-        </section>
-        <section className={card}>
-          <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold">
-            <Users className="h-5 w-5 text-gold-ink dark:text-gold" /> Invite and assign a seat
-          </h2>
+        </details>
+        <details className={card}>
+          <summary className="mb-2 cursor-pointer text-xl font-semibold">
+            <Users className="mr-2 inline h-5 w-5 text-gold-ink dark:text-gold" /> Invite and assign
+            a seat
+          </summary>
           <p className="mb-4 text-sm text-muted-foreground">
             One learner invitation reserves one seat and assigns the first module. Admin-only
             invitations do not use learner seats. Manual links expire in seven days and work only
@@ -1046,101 +1213,8 @@ function AdminWorkspace({
               </div>
             </div>
           )}
-        </section>
+        </details>
       </div>
-      <section className={card}>
-        <div className="mb-4 flex flex-wrap justify-between gap-3">
-          <div>
-            <h2 className="text-xl font-semibold">Employees and module progress</h2>
-            <p className="text-sm text-muted-foreground">
-              {active30} learners practiced in the last 30 days. Active minutes are app usage, not
-              work hours or a proficiency score.
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <button className={secondary} onClick={csv}>
-              <FileDown className="mr-1 inline h-4 w-4" /> Export CSV
-            </button>
-            <button
-              className={secondary}
-              onClick={() => {
-                setTourStep(1);
-                setShowTour(true);
-              }}
-            >
-              Admin walkthrough
-            </button>
-            <button
-              className={secondary}
-              onClick={() => void copyText(adminSummary(), "Admin summary copied.")}
-            >
-              Copy admin summary
-            </button>
-            {data.emailEnabled && (
-              <button
-                disabled={busy}
-                className={secondary}
-                onClick={() =>
-                  void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
-                }
-              >
-                <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
-              </button>
-            )}
-          </div>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[900px] text-left text-sm">
-            <thead className="border-b border-border text-xs uppercase text-muted-foreground">
-              <tr>
-                {[
-                  "Employee",
-                  "Module",
-                  "Practice · 7d",
-                  "Practice · 30d",
-                  "Lessons",
-                  "Core 30",
-                  "Best test",
-                  "Certificate",
-                  "Action",
-                ].map((h) => (
-                  <th key={h} className="p-2">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {activeLearners.map((member) => {
-                const memberAssignments = memberModules(data, member.user_id);
-                return memberAssignments.length ? (
-                  memberAssignments.map((a) => (
-                    <EmployeeRow
-                      key={a.id}
-                      member={member}
-                      assignment={a}
-                      data={data}
-                      busy={busy}
-                      act={act}
-                      orgId={orgId}
-                    />
-                  ))
-                ) : (
-                  <tr key={member.id} className="border-b border-border/40">
-                    <td className="p-2">{member.display_name}</td>
-                    <td className="p-2 text-muted-foreground" colSpan={7}>
-                      No module assigned
-                    </td>
-                    <td className="p-2">
-                      <AssignModule member={member} orgId={orgId} busy={busy} act={act} />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </section>
       <section className={card}>
         <h2 className="mb-3 text-xl font-semibold">Pending invitations ({pending.length})</h2>
         {pending.length === 0 ? (
@@ -1266,11 +1340,53 @@ const CORE30_CHIP: Record<Core30Display["status"], string> = {
   "not-started": "bg-muted text-muted-foreground",
 };
 
-function Core30Cell({ core }: { core: Core30Display }) {
+function Core30Cell({
+  core,
+  tracks = [],
+  showLinks = false,
+}: {
+  core: Core30Display;
+  tracks?: Core30TrackDisplay[];
+  showLinks?: boolean;
+}) {
+  const showLegacy =
+    !tracks.length || core.mastered > 0 || core.opened > 0 || core.status !== "not-started";
+  return (
+    <div className="space-y-3">
+      {tracks.map((track) => (
+        <div key={track.enrollmentId} className="space-y-1">
+          <p className="text-xs font-medium break-words">
+            {track.instructionLanguage} → {track.targetLanguage} · Team plan
+            {track.startDate ? ` · ${track.startDate}` : ""}
+          </p>
+          <Core30Summary core={track} />
+          {showLinks && (
+            <a
+              className="text-xs underline"
+              href={`/?${new URLSearchParams({ module: track.moduleId, tab: "core30", target: track.targetLanguage, native: track.instructionLanguage, plan: track.enrollmentId })}`}
+            >
+              Open this lesson plan
+            </a>
+          )}
+        </div>
+      ))}
+      {showLegacy && (
+        <div>
+          <p className="text-xs text-muted-foreground">
+            Earlier record · language and plan not recorded
+          </p>
+          <Core30Summary core={core} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Core30Summary({ core }: { core: Core30Display }) {
   return (
     <div className="space-y-1">
       <div>
-        {core.mastered}/{core.total} mastered · {core.opened} opened
+        {core.mastered}/{core.total} currently mastered · {core.opened} opened
       </div>
       <span
         className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${CORE30_CHIP[core.status]}`}
@@ -1296,10 +1412,12 @@ function EmployeeRow({
   busy,
   act,
   orgId,
+  asCard = false,
 }: {
   member: Member;
   assignment: Assignment;
   data: TeamData;
+  asCard?: boolean;
   busy: boolean;
   act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
   orgId: string;
@@ -1313,21 +1431,84 @@ function EmployeeRow({
   const lessons = data.lessons.filter(
     (l) => l.user_id === member.user_id && l.module_id === assignment.module_id,
   ).length;
-  const best = Math.max(
-    0,
-    ...data.attempts
-      .filter((a) => a.user_id === member.user_id && a.module_id === assignment.module_id)
-      .map((a) => a.score ?? 0),
+  const attempts = data.attempts.filter(
+    (a) => a.user_id === member.user_id && a.module_id === assignment.module_id,
   );
+  const bestAttempt = attempts.reduce<Attempt | undefined>(
+    (best, attempt) =>
+      attempt.score !== null &&
+      (!best || attempt.score / attempt.total > (best.score ?? 0) / best.total)
+        ? attempt
+        : best,
+    undefined,
+  );
+  const testResult = bestAttempt ? `${bestAttempt.score}/${bestAttempt.total}` : "Not taken";
   const cert = data.certificates.find(
     (c) =>
       c.user_id === member.user_id && c.module_id === assignment.module_id && c.status === "issued",
   );
+  if (asCard)
+    return (
+      <div className="mb-4 space-y-3 rounded-lg bg-muted/30 p-3 text-sm">
+        <h4 className="font-medium">
+          {getModule(assignment.module_id)?.name ??
+            (assignment.module_id === "core" ? "General language" : assignment.module_id)}
+        </h4>
+        <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
+          core={describeCore30(
+            data.core30,
+            member.user_id,
+            assignment.module_id,
+            core30Total(assignment.module_id),
+          )}
+        />
+        <dl className="grid grid-cols-2 gap-3">
+          <div>
+            <dt className="text-xs text-muted-foreground">Recorded lessons</dt>
+            <dd>
+              {lessons}/{core30Total(assignment.module_id)}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">Certificate test</dt>
+            <dd>{testResult}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">Practice · 7 days</dt>
+            <dd>{minutes(seconds7)}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">Practice · 30 days</dt>
+            <dd>{minutes(seconds)}</dd>
+          </div>
+        </dl>
+        {assignment.require_certificate && (
+          <p className="text-xs text-gold-ink dark:text-gold">Certificate required</p>
+        )}
+        {cert && (
+          <a className="block underline" href={`/certificate?id=${cert.id}`}>
+            View certificate
+          </a>
+        )}
+        <AssignModule
+          member={member}
+          orgId={orgId}
+          busy={busy}
+          act={act}
+          assignments={data.assignments}
+          initialAssignment={assignment}
+        />
+      </div>
+    );
   return (
     <tr className="border-b border-border/40">
       <td className="p-2">{member.display_name}</td>
       <td className="p-2">
-        {getModule(assignment.module_id)?.name ?? assignment.module_id}
+        {getModule(assignment.module_id)?.name ??
+          (assignment.module_id === "core" ? "General language" : assignment.module_id)}
         {assignment.require_certificate && (
           <span className="ml-1 text-xs text-gold-ink dark:text-gold">· test required</span>
         )}
@@ -1340,6 +1521,9 @@ function EmployeeRow({
       </td>
       <td className="p-2">
         <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
           core={describeCore30(
             data.core30,
             member.user_id,
@@ -1348,7 +1532,7 @@ function EmployeeRow({
           )}
         />
       </td>
-      <td className="p-2">{best ? `${best}/25` : "—"}</td>
+      <td className="p-2">{testResult}</td>
       <td className="p-2">
         {cert ? (
           <a className="text-gold-ink dark:text-gold underline" href={`/certificate?id=${cert.id}`}>
@@ -1359,27 +1543,21 @@ function EmployeeRow({
         )}
       </td>
       <td className="p-2">
-        <AssignModule member={member} orgId={orgId} busy={busy} act={act} />
-        <button
-          disabled={busy}
-          className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
-          onClick={() => {
-            if (
-              window.confirm(
-                `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
-              )
-            )
-              void act({ action: "revoke", orgId, memberId: member.id }, "Seat released.");
-          }}
-        >
-          Release seat
-        </button>
+        <AssignModule
+          member={member}
+          orgId={orgId}
+          busy={busy}
+          act={act}
+          assignments={data.assignments}
+          initialAssignment={assignment}
+        />
+        <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
       </td>
     </tr>
   );
 }
 
-function AssignModule({
+function ReleaseSeat({
   member,
   orgId,
   busy,
@@ -1390,17 +1568,61 @@ function AssignModule({
   busy: boolean;
   act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
 }) {
+  return (
+    <button
+      disabled={busy}
+      className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
+      onClick={() => {
+        if (
+          window.confirm(
+            `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
+          )
+        )
+          void act({ action: "revoke", orgId, memberId: member.id }, "Seat released.");
+      }}
+    >
+      Release seat
+    </button>
+  );
+}
+
+function AssignModule({
+  member,
+  orgId,
+  busy,
+  act,
+  assignments,
+  initialAssignment,
+}: {
+  member: Member;
+  assignments: Assignment[];
+  initialAssignment?: Assignment;
+  orgId: string;
+  busy: boolean;
+  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+}) {
+  const editableAssignment =
+    initialAssignment && getModule(initialAssignment.module_id) ? initialAssignment : undefined;
   const [open, setOpen] = useState(false);
-  const [moduleId, setModuleId] = useState("roofing");
-  const [requireCertificate, setRequireCertificate] = useState(false);
+  const [moduleId, setModuleId] = useState(editableAssignment?.module_id ?? "roofing");
+  const [requireCertificate, setRequireCertificate] = useState(
+    editableAssignment?.require_certificate ?? false,
+  );
+  const selectedAssignment = assignments.find(
+    (assignment) => assignment.user_id === member.user_id && assignment.module_id === moduleId,
+  );
   return open ? (
     <div className="flex min-w-48 flex-col gap-2">
       <select
+        aria-label={`Module for ${member.display_name}`}
         className={input}
         value={moduleId}
         onChange={(e) => {
           setModuleId(e.target.value);
-          if (e.target.value !== "roofing") setRequireCertificate(false);
+          const existing = assignments.find(
+            (a) => a.user_id === member.user_id && a.module_id === e.target.value,
+          );
+          setRequireCertificate(existing?.require_certificate ?? false);
         }}
       >
         {MODULES.map((m) => (
@@ -1423,21 +1645,42 @@ function AssignModule({
         className={button}
         onClick={() =>
           void act(
-            { action: "assign", orgId, memberId: member.id, moduleId, requireCertificate },
-            "Module assigned and employee notified.",
+            {
+              action: "assign",
+              orgId,
+              memberId: member.id,
+              moduleId,
+              requireCertificate,
+              dueAt: selectedAssignment?.due_at
+                ? new Date(selectedAssignment.due_at).toISOString()
+                : null,
+            },
+            "Assignment saved.",
             () => setOpen(false),
           )
         }
       >
-        Save
+        {assignments.some((a) => a.user_id === member.user_id && a.module_id === moduleId)
+          ? "Save assignment"
+          : "Assign module"}
+      </button>
+      <button disabled={busy} className={secondary} onClick={() => setOpen(false)}>
+        Cancel
       </button>
     </div>
   ) : (
     <button
       className="text-xs text-gold-ink dark:text-gold underline"
-      onClick={() => setOpen(true)}
+      onClick={() => {
+        const selected =
+          editableAssignment ??
+          assignments.find((a) => a.user_id === member.user_id && a.module_id === "roofing");
+        setModuleId(selected?.module_id ?? "roofing");
+        setRequireCertificate(selected?.require_certificate ?? false);
+        setOpen(true);
+      }}
     >
-      Assign module
+      {editableAssignment ? "Edit assignment" : "Assign module"}
     </button>
   );
 }
@@ -1472,23 +1715,23 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               {a.module_id === "roofing" ? "/30" : ""} lessons recorded
             </p>
             {user?.id && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                Core 30:{" "}
-                {(() => {
-                  const core = describeCore30(
-                    data.core30,
-                    user.id,
-                    a.module_id,
-                    core30Total(a.module_id),
-                  );
-                  return `${core.mastered}/${core.total} mastered · ${core.statusLabel}`;
-                })()}
-              </p>
+              <div className="mt-2 text-sm">
+                <Core30Cell
+                  showLinks
+                  tracks={data.core30Tracks?.[user.id]?.filter(
+                    (track) => track.moduleId === a.module_id,
+                  )}
+                  core={describeCore30(data.core30, user.id, a.module_id, core30Total(a.module_id))}
+                />
+              </div>
             )}
             <div className="mt-4 flex flex-wrap gap-2">
+              <a href={`/?module=${encodeURIComponent(a.module_id)}&tab=core30`} className={button}>
+                Open {getModule(a.module_id)?.name ?? "assigned module"} lesson plan
+              </a>
               <a
                 href={`/?module=${encodeURIComponent(a.module_id)}&tab=flashcards`}
-                className={button}
+                className={secondary}
               >
                 Study {getModule(a.module_id)?.name ?? "assigned module"} cards
               </a>

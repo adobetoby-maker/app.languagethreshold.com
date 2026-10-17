@@ -1,0 +1,18 @@
+{
+  "testedAt": "2026-10-16T23:11:45.655Z",
+  "sourceCommit": "67e9931",
+  "scope": "Hosted existing dedicated QA accounts, synthetic books only, real RLS/idempotency calls; lost acknowledgement is explicit fault injection",
+  "checks": {
+    "realInsertWithInjectedLostAcknowledgementRetainsQueue": true,
+    "stableUuidRetryProducesExactlyOneOwnedRow": true,
+    "otherLearnerCannotReadText": true,
+    "otherLearnerCannotDeleteText": true,
+    "rlsRejectsCrossAccountInsert": true,
+    "staleIdentityRejectedBeforeQuery": true,
+    "olderBookExplicitlyConfirmedIntoDurableQueue": true,
+    "recoveredChaptersPersistOnceInRealOwnedCloud": true,
+    "otherLearnerCannotReadRecoveredBook": true,
+    "originalLegacyBytesUntouched": true,
+    "syntheticRowsCleaned": true
+  }
+}

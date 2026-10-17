@@ -42,6 +42,7 @@ interface BattleArenaProps {
   opponentTier: RankTier;
   language: Language;
   onComplete: (result: BattleResult) => void;
+  onExit: () => void;
 }
 
 export interface ReviewedWord {
@@ -92,6 +93,7 @@ export function BattleArena({
   opponentTier,
   language,
   onComplete,
+  onExit,
 }: BattleArenaProps) {
   const { dispatch } = useApp();
   const [round, setRound] = useState(1);
@@ -129,6 +131,8 @@ export function BattleArena({
   const completedRef = useRef(false);
   const loadGenRef = useRef(0);
   const mountedRef = useRef(true);
+  // A timer can outlive the render that started it. Resolve against the committed round.
+  const lockInRef = useRef<(idx: number | null, fromTimeout?: boolean) => void>(() => {});
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => window.clearTimeout(t));
@@ -157,6 +161,32 @@ export function BattleArena({
 
   const cefr = cefrForRound(round);
   const totalMs = timerForRound(round) * 1000;
+
+  const startClock = useCallback(
+    (ms: number) => {
+      clearTimers();
+      remainingMsRef.current = ms;
+      startTsRef.current = performance.now();
+      setTimerPct(100);
+      setSecondsLeft(Math.ceil(ms / 1000));
+      tickRef.current = window.setInterval(() => {
+        const elapsed = performance.now() - startTsRef.current;
+        const left = Math.max(0, ms - elapsed);
+        remainingMsRef.current = left;
+        setTimerPct((left / ms) * 100);
+        setSecondsLeft(Math.ceil(left / 1000));
+        if (left <= 0) {
+          if (tickRef.current) {
+            window.clearInterval(tickRef.current);
+            tickRef.current = null;
+          }
+          // timeout: treat as no-pick
+          lockInRef.current(null, true);
+        }
+      }, 80);
+    },
+    [clearTimers],
+  );
 
   /** Fetch the next word for the current round. */
   const loadRound = useCallback(async () => {
@@ -201,7 +231,7 @@ export function BattleArena({
     setData(rd);
     setPhase("playing");
     startClock(totalMs);
-  }, [language, round, cefr, totalMs]);
+  }, [language, round, cefr, totalMs, startClock]);
 
   useEffect(() => {
     void loadRound();
@@ -209,29 +239,6 @@ export function BattleArena({
     // derive from `round`). We intentionally only rerun when `round` changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [round]);
-
-  const startClock = (ms: number) => {
-    clearTimers();
-    remainingMsRef.current = ms;
-    startTsRef.current = performance.now();
-    setTimerPct(100);
-    setSecondsLeft(Math.ceil(ms / 1000));
-    tickRef.current = window.setInterval(() => {
-      const elapsed = performance.now() - startTsRef.current;
-      const left = Math.max(0, ms - elapsed);
-      remainingMsRef.current = left;
-      setTimerPct((left / ms) * 100);
-      setSecondsLeft(Math.ceil(left / 1000));
-      if (left <= 0) {
-        if (tickRef.current) {
-          window.clearInterval(tickRef.current);
-          tickRef.current = null;
-        }
-        // timeout: treat as no-pick
-        handleLockIn(null, true);
-      }
-    }, 80);
-  };
 
   const stopClock = () => {
     if (tickRef.current) {
@@ -268,6 +275,10 @@ export function BattleArena({
     }, opponentDelay);
     timersRef.current.push(t);
   };
+
+  useEffect(() => {
+    lockInRef.current = handleLockIn;
+  });
 
   const revealRound = (pIdx: number | null) => {
     if (!data) return;
@@ -394,6 +405,20 @@ export function BattleArena({
     >
       {/* Top bar */}
       <div className="relative px-6 pt-6">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <p className="text-xs text-white/70">Practice match · Simulated opponent</p>
+          <button
+            type="button"
+            onClick={() => {
+              completedRef.current = true;
+              clearTimers();
+              onExit();
+            }}
+            className="min-h-11 shrink-0 rounded-lg border border-white/20 px-3 text-xs text-white/80"
+          >
+            Exit practice
+          </button>
+        </div>
         <div className="flex items-center justify-between gap-6">
           <PlayerStrip name={playerName} tier={playerTier} wins={playerWins} side="left" />
           <div className="text-center">

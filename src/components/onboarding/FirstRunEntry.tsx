@@ -1,3 +1,4 @@
+import { LearningEntryModal } from "./LearningEntryModal";
 import { useEffect, useState } from "react";
 import {
   ArrowRight,
@@ -10,7 +11,7 @@ import {
 import { useApp } from "@/state/app-state";
 import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
 import { requestCoreSpeakingEntry } from "@/lib/speaking-navigation";
-import { getModule } from "@/data/modules";
+import { directLearningEntry } from "@/lib/direct-learning-entry";
 
 export function FirstRunEntry() {
   const { state, dispatch } = useApp();
@@ -18,21 +19,20 @@ export function FirstRunEntry() {
   // so selectedLanguage stayed on its "Spanish" default and "Start reading"
   // could open the wrong language entirely. DUO-002 P0-4.
   const [languageChosen, setLanguageChosen] = useState(() => hasChosenLanguage());
-  const directModuleCards = (() => {
-    if (typeof window === "undefined") return false;
-    const params = new URLSearchParams(window.location.search);
-    const linkedModule = getModule(params.get("module"));
-    return params.get("tab") === "flashcards" && Boolean(linkedModule) &&
-      (linkedModule?.learnDirection !== "en-target" || state.nativeLanguage !== "English");
-  })();
+  const directModuleEntry =
+    typeof window !== "undefined"
+      ? directLearningEntry(window.location.search, state.nativeLanguage)
+      : null;
+
+  const hasDirectEntry = Boolean(directModuleEntry);
 
   useEffect(() => {
-    if (state.hydrated && !state.onboardingComplete && directModuleCards) {
+    if (state.hydrated && !state.onboardingComplete && hasDirectEntry) {
       dispatch({ type: "COMPLETE_ONBOARDING" });
     }
-  }, [state.hydrated, state.onboardingComplete, directModuleCards, dispatch]);
+  }, [state.hydrated, state.onboardingComplete, hasDirectEntry, dispatch]);
 
-  if (!state.hydrated || state.onboardingComplete || directModuleCards) return null;
+  if (!state.hydrated || state.onboardingComplete || hasDirectEntry) return null;
 
   if (!languageChosen) {
     return <LanguageFirstStep onChosen={() => setLanguageChosen(true)} />;
@@ -51,7 +51,11 @@ export function FirstRunEntry() {
   }
 
   return (
-    <div className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background">
+    <LearningEntryModal
+      title="Start learning"
+      description="Choose reading, speaking or the app guide to enter your learning space."
+      className="lt-safe-top-only fixed inset-0 z-[100] overflow-y-auto bg-background"
+    >
       <div className="mx-auto flex min-h-full w-full max-w-5xl items-center px-5 py-8 sm:px-8">
         <main className="grid w-full items-center gap-8 lg:grid-cols-[1.08fr_0.92fr]">
           <section>
@@ -169,6 +173,6 @@ export function FirstRunEntry() {
           </section>
         </main>
       </div>
-    </div>
+    </LearningEntryModal>
   );
 }

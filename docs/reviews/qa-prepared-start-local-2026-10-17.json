@@ -1,0 +1,29 @@
+{
+  "localDatabase": "lt_exams_qa_20261015_codex",
+  "proposalOnly": true,
+  "noHostedWrites": true,
+  "syntheticFixturesOnly": true,
+  "checks": {
+    "legacyCalibrationTransitionGapReproduced": true,
+    "concurrentCalibrationDefinitionVersionAndReviewChangesRejectWithoutAttempt": true,
+    "startWinsContentEditWaitsAndFrozenRetryResumeSingleEvent": true,
+    "releaseReviewTransitionRejectsWithoutAttempt": true,
+    "newAndLegacyStartsSerializeWithoutDeadlock": true,
+    "foreignActorChangedPayloadAndBrowserRoleDenial": true,
+    "auditFailureRollsBackAndChangedFormRetryRejected": true,
+    "startWinsReleaseReviewEditWaits": true,
+    "currentPrivateKeyExposureStillDenied": true,
+    "currentUncalibratedAndFlatSourcesCannotUsePreparedAdaptiveRpc": true
+  },
+  "date": "2026-10-17",
+  "applicationUnchanged": "252311c020aac3a9ee843534646042f64e71c67c",
+  "proposal": "docs/assessments/proposals/prepared-start-rpc.sql",
+  "command": "node scripts/qa/test-prepared-start-db.mjs",
+  "baselineFixedRoutingAndRuntimeSqlPassed": true,
+  "databaseEmptyAfterCleanup": true,
+  "concurrencyUsesHeldTransactionsAndObservedLockWaits": true,
+  "runtimeCapabilityEnabled": false,
+  "hostedDdlApplied": false,
+  "applicationWiredToProposal": false,
+  "launchAccepted": false
+}

@@ -61,12 +61,15 @@ export function shuffle<T>(items: readonly T[], random: RandomFn = Math.random):
 /**
  * Split items into memory-match rounds. Up to 12 items play as one round;
  * more are spread as evenly as possible over rounds of at most 6 (13 -> 5,4,4,
- * never a lonely 1-pair round).
+ * never a lonely 1-pair round). Lessons may set a smaller round limit (3–12).
  */
-export function splitRounds<T>(items: readonly T[]): T[][] {
+export function splitRounds<T>(items: readonly T[], maxPairs?: number): T[][] {
+  if (maxPairs !== undefined && (!Number.isInteger(maxPairs) || maxPairs < 3 || maxPairs > 12)) {
+    throw new RangeError("A matching round limit must be between three and twelve pairs.");
+  }
   if (items.length === 0) return [];
-  if (items.length <= MAX_SINGLE_ROUND) return [[...items]];
-  const rounds = Math.ceil(items.length / MAX_ROUND_SIZE);
+  if (items.length <= (maxPairs ?? MAX_SINGLE_ROUND)) return [[...items]];
+  const rounds = Math.ceil(items.length / (maxPairs ?? MAX_ROUND_SIZE));
   const base = Math.floor(items.length / rounds);
   const extra = items.length % rounds;
   const out: T[][] = [];

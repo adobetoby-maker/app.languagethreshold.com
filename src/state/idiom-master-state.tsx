@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   useRef,
   type ReactNode,
 } from "react";
@@ -63,27 +65,16 @@ type Action =
   | { type: "ADVANCE" }
   | { type: "END_RUN" };
 
-const STORAGE_KEY = "lt.idiomMaster.leaderboard.v1";
 const RUN_LENGTH = 5;
 
-function loadLeaderboard(): Record<IMLeaderboardKey, IdiomMasterStats> {
-  if (typeof window === "undefined") return {} as Record<IMLeaderboardKey, IdiomMasterStats>;
+function loadLeaderboard(value: unknown): Record<IMLeaderboardKey, IdiomMasterStats> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     return raw
-      ? (JSON.parse(raw) as Record<IMLeaderboardKey, IdiomMasterStats>)
+      ? (raw as Record<IMLeaderboardKey, IdiomMasterStats>)
       : ({} as Record<IMLeaderboardKey, IdiomMasterStats>);
   } catch {
     return {} as Record<IMLeaderboardKey, IdiomMasterStats>;
-  }
-}
-
-function saveLeaderboard(lb: Record<IMLeaderboardKey, IdiomMasterStats>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lb));
-  } catch {
-    /* ignore quota */
   }
 }
 
@@ -94,7 +85,7 @@ function statsFor(
   return lb[key] ?? { ...EMPTY_STATS };
 }
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, leaderboard: action.payload };
@@ -154,7 +145,7 @@ function reducer(state: State, action: Action): State {
         totalAttempts: prev.totalAttempts + 1,
       };
       const newLb = { ...state.leaderboard, [key]: newStats };
-      saveLeaderboard(newLb);
+
       return { ...state, run: { ...state.run, questions: updated }, leaderboard: newLb };
     }
 
@@ -178,7 +169,6 @@ function reducer(state: State, action: Action): State {
           ...state.leaderboard,
           [key]: { ...prev, perfectRuns: prev.perfectRuns + 1 },
         };
-        saveLeaderboard(newLb);
       }
       return { ...state, run: null, leaderboard: newLb };
     }
@@ -213,6 +203,8 @@ interface IdiomMasterContextValue {
 const Ctx = createContext<IdiomMasterContextValue | null>(null);
 
 export function IdiomMasterProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("gameIdioms");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     leaderboard: {} as Record<IMLeaderboardKey, IdiomMasterStats>,
     run: null,
@@ -222,11 +214,13 @@ export function IdiomMasterProvider({ children }: { children: ReactNode }) {
 
   // Hydrate from localStorage once on mount.
   useEffect(() => {
-    const lb = loadLeaderboard();
-    if (Object.keys(lb).length) {
-      dispatch({ type: "HYDRATE", payload: lb });
-    }
-  }, []);
+    dispatch({ type: "HYDRATE", payload: loadLeaderboard(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.leaderboard);
+  }, [device, hydrated, state.leaderboard]);
 
   // The fetcher is provided by the component that owns useServerFn (server-fn
   // hooks must be called from React components, not from a state file).

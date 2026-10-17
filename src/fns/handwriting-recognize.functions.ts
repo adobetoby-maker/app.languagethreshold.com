@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 
 // No default. A missed call site must fail loudly rather than silently receive
 // Japanese-shaped treatment for a different script — see founder note in
@@ -103,6 +104,8 @@ export const recognizeHandwriting = createServerFn({ method: "POST" })
     async ({ data }): Promise<{ result: HandwritingResult | null; error: string | null }> => {
       const KEY = process.env.ANTHROPIC_API_KEY;
       if (!KEY) return { result: null, error: "AI is not configured" };
+      const budgetError = await learningGenerationError("handwriting");
+      if (budgetError) return { result: null, error: budgetError };
 
       const { system, userText, tool } =
         data.language === "Chinese"

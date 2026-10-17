@@ -1,0 +1,71 @@
+{
+  "sourceCommit": "8f9b159",
+  "preview": {
+    "url": "https://language-threshold-8elmf73go-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_6stmgXrkMFJyoVRLkGJd6hPFnQ6F",
+    "readyState": "READY",
+    "target": null,
+    "artifactMiB": 19.44
+  },
+  "scope": "Actual existing registered-owner sign-in, public lesson inspection, explicit draft freeze and reload; no private exam form opened. Pure/helper and production AuthProvider tests use an isolated mocked SDK.",
+  "checks": {
+    "tests": 594,
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "hostedAssessmentApiGroups": 15,
+    "focusedEntryHttpChecks": 9,
+    "normalOwnerEmailPreviewSignIn": true,
+    "ownerCatalogLoaded": true,
+    "actualPublicRoofingLessonsDisplayed": 30,
+    "ownerDraftFreezeSucceeded": true,
+    "snapshotReloadMatchesCurrentApp": true,
+    "repeatFreezeControlHidden": true,
+    "ownerRecoveryAfterFailedGoogleReturn": true,
+    "phoneWidth": 390,
+    "phoneScrollWidth": 390
+  },
+  "databaseVerification": {
+    "snapshotCount": 1,
+    "frozenLessonCount": 30,
+    "fingerprintMatchesManifest": true,
+    "fingerprintMatchesBytes": true,
+    "releaseStatus": "draft",
+    "lessonsReviewed": false,
+    "offlineVerified": false,
+    "contentDecisions": 0,
+    "verifiedForms": 0,
+    "ownerPrivateKeyExposures": 0
+  },
+  "google": {
+    "existingOwnerSignInWorksOnLive": true,
+    "liveOwnerDashboardLoaded": true,
+    "previewReturnBeforeFix": "https://app.languagethreshold.com/",
+    "previewReturnAfterDirectCallbackFix": "https://app.languagethreshold.com/",
+    "providerRedirectConfigurationChanged": false,
+    "actualAllowlistInspected": false,
+    "dashboardConfigurationReadStoppedAtPlatformSignIn": true,
+    "remaining": "Provider callback allowlist/Site URL needs inspection and an approved preview return configuration. This report does not claim successful preview Google OAuth."
+  },
+  "fixtures": {
+    "safeExamLessonModuleLanguageTeamAttemptContext": true,
+    "noArbitraryReturnOrCredentialPersistence": true,
+    "directCallbackAndExplicitLinkClearOldFallback": true,
+    "sdkOAuthAndConfirmationReceivePrivateDestination": true,
+    "providerErrorClearsFallbackAndShowsRetry": true,
+    "passwordSignInClearsAbandonedOAuthIntent": true,
+    "invitationKeepsOnlyAcceptanceToken": true
+  },
+  "captures": [
+    "/Users/drive/git-backups/language-threshold-owner-draft-snapshot-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-owner-frozen-lessons-phone-2026-10-16.png"
+  ],
+  "limits": [
+    "No reviewer role or platform-owner role was created or modified",
+    "The frozen material is an actual app draft, not a human review or approval",
+    "No exam keys were opened, answers submitted, scores created or certificates issued",
+    "Qualified reviewer acceptance, review/calibration and consented real learner pilots remain pending",
+    "No Google preview success claim; external redirect configuration remains open",
+    "Phone emulation is not physical Safari/audio acceptance"
+  ]
+}

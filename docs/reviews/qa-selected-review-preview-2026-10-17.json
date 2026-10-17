@@ -1,0 +1,60 @@
+{
+  "testedAt": "2026-10-17T17:03:28.733077+00:00",
+  "applicationCommit": "3ab3f7338dbb0920eb77018aff7f57d83f2f1e61",
+  "preview": "https://language-threshold-oqp8hblbc-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_F3Nrb8STZj6NvTcxL2f2iQVJo4vc",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "readyState": "READY",
+    "target": null
+  },
+  "localVerification": {
+    "tests": 896,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.71,
+    "privateBank": {
+      "testedAt": "2026-10-17T17:02:36.529Z",
+      "sourceCommit": "3ab3f73",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1189,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "controlledReviewChecks": {
+    "actualHumanPostAndAiPipeline": true,
+    "selectedAndFlatWritingPreserveFrozenRubricAndRetryIdentity": true,
+    "selfUnassignedForeignUnusedAndUnsubmittedDenied": true,
+    "missingCorruptRouteAndStorageFailuresBeforeReviewWrites": true,
+    "aiOwnershipCalibrationTypedInputBeforeClaimAuditProvider": true,
+    "selectedPromptRubricAndAnswerOnlyInProviderPayload": true,
+    "aiRemainsNeedsReviewProposalNeverFinalGrade": true,
+    "humanFinalScoreAndDuplicateClaimPreventProviderCall": true,
+    "authoritativeRubricRpcStillRejectsLateRevocation": true,
+    "qualifiedSelectedViewControlsAndRevokedReviewerDenied": true
+  },
+  "hostedGroups": {
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Adaptive preparation/start and submission remain gated; core-to-branch Continue/reconnect/resume UI and acceptance remain unfinished.",
+    "Positive adaptive review fixtures and verified/calibrated metadata are fictional local records with a stubbed SDK, never hosted approvals, scores or provider requests.",
+    "Hosted regression uses existing flat QA records. Genuine reviewed adaptive forms, independent reviewers, consented pilots and browser/physical acceptance remain required.",
+    "No browser actions, paid calls, hosted learner-response/score writes, DDL, role changes, active speech policy/collection or schedule changes.",
+    "Accepted companion/live aliases unchanged. All human/content/calibration/catalog/device/operational gates remain open; no main push or production promotion."
+  ]
+}

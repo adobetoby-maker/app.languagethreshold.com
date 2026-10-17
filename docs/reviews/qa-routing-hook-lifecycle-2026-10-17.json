@@ -1,0 +1,71 @@
+{
+  "testedAt": "2026-10-17T17:22:51.576482+00:00",
+  "kind": "test-only follow-up; application and deployment unchanged",
+  "applicationCommit": "921b43635fcdf1d5826072c6a73cc1c9a9056b21",
+  "preview": "https://language-threshold-74woq70dx-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_9h6ap1DUGQ38HXRHxzLMPF3cVNRj",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "readyState": "READY",
+    "target": null
+  },
+  "inheritedApplicationEvidence": {
+    "report": "docs/reviews/qa-routing-ui-preview-2026-10-17.json",
+    "observedAt": "2026-10-17T17:16:50.768543+00:00",
+    "typecheck": "pass on unchanged application source",
+    "artifactMiB": 19.72,
+    "hostedGroups": {
+      "authenticatedExams": 21,
+      "routingAndPrivateHeaders": 12,
+      "publicLessonPacks": 3,
+      "readOnlyScope": 7
+    },
+    "noNewBuildDeploymentOrHostedRunThisFollowup": true
+  },
+  "localVerification": {
+    "tests": 915,
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "privateBank": {
+      "testedAt": "2026-10-17T17:21:45.261Z",
+      "sourceCommit": "f968ad3",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1197,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "actualHookChecks": {
+    "productionHookCoordinatorAndOwnedDeviceStoresWithControlledReactAuthTransport": true,
+    "savesAcknowledgedBeforeRoutingWithSavedAnswerPreserved": true,
+    "sameMountedContinuationCoalescedAndUncertainCoreEditsBlocked": true,
+    "oldCoreEffectCannotOverwriteSelectedSnapshot": true,
+    "selectedBranchAndQueuedBranchAnswerRecoverOfflineAcrossRemount": true,
+    "otherOwnerCannotReadSnapshot": true,
+    "lostRepliesKeepSameRetryAndOnlineEventDoesNotRouteAutomatically": true,
+    "controlledExpiredSessionPreservesRetryThroughSameOwnerReauth": true,
+    "unmountAndActorChangeAbortBeforeLateReadOrAdoption": true,
+    "lateSaveCannotAcknowledgeOrRouteForChangedOwner": true,
+    "lateReadCannotReplaceRecoveryCopyAfterUnmount": true,
+    "concurrentCoreSaveRequiresExplicitConflictResolution": true,
+    "uncertainSaveReplayedWithOriginalIdentityBeforeRoute": true,
+    "quotaFailureUsesOwnedMemoryAndBeforeUnloadWarning": true,
+    "explicitAccountCleanupRemovesUncertainMemoryReceiptAndWarning": true,
+    "thirtySecondContinuationDeadlineAbortsAndKeepsRetryLocked": true
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Controlled React hook lifecycle and mocked auth/transport are not real browser event, SDK session expiry, physical phone or consented adaptive pilot proof.",
+    "No browser actions, provider calls, new deployment, hosted learner writes, schema/role/policy/speech/schedule changes.",
+    "Adaptive preparation/start and submission remain server-disabled. Guarded runtime integration and actual content/reviewer/pilot acceptance remain open.",
+    "Application remains921b436; accepted companion/live aliases retain their prior observed deployment identities. No current alias inspection was repeated during this test-only follow-up."
+  ]
+}

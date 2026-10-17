@@ -29,9 +29,20 @@ export interface EndMatchProps {
 }
 
 export function EndMatchScreen(props: EndMatchProps) {
-  if (props.outcome === "victory") return <VictoryScreen {...props} />;
-  if (props.outcome === "defeat") return <DefeatScreen {...props} />;
-  return <TieScreen {...props} />;
+  return (
+    <>
+      <p className="pointer-events-none absolute inset-x-4 top-4 z-50 text-center text-xs text-white/80">
+        Practice result · Simulated opponent · Not an exam score
+      </p>
+      {props.outcome === "victory" ? (
+        <VictoryScreen {...props} />
+      ) : props.outcome === "defeat" ? (
+        <DefeatScreen {...props} />
+      ) : (
+        <TieScreen {...props} />
+      )}
+    </>
+  );
 }
 
 /* ---------------- VICTORY ---------------- */
@@ -64,7 +75,8 @@ function VictoryScreen({
         </div>
 
         <div className="mt-6 font-display italic text-3xl text-emerald-300">
-          +<CountUp value={animated} duration={900} /> Ranked Points
+          {pointsDelta > 0 ? "+" : ""}
+          <CountUp value={animated} duration={900} /> Practice Points
         </div>
         <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">
           +25 XP
@@ -122,7 +134,7 @@ function DefeatScreen({
 
         <div className="mt-6 font-display italic text-3xl text-red-300">
           {pointsDelta < 0 ? "−" : ""}
-          <CountUp value={animated} duration={800} /> Ranked Points
+          <CountUp value={animated} duration={800} /> Practice Points
         </div>
         <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">
           +10 XP — effort always counts

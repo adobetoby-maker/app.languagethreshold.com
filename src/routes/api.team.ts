@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getModule } from "@/data/modules";
-import { extractCore30Log } from "@/lib/team-core30";
+import { studyPlanStart } from "@/lib/assessments/plan-timing";
+import { getCurriculum } from "@/data/curriculum";
+import { describeCore30Tracks, type Core30TrackDisplay, extractCore30Log } from "@/lib/team-core30";
 import {
   audit,
   authenticatedUser,
@@ -205,16 +207,72 @@ export const Route = createFileRoute("/api/team")({
               ]
             : [user.id];
           const core30: Record<string, ReturnType<typeof extractCore30Log>> = {};
+          const core30Tracks: Record<string, Core30TrackDisplay[]> = {};
           if (memberUserIds.length) {
-            const { data: profiles, error: profilesError } = await db
-              .from("profiles")
-              .select("id,data")
-              .in("id", memberUserIds);
-            if (profilesError) throw profilesError;
+            const [profileResult, trackResult] = await Promise.all([
+              db.from("profiles").select("id,data").in("id", memberUserIds),
+              db
+                .from("assessment_enrollments")
+                .select(
+                  "id,user_id,module_id,target_language,instruction_language,start_date,timezone,status,paused_on",
+                )
+                .eq("organization_id", orgId)
+                .eq("scope", "team")
+                .eq("program_scope", "full_module")
+                .in("user_id", memberUserIds),
+            ]);
+            if (profileResult.error) throw profileResult.error;
+            if (trackResult.error) throw trackResult.error;
+            const profiles = profileResult.data;
+            const scopedTracks = (trackResult.data ?? []).filter((track) =>
+              (assignments.data ?? []).some(
+                (assignment) =>
+                  assignment.user_id === track.user_id && assignment.module_id === track.module_id,
+              ),
+            );
+            const timedTracks = await Promise.all(
+              scopedTracks.map(async (track) => {
+                const history = await db
+                  .from("assessment_events")
+                  .select("created_at,detail")
+                  .eq("enrollment_id", track.id)
+                  .eq("action", "schedule.changed")
+                  .eq("detail->>change", "resume")
+                  .order("created_at")
+                  .limit(1000);
+                if (history.error || (history.data?.length ?? 0) >= 1000)
+                  throw new Error("Team plan pause history is unavailable.");
+                return {
+                  ...track,
+                  studyStartDate: studyPlanStart(
+                    track.start_date,
+                    track.timezone,
+                    history.data ?? [],
+                  ),
+                };
+              }),
+            );
             for (const profile of profiles ?? []) {
               if (!memberUserIds.includes(profile.id)) continue;
-              const log = extractCore30Log(profile.data);
+              // A team assignment grants visibility into that module only. Other personal
+              // study and modules assigned by another organization stay private.
+              const assignedModules = (assignments.data ?? [])
+                .filter((assignment) => assignment.user_id === profile.id)
+                .map((assignment) => assignment.module_id);
+              const log = extractCore30Log(profile.data, assignedModules);
               if (Object.keys(log).length) core30[profile.id] = log;
+              core30Tracks[profile.id] = describeCore30Tracks(
+                profile.data,
+                timedTracks
+                  .filter(
+                    (track) =>
+                      track.user_id === profile.id && assignedModules.includes(track.module_id),
+                  )
+                  .map((track) => ({
+                    ...track,
+                    lessonCount: getCurriculum(track.module_id)?.lessons.length ?? 30,
+                  })),
+              );
             }
           }
           for (const result of [
@@ -245,6 +303,7 @@ export const Route = createFileRoute("/api/team")({
             attempts: attempts.data ?? [],
             certificates: certificates.data ?? [],
             core30,
+            core30Tracks,
           });
         } catch (error) {
           return teamError(error);

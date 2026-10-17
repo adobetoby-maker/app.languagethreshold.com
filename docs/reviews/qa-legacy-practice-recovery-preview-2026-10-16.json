@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-10-16T16:36:10.082337+00:00",
+  "applicationCommit": "f0ab19f",
+  "target": "https://language-threshold-kxyj0y5oz-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_2SHECuKfDqNbhaJp9z2khDrGVBuX",
+  "phoneViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": {
+    "normalPhoneSignInFromMore": true,
+    "recoveryReachableFromPhoneAccountMenu": true,
+    "emptyRecoveryFitsPhone": true,
+    "leaveUntouchedReturnsToMore": true,
+    "qaQuickNoteSavedNormally": true,
+    "guestDoesNotSeeIndividualNote": true,
+    "secondLearnerDoesNotSeeIndividualNote": true,
+    "secondIdentityVerified": true,
+    "finalRoofingLessonOneSeeVisible": true,
+    "viewportRestored2258": true
+  },
+  "precedingPreview": {
+    "applicationCommit": "36d8285",
+    "target": "https://language-threshold-r119c01kq-adobetoby-5572s-projects.vercel.app",
+    "checks": {
+      "qaCardSavedViaAddWord": true,
+      "cardVisibleAfterOwnReload": true,
+      "guestPrivateCardNodes": 0,
+      "otherLearnerPrivateCardNodes": 0
+    }
+  },
+  "limitations": [
+    "Populated legacy recovery path covered by unit tests, not a browser import",
+    "Notes/Tutor/Speak all-store adapter isolation tested; this browser trial exercised Quick note and a custom card only",
+    "Unexpected reset confirmation from DOM automation was cancelled without confirming reset; native AX controls then passed",
+    "No new offline or physical iPhone/Safari/audio verification",
+    "No production promotion"
+  ],
+  "screenshot": "/Users/drive/git-backups/language-threshold-recovery-phone-2026-10-16.png"
+}

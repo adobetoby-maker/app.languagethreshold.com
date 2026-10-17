@@ -9,6 +9,7 @@ export interface MissionTtsCapabilities {
   speakingRates: number[];
 }
 
+let playbackGeneration = 0;
 let sharedAudio: HTMLAudioElement | null = null;
 let activeController: AbortController | null = null;
 let activeObjectUrl: string | null = null;
@@ -53,6 +54,7 @@ function releaseObjectUrl() {
 }
 
 export function stopMissionTts() {
+  playbackGeneration += 1;
   activeController?.abort();
   activeController = null;
   if (sharedAudio) {
@@ -97,6 +99,7 @@ export async function speakMissionTts({
   speakingRate,
   usage = "mission",
   onPlaybackStart,
+  signal,
 }: {
   text: string;
   voiceName: string;
@@ -104,52 +107,79 @@ export async function speakMissionTts({
   speakingRate: number;
   usage?: "learning" | "mission";
   onPlaybackStart?: () => void;
+  signal?: AbortSignal;
 }) {
+  if (signal?.aborted) throw new DOMException("The request was aborted.", "AbortError");
   stopMissionTts();
   const controller = new AbortController();
+  const generation = playbackGeneration;
   activeController = controller;
+  const current = () => generation === playbackGeneration && !controller.signal.aborted;
+  const checkCurrent = () => {
+    if (!current()) throw new DOMException("The request was aborted.", "AbortError");
+  };
 
-  const response = await fetch("/api/mission-tts", {
-    method: "POST",
-    headers: await speakingRequestHeaders(),
-    body: JSON.stringify({ text, voiceName, languageCode, speakingRate, usage }),
-    signal: controller.signal,
-  });
-  if (!response.ok) {
-    const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-    throw new Error(payload?.error ?? "Google voice generation failed.");
+  const abortOwnedPlayback = () => {
+    if (current()) stopMissionTts();
+  };
+  signal?.addEventListener("abort", abortOwnedPlayback, { once: true });
+  try {
+    const headers = await speakingRequestHeaders();
+    checkCurrent();
+
+    const response = await fetch("/api/mission-tts", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ text, voiceName, languageCode, speakingRate, usage }),
+      signal: controller.signal,
+    });
+    checkCurrent();
+    if (!response.ok) {
+      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+      checkCurrent();
+      throw new Error(payload?.error ?? "Google voice generation failed.");
+    }
+
+    const audio = audioElement();
+    const blob = await response.blob();
+    checkCurrent();
+    const renderedRate = Number(response.headers.get("X-TTS-Rendered-Rate") ?? speakingRate);
+    activeObjectUrl = URL.createObjectURL(blob);
+    audio.src = activeObjectUrl;
+    audio.playbackRate = renderedRate === speakingRate ? 1 : speakingRate;
+
+    await new Promise<void>((resolve, reject) => {
+      let settled = false;
+      const cleanup = () => {
+        if (!current()) return;
+        audio.onended = null;
+        audio.onerror = null;
+        finishActivePlayback = null;
+        releaseObjectUrl();
+      };
+      const finish = (error?: unknown) => {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        if (error) reject(error);
+        else resolve();
+      };
+      finishActivePlayback = () =>
+        finish(new DOMException("The request was aborted.", "AbortError"));
+      audio.onended = () => finish();
+      audio.onerror = () => finish(new Error("The generated audio could not play."));
+      audio
+        .play()
+        .then(() => {
+          if (!settled && current()) onPlaybackStart?.();
+        })
+        .catch((error) => finish(error));
+    });
+  } catch (error) {
+    checkCurrent();
+    throw error;
+  } finally {
+    signal?.removeEventListener("abort", abortOwnedPlayback);
+    if (activeController === controller) activeController = null;
   }
-
-  const audio = audioElement();
-  const blob = await response.blob();
-  if (controller.signal.aborted) return;
-  const renderedRate = Number(response.headers.get("X-TTS-Rendered-Rate") ?? speakingRate);
-  activeObjectUrl = URL.createObjectURL(blob);
-  audio.src = activeObjectUrl;
-  audio.playbackRate = renderedRate === speakingRate ? 1 : speakingRate;
-  activeController = null;
-
-  await new Promise<void>((resolve, reject) => {
-    let settled = false;
-    const cleanup = () => {
-      audio.onended = null;
-      audio.onerror = null;
-      finishActivePlayback = null;
-      releaseObjectUrl();
-    };
-    const finish = (error?: unknown) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      if (error) reject(error);
-      else resolve();
-    };
-    finishActivePlayback = () => finish();
-    audio.onended = () => finish();
-    audio.onerror = () => finish(new Error("The generated audio could not play."));
-    audio
-      .play()
-      .then(() => onPlaybackStart?.())
-      .catch((error) => finish(error));
-  });
 }

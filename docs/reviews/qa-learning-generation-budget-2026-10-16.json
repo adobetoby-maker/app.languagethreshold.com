@@ -1,0 +1,66 @@
+{
+  "sourceCommit": "4d296e6",
+  "preview": {
+    "url": "https://language-threshold-j457xg1j0-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_AXjsc3KTQ3ShmK615igawZZKGF2q",
+    "readyState": "READY",
+    "target": null,
+    "artifactMiB": 19.44
+  },
+  "protectedBuilders": [
+    "generateLessonWords",
+    "generateModuleDeck",
+    "generateCultureEssay"
+  ],
+  "limits": {
+    "combinedPerIpMinute": 8,
+    "combinedPerIpClockHour": 120,
+    "combinedPerEnvironmentClockHour": 600,
+    "previewProductionSeparated": true,
+    "guestReadingPreserved": true
+  },
+  "checks": {
+    "tests": 614,
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "newBudgetAndHandlerTests": 9,
+    "newFinalResponseMiddlewareTests": 3,
+    "currentHostedBuilderGroups": 3,
+    "currentHostedBuilderHttpDenials": 6,
+    "currentFocusedEntryHttpChecks": 9,
+    "actualBrowserAllowedGeneration": true,
+    "actualBrowserSavedTextSurvivesRefresh": true,
+    "actualBrowserSavedMyTextsCount": 1,
+    "actualBrowserSavedWordCount": 452,
+    "noAutomaticCultureStatus": true,
+    "phoneWidth": 390,
+    "phoneScrollWidth": 390,
+    "viewportReset": true
+  },
+  "database": {
+    "existingCounterUsed": true,
+    "schemaOrPrivilegesChanged": false,
+    "bucketRlsEnabled": true,
+    "anonTableRead": false,
+    "authenticatedTableRead": false,
+    "anonRpcExecute": false,
+    "authenticatedRpcExecute": false,
+    "serviceRpcExecute": true,
+    "realServiceRoleMinuteFirstEightAllowedNinthDenied": true,
+    "realServiceRoleIndependentHourFirstAllowedSecondDenied": true,
+    "assertionsRolledBack": true
+  },
+  "handlerTests": "Production handlers run with only registration/request-context/model SDK and budget HTTP boundaries mocked. Exceeded, unavailable and cross-origin requests make zero model calls; allowed requests reach the SDK. Separate tests exercise real policy/HMAC/HTTP serialization and reconstructed durable counters.",
+  "headerFinding": "Initial hosted handler response retained 403 but lost Cache-Control through the installed TanStack serializer. Final Start request middleware wraps the final response, preserves default CSRF and restores no-store plus retry timing. Six actual hosted denials on the final artifact pass, including three framework and three application checks.",
+  "actualBrowser": "A normal fresh guest Reader request creates Spain in Spanish with English translation under the limiter. It saves one text and survives refresh; no mastery, exam score, certificate or learner profile is created. A prior f35bb31 artifact also passed allowed generation before the header repair.",
+  "capture": "/Users/drive/git-backups/language-threshold-generation-budget-phone-2026-10-16.png",
+  "limitsOfEvidence": [
+    "Actual hosted 429/503 quota exhaustion/outage was not forced; these paths have production-handler fixtures, final-response middleware checks and rollback-only real DB counter assertions",
+    "Browser trial is guest storage, not a new signed-in cloud/offline/physical-device run",
+    "Only these three builders share this cap; it is not a total AI spending guarantee",
+    "Existing Library relevance heuristics may pin generic culture text and do not establish reviewed lesson alignment",
+    "No app promotion, schema migration, role grant, content approval or official assessment publication occurred"
+  ],
+  "operations": "docs/learning-generation-cost-controls.md"
+}

@@ -1,0 +1,101 @@
+{
+  "testedAt": "2026-10-17T12:38:56.094097+00:00",
+  "application": "d4ad837",
+  "hostname": "exams.languagethreshold.com",
+  "preview": "https://language-threshold-r9iaxlapf-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+  "target": null,
+  "stagingBranch": "codex/exams-staging",
+  "sourceBranch": "codex/admin-exams",
+  "dns": {
+    "provider": "Cloudflare",
+    "record": "CNAME",
+    "name": "exams",
+    "target": "ad31e05489edd6ef.vercel-dns-017.com",
+    "proxied": false,
+    "ttl": "Auto",
+    "authoritativeRecordVerified": true,
+    "vercelMisconfigured": false,
+    "normalLocalAResolution": "Chrome resolves normally; A records visible through DNS resolver. macOS getaddrinfo retained an earlier negative response during CLI checks."
+  },
+  "tls": {
+    "certificate": "cert_KDRZ94EwjHw5yqiWfqEJMgR0",
+    "httpsHostRoutingVerifiedWithExplicitResolution": true
+  },
+  "auth": {
+    "siteUrl": "https://app.languagethreshold.com",
+    "existingRedirectsRetained": true,
+    "beforeRedirects": [
+      "https://app.languagethreshold.com",
+      "https://languagethreshold.com",
+      "https://juniorlinguist.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:3000"
+    ],
+    "afterRedirects": [
+      "https://app.languagethreshold.com",
+      "https://languagethreshold.com",
+      "https://juniorlinguist.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://exams.languagethreshold.com/**"
+    ],
+    "googleEnabled": true
+  },
+  "checks": {
+    "builtServerGetHeadRedirect": true,
+    "builtServerPreservesLessonTab": true,
+    "builtServerLiveRootUnchanged": true,
+    "aliasReadyPreviewVerified": true,
+    "normalHostnameBrowserSignIn": true,
+    "existingDraftNewAttemptAvailabilityStillDenied": true,
+    "qaPreviewSignedOut": true,
+    "tests": 803,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 41,
+    "artifactMiB": 19.66,
+    "qaEmailExistingPersonalPlan": true,
+    "sameOriginLessonPlanRoundTrip": true,
+    "googleExistingOwnerReturnedToFocusedExams": true,
+    "googleReturnModuleAndPlanContextPreserved": true,
+    "googleCallbackFragmentClearedBySdk": true,
+    "ownerCannotSeeQaPersonalPlan": true,
+    "ownerReadOnlyTrialSignedOut": true,
+    "qaHostnameTrialSignedOut": true,
+    "hostnameAuthenticatedApiGroups": 20,
+    "hostnameRoutingHeaderGroups": 12,
+    "hostnameReadOnlyScopeGroups": 7,
+    "savedDraftRevision": 12,
+    "savedDraftInProgressUnsubmitted": true
+  },
+  "preparation": {
+    "readOnlyBeforeStart": true,
+    "selectedFormMetadata": true,
+    "unknownOrTargetedSubsetTimingNotInvented": true,
+    "optimisticChangedFormCheck": true,
+    "actualHandlerControlledTestsPass": true,
+    "positiveReviewedContentBrowserAcceptance": "not available; no verified releases/forms",
+    "limits": [
+      "The form check precedes the existing start RPC; concurrent draft mutation during that RPC is not claimed atomic.",
+      "No official attempt, review approval, scoring result, role or policy was created."
+    ]
+  },
+  "liveAppDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+  "productionPromoted": false,
+  "evidence": [
+    "docs/assessments/companion-hosting.md",
+    "docs/reviews/qa-exams-preparation-2026-10-17.json",
+    "tests/assessment-support-start.test.mjs",
+    "tests/exams-host.test.mjs",
+    "tests/qa-stage-origin.test.mjs",
+    "docs/reviews/qa-exams-companion-2026-10-17.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json"
+  ],
+  "cliDns": "Authenticated and HTTP hostname verifiers used a process-local dns.resolve4 lookup because macOS getaddrinfo retained the initial negative cache. TLS verification, requested host, Origin and authorization checks were unchanged; normal Chrome navigation/sign-in separately passed.",
+  "screenshots": [
+    "/Users/drive/git-backups/language-threshold-exams-hostname-2026-10-17.jpg",
+    "/Users/drive/git-backups/language-threshold-exams-dns-2026-10-17.jpg"
+  ]
+}

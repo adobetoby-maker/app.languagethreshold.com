@@ -66,7 +66,10 @@ test("an interrupted stream has no complete usage receipt", async () => {
       message: { model: "claude-haiku-5-5", usage: { input_tokens: 20, output_tokens: 1 } },
     };
   }
-  assert.ok(!(await new Response(anthropicTextStream(events())).text()).includes("metering"));
+  await assert.rejects(
+    new Response(anthropicTextStream(events())).text(),
+    /AI response interrupted/,
+  );
 });
 
 test("voice estimates use Unicode character units and reject unknown voices", () => {

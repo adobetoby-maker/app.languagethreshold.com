@@ -1,0 +1,41 @@
+{
+  "testedAt": "2026-10-16T22:28:39.697Z",
+  "commit": "1752c37",
+  "target": "https://language-threshold-3zhnmpsau-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_FtXGqWxnWqzbTp3kfPZtXGsHoz6U",
+  "scope": "Normal guest UI, desktop Chrome emulated390x844, one natural timeout match",
+  "checks": {
+    "simulatedPracticeDisclosureVisible": true,
+    "naturalTimeoutCompletes": true,
+    "lossAtZeroShowsZeroAppliedPoints": true,
+    "returnControlsVisible": true,
+    "dashboardPracticePointsLabel": true,
+    "dashboardZeroPointsOneLoss": true,
+    "dashboardStateSurvivesRefresh": true,
+    "completedLessonsRemainZero": true,
+    "viewportReset": true
+  },
+  "practiceOnly": {
+    "matchesPlayed": 1,
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "points": 0,
+    "practiceAndAchievementXp": 15
+  },
+  "unitOnly": [
+    "partial floor loss",
+    "tier overflow conservation",
+    "highest-tier cap",
+    "every valid tier balance delta consistency"
+  ],
+  "limitations": [
+    "Upper-cap and tier-crossing cases verified in production calculation tests, not browser play",
+    "No signed-in learner, official exam, review, mastery or certificate mutation",
+    "Physical iPhone/Safari and audio not tested"
+  ],
+  "captures": [
+    "/Users/drive/git-backups/language-threshold-practice-zero-floor-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-practice-dashboard-points-phone-2026-10-16.png"
+  ]
+}

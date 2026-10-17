@@ -1,0 +1,84 @@
+{
+  "sourceCommit": "389e5dc",
+  "preview": {
+    "url": "https://language-threshold-cdbbxu9i6-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_7o3rhSbBZPWosw6yzzhv2DiVKZdV",
+    "readyState": "READY",
+    "target": null,
+    "artifactMiB": 19.45
+  },
+  "baseline": "Actual QA Grammar A1 lesson on 4d296e6 presented a fixed s root and rows such as s + -eres next to eres. The server prompt required the same root even where an irregular form should be taught whole.",
+  "changes": [
+    "Prompt permits complete irregular/changing-stem forms without a forced morphology table",
+    "Fresh and cached morphology must reconstruct the complete base/every row with an unchanged actual target-script root",
+    "Invalid cached explanation/table is withheld and can be regenerated without deleting completion state",
+    "Lesson-load failure has Retry and Back to Grammar",
+    "Synchronous answer/finish locks prevent duplicate count/awards before a React commit",
+    "Previously completed stored practice does not get another completion XP/counter award",
+    "Quiz results say Practice complete and distinguish module assessments in Exams"
+  ],
+  "checks": {
+    "tests": 625,
+    "newGrammarTests": 11,
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "currentFocusedEntryHttpChecks": 9,
+    "currentProtectedGenerationHttpDenials": 6
+  },
+  "nodeReproductionsBeforeFix": {
+    "rapidDuplicateSubmitDisplayed": "4 / 3 correct",
+    "alreadyCompletedPracticeAwardedAgain": true,
+    "oldPerfectScoreClaimed": "Lesson mastered. +50 XP awarded."
+  },
+  "nodeChecksAfterFix": [
+    "Regular and target-script splits reconstruct every form, with NFC normalization",
+    "Observed ser split and malformed/changing/notation splits rejected",
+    "Actual content handler refuses inconsistent splits and accepts regular/unsplit irregular content",
+    "Actual lesson view withholds invalid cached teaching and provides recoverable retry/back",
+    "Valid cached content makes no generation call",
+    "Actual quiz component duplicate events cannot inflate score/awards",
+    "Stored completed practice replay gives no new XP/counter award; fresh completion gets one"
+  ],
+  "actualBrowser": {
+    "account": "Dedicated QA individual A; normal UI sign-ins only",
+    "baselineA1Completed": "0/6",
+    "correctedSerTaughtWholeForms": true,
+    "falseSplitCardAbsent": true,
+    "visiblePracticeAnswers": [
+      "es",
+      "Soy estudiante.",
+      "somos"
+    ],
+    "practiceResult": "3/3 correct; Practice complete. +50 XP awarded.",
+    "completionNavigation": "Earned level-up notice dismissed, quiz Continue opens next-step panel; Back to Grammar returns to curriculum",
+    "afterPracticeA1Completed": "1/6",
+    "refreshA1Completed": "1/6",
+    "guestA1Completed": "0/6",
+    "learnerBA1Completed": "0/6",
+    "aLessonTitleAbsentForGuestAndB": true,
+    "returnToACompleted": "1/6",
+    "originalATitleRestored": true,
+    "officialAssessmentStarted": false,
+    "core30MasteryDeclared": false,
+    "certificateIssued": false
+  },
+  "visualEvidence": {
+    "before": "/Users/drive/git-backups/language-threshold-grammar-split-before-2026-10-16.png",
+    "afterDesktop": "/Users/drive/git-backups/language-threshold-qa-grammar-completion-desktop-2026-10-16.png",
+    "verifiedViewport": {
+      "width": 2258,
+      "height": 1273
+    },
+    "phoneAcceptance": "Not counted: viewport capability selected a different tab; a 390px crop is not proof of phone layout. Override reset."
+  },
+  "buildCleanup": "Inspected and stopped the old QA serve.mjs/Vite4311 process belonging to this worktree. It was rewriting generated route types from a stale Start entry. Framework regenerated the registration automatically; type-check passed and a final artifact was built from389e5dc. No generated source was hand-edited.",
+  "limits": [
+    "Arithmetic split checks and a corrected sample do not prove all-language grammar accuracy or human review",
+    "Noncanonical older split entries require regeneration; offline cold-start/full Grammar offline acceptance is not established",
+    "Duplicate completion protection is for the stored practice lesson/component, not a cross-device transactional award guarantee",
+    "Quiz event/replay regressions use isolated production-component fixtures; the real browser run completes one practice attempt",
+    "QA practice is not learner proficiency, a module exam score, certification, or reviewed all-module parity",
+    "No app promotion, content approval, qualification grant or private exam-key exposure occurred"
+  ]
+}

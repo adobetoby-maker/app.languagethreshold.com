@@ -1,11 +1,14 @@
 import { createClient, type User } from "@supabase/supabase-js";
 import { createHash, randomBytes } from "node:crypto";
 
-export function teamAdminClient() {
+export function teamAdminClient(fetcher?: typeof fetch) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new Error("Team database is not configured.");
-  return createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
+  return createClient(url, key, {
+    auth: { autoRefreshToken: false, persistSession: false },
+    ...(fetcher ? { global: { fetch: fetcher } } : {}),
+  });
 }
 
 export type TeamDb = ReturnType<typeof teamAdminClient>;

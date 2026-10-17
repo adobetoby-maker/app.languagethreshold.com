@@ -20,6 +20,7 @@ import {
 } from "./curriculum-helpers.ts";
 import { TRAVEL_ZONE_CURRICULA, TRAVEL_ZONE_READING_PATTERNS } from "./travel-zone.ts";
 import { ROOFING_LESSONS } from "./roofing-curriculum.ts";
+import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
@@ -2889,7 +2890,18 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     headline: "The Foreman Core 30",
     threshold:
       "By Lesson 30, you can run a complete morning safety meeting and task assignment in your target language — roll call, safety brief, work assignments, questions, and closeout.",
-    lessons: CONSTRUCTION_LESSONS,
+    // Keep Framer's separate legacy plan untouched; Foreman uses its own drafts.
+    lessons: CONSTRUCTION_LESSONS.map(({ n, title }) => {
+      const content = FOREMAN_LESSON_CONTENT[n];
+      return {
+        n, title, objective: content.objective, words: content.words,
+        steps: [
+          r(`Read this lesson's own passage. Identify what is confirmed, what needs clarification and who should respond. ${content.objective}`, 7),
+          wm("Recall this lesson's terms and phrases through flashcards, matching and listening. Type and handwrite a response to its scenario.", 5),
+          sp(content.objective, 8),
+        ],
+      };
+    }),
   },
   framer: {
     moduleId: "framer",
@@ -2940,10 +2952,11 @@ export function getCurriculum(moduleId: string): ModuleCurriculum | null {
 export function getCurrentLesson(
   moduleId: string,
   lessonProgress: Record<string, number>,
+  progressKey: string = moduleId,
 ): Lesson | null {
   const curriculum = getCurriculum(moduleId);
   if (!curriculum) return null;
-  const completed = lessonProgress[moduleId] ?? 0;
+  const completed = lessonProgress[progressKey] ?? 0;
   if (completed >= curriculum.lessons.length) return null; // all done
   return curriculum.lessons[completed] ?? null;
 }

@@ -1,5 +1,17 @@
 import { useEffect } from "react";
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
+import {
+  isPrivateAssessmentUrl,
+  isPrivateAssessmentContext,
+  anonymousPageUrl,
+} from "../lib/assessment-privacy";
 import { Analytics } from "@vercel/analytics/react";
 import { toast } from "sonner";
 import { isSpeakingPrivacyMode, LANGUAGE_THRESHOLD_GA_ID } from "../lib/speaking-privacy";
@@ -130,23 +142,39 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const href = useRouterState({ select: (state) => state.location.href });
+  const privatePage = isPrivateAssessmentUrl(href);
+  useEffect(() => {
+    window[`ga-disable-${GA_ID}`] = isSpeakingPrivacyMode() || isPrivateAssessmentContext();
+  }, [href]);
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <HeadContent />
+        {privatePage && <meta name="referrer" content="no-referrer" />}
       </head>
       <body>
         {children}
         <Scripts />
-        <Analytics beforeSend={(event) => (isSpeakingPrivacyMode() ? null : event)} />
-        {GA_ID && (
+        {!privatePage && (
+          <Analytics
+            beforeSend={(event) =>
+              isSpeakingPrivacyMode() ||
+              isPrivateAssessmentContext() ||
+              isPrivateAssessmentUrl(event.url)
+                ? null
+                : { ...event, url: anonymousPageUrl(event.url) }
+            }
+          />
+        )}
+        {GA_ID && !privatePage && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
             {/* GA_ID is a build-time env constant — not user input, no XSS risk */}
             <script
               dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`,
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());(()=>{let ref='';try{const r=new URL(document.referrer);ref=r.origin+r.pathname}catch{}gtag('config','${GA_ID}',{anonymize_ip:true,page_location:location.origin+location.pathname,page_referrer:ref})})();`,
               }}
             />
           </>

@@ -1,0 +1,47 @@
+{
+  "testedAt": "2026-10-17T19:08:10.289536+00:00",
+  "sourceCommit": "c7a026f8ae84ce0a73453e2811f675774555a174",
+  "scope": "Local owned SpeechProvider playback lifecycle and successful completion accounting; not deployed/browser/device acceptance",
+  "latestHostedApplication": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "latestHostedPreview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "localVerification": {
+    "tests": 964,
+    "newControlledProviderGroups": 1,
+    "expandedFallbackFailureCases": true,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "localStageArtifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T19:07:12.877Z",
+      "sourceCommit": "c7a026f",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1225,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "changes": [
+    "SpeechProvider retains/cancels its30ms timer, clears queued text and advances playback epoch on Stop/language change/unmount. Commands/completion/queue continuation check mounted/current actor/epoch.",
+    "Each actual utterance/request settles once. End counts normal browser playback completion; error/synchronous device failure only clears/advances UI without XP. Old callbacks after stop/identity loss cannot count or advance.",
+    "Listened counter ref is hydrated from owned data; state update is a direct value and XP/achievement effects occur outside React state updater. Existing owned persistence unchanged.",
+    "Fallback wrapper exposes onerror separately from onend; failed/missing device or Pashto terminal failure cannot count as heard. FieldPrep/ModuleFieldPrep and missionary highlighting use error cleanup without success attribution."
+  ],
+  "controlledProof": [
+    "Actual provider bundled with controlled React hooks that deliberately reevaluate state updater functions",
+    "Stopped queued timer cannot render text even when its captured callback is invoked manually",
+    "Old actor end ignored before unmount",
+    "Duplicate device/remote ends produce one XP event and one count; tenth completion one achievement",
+    "Device/remote errors followed by stale success produce no XP",
+    "Stop inside paragraph onMove prevents text playback",
+    "Language change/unmount invalidate captured timers",
+    "AccountB starts0; accountA restores11 without extra XP",
+    "Actual fallback helper failed device/Pashto paths call only onerror once"
+  ],
+  "limits": [
+    "Controlled production-source tests/fake storage/audio/timers/auth; not actual React StrictMode browser, SDK expiry/reauth or physical audio proof. Ordinary practice XP is not certification/proficiency evidence.",
+    "VoicePicker unmount/current-owner preview integration, other direct device utterance surfaces, analytics identity and Reader/device guidance remain open. No app-wide privacy completion claimed.",
+    "No deployment/hosted QA/alias inspection/browser/model requests/schema/role/active speech/retention/schedule/main/production changes. Latest hosted remains eda1f26.",
+    "Additional prepared-start RPC permission still pending; no apply/wiring. Adaptive capability stays off. All release gates/full goal remain open."
+  ]
+}

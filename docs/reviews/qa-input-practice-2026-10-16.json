@@ -1,0 +1,52 @@
+{
+  "testedAt": "2026-10-17T02:55:58.649Z",
+  "application": "08d9981",
+  "preview": "https://language-threshold-rhnnomrs2-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_G9Vfz3aVk15ywbvvMd62iWWLvRnu",
+  "scope": "Unscored local input rehearsal on the signed-in Exams landing page, also reused in pre-start confirmation",
+  "checks": {
+    "normalSyntheticQaSignIn": true,
+    "availableWhileDay90ContentUnavailable": true,
+    "typingAndSelection": true,
+    "practiceConfirmationExplicitlyNotSubmitted": true,
+    "clearResetsBothTextsRadioAndConfirmation": true,
+    "refreshDiscardsPracticeText": true,
+    "padVisibleAndLabeled": true,
+    "phoneViewport": [
+      390,
+      844
+    ],
+    "padCssWidth": 307,
+    "documentScrollWidth": 375,
+    "horizontalOverflow": false,
+    "microphoneUnused": true,
+    "recognitionEndpointNotConnected": true,
+    "noAttemptReferenceOrResponseSaveCallback": true,
+    "attemptCountsBefore": {
+      "total": 2,
+      "inProgress": 1,
+      "submitted": 1
+    },
+    "attemptCountsAfter": {
+      "total": 2,
+      "inProgress": 1,
+      "submitted": 1
+    },
+    "originalDraftRevision": 12,
+    "originalDraftUnsubmitted": true,
+    "qaSignedOut": true,
+    "viewportReset": true
+  },
+  "evidence": [
+    "src/components/exams/ExamInputPractice.tsx",
+    "docs/reviews/qa-exams-input-practice-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json"
+  ],
+  "screenshot": "/Users/drive/git-backups/language-threshold-exam-input-practice-phone-2026-10-16.jpg",
+  "limits": [
+    "The browser trial uses typing/selection/confirmation and verifies the pad UI. No new pen-stroke or offline drawing acceptance is claimed.",
+    "No speech rehearsal/recording is enabled; policy approval remains required.",
+    "No official form, recognition score, proficiency, mastery or certificate is created.",
+    "This rehearsal closes one pre-exam usability gap; adaptive routing remains unimplemented."
+  ]
+}

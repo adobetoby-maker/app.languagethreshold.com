@@ -1,0 +1,406 @@
+{
+  "sourceCommit": "6f34723",
+  "method": "Static regex inventory of direct Anthropic messages.create/stream call sites in fns/routes/assessment library; imported request builders and indirect providers are not exhaustively discovered",
+  "interpretation": "Triage only. A guard name is not proof that every paid branch is protected. No guard name does not prove an unprotected reachable route; caller-level guards must be inspected.",
+  "files": [
+    {
+      "file": "src/fns/battle.functions.ts",
+      "directPaidCallLines": [
+        40
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        384
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/build-vocab.functions.ts",
+      "directPaidCallLines": [
+        55
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1700
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/conjugation.functions.ts",
+      "directPaidCallLines": [
+        102,
+        187
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        450,
+        850
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/daily-story.functions.ts",
+      "directPaidCallLines": [
+        62
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1100
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/false-friends.functions.ts",
+      "directPaidCallLines": [
+        107
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        700
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/furigana.functions.ts",
+      "directPaidCallLines": [
+        53
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1400
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/grammar.functions.ts",
+      "directPaidCallLines": [
+        104
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        5600
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/handwriting-read.functions.ts",
+      "directPaidCallLines": [
+        63
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [
+        256
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/handwriting-recognize.functions.ts",
+      "directPaidCallLines": [
+        117
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [
+        384
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/idiom-master.functions.ts",
+      "directPaidCallLines": [
+        101
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/kana-convert.functions.ts",
+      "directPaidCallLines": [
+        37
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1400
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/lesson-words.functions.ts",
+      "directPaidCallLines": [
+        81
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/library.functions.ts",
+      "directPaidCallLines": [
+        62
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [
+        5600
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/listening-drill.functions.ts",
+      "directPaidCallLines": [
+        90
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/module-deck.functions.ts",
+      "directPaidCallLines": [
+        66
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [
+        8000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/pattern-drill.functions.ts",
+      "directPaidCallLines": [
+        58
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        850
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/penpal-check.functions.ts",
+      "directPaidCallLines": [
+        36
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        300
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/phrase-translate.functions.ts",
+      "directPaidCallLines": [
+        27
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1400
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/pinyin.functions.ts",
+      "directPaidCallLines": [
+        62
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1400
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/romaja.functions.ts",
+      "directPaidCallLines": [
+        56
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1400
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/sentence-build.functions.ts",
+      "directPaidCallLines": [
+        103
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        850
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/verb-conjugation.functions.ts",
+      "directPaidCallLines": [
+        79
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        2800
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/word-lookup.functions.ts",
+      "directPaidCallLines": [
+        282
+      ],
+      "guardNamesSeenInFile": [
+        "learningGenerationError"
+      ],
+      "numericOutputCapsSeen": [
+        2000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/fns/word-match.functions.ts",
+      "directPaidCallLines": [
+        83
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        1000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/routes/api.discussion.ts",
+      "directPaidCallLines": [
+        131,
+        159
+      ],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
+      "numericOutputCapsSeen": [
+        200,
+        384
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/routes/api.field-prep.ts",
+      "directPaidCallLines": [
+        194
+      ],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
+      "numericOutputCapsSeen": [
+        700
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/routes/api.module-field-prep.ts",
+      "directPaidCallLines": [
+        177
+      ],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
+      "numericOutputCapsSeen": [
+        700
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/routes/api.speak.ts",
+      "directPaidCallLines": [
+        369,
+        514,
+        575,
+        637
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        200,
+        384,
+        700
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/routes/api.tutor.ts",
+      "directPaidCallLines": [
+        312
+      ],
+      "guardNamesSeenInFile": [
+        "prepareConversationRequest"
+      ],
+      "numericOutputCapsSeen": [
+        2000
+      ],
+      "callChainReviewStillRequired": true
+    },
+    {
+      "file": "src/lib/assessments/ai-server.ts",
+      "directPaidCallLines": [
+        126
+      ],
+      "guardNamesSeenInFile": [],
+      "numericOutputCapsSeen": [
+        900
+      ],
+      "callChainReviewStillRequired": true
+    }
+  ],
+  "verifiedThisChange": [
+    "Four actual route denial/allowed contracts under controlled provider tests",
+    "Sixteen hosted entry denials and one real synthetic Tutor inference",
+    "Actual dictionary handler mock-provider tests separate general/lesson caches and validate canonical domain prompts",
+    "Browser retest on e1f7e59 exposed an allowance above the SQL RPC maximum; 6f34723 reduces both lookup/handwriting global pools to 1000 and tests the SQL contract"
+  ],
+  "remainingReviewPriority": [
+    "Grammar and per-game generators",
+    "Translation/romanization helpers and indirect Reader callers",
+    "Indirect request builders and other API paths",
+    "Assessment scoring caller protections remain separate from public practice"
+  ],
+  "handwritingPool": {
+    "perIpMinute": 30,
+    "perIpHour": 600,
+    "perEnvironmentHour": 1000,
+    "independentOfContentBuilders": true
+  },
+  "conversationPool": {
+    "perIpMinute": 30,
+    "perIpHour": 300,
+    "perEnvironmentHour": 600,
+    "independentOfHandwritingAndContent": true,
+    "maxRequestBodyBytes": 98304
+  },
+  "providerAcceptanceEvidence": "Earlier conversation smoke plus one actual lesson15 Tutor response on81237d0. Final lookup browser acceptance recorded separately; native/domain approval remains open.",
+  "lookupPool": {
+    "perIpMinute": 40,
+    "perIpHour": 600,
+    "perEnvironmentHour": 1000,
+    "cacheHitConsumesBudget": false,
+    "lessonCacheIncludesModulePairNumberAndVersion": true
+  },
+  "sharedLessonDraftFollowup": {
+    "sourceCommit": "5547311",
+    "scope": "generateLessonWords only",
+    "ttlDays": 30,
+    "leaseSeconds": 120,
+    "sharedHitProviderCalls": 0,
+    "hostedProof": "qa-shared-lesson-drafts-2026-10-16.json",
+    "otherGeneratorsSharedCache": false
+  }
+}

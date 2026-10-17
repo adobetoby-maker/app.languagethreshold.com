@@ -1,0 +1,115 @@
+{
+  "testedAt": "2026-10-16T23:39:49.422Z",
+  "sourceCommit": "8f727f8",
+  "preview": "https://language-threshold-9zqo6d435-adobetoby-5572s-projects.vercel.app",
+  "scope": "Hosted origin/body denials; optional one explicitly requested synthetic Tutor inference. No quota exhaustion or learner/assessment writes.",
+  "checks": [
+    {
+      "route": "tutor",
+      "case": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "case": "absent-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "case": "invalid-json",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "tutor",
+      "case": "oversized-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "case": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "case": "absent-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "case": "invalid-json",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "discussion",
+      "case": "oversized-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "case": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "case": "absent-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "case": "invalid-json",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "field-prep",
+      "case": "oversized-body",
+      "status": 413,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "case": "cross-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "case": "absent-origin",
+      "status": 403,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "case": "invalid-json",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "route": "module-field-prep",
+      "case": "oversized-body",
+      "status": 413,
+      "noStore": true
+    }
+  ],
+  "liveTutor": {
+    "attempted": true,
+    "requests": 1,
+    "status": 200,
+    "textDeltaReceived": true,
+    "completionMarkerReceived": true,
+    "usageReceiptReceived": true,
+    "noStore": true,
+    "rawPromptOrReplyIncluded": false,
+    "learnerOrAssessmentMutation": false
+  }
+}

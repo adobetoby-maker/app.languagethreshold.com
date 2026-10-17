@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Sparkles, Mail, ArrowRight, Lock } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { markEmailCaptured } from "@/lib/ai-gate";
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +38,6 @@ export function AiGateModal({ mode, onEmailCaptured, onClose }: Props) {
       const result = await res.json() as { ok: boolean };
 
       if (result.ok) {
-        markEmailCaptured(email.trim());
         onEmailCaptured();
       } else {
         setError("Something went wrong. Try again.");

@@ -1,3 +1,4 @@
+import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -96,7 +97,7 @@ function speakAloud(
     return;
   }
   if (needsRemoteTTS(locale, voiceURI)) {
-    void speakRemote(clean, locale, { voiceURI, onend: onEnd });
+    void speakRemote(clean, locale, { voiceURI, onend: onEnd, onerror: onEnd });
     return;
   }
   if (!window.speechSynthesis) {
@@ -217,7 +218,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
           moduleGroup: s.moduleGroup,
           language: state.selectedLanguage,
           level: state.level,
-          messages: history.map((m) => ({ role: m.role, content: m.content })),
+          messages: recentConversationMessages(history),
           requestFeedback,
         }),
       });

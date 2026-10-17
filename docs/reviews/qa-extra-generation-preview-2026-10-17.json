@@ -1,0 +1,84 @@
+{
+  "testedAt": "2026-10-17T18:11:26.818950+00:00",
+  "applicationCommit": "c0469cc5e8bf1e5a3067f913d5e28de45d4cc4da",
+  "preview": "https://language-threshold-k670s6b7q-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_4qC97NEvLMPN9VrZwnJFtoCsUXxe",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "readyState": "READY",
+    "target": null,
+    "commit": "c0469cc5e8bf1e5a3067f913d5e28de45d4cc4da"
+  },
+  "activation": {
+    "capability": "LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED",
+    "deploymentCommandOverride": "false",
+    "capabilityValueExposedByDeploymentMetadata": null,
+    "activated": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 946,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:11:27.854Z",
+      "sourceCommit": "c0469cc",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1214,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "generationBoundaries": {
+    "handlers": [
+      "battle",
+      "pattern-drill",
+      "sentence-build",
+      "verb-conjugation"
+    ],
+    "newControlledGroups": 15,
+    "originAndNoStoreBeforeProvider": true,
+    "existingDurableContentBudgetBeforeProvider": true,
+    "budgetOutageAndDenialPreventProvider": true,
+    "incomingCancellationAndTotalThirtySecondSignal": true,
+    "zeroRetries": true,
+    "lateCancelledResultRejected": true,
+    "boundedKnownToolOutputValidationAndExtraFieldsStripped": true,
+    "sentenceTokenSourceAndPermutationChecked": true,
+    "battleDefinitionsDistinct": true,
+    "patternCountMatchesRequest": true,
+    "verbIdentityAndCompleteTablesChecked": true,
+    "providerExceptionDetailsNotLogged": true,
+    "arbitrarySentenceAndNovelVerbSharedProcessCachesRemoved": true,
+    "repeatedPrivateRequestsRegenerateUnderBudget": true,
+    "linguisticApprovalClaimed": false
+  },
+  "hostedGroups": {
+    "generationEntryHandlers": 9,
+    "generationRejectionHttpRequests": 18,
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "No actual model request or positive hosted generation; controlled SDK fixtures do not prove linguistic quality, billing, platform-disconnect or physical acceptance.",
+    "Novel-verb function has source/local coverage only; it is not imported into this build.",
+    "Unused legacy src/lib/conjugation-cache.ts still reads unowned old data/promotes generated tables into a module catalog; no current application consumer or built legacy storage marker found. Review before future wiring.",
+    "Other component/helper/free-text cache review remains open; this is not app-wide privacy proof.",
+    "Prepared-start RPC remains pending the existing owner question; not applied/wired and adaptive capability stays off.",
+    "No browser, schema, role, speech policy/collection, retention, cleanup schedule, main, accepted-alias or production change; all existing launch gates remain."
+  ]
+}

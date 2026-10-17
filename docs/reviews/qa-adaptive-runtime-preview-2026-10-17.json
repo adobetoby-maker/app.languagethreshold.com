@@ -1,0 +1,84 @@
+{
+  "testedAt": "2026-10-17T17:42:38.932878+00:00",
+  "applicationCommit": "252311c020aac3a9ee843534646042f64e71c67c",
+  "preview": "https://language-threshold-c8jp3ng4v-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_AFDdqYKZqUB2YHUgpGcFWAsLbbWe",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "readyState": "READY",
+    "target": null
+  },
+  "activation": {
+    "capability": "LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED",
+    "deploymentOverride": "false",
+    "requiresExactTrueAndPreviewEnvironment": true,
+    "productionIgnoresCapability": true,
+    "activated": false,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 926,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.72,
+    "privateBank": {
+      "testedAt": "2026-10-17T17:40:22.519Z",
+      "sourceCommit": "252311c",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1203,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "controlledRuntimeChecks": {
+    "actualPrepareStartCoreReadAndSelectedSubmitScoreHandlers": true,
+    "preparedDisclosureDigestRequiredAndPolicyChangesRejected": true,
+    "noAdaptivePilotOrSupportBypass": true,
+    "reviewedRowDefinitionCalibrationIdentityVersionsPairAndWholePolicyClipsRequired": true,
+    "defaultOffAndProductionDevelopmentDenialBeforeWrites": true,
+    "currentReviewedLessonBindingRequiredEvenForPilotActor": true,
+    "selectedFrozenPathAndResponseShapesBeforeDurableSubmit": true,
+    "catalogAndOverviewShareReadiness": true,
+    "disabledCapabilityDoesNotDownloadExtraAdaptiveDefinitions": true,
+    "metadataDiscoveryAndTenTenFivePrivateDefinitionBatches": true,
+    "lateBatchFailureDuplicatesAndSixHundredDiscoveryCapFailClosed": true,
+    "fiftyCandidateStartCapWhenEnabled": true
+  },
+  "localDatabase": {
+    "script": "scripts/qa/test-adaptive-runtime-db.mjs",
+    "database": "fixed local socket /tmp, lt_exams_qa_20261015_codex only",
+    "emptyBeforeAndAfter": true,
+    "transactionRolledBack": true,
+    "fixedFormAndRoutingBaselineSuitesPassed": true,
+    "officialNonpilotAdaptiveStartFreezesDefinitionAndCalibration": true,
+    "startRetriesAndNewKeysResumeSameAttempt": true,
+    "routeRequiredBeforeSubmit": true,
+    "selectedMissingInputUnavailableAndUnusedBranchesAbsent": true,
+    "startAndSubmitEventsRemainSingle": true,
+    "fixtureMetadata": "Synthetic local lesson binding and verification markers only; not human approvals, published content or hosted records"
+  },
+  "hostedGroups": {
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Adaptive capability remains disabled in this Preview. No hosted adaptive form, response, review approval, score or consent is created.",
+    "Positive handler/readiness/SQL fixtures are fictional local metadata, not genuine content/calibration/equivalence or human-review approval.",
+    "Concurrent source-form/content transitions during start, activation/rollback and worst-case readiness latency remain unverified.",
+    "Real browser/phone/SDK reauth/reconnect/offline/audio and consented individual/team adaptive pilots remain required before activation.",
+    "No browser actions, provider calls, hosted DDL/roles/active speech policy/collection/schedule changes; applied database migration remains immutable.",
+    "Accepted companion/live aliases unchanged. Goal, launch acceptance, main push and production promotion remain incomplete."
+  ]
+}

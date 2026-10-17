@@ -1,0 +1,46 @@
+{
+  "testedAt": "2026-10-17T14:25:07.707833+00:00",
+  "applicationSource": "c991a6a",
+  "deployed": false,
+  "finding": "The active Pen Pal image checker accepted unbounded image/text input and cast arbitrary provider JSON, including its xp field, directly to the practice result.",
+  "changes": [
+    "Input limits: image100..1000000characters,target1..2000,language1..40; mode remains word/sentence/free.",
+    "Strict origin/no-store plus existing handwriting durable budget before provider construction:30/IP/minute,600/IP/hour,1000/environment/hour.",
+    "Explicit existing key handling, one provider attempt,30-second timeout/total deadline and request abort propagation.",
+    "Validate bounded boolean/recognized/feedback fields and strip arbitrary extras.",
+    "Assign existing intended fixed practice credit in server code:5for word/sentence,10for free; model xp ignored. Missing/invalid/failed result returns no credit."
+  ],
+  "verification": {
+    "tests": 832,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T14:24:22.953Z",
+      "sourceCommit": "c991a6a",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1140,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Actual production handler rejects oversized input before any budget/model construction.",
+    "Missing/cross origin, exhausted/unavailable budget and missing key construct no provider.",
+    "Controlled valid provider xp999999 is ignored; existing5/5/10practice credits verified, including incorrect copy feedback.",
+    "Malformed/overlong recognition/feedback fields return null rather than arbitrary data or points.",
+    "Options/no-store/retry headers and incoming abort propagation verified; provider failure returns a generic error."
+  ],
+  "limitations": [
+    "Practice credit is not mastery, assessed proficiency, a certificate or a verified human judgement.",
+    "No external model/hosted browser/physical handwriting/billing/timeout acceptance.",
+    "Image size bounds do not independently prove valid PNG bytes or transcription accuracy.",
+    "No new schema/role/active-policy/speech/schedule changes; routing exception remains pending.",
+    "Hosted development remains8da3abb; accepted companiond4ad837,live app and main unchanged.",
+    "Prior phonetic helper source fa769e5 is included locally but also remains undeployed; broader paid-endpoint audit remains open."
+  ],
+  "externalModelCalls": 0,
+  "hostedWrites": false,
+  "browserActions": false
+}

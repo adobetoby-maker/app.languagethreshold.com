@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-17T14:15:29.657921+00:00",
+  "applicationSource": "fa769e5",
+  "deployed": false,
+  "scope": [
+    "addFurigana",
+    "addPinyin",
+    "addRomaja"
+  ],
+  "changes": [
+    "Strict same-origin and no-store before any work, including the local/plain-text path.",
+    "Existing durable lookup pool before every paid request:40/IP/minute,600/IP/hour,1000/environment/hour; fail closed when budget storage is unavailable.",
+    "One provider attempt,30-second SDK timeout and independent total deadline combined with incoming request abort.",
+    "Plain script-free text returns without a provider key, durable budget use or model call.",
+    "Named tool output is whitelisted and validated for exact concatenated input, format, field types/counts/lengths.",
+    "Caught provider failures log only a fixed label, without raw exceptions/source text."
+  ],
+  "verification": {
+    "tests": 831,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T14:14:53.803Z",
+      "sourceCommit": "fa769e5",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1138,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Each actual production handler rejects cross/missing origin, exhausted budget and unavailable durable store before provider use; retry/no-store headers checked.",
+    "Per-handler successful response, zero retries, timeout and propagated abort signal verified at the controlled SDK boundary.",
+    "Source-altered/unknown-field/overlong readings rejected; extra top-level provider data omitted.",
+    "Plain text bypasses paid work even without a configured key; caught private provider error never reaches the controlled log."
+  ],
+  "limitations": [
+    "No valid hosted model request, real provider timeout/billing, browser or physical-device acceptance.",
+    "Shape/source validation does not establish linguistic correctness.",
+    "Broader endpoint cost/privacy review, adaptive routing and release acceptance remain open.",
+    "Routing schema exception question remains pending; no migration/role/active-policy/speech/schedule change.",
+    "Hosted development stays8da3abb; accepted companiond4ad837 and live/main unchanged."
+  ],
+  "externalModelCalls": 0,
+  "hostedWrites": false,
+  "browserActions": false
+}

@@ -1,0 +1,24 @@
+{
+  "testedAt": "2026-10-16T16:47:38.902694+00:00",
+  "applicationCommit": "0697e1c",
+  "target": "https://language-threshold-a956f8uop-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_38g6wuC7x3wXDvwqz7UoXUTogS6R",
+  "checks": {
+    "normalQaIndividualSignIn": true,
+    "existingOwnCloudTextSelectedThroughRead": true,
+    "ownTextRetainedAfterRefresh": true,
+    "ownTextRetainedAfterFlashcardsToReader": true,
+    "landscaperPickerChangesReading": true,
+    "roofingPassageThreeRetainedAfterRefresh": true,
+    "qaTextReselectedAndRefreshedForScreenshot": true,
+    "finalTeamQaIdentityVerified": true,
+    "finalRoofingLessonOneSeeVisible": true
+  },
+  "limitations": [
+    "Language-pair changes and delayed selection are regression-test cases, not browser fault injection",
+    "No new offline, phone, expired-session or physical-device proof",
+    "Global tab/module query consistency remains unresolved",
+    "Large standalone Reader guide was dismissed normally to expose the reading"
+  ],
+  "screenshot": "/Users/drive/git-backups/language-threshold-reader-resume-2026-10-16.png"
+}

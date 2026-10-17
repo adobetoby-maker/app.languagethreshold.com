@@ -129,7 +129,7 @@ export function PracticeStreakCard() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => dispatch({ type: "SET_TAB", payload: "guide" })}
+                    onClick={() => dispatch({ type: "SET_TAB", payload: "core30" })}
                     className="min-h-11 rounded-xl border border-orange-300/40 px-4 py-2 text-xs font-semibold text-orange-100"
                   >
                     Open lessons

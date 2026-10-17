@@ -1,0 +1,60 @@
+{
+  "sourceCommit": "8f9b159",
+  "preview": "https://language-threshold-8elmf73go-adobetoby-5572s-projects.vercel.app",
+  "scope": "Normal QA admin to QA learner to QA admin browser trial; actual participation writes, no mastery or exam submission.",
+  "baseline": {
+    "mastered": 1,
+    "opened": 2,
+    "recordedCertificateLessons": 1,
+    "certificateTest": "Not taken",
+    "certificatesIssued": 0
+  },
+  "actions": [
+    "Opened the named QA team assessment area as its administrator",
+    "Signed out through normal account menu and signed in as dedicated QA team learner",
+    "Opened the existing team enrollment lesson-plan link with module, language pair and enrollment context",
+    "Selected previously unvisited Roofing lesson 29 Report Open Items",
+    "Read its lesson-specific passage and opened Write it copying and handwritten-response tasks",
+    "Refreshed and observed lesson 29 / way=write URL and rendered writing task retained",
+    "Signed out and signed back in as the dedicated QA administrator",
+    "Read refreshed team roster and inspected phone learner card"
+  ],
+  "after": {
+    "mastered": 1,
+    "opened": 3,
+    "recordedCertificateLessons": 1,
+    "certificateTest": "Not taken",
+    "certificatesIssued": 0
+  },
+  "checks": {
+    "teamContextPreserved": true,
+    "selectedPlanScheduleLoaded": true,
+    "outOfOrderCertificateWarningShown": true,
+    "newVisitSyncedToAdmin": true,
+    "masteryUnchanged": true,
+    "certificateCounterUnchanged": true,
+    "noCertificateTestTaken": true,
+    "phoneViewportWidth": 390,
+    "phoneDocumentScrollWidth": 390,
+    "teamCore30UnitTestsPassed": 4
+  },
+  "privacyEvidence": "Current API source filters active team members and assigned modules before returning Core30 logs; four scoped helper tests pass. Browser roster alone does not prove all privacy boundaries.",
+  "existingExamFixture": "The QA team retains its pre-existing provisional entrance attempt with insufficient/not-assessed skill coverage. No attempt was started, answered, rescored or submitted in this trial.",
+  "ownerSessionRestored": {
+    "normalEmailSignIn": true,
+    "page": "/exam-content",
+    "releaseStatus": "draft",
+    "recordedReviews": 0,
+    "lessonsReviewed": "Pending",
+    "offlineVerified": "Pending",
+    "assessmentFormSelection": "Choose a form to inspect"
+  },
+  "capture": "/Users/drive/git-backups/language-threshold-team-tracking-phone-2026-10-16.png",
+  "limits": [
+    "QA participation is not real learner proficiency or a consented pilot",
+    "No mastery, exam score, certificate, reviewer qualification or content approval was manufactured",
+    "Phone emulation does not prove physical iPhone Safari/audio usability",
+    "All-module content parity and official exam review/calibration gates remain open",
+    "No application promotion or authentication configuration change occurred"
+  ]
+}

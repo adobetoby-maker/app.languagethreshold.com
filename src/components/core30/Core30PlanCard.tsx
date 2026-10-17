@@ -1,5 +1,8 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
+import { planLocalDay } from "@/lib/assessments/plan-timing";
+import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
 import { CalendarCheck, CheckCircle2, ChevronRight, RefreshCw } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
@@ -30,27 +33,52 @@ const GOLD_BUTTON = {
 } as const;
 
 export function Core30PlanCard({
+  enrollmentId,
   moduleId,
   totalLessons,
   onOpenLesson,
   onStartReview,
+  reviewEveryDays = 4,
+  assessedTiming,
+  managedPlanUrl,
 }: {
+  enrollmentId?: string;
   moduleId: string;
   totalLessons: number;
   onOpenLesson: (lessonNumber: number) => void;
   onStartReview: () => void;
+  reviewEveryDays?: number;
+  assessedTiming?: AssessedPlanTiming;
+  managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
-  const log = state.core30Log[moduleId];
-  const today = toDateKey(new Date());
-  const plan = planToday(log, totalLessons, today);
+  const context = {
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    enrollmentId,
+  };
+  const progressKey = core30ScopeKey(moduleId, context);
+  const storedLog = state.core30Log[progressKey];
+  const log = useMemo(
+    () =>
+      assessedTiming?.startDate
+        ? { ...storedLog, lessons: storedLog?.lessons ?? {}, startDate: assessedTiming.startDate }
+        : storedLog,
+    [storedLog, assessedTiming?.startDate],
+  );
+  const paused = assessedTiming?.status === "paused";
+  const today =
+    paused && assessedTiming.pausedOn
+      ? assessedTiming.pausedOn
+      : (planLocalDay(assessedTiming?.timezone) ?? toDateKey(new Date()));
+  const plan = planToday(log, totalLessons, today, reviewEveryDays);
   const [draftDate, setDraftDate] = useState(today);
   const [changingDate, setChangingDate] = useState(false);
 
   const masteredSet = useMemo(() => new Set(masteredLessons(log)), [log]);
   const calendar = useMemo(
-    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons) : []),
-    [plan.startDate, totalLessons],
+    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons, reviewEveryDays) : []),
+    [plan.startDate, totalLessons, reviewEveryDays],
   );
   const lastReviewKey = log?.lastReviewAt
     ? toDateKey(new Date(Date.parse(log.lastReviewAt)))
@@ -60,7 +88,7 @@ export function Core30PlanCard({
     if (!/^\d{4}-\d{2}-\d{2}$/.test(draftDate)) return;
     dispatch({
       type: "CORE30_SET_START_DATE",
-      payload: { moduleId, date: draftDate, at: new Date().toISOString() },
+      payload: { moduleId, context, date: draftDate, at: new Date().toISOString() },
     });
     setChangingDate(false);
   }
@@ -81,8 +109,9 @@ export function Core30PlanCard({
               Learn all {totalLessons} lessons in 90 days
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              One new lesson every 3 days. Every 4 days you review every lesson you have mastered so
-              far. You mark each lesson mastered yourself; the app records the steps you open.
+              One new lesson every 3 days. Every {reviewEveryDays} days you review every lesson you
+              have mastered so far. You mark each lesson mastered yourself; the app records the
+              steps you open.
             </p>
             <label className="mt-4 block text-[11px] text-white/50" htmlFor="core30-start-date">
               Start date
@@ -118,8 +147,9 @@ export function Core30PlanCard({
       : plan.dayNumber <= CORE30_PLAN_DAYS
         ? `Day ${plan.dayNumber} of ${CORE30_PLAN_DAYS}`
         : `Day ${plan.dayNumber} · past the ${CORE30_PLAN_DAYS}-day window`;
-  const statusLabel =
-    plan.status === "ahead"
+  const statusLabel = paused
+    ? "Paused · practice is available"
+    : plan.status === "ahead"
       ? "Ahead"
       : plan.status === "behind"
         ? `${plan.behindBy} lesson${plan.behindBy === 1 ? "" : "s"} to catch up`
@@ -152,7 +182,7 @@ export function Core30PlanCard({
 
       <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
         <div className="rounded-xl border border-white/[0.07] bg-card/40 p-3">
-          <p className="text-white/40">Mastered</p>
+          <p className="text-white/40">Currently mastered</p>
           <p className="mt-0.5 font-mono text-base text-white">
             {plan.masteredCount} / {totalLessons}
           </p>
@@ -160,7 +190,11 @@ export function Core30PlanCard({
         <div className="rounded-xl border border-white/[0.07] bg-card/40 p-3">
           <p className="text-white/40">Next review</p>
           <p className="mt-0.5 font-mono text-base text-white">
-            {plan.reviewDue ? "Today" : plan.nextReviewDate ? formatPlanDate(plan.nextReviewDate) : "None left"}
+            {plan.reviewDue
+              ? "Today"
+              : plan.nextReviewDate
+                ? formatPlanDate(plan.nextReviewDate)
+                : "None left"}
           </p>
         </div>
       </div>
@@ -170,7 +204,7 @@ export function Core30PlanCard({
       ) : null}
 
       {/* One gold primary action: the review when it is due, otherwise today's lesson. */}
-      {plan.masteredCount > 0 && plan.reviewDue && (
+      {plan.previouslyMasteredCount > 0 && plan.reviewDue && (
         <button
           type="button"
           onClick={onStartReview}
@@ -188,26 +222,28 @@ export function Core30PlanCard({
           onClick={() => onOpenLesson(plan.nextLesson!.n)}
           className={cn(
             "mt-3 flex min-h-12 w-full items-center justify-between gap-3 rounded-xl px-4 py-2 text-left transition-colors",
-            plan.reviewDue && plan.masteredCount > 0
+            plan.reviewDue && plan.previouslyMasteredCount > 0
               ? "border border-gold/30 bg-transparent hover:bg-gold/10"
               : "hover:opacity-90",
           )}
-          style={plan.reviewDue && plan.masteredCount > 0 ? undefined : GOLD_BUTTON}
+          style={plan.reviewDue && plan.previouslyMasteredCount > 0 ? undefined : GOLD_BUTTON}
         >
           <span className="min-w-0">
             <span
               className={cn(
                 "block text-sm font-semibold",
-                plan.reviewDue && plan.masteredCount > 0 ? "text-white" : "text-[#0B0B0F]",
+                plan.reviewDue && plan.previouslyMasteredCount > 0
+                  ? "text-white"
+                  : "text-[#0B0B0F]",
               )}
             >
-              {plan.reviewDue && plan.masteredCount > 0 ? "Then" : "Today"}: Lesson{" "}
+              {plan.reviewDue && plan.previouslyMasteredCount > 0 ? "Then" : "Today"}: Lesson{" "}
               {plan.nextLesson.n}
             </span>
             <span
               className={cn(
                 "block text-[11px]",
-                plan.reviewDue && plan.masteredCount > 0
+                plan.reviewDue && plan.previouslyMasteredCount > 0
                   ? plan.nextLesson.overdue
                     ? "text-amber-300"
                     : "text-white/50"
@@ -221,7 +257,9 @@ export function Core30PlanCard({
           <ChevronRight
             className={cn(
               "h-4 w-4 shrink-0",
-              plan.reviewDue && plan.masteredCount > 0 ? "text-white/50" : "text-[#0B0B0F]/70",
+              plan.reviewDue && plan.previouslyMasteredCount > 0
+                ? "text-white/50"
+                : "text-[#0B0B0F]/70",
             )}
           />
         </button>
@@ -230,11 +268,12 @@ export function Core30PlanCard({
       {plan.needsPractice.length > 0 && (
         <p className="mt-3 text-[11px] text-amber-300">
           Needs practice: Lesson{plan.needsPractice.length > 1 ? "s" : ""}{" "}
-          {plan.needsPractice.join(", ")}
+          {plan.needsPractice.join(", ")}. These lessons are excluded from the mastered total; your
+          earlier history is kept.
         </p>
       )}
 
-      {plan.masteredCount > 0 && !plan.reviewDue && (
+      {plan.previouslyMasteredCount > 0 && !plan.reviewDue && (
         <button
           type="button"
           onClick={onStartReview}
@@ -248,15 +287,15 @@ export function Core30PlanCard({
       <details className="group mt-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-xs text-white/60 select-none hover:text-white">
           <ChevronRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
-          Plan calendar · {totalLessons} lessons, every-4-day reviews
+          Plan calendar · {totalLessons} lessons, reviews every {reviewEveryDays} days
         </summary>
         <ol className="mt-2 grid grid-cols-3 gap-1.5 sm:grid-cols-5">
           {calendar.map((entry) => {
             const lessonDone = entry.newLesson !== undefined && masteredSet.has(entry.newLesson);
-            const reviewDone = entry.review && lastReviewKey !== undefined && entry.date <= lastReviewKey;
+            const reviewDone =
+              entry.review && lastReviewKey !== undefined && entry.date <= lastReviewKey;
             const isToday = entry.date === today;
-            const overdue =
-              entry.newLesson !== undefined && !lessonDone && entry.date < today;
+            const overdue = entry.newLesson !== undefined && !lessonDone && entry.date < today;
             const body = (
               <>
                 <span className="flex items-center gap-1 text-[11px] font-semibold">
@@ -302,7 +341,14 @@ export function Core30PlanCard({
       </details>
 
       <div className="mt-3">
-        {changingDate ? (
+        {managedPlanUrl ? (
+          <a
+            href={managedPlanUrl}
+            className="inline-flex min-h-11 items-center text-sm text-gold underline"
+          >
+            Manage assessment dates and pauses
+          </a>
+        ) : changingDate ? (
           <div className="flex flex-wrap items-center gap-2">
             <label className="sr-only" htmlFor="core30-change-date">
               New start date

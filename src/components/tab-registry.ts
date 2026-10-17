@@ -184,6 +184,13 @@ export const TOOL_CATALOG: Record<TabKey, ToolMetadata> = {
     stage: "Grow",
     accent: "progress",
   },
+  exams: {
+    key: "exams",
+    name: "Exams",
+    purpose: "Assess module progress at entrance, day 45 and day 90.",
+    stage: "Grow",
+    accent: "progress",
+  },
   core30: {
     key: "core30",
     name: "Core 30",
@@ -365,9 +372,8 @@ const DailyStory = lazy(() =>
   import("./story/DailyStory").then((m) => ({ default: m.DailyStory })),
 );
 const AppGuide = lazy(() => import("./guide/AppGuide").then((m) => ({ default: m.AppGuide })));
-const Core30Tab = lazy(() =>
-  import("./guide/AppGuide").then((m) => ({ default: m.Core30Tab })),
-);
+const ExamsTab = lazy(() => import("./exams/ExamsTab").then((m) => ({ default: m.ExamsTab })));
+const Core30Tab = lazy(() => import("./guide/AppGuide").then((m) => ({ default: m.Core30Tab })));
 const ClimbingHome = lazy(() =>
   import("./climbing/ClimbingHome").then((m) => ({ default: m.ClimbingHome })),
 );
@@ -413,6 +419,7 @@ export const TAB_COMPONENTS: Record<TabKey, ComponentType> = {
   story: DailyStory,
   guide: AppGuide,
   core30: Core30Tab,
+  exams: ExamsTab,
   climbing: ClimbingHome,
   fishing: FishingHome,
   fieldPrep: FieldPrepRouter,

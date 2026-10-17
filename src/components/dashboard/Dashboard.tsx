@@ -99,6 +99,12 @@ export function Dashboard() {
             ✦ Trophy Case
           </div>
           <h1 className="mt-2 font-display text-4xl italic text-foreground">Your Dashboard</h1>
+          <button
+            className="mt-3 min-h-11 rounded-xl border border-gold/40 px-4 text-sm text-gold"
+            onClick={() => dispatch({ type: "SET_TAB", payload: "exams" })}
+          >
+            Exams and assessed progress
+          </button>
           <p className="mt-2 text-sm text-muted-foreground">
             Every word, note, and conversation — together they form your story.
           </p>
@@ -191,7 +197,7 @@ export function Dashboard() {
           </div>
           <div className="text-right">
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              Ranked Points
+              Practice Points
             </div>
             <div className="mt-1 font-display text-2xl text-foreground">
               {m.points}

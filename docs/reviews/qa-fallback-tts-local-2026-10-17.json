@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-17T18:57:02.989364+00:00",
+  "sourceCommit": "9450c0fc8e48383fb87780af22d2f5feca370ce0",
+  "scope": "Local fallback TTS cancellation and retained source cleanup; not deployed/browser audio acceptance",
+  "latestHostedApplication": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "latestHostedPreview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "localVerification": {
+    "tests": 963,
+    "newControlledGroups": 1,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "localStageArtifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:56:14.102Z",
+      "sourceCommit": "9450c0f",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1223,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "changes": [
+    "Shared fallback playback has a generation and explicit cancellation completion; a new request or Stop supersedes previous device/Pashto work without notifying old caller.",
+    "Stop clears audio handlers/source and reloads the element; normal terminal fallback also removes its learner-text source. No server endpoint/request format or provider changes.",
+    "Per-play settled checks prevent old play rejection/end from clearing newer audio. Device fallback clears utterance handlers on stop and cancels synthesis.",
+    "Google wrapper checks its generation before notifying or falling back; late success/failure after stop cannot notify old caller or start device speech."
+  ],
+  "controlledProof": [
+    "Pashto A to B replacement settles A without notifying",
+    "Old end/play rejection leaves B source/handler intact",
+    "Stop clears source/handlers and settles B without callback",
+    "Normal terminal callback at most once",
+    "Device cancellation clears handlers and old callbacks are inert",
+    "Late Google failure after Stop does not synthesize fallback; late success does not notify"
+  ],
+  "limits": [
+    "Actual production wrapper bundled with controlled mission transport, audio, synthesis and voice fixtures; no provider call/browser/platform/physical audio proof.",
+    "Current legacy failure callbacks retain their terminal-notification semantics; these are not proof audio was heard or proficiency evidence. Provider completion counters/queued timers need follow-up.",
+    "VoicePicker unmount/current-owner integration, direct device speech callbacks, analytics identity and Reader/device guidance flags remain open; no app-wide privacy completion claimed.",
+    "No new deployment, hosted QA, alias inspection, browser actions, model requests, schema/role/active speech/retention/schedule/main/production changes.",
+    "Additional prepared-start RPC permission remains pending; no apply/wiring. Adaptive capability off; all release gates and full goal remain open."
+  ]
+}

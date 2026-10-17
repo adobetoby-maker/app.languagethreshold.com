@@ -1,0 +1,56 @@
+{
+  "sourceCommit": "2804751",
+  "preview": {
+    "url": "https://language-threshold-7rrt9z2ek-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_6vWTWHDwkRw1pXxp8ZnnzNMVRo7R",
+    "readyState": "READY",
+    "target": null,
+    "artifactMiB": 19.44
+  },
+  "scope": "Replace automatic all-country culture generation on Reader mount with an explicit country action in Library; save and reopen through the existing actor-owned Reader device queue.",
+  "checks": {
+    "tests": 602,
+    "newCultureBoundaryTests": 8,
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "focusedEntryHttpChecks": 9,
+    "freshReaderShowsNoAutomaticCultureStatus": true,
+    "actualGeneratedCountry": "Mexico",
+    "actualGeneratedTarget": "Spanish",
+    "actualGeneratedNative": "English",
+    "savedMyTextsCount": 1,
+    "savedTargetWordCount": 408,
+    "savedReadingSurvivesRefresh": true,
+    "savedCountryChoiceReopensExistingCopy": true,
+    "loadedReaderSavedCopyReopensWithTabOffline": true,
+    "newUnsavedCountryShowsReconnectMessage": true,
+    "networkRestoredToNoThrottling": true,
+    "devToolsClosed": true,
+    "phoneViewportWidth": 390,
+    "phoneDocumentScrollWidth": 390,
+    "viewportReset": true
+  },
+  "testBoundaries": [
+    "Production hook mount sends no request",
+    "Explicit action requests only one country and current language pair",
+    "Saved pair reopens offline while a different pair does not reuse it",
+    "Incomplete and malformed alignment is rejected",
+    "Concurrent click and unmount cannot duplicate/save a late response",
+    "Late previous-pair response is ignored",
+    "A failed device save retries the retained text without another generation",
+    "Production hook output survives real Reader device-cache reconstruction and remains actor-isolated"
+  ],
+  "actualTrial": "Fresh hosted guest Reader, normal first-visit language/welcome flow, explicit Mexico request, saved My Texts entry, refresh and reopen. Chrome DevTools Network was set to Offline for the exact test tab; saved Mexico reopened, unsaved Spain showed Connect to create a new reading. Normal network and viewport were restored.",
+  "captures": [
+    "/Users/drive/git-backups/language-threshold-saved-culture-reading-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-culture-library-phone-2026-10-16.png"
+  ],
+  "limits": [
+    "The real browser trial used guest device storage, not a new signed-in cloud-save acceptance run",
+    "Offline trial used an already loaded Reader; no offline cold-start, device audio or scored-exam claim",
+    "The API remains available; this removes automatic UI requests, not server-side rate-limit risk",
+    "Generated culture content is optional AI text, not reviewed module content or proficiency evidence",
+    "No app promotion, schema change, exam answer, mastery, certificate or content approval occurred"
+  ]
+}

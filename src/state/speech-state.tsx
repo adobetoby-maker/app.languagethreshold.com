@@ -1,3 +1,5 @@
+import { useAuth } from "@/state/auth-state";
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -108,8 +110,12 @@ interface SpeechCtx {
 const Ctx = createContext<SpeechCtx | null>(null);
 
 const ACHIEVEMENT_LISTENER = "Good Listener 👂";
-const STORAGE_KEY = "lt.speech.v1";
-const RECENT_WORDS_KEY = "lt.speech.recentWords.v1";
+interface SavedSpeech {
+  rate?: number;
+  listenedCount?: number;
+  voiceByLang?: Record<string, string>;
+  accentByLang?: Record<string, string>;
+}
 const RECENT_WORDS_CAP = 20;
 
 export function SpeechProvider({
@@ -125,6 +131,28 @@ export function SpeechProvider({
   onAchievement: (name: string) => void;
   hasAchievement: (name: string) => boolean;
 }) {
+  const { user, isCurrentUser } = useAuth();
+  const actor = user?.id ?? null;
+  const mountedRef = useRef(false);
+  const playbackEpochRef = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const queueRef = useRef<Array<{ text: string; index: number }>>([]);
+  const cancelledRef = useRef(true);
+  const listenedCountRef = useRef(0);
+  const ownsPlayback = useCallback(
+    () => mountedRef.current && (actor === null || isCurrentUser(actor)),
+    [actor, isCurrentUser],
+  );
+  const invalidatePlayback = useCallback(() => {
+    playbackEpochRef.current += 1;
+    cancelledRef.current = true;
+    queueRef.current = [];
+    if (timerRef.current !== null) clearTimeout(timerRef.current);
+    timerRef.current = null;
+  }, []);
+  const device = useLearnerDeviceStore("speech");
+  const recentDevice = useLearnerDeviceStore("heardWords");
+  const [historyHydrated, setHistoryHydrated] = useState(false);
   const accentsForLanguage = ACCENTS_BY_LANGUAGE[language];
   const [rate, setRateState] = useState(1);
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
@@ -141,11 +169,14 @@ export function SpeechProvider({
   // Hydrate
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw);
+        const parsed = raw as SavedSpeech;
         if (typeof parsed.rate === "number") setRateState(parsed.rate);
-        if (typeof parsed.listenedCount === "number") setListenedCount(parsed.listenedCount);
+        if (Number.isSafeInteger(parsed.listenedCount) && (parsed.listenedCount ?? -1) >= 0) {
+          listenedCountRef.current = parsed.listenedCount!;
+          setListenedCount(parsed.listenedCount!);
+        }
         if (parsed.voiceByLang && typeof parsed.voiceByLang === "object") {
           const v = parsed.voiceByLang[language];
           if (typeof v === "string") setVoiceURIState(v);
@@ -157,73 +188,50 @@ export function SpeechProvider({
       setSettingsHydrated(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [device]);
 
   // Persist
   useEffect(() => {
     if (!settingsHydrated || voiceLanguageRef.current !== language) return;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const prev = raw ? JSON.parse(raw) : {};
+      const raw = device.read();
+      const prev = (raw as SavedSpeech | null) ?? {};
       const voiceByLang = { ...(prev.voiceByLang ?? {}) };
       if (voiceURI) voiceByLang[language] = voiceURI;
       else delete voiceByLang[language];
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ ...prev, rate, listenedCount, voiceByLang }),
-      );
+      device.write({ ...prev, rate, listenedCount, voiceByLang });
     } catch {
       /* ignore */
     }
-  }, [rate, listenedCount, voiceURI, language, settingsHydrated]);
+  }, [device, rate, listenedCount, voiceURI, language, settingsHydrated]);
 
-  // Hydrate recent-words history (separate localStorage key from the main
-  // speech-settings blob above — kept independent so it can grow/shrink
-  // without touching rate/accent/voice persistence).
+  // The account-keyed provider remounts on identity change. Never hydrate another learner's history.
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(RECENT_WORDS_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) {
-          setRecentWords(parsed.filter((w): w is string => typeof w === "string"));
-        }
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
+    const saved = recentDevice.read();
+    setRecentWords(
+      Array.isArray(saved)
+        ? saved.filter((w): w is string => typeof w === "string").slice(0, RECENT_WORDS_CAP)
+        : [],
+    );
+    setHistoryHydrated(true);
+  }, [recentDevice]);
 
-  // Persist recent-words history. MUST skip its first invocation — it runs in
-  // the same commit as the hydrate effect above, while recentWords still
-  // holds its default ([]) rather than the value just read from
-  // localStorage, so without this it would silently wipe the saved history
-  // on every mount. Same pattern as the furigana/romaja persist effects in
-  // ParallelReader.tsx.
-  const skipRecentWordsPersist = useRef(true);
   useEffect(() => {
-    if (skipRecentWordsPersist.current) {
-      skipRecentWordsPersist.current = false;
-      return;
-    }
-    try {
-      localStorage.setItem(RECENT_WORDS_KEY, JSON.stringify(recentWords));
-    } catch {
-      /* ignore */
-    }
-  }, [recentWords]);
+    if (historyHydrated) recentDevice.write(recentWords);
+  }, [recentDevice, recentWords, historyHydrated]);
 
   // Reset accent + voice when language changes (load voice for new language)
   useEffect(() => {
     voiceLanguageRef.current = language;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      const parsed = raw ? JSON.parse(raw) : {};
+      const raw = device.read();
+      const parsed = (raw as SavedSpeech | null) ?? {};
       const v = parsed.voiceByLang?.[language];
       setVoiceURIState(typeof v === "string" ? v : null);
       const savedAccent = parsed.accentByLang?.[language];
       setAccentState(
-        accentsForLanguage.some((option) => option.code === savedAccent)
+        typeof savedAccent === "string" &&
+          accentsForLanguage.some((option) => option.code === savedAccent)
           ? savedAccent
           : accentsForLanguage[0].code,
       );
@@ -231,6 +239,7 @@ export function SpeechProvider({
       setVoiceURIState(null);
       setAccentState(accentsForLanguage[0].code);
     }
+    invalidatePlayback();
     // Stop any active speech
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -240,24 +249,23 @@ export function SpeechProvider({
     setCurrent(null);
     setActiveSentenceIndex(-1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [language]);
+  }, [language, device]);
 
-  // Stop on unmount
+  // Invalidate queued text and callbacks before releasing this account subtree.
   useEffect(() => {
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
+      invalidatePlayback();
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
       stopRemoteTTS();
     };
-  }, []);
-
-  const queueRef = useRef<Array<{ text: string; index: number }>>([]);
-  const cancelledRef = useRef(false);
+  }, [invalidatePlayback]);
 
   const stop = useCallback(() => {
-    cancelledRef.current = true;
-    queueRef.current = [];
+    invalidatePlayback();
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
@@ -265,7 +273,7 @@ export function SpeechProvider({
     setPlaying(false);
     setCurrent(null);
     setActiveSentenceIndex(-1);
-  }, []);
+  }, [invalidatePlayback]);
 
   const setRate = useCallback((n: number) => {
     setRateState(n);
@@ -279,15 +287,15 @@ export function SpeechProvider({
         current && !decodeGoogleVoicePreference(current) ? DEVICE_DEFAULT_VOICE : null,
       );
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        const prev = raw ? JSON.parse(raw) : {};
+        const raw = device.read();
+        const prev = (raw as SavedSpeech | null) ?? {};
         const accentByLang = { ...(prev.accentByLang ?? {}), [language]: c };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...prev, accentByLang }));
+        device.write({ ...prev, accentByLang });
       } catch {
         /* ignore */
       }
     },
-    [language],
+    [language, device],
   );
   const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
   const setLastWord = useCallback((w: string) => {
@@ -301,22 +309,32 @@ export function SpeechProvider({
   }, []);
 
   const incListened = useCallback(() => {
-    setListenedCount((c) => {
-      const next = c + 1;
-      onXp(1);
-      if (next === 10 && !hasAchievement(ACHIEVEMENT_LISTENER)) {
-        onAchievement(ACHIEVEMENT_LISTENER);
-        toast("👂 Achievement unlocked", {
-          description: `${ACHIEVEMENT_LISTENER} — 10 sentences read aloud`,
-        });
-      }
-      return next;
-    });
-  }, [hasAchievement, onAchievement, onXp]);
+    if (!ownsPlayback()) return;
+    const next = listenedCountRef.current + 1;
+    listenedCountRef.current = next;
+    setListenedCount(next);
+    onXp(1);
+    if (next === 10 && !hasAchievement(ACHIEVEMENT_LISTENER)) {
+      onAchievement(ACHIEVEMENT_LISTENER);
+      toast("👂 Achievement unlocked", {
+        description: `${ACHIEVEMENT_LISTENER} — 10 sentences read aloud`,
+      });
+    }
+  }, [hasAchievement, onAchievement, onXp, ownsPlayback]);
 
   const speakOne = useCallback(
     (text: string, sentenceIndex: number, mode: SpeechMode, onEnd?: () => void) => {
-      if (typeof window === "undefined") return;
+      const epoch = playbackEpochRef.current;
+      const valid = () =>
+        ownsPlayback() && epoch === playbackEpochRef.current && !cancelledRef.current;
+      if (typeof window === "undefined" || !valid()) return;
+      let settled = false;
+      const finish = (heard: boolean) => {
+        if (settled || !valid()) return;
+        settled = true;
+        if (heard && sentenceIndex >= 0) incListened();
+        onEnd?.();
+      };
       if (needsRemoteTTS(accent, voiceURI)) {
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
@@ -324,10 +342,8 @@ export function SpeechProvider({
         void speakRemote(text, accent, {
           rate,
           voiceURI,
-          onend: () => {
-            if (sentenceIndex >= 0) incListened();
-            onEnd?.();
-          },
+          onend: () => finish(true),
+          onerror: () => finish(false),
         });
         return;
       }
@@ -336,24 +352,25 @@ export function SpeechProvider({
       configureUtterance(u, accent, voiceURI);
       u.rate = rate;
       u.onstart = () => {
+        if (!valid() || settled) return;
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
         if (sentenceIndex >= 0) setActiveSentenceIndex(sentenceIndex);
       };
-      u.onend = () => {
-        if (sentenceIndex >= 0) incListened();
-        onEnd?.();
-      };
-      u.onerror = () => {
-        onEnd?.();
-      };
-      window.speechSynthesis.speak(u);
+      u.onend = () => finish(true);
+      u.onerror = () => finish(false);
+      try {
+        window.speechSynthesis.speak(u);
+      } catch {
+        finish(false);
+      }
     },
-    [accent, rate, voiceURI, incListened],
+    [accent, rate, voiceURI, incListened, ownsPlayback],
   );
 
   const speakWord = useCallback(
     (word?: string) => {
+      if (!ownsPlayback()) return;
       const target = (word ?? lastWord ?? "").trim();
       if (!target) {
         toast("No word selected yet", {
@@ -363,21 +380,28 @@ export function SpeechProvider({
       }
       stop();
       cancelledRef.current = false;
-      setTimeout(() => {
+      const epoch = playbackEpochRef.current;
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
         speakOne(target, -1, "word", () => {
           setPlaying(false);
           setCurrent(null);
         });
       }, 30);
     },
-    [lastWord, speakOne, stop],
+    [lastWord, speakOne, stop, ownsPlayback],
   );
 
   const speakSentence = useCallback(
     (text: string, sentenceIndex: number) => {
+      if (!ownsPlayback()) return;
       stop();
       cancelledRef.current = false;
-      setTimeout(() => {
+      const epoch = playbackEpochRef.current;
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
         speakOne(text, sentenceIndex, "sentence", () => {
           setPlaying(false);
           setCurrent(null);
@@ -385,18 +409,21 @@ export function SpeechProvider({
         });
       }, 30);
     },
-    [speakOne, stop],
+    [speakOne, stop, ownsPlayback],
   );
 
   const speakSentences = useCallback(
     (sentences: { text: string; index: number }[], onMove?: (i: number) => void) => {
-      if (sentences.length === 0) return;
+      if (!ownsPlayback() || sentences.length === 0) return;
       stop();
       cancelledRef.current = false;
       queueRef.current = [...sentences];
 
+      const epoch = playbackEpochRef.current;
+      const valid = () =>
+        ownsPlayback() && epoch === playbackEpochRef.current && !cancelledRef.current;
       const next = () => {
-        if (cancelledRef.current) return;
+        if (!valid()) return;
         const item = queueRef.current.shift();
         if (!item) {
           setPlaying(false);
@@ -405,12 +432,16 @@ export function SpeechProvider({
           return;
         }
         onMove?.(item.index);
+        if (!valid()) return;
         speakOne(item.text, item.index, "paragraph", next);
       };
 
-      setTimeout(next, 30);
+      timerRef.current = setTimeout(() => {
+        timerRef.current = null;
+        next();
+      }, 30);
     },
-    [speakOne, stop],
+    [speakOne, stop, ownsPlayback],
   );
 
   const value = useMemo(

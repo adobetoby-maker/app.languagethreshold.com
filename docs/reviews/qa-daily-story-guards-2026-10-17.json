@@ -1,0 +1,42 @@
+{
+  "testedAt": "2026-10-17T15:03:15.541197+00:00",
+  "sourceCommit": "858c47a",
+  "scope": "Daily Story active server handler; controlled SDK transport/budget fixtures",
+  "checks": {
+    "sameOriginBeforePaidWork": true,
+    "noStore": true,
+    "existingContentPoolFailClosed": true,
+    "noProviderConstructionOnBudgetDenialOrOutage": true,
+    "maxRetries": 0,
+    "sdkTimeoutMs": 30000,
+    "totalDeadlineMs": 30000,
+    "incomingAbortPropagated": true,
+    "boundedWhitelistedStoryFields": true,
+    "highlightArrayBoundedAndUnique": true,
+    "highlightsAndAnswerPresentInStory": true,
+    "caseAndCanonicalUnicodeMatch": true,
+    "invalidResultRetryableWithoutPrivateErrorLogs": true
+  },
+  "localVerification": {
+    "tests": 839,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "stageBuild": "pass",
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T15:02:59.640Z",
+      "sourceCommit": "858c47a",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1150,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "limitations": [
+    "No paid provider call or linguistic/content approval; source-text inclusion is not answer correctness or full-word/semantic equivalence validation",
+    "No browser/device/provider-timeout/billing acceptance",
+    "No new learner writes or schema/role/active-policy/speech/schedule changes",
+    "No main push or production promotion; full Exams requirements remain open"
+  ]
+}

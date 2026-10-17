@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useReadingHints } from "@/hooks/use-reading-hints";
 import { wordA11yProps } from "@/lib/learning-guidance";
 import { useServerFn } from "@tanstack/react-start";
-import { addRomaja, type RomajaSegment } from "@/fns/romaja.functions";
+import { addRomaja } from "@/fns/romaja.functions";
 
 /**
  * Renders a Korean sentence with optional Revised Romanization (RR) above each
  * Hangul syllable block — the Korean mirror of <FuriganaText />. Readings are
- * fetched lazily, cached in localStorage, and rendered with native <ruby>/<rt>
+ * fetched lazily, cached for the current account, and rendered with native <ruby>/<rt>
  * tags so layout stays height-stable. "Inline" mode overlays the romaja
  * directly on top of the syllable so the original sentence rhythm is
  * preserved 1:1.
@@ -14,31 +15,6 @@ import { addRomaja, type RomajaSegment } from "@/fns/romaja.functions";
  * Each syllable and punctuation chunk stays individually clickable so word
  * lookups continue to work in every mode.
  */
-
-const CACHE_KEY = "lt.romaja.v1";
-type Cache = Record<string, RomajaSegment[]>;
-
-let memCache: Cache | null = null;
-function loadCache(): Cache {
-  if (memCache) return memCache;
-  try {
-    const raw = typeof window !== "undefined" ? localStorage.getItem(CACHE_KEY) : null;
-    memCache = raw ? (JSON.parse(raw) as Cache) : {};
-  } catch {
-    memCache = {};
-  }
-  return memCache;
-}
-function saveCache(cache: Cache) {
-  memCache = cache;
-  try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-  } catch {
-    /* quota — ignore */
-  }
-}
-
-const HANGUL_RE = /[\uAC00-\uD7AF]/;
 
 export function HangulText({
   text,
@@ -58,43 +34,8 @@ export function HangulText({
   mode?: "above" | "inline";
 }) {
   const fetchRomaja = useServerFn(addRomaja);
-  const [segments, setSegments] = useState<RomajaSegment[] | null>(() => loadCache()[text] ?? null);
-  const inFlight = useRef(false);
+  const segments = useReadingHints("romaja", text, fetchRomaja);
   const sentence = fullSentence ?? text;
-
-  useEffect(() => {
-    const cached = loadCache()[text];
-    if (cached) {
-      setSegments(cached);
-      return;
-    }
-    if (!HANGUL_RE.test(text)) {
-      setSegments([{ base: text }]);
-      return;
-    }
-    if (inFlight.current) return;
-    inFlight.current = true;
-
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetchRomaja({ data: { text } });
-        if (cancelled) return;
-        const segs = res.data?.segments ?? [{ base: text }];
-        const cache = { ...loadCache(), [text]: segs };
-        saveCache(cache);
-        setSegments(segs);
-      } catch {
-        if (!cancelled) setSegments([{ base: text }]); // graceful fallback
-      } finally {
-        inFlight.current = false;
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [text, fetchRomaja]);
 
   const rendered = useMemo(() => segments, [segments]);
 
@@ -133,7 +74,7 @@ export function HangulText({
             <ruby key={i} className="furigana-ruby">
               <span
                 className="lt-word"
-            {...wordA11yProps}
+                {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {

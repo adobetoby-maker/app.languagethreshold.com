@@ -1,3 +1,4 @@
+import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -29,7 +30,8 @@ import {
 } from "@/data/roleplay-scenarios";
 import { MissionBanner } from "./MissionBanner";
 import { PostSessionFeedback } from "./PostSessionFeedback";
-import { ltAnalytics } from "@/lib/lt-analytics";
+import { FIELD_PREP_ANALYTICS_ENABLED } from "@/lib/lt-analytics";
+import { useFieldPrepAnalytics } from "@/hooks/use-field-prep-analytics";
 import { cn } from "@/lib/utils";
 import { useAiGate } from "@/state/ai-gate-state";
 
@@ -75,7 +77,7 @@ function speakAloud(
     return;
   }
   if (needsRemoteTTS(locale, voiceURI)) {
-    void speakRemote(clean, locale, { voiceURI, onend: onEnd });
+    void speakRemote(clean, locale, { voiceURI, onend: onEnd, onerror: onEnd });
     return;
   }
   if (!window.speechSynthesis) {
@@ -92,6 +94,7 @@ function speakAloud(
 
 export function FieldPrepMode() {
   const { state, dispatch } = useApp();
+  const ltAnalytics = useFieldPrepAnalytics();
   const { gated } = useAiGate();
   const { voiceURI } = useSpeech();
   const [phase, setPhase] = useState<"select" | "roleplay">("select");
@@ -187,7 +190,7 @@ export function FieldPrepMode() {
         durationSeconds: duration,
         completed: exchanges >= 3,
       });
-      if (exchanges >= 2) {
+      if (exchanges >= 2 && FIELD_PREP_ANALYTICS_ENABLED) {
         setShowFeedback(true);
         return; // feedback dialog will then close and navigate
       }
@@ -238,7 +241,7 @@ export function FieldPrepMode() {
                 cultureNote: area.cultureNote,
               }
             : undefined,
-          messages: history.map((m) => ({ role: m.role, content: m.content })),
+          messages: recentConversationMessages(history),
           requestFeedback,
         }),
       });
@@ -469,6 +472,7 @@ export function FieldPrepMode() {
       )}
       {showFeedback && scenario && (
         <PostSessionFeedback
+          analytics={ltAnalytics}
           scenarioId={scenario.id}
           scenarioTitle={scenario.title}
           language={state.selectedLanguage}

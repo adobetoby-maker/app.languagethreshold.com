@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 
 const TranslateInput = z.object({
   text: z.string().min(10).max(8000),
@@ -117,6 +118,8 @@ export const translateCustomText = createServerFn({ method: "POST" })
 export const generateCultureEssay = createServerFn({ method: "POST" })
   .inputValidator((i: unknown) => CultureInput.parse(i))
   .handler(async ({ data }) => {
+    const budgetError = await learningGenerationError();
+    if (budgetError) return { data: null, error: budgetError };
     const native = data.nativeLanguage ?? "English";
     const system =
       "You are a warm, vivid cultural essayist and translator. Always respond by calling the provided tool. Sentences must align index-by-index between the two languages.";

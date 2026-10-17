@@ -1,0 +1,72 @@
+{
+  "testedAt": "2026-10-17T01:20:39.068Z",
+  "sourceCommit": "600f185",
+  "preview": "https://language-threshold-ei16ds2aj-adobetoby-5572s-projects.vercel.app",
+  "requests": 8,
+  "personal": {
+    "events": 54,
+    "scope": "personal",
+    "exceedsVisibleHistoryPage": true
+  },
+  "team": {
+    "events": 36,
+    "scope": "team",
+    "exceedsVisibleHistoryPage": true
+  },
+  "checks": {
+    "completeStoredEventCounts": true,
+    "noDuplicateEvents": true,
+    "authorizedPersonalAndTeamExports": true,
+    "ownLearnerTeamExport": true,
+    "crossScopeDenied": true,
+    "anonymousDenied": true,
+    "invalidIdRejected": true,
+    "privateDownloadHeaders": true,
+    "noRawPayloadColumns": true
+  },
+  "limits": [
+    "Read-only existing synthetic QA histories; no score, history, assignment, approval, schedule or certificate writes",
+    "Batched500-row server scans and failure/revocation/resource/cancellation cases use controlled production-handler tests; this report records actual hosted event counts"
+  ],
+  "browserDownload": {
+    "file": "/Users/drive/Downloads/language-threshold-plan-history.csv",
+    "modifiedAt": "2026-10-17T01:21:19.859594+00:00",
+    "bytes": 15132,
+    "sha256": "9dd3c697a6d06ffc366ac390c348f53fc2996584806fc933884285af18c99e99",
+    "events": 36,
+    "headerColumns": 31,
+    "matchesExpectedQaTeamScope": true,
+    "newerThanHostedApiTrial": true,
+    "duplicateEvents": 0,
+    "rawRowsPrinted": false,
+    "automationDownloadEventTimedOut": true,
+    "verifiedOnFilesystem": true
+  },
+  "browserScoreExport": {
+    "file": "/Users/drive/Downloads/language-threshold-assessed-progress.csv",
+    "modifiedAt": "2026-10-17T01:22:42.358881+00:00",
+    "sha256": "299df991e30ff8323308393aa32b9feb001fab606fa863225bced520378afcfb",
+    "rows": 8,
+    "columns": 24,
+    "allThreeCheckpoints": true,
+    "unavailableCheckpoints": 2,
+    "missingScoresBlank": true,
+    "rawRowsPrinted": false
+  },
+  "browserUi": {
+    "normalQaAdminSignIn": true,
+    "completeHistoryExportPrepared36Events": true,
+    "historyAndScoreFilesVerifiedOnFilesystem": true,
+    "phoneViewport": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "exportButtonWidth": 254.203125,
+      "exportButtonHeight": 44
+    },
+    "screenshot": "/Users/drive/git-backups/language-threshold-history-export-phone-2026-10-16.png",
+    "viewportRestored": true,
+    "qaAdminSignedOut": true,
+    "privateCardsHiddenAfterSignOut": true
+  }
+}

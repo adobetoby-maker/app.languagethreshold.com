@@ -1,0 +1,97 @@
+{
+  "testedAt": "2026-10-17T15:59:24.088662+00:00",
+  "applicationCommit": "7767de7",
+  "implementationCommit": "7767de7",
+  "preview": "https://language-threshold-eqn7jjeja-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_ATL2AcRhkXhpbtupyfX3LWRf8ytr",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "status": "READY",
+    "target": null,
+    "gitCommit": "7767de7e3a643b1b87afa0aa5c76a883f428c274"
+  },
+  "localVerification": {
+    "tests": 844,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T15:59:59.605Z",
+      "sourceCommit": "7767de7",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1171,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "hostedGroups": {
+    "authenticatedExams": 20,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7,
+    "rejectedConversationInputs": 16
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "companionApplication": "d4ad837",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamStepsOpened": 2,
+    "teamCurrentMastered": 0
+  },
+  "limitations": [
+    "Durable private route infrastructure and SQL selected-path guards are applied, but the service API/learner Continue/resume, selected scoring/reporting and complete media integration are not wired; adaptive starts remain unavailable.",
+    "No hosted adaptive form, route or result fixture; positive routing/concurrency/failure fixtures are local only and cleaned.",
+    "Current helper/cache browser, actual provider/timeout/billing, linguistic and physical acceptance are not established by these checks.",
+    "No browser actions, paid provider calls or new hosted learner-response writes; speech policies/collection and schedule remain disabled.",
+    "No accepted-companion alias reassignment, main push or production promotion. Full human/content/calibration/pilot/device/operational release gates remain open."
+  ],
+  "includedHelperSources": {
+    "phonetic": "fa769e5",
+    "penPal": "c991a6a",
+    "personalPractice": "8d77c64",
+    "grammar": "31d487a",
+    "dailyStory": "858c47a",
+    "wordMatchAndListening": "158fad4",
+    "idiomsAndFalseFriends": "7e8e779",
+    "conjugation": "a762d27"
+  },
+  "routingDatabase": {
+    "ownerAuthorization": "Direct owner reply: Allow the proposed database work; keep launch gated",
+    "localMigration": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+    "hostedMigration": {
+      "version": "20261017155354",
+      "name": "assessment_adaptive_route_records"
+    },
+    "metadataEvidence": "docs/reviews/qa-routing-db-metadata-2026-10-17.json",
+    "accessEvidence": "docs/reviews/qa-routing-db-access-2026-10-17.json",
+    "advisorEvidence": "docs/reviews/qa-routing-db-advisors-2026-10-17.json",
+    "localConcurrency": {
+      "localDatabase": "lt_exams_qa_20261015_codex",
+      "baselineSignatures": {
+        "baselineResponseGuard": "5787804a07daa6ba9839ac1e9bd6faae",
+        "baselineSubmit": "217450e4deba5839455f72718db90e69"
+      },
+      "checks": {
+        "concurrentSameAndDifferentRequestsFreezeOneRoute": true,
+        "changedRetryPayloadConflicts": true,
+        "saveWinsStaleRouteRollsBack": true,
+        "routeWinsStaleSaveRejectedAndSelectedRevisionWorks": true,
+        "noAdaptiveSubmitWithoutRouteAndConcurrentSubmitSerializes": true,
+        "globalRetryIdentityCannotSelectAnotherAttempt": true,
+        "auditFailureRollsBackRouteAndRevision": true,
+        "directServiceInsertAtomicAndUnselectedSpeechDenied": true
+      },
+      "noHostedWrites": true,
+      "positiveFixturesSyntheticOnly": true
+    },
+    "localDatabaseRestoredEmpty": true,
+    "adaptiveRuntimeEnabled": false,
+    "hostedAdaptiveForms": 0,
+    "hostedRoutes": 0,
+    "serviceNullActorRejected": true
+  }
+}

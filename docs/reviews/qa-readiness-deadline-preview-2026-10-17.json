@@ -1,0 +1,78 @@
+{
+  "testedAt": "2026-10-17T18:00:16.438972+00:00",
+  "applicationCommit": "62e0441fa95891c0266d78afe08a4df290646b82",
+  "preview": "https://language-threshold-ao2c8ffb7-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "id": "dpl_6QgSym9vBLoJxWJYac5ampWvTyPW",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "readyState": "READY",
+    "target": null,
+    "commit": "62e0441fa95891c0266d78afe08a4df290646b82"
+  },
+  "activation": {
+    "capability": "LT_EXAMS_ADAPTIVE_RUNTIME_ENABLED",
+    "deploymentCommandOverride": "false",
+    "capabilityValueExposedByDeploymentMetadata": null,
+    "activated": false,
+    "productionIgnoresCapability": true,
+    "projectWideEnvironmentChanged": false
+  },
+  "localVerification": {
+    "tests": 931,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.72,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:00:18.197Z",
+      "sourceCommit": "62e0441",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1211,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "controlledChecks": {
+    "newGroups": 5,
+    "cumulativeDeadlineMilliseconds": 10000,
+    "hangingDiscoveryAbortedAndNoLateDefinitionRead": true,
+    "oneDeadlineAcrossAllBatches": true,
+    "lateCompletionCannotExposePartialAvailabilityOrStartAnotherBatch": true,
+    "deadlineClearedOnSuccessAndFailure": true,
+    "transportErrorsSanitizedTo503": true,
+    "installedSupabaseSdkReceivesAbortSignalAndDoesNotRetryAfterExpiry": true,
+    "maximum600CandidatesUse60BatchesOf10": true,
+    "defaultOffStillAvoidsExtraPrivateReads": true
+  },
+  "hostedGroups": {
+    "authenticatedExams": 21,
+    "routingAndPrivateHeaders": 12,
+    "publicLessonPacks": 3,
+    "readOnlyScope": 7
+  },
+  "preserved": {
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "liveDeployment": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+    "personalDraftRevision": 12,
+    "personalDraftStatus": "in_progress",
+    "personalDraftUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "preparedStartProposal": {
+    "status": "owner approval pending; no repeat question",
+    "proposal": "docs/assessments/prepared-start-migration-proposal.md",
+    "localProof": "docs/reviews/qa-prepared-start-local-2026-10-17.json",
+    "applied": false,
+    "applicationWired": false
+  },
+  "limitations": [
+    "Deadline tests control the actual production timer callback and use synthetic SDK fetch; no hosted outage or platform worst-case latency is claimed.",
+    "The added deadline bounds adaptive readiness discovery/definition reads, not every surrounding endpoint operation.",
+    "No hosted adaptive form/approval/response/score/consent, browser action, model call, schema/role/speech/retention/schedule change.",
+    "Capability remains off; prepared-start source race still requires the additional approved RPC before activation.",
+    "Genuine content/calibration/equivalence, reviewer, consented pilot, browser/device/catalog/operational acceptance remain open.",
+    "Goal/main push/launch/production conditions remain unmet."
+  ]
+}

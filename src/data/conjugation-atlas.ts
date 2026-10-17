@@ -7,7 +7,7 @@
  *   3. KNOWN_VERBS × conjugateRegular() — fills every regular dictionary verb
  *
  * Current dictionary set (ES + IT) has zero gaps after seed.
- * Novel learner-typed verbs still go through AI once via ensureConjugation.
+ * Novel learner-typed verbs require an explicit account-owned conjugation cache.
  */
 
 import type { Language } from "@/state/app-state";

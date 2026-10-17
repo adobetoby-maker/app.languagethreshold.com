@@ -12,9 +12,10 @@ export interface LearningGenerationDenial {
 export const LEARNING_GENERATION_LIMITS = { minute: 8, ipHour: 120, globalHour: 600 } as const;
 // Short image checks are a repeated learning action; they must not consume the
 // slower lesson/deck creation pool. Shared connections still have a bounded allowance.
-export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1200 } as const;
+// The shared SQL RPC accepts request limits up to 1000. Keep all pools within that contract.
+export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1000 } as const;
 export const CONVERSATION_LIMITS = { minute: 30, ipHour: 300, globalHour: 600 } as const;
-export const WORD_LOOKUP_LIMITS = { minute: 40, ipHour: 600, globalHour: 1200 } as const;
+export const WORD_LOOKUP_LIMITS = { minute: 40, ipHour: 600, globalHour: 1000 } as const;
 export type LearningGenerationPurpose = "content" | "handwriting" | "conversation" | "lookup";
 export function learningGenerationOriginError(request: Request): LearningGenerationDenial | null {
   return isStrictSameOrigin(request)

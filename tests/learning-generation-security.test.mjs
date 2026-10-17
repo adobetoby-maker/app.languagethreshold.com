@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
+
+const budgetSql = readFileSync(new URL("../supabase/migrations/20260813205944_speaking_api_guards.sql", import.meta.url), "utf8");
+const rpcMaximum = Number(budgetSql.match(/p_request_limit > (\d+)/)[1]);
 import {
   checkLearningGenerationBudget,
   LEARNING_GENERATION_LIMITS,
@@ -35,7 +39,7 @@ async function fixture(run) {
     const key = body.p_bucket_hash + ":" + body.p_window_seconds;
     const count = (buckets.get(key) || 0) + 1;
     buckets.set(key, count);
-    return Response.json(count <= body.p_request_limit);
+    return Response.json(body.p_request_limit >= 1 && body.p_request_limit <= rpcMaximum && count <= body.p_request_limit);
   };
   try {
     await run({ calls, buckets });
@@ -81,7 +85,7 @@ test("short handwriting checks share their own durable allowance without starvin
       [
         [30, 60],
         [600, 3600],
-        [1200, 3600],
+        [1000, 3600],
       ],
     );
     assert.equal(await checkLearningGenerationBudget(request()), null);
@@ -124,7 +128,7 @@ test("conversation minute and hourly bounds are independent of handwriting and c
   }));
 test("lookup request bounds are independent of the content and conversation pools", async () =>
   fixture(async ({ calls }) => {
-    assert.deepEqual(WORD_LOOKUP_LIMITS, { minute: 40, ipHour: 600, globalHour: 1200 });
+    assert.deepEqual(WORD_LOOKUP_LIMITS, { minute: 40, ipHour: 600, globalHour: 1000 });
     for (let i = 0; i < 40; i++)
       assert.equal(await checkLearningGenerationBudget(request(), "lookup"), null);
     assert.equal((await checkLearningGenerationBudget(request(), "lookup")).status, 429);
@@ -203,3 +207,8 @@ test("preview and production have different counters; plain production hosts req
     noIp.headers.delete("x-vercel-forwarded-for");
     assert.equal((await checkLearningGenerationBudget(noIp)).status, 503);
   }));
+
+test("every learning pool fits the deployed SQL budget RPC contract", () => {
+  for (const limits of [LEARNING_GENERATION_LIMITS, HANDWRITING_CHECK_LIMITS, CONVERSATION_LIMITS, WORD_LOOKUP_LIMITS])
+    for (const limit of Object.values(limits)) assert.ok(limit >= 1 && limit <= rpcMaximum);
+});

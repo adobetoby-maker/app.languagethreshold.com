@@ -101,10 +101,18 @@ type PlanFilters = {
   module: string;
   learner: string;
   state: OverviewState;
+  checkpoint: "" | "entrance" | "day45" | "day90";
   target: "" | Language;
   native: "" | NativeLanguage;
 };
-const emptyFilters: PlanFilters = { module: "", learner: "", state: "all", target: "", native: "" };
+const emptyFilters: PlanFilters = {
+  module: "",
+  learner: "",
+  state: "all",
+  checkpoint: "",
+  target: "",
+  native: "",
+};
 const names = { entrance: "Entrance", day45: "Day 45", day90: "Day 90" } as const;
 const checkpointName = (checkpoint: string, programScope?: string) =>
   programScope === "support_units"
@@ -220,6 +228,7 @@ function ExamsAreaContent({
     ...(filters.module ? { module: filters.module } : {}),
     ...(filters.learner ? { learner: filters.learner } : {}),
     ...(filters.state !== "all" ? { state: filters.state } : {}),
+    ...(filters.checkpoint ? { checkpoint: filters.checkpoint } : {}),
     ...(filters.target ? { target: filters.target } : {}),
     ...(filters.native ? { native: filters.native } : {}),
   });
@@ -605,6 +614,26 @@ function ExamsAreaContent({
                   </select>
                 </label>
                 <label className="text-sm">
+                  Checkpoint
+                  <select
+                    className={input}
+                    value={draftFilters.checkpoint}
+                    onChange={(event) =>
+                      setDraftFilters((value) => ({
+                        ...value,
+                        checkpoint: event.target.value as PlanFilters["checkpoint"],
+                      }))
+                    }
+                  >
+                    <option value="">All checkpoints</option>
+                    {Object.entries(names).map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-sm">
                   Plan activity
                   <select
                     className={input}
@@ -829,6 +858,12 @@ function ExamsAreaContent({
                 : "No exam plans yet. Add your module, or return to its lessons while the exams are prepared."}
             </p>
           )}
+          {filters.checkpoint && (
+            <p className="text-sm text-muted-foreground" role="status">
+              Filtering plans by {names[filters.checkpoint]}. Exam activity and due-date filters
+              apply to this checkpoint. All three checkpoints remain visible for comparison.
+            </p>
+          )}
           {overview?.enrollments.map((plan) => {
             const resumable = plan.checkpoints.flatMap((cp) =>
               cp.attempts
@@ -899,7 +934,13 @@ function ExamsAreaContent({
                   {plan.checkpoints.map((cp) => {
                     const latest = cp.attempts[0];
                     return (
-                      <section key={cp.id} className="rounded-xl border border-border p-4">
+                      <section
+                        key={cp.id}
+                        className={
+                          "rounded-xl border p-4 " +
+                          (filters.checkpoint === cp.checkpoint ? "border-gold" : "border-border")
+                        }
+                      >
                         <h3 className="font-semibold">
                           {names[cp.checkpoint as keyof typeof names]}
                         </h3>

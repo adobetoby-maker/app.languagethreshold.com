@@ -8,6 +8,7 @@ export interface OverviewFilters {
   moduleId?: string;
   learnerId?: string;
   state?: OverviewState;
+  checkpoint?: Checkpoint;
   target?: Language;
   native?: NativeLanguage;
 }

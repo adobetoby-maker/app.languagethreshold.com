@@ -189,17 +189,22 @@ export async function listEnrollments(
   orgId?: string,
   filters: OverviewFilters = {},
 ) {
-  const page = await rpc<OverviewPage>(db, "assessment_overview_page", {
-    p_actor: actor,
-    p_org: orgId ?? null,
-    p_after: filters.after ?? null,
-    p_after_id: filters.afterId ?? null,
-    p_module: filters.moduleId ?? null,
-    p_learner: filters.learnerId ?? null,
-    p_state: filters.state ?? "all",
-    p_target: filters.target ?? null,
-    p_native: filters.native ?? null,
-  });
+  const page = await rpc<OverviewPage>(
+    db,
+    filters.checkpoint ? "assessment_overview_checkpoint_page" : "assessment_overview_page",
+    {
+      p_actor: actor,
+      p_org: orgId ?? null,
+      p_after: filters.after ?? null,
+      p_after_id: filters.afterId ?? null,
+      p_module: filters.moduleId ?? null,
+      p_learner: filters.learnerId ?? null,
+      p_state: filters.state ?? "all",
+      p_target: filters.target ?? null,
+      p_native: filters.native ?? null,
+      ...(filters.checkpoint ? { p_checkpoint: filters.checkpoint } : {}),
+    },
+  );
   const permitted = page.enrollments,
     checkpoints = page.checkpoints,
     attempts = page.attempts;

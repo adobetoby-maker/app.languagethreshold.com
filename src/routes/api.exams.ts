@@ -305,6 +305,9 @@ export const Route = createFileRoute("/api/exams")({
               learnerId: url.searchParams.get("learner")
                 ? id.parse(url.searchParams.get("learner"))
                 : undefined,
+              checkpoint: url.searchParams.has("checkpoint")
+                ? z.enum(["entrance", "day45", "day90"]).parse(url.searchParams.get("checkpoint"))
+                : undefined,
               state: z
                 .enum([
                   "all",

@@ -36,6 +36,9 @@ for (const kind of [
   "dailyChallenge",
   "languageMatch",
   "simulatedRivals",
+  "readingHints:furigana",
+  "readingHints:pinyin",
+  "readingHints:romaja",
 ]) {
   test(`${kind}: private practice survives own reload, remains absent for guest/another learner, and rejects stale callbacks`, () => {
     const f = fixture();
@@ -67,6 +70,9 @@ test("unowned legacy stores are neither read, reassigned nor deleted", () => {
     "lt.grammar.v2",
     "lt.speech.v1",
     "lt.speech.recentWords.v1",
+    "lt.furigana.v3",
+    "lt.pinyin.v1",
+    "lt.romaja.v1",
   ];
   keys.forEach((key) => f.storage.setItem(key, JSON.stringify({ text: "unknown owner" })));
   const before = new Map(f.entries);
@@ -86,6 +92,9 @@ test("unowned legacy stores are neither read, reassigned nor deleted", () => {
     "dailyChallenge",
     "languageMatch",
     "simulatedRivals",
+    "readingHints:furigana",
+    "readingHints:pinyin",
+    "readingHints:romaja",
   ]) {
     assert.equal(f.make(kind, "a").read(), null);
     f.make(kind, "a").write({ text: "new owned work" });

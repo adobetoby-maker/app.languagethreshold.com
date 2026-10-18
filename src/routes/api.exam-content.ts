@@ -6,7 +6,12 @@ import {
 import { boundLessonSnapshot, requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { TeamOperationError, authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
+import {
+  TeamOperationError,
+  authenticatedAssessmentUser,
+  teamAdminClient,
+  json,
+} from "@/lib/team-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
 import {
   contentPrivileges,
@@ -39,6 +44,8 @@ const bindLessons = z
   })
   .strict();
 function fail(error: unknown) {
+  if (error instanceof TeamOperationError && error.status === 499)
+    return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the content reference, review and confirmation." }, 400);
@@ -54,8 +61,8 @@ export const Route = createFileRoute("/api/exam-content")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db),
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db),
             access = await contentPrivileges(db, user);
           if (!access.owner && !access.grants.length)
             throw new AssessmentAccessError(
@@ -207,8 +214,8 @@ export const Route = createFileRoute("/api/exam-content")({
         try {
           if (!isStrictSameOrigin(request))
             throw new AssessmentAccessError("Same-origin content review required.", 403);
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           await assessmentBudget(user.id, "content_review_write");
           const raw = await request.text();
           if (raw.length > 16000)

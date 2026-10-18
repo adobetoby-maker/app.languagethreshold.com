@@ -5,7 +5,12 @@ import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { getModule } from "@/data/modules";
 import { LEARNER_GOALS, type LearnerGoal } from "@/lib/assessments/goals";
-import { TeamOperationError, authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
+import {
+  TeamOperationError,
+  authenticatedAssessmentUser,
+  teamAdminClient,
+  json,
+} from "@/lib/team-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
 import {
@@ -120,6 +125,8 @@ const command = z.discriminatedUnion("action", [
     .strict(),
 ]);
 function fail(error: unknown) {
+  if (error instanceof TeamOperationError && error.status === 499)
+    return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the plan details and try again." }, 400);
@@ -135,8 +142,8 @@ export const Route = createFileRoute("/api/exam-plans")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           await assessmentBudget(user.id, "plan_read");
           const query = new URL(request.url).searchParams,
             action = query.get("action") ?? "plan";
@@ -206,8 +213,8 @@ export const Route = createFileRoute("/api/exam-plans")({
         try {
           if (!isStrictSameOrigin(request))
             throw new AssessmentAccessError("Same-origin plan request required.");
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db),
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db),
             raw = await request.text();
           if (raw.length > 20000)
             throw new AssessmentAccessError("Plan request is too large.", 400);

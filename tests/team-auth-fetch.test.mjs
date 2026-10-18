@@ -54,7 +54,7 @@ async function fixture(run) {
       for (let i = 0; i < 100 && !check(); i++) await new Promise((r) => saved.set(r, 1));
       assert.ok(check());
     };
-    function client(fetcher) {
+    function client(fetcher, mode = "team") {
       const owner = new AbortController();
       const request = new Request("https://fixture.invalid/api/team", {
         signal: owner.signal,
@@ -77,7 +77,10 @@ async function fixture(run) {
         request,
         db,
         listeners,
-        lookup: () => api.authenticatedTeamUser(request, db),
+        lookup: () =>
+          mode === "assessment"
+            ? api.authenticatedAssessmentUser(request, db)
+            : api.authenticatedTeamUser(request, db),
       };
     }
     await run({
@@ -336,4 +339,41 @@ test("auth fetch exact URL/method selection passes unrelated requests through by
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
+  }));
+test("actual installed SDK assessment auth preserves success/denials and owns cancellation guidance", () =>
+  fixture(async ({ client, until }) => {
+    const success = client(async () => Response.json(user), "assessment");
+    assert.equal((await success.lookup()).email, user.email);
+    assert.equal(success.listeners.size, 0);
+    for (const status of [401, 503]) {
+      const c = client(async () => new Response(null, { status }), "assessment");
+      await assert.rejects(c.lookup(), (e) => e.status === (status === 401 ? 403 : 503));
+      assert.equal(c.listeners.size, 0);
+    }
+    let signal;
+    const c = client(async (_, init) => {
+      signal = init.signal;
+      return new Promise(() => {});
+    }, "assessment");
+    const pending = c.lookup();
+    await until(() => !!signal);
+    c.owner.abort();
+    await assert.rejects(
+      pending,
+      (e) => e.status === 499 && e.message === "Assessment request cancelled.",
+    );
+    await until(() => c.listeners.size === 0);
+    assert.equal(signal.aborted, true);
+    let calls = 0;
+    const pre = client(async () => {
+      calls++;
+      return Response.json(user);
+    }, "assessment");
+    pre.owner.abort();
+    await assert.rejects(
+      pre.lookup(),
+      (e) => e.status === 499 && e.message === "Assessment request cancelled.",
+    );
+    assert.equal(calls, 0);
+    assert.equal(pre.listeners.size, 0);
   }));

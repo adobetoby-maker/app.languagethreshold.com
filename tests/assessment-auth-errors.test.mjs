@@ -53,7 +53,7 @@ async function fixture(name, run) {
             );
             b.onLoad({ filter: /.*/, namespace: "controls" }, () => ({
               resolveDir: process.cwd(),
-              contents: `export {TeamOperationError,json} from ${JSON.stringify(resolve("src/lib/team-server.ts"))};export {AssessmentAccessError} from ${JSON.stringify(resolve("src/lib/assessments/errors.ts"))};export const c={clients:0,auth:0,privateCalls:0,clientError:null,authError:null};export const createFileRoute=()=>c=>c;export const teamAdminClient=()=>{c.clients++;if(c.clientError)throw c.clientError;return {from(){c.privateCalls++;throw Error('Unexpected private read')},rpc(){c.privateCalls++;throw Error('Unexpected private write')}}};export const authenticatedUser=async()=>{c.auth++;if(c.authError)throw c.authError;return {id:'synthetic',email:'fixture@example.invalid'}};export const requireTeamAdmin=()=>{c.privateCalls++;throw Error('Unexpected private guard')};export const memberRole=requireTeamAdmin;`,
+              contents: `import {authenticatedAssessmentUser as actualAuth} from ${JSON.stringify(resolve("src/lib/team-server.ts"))};export {TeamOperationError,json} from ${JSON.stringify(resolve("src/lib/team-server.ts"))};export {AssessmentAccessError} from ${JSON.stringify(resolve("src/lib/assessments/errors.ts"))};export const c={clients:0,auth:0,privateCalls:0,clientError:null,authError:null};export const createFileRoute=()=>c=>c;export const teamAdminClient=(fetcher,authRequest)=>{c.clients++;c.authRequest=authRequest;if(c.clientError)throw c.clientError;if(c.db)return c.db;return {from(){c.privateCalls++;throw Error('Unexpected private read')},rpc(){c.privateCalls++;throw Error('Unexpected private write')}}};export const authenticatedUser=async()=>{c.auth++;if(c.authError)throw c.authError;return {id:'synthetic',email:'fixture@example.invalid'}};export const authenticatedAssessmentUser=(request,db)=>c.realAuth?actualAuth(request,db):authenticatedUser();export const requireTeamAdmin=()=>{c.privateCalls++;throw Error('Unexpected private guard')};export const memberRole=requireTeamAdmin;`,
             }));
             b.onLoad({ filter: /.*/, namespace: "assessment-dependency" }, (args) => ({
               resolveDir: process.cwd(),
@@ -75,13 +75,15 @@ async function fixture(name, run) {
     const { Route, c, TeamOperationError, AssessmentAccessError } = await import(
       join(dir, "route.mjs")
     );
-    const call = (method) =>
+    const call = (method, supplied) =>
       Route.server.handlers[method]({
-        request: new Request(`https://fixture.invalid/api/${name}`, {
-          method,
-          headers: { Origin: "https://fixture.invalid", Authorization: "Bearer synthetic" },
-          ...(method === "POST" ? { body: "{}" } : {}),
-        }),
+        request:
+          supplied ??
+          new Request(`https://fixture.invalid/api/${name}`, {
+            method,
+            headers: { Origin: "https://fixture.invalid", Authorization: "Bearer synthetic" },
+            ...(method === "POST" ? { body: "{}" } : {}),
+          }),
       });
     await run({ c, call, TeamOperationError, AssessmentAccessError });
   } finally {
@@ -142,6 +144,112 @@ for (const name of Object.keys(fallback)) {
         assert.equal(result.status, 409);
         assert.deepEqual(await result.json(), { error: "Synthetic fixed conflict." });
         assert.equal(c.privateCalls, 0);
+      }
+    }));
+}
+for (const name of Object.keys(fallback)) {
+  test(`actual ${name} bounded auth stops preabort/deadline/disconnect before private work`, () =>
+    fixture(name, async ({ c, call }) => {
+      const savedSet = setTimeout,
+        savedClear = clearTimeout,
+        timers = new Map();
+      globalThis.setTimeout = (fn, ms, ...args) => {
+        if (ms !== 15000) return savedSet(fn, ms, ...args);
+        const token = { unref() {} };
+        timers.set(token, fn);
+        return token;
+      };
+      globalThis.clearTimeout = (token) => {
+        if (timers.has(token)) timers.delete(token);
+        else savedClear(token);
+      };
+      const until = async (check) => {
+        for (let i = 0; i < 100 && !check(); i++) await new Promise((r) => savedSet(r, 1));
+        assert.ok(check());
+      };
+      let pending, resolveUser;
+      try {
+        c.realAuth = true;
+        for (const [method, query] of name === "exams"
+          ? [
+              ["GET", ""],
+              ["POST", ""],
+              ["POST", "?action=speech_upload"],
+            ]
+          : [
+              ["GET", ""],
+              ["POST", ""],
+            ]) {
+          for (const phase of ["preabort", "deadline", "disconnect"]) {
+            c.privateCalls = 0;
+            let sdkCalls = 0;
+            const gate = new Promise((r) => (resolveUser = r));
+            c.db = {
+              auth: {
+                getUser: async (token) => {
+                  sdkCalls++;
+                  assert.equal(token, "synthetic");
+                  return gate;
+                },
+              },
+              from() {
+                c.privateCalls++;
+                throw Error("Unexpected private read");
+              },
+              rpc() {
+                c.privateCalls++;
+                throw Error("Unexpected private write");
+              },
+            };
+            const owner = new AbortController(),
+              request = new Request(`https://fixture.invalid/api/${name}${query}`, {
+                method,
+                signal: owner.signal,
+                headers: { Origin: "https://fixture.invalid", Authorization: "Bearer synthetic" },
+                ...(method === "POST" ? { body: "{}" } : {}),
+              });
+            const listeners = new Set(),
+              add = request.signal.addEventListener.bind(request.signal),
+              remove = request.signal.removeEventListener.bind(request.signal);
+            request.signal.addEventListener = (kind, fn, opts) => {
+              if (kind === "abort") listeners.add(fn);
+              add(kind, fn, opts);
+            };
+            request.signal.removeEventListener = (kind, fn, opts) => {
+              if (kind === "abort") listeners.delete(fn);
+              remove(kind, fn, opts);
+            };
+            if (phase === "preabort") owner.abort();
+            pending = call(method, request);
+            if (phase !== "preabort") {
+              await until(() => sdkCalls === 1);
+              if (phase === "deadline") for (const fn of [...timers.values()]) fn();
+              else owner.abort();
+            }
+            const result = await pending;
+            assert.equal(result.status, phase === "deadline" ? 503 : 499);
+            assert.deepEqual(await result.json(), {
+              error: phase === "deadline" ? fallback[name] : "Assessment request cancelled.",
+            });
+            assert.equal(c.authRequest, request);
+            assert.equal(sdkCalls, phase === "preabort" ? 0 : 1);
+            assert.equal(c.privateCalls, 0);
+            assert.equal(listeners.size, 0);
+            assert.equal(timers.size, 0);
+            resolveUser({
+              data: { user: { id: "synthetic", email: "fixture@example.invalid" } },
+              error: null,
+            });
+            await new Promise((r) => savedSet(r, 1));
+            assert.equal(c.privateCalls, 0);
+            pending = null;
+          }
+        }
+      } finally {
+        resolveUser?.({ data: { user: null }, error: null });
+        if (pending) await pending.catch(() => {});
+        globalThis.setTimeout = savedSet;
+        globalThis.clearTimeout = savedClear;
       }
     }));
 }

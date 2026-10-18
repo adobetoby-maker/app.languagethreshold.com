@@ -31,7 +31,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import {
-  authenticatedUser,
+  authenticatedAssessmentUser,
   TeamOperationError,
   teamAdminClient,
   json,
@@ -205,6 +205,8 @@ const bodySchema = z.discriminatedUnion("action", [
 ]);
 
 function fail(error: unknown) {
+  if (error instanceof TeamOperationError && error.status === 499)
+    return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError || error instanceof SyntaxError)
     return json({ error: "Check the assessment request and try again." }, 400);
@@ -220,8 +222,8 @@ export const Route = createFileRoute("/api/exams")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           const url = new URL(request.url),
             action = url.searchParams.get("action") ?? "overview";
           if (action === "review_queue") {
@@ -390,15 +392,15 @@ export const Route = createFileRoute("/api/exams")({
           if (!isStrictSameOrigin(request))
             throw new AssessmentAccessError("Cross-origin assessment request rejected.");
           if (new URL(request.url).searchParams.get("action") === "speech_upload") {
-            const db = teamAdminClient(),
-              user = await authenticatedUser(request, db);
+            const db = teamAdminClient(undefined, request),
+              user = await authenticatedAssessmentUser(request, db);
             await budget(user.id, "speech_upload");
             return json(await uploadAssessmentSpeech(db, user.id, request));
           }
           if (Number(request.headers.get("content-length") ?? 0) > 220000)
             throw new AssessmentAccessError("Assessment request is too large.", 413);
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           const raw = await request.text();
           if (raw.length > 220000)
             throw new AssessmentAccessError("Assessment request is too large.", 413);

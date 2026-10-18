@@ -44,7 +44,7 @@ try {
               return { contents: "export const createFileRoute=()=>options=>options;" };
             if (args.path === "@/lib/team-server")
               return {
-                contents: `export * from ${JSON.stringify(resolve("src/lib/team-server.ts"))};import {controls} from 'test-controls';export const teamAdminClient=()=>controls.db;export const authenticatedUser=async()=>({id:controls.actor});`,
+                contents: `export * from ${JSON.stringify(resolve("src/lib/team-server.ts"))};import {controls} from 'test-controls';export const teamAdminClient=()=>controls.db;export const authenticatedUser=async()=>({id:controls.actor});export const authenticatedAssessmentUser=authenticatedUser;`,
                 resolveDir: process.cwd(),
               };
             if (args.path === "@/lib/assessments/server")

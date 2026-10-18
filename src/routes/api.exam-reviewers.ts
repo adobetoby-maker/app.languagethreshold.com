@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { TeamOperationError, authenticatedUser, json, teamAdminClient } from "@/lib/team-server";
+import {
+  TeamOperationError,
+  authenticatedAssessmentUser,
+  json,
+  teamAdminClient,
+} from "@/lib/team-server";
 import { requireRegisteredAssessmentOwner } from "@/lib/assessments/content-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
@@ -24,6 +29,8 @@ const scope = z
   })
   .strict();
 function fail(error: unknown) {
+  if (error instanceof TeamOperationError && error.status === 499)
+    return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the reviewer scope and confirmation." }, 400);
@@ -36,8 +43,8 @@ export const Route = createFileRoute("/api/exam-reviewers")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
           await assessmentBudget(user.id, "reviewer_admin_read");
           const query = new URL(request.url).searchParams;
@@ -99,8 +106,8 @@ export const Route = createFileRoute("/api/exam-reviewers")({
         try {
           if (!isStrictSameOrigin(request))
             throw new AssessmentAccessError("Same-origin reviewer request required.", 403);
-          const db = teamAdminClient(),
-            user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request),
+            user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
           await assessmentBudget(user.id, "reviewer_admin_write");
           const raw = await request.text();

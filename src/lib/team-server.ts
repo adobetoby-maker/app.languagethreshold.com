@@ -38,9 +38,19 @@ async function lookupAuthenticatedUser(
 }
 
 export const TEAM_AUTH_WAIT_MS = 15_000;
-/** Team-workflow auth wait only. SDK transport and later private phases remain separate. */
+/** Auth waits and optional client transport bounds are separate from later private phases. */
 export async function authenticatedTeamUser(request: Request, db: TeamDb): Promise<User> {
-  const cancelled = () => new TeamOperationError("Team request cancelled.", 499);
+  return waitForAuthenticatedUser(request, db, "Team request cancelled.");
+}
+export async function authenticatedAssessmentUser(request: Request, db: TeamDb): Promise<User> {
+  return waitForAuthenticatedUser(request, db, "Assessment request cancelled.");
+}
+async function waitForAuthenticatedUser(
+  request: Request,
+  db: TeamDb,
+  cancellationMessage: string,
+): Promise<User> {
+  const cancelled = () => new TeamOperationError(cancellationMessage, 499);
   const unavailable = () =>
     new TeamOperationError("Sign-in could not be confirmed. Please try again.", 503);
   if (request.signal.aborted) throw cancelled();

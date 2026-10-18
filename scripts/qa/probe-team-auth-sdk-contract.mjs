@@ -103,8 +103,8 @@ try {
   } catch (error) {
     classified = error;
   }
-  assert.equal(classified.status, 403);
-  assert.equal(classified.message, "Your session has expired. Sign in again.");
+  assert.equal(classified.status, 503);
+  assert.equal(classified.message, "Sign-in could not be confirmed. Please try again.");
   assert.equal(observed.length, 2);
   assert.equal(sdkLogs.length, 1);
   assert.equal(sdkLogs[0], true);
@@ -113,7 +113,7 @@ try {
   const report = {
     auditedAt: new Date().toISOString(),
     sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
-    runtimeApplicationCommit: "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+    runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
     versions,
     installedSource: sources.map((path) => ({
       path,
@@ -132,7 +132,7 @@ try {
         syntheticPrivateMarkerReachedSdkLogger: true,
         currentTeamHelperStatus: classified.status,
         currentTeamHelperMessage: classified.message,
-        misclassifiedAsExpiredSession: true,
+        misclassifiedAsExpiredSession: false,
       },
       unexpectedGlobalFetchCalls,
     },
@@ -140,18 +140,18 @@ try {
       "Installed explicit-JWT getUser branch calls _getUser without waiting for initializePromise/_acquireLock; it does not accept an AbortSignal argument. Its _request GET passes headers but no cancellation/cache option to custom fetch in these probes.",
       "The same global.fetch option reaches the Auth client and PostgREST wrapper. A future adapter must narrowly select expected Auth origin/path/method and avoid changing write behavior.",
       "Installed SDK accepts the synthetic over-256-KiB user JSON. Direct success path awaits response.json without a size check in inspected code. This is an observed path, not a claim about all framework/provider limits.",
-      "SDK fetch rejection explicitly calls console.error before wrapping AuthRetryableFetchError. The application original auth helper treats resolved SDK errors as expired-session 403, so the current bounded team wrapper preserves a misleading expired-session response on this synthetic transport failure.",
-      "Current wait bound remains valid for caller continuation but does not supply transport cancellation/response limits or suppress this internal SDK logging. These are open implementation findings.",
+      "SDK fetch rejection explicitly calls console.error before wrapping AuthRetryableFetchError. The bounded team wrapper now classifies this retryable SDK failure as fixed 503; original helper callsites remain separate. SDK logging is still observed.",
+      "Current wait bound remains valid for caller continuation but does not supply transport cancellation/response limits or suppress this internal SDK logging. Transport/byte/logging work remains open; bounded-team retryable classification is now fixed.",
     ],
     nextEngineering: [
       "Keep explicit JWT verification through the installed SDK; use its custom-fetch seam for an Auth-only owned transport with shared deadline/abort, no-store, response-byte/read bounds and fixed error objects.",
-      "Classify retryable transport/auth-service failures separately from credential/session denial; avoid raw SDK logging by translating controlled adapter failures before the SDK fetch catch. Preserve legitimate auth headers in memory and isolate the adapter from business writes.",
+      "Preserve the new bounded-team retryable classification; review original helper callers separately and avoid raw SDK logging by translating controlled adapter failures before the SDK fetch catch. Preserve legitimate auth headers in memory and isolate the adapter from business writes.",
       "Add installed-SDK transport tests for late headers/body, abort/deadline/nonsettling cancellation, bounded JSON, no raw SDK logger details and correct 403 versus 499/503 before claiming these findings fixed.",
     ],
     limits: [
       "All URLs/keys/tokens/users/metadata/error markers were synthetic; custom transport returned local Responses or threw local errors. Global transport was replaced with a rejecting guard and observed zero calls. No env file, real credential, Supabase/network/database/provider/browser/login/session/consent/payment/invitation/certificate operation.",
       "Probe captures console.error only during this isolated script and restores it in finally. No captured message contents or credentials are stored. Source hashes identify installed local files, not global latest SDK behavior.",
-      "No runtime source/dependency/schema/grant/role/policy/schedule change or deployment. Prior 1414 tests and fifteen hosted groups remain the last application verification; no new actual expiry/cancellation/browser acceptance.",
+      "This probe changes no runtime/dependency/schema/grant/role/policy/schedule state and performs no deployment. Runtime classification is verified separately; no actual expiry/cancellation/browser acceptance.",
       "Full goal and human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance.",
     ],
   };
@@ -165,7 +165,7 @@ try {
       stubRequests: observed.length,
       largeJsonAccepted: true,
       sdkLoggerReceivesSyntheticError: true,
-      transportMisclassifiedAsExpired: true,
+      transportMisclassifiedAsExpired: false,
       unexpectedGlobalFetchCalls: 0,
     }),
   );

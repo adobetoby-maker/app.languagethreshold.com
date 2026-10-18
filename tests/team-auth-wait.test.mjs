@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { createClient } from "@supabase/supabase-js";
 import { build } from "esbuild";
 import { mkdtempSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
@@ -267,5 +268,82 @@ test("actual entitlement handler stops database reads after auth deadline or dis
       await Promise.resolve();
       await Promise.resolve();
       assert.equal(reads, 0);
+    }
+  }));
+
+test("actual installed SDK retryable service failures use team 503 while credential denial stays 403", () =>
+  fixture(async ({ authenticatedTeamUser, authenticatedUser, request, scopedTeamError }) => {
+    const savedError = console.error,
+      savedFetch = globalThis.fetch;
+    let logged = 0,
+      globalCalls = 0;
+    globalThis.fetch = async () => {
+      globalCalls++;
+      throw Error("Unexpected global network in synthetic test");
+    };
+    console.error = () => {
+      logged++;
+    };
+    try {
+      for (const [kind, status] of [
+        ["service", 503],
+        ["transport", 503],
+        ["invalid-json", 503],
+        ["credentials", 403],
+      ]) {
+        let calls = 0;
+        const db = createClient("https://synthetic.invalid", "synthetic-project-key", {
+          auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false },
+          global: {
+            fetch: async (input, init) => {
+              calls++;
+              assert.equal(String(input), "https://synthetic.invalid/auth/v1/user");
+              assert.equal(
+                new Headers(init.headers).get("Authorization"),
+                "Bearer synthetic-auth-token",
+              );
+              if (kind === "transport") throw Error("PRIVATE synthetic transport");
+              if (kind === "invalid-json") return new Response("{", { status: 200 });
+              return Response.json(
+                { message: "PRIVATE synthetic service detail" },
+                { status: kind === "service" ? 503 : 401 },
+              );
+            },
+          },
+        });
+        const { req, listeners } = request();
+        let caught;
+        try {
+          await authenticatedTeamUser(req, db);
+        } catch (error) {
+          caught = error;
+        }
+        assert.equal(caught.status, status);
+        const response = scopedTeamError(caught);
+        assert.equal(response.status, status);
+        assert.doesNotMatch(await response.text(), /PRIVATE/);
+        assert.equal(calls, 1);
+        assert.equal(listeners.size, 0);
+      }
+      let originalCalls = 0;
+      const original = createClient("https://synthetic.invalid", "synthetic-project-key", {
+        auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false },
+        global: {
+          fetch: async () => {
+            originalCalls++;
+            return Response.json({ message: "Synthetic unavailable" }, { status: 503 });
+          },
+        },
+      });
+      await assert.rejects(
+        authenticatedUser(request().req, original),
+        (error) => error.status === 403,
+      );
+      assert.equal(originalCalls, 1);
+      assert.equal(logged, 1);
+      assert.equal(globalCalls, 0);
+    } finally {
+      console.error = savedError;
+      globalThis.fetch = savedFetch;
     }
   }));

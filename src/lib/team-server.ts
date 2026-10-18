@@ -1,4 +1,4 @@
-import { createClient, type User } from "@supabase/supabase-js";
+import { createClient, isAuthRetryableFetchError, type User } from "@supabase/supabase-js";
 import { createHash, randomBytes } from "node:crypto";
 import { ZodError } from "zod";
 
@@ -15,9 +15,19 @@ export function teamAdminClient(fetcher?: typeof fetch) {
 export type TeamDb = ReturnType<typeof teamAdminClient>;
 
 export async function authenticatedUser(request: Request, db: TeamDb): Promise<User> {
+  return lookupAuthenticatedUser(request, db, false);
+}
+
+async function lookupAuthenticatedUser(
+  request: Request,
+  db: TeamDb,
+  classifyRetryable: boolean,
+): Promise<User> {
   const token = request.headers.get("authorization")?.match(/^Bearer\s+(.+)$/i)?.[1];
   if (!token) throw new TeamOperationError("Sign in to continue.", 403);
   const { data, error } = await db.auth.getUser(token);
+  if (classifyRetryable && isAuthRetryableFetchError(error))
+    throw new TeamOperationError("Sign-in could not be confirmed. Please try again.", 503);
   if (error || !data.user?.email)
     throw new TeamOperationError("Your session has expired. Sign in again.", 403);
   return data.user;
@@ -42,7 +52,7 @@ export async function authenticatedTeamUser(request: Request, db: TeamDb): Promi
   request.signal.addEventListener("abort", abort, { once: true });
   try {
     if (request.signal.aborted) throw cancelled();
-    const user = await Promise.race([authenticatedUser(request, db), stopped]);
+    const user = await Promise.race([lookupAuthenticatedUser(request, db, true), stopped]);
     if (request.signal.aborted) throw cancelled();
     return user;
   } catch (error) {

@@ -96,12 +96,10 @@ export async function requireTeamAdmin(db: TeamDb, orgId: string, userId: string
   return role;
 }
 
-export async function requirePlatformOwner(db: TeamDb, user: User) {
-  const { data, error } = await db
-    .from("platform_admin_roles")
-    .select("role")
-    .eq("user_id", user.id)
-    .maybeSingle();
+export async function requirePlatformOwner(db: TeamDb, user: User, readSignal?: AbortSignal) {
+  const query = db.from("platform_admin_roles").select("role").eq("user_id", user.id);
+  if (readSignal) query.abortSignal(readSignal).retry(false);
+  const { data, error } = await query.maybeSingle();
   if (error) throw error;
   const ownerEmail = process.env.PLATFORM_OWNER_EMAIL?.trim().toLowerCase();
   if (

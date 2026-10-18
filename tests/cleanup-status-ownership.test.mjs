@@ -86,6 +86,12 @@ async function fixture(run) {
             eq() {
               return this;
             },
+            abortSignal() {
+              return this;
+            },
+            retry() {
+              return this;
+            },
             maybeSingle: () => c.roleResult(),
           };
         }
@@ -99,6 +105,12 @@ async function fixture(run) {
             return this;
           },
           order() {
+            return this;
+          },
+          abortSignal() {
+            return this;
+          },
+          retry() {
             return this;
           },
           limit: () => c.historyResult(),
@@ -276,7 +288,7 @@ test("actual cleanup status factory/installed SDK preserve auth headers and fixe
           if (url.pathname === "/rest/v1/platform_admin_roles")
             return phase === "owner-service"
               ? Response.json({ message: "SYNTHETIC_PRIVATE" }, { status: 400 })
-              : Response.json({ role: phase === "denied" ? "admin" : "owner" });
+              : Response.json({ role: phase === "denied" ? "support" : "owner" });
           assert.equal(url.pathname, "/rest/v1/assessment_cleanup_runs");
           assert.equal(init.method, "GET");
           return phase === "history-service"

@@ -44,6 +44,12 @@ function fixture({ busy = false, claimError = false, finishError = false, role =
         eq() {
           return q;
         },
+        abortSignal() {
+          return q;
+        },
+        retry() {
+          return q;
+        },
         maybeSingle: async () => ({ data: { role }, error: null }),
         order() {
           return q;

@@ -1,3 +1,4 @@
+import { cleanupStatusReadFetch } from "./cleanup-status-fetch";
 import "@tanstack/react-start/server-only";
 import { timingSafeEqual, randomUUID } from "node:crypto";
 import {
@@ -27,23 +28,21 @@ export function cleanupCronAuthorized(request: Request, secret: string | undefin
     b = Buffer.from(supplied);
   return a.length === b.length && timingSafeEqual(a, b);
 }
-export async function cleanupStatus(db: TeamDb, enabled: boolean) {
+export async function cleanupStatus(db: TeamDb, enabled: boolean, readSignal?: AbortSignal) {
+  const columns =
+    "source,status,started_at,finished_at,selected_count,deleted_count,failed_count,may_have_more,failure_code";
+  const recent = db.from("assessment_cleanup_runs").select(columns);
+  const scheduled = db
+    .from("assessment_cleanup_runs")
+    .select(columns)
+    .eq("source", "scheduled_endpoint");
+  if (readSignal) {
+    recent.abortSignal(readSignal).retry(false);
+    scheduled.abortSignal(readSignal).retry(false);
+  }
   const [result, lastScheduled] = await Promise.all([
-    db
-      .from("assessment_cleanup_runs")
-      .select(
-        "source,status,started_at,finished_at,selected_count,deleted_count,failed_count,may_have_more,failure_code",
-      )
-      .order("started_at", { ascending: false })
-      .limit(20),
-    db
-      .from("assessment_cleanup_runs")
-      .select(
-        "source,status,started_at,finished_at,selected_count,deleted_count,failed_count,may_have_more,failure_code",
-      )
-      .eq("source", "scheduled_endpoint")
-      .order("started_at", { ascending: false })
-      .limit(1),
+    recent.order("started_at", { ascending: false }).limit(20),
+    scheduled.order("started_at", { ascending: false }).limit(1),
   ]);
   if (result.error || lastScheduled.error) throw new Error("Cleanup history is unavailable.");
   const runs = (result.data ?? []) as CleanupRun[];
@@ -89,9 +88,9 @@ async function ownerCleanupStatus(
     });
     const work = (async () => {
       current();
-      await requirePlatformOwner(db, user);
+      await requirePlatformOwner(db, user, controller.signal);
       current();
-      const result = await cleanupStatus(db, enabled);
+      const result = await cleanupStatus(db, enabled, controller.signal);
       current();
       return result;
     })();
@@ -117,7 +116,11 @@ export async function handleCleanup(
       try {
         if (request.signal.aborted) throw new TeamOperationError(statusCancelled, 499);
         const db = makeDb(
-          boundedCleanupFetch(8000, AbortSignal.any([request.signal, controller.signal])),
+          cleanupStatusReadFetch(
+            process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL,
+            AbortSignal.any([request.signal, controller.signal]),
+            boundedCleanupFetch(8000, AbortSignal.any([request.signal, controller.signal])),
+          ),
           request,
         );
         const user = await authenticatedAssessmentUser(request, db);

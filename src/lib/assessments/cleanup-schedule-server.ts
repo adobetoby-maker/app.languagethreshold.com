@@ -3,7 +3,8 @@ import { timingSafeEqual, randomUUID } from "node:crypto";
 import {
   teamAdminClient,
   json as baseJson,
-  authenticatedUser,
+  authenticatedAssessmentUser,
+  TeamOperationError,
   requirePlatformOwner,
   type TeamDb,
 } from "@/lib/team-server";
@@ -53,6 +54,56 @@ export async function cleanupStatus(db: TeamDb, enabled: boolean) {
     note: "An endpoint invocation is evidence of execution; verify the installed platform schedule separately.",
   };
 }
+export const CLEANUP_STATUS_READ_MS = 8000;
+const statusUnavailable = "Cleanup status is temporarily unavailable. Try again.";
+const statusCancelled = "Cleanup status request cancelled.";
+async function ownerCleanupStatus(
+  request: Request,
+  db: TeamDb,
+  user: Parameters<typeof requirePlatformOwner>[1],
+  enabled: boolean,
+  controller: AbortController,
+) {
+  let expired = false;
+  const error = () =>
+    new TeamOperationError(
+      request.signal.aborted ? statusCancelled : statusUnavailable,
+      request.signal.aborted ? 499 : 503,
+    );
+  const abort = () => controller.abort();
+  const timer = setTimeout(() => {
+    expired = true;
+    abort();
+  }, CLEANUP_STATUS_READ_MS);
+  timer.unref?.();
+  request.signal.addEventListener("abort", abort, { once: true });
+  let rejectAbort: (() => void) | undefined;
+  const current = () => {
+    if (expired || request.signal.aborted || controller.signal.aborted) throw error();
+  };
+  try {
+    current();
+    const stopped = new Promise<never>((_, reject) => {
+      rejectAbort = () => reject(error());
+      controller.signal.addEventListener("abort", rejectAbort, { once: true });
+    });
+    const work = (async () => {
+      current();
+      await requirePlatformOwner(db, user);
+      current();
+      const result = await cleanupStatus(db, enabled);
+      current();
+      return result;
+    })();
+    const result = await Promise.race([work, stopped]);
+    current();
+    return result;
+  } finally {
+    clearTimeout(timer);
+    request.signal.removeEventListener("abort", abort);
+    if (rejectAbort) controller.signal.removeEventListener("abort", rejectAbort);
+  }
+}
 export async function handleCleanup(
   request: Request,
   env: Record<string, string | undefined> = process.env,
@@ -62,14 +113,24 @@ export async function handleCleanup(
     enabled = env.LT_ASSESSMENT_CLEANUP_EXECUTION === "enabled";
   try {
     if (url.searchParams.get("view") === "status") {
-      const db = makeDb(boundedCleanupFetch(8000));
+      const controller = new AbortController();
       try {
-        const user = await authenticatedUser(request, db);
-        await requirePlatformOwner(db, user);
-      } catch {
-        return json({ error: "Platform owner access required." }, 403);
+        if (request.signal.aborted) throw new TeamOperationError(statusCancelled, 499);
+        const db = makeDb(
+          boundedCleanupFetch(8000, AbortSignal.any([request.signal, controller.signal])),
+          request,
+        );
+        const user = await authenticatedAssessmentUser(request, db);
+        return json(await ownerCleanupStatus(request, db, user, enabled, controller));
+      } catch (error) {
+        if (request.signal.aborted || (error instanceof TeamOperationError && error.status === 499))
+          return json({ error: statusCancelled }, 499);
+        if (error instanceof TeamOperationError && error.status === 403)
+          return json({ error: "Platform owner access required." }, 403);
+        return json({ error: statusUnavailable }, 503);
+      } finally {
+        controller.abort();
       }
-      return json(await cleanupStatus(db, enabled));
     }
     if (!cleanupCronAuthorized(request, env.CRON_SECRET))
       return json({ error: "Cleanup operator authorization required." }, 401);

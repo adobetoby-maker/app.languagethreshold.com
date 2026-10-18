@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "6353986",
+  "application": "3e88d02",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-coz099qm0-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-qg8xz4j5f-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-admission-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "6353986e0673929c10260006d751d0656144118d",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-admission-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "3e88d02733b24c7360f8edfd5daaece8024a0db6",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -818,5 +818,13 @@
     "admissionDeadlineMs": 15000,
     "settingsMaxBytes": 16384,
     "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalPushAcknowledgementFollowup": {
+    "application": "3e88d02",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
+    "unsubscribeChecksBothHttpAcknowledgements": true,
+    "actualSubscriptionOrDeliveryVerified": false,
+    "atomicTransaction": false
   }
 }

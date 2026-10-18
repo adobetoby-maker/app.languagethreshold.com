@@ -8,7 +8,7 @@
     "src/components/auth/ProfileRecoverySection.tsx": "5c310669bff589fbba271911c93868a52abc9024764265893fe30b1bed3ffa15",
     "src/components/auth/LegacyPracticeRecovery.tsx": "9fadb72d0fcb998b9360f09ec7507855b79a72dcb192b915819ce9b045a054ed",
     "tests/legacy-profile-recovery.test.mjs": "b73fd884539ae3ba7e8a85cf965436b68b62a25a5b95cef2c0c4760fdb79be9a",
-    "tests/profile-recovery-ui.test.mjs": "b624d1ccf47a1787e10d06a7b17acf73efc72cc6425484a7eb3f49c11bc8b6fa"
+    "tests/profile-recovery-ui.test.mjs": "2d36763dd1c311a9c631d6f3135f31abdf07c0e146a6c9f831a944a7d0fa3315"
   },
   "validation": {
     "fullNode22Tests": 1714,
@@ -21,7 +21,8 @@
     "productionAuditVulnerabilities": 0,
     "guardedBuild": true,
     "artifactMiB": 20.05,
-    "finalFullSuiteIncludesAll22RecoveryGroups": true
+    "finalFullSuiteIncludesAll22RecoveryGroups": true,
+    "standaloneUiGroups": 4
   },
   "checks": [
     "Explicit signed-in ownership confirmation and whole-profile one-account claim; foreign account sees no old source values/counts.",
@@ -32,7 +33,8 @@
     "Only bare known module archives recover; current records/resets win, enrollment-linked records excluded. Existing subsequent explicit Core30 pair claim remains required.",
     "Persist owned snapshot before applying UI state; quota/late identity/final receipt failure retain same-owner retry and originals. Actual reducer zero storage IO/input unchanged/deterministic.",
     "UI requires category/ownership/language and restored current-profile readiness; failure visible; exam pages without AppProvider open learning app in separate tab. Clear browser-save/normal cloud-sync disclosure, no reload race.",
-    "Review caught bare companion-host root redirecting to Exams; corrected new-tab link to /?tab=reader. Controlled component test executes actual examsHostEntry and confirms no redirect."
+    "Review caught bare companion-host root redirecting to Exams; corrected new-tab link to /?tab=reader. Controlled component test executes actual examsHostEntry and confirms no redirect.",
+    "UI test fixture creates its cache parent explicitly, so a clean checkout does not depend on another concurrent test creating it. Four standalone groups pass; runtime unchanged."
   ],
   "limits": [
     "Controlled real-engine/reducer/component-hook tests, not a populated normal-UI browser import or current account-switch/physical-device acceptance.",
@@ -49,7 +51,8 @@
     "audit": "6d8c5c8f3d7684adb070417bd608d01ae90aa3dc26a65af03ffda4955f38d9a3",
     "build": "12452568ca040b023001978b2431f12a23dca3c348a6554d0bb00e939292f0cd",
     "target": "0991ba8aa0cdd191eff0996408c04ced5547031a1a871e5f3b64a4959b2859eb",
-    "artifact": "1ddc98628949bb238334211268a3dd1ea82d92f70b017d4560e5184a2e260c96"
+    "artifact": "1ddc98628949bb238334211268a3dd1ea82d92f70b017d4560e5184a2e260c96",
+    "standaloneUi": "74cd10305238045ff68061734cdb9e68400ee28bbdf4d135585cbca542b8422f"
   },
   "initialFocusedLogSha256": "bab25e606d7d1a34761a4fa7c110b7d9d4fd507deea9a90ff293df6b63b89176",
   "initialFocusedApplicationCommit": "0a5d5729986ab1dd94ba27becf5fa64f0b696f90"

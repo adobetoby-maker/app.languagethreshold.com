@@ -2,8 +2,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
 import { examsHostEntry } from "../src/lib/exams-host.ts";
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
+mkdirSync(resolve("node_modules/.cache/lle-tests"), { recursive: true });
 const dir = mkdtempSync(resolve("node_modules/.cache/lle-tests/profile-ui-"));
 const file = resolve(dir, "ui.mjs");
 await build({

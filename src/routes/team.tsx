@@ -13,7 +13,8 @@ import {
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest } from "@/lib/team-client";
+import { teamRequest, ownedTeamRequest } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
@@ -1762,7 +1763,13 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
   );
 }
 
-function RoofingAssessment({
+function RoofingAssessment(props: Parameters<typeof OwnedRoofingAssessment>[0]) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedRoofingAssessment key={JSON.stringify([user.id, props.orgId])} {...props} />
+  ) : null;
+}
+function OwnedRoofingAssessment({
   orgId,
   lessons,
   attempts,
@@ -1773,6 +1780,10 @@ function RoofingAssessment({
   attempts: Attempt[];
   certificate: Certificate | null;
 }) {
+  const { user, canUseReader } = useAuth();
+  const userId = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["legacy-roofing-quiz", orgId]));
+  const pending = useRef<AbortController | null>(null);
   const [quiz, setQuiz] = useState<{ attemptId: string; questions: QuizQuestion[] } | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<{
@@ -1785,38 +1796,95 @@ function RoofingAssessment({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const best = Math.max(0, ...attempts.map((a) => a.score ?? 0));
-  async function start() {
+  const latest = useRef({ quiz, answers });
+  latest.current = { quiz, answers };
+  async function run(kind: "start" | "submit") {
+    const lease = capture();
+    if (!userId || !canUseReader(userId) || !lease.isCurrent() || pending.current) return;
+    const snapshot = latest.current;
+    if (kind === "start" && snapshot.quiz) return;
+    if (
+      kind === "submit" &&
+      (!quiz ||
+        snapshot.quiz !== quiz ||
+        snapshot.answers !== answers ||
+        quiz.questions.length !== Object.keys(answers).length ||
+        !quiz.questions.every((q) => q.options.includes(answers[q.id])))
+    )
+      return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      pending.current === controller &&
+      !controller.signal.aborted;
     setBusy(true);
     setError("");
     try {
-      setQuiz(await teamRequest("/api/team-assessment", { action: "start", orgId }));
-      setAnswers({});
-      setResult(null);
+      const owner = { userId, isCurrent: current, signal: controller.signal };
+      if (kind === "start") {
+        const next = await ownedTeamRequest<NonNullable<typeof quiz>>(
+          owner,
+          "/api/team-assessment",
+          { action: "start", orgId },
+        );
+        if (!current()) return;
+        latest.current = { quiz: next, answers: {} };
+        setQuiz(next);
+        setAnswers({});
+        setResult(null);
+      } else {
+        const next = await ownedTeamRequest<NonNullable<typeof result>>(
+          owner,
+          "/api/team-assessment",
+          { action: "submit", attemptId: quiz!.attemptId, answers: { ...snapshot.answers } },
+        );
+        if (!current()) return;
+        latest.current = { quiz: null, answers: {} };
+        setResult(next);
+        setQuiz(null);
+        setAnswers({});
+      }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not start test.");
+      if (current())
+        setError(
+          cause instanceof Error
+            ? cause.message
+            : kind === "start"
+              ? "Could not start test."
+              : "Could not submit test.",
+        );
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && pending.current === controller) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
     }
   }
-  async function submit() {
-    if (!quiz) return;
-    setBusy(true);
-    setError("");
-    try {
-      setResult(
-        await teamRequest("/api/team-assessment", {
-          action: "submit",
-          attemptId: quiz.attemptId,
-          answers,
-        }),
-      );
-      setQuiz(null);
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not submit test.");
-    } finally {
-      setBusy(false);
-    }
+  function answer(question: QuizQuestion, option: string) {
+    const lease = capture();
+    if (
+      !userId ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      pending.current ||
+      !quiz ||
+      latest.current.quiz !== quiz ||
+      !quiz.questions.includes(question) ||
+      !question.options.includes(option)
+    )
+      return;
+    const next = { ...latest.current.answers, [question.id]: option };
+    latest.current = { quiz, answers: next };
+    setAnswers(next);
   }
+  const start = () => run("start"),
+    submit = () => run("submit");
   return (
     <div className="mt-5 border-t border-border pt-4">
       <h4 className="font-semibold">Roofing Spanish completion test</h4>
@@ -1867,7 +1935,8 @@ function RoofingAssessment({
                       type="radio"
                       name={q.id}
                       checked={answers[q.id] === option}
-                      onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: option }))}
+                      disabled={busy || !userId || !canUseReader(userId)}
+                      onChange={() => answer(q, option)}
                     />
                     {option}
                   </label>
@@ -1876,7 +1945,12 @@ function RoofingAssessment({
             </fieldset>
           ))}
           <button
-            disabled={busy || Object.keys(answers).length !== quiz.questions.length}
+            disabled={
+              busy ||
+              !userId ||
+              !canUseReader(userId) ||
+              Object.keys(answers).length !== quiz.questions.length
+            }
             onClick={() => void submit()}
             className={button}
           >
@@ -1884,7 +1958,11 @@ function RoofingAssessment({
           </button>
         </div>
       ) : (
-        <button disabled={busy} onClick={() => void start()} className={secondary + " mt-3"}>
+        <button
+          disabled={busy || !userId || !canUseReader(userId)}
+          onClick={() => void start()}
+          className={secondary + " mt-3"}
+        >
           <BookOpen className="mr-1 inline h-4 w-4" /> {busy ? "Loading…" : "Start or retake test"}
         </button>
       )}

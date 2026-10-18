@@ -59,7 +59,11 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
       moreBusy: false,
       error: "",
     });
-    void examRequest<PrivatePage<T> & M & { enrollments?: T[] }>(path, controller.signal)
+    void examRequest<PrivatePage<T> & M & { enrollments?: T[] }>(path, controller.signal, {
+      userId: actor,
+      isCurrent: () =>
+        !controller.signal.aborted && version.current === revision && lease.isCurrent(),
+    })
       .then((raw) => {
         const items = itemKey === "enrollments" ? raw.enrollments : raw.items;
         if (
@@ -127,6 +131,14 @@ export function usePrivatePagedReport<T extends { id: string }, M extends object
       const raw = await examRequest<PrivatePage<T> & M & { enrollments?: T[] }>(
         url.pathname + url.search,
         flight.controller.signal,
+        {
+          userId: actor,
+          isCurrent: () =>
+            !flight.controller.signal.aborted &&
+            more.current === flight &&
+            version.current === flight.version &&
+            lease.isCurrent(),
+        },
       );
       const items = itemKey === "enrollments" ? raw.enrollments : raw.items;
       if (

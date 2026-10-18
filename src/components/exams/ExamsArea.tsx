@@ -2244,6 +2244,7 @@ function OwnedExamRubricReview({
                         requestId: crypto.randomUUID(),
                       },
                       context.signal,
+                      context.owner,
                     );
                     if (!context.isCurrent()) return;
                   }

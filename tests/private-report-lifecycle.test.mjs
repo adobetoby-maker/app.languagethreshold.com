@@ -12,9 +12,10 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const oldFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -32,19 +33,25 @@ async function fixture(run) {
           name: "controlled-report",
           setup(b) {
             b.onResolve(
-              { filter: /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/client)$/ },
-              () => ({ path: "fixture", namespace: "fixture" }),
+              {
+                filter:
+                  /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/client|@\/integrations\/supabase\/client)$/,
+              },
+              (args) =>
+                realClient && args.path === "@/lib/assessments/client"
+                  ? undefined
+                  : { path: "fixture", namespace: "fixture" },
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
+ export const examRequest=(url,signal,owner)=>new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
  export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
  `,
             }));
@@ -55,6 +62,9 @@ async function fixture(run) {
     const { usePrivatePagedReport, CheckpointAttemptHistory, c } = await import(
       join(dir, "case.mjs")
     );
+    if (realClient)
+      globalThis.fetch = (url, opts) =>
+        new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { location: { origin: "https://synthetic.invalid" } };
     const instances = [],
       opened = [];
@@ -116,6 +126,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = oldFetch;
     if (old) Object.defineProperty(globalThis, "window", old);
     else delete globalThis.window;
     rmSync(dir, { recursive: true, force: true });
@@ -301,3 +312,44 @@ test("checkpoint disclosure resets by checkpoint/account and departed toggle/ope
     pending.resolve(payload());
     await tick();
   }));
+test("report initial and pagination requests keep the same originating account and reject departed guards", () =>
+  fixture(async ({ c, ready, render }) => {
+    const page = await ready();
+    assert.equal(c.requests[0].owner.userId, "a");
+    page.loadMore();
+    assert.equal(c.requests[1].owner.userId, "a");
+    assert.equal(c.requests[1].owner.isCurrent(), true);
+    c.actor = "b";
+    render();
+    assert.equal(c.requests[0].owner.isCurrent(), false);
+    assert.equal(c.requests[1].owner.isCurrent(), false);
+    assert.equal(c.requests[2].owner.userId, "b");
+  }));
+test("actual private report/client refuses replacement SDK identity on first page and continuation, clearing old private rows", () =>
+  fixture(async ({ c, render, payload }) => {
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.deepEqual(render().items, []);
+    assert.match(render().error, /Sign in to continue/);
+    render().refresh();
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    assert.equal(c.fetches.length, 1);
+    c.fetches[0].resolve({ ok: true, json: async () => payload() });
+    await tick();
+    let page = render();
+    assert.equal(page.items.length, 1);
+    const done = page.loadMore();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 1);
+    await done;
+    page = render();
+    assert.deepEqual(page.items, []);
+    assert.equal(page.metadata, null);
+    assert.equal(page.hasMore, false);
+    assert.match(page.error, /Sign in to continue/);
+  }, true));

@@ -44,6 +44,7 @@ export function useExamAttemptOpen(
         const attempt = await examRequest<ExamAttemptView>(
           `/api/exams?action=attempt&attempt=${encodeURIComponent(id)}${review ? "&review=1" : ""}${orgId ? `&org=${encodeURIComponent(orgId)}` : ""}`,
           controller.signal,
+          { userId: actor, isCurrent: current },
         );
         if (!current()) return;
         if (!attemptMatchesOrganization(attempt, orgId))
@@ -53,7 +54,7 @@ export function useExamAttemptOpen(
       } catch (err) {
         if (!current()) return;
         const saved =
-          navigator.onLine === false || err instanceof TypeError
+          err instanceof TypeError
             ? recoveryCopiesForScope(
                 readOfflineExams<ExamAttemptView>(browserExamStorage(), actor),
                 orgId,
@@ -95,7 +96,10 @@ export function useExamPreparation(checkpointId: string | undefined) {
     const controller = new AbortController();
     const release = lease.own(() => controller.abort());
     const current = () => lease.isCurrent() && !controller.signal.aborted;
-    void examRequest<Preparation>({ action: "prepare", checkpointId }, controller.signal)
+    void examRequest<Preparation>({ action: "prepare", checkpointId }, controller.signal, {
+      userId: actor,
+      isCurrent: current,
+    })
       .then((prepared) => {
         if (current()) setSnapshot({ key, prepared, error: "" });
       })

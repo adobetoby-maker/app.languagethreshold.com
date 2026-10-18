@@ -12,9 +12,10 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "navigator");
+  const oldFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -34,20 +35,23 @@ async function fixture(run) {
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/(client|drafts|offline))$/,
+                  /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/(client|drafts|offline)|@\/integrations\/supabase\/client)$/,
               },
-              () => ({ path: "fixture", namespace: "fixture" }),
+              (args) =>
+                realClient && args.path === "@/lib/assessments/client"
+                  ? undefined
+                  : { path: "fixture", namespace: "fixture" },
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0,offline:[],persisted:[],reads:0};export const browserExamStorage=()=>({});export const readOfflineExams=()=>{c.reads++;return c.offline;};export const saveOfflineExam=(s,actor,attempt)=>c.persisted.push({actor,attempt});export const recoveryCopiesForScope=(rows,org)=>rows.filter(row=>!org||(row.enrollment.scope==='team'&&row.enrollment.organizationId===org));
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0,offline:[],persisted:[],reads:0};export const browserExamStorage=()=>({});export const readOfflineExams=()=>{c.reads++;return c.offline;};export const saveOfflineExam=(s,actor,attempt)=>c.persisted.push({actor,attempt});export const recoveryCopiesForScope=(rows,org)=>rows.filter(row=>!org||(row.enrollment.scope==='team'&&row.enrollment.organizationId===org));
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
+ export const examRequest=(url,signal,owner)=>new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
  export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
  `,
             }));
@@ -56,6 +60,9 @@ async function fixture(run) {
       ],
     });
     const { useExamAttemptOpen, useExamPreparation, c } = await import(join(dir, "case.mjs"));
+    if (realClient)
+      globalThis.fetch = (url, opts) =>
+        new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     Object.defineProperty(globalThis, "navigator", { value: { onLine: true }, configurable: true });
     const slots = [],
       opened = [],
@@ -95,6 +102,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = oldFetch;
     if (old) Object.defineProperty(globalThis, "navigator", old);
     else delete globalThis.navigator;
     rmSync(dir, { recursive: true, force: true });
@@ -240,3 +248,66 @@ test("preparation clears on Back, refetches on reopening same checkpoint and sup
     render("prepare", { checkpointId: "check-a" });
     assert.equal(c.requests.length, count + 1);
   }));
+test("attempt and preparation requests supply the originating owner and current lifecycle", () =>
+  fixture(async ({ c, render, unmount }) => {
+    render().open("owned");
+    assert.equal(c.requests[0].owner.userId, "a");
+    assert.equal(c.requests[0].owner.isCurrent(), true);
+    unmount();
+    assert.equal(c.requests[0].owner.isCurrent(), false);
+    render("prepare", { checkpointId: "owned-checkpoint" });
+    assert.equal(c.requests[1].owner.userId, "a");
+    c.actor = "b";
+    assert.equal(c.requests[1].owner.isCurrent(), false);
+  }));
+test("an offline browser flag cannot restore a cached attempt after an explicit denial", () =>
+  fixture(async ({ c, render, opened, errors }) => {
+    navigator.onLine = false;
+    c.offline = [attempt("denied")];
+    render().open("denied");
+    c.requests[0].reject(new c.Error("explicit denial", 403));
+    await tick();
+    assert.equal(c.reads, 0);
+    assert.equal(opened.length, 0);
+    assert.equal(errors.at(-1), "explicit denial");
+  }));
+test("actual entry hooks/client refuse SDK mismatch without caching or recovery, then accept current preparation", () =>
+  fixture(async ({ c, render, opened, errors, unmount }) => {
+    navigator.onLine = false;
+    const done = render().open("owned");
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    await done;
+    assert.equal(opened.length, 0);
+    assert.equal(c.persisted.length, 0);
+    assert.equal(c.reads, 0);
+    assert.match(errors.at(-1), /Sign in to continue/);
+    unmount();
+    render("prepare", { checkpointId: "owned-checkpoint" });
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(render("prepare", { checkpointId: "owned-checkpoint" }).prepared, null);
+    render("prepare", { checkpointId: "next-checkpoint" });
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    assert.equal(c.fetches.length, 1);
+    assert.deepEqual(JSON.parse(c.fetches[0].opts.body), {
+      action: "prepare",
+      checkpointId: "next-checkpoint",
+    });
+    c.fetches[0].resolve({
+      ok: true,
+      json: async () => ({
+        preparedForm: "synthetic digest",
+        estimatedMinutes: 20,
+        provisional: true,
+      }),
+    });
+    await tick();
+    assert.equal(
+      render("prepare", { checkpointId: "next-checkpoint" }).prepared.preparedForm,
+      "synthetic digest",
+    );
+  }, true));

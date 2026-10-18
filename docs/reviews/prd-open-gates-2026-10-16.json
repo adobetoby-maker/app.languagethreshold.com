@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "611e18f",
+  "application": "3f2e7e6",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-ei81uaqs1-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-gomu7bybn-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-pashto-guard-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "611e18f9e4cd6a3cc2db2c731d11a3a3f6311bf7",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-pashto-guard-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "3f2e7e64a52b3835cbc50626ccbafc5ea36312fd",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -704,5 +704,15 @@
     "newAuthenticationGate": false,
     "actualProviderOrNativeAudio": false,
     "hostedDurableExhaustionVerified": false
+  },
+  "latestLocalSpeechStreamFollowup": {
+    "application": "3f2e7e6",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
+    "providerPhaseDeadlineMs": 45000,
+    "maximumAudioBytes": 4194304,
+    "singleProviderAttempt": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedPositiveStreamingVerified": false
   }
 }

@@ -1,0 +1,97 @@
+{
+  "testedAt": "2026-10-18T14:57:11.475635+00:00",
+  "applicationCommit": "18e8b4d89dcbbc1866c9167027bf2483d3342399",
+  "preview": "https://language-threshold-fco6lqqrx-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-fco6lqqrx-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_5fPF1EdGmocAr5W1xwREs4LpYPuq",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-fco6lqqrx-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "18e8b4d89dcbbc1866c9167027bf2483d3342399",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-ai-provider-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97,
+    "newInstalledSdkProviderGroups": 8,
+    "fullNode22Tests": 1544,
+    "installedAnthropicSdkVersion": "0.95.1"
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-ai-provider-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "checks": {
+    "headersBodySdkParseOwnedPhase": true,
+    "ignoredHeadersAndLateResponseDisposal": true,
+    "stalledBodyNonwaitingCancellation": true,
+    "strictUtf8JsonAndJsonMediaType": true,
+    "advertisedCumulativeByteLimits": true,
+    "exactByteCapValidProposalAccepted": true,
+    "oneAttemptForTransientStatuses": true,
+    "frozenRubricMalformedIncompleteDenials": true,
+    "independentPhasesAndLeases": true,
+    "postdispatchBrowserDepartureDoesNotReplayClaim": true,
+    "providerFailureFixed503AndUncertainFinish": true,
+    "normalProposalOnlyScoreAndAuditPreserved": true,
+    "existingQuotaRoutingHumanReviewGatesRetained": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaActiveAttemptAndTeamProgressRetained": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "f1714def61392bb4940a36bcba2a36b80a7b94ec0c89ecae67625d93024fc824",
+    "src/lib/assessments/writing-provider.ts": "8da26d5f23cf795ba845183abce27ae82d02f9888b919c0c42515c4ccb54d323",
+    "tests/assessment-ai-provider.test.mjs": "7d462df99ffe3dcefbba881b9d6c1fa86e13baac96e244e104bb91225114ea85"
+  },
+  "limits": [
+    "Actual AI source, installed Anthropic SDK and fetch transport; quota HTTP, DB/access/path/claims/scores and provider replies are synthetic only. No real model/provider/billing, consent, calibration, reviewer or pilot action. Historical controlled timers prove SDK timeout was removed at headers; not a real production outage or learner result.",
+    "Independent25second phase spans fetch headers/body plus SDK parse,128KiB raw byte cap and strictUTF8/JSON media parsing. Resource cap is operational, not an Anthropic API maximum. It can reject oversized otherwise valid provider replies with existing fixed503/human-review guidance. No SDK/provider retry. Existing model/max_tokens900/system/frozen tool/input and proposal validation unchanged.",
+    "After durable claim dispatch, the claimed operation remains independent of browser departure; it may save a needs_review proposal after disconnect. Existing lease/provider-requested marker, consent/score/audit/finish semantics remain. Deadline/abort does not establish provider nondelivery/nonbilling, score rollback or refund. No auto-replay.",
+    "The provider phase does not bound prior consent/claim RPC, postprovider score/audit/finalization RPC, full endpoint lifetime or physical cancellation. Database uncertain outcomes and durable reconciliation still require separate work.",
+    "Fixture corrections retained in separate failed logs: initial historical global fetch incorrectly routed SDK as quota and never reached body; actual proof is later assertion log. Body wrapper retains both phase/SDK timers, so test asserts continuing ownership rather than one timer. Concurrent starts are unordered; test observes both outcomes and identifies stopped/live signals rather than assuming call order. Final full1544tests/type/changed-filelint/prodaudit/guardedbuild pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Original human/device/session/content/calibration/reviewer/real pilot/retention/scheduler/59module gates and full dependency audit9findings(5high/4moderate)/legacy Prisma remain open.",
+    "All18hosted checker groups use dedicated QA fixture paths/rejected requests/anonymous denials. Uncalibrated AI remains denied; no positive hosted AI call/consent/calibration. Preview capability metadata null is not environment readback proof."
+  ],
+  "providerPhaseMs": 25000,
+  "providerResponseMaxBytes": 131072,
+  "privateBankScan": {
+    "testedAt": "2026-10-18T14:57:15.581Z",
+    "sourceCommit": "18e8b4d",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1622,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

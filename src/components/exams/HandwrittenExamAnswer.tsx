@@ -1,20 +1,28 @@
 import { isExamDeviceValueVolatile } from "@/lib/assessments/device-store";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
 import { useAuth } from "@/state/auth-state";
 import { browserExamStorage, registerPendingExam } from "@/lib/assessments/drafts";
 import { examInkKey, readExamInk, saveExamInk, type ExamInk } from "@/lib/assessments/ink";
 import type { AssessmentAnswer } from "@/lib/assessments/form";
-export function HandwrittenExamAnswer({
-  attemptId,
-  itemId,
-  onAnswer,
-}: {
+type HandwrittenExamAnswerProps = {
   attemptId: string;
   itemId: string;
   onAnswer: (answer: AssessmentAnswer) => void;
-}) {
-  const { user, isCurrentUser } = useAuth();
+};
+export function HandwrittenExamAnswer(props: HandwrittenExamAnswerProps) {
+  const { user } = useAuth();
+  if (!user) return null;
+  return (
+    <OwnedHandwrittenExamAnswer
+      key={JSON.stringify([user.id, props.attemptId, props.itemId])}
+      {...props}
+    />
+  );
+}
+function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: HandwrittenExamAnswerProps) {
+  const { user } = useAuth();
   const userId = user?.id ?? "",
     storage = browserExamStorage(),
     key = examInkKey(userId, attemptId, itemId);
@@ -23,25 +31,24 @@ export function HandwrittenExamAnswer({
   );
   const current = useRef(value),
     pad = useRef<HandwritingPadHandle>(null),
-    frame = useRef<number | null>(null),
-    mounted = useRef(true);
+    frame = useRef<(() => void) | null>(null),
+    drawingRef = useRef(false);
+  const lifecycle = usePracticeLifecycle(key);
+  const lease = lifecycle.capture();
   const [drawing, setDrawing] = useState(false),
     [saved, setSaved] = useState(() => !isExamDeviceValueVolatile(key));
   const registryId = `${attemptId}:ink:${itemId}`;
   const update = (next: ExamInk) => {
-    if (!mounted.current || !isCurrentUser(userId)) return;
+    if (!lease.isCurrent() || next.transcript.length > 4000) return;
     current.current = next;
     setValue(next);
     setSaved(saveExamInk(storage, key, next));
-    registerPendingExam(userId, registryId, !!next.ink && !next.confirmed);
+    registerPendingExam(userId, registryId, !next.confirmed && (drawingRef.current || !!next.ink));
   };
-  useEffect(() => {
-    mounted.current = true;
-    return () => {
-      mounted.current = false;
-      if (frame.current !== null) cancelAnimationFrame(frame.current);
-    };
-  }, []);
+  const cancelFrame = () => {
+    frame.current?.();
+    frame.current = null;
+  };
   return (
     <div className="mt-4 space-y-3 rounded-xl border border-border p-3">
       <p className="text-sm">
@@ -57,11 +64,21 @@ export function HandwrittenExamAnswer({
       )}
       <div
         onPointerUp={() => {
-          if (frame.current !== null) cancelAnimationFrame(frame.current);
-          frame.current = requestAnimationFrame(() => {
+          if (!lease.isCurrent()) return;
+          cancelFrame();
+          const id = requestAnimationFrame(() => {
+            if (!lease.isCurrent() || frame.current !== cancel) return;
+            release();
+            frame.current = null;
             const ink = pad.current?.toPngBase64();
             if (ink) update({ ...current.current, ink, confirmed: false });
           });
+          const release = lease.own(() => cancelAnimationFrame(id));
+          const cancel = () => {
+            release();
+            cancelAnimationFrame(id);
+          };
+          frame.current = cancel;
         }}
       >
         <HandwritingPad
@@ -69,9 +86,16 @@ export function HandwrittenExamAnswer({
           label="Write your exam answer by hand"
           className={value.ink && !drawing ? "hidden" : undefined}
           onChange={(hasInk) => {
+            if (!lease.isCurrent()) return;
+            const wasDrawing = drawingRef.current;
+            drawingRef.current = hasInk;
             setDrawing(hasInk);
-            if (hasInk) registerPendingExam(userId, registryId, true);
-            else if (drawing) update({ ...current.current, ink: null, confirmed: false });
+            if (hasInk) {
+              update({ ...current.current, confirmed: false });
+            } else if (wasDrawing) {
+              cancelFrame();
+              update({ ...current.current, ink: null, confirmed: false });
+            }
           }}
         />
       </div>
@@ -79,7 +103,10 @@ export function HandwrittenExamAnswer({
         type="button"
         className="min-h-11 rounded-xl border border-border px-4 text-sm"
         onClick={() => {
+          if (!lease.isCurrent()) return;
+          cancelFrame();
           pad.current?.clear();
+          drawingRef.current = false;
           setDrawing(false);
           update({ ink: null, transcript: "", confirmed: false });
         }}
@@ -104,16 +131,27 @@ export function HandwrittenExamAnswer({
       </label>
       <button
         type="button"
-        disabled={!value.ink || !value.transcript.trim()}
+        disabled={value.confirmed || !value.ink || !value.transcript.trim()}
         className="min-h-11 rounded-xl border border-gold/40 px-4 text-sm disabled:opacity-50"
         onClick={() => {
+          if (!lease.isCurrent() || current.current.confirmed) return;
+          const latest = current.current;
+          const ink = drawingRef.current ? pad.current?.toPngBase64() : latest.ink;
+          if (
+            !ink ||
+            ink.length > 500000 ||
+            !latest.transcript.trim() ||
+            latest.transcript.length > 4000
+          )
+            return;
+          cancelFrame();
           onAnswer({
             inputMethod: "handwriting",
-            originalTranscript: value.transcript,
-            correctedTranscript: value.transcript,
+            originalTranscript: latest.transcript,
+            correctedTranscript: latest.transcript,
             recognitionIssue: true,
           });
-          update({ ...current.current, confirmed: true });
+          update({ ...latest, ink, confirmed: true });
         }}
       >
         Use this transcript for review

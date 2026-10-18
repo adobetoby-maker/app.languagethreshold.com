@@ -1,5 +1,9 @@
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
-import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
+import {
+  conversationCallOptions,
+  conversationProviderOptions,
+  conversationResponseHeaders,
+} from "@/lib/conversation-provider";
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
@@ -99,7 +103,7 @@ export const Route = createFileRoute("/api/discussion")({
         if (!KEY) {
           return new Response(JSON.stringify({ error: "AI is not configured" }), {
             status: 500,
-            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
 
@@ -129,12 +133,12 @@ export const Route = createFileRoute("/api/discussion")({
               response.content[0]?.type === "text" ? response.content[0].text.trim() : null;
             return new Response(JSON.stringify({ tip }), {
               status: 200,
-              headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+              headers: conversationResponseHeaders("application/json"),
             });
           } catch {
             return new Response(JSON.stringify({ tip: null }), {
               status: 200,
-              headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+              headers: conversationResponseHeaders("application/json"),
             });
           }
         }
@@ -155,17 +159,13 @@ export const Route = createFileRoute("/api/discussion")({
 
           return new Response(anthropicTextStream(stream), {
             status: 200,
-            headers: {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-store, no-transform",
-              Connection: "keep-alive",
-            },
+            headers: conversationResponseHeaders("text/event-stream"),
           });
         } catch {
           Sentry.captureException(new Error("discussion provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
-            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
       },

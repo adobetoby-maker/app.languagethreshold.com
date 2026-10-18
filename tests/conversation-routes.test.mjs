@@ -109,6 +109,16 @@ function request(name, body, headers = {}, signal) {
     body: typeof body === "string" ? body : JSON.stringify(body),
   });
 }
+function privateConversationHeaders(response, streaming = false) {
+  assert.match(response.headers.get("cache-control"), /private.*no-store/);
+  if (streaming) {
+    assert.match(response.headers.get("cache-control"), /no-transform/);
+    assert.equal(response.headers.get("content-type"), "text/event-stream");
+  }
+  assert.equal(response.headers.get("cdn-cache-control"), "no-store");
+  assert.equal(response.headers.get("vercel-cdn-cache-control"), "no-store");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+}
 for (const [name, data] of routes)
   test(`${name}: actual route bounds origin/body/budget and retains allowed response contract`, async () => {
     const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"],
@@ -157,6 +167,13 @@ for (const [name, data] of routes)
       assert.equal(response.status, 503);
       assert.equal(controls.calls, 0);
       globalThis.fetch = async () => Response.json(true);
+      delete process.env.ANTHROPIC_API_KEY;
+      response = await handler({ request: request(name, data) });
+      assert.equal(response.status, 500);
+      privateConversationHeaders(response);
+      assert.equal((await response.json()).error, "AI is not configured");
+      assert.equal(controls.calls, 0);
+      process.env.ANTHROPIC_API_KEY = "fixture-only";
       const disconnect = new AbortController();
       response = await handler({ request: request(name, data, {}, disconnect.signal) });
       assert.equal(controls.clientOptions.timeout, 45_000);
@@ -165,7 +182,7 @@ for (const [name, data] of routes)
       disconnect.abort();
       assert.equal(controls.callOptions.signal.aborted, true);
       assert.equal(response.status, 200);
-      assert.match(response.headers.get("cache-control"), /no-store/);
+      privateConversationHeaders(response, true);
       assert.match(await response.text(), /Fictional QA reply/);
       assert.equal(controls.calls, 1);
       if (name === "tutor") {
@@ -221,16 +238,25 @@ for (const [name, data] of routes)
           request: request(name, { ...data, mode: "companion", userText: "QA" }),
         });
         assert.equal(response.status, 200);
-        assert.equal(response.headers.get("cache-control"), "no-store");
+        privateConversationHeaders(response);
         assert.equal((await response.json()).tip, "Fictional QA tip");
         assert.equal(controls.calls, 2);
         assert.equal(controls.clientOptions.maxRetries, 0);
         assert.ok(controls.callOptions.signal instanceof AbortSignal);
+        controls.fail = true;
+        response = await handler({
+          request: request(name, { ...data, mode: "companion", userText: "QA" }),
+        });
+        assert.equal(response.status, 200);
+        privateConversationHeaders(response);
+        assert.deepEqual(await response.json(), { tip: null });
+        controls.fail = false;
       }
       controls.fail = true;
       const callsBeforeFailure = controls.calls;
       response = await handler({ request: request(name, data) });
       assert.equal(response.status, 500);
+      privateConversationHeaders(response);
       assert.equal(controls.calls, callsBeforeFailure + 1);
       assert.equal(controls.telemetry, `${name} provider request failed`);
       assert.ok(!(await response.text()).includes("PRIVATE"));

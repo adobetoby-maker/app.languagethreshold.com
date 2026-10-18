@@ -1,4 +1,8 @@
-import { conversationCallOptions, conversationProviderOptions } from "@/lib/conversation-provider";
+import {
+  conversationCallOptions,
+  conversationProviderOptions,
+  conversationResponseHeaders,
+} from "@/lib/conversation-provider";
 import { prepareConversationRequest, ConversationRequestError } from "@/lib/conversation-request";
 import {
   resolveTutorLesson,
@@ -302,7 +306,7 @@ export const Route = createFileRoute("/api/tutor")({
         if (!KEY) {
           return new Response(JSON.stringify({ error: "AI is not configured" }), {
             status: 500,
-            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
 
@@ -323,17 +327,13 @@ export const Route = createFileRoute("/api/tutor")({
 
           return new Response(anthropicTextStream(stream), {
             status: 200,
-            headers: {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-store, no-transform",
-              Connection: "keep-alive",
-            },
+            headers: conversationResponseHeaders("text/event-stream"),
           });
         } catch {
           Sentry.captureException(new Error("tutor provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
-            headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
       },

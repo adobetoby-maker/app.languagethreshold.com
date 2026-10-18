@@ -36,8 +36,10 @@ async function fixture(run) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               loader: "ts",
               contents: `
+import {ZodError} from 'zod';
 export const c={tables:{},queries:[],writes:[],certificates:0,fail:null};
 export const createFileRoute=()=>config=>config;
 export const getModule=id=>['roofing','landscaper'].includes(id)?{id}:null;

@@ -1,5 +1,6 @@
 import { createClient, type User } from "@supabase/supabase-js";
 import { createHash, randomBytes } from "node:crypto";
+import { ZodError } from "zod";
 
 export function teamAdminClient(fetcher?: typeof fetch) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
@@ -36,7 +37,7 @@ export async function memberRole(db: TeamDb, orgId: string, userId: string) {
 export async function requireTeamAdmin(db: TeamDb, orgId: string, userId: string) {
   const role = await memberRole(db, orgId, userId);
   if (!role || !["owner", "admin"].includes(role.role))
-    throw new Error("Company admin access required.");
+    throw new TeamOperationError("Company admin access required.", 403);
   return role;
 }
 
@@ -52,7 +53,7 @@ export async function requirePlatformOwner(db: TeamDb, user: User) {
     data?.role !== "owner" &&
     (!ownerEmail || user.email?.toLowerCase() !== ownerEmail || !user.email_confirmed_at)
   ) {
-    throw new Error("Platform owner access required.");
+    throw new TeamOperationError("Platform owner access required.", 403);
   }
 }
 
@@ -87,24 +88,19 @@ export class TeamOperationError extends Error {
     super(message);
   }
 }
-/** Used by activity and legacy assessment; unrelated legacy handlers remain separate. */
+/** Only typed fixed guidance/schema failures are public; backend diagnostics stay private. */
 export function scopedTeamError(error: unknown) {
   if (error instanceof TeamOperationError) return json({ error: error.message }, error.status);
+  if (error instanceof ZodError || error instanceof SyntaxError)
+    return json({ error: "Check your team request and try again." }, 400);
   return json(
     { error: "We could not confirm this team request. Check your workspace before retrying." },
     503,
   );
 }
 
-export function teamError(error: unknown) {
-  const message = error instanceof Error ? error.message : "The request failed.";
-  const status = /Sign in|session|access required/.test(message)
-    ? 403
-    : /configured/.test(message)
-      ? 503
-      : 400;
-  return json({ error: message }, status);
-}
+/** Compatibility export: no raw-message or regex-based status fallback. */
+export const teamError = scopedTeamError;
 
 export function teamBillingReady() {
   return (
@@ -116,7 +112,7 @@ export function teamBillingReady() {
 export async function sendTeamEmail(to: string, subject: string, body: string) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.TEAM_FROM_EMAIL;
-  if (!key || !from) throw new Error("Team email is not configured.");
+  if (!key || !from) throw new TeamOperationError("Team email is not configured.", 503);
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },

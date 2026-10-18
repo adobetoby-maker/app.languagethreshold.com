@@ -118,6 +118,11 @@ if (process.argv.includes("--self-test")) {
     .filter((x) => x.calls.length || x.namespaceReferences.length);
   const helperSource = readFileSync("src/lib/team-server.ts", "utf8");
   const source = ts.createSourceFile("team-server.ts", helperSource, ts.ScriptTarget.Latest, true);
+  const compatibility = source.statements
+    .filter(ts.isVariableStatement)
+    .flatMap((node) => [...node.declarationList.declarations])
+    .find((node) => node.name.getText(source) === "teamError");
+  assert.equal(compatibility?.initializer?.getText(source), "scopedTeamError");
   const helperDeclarations = source.statements
     .filter((n) => ts.isFunctionDeclaration(n) && functions.includes(n.name?.text))
     .map((n) => ({
@@ -142,11 +147,15 @@ if (process.argv.includes("--self-test")) {
       namespaceCalls: routes.flatMap((x) => x.namespaceReferences).length,
     },
     helperDeclarations,
+    legacyCompatibilityAlias: {
+      target: "scopedTeamError",
+      line: source.getLineAndCharacterOfPosition(compatibility.getStart(source)).line + 1,
+    },
     routes,
     findings: [
-      "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Eight direct calls in four files remain; typed scoped handler is used by activity, legacy assessment, certificate and entitlement.",
+      "Historical legacy teamError has been replaced by a scoped compatibility alias. No direct route callers remain. The compatibility teamError export now aliases scopedTeamError; eight routes use twelve direct scoped calls.",
       "Legacy surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
-      "Shared auth/config error typing does not sanitize other legacy backend/schema/mail/checkout failures. Migrate fixed intentional guidance with explicit statuses per workflow before replacing catch responses.",
+      "Scoped callbacks expose typed fixed guidance and fixed schema/syntax failures, suppressing unexpected backend text. This direct-import inventory does not prove all workflow behavior, diagnostics, alternate response paths or side-effect reconciliation.",
     ],
     limits: [
       "Read-only TypeScript AST inventory of direct named imports from the exact module path across rg-visible tracked/untracked src TS/TSX files. Aliased named calls are recognized; namespace references counted separately. No symbol resolution, re-export/alias chains, dynamic calls, runtime coverage or appwide safety proof.",
@@ -155,9 +164,9 @@ if (process.argv.includes("--self-test")) {
       "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform and actual session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance.",
     ],
   };
-  assert.equal(report.scan.legacyDirectCalls, 8);
-  assert.equal(report.scan.legacyFiles, 4);
-  assert.equal(report.scan.scopedDirectCalls, 4);
+  assert.equal(report.scan.legacyDirectCalls, 0);
+  assert.equal(report.scan.legacyFiles, 0);
+  assert.equal(report.scan.scopedDirectCalls, 12);
   assert.equal(report.scan.namespaceCalls, 0);
   writeFileSync(
     "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",

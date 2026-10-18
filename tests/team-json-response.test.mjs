@@ -41,12 +41,12 @@ test("actual team JSON success has private headers without sharing mutable respo
     assert.deepEqual(await next.json(), { sessions: [] });
   }));
 test("actual team handled errors retain statuses with private headers", () =>
-  fixture(async ({ teamError }) => {
+  fixture(async ({ teamError, TeamOperationError }) => {
     for (const [error, status] of [
-      [new Error("Sign in to continue."), 403],
-      [new Error("Team database is not configured."), 503],
-      [new Error("Unknown lesson."), 400],
-      [null, 400],
+      [new TeamOperationError("Sign in to continue.", 403), 403],
+      [new TeamOperationError("Team database is not configured.", 503), 503],
+      [new TeamOperationError("Unknown lesson."), 400],
+      [null, 503],
     ]) {
       const response = teamError(error);
       privateHeaders(response);
@@ -75,4 +75,32 @@ test("scoped team errors expose only typed guidance, never backend text or heuri
         error: "We could not confirm this team request. Check your workspace before retrying.",
       });
     }
+  }));
+test("actual team admin and platform owner denials retain typed fixed 403 guidance", () =>
+  fixture(async ({ requireTeamAdmin, requirePlatformOwner, scopedTeamError, teamError }) => {
+    const db = {
+      from() {
+        return {
+          select() {
+            return this;
+          },
+          eq() {
+            return this;
+          },
+          maybeSingle: async () => ({ data: null, error: null }),
+        };
+      },
+    };
+    for (const operation of [
+      () => requireTeamAdmin(db, "synthetic-org", "synthetic-user"),
+      () => requirePlatformOwner(db, { id: "synthetic-user", email_confirmed_at: null }),
+    ]) {
+      await assert.rejects(operation(), (error) => {
+        const response = scopedTeamError(error);
+        privateHeaders(response);
+        assert.equal(response.status, 403);
+        return true;
+      });
+    }
+    assert.equal(teamError, scopedTeamError);
   }));

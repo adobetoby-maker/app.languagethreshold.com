@@ -65,7 +65,7 @@ async function fixture(component, action) {
               contents: `
  import {speakingRequestHeaders as realHeaders} from "./src/lib/speaking-client.ts";
  export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
- export const c={sessions:[],realHeaders:false,slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
+ export const c={sessions:[],realHeaders:false,google:[],slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
  const changed=${changed.toString()};
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
@@ -76,7 +76,7 @@ async function fixture(component, action) {
  const addTurn=(role,text)=>{const t={id:'turn-'+c.turns.length,role,text};c.turns=[...c.turns,t];return t;},appendToTurn=(id,delta)=>{c.turns=c.turns.map(t=>t.id===id?{...t,text:t.text+delta}:t);},setTipFor=(id,tip)=>c.tips.push({id,tip}),incrementExchanges=()=>c.exchanges++,addSeconds=s=>c.seconds.push(s),clear=()=>{c.turns=[];};
  export const useSpeak=()=>({turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},useSpeech=()=>({accent:c.accent,voiceURI:c.voice,rate:1,setVoiceURI:v=>c.voice=v,setAccent:v=>c.accent=v,accentsForLanguage:[{code:'es-CR',label:'QA accent'}],settingsHydrated:true});
- export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=async()=>{};
+ export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=opts=>new Promise(resolve=>{c.google.push({opts,resolve});opts.signal?.addEventListener("abort",resolve,{once:true});});
  export const speakingRequestHeaders=(owner,signal)=>c.realHeaders?realHeaders(owner,signal):c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({}),setSpeakingPrivacyMode=()=>{};
  export const getMissionTtsCapabilities=(_locale,signal)=>new Promise(resolve=>c.capabilities.push({signal,resolve}));
  export const getVoicesForLocale=()=>[{voiceURI:'qa-device',name:'QA device voice',lang:'es-CR'}],pickVoice=()=>getVoicesForLocale()[0],subscribeVoices=()=>()=>{},isIosDevice=()=>false;
@@ -304,4 +304,26 @@ test("actual SpeakLearn binds chat and tip credential lookup to the originating 
     await tick();
     assert.equal(requests.length, 0);
     assert.equal(c.turns.filter((t) => t.role === "assistant").length, 0);
+  }));
+
+test("VoicePicker Google preview passes original SDK owner and invalidates it on close", () =>
+  fixture("VoicePicker", async ({ c, render }) => {
+    render();
+    c.capabilities[0].resolve({
+      ready: true,
+      voices: [{ name: "fixture-google", languageCodes: ["es-CR"], ssmlGender: "FEMALE" }],
+    });
+    await tick();
+    const tree = render(),
+      voice = nodes(tree).find((n) => n.type === "menuitem" && n.key === "fixture-google");
+    voice.props.onSelect({ preventDefault() {} });
+    assert.equal(c.google.length, 1);
+    const { opts } = c.google[0];
+    assert.equal(opts.owner.userId, "a");
+    assert.equal(opts.owner.isCurrent(), true);
+    nodes(tree)
+      .find((n) => n.type === "menu")
+      .props.onOpenChange(false);
+    assert.equal(opts.signal.aborted, true);
+    assert.equal(opts.owner.isCurrent(), false);
   }));

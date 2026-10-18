@@ -588,6 +588,7 @@ export function SpeakingMissionsPreview({
             rate: partnerSpeed,
             deviceOnly: true,
             signal: controller.signal,
+            owner: { userId: actor ?? "", isCurrent: current },
             onPlaybackStart: () => {
               if (current()) onPlaybackStart?.();
             },
@@ -606,6 +607,7 @@ export function SpeakingMissionsPreview({
             speakingRate: partnerSpeed,
             usage: "mission",
             signal: controller.signal,
+            owner: { userId: actor ?? "", isCurrent: current },
             onPlaybackStart: () => {
               if (current()) onPlaybackStart?.();
             },
@@ -624,6 +626,7 @@ export function SpeakingMissionsPreview({
     },
     [
       capture,
+      actor,
       audioScope,
       missionLocale,
       partnerAudioSource,

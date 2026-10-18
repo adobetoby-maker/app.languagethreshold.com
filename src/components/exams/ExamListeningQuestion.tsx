@@ -97,6 +97,7 @@ export function ExamListeningQuestion({
         rate: 0.9,
         deviceOnly: true,
         signal: controller.signal,
+        owner: { userId: actor, isCurrent: current },
         onend: () => finish(true),
         onerror: () => finish(false, unavailable),
       });

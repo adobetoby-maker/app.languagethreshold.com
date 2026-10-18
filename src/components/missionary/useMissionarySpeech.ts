@@ -142,6 +142,7 @@ export function useMissionarySpeech(context?: string) {
           rate,
           voiceURI,
           signal: abort.signal,
+          owner: { userId: actor ?? "", isCurrent: current },
           onend: () => done(true),
           onerror: () => done(false),
         }).catch(() => done(false));

@@ -198,6 +198,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
     void speakRemote(clean, locale, {
       voiceURI,
       signal: controller.signal,
+      owner: { userId: actor ?? "", isCurrent: current },
       onend: () => done(true),
       onerror: () => done(false),
     }).catch(() => done(false));

@@ -1,5 +1,5 @@
 import type { GoogleTtsVoice, MissionTtsLanguage } from "@/data/mission-tts";
-import { speakingRequestHeaders } from "@/lib/speaking-client";
+import { speakingRequestHeaders, type SpeakingRequestOwner } from "@/lib/speaking-client";
 
 export interface MissionTtsCapabilities {
   provider: "google-cloud-tts";
@@ -100,6 +100,7 @@ export async function speakMissionTts({
   usage = "mission",
   onPlaybackStart,
   signal,
+  owner,
 }: {
   text: string;
   voiceName: string;
@@ -108,23 +109,27 @@ export async function speakMissionTts({
   usage?: "learning" | "mission";
   onPlaybackStart?: () => void;
   signal?: AbortSignal;
+  owner?: SpeakingRequestOwner;
 }) {
-  if (signal?.aborted) throw new DOMException("The request was aborted.", "AbortError");
+  if (signal?.aborted || (owner && !owner.isCurrent()))
+    throw new DOMException("The request was aborted.", "AbortError");
   stopMissionTts();
   const controller = new AbortController();
   const generation = playbackGeneration;
   activeController = controller;
-  const current = () => generation === playbackGeneration && !controller.signal.aborted;
+  const ownsGeneration = () => generation === playbackGeneration;
+  const current = () =>
+    ownsGeneration() && !controller.signal.aborted && (!owner || owner.isCurrent());
   const checkCurrent = () => {
     if (!current()) throw new DOMException("The request was aborted.", "AbortError");
   };
 
   const abortOwnedPlayback = () => {
-    if (current()) stopMissionTts();
+    if (ownsGeneration()) stopMissionTts();
   };
   signal?.addEventListener("abort", abortOwnedPlayback, { once: true });
   try {
-    const headers = await speakingRequestHeaders();
+    const headers = await speakingRequestHeaders(owner, controller.signal);
     checkCurrent();
 
     const response = await fetch("/api/mission-tts", {
@@ -151,7 +156,7 @@ export async function speakMissionTts({
     await new Promise<void>((resolve, reject) => {
       let settled = false;
       const cleanup = () => {
-        if (!current()) return;
+        if (!ownsGeneration()) return;
         audio.onended = null;
         audio.onerror = null;
         finishActivePlayback = null;
@@ -161,7 +166,8 @@ export async function speakMissionTts({
         if (settled) return;
         settled = true;
         cleanup();
-        if (error) reject(error);
+        if (!current()) reject(new DOMException("The request was aborted.", "AbortError"));
+        else if (error) reject(error);
         else resolve();
       };
       finishActivePlayback = () =>

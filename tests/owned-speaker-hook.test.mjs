@@ -138,6 +138,11 @@ test("actual speaker hook and TTS wrapper keep cleanup within the owning surface
     const guestSpeak = render(guest, "guest");
     guestSpeak("Guest word", "en-US");
     const guestEnd = utterances.at(-1).onend;
+    c.actor = "signed-in";
+    render(guest, "guest");
+    const beforeGuestCallback = utterances.length;
+    guestSpeak("Old guest after sign-in", "en-US");
+    assert.equal(utterances.length, beforeGuestCallback);
     unmount(guest);
     guestEnd();
     await tick();

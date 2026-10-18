@@ -185,6 +185,13 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         speakingRate: rate,
         usage: "learning",
         signal: controller.signal,
+        owner: {
+          userId: user.id,
+          isCurrent: () =>
+            mountedPreviewScope.current === previewScope &&
+            previewRef.current === controller &&
+            isCurrentUser(user.id),
+        },
       });
     } catch (error) {
       if (

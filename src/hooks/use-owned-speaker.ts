@@ -13,10 +13,12 @@ export function useOwnedPlayback(scope?: string) {
   const actor = user?.id ?? null;
   const mounted = useRef(false);
   const activeScope = useRef(scope);
+  const activeActor = useRef(actor);
   const pending = useRef<AbortController | null>(null);
   useEffect(() => {
     mounted.current = true;
     activeScope.current = scope;
+    activeActor.current = actor;
     return () => {
       mounted.current = false;
       pending.current?.abort();
@@ -27,6 +29,7 @@ export function useOwnedPlayback(scope?: string) {
     if (
       !mounted.current ||
       activeScope.current !== scope ||
+      activeActor.current !== actor ||
       (actor !== null && !isCurrentUser(actor))
     )
       return;
@@ -38,6 +41,7 @@ export function useOwnedPlayback(scope?: string) {
       if (
         !mounted.current ||
         activeScope.current !== scope ||
+        activeActor.current !== actor ||
         (actor !== null && !isCurrentUser(actor)) ||
         !text
       )
@@ -45,7 +49,20 @@ export function useOwnedPlayback(scope?: string) {
       pending.current?.abort();
       const controller = new AbortController();
       pending.current = controller;
-      void speakRemote(text, locale, { voiceURI, rate, signal: controller.signal })
+      void speakRemote(text, locale, {
+        voiceURI,
+        rate,
+        signal: controller.signal,
+        owner: {
+          userId: actor ?? "",
+          isCurrent: () =>
+            mounted.current &&
+            activeScope.current === scope &&
+            activeActor.current === actor &&
+            pending.current === controller &&
+            (actor === null || isCurrentUser(actor)),
+        },
+      })
         .catch(() => {
           /* Playback is optional; no late UI/actor callbacks. */
         })

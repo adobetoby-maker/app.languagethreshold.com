@@ -7,6 +7,7 @@ import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts"
 import { isIosDevice } from "@/lib/pwa-install";
 import { speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
 import { configureUtterance, getVoicesForLocale } from "@/lib/voices";
+import type { SpeakingRequestOwner } from "@/lib/speaking-client";
 import { toast } from "sonner";
 
 const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
@@ -57,6 +58,7 @@ function speakOnDevice(
   preferredVoiceURI: string | null | undefined,
   current: () => boolean,
   onPlaybackStart?: () => void,
+  ownsGeneration = current,
 ) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     return Promise.resolve(false as boolean | null);
@@ -76,7 +78,7 @@ function speakOnDevice(
       utterance.onstart = null;
       utterance.onend = null;
       utterance.onerror = null;
-      if (current()) cancelPlayback = null;
+      if (ownsGeneration()) cancelPlayback = null;
       resolve(current() ? heard : null);
     };
     cancelPlayback = () => {
@@ -111,17 +113,20 @@ export async function speakRemote(
     voiceURI?: string | null;
     usage?: "learning" | "mission";
     signal?: AbortSignal;
+    owner?: SpeakingRequestOwner;
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
     onPlaybackStart?: () => void;
   },
 ): Promise<void> {
-  if (opts?.signal?.aborted) return;
+  if (opts?.signal?.aborted || (opts?.owner && !opts.owner.isCurrent())) return;
   stopRemoteTTS();
   const playbackGeneration = generation;
-  const current = () => generation === playbackGeneration;
+  const ownsGeneration = () => generation === playbackGeneration;
+  const current = () =>
+    ownsGeneration() && !opts?.signal?.aborted && (!opts?.owner || opts.owner.isCurrent());
   const abortOwned = () => {
-    if (current()) stopRemoteTTS();
+    if (ownsGeneration()) stopRemoteTTS();
   };
   opts?.signal?.addEventListener("abort", abortOwned, { once: true });
   try {
@@ -142,6 +147,19 @@ export async function speakRemote(
     const rate = opts?.rate ?? 1;
     const googleVoice = opts?.deviceOnly ? null : selectedGoogleVoice(locale, opts?.voiceURI);
     if (googleVoice) {
+      if (opts?.owner && !opts.owner.userId) {
+        const heard = await speakOnDevice(
+          text,
+          locale,
+          rate,
+          opts.voiceURI,
+          current,
+          notifyStart,
+          ownsGeneration,
+        );
+        if (heard !== null) notify(heard);
+        return;
+      }
       try {
         await speakMissionTts({
           text,
@@ -150,6 +168,8 @@ export async function speakRemote(
           speakingRate: rate,
           usage: opts?.usage ?? "learning",
           onPlaybackStart: notifyStart,
+          owner: opts?.owner,
+          signal: opts?.signal,
         });
         notify();
         return;
@@ -167,7 +187,15 @@ export async function speakRemote(
             duration: 7000,
           });
         }
-        const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current, notifyStart);
+        const heard = await speakOnDevice(
+          text,
+          locale,
+          rate,
+          opts?.voiceURI,
+          current,
+          notifyStart,
+          ownsGeneration,
+        );
         if (heard !== null) notify(heard);
         return;
       }
@@ -178,7 +206,15 @@ export async function speakRemote(
         ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
         : undefined;
     if (!lang) {
-      const heard = await speakOnDevice(text, locale, rate, opts?.voiceURI, current, notifyStart);
+      const heard = await speakOnDevice(
+        text,
+        locale,
+        rate,
+        opts?.voiceURI,
+        current,
+        notifyStart,
+        ownsGeneration,
+      );
       if (heard !== null) notify(heard);
       return;
     }
@@ -194,7 +230,7 @@ export async function speakRemote(
       const done = (heard: boolean | null) => {
         if (settled) return;
         settled = true;
-        if (current()) {
+        if (ownsGeneration()) {
           cancelPlayback = null;
           el.onplaying = null;
           el.onended = null;

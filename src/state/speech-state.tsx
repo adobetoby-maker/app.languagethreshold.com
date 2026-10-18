@@ -133,6 +133,8 @@ export function SpeechProvider({
 }) {
   const { user, isCurrentUser } = useAuth();
   const actor = user?.id ?? null;
+  const playbackActorRef = useRef(actor);
+  playbackActorRef.current = actor;
   const mountedRef = useRef(false);
   const playbackEpochRef = useRef(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -140,7 +142,10 @@ export function SpeechProvider({
   const cancelledRef = useRef(true);
   const listenedCountRef = useRef(0);
   const ownsPlayback = useCallback(
-    () => mountedRef.current && (actor === null || isCurrentUser(actor)),
+    () =>
+      mountedRef.current &&
+      playbackActorRef.current === actor &&
+      (actor === null || isCurrentUser(actor)),
     [actor, isCurrentUser],
   );
   const invalidatePlayback = useCallback(() => {
@@ -342,6 +347,7 @@ export function SpeechProvider({
         void speakRemote(text, accent, {
           rate,
           voiceURI,
+          owner: { userId: actor ?? "", isCurrent: valid },
           onend: () => finish(true),
           onerror: () => finish(false),
         });
@@ -365,7 +371,7 @@ export function SpeechProvider({
         finish(false);
       }
     },
-    [accent, rate, voiceURI, incListened, ownsPlayback],
+    [accent, rate, voiceURI, incListened, ownsPlayback, actor],
   );
 
   const speakWord = useCallback(

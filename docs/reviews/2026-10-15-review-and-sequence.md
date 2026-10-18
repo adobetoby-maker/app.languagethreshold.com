@@ -5,6 +5,20 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 18
 
 
+### AI allowance reads share a request-owned phase before grading claim — October 18
+
+Applicationd2af649 moves the existing own-enrollment IDs and rolling ai.requested HEAD count into readWritingAllowance. Request path uses a dedicated service client(no extra Auth call), one shared8second header/body/SDK phase and cancellation499, no SDK retry, no-store/no-redirect. Exact configured-project actor/id/limit1000 GET and exact owned-enrollment/action/rolling-date HEAD only.64KiB strictUTF8/JSON/unique UUID/id-only projection, safe nonnegative exact Content-Range count required.1000sentinel503, empty owned set in.() count and daily30limit429 remain. The raw byte cap is operational, not a SQL row-size invariant. Legacy no-Request internal callers retain prior queries; only runtime HTTP caller supplies Request.
+
+Historical18e8b4d actual AI-source/installedSDK assertion proves enrollment headers had no selected signal and did not settle after departure until late headers. Existing later guard correctly499 with zero grading claims: this is a liveness/resource gap, not permission bypass/private leakage. Retained baseline log/hash/command in qa-assessment-ai-allowance-local-2026-10-18.json. Eight new actualSDK groups cover both header waits/enrollment body deadline/late disposal, byte/UTF8/projection/unique UUID validation, count header failures, daily/empty/1000boundaries, one503attempt per GET/HEAD, exact filters and request isolation/listener cleanup/preabort. Prior quota/provider fixtures now use actual selected SDK allowance reads with controlled claim/provider boundaries.
+
+First full run1551/1552 failed in an older reviewer-budget fixture which indexed releases[0] as cancelled despite asynchronous bucket hashing. Actual assertion/log retained; fixture now selects stopped/live signals and still requires cancelled request499 plus independent peer success. No production shared quota change. Final full1552Node22tests/typecheck/changed-filelint/productionaudit0/guardedartifact19.97MiB pass. No model/provider, learner claim/grade/consent/calibration/reviewer/pilot, schema/policy/schedule or real business action.
+
+Exact Preview https://language-threshold-clwnrms21-adobetoby-5572s-projects.vercel.app, dpl_HBWGLDKtCfNpxFZ48wddfZPARhtM, independently READY/targetnull/exactd2af6496c3a66a4b6c162cd01d105b84d78759df/project/team/alias[]. All18hosted checker groups pass; QA activepersonalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained by read-only checks. Combined qa-assessment-ai-allowance-preview-2026-10-18.json. Previous evidence0761c6f clean LinuxCI39138302500 succeeded, production skipped. Final private-bank scan96markers/1627source/149static/0hits.
+
+NEXT: final clean CI; earlier routing/response/human-score private reads and later grading claim/consent/score/audit/finalization waits with uncertain outcomes, other input/cache/aggregate phases, durable email, build-chain/Prisma and original product acceptance. No whole-endpoint deadline, physical cancellation/permission freshness/rollback/refund/replay inference. Main64f2172 and accepted companiond4ad837 unchanged; draftPR38 unmerged. Full audit9findings(5high/4moderate), human/device/expiry/content/calibration/reviewer/pilot/retention/scheduler/59module gates open. Full goal active.
+
+
+
 ### Claimed writing provider response phase remains bounded through body parsing — October 18
 
 Application18e8b4d moves the existing Anthropic request into requestWritingProposal: one SDK attempt/retries0,25second independently owned phase covering fetch headers/body and SDK parse,128KiB raw response cap including error bodies, strictUTF8/JSON media parsing, no-store/no-redirect and nonwaiting late-header/body disposal. Existing model/max_tokens900/system/tool/frozen-rubric/proposal validation remain. This resource cap is operational, not a provider API maximum; oversized otherwise valid replies fail with existing fixed503/human-review guidance.

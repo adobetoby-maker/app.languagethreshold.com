@@ -32,6 +32,7 @@ import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import {
   authenticatedUser,
+  TeamOperationError,
   teamAdminClient,
   json,
   requireTeamAdmin,
@@ -207,7 +208,7 @@ function fail(error: unknown) {
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError || error instanceof SyntaxError)
     return json({ error: "Check the assessment request and try again." }, 400);
-  if (error instanceof Error && /Sign in|session|access required/.test(error.message))
+  if (error instanceof TeamOperationError && error.status === 403)
     return json({ error: error.message }, 403);
   return json(
     { error: "Assessments are temporarily unavailable. Your submitted answers remain saved." },

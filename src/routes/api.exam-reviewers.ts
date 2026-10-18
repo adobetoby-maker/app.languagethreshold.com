@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { authenticatedUser, json, teamAdminClient } from "@/lib/team-server";
+import { TeamOperationError, authenticatedUser, json, teamAdminClient } from "@/lib/team-server";
 import { requireRegisteredAssessmentOwner } from "@/lib/assessments/content-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
@@ -27,7 +27,7 @@ function fail(error: unknown) {
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the reviewer scope and confirmation." }, 400);
-  if (error instanceof Error && /Sign in|session|owner access required/.test(error.message))
+  if (error instanceof TeamOperationError && error.status === 403)
     return json({ error: "Registered platform owner access required." }, 403);
   return json({ error: "Reviewer access could not be updated. Refresh before trying again." }, 503);
 }

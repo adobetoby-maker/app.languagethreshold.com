@@ -6,7 +6,7 @@ import {
 import { boundLessonSnapshot, requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
+import { TeamOperationError, authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
 import { AssessmentAccessError, assessmentBudget, rpc } from "@/lib/assessments/server";
 import {
   contentPrivileges,
@@ -42,7 +42,7 @@ function fail(error: unknown) {
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the content reference, review and confirmation." }, 400);
-  if (error instanceof Error && /Sign in|session|owner access required/.test(error.message))
+  if (error instanceof TeamOperationError && error.status === 403)
     return json(
       { error: "Sign in with an authorized content reviewer or platform owner account." },
       403,

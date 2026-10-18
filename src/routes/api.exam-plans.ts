@@ -5,7 +5,7 @@ import { z } from "zod";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { getModule } from "@/data/modules";
 import { LEARNER_GOALS, type LearnerGoal } from "@/lib/assessments/goals";
-import { authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
+import { TeamOperationError, authenticatedUser, teamAdminClient, json } from "@/lib/team-server";
 import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
 import {
@@ -123,7 +123,7 @@ function fail(error: unknown) {
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
     return json({ error: "Check the plan details and try again." }, 400);
-  if (error instanceof Error && /Sign in|session|access required/.test(error.message))
+  if (error instanceof TeamOperationError && error.status === 403)
     return json({ error: error.message }, 403);
   return json(
     { error: "The assessment plan could not be updated. Saved records remain available." },

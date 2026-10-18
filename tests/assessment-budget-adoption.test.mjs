@@ -359,10 +359,14 @@ test("independent APIs keep request cancellation separate and already-dispatched
     await started;
     ca.abort();
     assert.equal((await pa).status, 499);
-    assert.equal(releases[1].signal.aborted, false);
-    releases[1].release(Response.json(true));
+    const stopped = releases.find((entry) => entry.signal.aborted);
+    const live = releases.find((entry) => !entry.signal.aborted);
+    assert.ok(stopped);
+    assert.ok(live);
+    assert.equal(live.signal.aborted, false);
+    live.release(Response.json(true));
     assert.equal((await pb).status, 400);
-    releases[0].release(Response.json(true));
+    stopped.release(Response.json(true));
     await tick(a);
     for (const c of [cases[8], cases[11]]) {
       const owner = new AbortController(),

@@ -1,0 +1,62 @@
+{
+  "testedAt": "2026-10-18T15:35:33.413897+00:00",
+  "historicalSourceCommit": "b503b9bccca96952bfb81852b5e4709a2bc4d09a",
+  "historicalActualAssertionFailure": {
+    "testCommand": "LT_AI_WRITING_UI_BASELINE=b503b9b npx --yes node@22 --test --test-name-pattern='uncertain AI acknowledgement' tests/ai-writing-consent-lifecycle.test.mjs",
+    "log": "/tmp/lt-ai-writing-ui-baseline.log",
+    "logSha256": "c5af9f5cb08fa6e3dc2d735be008994a6055c64bb8b6193fe28d54490dc6b3f5",
+    "expectedSubmissionCalls": 1,
+    "observedSubmissionCalls": 2,
+    "actualAssertionNotSetupFailure": true
+  },
+  "newUiRegressionGroups": 8,
+  "focusedGroups": 13,
+  "fullNode22Tests": 1568,
+  "sourceHashes": {
+    "src/components/exams/AIWritingProposal.tsx": "5b409469904a86f4a11d535d11c34d479420c73a6434846b09e8410972952d54",
+    "tests/ai-writing-consent-lifecycle.test.mjs": "1f961fdfe193a73b37a73a26b39a494aeec26c5c8fbbb26033aae2aeaf7df7f6",
+    "tests/assessment-budget-adoption.test.mjs": "4b156c1bafb065984a57b1d412884d3cfee93250f2205b614442a12591eb8864"
+  },
+  "checks": {
+    "acknowledgedAndUncertainOutcomesLatchMountedForm": true,
+    "retainedCallbacksCannotResubmit": true,
+    "lostReplyAnd5xxPause": true,
+    "malformedSuccessPauses": true,
+    "threeKnownAcknowledgementsAccepted": true,
+    "sevenPreProviderDenialsAllowExplicitRetry": true,
+    "pendingAndPausedStatusChecksReadOnly": true,
+    "AbsentJobRefreshDoesNotUnlock": true,
+    "positiveSavedJobReplacesForm": true,
+    "newAccountAndResponseUnchecked": true,
+    "lateActorAndJobCallbacksRejected": true,
+    "realClientLostReplyDoesNotSendAgain": true
+  },
+  "firstFullRun": {
+    "tests": 1568,
+    "passed": 1567,
+    "failed": 1,
+    "test": "independent APIs keep request cancellation separate and already-dispatched acknowledgements unchanged",
+    "cause": "Fixture indexed concurrently dispatched requests despite asynchronous bucket hashing. Identifies stopped/live requests by signal now; production budget unchanged.",
+    "logSha256": "1f6e2e95e54fd7216ed14ca2220b3998efc1fba3ed1f79a0a94022931be7f61e"
+  },
+  "finalFullRun": {
+    "tests": 1568,
+    "passed": 1568,
+    "failed": 0,
+    "logSha256": "00f7dbd059bb136fd5a3d1e281974debfc93f817497e7196f1ccd9300cecf882"
+  },
+  "validation": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.98,
+    "changedFileLintWarnings": 0
+  },
+  "limits": [
+    "Actual component and lifecycle hooks run in a controlled hook harness; one lost-reply group uses actual assessment client with synthetic Auth/fetch. No real provider, claim, score, consent, billing, reviewer or learner mutation.",
+    "The pause lasts for this mounted answer view. No new durable browser storage or cross-remount/process-restart guarantee. Existing server durable claim remains the provider replay boundary.",
+    "Check saved status invokes parent refresh only; no new AI POST or consent. Known pre-provider 400/401/403/404/409/413/429 errors retain explicit retry. 5xx/lost reply/malformed success cannot unlock the mounted form.",
+    "No browser/phone/assistive technology acceptance or endpoint-wide deadline proof. Existing postclaim waits/uncertain outcomes remain separate.",
+    "Main and companion unchanged; draft PR38 unmerged. Original human/device/expiry/content/calibration/reviewer/pilot/retention/scheduler/59module gates and9development dependency findings remain open."
+  ]
+}

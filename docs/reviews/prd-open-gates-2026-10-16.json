@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "5fef684",
+  "application": "c4c3ff4",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-jro69hypy-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-1e5rpzuhc-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-conversation-headers-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "5fef684edaaa698c895fca441081f6f97b704527",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-conversation-headers-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "c4c3ff430a39df87597a9a963ec4fa0cfc96d651",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -870,6 +870,14 @@
     "deployed": true,
     "evidence": "docs/reviews/qa-conversation-headers-preview-2026-10-18.json",
     "handledProviderResponseSites": 14,
+    "actualProviderOrBrowserVerified": false
+  },
+  "latestLocalConversationProviderFollowup": {
+    "application": "c4c3ff4",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
+    "ownedProviderTimeoutMs": 45000,
+    "maxProviderBytes": 1048576,
     "actualProviderOrBrowserVerified": false
   }
 }

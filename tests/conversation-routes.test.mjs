@@ -148,7 +148,7 @@ for (const [name, data] of routes)
       assert.equal(response.status, 429);
       assert.equal(limit, 30);
       assert.equal(response.headers.get("retry-after"), "60");
-      assert.equal(response.headers.get("cache-control"), "no-store");
+      assert.match(response.headers.get("cache-control"), /private.*no-store/);
       assert.equal(controls.calls, 0);
       globalThis.fetch = async () => {
         throw Error("QA unavailable store");
@@ -273,3 +273,153 @@ test("chunked bodies without a length header stop reading at the byte bound befo
   assert.ok(pulls <= 8);
   assert.equal(parsed, false);
 });
+const tick = () => new Promise((r) => setImmediate(r));
+for (const [name, data] of routes)
+  test(`${name}: owned input and admission deadlines reject stalled or departed work before model calls`, async () => {
+    const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"];
+    const saved = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+    const original = { fetch: globalThis.fetch, set: setTimeout, clear: clearTimeout };
+    const timers = new Map();
+    const controllers = [];
+    const operations = [];
+    const late = [];
+    Object.assign(process.env, {
+      ANTHROPIC_API_KEY: "fixture-only",
+      SUPABASE_URL: "https://budget-store.invalid",
+      SUPABASE_SERVICE_ROLE_KEY: "fixture-only",
+      VERCEL_ENV: "preview",
+    });
+    try {
+      globalThis.setTimeout = (fn, ms, ...args) => {
+        if (ms !== 10000 && ms !== 15000) return original.set(fn, ms, ...args);
+        const id = {};
+        timers.set(id, { fn, ms });
+        return id;
+      };
+      globalThis.clearTimeout = (id) => {
+        if (timers.has(id)) timers.delete(id);
+        else original.clear(id);
+      };
+      const expire = (ms) => {
+        for (const v of [...timers.values()]) if (v.ms === ms) v.fn();
+      };
+      const { Route, controls } = await load(name);
+      const invoke = (req) => {
+        const p = Route.server.handlers.POST({ request: req });
+        operations.push(p);
+        return p;
+      };
+      const headers = (r) => {
+        assert.match(r.headers.get("cache-control"), /private.*no-store/);
+        assert.equal(r.headers.get("cdn-cache-control"), "no-store");
+        assert.equal(r.headers.get("vercel-cdn-cache-control"), "no-store");
+        assert.equal(r.headers.get("x-content-type-options"), "nosniff");
+      };
+      let counters = 0;
+      globalThis.fetch = async () => {
+        counters++;
+        return Response.json(true);
+      };
+      for (const abort of [false, true]) {
+        let cancelled = 0;
+        const c = new AbortController();
+        controllers.push(c);
+        const body = new ReadableStream({
+          start(x) {
+            x.enqueue(new TextEncoder().encode("{"));
+          },
+          cancel() {
+            cancelled++;
+            return new Promise(() => {});
+          },
+        });
+        const req = new Request(`https://owned-preview.invalid/api/${name}`, {
+          method: "POST",
+          headers: { Origin: "https://owned-preview.invalid" },
+          body,
+          duplex: "half",
+          signal: c.signal,
+        });
+        const owned = req.body;
+        const p = invoke(req);
+        await tick();
+        if (abort) c.abort();
+        else expire(10000);
+        const r = await p;
+        assert.equal(r.status, abort ? 499 : 408);
+        headers(r);
+        assert.equal(cancelled, 1);
+        assert.equal(owned.locked, false);
+        assert.equal(counters, 0);
+        assert.equal(controls.calls, 0);
+      }
+      const cancelledRequest = new AbortController();
+      cancelledRequest.abort();
+      const cancelledResponse = await invoke(request(name, data, {}, cancelledRequest.signal));
+      assert.equal(cancelledResponse.status, 499);
+      assert.equal(counters, 0);
+      assert.equal(controls.calls, 0);
+      // A source that refuses to settle cancellation must not hold the overflow response.
+      let cancelled = 0;
+      const req = new Request(`https://owned-preview.invalid/api/${name}`, {
+        method: "POST",
+        headers: { Origin: "https://owned-preview.invalid" },
+        body: new ReadableStream({
+          start(x) {
+            x.enqueue(new Uint8Array(MAX_CONVERSATION_BODY_BYTES + 1));
+          },
+          cancel() {
+            cancelled++;
+            return new Promise(() => {});
+          },
+        }),
+        duplex: "half",
+      });
+      const overflow = await invoke(req);
+      assert.equal(overflow.status, 413);
+      assert.equal(req.body.locked, false);
+      assert.equal(cancelled, 1);
+      assert.equal(counters, 0);
+      for (const abort of [false, true]) {
+        const seen = [];
+        globalThis.fetch = (_, init) =>
+          new Promise((resolve) => {
+            seen.push(init);
+            late.push(resolve);
+          });
+        const c = new AbortController();
+        controllers.push(c);
+        const p = invoke(request(name, data, {}, c.signal));
+        for (let i = 0; i < 100 && !seen.length; i++) await tick();
+        assert.equal(seen.length, 1);
+        if (abort) c.abort();
+        else expire(15000);
+        const r = await p;
+        assert.equal(r.status, abort ? 499 : 503);
+        headers(r);
+        assert.equal(seen[0].signal.aborted, true);
+        assert.equal(controls.calls, 0);
+        late.shift()(Response.json(true));
+        await tick();
+        assert.equal(seen.length, 1);
+        assert.equal(controls.calls, 0);
+      }
+      globalThis.fetch = async () => Response.json(true);
+      const next = await invoke(request(name, data));
+      assert.equal(next.status, 200);
+      await next.text();
+      assert.equal(controls.calls, 1);
+      assert.equal(timers.size, 0);
+    } finally {
+      controllers.forEach((c) => c.abort());
+      late.forEach((resolve) => resolve(Response.json(false)));
+      await Promise.allSettled(operations);
+      globalThis.fetch = original.fetch;
+      globalThis.setTimeout = original.set;
+      globalThis.clearTimeout = original.clear;
+      for (const key of keys) {
+        if (saved[key] === undefined) delete process.env[key];
+        else process.env[key] = saved[key];
+      }
+    }
+  });

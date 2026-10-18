@@ -2,7 +2,8 @@ import { isStrictSameOrigin } from "./speaking-security.ts";
 import { checkLearningGenerationBudget } from "./learning-generation-security.ts";
 
 export const MAX_CONVERSATION_BODY_BYTES = 96 * 1024;
-class BodyLimitError extends Error {}
+import { readPrivateJson, PrivateJsonRequestError } from "./private-json-request.ts";
+import { withSpeechPreflight, SpeechPreflightError } from "./speech-preflight.ts";
 export class ConversationRequestError extends Error {
   readonly status: 400 | 409;
   constructor(message: string, status: 400 | 409 = 400) {
@@ -16,40 +17,14 @@ function errorResponse(error: string, status: number, retryAfter?: number) {
     {
       status,
       headers: {
-        "Cache-Control": "no-store",
+        "Cache-Control": "private, no-store",
+        "CDN-Cache-Control": "no-store",
+        "Vercel-CDN-Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
         ...(retryAfter ? { "Retry-After": String(retryAfter) } : {}),
       },
     },
   );
-}
-async function boundedJson(request: Request) {
-  if (Number(request.headers.get("content-length")) > MAX_CONVERSATION_BODY_BYTES)
-    throw new BodyLimitError();
-  if (!request.body) throw Error("Empty body");
-  const reader = request.body.getReader();
-  const chunks: Uint8Array[] = [];
-  let bytes = 0;
-  try {
-    for (;;) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      bytes += value.byteLength;
-      if (bytes > MAX_CONVERSATION_BODY_BYTES) {
-        await reader.cancel().catch(() => {});
-        throw new BodyLimitError();
-      }
-      chunks.push(value);
-    }
-  } finally {
-    reader.releaseLock();
-  }
-  const body = new Uint8Array(bytes);
-  let offset = 0;
-  for (const chunk of chunks) {
-    body.set(chunk, offset);
-    offset += chunk.length;
-  }
-  return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(body));
 }
 /** Origin and byte bounds precede parsing; malformed requests never spend a model budget. */
 export async function prepareConversationRequest<T>(
@@ -60,21 +35,45 @@ export async function prepareConversationRequest<T>(
     return { response: errorResponse("Open the app to use AI conversation.", 403) };
   let data: T;
   try {
-    data = schema.parse(await boundedJson(request));
+    data = schema.parse(await readPrivateJson(request, MAX_CONVERSATION_BODY_BYTES));
   } catch (cause) {
     return {
       response:
         cause instanceof ConversationRequestError
           ? errorResponse(cause.message, cause.status)
-          : cause instanceof BodyLimitError
+          : cause instanceof PrivateJsonRequestError
             ? errorResponse(
-                "This conversation request is too large. Shorten your message or start a new thread.",
-                413,
+                cause.status === 413
+                  ? "This conversation request is too large. Shorten your message or start a new thread."
+                  : cause.status === 408
+                    ? "The conversation upload took too long. Please try again."
+                    : cause.status === 499
+                      ? "Conversation request cancelled."
+                      : "Check your message and try again.",
+                cause.status,
               )
             : errorResponse("Check your message and try again.", 400),
     };
   }
-  const denied = await checkLearningGenerationBudget(request, "conversation");
+  let denied: Awaited<ReturnType<typeof checkLearningGenerationBudget>>;
+  try {
+    denied = await withSpeechPreflight(request, (signal) =>
+      checkLearningGenerationBudget(request, "conversation", signal),
+    );
+    if (request.signal.aborted)
+      return { response: errorResponse("Conversation request cancelled.", 499) };
+  } catch (error) {
+    const status = error instanceof SpeechPreflightError ? error.status : 503;
+    return {
+      response: errorResponse(
+        status === 499
+          ? "Conversation request cancelled."
+          : "AI conversation is temporarily unavailable. Your messages are kept; try again shortly.",
+        status,
+        status === 503 ? 60 : undefined,
+      ),
+    };
+  }
   if (denied)
     return {
       response: errorResponse(

@@ -170,7 +170,9 @@ function OwnedTeamPage() {
     selected.current === orgId &&
     capture().isCurrent();
   const setBusy = (value: boolean) => {
-    if (currentPage()) {
+    const mountedCleanup =
+      !value && !!userId && selected.current === orgId && capture().isCurrent();
+    if (currentPage() || mountedCleanup) {
       busyRef.current = value;
       setBusyState(value);
     }

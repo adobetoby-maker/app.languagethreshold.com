@@ -365,7 +365,11 @@ test("pending signout suppresses list-to-detail continuation and action writes, 
     await reply(1, memberships());
     await reply(2, detail());
     const props = admin(render()).props;
+    props.setBusy(true);
+    assert.equal(admin(render()).props.busy, true);
     c.signingOut = true;
+    props.setBusy(false);
+    assert.equal(admin(render()).props.busy, false);
     await props.act({ action: "onboarding", orgId: "synthetic-a", step: 1 }, "paused");
     assert.equal(c.requests.length, 3);
     c.signingOut = false;

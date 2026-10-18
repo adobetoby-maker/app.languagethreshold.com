@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "d9c9d62",
+  "application": "b5f9c90",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-b8emr3ykl-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-hqtc988g8-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-auth-transport-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-assessment-auth-errors-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "d9c9d62dd15fd99528684aca3d54697d2f980455",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-auth-transport-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-assessment-auth-errors-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -958,8 +958,8 @@
     "actualTeamWrite": false
   },
   "latestTeamErrorBoundaryInventory": {
-    "sourceCommit": "d9c9d62dd15fd99528684aca3d54697d2f980455",
-    "runtimeApplicationCommit": "d9c9d62dd15fd99528684aca3d54697d2f980455",
+    "sourceCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+    "runtimeApplicationCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
     "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     "typescriptSourceFiles": 621,
     "legacyDirectCalls": 0,
@@ -1042,5 +1042,19 @@
     "nonAuthBusinessTransportUnchanged": true,
     "physicalNetworkCancellationProved": false,
     "aggregateWorkflowDeadline": false
+  },
+  "latestAssessmentAuthBoundaryFollowup": {
+    "application": "b5f9c90",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-auth-errors-preview-2026-10-18.json",
+    "localEvidence": "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "httpEvidence": "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "routeFiles": 4,
+    "actualHandlerGroups": 8,
+    "unexpectedControlledCases": 80,
+    "typedControlledCases": 24,
+    "missingBearerHostedDenials": 8,
+    "originalTenAuthCallersUnchanged": true,
+    "assessmentTypedRpcMessagesStillNeedReview": true
   }
 }

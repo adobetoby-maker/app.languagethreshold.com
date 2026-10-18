@@ -1,0 +1,46 @@
+{
+  "testedAt": "2026-10-18T11:06:27.348Z",
+  "sourceCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+  "runtimeApplicationCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+  "testGroups": 8,
+  "controlledHandlerCases": {
+    "unexpectedErrors": 80,
+    "typedErrors": 24
+  },
+  "checks": {
+    "actualRouteGetAndPostCatches": true,
+    "typedAuthDenialPreserved": true,
+    "typedAssessmentGuidanceAndStatusPreserved": true,
+    "configuration503KeepsRouteSpecificFixedFallback": true,
+    "unknownErrorsCannotForge403WithSessionOrSignInOrAccessWords": true,
+    "rawUnexpectedMessagesSuppressed": true,
+    "privateNoStoreAndNosniff": true,
+    "failedFactoryStartsZeroAuth": true,
+    "noPrivateOrBusinessOperationAfterInjectedFailure": true
+  },
+  "sources": [
+    {
+      "path": "src/routes/api.exams.ts",
+      "sha256": "26f7fa7cdd8d24463d4841080f766ea21183a01eaeb75e2a6065e43146cae502"
+    },
+    {
+      "path": "src/routes/api.exam-plans.ts",
+      "sha256": "6cd6f1f02cf52bf0e186d9bf6ce692dd18033cf99c0893af4d340a59269f30fd"
+    },
+    {
+      "path": "src/routes/api.exam-content.ts",
+      "sha256": "2d4caf1df3f1e69070cd2c42abf8a0a87fd432dabae312316fd6ac20a3917c87"
+    },
+    {
+      "path": "src/routes/api.exam-reviewers.ts",
+      "sha256": "5365e66f41c20fcbf068b7b451e5517ce2b442ffd9d3b49f128ec46a89e2bbbb"
+    }
+  ],
+  "limits": [
+    "Only four assessment API catch boundaries change: untyped errors no longer acquire auth classification from matching text. Known TeamOperationError 403 and AssessmentAccessError handling are preserved; fixed route-specific 503 fallback remains.",
+    "Tests bundle actual production route code/schema/catch/JSON helper with controlled client/auth/private dependencies and actual error classes. They are not allowed workflow, actual SDK, network, expiry, browser, reviewer, consent or business acceptance.",
+    "Ten original auth helper callers still use their previous transport/classification/wait behavior, including cleanup status catch-all 403. Their separate migration remains open. Eleven team factories retain the previously verified adapter.",
+    "AssessmentAccessError still accepts intentional messages/statuses, including server rpc P0001 mapping. This change does not prove every typed error or database diagnostic is safe; RPC error allowlisting and broader diagnostics remain review items.",
+    "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Human/content/reviewer/calibration/pilot/retention/device/session/process-restart gates remain open."
+  ]
+}

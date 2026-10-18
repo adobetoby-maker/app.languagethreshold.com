@@ -4,7 +4,7 @@ import { createHash, randomBytes } from "node:crypto";
 export function teamAdminClient(fetcher?: typeof fetch) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error("Team database is not configured.");
+  if (!url || !key) throw new TeamOperationError("Team database is not configured.", 503);
   return createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
     ...(fetcher ? { global: { fetch: fetcher } } : {}),
@@ -15,9 +15,10 @@ export type TeamDb = ReturnType<typeof teamAdminClient>;
 
 export async function authenticatedUser(request: Request, db: TeamDb): Promise<User> {
   const token = request.headers.get("authorization")?.match(/^Bearer\s+(.+)$/i)?.[1];
-  if (!token) throw new Error("Sign in to continue.");
+  if (!token) throw new TeamOperationError("Sign in to continue.", 403);
   const { data, error } = await db.auth.getUser(token);
-  if (error || !data.user?.email) throw new Error("Your session has expired. Sign in again.");
+  if (error || !data.user?.email)
+    throw new TeamOperationError("Your session has expired. Sign in again.", 403);
   return data.user;
 }
 
@@ -75,6 +76,24 @@ export function json(data: unknown, status = 200) {
       "X-Content-Type-Options": "nosniff",
     },
   });
+}
+
+/** Only intentional fixed learner guidance may cross this scoped error boundary. */
+export class TeamOperationError extends Error {
+  constructor(
+    message: string,
+    readonly status: 400 | 403 | 503 = 400,
+  ) {
+    super(message);
+  }
+}
+/** Used by activity and legacy assessment; unrelated legacy handlers remain separate. */
+export function scopedTeamError(error: unknown) {
+  if (error instanceof TeamOperationError) return json({ error: error.message }, error.status);
+  return json(
+    { error: "We could not confirm this team request. Check your workspace before retrying." },
+    503,
+  );
 }
 
 export function teamError(error: unknown) {

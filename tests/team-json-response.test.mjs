@@ -54,3 +54,25 @@ test("actual team handled errors retain statuses with private headers", () =>
       assert.equal(typeof (await response.json()).error, "string");
     }
   }));
+
+test("scoped team errors expose only typed guidance, never backend text or heuristic statuses", () =>
+  fixture(async ({ TeamOperationError, scopedTeamError }) => {
+    const guidance = scopedTeamError(
+      new TeamOperationError("Assigned learner access required.", 403),
+    );
+    privateHeaders(guidance);
+    assert.equal(guidance.status, 403);
+    assert.deepEqual(await guidance.json(), { error: "Assigned learner access required." });
+    for (const error of [
+      new Error("PRIVATE configured session access required"),
+      { message: "PRIVATE details" },
+      null,
+    ]) {
+      const response = scopedTeamError(error);
+      privateHeaders(response);
+      assert.equal(response.status, 503);
+      assert.deepEqual(await response.json(), {
+        error: "We could not confirm this team request. Check your workspace before retrying.",
+      });
+    }
+  }));

@@ -1,4 +1,4 @@
-/** Invalid input only; no team authentication, activity/test/certificate operation. */
+/** Input and missing-auth denials only; no team write/test/certificate operation. */
 import assert from "node:assert/strict";
 import { writeFileSync } from "node:fs";
 const base = process.env.LT_QA_STAGE_URL;
@@ -11,6 +11,23 @@ const checks = [];
 for (const route of ["team-activity", "team-assessment"]) {
   for (const [name, origin, body, status] of [
     ["missing-origin", undefined, "{}", 403],
+    [
+      "missing-auth",
+      base,
+      JSON.stringify(
+        route === "team-activity"
+          ? {
+              action: "interval",
+              moduleId: "core",
+              activity: "see",
+              startedAt: new Date().toISOString(),
+              activeSeconds: 1,
+              idempotencyKey: "11111111-1111-4111-8111-111111111111",
+            }
+          : { action: "start", orgId: "11111111-1111-4111-8111-111111111111" },
+      ),
+      403,
+    ],
     ["foreign-origin", "https://outside.invalid", "{}", 403],
     ["malformed", base, "{", 400],
     ["invalid-schema", base, JSON.stringify({ invalid: "synthetic-private-entry-detail" }), 400],
@@ -32,7 +49,10 @@ for (const route of ["team-activity", "team-assessment"]) {
     assert.equal(response.status, status, `${route}:${name}`);
     assert.match(response.headers.get("cache-control") ?? "", /private.*no-store/);
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
-    assert.doesNotMatch(await response.text(), /synthetic-private-entry-detail/);
+    const text = await response.text();
+    assert.doesNotMatch(text, /synthetic-private-entry-detail/);
+    if (name === "missing-auth")
+      assert.deepEqual(JSON.parse(text), { error: "Sign in to continue." });
     checks.push({ route, name, status, privateNoStore: true, nosniff: true, noTextEcho: true });
   }
 }
@@ -45,7 +65,7 @@ writeFileSync(
       preview: base,
       checks,
       limits: [
-        "Invalid origin/JSON/schema/size only, without Authorization and before new team input admission. These cannot authorize team writes even on historical routes. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel.",
+        "Invalid origin/JSON/schema/size plus valid-schema missing-auth denials, all without Authorization. These cannot authorize team writes even on historical routes; valid schemas stop at missing-bearer authentication before database operations. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel.",
       ],
     },
     null,

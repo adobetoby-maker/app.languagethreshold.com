@@ -44,7 +44,8 @@ async function fixture(name, run) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `export const c={clients:0,auth:0,queries:0,writes:0,members:0,certificates:0};export const createFileRoute=()=>config=>config;export const getModule=()=>({});export const getCurriculum=()=>({lessons:[]});export const maybeIssueRoofingCertificate=async()=>{c.certificates++;return null;};export const drawRoofingQuestions=()=>[];export const publicRoofingQuestion=()=>({});export const scoreRoofingAnswers=()=>({});export const authenticatedUser=async()=>{c.auth++;return{id:'synthetic-user'};};export const memberRole=async()=>{c.members++;return null;};export const json=(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});export const teamError=()=>json({error:'Synthetic scoped denial'},403);export const teamAdminClient=()=>{c.clients++;return{from(){c.queries++;return{upsert:async()=>{c.writes++;return{error:null};},select(){return this;},eq(){return this;},single:async()=>({data:null,error:null}),then(resolve){return Promise.resolve({data:[],error:null}).then(resolve);}};}};};`,
+              resolveDir: process.cwd(),
+              contents: `export {TeamOperationError,scopedTeamError} from ${JSON.stringify(resolve("src/lib/team-server.ts"))};export const c={clients:0,auth:0,queries:0,writes:0,members:0,certificates:0};export const createFileRoute=()=>config=>config;export const getModule=()=>({});export const getCurriculum=()=>({lessons:[]});export const maybeIssueRoofingCertificate=async()=>{c.certificates++;return null;};export const drawRoofingQuestions=()=>[];export const publicRoofingQuestion=()=>({});export const scoreRoofingAnswers=()=>({});export const authenticatedUser=async()=>{c.auth++;return{id:'synthetic-user'};};export const memberRole=async()=>{c.members++;return null;};export const json=(body,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});export const teamError=()=>json({error:'Synthetic scoped denial'},403);export const teamAdminClient=()=>{c.clients++;if(c.failure)throw Error(c.failure);return{from(){c.queries++;return{upsert:async()=>{c.writes++;return{error:null};},select(){return this;},eq(){return this;},single:async()=>({data:null,error:null}),then(resolve){return Promise.resolve({data:[],error:null}).then(resolve);}};}};};`,
             }));
           },
         },
@@ -179,5 +180,23 @@ for (const name of ["team-activity", "team-assessment"]) {
         members: 0,
         certificates: 0,
       });
+    }));
+}
+
+for (const name of ["team-activity", "team-assessment"]) {
+  test(`${name} suppresses unexpected SDK construction diagnostics in actual handler`, () =>
+    fixture(name, async ({ c, call, req }) => {
+      c.failure = "PRIVATE backend configured session actor details";
+      const response = await call(req());
+      assert.equal(response.status, 503);
+      privacy(response);
+      assert.deepEqual(await response.json(), {
+        error: "We could not confirm this team request. Check your workspace before retrying.",
+      });
+      assert.equal(c.clients, 1);
+      assert.equal(c.auth, 0);
+      assert.equal(c.queries, 0);
+      assert.equal(c.writes, 0);
+      assert.equal(c.certificates, 0);
     }));
 }

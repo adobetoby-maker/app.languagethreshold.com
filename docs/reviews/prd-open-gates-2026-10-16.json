@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "99de5ca",
+  "application": "0ba685d",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-6o0lp6k4e-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-6f71box6a-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-workspace-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-admin-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "99de5ca6959ab77d23d4e017bba22c6b54a77927",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-workspace-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "0ba685dc635c4ef9134a9b662ab6de19fff5372c",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-admin-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -574,5 +574,12 @@
     "evidence": "docs/reviews/qa-team-workspace-preview-2026-10-18.json",
     "actualTeamMutationOrPayment": false,
     "adminWorkspaceDirectRequestsMigrated": false
+  },
+  "latestLocalTeamAdminFollowup": {
+    "application": "0ba685d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-admin-preview-2026-10-18.json",
+    "actualInvitationEmailPaymentOrSeatMutation": false,
+    "actualClipboardOrNativeDownload": false
   }
 }

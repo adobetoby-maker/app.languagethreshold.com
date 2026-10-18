@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "3e88d02",
+  "application": "6499343",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-qg8xz4j5f-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-av40mrn5u-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "3e88d02733b24c7360f8edfd5daaece8024a0db6",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "64993438320839d482cdb8dbe0e65fcd51197657",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -826,5 +826,14 @@
     "unsubscribeChecksBothHttpAcknowledgements": true,
     "actualSubscriptionOrDeliveryVerified": false,
     "atomicTransaction": false
+  },
+  "latestLocalPushClientValidationFollowup": {
+    "application": "6499343",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
+    "strictWriteAcknowledgement": true,
+    "typedSettings": true,
+    "unknownWriteRecovery": false,
+    "actualSubscriptionOrDeliveryVerified": false
   }
 }

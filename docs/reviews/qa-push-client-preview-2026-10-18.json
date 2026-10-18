@@ -1,0 +1,87 @@
+{
+  "testedAt": "2026-10-18T07:16:42.811760+00:00",
+  "applicationCommit": "64993438320839d482cdb8dbe0e65fcd51197657",
+  "preview": "https://language-threshold-av40mrn5u-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-av40mrn5u-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_2EB8qeNvmsCRJAV3cCfxzRr86teN",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-av40mrn5u-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "64993438320839d482cdb8dbe0e65fcd51197657",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
+  "local": {
+    "tests": 1336,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.9,
+    "privateMarkers": 96,
+    "sourceFiles": 1451,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Push client POST succeeds only on a successful HTTP response containing an object with literal ok=true; malformed JSON, missing/false/string acknowledgements, non-OK and network failures produce one fixed unconfirmed-change message without raw payload/cause",
+    "GET settings validate configured/enabled booleans, integer hour 0..23, timezone 1..80 and null or nonempty public key up to 2048 before reaching account component state; transport/parser/invalid settings use fixed unavailable text",
+    "Original SDK actor, no-store/authorization/signal and post-await ownership checks remain; rejected and departed response bodies are disposed with best-effort cancellation",
+    "Three added actual-helper/component groups cover invalid/success write acknowledgements, network/proxy/parser failures, typed/bounded settings, late-owner body disposal and malformed-200 UI/cache/toast prevention. Existing hour-error test now checks fixed text instead of raw synthetic error",
+    "Nine hosted checker groups retain 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent/five push entry denials; no admitted push write"
+  ],
+  "controlledEvidence": [
+    "tests/push-reminder-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "3e88d02",
+    "source": "src/lib/push-api.ts",
+    "case": "Successful HTTP response contains error object without ok=true during explicit enable",
+    "oldBehavior": "Actual component displays Your countdown is active instead of unconfirmed error",
+    "expectedBehavior": "Keep disabled, no enabled cache/toast and fixed unconfirmed message",
+    "currentPass": true,
+    "limit": "Actual prior helper and current component with controlled hooks/auth/browser/fetch. No real subscription/write/permission/delivery."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-push-client-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "This validates response shape, not the identity/causality of a server write, affected-row count, real delivery, exactly-once or rollback. Unknown write outcomes have no durable journal or cross-device ordering.",
+    "Current component displays an unconfirmed error and does not update enabled/cache/toast on bad acknowledgement. It does not yet latch unknown writes or expose read-only reconciliation; a later explicit user action remains possible. No automatic retry was added.",
+    "Credential lookup/transport/parser have existing owner cancellation checks but no new client wait or byte deadline. SDK credential lookup exceptions are outside this response-normalization change; native permission/subscription/unsubscribe behavior remains unchanged.",
+    "Actual component tests use controlled hooks/browser surfaces/auth/fetch; no actual browser layout/accessibility, real subscription/preferences/consent mutation, native permission/service worker/push send or provider/model call occurred. Hosted checks reject input before admitted push work.",
+    "Real SDK expiry/current A/guest/B/restore/native/device/process-restart/offline acceptance, broader helper/endpoint/cache/diagnostics inventory and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push/production promotion/accepted-hostname advance."
+  ]
+}

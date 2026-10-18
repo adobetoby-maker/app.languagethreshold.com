@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v10";
+const CACHE = "lt-v11";
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
@@ -33,9 +33,13 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Pre-built lesson word decks: stale-while-revalidate. Serve the cached deck at once (works
-  // offline), refresh it in the background; with no cache, use the network.
-  if (url.pathname.startsWith("/lesson-decks/") && url.pathname.endsWith(".json")) {
+  // Pre-built lesson word decks and authored lesson content (passages, words, verbs):
+  // stale-while-revalidate. Serve the cached file at once (works offline), refresh it in the
+  // background; with no cache, use the network.
+  if (
+    (url.pathname.startsWith("/lesson-decks/") || url.pathname.startsWith("/lesson-content/")) &&
+    url.pathname.endsWith(".json")
+  ) {
     event.respondWith(
       caches.open(CACHE).then((cache) =>
         cache.match(request).then((cached) => {

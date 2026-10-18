@@ -127,6 +127,12 @@ writeFileSync(
         headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
         dest: "/lesson-decks/$1",
       },
+      // Authored Core 30 lesson content: passages, words and verbs (static JSON, cached offline).
+      {
+        src: "/lesson-content/(.*)",
+        headers: { "cache-control": "public, max-age=3600, stale-while-revalidate=86400" },
+        dest: "/lesson-content/$1",
+      },
       { src: "/qa-status\\.json", dest: "/qa-status.json" },
       { src: "/qa-badge\\.svg", dest: "/qa-badge.svg" },
       { src: "/team-admin-demo\\.html", dest: "/team-admin-demo.html" },

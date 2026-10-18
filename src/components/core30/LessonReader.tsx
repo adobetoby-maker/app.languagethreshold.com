@@ -10,6 +10,8 @@ import { getAvailableModuleLessons } from "@/data/module-starters";
 import type { LessonWord } from "@/data/curriculum";
 import { ROOFING_LESSON_PASSAGES } from "@/data/roofing-lesson-passages";
 import { ROOFING_LESSON_WORDS } from "@/data/roofing-lesson-words";
+import { useLessonContent } from "@/lib/lesson-content";
+import { pickContentPassage } from "@/lib/lesson-content-core";
 import { languageTag } from "@/lib/lesson-words-core";
 import { cn } from "@/lib/utils";
 
@@ -86,6 +88,9 @@ export function LessonReader({
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [waited, setWaited] = useState(false);
 
+  // Authored lesson content (a passage written for this lesson) beats the shared library reading.
+  const authoredContent = useLessonContent(moduleId, language, state.nativeLanguage);
+
   const passageId = resolveLessonPassageId(moduleId, language, readingTemplate, lib.entries);
   const entry = passageId ? (lib.entries.find((e) => e.id === passageId) ?? null) : null;
   // The seeds arrive after first paint; the first non-custom, non-missionary entry means they have.
@@ -113,7 +118,22 @@ export function LessonReader({
       sentences: authored.es.map((target, i) => ({ target, en: authored.en[i] ?? "" })),
     };
   }, [moduleId, language, lessonNumber, words]);
-  const shown = lessonPassage ?? entry;
+  const contentPassage = useMemo(() => {
+    if (lessonPassage || !lessonNumber) return null;
+    const authored = pickContentPassage(authoredContent.content, lessonNumber, state.nativeLanguage);
+    if (!authored) return null;
+    return {
+      id: `lesson-content-${moduleId}-${lessonNumber}`,
+      title: authored.title,
+      sentences: authored.target.map((target, i) => ({ target, en: authored.native[i] ?? "" })),
+    };
+  }, [lessonPassage, lessonNumber, authoredContent.content, state.nativeLanguage, moduleId]);
+  const shown = lessonPassage ?? contentPassage ?? entry;
+  // The translation is in the learner's native language; library readings are always English.
+  const nativeLang = contentPassage ? languageTag(state.nativeLanguage) : "en";
+  // Hold the generic library reading back until we know whether this lesson has its own.
+  const contentPending =
+    !lessonPassage && !contentPassage && authoredContent.status === "loading";
   const sentences = useMemo(() => shown?.sentences ?? [], [shown]);
   // Chinese has no spaces to tap on; the full Reader adds pinyin and word lookup there.
   const tappable = language !== "Chinese";
@@ -121,7 +141,7 @@ export function LessonReader({
   // The full Reader always opens a library passage; a lesson passage has none of its own.
   const fullReaderId = entry?.id ?? null;
 
-  if (!shown && !libraryLoaded && !waited) {
+  if (contentPending || (!shown && !libraryLoaded && !waited)) {
     return (
       <div data-testid="lesson-reader-loading" aria-busy="true" className="space-y-2 py-1">
         <div className="h-5 w-1/2 animate-pulse rounded bg-white/[0.06]" />
@@ -240,7 +260,7 @@ export function LessonReader({
                 )}
               </p>
               {showEnglish && (
-                <p lang="en" className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                <p lang={nativeLang} className="mt-1 text-sm leading-relaxed text-muted-foreground">
                   {s.en}
                 </p>
               )}
@@ -274,7 +294,11 @@ export function LessonReader({
           className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg px-1 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
         >
           <ExternalLink className="h-4 w-4" aria-hidden="true" />
-          {lessonPassage ? "Open the longer roofing reading" : "Open in full Reader"}
+          {lessonPassage
+            ? "Open the longer roofing reading"
+            : contentPassage
+              ? "Open the longer module reading"
+              : "Open in full Reader"}
         </button>
       )}
 

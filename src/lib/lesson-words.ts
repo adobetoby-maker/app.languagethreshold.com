@@ -1,5 +1,6 @@
 // Built by TAC — 2026-10-15
 // Client side of per-lesson word lists. Order: authored words (roofing, Spanish; no network)
+// -> authored lesson content (/lesson-content, words written with the lesson's passage and verbs)
 // -> pre-built static deck (/lesson-decks, one fetch per module+language, cached offline by
 // the service worker) -> localStorage cache -> generated once by the server function and
 // cached. Core30Review reads the localStorage cache only.
@@ -7,6 +8,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { getCurriculum, type LessonWord } from "@/data/curriculum";
 import { generateLessonWords } from "@/fns/lesson-words.functions";
+import { loadedLessonContent, loadLessonContent } from "@/lib/lesson-content";
+import { pickContentWords } from "@/lib/lesson-content-core";
 import {
   deckNativeLanguage,
   lessonDeckPath,
@@ -175,20 +178,37 @@ export function useLessonWords(
       if (cached) show(cached);
       else void generateWords();
     };
-    const deckKnown = decks.has(deckKey(moduleId, language));
-    if (deckKnown) {
-      const hit = pickDeckWords(
-        decks.get(deckKey(moduleId, language)),
-        lessonNumber,
-        nativeLanguage,
-      );
-      if (hit) show(hit);
-      else fromCache();
-    } else {
-      void loadLessonDeck(moduleId, language).then((deck) => {
-        const hit = pickDeckWords(deck, lessonNumber, nativeLanguage);
+    const fromDeck = () => {
+      const deckKnown = decks.has(deckKey(moduleId, language));
+      if (deckKnown) {
+        const hit = pickDeckWords(
+          decks.get(deckKey(moduleId, language)),
+          lessonNumber,
+          nativeLanguage,
+        );
         if (hit) show(hit);
-        else if (live) fromCache();
+        else fromCache();
+      } else {
+        void loadLessonDeck(moduleId, language).then((deck) => {
+          const hit = pickDeckWords(deck, lessonNumber, nativeLanguage);
+          if (hit) show(hit);
+          else if (live) fromCache();
+        });
+      }
+    };
+    // Authored lesson content comes before the saved deck. A module without a content file
+    // costs one cached 404 per session and falls through.
+    const fromContent = (file: Parameters<typeof pickContentWords>[0]) => {
+      const hit = pickContentWords(file, lessonNumber, nativeLanguage);
+      if (hit) show(hit);
+      else fromDeck();
+    };
+    const knownContent = loadedLessonContent(moduleId, language);
+    if (knownContent !== undefined) {
+      fromContent(knownContent);
+    } else {
+      void loadLessonContent(moduleId, language).then((file) => {
+        if (live) fromContent(file);
       });
     }
     return () => {

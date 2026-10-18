@@ -1,0 +1,97 @@
+{
+  "testedAt": "2026-10-18T10:18:17.270755+00:00",
+  "applicationCommit": "a877e9741170c79a784893793b21a93d50296b00",
+  "preview": "https://language-threshold-n33fphgeh-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-n33fphgeh-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_GL7aTcRJJN7KD36cZY8GzPYw2w9Z",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-n33fphgeh-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "a877e9741170c79a784893793b21a93d50296b00",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-workflows-preview-2026-10-18.json",
+  "local": {
+    "tests": 1408,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1512,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Four workflow POST handlers now require exact origin and use shared owned ten-second/64 KiB JSON input preparation/schema parsing before SDK construction/authentication; existing authorization/write/service phases follow only admitted input",
+    "Uniform 64 KiB covers maximal bounded module brief fields with escaped Unicode. Actual route test sends over 26 KiB of escaped maximum-length text and reaches missing-auth 403, without private reads or side effects",
+    "Four added controlled route groups cover missing/foreign origin, malformed/schema, advertised/actual UTF-8 overflow and partial-body deadline/abort; all SDK/auth/private/side-effect counters remain zero and readers unlock despite nonsettling cancellation",
+    "Existing SDK/error/auth workflow tests now use valid route-specific schemas and origin to reach those phases. Schema/syntax invalid cases stop earlier. Updated hosted missing-auth checks use same-origin valid schemas but no bearer",
+    "Fifteen hosted checker groups pass, including twenty new invalid workflow POST denials without Authorization; no allowed business operation was authorized"
+  ],
+  "controlledEvidence": [
+    "tests/team-workflow-errors.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "851b326",
+    "source": "src/routes/api.team.ts",
+    "case": "Missing-origin valid-shaped request before admission",
+    "oldSyntheticSdkConstructions": 1,
+    "expectedSdkConstructions": 0,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual old handler with controlled SDK/auth delegates; no actual private I/O or business operation."
+  },
+  "diagnostics": [
+    "Initial hosted-checker edit pattern did not match its one-line body configuration; corrected before deployment/execution. Initial baseline failed schema 403 versus 400; strengthened per-case zero-SDK assertion makes missing-origin baseline fail one construction versus zero. Full suite rerun after assertion and maximum escaped payload case."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-workflow-input-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Only input phase gains origin/bytes/deadline guards. SDK authentication/authorization, database/Stripe/mail/read/write/certificate waits, side-effect rollback, transactionality and durable unknown outcomes remain separate. A ten-second reader is cooperative, not hard CPU/network/aggregate admission or platform ingress control.",
+    "Current browser same-origin POST should supply Origin; real current browser workflows were not exercised. Missing/foreign Origin now fails before SDK rather than authenticating first. Valid bodies with extreme whitespace/unknown padding beyond 64 KiB now fail 413.",
+    "No actual checkout/quote/seat/subscription, invitation, grant/ledger/module request, mail/certificate/consent/provider/browser operation. Hosted invalid requests omit Authorization; missing-auth checks can never authorize writes, including on historical handlers.",
+    "Static inventory finds zero direct request.json calls only among the eight scoped route files, not appwide parsing/diagnostics/privacy proof. Existing private-URL middleware cache-header limits remain.",
+    "All content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates and earlier catalog grants/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule change."
+  ]
+}

@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "b7c3a24",
+  "application": "a877e97",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-ib12h8hyu-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-n33fphgeh-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-workflows-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-workflow-input-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "b7c3a24159c7830d04b3958541290c56b690cba8",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-workflows-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "a877e9741170c79a784893793b21a93d50296b00",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-workflow-input-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -958,14 +958,14 @@
     "actualTeamWrite": false
   },
   "latestTeamErrorBoundaryInventory": {
-    "sourceCommit": "b7c3a24159c7830d04b3958541290c56b690cba8",
-    "runtimeApplicationCommit": "b7c3a24159c7830d04b3958541290c56b690cba8",
+    "sourceCommit": "a877e9741170c79a784893793b21a93d50296b00",
+    "runtimeApplicationCommit": "a877e9741170c79a784893793b21a93d50296b00",
     "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     "typescriptSourceFiles": 620,
-    "legacyFiles": 0,
     "legacyDirectCalls": 0,
     "scopedDirectCalls": 12,
-    "status": "bounded-direct-call-migration-complete-broader-workflow-and-privacy-gates-open"
+    "directRequestJsonInScopedRouteFiles": 0,
+    "status": "bounded-direct-call-inventory-broader-workflow-privacy-gates-open"
   },
   "latestLocalTeamReadErrorsFollowup": {
     "application": "de17167",
@@ -985,6 +985,15 @@
     "directLegacyCalls": 0,
     "directScopedCalls": 12,
     "compatibilityAliasFixed": true,
+    "actualWorkflowSideEffect": false
+  },
+  "latestLocalTeamWorkflowInputFollowup": {
+    "application": "a877e97",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-workflow-input-preview-2026-10-18.json",
+    "workflowPostRoutes": 4,
+    "inputSeconds": 10,
+    "workflowBytes": 65536,
     "actualWorkflowSideEffect": false
   }
 }

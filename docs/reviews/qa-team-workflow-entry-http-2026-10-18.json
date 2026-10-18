@@ -1,0 +1,170 @@
+{
+  "testedAt": "2026-10-18T10:17:58.845Z",
+  "applicationCommit": "a877e9741170c79a784893793b21a93d50296b00",
+  "preview": "https://language-threshold-n33fphgeh-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "team",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team",
+      "name": "oversized",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-billing",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-billing",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-billing",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-billing",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-billing",
+      "name": "oversized",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "module-request",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "module-request",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "module-request",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "module-request",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "module-request",
+      "name": "oversized",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "platform",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "platform",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "platform",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "platform",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "platform",
+      "name": "oversized",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Twenty invalid origin/schema/JSON/size requests only, without Authorization. These cannot authorize writes even on historical handlers. No accepted company/invitation/billing/payment/module/ledger/grant/certificate/email/provider/consent/browser action. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

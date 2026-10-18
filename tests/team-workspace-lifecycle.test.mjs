@@ -415,3 +415,21 @@ test("same-company refresh preserves the mounted admin panel but freezes generic
     assert.doesNotMatch(text(next), /private company A/);
     assert.match(text(next), /synthetic access denial/);
   }));
+
+test("opening the team page without a company URL enters a fresh owned first-company context", () =>
+  fixture(async ({ c, render, reply }) => {
+    window.location = new URL("https://synthetic.invalid/team");
+    render();
+    await tick();
+    await reply(0, memberships());
+    render();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    assert.equal(c.requests[0].url, "/api/team");
+    assert.equal(c.requests[1].url, "/api/team");
+    await reply(1, memberships());
+    assert.match(c.requests[2].url, /org=synthetic-a/);
+    await reply(2, detail());
+    assert.match(text(render()), /private company A/);
+    assert.equal(admin(render()).props.busy, false);
+  }));

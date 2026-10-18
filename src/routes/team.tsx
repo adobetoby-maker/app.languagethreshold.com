@@ -1191,7 +1191,14 @@ function OwnedAdminWorkspace({
                 isContextCurrent={viewCurrent}
                 assignments={data.assignments}
               />
-              <ReleaseSeat member={member} orgId={orgId} busy={busy} act={adminAct} />
+              <ReleaseSeat
+                member={member}
+                orgId={orgId}
+                busy={busy}
+                act={adminAct}
+                isBusy={isBusy}
+                isContextCurrent={viewCurrent}
+              />
             </article>
           ))}
         </div>
@@ -1942,38 +1949,118 @@ function EmployeeRow({
           isContextCurrent={isContextCurrent}
           initialAssignment={assignment}
         />
-        <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
+        <ReleaseSeat
+          member={member}
+          orgId={orgId}
+          busy={busy}
+          act={act}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
+        />
       </td>
     </tr>
   );
 }
 
-function ReleaseSeat({
-  member,
-  orgId,
-  busy,
-  act,
-}: {
+type ReleaseSeatProps = {
   member: Member;
   orgId: string;
   busy: boolean;
   act: TeamAction;
-}) {
-  return (
-    <button
-      disabled={busy}
-      className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
-      onClick={() => {
-        if (
-          window.confirm(
-            `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
-          )
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
+};
+function ReleaseSeat(props: ReleaseSeatProps) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedReleaseSeat key={JSON.stringify([user.id, props.orgId, props.member])} {...props} />
+  ) : null;
+}
+function OwnedReleaseSeat({
+  member,
+  orgId,
+  busy,
+  act,
+  isBusy,
+  isContextCurrent,
+}: ReleaseSeatProps) {
+  const { user, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-release-seat", orgId, member.id]));
+  const pending = useRef<AbortController | null>(null);
+  const completed = useRef(false);
+  const [working, setWorking] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+  const [error, setError] = useState("");
+  const viewCurrent = () =>
+    !!actor &&
+    capture().isCurrent() &&
+    canUseReader(actor) &&
+    isContextCurrent() &&
+    member.role === "learner" &&
+    member.status === "active";
+  async function releaseSeat() {
+    const lease = capture();
+    if (!lease.isCurrent() || !viewCurrent() || isBusy() || pending.current || completed.current)
+      return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      viewCurrent() &&
+      pending.current === controller &&
+      !controller.signal.aborted;
+    setWorking(true);
+    setError("");
+    try {
+      if (
+        !current() ||
+        !window.confirm(
+          `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
         )
-          void act({ action: "revoke", orgId, memberId: member.id }, "Seat released.");
-      }}
-    >
-      Release seat
-    </button>
+      )
+        return;
+      if (!current() || isBusy()) return;
+      await act(
+        { action: "revoke", orgId, memberId: member.id },
+        "Seat released.",
+        () => {
+          if (current()) {
+            completed.current = true;
+            setConfirmed(true);
+          }
+        },
+        { isCurrent: current, signal: controller.signal },
+      );
+    } catch (cause) {
+      if (current())
+        setError(cause instanceof Error ? cause.message : "Could not confirm seat release.");
+    } finally {
+      if (lease.isCurrent() && pending.current === controller) setWorking(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
+  return (
+    <div>
+      <button
+        disabled={busy || working || confirmed}
+        className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
+        onClick={() => void releaseSeat()}
+      >
+        {confirmed ? "Seat release confirmed" : working ? "Releasing seat…" : "Release seat"}
+      </button>
+      {error && (
+        <p role="alert" className="text-xs text-red-700 dark:text-red-300">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 

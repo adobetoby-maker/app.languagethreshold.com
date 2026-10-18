@@ -13,7 +13,8 @@ import {
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest, ownedTeamRequest } from "@/lib/team-client";
+import { ownedTeamRequest } from "@/lib/team-client";
+import { assessmentCsv } from "@/lib/assessments/export";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
@@ -543,6 +544,12 @@ function OwnedTeamPage() {
             data={data}
             busy={busy}
             setBusy={setBusy}
+            isBusy={() =>
+              busyRef.current ||
+              mutation.current !== null ||
+              !!(readFlight.current && !readFlight.current.signal.aborted)
+            }
+            isContextCurrent={currentPage}
             act={act}
             refresh={() => refresh()}
             setError={setError}
@@ -583,10 +590,18 @@ function memberModules(data: TeamData, userId: string): Assignment[] {
   ];
 }
 
-function AdminWorkspace({
+function AdminWorkspace(props: Parameters<typeof OwnedAdminWorkspace>[0]) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedAdminWorkspace key={JSON.stringify([user.id, props.data.organization.id])} {...props} />
+  ) : null;
+}
+function OwnedAdminWorkspace({
   data,
   busy,
   setBusy,
+  isBusy,
+  isContextCurrent,
   act,
   refresh,
   setError,
@@ -595,11 +610,17 @@ function AdminWorkspace({
   data: TeamData;
   busy: boolean;
   setBusy: (value: boolean) => void;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
   act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
   refresh: () => Promise<void>;
   setError: (value: string) => void;
   setNotice: (value: string) => void;
 }) {
+  const { user, canUseReader } = useAuth();
+  const userId = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-admin", data.organization.id]));
+  const operation = useRef<AbortController | null>(null);
   const orgId = data.organization.id;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -628,47 +649,128 @@ function AdminWorkspace({
   const remaining = Math.max(0, data.entitlement.seat_limit - seatsUsed);
   const canStartPlan = ["pending", "manual", "canceled"].includes(data.entitlement.status);
 
+  const settingsKey = JSON.stringify([
+    moduleId,
+    certificate,
+    delivery,
+    term,
+    initialSeats,
+    addSeats,
+  ]);
+  const live = useRef({ data, settingsKey, inviteLinks });
+  live.current = { data, settingsKey, inviteLinks };
+  const viewCurrent = () =>
+    !!userId &&
+    canUseReader(userId) &&
+    isContextCurrent() &&
+    live.current.data === data &&
+    live.current.settingsKey === settingsKey;
+  function begin() {
+    const lease = capture();
+    if (!userId || !viewCurrent() || !lease.isCurrent() || operation.current || isBusy())
+      return null;
+    const controller = new AbortController();
+    operation.current = controller;
+    setBusy(true);
+    const release = lease.own(() => {
+      controller.abort();
+      if (operation.current === controller) {
+        operation.current = null;
+        setBusy(false);
+      }
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      viewCurrent() &&
+      operation.current === controller &&
+      !controller.signal.aborted;
+    return {
+      current,
+      owner: { userId, isCurrent: current, signal: controller.signal },
+      finish() {
+        if (operation.current === controller) {
+          operation.current = null;
+          setBusy(false);
+        }
+        release();
+        controller.abort();
+      },
+    };
+  }
   async function copyText(value: string, success: string) {
+    if (live.current.inviteLinks !== inviteLinks) return;
+    const flight = begin();
+    if (!flight) return;
     try {
+      if (!flight.current()) return;
       await navigator.clipboard.writeText(value);
-      setNotice(success);
+      if (flight.current()) setNotice(success);
     } catch {
-      setError("Copy was blocked by your browser. Select the text and copy it manually.");
+      if (flight.current())
+        setError("Copy was blocked by your browser. Select the text and copy it manually.");
+    } finally {
+      flight.finish();
     }
   }
-
+  function downloadRows(rows: unknown[][], filename: string) {
+    const lease = capture();
+    if (
+      !viewCurrent() ||
+      !lease.isCurrent() ||
+      operation.current ||
+      isBusy() ||
+      live.current.inviteLinks !== inviteLinks
+    )
+      return;
+    const url = URL.createObjectURL(
+      new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" }),
+    );
+    let timer: ReturnType<typeof setTimeout> | undefined,
+      cleaned = false;
+    let release = () => {};
+    const cleanup = () => {
+      if (cleaned) return;
+      cleaned = true;
+      if (timer !== undefined) clearTimeout(timer);
+      URL.revokeObjectURL(url);
+      release();
+    };
+    release = lease.own(cleanup);
+    try {
+      if (!lease.isCurrent() || !viewCurrent()) return;
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.click();
+      timer = setTimeout(cleanup, 1000);
+    } catch {
+      cleanup();
+      if (lease.isCurrent() && viewCurrent())
+        setError("The download could not start. Retry from the current workspace.");
+    } finally {
+      if (timer === undefined) cleanup();
+    }
+  }
   function downloadInviteLinks() {
-    const rows = [
-      ["Name", "Email", "Invitation link"],
-      ...inviteLinks.map((link) => [link.name, link.email, link.url]),
-    ];
-    const csvText = rows
-      .map((row) =>
-        row
-          .map((value) => {
-            const safe = /^[=+@-]/.test(value) ? `'${value}` : value;
-            return `"${safe.replaceAll('"', '""')}"`;
-          })
-          .join(","),
-      )
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([csvText], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "team-invitation-links.csv";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadRows(
+      [
+        ["Name", "Email", "Invitation link"],
+        ...inviteLinks.map((link) => [link.name, link.email, link.url]),
+      ],
+      "team-invitation-links.csv",
+    );
   }
 
   function adminSummary() {
     const modules = [
       ...new Set(data.assignments.map((a) => getModule(a.module_id)?.name ?? a.module_id)),
     ];
-    return `${data.organization.name} · Language Threshold team setup\nLearner seats: ${data.entitlement.seat_limit}\nActive learners: ${activeLearners.length}\nPending invitations: ${pending.length}\nAssigned modules: ${modules.join(", ") || "None yet"}\nDashboard and walkthrough: ${window.location.origin}/team\nRoofing certificates require 30 lessons and at least 80% on the reviewed final test.`;
+    return `${data.organization.name} · Language Threshold team setup\nLearner seats: ${data.entitlement.seat_limit}\nActive learners: ${activeLearners.length}\nPending invitations: ${pending.length}\nAssigned modules: ${modules.join(", ") || "None yet"}\nDashboard and walkthrough: ${window.location.origin}/team\nRoofing certificates require 30 lessons and at least 80% on the legacy completion test. This is not a calibrated proficiency assessment.`;
   }
 
   async function importRoster(file: File) {
-    setBusy(true);
+    const flight = begin();
+    if (!flight) return;
     setError("");
     setNotice("");
     let reserved = 0;
@@ -676,11 +778,13 @@ function AdminWorkspace({
     const failures: string[] = [];
     try {
       if (file.size > 65536) throw new Error("Use a CSV smaller than 64 KB.");
-      const lines = (await file.text())
+      const raw = await file.text();
+      if (!flight.current()) return;
+      const rows = raw
         .replace(/^\uFEFF/, "")
         .split(/\r?\n/)
-        .filter(Boolean);
-      const rows = lines.map(parseCsvLine);
+        .filter(Boolean)
+        .map(parseCsvLine);
       if (rows[0]?.[0]?.toLowerCase() === "name") rows.shift();
       if (!rows.length) throw new Error("The CSV has no employees.");
       if (rows.length > remaining)
@@ -694,12 +798,13 @@ function AdminWorkspace({
         seen.add(normalized);
       }
       for (const [name, email] of rows) {
+        if (!flight.current()) return;
         try {
-          const result = await teamRequest<{
+          const result = await ownedTeamRequest<{
             invitationId: string;
             inviteUrl: string | null;
             warning?: string;
-          }>("/api/team", {
+          }>(flight.owner, "/api/team", {
             action: "invite",
             orgId,
             name,
@@ -709,39 +814,50 @@ function AdminWorkspace({
             requireCertificate: certificate && moduleId === "roofing",
             delivery,
           });
+          if (!flight.current()) return;
           reserved++;
-          if (result.inviteUrl)
+          if (result.inviteUrl) {
             createdLinks.push({ id: result.invitationId, name, email, url: result.inviteUrl });
-          if (result.warning) failures.push(`${email}: invitation reserved; ${result.warning}`);
+            setInviteLinks((previous) => [
+              ...new Map([...previous, ...createdLinks].map((link) => [link.id, link])).values(),
+            ]);
+          }
+          if (result.warning) failures.push(`${email}: invitation confirmed; ${result.warning}`);
         } catch (cause) {
-          failures.push(`${email}: ${cause instanceof Error ? cause.message : "failed"}`);
+          if (!flight.current()) return;
+          failures.push(
+            `${email}: ${cause instanceof Error ? cause.message : "could not confirm"}. Import paused; refresh existing invitations before retrying because this request may have succeeded.`,
+          );
+          break;
         }
       }
-      setInviteLinks(createdLinks);
+      if (!flight.current()) return;
       setNotice(
-        `${reserved} of ${rows.length} invitations reserved.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
+        `${reserved} of ${rows.length} invitations confirmed in this import.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
       );
       if (failures.length) setError(failures.join(" "));
       await refresh();
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not read CSV.");
+      if (flight.current())
+        setError(cause instanceof Error ? cause.message : "Could not read CSV.");
     } finally {
-      setBusy(false);
+      flight.finish();
     }
   }
-
   async function billing(action: string, extra: Record<string, unknown> = {}) {
-    setBusy(true);
+    const flight = begin();
+    if (!flight) return;
     setError("");
     setNotice("");
     try {
-      const result = await teamRequest<{
+      const result = await ownedTeamRequest<{
         url?: string;
         estimateCents?: number;
         newSeatLimit?: number;
         note?: string;
         message?: string;
-      }>("/api/team-billing", { action, orgId, ...extra });
+      }>(flight.owner, "/api/team-billing", { ...extra, action, orgId });
+      if (!flight.current()) return;
       if (result.url) {
         window.location.href = result.url;
         return;
@@ -756,9 +872,10 @@ function AdminWorkspace({
         await refresh();
       }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Billing request failed.");
+      if (flight.current())
+        setError(cause instanceof Error ? cause.message : "Billing request failed.");
     } finally {
-      setBusy(false);
+      flight.finish();
     }
   }
 
@@ -830,15 +947,7 @@ function AdminWorkspace({
         ]);
       }
     }
-    const text = rows
-      .map((row) => row.map((value) => `"${value.replaceAll('"', '""')}"`).join(","))
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "team-progress.csv";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadRows(rows, "team-progress.csv");
   };
 
   return (
@@ -1307,8 +1416,9 @@ function AdminWorkspace({
                     onChange={(e) => setCertificate(e.target.checked)}
                   />
                   <span>
-                    Require the 80% Roofing final test for a completion certificate
-                    {moduleId !== "roofing" && " (reviewed test not available for this module)"}
+                    Require the legacy Roofing completion test (80%) for a completion certificate
+                    {moduleId !== "roofing" &&
+                      " (legacy completion test is only available for Roofing)"}
                   </span>
                 </label>
               </>

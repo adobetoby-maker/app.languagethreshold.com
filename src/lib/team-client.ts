@@ -9,7 +9,7 @@ function requireCurrent(owner?: TeamRequestOwner) {
   if (owner && (!owner.userId || owner.signal.aborted || !owner.isCurrent()))
     throw new DOMException("Team request cancelled.", "AbortError");
 }
-/** Existing workspace callers are migrated separately; this entry retains their contract. */
+/** Compatibility entry for separately audited callers; private flows should use ownedTeamRequest. */
 export function teamRequest<T>(path: string, body?: unknown): Promise<T> {
   return request<T>(path, body);
 }

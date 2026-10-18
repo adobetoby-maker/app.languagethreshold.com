@@ -1,5 +1,7 @@
 # Module upgrade backlog
 
+October 18 acceptance: `4d43206` fixes ordinary persistence overwriting rejected profile envelopes (1,726 tests); normal populated vocabulary/note recovery, A→guest→B→A isolation and fresh-origin vocabulary cloud restore now pass. `77ce283` fixes the mobile leaderboard overlap found in responsive acceptance. Phone lesson/navigation passed; physical Safari/audio and full curriculum/human release gates remain open. See reviews/qa-profile-preservation-browser-mobile-2026-10-18.json. Earlier unproved statements below are historical.
+
 October 18 recovery follow-up: runtime `c6304fb` now supports explicit owned main-profile recovery for personal notes, vocabulary, max-only practice totals and bare module archives. Current records and known resets win; originals remain; unlabeled vocabulary needs a language choice; existing normal profile cloud sync is disclosed. 22 focused groups/1,714 full tests pass. Populated hosted UI, cloud reconciliation, current account-switch/device acceptance and all content/release gates remain open. See `qa-profile-recovery-local-2026-10-18.json` and the learner acceptance index.
 
 Cloud-merge follow-up `086bde0`: custom-text and letter totals now follow the same max-only reconciliation as other practice counters, preserving recovered/offline progress when a stale remote profile returns. Actual baseline regression and three new groups pass; 1,717 total tests. Normal hosted cloud reconciliation remains unproved.

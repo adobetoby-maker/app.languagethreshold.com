@@ -433,3 +433,59 @@ test("opening the team page without a company URL enters a fresh owned first-com
     assert.match(text(render()), /private company A/);
     assert.equal(admin(render()).props.busy, false);
   }));
+test("row intent cancellation reaches credential lookup and active parent transport without late callback or refresh", () =>
+  fixture(async (f) => {
+    const { c, render, reply } = f;
+    let tree = await load(f);
+    let after = 0;
+    let current = true;
+    let controller = new AbortController();
+    c.credentials = [];
+    let done = admin(tree).props.act(
+      {
+        action: "assign",
+        orgId: "synthetic-a",
+        memberId: "synthetic-member",
+        moduleId: "roofing",
+        requireCertificate: false,
+        dueAt: null,
+      },
+      "row saved",
+      () => after++,
+      { isCurrent: () => current, signal: controller.signal },
+    );
+    current = false;
+    controller.abort();
+    c.credentials[0]({ data: { session: { user: { id: "a" }, access_token: "synthetic-token" } } });
+    await done;
+    assert.equal(c.requests.length, 2);
+    assert.equal(after, 0);
+    assert.equal(admin(render()).props.busy, false);
+    c.credentials = null;
+    current = true;
+    controller = new AbortController();
+    done = admin(render()).props.act(
+      {
+        action: "assign",
+        orgId: "synthetic-a",
+        memberId: "synthetic-member",
+        moduleId: "roofing",
+        requireCertificate: false,
+        dueAt: null,
+      },
+      "departed row saved",
+      () => after++,
+      { isCurrent: () => current, signal: controller.signal },
+    );
+    await tick();
+    assert.equal(c.requests.length, 3);
+    current = false;
+    controller.abort();
+    assert.equal(c.requests[2].init.signal.aborted, true);
+    await reply(2, {});
+    await done;
+    assert.equal(after, 0);
+    assert.equal(c.requests.length, 3);
+    assert.doesNotMatch(text(render()), /departed row saved/);
+    assert.equal(admin(render()).props.busy, false);
+  }));

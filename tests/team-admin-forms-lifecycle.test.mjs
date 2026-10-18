@@ -38,7 +38,7 @@ async function fixture(run) {
     const component = source.slice(start, end);
     await build({
       stdin: {
-        contents: `import {useState,useRef} from 'react';import {useAuth} from '@/state/auth-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {assessmentCsv} from '@/lib/assessments/export';import {c} from 'fixture';const TEAM_MIN_SEATS=5;const MODULES=[{id:'roofing',name:'Synthetic Roofing'}],teamPeriodCents=()=>100;const card='',input='',button='',secondary='',money=String;const Icon=()=>null,BookOpen=Icon,CheckCircle2=Icon,CreditCard=Icon,FileDown=Icon,Mail=Icon,Plus=Icon,RefreshCw=Icon,Users=Icon,EmployeeRow=Icon,AssignModule=Icon,ReleaseSeat=Icon,TeamExamsPanel=Icon,Suspense=Icon;const minutes=n=>String(n/60),getModule=id=>({name:id}),memberModules=(data,id)=>data.assignments.filter(a=>a.user_id===id),describeCore30=()=>({mastered:0,total:30,statusLabel:'synthetic'}),core30Total=()=>30;${source.slice(source.indexOf("function parseCsvLine("), source.indexOf("function TeamPage("))}${component}export const Route={component:()=> <AdminWorkspace data={c.report} busy={c.busy} isBusy={()=>c.busy||c.parentRead} isContextCurrent={()=>c.parentCurrent!==false} setBusy={value=>{c.busy=value;c.busyWrites.push(value)}} setError={value=>c.errors.push(value)} setNotice={value=>c.notices.push(value)} act={async(body,message,after)=>{if(c.busy)return;c.busy=true;await new Promise(resolve=>c.actions.push({body,message,finish:result=>{after?.(result);c.busy=false;resolve()},fail:()=>{c.busy=false;resolve()}}))}} refresh={async()=>{c.refreshes++;if(c.refreshWait)await new Promise(r=>c.refreshWait.push(r))}}/>};export {c};`,
+        contents: `import {useState,useRef} from 'react';import {useAuth} from '@/state/auth-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {assessmentCsv} from '@/lib/assessments/export';import {c} from 'fixture';const TEAM_MIN_SEATS=5;const MODULES=[{id:'roofing',name:'Synthetic Roofing'}],teamPeriodCents=()=>100;const card='',input='',button='',secondary='',money=String;const Icon=()=>null,BookOpen=Icon,CheckCircle2=Icon,CreditCard=Icon,FileDown=Icon,Mail=Icon,Plus=Icon,RefreshCw=Icon,Users=Icon,EmployeeRow=Icon,AssignModule=Icon,ReleaseSeat=Icon,TeamExamsPanel=Icon,Suspense=Icon;const minutes=n=>String(n/60),getModule=id=>({name:id}),memberModules=(data,id)=>data.assignments.filter(a=>a.user_id===id),describeCore30=()=>({mastered:0,total:30,statusLabel:'synthetic'}),core30Total=()=>30;${source.slice(source.indexOf("function parseCsvLine("), source.indexOf("function TeamPage("))}${component}export const Route={component:()=> <AdminWorkspace data={c.report} busy={c.busy} isBusy={()=>c.busy||c.parentRead} isContextCurrent={()=>c.parentCurrent!==false} setBusy={value=>{c.busy=value;c.busyWrites.push(value)}} setError={value=>c.errors.push(value)} setNotice={value=>c.notices.push(value)} act={async(body,message,after,intent)=>{if(c.busy)return;c.busy=true;await new Promise(resolve=>c.actions.push({body,message,intent,finish:result=>{after?.(result);c.busy=false;resolve()},fail:()=>{c.busy=false;resolve()}}))}} refresh={async()=>{c.refreshes++;if(c.refreshWait)await new Promise(r=>c.refreshWait.push(r))}}/>};export {c};`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },
@@ -465,4 +465,27 @@ test("walkthrough finish waits for persisted setup and cannot close through fail
     f.c.actions[2].finish({});
     await tick();
     assert.doesNotMatch(text(f.render()), /Admin setup · step/);
+  }));
+
+test("nested row action passes its original cancellation intent through the actual admin guard", () =>
+  fixture(async (f) => {
+    const props = nodes(f.render()).find((n) => n.props?.member && n.props?.assignments).props;
+    let current = true,
+      after = 0;
+    const controller = new AbortController();
+    const intent = { isCurrent: () => current, signal: controller.signal };
+    const done = props.act(
+      { action: "assign", orgId: "synthetic-org", memberId: "synthetic-member" },
+      "synthetic row",
+      () => after++,
+      intent,
+    );
+    assert.equal(f.c.actions[0].intent, intent);
+    current = false;
+    controller.abort();
+    f.c.actions[0].finish({});
+    await done;
+    assert.equal(after, 0);
+    await props.act({}, "aborted", () => after++, intent);
+    assert.equal(f.c.actions.length, 1);
   }));

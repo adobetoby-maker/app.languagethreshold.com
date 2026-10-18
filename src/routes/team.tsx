@@ -102,6 +102,14 @@ type TeamData = {
   core30?: Record<string, Core30Log>;
   core30Tracks?: Record<string, Core30TrackDisplay[]>;
 };
+type TeamActionIntent = { isCurrent: () => boolean; signal: AbortSignal };
+type TeamAction = <T>(
+  body: unknown,
+  message: string,
+  after?: (result: T) => void,
+  intent?: TeamActionIntent,
+) => Promise<void>;
+
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
 type InviteLink = { id: string; name: string; email: string; url: string };
 
@@ -348,11 +356,17 @@ function OwnedTeamPage() {
     };
   }, [userId, orgId, authLoading, canUseReader, capture, refresh]);
 
-  async function act<T>(body: unknown, message: string, after?: (result: T) => void) {
+  async function act<T>(
+    body: unknown,
+    message: string,
+    after?: (result: T) => void,
+    intent?: TeamActionIntent,
+  ) {
     const lease = capture();
     if (
       !userId ||
       !currentPage() ||
+      (intent && (!intent.isCurrent() || intent.signal.aborted)) ||
       mutation.current ||
       busyRef.current ||
       (readFlight.current && !readFlight.current.signal.aborted) ||
@@ -361,6 +375,8 @@ function OwnedTeamPage() {
       return;
     if (body && typeof body === "object" && "orgId" in body && body.orgId !== orgId) return;
     const controller = new AbortController();
+    const abortIntent = () => controller.abort();
+    intent?.signal.addEventListener("abort", abortIntent, { once: true });
     mutation.current = controller;
     busyRef.current = true;
     const release = lease.own(() => {
@@ -371,6 +387,7 @@ function OwnedTeamPage() {
       lease.isCurrent() &&
       canUseReader(userId) &&
       selected.current === orgId &&
+      (!intent || (intent.isCurrent() && !intent.signal.aborted)) &&
       mutation.current === controller &&
       !controller.signal.aborted;
     readFlight.current?.abort();
@@ -395,6 +412,7 @@ function OwnedTeamPage() {
         setBusyState(false);
       }
       if (mutation.current === controller) mutation.current = null;
+      intent?.signal.removeEventListener("abort", abortIntent);
       release();
       controller.abort();
     }
@@ -612,7 +630,7 @@ function OwnedAdminWorkspace({
   setBusy: (value: boolean) => void;
   isBusy: () => boolean;
   isContextCurrent: () => boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  act: TeamAction;
   refresh: () => Promise<void>;
   setError: (value: string) => void;
   setNotice: (value: string) => void;
@@ -688,12 +706,28 @@ function OwnedAdminWorkspace({
       ...(url ? [{ id, name: displayName, email: address, url }] : []),
     ]);
   }
-  function adminAct<T>(body: unknown, message: string, after?: (result: T) => void) {
+  function adminAct<T>(
+    body: unknown,
+    message: string,
+    after?: (result: T) => void,
+    intent?: TeamActionIntent,
+  ) {
     const lease = capture();
-    if (!lease.isCurrent() || !viewCurrent() || isBusy()) return Promise.resolve();
-    return act<T>(body, message, (result) => {
-      if (lease.isCurrent() && viewCurrent()) after?.(result);
-    });
+    if (
+      !lease.isCurrent() ||
+      !viewCurrent() ||
+      isBusy() ||
+      (intent && (!intent.isCurrent() || intent.signal.aborted))
+    )
+      return Promise.resolve();
+    return act<T>(
+      body,
+      message,
+      (result) => {
+        if (lease.isCurrent() && viewCurrent() && (!intent || intent.isCurrent())) after?.(result);
+      },
+      intent,
+    );
   }
   const tourRevision = useRef(0);
   const renderedTourRevision = tourRevision.current;
@@ -1139,6 +1173,8 @@ function OwnedAdminWorkspace({
                   data={data}
                   busy={busy}
                   act={adminAct}
+                  isBusy={isBusy}
+                  isContextCurrent={viewCurrent}
                   orgId={orgId}
                   asCard
                 />
@@ -1151,6 +1187,8 @@ function OwnedAdminWorkspace({
                 orgId={orgId}
                 busy={busy}
                 act={adminAct}
+                isBusy={isBusy}
+                isContextCurrent={viewCurrent}
                 assignments={data.assignments}
               />
               <ReleaseSeat member={member} orgId={orgId} busy={busy} act={adminAct} />
@@ -1195,6 +1233,8 @@ function OwnedAdminWorkspace({
                       data={data}
                       busy={busy}
                       act={adminAct}
+                      isBusy={isBusy}
+                      isContextCurrent={viewCurrent}
                       orgId={orgId}
                     />
                   ))
@@ -1210,6 +1250,8 @@ function OwnedAdminWorkspace({
                         orgId={orgId}
                         busy={busy}
                         act={adminAct}
+                        isBusy={isBusy}
+                        isContextCurrent={viewCurrent}
                         assignments={data.assignments}
                       />
                     </td>
@@ -1754,13 +1796,17 @@ function EmployeeRow({
   act,
   orgId,
   asCard = false,
+  isBusy,
+  isContextCurrent,
 }: {
   member: Member;
   assignment: Assignment;
   data: TeamData;
   asCard?: boolean;
   busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  act: TeamAction;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
   orgId: string;
 }) {
   const seconds7 = data.activity7
@@ -1840,6 +1886,8 @@ function EmployeeRow({
           busy={busy}
           act={act}
           assignments={data.assignments}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
           initialAssignment={assignment}
         />
       </div>
@@ -1890,6 +1938,8 @@ function EmployeeRow({
           busy={busy}
           act={act}
           assignments={data.assignments}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
           initialAssignment={assignment}
         />
         <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
@@ -1907,7 +1957,7 @@ function ReleaseSeat({
   member: Member;
   orgId: string;
   busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  act: TeamAction;
 }) {
   return (
     <button
@@ -1927,21 +1977,45 @@ function ReleaseSeat({
   );
 }
 
-function AssignModule({
+type AssignmentEditorProps = {
+  member: Member;
+  assignments: Assignment[];
+  initialAssignment?: Assignment;
+  orgId: string;
+  busy: boolean;
+  act: TeamAction;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
+};
+function AssignModule(props: AssignmentEditorProps) {
+  const { user } = useAuth();
+  const context = JSON.stringify([
+    user?.id ?? null,
+    props.orgId,
+    props.member,
+    props.initialAssignment ?? null,
+    props.assignments.filter((a) => a.user_id === props.member.user_id),
+  ]);
+  return user ? <OwnedAssignModule key={context} {...props} /> : null;
+}
+function OwnedAssignModule({
   member,
   orgId,
   busy,
   act,
   assignments,
   initialAssignment,
-}: {
-  member: Member;
-  assignments: Assignment[];
-  initialAssignment?: Assignment;
-  orgId: string;
-  busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
-}) {
+  isBusy,
+  isContextCurrent,
+}: AssignmentEditorProps) {
+  const { user, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-assignment", orgId, member.id]));
+  const revision = useRef(0);
+  const renderedRevision = revision.current;
+  const pending = useRef<AbortController | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
   const editableAssignment =
     initialAssignment && getModule(initialAssignment.module_id) ? initialAssignment : undefined;
   const [open, setOpen] = useState(false);
@@ -1949,22 +2023,109 @@ function AssignModule({
   const [requireCertificate, setRequireCertificate] = useState(
     editableAssignment?.require_certificate ?? false,
   );
-  const selectedAssignment = assignments.find(
-    (assignment) => assignment.user_id === member.user_id && assignment.module_id === moduleId,
-  );
+  const current = () =>
+    !!actor &&
+    capture().isCurrent() &&
+    canUseReader(actor) &&
+    isContextCurrent() &&
+    member.role === "learner" &&
+    member.status === "active" &&
+    renderedRevision === revision.current;
+  const editable = () => current() && !isBusy() && !pending.current;
+  function change(write: () => void) {
+    if (!editable()) return;
+    revision.current += 1;
+    setError("");
+    write();
+  }
+  function selectModule(next: string) {
+    if (!getModule(next)) return;
+    change(() => {
+      setModuleId(next);
+      const existing = assignments.find(
+        (a) => a.user_id === member.user_id && a.module_id === next,
+      );
+      setRequireCertificate(next === "roofing" && (existing?.require_certificate ?? false));
+    });
+  }
+  function start() {
+    change(() => {
+      const selected =
+        editableAssignment ??
+        assignments.find((a) => a.user_id === member.user_id && a.module_id === "roofing");
+      setModuleId(selected?.module_id ?? "roofing");
+      setRequireCertificate(
+        selected?.module_id === "roofing" && (selected?.require_certificate ?? false),
+      );
+      setOpen(true);
+    });
+  }
+  async function save() {
+    if (!editable() || !open || !getModule(moduleId)) return;
+    const selected = assignments.find(
+      (a) => a.user_id === member.user_id && a.module_id === moduleId,
+    );
+    const due = selected?.due_at ? new Date(selected.due_at) : null;
+    if (due && !Number.isFinite(due.getTime())) {
+      setError("This assignment has an invalid due date. Refresh the workspace before saving.");
+      return;
+    }
+    const lease = capture();
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const owns = () =>
+      lease.isCurrent() &&
+      current() &&
+      pending.current === controller &&
+      !controller.signal.aborted;
+    let acknowledged = false;
+    setSaving(true);
+    try {
+      await act(
+        {
+          action: "assign",
+          orgId,
+          memberId: member.id,
+          moduleId,
+          requireCertificate: moduleId === "roofing" && requireCertificate,
+          dueAt: due?.toISOString() ?? null,
+        },
+        "Assignment saved.",
+        () => {
+          if (owns()) {
+            acknowledged = true;
+            setOpen(false);
+          }
+        },
+        { isCurrent: owns, signal: controller.signal },
+      );
+    } finally {
+      if (lease.isCurrent() && pending.current === controller) {
+        if (acknowledged) revision.current += 1;
+        setSaving(false);
+      }
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
   return open ? (
     <div className="flex min-w-48 flex-col gap-2">
+      {error && (
+        <p role="alert" className="text-xs text-red-700 dark:text-red-300">
+          {error}
+        </p>
+      )}
       <select
         aria-label={`Module for ${member.display_name}`}
         className={input}
         value={moduleId}
-        onChange={(e) => {
-          setModuleId(e.target.value);
-          const existing = assignments.find(
-            (a) => a.user_id === member.user_id && a.module_id === e.target.value,
-          );
-          setRequireCertificate(existing?.require_certificate ?? false);
-        }}
+        disabled={busy || saving}
+        onChange={(e) => selectModule(e.target.value)}
       >
         {MODULES.map((m) => (
           <option key={m.id} value={m.id}>
@@ -1975,55 +2136,39 @@ function AssignModule({
       <label className="text-xs">
         <input
           type="checkbox"
-          disabled={moduleId !== "roofing"}
+          disabled={busy || saving || moduleId !== "roofing"}
           checked={requireCertificate}
-          onChange={(e) => setRequireCertificate(e.target.checked)}
+          onChange={(e) => {
+            if (moduleId === "roofing") change(() => setRequireCertificate(e.target.checked));
+          }}
         />{" "}
-        Require certificate
+        Require legacy Roofing completion certificate
       </label>
-      <button
-        disabled={busy}
-        className={button}
-        onClick={() =>
-          void act(
-            {
-              action: "assign",
-              orgId,
-              memberId: member.id,
-              moduleId,
-              requireCertificate,
-              dueAt: selectedAssignment?.due_at
-                ? new Date(selectedAssignment.due_at).toISOString()
-                : null,
-            },
-            "Assignment saved.",
-            () => setOpen(false),
-          )
-        }
-      >
-        {assignments.some((a) => a.user_id === member.user_id && a.module_id === moduleId)
+      <button disabled={busy || saving} className={button} onClick={() => void save()}>
+        {selectedModuleExists(assignments, member.user_id, moduleId)
           ? "Save assignment"
           : "Assign module"}
       </button>
-      <button disabled={busy} className={secondary} onClick={() => setOpen(false)}>
+      <button
+        disabled={busy || saving}
+        className={secondary}
+        onClick={() => change(() => setOpen(false))}
+      >
         Cancel
       </button>
     </div>
   ) : (
     <button
+      disabled={busy || saving}
       className="text-xs text-gold-ink dark:text-gold underline"
-      onClick={() => {
-        const selected =
-          editableAssignment ??
-          assignments.find((a) => a.user_id === member.user_id && a.module_id === "roofing");
-        setModuleId(selected?.module_id ?? "roofing");
-        setRequireCertificate(selected?.require_certificate ?? false);
-        setOpen(true);
-      }}
+      onClick={start}
     >
       {editableAssignment ? "Edit assignment" : "Assign module"}
     </button>
   );
+}
+function selectedModuleExists(assignments: Assignment[], userId: string, moduleId: string) {
+  return assignments.some((a) => a.user_id === userId && a.module_id === moduleId);
 }
 
 function LearnerWorkspace({ data }: { data: TeamData }) {

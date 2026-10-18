@@ -1,7 +1,7 @@
 {
-  "auditedAt": "2026-10-18T11:58:52.016Z",
-  "sourceCommit": "e76c4ac35b37056ba3946c478b9a25cc8a0b5b3d",
-  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "auditedAt": "2026-10-18T12:20:06.345Z",
+  "sourceCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+  "runtimeApplicationCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
   "scan": {
     "files": 64,
     "directRpc": 11,
@@ -9,7 +9,7 @@
     "dynamicAssessmentErrors": 3,
     "consoleSites": 9,
     "directBrowserStorageSites": 0,
-    "conditionalMessageAssignments": 3
+    "conditionalMessageAssignments": 0
   },
   "dynamicAssessmentErrors": [
     {
@@ -83,35 +83,35 @@
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 157,
+      "line": 163,
       "receiver": "db",
       "name": "\"team_usage_summary\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 162,
+      "line": 168,
       "receiver": "db",
       "name": "\"team_usage_summary\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 322,
+      "line": 335,
       "receiver": "db",
       "name": "\"team_create_organization\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 332,
+      "line": 345,
       "receiver": "db",
       "name": "\"team_accept_invitation\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 356,
+      "line": 369,
       "receiver": "db",
       "name": "\"team_reserve_invitation\""
     }
@@ -172,29 +172,7 @@
       "method": "log"
     }
   ],
-  "messageAssignments": [
-    {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 384,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-    },
-    {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 439,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-    },
-    {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 521,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-    }
-  ],
+  "messageAssignments": [],
   "inventory": [
     {
       "path": "scripts/cleanup-assessment-speech.mjs",
@@ -2022,7 +2000,7 @@
           "kind": "typedAssessmentError",
           "line": 716,
           "literal": true,
-          "expression": "\"Adjust supporting work from the primary plan’s support controls.\"",
+          "expression": "\"Adjust supporting work from the primary plan\u2019s support controls.\"",
           "status": "400"
         },
         {
@@ -2050,55 +2028,37 @@
     },
     {
       "path": "src/routes/api.team.ts",
-      "sha256": "1feae1ff062d2b1b5565b99d18bc23a7945a38355a87cacbcf4f756d1cd12e8f",
+      "sha256": "5b344608e84a9915805e3ee76495bba942ae491c42915d5d0019ea7f350cfab5",
       "sites": [
         {
           "kind": "directRpc",
-          "line": 157,
+          "line": 163,
           "receiver": "db",
           "name": "\"team_usage_summary\""
         },
         {
           "kind": "directRpc",
-          "line": 162,
+          "line": 168,
           "receiver": "db",
           "name": "\"team_usage_summary\""
         },
         {
           "kind": "directRpc",
-          "line": 322,
+          "line": 335,
           "receiver": "db",
           "name": "\"team_create_organization\""
         },
         {
           "kind": "directRpc",
-          "line": 332,
+          "line": 345,
           "receiver": "db",
           "name": "\"team_accept_invitation\""
         },
         {
           "kind": "directRpc",
-          "line": 356,
+          "line": 369,
           "receiver": "db",
           "name": "\"team_reserve_invitation\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 384,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 439,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 521,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
         }
       ]
     },
@@ -2138,9 +2098,9 @@
         "resend",
         "assign"
       ],
-      "mechanism": "Three conditional cause.message assignments feed warning in200 JSON; invite/resend also persist last_email_error, and GET returns invitation rows including that historical field.",
+      "mechanism": "Historical64f2172 had three cause.message assignments in200 warnings, two persisted diagnostics and GET historical-field serialization. Current route uses fixed contextual warnings and normalizes that GET field.",
       "reachableFailureKinds": "sendTeamEmail nonOK HTTP currently throws a fixed status message and missing config is typed; rejected fetch or SDK update may throw arbitrary Error.message inside the same try. This is a source finding, not evidence that production exposed actual private data.",
-      "next": "Use fixed contextual email-warning messages for new responses/writes; normalize previously stored invitation diagnostics in GET without rewriting historical records. Verify actual route with synthetic rejected sends/updates and stored diagnostics; preserve manual fallback links and successful assignment/invitation semantics."
+      "followupEvidence": "Seven controlled actual-route regression groups in tests/team-email-warnings.test.mjs; separate report qa-team-email-warnings-local-2026-10-18.json. Source locations/zero assignments alone are not runtime proof; actual mail/SDK/durable delivery remain separate."
     }
   },
   "limits": [

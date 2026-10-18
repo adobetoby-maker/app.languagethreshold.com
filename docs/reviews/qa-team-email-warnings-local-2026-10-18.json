@@ -1,0 +1,29 @@
+{
+  "testedAt": "2026-10-18T12:20:05.727Z",
+  "sourceCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+  "runtimeApplicationCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+  "testGroups": 7,
+  "checks": {
+    "inviteResendAssignmentWarningsFixed": true,
+    "savedOperationAndManualFallbackRetained": true,
+    "postSendBookkeepingRejectionDoesNotResend": true,
+    "successfulEmailAndManualDeliveryRetainNullWarning": true,
+    "historicalAndMalformedDiagnosticsNormalizedWithoutWrites": true,
+    "missingAuthAndNonadminDeniedBeforeMutations": true,
+    "privateNoStoreHeadersPreserved": true
+  },
+  "sources": [
+    {
+      "path": "src/routes/api.team.ts",
+      "sha256": "5b344608e84a9915805e3ee76495bba942ae491c42915d5d0019ea7f350cfab5"
+    },
+    {
+      "path": "tests/team-email-warnings.test.mjs",
+      "sha256": "076d56d99ef2206c7b69fea7ade0120e0c00134ceade76aa673192b30e429bab"
+    }
+  ],
+  "limits": [
+    "Actual route with controlled auth, database and email seams; all operations are synthetic in process. No actual SDK/provider/mail delivery, historical database rewrite, user/team assignment, invitation or auth/browser acceptance.",
+    "Only email success-warning messages and GET invitation diagnostic projection changed. Other response fields, indirect SDK logging, transport lifetime, durable outcome/idempotency and broader privacy boundaries remain separate. Hosted anonymous/readonly checks cannot prove real email delivery."
+  ]
+}

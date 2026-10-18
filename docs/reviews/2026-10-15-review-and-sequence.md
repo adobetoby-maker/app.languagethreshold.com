@@ -4,6 +4,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Team email success warnings suppress private diagnostics — October18
+
+Application 5d6bf6d replaces invite/resend/assign catch Error.message with fixed contextual guidance. Warnings say delivery could not be confirmed, because send can succeed before bookkeeping fails. Saved invitations retain manual fallback link; saved assignments remain saved; no automatic resend. New invitation diagnostic writes use fixed text. GET normalizes historical or malformed nonempty last_email_error values in its response only; original database rows remain untouched. Authorization and private/no-store headers are retained.
+
+Seven actual-route controlled groups pass. Historical64f2172 fails five actual assertions: raw invite/resend/assignment warnings, post-send bookkeeping diagnostic and historical/malformed GET serialization. Normal email/manual paths and missing-auth/nonadmin denials retain behavior. No real mail, business invitation/assignment or historical database mutation. Full Node22 suite1457pass, typecheckclean, changed-file lint0errors/0warnings, audit0, guardedartifact19.94MiB. Updated AST inventory64files/207typedErrors/3dynamic/11RPC/9console/0conditionalMessageAssignments; no transitive/allSDK privacy proof. Private scan96markers/1560source/149static/0hits.
+
+Exact Preview https://language-threshold-gshjot6us-adobetoby-5572s-projects.vercel.app, dpl_3zxCJmoJZ2p1pD2zhj4PKYXaG6ks, READY/targetnull/exact5d6bf6d505bde684f2517f982b27cae5b9a6df36/project/team/alias[];17hosted checker groups pass, including21authenticatedExams and existing team/anonymous/private boundary regressions. QA personalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained. Main64f2172/dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR and accepted Exams companiond4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT unchanged. Combined evidence qa-team-email-preview-2026-10-18.json; local qa-team-email-warnings-local-2026-10-18.json. Previous main push/CI/Claude coordination remains complete; this runtime follow-up is staged separately.
+
+NEXT: bound email transport and preserve honest uncertain/durable outcomes, then continue broader SDK/private/cache/RPC/device audit. No actual delivery/browser/physicaldevice acceptance, human content/calibration/equivalence/reviewer/pilot/retention/scheduler/59module gate closed. No main/production/companion/schema/policy/schedule action this group. Full goal active.
+
+
 ### Authorized main release verified after both CI fixture repairs — October 18
 
 Main64f21726cedc620835f5e344b941e977898d7fe2 is verified pushed. GitHub workflow39126299969 SUCCESS: clean LinuxNode22 audit/tests/typecheck/lint, destination guard, build, artifact guard and production deployment all pass. Independent final metadata confirms READY production dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR at https://app.languagethreshold.com, exact64f2172/project/team. Six readonly anonymous live checks pass after that final workflow deployment: page200, referenced JS asset200, Exams/plans/owner-status403 and unauthenticated operator401, error-only JSON/no-store/nosniff. No real operator secret, owner/private evidence, new assessment/consent/email/provider/cleanup invocation. Accepted Exams companion remains d4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT.

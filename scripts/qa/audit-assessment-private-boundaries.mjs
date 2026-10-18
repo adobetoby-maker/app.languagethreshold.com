@@ -165,10 +165,11 @@ if (process.argv.includes("--self-test")) {
         path: "src/routes/api.team.ts",
         operations: ["invite", "resend", "assign"],
         mechanism:
-          "Three conditional cause.message assignments feed warning in200 JSON; invite/resend also persist last_email_error, and GET returns invitation rows including that historical field.",
+          "Historical64f2172 had three cause.message assignments in200 warnings, two persisted diagnostics and GET historical-field serialization. Current route uses fixed contextual warnings and normalizes that GET field.",
         reachableFailureKinds:
           "sendTeamEmail nonOK HTTP currently throws a fixed status message and missing config is typed; rejected fetch or SDK update may throw arbitrary Error.message inside the same try. This is a source finding, not evidence that production exposed actual private data.",
-        next: "Use fixed contextual email-warning messages for new responses/writes; normalize previously stored invitation diagnostics in GET without rewriting historical records. Verify actual route with synthetic rejected sends/updates and stored diagnostics; preserve manual fallback links and successful assignment/invitation semantics.",
+        followupEvidence:
+          "Seven controlled actual-route regression groups in tests/team-email-warnings.test.mjs; separate report qa-team-email-warnings-local-2026-10-18.json. Source locations/zero assignments alone are not runtime proof; actual mail/SDK/durable delivery remain separate.",
       },
     },
     limits: [

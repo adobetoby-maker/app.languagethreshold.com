@@ -43,6 +43,7 @@ function OwnedAIWritingProposal({ attemptId, responseId, jobStatus, onRefresh }:
           consentVersion: "assessment-ai-writing-v1",
         },
         controller.signal,
+        { userId: user.id, isCurrent: current },
       );
       if (current()) {
         setMessage(result.message);

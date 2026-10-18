@@ -12,9 +12,10 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const originalFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -31,21 +32,28 @@ async function fixture(run) {
         {
           name: "controlled-report",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               { filter: /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/client)$/ },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
+ import {examRequest as realRequest,examPlanRequest as realPlan,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
- export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
+ export const examRequest=(url,signal,owner)=>c.realClient?realRequest(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
+ c.Error=ExamRequestError;
  `,
             }));
           },
@@ -53,6 +61,9 @@ async function fixture(run) {
       ],
     });
     const { AIWritingProposal, c } = await import(join(dir, "case.mjs"));
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { location: { origin: "https://synthetic.invalid" } };
     const instances = [],
       opened = [];
@@ -111,6 +122,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = originalFetch;
     if (old) Object.defineProperty(globalThis, "window", old);
     else delete globalThis.window;
     rmSync(dir, { recursive: true, force: true });
@@ -224,3 +236,19 @@ test("current errors refresh durable job state; actor loss or a new job state su
     await tick();
     assert.deepEqual(opened, [true]);
   }));
+
+test("optional writing request binds SDK owner before any provider-capable transport", () =>
+  fixture(async (ctx) => {
+    button(consent(ctx)).props.onClick();
+    ctx.c.sessions.shift()({
+      data: { session: { user: { id: "b" }, access_token: "synthetic-b" } },
+    });
+    await tick();
+    assert.equal(ctx.c.fetches.length, 0);
+    assert.match(JSON.stringify(ctx.render()), /Sign in/);
+    assert.equal(
+      ctx.opened.length,
+      1,
+      "current denial still requests observation of any durable outcome",
+    );
+  }, true));

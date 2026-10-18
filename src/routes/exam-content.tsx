@@ -91,7 +91,10 @@ function PrivateContent() {
       controller = new AbortController();
     setCatalog(null);
     setDetail(null);
-    void examRequest<Catalog>("/api/exam-content", controller.signal)
+    void examRequest<Catalog>("/api/exam-content", controller.signal, {
+      userId: actor,
+      isCurrent: () => isCurrentUser(actor),
+    })
       .then((data) => {
         if (!controller.signal.aborted && isCurrentUser(actor)) {
           setCatalog(data);
@@ -123,6 +126,7 @@ function PrivateContent() {
     void examRequest<{ form: PrivateForm }>(
       `/api/exam-content?form=${encodeURIComponent(formId)}`,
       controller.signal,
+      { userId: actor, isCurrent: () => isCurrentUser(actor) },
     )
       .then((data) => {
         if (!controller.signal.aborted && isCurrentUser(actor)) {

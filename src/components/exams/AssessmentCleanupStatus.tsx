@@ -49,7 +49,10 @@ export function AssessmentCleanupStatus() {
     });
     const current = () => lease.isCurrent() && !abort.signal.aborted && pending.current === abort;
     setResult({ key, status: null, error: "", checkedAt: null });
-    void examRequest<Status>("/api/exam-cleanup?view=status", abort.signal)
+    void examRequest<Status>("/api/exam-cleanup?view=status", abort.signal, {
+      userId: actor,
+      isCurrent: current,
+    })
       .then((status) => {
         if (current()) setResult({ key, status, error: "", checkedAt: new Date().toISOString() });
       })

@@ -12,7 +12,7 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const saved = Object.fromEntries(
     ["window", "document", "URL", "setTimeout", "clearTimeout"].map((k) => [
@@ -20,14 +20,12 @@ async function fixture(run) {
       Object.getOwnPropertyDescriptor(globalThis, k),
     ]),
   );
+  const originalFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
         contents: (() => {
-          const source = readFileSync(
-            "src/components/exams/ExamsArea.tsx",
-            "utf8",
-          );
+          const source = readFileSync("src/components/exams/ExamsArea.tsx", "utf8");
           const start = source.indexOf("type ShownProgressExportProps =");
           const end = source.indexOf("function PlanPanelDisclosure", start);
           return `import {useState,useEffect,useRef} from 'react';import {useAuth} from '@/state/auth-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {examRequest} from '@/lib/assessments/client';import {assessmentCsv,assessedProgressRows} from '@/lib/assessments/export';import {c,card,button,getModule,skills,lessonNumberRanges} from 'fixture';type Overview=any;type Language=string;type NativeLanguage=string;type LessonSourceCoverage=any;type AssessmentSkill=string;${source.slice(start, end)};export {ReadinessPanel,ShownProgressExport,c};`;
@@ -46,6 +44,10 @@ async function fixture(run) {
         {
           name: "controlled-report",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               {
                 filter:
@@ -54,26 +56,30 @@ async function fixture(run) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
+ import {examRequest as realRequest,examPlanRequest as realPlan,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
  export const card='',button='',skills={recognition:'Word recognition'},getModule=id=>({name:id}),lessonNumberRanges=n=>n.join(',');
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
- export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
+ export const examRequest=(url,signal,owner)=>c.realClient?realRequest(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
+ c.Error=ExamRequestError;
  `,
             }));
           },
         },
       ],
     });
-    const { ReadinessPanel, ShownProgressExport, c } = await import(
-      join(dir, "case.mjs")
-    );
+    const { ReadinessPanel, ShownProgressExport, c } = await import(join(dir, "case.mjs"));
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { location: { origin: "https://synthetic.invalid" } };
     const snapshot = { members: [], enrollments: [] };
     c.downloads = [];
@@ -144,6 +150,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = originalFetch;
     for (const [k, d] of Object.entries(saved)) {
       if (d) Object.defineProperty(globalThis, k, d);
       else delete globalThis[k];
@@ -182,9 +189,7 @@ async function loaded(ctx) {
   let tree = ctx.render();
   toggle(tree, true);
   ctx.render();
-  ctx.c.requests
-    .at(-1)
-    .resolve({ tracks: [track("Roofing"), track("Landscaper")] });
+  ctx.c.requests.at(-1).resolve({ tracks: [track("Roofing"), track("Landscaper")] });
   await tick();
   return ctx.render();
 }
@@ -316,10 +321,7 @@ test("shown-progress download uses loaded rows and releases URL on snapshot chan
     start.props.onClick();
     start.props.onClick();
     assert.equal(ctx.c.downloads.length, 1);
-    assert.equal(
-      ctx.c.downloads[0].name,
-      "language-threshold-assessed-progress.csv",
-    );
+    assert.equal(ctx.c.downloads[0].name, "language-threshold-assessed-progress.csv");
     const csv = await ctx.c.lastBlob.text();
     assert.match(csv, /Learner/);
     assert.match(csv, /'=Synthetic QA/);
@@ -368,3 +370,13 @@ test("shown-progress old actor/view cannot download; click failure cleans URL an
     ctx.c.actor = null;
     assert.equal(ctx.render("export"), null);
   }));
+
+test("readiness binds SDK account before accepting capability metadata", () =>
+  fixture(async ({ c, render }) => {
+    toggle(render(), true);
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.match(text(render()), /Sign in/);
+  }, true));

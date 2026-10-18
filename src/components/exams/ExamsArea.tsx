@@ -2380,6 +2380,7 @@ function OwnedReadinessPanel({ target, native }: { target: Language; native: Nat
     void examRequest<{ tracks: ReadinessTrack[] }>(
       `/api/exams?action=readiness&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}`,
       controller.signal,
+      { userId: actor, isCurrent: current },
     )
       .then((data) => {
         if (current()) setTracks(data.tracks);

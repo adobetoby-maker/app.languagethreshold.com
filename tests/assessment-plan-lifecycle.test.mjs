@@ -12,8 +12,9 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/plan-lifecycle-"));
+  const originalFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -30,6 +31,10 @@ async function fixture(run) {
         {
           name: "controlled-plan",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               {
                 filter:
@@ -38,17 +43,20 @@ async function fixture(run) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',reads:[],writes:[],stateWrites:0};
+ import {examRequest as realRequest,examPlanRequest as realPlan,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',reads:[],writes:[],stateWrites:0};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examPlanRequest=(body,signal)=>new Promise((resolve,reject)=>(typeof body==='string'?c.reads:c.writes).push({body,signal,resolve,reject}));
- export const examRequest=(body,signal)=>new Promise((resolve,reject)=>c.writes.push({body,signal,resolve,reject}));
- export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
+ export const examPlanRequest=(body,signal,owner)=>c.realClient?realPlan(body,signal,owner):new Promise((resolve,reject)=>(typeof body==='string'?c.reads:c.writes).push({body,signal,owner,resolve,reject}));
+ export const examRequest=(body,signal,owner)=>c.realClient?realRequest(body,signal,owner):new Promise((resolve,reject)=>c.writes.push({body,signal,owner,resolve,reject}));
+ c.Error=ExamRequestError;
  export const getModule=()=>({name:'Synthetic module'}),getCurriculum=()=>({lessons:[]}),toDateKey=()=>'',moduleLessonUrl=()=>'/';
  export const Dialog='dialog',DialogContent='dialog-content',DialogHeader='dialog-header',DialogTitle='dialog-title',DialogDescription='dialog-description';
  export const AssessmentAuditHistory='audit',CheckpointAttemptHistory='attempt-history',LearnerGoalsEditor='goals-editor';
@@ -59,6 +67,9 @@ async function fixture(run) {
       ],
     });
     const { AssessmentPlanPanel, c } = await import(join(dir, "case.mjs"));
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     const instances = [];
     const opened = [];
     const dispose = (i) => {
@@ -134,6 +145,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = originalFetch;
     rmSync(dir, { recursive: true, force: true });
   }
 }
@@ -279,4 +291,49 @@ test("actor loss without rerender and departure during conflict reload suppress 
     const count = c.reads.length;
     await tick();
     assert.equal(c.reads.length, count);
+  }));
+
+test("plan read binds the displayed account before accepting plan metadata", () =>
+  fixture(async ({ c, render, goals }) => {
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(goals(render()), undefined);
+  }, true));
+
+test("plan goals and checkpoint requests bind SDK account while keeping original retry IDs", () =>
+  fixture(async ({ c, ready, render, goals, button, opened }) => {
+    let tree = await ready();
+    c.realClient = true;
+    goals(tree).props.onSave([], true);
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    tree = render();
+    button(tree, "Start check").props.onClick();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.deepEqual(opened, []);
+    goals(render()).props.onSave([], true);
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    const body = JSON.parse(c.fetches[0].opts.body);
+    c.fetches[0].resolve({
+      ok: false,
+      status: 503,
+      json: async () => ({ error: "synthetic uncertain result" }),
+    });
+    await tick();
+    goals(render()).props.onSave([], true);
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    assert.deepEqual(JSON.parse(c.fetches[1].opts.body), body);
+    c.fetches[1].resolve({
+      ok: false,
+      status: 503,
+      json: async () => ({ error: "synthetic retry later" }),
+    });
+    await tick();
   }));

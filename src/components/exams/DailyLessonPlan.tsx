@@ -127,6 +127,7 @@ function DailyLessonPlanContent({
     void examPlanRequest<DailyView>(
       `/api/exam-plans?action=daily&module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}${activePlanId ? `&plan=${encodeURIComponent(activePlanId)}` : ""}`,
       controller.signal,
+      { userId: viewer, isCurrent: () => isCurrentUser(viewer) },
     )
       .then((result) => {
         if (isCurrentUser(viewer) && !controller.signal.aborted) {

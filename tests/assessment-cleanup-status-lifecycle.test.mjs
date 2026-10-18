@@ -12,11 +12,12 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(action) {
+async function fixture(action, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/exam-listening-"));
   const old = Object.fromEntries(
     ["Audio", "URL", "window"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
   );
+  const originalFetch = globalThis.fetch;
   try {
     const out = join(dir, "component.mjs");
     await build({
@@ -34,6 +35,10 @@ async function fixture(action) {
         {
           name: "listening-fixture",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               {
                 filter:
@@ -42,16 +47,19 @@ async function fixture(action) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
+ import {examRequest as realRequest,examPlanRequest as realPlan,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
  export const useCallback=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;};
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
  export const examAudioRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
- export class ExamRequestError extends Error {constructor(message,status){super(message);this.status=status;}} c.RequestError=ExamRequestError;
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
+ c.RequestError=ExamRequestError;
+ export const examRequest=(url,signal,owner)=>c.realClient?realRequest(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},getVoicesForLocale=()=>[{voiceURI:'device-voice'}];
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.tts.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  `,
@@ -63,6 +71,9 @@ async function fixture(action) {
     const { AssessmentCleanupStatus, c } = await import(out),
       audios = [],
       revoked = [];
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     let cancels = 0;
     globalThis.window = { speechSynthesis: { cancel: () => cancels++ } };
     globalThis.URL = {
@@ -126,6 +137,7 @@ async function fixture(action) {
       unmount();
     }
   } finally {
+    globalThis.fetch = originalFetch;
     for (const [k, d] of Object.entries(old)) {
       if (d) Object.defineProperty(globalThis, k, d);
       else delete globalThis[k];
@@ -219,3 +231,12 @@ test("cleanup loading refreshes stay single-flight and guest makes no private re
     assert.equal(c.requests.length, 2);
   });
 });
+
+test("cleanup status binds SDK account without manufacturing operational health", () =>
+  fixture(async ({ c, render, text }) => {
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.match(text(render()), /Sign in/);
+  }, true));

@@ -108,6 +108,7 @@ function OwnedAssessmentPlanPanel({
       const result = await examPlanRequest<AssessmentPlanView>(
         `/api/exam-plans?enrollment=${encodeURIComponent(enrollmentId)}${source ? `&attempt=${encodeURIComponent(source)}` : ""}`,
         controller.signal,
+        { userId: viewerId, isCurrent: current },
       );
       if (current()) {
         setData(result);
@@ -142,7 +143,10 @@ function OwnedAssessmentPlanPanel({
     if (flight.current?.signature !== signature)
       flight.current = { signature, requestId: crypto.randomUUID() };
     try {
-      await examPlanRequest({ ...body, requestId: flight.current!.requestId }, controller.signal);
+      await examPlanRequest({ ...body, requestId: flight.current!.requestId }, controller.signal, {
+        userId: user.id,
+        isCurrent: current,
+      });
       if (!current()) return;
       flight.current = null;
       setDecision(null);
@@ -442,6 +446,7 @@ function OwnedAssessmentPlanPanel({
                               requestId: crypto.randomUUID(),
                             },
                             controller.signal,
+                            { userId: user.id, isCurrent: current },
                           )
                             .then((attempt) => {
                               if (current()) onOpenAttempt(attempt.id);

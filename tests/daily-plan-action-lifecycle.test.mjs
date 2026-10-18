@@ -12,11 +12,12 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window"),
     nav = Object.getOwnPropertyDescriptor(globalThis, "navigator");
   Object.defineProperty(globalThis, "navigator", { configurable: true, value: { onLine: true } });
+  const originalFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -34,6 +35,10 @@ async function fixture(run) {
         {
           name: "controlled-report",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               {
                 filter:
@@ -42,18 +47,21 @@ async function fixture(run) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
+ import {examRequest as realRequest,examPlanRequest as realPlan,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
  export const MODULES=[{id:'roofing',name:'Roofing'},{id:'landscaper',name:'Landscaper'}],LANGUAGES=['English','Spanish'],NATIVE_LANGUAGES=['English','Spanish'];export const getCurriculum=()=>({lessons:[]}),getModule=id=>({name:id});
  export const ExamsArea='embedded-exams',Suspense='suspense',lazy=()=> 'embedded-exams',examsLocation=()=>'/exams',moduleLessonUrl=o=>'/lesson/'+o.moduleId+'/'+o.lesson+'/'+o.way,examGuidanceKey=()=> 'guidance',browserExamStorage=()=>({}),saveOfflineGuidance=(s,k,d)=>c.saved.push(d),readOfflineGuidance=()=>c.offline??null,lessonPositionKey=()=>'',readLessonPosition=()=>null;
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
  const users=new Map();const isCurrentUser=id=>c.actor===id;export const useAuth=()=>{if(c.actor&&!users.has(c.actor))users.set(c.actor,{id:c.actor});return {user:c.actor?users.get(c.actor):null,isCurrentUser};};
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({kind:'exam',url,signal,resolve,reject}));export const examPlanRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({kind:'plan',url,signal,resolve,reject}));
- export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
+ export const examRequest=(url,signal,owner)=>c.realClient?realRequest(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({kind:'exam',url,signal,owner,resolve,reject}));export const examPlanRequest=(url,signal,owner)=>c.realClient?realPlan(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({kind:'plan',url,signal,owner,resolve,reject}));
+ c.Error=ExamRequestError;
  `,
             }));
           },
@@ -61,6 +69,9 @@ async function fixture(run) {
       ],
     });
     const { DailyLessonPlan, c } = await import(join(dir, "case.mjs"));
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     const listeners = new Map();
     c.emit = (name) => {
       for (const f of listeners.get(name) ?? []) f();
@@ -165,6 +176,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = originalFetch;
     if (old) Object.defineProperty(globalThis, "window", old);
     else delete globalThis.window;
     if (nav) Object.defineProperty(globalThis, "navigator", nav);
@@ -339,4 +351,40 @@ test("only network failures recover the saved plan; explicit access denial never
     tree = ctx.render();
     assert.equal(button(tree, "Practice 1"), undefined);
     assert.doesNotMatch(label(tree), /Using the saved learning plan|Synthetic support/);
+  }));
+
+test("daily guidance SDK denial cannot become offline recovery or cache a replacement plan", () =>
+  fixture(async ({ c, render, payload }) => {
+    c.offline = payload();
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
+      value: { onLine: false },
+    });
+    render();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.deepEqual(c.saved, []);
+    assert.equal(label(render()).includes("Using the saved learning plan"), false);
+  }, true));
+
+test("daily acknowledgement and checkpoint start bind the original SDK actor", () =>
+  fixture(async (ctx) => {
+    let tree = await ctx.ready();
+    ctx.c.realClient = true;
+    button(tree, "Practice 1").props.onClick();
+    ctx.c.sessions.shift()({
+      data: { session: { user: { id: "b" }, access_token: "synthetic-b" } },
+    });
+    await tick();
+    assert.equal(ctx.c.fetches.length, 0);
+    assert.deepEqual(ctx.c.navigations, []);
+    tree = ctx.render();
+    button(tree, "Before-practice check").props.onClick();
+    ctx.c.sessions.shift()({
+      data: { session: { user: { id: "b" }, access_token: "synthetic-b" } },
+    });
+    await tick();
+    assert.equal(ctx.c.fetches.length, 0);
+    assert.deepEqual(ctx.opened, []);
   }));

@@ -72,8 +72,8 @@ export function useDailyPlanActions(
         requestId: retry.current.requestId,
       };
       const result = await (action === "acknowledge"
-        ? examPlanRequest<T>(body, controller.signal)
-        : examRequest<T>(body, controller.signal));
+        ? examPlanRequest<T>(body, controller.signal, { userId: actor, isCurrent: current })
+        : examRequest<T>(body, controller.signal, { userId: actor, isCurrent: current }));
       if (current()) onSuccess(result);
     } catch (error) {
       if (current())

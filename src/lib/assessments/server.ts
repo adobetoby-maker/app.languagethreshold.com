@@ -17,7 +17,6 @@ import {
 } from "./support-check-readiness";
 import { summarizedAttempt } from "./reporting";
 import type { OverviewFilters, OverviewPage, AttemptSummary } from "./reporting";
-import { enforceSpeakingRateLimit } from "@/lib/speaking-security";
 import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
 import type { Language, NativeLanguage } from "@/data/languages";
@@ -772,26 +771,4 @@ export async function initializeScores(db: TeamDb, actor: string, id: string) {
   }
 }
 
-export async function assessmentBudget(actor: string, action: string) {
-  const limit =
-    action === "history_export"
-      ? 2
-      : action === "ai_proposal" || action === "speech_upload"
-        ? 3
-        : action === "save"
-          ? 90
-          : action === "enroll" || action === "start"
-            ? 6
-            : 30;
-  const result = await enforceSpeakingRateLimit(actor, `exams:${action}`, limit).catch(() => ({
-    allowed: false,
-    misconfigured: true,
-  }));
-  if (!result.allowed)
-    throw new AssessmentAccessError(
-      result.misconfigured
-        ? "Assessment request controls are unavailable."
-        : "Please wait a minute before trying again.",
-      result.misconfigured ? 503 : 429,
-    );
-}
+export { assessmentBudget } from "./budget";

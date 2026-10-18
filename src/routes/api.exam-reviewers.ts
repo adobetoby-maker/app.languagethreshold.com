@@ -62,7 +62,7 @@ export const Route = createFileRoute("/api/exam-reviewers")({
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
-          await assessmentBudget(user.id, "reviewer_admin_read");
+          await assessmentBudget(user.id, "reviewer_admin_read", request);
           const query = new URL(request.url).searchParams;
           const module = z
             .string()
@@ -89,7 +89,9 @@ export const Route = createFileRoute("/api/exam-reviewers")({
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
-          await assessmentBudget(user.id, "reviewer_admin_write");
+          await assessmentBudget(user.id, "reviewer_admin_write", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           return json(
             await rpc(db, "assessment_manage_reviewer", {
               p_actor: user.id,

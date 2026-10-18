@@ -58,6 +58,7 @@ async function request(token, pathOrBody, origin = base) {
     },
     ...(!get ? { body: JSON.stringify(pathOrBody) } : {}),
   });
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   return {
     status: response.status,
     cache: response.headers.get("cache-control"),
@@ -73,7 +74,7 @@ assert.equal(adminQueue.body.eligible, true);
 const privatePath = `/api/exams?action=attempt&attempt=${qa.exams.personalAttemptId}`;
 const personalResult = await request(personal, privatePath);
 assert.equal(personalResult.status, 200);
-assert.equal(personalResult.cache, "private, no-store");
+assert.equal(personalResult.cache, "no-store");
 assert.equal(personalResult.body.isLearner, true);
 assert.equal(personalResult.body.aiWritingAvailable, false);
 assert.equal((await request(admin, privatePath)).status, 403);
@@ -137,7 +138,7 @@ for (const [token, fields, expected, origin] of [
 for (const path of [privatePath, `/api/exams?action=attempt&attempt=${activeListeningAttempt.data.id}`]) {
   const mixedScope = await request(personal, `${path}&org=${qa.organizationId}`);
   assert.equal(mixedScope.status, 403);
-  assert.equal(mixedScope.cache, "private, no-store");
+  assert.equal(mixedScope.cache, "no-store");
   assert.equal(Object.hasOwn(mixedScope.body, "form"), false);
   assert.equal(Object.hasOwn(mixedScope.body, "responses"), false);
 }
@@ -147,7 +148,7 @@ const listeningPath = `/api/exams?action=listening&attempt=${activeListeningAtte
 // The staged production configuration does not enable synthetic pilot speech fallback.
 const missingClip = await request(personal, listeningPath);
 assert.equal(missingClip.status, 503);
-assert.equal(missingClip.cache, "private, no-store");
+assert.equal(missingClip.cache, "no-store");
 assert.equal("text" in missingClip.body, false);
 for (const token of [admin, learner, null])
   assert.equal((await request(token, listeningPath)).status, 403);

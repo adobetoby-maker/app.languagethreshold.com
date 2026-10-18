@@ -21,27 +21,68 @@ function requireCurrent(owner: PushRequestOwner) {
     throw new DOMException("Reminder request cancelled.", "AbortError");
 }
 
+function validPushSettings(value: unknown): value is PushSettingsResponse {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const row = value as Record<string, unknown>;
+  return (
+    typeof row.configured === "boolean" &&
+    typeof row.enabled === "boolean" &&
+    Number.isInteger(row.reminderHour) &&
+    Number(row.reminderHour) >= 0 &&
+    Number(row.reminderHour) <= 23 &&
+    typeof row.timezone === "string" &&
+    row.timezone.length > 0 &&
+    row.timezone.length <= 80 &&
+    (row.publicKey === null ||
+      (typeof row.publicKey === "string" &&
+        row.publicKey.length > 0 &&
+        row.publicKey.length <= 2048))
+  );
+}
+
 export async function pushApi<T>(owner: PushRequestOwner, init?: RequestInit): Promise<T> {
   requireCurrent(owner);
   const { data } = await supabase.auth.getSession();
   requireCurrent(owner);
   if (!data.session?.access_token || data.session.user.id !== owner.userId)
     throw new Error("Sign in to manage practice reminders.");
-  const response = await fetch("/api/push", {
-    ...init,
-    headers: {
-      ...Object.fromEntries(new Headers(init?.headers).entries()),
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${data.session.access_token}`,
-    },
-    cache: "no-store",
-    signal: owner.signal,
-  });
-  requireCurrent(owner);
-  const payload = (await response.json().catch(() => ({}))) as T & { error?: string };
-  requireCurrent(owner);
-  if (!response.ok) throw new Error(payload.error ?? "Practice reminders are unavailable.");
-  return payload;
+  const writing = init?.method?.toUpperCase() === "POST";
+  let response: Response | undefined;
+  try {
+    response = await fetch("/api/push", {
+      ...init,
+      headers: {
+        ...Object.fromEntries(new Headers(init?.headers).entries()),
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${data.session.access_token}`,
+      },
+      cache: "no-store",
+      signal: owner.signal,
+    });
+    requireCurrent(owner);
+    if (!response.ok) throw new Error("Unconfirmed response");
+    const payload: unknown = await response.json();
+    requireCurrent(owner);
+    if (writing) {
+      if (
+        !payload ||
+        typeof payload !== "object" ||
+        Array.isArray(payload) ||
+        !("ok" in payload) ||
+        payload.ok !== true
+      )
+        throw new Error("Unconfirmed response");
+    } else if (!validPushSettings(payload)) throw new Error("Unavailable settings");
+    return payload as T;
+  } catch {
+    void response?.body?.cancel().catch(() => {});
+    requireCurrent(owner);
+    throw new Error(
+      writing
+        ? "The reminder change could not be confirmed."
+        : "Practice reminders are unavailable.",
+    );
+  }
 }
 
 export function rememberPushEnabled(userId: string, enabled: boolean) {

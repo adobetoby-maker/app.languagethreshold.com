@@ -350,7 +350,7 @@ test("background sync cancels debounce and pending credential reads on account/c
     render(true);
     assert.equal(c.requests[0].init.signal.aborted, true);
   }));
-test("hour updates serialize, validate bounds and retain server time after current retryable error", () =>
+test("hour updates serialize, validate bounds and retain server time after an unconfirmed response", () =>
   fixture(async ({ c, loaded, render, reply }) => {
     c.settings.enabled = true;
     let tree = await loaded();
@@ -364,7 +364,8 @@ test("hour updates serialize, validate bounds and retain server time after curre
     assert.equal(JSON.parse(c.requests[1].init.body).reminderHour, 20);
     await reply(1, { error: "synthetic retry" }, false);
     tree = render();
-    assert.match(JSON.stringify(tree), /synthetic retry/);
+    assert.match(JSON.stringify(tree), /The reminder change could not be confirmed/);
+    assert.doesNotMatch(JSON.stringify(tree), /synthetic retry/);
     assert.ok(nodes(tree).find((n) => n.type === "select" && n.props.value === 19));
     nodes(tree)
       .find((n) => n.type === "select" && n.props.value === 19)
@@ -396,5 +397,123 @@ test("a late device subscription is not bound after departure and denied permiss
     await tick();
     assert.equal(c.requests.length, 1);
     assert.equal(c.toasts.length, 0);
+    assert.equal(c.unsubscribes, 0);
+  }));
+test("reminder writes require literal success acknowledgement and expose only fixed unconfirmed errors", () =>
+  fixture(async ({ c, pushApi, owner }) => {
+    const attempt = async (response) => {
+      const p = pushApi(owner(), {
+        method: "POST",
+        body: JSON.stringify({ action: "sync-context" }),
+      });
+      const rejected = assert.rejects(
+        p,
+        (error) =>
+          error.message === "The reminder change could not be confirmed." &&
+          error.cause === undefined,
+      );
+      await tick();
+      c.requests.at(-1).resolve(response);
+      await rejected;
+    };
+    for (const payload of [
+      {},
+      null,
+      [],
+      true,
+      { ok: false },
+      { ok: "true" },
+      { error: "synthetic-private-detail" },
+    ])
+      await attempt(Response.json(payload));
+    await attempt(new Response("synthetic-private-detail"));
+    let cancelled = 0;
+    await attempt(
+      new Response(
+        new ReadableStream({
+          start(x) {
+            x.enqueue(new TextEncoder().encode("synthetic-private-detail"));
+          },
+          cancel() {
+            cancelled++;
+          },
+        }),
+        { status: 503 },
+      ),
+    );
+    assert.equal(cancelled, 1);
+    const failed = pushApi(owner(), { method: "POST" });
+    const rejection = assert.rejects(failed, {
+      message: "The reminder change could not be confirmed.",
+    });
+    await tick();
+    c.requests.at(-1).reject(new Error("synthetic-private-network-detail"));
+    await rejection;
+    const succeeded = pushApi(owner(), { method: "post" });
+    await tick();
+    c.requests.at(-1).resolve(Response.json({ ok: true }));
+    assert.deepEqual(await succeeded, { ok: true });
+    assert.equal(c.requests.length, 11);
+  }));
+test("reminder settings must validate before reaching account state and departed response bodies are disposed", () =>
+  fixture(async ({ c, pushApi, owner }) => {
+    for (const payload of [
+      {},
+      null,
+      [],
+      { ...c.settings, enabled: "true" },
+      { ...c.settings, configured: 1 },
+      { ...c.settings, reminderHour: 24 },
+      { ...c.settings, reminderHour: 1.5 },
+      { ...c.settings, timezone: "" },
+      { ...c.settings, timezone: "x".repeat(81) },
+      { ...c.settings, publicKey: 42 },
+      { ...c.settings, publicKey: "x".repeat(2049) },
+    ]) {
+      const p = pushApi(owner());
+      const rejection = assert.rejects(p, { message: "Practice reminders are unavailable." });
+      await tick();
+      c.requests.at(-1).resolve(Response.json(payload));
+      await rejection;
+    }
+    const p = pushApi(owner());
+    await tick();
+    c.requests.at(-1).resolve(Response.json({ ...c.settings, publicKey: null }));
+    assert.deepEqual(await p, { ...c.settings, publicKey: null });
+    let cancelled = 0;
+    const departed = pushApi(owner());
+    const rejection = assert.rejects(departed, { name: "AbortError" });
+    await tick();
+    c.actor = "b";
+    c.requests.at(-1).resolve(
+      new Response(
+        new ReadableStream({
+          cancel() {
+            cancelled++;
+          },
+        }),
+      ),
+    );
+    await rejection;
+    assert.equal(cancelled, 1);
+  }));
+test("malformed successful reminder write cannot enable UI, persist enabled flag or announce success", () =>
+  fixture(async ({ c, loaded, render, storage }) => {
+    const tree = await loaded();
+    button(tree, "Allow practice reminders").props.onClick();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    c.requests[1].resolve(Response.json({ error: "synthetic-private-detail" }));
+    await tick();
+    const current = render();
+    assert.match(JSON.stringify(current), /The reminder change could not be confirmed/);
+    assert.doesNotMatch(
+      JSON.stringify(current),
+      /synthetic-private-detail|Your countdown is active/,
+    );
+    assert.ok(button(current, "Allow practice reminders"));
+    assert.equal(storage.has("lt.push.enabled.a"), false);
+    assert.equal(c.toasts.length, 0);
+    assert.equal(c.requests.length, 2);
     assert.equal(c.unsubscribes, 0);
   }));

@@ -49,6 +49,10 @@ async function fixture(component, action) {
         {
           name: "screen-host",
           setup(b) {
+            b.onResolve({ filter: /^@\/integrations\/supabase\/client$/ }, () => ({
+              path: "fixture",
+              namespace: "fixture",
+            }));
             b.onResolve(
               {
                 filter:
@@ -57,8 +61,11 @@ async function fixture(component, action) {
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
+ import {speakingRequestHeaders as realHeaders} from "./src/lib/speaking-client.ts";
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],realHeaders:false,slots:[],cursor:0,effects:[],actor:'a',accent:'es-CR',voice:null,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'roofing',level:'A2',userVocab:[]},turns:[],audio:[],dispatches:[],tips:[],exchanges:0,seconds:[],writes:0,errors:[],headers:[],waitHeaders:false,capabilities:[],now:0};
  const changed=${changed.toString()};
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
@@ -70,7 +77,7 @@ async function fixture(component, action) {
  export const useSpeak=()=>({turns:c.turns,exchanges:c.exchanges,addTurn,appendToTurn,setTipFor,incrementExchanges,addSeconds,clear});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},useSpeech=()=>({accent:c.accent,voiceURI:c.voice,rate:1,setVoiceURI:v=>c.voice=v,setAccent:v=>c.accent=v,accentsForLanguage:[{code:'es-CR',label:'QA accent'}],settingsHydrated:true});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return new Promise(resolve=>opts.signal.addEventListener('abort',resolve,{once:true}));},speakMissionTts=async()=>{};
- export const speakingRequestHeaders=()=>c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({}),setSpeakingPrivacyMode=()=>{};
+ export const speakingRequestHeaders=(owner,signal)=>c.realHeaders?realHeaders(owner,signal):c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({}),setSpeakingPrivacyMode=()=>{};
  export const getMissionTtsCapabilities=(_locale,signal)=>new Promise(resolve=>c.capabilities.push({signal,resolve}));
  export const getVoicesForLocale=()=>[{voiceURI:'qa-device',name:'QA device voice',lang:'es-CR'}],pickVoice=()=>getVoicesForLocale()[0],subscribeVoices=()=>()=>{},isIosDevice=()=>false;
  export const getModule=()=>null,matchesFocus=()=>false,celebrate=()=>{},looseIncludes=()=>false;
@@ -281,4 +288,20 @@ test("actual VoicePicker cancels device preview on close/accent/unmount and igno
     }
     await tick();
     assert.equal(c.writes, writes);
+  }));
+
+test("actual SpeakLearn binds chat and tip credential lookup to the originating SDK actor", () =>
+  fixture("SpeakLearn", async ({ c, render, button, requests }) => {
+    c.realHeaders = true;
+    button(render(), "Free conversation").props.onClick();
+    const tree = render();
+    nodes(tree)
+      .find((n) => n.type === "button" && text(n).includes("ciudad"))
+      .props.onClick();
+    assert.equal(c.sessions.length, 2);
+    for (const resolve of c.sessions.splice(0))
+      resolve({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(requests.length, 0);
+    assert.equal(c.turns.filter((t) => t.role === "assistant").length, 0);
   }));

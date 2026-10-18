@@ -232,7 +232,10 @@ export function SpeakLearn() {
     const release = lease.own(() => ctrl.abort());
     const current = () => lease.isCurrent() && !ctrl.signal.aborted;
     try {
-      const headers = await speakingRequestHeaders();
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        ctrl.signal,
+      );
       if (!current()) return;
       const res = await fetch("/api/speak", {
         method: "POST",
@@ -279,7 +282,10 @@ export function SpeakLearn() {
     ];
 
     try {
-      const headers = await speakingRequestHeaders();
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        ctrl.signal,
+      );
       if (!current()) return;
       const res = await fetch("/api/speak", {
         method: "POST",

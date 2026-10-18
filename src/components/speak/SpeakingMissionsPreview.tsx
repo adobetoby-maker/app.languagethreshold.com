@@ -412,7 +412,10 @@ export function SpeakingMissionsPreview({
     }
     const controller = new AbortController();
     setAgeLoaded(false);
-    getSpeakingAgeAttestation(controller.signal)
+    getSpeakingAgeAttestation(controller.signal, {
+      userId: session.user.id,
+      isCurrent: () => isCurrentUser(session.user.id),
+    })
       .then((confirmed) => {
         if (controller.signal.aborted || !isCurrentUser(session.user.id)) return;
         setAgeConfirmed(confirmed);
@@ -678,7 +681,10 @@ export function SpeakingMissionsPreview({
     setAgeSaving(true);
     setErrorMessage(null);
     try {
-      const saved = await saveSpeakingAgeAttestation(true, controller.signal, current);
+      const saved = await saveSpeakingAgeAttestation(true, controller.signal, current, {
+        userId: session.user.id,
+        isCurrent: current,
+      });
       if (!current()) return;
       if (!saved) throw new Error("Speaking confirmation was not saved.");
       setAgeConfirmed(true);
@@ -859,7 +865,10 @@ export function SpeakingMissionsPreview({
           content: turn.text,
         }));
       history.push({ role: "user", content: learnerText });
-      const headers = await speakingRequestHeaders();
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        controller.signal,
+      );
       if (!current()) return;
       const response = await fetch("/api/speak", {
         method: "POST",

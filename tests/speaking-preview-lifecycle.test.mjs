@@ -59,7 +59,8 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  const dispatch=a=>c.actions.push(a),isCurrentUser=id=>c.actor===id;
  export const useApp=()=>({state:c.state,dispatch}),useAuth=()=>{if(c.session?.user.id!==c.actor)c.session=c.actor?{user:{id:c.actor}}:null;return{session:c.session,user:c.session?.user??null,isCurrentUser};},useAiGate=()=>({gated:fn=>fn()});
  const setAccent=()=>{},setRate=()=>{},setVoiceURI=()=>{};export const useSpeech=()=>({accent:'es-CR',rate:1,voiceURI:null,setAccent,setRate,setVoiceURI});
- export const getSpeakingAgeAttestation=async()=>c.confirmed,saveSpeakingAgeAttestation=(value,signal,current)=>new Promise(resolve=>c.saves.push({value,signal,current,resolve})),speakingRequestHeaders=()=>c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});
+ const owned=o=>{if(!o||o.userId!==c.actor||!o.isCurrent())throw new Error("Expected current speaking request owner");};
+ export const getSpeakingAgeAttestation=async(signal,owner)=>{owned(owner);return c.confirmed;},saveSpeakingAgeAttestation=(value,signal,current,owner)=>{owned(owner);return new Promise(resolve=>c.saves.push({value,signal,current,owner,resolve}));},speakingRequestHeaders=(owner)=>{owned(owner);return c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});};
  export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};

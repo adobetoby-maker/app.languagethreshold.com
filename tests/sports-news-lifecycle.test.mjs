@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdtempSync, rmSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 const tick = () => new Promise((r) => setImmediate(r));
 function nodes(n, out = []) {
@@ -48,7 +48,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {SportsNewsPanel} from '@/components/soccer/SportsNewsPanel';export {c} from 'fixture';`,
+        contents: `export {SportsNewsPanel,TeamEditor} from '@/components/soccer/SportsNewsPanel';export {c} from 'fixture';`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },
@@ -63,6 +63,12 @@ async function fixture(run) {
         {
           name: "controlled-sports",
           setup(b) {
+            b.onLoad({ filter: /SportsNewsPanel\.tsx$/ }, (args) => ({
+              contents:
+                readFileSync(args.path, "utf8") + "\nexport {FavoriteTeamInput as TeamEditor};",
+              loader: "tsx",
+              resolveDir: process.cwd(),
+            }));
             b.onResolve(
               {
                 filter:
@@ -86,7 +92,7 @@ async function fixture(run) {
         },
       ],
     });
-    const { SportsNewsPanel, c } = await import(join(dir, "case.mjs"));
+    const { SportsNewsPanel, TeamEditor, c } = await import(join(dir, "case.mjs"));
     globalThis.fetch = (url, options) =>
       new Promise((resolve, reject) => c.requests.push({ url, options, resolve, reject }));
     mounted = c;
@@ -101,11 +107,11 @@ async function fixture(run) {
     };
     c.render = (flush = true) => {
       c.cursor = 0;
-      let tree = SportsNewsPanel(c.props);
+      let tree = (c.editor ? TeamEditor : SportsNewsPanel)(c.props);
       if (flush) {
         while (c.effects.length) c.effects.shift()();
         c.cursor = 0;
-        tree = SportsNewsPanel(c.props);
+        tree = (c.editor ? TeamEditor : SportsNewsPanel)(c.props);
       }
       return tree;
     };
@@ -287,4 +293,75 @@ test("sports panel rejects unsafe article data before card rendering", () =>
     assert.deepEqual(titles(tree), []);
     assert.ok(JSON.stringify(tree).includes("News unavailable — try again later."));
     assert.ok(!JSON.stringify(tree).includes("Unsafe private-shaped title"));
+  }));
+test("sports favorite editor remount key changes across account, guest, language and selection", () =>
+  fixture(async (c) => {
+    let tree = c.render();
+    const a = favorite(tree).key;
+    assert.ok(a);
+    c.actor = null;
+    tree = c.render();
+    const guest = favorite(tree).key;
+    assert.notEqual(guest, a);
+    c.actor = "b";
+    tree = c.render();
+    const b = favorite(tree).key;
+    assert.notEqual(b, guest);
+    assert.notEqual(b, a);
+    c.props = { ...c.props, language: "French" };
+    tree = c.render();
+    const language = favorite(tree).key;
+    assert.notEqual(language, b);
+    c.props = { ...c.props, favoriteTeam: "Chelsea" };
+    tree = c.render();
+    assert.notEqual(favorite(tree).key, language);
+    for (const req of c.requests) req.resolve(Response.json({ articles: [] }));
+    await tick();
+  }));
+test("actual favorite editor cancels owned focus and refuses retained input/commit after unmount", () =>
+  fixture(async (c) => {
+    const saved = { raf: globalThis.requestAnimationFrame, caf: globalThis.cancelAnimationFrame };
+    let callback,
+      focused = 0,
+      cancelled = 0;
+    globalThis.requestAnimationFrame = (fn) => {
+      callback = fn;
+      return 12;
+    };
+    globalThis.cancelAnimationFrame = (id) => {
+      assert.equal(id, 12);
+      cancelled++;
+    };
+    try {
+      c.editor = true;
+      c.props = { value: "Arsenal", onChange: (team) => c.favorites.push(team) };
+      let tree = c.render();
+      const start = nodes(tree).find((n) => n.type === "button").props.onClick;
+      start();
+      tree = c.render();
+      const input = nodes(tree).find((n) => n.type === "input");
+      assert.equal(input.props.maxLength, 80);
+      input.props.ref.current = {
+        focus() {
+          focused++;
+        },
+      };
+      input.props.onChange({ target: { value: "x".repeat(100) } });
+      tree = c.render();
+      assert.equal(nodes(tree).find((n) => n.type === "input").props.value.length, 80);
+      const commit = nodes(tree).find((n) => n.props?.["aria-label"] === "Confirm").props.onClick;
+      c.unmount();
+      assert.equal(cancelled, 1);
+      const before = c.writes;
+      callback();
+      start();
+      input.props.onChange({ target: { value: "PRIVATE departed draft" } });
+      commit();
+      assert.equal(c.writes, before);
+      assert.equal(focused, 0);
+      assert.deepEqual(c.favorites, []);
+    } finally {
+      globalThis.requestAnimationFrame = saved.raf;
+      globalThis.cancelAnimationFrame = saved.caf;
+    }
   }));

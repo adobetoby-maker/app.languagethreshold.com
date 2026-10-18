@@ -114,20 +114,37 @@ function FavoriteTeamInput({
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value ?? "");
   const inputRef = useRef<HTMLInputElement>(null);
+  const active = useRef(false);
+  const focusFrame = useRef<number | null>(null);
+  useEffect(() => {
+    active.current = true;
+    return () => {
+      active.current = false;
+      if (focusFrame.current !== null) cancelAnimationFrame(focusFrame.current);
+      focusFrame.current = null;
+    };
+  }, []);
 
   const startEdit = () => {
+    if (!active.current) return;
     setDraft(value ?? "");
     setEditing(true);
-    requestAnimationFrame(() => inputRef.current?.focus());
+    if (focusFrame.current !== null) cancelAnimationFrame(focusFrame.current);
+    focusFrame.current = requestAnimationFrame(() => {
+      focusFrame.current = null;
+      if (active.current) inputRef.current?.focus();
+    });
   };
 
   const commit = () => {
+    if (!active.current) return;
     const trimmed = draft.trim();
     onChange(trimmed || null);
     setEditing(false);
   };
 
   const cancel = () => {
+    if (!active.current) return;
     setDraft(value ?? "");
     setEditing(false);
   };
@@ -138,7 +155,10 @@ function FavoriteTeamInput({
         <input
           ref={inputRef}
           value={draft}
-          onChange={(e) => setDraft(e.target.value)}
+          maxLength={80}
+          onChange={(e) => {
+            if (active.current) setDraft(e.target.value.slice(0, 80));
+          }}
           onKeyDown={(e) => {
             if (e.key === "Enter") commit();
             if (e.key === "Escape") cancel();
@@ -307,7 +327,7 @@ export function SportsNewsPanel({
       </div>
 
       {/* ---- Favorite team ---- */}
-      <FavoriteTeamInput value={favoriteTeam} onChange={changeFavoriteTeam} />
+      <FavoriteTeamInput key={key} value={favoriteTeam} onChange={changeFavoriteTeam} />
 
       {/* ---- Content ---- */}
       {loading || resultKey !== key ? (

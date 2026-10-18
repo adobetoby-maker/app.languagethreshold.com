@@ -1,0 +1,42 @@
+{
+  "testedAt": "2026-10-18T14:30:32.465851+00:00",
+  "historicalSourceCommit": "31ed5abef5287ca2f3a162bb40d9cdae293c60eb",
+  "historicalActualAssertionFailure": {
+    "case": "GET/api/exams?action=review_queue",
+    "quotaWaitSettledBeforeLateHeaders": false,
+    "observedMockRpcAfterAbort": "assessment_review_queue",
+    "actualFailureLogSha256": "aaa298f901f8b860b755ace9a2bfffcbb6ec00d82340795ebc7c36cb8471be47",
+    "testCommand": "LT_ASSESSMENT_QUOTA_BASELINE=31ed5ab npx --yes node@22 --test --test-name-pattern=all\\ fourteen tests/assessment-budget-adoption.test.mjs",
+    "actualAssertNotBundleSetupFailure": true
+  },
+  "newActualRouteBudgetGroups": 8,
+  "newlyAdoptedHttpCallsites": 14,
+  "previouslyAdoptedReviewerCallsites": 2,
+  "allExternalAssessmentHttpBudgetCallsitesNowRequestOwned": 16,
+  "internalAiProposalBudgetStillUnowned": true,
+  "fullNode22Tests": 1528,
+  "sourceHashes": {
+    "src/routes/api.exams.ts": "a37309ad91767b08cd4dd78c4251ac89b6ba6fdaca28abda0f6a4a59a67d1d90",
+    "src/routes/api.exam-plans.ts": "c7c11d5ddae0f58542212c379ebf4125fdea0ee5357ff67e346c2e0bf3e1956e",
+    "src/routes/api.exam-content.ts": "1064b319c640e2c6595dab18ba203745eb470f31e05296cdb339d11169a93535",
+    "tests/assessment-budget-adoption.test.mjs": "7815afa284d37d6021ec5f6db84abaa7f669cb4dabd92f9454bed71919474e28"
+  },
+  "checks": {
+    "all14CallsiteAbortMatrix": true,
+    "allThreeApiGetPostDeadlineMatrix": true,
+    "quotaJsonUtf8WireBudgetAndSingleCall": true,
+    "false429AndFixed503Retained": true,
+    "normalQueuePlanRevisionContentViewRetained": true,
+    "historyExportSecondQuotaOwned": true,
+    "independentApiRequests": true,
+    "alreadyDispatchedAcknowledgementsUnchanged": true,
+    "existingBearerUnassignedContentAndNonquotaAttemptGatesRetained": true
+  },
+  "limits": [
+    "Historical baseline reproduces one concrete review-queue case only: late quota allowed a mock queue RPC after request departure, and the existing later registry guard returned499. No real queue, role, quota, owner, reviewer, media, goal or business mutation. Other old branches are not claimed individually reproduced.",
+    "New actual handler/installed SDK matrix covers14callsite branches across exams/plans/content, including second history-export quota and speech-upload admission before upload. Normal synthetic acknowledgements/plan revision are mock HTTP, not real learner progress/reviewer listening consent/qualification.",
+    "Only quota phase adoption/handoff guards change. Shared hashing/limits/window/enforcer, budget helper and existing Request-owned reviewer callsites unchanged. Internal AI proposal budget has no Request and stays separate. Bodies, later private read/provider waits, permission freshness, RPC uncertainty/deadlines, full endpoint lifetime and physical dispatch/cancellation remain separate.",
+    "Quota POSTs may consume counters after departure. No refund/replay/rollback inference; already-dispatched acknowledgements/outcomes and requestID/revision rules unchanged. Positive service returns true; existing nontrue429 behavior remains.",
+    "Current full1528test log retained under its own filename and passed. Prior turn earlier failed-log evidence gap remains historical and is not assigned a root cause by this success. No schema/policy/schedule/cleanup/browser/production action."
+  ]
+}

@@ -69,7 +69,9 @@ export const Route = createFileRoute("/api/exam-content")({
               "Assigned content reviewer or platform owner access required.",
               403,
             );
-          await assessmentBudget(user.id, "content_review");
+          await assessmentBudget(user.id, "content_review", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           const params = new URL(request.url).searchParams;
           const lessonRelease = params.get("lessons");
           if (lessonRelease) {
@@ -216,7 +218,9 @@ export const Route = createFileRoute("/api/exam-content")({
             throw new AssessmentAccessError("Same-origin content review required.", 403);
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
-          await assessmentBudget(user.id, "content_review_write");
+          await assessmentBudget(user.id, "content_review_write", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           const raw = await request.text();
           if (raw.length > 16000)
             throw new AssessmentAccessError("Content review is too large.", 400);

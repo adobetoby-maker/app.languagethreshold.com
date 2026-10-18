@@ -228,7 +228,9 @@ export const Route = createFileRoute("/api/exams")({
           const url = new URL(request.url),
             action = url.searchParams.get("action") ?? "overview";
           if (action === "review_queue") {
-            await budget(user.id, "review_queue");
+            await budget(user.id, "review_queue", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             const org = url.searchParams.get("org"),
               after = url.searchParams.get("after"),
               afterId = url.searchParams.get("afterId");
@@ -242,7 +244,9 @@ export const Route = createFileRoute("/api/exams")({
             return json({ ...queue, eligible });
           }
           if (action === "checkpoint_history") {
-            await budget(user.id, "history_read");
+            await budget(user.id, "history_read", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return json(
               await checkpointAttemptHistory(
                 db,
@@ -265,11 +269,15 @@ export const Route = createFileRoute("/api/exams")({
               ),
             );
           if (action === "speech_status") {
-            await budget(user.id, "speech_read");
+            await budget(user.id, "speech_read", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return json(await speechStatus(db, user.id, id.parse(url.searchParams.get("attempt"))));
           }
           if (action === "speech_playback") {
-            await budget(user.id, "speech_read");
+            await budget(user.id, "speech_read", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return await readAssessmentSpeech(
               db,
               user.id,
@@ -277,7 +285,9 @@ export const Route = createFileRoute("/api/exams")({
             );
           }
           if (action === "listening") {
-            await budget(user.id, "listening");
+            await budget(user.id, "listening", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return await readAssessmentListening(
               db,
               user.id,
@@ -286,7 +296,9 @@ export const Route = createFileRoute("/api/exams")({
             );
           }
           if (action === "team_insights") {
-            await budget(user.id, "overview_read");
+            await budget(user.id, "overview_read", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return json(
               await teamAssessmentInsights(
                 db,
@@ -309,7 +321,9 @@ export const Route = createFileRoute("/api/exams")({
           }
           if (action !== "overview")
             throw new AssessmentAccessError("Unknown assessment view.", 400);
-          await budget(user.id, "overview_read");
+          await budget(user.id, "overview_read", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           const orgId = url.searchParams.get("org")
             ? id.parse(url.searchParams.get("org"))
             : undefined;
@@ -386,7 +400,9 @@ export const Route = createFileRoute("/api/exams")({
           if (new URL(request.url).searchParams.get("action") === "speech_upload") {
             const db = teamAdminClient(undefined, request),
               user = await authenticatedAssessmentUser(request, db);
-            await budget(user.id, "speech_upload");
+            await budget(user.id, "speech_upload", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             return json(await uploadAssessmentSpeech(db, user.id, request));
           }
           if (Number(request.headers.get("content-length") ?? 0) > 220000)
@@ -397,7 +413,9 @@ export const Route = createFileRoute("/api/exams")({
           if (raw.length > 220000)
             throw new AssessmentAccessError("Assessment request is too large.", 413);
           const body = bodySchema.parse(JSON.parse(raw));
-          await budget(user.id, body.action);
+          await budget(user.id, body.action, request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           if (body.action === "route") return json(await selectAttemptRoute(db, user.id, body));
           if (body.action === "speech_reviewed") {
             await rpc(db, "assessment_ack_speech_review", {

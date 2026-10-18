@@ -4,6 +4,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Remaining team error boundaries mapped without workflow changes — October 18
+
+Read-only TypeScript AST inventory at source a5f1f05 parses all 620 rg-visible src TS/TSX files. It finds ten direct named legacy teamError calls in six route files: certificate metadata GET; entitlement GET; custom module GET/POST; platform GET/POST; billing GET/POST; company/invitations GET/POST. Activity and legacy assessment have two scopedTeamError calls. No matching namespace calls found. Four remaining route files contain direct request.json calls; parsing/throw locations are structural facts, not proof of unbounded input, reachable disclosure, authorization or complete error flow. Aliased named imports and handler/catch ancestry are recognized; re-exports, arbitrary alias chains, dynamic calls, wrappers and other input APIs are outside this inventory. All parsed files have zero parser diagnostics.
+
+Evidence qa-team-error-boundary-inventory-2026-10-18.json; reproducible scanner scripts/qa/audit-team-error-boundaries.mjs. Synthetic self-checks cover renamed named imports, method/catch context, namespace separation and exclusion of unrelated imports. Legacy helper still exposes Error.message with regex status classification. Migration must retain fixed intentional workflow guidance with explicit statuses, including billing/invitation/admin flows; this audit changes none of those workflows. Privacy scan: 96 markers/1500 source/149 static/0 hits. No credential/database/network/provider/mail/payment/invitation/certificate/browser action.
+
+No runtime change or deployment. Application remains 8071176 on development Preview https://language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app, dpl_3FAbzLnUNKYxjxHrXnau9JUdDDTn. Prior 1386 tests/typecheck/lint 0 errors/45 warnings/audit 0/artifact 19.91 MiB and thirteen hosted groups remain the last application verification, not rerun for this static audit. No new alias read; accepted companion d4ad837 and live 9f90996 remain the last inspected identities. No main/production/accepted-hostname/schema/grant/role/policy/schedule action.
+
+NEXT: certificate and entitlement fixed-error boundaries, then deliberate per-workflow legacy error migration; auth/read/write/certificate phase audit, broader endpoint/helper/cache/diagnostics/device inventory and prior catalog grant/migration-parity findings. Actual SDK expiry/current A/guest/B/restore/browser/native/device/process restart, content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Pending owner questions not repeated; full goal remains active.
+
+
 ### Activity and legacy assessment suppress unexpected backend error text — October 18
 
 Application 8071176 introduces TeamOperationError and scopedTeamError for team activity and legacy Roofing assessment. Intentional fixed route guidance has explicit existing statuses; unexpected SDK/database/certificate failures return fixed 503 text asking the learner to check the workspace before retrying. Shared missing-config/missing-bearer/expired-user errors are typed with existing fixed messages/statuses. Other legacy teamError callers remain unchanged and can still echo arbitrary backend Error text. Typed errors are a code-only trust boundary, not permission to wrap backend or user text as public guidance. No auth/entitlement/write/certificate deadline, transaction or rollback guarantee added.

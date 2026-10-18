@@ -1,0 +1,907 @@
+{
+  "auditedAt": "2026-10-18T09:44:56.077Z",
+  "sourceCommit": "a5f1f05e84bfb80b8d88c509664696d06b02c8f5",
+  "runtimeApplicationCommit": "807117688c92192abab5dde70fbc80871c065641",
+  "scan": {
+    "typescriptSourceFiles": 620,
+    "legacyFiles": 6,
+    "legacyDirectCalls": 10,
+    "scopedFiles": 2,
+    "scopedDirectCalls": 2,
+    "namespaceCalls": 0
+  },
+  "helperDeclarations": [
+    {
+      "name": "scopedTeamError",
+      "line": 91
+    },
+    {
+      "name": "teamError",
+      "line": 99
+    }
+  ],
+  "routes": [
+    {
+      "file": "src/routes/api.certificate.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 23,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [],
+      "throws": [
+        {
+          "line": 19,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.module-request.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 68,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        },
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 142,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [
+        {
+          "line": 75,
+          "handler": "POST",
+          "catchVariable": null
+        }
+      ],
+      "throws": [
+        {
+          "line": 31,
+          "handler": null,
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 41,
+          "handler": null,
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 65,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 77,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 81,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 84,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 97,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 129,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 139,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.platform.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 152,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        },
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 309,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [
+        {
+          "line": 160,
+          "handler": "POST",
+          "catchVariable": null
+        }
+      ],
+      "throws": [
+        {
+          "line": 135,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 180,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 193,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 195,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 198,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 213,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 222,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 228,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 230,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 241,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 254,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 268,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 303,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.team-activity.ts",
+      "calls": [
+        {
+          "helper": "scopedTeamError",
+          "localName": "scopedTeamError",
+          "line": 237,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [],
+      "throws": [
+        {
+          "line": 48,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 52,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 64,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 79,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 121,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 125,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 132,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 139,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 153,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 160,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 173,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 189,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 197,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 208,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 210,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 225,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.team-assessment.ts",
+      "calls": [
+        {
+          "helper": "scopedTeamError",
+          "localName": "scopedTeamError",
+          "line": 174,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [],
+      "throws": [
+        {
+          "line": 41,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 47,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 56,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 65,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 74,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 91,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 107,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 121,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 124,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 130,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 139,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 141,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 143,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 145,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "TeamOperationError",
+          "literalMessage": true
+        },
+        {
+          "line": 160,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.team-billing.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 101,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        },
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 281,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [
+        {
+          "line": 108,
+          "handler": "POST",
+          "catchVariable": null
+        }
+      ],
+      "throws": [
+        {
+          "line": 84,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 88,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 97,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 111,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 124,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 127,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 132,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 151,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 153,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 189,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 194,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 204,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 213,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 225,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 228,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 230,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 233,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.team-entitlement.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 35,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [],
+      "throws": [
+        {
+          "line": 16,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 24,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    },
+    {
+      "file": "src/routes/api.team.ts",
+      "calls": [
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 309,
+          "handler": "GET",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        },
+        {
+          "helper": "teamError",
+          "localName": "teamError",
+          "line": 562,
+          "handler": "POST",
+          "catchVariable": "error",
+          "argumentKind": "Identifier"
+        }
+      ],
+      "namespaceReferences": [],
+      "directRequestJsonCalls": [
+        {
+          "line": 316,
+          "handler": "POST",
+          "catchVariable": null
+        }
+      ],
+      "throws": [
+        {
+          "line": 97,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 102,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 224,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 225,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 244,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 290,
+          "handler": "GET",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 323,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 333,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 343,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 345,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 347,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 358,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 403,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 413,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 457,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 466,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 471,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 472,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 480,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 482,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 490,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "Error",
+          "literalMessage": true
+        },
+        {
+          "line": 501,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 526,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        },
+        {
+          "line": 543,
+          "handler": "POST",
+          "catchVariable": null,
+          "kind": "rethrow-or-expression",
+          "literalMessage": false
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Ten direct calls in six files remain; typed scoped handler is used by activity and legacy assessment only.",
+    "Legacy surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
+    "Shared auth/config error typing does not sanitize other legacy backend/schema/mail/checkout failures. Migrate fixed intentional guidance with explicit statuses per workflow before replacing catch responses."
+  ],
+  "limits": [
+    "Read-only TypeScript AST inventory of direct named imports from the exact module path across rg-visible tracked/untracked src TS/TSX files. Aliased named calls are recognized; namespace references counted separately. No symbol resolution, re-export/alias chains, dynamic calls, runtime coverage or appwide safety proof.",
+    "Handler/catch context is syntactic ancestry. Request.json matches direct request identifier only; wrappers, other variable names, body streams and other parsing APIs may be missed. Throw facts do not prove which catch receives the error.",
+    "No runtime source/deploy/schema/grant/role/policy/schedule change, credentials, database/network/provider/email/payment/invitation/certificate/browser action. Prior exact Preview checks retained and not rerun for this audit-only follow-up.",
+    "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform and actual session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance."
+  ]
+}

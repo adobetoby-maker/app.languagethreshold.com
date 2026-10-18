@@ -45,7 +45,7 @@ export async function proposeWritingReview(
       "AI-supported review needs a calibrated form or the explicit QA pilot.",
       409,
     );
-  const path = await selectedAttemptPath(db, context, true);
+  const path = await selectedAttemptPath(db, context, true, request);
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
   const { item, answer, key, alreadyReviewed } = await withWritingEvidence(
     db,

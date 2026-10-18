@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T06:51:24.544884+00:00",
+  "applicationCommit": "c2351a732870e6160e539e7b8e81430f96b5da03",
+  "preview": "https://language-threshold-91ow4mm82-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-91ow4mm82-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_FZHw6ynS2pzbXDwDVa3KnHgvD6zG",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-91ow4mm82-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "c2351a732870e6160e539e7b8e81430f96b5da03",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
+  "local": {
+    "tests": 1326,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.9,
+    "privateMarkers": 96,
+    "sourceFiles": 1442,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Consent saves distinguish explicit server not_started denials from unknown writes; network/proxy/5xx/malformed/mismatched acknowledgements never assert rollback or trigger automatic retry",
+    "One owned 30-second acknowledgement wait includes credential lookup, transport and JSON. Timeout before dispatch allows retry; after dispatch it remains unconfirmed. Owner departure aborts without updating another actor; late credentials cannot dispatch and late headers are disposed",
+    "Unknown saves block retained/repeated confirmation callbacks and expose Check saved confirmation using GET only. False or failed reads remain uncertain; a true read closes recovery without starting audio/mission and requires a separate Start action",
+    "Actor-tagged confirmation state and read revisions prevent previous-account flags and stale initial/session-refresh reads from overwriting newer acknowledgement/check results; one-flight and acknowledgement latches block retained callbacks",
+    "Server handled pre-write errors tag writeOutcome=not_started; dispatched setter failures tag unknown. The existing setter remains outside the read-admission scope; no schema/role/policy or real consent write",
+    "Six added groups plus extended actual component lifecycle tests cover unknown/rejected/true/false outcomes, stalled acknowledgement timing, late SDK/headers, read-only recovery/duplicate callbacks, account transitions and stale reads; all auth/consent/transport/timers synthetic",
+    "Eight hosted checker groups pass: 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent input denials. Consent denials additionally assert not_started; no admissible consent read/write or model call"
+  ],
+  "controlledEvidence": [
+    "tests/speaking-consent-recovery.test.mjs",
+    "tests/speaking-preview-lifecycle.test.mjs",
+    "tests/speaking-admission-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "e6a20a7",
+    "source": "src/lib/speaking-client.ts",
+    "case": "Synthetic POST network failure must produce fixed unknown outcome without raw detail",
+    "oldOutcome": "Raw TypeError with synthetic detail and no unknown classification",
+    "expectedOutcome": "Fixed SpeakingConsentSaveError outcome unknown",
+    "currentPass": true,
+    "limit": "Actual prior client bundled with synthetic SDK/fetch; assertion uses outcome/message rather than missing new class. Initial baseline predicate referenced the absent new class and was corrected before recording behavioral evidence. No real consent write."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-consent-recovery-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Recovery uncertainty and latches are component memory only, not a durable journal, mutation receipt, causal proof, process-restart recovery or cross-device write ordering. A positive read proves currently visible attestation only, not which request wrote it; a false read cannot prove an earlier write will never finish.",
+    "Client timeout/cancellation cannot undo an accepted write. The server mutation retains its existing independent phase; no exactly-once, rollback or transaction guarantee. Initial status reads do not automatically clear an unresolved write; explicit recovery checks do.",
+    "Controlled tests render actual dialog/component output with mocked hooks/UI primitives and transport. They do not prove actual browser/phone accessibility/layout, real interrupted consent saves, SDK expiry/current A/guest/B/restore or native microphone/audio behavior.",
+    "Hosted checks reject before consent/counter/model work; no paid provider, recording, consent, reviewer/role/score/certificate approval or browser action occurred. Adaptive runtime was explicitly pinned false at deployment; absent metadata env is not false readback proof.",
+    "Broader helper/provider/endpoint/cache/diagnostics/device inventory, genuine expiry/offline/process restart acceptance, legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

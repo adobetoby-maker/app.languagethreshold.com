@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "e6a20a7",
+  "application": "c2351a7",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-8ixlsxsks-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-91ow4mm82-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-consent-recovery-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "e6a20a7f99d0604ee9f8b7c6beff36decfe3e863",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "c2351a732870e6160e539e7b8e81430f96b5da03",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-consent-recovery-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -799,5 +799,14 @@
     "providerMaxBytes": 1048576,
     "fourModesOwned": true,
     "actualProviderOrNativeVerified": false
+  },
+  "latestLocalSpeakingConsentRecoveryFollowup": {
+    "application": "c2351a7",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-consent-recovery-preview-2026-10-18.json",
+    "acknowledgementWaitMs": 30000,
+    "unknownRecoveryGetOnly": true,
+    "actualConsentWriteOrBrowserVerified": false,
+    "durableJournal": false
   }
 }

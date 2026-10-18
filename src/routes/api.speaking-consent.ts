@@ -26,9 +26,12 @@ function json(payload: unknown, status = 200, retryAfter?: number) {
     },
   });
 }
+function rejected(error: string, status: number, retryAfter?: number) {
+  return json({ error, writeOutcome: "not_started" }, status, retryAfter);
+}
 function controlsFailure(error: unknown) {
   const status = error instanceof SpeechPreflightError ? error.status : 503;
-  return json({ error: "Speaking controls are unavailable." }, status);
+  return rejected("Speaking controls are unavailable.", status);
 }
 async function principalForConsent(
   request: Request,
@@ -41,26 +44,22 @@ async function principalForConsent(
   }));
   signal.throwIfAborted();
   if (!ipBudget.allowed)
-    return json(
-      {
-        error: ipBudget.misconfigured ? "Speaking controls are unavailable." : "Too many requests.",
-      },
+    return rejected(
+      ipBudget.misconfigured ? "Speaking controls are unavailable." : "Too many requests.",
       ipBudget.misconfigured ? 503 : 429,
       60,
     );
   const principal = await authenticateSpeakingRequest(request, signal).catch(() => null);
   signal.throwIfAborted();
-  if (!principal) return json({ error: "Sign in to use AI speaking practice." }, 401);
+  if (!principal) return rejected("Sign in to use AI speaking practice.", 401);
   if (updating) {
     const budget = await enforceSpeakingRateLimit(principal.userId, "consent", 10, signal).catch(
       () => ({ allowed: false, misconfigured: true }),
     );
     signal.throwIfAborted();
     if (!budget.allowed)
-      return json(
-        {
-          error: budget.misconfigured ? "Speaking controls are unavailable." : "Too many requests.",
-        },
+      return rejected(
+        budget.misconfigured ? "Speaking controls are unavailable." : "Too many requests.",
         budget.misconfigured ? 503 : 429,
         60,
       );
@@ -88,14 +87,13 @@ export const Route = createFileRoute("/api/speaking-consent")({
         }
       },
       POST: async ({ request }) => {
-        if (!isStrictSameOrigin(request))
-          return json({ error: "Cross-origin request rejected." }, 403);
+        if (!isStrictSameOrigin(request)) return rejected("Cross-origin request rejected.", 403);
         let body: z.infer<typeof BodySchema>;
         try {
           body = BodySchema.parse(await readPrivateJson(request, 1024));
         } catch (error) {
-          return json(
-            { error: "Invalid consent request." },
+          return rejected(
+            "Invalid consent request.",
             error instanceof PrivateJsonRequestError ? error.status : 400,
           );
         }
@@ -108,13 +106,16 @@ export const Route = createFileRoute("/api/speaking-consent")({
           return controlsFailure(error);
         }
         if (principal instanceof Response) return principal;
-        if (request.signal.aborted) return json({ error: "Speaking request cancelled." }, 499);
+        if (request.signal.aborted) return rejected("Speaking request cancelled.", 499);
         // The admission deadline ends before this existing write. A timeout cannot prove no write.
         try {
           await setSpeakingAgeAttestation(principal.userId, body.attested);
           return json({ attested: body.attested });
         } catch {
-          return json({ error: "Speaking consent storage is unavailable." }, 503);
+          return json(
+            { error: "Speaking consent storage is unavailable.", writeOutcome: "unknown" },
+            503,
+          );
         }
       },
     },

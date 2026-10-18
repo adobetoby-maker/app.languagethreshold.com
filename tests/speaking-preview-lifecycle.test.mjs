@@ -27,7 +27,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     const out = join(dir, "component.mjs");
     await build({
       stdin: {
-        contents: `export {SpeakingMissionsPreview} from './src/components/speak/SpeakingMissionsPreview';export {c} from 'fixture';`,
+        contents: `export {SpeakingMissionsPreview} from './src/components/speak/SpeakingMissionsPreview';export {c,SpeakingConsentSaveError} from 'fixture';`,
         resolveDir: process.cwd(),
       },
       outfile: out,
@@ -50,7 +50,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
- export const c={actor:'a',session:{user:{id:'a'}},slots:[],cursor:0,effects:[],writes:0,actions:[],audio:[],headers:[],waitHeaders:false,confirmed:true,saves:[],state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'construction-foreman',nextTrips:{}}};
+ export const c={actor:'a',session:{user:{id:'a'}},slots:[],cursor:0,effects:[],writes:0,actions:[],audio:[],headers:[],waitHeaders:false,confirmed:true,saves:[],reads:[],waitRead:false,state:{selectedLanguage:'Spanish',nativeLanguage:'English',activeModuleId:'construction-foreman',nextTrips:{}}};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return[c.slots[i],v=>{c.writes++;if(typeof v==='function'){v(c.slots[i]);c.slots[i]=v(c.slots[i]);}else c.slots[i]=v;}];};
@@ -60,7 +60,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
  export const useApp=()=>({state:c.state,dispatch}),useAuth=()=>{if(c.session?.user.id!==c.actor)c.session=c.actor?{user:{id:c.actor}}:null;return{session:c.session,user:c.session?.user??null,isCurrentUser};},useAiGate=()=>({gated:fn=>fn()});
  const setAccent=()=>{},setRate=()=>{},setVoiceURI=()=>{};export const useSpeech=()=>({accent:'es-CR',rate:1,voiceURI:null,setAccent,setRate,setVoiceURI});
  const owned=o=>{if(!o||o.userId!==c.actor||!o.isCurrent())throw new Error("Expected current speaking request owner");};
- export const getSpeakingAgeAttestation=async(signal,owner)=>{owned(owner);return c.confirmed;},saveSpeakingAgeAttestation=(value,signal,current,owner)=>{owned(owner);return new Promise(resolve=>c.saves.push({value,signal,current,owner,resolve}));},speakingRequestHeaders=(owner)=>{owned(owner);return c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});};
+ export class SpeakingConsentSaveError extends Error {constructor(outcome){super('Synthetic unconfirmed save');this.outcome=outcome;}};export const getSpeakingAgeAttestation=async(signal,owner)=>{owned(owner);return c.waitRead?new Promise((resolve,reject)=>c.reads.push({signal,owner,resolve,reject})):c.confirmed;},saveSpeakingAgeAttestation=(value,signal,current,owner)=>{owned(owner);return new Promise((resolve,reject)=>c.saves.push({value,signal,current,owner,resolve,reject}));},speakingRequestHeaders=(owner)=>{owned(owner);return c.waitHeaders?new Promise(r=>c.headers.push(r)):Promise.resolve({});};
  export const getMissionTtsCapabilities=async()=>({ready:false,voices:[]}),pickVoice=()=>({voiceURI:'device',lang:'es-CR'}),subscribeVoices=()=>()=>{};
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.audio.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});}),speakMissionTts=()=>{throw new Error('No remote audio in fixture');};
  export const consumeCoreSpeakingEntry=()=>false,consumeSpeakingMissionRequest=()=>null,browserReturnStorage=()=>null,lessonMissionPrefix=()=>'',readLessonReturn=()=>null,setSpeakingPrivacyMode=()=>{};
@@ -72,7 +72,7 @@ test("actual speaking missions isolate late replies, playback, microphone and co
         },
       ],
     });
-    const { SpeakingMissionsPreview, c } = await import(out),
+    const { SpeakingMissionsPreview, c, SpeakingConsentSaveError } = await import(out),
       requests = [],
       recognitions = [],
       timers = new Map();
@@ -279,6 +279,116 @@ test("actual speaking missions isolate late replies, playback, microphone and co
     await tick();
     assert.equal(c.writes, saveWrites);
     assert.equal(c.audio.length, audioCount);
+    // An uncertain write stays latched across stale confirmation callbacks. Checks are read-only.
+    c.slots = [];
+    c.saves = [];
+    c.reads = [];
+    c.waitRead = false;
+    c.actor = "a";
+    c.confirmed = false;
+    tree = await ready();
+    button(tree, "Start mission").props.onClick();
+    tree = render();
+    const originalConfirm = nodes(tree).find((n) => n.type === "consent").props.onConfirm;
+    originalConfirm();
+    c.saves[0].reject(new SpeakingConsentSaveError("unknown"));
+    await tick();
+    tree = render();
+    originalConfirm();
+    assert.equal(c.saves.length, 1, "uncertain save cannot be resent by retained callback");
+    let recovery = nodes(tree).find((n) => n.type === "consent");
+    assert.equal(recovery.props.unknown, true);
+    c.waitRead = true;
+    recovery.props.onCheckSavedStatus();
+    recovery.props.onCheckSavedStatus();
+    assert.equal(c.reads.length, 1);
+    const recoveryAudio = c.audio.length;
+    c.reads[0].resolve(false);
+    await tick();
+    tree = render();
+    recovery = nodes(tree).find((n) => n.type === "consent");
+    assert.equal(recovery.props.unknown, true);
+    assert.match(recovery.props.error, /earlier request may still finish/);
+    originalConfirm();
+    assert.equal(c.saves.length, 1);
+    recovery.props.onCheckSavedStatus();
+    assert.equal(c.reads.length, 2);
+    c.reads[1].resolve(true);
+    await tick();
+    tree = render();
+    assert.equal(nodes(tree).find((n) => n.type === "consent").props.open, false);
+    originalConfirm();
+    assert.equal(
+      c.saves.length,
+      1,
+      "acknowledged status also blocks a retained confirmation callback",
+    );
+    assert.equal(c.audio.length, recoveryAudio, "read-only recovery cannot start playback");
+    assert.ok(button(tree, "Start mission"));
+    c.actor = "b";
+    tree = render();
+    button(tree, "Start mission").props.onClick();
+    await tick();
+    assert.equal(
+      c.audio.length,
+      recoveryAudio,
+      "A saved status cannot start B before B loads its own status",
+    );
+    unmount();
+    // A status check started under A cannot apply under B.
+    c.slots = [];
+    c.saves = [];
+    c.reads = [];
+    c.waitRead = false;
+    c.actor = "a";
+    c.confirmed = false;
+    tree = await ready();
+    button(tree, "Start mission").props.onClick();
+    tree = render();
+    nodes(tree)
+      .find((n) => n.type === "consent")
+      .props.onConfirm();
+    c.saves[0].reject(new SpeakingConsentSaveError("unknown"));
+    await tick();
+    tree = render();
+    c.waitRead = true;
+    nodes(tree)
+      .find((n) => n.type === "consent")
+      .props.onCheckSavedStatus();
+    const pendingRead = c.reads[0];
+    c.actor = "b";
+    tree = await ready();
+    const afterSwitchWrites = c.writes;
+    assert.equal(pendingRead.signal.aborted, true);
+    pendingRead.resolve(true);
+    await tick();
+    assert.equal(c.writes, afterSwitchWrites);
+    unmount();
+    // A read started during a same-account refresh cannot replace a newer write acknowledgement.
+    c.slots = [];
+    c.saves = [];
+    c.reads = [];
+    c.waitRead = false;
+    c.actor = "a";
+    c.confirmed = false;
+    tree = await ready();
+    button(tree, "Start mission").props.onClick();
+    tree = render();
+    nodes(tree)
+      .find((n) => n.type === "consent")
+      .props.onConfirm();
+    c.waitRead = true;
+    c.session = { user: { id: "a" } };
+    tree = render();
+    assert.equal(c.reads.length, 1);
+    c.saves[0].resolve(true);
+    await tick();
+    tree = render();
+    const afterAcknowledgement = c.writes;
+    c.reads[0].resolve(false);
+    await tick();
+    assert.equal(c.writes, afterAcknowledgement);
+    unmount();
   } finally {
     for (const [k, d] of Object.entries(old)) {
       if (d) Object.defineProperty(globalThis, k, d);

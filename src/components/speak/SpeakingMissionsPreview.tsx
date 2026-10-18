@@ -36,6 +36,7 @@ import { pickVoice, subscribeVoices } from "@/lib/voices";
 import {
   getSpeakingAgeAttestation,
   saveSpeakingAgeAttestation,
+  SpeakingConsentSaveError,
   speakingRequestHeaders,
 } from "@/lib/speaking-client";
 import { speakRemote } from "@/lib/tts";
@@ -218,7 +219,13 @@ export function SpeakingMissionsPreview({
   const [started, setStarted] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [ageLoaded, setAgeLoaded] = useState(false);
+  const [ageStatusActor, setAgeStatusActor] = useState<string | null>(null);
   const [ageSaving, setAgeSaving] = useState(false);
+  const [ageUncertainActor, setAgeUncertainActor] = useState<string | null>(null);
+  const ageUncertainRef = useRef<string | null>(null);
+  const ageConfirmedActorRef = useRef<string | null>(null);
+  const ageReadRevisionRef = useRef(0);
+  const ageUnknown = Boolean(session && ageUncertainActor === session.user.id);
   const [consentOpen, setConsentOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackLanguage, setFeedbackLanguage] = useState<FeedbackLanguage>("Adaptive");
@@ -407,23 +414,42 @@ export function SpeakingMissionsPreview({
   useEffect(() => {
     if (!session) {
       setAgeConfirmed(false);
+      ageConfirmedActorRef.current = null;
+      setAgeStatusActor(null);
       setAgeLoaded(true);
       return;
     }
     const controller = new AbortController();
+    const revision = ++ageReadRevisionRef.current;
     setAgeLoaded(false);
     getSpeakingAgeAttestation(controller.signal, {
       userId: session.user.id,
       isCurrent: () => isCurrentUser(session.user.id),
     })
       .then((confirmed) => {
-        if (controller.signal.aborted || !isCurrentUser(session.user.id)) return;
+        if (
+          controller.signal.aborted ||
+          !isCurrentUser(session.user.id) ||
+          revision !== ageReadRevisionRef.current ||
+          ageSaveRef.current
+        )
+          return;
+        ageConfirmedActorRef.current = confirmed ? session.user.id : null;
+        setAgeStatusActor(session.user.id);
         setAgeConfirmed(confirmed);
         setAgeLoaded(true);
       })
       .catch((error) => {
-        if (controller.signal.aborted || !isCurrentUser(session.user.id)) return;
+        if (
+          controller.signal.aborted ||
+          !isCurrentUser(session.user.id) ||
+          revision !== ageReadRevisionRef.current ||
+          ageSaveRef.current
+        )
+          return;
         if (error instanceof DOMException && error.name === "AbortError") return;
+        ageConfirmedActorRef.current = null;
+        setAgeStatusActor(session.user.id);
         setAgeConfirmed(false);
         setAgeLoaded(true);
         setErrorMessage("Speaking confirmation could not be loaded. Please try again.");
@@ -668,6 +694,12 @@ export function SpeakingMissionsPreview({
   const confirmAgeAndBegin = async () => {
     const lease = capture();
     if (!lease.isCurrent() || ageSaveRef.current) return;
+    if (
+      session &&
+      (ageUncertainRef.current === session.user.id ||
+        ageConfirmedActorRef.current === session.user.id)
+    )
+      return;
     if (!session) {
       setConsentOpen(false);
       setAuthOpen(true);
@@ -675,6 +707,7 @@ export function SpeakingMissionsPreview({
     }
     const controller = new AbortController();
     ageSaveRef.current = controller;
+    ageReadRevisionRef.current++;
     const release = lease.own(() => {
       controller.abort();
       if (ageSaveRef.current === controller) ageSaveRef.current = null;
@@ -689,7 +722,10 @@ export function SpeakingMissionsPreview({
         isCurrent: current,
       });
       if (!current()) return;
-      if (!saved) throw new Error("Speaking confirmation was not saved.");
+      if (!saved) throw new SpeakingConsentSaveError("unknown");
+      ageReadRevisionRef.current++;
+      ageConfirmedActorRef.current = session.user.id;
+      setAgeStatusActor(session.user.id);
       setAgeConfirmed(true);
       setAgeLoaded(true);
       setConsentOpen(false);
@@ -697,9 +733,78 @@ export function SpeakingMissionsPreview({
       ageSaveRef.current = null;
       release();
       startMissionSession();
+    } catch (error) {
+      if (current()) {
+        ageReadRevisionRef.current++;
+        if (error instanceof SpeakingConsentSaveError && error.outcome === "unknown") {
+          ageUncertainRef.current = session.user.id;
+          setAgeUncertainActor(session.user.id);
+          setAgeStatusActor(session.user.id);
+          setAgeConfirmed(false);
+          setAgeLoaded(true);
+          setErrorMessage(
+            "We could not confirm the saved status. Check it before sending another request.",
+          );
+        } else {
+          setErrorMessage("The speaking confirmation could not be saved. Please try again.");
+        }
+      }
+    } finally {
+      if (current()) {
+        setAgeSaving(false);
+        ageSaveRef.current = null;
+      }
+      release();
+    }
+  };
+
+  const checkSavedSpeakingConfirmation = async () => {
+    const lease = capture();
+    if (
+      !lease.isCurrent() ||
+      !session ||
+      ageSaveRef.current ||
+      ageUncertainRef.current !== session.user.id
+    )
+      return;
+    const controller = new AbortController();
+    ageSaveRef.current = controller;
+    ageReadRevisionRef.current++;
+    const release = lease.own(() => {
+      controller.abort();
+      if (ageSaveRef.current === controller) ageSaveRef.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && !controller.signal.aborted && ageSaveRef.current === controller;
+    setAgeSaving(true);
+    setErrorMessage(null);
+    try {
+      const confirmed = await getSpeakingAgeAttestation(controller.signal, {
+        userId: session.user.id,
+        isCurrent: current,
+      });
+      if (!current()) return;
+      ageReadRevisionRef.current++;
+      ageConfirmedActorRef.current = confirmed ? session.user.id : null;
+      setAgeStatusActor(session.user.id);
+      setAgeLoaded(true);
+      setAgeConfirmed(confirmed);
+      if (confirmed) {
+        ageUncertainRef.current = null;
+        setAgeUncertainActor(null);
+        setConsentOpen(false);
+      } else {
+        setErrorMessage(
+          "A saved confirmation is not visible yet. The earlier request may still finish. Check again later.",
+        );
+      }
     } catch {
-      if (current())
-        setErrorMessage("The one-time speaking confirmation could not be saved. Please try again.");
+      if (current()) {
+        ageReadRevisionRef.current++;
+        setErrorMessage(
+          "We could not check the saved status. The earlier request may still finish.",
+        );
+      }
     } finally {
       if (current()) {
         setAgeSaving(false);
@@ -716,7 +821,11 @@ export function SpeakingMissionsPreview({
       setAuthOpen(true);
       return;
     }
-    if (!ageLoaded) return;
+    if (ageUncertainRef.current === session.user.id) {
+      setConsentOpen(true);
+      return;
+    }
+    if (!ageLoaded || ageStatusActor !== session.user.id) return;
     if (!ageConfirmed) {
       setConsentOpen(true);
       return;
@@ -1344,6 +1453,8 @@ export function SpeakingMissionsPreview({
         <SpeakingConsentDialog
           open={consentOpen}
           saving={ageSaving}
+          unknown={ageUnknown}
+          onCheckSavedStatus={() => void checkSavedSpeakingConfirmation()}
           error={errorMessage}
           language={selectedMission.language}
           audioSource={partnerAudioSource}
@@ -1514,7 +1625,11 @@ export function SpeakingMissionsPreview({
             </p>
           </fieldset>
           <div className="mt-4 border-t border-border/60 pt-4 text-sm">
-            {session && !ageLoaded ? (
+            {ageUnknown ? (
+              <p role="status" className="text-muted-foreground">
+                Confirmation status is unconfirmed. Use Start to check its saved status.
+              </p>
+            ) : session && (!ageLoaded || ageStatusActor !== session.user.id) ? (
               <p className="text-muted-foreground">Checking your saved speaking confirmation…</p>
             ) : ageConfirmed ? (
               <p className="flex items-center gap-2 text-emerald-300">
@@ -1724,6 +1839,8 @@ export function SpeakingMissionsPreview({
         <SpeakingConsentDialog
           open={consentOpen}
           saving={ageSaving}
+          unknown={ageUnknown}
+          onCheckSavedStatus={() => void checkSavedSpeakingConfirmation()}
           error={errorMessage}
           language={selectedMission.language}
           audioSource={partnerAudioSource}

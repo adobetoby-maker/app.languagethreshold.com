@@ -599,3 +599,20 @@ test("speaking challenge fields are bounded and typed while malformed optional t
     assert.deepEqual(await tip.json(), { tip: null });
     assert.doesNotMatch(JSON.stringify(c.logs), /synthetic-private-extra/);
   }));
+
+test("consent responses distinguish pre-write rejection from a dispatched write with unknown outcome", () =>
+  fixture(async (h, c) => {
+    c.ip = async () => ({ allowed: false, misconfigured: true });
+    const denied = await h.consent.POST(request("speaking-consent", { attested: true }));
+    assert.equal(denied.status, 503);
+    assert.equal((await denied.json()).writeOutcome, "not_started");
+    assert.equal(c.writes.length, 0);
+    c.ip = async () => ({ allowed: true });
+    c.write = async () => {
+      throw new Error("synthetic-private-detail");
+    };
+    const unknown = await h.consent.POST(request("speaking-consent", { attested: true }));
+    assert.equal(unknown.status, 503);
+    assert.equal((await unknown.json()).writeOutcome, "unknown");
+    assert.equal(c.writes.length, 1);
+  }));

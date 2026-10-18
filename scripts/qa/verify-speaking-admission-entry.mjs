@@ -30,7 +30,9 @@ for (const [path, limit, value] of [
     assert.equal(response.status, status, `${path}:${name}`);
     assert.match(response.headers.get("cache-control") ?? "", /private.*no-store/);
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
-    assert.doesNotMatch(await response.text(), /synthetic-private-entry-detail/);
+    const text = await response.text();
+    assert.doesNotMatch(text, /synthetic-private-entry-detail/);
+    if (path === "speaking-consent") assert.equal(JSON.parse(text).writeOutcome, "not_started");
     checks.push({
       route: path,
       name,

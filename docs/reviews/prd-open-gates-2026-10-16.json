@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "7251a1d",
+  "application": "908dfc1",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-6kd4mp4uq-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-5y20rlmby-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-service-json-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-catalog-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "7251a1d8791789c99dc1406c07a42f83b94e8ac4",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-service-json-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "908dfc1e0485433aec38e49199291ddb9dc9bb34",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-catalog-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -757,5 +757,17 @@
     "counterMaxBytes": 1024,
     "requiresScopedSignal": true,
     "actualHostedOverflowOrProviderVerified": false
+  },
+  "latestLocalVoiceCatalogFollowup": {
+    "application": "908dfc1",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-catalog-preview-2026-10-18.json",
+    "coldLookupLimits": {
+      "ipMinute": 20,
+      "ipHour": 120,
+      "globalHour": 600
+    },
+    "cachedMetadataPublic": true,
+    "actualHostedColdLookupOrCountersVerified": false
   }
 }

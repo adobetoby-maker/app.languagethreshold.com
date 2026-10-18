@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T05:59:08.606131+00:00",
+  "applicationCommit": "908dfc1e0485433aec38e49199291ddb9dc9bb34",
+  "preview": "https://language-threshold-5y20rlmby-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-5y20rlmby-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6GcjenpRVBmUQfeUhpGyDqvvAmuo",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-5y20rlmby-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "908dfc1e0485433aec38e49199291ddb9dc9bb34",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-service-json-preview-2026-10-18.json",
+  "local": {
+    "tests": 1298,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.88,
+    "privateMarkers": 96,
+    "sourceFiles": 1428,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Cold enabled public Google catalog requests require an independent stage-scoped durable budget: 20 per IP minute, 120 per IP hour, 600 globally per hour, using existing hashed-counter RPC and canonical platform IP only",
+    "Normal public GETs may omit Origin; explicit foreign origins and non-same-origin/non-none Fetch-Site hints are denied before counters/provider, including cached responses",
+    "Cached metadata and disabled provider configuration do not spend catalog counters; expiration requires fresh admission, and successful POST synthesis retains its prior separate admission",
+    "Catalog minute/hour/global admission shares the existing 15-second owned preflight and bounded scoped counter JSON; rejection/unavailable storage fails closed with fixed errors and Retry-After",
+    "Timeout or incoming cancellation prevents late budget results from starting another counter/provider; a later request remains independent",
+    "Eight new actual helper/route groups cover exact pool hashes/contracts, canonical-IP requirements, no-Origin compatibility, every denial point, unavailable/oversized storage, cache/disabled/expiry, timeout/incoming abort and later success",
+    "Hosted eight Google/six Pashto entry denials plus exact 21 Exams/12 focused-entry/3 public packs/7 scoped-read/14 generation-entry groups pass"
+  ],
+  "controlledEvidence": [
+    "tests/voice-catalog-security.test.mjs",
+    "tests/google-speech-provider-route.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "7251a1d",
+    "source": "src/routes/api.mission-tts.ts",
+    "case": "Cold public catalog with a denied synthetic first budget",
+    "oldStatus": 200,
+    "expectedStatus": 429,
+    "currentPass": true,
+    "limit": "Actual prior route bundled with controlled guards/provider. No actual catalog/provider/counter/browser action."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-catalog-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Cold cache admission tests use synthetic counters/provider/timers. Hosted checks only add explicit foreign-origin and cross-site catalog denials; actual permitted cold catalog lookup, real counter deltas, quota exhaustion/provider billing/platform IP behavior remain unverified.",
+    "Public metadata remains unauthenticated. Origin/Fetch-Site checks are browser admission hints, not identity proof; canonical-IP/global durable pools are independent controls. Shared connections share allowance.",
+    "Six-hour catalog reuse is process-local public metadata, not a distributed cache or single-flight guarantee. Concurrent cold requests may each consume counters/provider work within the configured pools. No provider call is deduplicated or rolled back.",
+    "No actual audio/microphone/consent/provider/browser action. Input/admission/provider deadlines remain separate, not a total delivery deadline. No billing rollback or exactly-once claim.",
+    "Broader helper/endpoint/cache/diagnostics/device inventory, direct helper opt-ins, true SDK expiry/process restart/offline acceptance, uncertain writes/concurrency/legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

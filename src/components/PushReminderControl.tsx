@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { buildLearningReminderContext } from "@/lib/learning-reminders";
 import {
   pushApi,
+  PushRequestError,
   rememberPushEnabled,
   type PushSettingsResponse,
   type PushRequestOwner,
@@ -56,6 +57,10 @@ function OwnedPushReminderControl() {
   const context = useMemo(() => buildLearningReminderContext(state), [state]);
   const { capture } = usePracticeLifecycle(JSON.stringify(context));
   const pending = useRef<AbortController | null>(null);
+  const uncertain = useRef(false);
+  const writeInFlight = useRef(false);
+  const [unconfirmed, setUnconfirmed] = useState(false);
+  const [observed, setObserved] = useState<PushSettingsResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [settings, setSettings] = useState<PushSettingsResponse | null>(null);
   const [busy, setBusy] = useState(false);
@@ -65,10 +70,21 @@ function OwnedPushReminderControl() {
 
   useEffect(() => {
     const lease = capture();
-    setSettings(null);
-    setMessage(null);
-    setBusy(false);
+    if (writeInFlight.current) {
+      uncertain.current = true;
+      writeInFlight.current = false;
+      setUnconfirmed(true);
+      setObserved(null);
+    }
+    pending.current?.abort();
     pending.current = null;
+    setSettings(null);
+    if (!uncertain.current) setMessage(null);
+    setBusy(false);
+    if (uncertain.current) {
+      setLoading(false);
+      return;
+    }
     if (!session || !user || !state.hydrated || !lease.isCurrent()) {
       setLoading(false);
       return;
@@ -110,6 +126,7 @@ function OwnedPushReminderControl() {
       loading ||
       !settings ||
       pending.current ||
+      uncertain.current ||
       !lease.isCurrent()
     )
       return;
@@ -126,8 +143,59 @@ function OwnedPushReminderControl() {
     try {
       await action({ userId: user.id, isCurrent: current, signal: controller.signal }, check);
     } catch (error) {
-      if (current())
+      if (current()) {
+        if (error instanceof PushRequestError && error.outcome === "unknown") {
+          uncertain.current = true;
+          writeInFlight.current = false;
+          setUnconfirmed(true);
+          setObserved(null);
+        }
         setMessage(error instanceof Error ? error.message : "Reminders are unavailable.");
+      }
+    } finally {
+      if (current()) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
+
+  async function writeReminder(owner: PushRequestOwner, body: unknown) {
+    writeInFlight.current = true;
+    try {
+      await pushApi<{ ok: true }>(owner, { method: "POST", body: JSON.stringify(body) });
+      if (owner.isCurrent()) writeInFlight.current = false;
+    } catch (error) {
+      if (owner.isCurrent() && !(error instanceof PushRequestError && error.outcome === "unknown"))
+        writeInFlight.current = false;
+      throw error;
+    }
+  }
+
+  async function checkSavedSettings() {
+    const lease = capture();
+    if (!user || !session || !lease.isCurrent() || !uncertain.current || pending.current) return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
+    setBusy(true);
+    setMessage(null);
+    try {
+      const value = await pushApi<PushSettingsResponse>({
+        userId: user.id,
+        isCurrent: current,
+        signal: controller.signal,
+      });
+      if (!current()) return;
+      setObserved(value);
+      setMessage(
+        "The earlier change is still unconfirmed. Saved settings can change if it finishes later.",
+      );
+    } catch {
+      if (current())
+        setMessage("Saved settings could not be checked. The earlier change may still finish.");
     } finally {
       if (current()) setBusy(false);
       if (pending.current === controller) pending.current = null;
@@ -162,15 +230,12 @@ function OwnedPushReminderControl() {
           applicationServerKey: urlBase64ToUint8Array(settings.publicKey),
         }));
       check();
-      await pushApi<{ ok: true }>(owner, {
-        method: "POST",
-        body: JSON.stringify({
-          action: "subscribe",
-          subscription: subscriptionShape(subscription),
-          reminderHour: settings.reminderHour,
-          timezone: timezone(),
-          context,
-        }),
+      await writeReminder(owner, {
+        action: "subscribe",
+        subscription: subscriptionShape(subscription),
+        reminderHour: settings.reminderHour,
+        timezone: timezone(),
+        context,
       });
       check();
       const next = { ...settings, enabled: true, timezone: timezone() };
@@ -189,23 +254,17 @@ function OwnedPushReminderControl() {
       const subscription = await registration.pushManager.getSubscription();
       check();
       if (subscription) {
-        await pushApi<{ ok: true }>(owner, {
-          method: "POST",
-          body: JSON.stringify({ action: "unsubscribe", endpoint: subscription.endpoint }),
-        });
+        await writeReminder(owner, { action: "unsubscribe", endpoint: subscription.endpoint });
         check();
         await subscription.unsubscribe();
         check();
       } else {
-        await pushApi<{ ok: true }>(owner, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "preferences",
-            enabled: false,
-            reminderHour: settings?.reminderHour ?? 19,
-            timezone: timezone(),
-            context,
-          }),
+        await writeReminder(owner, {
+          action: "preferences",
+          enabled: false,
+          reminderHour: settings?.reminderHour ?? 19,
+          timezone: timezone(),
+          context,
         });
         check();
       }
@@ -218,15 +277,12 @@ function OwnedPushReminderControl() {
     return run(async (owner, check) => {
       if (!settings) return;
       if (settings.enabled) {
-        await pushApi<{ ok: true }>(owner, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "preferences",
-            enabled: true,
-            reminderHour,
-            timezone: timezone(),
-            context,
-          }),
+        await writeReminder(owner, {
+          action: "preferences",
+          enabled: true,
+          reminderHour,
+          timezone: timezone(),
+          context,
         });
         check();
       }
@@ -249,7 +305,11 @@ function OwnedPushReminderControl() {
             Daily practice reminder
           </p>
           <h2 className="mt-1 font-serif text-xl text-foreground">
-            {settings?.enabled ? "Your countdown is active" : "Keep the trip in sight"}
+            {unconfirmed
+              ? "Reminder status is unconfirmed"
+              : settings?.enabled
+                ? "Your countdown is active"
+                : "Keep the trip in sight"}
           </h2>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
             One useful notification combines your nearest departure, selected speaking topic, and
@@ -261,9 +321,10 @@ function OwnedPushReminderControl() {
               Remind me to speak
               <select
                 value={reminderLanguage}
-                disabled={busy || loading}
+                disabled={busy || loading || unconfirmed}
                 onChange={(event) => {
-                  if (!capture().isCurrent() || pending.current || loading) return;
+                  if (!capture().isCurrent() || pending.current || loading || uncertain.current)
+                    return;
                   dispatch({
                     type: "SET_REMINDER_LANGUAGE",
                     payload: event.target.value as Language,
@@ -284,13 +345,34 @@ function OwnedPushReminderControl() {
             <p className="mt-4 rounded-xl border border-border/60 bg-background/35 p-3 text-xs text-muted-foreground">
               Sign in to turn on reminders. Your dates and progress stay tied to your account.
             </p>
+          ) : unconfirmed ? (
+            <div className="mt-4 space-y-3 rounded-xl border border-amber-300/30 bg-background/35 p-3 text-xs leading-relaxed">
+              <p role="status">
+                The earlier reminder change may still finish. Further changes are paused.
+              </p>
+              {observed ? (
+                <p>
+                  Last visible saved settings:{" "}
+                  {observed.enabled ? `on at ${formatHour(observed.reminderHour)}` : "off"}. This
+                  does not confirm that the earlier change has finished.
+                </p>
+              ) : null}
+              <button
+                type="button"
+                onClick={() => void checkSavedSettings()}
+                disabled={busy || loading}
+                className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-foreground hover:bg-background disabled:opacity-50"
+              >
+                {busy ? "Checking saved settings…" : "Check saved settings"}
+              </button>
+            </div>
           ) : settings?.enabled ? (
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <label className="text-xs text-muted-foreground">
                 Remind me at
                 <select
                   value={settings.reminderHour}
-                  disabled={busy || loading}
+                  disabled={busy || loading || unconfirmed}
                   onChange={(event) => void changeHour(Number(event.target.value))}
                   className="ml-2 min-h-11 rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
                 >
@@ -304,7 +386,7 @@ function OwnedPushReminderControl() {
               <button
                 type="button"
                 onClick={() => void disable()}
-                disabled={busy || loading}
+                disabled={busy || loading || unconfirmed}
                 className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-muted-foreground hover:text-foreground disabled:opacity-50"
               >
                 Turn off
@@ -332,7 +414,11 @@ function OwnedPushReminderControl() {
               iPhone notifications work after you add the app to your Home Screen and open it there.
             </p>
           )}
-          {message && <p className="mt-3 text-xs leading-relaxed text-amber-300">{message}</p>}
+          {message && (
+            <p role="alert" className="mt-3 text-xs leading-relaxed text-amber-300">
+              {message}
+            </p>
+          )}
         </div>
       </div>
     </section>

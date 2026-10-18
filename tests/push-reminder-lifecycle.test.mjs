@@ -411,14 +411,20 @@ test("hour updates serialize, validate bounds and retain server time after an un
     tree = render();
     assert.match(JSON.stringify(tree), /The reminder change could not be confirmed/);
     assert.doesNotMatch(JSON.stringify(tree), /synthetic retry/);
-    assert.ok(nodes(tree).find((n) => n.type === "select" && n.props.value === 19));
-    nodes(tree)
-      .find((n) => n.type === "select" && n.props.value === 19)
-      .props.onChange({ target: { value: "20" } });
+    assert.ok(button(tree, "Check saved settings"));
+    select.props.onChange({ target: { value: "20" } });
     await tick();
-    await reply(2, { ok: true });
+    assert.equal(c.requests.length, 2);
+    button(tree, "Check saved settings").props.onClick();
+    await tick();
+    assert.equal(c.requests[2].init.method, undefined);
+    await reply(2, { ...c.settings, reminderHour: 20 });
     tree = render();
-    assert.ok(nodes(tree).find((n) => n.type === "select" && n.props.value === 20));
+    assert.match(JSON.stringify(tree), /Last visible saved settings/);
+    assert.match(JSON.stringify(tree), /earlier change is still unconfirmed/);
+    select.props.onChange({ target: { value: "21" } });
+    await tick();
+    assert.equal(c.requests.length, 3);
   }));
 
 test("a late device subscription is not bound after departure and denied permission stays retryable", () =>
@@ -556,7 +562,7 @@ test("malformed successful reminder write cannot enable UI, persist enabled flag
       JSON.stringify(current),
       /synthetic-private-detail|Your countdown is active/,
     );
-    assert.ok(button(current, "Allow practice reminders"));
+    assert.ok(button(current, "Check saved settings"));
     assert.equal(storage.has("lt.push.enabled.a"), false);
     assert.equal(c.toasts.length, 0);
     assert.equal(c.requests.length, 2);
@@ -659,13 +665,11 @@ test("reminder response reader counts exact and streamed UTF-8 bytes and rejects
       const p = pushApi(owner(), { method: "POST" });
       const rejection = assert.rejects(p, (error) => error.outcome === "unknown");
       await tick();
-      c.requests
-        .at(-1)
-        .resolve(
-          new Response(stream, {
-            headers: advertised ? { "content-length": String(PUSH_RESPONSE_MAX_BYTES + 1) } : {},
-          }),
-        );
+      c.requests.at(-1).resolve(
+        new Response(stream, {
+          headers: advertised ? { "content-length": String(PUSH_RESPONSE_MAX_BYTES + 1) } : {},
+        }),
+      );
       await rejection;
       assert.equal(cancelled, 1);
       assert.equal(stream.locked, false);
@@ -697,10 +701,135 @@ test("reminder partial-body deadline releases reader and returns UI from busy wi
     await tick();
     const current = render();
     assert.match(JSON.stringify(current), /The reminder change could not be confirmed/);
-    assert.equal(button(current, "Allow practice reminders").props.disabled, false);
+    assert.equal(button(current, "Check saved settings").props.disabled, false);
     assert.equal(storage.has("lt.push.enabled.a"), false);
     assert.equal(c.toasts.length, 0);
     assert.equal(c.requests.length, 2);
     assert.equal(cancelled, 1);
     assert.equal(stream.locked, false);
+  }));
+test("unknown reminder write blocks retained actions and read-only observations never clear uncertainty", () =>
+  fixture(async ({ c, loaded, render, reply, storage }) => {
+    const tree = await loaded();
+    const enable = button(tree, "Allow practice reminders").props.onClick;
+    const language = nodes(tree).find((n) => n.type === "select" && n.props.value === "English");
+    enable();
+    await tick();
+    await reply(1, {}, true);
+    let current = render();
+    assert.match(JSON.stringify(current), /Reminder status is unconfirmed/);
+    enable();
+    language.props.onChange({ target: { value: "Spanish" } });
+    await tick();
+    assert.equal(c.requests.length, 2);
+    assert.equal(c.permissionCalls, 1);
+    assert.equal(c.dispatches.length, 0);
+    for (const enabled of [false, true]) {
+      const check = button(current, "Check saved settings").props.onClick;
+      check();
+      check();
+      await tick();
+      const index = c.requests.length - 1;
+      assert.equal(c.requests[index].init.method, undefined);
+      await reply(index, { ...c.settings, enabled });
+      current = render();
+      assert.match(JSON.stringify(current), /Last visible saved settings/);
+      assert.ok(button(current, "Check saved settings"));
+      assert.equal(button(current, "Turn off"), undefined);
+      assert.equal(button(current, "Allow practice reminders"), undefined);
+      enable();
+      await tick();
+      assert.equal(c.requests.length, index + 1);
+    }
+    button(current, "Check saved settings").props.onClick();
+    await tick();
+    await reply(c.requests.length - 1, { error: "synthetic-private-detail" }, false);
+    current = render();
+    assert.match(JSON.stringify(current), /Saved settings could not be checked/);
+    assert.doesNotMatch(JSON.stringify(current), /synthetic-private-detail/);
+    assert.equal(storage.has("lt.push.enabled.a"), false);
+    assert.equal(c.toasts.length, 0);
+    assert.equal(c.unsubscribes, 0);
+    assert.equal(c.requests.filter((x) => x.init.method === "POST").length, 1);
+  }));
+test("context replacement during reminder write preserves uncertainty and cannot auto-read or replay", () =>
+  fixture(async ({ c, loaded, render, reply, storage }) => {
+    const tree = await loaded();
+    const enable = button(tree, "Allow practice reminders").props.onClick;
+    enable();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    c.context = { ...c.context, topicTitle: "new synthetic context" };
+    c.state = { ...c.state };
+    render();
+    await tick();
+    let current = render();
+    assert.match(JSON.stringify(current), /Reminder status is unconfirmed/);
+    assert.equal(c.requests[1].init.signal.aborted, true);
+    assert.equal(c.requests.length, 2);
+    await reply(1, { ok: true });
+    current = render();
+    enable();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    assert.equal(storage.has("lt.push.enabled.a"), false);
+    assert.equal(c.toasts.length, 0);
+    button(current, "Check saved settings").props.onClick();
+    await tick();
+    assert.equal(c.requests[2].init.method, undefined);
+    await reply(2, { ...c.settings, enabled: true });
+    current = render();
+    assert.match(JSON.stringify(current), /earlier change is still unconfirmed/);
+    assert.equal(c.requests.length, 3);
+  }));
+test("late reminder status observation cannot update replacement account or its enabled cache", () =>
+  fixture(async ({ c, loaded, render, reply, storage }) => {
+    const tree = await loaded();
+    button(tree, "Allow practice reminders").props.onClick();
+    await tick();
+    await reply(1, {});
+    let current = render();
+    button(current, "Check saved settings").props.onClick();
+    await tick();
+    assert.equal(c.requests.length, 3);
+    c.actor = "b";
+    render();
+    await tick();
+    assert.equal(c.requests.length, 4);
+    assert.equal(c.requests[2].init.signal.aborted, true);
+    const before = c.stateWrites;
+    await reply(2, { ...c.settings, enabled: true });
+    assert.equal(c.stateWrites, before);
+    await reply(3, { ...c.settings, enabled: false });
+    current = render();
+    assert.ok(button(current, "Allow practice reminders"));
+    assert.equal(button(current, "Check saved settings"), undefined);
+    assert.equal(storage.has("lt.push.enabled.b"), false);
+    assert.equal(c.toasts.length, 0);
+  }));
+test("reminder API pre-dispatch expiry stays retryable without an unknown-write latch", () =>
+  fixture(async ({ c, loaded, render, reply }) => {
+    const tree = await loaded();
+    c.credentials = [];
+    button(tree, "Allow practice reminders").props.onClick();
+    await tick();
+    assert.equal(c.credentials.length, 1);
+    assert.equal(c.requests.length, 1);
+    c.expire();
+    await tick();
+    let current = render();
+    assert.match(JSON.stringify(current), /reminder request did not start/);
+    assert.ok(button(current, "Allow practice reminders"));
+    assert.equal(button(current, "Check saved settings"), undefined);
+    c.credentials[0]({ data: { session: { user: { id: "a" }, access_token: "synthetic-token" } } });
+    await tick();
+    assert.equal(c.requests.length, 1);
+    c.credentials = null;
+    c.existing = true;
+    button(current, "Allow practice reminders").props.onClick();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    await reply(1, { ok: true });
+    current = render();
+    assert.ok(button(current, "Turn off"));
   }));

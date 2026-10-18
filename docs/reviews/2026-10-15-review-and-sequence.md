@@ -4,6 +4,20 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+
+### Internal AI writing quota stops before a new grading claim — October 18
+
+Applicationbca1bf0 passes the HTTP Request through proposeWritingReview into its internal ai_proposal budget. The existing8second/1024byte owned quota phase, namespace/hash/limit3/window60 and fixed503/nontrue429 semantics remain. Request guards at entry, after quota, after own-enrollment and rolling-allowance reads and before durable claim prevent a late preclaim result from releasing new grading work. Those enrollment/allowance waits are not newly bounded; earlier routing/response reads and whole endpoint lifetime remain separate. No global actor or new retry.
+
+Historical0a62c7d actual AI-source assertion reproduces an ignored pending quota after cancellation: late true continued to one mock grading claim and one synthetic Anthropic invocation, returning needs_review. Retained baseline log/hash/command in qa-assessment-ai-budget-local-2026-10-18.json. No real model/consent/pilot/calibration/reviewer/claim/score/billing action. Eight synthetic groups cover ignored headers/body deadlines/late disposal, byte/UTF8/JSON/denial, late enrollment/allowance guards, preabort, actual HTTP second-quota Request propagation, normal/optional legacy callers, final human score and refused claim. Existing selected-path/rubric authorization tests remain. Test harness corrections(request clone/body consumption and required consentVersion) are recorded with failed logs retained; final focused/full checks pass.
+
+Once a grading claim dispatches, existing lease/consent/provider/score/audit/finish bookkeeping remains unchanged, explicitly tested during departure. Cancellation is not rollback or proof that a provider request/score did not occur. Provider headers/body/parse ownership and bounded postclaim finalization need separate design; no auto-replay/refund/nonbilling inference. All1536Node22tests/typecheck/changed-file lint pass; production audit0; guardedartifact19.97MiB.
+
+Exact Preview https://language-threshold-p9xcgbx0a-adobetoby-5572s-projects.vercel.app, dpl_Gvn2LgNJbWX7qSoRtMFPjqhx9mGP, independently READY/targetnull/exactbca1bf0feef91feba6ddba7bab36e19c2be82b11/project/team/alias[]. All18hosted checker groups pass; QA activepersonalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained read-only. Combined qa-assessment-ai-budget-preview-2026-10-18.json. Previous evidencec00aa6c clean LinuxCI39136583171 succeeded, production skipped. Private-bank final scan96markers/1617source/149static/0hits.
+
+NEXT: final clean CI; internal AI provider/response/postclaim lifecycle and durable uncertain outcomes, remaining assessment input/read/cache/aggregate phases, durable email, build-chain/Prisma and original product acceptance. Main64f2172 and accepted companiond4ad837 remain unchanged; draftPR38 unmerged. No browser/actual owner/reviewer/business/provider/model/email/payment/exam submit/schema/policy/schedule/cleanup or production action. Full dependency audit9findings(5high/4moderate), human/device/expiry/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain open. Full goal active.
+
+
 ### Remaining assessment HTTP quota waits adopt request ownership — October 18
 
 Application0a62c7d passes Request at14remaining direct quota callsites in api.exams(9),api.exam-plans(3),api.exam-content(2), with cancellation499 fences immediately afterward. Together with prior2reviewer calls, all16direct assessmentBudget HTTP callsites found in these four routes now use the existing owned8second phase/1024byte response path. No new shared quota/hash/limit/window/schema changes. This count is not app-wide private I/O proof. Internal ai-server ai_proposal quota has no Request and remains separate. Body reads, later private work/provider waits, RPC uncertainty, permission freshness and aggregate endpoint deadlines remain separate; already-dispatched operations retain outcomes/requestIDs/revisions, no replay/refund/rollback claim.

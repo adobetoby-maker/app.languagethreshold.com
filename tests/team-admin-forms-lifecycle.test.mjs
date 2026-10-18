@@ -22,7 +22,7 @@ const text = (tree) => {
     else if (n && typeof n === "object") visit(n.props?.children);
   };
   visit(tree);
-  return values.join(" ");
+  return values.join(" ").replace(/\s+/g, " ").trim();
 };
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/admin-forms-"));
@@ -366,4 +366,103 @@ test("stale row callbacks and pending signout refuse work; failure leaves fields
     f.c.actions[0].fail();
     await tick();
     assert.equal(inputNode(f.render(), "Employee name").props.value, "Synthetic one");
+  }));
+test("walkthrough advances only after current saved acknowledgement; denial retains the same step", () =>
+  fixture(async (f) => {
+    f.c.report = {
+      ...f.c.report,
+      organization: { ...f.c.report.organization, onboarding_step: 1 },
+    };
+    let tree = f.render();
+    assert.match(text(tree), /Admin setup · step 1 of 6/);
+    const next = button(tree, "Next step").props.onClick;
+    next();
+    next();
+    assert.equal(f.c.actions.length, 1);
+    assert.deepEqual(f.c.actions[0].body, {
+      action: "onboarding",
+      orgId: "synthetic-org",
+      step: 2,
+    });
+    assert.match(text(f.render()), /Admin setup · step 1 of 6/);
+    f.c.actions[0].fail();
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 1 of 6/);
+    button(f.render(), "Next step").props.onClick();
+    f.c.actions[1].finish({});
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 2 of 6/);
+    next();
+    assert.equal(f.c.actions.length, 2);
+  }));
+test("walkthrough back/open/close use monotonic current controls and freeze during another action", () =>
+  fixture(async (f) => {
+    button(f.render(), "Admin walkthrough").props.onClick();
+    const step1 = f.render();
+    const oldNext = button(step1, "Next step").props.onClick;
+    oldNext();
+    assert.match(text(f.render()), /Admin setup · step 2 of 6/);
+    button(f.render(), "Back").props.onClick();
+    assert.match(text(f.render()), /Admin setup · step 1 of 6/);
+    oldNext();
+    assert.match(text(f.render()), /Admin setup · step 1 of 6/);
+    const close = button(f.render(), "Close walkthrough").props.onClick;
+    f.c.busy = true;
+    close();
+    assert.match(text(f.render()), /Admin setup/);
+    f.c.busy = false;
+    close();
+    assert.doesNotMatch(text(f.render()), /Admin setup · step/);
+    oldNext();
+    assert.doesNotMatch(text(f.render()), /Admin setup · step/);
+    assert.equal(f.c.actions.length, 0);
+  }));
+test("walkthrough late success cannot change departed account/data or unmounted state", () =>
+  fixture(async (f) => {
+    f.c.report = {
+      ...f.c.report,
+      organization: { ...f.c.report.organization, onboarding_step: 2 },
+    };
+    button(f.render(), "Next step").props.onClick();
+    f.c.actor = "b";
+    f.render();
+    f.c.actions[0].finish({});
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 2 of 6/);
+    button(f.render(), "Next step").props.onClick();
+    f.c.report = { ...f.c.report };
+    f.render();
+    f.c.actions[1].finish({});
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 2 of 6/);
+    button(f.render(), "Next step").props.onClick();
+    f.unmount();
+    const writes = f.c.writes;
+    f.c.actions[2].finish({});
+    await tick();
+    assert.equal(f.c.writes, writes);
+  }));
+test("walkthrough finish waits for persisted setup and cannot close through failed save or pending signout", () =>
+  fixture(async (f) => {
+    f.c.report = {
+      ...f.c.report,
+      organization: { ...f.c.report.organization, onboarding_step: 5 },
+    };
+    button(f.render(), "Next step").props.onClick();
+    f.c.actions[0].finish({});
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 6 of 6/);
+    button(f.render(), "Finish setup").props.onClick();
+    assert.match(text(f.render()), /Admin setup · step 6 of 6/);
+    f.c.actions[1].fail();
+    await tick();
+    assert.match(text(f.render()), /Admin setup · step 6 of 6/);
+    f.c.signingOut = true;
+    button(f.render(), "Finish setup").props.onClick();
+    assert.equal(f.c.actions.length, 2);
+    f.c.signingOut = false;
+    button(f.render(), "Finish setup").props.onClick();
+    f.c.actions[2].finish({});
+    await tick();
+    assert.doesNotMatch(text(f.render()), /Admin setup · step/);
   }));

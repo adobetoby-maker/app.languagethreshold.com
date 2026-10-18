@@ -695,6 +695,46 @@ function OwnedAdminWorkspace({
       if (lease.isCurrent() && viewCurrent()) after?.(result);
     });
   }
+  const tourRevision = useRef(0);
+  const renderedTourRevision = tourRevision.current;
+  const currentTour = () =>
+    capture().isCurrent() &&
+    viewCurrent() &&
+    !isBusy() &&
+    renderedTourRevision === tourRevision.current;
+  function changeTour(step: number, show: boolean) {
+    tourRevision.current += 1;
+    setTourStep(step);
+    setShowTour(show);
+  }
+  function openTour() {
+    if (currentTour()) changeTour(1, true);
+  }
+  function closeTour() {
+    if (currentTour()) changeTour(tourStep, false);
+  }
+  function backTour() {
+    if (currentTour() && showTour && tourStep > 1) changeTour(tourStep - 1, true);
+  }
+  async function nextTour() {
+    if (!currentTour() || !showTour || tourStep < 1 || tourStep > 6) return;
+    const next = Math.min(6, tourStep + 1);
+    const show = tourStep < 6;
+    if (next <= data.organization.onboarding_step) {
+      changeTour(next, show);
+      return;
+    }
+    const lease = capture();
+    await adminAct(
+      { action: "onboarding", orgId, step: next },
+      show ? "Setup progress saved." : "Setup complete.",
+      () => {
+        // Parent keeps its shared flight busy through acknowledgement and refresh.
+        if (lease.isCurrent() && viewCurrent() && renderedTourRevision === tourRevision.current)
+          changeTour(next, show);
+      },
+    );
+  }
   function begin() {
     const lease = capture();
     if (!userId || !viewCurrent() || !lease.isCurrent() || operation.current || isBusy())
@@ -1025,42 +1065,22 @@ function OwnedAdminWorkspace({
                     "Manage seats, assign Spanish modules, and review practice. Private AI conversations stay private.",
                     "Confirm the company and billing contact before inviting learners.",
                     "Each pending learner invitation reserves one paid seat.",
-                    "Every published module is included for each learner; Roofing Foreman is ready for your crew.",
-                    "For Roofing, require 30 lessons and at least 20 of 25 correct answers for a certificate.",
+                    "Each learner can practice any published module; choose the first module for this team.",
+                    "Legacy Roofing completion certificates require 30 recorded lessons and 20 of 25 test answers correct. This is separate from assessed proficiency.",
                     "Check your roster, copy the admin summary, and track progress here. Share invitation links through your company email when automatic email is unavailable.",
                   ][tourStep - 1]
                 }
               </p>
             </div>
-            <button className={secondary + " h-fit"} onClick={() => setShowTour(false)}>
+            <button disabled={busy} className={secondary + " h-fit"} onClick={closeTour}>
               Close walkthrough
             </button>
           </div>
           <div className="mt-5 flex gap-2">
-            <button
-              disabled={busy || tourStep === 1}
-              onClick={() => setTourStep((step) => Math.max(1, step - 1))}
-              className={secondary}
-            >
+            <button disabled={busy || tourStep === 1} onClick={backTour} className={secondary}>
               Back
             </button>
-            <button
-              disabled={busy}
-              onClick={async () => {
-                if (tourStep === 6) {
-                  setShowTour(false);
-                  await act({ action: "onboarding", orgId, step: 6 }, "Setup complete.");
-                } else {
-                  setTourStep((step) => step + 1);
-                  if (tourStep >= data.organization.onboarding_step)
-                    await act(
-                      { action: "onboarding", orgId, step: tourStep + 1 },
-                      "Setup progress saved.",
-                    );
-                }
-              }}
-              className={button}
-            >
+            <button disabled={busy} onClick={() => void nextTour()} className={button}>
               {tourStep === 6 ? "Finish setup" : "Next step"}
             </button>
           </div>
@@ -1079,13 +1099,7 @@ function OwnedAdminWorkspace({
             <button className={secondary} onClick={csv}>
               <FileDown className="mr-1 inline h-4 w-4" /> Export CSV
             </button>
-            <button
-              className={secondary}
-              onClick={() => {
-                setTourStep(1);
-                setShowTour(true);
-              }}
-            >
+            <button className={secondary} disabled={busy} onClick={openTour}>
               Admin walkthrough
             </button>
             <button

@@ -5,6 +5,21 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 18
 
 
+### Public cache writes remain part of service-worker event lifetime — October 18
+
+Application59f7044 tracks cache opening and cache.put under event.waitUntil for public lesson content/decks, static assets and public navigation. Response delivery stays independent of storage. Write/open failures inside the optional write job are contained; no offline-save success is inferred after failure. General cache upgrades17→18, old general caches are purged on activation, completed named lesson packs retained. Existing exclusions/private response/header/route rules remain; no new private cache admission.
+
+Historicalbef09ce actualpublic/sw.js NodeVM regression proved tracked lifetime settled while a deferred lesson cache.put was still pending. Assertion/hash/command in qa-service-worker-write-local-2026-10-18.json. Five new groups cover cachedrefresh/uncachedcontent/decks, deferredcacheopen+put for assets/navigation, independent response delivery,quota/writeopenfailures, privatepolicy/exclusions.23focusedworker/privacy/navigation/offlinepackgroups and full1679Node22tests pass; changedfilelint/productionaudit0/guardedartifact20.01MiB pass. JavaScriptonly, TSsources unchanged; prior exactheadbef09ce cleanLinuxCI39143796268 succeeded including typecheck, production skipped/VercelchecksSUCCESS. Current exact-head CI still required.
+
+W3C service-worker specification read via agent-reach/Jina Reader confirms respondWith adds its response promise to event lifetime and waitUntil accepts new lifetime promises while active; helper attaches each write before existing response/refresh lifetime settles. Primary sources: https://w3c.github.io/ServiceWorker/#wait-until-method and https://w3c.github.io/ServiceWorker/#fetch-event-respondwith. This is implementation/spec/VM evidence, not physical browser termination or real offline/install/device acceptance; user agents/storage can impose limits.
+
+Bounded manualcache review(17sourcefilehashes/localreport) distinguishes account-keyed client WordCard, exactpubliclesson serverdictionary/game caches, publicstatic/moduleword caches and owner-keyed Exams/speech device data/authcleanup. No new cross-account leak established in inspected boundaries. Shared UIpreferences/traininghintcounters remain; searchmatches and this pass are not app-wide privacy proof. No browser actions, sessioninjection or DevTools/network override.
+
+Exact Preview https://language-threshold-rirutqv4z-adobetoby-5572s-projects.vercel.app, dpl_FQtvZ5as4K2BzgPMz5PLfWkpdRi7, independently READY/targetnull/exact59f7044caea6755fed23891e446a74b9486d4da6/project/team/alias[]. All18hosted checker groups pass; all59contentfiles+index and servedversion18worker match source hashes/media(61readonlyrequests). QA activepersonalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained read-only. Combined qa-service-worker-write-preview-2026-10-18.json. Final private-bank scan96markers/1721source/209static/0hits. Remaining authorization/read-body/aggregate and uncertain mutation/finalization waits stay separate.
+
+Main/live814b304 and acceptedcompaniond4ad837 remain baselines; PR38draft/unmerged, no production promotion/schema/role/policy/speech/schedule/cleanup action.59generatedfiles reviewed:false/17shortmodules260lessons short. Original humanreview/device/expiry/recovery/content/calibration/reviewer/realconsentedpilot/retention/scheduler/59module gates and9developmentauditfindings/legacyPrisma remainopen. No repeated retention question. Full goal active.
+
+
 ### AI authorization handoffs stop late private work; checkpoint outages remain service errors — October 18
 
 Application75199a8 passes the explicit AI HTTP Request through attemptAccess/enrollmentAccess. Three primary attempt/checkpoint/enrollment GETs receive incoming signal and retry(false) before maybeSingle; checks at entry/between awaits prevent an ignored late result from releasing the next private lookup. Existing personal/team/member/independent-review rules remain. Other callers withoutRequest retain retry/permission behavior. No new shared timer/bytes/projection caps: a transport ignoring abort can still wait until its late reply; this is handoff fencing, not an aggregate deadline.

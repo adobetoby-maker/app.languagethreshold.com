@@ -223,37 +223,63 @@ export async function speakRemote(
       return;
     }
 
-    const el = audioEl();
-    el.pause();
-    el.src = `/api/tts?lang=${lang}&text=${encodeURIComponent(text)}`;
-    el.playbackRate = rate;
-    el.onplaying = notifyStart;
+    const controller = new AbortController();
+    const cancelRequest = () => controller.abort();
+    cancelPlayback = cancelRequest;
+    let objectUrl: string | null = null;
+    try {
+      const response = await fetch("/api/tts", {
+        method: "POST",
+        cache: "no-store",
+        signal: controller.signal,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, lang }),
+      });
+      if (!current()) return;
+      if (!response.ok) throw new Error("TTS unavailable");
+      const blob = await response.blob();
+      if (!current()) return;
+      objectUrl = URL.createObjectURL(blob);
+      const el = audioEl();
+      el.pause();
+      el.src = objectUrl;
+      el.playbackRate = rate;
+      el.onplaying = notifyStart;
 
-    const completed = await new Promise<boolean | null>((resolve) => {
-      let settled = false;
-      const done = (heard: boolean | null) => {
-        if (settled) return;
-        settled = true;
-        if (ownsGeneration()) {
-          cancelPlayback = null;
-          el.onplaying = null;
-          el.onended = null;
-          el.onerror = null;
-          el.removeAttribute("src");
-          el.load();
+      const completed = await new Promise<boolean | null>((resolve) => {
+        let settled = false;
+        const done = (heard: boolean | null) => {
+          if (settled) return;
+          settled = true;
+          if (ownsGeneration()) {
+            cancelPlayback = null;
+            el.onplaying = null;
+            el.onended = null;
+            el.onerror = null;
+            el.removeAttribute("src");
+            el.load();
+          }
+          resolve(current() ? heard : null);
+        };
+        cancelPlayback = () => {
+          controller.abort();
+          done(null);
+        };
+        el.onended = () => done(true);
+        el.onerror = () => done(false);
+        try {
+          el.play().catch(() => done(false));
+        } catch {
+          done(false);
         }
-        resolve(current() ? heard : null);
-      };
-      cancelPlayback = () => done(null);
-      el.onended = () => done(true);
-      el.onerror = () => done(false);
-      try {
-        el.play().catch(() => done(false));
-      } catch {
-        done(false);
-      }
-    });
-    if (completed !== null) notify(completed);
+      });
+      if (completed !== null) notify(completed);
+    } catch {
+      if (current()) notify(false);
+    } finally {
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+      if (cancelPlayback === cancelRequest) cancelPlayback = null;
+    }
   } finally {
     opts?.signal?.removeEventListener("abort", abortOwned);
   }

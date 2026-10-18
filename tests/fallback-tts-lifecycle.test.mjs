@@ -15,12 +15,28 @@ function deferred() {
 
 test("actual fallback TTS clears learner-text source and rejects stale completion/fallback across stop or replacement", async () => {
   const saved = {
+    createObjectURL: URL.createObjectURL,
+    revokeObjectURL: URL.revokeObjectURL,
+    fetch: globalThis.fetch,
     window: globalThis.window,
     Audio: globalThis.Audio,
     utterance: globalThis.SpeechSynthesisUtterance,
   };
   const plays = [],
     utterances = [];
+  const created = [],
+    revoked = [];
+  URL.createObjectURL = () => {
+    const url = `blob:fixture-${created.length}`;
+    created.push(url);
+    return url;
+  };
+  URL.revokeObjectURL = (url) => revoked.push(url);
+  const requests = [];
+  globalThis.fetch = async (url, opts) => {
+    requests.push({ url, opts });
+    return { ok: true, blob: async () => new Blob(["synthetic audio"]) };
+  };
   let audio;
   let cancellations = 0;
   globalThis.Audio = class {
@@ -88,17 +104,25 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
       m.speakRemote(text, locale, { voiceURI, onend: () => ends++, onerror: () => failures++ });
     const a = start("Synthetic private A");
     await tick();
-    assert.match(audio.src, /Synthetic%20private%20A/);
+    assert.match(audio.src, /^blob:/);
+    assert.equal(requests[0].url, "/api/tts");
+    assert.equal(requests[0].opts.method, "POST");
+    assert.equal(requests[0].opts.cache, "no-store");
+    assert.deepEqual(JSON.parse(requests[0].opts.body), {
+      text: "Synthetic private A",
+      lang: "ps",
+    });
     const oldEnd = audio.onended;
     const b = start("Synthetic private B");
     await a;
+    await tick();
     assert.equal(ends, 0);
     const newEnd = audio.onended;
     oldEnd();
     plays[0].reject(new Error("old rejection"));
     await tick();
     assert.equal(audio.onended, newEnd);
-    assert.match(audio.src, /private%20B/);
+    assert.match(audio.src, /^blob:/);
     assert.equal(ends, 0);
     m.stopRemoteTTS();
     await b;
@@ -110,12 +134,14 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     await tick();
     assert.equal(ends, 0);
     const c = start("Current");
+    await tick();
     const end = audio.onended;
     end();
     end();
     await c;
     assert.equal(ends, 1);
     assert.equal(audio.src, "");
+    assert.deepEqual(revoked, created, "completed and replaced audio URLs released");
     const device = start("Device A", "en-US");
     await tick();
     const deviceA = utterances.at(-1),
@@ -145,6 +171,7 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     assert.equal(ends, 2);
     assert.equal(failures, 1);
     const brokenRemote = start("Failed Pashto");
+    await tick();
     const failRemote = audio.onerror,
       oldRemoteEnd = audio.onended;
     failRemote();
@@ -152,6 +179,45 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     await brokenRemote;
     assert.equal(ends, 2);
     assert.equal(failures, 2);
+    // Stop during transport and blob decoding must not create late playback.
+    const oldSource = audio.src;
+    const transport = deferred();
+    globalThis.fetch = (url, opts) => {
+      requests.push({ url, opts });
+      return transport.promise;
+    };
+    const late = start("Departed transport");
+    m.stopRemoteTTS();
+    assert.equal(requests.at(-1).opts.signal.aborted, true);
+    transport.resolve(new Response(new Blob(["late"])));
+    await late;
+    assert.equal(audio.src, oldSource);
+    const decoding = deferred();
+    globalThis.fetch = async () => ({ ok: true, blob: () => decoding.promise });
+    const lateBlob = start("Departed blob");
+    await tick();
+    m.stopRemoteTTS();
+    globalThis.fetch = saved.fetch;
+    decoding.resolve(new Blob(["late blob"]));
+    await lateBlob;
+    assert.equal(audio.src, "");
+    const privateBlob = deferred();
+    globalThis.fetch = async () => ({ ok: true, blob: () => privateBlob.promise });
+    let ownerCurrent = true;
+    const createdBefore = created.length;
+    const departedOwner = m.speakRemote("Private owner A", "ps-AF", {
+      owner: { userId: "synthetic-a", isCurrent: () => ownerCurrent },
+      onend: () => ends++,
+      onerror: () => failures++,
+    });
+    await tick();
+    ownerCurrent = false;
+    privateBlob.resolve(new Blob(["late owner A"]));
+    await departedOwner;
+    assert.equal(created.length, createdBefore, "late previous-owner blob cannot become playable");
+    assert.equal(ends, 2);
+    assert.equal(failures, 2);
+    globalThis.fetch = saved.fetch;
     // Use the real preference encoding accepted by the production decoder.
     const { encodeGoogleVoicePreference } = await import("../src/data/mission-tts.ts");
     const pref = encodeGoogleVoicePreference({ name: "fixture", languageCodes: ["es-CR"] });
@@ -218,6 +284,9 @@ test("actual fallback TTS clears learner-text source and rejects stale completio
     await cloudTiming;
     assert.equal(starts, 2, "stopped Google start cannot update timing");
   } finally {
+    URL.createObjectURL = saved.createObjectURL;
+    URL.revokeObjectURL = saved.revokeObjectURL;
+    globalThis.fetch = saved.fetch;
     globalThis.window = saved.window;
     globalThis.Audio = saved.Audio;
     globalThis.SpeechSynthesisUtterance = saved.utterance;

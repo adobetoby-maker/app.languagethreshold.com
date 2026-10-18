@@ -1,0 +1,145 @@
+{
+  "testedAt": "2026-10-18T03:58:42.266315+00:00",
+  "applicationCommit": "f3610dd6ff39a974b0e0a8203a467ff3644b404a",
+  "preview": "https://language-threshold-qo9x2xka2-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-qo9x2xka2-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_AwecP6yCY5AWk5ttwCVqKtWPnNMN",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-qo9x2xka2-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "f3610dd6ff39a974b0e0a8203a467ff3644b404a",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1224,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.85,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1382,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/exam-listening-lifecycle.test.mjs",
+    "tests/private-review-audio-lifecycle.test.mjs",
+    "tests/exam-speech-capture-lifecycle.test.mjs",
+    "tests/assessment-history-export-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Learner listening and private review audio requests carry the original mounted actor/current playback owner through credentials and blob delivery",
+    "Recording policy reads, recheck before microphone permission, upload and conflict policy refresh bind their original account and current operation",
+    "Recording uploads preserve the original in-memory take and retry request/revision after SDK mismatch; current retry clears the take only after authenticated attachment and current reload",
+    "Speech review acknowledgement and withdrawal carry original evidence/account/action ownership; mismatch cannot acknowledge, withdraw or notify changed",
+    "History CSV export binds its original actor/enrollment/current flight before fetch, blob parsing and native handoff; current retry retains original CSV contract",
+    "React review retained hook order, existing effect dependencies, resource disposal, accessibility controls and parallel-independent behavior; no new runtime/dependency introduced"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-media-owner-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Six added actual component/lifecycle/client groups use synthetic SDK identities, credentials, policy, non-speech blobs, transport, microphone and download surfaces. No real recording, policy consent, upload, review, withdrawal or native CSV download occurred",
+    "Initial fixture mismatches for the listening helper adapter, upload header/attachment shape and visible recording label were corrected to existing production contracts before valid checks",
+    "Speech takes and upload metadata remain page-memory state; no durable recording recovery or cross-process upload replay guarantee added",
+    "All found production callers of examAudioRequest, uploadExamSpeech and examHistoryExport now supply owners, but remaining direct reviewer/content/readiness/plan/other assessment JSON calls and speaking credential binding still require migration",
+    "Client cancellation cannot undo accepted server actions or retract native audio/download delivery already started; server authorization/retention/review qualification remain separate",
+    "Controlled source tests and existing hosted read-only checks do not establish real audio/microphone/iPhone Safari/native-download/browser SDK expiry/process-restart acceptance",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform release gates remain open. Collection/policies/schedule OFF; pending owner questions not repeated"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-draft-owner-preview-2026-10-18.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "storageInventoryFollowup": {
+    "scope": "Assessment audio, upload/policy, speech evidence action and history-export SDK ownership",
+    "remaining": [
+      "remaining reviewer/content/readiness/plan/other assessment JSON direct callers and speaking SDK binding",
+      "broader helper/cache/device inventory and genuine browser/process-restart/SDK expiry/native/device acceptance",
+      "uncertain writes/server concurrency, authentic new offline completion and legacy certificate reconciliation",
+      "human/content/calibration/equivalence/reviewer/pilot/catalog/operational release gates"
+    ]
+  },
+  "documentationConsulted": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/reference/javascript/maybesingle"
+  ],
+  "baselineComparison": {
+    "commit": "1904608c5a151d89a2643e8e8f3c062e62670919",
+    "cases": [
+      {
+        "source": "src/components/exams/PrivateExamAudio.tsx",
+        "case": "SDK B returned during displayed A playback",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/components/exams/ExamSpeechQuestion.tsx",
+        "case": "SDK B returned during displayed A upload",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      }
+    ],
+    "currentCasesPass": true,
+    "limit": "Controlled previous-component substitution with current helper, synthetic SDK and transport; not actual private audio exposure or cross-account upload/server authorization bypass."
+  }
+}

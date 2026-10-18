@@ -2,18 +2,28 @@ import { createClient, isAuthRetryableFetchError, type User } from "@supabase/su
 import { createHash, randomBytes } from "node:crypto";
 import { ZodError } from "zod";
 import { teamAuthFetch } from "./team-auth-fetch";
+import { teamMemberFetch } from "./team-member-fetch";
+
+// Request scope belongs to the client object; it is never a shared current actor.
+const clientRequests = new WeakMap<object, Request>();
 
 export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new TeamOperationError("Team database is not configured.", 503);
   const transport = authRequest
-    ? teamAuthFetch(url, authRequest.signal, fetcher ?? fetch)
+    ? teamAuthFetch(
+        url,
+        authRequest.signal,
+        teamMemberFetch(url, authRequest.signal, fetcher ?? fetch),
+      )
     : fetcher;
-  return createClient(url, key, {
+  const db = createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
     ...(transport ? { global: { fetch: transport } } : {}),
   });
+  if (authRequest) clientRequests.set(db, authRequest);
+  return db;
 }
 
 export type TeamDb = ReturnType<typeof teamAdminClient>;
@@ -79,13 +89,21 @@ async function waitForAuthenticatedUser(
 }
 
 export async function memberRole(db: TeamDb, orgId: string, userId: string) {
+  const request = clientRequests.get(db);
+  const current = () => {
+    if (request?.signal.aborted) throw new TeamOperationError("Team request cancelled.", 499);
+  };
+  current();
   const { data, error } = await db
     .from("team_members")
     .select("role,status,display_name")
     .eq("organization_id", orgId)
     .eq("user_id", userId)
+    .retry(false)
     .maybeSingle();
-  if (error) throw error;
+  current();
+  if (error)
+    throw new TeamOperationError("Company access could not be confirmed. Please try again.", 503);
   return data?.status === "active" ? data : null;
 }
 

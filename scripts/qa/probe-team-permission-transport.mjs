@@ -5,6 +5,11 @@ import { mkdirSync, mkdtempSync, rmSync, readFileSync, writeFileSync } from "nod
 import { resolve, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
+const baseline = process.env.LT_TEAM_PERMISSION_BASELINE;
+assert.ok(
+  baseline,
+  "Historical defect probe: set LT_TEAM_PERMISSION_BASELINE=3c51f9c; use tests/team-member-transport.test.mjs for current behavior.",
+);
 const organization = "11111111-1111-4111-8111-111111111111";
 const actor = "22222222-2222-4222-8222-222222222222";
 const row = { role: "admin", status: "active", display_name: "Synthetic fixture" };
@@ -36,6 +41,18 @@ try {
     packages: "external",
     logLevel: "silent",
     plugins: [
+      {
+        name: "historical-helper",
+        setup(b) {
+          b.onLoad({ filter: /\/src\/lib\/team-server\.ts$/ }, () => ({
+            contents: execFileSync("git", ["show", `${baseline}:src/lib/team-server.ts`], {
+              encoding: "utf8",
+            }),
+            loader: "ts",
+            resolveDir: resolve("src/lib"),
+          }));
+        },
+      },
       {
         name: "route-shell",
         setup(b) {
@@ -222,7 +239,7 @@ try {
   ];
   const report = {
     probedAt: new Date().toISOString(),
-    sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
+    sourceCommit: execFileSync("git", ["rev-parse", baseline], { encoding: "utf8" }).trim(),
     runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
     versions: Object.fromEntries(
       ["supabase-js", "postgrest-js"].map((name) => [
@@ -250,7 +267,13 @@ try {
     },
     sources: paths.map((path) => ({
       path,
-      sha256: createHash("sha256").update(readFileSync(path)).digest("hex"),
+      sha256: createHash("sha256")
+        .update(
+          path === "src/lib/team-server.ts"
+            ? execFileSync("git", ["show", `${baseline}:${path}`])
+            : readFileSync(path),
+        )
+        .digest("hex"),
     })),
     limits: [
       "Observes current actual production factory/helper and actual route with installed SDK, synthetic project/credentials/transports only. No real network, membership/role read, user/team write, email, financial, consent, exam, certificate or private data access.",
@@ -260,7 +283,7 @@ try {
     ],
   };
   writeFileSync(
-    "docs/reviews/qa-team-permission-transport-probe-2026-10-18.json",
+    process.env.LT_QA_REPORT_PATH ?? join(dir, "historical-probe.json"),
     JSON.stringify(report, null, 2) + "\n",
   );
   console.log(JSON.stringify({ observations: report.observations, versions: report.versions }));

@@ -60,6 +60,7 @@ async function fixture() {
         limit() {
           return Promise.resolve(result());
         },
+        retry(enabled) { assert.equal(enabled, false); return this; },
         maybeSingle() {
           return Promise.resolve(result());
         },

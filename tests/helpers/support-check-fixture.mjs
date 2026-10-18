@@ -212,6 +212,7 @@ export async function supportCheckFixture() {
           const r = result();
           return { ...r, data: r.data[0] ?? null };
         },
+        retry(enabled) { if (enabled !== false) throw new Error("Expected selected retry disabled"); return this; },
         async maybeSingle() {
           const r = result();
           return { ...r, data: r.data[0] ?? null };

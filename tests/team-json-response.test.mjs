@@ -87,6 +87,7 @@ test("actual team admin and platform owner denials retain typed fixed 403 guidan
           eq() {
             return this;
           },
+          retry(enabled) { assert.equal(enabled, false); return this; },
           maybeSingle: async () => ({ data: null, error: null }),
         };
       },

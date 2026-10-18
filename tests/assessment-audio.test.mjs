@@ -145,6 +145,7 @@ test("learner clip access denies admin/foreign/submitted/paused and unknown-item
     const query = {
       select: () => query,
       eq: () => query,
+      retry(enabled) { assert.equal(enabled, false); return this; },
       maybeSingle: async () => ({ data: rows[table], error: null }),
       single: async () => ({ data: rows[table], error: null }),
     };

@@ -1,0 +1,69 @@
+{
+  "applicationCommit": "ce5fa2a513d076ae43929614dbd2126f30c8e919",
+  "testedAt": "2026-10-18T04:41:50.232Z",
+  "scope": "Direct named speakMissionTts/speakRemote call options under src; not aliases, wrappers, arbitrary fetch, provider policy or native runtime proof",
+  "calls": 10,
+  "withoutExplicitOwner": [],
+  "entries": [
+    {
+      "path": "src/components/VoicePicker.tsx",
+      "line": 181,
+      "helper": "speakMissionTts",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamListeningQuestion.tsx",
+      "line": 95,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/missionary/FieldPrepMode.tsx",
+      "line": 178,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/missionary/useMissionarySpeech.ts",
+      "line": 141,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/modules/ModuleFieldPrep.tsx",
+      "line": 198,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/speak/SpeakingMissionsPreview.tsx",
+      "line": 586,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/speak/SpeakingMissionsPreview.tsx",
+      "line": 603,
+      "helper": "speakMissionTts",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-owned-speaker.ts",
+      "line": 52,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/lib/tts.ts",
+      "line": 168,
+      "helper": "speakMissionTts",
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/state/speech-state.tsx",
+      "line": 347,
+      "helper": "speakRemote",
+      "ownerSupplied": true
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "22627db",
+  "application": "ce5fa2a",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-1o4eaq6ne-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-5wdcn2z87-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-owner-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-remote-owner-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "22627dbef8da49ae41e075e056b0e9320653acde",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-owner-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "ce5fa2a513d076ae43929614dbd2126f30c8e919",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-remote-owner-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -669,5 +669,15 @@
     "chatTipChallengeAttestationOwned": true,
     "remoteTtsOwned": false,
     "actualConsentOrProviderCall": false
+  },
+  "latestLocalRemoteOwnerFollowup": {
+    "application": "ce5fa2a",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-remote-owner-preview-2026-10-18.json",
+    "googleTtsOwnerForwarded": true,
+    "directNamedTtsCalls": 10,
+    "directNamedTtsCallsWithoutOwner": 0,
+    "broaderTransportInventoryComplete": false,
+    "actualProviderOrNativeAudio": false
   }
 }

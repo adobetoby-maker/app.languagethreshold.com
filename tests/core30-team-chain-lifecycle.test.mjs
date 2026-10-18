@@ -406,6 +406,7 @@ test("guest and second account cannot replay original account proof; pending sig
     c.signingOut = true;
     await reply(3, { recorded: 1 });
     await done;
+    assert.equal(render().marking, false);
     assert.equal(c.actions.length, 0);
     assert.equal(JSON.parse(c.storage.getItem(c.storage.key(0))).phase, "pending");
   }));

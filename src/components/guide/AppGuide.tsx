@@ -1090,7 +1090,7 @@ function OwnedLessonRunner({
       completed.current = sequential;
       if (sequential) onComplete();
     } finally {
-      if (current()) setMarking(false);
+      if (lease.isCurrent() && markFlight.current === controller) setMarking(false);
       if (markFlight.current === controller) markFlight.current = null;
       release();
       controller.abort();
@@ -1144,7 +1144,7 @@ function OwnedLessonRunner({
           error instanceof Error ? error.message : "Saved team completion could not be checked.",
         );
     } finally {
-      if (current()) setMarking(false);
+      if (lease.isCurrent() && markFlight.current === controller) setMarking(false);
       if (markFlight.current === controller) markFlight.current = null;
       release();
       controller.abort();

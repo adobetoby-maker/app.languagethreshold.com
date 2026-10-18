@@ -1,4 +1,4 @@
-/** Denial-only hosted checks; no valid generation body or provider request. */
+/** Denial-only hosted checks; no admissible generation body or provider request. */
 import assert from "node:assert/strict";
 import { writeFileSync } from "node:fs";
 const base = process.env.LT_QA_STAGE_URL;
@@ -13,7 +13,7 @@ for (const [name, path, opts, status] of [
   [
     "malformed-body-refused",
     "/api/tts",
-    { method: "POST", headers: { "Content-Type": "application/json" }, body: "{" },
+    { method: "POST", headers: { "Content-Type": "application/json", Origin: base }, body: "{" },
     400,
   ],
   [
@@ -21,10 +21,30 @@ for (const [name, path, opts, status] of [
     "/api/tts",
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Origin: base },
       body: JSON.stringify({ text: "Synthetic-privacy-guard", lang: "unsupported" }),
     },
     400,
+  ],
+  [
+    "absent-origin-refused",
+    "/api/tts",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: "Synthetic-privacy-guard", lang: "ps" }),
+    },
+    403,
+  ],
+  [
+    "cross-origin-refused",
+    "/api/tts",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Origin: "https://outside.invalid" },
+      body: JSON.stringify({ text: "Synthetic-privacy-guard", lang: "ps" }),
+    },
+    403,
   ],
 ]) {
   const response = await fetch(base + path, {
@@ -48,7 +68,7 @@ writeFileSync(
       preview: base,
       checks,
       limits: [
-        "Denial-only HTTP checks. No valid generation, real provider, browser/native playback or previous-cache purge proof. Guest access policy remains unchanged.",
+        "Denial-only HTTP checks. No same-origin valid generation body, real provider, browser/native playback or previous-cache purge proof. No new authentication gate; origin and durable budget guards apply to guests.",
       ],
     },
     null,

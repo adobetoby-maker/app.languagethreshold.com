@@ -10,6 +10,7 @@ import {
   HANDWRITING_CHECK_LIMITS,
   CONVERSATION_LIMITS,
   WORD_LOOKUP_LIMITS,
+  REMOTE_SPEECH_LIMITS,
 } from "../src/lib/learning-generation-security.ts";
 
 function request(headers = {}) {
@@ -209,6 +210,17 @@ test("preview and production have different counters; plain production hosts req
   }));
 
 test("every learning pool fits the deployed SQL budget RPC contract", () => {
-  for (const limits of [LEARNING_GENERATION_LIMITS, HANDWRITING_CHECK_LIMITS, CONVERSATION_LIMITS, WORD_LOOKUP_LIMITS])
+  for (const limits of [LEARNING_GENERATION_LIMITS, HANDWRITING_CHECK_LIMITS, CONVERSATION_LIMITS, WORD_LOOKUP_LIMITS, REMOTE_SPEECH_LIMITS])
     for (const limit of Object.values(limits)) assert.ok(limit >= 1 && limit <= rpcMaximum);
 });
+
+
+test("remote speech has an independent durable allowance and cannot consume lesson content capacity",()=>fixture(async({calls})=>{
+  for(let i=0;i<REMOTE_SPEECH_LIMITS.minute;i++)assert.equal(await checkLearningGenerationBudget(request(),"speech"),null);
+  const denied=await checkLearningGenerationBudget(request(),"speech");
+  assert.equal(denied.status,429);assert.equal(denied.retryAfter,60);
+  assert.deepEqual(calls.slice(0,3).map(c=>[c.body.p_request_limit,c.body.p_window_seconds]),[[30,60],[300,3600],[600,3600]]);
+  assert.equal(await checkLearningGenerationBudget(request()),null);
+  assert.notEqual(calls[0].body.p_bucket_hash,calls.at(-3).body.p_bucket_hash);
+  assert.equal(calls.at(-3).body.p_request_limit,8);
+}));

@@ -7,12 +7,32 @@ import { resolve, join } from "node:path";
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-tts-"));
   const savedFetch = globalThis.fetch,
-    savedKey = process.env.ELEVEN_API_KEY;
+    keys = [
+      "ELEVEN_API_KEY",
+      "SUPABASE_URL",
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "VERCEL_ENV",
+      "NODE_ENV",
+    ],
+    savedEnv = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
   const calls = [];
   process.env.ELEVEN_API_KEY = "synthetic-only";
+  process.env.SUPABASE_URL = "https://budget-store.invalid";
+  process.env.SUPABASE_SERVICE_ROLE_KEY = "synthetic-budget-only";
+  process.env.VERCEL_ENV = "preview";
+  process.env.NODE_ENV = "production";
+  const controls = {
+    budgetCalls: [],
+    budget: async () => Response.json(true),
+    provider: async () => new Response("synthetic audio"),
+  };
   globalThis.fetch = async (url, opts) => {
+    if (url.startsWith("https://budget-store.invalid")) {
+      controls.budgetCalls.push({ url, opts });
+      return controls.budget(url, opts);
+    }
     calls.push({ url, opts });
-    return new Response("synthetic audio");
+    return controls.provider(url, opts);
   };
   try {
     const outfile = join(dir, "route.mjs");
@@ -39,11 +59,13 @@ async function fixture(run) {
       ],
     });
     const { Route } = await import(outfile);
-    await run(Route.server.handlers, calls);
+    await run(Route.server.handlers, calls, controls);
   } finally {
     globalThis.fetch = savedFetch;
-    if (savedKey === undefined) delete process.env.ELEVEN_API_KEY;
-    else process.env.ELEVEN_API_KEY = savedKey;
+    for (const key of keys) {
+      if (savedEnv[key] === undefined) delete process.env[key];
+      else process.env[key] = savedEnv[key];
+    }
     rmSync(dir, { recursive: true, force: true });
   }
 }
@@ -54,7 +76,11 @@ function privateResponse(response) {
 const request = (body, signal) =>
   new Request("https://fixture.invalid/api/tts", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://fixture.invalid",
+      "x-vercel-forwarded-for": "192.0.2.37",
+    },
     body: typeof body === "string" ? body : JSON.stringify(body),
     signal,
   });
@@ -104,14 +130,14 @@ test("Pashto route streams private audio with text only in provider body and for
   }));
 
 test("Pashto failure responses never expose upstream bodies, thrown secrets or configuration", () =>
-  fixture(async (handlers) => {
+  fixture(async (handlers, calls, controls) => {
     for (const fail of [
       async () => new Response("synthetic-private-provider-secret", { status: 429 }),
       async () => {
         throw new Error("synthetic-private-provider-secret");
       },
     ]) {
-      globalThis.fetch = fail;
+      controls.provider = fail;
       const response = await handlers.POST({
         request: request({ text: "synthetic-private", lang: "ps" }),
       });
@@ -123,4 +149,71 @@ test("Pashto failure responses never expose upstream bodies, thrown secrets or c
     const response = await handlers.POST({ request: request({ text: "x", lang: "ps" }) });
     assert.equal(response.status, 503);
     privateResponse(response);
+  }));
+
+test("Pashto missing/cross origin, untrusted forwarding and oversized streams fail before spending", () =>
+  fixture(async (handlers, calls, c) => {
+    for (const origin of [null, "https://outside.invalid"]) {
+      const req = request({ text: "Synthetic", lang: "ps" });
+      if (origin === null) req.headers.delete("Origin");
+      else req.headers.set("Origin", origin);
+      const response = await handlers.POST({ request: req });
+      assert.equal(response.status, 403);
+      privateResponse(response);
+    }
+    const forged = request({ text: "Synthetic", lang: "ps" });
+    forged.headers.delete("x-vercel-forwarded-for");
+    forged.headers.set("x-forwarded-for", "192.0.2.99");
+    const denied = await handlers.POST({ request: forged });
+    assert.equal(denied.status, 503);
+    privateResponse(denied);
+    const large = request(" ".repeat(4097));
+    assert.equal(large.headers.get("Content-Length"), null);
+    const tooLarge = await handlers.POST({ request: large });
+    assert.equal(tooLarge.status, 413);
+    privateResponse(tooLarge);
+    const advertised = request("{}");
+    advertised.headers.set("Content-Length", "4097");
+    assert.equal((await handlers.POST({ request: advertised })).status, 413);
+    assert.equal(c.budgetCalls.length, 0);
+    assert.equal(calls.length, 0);
+  }));
+
+test("Pashto durable minute/hour/global denials and unavailable storage never contact provider", () =>
+  fixture(async (handlers, calls, c) => {
+    for (const [index, retry] of [
+      [0, 60],
+      [1, 3600],
+      [2, 3600],
+    ]) {
+      let step = 0;
+      c.budget = async () => Response.json(step++ !== index);
+      const response = await handlers.POST({ request: request({ text: "Synthetic", lang: "ps" }) });
+      assert.equal(response.status, 429);
+      assert.equal(response.headers.get("Retry-After"), String(retry));
+      privateResponse(response);
+    }
+    for (const fail of [
+      async () => new Response("unavailable", { status: 503 }),
+      async () => {
+        throw new Error("synthetic storage failure");
+      },
+      async () => new Response("invalid-json"),
+    ]) {
+      c.budget = fail;
+      const response = await handlers.POST({ request: request({ text: "Synthetic", lang: "ps" }) });
+      assert.equal(response.status, 503);
+      privateResponse(response);
+    }
+    c.budget = async () => Response.json(true);
+    const controller = new AbortController();
+    c.budget = async () => {
+      controller.abort();
+      return Response.json(true);
+    };
+    const response = await handlers.POST({
+      request: request({ text: "Synthetic", lang: "ps" }, controller.signal),
+    });
+    assert.equal(response.status, 499);
+    assert.equal(calls.length, 0);
   }));

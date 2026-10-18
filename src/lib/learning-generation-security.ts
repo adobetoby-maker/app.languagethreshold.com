@@ -16,7 +16,10 @@ export const LEARNING_GENERATION_LIMITS = { minute: 8, ipHour: 120, globalHour: 
 export const HANDWRITING_CHECK_LIMITS = { minute: 30, ipHour: 600, globalHour: 1000 } as const;
 export const CONVERSATION_LIMITS = { minute: 30, ipHour: 300, globalHour: 600 } as const;
 export const WORD_LOOKUP_LIMITS = { minute: 40, ipHour: 600, globalHour: 1000 } as const;
-export type LearningGenerationPurpose = "content" | "handwriting" | "conversation" | "lookup";
+// Repeated short fallback speech has its own pool, independent of authored content creation.
+export const REMOTE_SPEECH_LIMITS = { minute: 30, ipHour: 300, globalHour: 600 } as const;
+export type LearningGenerationPurpose =
+  "content" | "handwriting" | "conversation" | "lookup" | "speech";
 export function learningGenerationOriginError(request: Request): LearningGenerationDenial | null {
   return isStrictSameOrigin(request)
     ? null
@@ -51,13 +54,15 @@ export async function checkLearningGenerationBudget(
         : "development";
   const prefix = `learning-generation:v1:${stage}${purpose === "content" ? "" : `:${purpose}`}`;
   const limits =
-    purpose === "lookup"
-      ? WORD_LOOKUP_LIMITS
-      : purpose === "handwriting"
-        ? HANDWRITING_CHECK_LIMITS
-        : purpose === "conversation"
-          ? CONVERSATION_LIMITS
-          : LEARNING_GENERATION_LIMITS;
+    purpose === "speech"
+      ? REMOTE_SPEECH_LIMITS
+      : purpose === "lookup"
+        ? WORD_LOOKUP_LIMITS
+        : purpose === "handwriting"
+          ? HANDWRITING_CHECK_LIMITS
+          : purpose === "conversation"
+            ? CONVERSATION_LIMITS
+            : LEARNING_GENERATION_LIMITS;
   try {
     const minute = await consumeServerRequestBudget(`${prefix}:ip-minute`, ip, limits.minute);
     if (!minute)

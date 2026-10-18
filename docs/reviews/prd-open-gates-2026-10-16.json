@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-18T13:55:38.686940+00:00",
+  "auditedAt": "2026-10-18T14:08:34.527692+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+  "application": "1705da47ac3f4d4ca338a191f95a19899c63c6bc",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-fi6q0w3mg-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -1328,6 +1328,34 @@
     "maxEscapedReasonSupported": true,
     "registeredOwnerAndRpcSemanticsRetained": true,
     "privateAdminListReadsAndLaterRpcStillSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestReviewerAdminReadFollowup": {
+    "application": "1705da47ac3f4d4ca338a191f95a19899c63c6bc",
+    "evidence": "docs/reviews/qa-reviewer-admin-read-preview-2026-10-18.json",
+    "historicalProbe": "docs/reviews/qa-reviewer-admin-read-probe-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1512,
+    "hostedCheckerGroups": 18,
+    "sharedListPhaseMs": 8000,
+    "responseBudgets": {
+      "assessment_reviewers": {
+        "rows": 201,
+        "maxBytes": 262144
+      },
+      "assessment_content_reviewers": {
+        "rows": 601,
+        "maxBytes": 524288
+      },
+      "assessment_reviewer_admin_events": {
+        "rows": 50,
+        "maxBytes": 1048576
+      }
+    },
+    "postImplementationUnchanged": true,
+    "privateListsStopOnRequestDeparture": true,
+    "earlierBudgetAndMutationRpcStillSeparate": true,
+    "actualOwnerHostedAcceptanceNotAttempted": true,
     "fullGoalComplete": false
   }
 }

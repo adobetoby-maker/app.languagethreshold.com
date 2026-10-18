@@ -1,3 +1,4 @@
+import { readReviewerAdministration } from "@/lib/assessments/reviewer-admin-read";
 import { readPrivateJson, PrivateJsonRequestError } from "@/lib/private-json-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -71,48 +72,7 @@ export const Route = createFileRoute("/api/exam-reviewers")({
           const targetAccount = query.get("user")
             ? z.string().uuid().parse(query.get("user"))
             : null;
-          const [response, content, events] = await Promise.all([
-            db
-              .from("assessment_reviewers")
-              .select(
-                "user_id,module_id,target_language,instruction_language,active,revision,created_at,updated_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { user_id: targetAccount } : {})
-              .order("user_id")
-              .limit(201),
-            db
-              .from("assessment_content_reviewers")
-              .select(
-                "user_id,module_id,target_language,instruction_language,kind,active,revision,created_at,updated_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { user_id: targetAccount } : {})
-              .order("user_id")
-              .order("kind")
-              .limit(601),
-            db
-              .from("assessment_reviewer_admin_events")
-              .select(
-                "id,actor_id,target_id,module_id,target_language,instruction_language,kind,active,revision,reason,created_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { target_id: targetAccount } : {})
-              .order("created_at", { ascending: false })
-              .order("id", { ascending: false })
-              .limit(50),
-          ]);
-          if (response.error || content.error || events.error)
-            throw new AssessmentAccessError("Reviewer administration could not be loaded.", 503);
-          return json({
-            grants: [
-              ...(response.data ?? []).slice(0, 200).map((row) => ({ ...row, kind: "response" })),
-              ...(content.data ?? []).slice(0, 600),
-            ],
-            limited: (response.data?.length ?? 0) > 200 || (content.data?.length ?? 0) > 600,
-            events: events.data ?? [],
-            eventLimit: 50,
-          });
+          return json(await readReviewerAdministration(request, module, targetAccount));
         } catch (error) {
           return fail(error);
         }

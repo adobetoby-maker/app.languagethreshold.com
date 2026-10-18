@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "e527595",
+  "application": "e6a20a7",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-hfk98w7cr-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-8ixlsxsks-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "e527595a62df1061e1ac18c93fbc62f52943360c",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "e6a20a7f99d0604ee9f8b7c6beff36decfe3e863",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -789,5 +789,15 @@
     "callerForwardingFallbackAllowed": false,
     "fixedLoopbackDevelopmentBucket": true,
     "actualVercelHeaderOverwriteVerified": false
+  },
+  "latestLocalSpeakingProviderFollowup": {
+    "application": "e6a20a7",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
+    "providerDeadlineMs": 45000,
+    "maxRetries": 0,
+    "providerMaxBytes": 1048576,
+    "fourModesOwned": true,
+    "actualProviderOrNativeVerified": false
   }
 }

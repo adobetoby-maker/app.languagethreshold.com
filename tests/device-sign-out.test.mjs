@@ -294,3 +294,41 @@ test("a full browser can free approved owned cache space and then invalidate old
   assert.equal(disk.getItem(libraryDeviceKey("a")), null);
   assert.throws(() => device.add(book), /account changed/);
 });
+
+test("pending completion loss requires approval and SDK success before account-scoped discard", async () => {
+  const { createTeamCompletionJournal, pendingTeamCompletions } =
+    await import("../src/lib/team-completion-device.ts");
+  const { discardPrivateLearningDrafts } = await import("../src/lib/private-draft-discard.ts");
+  for (const outcome of ["cancel", "failure", "others", "success"]) {
+    const { disk, options } = setup();
+    Object.defineProperty(disk, "length", { get: () => disk.entries.size });
+    disk.key = (i) => [...disk.entries.keys()][i] ?? null;
+    const sessions = {
+      "11111111-1111-4111-8111-111111111111": "22222222-2222-4222-8222-222222222222",
+    };
+    for (const actor of ["a", "b"])
+      createTeamCompletionJournal(disk, actor, () => true).prepare("scope", "roofing", 1, sessions);
+    let sdkCalls = 0,
+      prompts = 0;
+    const result = await signOutWithDeviceSafety({
+      ...options,
+      scope: outcome === "others" ? "others" : "local",
+      completionPending: true,
+      confirmDiscard: (message) => {
+        prompts++;
+        assert.match(message, /pending team lesson completions/);
+        return outcome !== "cancel";
+      },
+      signOut: async () => {
+        sdkCalls++;
+        return { error: outcome === "failure" ? Error("offline") : null };
+      },
+      clearExamDrafts: () => assert.equal(discardPrivateLearningDrafts(disk, "a"), true),
+    });
+    assert.equal(prompts, outcome === "others" ? 0 : 1);
+    assert.equal(sdkCalls, outcome === "cancel" ? 0 : 1);
+    assert.equal(pendingTeamCompletions(disk, "a").count, outcome === "success" ? 0 : 1);
+    assert.equal(pendingTeamCompletions(disk, "b").count, 1);
+    assert.equal(result.signedOut, ["success", "others"].includes(outcome));
+  }
+});

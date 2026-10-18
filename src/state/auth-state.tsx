@@ -18,6 +18,7 @@ import {
   consumeAuthReturn,
   rememberAuthReturn,
 } from "@/lib/auth-return";
+import { pendingTeamCompletions } from "@/lib/team-completion-device";
 import { hasUnsyncedLessonDrafts } from "@/lib/lesson-drafts";
 import { hasUnsyncedExamDrafts, browserExamStorage } from "@/lib/assessments/drafts";
 import { toast } from "sonner";
@@ -85,14 +86,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clearSpeechForUser(previousUser);
         if (!discarded && signingOutFor.current !== previousUser) {
           const reader = pendingLibraryChanges(storage, previousUser);
+          const completions = pendingTeamCompletions(storage, previousUser);
           const retained =
+            completions.count ||
+            completions.unreadable ||
             hasUnsyncedExamDrafts(storage, previousUser) ||
             hasUnsyncedLessonDrafts(storage, previousUser) ||
             reader.count ||
             reader.unreadable;
           if (retained || hadRecording)
             toast.warning(
-              "Your session changed. Saved answers, lesson drafts and Reader changes remain under the previous account on this device. Sign back into that account to recover them. " +
+              "Your session changed. Saved answers, lesson drafts, pending team completions and Reader changes remain under the previous account on this device. Sign back into that account to recover them. " +
                 (hadRecording ? "Unsaved recordings were discarded. " : "") +
                 "Clear this app’s site data before sharing the browser.",
               { id: `lt-auth-recovery-${previousUser}`, duration: Infinity },
@@ -205,6 +209,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // add new device-only work between the warning and completed sign-out.
     if (scope !== "others") signingOutFor.current = userId;
     const storage = browserExamStorage();
+    const completions = userId
+      ? pendingTeamCompletions(storage, userId)
+      : { count: 0, unreadable: false };
     try {
       const result = await signOutWithDeviceSafety({
         actor: userId,
@@ -212,6 +219,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         storage,
         examPending: !!userId && hasUnsyncedExamDrafts(storage, userId),
         lessonPending: !!userId && hasUnsyncedLessonDrafts(storage, userId),
+        completionPending: !!(completions.count || completions.unreadable),
         confirmDiscard: (message) => typeof window !== "undefined" && window.confirm(message),
         signOut: () => supabase.auth.signOut({ scope }),
         onExamDiscardApproved: () => {},

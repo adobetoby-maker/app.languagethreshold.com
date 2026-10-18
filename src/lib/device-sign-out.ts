@@ -11,6 +11,7 @@ export async function signOutWithDeviceSafety({
   storage,
   examPending,
   lessonPending = false,
+  completionPending = false,
   confirmDiscard,
   signOut,
   onExamDiscardApproved,
@@ -21,6 +22,7 @@ export async function signOutWithDeviceSafety({
   storage: LibraryStorage | null;
   examPending: boolean;
   lessonPending?: boolean;
+  completionPending?: boolean;
   confirmDiscard: (message: string) => boolean;
   signOut: () => Promise<{ error?: unknown }>;
   onExamDiscardApproved: () => void;
@@ -28,10 +30,14 @@ export async function signOutWithDeviceSafety({
 }) {
   const local = !!actor && scope !== "others";
   const reader = local ? pendingLibraryChanges(storage, actor!) : { count: 0, unreadable: false };
-  if (local && (examPending || lessonPending || reader.count || reader.unreadable)) {
+  if (
+    local &&
+    (examPending || lessonPending || completionPending || reader.count || reader.unreadable)
+  ) {
     const items = [
       examPending ? "exam answers or recordings" : "",
       lessonPending ? "lesson drafts" : "",
+      completionPending ? "pending team lesson completions" : "",
       reader.count ? "Reader texts or library changes" : "",
     ]
       .filter(Boolean)
@@ -41,7 +47,7 @@ export async function signOutWithDeviceSafety({
         ? `Some ${items} have not synced.`
         : "This browser could not check for unsynced Reader changes.",
       reader.unreadable && items ? "Unsynced Reader changes could not be checked." : "",
-      "Signing out clears this account’s Reader cache and discards unsynced Reader, lesson or exam work on this device. Cloud-saved work remains in your account. Cancel and sync first, or sign out and discard the device-only work.",
+      "Signing out clears this account’s Reader cache and discards unsynced Reader, lesson, team completion or exam work on this device. Cloud-saved work remains in your account. Cancel and sync first, or sign out and discard the device-only work.",
     ]
       .filter(Boolean)
       .join(" ");

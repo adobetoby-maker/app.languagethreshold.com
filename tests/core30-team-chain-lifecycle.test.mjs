@@ -7,6 +7,7 @@ const tick = () => new Promise((r) => setImmediate(r));
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/lesson-team-"));
   const saved = Object.getOwnPropertyDescriptor(globalThis, "fetch");
+  const savedWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
   try {
     const source = readFileSync("src/components/guide/AppGuide.tsx", "utf8");
     const wrapper = source
@@ -32,7 +33,7 @@ async function fixture(run) {
     );
     await build({
       stdin: {
-        contents: `import {useEffect,useMemo,useRef,useState} from 'react';import {useAuth} from '@/state/auth-state';import {useApp} from '@/state/app-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {c,toast,core30ScopeKey,getCurriculum} from 'fixture';type TeamRequestOwner=any;${wrapper}function OwnedLessonRunner({moduleId,lesson,enrollmentId,onComplete}){${setup}const [marking,setMarking]=useState(false);const completionLock=useRef(false);const isCurrentSequential=(state.lessonProgress[progressKey]??0)+1===lesson.n;${effect}${actions}return {markMastered,recordAlreadyMastered,leaveLesson,marking,progressKey};}export {c};`,
+        contents: `import {useEffect,useMemo,useRef,useState} from 'react';import {useAuth} from '@/state/auth-state';import {useApp} from '@/state/app-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {createTeamCompletionJournal,browserTeamCompletionStorage} from '@/lib/team-completion-device';import {c,toast,core30ScopeKey,getCurriculum} from 'fixture';type TeamRequestOwner=any;${wrapper}function OwnedLessonRunner({moduleId,lesson,enrollmentId,onComplete}){${setup}const [marking,setMarking]=useState(false);const completionLock=useRef(false);const isCurrentSequential=(state.lessonProgress[progressKey]??0)+1===lesson.n;${effect}${actions}return {markMastered,recordAlreadyMastered,leaveLesson,retrySavedTeamCompletion,marking,progressKey};}export {c};`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },
@@ -62,7 +63,7 @@ async function fixture(run) {
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,setup:fn,cleanup:fn()};});}
 
- const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});export const useApp=()=>({state:c.state,dispatch:action=>c.actions.push(action)});
+ const isCurrentUser=id=>c.actor===id;const canUseReader=id=>c.actor===id&&!c.signingOut;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser,canUseReader});export const useApp=()=>({state:c.state,dispatch:action=>c.actions.push(action)});
  export const supabase={auth:{getSession:()=>{c.credentialReads++;return c.credentials?new Promise(resolve=>c.credentials.push(resolve)):Promise.resolve({data:{session:{user:{id:c.sdkActor??c.actor},access_token:'synthetic-token'}}});}}};
 export const toast={error:message=>c.errors.push(message)};export const core30ScopeKey=(module,context)=>JSON.stringify([module,context.targetLanguage,context.instructionLanguage,context.enrollmentId]);export const getCurriculum=()=>({lessons:Array.from({length:4},(_,i)=>({n:i+1}))});export const useMemo=(fn,deps)=>useCallback(fn,deps)();`,
             }));
@@ -77,12 +78,27 @@ export const toast={error:message=>c.errors.push(message)};export const core30Sc
       errors: [],
       navigations: 0,
       state: {
+        hydrated: true,
         selectedLanguage: "English",
         nativeLanguage: "Spanish",
         lessonProgress: {},
         core30Log: {},
       },
     });
+    const data = new Map();
+    c.storage = {
+      get length() {
+        return data.size;
+      },
+      key: (i) => [...data.keys()][i] ?? null,
+      getItem: (k) => data.get(k) ?? null,
+      setItem: (k, v) => {
+        if (c.quota) throw Error("quota");
+        data.set(k, v);
+      },
+      removeItem: (k) => data.delete(k),
+    };
+    globalThis.window = { localStorage: c.storage };
     globalThis.fetch = (path, init) =>
       new Promise((resolve, reject) => c.requests.push({ path, init, resolve, reject }));
     const instances = [];
@@ -122,7 +138,15 @@ export const toast={error:message=>c.errors.push(message)};export const core30Sc
       for (const e of c.effects.splice(0)) e();
       return n;
     };
-    const reply = async (i, payload = { sessions: { org: "synthetic-session" } }, ok = true) => {
+    const reply = async (
+      i,
+      payload = {
+        sessions: {
+          "11111111-1111-4111-8111-111111111111": "22222222-2222-4222-8222-222222222222",
+        },
+      },
+      ok = true,
+    ) => {
       c.requests[i].resolve({ ok, json: async () => payload });
       await tick();
     };
@@ -133,6 +157,8 @@ export const toast={error:message=>c.errors.push(message)};export const core30Sc
       unmount();
     }
   } finally {
+    if (savedWindow) Object.defineProperty(globalThis, "window", savedWindow);
+    else delete globalThis.window;
     if (saved) Object.defineProperty(globalThis, "fetch", saved);
     else delete globalThis.fetch;
     rmSync(dir, { recursive: true, force: true });
@@ -152,7 +178,9 @@ test("completion joins in-flight start, serializes duplicate actions and credits
     assert.equal(c.actions.length, 0);
     await reply(0);
     assert.equal(body(1).action, "lesson");
-    assert.deepEqual(body(1).sessions, { org: "synthetic-session" });
+    assert.deepEqual(body(1).sessions, {
+      "11111111-1111-4111-8111-111111111111": "22222222-2222-4222-8222-222222222222",
+    });
     await reply(1, { recorded: 1 });
     await done;
     assert.deepEqual(
@@ -276,4 +304,119 @@ test("explicit lesson exit invalidates pending completion before unmount and ref
     assert.equal(c.actions.length, 0);
     assert.equal(c.navigations, 1);
     assert.equal(c.requests.length, 2);
+  }));
+
+test("uncertain completion reopens with exact original proof and explicit retry awards no local credit", () =>
+  fixture(async ({ c, render, reply, body, unmount }) => {
+    let view = render();
+    await tick();
+    await reply(0);
+    const done = view.markMastered();
+    await tick();
+    const original = body(1);
+    const raw = c.storage.getItem(c.storage.key(0));
+    unmount();
+    await reply(1, { recorded: 1 });
+    await done;
+    assert.equal(c.actions.length, 0);
+    assert.equal(c.storage.getItem(c.storage.key(0)), raw);
+    view = render();
+    await tick();
+    assert.equal(c.requests.length, 2);
+    const retry = view.retrySavedTeamCompletion();
+    await tick();
+    assert.deepEqual(body(2), original);
+    await reply(2, { recorded: 1 });
+    await retry;
+    assert.equal(c.actions.length, 0);
+    assert.equal(c.navigations, 0);
+    assert.equal(JSON.parse(c.storage.getItem(c.storage.key(0))).phase, "acknowledged");
+    const finish = view.markMastered();
+    await tick();
+    assert.deepEqual(body(3), original);
+    await reply(3, { recorded: 1 });
+    await finish;
+    assert.equal(c.actions.filter((x) => x.type === "ADD_XP").length, 1);
+    await view.markMastered();
+    assert.equal(c.actions.length, 3);
+  }));
+test("quota before transport and acknowledgement failure preserve retry without local credit", () =>
+  fixture(async ({ c, render, reply, body }) => {
+    const view = render();
+    await tick();
+    await reply(0);
+    c.quota = true;
+    await view.markMastered();
+    assert.equal(c.requests.length, 1);
+    assert.equal(c.actions.length, 0);
+    c.quota = false;
+    let done = view.markMastered();
+    await tick();
+    const original = body(1);
+    c.quota = true;
+    await reply(1, { recorded: 1 });
+    await done;
+    assert.equal(c.actions.length, 0);
+    assert.equal(JSON.parse(c.storage.getItem(c.storage.key(0))).phase, "pending");
+    c.quota = false;
+    done = view.markMastered();
+    await tick();
+    assert.deepEqual(body(2), original);
+    await reply(2, { recorded: 0 });
+    await done;
+    assert.equal(c.actions.length, 0);
+    done = view.markMastered();
+    await tick();
+    await reply(3, { recorded: 1 });
+    await done;
+    assert.equal(c.actions.filter((x) => x.type === "ADD_XP").length, 1);
+  }));
+test("guest and second account cannot replay original account proof; pending signout freezes writes", () =>
+  fixture(async ({ c, render, reply, body }) => {
+    let view = render();
+    await tick();
+    await reply(0);
+    let done = view.markMastered();
+    await tick();
+    const original = body(1);
+    await reply(1, { error: "lost response" }, false);
+    await done;
+    c.actor = null;
+    view = render();
+    await view.retrySavedTeamCompletion();
+    assert.equal(c.requests.length, 2);
+    c.actor = "b";
+    view = render();
+    await tick();
+    await reply(2, { sessions: {} });
+    await view.retrySavedTeamCompletion();
+    assert.equal(c.requests.length, 3);
+    c.actor = "a";
+    view = render();
+    await tick();
+    assert.equal(c.requests.length, 3);
+    c.signingOut = true;
+    await view.retrySavedTeamCompletion();
+    await view.markMastered();
+    assert.equal(c.requests.length, 3);
+    c.signingOut = false;
+    done = view.retrySavedTeamCompletion();
+    await tick();
+    assert.deepEqual(body(3), original);
+    c.signingOut = true;
+    await reply(3, { recorded: 1 });
+    await done;
+    assert.equal(c.actions.length, 0);
+    assert.equal(JSON.parse(c.storage.getItem(c.storage.key(0))).phase, "pending");
+  }));
+
+test("unhydrated progress cannot start or replay team work or award local completion", () =>
+  fixture(async ({ c, render }) => {
+    c.state.hydrated = false;
+    const view = render();
+    await tick();
+    await view.markMastered();
+    await view.retrySavedTeamCompletion();
+    assert.equal(c.requests.length, 0);
+    assert.equal(c.actions.length, 0);
   }));

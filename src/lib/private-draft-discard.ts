@@ -1,6 +1,8 @@
 import { clearExamDraftsForUser, type ExamDraftStorage } from "./assessments/drafts.ts";
 import { clearLessonDraftsForUser } from "./lesson-drafts.ts";
 
+import { clearTeamCompletions } from "./team-completion-device.ts";
+
 const PREFIX = "lt.privateDraftDiscard.v1.";
 const ownedPrefixes = (actor: string) =>
   [
@@ -9,6 +11,7 @@ const ownedPrefixes = (actor: string) =>
     "lt.examGuidance.v1.",
     "lt.examInk.v1.",
     "lt.lessonDraft.v1.",
+    "lt.core30TeamCompletion.v1.",
   ].map((prefix) => prefix + encodeURIComponent(actor) + ".");
 
 /** No data or authorization is carried by this same-origin discard notice. */
@@ -25,6 +28,7 @@ export function privateDraftDiscardActor(key: string | null, value: string | nul
 export function clearPrivateLearningDrafts(storage: ExamDraftStorage | null, actor: string) {
   clearExamDraftsForUser(storage, actor);
   clearLessonDraftsForUser(storage, actor);
+  clearTeamCompletions(storage, actor);
 }
 
 /** Explicit successful sign-out only; other tabs must drop their memory fallback too. */

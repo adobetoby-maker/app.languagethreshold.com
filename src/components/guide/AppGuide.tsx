@@ -44,6 +44,10 @@ import {
   Map,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
+import {
+  createTeamCompletionJournal,
+  browserTeamCompletionStorage,
+} from "@/lib/team-completion-device";
 import { ownedTeamRequest, type TeamRequestOwner } from "@/lib/team-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAuth } from "@/state/auth-state";
@@ -645,7 +649,7 @@ function OwnedLessonRunner({
   onSectionChange?: (section: SectionId) => void;
 }) {
   const { state, dispatch } = useApp();
-  const { user } = useAuth();
+  const { user, canUseReader } = useAuth();
   const userId = user?.id;
   const progressContext = useMemo(
     () => ({
@@ -659,11 +663,14 @@ function OwnedLessonRunner({
   const teamSessions = useRef<Record<string, string>>({});
   const sessionStart = useRef<Promise<{ sessions?: Record<string, string> }> | null>(null);
   const { capture, cancel } = usePracticeLifecycle(
-    JSON.stringify([moduleId, lesson.n, progressKey]),
+    JSON.stringify([moduleId, lesson.n, progressKey, state.hydrated]),
   );
   const markFlight = useRef<AbortController | null>(null);
   const completed = useRef(false);
   const leaving = useRef(false);
+  const journalRef = useRef<ReturnType<typeof createTeamCompletionJournal> | null>(null);
+  const [teamRecovery, setTeamRecovery] = useState("");
+  const [hasTeamRecovery, setHasTeamRecovery] = useState(false);
   const { dispatch: libDispatch } = useLibrary();
 
   const [marking, setMarking] = useState(false);
@@ -781,12 +788,37 @@ function OwnedLessonRunner({
   useEffect(() => {
     teamSessions.current = {};
     sessionStart.current = null;
-    if (!userId) return;
+    if (!userId || !state.hydrated) return;
     const lease = capture();
     if (!lease.isCurrent()) return;
+    // The existing sign-out guard also freezes private completion writes while approval is pending.
+    const journal = createTeamCompletionJournal(
+      browserTeamCompletionStorage(),
+      userId,
+      () => lease.isCurrent() && canUseReader(userId),
+    );
+    journalRef.current = journal;
+    try {
+      const saved = journal.read(progressKey, lesson.n, moduleId)[0];
+      if (saved) {
+        teamSessions.current = saved.sessions;
+        sessionStart.current = Promise.resolve({ sessions: saved.sessions });
+        setTeamRecovery(
+          "An earlier team-completion request is saved on this device. Retry uses its original session proof and adds no extra XP.",
+        );
+        setHasTeamRecovery(true);
+        return;
+      }
+    } catch (error) {
+      setTeamRecovery(
+        error instanceof Error ? error.message : "Saved team completion could not be checked.",
+      );
+      setHasTeamRecovery(true);
+      return;
+    }
     const controller = new AbortController();
     const release = lease.own(() => controller.abort());
-    const current = () => lease.isCurrent() && !controller.signal.aborted;
+    const current = () => lease.isCurrent() && canUseReader(userId) && !controller.signal.aborted;
     const promise = ownedTeamRequest<{ sessions?: Record<string, string> }>(
       { userId, isCurrent: current, signal: controller.signal },
       "/api/team-activity",
@@ -815,7 +847,7 @@ function OwnedLessonRunner({
       controller.abort();
       release();
     };
-  }, [userId, moduleId, lesson.n, capture]);
+  }, [userId, moduleId, lesson.n, progressKey, state.hydrated, capture, canUseReader]);
 
   // Later practice steps resume at their controls. Starting/reopening See it
   // keeps the lesson title and Previous/Next controls visible at the page top.
@@ -895,12 +927,29 @@ function OwnedLessonRunner({
     if (!current()) return false;
     if (!owner || !Object.keys(sessions).length) return true;
     try {
-      await ownedTeamRequest(owner, "/api/team-activity", {
+      const journal = journalRef.current;
+      if (!journal)
+        throw new Error(
+          "This device could not save a recovery copy. Keep the lesson open and retry.",
+        );
+      const request = journal.prepare(progressKey, moduleId, n, sessions);
+      setHasTeamRecovery(true);
+      setTeamRecovery("Team completion is pending. Its original request is saved on this device.");
+      const result = await ownedTeamRequest<{ recorded: number }>(owner, "/api/team-activity", {
         action: "lesson",
-        moduleId,
-        lessonNumber: n,
-        sessions,
+        moduleId: request.moduleId,
+        lessonNumber: request.lessonNumber,
+        sessions: request.sessions,
       });
+      if (!current()) return false;
+      if (result.recorded !== Object.keys(request.sessions).length)
+        throw new Error(
+          "Some teams could not confirm this completion. The saved request remains for retry; no new local credit was added.",
+        );
+      journal.acknowledge(request);
+      setTeamRecovery(
+        "The team request was acknowledged. Finish this lesson if local practice progress still needs updating.",
+      );
       return current();
     } catch (error) {
       if (current())
@@ -923,11 +972,14 @@ function OwnedLessonRunner({
       if (!current()) return;
       if (owner) {
         try {
-          const started = await ownedTeamRequest<{ sessions?: Record<string, string> }>(
-            owner,
-            "/api/team-activity",
-            { action: "lesson_start", moduleId, lessonNumber: n },
-          );
+          const saved = journalRef.current?.read(progressKey, n, moduleId)[0];
+          const started = saved
+            ? { sessions: saved.sessions }
+            : await ownedTeamRequest<{ sessions?: Record<string, string> }>(
+                owner,
+                "/api/team-activity",
+                { action: "lesson_start", moduleId, lessonNumber: n },
+              );
           if (!current()) return;
           sessions = started.sessions ?? {};
         } catch (error) {
@@ -962,6 +1014,8 @@ function OwnedLessonRunner({
       let sessions = teamSessions.current;
       if (owner) {
         try {
+          const saved = journalRef.current?.read(progressKey, lesson.n, moduleId)[0];
+          if (saved) sessionStart.current = Promise.resolve({ sessions: saved.sessions });
           let start = sessionStart.current;
           if (!start) {
             start = ownedTeamRequest<{ sessions?: Record<string, string> }>(
@@ -998,12 +1052,23 @@ function OwnedLessonRunner({
   /** One mounted completion action, including any team requests and mastered-lesson chain. */
   async function finishLesson(mark: boolean) {
     const lease = capture();
-    if (!lease.isCurrent() || leaving.current || markFlight.current || completed.current) return;
+    if (
+      !state.hydrated ||
+      !lease.isCurrent() ||
+      (userId && !canUseReader(userId)) ||
+      leaving.current ||
+      markFlight.current ||
+      completed.current
+    )
+      return;
     const controller = new AbortController();
     markFlight.current = controller;
     const release = lease.own(() => controller.abort());
     const current = () =>
-      lease.isCurrent() && markFlight.current === controller && !controller.signal.aborted;
+      lease.isCurrent() &&
+      (!userId || canUseReader(userId)) &&
+      markFlight.current === controller &&
+      !controller.signal.aborted;
     const owner = userId ? { userId, isCurrent: current, signal: controller.signal } : null;
     setMarking(true);
     try {
@@ -1036,6 +1101,54 @@ function OwnedLessonRunner({
   }
   function markMastered() {
     return finishLesson(true);
+  }
+
+  async function retrySavedTeamCompletion() {
+    const lease = capture();
+    if (
+      !state.hydrated ||
+      !userId ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      leaving.current ||
+      markFlight.current
+    )
+      return;
+    const controller = new AbortController();
+    markFlight.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      markFlight.current === controller &&
+      !controller.signal.aborted;
+    setMarking(true);
+    try {
+      const request = journalRef.current?.read(progressKey, lesson.n, moduleId)[0];
+      if (!request) {
+        setHasTeamRecovery(false);
+        setTeamRecovery(
+          "No saved request remains for this lesson. Use the lesson controls to finish your practice.",
+        );
+        return;
+      }
+      await postTeamLesson(
+        request.lessonNumber,
+        request.sessions,
+        { userId, isCurrent: current, signal: controller.signal },
+        current,
+      );
+    } catch (error) {
+      if (current())
+        setTeamRecovery(
+          error instanceof Error ? error.message : "Saved team completion could not be checked.",
+        );
+    } finally {
+      if (current()) setMarking(false);
+      if (markFlight.current === controller) markFlight.current = null;
+      release();
+      controller.abort();
+    }
   }
 
   function leaveLesson(action: () => void) {
@@ -1334,6 +1447,25 @@ function OwnedLessonRunner({
               );
             })}
           </ul>
+        </section>
+      )}
+
+      {teamRecovery && (
+        <section
+          className="rounded-xl border border-border p-3 text-sm"
+          aria-label="Saved team completion"
+        >
+          <p role="status">{teamRecovery}</p>
+          {hasTeamRecovery && (
+            <button
+              type="button"
+              disabled={marking}
+              onClick={() => void retrySavedTeamCompletion()}
+              className="mt-2 min-h-11 rounded-xl border border-border px-4 disabled:opacity-50"
+            >
+              Check saved team request
+            </button>
+          )}
         </section>
       )}
 

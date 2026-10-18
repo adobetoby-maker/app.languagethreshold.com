@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "c4c3ff4",
+  "application": "245ad15",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-1e5rpzuhc-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-bfaulocvi-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-sports-news-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "c4c3ff430a39df87597a9a963ec4fa0cfc96d651",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "245ad158e3b7e463e25363e08ec61bab41d7f227",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-sports-news-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -879,5 +879,13 @@
     "ownedProviderTimeoutMs": 45000,
     "maxProviderBytes": 1048576,
     "actualProviderOrBrowserVerified": false
+  },
+  "latestLocalSportsNewsFollowup": {
+    "application": "245ad15",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-news-preview-2026-10-18.json",
+    "feedTimeoutMs": 8000,
+    "maxFeedBytes": 1048576,
+    "actualFeedOrBrowserVerified": false
   }
 }

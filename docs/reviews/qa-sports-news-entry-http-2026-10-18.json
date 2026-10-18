@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-18T08:16:17.797Z",
+  "applicationCommit": "245ad158e3b7e463e25363e08ec61bab41d7f227",
+  "preview": "https://language-threshold-bfaulocvi-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "sports-news",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "sports-news",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "sports-news",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "sports-news",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "sports-news",
+      "name": "oversized-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Invalid origin/JSON/schema/size only, before any RSS feed request. No actual feed retrieval, browser delivery, network impairment or endpoint performance proof. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

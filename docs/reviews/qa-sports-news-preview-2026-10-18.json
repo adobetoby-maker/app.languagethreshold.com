@@ -1,0 +1,91 @@
+{
+  "testedAt": "2026-10-18T08:16:42.510799+00:00",
+  "applicationCommit": "245ad158e3b7e463e25363e08ec61bab41d7f227",
+  "preview": "https://language-threshold-bfaulocvi-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-bfaulocvi-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_82iSLtwY1iopRPL3hhFaFyQCA9BG",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-bfaulocvi-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "245ad158e3b7e463e25363e08ec61bab41d7f227",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
+  "local": {
+    "tests": 1361,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1470,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Sports news refuses foreign/missing origin, reads at most 4 KiB under the shared owned 10-second input deadline before any feed fetch, and returns fixed private/no-store/CDN/no-store/nosniff handled responses",
+    "Each selected fixed feed URL owns one eight-second no-store fetch/read phase and 1 MiB advertised/actual response bound, strict UTF-8 decoding, incoming cancellation, late-header disposal and immediate owned reader release even if source cancel never settles",
+    "Failed baseball feeds no longer substitute fabricated current-dated seed articles. All-failed result is an honest empty/unavailable response; working feeds remain usable during partial failure",
+    "RSS parsing retains at most 100 valid items per feed; titles bounded to 400 characters; article links limited to absolute HTTP(S), at most 2048 characters, without credentials; final ten-article dedup/date/favorite ordering retained",
+    "Raw schema/JSON errors are no longer echoed and feed exceptions are replaced by fixed diagnostics before explicit Sentry capture; no claim about unrelated automatic telemetry or other routes",
+    "Eight new actual-helper/route controlled groups cover exact/advertised/stream bounds, UTF-8, late headers, deadline/abort, nonsettling cleanup, completed-phase listener cleanup, invalid input, empty fallback, partial real-shaped feed results and safe-link/order contracts",
+    "Eleven hosted checker groups pass, including five sports invalid-entry denials before any RSS retrieval; no actual public feed, paid model/provider, consent/push write or browser action"
+  ],
+  "controlledEvidence": [
+    "tests/sports-news.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "c4c3ff4",
+    "source": "src/routes/api.sports-news.ts",
+    "case": "Synthetic baseball feed failure",
+    "oldReturnsThreeCurrentDatedInventedHeadlines": true,
+    "currentReturnsEmptyUnavailable": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Initial copied baseline regex did not match and exercised current source; corrected exact basename matcher before recording actual historical assertion failure. No actual feed retrieval."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-sports-news-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Local transport/feeds/timers are synthetic. Hosted sports checks deliberately deny input before RSS retrieval; current live feed availability, article factual accuracy/licensing, browser display/selection ownership and physical device acceptance remain unverified.",
+    "Cooperative eight-second per-feed and ten-second input phases are separate; 1 MiB counts fetch-exposed bytes. No hard CPU/network/bandwidth/aggregate admission guarantee; public-feed redirects/platform buffering are not verified.",
+    "Existing RSS regex extraction remains a bounded parser, not complete XML conformance. Missing/invalid source dates retain epoch behavior; no invented current date is introduced.",
+    "Remaining helper/provider/endpoint/cache/diagnostics/device inventory, durable reminder unknown-write receipts, actual consent/push/SDK expiry/current A/guest/B/restore/process-restart and all human/content/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deploy pin retained; absent metadata env is not false readback proof. No schema/role/policy/schedule/main push, production promotion or accepted-hostname advance."
+  ]
+}

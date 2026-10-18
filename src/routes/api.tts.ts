@@ -2,6 +2,7 @@
 // Learner text travels in a POST body; generated audio must never be shared-cached.
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import { isStrictSameOrigin } from "../lib/speaking-security";
 import { checkLearningGenerationBudget } from "../lib/learning-generation-security";
@@ -53,7 +54,18 @@ export const Route = createFileRoute("/api/tts")({
         if (request.signal.aborted) return json("TTS cancelled", 499);
         const apiKey = process.env.ELEVEN_API_KEY;
         if (!apiKey) return json("TTS not configured", 503);
-        const denied = await checkLearningGenerationBudget(request, "speech");
+        let denied;
+        try {
+          denied = await withSpeechPreflight(request, (signal) =>
+            checkLearningGenerationBudget(request, "speech", signal),
+          );
+        } catch (error) {
+          const status = error instanceof SpeechPreflightError ? error.status : 503;
+          return json(
+            status === 499 ? "TTS cancelled" : "Remote speech is temporarily unavailable.",
+            status,
+          );
+        }
         if (denied)
           return json(
             denied.status === 429

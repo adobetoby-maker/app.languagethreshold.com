@@ -49,23 +49,39 @@ function serviceRoleHeaders(extra?: HeadersInit) {
   });
 }
 
+function requireSpeakingSignal(signal?: AbortSignal) {
+  if (signal?.aborted) throw new DOMException("Speaking request cancelled", "AbortError");
+}
+
+function requireSpeakingResponse(response: Response, signal?: AbortSignal) {
+  if (signal?.aborted) {
+    void response.body?.cancel().catch(() => {});
+    requireSpeakingSignal(signal);
+  }
+}
+
 export async function authenticateSpeakingRequest(
   request: Request,
+  signal?: AbortSignal,
 ): Promise<SpeakingPrincipal | null> {
+  requireSpeakingSignal(signal);
   const token = bearerToken(request);
   const url = supabaseUrl();
   const publishableKey = supabasePublishableKey();
   if (!token || !url || !publishableKey) return null;
 
   const response = await fetch(`${url}/auth/v1/user`, {
+    ...(signal ? { signal, cache: "no-store" as const } : {}),
     headers: {
       apikey: publishableKey,
       Authorization: `Bearer ${token}`,
     },
   });
+  requireSpeakingResponse(response, signal);
   if (!response.ok) return null;
 
   const user = (await response.json()) as { id?: unknown };
+  requireSpeakingSignal(signal);
   if (typeof user.id !== "string" || !user.id) return null;
   return { userId: user.id };
 }
@@ -106,11 +122,14 @@ export async function consumeServerRequestBudget(
   value: string,
   limit: number,
   windowSeconds = 60,
+  signal?: AbortSignal,
 ) {
+  requireSpeakingSignal(signal);
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();
   if (!url || !key) throw new Error("Speaking budget storage is unavailable.");
   const bucketHash = await speakingBucketHash(namespace, value);
+  requireSpeakingSignal(signal);
   const response = await fetch(`${url}/rest/v1/rpc/consume_speaking_request`, {
     method: "POST",
     headers: serviceRoleHeaders({ "Content-Type": "application/json" }),
@@ -119,18 +138,25 @@ export async function consumeServerRequestBudget(
       p_request_limit: limit,
       p_window_seconds: windowSeconds,
     }),
-    signal: AbortSignal.timeout(8000),
+    signal: signal
+      ? AbortSignal.any([signal, AbortSignal.timeout(8000)])
+      : AbortSignal.timeout(8000),
+    cache: "no-store",
   });
+  requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking budget storage rejected the request.");
-  return (await response.json()) === true;
+  const allowed = (await response.json()) === true;
+  requireSpeakingSignal(signal);
+  return allowed;
 }
 
 export async function enforceSpeakingPreAuthRateLimit(
   request: Request,
+  signal?: AbortSignal,
 ): Promise<SpeakingLimitResult> {
   const ip = trustedClientIp(request);
   if (!ip) return { allowed: false, misconfigured: true };
-  const allowed = await consumeServerRequestBudget("ip", ip, IP_REQUESTS_PER_MINUTE);
+  const allowed = await consumeServerRequestBudget("ip", ip, IP_REQUESTS_PER_MINUTE, 60, signal);
   return { allowed, misconfigured: false };
 }
 
@@ -138,21 +164,25 @@ export async function enforceSpeakingRateLimit(
   userId: string,
   purpose = "ai",
   limit = USER_REQUESTS_PER_MINUTE,
+  signal?: AbortSignal,
 ): Promise<SpeakingLimitResult> {
-  const allowed = await consumeServerRequestBudget(`user:${purpose}`, userId, limit);
+  const allowed = await consumeServerRequestBudget(`user:${purpose}`, userId, limit, 60, signal);
   return { allowed, misconfigured: false };
 }
 
-export async function hasSpeakingAgeAttestation(userId: string) {
+export async function hasSpeakingAgeAttestation(userId: string, signal?: AbortSignal) {
+  requireSpeakingSignal(signal);
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();
   if (!url || !key) throw new Error("Speaking consent storage is unavailable.");
   const response = await fetch(
     `${url}/rest/v1/speaking_age_attestations?select=attested_at&user_id=eq.${encodeURIComponent(userId)}&limit=1`,
-    { headers: serviceRoleHeaders() },
+    { headers: serviceRoleHeaders(), ...(signal ? { signal, cache: "no-store" as const } : {}) },
   );
+  requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking consent storage rejected the request.");
   const rows = (await response.json()) as Array<{ attested_at?: unknown }>;
+  requireSpeakingSignal(signal);
   const timestamp = rows[0]?.attested_at;
   return typeof timestamp === "string" && Number.isFinite(Date.parse(timestamp));
 }

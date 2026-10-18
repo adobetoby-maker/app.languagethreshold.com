@@ -87,7 +87,7 @@ async function fixture(run) {
               namespace: "fixture",
             }));
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `export const controls=globalThis.__googleSpeechFixture;export const createFileRoute=()=>x=>x;export const initSentry=()=>{};export const Sentry={captureException:e=>controls.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const enforceSpeakingPreAuthRateLimit=async()=>{controls.gates.push('ip');return {allowed:true}};export const authenticateSpeakingRequest=async()=>{controls.gates.push('auth');return controls.principal};export const hasSpeakingAgeAttestation=async()=>{controls.gates.push('age');return controls.age};export const enforceSpeakingRateLimit=async()=>{controls.gates.push('user');return {allowed:true}};`,
+              contents: `export const controls=globalThis.__googleSpeechFixture;export const createFileRoute=()=>x=>x;export const initSentry=()=>{};export const Sentry={captureException:e=>controls.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const enforceSpeakingPreAuthRateLimit=async()=>{controls.gates.push('ip');return {allowed:true}};export const authenticateSpeakingRequest=async()=>{controls.gates.push('auth');return controls.authHook?controls.authHook():controls.principal};export const hasSpeakingAgeAttestation=async()=>{controls.gates.push('age');return controls.ageHook?controls.ageHook():controls.age};export const enforceSpeakingRateLimit=async()=>{controls.gates.push('user');return {allowed:true}};`,
             }));
           },
         },
@@ -96,7 +96,7 @@ async function fixture(run) {
     globalThis.__googleSpeechFixture = c;
     const m = await import(outfile);
     globalThis.setTimeout = (fn, ms, ...args) => {
-      if (ms !== 45000 && ms !== 10000) return saved.setTimeout(fn, ms, ...args);
+      if (ms !== 45000 && ms !== 10000 && ms !== 15000) return saved.setTimeout(fn, ms, ...args);
       const timer = { ms, unref() {} };
       c.timers.set(timer, fn);
       return timer;
@@ -395,4 +395,38 @@ test("Google malformed/oversized input and stalled uploads fail before IP/auth c
     assert.equal(cancelled, 1);
     assert.equal(c.gates.length, 0);
     assert.equal(c.requests.length, 0);
+  }));
+
+test("Google departed auth and expired consent preflight cannot admit late work or affect a later request", () =>
+  fixture(async (h, c) => {
+    const auth = deferred();
+    c.authHook = () => auth.promise;
+    const incoming = new AbortController();
+    const pending = h.POST({ request: request(body, incoming.signal) });
+    await tick();
+    assert.deepEqual(c.gates, ["ip", "auth"]);
+    assert.equal([...c.timers.keys()][0]?.ms, 15000);
+    incoming.abort();
+    assert.equal((await pending).status, 499);
+    auth.resolve({ userId: "synthetic-a" });
+    await tick();
+    assert.deepEqual(c.gates, ["ip", "auth"]);
+    assert.equal(c.requests.length, 0);
+    c.authHook = undefined;
+    const current = await h.POST({ request: request() });
+    assert.equal(current.status, 200);
+    await current.arrayBuffer();
+    assert.equal(c.requests.length, 2);
+    const age = deferred();
+    c.ageHook = () => age.promise;
+    const offset = c.gates.length;
+    const expired = h.POST({ request: request({ ...body, usage: "mission" }) });
+    await tick();
+    assert.deepEqual(c.gates.slice(offset), ["ip", "auth", "age"]);
+    c.expire();
+    assert.equal((await expired).status, 503);
+    age.resolve(true);
+    await tick();
+    assert.deepEqual(c.gates.slice(offset), ["ip", "auth", "age"]);
+    assert.equal(c.requests.length, 2);
   }));

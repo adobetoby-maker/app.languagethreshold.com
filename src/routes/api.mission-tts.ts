@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import {
   googleVoiceLabel,
@@ -173,46 +174,75 @@ export const Route = createFileRoute("/api/mission-tts")({
         }
         const parsed = RequestSchema.safeParse(body);
         if (!parsed.success) return json({ error: "Invalid Google voice request." }, 400);
-        const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
-          allowed: false,
-          misconfigured: true,
-        }));
-        if (!ipBudget.allowed) {
-          return json(
-            {
-              error: ipBudget.misconfigured
-                ? "Speaking controls are unavailable."
-                : "Too many voice requests. Please wait a minute and try again.",
-            },
-            ipBudget.misconfigured ? 503 : 429,
-          );
-        }
+        let admission: Response | null;
+        try {
+          admission = await withSpeechPreflight(request, async (signal) => {
+            const ipBudget = await enforceSpeakingPreAuthRateLimit(request, signal).catch(() => ({
+              allowed: false,
+              misconfigured: true,
+            }));
+            signal.throwIfAborted();
+            if (!ipBudget.allowed) {
+              return json(
+                {
+                  error: ipBudget.misconfigured
+                    ? "Speaking controls are unavailable."
+                    : "Too many voice requests. Please wait a minute and try again.",
+                },
+                ipBudget.misconfigured ? 503 : 429,
+              );
+            }
 
-        const principal = await authenticateSpeakingRequest(request).catch(() => null);
-        if (!principal) return json({ error: "Sign in to use Google voices." }, 401);
-        if (parsed.data.usage === "mission") {
-          const ageAttested = await hasSpeakingAgeAttestation(principal.userId).catch(() => null);
-          if (ageAttested === null) {
-            return json({ error: "Speaking consent storage is unavailable." }, 503);
-          }
-          if (!ageAttested) {
-            return json({ error: "Add the account age self-attestation first." }, 403);
-          }
-        }
-        const budget = await enforceSpeakingRateLimit(principal.userId, "tts", 30).catch(() => ({
-          allowed: false,
-          misconfigured: true,
-        }));
-        if (!budget.allowed) {
+            const principal = await authenticateSpeakingRequest(request, signal).catch(() => null);
+            signal.throwIfAborted();
+            if (!principal) return json({ error: "Sign in to use Google voices." }, 401);
+            if (parsed.data.usage === "mission") {
+              const ageAttested = await hasSpeakingAgeAttestation(principal.userId, signal).catch(
+                () => null,
+              );
+              signal.throwIfAborted();
+              if (ageAttested === null) {
+                return json({ error: "Speaking consent storage is unavailable." }, 503);
+              }
+              if (!ageAttested) {
+                return json({ error: "Add the account age self-attestation first." }, 403);
+              }
+            }
+            const budget = await enforceSpeakingRateLimit(
+              principal.userId,
+              "tts",
+              30,
+              signal,
+            ).catch(() => ({
+              allowed: false,
+              misconfigured: true,
+            }));
+            signal.throwIfAborted();
+            if (!budget.allowed) {
+              return json(
+                {
+                  error: budget.misconfigured
+                    ? "Speaking controls are unavailable."
+                    : "Too many voice requests. Please wait a minute and try again.",
+                },
+                budget.misconfigured ? 503 : 429,
+              );
+            }
+            return null;
+          });
+        } catch (error) {
+          const status = error instanceof SpeechPreflightError ? error.status : 503;
           return json(
             {
-              error: budget.misconfigured
-                ? "Speaking controls are unavailable."
-                : "Too many voice requests. Please wait a minute and try again.",
+              error:
+                status === 499
+                  ? "Google voice request cancelled."
+                  : "Speaking controls are unavailable.",
             },
-            budget.misconfigured ? 503 : 429,
+            status,
           );
         }
+        if (admission) return admission;
         if (!providerReady()) {
           return json({ error: "Google voices are not configured for this deployment." }, 503);
         }

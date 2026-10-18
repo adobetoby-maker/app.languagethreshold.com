@@ -332,3 +332,54 @@ test("Pashto stalled input and incoming abort fail before durable counters or pr
       globalThis.clearTimeout = savedClear;
     }
   }));
+
+test("Pashto preflight expiry aborts its budget transport and refuses late hourly counters", () =>
+  fixture(async (h, calls, c) => {
+    const savedSet = globalThis.setTimeout,
+      savedClear = globalThis.clearTimeout;
+    const token = { unref() {} };
+    let expire, resolve;
+    const incoming = new AbortController();
+    let pending;
+    const transport = new Promise((r) => (resolve = r));
+    c.budget = () => transport;
+    globalThis.setTimeout = (fn, ms, ...args) => {
+      if (ms !== 15000) return savedSet(fn, ms, ...args);
+      expire = fn;
+      return token;
+    };
+    globalThis.clearTimeout = (timer) => {
+      if (timer !== token) savedClear(timer);
+    };
+    try {
+      pending = h.POST({
+        request: request({ text: "Synthetic preflight", lang: "ps" }, incoming.signal),
+      });
+      for (let i = 0; i < 100 && c.budgetCalls.length === 0; i++)
+        await new Promise((r) => savedSet(r, 1));
+      assert.equal(c.budgetCalls.length, 1);
+      assert.equal(typeof expire, "function");
+      expire();
+      const response = await pending;
+      assert.equal(response.status, 503);
+      privateResponse(response);
+      assert.equal(c.budgetCalls[0].opts.signal.aborted, true);
+      resolve(Response.json(true));
+      await new Promise((r) => setImmediate(r));
+      assert.equal(c.budgetCalls.length, 1);
+      assert.equal(calls.length, 0);
+      c.budget = async () => Response.json(true);
+      const current = await h.POST({ request: request({ text: "Synthetic current", lang: "ps" }) });
+      assert.equal(current.status, 200);
+      await current.arrayBuffer();
+      assert.equal(c.budgetCalls.length, 4);
+      assert.equal(calls.length, 1);
+    } finally {
+      incoming.abort();
+      resolve(Response.json(true));
+      await pending?.catch(() => {});
+      await new Promise((r) => setImmediate(r));
+      globalThis.setTimeout = savedSet;
+      globalThis.clearTimeout = savedClear;
+    }
+  }));

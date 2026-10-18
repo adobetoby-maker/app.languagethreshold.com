@@ -29,7 +29,9 @@ export function learningGenerationOriginError(request: Request): LearningGenerat
 export async function checkLearningGenerationBudget(
   request: Request,
   purpose: LearningGenerationPurpose = "content",
+  signal?: AbortSignal,
 ): Promise<LearningGenerationDenial | null> {
+  signal?.throwIfAborted();
   const originError = learningGenerationOriginError(request);
   if (originError) return originError;
   // Only use the platform's canonical IP header; caller-provided forwarding fallbacks
@@ -64,7 +66,13 @@ export async function checkLearningGenerationBudget(
             ? CONVERSATION_LIMITS
             : LEARNING_GENERATION_LIMITS;
   try {
-    const minute = await consumeServerRequestBudget(`${prefix}:ip-minute`, ip, limits.minute);
+    const minute = await consumeServerRequestBudget(
+      `${prefix}:ip-minute`,
+      ip,
+      limits.minute,
+      60,
+      signal,
+    );
     if (!minute)
       return {
         status: 429,
@@ -72,7 +80,13 @@ export async function checkLearningGenerationBudget(
           "Too many new content requests. Wait a minute, then try again. Saved lessons still work.",
         retryAfter: 60,
       };
-    const hour = await consumeServerRequestBudget(`${prefix}:ip-hour`, ip, limits.ipHour, 3600);
+    const hour = await consumeServerRequestBudget(
+      `${prefix}:ip-hour`,
+      ip,
+      limits.ipHour,
+      3600,
+      signal,
+    );
     if (!hour)
       return {
         status: 429,
@@ -85,6 +99,7 @@ export async function checkLearningGenerationBudget(
       "all",
       limits.globalHour,
       3600,
+      signal,
     );
     if (!global)
       return {

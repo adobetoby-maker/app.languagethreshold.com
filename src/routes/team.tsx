@@ -133,102 +133,265 @@ function parseCsvLine(line: string): string[] {
 }
 
 function TeamPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
+  return <OwnedTeamPage key={user?.id ?? "guest"} />;
+}
+function OwnedTeamPage() {
+  const { user, loading: authLoading, canUseReader } = useAuth();
   const userId = user?.id;
   const [organizations, setOrganizations] = useState<OrgMembership[]>([]);
-  const [orgId, setOrgId] = useState<string | null>(null);
-  const [data, setData] = useState<TeamData | null>(null);
+  const [orgId, setOrgId] = useState<string | null>(() =>
+    typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("org"),
+  );
+  const [rawData, setData] = useState<TeamData | null>(null);
+  const data = rawData?.organization.id === orgId ? rawData : null;
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
+  const [error, setErrorState] = useState("");
+  const [notice, setNoticeState] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [billingEmail, setBillingEmail] = useState("");
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusyState] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const handledCheckout = useRef("");
 
+  const { capture, cancel } = usePracticeLifecycle(
+    JSON.stringify(["team-workspace", orgId, authLoading]),
+  );
+  const selected = useRef(orgId);
+  const latestData = useRef(data);
+  latestData.current = data;
+  const readFlight = useRef<AbortController | null>(null);
+  const mutation = useRef<AbortController | null>(null);
+  const busyRef = useRef(false);
+  const currentPage = () =>
+    !!userId &&
+    !authLoading &&
+    canUseReader(userId) &&
+    selected.current === orgId &&
+    capture().isCurrent();
+  const setBusy = (value: boolean) => {
+    if (currentPage()) {
+      busyRef.current = value;
+      setBusyState(value);
+    }
+  };
+  const setError = (value: string) => {
+    if (currentPage()) setErrorState(value);
+  };
+  const setNotice = (value: string) => {
+    if (currentPage()) setNoticeState(value);
+  };
+  const selectOrganization = useCallback(
+    (next: string | null) => {
+      if (
+        !userId ||
+        authLoading ||
+        !canUseReader(userId) ||
+        !capture().isCurrent() ||
+        selected.current !== orgId ||
+        selected.current === next
+      )
+        return;
+      selected.current = next;
+      latestData.current = null;
+      cancel();
+      setData(null);
+      setErrorState("");
+      setNoticeState("");
+      setBusyState(false);
+      busyRef.current = false;
+      setOrgId(next);
+    },
+    [userId, authLoading, canUseReader, capture, cancel, orgId],
+  );
   const refresh = useCallback(
-    async (current?: string | null) => {
-      if (!userId) return;
+    async (next?: string | null, parentCurrent?: () => boolean) => {
+      const lease = capture();
+      if (
+        !userId ||
+        authLoading ||
+        !canUseReader(userId) ||
+        !lease.isCurrent() ||
+        selected.current !== orgId
+      )
+        return;
+      if (next !== undefined && next !== orgId) {
+        selectOrganization(next);
+        return;
+      }
+      if (mutation.current && !parentCurrent) return;
+      readFlight.current?.abort();
+      const controller = new AbortController();
+      readFlight.current = controller;
+      const release = lease.own(() => controller.abort());
+      const current = () =>
+        lease.isCurrent() &&
+        canUseReader(userId) &&
+        selected.current === orgId &&
+        readFlight.current === controller &&
+        !controller.signal.aborted &&
+        (!parentCurrent || parentCurrent());
+      const owner = { userId, isCurrent: current, signal: controller.signal };
+      latestData.current = null;
+      setData(null);
       setLoading(true);
-      setError("");
+      setErrorState("");
       try {
-        const list = await teamRequest<{ organizations: OrgMembership[] }>("/api/team");
+        const list = await ownedTeamRequest<{ organizations: OrgMembership[] }>(owner, "/api/team");
+        if (!current()) return;
         setOrganizations(list.organizations);
-        const selected =
-          current ??
-          orgId ??
-          new URLSearchParams(window.location.search).get("org") ??
-          list.organizations[0]?.organization_id ??
-          null;
-        if (selected) {
-          setOrgId(selected);
-          setData(await teamRequest<TeamData>(`/api/team?org=${encodeURIComponent(selected)}`));
-        } else setData(null);
+        if (!orgId) {
+          const first = list.organizations[0]?.organization_id ?? null;
+          if (first) {
+            selectOrganization(first);
+            return;
+          }
+        } else {
+          if (!list.organizations.some((item) => item.organization_id === orgId))
+            throw new Error(
+              "This account does not have access to the selected company. Choose one of your companies.",
+            );
+          const detail = await ownedTeamRequest<TeamData>(
+            owner,
+            `/api/team?org=${encodeURIComponent(orgId)}`,
+          );
+          if (!current()) return;
+          if (detail.organization.id !== orgId)
+            throw new Error(
+              "The company response did not match the selected workspace. Refresh and retry.",
+            );
+          setData(detail);
+        }
       } catch (cause) {
-        setError(cause instanceof Error ? cause.message : "Could not load team.");
+        if (current()) {
+          setData(null);
+          setErrorState(cause instanceof Error ? cause.message : "Could not load team.");
+        }
       } finally {
-        setLoading(false);
+        if (lease.isCurrent() && readFlight.current === controller) {
+          setLoading(false);
+          readFlight.current = null;
+        }
+        release();
+        controller.abort();
       }
     },
-    [userId, orgId],
+    [userId, authLoading, canUseReader, orgId, capture, selectOrganization],
   );
   useEffect(() => {
     if (!authLoading && userId) void refresh();
     else if (!authLoading) setLoading(false);
+    return () => readFlight.current?.abort();
   }, [authLoading, userId, refresh]);
 
   useEffect(() => {
-    if (!userId) return;
+    const lease = capture();
+    if (!userId || authLoading || !canUseReader(userId) || !lease.isCurrent()) return;
     const url = new URL(window.location.href);
-    const checkout = url.searchParams.get("checkout");
-    const sessionId = url.searchParams.get("session_id");
-    const checkoutOrg = url.searchParams.get("org");
-    if (!checkout || handledCheckout.current === `${checkout}:${sessionId}`) return;
-    handledCheckout.current = `${checkout}:${sessionId}`;
-    if (checkout === "cancel") {
-      setNotice("Checkout was canceled. No team plan was purchased.");
-    } else if (checkout === "success" && sessionId && checkoutOrg) {
-      void (async () => {
-        try {
-          const result = await teamRequest<{ status: string }>(
+    const checkout = url.searchParams.get("checkout"),
+      sessionId = url.searchParams.get("session_id"),
+      checkoutOrg = url.searchParams.get("org");
+    const mark = JSON.stringify([checkout, sessionId, orgId]);
+    if (!checkout || (checkoutOrg && checkoutOrg !== orgId) || handledCheckout.current === mark)
+      return;
+    handledCheckout.current = mark;
+    const controller = new AbortController();
+    let finished = false;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      selected.current === orgId &&
+      !controller.signal.aborted &&
+      window.location.href === url.href;
+    void (async () => {
+      try {
+        if (checkout === "cancel") {
+          if (current()) setNoticeState("Checkout was canceled. No team plan was purchased.");
+        } else if (checkout === "success" && sessionId && checkoutOrg) {
+          const result = await ownedTeamRequest<{ status: string }>(
+            { userId, isCurrent: current, signal: controller.signal },
             `/api/team-billing?orgId=${encodeURIComponent(checkoutOrg)}&sessionId=${encodeURIComponent(sessionId)}`,
           );
-          setNotice(
+          if (!current()) return;
+          setNoticeState(
             result.status === "active" || result.status === "trialing"
               ? "Payment confirmed. Your team seats are ready to assign."
               : "Stripe is still processing this payment. Refresh the team page to check your seats.",
           );
-          await refresh(checkoutOrg);
-        } catch (cause) {
-          setError(cause instanceof Error ? cause.message : "Could not verify checkout.");
-          handledCheckout.current = "";
-          return;
+          await refresh(checkoutOrg, current);
+          if (!current()) return;
         }
-        url.searchParams.delete("checkout");
-        url.searchParams.delete("session_id");
-        window.history.replaceState(null, "", url);
-      })();
-      return;
-    }
-    url.searchParams.delete("checkout");
-    url.searchParams.delete("session_id");
-    window.history.replaceState(null, "", url);
-  }, [userId, refresh]);
+        if (!current()) return;
+        const clean = new URL(url);
+        clean.searchParams.delete("checkout");
+        clean.searchParams.delete("session_id");
+        window.history.replaceState(null, "", clean);
+        finished = true;
+      } catch (cause) {
+        if (current())
+          setErrorState(cause instanceof Error ? cause.message : "Could not verify checkout.");
+      } finally {
+        if (!finished && handledCheckout.current === mark) handledCheckout.current = "";
+        release();
+        controller.abort();
+      }
+    })();
+    return () => {
+      controller.abort();
+      release();
+      if (!finished && handledCheckout.current === mark) handledCheckout.current = "";
+    };
+  }, [userId, orgId, authLoading, canUseReader, capture, refresh]);
 
   async function act<T>(body: unknown, message: string, after?: (result: T) => void) {
-    setBusy(true);
-    setError("");
-    setNotice("");
+    const lease = capture();
+    if (
+      !userId ||
+      !currentPage() ||
+      mutation.current ||
+      busyRef.current ||
+      latestData.current !== data
+    )
+      return;
+    if (body && typeof body === "object" && "orgId" in body && body.orgId !== orgId) return;
+    const controller = new AbortController();
+    mutation.current = controller;
+    busyRef.current = true;
+    const release = lease.own(() => {
+      controller.abort();
+      if (mutation.current === controller) mutation.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      selected.current === orgId &&
+      mutation.current === controller &&
+      !controller.signal.aborted;
+    readFlight.current?.abort();
+    setBusyState(true);
+    setErrorState("");
+    setNoticeState("");
     try {
-      const result = await teamRequest<T & { warning?: string }>("/api/team", body);
-      setNotice(result.warning ? `${message} ${result.warning}` : message);
+      const result = await ownedTeamRequest<T & { warning?: string }>(
+        { userId, isCurrent: current, signal: controller.signal },
+        "/api/team",
+        body,
+      );
+      if (!current()) return;
+      setNoticeState(result.warning ? `${message} ${result.warning}` : message);
       after?.(result);
-      await refresh();
+      if (current()) await refresh(undefined, current);
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Request failed.");
+      if (current()) setErrorState(cause instanceof Error ? cause.message : "Request failed.");
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && mutation.current === controller) {
+        busyRef.current = false;
+        setBusyState(false);
+      }
+      if (mutation.current === controller) mutation.current = null;
+      release();
+      controller.abort();
     }
   }
 
@@ -332,7 +495,7 @@ function TeamPage() {
               void act<{ orgId: string }>(
                 { action: "create", name: companyName, billingEmail: billingEmail || user.email },
                 "Company workspace created.",
-                (result) => setOrgId(result.orgId),
+                (result) => selectOrganization(result.orgId),
               );
             }}
             className="space-y-4"
@@ -382,7 +545,7 @@ function TeamPage() {
             setNotice={setNotice}
           />
         ) : (
-          <LearnerWorkspace data={data} />
+          <LearnerWorkspace key={data.organization.id} data={data} />
         ))}
     </Page>
   );

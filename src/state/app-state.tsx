@@ -951,6 +951,8 @@ export function reducer(state: AppState, action: AppAction): AppState {
           remote.conversationExchanges ?? 0,
         ),
         lessonsCompleted: Math.max(state.lessonsCompleted, remote.lessonsCompleted ?? 0),
+        customTextsAdded: Math.max(state.customTextsAdded ?? 0, remote.customTextsAdded ?? 0),
+        lettersWritten: Math.max(state.lettersWritten ?? 0, remote.lettersWritten ?? 0),
         challengesCleared: Math.max(state.challengesCleared, remote.challengesCleared ?? 0),
         lessonProgress: (() => {
           const local = state.lessonProgress ?? {};

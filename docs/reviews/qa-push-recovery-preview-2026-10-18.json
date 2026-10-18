@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T07:38:20.708936+00:00",
+  "applicationCommit": "908278b2c51247fbef30394b441aa3eb9adb553b",
+  "preview": "https://language-threshold-l4ek92txi-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-l4ek92txi-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DCz8FTC2nfEW3F8Jjubc47yB6ca4",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-l4ek92txi-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "908278b2c51247fbef30394b441aa3eb9adb553b",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-push-wait-preview-2026-10-18.json",
+  "local": {
+    "tests": 1344,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1456,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Unknown foreground reminder writes latch the mounted account control, replace active-status claims with unconfirmed status, block retained enable/disable/time/language callbacks and expose a read-only Check saved settings action",
+    "GET observations display last visible on/off/time without enabling/cache updates, success toast, native subscription/unsubscribe or replay; true/false/error observations never clear uncertainty because earlier writes may still finish",
+    "A write-intent ref marks the API call before credential lookup. Context replacement while it is in flight conservatively latches uncertainty, aborts departed work and skips automatic settings refresh; late acknowledgement cannot clear pause or announce success",
+    "Owner-bound read checks are single-flight; context/account departure aborts them and late results cannot affect a replacement account. Known API not_started expiry stays retryable without an unknown-write latch",
+    "Four added actual component groups cover retained callbacks, true/false/error reads, context replacement during pending POST, late read after account replacement and known pre-dispatch retry; previous uncertainty tests now expect the read-only paused UI",
+    "Nine hosted checker groups retain 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent/five push entry denials; no admitted push write"
+  ],
+  "controlledEvidence": [
+    "tests/push-reminder-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "e458dee",
+    "source": "src/components/PushReminderControl.tsx",
+    "case": "Retained enable callback invoked after an unknown acknowledgement",
+    "oldRequestCount": 3,
+    "expectedRequestCount": 2,
+    "currentPass": true,
+    "limit": "Initial GET plus one POST expected; actual prior component dispatches a second POST. Hooks/auth/browser/transport controlled; no real write/permission/delivery."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-push-recovery-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "The pause and observations are component memory for the mounted account control only. Account replacement/remount/page restart does not preserve a durable unknown-write record; no cross-tab/device ordering, durable receipt, affected-row or exactly-once proof.",
+    "GET observations never establish which request wrote a value or whether a previous write has finished, so they deliberately do not release the pause. This is honest read-only inspection, not completed mutation reconciliation.",
+    "Background context sync and native subscription/permission/unsubscribe behavior are unchanged. This guard covers foreground conflicting controls, not all push operations. Native/server partial work cannot be rolled back by client timeout/cancellation.",
+    "Component tests use controlled hooks/browser surfaces/auth/fetch/timers; actual browser/phone layout/accessibility and interrupted native writes remain unverified. No real permission/service worker/push send/preferences/subscription/consent/provider/model/browser action.",
+    "Broader helper/endpoint/cache/diagnostics/device inventory, actual SDK expiry/current A/guest/B/restore/native/process-restart/offline acceptance and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push/production promotion/accepted-hostname advance."
+  ]
+}

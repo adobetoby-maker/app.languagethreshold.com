@@ -665,6 +665,36 @@ function OwnedAdminWorkspace({
     isContextCurrent() &&
     live.current.data === data &&
     live.current.settingsKey === settingsKey;
+  const inviteKey = JSON.stringify([name, email, inviteRole, moduleId, certificate, delivery]);
+  const inviteRevision = useRef(0);
+  const renderedInviteRevision = inviteRevision.current;
+  const latestInvite = useRef(inviteKey);
+  latestInvite.current = inviteKey;
+  function editInvite(write: () => void) {
+    if (
+      !capture().isCurrent() ||
+      !viewCurrent() ||
+      isBusy() ||
+      latestInvite.current !== inviteKey ||
+      renderedInviteRevision !== inviteRevision.current
+    )
+      return;
+    inviteRevision.current += 1;
+    write();
+  }
+  function rememberInvite(id: string, url: string | null, displayName: string, address: string) {
+    setInviteLinks((previous) => [
+      ...previous.filter((link) => link.id !== id),
+      ...(url ? [{ id, name: displayName, email: address, url }] : []),
+    ]);
+  }
+  function adminAct<T>(body: unknown, message: string, after?: (result: T) => void) {
+    const lease = capture();
+    if (!lease.isCurrent() || !viewCurrent() || isBusy()) return Promise.resolve();
+    return act<T>(body, message, (result) => {
+      if (lease.isCurrent() && viewCurrent()) after?.(result);
+    });
+  }
   function begin() {
     const lease = capture();
     if (!userId || !viewCurrent() || !lease.isCurrent() || operation.current || isBusy())
@@ -1069,7 +1099,7 @@ function OwnedAdminWorkspace({
                 disabled={busy}
                 className={secondary}
                 onClick={() =>
-                  void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
+                  void adminAct({ action: "email_summary", orgId }, "Admin setup summary emailed.")
                 }
               >
                 <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
@@ -1094,7 +1124,7 @@ function OwnedAdminWorkspace({
                   assignment={assignment}
                   data={data}
                   busy={busy}
-                  act={act}
+                  act={adminAct}
                   orgId={orgId}
                   asCard
                 />
@@ -1106,10 +1136,10 @@ function OwnedAdminWorkspace({
                 member={member}
                 orgId={orgId}
                 busy={busy}
-                act={act}
+                act={adminAct}
                 assignments={data.assignments}
               />
-              <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
+              <ReleaseSeat member={member} orgId={orgId} busy={busy} act={adminAct} />
             </article>
           ))}
         </div>
@@ -1150,7 +1180,7 @@ function OwnedAdminWorkspace({
                       assignment={a}
                       data={data}
                       busy={busy}
-                      act={act}
+                      act={adminAct}
                       orgId={orgId}
                     />
                   ))
@@ -1165,7 +1195,7 @@ function OwnedAdminWorkspace({
                         member={member}
                         orgId={orgId}
                         busy={busy}
-                        act={act}
+                        act={adminAct}
                         assignments={data.assignments}
                       />
                     </td>
@@ -1323,7 +1353,15 @@ function OwnedAdminWorkspace({
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              void act<{ invitationId: string; inviteUrl: string | null; warning?: string }>(
+              if (
+                latestInvite.current !== inviteKey ||
+                renderedInviteRevision !== inviteRevision.current ||
+                name.trim().length < 2 ||
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) ||
+                (inviteRole === "learner" && remaining < 1)
+              )
+                return;
+              void adminAct<{ invitationId: string; inviteUrl: string | null; warning?: string }>(
                 {
                   action: "invite",
                   orgId,
@@ -1338,13 +1376,15 @@ function OwnedAdminWorkspace({
                   ? "Invitation reserved. Share the link below."
                   : "Invitation reserved.",
                 (result) => {
-                  setInviteLinks(
-                    result.inviteUrl
-                      ? [{ id: result.invitationId, name, email, url: result.inviteUrl }]
-                      : [],
-                  );
-                  setName("");
-                  setEmail("");
+                  rememberInvite(result.invitationId, result.inviteUrl, name, email);
+                  if (
+                    latestInvite.current === inviteKey &&
+                    renderedInviteRevision === inviteRevision.current
+                  ) {
+                    inviteRevision.current += 1;
+                    setName("");
+                    setEmail("");
+                  }
                 },
               );
             }}
@@ -1357,7 +1397,8 @@ function OwnedAdminWorkspace({
               aria-label="Employee name"
               className={input}
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setName(e.target.value))}
             />
             <input
               required
@@ -1366,13 +1407,15 @@ function OwnedAdminWorkspace({
               aria-label="Employee email"
               className={input}
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setEmail(e.target.value))}
             />
             <select
               aria-label="Invitation role"
               className={input}
               value={inviteRole}
-              onChange={(e) => setInviteRole(e.target.value as typeof inviteRole)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setInviteRole(e.target.value as typeof inviteRole))}
             >
               <option value="learner">Learner · uses one seat</option>
               <option value="admin">Company admin · no learner seat</option>
@@ -1383,7 +1426,10 @@ function OwnedAdminWorkspace({
                 aria-label="Invitation delivery"
                 className={input + " mt-1"}
                 value={delivery}
-                onChange={(event) => setDelivery(event.target.value as "manual" | "email")}
+                disabled={busy}
+                onChange={(event) =>
+                  editInvite(() => setDelivery(event.target.value as "manual" | "email"))
+                }
               >
                 <option value="manual">Copy link and send with your company email</option>
                 {data.emailEnabled && (
@@ -1397,10 +1443,13 @@ function OwnedAdminWorkspace({
                   aria-label="First module"
                   className={input}
                   value={moduleId}
-                  onChange={(e) => {
-                    setModuleId(e.target.value);
-                    if (e.target.value !== "roofing") setCertificate(false);
-                  }}
+                  disabled={busy}
+                  onChange={(e) =>
+                    editInvite(() => {
+                      setModuleId(e.target.value);
+                      if (e.target.value !== "roofing") setCertificate(false);
+                    })
+                  }
                 >
                   {MODULES.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -1412,8 +1461,8 @@ function OwnedAdminWorkspace({
                   <input
                     type="checkbox"
                     checked={certificate}
-                    disabled={moduleId !== "roofing"}
-                    onChange={(e) => setCertificate(e.target.checked)}
+                    disabled={busy || moduleId !== "roofing"}
+                    onChange={(e) => editInvite(() => setCertificate(e.target.checked))}
                   />
                   <span>
                     Require the legacy Roofing completion test (80%) for a completion certificate
@@ -1518,19 +1567,16 @@ function OwnedAdminWorkspace({
                     disabled={busy}
                     className={secondary}
                     onClick={() =>
-                      void act<{ inviteUrl: string | null }>(
+                      void adminAct<{ inviteUrl: string | null }>(
                         { action: "resend", orgId, invitationId: invite.id, delivery: "manual" },
                         "Fresh invitation link ready in the invitation panel above. The previous link is no longer valid.",
                         (result) => {
-                          if (result.inviteUrl)
-                            setInviteLinks([
-                              {
-                                id: invite.id,
-                                name: invite.display_name,
-                                email: invite.email,
-                                url: result.inviteUrl,
-                              },
-                            ]);
+                          rememberInvite(
+                            invite.id,
+                            result.inviteUrl,
+                            invite.display_name,
+                            invite.email,
+                          );
                         },
                       )
                     }
@@ -1542,19 +1588,16 @@ function OwnedAdminWorkspace({
                       disabled={busy}
                       className={secondary}
                       onClick={() =>
-                        void act<{ inviteUrl: string | null }>(
+                        void adminAct<{ inviteUrl: string | null }>(
                           { action: "resend", orgId, invitationId: invite.id, delivery: "email" },
                           "Invitation email requested.",
                           (result) => {
-                            if (result.inviteUrl)
-                              setInviteLinks([
-                                {
-                                  id: invite.id,
-                                  name: invite.display_name,
-                                  email: invite.email,
-                                  url: result.inviteUrl,
-                                },
-                              ]);
+                            rememberInvite(
+                              invite.id,
+                              result.inviteUrl,
+                              invite.display_name,
+                              invite.email,
+                            );
                           },
                         )
                       }
@@ -1566,9 +1609,10 @@ function OwnedAdminWorkspace({
                     disabled={busy}
                     className={secondary}
                     onClick={() =>
-                      void act(
+                      void adminAct(
                         { action: "revoke", orgId, invitationId: invite.id },
                         "Invitation revoked.",
+                        () => rememberInvite(invite.id, null, invite.display_name, invite.email),
                       )
                     }
                   >

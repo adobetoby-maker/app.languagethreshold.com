@@ -1236,7 +1236,8 @@ function OwnedAdminWorkspace({
                 <select
                   className={input + " max-w-40"}
                   value={term}
-                  onChange={(e) => setTerm(e.target.value as typeof term)}
+                  disabled={busy}
+                  onChange={(e) => editInvite(() => setTerm(e.target.value as typeof term))}
                 >
                   <option value="monthly">Monthly</option>
                   <option value="quarterly">3 months</option>
@@ -1249,7 +1250,8 @@ function OwnedAdminWorkspace({
                   max={1000}
                   className={input + " max-w-28"}
                   value={initialSeats}
-                  onChange={(e) => setInitialSeats(Number(e.target.value))}
+                  disabled={busy}
+                  onChange={(e) => editInvite(() => setInitialSeats(Number(e.target.value)))}
                 />
               </div>
               <p className="text-sm text-gold-ink dark:text-gold">
@@ -1298,10 +1300,13 @@ function OwnedAdminWorkspace({
                       max={100}
                       aria-label="Seats to add"
                       value={addSeats}
-                      onChange={(e) => {
-                        setAddSeats(Number(e.target.value));
-                        setQuote(null);
-                      }}
+                      disabled={busy}
+                      onChange={(e) =>
+                        editInvite(() => {
+                          setAddSeats(Number(e.target.value));
+                          setQuote(null);
+                        })
+                      }
                       className={input + " max-w-28"}
                     />
                     <button

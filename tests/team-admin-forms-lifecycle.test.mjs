@@ -235,6 +235,14 @@ test("manual invite freezes original fields and one parent flight; confirmed lin
     });
     const frozen = f.render();
     assert.equal(inputNode(frozen, "Employee name").props.disabled, true);
+    const term = nodes(frozen).find((n) => n.type === "select" && n.props.value === "monthly");
+    assert.equal(term.props.disabled, true);
+    term.props.onChange({ target: { value: "annual" } });
+    assert.equal(
+      nodes(f.render()).find((n) => n.type === "select" && n.props.value === "monthly")?.props
+        .value,
+      "monthly",
+    );
     inputNode(frozen, "Employee name").props.onChange({ target: { value: "Newer text" } });
     assert.equal(inputNode(f.render(), "Employee name").props.value, "Synthetic one");
     f.c.actions[0].finish(link("one"));

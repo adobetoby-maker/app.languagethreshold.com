@@ -1,6 +1,7 @@
 import "@tanstack/react-start/server-only";
 import { requestWritingProposal } from "./writing-provider";
 import { readWritingAllowance } from "./writing-allowance";
+import { withWritingEvidence } from "./writing-evidence";
 import { randomUUID } from "node:crypto";
 import type { TeamDb } from "@/lib/team-server";
 import { usageReceipt } from "@/lib/usage-cost";
@@ -46,35 +47,50 @@ export async function proposeWritingReview(
     );
   const path = await selectedAttemptPath(db, context, true);
   const form = attempt.form_snapshot.definition as AssessmentFormDefinition;
-  const { data: response, error } = await db
-    .from("assessment_responses")
-    .select("id,item_id,answer")
-    .eq("id", responseId)
-    .eq("attempt_id", attemptId)
-    .maybeSingle();
-  if (error || !response) throw new AssessmentAccessError("This response is unavailable.", 404);
-  const item = path.items.find((row) => row.id === response.item_id),
-    answer = response.answer as AssessmentAnswer;
-  if (!item) throw new AssessmentAccessError("Response access required.");
-  if (!aiWritingEligible(item, answer))
-    throw new AssessmentAccessError(
-      "AI proposals are available for typed writing with a frozen rubric. Missing, spoken and uncertain handwriting inputs need human review.",
-      400,
-    );
-  const key = process.env.ANTHROPIC_API_KEY?.trim();
-  if (!key)
-    throw new AssessmentAccessError(
-      "AI review is unavailable. Human review remains available.",
-      503,
-    );
-  const finalReview = await db
-    .from("assessment_score_events")
-    .select("id")
-    .eq("response_id", responseId)
-    .eq("source", "human")
-    .limit(1);
-  if (finalReview.error) throw new AssessmentAccessError("Review history is unavailable.", 503);
-  if (finalReview.data?.length)
+  const { item, answer, key, alreadyReviewed } = await withWritingEvidence(
+    db,
+    request,
+    attemptId,
+    responseId,
+    async (reads) => {
+      let responseQuery = reads
+        .from("assessment_responses")
+        .select("id,item_id,answer")
+        .eq("id", responseId)
+        .eq("attempt_id", attemptId)
+        .maybeSingle();
+      if (request) responseQuery = responseQuery.retry(false);
+      const { data: response, error } = await responseQuery;
+      if (error) throw new AssessmentAccessError("This response could not be loaded.", 503);
+      if (!response) throw new AssessmentAccessError("This response is unavailable.", 404);
+      const item = path.items.find((row) => row.id === response.item_id),
+        answer = response.answer as AssessmentAnswer;
+      if (!item) throw new AssessmentAccessError("Response access required.");
+      if (!aiWritingEligible(item, answer))
+        throw new AssessmentAccessError(
+          "AI proposals are available for typed writing with a frozen rubric. Missing, spoken and uncertain handwriting inputs need human review.",
+          400,
+        );
+      const key = process.env.ANTHROPIC_API_KEY?.trim();
+      if (!key)
+        throw new AssessmentAccessError(
+          "AI review is unavailable. Human review remains available.",
+          503,
+        );
+      let reviewQuery = reads
+        .from("assessment_score_events")
+        .select("id")
+        .eq("response_id", responseId)
+        .eq("source", "human")
+        .limit(1);
+      if (request) reviewQuery = reviewQuery.retry(false);
+      const finalReview = await reviewQuery;
+      if (finalReview.error) throw new AssessmentAccessError("Review history is unavailable.", 503);
+      return { item, answer, key, alreadyReviewed: !!finalReview.data?.length };
+    },
+  );
+  current();
+  if (alreadyReviewed)
     return {
       state: "already_reviewed",
       message: "A human has already reviewed this response. AI cannot replace that decision.",

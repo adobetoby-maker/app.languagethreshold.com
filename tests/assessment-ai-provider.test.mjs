@@ -152,7 +152,7 @@ async function fixture(run) {
           }),
           limit: async () =>
             table === "assessment_score_events"
-              ? { data: hooks.human ? [{ id: "human" }] : [], error: null }
+              ? { data: hooks.human ? [{ id: actor }] : [], error: null }
               : (hooks.enrollments?.() ?? { data: [{ id: "enrollment" }], error: null }),
           gte: async () => hooks.allowance?.() ?? { count: 0, error: null },
           insert: async (value) => {
@@ -171,6 +171,19 @@ async function fixture(run) {
         return hooks.provider?.(init) ?? Response.json(message);
       }
       const path = new URL(String(input)).pathname;
+      if (path === "/rest/v1/assessment_responses") {
+        const result = await c.db.from("assessment_responses").maybeSingle();
+        return result.error
+          ? Response.json({ message: "Synthetic failure" }, { status: 503 })
+          : Response.json(result.data ? [result.data] : []);
+      }
+      if (path === "/rest/v1/assessment_score_events") {
+        const result = await c.db.from("assessment_score_events").limit(1);
+        return result.error
+          ? Response.json({ message: "Synthetic failure" }, { status: 503 })
+          : Response.json(result.data ?? []);
+      }
+
       if (path === "/rest/v1/assessment_enrollments") {
         events.push("assessment_enrollments");
         const result = (await hooks.enrollments?.()) ?? { data: [{ id: actor }], error: null };

@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "1c781e4",
+  "application": "ec39337",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-3rz7xrbtd-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-mpicq8113-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-sports-bounds-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-sports-editor-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "1c781e43b49e913fb9c2e99c0239cebafe80947f",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-sports-bounds-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "ec39337b1a10de61c7c934f8ad6f6a1e1657fbb5",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-sports-editor-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -902,6 +902,13 @@
     "clientTimeoutMs": 30000,
     "maxResponseBytes": 65536,
     "typedArticles": true,
+    "actualBrowserVerified": false
+  },
+  "latestLocalSportsEditorFollowup": {
+    "application": "ec39337",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-editor-preview-2026-10-18.json",
+    "ownedEditorRemountAndFocus": true,
     "actualBrowserVerified": false
   }
 }

@@ -1,7 +1,7 @@
 {
-  "testedAt": "2026-10-18T11:26:41.469Z",
-  "sourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
-  "runtimeApplicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "testedAt": "2026-10-18T11:40:29.721Z",
+  "sourceCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
+  "runtimeApplicationCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
   "versions": {
     "auth-js": "2.105.1",
     "supabase-js": "2.105.1"
@@ -84,6 +84,13 @@
       ]
     }
   ],
+  "cleanupStatusFactory": {
+    "path": "src/lib/assessments/cleanup-schedule-server.ts",
+    "requestBoundFactoryCallLines": [
+      119
+    ]
+  },
+  "adaptedFactoryTotal": 21,
   "checks": {
     "actualProductionFactoryAndInstalledSdk": true,
     "explicitJwtAndProjectHeadersMatchedInMemory": true,
@@ -125,7 +132,7 @@
   ],
   "limits": [
     "Synthetic credentials/URLs/user/Responses and controlled timers; no actual network, credentials, database, provider, browser, expiry or business action. Global fetch rejection guard and logger capture restored in finally.",
-    "Adapter installed by twenty factory calls in eleven team/assessment routes. One original cleanup auth helper caller and all clients constructed without authRequest remain separate; historical raw-SDK probe still describes those unadapted paths.",
+    "Twenty direct route factories plus one injected/default cleanup-status factory install the Auth adapter. No original named helper calls remain in the source inventory; other clients without authRequest remain separate. Cleanup SDK/status behavior has its own tests.",
     "Caller wait and transport timers each start in their own phase; no single aggregate request deadline. Supplied signal is cooperatively honored by real fetch; ignored synthetic transport is raced and late response disposed, not proof of physical network cancellation.",
     "Only Auth GET exact project endpoint is selected. Other SDK requests pass through, including writes after request abort; later private/business phases and unknown outcomes need separate review.",
     "No main push, production promotion, accepted-hostname advance, schema/grant/role/policy/schedule changes; full goal/human/device/reviewer/retention gates remain open."

@@ -1,7 +1,7 @@
 {
-  "auditedAt": "2026-10-18T11:26:40.948Z",
-  "sourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
-  "runtimeApplicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "auditedAt": "2026-10-18T11:40:29.186Z",
+  "sourceCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
+  "runtimeApplicationCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
   "scan": {
     "typescriptSourceFiles": 622,
     "legacyFiles": 0,
@@ -10,8 +10,8 @@
     "scopedDirectCalls": 12,
     "namespaceCalls": 0,
     "boundedAuthDirectCalls": 11,
-    "originalAuthDirectCalls": 1,
-    "assessmentAuthDirectCalls": 9
+    "originalAuthDirectCalls": 0,
+    "assessmentAuthDirectCalls": 10
   },
   "authenticationCalls": {
     "bounded": [
@@ -95,6 +95,13 @@
     ],
     "assessment": [
       {
+        "file": "src/lib/assessments/cleanup-schedule-server.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 123,
+        "handler": null,
+        "catchVariable": null
+      },
+      {
         "file": "src/routes/api.exam-content.ts",
         "helper": "authenticatedAssessmentUser",
         "line": 65,
@@ -158,15 +165,7 @@
         "catchVariable": null
       }
     ],
-    "original": [
-      {
-        "file": "src/lib/assessments/cleanup-schedule-server.ts",
-        "helper": "authenticatedUser",
-        "line": 67,
-        "handler": null,
-        "catchVariable": null
-      }
-    ]
+    "original": []
   },
   "helperDeclarations": [
     {

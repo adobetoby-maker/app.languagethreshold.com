@@ -36,7 +36,7 @@ const report = {
   limits: [
     "Four assessment API catches preserve known403 guidance and fixed503 fallback, and now return fixed499 for cancelled assessment requests. Bounded auth is applied in nine branches; body/private/business phases remain separate.",
     "Tests bundle actual production route code/schema/catch/JSON helper with controlled client/auth/private dependencies and actual error classes. They are not allowed workflow, actual SDK, network, expiry, browser, reviewer, consent or business acceptance.",
-    "Nine assessment calls now use real bounded helper with controlled SDK results. Twenty factories install Auth transport; one original cleanup caller retains previous auth behavior/catch-all403. Separate actual-SDK transport tests cover the adapter.",
+    "Nine assessment calls now use real bounded helper with controlled SDK results. Twenty direct route factories plus cleanup status install Auth transport. Cleanup status has separate bounded owner/history tests. No original direct named auth-helper callers remain in the source inventory; indirect callers remain outside this claim.",
     "AssessmentAccessError keeps intentional statuses/messages. Shared assessment rpc already restricts P0001 to227exact fixed strings; direct RPC, other typed-error provenance and broader diagnostics remain separate review items.",
     "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Human/content/reviewer/calibration/pilot/retention/device/session/process-restart gates remain open.",
   ],

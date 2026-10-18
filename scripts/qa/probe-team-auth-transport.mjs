@@ -55,6 +55,26 @@ const factoryWiring = [
   return { path, requestBoundFactoryCallLines: calls };
 });
 assert.equal(factoryWiring.flatMap((x) => x.requestBoundFactoryCallLines).length, 20);
+const cleanupPath = "src/lib/assessments/cleanup-schedule-server.ts",
+  cleanupText = readFileSync(cleanupPath, "utf8"),
+  cleanupSource = ts.createSourceFile(cleanupPath, cleanupText, ts.ScriptTarget.Latest, true);
+const cleanupFactoryLines = [];
+function inspectCleanup(node) {
+  if (
+    ts.isCallExpression(node) &&
+    ts.isIdentifier(node.expression) &&
+    node.expression.text === "makeDb" &&
+    node.arguments.length === 2
+  ) {
+    assert.equal(node.arguments[1].getText(cleanupSource), "request");
+    cleanupFactoryLines.push(
+      cleanupSource.getLineAndCharacterOfPosition(node.getStart(cleanupSource)).line + 1,
+    );
+  }
+  ts.forEachChild(node, inspectCleanup);
+}
+inspectCleanup(cleanupSource);
+assert.equal(cleanupFactoryLines.length, 1);
 const report = {
   testedAt: new Date().toISOString(),
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
@@ -62,6 +82,8 @@ const report = {
   versions,
   testGroups: 9,
   factoryWiring,
+  cleanupStatusFactory: { path: cleanupPath, requestBoundFactoryCallLines: cleanupFactoryLines },
+  adaptedFactoryTotal: 21,
   checks: {
     actualProductionFactoryAndInstalledSdk: true,
     explicitJwtAndProjectHeadersMatchedInMemory: true,
@@ -94,7 +116,7 @@ const report = {
   })),
   limits: [
     "Synthetic credentials/URLs/user/Responses and controlled timers; no actual network, credentials, database, provider, browser, expiry or business action. Global fetch rejection guard and logger capture restored in finally.",
-    "Adapter installed by twenty factory calls in eleven team/assessment routes. One original cleanup auth helper caller and all clients constructed without authRequest remain separate; historical raw-SDK probe still describes those unadapted paths.",
+    "Twenty direct route factories plus one injected/default cleanup-status factory install the Auth adapter. No original named helper calls remain in the source inventory; other clients without authRequest remain separate. Cleanup SDK/status behavior has its own tests.",
     "Caller wait and transport timers each start in their own phase; no single aggregate request deadline. Supplied signal is cooperatively honored by real fetch; ignored synthetic transport is raced and late response disposed, not proof of physical network cancellation.",
     "Only Auth GET exact project endpoint is selected. Other SDK requests pass through, including writes after request abort; later private/business phases and unknown outcomes need separate review.",
     "No main push, production promotion, accepted-hostname advance, schema/grant/role/policy/schedule changes; full goal/human/device/reviewer/retention gates remain open.",

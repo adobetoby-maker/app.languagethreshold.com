@@ -1,0 +1,45 @@
+{
+  "testedAt": "2026-10-18T11:40:28.185Z",
+  "sourceCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
+  "runtimeApplicationCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
+  "testGroups": {
+    "newStatus": 6,
+    "existingCronSchedule": 9
+  },
+  "checks": {
+    "ownerDenial403AndUnavailable503Separated": true,
+    "cancellation499Fixed": true,
+    "preabortConstructsZeroSdk": true,
+    "authDepartureStartsZeroOwnerHistory": true,
+    "ownerDepartureStartsZeroHistory": true,
+    "historyDepartureSuppressesLatePrivateResult": true,
+    "manualOwnedWaitTimersAndIncomingListenersReleased": true,
+    "actualInstalledSdkAuthHeadersMatchedInMemory": true,
+    "actualSdkOwnerHistoryReceiveAbortSignal": true,
+    "ignoredLateResponsesCannotResumeOwnerHistory": true,
+    "syntheticSuccessKeepsExecutionDisabledAndHealthNotObserved": true,
+    "statusMakesZeroWriteClaimStorageCalls": true,
+    "cronExecutionSourceByteIdentical": true
+  },
+  "cronSource": {
+    "comparedCommit": "9e0757f",
+    "sha256": "cbe4eb9ff8dee34379e411a00ad6afb06c9ed88d5ce8768d3b9f675c3b340bf7"
+  },
+  "sources": [
+    {
+      "path": "src/lib/assessments/cleanup-schedule-server.ts",
+      "sha256": "c67d709abbc068eeee217ca546c545421124a9d4091c21f1d5be152497b688f2"
+    },
+    {
+      "path": "tests/cleanup-status-ownership.test.mjs",
+      "sha256": "ebb1992e6c2df918af3e1fbc25fb689e1c9719a7ae1b64fbc25fee89f4dd2541"
+    }
+  ],
+  "limits": [
+    "Status auth uses shared15second wait/selected Auth adapter; owner plus history phase owns8seconds and cooperative abort. Existing boundedCleanupFetch still creates native8second per-fetch timeouts. Manual phase timers/listeners clear; native timeout internals are not cancellation-resource proof. No single aggregate status deadline or physical network cancellation proof.",
+    "Controlled actual-handler tests and actual SDK/production-factory tests use synthetic credentials/URLs/Responses and restore globals/env/loggers. No actual owner login, database/history read, storage deletion, cron invocation, role/retention approval or scheduler activation.",
+    "Status response shape/projection is unchanged; history row/byte/schema bounds, direct SDK/RPC/private phases and broader diagnostic/cache/device inventory remain separate. Source-tail equality is local source proof, not platform schedule/execution acceptance.",
+    "Original helper remains exported for compatibility; no original direct named calls remain in current AST inventory. This does not prove all indirect auth/caller paths are owned.",
+    "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Full goal and human/content/reviewer/retention/device/session gates remain open."
+  ]
+}

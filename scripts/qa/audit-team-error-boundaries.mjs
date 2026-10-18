@@ -211,8 +211,8 @@ if (process.argv.includes("--self-test")) {
   assert.equal(report.scan.scopedDirectCalls, 12);
   assert.equal(report.scan.namespaceCalls, 0);
   assert.equal(report.scan.boundedAuthDirectCalls, 11);
-  assert.equal(report.scan.assessmentAuthDirectCalls, 9);
-  assert.equal(report.scan.originalAuthDirectCalls, 1);
+  assert.equal(report.scan.assessmentAuthDirectCalls, 10);
+  assert.equal(report.scan.originalAuthDirectCalls, 0);
   writeFileSync(
     "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     JSON.stringify(report, null, 2) + "\n",

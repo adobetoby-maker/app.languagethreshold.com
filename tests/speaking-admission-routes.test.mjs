@@ -58,6 +58,8 @@ async function fixture(run, { realSecurity = false } = {}) {
     shutdown: new AbortController(),
     gates: [],
     models: [],
+    modelOptions: [],
+    clientOptions: [],
     writes: [],
     logs: [],
     sentry: [],
@@ -135,7 +137,7 @@ async function fixture(run, { realSecurity = false } = {}) {
                   : { path: a.path, namespace: "fixture" },
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `const c=globalThis.__speakingAdmissionFixture;export const createFileRoute=()=>x=>x;export default class Anthropic {messages={create:async(args)=>{c.models.push(args);return c.provider(args)}}} export const initSentry=()=>{};export const Sentry={captureException:e=>c.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const isSpeakingMissionLanguageEnabled=l=>l!=='Japanese';export const enforceSpeakingPreAuthRateLimit=async(...a)=>{c.gates.push(['ip',...a]);return c.ip(...a)};export const authenticateSpeakingRequest=async(...a)=>{c.gates.push(['auth',...a]);return c.auth(...a)};export const enforceSpeakingRateLimit=async(...a)=>{c.gates.push(['user',...a]);return c.budget(...a)};export const hasSpeakingAgeAttestation=async(...a)=>{c.gates.push(['age',...a]);return c.age(...a)};export const setSpeakingAgeAttestation=async(...a)=>{c.writes.push(a);return c.write(...a)};`,
+              contents: `const c=globalThis.__speakingAdmissionFixture;export const createFileRoute=()=>x=>x;export default class Anthropic {constructor(options){c.clientOptions.push(options)} messages={create:async(args,options)=>{c.models.push(args);c.modelOptions.push(options);return c.provider(args,options)}}} export const initSentry=()=>{};export const Sentry={captureException:e=>c.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const isSpeakingMissionLanguageEnabled=l=>l!=='Japanese';export const enforceSpeakingPreAuthRateLimit=async(...a)=>{c.gates.push(['ip',...a]);return c.ip(...a)};export const authenticateSpeakingRequest=async(...a)=>{c.gates.push(['auth',...a]);return c.auth(...a)};export const enforceSpeakingRateLimit=async(...a)=>{c.gates.push(['user',...a]);return c.budget(...a)};export const hasSpeakingAgeAttestation=async(...a)=>{c.gates.push(['age',...a]);return c.age(...a)};export const setSpeakingAgeAttestation=async(...a)=>{c.writes.push(a);return c.write(...a)};`,
             }));
           },
         },
@@ -143,7 +145,7 @@ async function fixture(run, { realSecurity = false } = {}) {
     });
     const m = await import(outfile);
     globalThis.setTimeout = (fn, ms, ...args) => {
-      if (ms !== 10000 && ms !== 15000) return saved.set(fn, ms, ...args);
+      if (ms !== 10000 && ms !== 15000 && ms !== 45000) return saved.set(fn, ms, ...args);
       const timer = { ms, unref() {} };
       c.timers.set(timer, fn);
       return timer;
@@ -385,7 +387,7 @@ test("speaking modes retain exact successful contracts and private handled diagn
         messages: [{ role: "user", content: "synthetic-private-chat-text" }],
       }),
     );
-    assert.equal(chatFailed.status, 500);
+    assert.equal(chatFailed.status, 502);
     privateHeaders(chatFailed);
     assert.equal(c.sentry.length, 0);
     assert.doesNotMatch(JSON.stringify(c.logs), /synthetic-private|synthetic-provider-key/);
@@ -524,3 +526,76 @@ test("actual speaking and consent guards refuse fallback IP buckets before auth/
     },
     { realSecurity: true },
   ));
+
+test("all speaking modes own one provider deadline, reject ignored late SDK results and preserve later requests", () =>
+  fixture(async (h, c) => {
+    const provider = c.provider;
+    for (const value of [
+      body,
+      { ...body, mode: "tip", userText: "synthetic-tip-input" },
+      { ...body, mode: "chat", messages: [{ role: "user", content: "synthetic-chat-input" }] },
+      missionBody(c),
+    ]) {
+      const held = deferred();
+      c.provider = () => held.promise;
+      const count = c.models.length;
+      const pending = h.speak.POST(request("speak", value));
+      await c.until(() => c.models.length === count + 1);
+      c.expire(45000);
+      const denied = await pending;
+      assert.equal(denied.status, 504);
+      privateHeaders(denied);
+      assert.equal(c.modelOptions.at(-1).signal.aborted, true);
+      held.resolve(await provider(c.models.at(-1)));
+      await tick();
+      assert.equal(c.models.length, count + 1);
+      assert.equal(c.clientOptions.at(-1).maxRetries, 0);
+      assert.equal(c.clientOptions.at(-1).timeout, 45000);
+    }
+    c.provider = provider;
+    const current = await h.speak.POST(request());
+    assert.equal(current.status, 200);
+    assert.equal(c.modelOptions.at(-1).signal.aborted, false);
+    assert.equal(c.timers.size, 0);
+  }));
+test("speaking challenge fields are bounded and typed while malformed optional tips soft-fail without raw output", () =>
+  fixture(async (h, c) => {
+    for (const input of [
+      { target: [], gloss: "x", hint: "x", keyword: null },
+      { target: "x".repeat(241), gloss: "x", hint: "x", keyword: null },
+      { target: "x", gloss: "x".repeat(401), hint: "x", keyword: null },
+      { target: "x", gloss: "x", hint: "x".repeat(401), keyword: null },
+      { target: "x", gloss: "x", hint: "x", keyword: "x".repeat(81) },
+    ]) {
+      c.provider = async () => ({ content: [{ type: "tool_use", input }] });
+      const failed = await h.speak.POST(request());
+      assert.equal(failed.status, 502);
+      privateHeaders(failed);
+      assert.deepEqual(await failed.json(), { error: "Could not generate a challenge." });
+    }
+    c.provider = async () => ({
+      content: [
+        {
+          type: "tool_use",
+          input: {
+            target: "x".repeat(240),
+            gloss: "x".repeat(400),
+            hint: "x".repeat(400),
+            keyword: "x".repeat(80),
+            ignored: "synthetic-private-extra",
+          },
+        },
+      ],
+    });
+    const valid = await h.speak.POST(request());
+    assert.equal(valid.status, 200);
+    assert.equal((await valid.json()).ignored, undefined);
+    c.provider = async () => ({
+      content: [{ type: "tool_use", input: { tip: "x".repeat(1201) } }],
+    });
+    const tip = await h.speak.POST(
+      request("speak", { ...body, mode: "tip", userText: "synthetic-tip-input" }),
+    );
+    assert.deepEqual(await tip.json(), { tip: null });
+    assert.doesNotMatch(JSON.stringify(c.logs), /synthetic-private-extra/);
+  }));

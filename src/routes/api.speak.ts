@@ -1,5 +1,5 @@
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
-import Anthropic from "@anthropic-ai/sdk";
+import { withSpeakingProvider, SpeakingProviderError } from "../lib/speaking-provider";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
@@ -70,6 +70,14 @@ const BodySchema = z.object({
   completedObjectiveIds: z.array(z.string().min(1).max(120)).max(20).optional(),
   skippedObjectiveIds: z.array(z.string().min(1).max(120)).max(20).optional(),
 });
+
+const ChallengeResultSchema = z.object({
+  target: z.string().trim().min(1).max(240),
+  gloss: z.string().trim().min(1).max(400),
+  hint: z.string().trim().min(1).max(400),
+  keyword: z.string().trim().max(80).nullable(),
+});
+const TipResultSchema = z.object({ tip: z.string().trim().max(1200).nullable() });
 
 const MissionTurnSchema = z.object({
   assistantText: z.string().min(1).max(1200),
@@ -312,7 +320,6 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
         const nativeLanguage = payload.nativeLanguage ?? "English";
 
         if (nativeLanguage === payload.language) {
@@ -404,127 +411,137 @@ export const Route = createFileRoute("/api/speak")({
             });
           }
 
+          const missionMessages = payload.messages;
           try {
-            const providerStartedAt = Date.now();
-            const response = await client.messages.create({
-              model: "claude-haiku-5-5",
-              max_tokens: 700,
-              system: missionSystemPrompt(
-                mission,
-                payload.feedbackLanguage ?? "Adaptive",
-                nativeLanguage,
-                payload.partnerVersion ?? "woman",
-                destination,
-                activeObjectiveId,
-                completedObjectiveIds,
-                skippedObjectiveIds,
-              ),
-              messages: payload.messages,
-              tools: [
+            return await withSpeakingProvider(request, KEY, async (client, options) => {
+              const providerStartedAt = Date.now();
+              const response = await client.messages.create(
                 {
-                  name: "speaking_mission_turn",
-                  description:
-                    "Return the roleplay partner's next turn and privacy-minimized coaching signals.",
-                  input_schema: {
-                    type: "object" as const,
-                    properties: {
-                      assistantText: {
-                        type: "string",
-                        description: `One or two short in-character sentences in ${mission.language}.`,
-                      },
-                      deferredFeedback: {
-                        type: "array",
-                        minItems: 1,
-                        maxItems: 2,
-                        items: { type: "string" },
-                        description:
-                          "One concise coaching note after every learner turn; never repeat the learner transcript.",
-                      },
-                      provisionalObjectiveIds: {
-                        type: "array",
-                        maxItems: 3,
-                        items: { type: "string" },
-                        description:
-                          "Previously uncredited objective IDs clearly evidenced by the newest learner turn and conversation context.",
-                      },
-                      shouldEnd: {
-                        type: "boolean",
-                        description: "True only after a natural practical close or a safety stop.",
-                      },
-                      safetyStop: {
-                        type: "boolean",
-                        description:
-                          "True when the learner describes a real emergency or requests real medical, legal, financial, or safety advice that must end the roleplay.",
+                  model: "claude-haiku-5-5",
+                  max_tokens: 700,
+                  system: missionSystemPrompt(
+                    mission,
+                    payload.feedbackLanguage ?? "Adaptive",
+                    nativeLanguage,
+                    payload.partnerVersion ?? "woman",
+                    destination,
+                    activeObjectiveId,
+                    completedObjectiveIds,
+                    skippedObjectiveIds,
+                  ),
+                  messages: missionMessages,
+                  tools: [
+                    {
+                      name: "speaking_mission_turn",
+                      description:
+                        "Return the roleplay partner's next turn and privacy-minimized coaching signals.",
+                      input_schema: {
+                        type: "object" as const,
+                        properties: {
+                          assistantText: {
+                            type: "string",
+                            description: `One or two short in-character sentences in ${mission.language}.`,
+                          },
+                          deferredFeedback: {
+                            type: "array",
+                            minItems: 1,
+                            maxItems: 2,
+                            items: { type: "string" },
+                            description:
+                              "One concise coaching note after every learner turn; never repeat the learner transcript.",
+                          },
+                          provisionalObjectiveIds: {
+                            type: "array",
+                            maxItems: 3,
+                            items: { type: "string" },
+                            description:
+                              "Previously uncredited objective IDs clearly evidenced by the newest learner turn and conversation context.",
+                          },
+                          shouldEnd: {
+                            type: "boolean",
+                            description:
+                              "True only after a natural practical close or a safety stop.",
+                          },
+                          safetyStop: {
+                            type: "boolean",
+                            description:
+                              "True when the learner describes a real emergency or requests real medical, legal, financial, or safety advice that must end the roleplay.",
+                          },
+                        },
+                        required: [
+                          "assistantText",
+                          "deferredFeedback",
+                          "provisionalObjectiveIds",
+                          "shouldEnd",
+                          "safetyStop",
+                        ],
+                        additionalProperties: false,
                       },
                     },
-                    required: [
-                      "assistantText",
-                      "deferredFeedback",
-                      "provisionalObjectiveIds",
-                      "shouldEnd",
-                      "safetyStop",
-                    ],
-                    additionalProperties: false,
-                  },
+                  ],
+                  tool_choice: { type: "tool", name: "speaking_mission_turn" },
                 },
-              ],
-              tool_choice: { type: "tool", name: "speaking_mission_turn" },
-            });
-            const toolUse = response.content.find((content) => content.type === "tool_use");
-            const parsed = MissionTurnSchema.safeParse(
-              toolUse?.type === "tool_use" ? toolUse.input : null,
-            );
-            if (!parsed.success) throw new Error("Invalid mission tool response");
+                options,
+              );
+              const toolUse = response.content.find((content) => content.type === "tool_use");
+              const parsed = MissionTurnSchema.safeParse(
+                toolUse?.type === "tool_use" ? toolUse.input : null,
+              );
+              if (!parsed.success) throw new Error("Invalid mission tool response");
 
-            const objectiveIds = new Set(mission.objectives.map((objective) => objective.id));
-            const provisionalObjectiveIds = [
-              ...new Set(parsed.data.provisionalObjectiveIds.filter((id) => objectiveIds.has(id))),
-            ].filter((id) => !skippedObjectiveIds.includes(id));
-            const addressedObjectiveIds = [
-              ...completedObjectiveIds,
-              ...skippedObjectiveIds,
-              ...provisionalObjectiveIds,
-            ];
-            const result = {
-              assistantText: parsed.data.assistantText.trim(),
-              deferredFeedback: parsed.data.deferredFeedback
-                .map((feedback) => feedback.trim())
-                .filter(Boolean),
-              provisionalObjectiveIds,
-              shouldEnd:
-                parsed.data.safetyStop ||
-                (parsed.data.shouldEnd &&
-                  criticalSpeakingObjectivesAddressed(mission.objectives, addressedObjectiveIds)),
-            };
-            const aiMs = Date.now() - providerStartedAt;
-            const totalMs = Date.now() - requestStartedAt;
-            console.log(
-              JSON.stringify({
-                level: "info",
-                message: "Speaking mission response ready",
-                route: "/api/speak",
-                mode: "mission",
+              const objectiveIds = new Set(mission.objectives.map((objective) => objective.id));
+              const provisionalObjectiveIds = [
+                ...new Set(
+                  parsed.data.provisionalObjectiveIds.filter((id) => objectiveIds.has(id)),
+                ),
+              ].filter((id) => !skippedObjectiveIds.includes(id));
+              const addressedObjectiveIds = [
+                ...completedObjectiveIds,
+                ...skippedObjectiveIds,
+                ...provisionalObjectiveIds,
+              ];
+              const result = {
+                assistantText: parsed.data.assistantText.trim(),
+                deferredFeedback: parsed.data.deferredFeedback
+                  .map((feedback) => feedback.trim())
+                  .filter(Boolean),
+                provisionalObjectiveIds,
+                shouldEnd:
+                  parsed.data.safetyStop ||
+                  (parsed.data.shouldEnd &&
+                    criticalSpeakingObjectivesAddressed(mission.objectives, addressedObjectiveIds)),
+              };
+              const aiMs = Date.now() - providerStartedAt;
+              const totalMs = Date.now() - requestStartedAt;
+              console.log(
+                JSON.stringify({
+                  level: "info",
+                  message: "Speaking mission response ready",
+                  route: "/api/speak",
+                  mode: "mission",
+                  status: 200,
+                  aiMs,
+                  totalMs,
+                }),
+              );
+              return new Response(JSON.stringify(result), {
                 status: 200,
-                aiMs,
-                totalMs,
-              }),
-            );
-            return new Response(JSON.stringify(result), {
-              status: 200,
-              headers: {
-                "Content-Type": "application/json",
-                "Cache-Control": "no-store",
-                "Server-Timing": `ai;dur=${aiMs}, total;dur=${totalMs}`,
-              },
+                headers: {
+                  "Content-Type": "application/json",
+                  "Cache-Control": "no-store",
+                  "Server-Timing": `ai;dur=${aiMs}, total;dur=${totalMs}`,
+                },
+              });
             });
           } catch (error) {
+            const status = error instanceof SpeakingProviderError ? error.status : 502;
             console.error(
               JSON.stringify({
                 level: "error",
                 message: "Speaking mission request failed",
                 route: "/api/speak",
                 mode: "mission",
-                status: 502,
+                status,
                 totalMs: Date.now() - requestStartedAt,
                 errorType: "UpstreamError",
               }),
@@ -532,7 +549,7 @@ export const Route = createFileRoute("/api/speak")({
             return new Response(
               JSON.stringify({ error: "The mission partner could not respond." }),
               {
-                status: 502,
+                status,
                 headers: { "Content-Type": "application/json" },
               },
             );
@@ -548,46 +565,57 @@ export const Route = createFileRoute("/api/speak")({
             });
           }
           try {
-            const response = await client.messages.create({
-              model: "claude-haiku-5-5",
-              max_tokens: 200,
-              system: "You are a gentle language coach. Reply via the grammar_tip tool only.",
-              messages: [
+            return await withSpeakingProvider(request, KEY, async (client, options) => {
+              const response = await client.messages.create(
                 {
-                  role: "user",
-                  content: `Did the user make any grammar errors in this ${payload.language} sentence: "${payload.userText}"? If yes, give one gentle tip in ${nativeLanguage} under 20 words. If no errors, return null for the tip field.`,
-                },
-              ],
-              tools: [
-                {
-                  name: "grammar_tip",
-                  description: "Return a single gentle grammar tip or null.",
-                  input_schema: {
-                    type: "object" as const,
-                    properties: {
-                      tip: {
-                        anyOf: [{ type: "string" }, { type: "null" }],
-                        description: "Gentle correction under 20 words, or null if no errors.",
+                  model: "claude-haiku-5-5",
+                  max_tokens: 200,
+                  system: "You are a gentle language coach. Reply via the grammar_tip tool only.",
+                  messages: [
+                    {
+                      role: "user",
+                      content: `Did the user make any grammar errors in this ${payload.language} sentence: "${payload.userText}"? If yes, give one gentle tip in ${nativeLanguage} under 20 words. If no errors, return null for the tip field.`,
+                    },
+                  ],
+                  tools: [
+                    {
+                      name: "grammar_tip",
+                      description: "Return a single gentle grammar tip or null.",
+                      input_schema: {
+                        type: "object" as const,
+                        properties: {
+                          tip: {
+                            anyOf: [{ type: "string" }, { type: "null" }],
+                            description: "Gentle correction under 20 words, or null if no errors.",
+                          },
+                        },
+                        required: ["tip"],
+                        additionalProperties: false,
                       },
                     },
-                    required: ["tip"],
-                    additionalProperties: false,
-                  },
+                  ],
+                  tool_choice: { type: "tool", name: "grammar_tip" },
                 },
-              ],
-              tool_choice: { type: "tool", name: "grammar_tip" },
+                options,
+              );
+              const toolUse = response.content.find((c) => c.type === "tool_use");
+              const input =
+                toolUse?.type === "tool_use"
+                  ? (toolUse.input as { tip: string | null })
+                  : { tip: null };
+              const parsedTip = TipResultSchema.safeParse(input);
+              const tip = parsedTip.success ? parsedTip.data.tip || null : null;
+              return new Response(JSON.stringify({ tip }), {
+                status: 200,
+                headers: { "Content-Type": "application/json" },
+              });
             });
-            const toolUse = response.content.find((c) => c.type === "tool_use");
-            const input =
-              toolUse?.type === "tool_use"
-                ? (toolUse.input as { tip: string | null })
-                : { tip: null };
-            const tip = typeof input.tip === "string" && input.tip.trim() ? input.tip.trim() : null;
-            return new Response(JSON.stringify({ tip }), {
-              status: 200,
-              headers: { "Content-Type": "application/json" },
-            });
-          } catch {
+          } catch (error) {
+            if (error instanceof SpeakingProviderError && error.status !== 502)
+              return new Response(JSON.stringify({ error: "Speaking request interrupted." }), {
+                status: error.status,
+                headers: { "Content-Type": "application/json" },
+              });
             // Soft-fail tips: don't break the conversation
             return new Response(JSON.stringify({ tip: null }), {
               status: 200,
@@ -609,54 +637,60 @@ export const Route = createFileRoute("/api/speak")({
               : `Create ONE "reach" vocabulary challenge in ${payload.language} for a ${payload.level} learner: a short useful sentence (6-12 words) containing ONE slightly advanced word the learner probably doesn't know yet. Provide a ${nativeLanguage} gloss and a ${nativeLanguage} hint that highlights the stretch word with its meaning.`;
 
           try {
-            const response = await client.messages.create({
-              model: "claude-haiku-5-5",
-              max_tokens: 384,
-              system:
-                "You design spoken language challenges. Always respond via the speak_challenge tool only.",
-              messages: [{ role: "user", content: userPrompt }],
-              tools: [
+            return await withSpeakingProvider(request, KEY, async (client, options) => {
+              const response = await client.messages.create(
                 {
-                  name: "speak_challenge",
-                  description: "A single spoken challenge for the learner.",
-                  input_schema: {
-                    type: "object" as const,
-                    properties: {
-                      target: {
-                        type: "string",
-                        description: `The sentence to say in ${payload.language}.`,
-                      },
-                      gloss: {
-                        type: "string",
-                        description: `Plain ${nativeLanguage} translation or gloss.`,
-                      },
-                      hint: {
-                        type: "string",
-                        description:
-                          "One-line coaching hint (concept name or stretch word + meaning).",
-                      },
-                      keyword: {
-                        type: "string",
-                        description:
-                          "The single most important word/phrase from `target` to listen for in the learner's speech.",
+                  model: "claude-haiku-5-5",
+                  max_tokens: 384,
+                  system:
+                    "You design spoken language challenges. Always respond via the speak_challenge tool only.",
+                  messages: [{ role: "user", content: userPrompt }],
+                  tools: [
+                    {
+                      name: "speak_challenge",
+                      description: "A single spoken challenge for the learner.",
+                      input_schema: {
+                        type: "object" as const,
+                        properties: {
+                          target: {
+                            type: "string",
+                            description: `The sentence to say in ${payload.language}.`,
+                          },
+                          gloss: {
+                            type: "string",
+                            description: `Plain ${nativeLanguage} translation or gloss.`,
+                          },
+                          hint: {
+                            type: "string",
+                            description:
+                              "One-line coaching hint (concept name or stretch word + meaning).",
+                          },
+                          keyword: {
+                            type: "string",
+                            description:
+                              "The single most important word/phrase from `target` to listen for in the learner's speech.",
+                          },
+                        },
+                        required: ["target", "gloss", "hint", "keyword"],
+                        additionalProperties: false,
                       },
                     },
-                    required: ["target", "gloss", "hint", "keyword"],
-                    additionalProperties: false,
-                  },
+                  ],
+                  tool_choice: { type: "tool", name: "speak_challenge" },
                 },
-              ],
-              tool_choice: { type: "tool", name: "speak_challenge" },
+                options,
+              );
+              const toolUse = response.content.find((c) => c.type === "tool_use");
+              if (!toolUse || toolUse.type !== "tool_use") throw new Error("bad payload");
+              const challenge = ChallengeResultSchema.parse(toolUse.input);
+              return new Response(JSON.stringify(challenge), {
+                status: 200,
+                headers: { "Content-Type": "application/json" },
+              });
             });
-            const toolUse = response.content.find((c) => c.type === "tool_use");
-            if (!toolUse || toolUse.type !== "tool_use") throw new Error("bad payload");
-            return new Response(JSON.stringify(toolUse.input), {
-              status: 200,
-              headers: { "Content-Type": "application/json" },
-            });
-          } catch {
+          } catch (error) {
             return new Response(JSON.stringify({ error: "Could not generate a challenge." }), {
-              status: 500,
+              status: error instanceof SpeakingProviderError ? error.status : 500,
               headers: { "Content-Type": "application/json" },
             });
           }
@@ -670,33 +704,39 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
+        const chatMessages = payload.messages;
         try {
-          const stream = await client.messages.create({
-            model: "claude-haiku-5-5",
-            max_tokens: 700,
-            thinking: { type: "disabled" },
-            system: chatSystemPrompt(
-              payload.language,
-              payload.level,
-              nativeLanguage,
-              payload.userVocabWords,
-            ),
-            messages: payload.messages,
-            stream: true,
-          });
+          return await withSpeakingProvider(request, KEY, async (client, options) => {
+            const stream = await client.messages.create(
+              {
+                model: "claude-haiku-5-5",
+                max_tokens: 700,
+                thinking: { type: "disabled" },
+                system: chatSystemPrompt(
+                  payload.language,
+                  payload.level,
+                  nativeLanguage,
+                  payload.userVocabWords,
+                ),
+                messages: chatMessages,
+                stream: true,
+              },
+              options,
+            );
 
-          return new Response(anthropicTextStream(stream), {
-            status: 200,
-            headers: {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-cache, no-transform",
-              Connection: "keep-alive",
-            },
+            return new Response(anthropicTextStream(stream), {
+              status: 200,
+              headers: {
+                "Content-Type": "text/event-stream",
+                "Cache-Control": "no-cache, no-transform",
+                Connection: "keep-alive",
+              },
+            });
           });
-        } catch (e) {
+        } catch (error) {
           console.error("Speaking provider request failed.");
           return new Response(JSON.stringify({ error: "AI request failed." }), {
-            status: 500,
+            status: error instanceof SpeakingProviderError ? error.status : 500,
             headers: { "Content-Type": "application/json" },
           });
         }

@@ -1,0 +1,54 @@
+{
+  "testedAt": "2026-10-18T14:55:13.923150+00:00",
+  "historicalSourceCommit": "bca1bf0feef91feba6ddba7bab36e19c2be82b11",
+  "historicalActualAssertionFailure": {
+    "installedSdk": true,
+    "timerCountAfterHeaders": 0,
+    "settledAtControlledDeadline": false,
+    "lateMockScoreWrites": 1,
+    "lateOutcome": "needs_review",
+    "actualAssertionNotSetupFailure": true,
+    "testCommand": "LT_AI_PROVIDER_BASELINE=bca1bf0 npx --yes node@22 --test --test-name-pattern=\"actual SDK stalled proposal body\" tests/assessment-ai-provider.test.mjs",
+    "logSha256": "13a302c5bab8f4e264a246cb6770977cbbc02e26a1e60170abce589626224b13"
+  },
+  "newInstalledSdkProviderGroups": 8,
+  "fullNode22Tests": 1544,
+  "providerPhaseMs": 25000,
+  "providerResponseMaxBytes": 131072,
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "f1714def61392bb4940a36bcba2a36b80a7b94ec0c89ecae67625d93024fc824",
+    "src/lib/assessments/writing-provider.ts": "8da26d5f23cf795ba845183abce27ae82d02f9888b919c0c42515c4ccb54d323",
+    "tests/assessment-ai-provider.test.mjs": "7d462df99ffe3dcefbba881b9d6c1fa86e13baac96e244e104bb91225114ea85"
+  },
+  "checks": {
+    "headersBodySdkParseOwnedPhase": true,
+    "ignoredHeadersAndLateResponseDisposal": true,
+    "stalledBodyNonwaitingCancellation": true,
+    "strictUtf8JsonAndJsonMediaType": true,
+    "advertisedCumulativeByteLimits": true,
+    "exactByteCapValidProposalAccepted": true,
+    "oneAttemptForTransientStatuses": true,
+    "frozenRubricMalformedIncompleteDenials": true,
+    "independentPhasesAndLeases": true,
+    "postdispatchBrowserDepartureDoesNotReplayClaim": true,
+    "providerFailureFixed503AndUncertainFinish": true,
+    "normalProposalOnlyScoreAndAuditPreserved": true,
+    "existingQuotaRoutingHumanReviewGatesRetained": true
+  },
+  "limits": [
+    "Actual AI source, installed Anthropic SDK and fetch transport; quota HTTP, DB/access/path/claims/scores and provider replies are synthetic only. No real model/provider/billing, consent, calibration, reviewer or pilot action. Historical controlled timers prove SDK timeout was removed at headers; not a real production outage or learner result.",
+    "Independent25second phase spans fetch headers/body plus SDK parse,128KiB raw byte cap and strictUTF8/JSON media parsing. Resource cap is operational, not an Anthropic API maximum. It can reject oversized otherwise valid provider replies with existing fixed503/human-review guidance. No SDK/provider retry. Existing model/max_tokens900/system/frozen tool/input and proposal validation unchanged.",
+    "After durable claim dispatch, the claimed operation remains independent of browser departure; it may save a needs_review proposal after disconnect. Existing lease/provider-requested marker, consent/score/audit/finish semantics remain. Deadline/abort does not establish provider nondelivery/nonbilling, score rollback or refund. No auto-replay.",
+    "The provider phase does not bound prior consent/claim RPC, postprovider score/audit/finalization RPC, full endpoint lifetime or physical cancellation. Database uncertain outcomes and durable reconciliation still require separate work.",
+    "Fixture corrections retained in separate failed logs: initial historical global fetch incorrectly routed SDK as quota and never reached body; actual proof is later assertion log. Body wrapper retains both phase/SDK timers, so test asserts continuing ownership rather than one timer. Concurrent starts are unordered; test observes both outcomes and identifies stopped/live signals rather than assuming call order. Final full1544tests/type/changed-filelint/prodaudit/guardedbuild pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Original human/device/session/content/calibration/reviewer/real pilot/retention/scheduler/59module gates and full dependency audit9findings(5high/4moderate)/legacy Prisma remain open."
+  ],
+  "installedAnthropicSdkVersion": "0.95.1",
+  "validation": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97
+  }
+}

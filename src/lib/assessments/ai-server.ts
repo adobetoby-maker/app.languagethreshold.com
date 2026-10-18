@@ -1,5 +1,5 @@
 import "@tanstack/react-start/server-only";
-import Anthropic from "@anthropic-ai/sdk";
+import { requestWritingProposal } from "./writing-provider";
 import { randomUUID } from "node:crypto";
 import type { TeamDb } from "@/lib/team-server";
 import { usageReceipt } from "@/lib/usage-cost";
@@ -136,9 +136,8 @@ export async function proposeWritingReview(
       },
     });
     if (consent.error) throw new Error("Consent audit unavailable");
-    const client = new Anthropic({ apiKey: key, maxRetries: 0, timeout: 25000 });
     providerStarted = true;
-    const result = await client.messages.create({
+    const result = await requestWritingProposal(key, {
       model: ASSESSMENT_AI_MODEL,
       max_tokens: 900,
       thinking: { type: "disabled" },

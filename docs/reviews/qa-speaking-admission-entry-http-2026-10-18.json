@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T06:11:10.688Z",
+  "applicationCommit": "cdd22f5ddb9a2b352075577a5978fc7d365d61d1",
+  "preview": "https://language-threshold-4bcl9mne8-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "speak",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speak",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speak",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speak",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speak",
+      "name": "oversized-valid-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speaking-consent",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speaking-consent",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speaking-consent",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speaking-consent",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "speaking-consent",
+      "name": "oversized-valid-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Inadmissible input only; no allowed speaking or consent read/write request, counter consumption, model/provider call, native playback or human approval. CDN-specific no-store headers are consumed by Vercel; local route tests inspect all directives."
+  ]
+}

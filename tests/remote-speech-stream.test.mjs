@@ -148,6 +148,23 @@ test("incoming and downstream speech cancellation abort and dispose their own tr
     aborted.abort();
     await assert.rejects(m.remoteSpeechAudio("Synthetic C", "synthetic-key", aborted.signal));
     assert.equal(c.requests.length, 2);
+    const upstream = new ReadableStream({
+      cancel() {
+        return new Promise(() => {});
+      },
+    });
+    c.provider = async () => new Response(upstream);
+    const audio = await m.remoteSpeechAudio(
+      "Synthetic text",
+      "synthetic-key",
+      new AbortController().signal,
+    );
+    await audio.cancel();
+    assert.equal(
+      upstream.locked,
+      false,
+      "release owned reader even when upstream cancellation never settles",
+    );
   }));
 test("speech byte bound rejects cumulative overflow instead of returning truncated audio", () =>
   fixture(async (m, c) => {

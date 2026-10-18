@@ -31,16 +31,19 @@ export async function remoteSpeechAudio(
   const cancelReader = () => {
     const ownedReader = reader;
     if (!ownedReader) return;
+    const release = () => {
+      try {
+        ownedReader.releaseLock();
+      } catch {
+        /* Retry after cancellation settles. */
+      }
+    };
     void ownedReader
       .cancel()
       .catch(() => {})
-      .finally(() => {
-        try {
-          ownedReader.releaseLock();
-        } catch {
-          /* A pending transport read may still own the lock. */
-        }
-      });
+      .finally(release);
+    // A source's cancel promise may never settle; release our lock immediately too.
+    release();
   };
   const interrupted = () => {
     if (finished) return;

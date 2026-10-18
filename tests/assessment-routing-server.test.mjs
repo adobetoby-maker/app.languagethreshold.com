@@ -644,10 +644,11 @@ test("human review still reaches authoritative rubric authorization, including a
   const f = await reviewFixture();
   f.db.rpc = async (name, args) => {
     f.rpcs.push({ name, args });
-    return { data: null, error: { code: "P0001", message: "Reviewer access required" } };
+    return { data: null, error: { code: "P0001", message: "Assessment review access required" } };
   };
   const response = await reviewPost(f);
   assert.equal(response.status, 403);
+  assert.deepEqual(await response.json(), { error: "Assessment review access required" });
   assert.deepEqual(
     f.rpcs.map((r) => r.name),
     ["assessment_review_rubric"],

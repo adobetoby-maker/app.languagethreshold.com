@@ -1,5 +1,6 @@
 import { hasAdaptiveRouting } from "./routing-contract";
 import { AssessmentAccessError } from "./errors";
+import { assessmentRpcGuidance } from "./rpc-errors";
 import {
   selectedAttemptPath,
   requireSelectedResponses,
@@ -65,16 +66,10 @@ export function stableRequestId(value: string): string {
 export async function rpc<T>(db: TeamDb, name: string, args: Record<string, unknown>): Promise<T> {
   const result = await db.rpc(name, args);
   if (result.error) {
-    const message = result.error.message;
-    if (result.error.code === "P0001")
-      throw new AssessmentAccessError(
-        message,
-        /access required|confirmation required/.test(message)
-          ? 403
-          : /conflict|reused|already|immutable|Speech upload expired/.test(message)
-            ? 409
-            : 400,
-      );
+    if (result.error.code === "P0001") {
+      const guidance = assessmentRpcGuidance(result.error.message);
+      if (guidance) throw new AssessmentAccessError(guidance.message, guidance.status);
+    }
     if (result.error.code === "23505")
       throw new AssessmentAccessError("This assessment already exists. Refresh to resume it.", 409);
     throw new AssessmentAccessError(

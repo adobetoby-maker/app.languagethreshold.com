@@ -1,0 +1,92 @@
+{
+  "testedAt": "2026-10-18T17:32:18.718242+00:00",
+  "applicationCommit": "c6304fbd58f31a4681b329a0e684d4f1feed3fe3",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-bgpw04718-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_4Q5pX295BRRmuKi6Pi71ZUTsrC5S",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-bgpw04718-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "c6304fbd58f31a4681b329a0e684d4f1feed3fe3",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+      "capabilityValue": null
+    }
+  ],
+  "validation": {
+    "fullNode22Tests": 1714,
+    "newRecoveryGroups": 22,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 5,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 20.05,
+    "hostedGroups": {
+      "exam-stage": "pass",
+      "focused-exam-entry": "pass",
+      "public-lesson-packs": "pass",
+      "exam-return-scope": "pass",
+      "learning-generation-entry": "pass",
+      "pashto-tts-private": "pass",
+      "google-speech-entry": "pass",
+      "speaking-admission-entry": "pass",
+      "push-admission-entry": "pass",
+      "conversation-admission-entry": "pass",
+      "sports-news-entry": "pass",
+      "email-capture-retired": "pass",
+      "team-input-entry": "pass",
+      "team-read-entry": "pass",
+      "team-workflow-entry": "pass",
+      "assessment-auth-entry": "pass",
+      "cleanup-status-entry": "pass",
+      "reviewer-admin-input": "pass"
+    },
+    "exactStaticRequests": 61,
+    "qaStateReadOnly": {
+      "personalRevision": 12,
+      "personalStatus": "in_progress",
+      "personalSubmitted": false,
+      "teamOpened": 2,
+      "teamMastered": 0
+    }
+  },
+  "evidence": {
+    "local": "qa-profile-recovery-local-2026-10-18.json",
+    "static": "qa-profile-recovery-content-static-preview-2026-10-18.json",
+    "exams": "qa-exams-assessment-profile-recovery-preview-2026-10-18.json"
+  },
+  "limits": [
+    "Read-only hosted admission/artifact/state checks, not positive profile recovery in normal hosted UI, profile cloud-write reconciliation or physical phone acceptance.",
+    "No provider generation, browser actions, real hosted exam start/retry/submission, production alias promotion, schema/role/policy/speech/schedule changes.",
+    "Profile source and pure reducer/component tests establish controlled behavior; concurrent tabs and unknown historical deletion/reset intent are not inferred.",
+    "Full goal remains active with original learner/device/content/reviewer/calibration/pilot/retention/scheduler/59-module release gates."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T17:32:20.296Z",
+    "sourceCommit": "c6304fb",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1747,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

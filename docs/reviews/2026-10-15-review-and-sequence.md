@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Learner acceptance index reconciles historical completion and missing profile import — October 18
+
+Documentation/source audit on clean cbde3eb, no runtime/deployment/browser/data action. learner-acceptance-index-2026-10-18.md links exact historical/current evidence rather than repeating stale heartbeat work. Reader-book recovery67e9931 and Reader-first layout4423632 are implemented; their commits are ancestors and reports retain historical limits. Genuine exam-expiry/re-auth18ff794 completed its TTL+300s trial and closed its tab; it is not a pending timer. Reader expiry with queued changes and current-version/device acceptance remain separate open work. Generated material binding and saved flat retry have their current source/fixture/hosted evidence, not positive reviewer/real hosted retry acceptance.
+
+Bounded source review confirms main-profile import is actually missing: profile-device-snapshot detects lt.app.v2/v1/app, app-state preserves them and notices them, practice-category recovery has no profile keys. Directly applying migrate/MERGE_REMOTE would mix broad profile fields and cloud sync with recovery copy that promises device-only saves. Next implementation needs validated categories, explicit ownership/destination and defined current-item/reset/counter/sync handling; unknown legacy fields cannot become entitlements, assigned work or proficiency. This is authorized implementation work, not a new approval question. Do not relabel a backup/inspection as completed import.
+
+Nine source hashes/five evidence hashes/three successful ancestry checks recorded in qa-learner-acceptance-index-2026-10-18.json. Prior final exactheadcbde3eb cleanLinuxCI39147680007 succeeded with1692tests/typecheck/lint/audit/build/artifact; production skipped/VercelSUCCESS. Docs-only diffcheck and privatebank96markers/1738source/209static/0hits; no new runtime tests/deployment needed. Existing exact Preview8d3cd59/jtdkilgo2 and main/live814b304/companiond4ad837 remain last verified baselines, not re-inspected this turn. Full goal active, PR38draft/unmerged. All human/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain; no repeated retention question.
+
+
 ### Saved flat assessment starts recover before current-source admission — October 18
 
 Application `8d3cd59` fixes a saved-start retry gap. Existing flat attempts are now discovered after unchanged learner ownership/current module access but before current form/support/lesson/preparation checks. Recovery repeats the existing SQL start RPC with p_form=NULL and no new studied coverage; SQL rechecks authorization/exposure and owns same-key/open/pause ordering under its lock. NULL cannot match a new form, so a vanished candidate fails instead of creating an unreviewed replacement. readAttempt still owns safe serialization. Adaptive saved-source behavior, Prepare and genuinely new starts retain existing gates. No migration or persistent schema change.

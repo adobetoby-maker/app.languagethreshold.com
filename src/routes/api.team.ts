@@ -7,7 +7,7 @@ import { getCurriculum } from "@/data/curriculum";
 import { describeCore30Tracks, type Core30TrackDisplay, extractCore30Log } from "@/lib/team-core30";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   hashInviteToken,
   inviteToken,
   json,
@@ -86,7 +86,7 @@ export const Route = createFileRoute("/api/team")({
       GET: async ({ request }) => {
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           const orgId = new URL(request.url).searchParams.get("org");
           if (!orgId) {
             const { data, error } = await db
@@ -317,7 +317,7 @@ export const Route = createFileRoute("/api/team")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           if (body.action === "create") {
             const { data, error } = await db.rpc("team_create_organization", {
               p_owner: user.id,

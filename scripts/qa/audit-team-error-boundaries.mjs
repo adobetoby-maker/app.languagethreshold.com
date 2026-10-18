@@ -34,6 +34,7 @@ function inventory(file, text) {
     }
     return { handler, catchVariable };
   };
+  const authCalls = [];
   const calls = [],
     requestJson = [],
     throws = [],
@@ -42,6 +43,8 @@ function inventory(file, text) {
     if (ts.isCallExpression(node)) {
       if (ts.isIdentifier(node.expression)) {
         const imported = imports.get(node.expression.text);
+        if (["authenticatedTeamUser", "authenticatedUser"].includes(imported))
+          authCalls.push({ helper: imported, line: line(node), ...context(node) });
         if (functions.includes(imported))
           calls.push({
             helper: imported,
@@ -76,7 +79,14 @@ function inventory(file, text) {
     ts.forEachChild(node, visit);
   }
   visit(source);
-  return { file, calls, namespaceReferences, directRequestJsonCalls: requestJson, throws };
+  return {
+    file,
+    calls,
+    authCalls,
+    namespaceReferences,
+    directRequestJsonCalls: requestJson,
+    throws,
+  };
 }
 if (process.argv.includes("--self-test")) {
   const item = inventory(
@@ -93,6 +103,14 @@ if (process.argv.includes("--self-test")) {
   assert.equal(item.namespaceReferences.length, 1);
   assert.equal(item.directRequestJsonCalls.length, 1);
   assert.equal(item.throws[0].literalMessage, true);
+  const auth = inventory(
+    "auth.ts",
+    `import {authenticatedTeamUser as owned,authenticatedUser as prior} from '@/lib/team-server';owned(x,y);prior(x,y);`,
+  );
+  assert.deepEqual(
+    auth.authCalls.map((x) => x.helper),
+    ["authenticatedTeamUser", "authenticatedUser"],
+  );
   const unrelated = inventory(
     "unrelated.ts",
     `import {teamError} from 'other';teamError('not target');`,
@@ -113,9 +131,20 @@ if (process.argv.includes("--self-test")) {
     .trim()
     .split("\n")
     .sort();
-  const routes = paths
-    .map((file) => inventory(file, readFileSync(file, "utf8")))
-    .filter((x) => x.calls.length || x.namespaceReferences.length);
+  const analyzed = paths.map((file) => inventory(file, readFileSync(file, "utf8")));
+  const routes = analyzed.filter((x) => x.calls.length || x.namespaceReferences.length);
+  const authenticationCalls = {
+    bounded: analyzed.flatMap((row) =>
+      row.authCalls
+        .filter((call) => call.helper === "authenticatedTeamUser")
+        .map((call) => ({ file: row.file, ...call })),
+    ),
+    original: analyzed.flatMap((row) =>
+      row.authCalls
+        .filter((call) => call.helper === "authenticatedUser")
+        .map((call) => ({ file: row.file, ...call })),
+    ),
+  };
   const helperSource = readFileSync("src/lib/team-server.ts", "utf8");
   const source = ts.createSourceFile("team-server.ts", helperSource, ts.ScriptTarget.Latest, true);
   const compatibility = source.statements
@@ -145,7 +174,10 @@ if (process.argv.includes("--self-test")) {
         x.calls.filter((c) => c.helper === "scopedTeamError"),
       ).length,
       namespaceCalls: routes.flatMap((x) => x.namespaceReferences).length,
+      boundedAuthDirectCalls: authenticationCalls.bounded.length,
+      originalAuthDirectCalls: authenticationCalls.original.length,
     },
+    authenticationCalls,
     helperDeclarations,
     legacyCompatibilityAlias: {
       target: "scopedTeamError",
@@ -158,7 +190,7 @@ if (process.argv.includes("--self-test")) {
       "Scoped callbacks expose typed fixed guidance and fixed schema/syntax failures, suppressing unexpected backend text. This direct-import inventory does not prove all workflow behavior, diagnostics, alternate response paths or side-effect reconciliation.",
     ],
     limits: [
-      "Read-only TypeScript AST inventory of direct named imports from the exact module path across rg-visible tracked/untracked src TS/TSX files. Aliased named calls are recognized; namespace references counted separately. No symbol resolution, re-export/alias chains, dynamic calls, runtime coverage or appwide safety proof.",
+      "Read-only TypeScript AST inventory of direct named imports from the exact module path across rg-visible tracked/untracked src TS/TSX files. Aliased named calls are recognized; namespace references counted separately. Auth call records distinguish direct bounded/original helper imports but do not establish external caller deadlines or SDK transport cancellation. No symbol resolution, re-export/alias chains, dynamic calls, runtime coverage or appwide safety proof.",
       "Handler/catch context is syntactic ancestry. Request.json matches direct request identifier only; wrappers, other variable names, body streams and other parsing APIs may be missed. Throw facts do not prove which catch receives the error.",
       "No runtime source/deploy/schema/grant/role/policy/schedule change, credentials, database/network/provider/email/payment/invitation/certificate/browser action. Prior exact Preview checks retained and not rerun for this audit-only follow-up.",
       "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform and actual session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance.",
@@ -168,6 +200,7 @@ if (process.argv.includes("--self-test")) {
   assert.equal(report.scan.legacyFiles, 0);
   assert.equal(report.scan.scopedDirectCalls, 12);
   assert.equal(report.scan.namespaceCalls, 0);
+  assert.equal(report.scan.boundedAuthDirectCalls, 11);
   writeFileSync(
     "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     JSON.stringify(report, null, 2) + "\n",

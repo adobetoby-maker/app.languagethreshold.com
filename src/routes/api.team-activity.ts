@@ -4,7 +4,7 @@ import { prepareTeamJson, MAX_TEAM_ACTIVITY_BYTES } from "@/lib/team-request";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import {
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   teamAdminClient,
   scopedTeamError,
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/api/team-activity")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           if (body.moduleId !== "core" && !getModule(body.moduleId))
             throw new TeamOperationError("Unknown module.");
           if (body.action === "interval") {

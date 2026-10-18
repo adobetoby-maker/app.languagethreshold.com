@@ -4,7 +4,7 @@ import { z } from "zod";
 import { backfillStripeLedger } from "@/lib/stripe-ledger-backfill";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   requirePlatformOwner,
   sendTeamEmail,
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/api/platform")({
       GET: async ({ request }) => {
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
           const since =
             new URL(request.url).searchParams.get("since") ??
@@ -160,7 +160,7 @@ export const Route = createFileRoute("/api/platform")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
           if (body.action === "ledger_import_stripe") {
             const counts = await backfillStripeLedger(db);

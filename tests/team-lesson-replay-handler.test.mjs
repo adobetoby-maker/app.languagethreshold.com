@@ -45,7 +45,7 @@ export const createFileRoute=()=>config=>config;
 export const getModule=id=>['roofing','landscaper'].includes(id)?{id}:null;
 export const getCurriculum=()=>({lessons:[{n:1},{n:2}]});
 export const maybeIssueRoofingCertificate=async()=>{c.certificates++;return null};
-export const authenticatedUser=async request=>{const id=request.headers.get('authorization');if(!id)throw new TeamOperationError('Sign in to continue.',403);return{id}};
+export const authenticatedUser=async request=>{const id=request.headers.get('authorization');if(!id)throw new TeamOperationError('Sign in to continue.',403);return{id}};export const authenticatedTeamUser=authenticatedUser;
 ${helpers}
 class Query {
  constructor(table){this.table=table;this.filters=[];this.op='read';this.value=null;this.one=false;}

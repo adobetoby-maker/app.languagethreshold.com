@@ -5,7 +5,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   requireTeamAdmin,
   teamAdminClient,
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/api/team-billing")({
       GET: async ({ request }) => {
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           const params = new URL(request.url).searchParams;
           const orgId = z.string().uuid().parse(params.get("orgId"));
           const sessionId = z
@@ -109,7 +109,7 @@ export const Route = createFileRoute("/api/team-billing")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           await requireTeamAdmin(db, body.orgId, user.id);
           const key = process.env.STRIPE_SECRET_KEY;
           if (!key) throw new TeamOperationError("Team billing is not configured.", 503);

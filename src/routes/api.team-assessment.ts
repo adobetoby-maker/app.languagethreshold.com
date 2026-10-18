@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { prepareTeamJson, MAX_TEAM_ASSESSMENT_BYTES } from "@/lib/team-request";
 import {
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   memberRole,
   teamAdminClient,
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/api/team-assessment")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           if (body.action === "start") {
             const member = await memberRole(db, body.orgId, user.id);
             if (!member || member.role !== "learner")

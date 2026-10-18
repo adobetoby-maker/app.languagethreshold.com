@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   memberRole,
   teamAdminClient,
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/api/module-request")({
       GET: async ({ request }) => {
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           const { data, error } = await db
             .from("custom_module_requests")
             .select("id,title,status,fee_cents,created_at,paid_at,owner_note")
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/api/module-request")({
         const body = prepared.data;
         try {
           const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const user = await authenticatedTeamUser(request, db);
           if (!(await hasActivePlan(db, user.id)))
             throw new TeamOperationError(
               "An active Pro or Team plan is required to request a custom module.",

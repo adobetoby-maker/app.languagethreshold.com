@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "8071176",
+  "application": "de17167",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-4n0vol2lp-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-errors-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-reads-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "807117688c92192abab5dde70fbc80871c065641",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-errors-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-reads-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -958,14 +958,24 @@
     "actualTeamWrite": false
   },
   "latestTeamErrorBoundaryInventory": {
-    "sourceCommit": "a5f1f05e84bfb80b8d88c509664696d06b02c8f5",
-    "runtimeApplicationCommit": "807117688c92192abab5dde70fbc80871c065641",
+    "sourceCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+    "runtimeApplicationCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
     "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     "typescriptSourceFiles": 620,
-    "legacyFiles": 6,
-    "legacyDirectCalls": 10,
-    "scopedDirectCalls": 2,
-    "runtimeChanged": false,
+    "legacyFiles": 4,
+    "legacyDirectCalls": 8,
+    "scopedDirectCalls": 4,
     "status": "bounded-static-inventory-legacy-migration-open"
+  },
+  "latestLocalTeamReadErrorsFollowup": {
+    "application": "de17167",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-reads-preview-2026-10-18.json",
+    "scopedRoutes": [
+      "certificate",
+      "team-entitlement"
+    ],
+    "otherRawTeamErrorsStillOpen": true,
+    "actualCertificateOperation": false
   }
 }

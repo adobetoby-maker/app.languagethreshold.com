@@ -1,0 +1,38 @@
+{
+  "testedAt": "2026-10-18T09:56:33.823Z",
+  "applicationCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+  "preview": "https://language-threshold-4n0vol2lp-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "path": "/api/certificate",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/certificate?id=",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/certificate?id=synthetic-private-entry-detail",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team-entitlement",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    }
+  ],
+  "limits": [
+    "Three invalid certificate IDs and missing-bearer entitlement only. No valid certificate lookup, issuance, qualification, authenticated entitlement, team mutation, payment, invitation, email, consent or browser action. CDN headers checked in local actual-handler tests; Vercel consumes them."
+  ]
+}

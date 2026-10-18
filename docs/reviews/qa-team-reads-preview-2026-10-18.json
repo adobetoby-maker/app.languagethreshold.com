@@ -1,0 +1,96 @@
+{
+  "testedAt": "2026-10-18T09:56:55.064578+00:00",
+  "applicationCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+  "preview": "https://language-threshold-4n0vol2lp-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-4n0vol2lp-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_7ixfwQrcScQgg36DZmDVwunrDh7D",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-4n0vol2lp-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-errors-preview-2026-10-18.json",
+  "local": {
+    "tests": 1390,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1505,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Certificate and entitlement GET catches use scopedTeamError: unexpected SDK/database failures return fixed 503 instead of raw text",
+    "Certificate UUID safeParse returns one fixed 400 before SDK construction for missing/empty/invalid IDs; existing public metadata query/projection and 404 behavior unchanged",
+    "Four new actual-handler controlled groups cover invalid certificate input/zero SDK, synthetic record and 404, client/query errors, missing entitlement auth/zero reads and unchanged active/manual expiry decisions",
+    "Fourteen hosted checker groups pass; new group contains three invalid certificate IDs and one missing-bearer entitlement request, with no valid certificate lookup or authenticated entitlement read",
+    "AST inventory now finds eight legacy calls across four files and four scoped calls across four files; runtime commit metadata is explicit env or null, no historical fallback"
+  ],
+  "controlledEvidence": [
+    "tests/team-read-errors.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "7557604",
+    "source": "src/routes/api.certificate.ts",
+    "case": "Missing certificate UUID on actual historical route",
+    "oldError": "Raw schema invalid_type/expected string/received null metadata",
+    "expectedError": "Check the certificate link and try again.",
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical route with synthetic SDK delegates; invalid input stops before SDK or network."
+  },
+  "diagnostics": [
+    "Initial controlled delegate had a missing closing brace; corrected before focused/full results. Historical failure is the actual fixed-error body assertion, not compilation."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-reads-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Successful certificate fixtures are synthetic read records only; no actual certificate lookup/issuance/revocation, qualification, score, entitlement modification, payment, invitation, mail, consent, provider or browser action occurred. Hosted requests cannot authorize writes.",
+    "Certificate metadata remains public by opaque UUID under its existing design. This error change does not verify field minimization/privacy expectations, enumeration resistance, rate limits, authenticity or real acceptance of that public design.",
+    "Other legacy teamError callers in billing/company/module requests/platform administration still expose Error.message and regex statuses. The AST inventory is direct-import structural evidence, not runtime/appwide reachability or safety proof.",
+    "Existing middleware can overwrite Cache-Control to no-store on private-URL-classified requests. No new auth/DB/read/write/certificate deadline, abort, transaction or exactly-once guarantee.",
+    "Legacy signup grants/migration drift and all content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No schema/grant/role/policy/schedule/main/production/accepted-hostname change."
+  ]
+}

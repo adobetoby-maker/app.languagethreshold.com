@@ -1,13 +1,13 @@
 {
-  "auditedAt": "2026-10-18T09:44:56.077Z",
-  "sourceCommit": "a5f1f05e84bfb80b8d88c509664696d06b02c8f5",
-  "runtimeApplicationCommit": "807117688c92192abab5dde70fbc80871c065641",
+  "auditedAt": "2026-10-18T09:56:06.492Z",
+  "sourceCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
+  "runtimeApplicationCommit": "de1716755253fab671ab4ca0115e98fdc5bc5b3c",
   "scan": {
     "typescriptSourceFiles": 620,
-    "legacyFiles": 6,
-    "legacyDirectCalls": 10,
-    "scopedFiles": 2,
-    "scopedDirectCalls": 2,
+    "legacyFiles": 4,
+    "legacyDirectCalls": 8,
+    "scopedFiles": 4,
+    "scopedDirectCalls": 4,
     "namespaceCalls": 0
   },
   "helperDeclarations": [
@@ -25,9 +25,9 @@
       "file": "src/routes/api.certificate.ts",
       "calls": [
         {
-          "helper": "teamError",
-          "localName": "teamError",
-          "line": 23,
+          "helper": "scopedTeamError",
+          "localName": "scopedTeamError",
+          "line": 26,
           "handler": "GET",
           "catchVariable": "error",
           "argumentKind": "Identifier"
@@ -37,7 +37,7 @@
       "directRequestJsonCalls": [],
       "throws": [
         {
-          "line": 19,
+          "line": 22,
           "handler": "GET",
           "catchVariable": null,
           "kind": "rethrow-or-expression",
@@ -666,8 +666,8 @@
       "file": "src/routes/api.team-entitlement.ts",
       "calls": [
         {
-          "helper": "teamError",
-          "localName": "teamError",
+          "helper": "scopedTeamError",
+          "localName": "scopedTeamError",
           "line": 35,
           "handler": "GET",
           "catchVariable": "error",
@@ -894,7 +894,7 @@
     }
   ],
   "findings": [
-    "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Ten direct calls in six files remain; typed scoped handler is used by activity and legacy assessment only.",
+    "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Eight direct calls in four files remain; typed scoped handler is used by activity, legacy assessment, certificate and entitlement.",
     "Legacy surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
     "Shared auth/config error typing does not sanitize other legacy backend/schema/mail/checkout failures. Migrate fixed intentional guidance with explicit statuses per workflow before replacing catch responses."
   ],

@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 import { teamAuthFetch } from "./team-auth-fetch";
 import { teamMemberFetch } from "./team-member-fetch";
 import { teamOwnerFetch } from "./team-owner-fetch";
+import { teamContentGrantsFetch } from "./team-content-grants-fetch";
 
 // Request scope belongs to the client object; it is never a shared current actor.
 const clientRequests = new WeakMap<object, Request>();
@@ -19,7 +20,11 @@ export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
         teamMemberFetch(
           url,
           authRequest.signal,
-          teamOwnerFetch(url, authRequest.signal, fetcher ?? fetch),
+          teamOwnerFetch(
+            url,
+            authRequest.signal,
+            teamContentGrantsFetch(url, authRequest.signal, fetcher ?? fetch),
+          ),
         ),
       )
     : fetcher;
@@ -32,6 +37,12 @@ export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
 }
 
 export type TeamDb = ReturnType<typeof teamAdminClient>;
+
+/** Recheck request departure after a private SDK read has finished parsing. */
+export function requireCurrentTeamRequest(db: TeamDb) {
+  if (clientRequests.get(db)?.signal.aborted)
+    throw new TeamOperationError("Team request cancelled.", 499);
+}
 
 export async function authenticatedUser(request: Request, db: TeamDb): Promise<User> {
   return lookupAuthenticatedUser(request, db, false);

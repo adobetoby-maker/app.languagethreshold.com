@@ -1,6 +1,11 @@
 import "@tanstack/react-start/server-only";
 import type { User } from "@supabase/supabase-js";
-import { requirePlatformOwner, readPlatformRole, type TeamDb } from "@/lib/team-server";
+import {
+  requirePlatformOwner,
+  readPlatformRole,
+  requireCurrentTeamRequest,
+  type TeamDb,
+} from "@/lib/team-server";
 import { AssessmentAccessError } from "./server";
 export type ContentGrant = {
   module_id: string;
@@ -9,6 +14,7 @@ export type ContentGrant = {
   kind: "curriculum" | "fluent_language" | "domain";
 };
 export async function contentPrivileges(db: TeamDb, user: User) {
+  requireCurrentTeamRequest(db);
   let owner = false;
   try {
     await requirePlatformOwner(db, user);
@@ -23,8 +29,10 @@ export async function contentPrivileges(db: TeamDb, user: User) {
       .from("assessment_content_reviewers")
       .select("module_id,target_language,instruction_language,kind")
       .eq("user_id", user.id)
-      .eq("active", true),
+      .eq("active", true)
+      .retry(false),
   ]);
+  requireCurrentTeamRequest(db);
   if (grants.error)
     throw new AssessmentAccessError("Content permissions could not be checked.", 503);
   return {

@@ -96,6 +96,7 @@ function ReviewerAdmin() {
     void examRequest<Registry>(
       `/api/exam-reviewers?module=${encodeURIComponent(moduleId)}${filterUser ? `&user=${encodeURIComponent(filterUser)}` : ""}`,
       controller.signal,
+      { userId: user.id, isCurrent: current },
     )
       .then((result) => {
         if (current()) setRegistry(result);
@@ -182,7 +183,10 @@ function ReviewerAdmin() {
     setError("");
     setNotice("");
     try {
-      await examReviewerRequest({ ...body, requestId: request.current.id }, controller.signal);
+      await examReviewerRequest({ ...body, requestId: request.current.id }, controller.signal, {
+        userId: user.id,
+        isCurrent: current,
+      });
       if (current()) {
         setConfirmation(null);
         setReason("");

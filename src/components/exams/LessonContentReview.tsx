@@ -27,6 +27,7 @@ export function LessonContentReview({
     void examRequest<LessonReviewPayload>(
       `/api/exam-content?lessons=${encodeURIComponent(releaseId)}`,
       controller.signal,
+      { userId: actor, isCurrent: () => isCurrentUser(actor) },
     )
       .then((result) => {
         if (!controller.signal.aborted && isCurrentUser(actor)) setData(result);

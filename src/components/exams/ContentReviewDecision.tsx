@@ -90,7 +90,10 @@ function OwnedContentReviewDecision({
     setBusy(true);
     setError("");
     try {
-      await examContentRequest({ ...body, requestId: request.current.id }, controller.signal);
+      await examContentRequest({ ...body, requestId: request.current.id }, controller.signal, {
+        userId: user.id,
+        isCurrent: current,
+      });
       if (current()) onRecorded();
     } catch (err) {
       if (current()) {

@@ -66,6 +66,7 @@ function OwnedExamReviewQueue({ orgId, members, onOpen }: Props) {
     void examRequest<QueuePage>(
       `/api/exams?${new URLSearchParams({ action: "review_queue", ...(orgId ? { org: orgId } : {}) })}`,
       controller.signal,
+      { userId: actor, isCurrent: current },
     )
       .then((result) => {
         if (current()) setRecord({ key, page: result });
@@ -118,7 +119,10 @@ function OwnedExamReviewQueue({ orgId, members, onOpen }: Props) {
       const params = new URLSearchParams(queuePath().split("?")[1]);
       params.set("after", page.nextCursor!.submittedAt);
       params.set("afterId", page.nextCursor!.id);
-      const next = await examRequest<QueuePage>(`/api/exams?${params}`, signal);
+      const next = await examRequest<QueuePage>(`/api/exams?${params}`, signal, {
+        userId: actor!,
+        isCurrent: current,
+      });
       if (current())
         setRecord({
           key,
@@ -139,7 +143,10 @@ function OwnedExamReviewQueue({ orgId, members, onOpen }: Props) {
     if (!page?.eligible || !page.items.includes(row)) return;
     return act(async (signal, current) => {
       if (row.review_id && !row.reviewer_id)
-        await examRequest({ action: "claim_review", reviewId: row.review_id }, signal);
+        await examRequest({ action: "claim_review", reviewId: row.review_id }, signal, {
+          userId: actor!,
+          isCurrent: current,
+        });
       if (current()) onOpen(row.attempt_id, true);
     });
   };

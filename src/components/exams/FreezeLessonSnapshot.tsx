@@ -65,7 +65,10 @@ function OwnedFreezeLessonSnapshot({
     setBusy(true);
     setError("");
     try {
-      await examContentRequest({ ...body, requestId: retry.current.id }, controller.signal);
+      await examContentRequest({ ...body, requestId: retry.current.id }, controller.signal, {
+        userId: user.id,
+        isCurrent: current,
+      });
       if (current()) onBound();
     } catch (err) {
       if (current()) {

@@ -12,10 +12,13 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(action) {
+async function fixture(action, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/exam-listening-"));
   const old = Object.fromEntries(
-    ["Audio", "URL", "window"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+    ["fetch", "Audio", "URL", "window"].map((k) => [
+      k,
+      Object.getOwnPropertyDescriptor(globalThis, k),
+    ]),
   );
   try {
     const out = join(dir, "component.mjs");
@@ -37,13 +40,17 @@ async function fixture(action) {
             b.onResolve(
               {
                 filter:
-                  /^(fixture$|react$|@tanstack\/react-router|@\/state\/auth-state|@\/lib\/assessments\/client|@\/data\/(modules|languages)|@\/components\/)/,
+                  /^(fixture$|react$|@tanstack\/react-router|@\/state\/auth-state|@\/lib\/assessments\/client|@\/data\/(modules|languages)|@\/components\/|@\/integrations\/supabase\/client$)/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
+ import {examContentRequest as realContent,examReviewerRequest as realReviewer,examRequest as realRequest,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
  export const useCallback=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;};
@@ -52,10 +59,10 @@ async function fixture(action) {
  export const examAudioRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
  export const createFileRoute=()=>config=>config,AuthProvider=()=>null,AuthButton=()=>null,ThemeToggle=()=>null,AssessmentCleanupStatus=()=>null;
  export const MODULES=[{id:'roofing',name:'Roofing'},{id:'plumber',name:'Plumber'}],LANGUAGES=['Spanish','French'],NATIVE_LANGUAGES=['English','Spanish'];
- export class ExamRequestError extends Error {constructor(message,status){super(message);this.status=status;}} c.RequestError=ExamRequestError;
- export const examReviewerRequest=(body,signal)=>new Promise((resolve,reject)=>c.actions.push({body,signal,resolve,reject}));
- export const examContentRequest=(body,signal)=>new Promise((resolve,reject)=>c.actions.push({body,signal,resolve,reject}));
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
+ c.RequestError=ExamRequestError;
+ export const examReviewerRequest=(body,signal,owner)=>c.realClient?realReviewer(body,signal,owner):new Promise((resolve,reject)=>c.actions.push({body,signal,owner,resolve,reject}));
+ export const examContentRequest=(body,signal,owner)=>c.realClient?realContent(body,signal,owner):new Promise((resolve,reject)=>c.actions.push({body,signal,owner,resolve,reject}));
+ export const examRequest=(url,signal,owner)=>c.realClient?realRequest(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},getVoicesForLocale=()=>[{voiceURI:'device-voice'}];
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.tts.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  `,
@@ -68,6 +75,9 @@ async function fixture(action) {
       audios = [],
       revoked = [];
     let cancels = 0;
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { speechSynthesis: { cancel: () => cancels++ } };
     globalThis.URL = {
       createObjectURL: () => `blob:qa-${audios.length}`,
@@ -327,4 +337,30 @@ test("registry request replacement rejects old module rows and current access de
     await tick();
     tree = render();
     assert.equal(checkbox(tree).props.checked, false);
+  }));
+
+test("reviewer registry read refuses replacement SDK account", () =>
+  fixture(async ({ c, render, owner }) => {
+    render();
+    c.sessions.shift()({
+      data: { session: { user: { id: "other" }, access_token: "synthetic-other" } },
+    });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.match(JSON.stringify(render()), /Sign in/);
+  }, true));
+
+test("reviewer access mutation binds actual SDK account and refuses false acknowledgement", () =>
+  fixture(async ({ c, load, render, fill, submit, owner }) => {
+    let tree = fill(await load());
+    c.realClient = true;
+    submit(tree);
+    c.sessions.shift()({
+      data: { session: { user: { id: "other" }, access_token: "synthetic-other" } },
+    });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    tree = render();
+    assert.match(JSON.stringify(tree), /Sign in/);
+    assert.equal(JSON.stringify(tree).includes("Access change recorded"), false);
   }));

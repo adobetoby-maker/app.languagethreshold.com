@@ -1,0 +1,225 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { build } from "esbuild";
+import { mkdtempSync, rmSync } from "node:fs";
+import { resolve, join } from "node:path";
+const tick = () => new Promise((r) => setImmediate(r));
+function nodes(n, out = []) {
+  if (Array.isArray(n)) n.forEach((x) => nodes(x, out));
+  else if (n && typeof n === "object") {
+    out.push(n);
+    nodes(n.props?.children, out);
+  }
+  return out;
+}
+const refresh = (tree) => nodes(tree).find((n) => n.props?.["aria-label"] === "Refresh news");
+const titles = (tree) =>
+  nodes(tree)
+    .filter((n) => n.props?.article)
+    .map((n) => n.props.article.title);
+const favorite = (tree) => nodes(tree).find((n) => n.type?.name === "FavoriteTeamInput");
+const article = (title) => ({
+  id: title,
+  title,
+  summary: "Synthetic summary",
+  url: "https://fixture.invalid/news",
+  pubDate: "2026-10-18T00:00:00Z",
+  source: "Synthetic",
+  sport: "soccer",
+  teamMentions: [],
+});
+async function fixture(run) {
+  const dir = mkdtempSync(resolve("node_modules/.cache/sports-lifecycle-"));
+  const saved = fetch;
+  try {
+    await build({
+      stdin: {
+        contents: `export {SportsNewsPanel} from '@/components/soccer/SportsNewsPanel';export {c} from 'fixture';`,
+        resolveDir: process.cwd(),
+        loader: "tsx",
+      },
+      outfile: join(dir, "case.mjs"),
+      bundle: true,
+      jsx: "automatic",
+      format: "esm",
+      platform: "node",
+      external: ["react/jsx-runtime"],
+      logLevel: "silent",
+      plugins: [
+        {
+          name: "controlled-sports",
+          setup(b) {
+            b.onResolve(
+              {
+                filter:
+                  /^(fixture|react|lucide-react|@\/state\/auth-state|@\/components\/ui\/(badge|button|skeleton))$/,
+              },
+              () => ({ path: "fixture", namespace: "fixture" }),
+            );
+            b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              contents: `
+ export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],writes:0,favorites:[]};
+ const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
+ export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.writes++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
+ export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
+ export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
+ export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
+ const actors=new Map();const isCurrentUser=id=>c.actor===id;export const useAuth=()=>{if(!actors.has(c.actor)){actors.set(c.actor,{user:c.actor?{id:c.actor}:null,isCurrentUser});}return actors.get(c.actor);};
+ export const Pencil='icon',RefreshCw='icon',X='icon',Check='icon',Badge='badge',Button='button',Skeleton='skeleton';
+ `,
+            }));
+          },
+        },
+      ],
+    });
+    const { SportsNewsPanel, c } = await import(join(dir, "case.mjs"));
+    globalThis.fetch = (url, options) =>
+      new Promise((resolve, reject) => c.requests.push({ url, options, resolve, reject }));
+    c.props = {
+      sport: "soccer",
+      favoriteTeam: "Arsenal",
+      language: "Spanish",
+      onSetFavoriteTeam: (team) => c.favorites.push(team),
+    };
+    c.render = (flush = true) => {
+      c.cursor = 0;
+      let tree = SportsNewsPanel(c.props);
+      if (flush) {
+        while (c.effects.length) c.effects.shift()();
+        c.cursor = 0;
+        tree = SportsNewsPanel(c.props);
+      }
+      return tree;
+    };
+    c.unmount = () => {
+      for (const slot of c.slots) slot?.cleanup?.();
+    };
+    await run(c);
+    c.unmount();
+  } finally {
+    globalThis.fetch = saved;
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+test("sports actual panel owns one current selection request and refuses retained refresh/team callbacks", () =>
+  fixture(async (c) => {
+    let tree = c.render();
+    const oldRefresh = refresh(tree).props.onClick,
+      oldFavorite = favorite(tree).props.onChange;
+    oldRefresh();
+    oldRefresh();
+    assert.equal(c.requests.length, 1);
+    assert.equal(c.requests[0].options.cache, "no-store");
+    c.props = { ...c.props, favoriteTeam: "Chelsea", sport: "baseball" };
+    tree = c.render();
+    assert.equal(c.requests.length, 2);
+    assert.equal(c.requests[0].options.signal.aborted, true);
+    oldRefresh();
+    oldFavorite("PRIVATE old favorite");
+    assert.equal(c.requests.length, 2);
+    assert.deepEqual(c.favorites, []);
+    let cancelled = false;
+    const late = new Response(
+      new ReadableStream({
+        cancel() {
+          cancelled = true;
+          return new Promise(() => {});
+        },
+      }),
+    );
+    const before = c.writes;
+    c.requests[0].resolve(late);
+    await tick();
+    assert.equal(cancelled, true);
+    assert.equal(c.writes, before);
+    c.requests[1].resolve(Response.json({ articles: [article("Current selection")] }));
+    await tick();
+    tree = c.render();
+    assert.deepEqual(titles(tree), ["Current selection"]);
+    favorite(tree).props.onChange("New team");
+    assert.deepEqual(c.favorites, ["New team"]);
+  }));
+test("sports panel hides departed account data before effects and ignores late parsed results through guest/B", () =>
+  fixture(async (c) => {
+    c.render();
+    c.requests[0].resolve(Response.json({ articles: [article("Account A selection")] }));
+    await tick();
+    let tree = c.render();
+    assert.deepEqual(titles(tree), ["Account A selection"]);
+    const retained = refresh(tree).props.onClick;
+    retained();
+    assert.equal(c.requests.length, 2);
+    let parsed;
+    const body = new Promise((resolve) => (parsed = resolve));
+    c.requests[1].resolve({ ok: true, json: () => body });
+    await tick();
+    c.actor = null;
+    tree = c.render(false);
+    assert.deepEqual(titles(tree), []);
+    while (c.effects.length) c.effects.shift()();
+    tree = c.render();
+    assert.equal(c.requests.length, 3);
+    assert.equal(c.requests[1].options.signal.aborted, true);
+    const before = c.writes;
+    parsed({ articles: [article("Late A private selection")] });
+    await tick();
+    assert.equal(c.writes, before);
+    retained();
+    assert.equal(c.requests.length, 3);
+    c.actor = "b";
+    tree = c.render();
+    assert.deepEqual(titles(tree), []);
+    assert.equal(c.requests.length, 4);
+    assert.equal(c.requests[2].options.signal.aborted, true);
+    c.requests[2].reject(Error("PRIVATE guest failure"));
+    await tick();
+    assert.deepEqual(titles(c.render()), []);
+    c.requests[3].resolve(Response.json({ articles: [article("Account B selection")] }));
+    await tick();
+    assert.deepEqual(titles(c.render()), ["Account B selection"]);
+  }));
+test("sports panel unmount aborts active work and late rejection performs no state writes", () =>
+  fixture(async (c) => {
+    const tree = c.render();
+    const retained = refresh(tree).props.onClick;
+    c.unmount();
+    assert.equal(c.requests[0].options.signal.aborted, true);
+    const before = c.writes;
+    c.requests[0].reject(Error("PRIVATE late transport"));
+    await tick();
+    assert.equal(c.writes, before);
+    retained();
+    assert.equal(c.requests.length, 1);
+  }));
+test("sports panel current failures use fixed errors, release retry and reset view on language change", () =>
+  fixture(async (c) => {
+    c.render();
+    c.requests[0].resolve(Response.json({ articles: [], error: "PRIVATE upstream detail" }));
+    await tick();
+    let tree = c.render();
+    const rendered = JSON.stringify(tree);
+    assert.ok(rendered.includes("News unavailable — try again later."));
+    assert.ok(!rendered.includes("PRIVATE"));
+    refresh(tree).props.onClick();
+    assert.equal(c.requests.length, 2);
+    c.requests[1].resolve(
+      Response.json({ articles: Array.from({ length: 9 }, (_, i) => article(`Article ${i}`)) }),
+    );
+    await tick();
+    tree = c.render();
+    assert.equal(titles(tree).length, 6);
+    const more = nodes(tree).find(
+      (n) => (JSON.stringify(n.props?.children) ?? "").includes("Load more") && n.props?.onClick,
+    );
+    more.props.onClick();
+    assert.equal(titles(c.render()).length, 9);
+    c.props = { ...c.props, language: "French" };
+    tree = c.render();
+    assert.deepEqual(titles(tree), []);
+    assert.equal(c.requests.length, 3);
+    c.requests[2].resolve(
+      Response.json({ articles: Array.from({ length: 9 }, (_, i) => article(`New ${i}`)) }),
+    );
+    await tick();
+    assert.equal(titles(c.render()).length, 6);
+  }));

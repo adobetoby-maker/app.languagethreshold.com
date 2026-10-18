@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Pencil, RefreshCw, X, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import type { NewsArticle } from "@/routes/api.sports-news";
 
 // ---------------------------------------------------------------------------
@@ -190,6 +191,7 @@ export function SportsNewsPanel({
   language,
   onSetFavoriteTeam,
 }: SportsPanelProps) {
+  const [resultKey, setResultKey] = useState<string | null>(null);
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -200,53 +202,77 @@ export function SportsNewsPanel({
   const icon = sport === "soccer" ? "⚽" : "⚾";
   const heading = sport === "soccer" ? "Matchday News" : "Baseball News";
 
-  const loadNews = async () => {
+  const { key, capture } = usePracticeLifecycle(JSON.stringify([sport, favoriteTeam, language]));
+  const inFlight = useRef<AbortController | null>(null);
+  const loadNews = useCallback(async () => {
+    const lease = capture();
+    if (!lease.isCurrent() || inFlight.current) return;
+    const controller = new AbortController();
+    inFlight.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (inFlight.current === controller) inFlight.current = null;
+    });
     setLoading(true);
     setError(null);
     setFetchMessage("Fetching latest news...");
-
     try {
       const res = await fetch("/api/sports-news", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sport, favoriteTeam }),
+        cache: "no-store",
+        signal: controller.signal,
       });
-
+      if (!lease.isCurrent()) {
+        void res.body?.cancel().catch(() => {});
+        return;
+      }
       if (!res.ok) {
-        throw new Error(`Request failed: ${res.status}`);
+        void res.body?.cancel().catch(() => {});
+        throw new Error("News unavailable");
       }
-
-      const data = (await res.json()) as { articles: NewsArticle[]; error?: string };
-
-      if (data.error) {
-        setError(data.error);
-        setArticles([]);
-      } else {
-        setArticles(data.articles ?? []);
-      }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "News unavailable — check back later.");
+      const data = (await res.json()) as { articles?: NewsArticle[]; error?: unknown } | null;
+      if (!lease.isCurrent()) return;
+      if (!data || data.error || !Array.isArray(data.articles)) throw new Error("News unavailable");
+      setArticles(data.articles);
+    } catch {
+      if (!lease.isCurrent()) return;
+      setError("News unavailable — try again later.");
       setArticles([]);
     } finally {
-      setLoading(false);
-      setFetchMessage(null);
+      release();
+      if (inFlight.current === controller) inFlight.current = null;
+      if (lease.isCurrent()) {
+        setLoading(false);
+        setFetchMessage(null);
+      }
     }
-  };
+  }, [capture, sport, favoriteTeam]);
 
-  // Reload whenever favoriteTeam changes
   useEffect(() => {
+    setResultKey(key);
+    setArticles([]);
+    setError(null);
+    setVisible(VISIBLE_INCREMENT);
+    setWorldCupFilter(false);
     void loadNews();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [favoriteTeam, sport]);
+  }, [key, loadNews]);
+
+  const changeFavoriteTeam = (team: string | null) => {
+    if (capture().isCurrent()) onSetFavoriteTeam(team);
+  };
 
   // Apply World Cup filter for soccer
   const displayedAll =
-    sport === "soccer" && worldCupFilter
-      ? articles.filter(
-          (a) =>
-            a.title.toLowerCase().includes("world cup") || a.title.toLowerCase().includes("fifa"),
-        )
-      : articles;
+    resultKey !== key
+      ? []
+      : sport === "soccer" && worldCupFilter
+        ? articles.filter(
+            (a) =>
+              a.title.toLowerCase().includes("world cup") || a.title.toLowerCase().includes("fifa"),
+          )
+        : articles;
 
   const displayed = displayedAll.slice(0, visible);
   const hasMore = visible < displayedAll.length;
@@ -294,10 +320,10 @@ export function SportsNewsPanel({
       </div>
 
       {/* ---- Favorite team ---- */}
-      <FavoriteTeamInput value={favoriteTeam} onChange={onSetFavoriteTeam} />
+      <FavoriteTeamInput value={favoriteTeam} onChange={changeFavoriteTeam} />
 
       {/* ---- Content ---- */}
-      {loading ? (
+      {loading || resultKey !== key ? (
         <div className="flex flex-col gap-3">
           {fetchMessage && <p className="text-xs text-white/40 text-center py-1">{fetchMessage}</p>}
           <SkeletonCards count={3} />

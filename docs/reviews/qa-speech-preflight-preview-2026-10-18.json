@@ -1,0 +1,93 @@
+{
+  "testedAt": "2026-10-18T05:43:36.751670+00:00",
+  "applicationCommit": "a98d4d8bc69719fee763d2591d3f797a010d34cf",
+  "preview": "https://language-threshold-igg18ld6u-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-igg18ld6u-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_5nQnEQs6DDqG84FL3XzhCd2726qd",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-igg18ld6u-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "a98d4d8bc69719fee763d2591d3f797a010d34cf",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speech-input-preview-2026-10-18.json",
+  "local": {
+    "tests": 1284,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.87,
+    "privateMarkers": 96,
+    "sourceFiles": 1420,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Google TTS IP/auth/mission-consent/user admission and Pashto durable-budget admission each run within one owned 15-second preflight deadline and incoming cancellation scope",
+    "Shared auth/consent/counter helpers accept optional signals, pass them into private no-store transport, check after headers/JSON and dispose late cancelled responses; budget hashing checks cancellation before counter I/O",
+    "Counter transport combines the optional phase signal with the existing eight-second RPC timeout; defaults/signatures remain compatible and hashes/limits/windows/authorization/consent rules remain",
+    "Both TTS routes refuse expired/cancelled admission before provider work; Google checks current preflight after each gate so an ignored late delegate cannot open another gate",
+    "Pashto minute/hour/global checks forward the original phase signal; a late first counter response cannot start the next hourly counter",
+    "Completed admission clears timer/incoming listener and later requests have independent scopes; accepted counter consumption is not rolled back",
+    "Seven added actual helper/route groups verify normal exact helper contracts, stalled auth/late headers, HMAC cancellation before fetch, late budget/consent JSON, Google departed auth/expired consent and Pashto expired budget/retry",
+    "Six hosted Google and six Pashto denial checks pass alongside exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups"
+  ],
+  "controlledEvidence": [
+    "tests/speech-preflight.test.mjs",
+    "tests/google-speech-provider-route.test.mjs",
+    "tests/pashto-tts-private.test.mjs",
+    "tests/speaking-security.test.mjs",
+    "tests/learning-generation-security.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "f623a44",
+    "source": "src/lib/speaking-security.ts",
+    "case": "Incoming abort while budget HMAC is pending, then await original action settlement",
+    "oldCounterFetches": 1,
+    "expectedCounterFetches": 0,
+    "currentPass": true,
+    "limit": "Actual previous helper in current owned scope with synthetic counter transport. No actual counter/provider request."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-speech-preflight-preview-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "New phase/helpers/routes use synthetic auth/consent/counter/transport/deadline outcomes in controlled tests. No actual consent, provider/model/audio/microphone/billing/browser action occurred.",
+    "Hosted checks send inadmissible speech input only; actual preflight expiry/counter deltas, genuine SDK/session expiry, positive provider/native/adapter delivery and physical devices remain unverified.",
+    "Fifteen seconds bounds TTS admission only. Input reading and provider work retain separate phase deadlines; platform buffering and total end-to-end delivery are not proved. Preflight response JSON byte bounds and public catalog admission remain separate audit work.",
+    "Signals are optional for compatibility; other helpers/callers are not all migrated or proved cancellable. Default counter eight-second timeout, hashes/limits/windows and existing auth/consent behavior are retained; budget POSTs explicitly forbid caching.",
+    "Abort cannot undo accepted counter writes/provider work or establish billing rollback, retry idempotence/exactly-once execution or immediate server identity revocation. Late results are suppressed at scoped boundaries.",
+    "Broader helper/endpoint/cache/diagnostic/device inventory, current A/guest/B/restore, genuine SDK expiry/process restart/offline acceptance, uncertain writes/concurrency/legacy certificate reconciliation and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

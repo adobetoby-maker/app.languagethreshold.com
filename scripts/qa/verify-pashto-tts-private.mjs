@@ -46,6 +46,16 @@ for (const [name, path, opts, status] of [
     },
     403,
   ],
+  [
+    "oversized-body-refused",
+    "/api/tts",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Origin: base },
+      body: " ".repeat(4097),
+    },
+    413,
+  ],
 ]) {
   const response = await fetch(base + path, {
     ...opts,

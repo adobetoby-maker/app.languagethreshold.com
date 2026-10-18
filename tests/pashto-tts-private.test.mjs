@@ -260,3 +260,75 @@ test("Pashto header deadline returns a private generic gateway timeout", () =>
       globalThis.clearTimeout = originalClear;
     }
   }));
+
+test("Pashto stalled input and incoming abort fail before durable counters or provider", () =>
+  fixture(async (h, calls, c) => {
+    const savedSet = globalThis.setTimeout,
+      savedClear = globalThis.clearTimeout;
+    const token = { unref() {} };
+    let expire;
+    let pending;
+    const incoming = new AbortController();
+    globalThis.setTimeout = (fn, ms, ...args) => {
+      if (ms !== 10000) return savedSet(fn, ms, ...args);
+      expire = fn;
+      return token;
+    };
+    globalThis.clearTimeout = (timer) => {
+      if (timer !== token) savedClear(timer);
+    };
+    const headers = {
+      Origin: "https://fixture.invalid",
+      "Content-Type": "application/json",
+      "x-vercel-forwarded-for": "192.0.2.37",
+    };
+    try {
+      let cancelled = 0;
+      pending = h.POST({
+        request: new Request("https://fixture.invalid/api/tts", {
+          method: "POST",
+          headers,
+          body: new ReadableStream({
+            cancel() {
+              cancelled++;
+              return new Promise(() => {});
+            },
+          }),
+          duplex: "half",
+          signal: incoming.signal,
+        }),
+      });
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.equal(typeof expire, "function");
+      expire();
+      const response = await pending;
+      assert.equal(response.status, 408);
+      privateResponse(response);
+      assert.equal(cancelled, 1);
+      const aborted = new AbortController();
+      pending = h.POST({
+        request: new Request("https://fixture.invalid/api/tts", {
+          method: "POST",
+          headers,
+          body: new ReadableStream({
+            cancel() {
+              cancelled++;
+              return new Promise(() => {});
+            },
+          }),
+          duplex: "half",
+          signal: aborted.signal,
+        }),
+      });
+      aborted.abort();
+      assert.equal((await pending).status, 499);
+      assert.equal(cancelled, 2);
+      assert.equal(c.budgetCalls.length, 0);
+      assert.equal(calls.length, 0);
+    } finally {
+      incoming.abort();
+      await pending?.catch(() => {});
+      globalThis.setTimeout = savedSet;
+      globalThis.clearTimeout = savedClear;
+    }
+  }));

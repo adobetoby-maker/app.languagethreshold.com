@@ -33,6 +33,32 @@ for (const [name, path, options, status] of [
     403,
   ],
   ["unsupported-catalog-language-denied", "/api/mission-tts?languageCode=unsupported", {}, 400],
+  [
+    "malformed-body-denied",
+    "/api/mission-tts",
+    { method: "POST", headers: { "Content-Type": "application/json", Origin: base }, body: "{" },
+    400,
+  ],
+  [
+    "oversized-body-denied",
+    "/api/mission-tts",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Origin: base },
+      body: " ".repeat(16 * 1024 + 1),
+    },
+    413,
+  ],
+  [
+    "oversized-text-denied",
+    "/api/mission-tts",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Origin: base },
+      body: JSON.stringify({ ...JSON.parse(body), text: "x".repeat(1201) }),
+    },
+    400,
+  ],
 ]) {
   const response = await fetch(base + path, {
     ...options,

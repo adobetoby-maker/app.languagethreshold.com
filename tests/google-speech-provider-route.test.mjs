@@ -96,8 +96,8 @@ async function fixture(run) {
     globalThis.__googleSpeechFixture = c;
     const m = await import(outfile);
     globalThis.setTimeout = (fn, ms, ...args) => {
-      if (ms !== 45000) return saved.setTimeout(fn, ms, ...args);
-      const timer = { unref() {} };
+      if (ms !== 45000 && ms !== 10000) return saved.setTimeout(fn, ms, ...args);
+      const timer = { ms, unref() {} };
       c.timers.set(timer, fn);
       return timer;
     };
@@ -351,4 +351,48 @@ test("Google immediate catalog cancellation is settled before another request ca
     });
     assert.equal((await current.json()).ready, true);
     assert.equal(c.requests.length, 2);
+  }));
+
+test("Google malformed/oversized input and stalled uploads fail before IP/auth counters or provider", () =>
+  fixture(async (h, c) => {
+    const headers = { Origin: "https://fixture.invalid", "Content-Type": "application/json" };
+    for (const [raw, status] of [
+      ["{", 400],
+      [JSON.stringify({ ...body, padding: "x".repeat(16 * 1024) }), 413],
+      [JSON.stringify({ ...body, text: "x".repeat(1201) }), 400],
+    ]) {
+      const response = await h.POST({
+        request: new Request("https://fixture.invalid/api/mission-tts", {
+          method: "POST",
+          headers,
+          body: raw,
+        }),
+      });
+      assert.equal(response.status, status);
+      assert.match(response.headers.get("cache-control"), /no-store/);
+    }
+    let cancelled = 0;
+    const source = new ReadableStream({
+      cancel() {
+        cancelled++;
+        return new Promise(() => {});
+      },
+    });
+    const pending = h.POST({
+      request: new Request("https://fixture.invalid/api/mission-tts", {
+        method: "POST",
+        headers,
+        body: source,
+        duplex: "half",
+      }),
+    });
+    await tick();
+    assert.equal([...c.timers.keys()][0]?.ms, 10000);
+    c.expire();
+    const response = await pending;
+    assert.equal(response.status, 408);
+    assert.match(response.headers.get("cache-control"), /no-store/);
+    assert.equal(cancelled, 1);
+    assert.equal(c.gates.length, 0);
+    assert.equal(c.requests.length, 0);
   }));

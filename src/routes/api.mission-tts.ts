@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import {
   googleVoiceLabel,
   googleVoicesForLocale,
@@ -151,6 +152,27 @@ export const Route = createFileRoute("/api/mission-tts")({
         if (!isStrictSameOrigin(request)) {
           return json({ error: "Cross-origin request rejected." }, 403);
         }
+        let body: unknown;
+        try {
+          body = await readPrivateJson(request, 16 * 1024);
+        } catch (error) {
+          const status = error instanceof PrivateJsonRequestError ? error.status : 400;
+          return json(
+            {
+              error:
+                status === 413
+                  ? "Google voice request too large."
+                  : status === 408
+                    ? "Google voice request timed out."
+                    : status === 499
+                      ? "Google voice request cancelled."
+                      : "Invalid Google voice request.",
+            },
+            status,
+          );
+        }
+        const parsed = RequestSchema.safeParse(body);
+        if (!parsed.success) return json({ error: "Invalid Google voice request." }, 400);
         const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
           allowed: false,
           misconfigured: true,
@@ -165,9 +187,6 @@ export const Route = createFileRoute("/api/mission-tts")({
             ipBudget.misconfigured ? 503 : 429,
           );
         }
-
-        const parsed = RequestSchema.safeParse(await request.json().catch(() => null));
-        if (!parsed.success) return json({ error: "Invalid Google voice request." }, 400);
 
         const principal = await authenticateSpeakingRequest(request).catch(() => null);
         if (!principal) return json({ error: "Sign in to use Google voices." }, 401);

@@ -274,3 +274,79 @@ test("push settings timeout disposes late headers and partial bodies; gate failu
     assert.equal((await c.get()).status, 200);
     assert.equal(c.writes.length, 0);
   }));
+test("push unsubscribe acknowledges both user-scoped writes and never claims success after a partial failure", () =>
+  fixture(async (c) => {
+    const body = {
+      action: "unsubscribe",
+      endpoint: "https://push.invalid/synthetic-private-endpoint",
+    };
+    for (const failedIndex of [0, 1, -1]) {
+      c.writes.length = 0;
+      c.storage = async () =>
+        new Response(null, { status: c.writes.length - 1 === failedIndex ? 503 : 204 });
+      const response = await c.post(body);
+      privateHeaders(response);
+      assert.equal(response.status, failedIndex < 0 ? 200 : 503);
+      assert.deepEqual(
+        await response.json(),
+        failedIndex < 0 ? { ok: true } : { error: "Practice reminder storage is unavailable." },
+      );
+      assert.equal(c.writes.length, failedIndex === 0 ? 1 : 2);
+      assert.match(c.writes[0].path, /endpoint_hash=eq.synthetic-hash&user_id=eq.synthetic-a$/);
+      assert.equal(c.writes[0].options.method, "DELETE");
+      if (c.writes.length === 2) {
+        assert.equal(c.writes[1].path, "push_reminder_preferences?user_id=eq.synthetic-a");
+        assert.equal(c.writes[1].options.method, "PATCH");
+        assert.equal(JSON.parse(c.writes[1].options.body).enabled, false);
+      }
+    }
+    // A thrown second-write transport is also a fixed failure, without an automatic retry.
+    c.writes.length = 0;
+    c.storage = async () => {
+      if (c.writes.length === 2) throw new Error("synthetic-private-storage-detail");
+      return new Response(null, { status: 204 });
+    };
+    const response = await c.post(body);
+    assert.equal(response.status, 503);
+    assert.doesNotMatch(await response.text(), /synthetic-private/);
+    assert.equal(c.writes.length, 2);
+  }));
+test("push subscribe, preference and context mutations require every existing storage acknowledgement", () =>
+  fixture(async (c) => {
+    const preference = {
+      action: "preferences",
+      enabled: true,
+      reminderHour: 12,
+      timezone: "UTC",
+      context,
+    };
+    const subscribe = {
+      action: "subscribe",
+      reminderHour: 12,
+      timezone: "UTC",
+      context,
+      subscription: {
+        endpoint: "https://push.invalid/synthetic",
+        keys: { p256dh: "x".repeat(40), auth: "x".repeat(8) },
+      },
+    };
+    for (const body of [value, preference, subscribe]) {
+      for (const failedIndex of body.action === "subscribe" ? [0, 1, -1] : [0, -1]) {
+        c.writes.length = 0;
+        c.storage = async () =>
+          new Response(null, { status: c.writes.length - 1 === failedIndex ? 400 : 204 });
+        const response = await c.post(body);
+        assert.equal(response.status, failedIndex < 0 ? 200 : 503);
+        assert.deepEqual(
+          await response.json(),
+          failedIndex < 0 ? { ok: true } : { error: "Practice reminder storage is unavailable." },
+        );
+        assert.equal(c.writes.length, body.action === "subscribe" && failedIndex !== 0 ? 2 : 1);
+        for (const write of c.writes) {
+          if (write.options.method === "POST")
+            assert.equal(JSON.parse(write.options.body).user_id, "synthetic-a");
+          else assert.match(write.path, /user_id=eq.synthetic-a$/);
+        }
+      }
+    }
+  }));

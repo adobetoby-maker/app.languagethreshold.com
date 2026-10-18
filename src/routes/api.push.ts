@@ -245,7 +245,7 @@ export const Route = createFileRoute("/api/push")({
               { method: "DELETE" },
             );
             if (!deleted.ok) throw new Error("Subscription removal failed.");
-            await pushSupabase(
+            const disabled = await pushSupabase(
               `push_reminder_preferences?user_id=eq.${encodeURIComponent(principal.userId)}`,
               {
                 method: "PATCH",
@@ -253,6 +253,7 @@ export const Route = createFileRoute("/api/push")({
                 body: JSON.stringify({ enabled: false, updated_at: new Date().toISOString() }),
               },
             );
+            if (!disabled.ok) throw new Error("Reminder preference update failed.");
             return json({ ok: true });
           }
 

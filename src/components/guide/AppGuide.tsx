@@ -44,7 +44,8 @@ import {
   Map,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
-import { teamRequest } from "@/lib/team-client";
+import { ownedTeamRequest, type TeamRequestOwner } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAuth } from "@/state/auth-state";
 import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
@@ -602,7 +603,24 @@ function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior)
   el.scrollIntoView({ behavior, block: "start" });
 }
 
-function LessonRunner({
+function LessonRunner(props: Parameters<typeof OwnedLessonRunner>[0]) {
+  const { user } = useAuth();
+  const { state } = useApp();
+  return (
+    <OwnedLessonRunner
+      key={JSON.stringify([
+        user?.id,
+        props.moduleId,
+        props.lesson.n,
+        state.selectedLanguage,
+        state.nativeLanguage,
+        props.enrollmentId,
+      ])}
+      {...props}
+    />
+  );
+}
+function OwnedLessonRunner({
   enrollmentId,
   lesson,
   moduleId,
@@ -639,6 +657,10 @@ function LessonRunner({
   );
   const progressKey = core30ScopeKey(moduleId, progressContext);
   const teamSessions = useRef<Record<string, string>>({});
+  const sessionStart = useRef<Promise<{ sessions?: Record<string, string> }> | null>(null);
+  const { capture } = usePracticeLifecycle(JSON.stringify([moduleId, lesson.n, progressKey]));
+  const markFlight = useRef<AbortController | null>(null);
+  const completed = useRef(false);
   const { dispatch: libDispatch } = useLibrary();
 
   const [marking, setMarking] = useState(false);
@@ -755,26 +777,42 @@ function LessonRunner({
 
   useEffect(() => {
     teamSessions.current = {};
+    sessionStart.current = null;
     if (!userId) return;
-    let live = true;
-    void teamRequest<{ sessions?: Record<string, string> }>("/api/team-activity", {
-      action: "lesson_start",
-      moduleId,
-      lessonNumber: lesson.n,
-    })
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    const controller = new AbortController();
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() && !controller.signal.aborted;
+    const promise = ownedTeamRequest<{ sessions?: Record<string, string> }>(
+      { userId, isCurrent: current, signal: controller.signal },
+      "/api/team-activity",
+      {
+        action: "lesson_start",
+        moduleId,
+        lessonNumber: lesson.n,
+      },
+    );
+    sessionStart.current = promise;
+    void promise
       .then((result) => {
-        if (live) teamSessions.current = result.sessions ?? {};
+        if (current()) teamSessions.current = result.sessions ?? {};
       })
       .catch((error) => {
-        if (live)
-          toast.error(
-            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
-          );
-      });
+        if (current()) {
+          if (sessionStart.current === promise) sessionStart.current = null;
+          if (!markFlight.current)
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
+        }
+      })
+      .finally(release);
     return () => {
-      live = false;
+      controller.abort();
+      release();
     };
-  }, [userId, moduleId, lesson.n]);
+  }, [userId, moduleId, lesson.n, capture]);
 
   // Later practice steps resume at their controls. Starting/reopening See it
   // keeps the lesson title and Previous/Next controls visible at the page top.
@@ -841,44 +879,59 @@ function LessonRunner({
   }
 
   /** Posts lesson `n` to the team workspace. True when there is nothing to post or the post worked. */
-  async function postTeamLesson(n: number, sessions: Record<string, string>): Promise<boolean> {
-    if (!user || !Object.keys(sessions).length) return true;
+  async function postTeamLesson(
+    n: number,
+    sessions: Record<string, string>,
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ): Promise<boolean> {
+    if (!current()) return false;
+    if (!owner || !Object.keys(sessions).length) return true;
     try {
-      await teamRequest("/api/team-activity", {
+      await ownedTeamRequest(owner, "/api/team-activity", {
         action: "lesson",
         moduleId,
         lessonNumber: n,
         sessions,
       });
-      return true;
+      return current();
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
+      if (current())
+        toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
       return false;
     }
   }
 
   /** After lesson `fromN` completes, keep advancing over lessons the learner already mastered. */
-  async function advancePastMastered(fromN: number) {
+  async function advancePastMastered(
+    fromN: number,
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ) {
     const lessonsLog = state.core30Log[progressKey]?.lessons ?? {};
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     let n = fromN + 1;
     while (n <= total && lessonsLog[String(n)]?.masteredAt) {
       let sessions: Record<string, string> = {};
-      if (user) {
+      if (!current()) return;
+      if (owner) {
         try {
-          const started = await teamRequest<{ sessions?: Record<string, string> }>(
+          const started = await ownedTeamRequest<{ sessions?: Record<string, string> }>(
+            owner,
             "/api/team-activity",
             { action: "lesson_start", moduleId, lessonNumber: n },
           );
+          if (!current()) return;
           sessions = started.sessions ?? {};
         } catch (error) {
-          toast.error(
-            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
-          );
+          if (current())
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
           return;
         }
       }
-      if (!(await postTeamLesson(n, sessions))) return;
+      if (!(await postTeamLesson(n, sessions, owner, current)) || !current()) return;
       dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       n += 1;
@@ -890,52 +943,92 @@ function LessonRunner({
    * are already mastered. COMPLETE_LESSON only ever fires for the lesson the counter is on.
    * Returns false when nothing was recorded (team post failed, or not the current lesson).
    */
-  async function recordSequentialCompletion(): Promise<boolean> {
+  async function recordSequentialCompletion(
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ): Promise<boolean> {
+    if (!current()) return false;
     if (completionLock.current) return false;
     if ((state.lessonProgress[progressKey] ?? 0) + 1 !== lesson.n) return false;
     completionLock.current = true;
     try {
-      if (!(await postTeamLesson(lesson.n, teamSessions.current))) return false;
+      let sessions = teamSessions.current;
+      if (owner) {
+        try {
+          let start = sessionStart.current;
+          if (!start) {
+            start = ownedTeamRequest<{ sessions?: Record<string, string> }>(
+              owner,
+              "/api/team-activity",
+              { action: "lesson_start", moduleId, lessonNumber: lesson.n },
+            );
+            sessionStart.current = start;
+          }
+          const started = await start;
+          if (!current()) return false;
+          sessions = started.sessions ?? {};
+          teamSessions.current = sessions;
+        } catch (error) {
+          if (current()) {
+            sessionStart.current = null;
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
+          }
+          return false;
+        }
+      }
+      if (!(await postTeamLesson(lesson.n, sessions, owner, current)) || !current()) return false;
       dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
-      await advancePastMastered(lesson.n);
-      return true;
+      await advancePastMastered(lesson.n, owner, current);
+      return current();
     } finally {
       completionLock.current = false;
     }
   }
 
-  /** Counter is on this lesson but it is already mastered (e.g. synced from another device). */
-  async function recordAlreadyMastered() {
-    if (marking) return;
-    setMarking(true);
-    try {
-      if (await recordSequentialCompletion()) onComplete();
-    } finally {
-      setMarking(false);
-    }
-  }
-
-  async function markMastered() {
-    if (marking) return;
+  /** One mounted completion action, including any team requests and mastered-lesson chain. */
+  async function finishLesson(mark: boolean) {
+    const lease = capture();
+    if (!lease.isCurrent() || markFlight.current || completed.current) return;
+    const controller = new AbortController();
+    markFlight.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && markFlight.current === controller && !controller.signal.aborted;
+    const owner = userId ? { userId, isCurrent: current, signal: controller.signal } : null;
     setMarking(true);
     try {
       const sequential = isCurrentSequential;
-      if (sequential && !(await recordSequentialCompletion())) return;
-      dispatch({
-        type: "CORE30_SET_MASTERED",
-        payload: {
-          moduleId,
-          context: progressContext,
-          lesson: lesson.n,
-          mastered: true,
-          at: new Date().toISOString(),
-        },
-      });
+      if (!mark && !sequential) return;
+      if (sequential && !(await recordSequentialCompletion(owner, current))) return;
+      if (!current()) return;
+      if (mark)
+        dispatch({
+          type: "CORE30_SET_MASTERED",
+          payload: {
+            moduleId,
+            context: progressContext,
+            lesson: lesson.n,
+            mastered: true,
+            at: new Date().toISOString(),
+          },
+        });
+      completed.current = sequential;
       if (sequential) onComplete();
     } finally {
-      setMarking(false);
+      if (current()) setMarking(false);
+      if (markFlight.current === controller) markFlight.current = null;
+      release();
+      controller.abort();
     }
+  }
+  function recordAlreadyMastered() {
+    return finishLesson(false);
+  }
+  function markMastered() {
+    return finishLesson(true);
   }
 
   /** Each mode shows its own first visit; older step records cannot imply a mode visit. */

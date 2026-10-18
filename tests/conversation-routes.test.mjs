@@ -58,7 +58,7 @@ const routes = [
     },
   ],
 ];
-async function load(name) {
+async function load(name, installedSdk = false) {
   const root = mkdtempSync(path.resolve("node_modules/.cache/conversation-test-")),
     file = path.join(root, "route.mjs");
   await build({
@@ -70,7 +70,7 @@ async function load(name) {
     bundle: true,
     platform: "node",
     format: "esm",
-    external: ["zod"],
+    external: ["zod", ...(installedSdk ? ["@anthropic-ai/sdk"] : [])],
     logLevel: "silent",
     plugins: [
       {
@@ -81,7 +81,10 @@ async function load(name) {
               filter:
                 /^(test-controls|@anthropic-ai\/sdk|@tanstack\/react-router|\.\.\/lib\/sentry)$/,
             },
-            () => ({ path: "fixture", namespace: "fixture" }),
+            (args) =>
+              args.path === "@anthropic-ai/sdk" && installedSdk
+                ? null
+                : { path: "fixture", namespace: "fixture" },
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
             contents: `export const controls={calls:0};export const createFileRoute=()=>config=>config;export const initSentry=()=>{};export const Sentry={captureException(error){controls.telemetry=error.message;}};export default class Model{constructor(options){controls.clientOptions=options;}messages={create:async (body, options)=>{controls.calls++;controls.body=body;controls.callOptions=options;if(controls.fail)throw new Error("PRIVATE learner content and provider response");if(!body.stream)return {content:[{type:'text',text:'Fictional QA tip'}]};return (async function*(){yield {type:'content_block_delta',delta:{type:'text_delta',text:'Fictional QA reply'}};yield {type:'message_stop'};})();}};}`,
@@ -179,11 +182,13 @@ for (const [name, data] of routes)
       assert.equal(controls.clientOptions.timeout, 45_000);
       assert.equal(controls.clientOptions.maxRetries, 0);
       assert.equal(controls.callOptions.signal.aborted, false);
-      disconnect.abort();
-      assert.equal(controls.callOptions.signal.aborted, true);
+
       assert.equal(response.status, 200);
       privateConversationHeaders(response, true);
       assert.match(await response.text(), /Fictional QA reply/);
+      disconnect.abort();
+      // Completed phases release their incoming abort listener.
+      assert.equal(controls.callOptions.signal.aborted, false);
       assert.equal(controls.calls, 1);
       if (name === "tutor") {
         const lesson = currentTutorLesson("?lesson=1", {
@@ -255,7 +260,7 @@ for (const [name, data] of routes)
       controls.fail = true;
       const callsBeforeFailure = controls.calls;
       response = await handler({ request: request(name, data) });
-      assert.equal(response.status, 500);
+      assert.equal(response.status, 502);
       privateConversationHeaders(response);
       assert.equal(controls.calls, callsBeforeFailure + 1);
       assert.equal(controls.telemetry, `${name} provider request failed`);
@@ -449,3 +454,199 @@ for (const [name, data] of routes)
       }
     }
   });
+
+// Actual routes + installed SDK; only fetch and the cooperative deadline are controlled.
+for (const [name, data] of routes) {
+  test(`${name} owns installed SDK late headers, bounded SSE and downstream cancellation`, async () => {
+    const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"];
+    const savedEnv = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+    const saved = { fetch, set: setTimeout, clear: clearTimeout };
+    const timers = new Map();
+    const owner = new AbortController();
+    let providerCalls = 0,
+      late,
+      cancelled = 0,
+      raw;
+    const until = async (check) => {
+      for (let i = 0; i < 100 && !check(); i++) await new Promise((r) => saved.set(r, 1));
+      assert.ok(check());
+    };
+    const event = (value) => `event: ${value.type}\ndata: ${JSON.stringify(value)}\n\n`;
+    const complete =
+      event({
+        type: "content_block_delta",
+        index: 0,
+        delta: { type: "text_delta", text: "Synthetic bounded reply" },
+      }) + event({ type: "message_stop" });
+    let provider = () =>
+      new Promise((resolve) => {
+        late = resolve;
+      });
+    Object.assign(process.env, {
+      ANTHROPIC_API_KEY: "fixture-only",
+      SUPABASE_URL: "https://fixture.supabase.co",
+      SUPABASE_SERVICE_ROLE_KEY: "fixture-only",
+      VERCEL_ENV: "preview",
+    });
+    globalThis.setTimeout = (fn, ms, ...args) => {
+      if (ms !== 45000) return saved.set(fn, ms, ...args);
+      const token = { unref() {} };
+      timers.set(token, fn);
+      return token;
+    };
+    globalThis.clearTimeout = (token) => {
+      if (timers.has(token)) timers.delete(token);
+      else saved.clear(token);
+    };
+    globalThis.fetch = async (url, options) => {
+      if (new URL(url).hostname !== "api.anthropic.com") return Response.json(true);
+      providerCalls++;
+      assert.equal(options.cache, "no-store");
+      return provider(options);
+    };
+    try {
+      const { Route } = await load(name, true);
+      const handler = Route.server.handlers.POST;
+      const call = (signal = owner.signal) => handler({ request: request(name, data, {}, signal) });
+      const pending = call();
+      await until(() => late);
+      for (const expire of [...timers.values()]) expire();
+      let response = await pending;
+      assert.equal(response.status, 504);
+      privateConversationHeaders(response);
+      assert.equal(providerCalls, 1);
+      late(
+        new Response(
+          new ReadableStream({
+            cancel() {
+              cancelled++;
+              return new Promise(() => {});
+            },
+          }),
+        ),
+      );
+      await until(() => cancelled === 1);
+      provider = () => new Response(complete, { headers: { "content-type": "text/event-stream" } });
+      response = await call();
+      assert.equal(response.status, 200);
+      privateConversationHeaders(response, true);
+      const text = await response.text();
+      assert.match(text, /Synthetic bounded reply/);
+      assert.match(text, /\[DONE\]/);
+      assert.equal(timers.size, 0);
+      provider = () => {
+        raw = new ReadableStream({
+          start(c) {
+            c.enqueue(new TextEncoder().encode("x".repeat(1024 * 1024 + 1)));
+          },
+          cancel() {
+            cancelled++;
+            return new Promise(() => {});
+          },
+        });
+        return new Response(raw, { headers: { "content-type": "text/event-stream" } });
+      };
+      response = await call();
+      if (response.status === 200) await assert.rejects(response.text(), /AI response interrupted/);
+      else assert.equal(response.status, 502);
+      await until(() => !raw.locked);
+      assert.equal(timers.size, 0);
+      const before = cancelled;
+      provider = () => {
+        raw = new ReadableStream({
+          cancel() {
+            cancelled++;
+            return new Promise(() => {});
+          },
+        });
+        return new Response(raw, { headers: { "content-type": "text/event-stream" } });
+      };
+      response = await call();
+      const reading = response.text();
+      owner.abort();
+      await assert.rejects(reading, /AI response interrupted/);
+      await until(() => cancelled > before && !raw.locked);
+      assert.equal(timers.size, 0);
+    } finally {
+      owner.abort();
+      globalThis.fetch = saved.fetch;
+      globalThis.setTimeout = saved.set;
+      globalThis.clearTimeout = saved.clear;
+      for (const key of keys) {
+        if (savedEnv[key] === undefined) delete process.env[key];
+        else process.env[key] = savedEnv[key];
+      }
+    }
+  });
+}
+
+test("discussion companion bounds installed SDK JSON and owns the header deadline", async () => {
+  const saved = { fetch, set: setTimeout, clear: clearTimeout };
+  const keys = ["ANTHROPIC_API_KEY", "SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "VERCEL_ENV"];
+  const savedEnv = Object.fromEntries(keys.map((k) => [k, process.env[k]]));
+  const timers = new Map();
+  const owner = new AbortController();
+  let provider = () =>
+    Response.json({ content: [{ type: "text", text: "x".repeat(1024 * 1024 + 1) }] });
+  Object.assign(process.env, {
+    ANTHROPIC_API_KEY: "fixture-only",
+    SUPABASE_URL: "https://fixture.supabase.co",
+    SUPABASE_SERVICE_ROLE_KEY: "fixture-only",
+    VERCEL_ENV: "preview",
+  });
+  globalThis.setTimeout = (fn, ms, ...args) => {
+    if (ms !== 45000) return saved.set(fn, ms, ...args);
+    const token = { unref() {} };
+    timers.set(token, fn);
+    return token;
+  };
+  globalThis.clearTimeout = (token) => {
+    if (timers.has(token)) timers.delete(token);
+    else saved.clear(token);
+  };
+  globalThis.fetch = async (url) =>
+    new URL(url).hostname === "api.anthropic.com" ? provider() : Response.json(true);
+  try {
+    const { Route } = await load("discussion", true);
+    const call = () =>
+      Route.server.handlers.POST({
+        request: request(
+          "discussion",
+          { ...routes[3][1], mode: "companion", userText: "QA" },
+          {},
+          owner.signal,
+        ),
+      });
+    let response = await call();
+    privateConversationHeaders(response);
+    assert.equal(response.status, 200);
+    assert.deepEqual(await response.json(), { tip: null });
+    assert.equal(timers.size, 0);
+    provider = () => Response.json({ content: [{ type: "text", text: " Synthetic short tip " }] });
+    response = await call();
+    assert.deepEqual(await response.json(), { tip: "Synthetic short tip" });
+    let late;
+    provider = () =>
+      new Promise((resolve) => {
+        late = resolve;
+      });
+    const pending = call();
+    for (let i = 0; i < 100 && !late; i++) await new Promise((r) => saved.set(r, 1));
+    assert.ok(late);
+    for (const expire of [...timers.values()]) expire();
+    response = await pending;
+    assert.equal(response.status, 504);
+    privateConversationHeaders(response);
+    late(Response.json({ content: [{ type: "text", text: "Late tip" }] }));
+    assert.equal(timers.size, 0);
+  } finally {
+    owner.abort();
+    globalThis.fetch = saved.fetch;
+    globalThis.setTimeout = saved.set;
+    globalThis.clearTimeout = saved.clear;
+    for (const key of keys) {
+      if (savedEnv[key] === undefined) delete process.env[key];
+      else process.env[key] = savedEnv[key];
+    }
+  }
+});

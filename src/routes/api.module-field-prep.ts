@@ -1,11 +1,10 @@
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import {
-  conversationCallOptions,
-  conversationProviderOptions,
+  withConversationProvider,
+  ConversationProviderError,
   conversationResponseHeaders,
 } from "@/lib/conversation-provider";
 import { prepareConversationRequest } from "@/lib/conversation-request";
-import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
@@ -142,7 +141,6 @@ export const Route = createFileRoute("/api/module-field-prep")({
           });
         }
 
-        const client = new Anthropic(conversationProviderOptions(KEY));
         const systemPrompt = buildSystemPrompt(payload);
 
         const messages: { role: "user" | "assistant"; content: string }[] =
@@ -157,25 +155,27 @@ export const Route = createFileRoute("/api/module-field-prep")({
             : payload.messages.map((m) => ({ role: m.role, content: m.content }));
 
         try {
-          const stream = await client.messages.create(
-            {
-              model: "claude-sonnet-5-5",
-              max_tokens: 700,
-              system: systemPrompt,
-              messages,
-              stream: true,
-            },
-            conversationCallOptions(request),
-          );
+          return await withConversationProvider(request, KEY, async (client, options) => {
+            const stream = await client.messages.create(
+              {
+                model: "claude-sonnet-5-5",
+                max_tokens: 700,
+                system: systemPrompt,
+                messages,
+                stream: true,
+              },
+              options,
+            );
 
-          return new Response(anthropicTextStream(stream), {
-            status: 200,
-            headers: conversationResponseHeaders("text/event-stream"),
+            return new Response(anthropicTextStream(stream), {
+              status: 200,
+              headers: conversationResponseHeaders("text/event-stream"),
+            });
           });
-        } catch {
+        } catch (error) {
           Sentry.captureException(new Error("module-field-prep provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
-            status: 500,
+            status: error instanceof ConversationProviderError ? error.status : 500,
             headers: conversationResponseHeaders("application/json"),
           });
         }

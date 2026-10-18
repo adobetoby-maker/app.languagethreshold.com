@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
+import { examsHostEntry } from "../src/lib/exams-host.ts";
 import { mkdtempSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
 const dir = mkdtempSync(resolve("node_modules/.cache/lle-tests/profile-ui-"));
@@ -74,8 +75,12 @@ test("exam routes without a profile context keep their work and offer a separate
   try {
     const tree = render(),
       link = nodes(tree).find((n) => n.type === "a");
-    assert.equal(link.props.href, "/");
+    assert.equal(link.props.href, "/?tab=reader");
     assert.equal(link.props.target, "_blank");
+    assert.equal(
+      examsHostEntry("https://exams.languagethreshold.com" + link.props.href, "GET"),
+      null,
+    );
     assert.match(link.props.rel, /noopener/);
     assert.equal(
       nodes(tree).some((n) => n.type === "button"),

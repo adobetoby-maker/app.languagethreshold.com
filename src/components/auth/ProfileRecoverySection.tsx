@@ -46,7 +46,12 @@ export function ProfileRecoverySection({ open }: { open: boolean }) {
           Open the learning app to restore profile notes, vocabulary, activity totals or older
           module history.
         </p>
-        <a href="/" target="_blank" rel="noopener noreferrer" className="text-sm underline">
+        <a
+          href="/?tab=reader"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm underline"
+        >
           Open learning app (new tab)
         </a>
       </section>

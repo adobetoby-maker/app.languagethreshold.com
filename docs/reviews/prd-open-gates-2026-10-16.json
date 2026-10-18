@@ -1254,5 +1254,28 @@
     "productionAuditVulnerabilities": 0,
     "prismaSchemaValidationExistingFailure": true,
     "fullGoalComplete": false
+  },
+  "latestOwnerPermissionTransportProbe": {
+    "source": "561f64e",
+    "evidence": "docs/reviews/qa-owner-permission-transport-probe-2026-10-18.json",
+    "syntheticOnly": true,
+    "latePermissionReleasedMockWrites": 2,
+    "fixedByApplication": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+    "fixed": true
+  },
+  "latestOwnerPermissionTransportFollowup": {
+    "application": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+    "evidence": "docs/reviews/qa-owner-permission-transport-preview-2026-10-18.json",
+    "actualOwnerSdkGroups": 8,
+    "existingCleanupResponseAndOwnershipGroups": 10,
+    "fullNode22Tests": 1482,
+    "hostedCheckerGroups": 17,
+    "phaseMs": 8000,
+    "responseMaxBytes": 4096,
+    "selectedRetryDisabled": true,
+    "confirmedEmailFallbackPreserved": true,
+    "registeredOwnerPolicyPreserved": true,
+    "cleanupSourceUnchanged": true,
+    "fullGoalComplete": false
   }
 }

@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "908278b",
+  "application": "ae8ab06",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-l4ek92txi-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-h8dtknsul-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-recovery-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-conversation-admission-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "908278b2c51247fbef30394b441aa3eb9adb553b",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-recovery-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "ae8ab06f5508ec9705ac834497bc134058b56a95",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-conversation-admission-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -854,5 +854,15 @@
     "observationsClearUnknown": false,
     "durableReconciliation": false,
     "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalConversationAdmissionFollowup": {
+    "application": "ae8ab06",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-conversation-admission-preview-2026-10-18.json",
+    "routes": 4,
+    "inputMaxBytes": 98304,
+    "inputDeadlineMs": 10000,
+    "admissionDeadlineMs": 15000,
+    "actualProviderOrBrowserVerified": false
   }
 }

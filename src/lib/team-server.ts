@@ -162,16 +162,56 @@ export function teamBillingReady() {
   );
 }
 
+export const TEAM_EMAIL_WAIT_MS = 15_000;
+/** One provider attempt. A timeout cannot establish whether the provider accepted the message. */
 export async function sendTeamEmail(to: string, subject: string, body: string) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.TEAM_FROM_EMAIL;
   if (!key || !from) throw new TeamOperationError("Team email is not configured.", 503);
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [to], subject, text: body }),
-  });
-  if (!response.ok) throw new Error(`Email service returned ${response.status}.`);
+  const unavailable = () =>
+    new TeamOperationError(
+      "Team email delivery could not be confirmed. Check your workspace before retrying.",
+      503,
+    );
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TEAM_EMAIL_WAIT_MS);
+  timer.unref?.();
+  let rejectAbort: (() => void) | undefined;
+  try {
+    const stopped = new Promise<never>((_, reject) => {
+      rejectAbort = () => reject(unavailable());
+      controller.signal.addEventListener("abort", rejectAbort, { once: true });
+      if (controller.signal.aborted) rejectAbort();
+    });
+    const pending = Promise.resolve().then(() => {
+      if (controller.signal.aborted) throw unavailable();
+      return fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from, to: [to], subject, text: body }),
+        signal: controller.signal,
+        cache: "no-store",
+        redirect: "error",
+      });
+    });
+    // Observe ignored transport rejection and dispose headers arriving after the deadline.
+    void pending.then(
+      (response) => {
+        if (controller.signal.aborted) void response.body?.cancel().catch(() => {});
+      },
+      () => {},
+    );
+    const response = await Promise.race([pending, stopped]);
+    if (controller.signal.aborted) throw unavailable();
+    // The existing contract needs only the HTTP outcome, never provider diagnostics or a receipt.
+    void response.body?.cancel().catch(() => {});
+    if (!response.ok) throw unavailable();
+  } catch {
+    throw unavailable();
+  } finally {
+    clearTimeout(timer);
+    if (rejectAbort) controller.signal.removeEventListener("abort", rejectAbort);
+  }
 }
 
 export async function audit(

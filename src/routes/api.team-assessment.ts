@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { prepareTeamJson, MAX_TEAM_ASSESSMENT_BYTES } from "@/lib/team-request";
 import { authenticatedUser, json, memberRole, teamAdminClient, teamError } from "@/lib/team-server";
 import {
   drawRoofingQuestions,
@@ -21,10 +22,12 @@ export const Route = createFileRoute("/api/team-assessment")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, bodySchema, MAX_TEAM_ASSESSMENT_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
-          const body = bodySchema.parse(await request.json());
           if (body.action === "start") {
             const member = await memberRole(db, body.orgId, user.id);
             if (!member || member.role !== "learner")

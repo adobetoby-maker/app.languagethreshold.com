@@ -99,6 +99,7 @@ export const teamAdminClient=()=>({from:table=>new Query(table)});
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Origin: "https://synthetic.invalid",
             ...(actor ? { Authorization: actor } : {}),
           },
           body: JSON.stringify(body),

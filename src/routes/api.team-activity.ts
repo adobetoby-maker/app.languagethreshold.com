@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { prepareTeamJson, MAX_TEAM_ACTIVITY_BYTES } from "@/lib/team-request";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import { authenticatedUser, json, teamAdminClient, teamError } from "@/lib/team-server";
@@ -31,10 +32,12 @@ export const Route = createFileRoute("/api/team-activity")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, schema, MAX_TEAM_ACTIVITY_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
-          const body = schema.parse(await request.json());
           if (body.moduleId !== "core" && !getModule(body.moduleId))
             throw new Error("Unknown module.");
           if (body.action === "interval") {

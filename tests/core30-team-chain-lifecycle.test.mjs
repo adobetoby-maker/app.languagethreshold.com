@@ -32,7 +32,7 @@ async function fixture(run) {
     );
     await build({
       stdin: {
-        contents: `import {useEffect,useMemo,useRef,useState} from 'react';import {useAuth} from '@/state/auth-state';import {useApp} from '@/state/app-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {c,toast,core30ScopeKey,getCurriculum} from 'fixture';type TeamRequestOwner=any;${wrapper}function OwnedLessonRunner({moduleId,lesson,enrollmentId,onComplete}){${setup}const [marking,setMarking]=useState(false);const completionLock=useRef(false);const isCurrentSequential=(state.lessonProgress[progressKey]??0)+1===lesson.n;${effect}${actions}return {markMastered,recordAlreadyMastered,marking,progressKey};}export {c};`,
+        contents: `import {useEffect,useMemo,useRef,useState} from 'react';import {useAuth} from '@/state/auth-state';import {useApp} from '@/state/app-state';import {usePracticeLifecycle} from '@/hooks/use-practice-lifecycle';import {ownedTeamRequest} from '@/lib/team-client';import {c,toast,core30ScopeKey,getCurriculum} from 'fixture';type TeamRequestOwner=any;${wrapper}function OwnedLessonRunner({moduleId,lesson,enrollmentId,onComplete}){${setup}const [marking,setMarking]=useState(false);const completionLock=useRef(false);const isCurrentSequential=(state.lessonProgress[progressKey]??0)+1===lesson.n;${effect}${actions}return {markMastered,recordAlreadyMastered,leaveLesson,marking,progressKey};}export {c};`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },
@@ -258,4 +258,22 @@ test("current start and completion errors retain retry; guests and non-sequentia
     await view.markMastered();
     assert.equal(c.requests.length, 4);
     assert.equal(c.actions.at(-1).type, "CORE30_SET_MASTERED");
+  }));
+
+test("explicit lesson exit invalidates pending completion before unmount and refuses repeated old controls", () =>
+  fixture(async ({ c, render, reply }) => {
+    const view = render();
+    await tick();
+    await reply(0);
+    const done = view.markMastered();
+    await tick();
+    view.leaveLesson(() => c.navigations++);
+    view.leaveLesson(() => c.navigations++);
+    assert.equal(c.requests[1].init.signal.aborted, true);
+    await reply(1, { recorded: 1 });
+    await done;
+    await view.markMastered();
+    assert.equal(c.actions.length, 0);
+    assert.equal(c.navigations, 1);
+    assert.equal(c.requests.length, 2);
   }));

@@ -658,9 +658,12 @@ function OwnedLessonRunner({
   const progressKey = core30ScopeKey(moduleId, progressContext);
   const teamSessions = useRef<Record<string, string>>({});
   const sessionStart = useRef<Promise<{ sessions?: Record<string, string> }> | null>(null);
-  const { capture } = usePracticeLifecycle(JSON.stringify([moduleId, lesson.n, progressKey]));
+  const { capture, cancel } = usePracticeLifecycle(
+    JSON.stringify([moduleId, lesson.n, progressKey]),
+  );
   const markFlight = useRef<AbortController | null>(null);
   const completed = useRef(false);
+  const leaving = useRef(false);
   const { dispatch: libDispatch } = useLibrary();
 
   const [marking, setMarking] = useState(false);
@@ -859,23 +862,27 @@ function OwnedLessonRunner({
 
   /** See it, full size: the whole Reader, with a way straight back to this lesson. */
   function openFullReader(passageId: string) {
-    recordStepOpened(readerStep);
-    writeLessonReturn(browserReturnStorage(), {
-      moduleId,
-      lesson: lesson.n,
-      section: "see",
-      at: Date.now(),
-      ref: passageId,
+    leaveLesson(() => {
+      recordStepOpened(readerStep);
+      writeLessonReturn(browserReturnStorage(), {
+        moduleId,
+        lesson: lesson.n,
+        section: "see",
+        at: Date.now(),
+        ref: passageId,
+      });
+      libDispatch({ type: "SELECT", payload: passageId });
+      dispatch({ type: "SET_TAB", payload: "reader" });
     });
-    libDispatch({ type: "SELECT", payload: passageId });
-    dispatch({ type: "SET_TAB", payload: "reader" });
   }
 
   /** A step with no section of its own opens its own tab, as before. */
   function openOtherStep(i: number) {
-    const step = lesson.steps[i];
-    recordStepOpened(i);
-    dispatch({ type: "SET_TAB", payload: step.tab });
+    leaveLesson(() => {
+      const step = lesson.steps[i];
+      recordStepOpened(i);
+      dispatch({ type: "SET_TAB", payload: step.tab });
+    });
   }
 
   /** Posts lesson `n` to the team workspace. True when there is nothing to post or the post worked. */
@@ -991,7 +998,7 @@ function OwnedLessonRunner({
   /** One mounted completion action, including any team requests and mastered-lesson chain. */
   async function finishLesson(mark: boolean) {
     const lease = capture();
-    if (!lease.isCurrent() || markFlight.current || completed.current) return;
+    if (!lease.isCurrent() || leaving.current || markFlight.current || completed.current) return;
     const controller = new AbortController();
     markFlight.current = controller;
     const release = lease.own(() => controller.abort());
@@ -1031,6 +1038,14 @@ function OwnedLessonRunner({
     return finishLesson(true);
   }
 
+  function leaveLesson(action: () => void) {
+    if (leaving.current || !capture().isCurrent()) return;
+    leaving.current = true;
+    markFlight.current?.abort();
+    cancel();
+    action();
+  }
+
   /** Each mode shows its own first visit; older step records cannot imply a mode visit. */
   function openedNote(id: SectionId) {
     const openedAt = wayVisitAt(lessonLog, id);
@@ -1050,7 +1065,7 @@ function OwnedLessonRunner({
     <div className="flex items-center justify-between gap-2" data-testid={`lesson-nav-${position}`}>
       <button
         type="button"
-        onClick={() => onNavigate(lesson.n - 1)}
+        onClick={() => leaveLesson(() => onNavigate(lesson.n - 1))}
         disabled={lesson.n <= 1}
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
@@ -1059,7 +1074,7 @@ function OwnedLessonRunner({
       </button>
       <button
         type="button"
-        onClick={() => onNavigate(lesson.n + 1)}
+        onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
         disabled={lesson.n >= totalLessons}
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
@@ -1108,7 +1123,7 @@ function OwnedLessonRunner({
             <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
           </div>
           <button
-            onClick={onExit}
+            onClick={() => leaveLesson(onExit)}
             className="min-h-11 shrink-0 px-1 text-[11px] text-white/50 transition-colors hover:text-white/80"
           >
             ✕ Exit

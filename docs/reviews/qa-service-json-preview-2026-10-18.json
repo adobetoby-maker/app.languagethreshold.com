@@ -1,0 +1,89 @@
+{
+  "testedAt": "2026-10-18T05:50:55.227092+00:00",
+  "applicationCommit": "7251a1d8791789c99dc1406c07a42f83b94e8ac4",
+  "preview": "https://language-threshold-6kd4mp4uq-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-6kd4mp4uq-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_EynGDop8EFRN7bqr7rdrNbxrqd6u",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-6kd4mp4uq-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "7251a1d8791789c99dc1406c07a42f83b94e8ac4",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speech-preflight-preview-2026-10-18.json",
+  "local": {
+    "tests": 1290,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.88,
+    "privateMarkers": 96,
+    "sourceFiles": 1424,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Owned TTS preflight auth JSON is bounded to 256 KiB, age-attestation JSON to 16 KiB and counter JSON to 1 KiB, counting actual streamed bytes as well as advertised length",
+    "Response readers share the existing owned preflight signal; scoped counter JSON also retains the combined eight-second RPC timeout, without a fresh body timer",
+    "Abort, overflow and read failure cancel and immediately release the reader even if the source cancellation promise never settles; malformed JSON, invalid UTF-8 and read errors expose fixed messages without payloads",
+    "Rejected HTTP response bodies are disposed for opted-in calls; existing gate decisions, limits, hashes, windows and no-signal contracts are retained",
+    "Six added actual helper groups cover exact boundary/split UTF-8, advertised/cumulative overflow, stalled source cancellation, partial-read abort, malformed/encoding/stream failures, all three helper limits and no-signal compatibility",
+    "Existing late-JSON cancellation tests now use real partial Response streams rather than deferred json stubs",
+    "Exact hosted 21 Exams/12 focused-entry/3 public-packs/7 scoped-read/14 generation-entry groups and six denials for each speech route pass"
+  ],
+  "controlledEvidence": [
+    "tests/private-service-json.test.mjs",
+    "tests/speech-preflight.test.mjs",
+    "tests/google-speech-provider-route.test.mjs",
+    "tests/pashto-tts-private.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "0e28a32",
+    "source": "src/lib/speaking-security.ts",
+    "case": "Successful auth JSON with valid id and metadata exceeding 256 KiB",
+    "old": "Missing expected rejection; prior helper accepts oversized successful JSON",
+    "current": "Rejects with fixed Private service response unavailable",
+    "limit": "Actual previous helper bundled with current scope and controlled synthetic service transport. No actual service/provider/consent/browser write."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-service-json-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled byte/stream/error/cancellation tests do not establish real Supabase payload distributions, hosted overflow/preflight expiry or adapter buffering behavior. Existing auth parse failures retain their prior route handling; not every failure is HTTP 503.",
+    "Hosted speech checks send inadmissible input only. No positive provider/catalog/audio/microphone/billing/consent/browser or physical-device action occurred.",
+    "New bounds require the optional scoped signal. Other callers retain existing response.json behavior; this is not an app-wide JSON/network audit. Public catalog admission remains open.",
+    "Input/admission/provider deadlines remain separate, not one total delivery deadline. Cancellation cannot undo accepted counters/provider work or prove billing rollback/exactly-once execution.",
+    "Broader helper/endpoint/cache/diagnostics/device inventory, true SDK expiry/process restart/offline acceptance, uncertain writes/concurrency/legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

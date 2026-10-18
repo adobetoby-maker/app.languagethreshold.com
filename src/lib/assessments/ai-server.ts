@@ -1,5 +1,6 @@
 import "@tanstack/react-start/server-only";
 import { requestWritingProposal } from "./writing-provider";
+import { readWritingAllowance } from "./writing-allowance";
 import { randomUUID } from "node:crypto";
 import type { TeamDb } from "@/lib/team-server";
 import { usageReceipt } from "@/lib/usage-cost";
@@ -80,28 +81,9 @@ export async function proposeWritingReview(
     };
   await assessmentBudget(actor, "ai_proposal", request);
   current();
-  const { data: ownEnrollments, error: enError } = await db
-    .from("assessment_enrollments")
-    .select("id")
-    .eq("user_id", actor)
-    .limit(1000);
+  const allowance = await readWritingAllowance(db, actor, request);
   current();
-  if (enError || (ownEnrollments?.length ?? 0) >= 1000)
-    throw new AssessmentAccessError("AI review allowance is unavailable.", 503);
-  // The durable provider claim is the primary cost boundary; a user's rolling allowance is an additional guard.
-  const allowance = await db
-    .from("assessment_events")
-    .select("id", { count: "exact", head: true })
-    .in(
-      "enrollment_id",
-      (ownEnrollments ?? []).map((row) => row.id),
-    )
-    .eq("action", "ai.requested")
-    .gte("created_at", new Date(Date.now() - 86400000).toISOString());
-  current();
-  if (allowance.error || allowance.count === null)
-    throw new AssessmentAccessError("AI review allowance is unavailable.", 503);
-  if (allowance.count >= 30)
+  if (allowance >= 30)
     throw new AssessmentAccessError(
       "Today's AI writing review allowance is used. Human review remains available.",
       429,

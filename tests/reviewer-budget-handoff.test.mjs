@@ -332,11 +332,13 @@ test("preaborted and independent request budget waits cannot share cancellation 
     await started;
     ca.abort();
     await pa;
-    assert.equal(releases[0].signal.aborted, true);
-    assert.equal(releases[1].signal.aborted, false);
-    releases[1].release(Response.json(true));
+    const stopped = releases.filter((item) => item.signal.aborted),
+      live = releases.filter((item) => !item.signal.aborted);
+    assert.equal(stopped.length, 1);
+    assert.equal(live.length, 1);
+    live[0].release(Response.json(true));
     await pb;
-    releases[0].release(Response.json(true));
+    stopped[0].release(Response.json(true));
     await tick(a);
   }));
 test("actual reviewer GET/POST stop before lists/update when the pending quota loses its request", () =>

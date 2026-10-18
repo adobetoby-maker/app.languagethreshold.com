@@ -79,7 +79,7 @@ async function fixture(run) {
               if (args.path === "@/lib/team-server")
                 return {
                   ...base,
-                  contents: `export * from ${JSON.stringify(resolve("src/lib/team-server.ts"))};import {controls} from 'fixture-controls';export const teamAdminClient=()=>controls.db;export const authenticatedAssessmentUser=async()=>({id:${JSON.stringify(actor)}});`,
+                  contents: `export * from ${JSON.stringify(resolve("src/lib/team-server.ts"))};import {teamAdminClient as realAdmin} from ${JSON.stringify(resolve("src/lib/team-server.ts"))};import {controls} from 'fixture-controls';export const teamAdminClient=(fetcher,request)=>fetcher?realAdmin(fetcher,request):controls.db;export const authenticatedAssessmentUser=async()=>({id:${JSON.stringify(actor)}});`,
                 };
               return {
                 ...base,
@@ -163,6 +163,21 @@ async function fixture(run) {
     };
     let quotaCalls = 0;
     globalThis.fetch = async (input, init) => {
+      const path = new URL(String(input)).pathname;
+      if (path === "/rest/v1/assessment_enrollments") {
+        events.push("assessment_enrollments");
+        const result = (await hooks.enrollments?.()) ?? { data: [{ id: actor }], error: null };
+        return result.error
+          ? Response.json({ message: "Synthetic failure" }, { status: 503 })
+          : Response.json(result.data ?? []);
+      }
+      if (path === "/rest/v1/assessment_events") {
+        events.push("assessment_events");
+        const result = (await hooks.allowance?.()) ?? { count: 0, error: null };
+        return result.error
+          ? Response.json({ message: "Synthetic failure" }, { status: 503 })
+          : new Response(null, { headers: { "Content-Range": "*/" + result.count } });
+      }
       assert.equal(String(input), "https://fixture.invalid/rest/v1/rpc/consume_speaking_request");
       quotaCalls++;
       assert.equal(init.method, "POST");

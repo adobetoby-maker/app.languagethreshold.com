@@ -206,3 +206,32 @@ test("owned abort and identity loss cannot fallback late or cancel newer routed 
     utterance.onend();
     await current;
   }));
+
+test("routed abort cannot stop a newer direct mission voice while old credentials are pending", () =>
+  fixture(async ({ m, c, owner, preference, opts }) => {
+    const abort = new AbortController();
+    const routed = m.speakRemote("Old routed fixture", "es-CR", {
+      voiceURI: preference,
+      owner,
+      signal: abort.signal,
+    });
+    const oldCredential = c.sessions.shift();
+    const direct = m.speakMissionTts(opts);
+    void direct.catch(() => undefined);
+    c.sessions.shift()(auth());
+    await tick();
+    c.requests[0].resolve(reply());
+    await tick();
+    const audio = c.audio[0],
+      url = audio.src,
+      end = audio.onended;
+    abort.abort();
+    assert.equal(audio.src, url);
+    assert.equal(audio.onended, end);
+    assert.equal(c.revoked.includes(url), false);
+    oldCredential(auth());
+    await routed;
+    assert.equal(audio.src, url);
+    audio.onended();
+    await direct;
+  }));

@@ -35,12 +35,11 @@ export function needsRemoteTTS(locale: string, preferredVoiceURI?: string | null
   return getVoicesForLocale(locale).length === 0;
 }
 
-export function stopRemoteTTS(): void {
+function stopRoutedPlayback(): void {
   generation += 1;
   const cancel = cancelPlayback;
   cancelPlayback = null;
   cancel?.();
-  stopMissionTts();
   if (shared) {
     shared.pause();
     shared.onplaying = null;
@@ -49,6 +48,11 @@ export function stopRemoteTTS(): void {
     shared.removeAttribute("src");
     shared.load();
   }
+}
+
+export function stopRemoteTTS(): void {
+  stopRoutedPlayback();
+  stopMissionTts();
 }
 
 function speakOnDevice(
@@ -126,7 +130,7 @@ export async function speakRemote(
   const current = () =>
     ownsGeneration() && !opts?.signal?.aborted && (!opts?.owner || opts.owner.isCurrent());
   const abortOwned = () => {
-    if (ownsGeneration()) stopRemoteTTS();
+    if (ownsGeneration()) stopRoutedPlayback();
   };
   opts?.signal?.addEventListener("abort", abortOwned, { once: true });
   try {

@@ -1,4 +1,5 @@
 import { evidenceReviewerStatus } from "@/lib/assessments/reviewer-status";
+import { resumeFlatAssessment } from "@/lib/assessments/flat-start-resume";
 import {
   resumePreparedAssessment,
   startPreparedAssessment,
@@ -504,6 +505,16 @@ export const Route = createFileRoute("/api/exams")({
               throw new AssessmentAccessError(
                 "Current module access is required to start an exam. Your saved responses remain available.",
               );
+            if (body.action === "start") {
+              const resumed = await resumeFlatAssessment(
+                db,
+                user.id,
+                body.checkpointId,
+                body.requestId,
+                pilotAllowed(user.id),
+              );
+              if (resumed) return json(await readAttempt(db, user.id, resumed));
+            }
             if (
               body.action === "start" &&
               adaptivePreviewRuntimeEnabled() &&

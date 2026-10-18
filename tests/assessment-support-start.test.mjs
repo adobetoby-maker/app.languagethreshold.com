@@ -5,6 +5,7 @@ import { mkdirSync, mkdtempSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
 import { routingFixture } from "./helpers/routing-fixture.mjs";
 import { supportCheckFixture } from "./helpers/support-check-fixture.mjs";
+import { execFileSync } from "node:child_process";
 
 // Real POST handler and readiness/binding logic; auth, billing, budget and final
 // attempt serialization are controlled boundaries. No hosted approval/result.
@@ -29,6 +30,16 @@ try {
       {
         name: "controlled-handler-boundaries",
         setup(b) {
+          if (process.env.LT_FLAT_RESUME_BASELINE)
+            b.onLoad({ filter: /\/routes\/api\.exams\.ts$/ }, (args) => ({
+              contents: execFileSync(
+                "git",
+                ["show", `${process.env.LT_FLAT_RESUME_BASELINE}:src/routes/api.exams.ts`],
+                { encoding: "utf8" },
+              ),
+              loader: "ts",
+              resolveDir: resolve(args.path, ".."),
+            }));
           b.onResolve(
             {
               filter:
@@ -95,6 +106,118 @@ test("actual Start selects the pinned before/after form using the same checks as
     );
     assert.doesNotMatch(await response.text(), /CONTROLLED_PRIVATE|acceptedAnswers/);
   }
+});
+
+test("saved flat start recovers before changed release/form/preparation checks without authorizing a new form", async () => {
+  for (const sameKey of [true, false]) {
+    const f = await supportCheckFixture();
+    f.rows.assessment_attempts = [
+      {
+        id: "controlled-attempt",
+        checkpoint_id: f.checkpoints[0].id,
+        start_request_id: sameKey ? "33333333-3333-4333-8333-333333333333" : "older-request",
+        status: sameKey ? "completed" : "in_progress",
+        form_snapshot: { definition: { items: [] } },
+      },
+    ];
+    f.rows.assessment_forms = [];
+    f.rows.assessment_support_assignments = [];
+    f.errors.profiles = { message: "Must not load new study coverage" };
+    const response = await start(f, 0, "learner", { preparedForm: "a".repeat(64) });
+    assert.equal(response.status, 200, await response.clone().text());
+    assert.deepEqual(await response.json(), {
+      id: "controlled-attempt",
+      controlledSerialization: true,
+    });
+    const recovery = f.rpcs.find((r) => r.name === "assessment_start_attempt");
+    assert.equal(recovery.args.p_form, null);
+    assert.deepEqual(recovery.args.p_studied_objectives, []);
+    assert.equal(
+      f.queries.some((q) =>
+        [
+          "assessment_forms",
+          "assessment_lesson_snapshots",
+          "profiles",
+          "assessment_support_assignments",
+        ].includes(q.table),
+      ),
+      false,
+    );
+    const lookups = f.queries.filter((q) => q.table === "assessment_attempts");
+    assert.equal(lookups.length, sameKey ? 1 : 2);
+    assert.ok(
+      lookups.every((q) =>
+        q.filters.some(
+          ([column, values]) => column === "checkpoint_id" && values[0] === f.checkpoints[0].id,
+        ),
+      ),
+    );
+  }
+});
+
+test("flat recovery keeps ownership and store errors ahead of any start RPC", async () => {
+  const f = await supportCheckFixture();
+  f.rows.assessment_attempts = [
+    {
+      id: "controlled-attempt",
+      checkpoint_id: f.checkpoints[0].id,
+      start_request_id: "33333333-3333-4333-8333-333333333333",
+      form_snapshot: { definition: {} },
+    },
+  ];
+  assert.equal((await start(f, 0, "outsider")).status, 403);
+  assert.equal(
+    f.queries.some((q) => q.table === "assessment_attempts"),
+    false,
+  );
+  f.errors.assessment_attempts = { message: "CONTROLLED_PRIVATE_STORAGE_ERROR" };
+  const response = await start(f);
+  assert.equal(response.status, 503);
+  assert.doesNotMatch(await response.text(), /CONTROLLED_PRIVATE_STORAGE_ERROR/);
+  assert.equal(
+    f.rpcs.some((r) => r.name === "assessment_start_attempt"),
+    false,
+  );
+});
+
+test("Prepare and genuinely new starts still require current material; adaptive snapshots are not flat recovery", async () => {
+  for (const routing of [undefined, null, { schema: 99 }]) {
+    const f = await supportCheckFixture();
+    if (routing !== undefined)
+      f.rows.assessment_attempts = [
+        {
+          id: "controlled-attempt",
+          checkpoint_id: f.checkpoints[0].id,
+          start_request_id: "33333333-3333-4333-8333-333333333333",
+          form_snapshot: { definition: { routing } },
+        },
+      ];
+    f.rows.assessment_forms = [];
+    assert.equal((await start(f)).status, 400);
+    assert.equal(
+      f.rpcs.some((r) => r.name === "assessment_start_attempt"),
+      false,
+    );
+  }
+  const f = await supportCheckFixture();
+  f.rows.assessment_attempts = [
+    {
+      id: "controlled-attempt",
+      checkpoint_id: f.checkpoints[0].id,
+      status: "in_progress",
+      form_snapshot: { definition: {} },
+    },
+  ];
+  f.rows.assessment_forms = [];
+  assert.equal((await start(f, 0, "learner", { action: "prepare" })).status, 400);
+  assert.equal(
+    f.queries.some((q) => q.table === "assessment_attempts"),
+    false,
+  );
+  assert.equal(
+    f.rpcs.some((r) => r.name === "assessment_start_attempt"),
+    false,
+  );
 });
 test("actual Start refuses missing selected-unit coverage and substituted mappings before creating an attempt", async () => {
   for (const mutate of [

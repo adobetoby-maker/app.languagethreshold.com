@@ -1,0 +1,56 @@
+{
+  "testedAt": "2026-10-18T13:11:52.966Z",
+  "sourceCommit": "561f64e9d55086f95fe6e66d7072631eb5cfb954",
+  "runtimeApplicationCommit": "7a37d1a5823b8d727bed803df5804fbafd0fd540",
+  "installedSdk": "2.105.1",
+  "observations": {
+    "configuredProjectActorAndProjectionCorrect": true,
+    "ordinaryOwnerReadSignalPresent": false,
+    "explicitNoStore": false,
+    "oversizedUnexpectedFixtureBytesAccepted": 307200,
+    "transient503Dispatches": 4,
+    "retryHeaders": [
+      null,
+      "1",
+      "2",
+      "3"
+    ],
+    "rawDiagnosticReachedHelper": true,
+    "abortDuringPermissionDidNotSettleWait": true,
+    "lateOwnerPermissionStillReturned": true,
+    "explicitReadSignalForwarded": true,
+    "actualRouteStatusAfterAbort": 200,
+    "subsequentSyntheticWrites": [
+      {
+        "path": "/rest/v1/custom_module_requests",
+        "method": "PATCH",
+        "afterAbort": true,
+        "signalPresent": false
+      },
+      {
+        "path": "/rest/v1/platform_audit_events",
+        "method": "POST",
+        "afterAbort": true,
+        "signalPresent": false
+      }
+    ],
+    "unexpectedNetworkCalls": 0,
+    "sdkConsoleErrorCalls": 0
+  },
+  "sourceHashes": {
+    "src/lib/team-server.ts": "bbf5762a84fa4cead607fb8a2bd032c8c543c31f3c830acd1038c3087f2b452a",
+    "src/lib/team-auth-fetch.ts": "ecd106676f49d031b78d6adf1e5d7fdbf2e45864e7da19577442eb941a0fe97b",
+    "src/lib/team-member-fetch.ts": "462d21285f2e89c7a5eb13dfde049f9686b36c42462e2488b9ff62b3e0db2c5d",
+    "src/routes/api.platform.ts": "e2c8662b542bb86d9bbe7356620931e656db2fd5e44d883423f0f02bcfd47f75",
+    "src/lib/assessments/content-server.ts": "2de34c2262557ebdb06f47063d6e8c48cc46c933c32e9a5ae8b36a2d8afe3140",
+    "src/lib/assessments/cleanup-schedule-server.ts": "d87c677a67ab5d5ddff3939077649ef2f2824c3c5ffc2e6255231cf7933058de",
+    "node_modules/@supabase/postgrest-js/src/PostgrestBuilder.ts": "2ce38ea1551e3fa2bfa49c1311e21191797b10b0ea0f7660da3b825bb37fe3ec"
+  },
+  "limits": [
+    "Actual production helper/factory/platform route and installed SDK, with entirely synthetic project/credentials/Auth/role/HTTP responses. No real network, owner access, membership or reviewer grants, content decisions, financial entries, certificate changes, schema/policy/schedule, provider/email/billing/assessment mutation.",
+    "The captured PATCH and audit POST are in-process mock HTTP operations only. Role owner is a fictional fixture; no actual role created or changed. Status submitted avoids all notification/admin-account lookup branches; unexpected operations fail.",
+    "Cleanup status has its own eight-second aggregate owner/history phase, selected response bounds and explicit signal/retry control already verified separately. This probe does not demonstrate a cleanup-status continuation defect. The optional signal forwarding control is not proof that all ordinary owner reads are bounded.",
+    "Oversized and unexpected fields are injected fixture responses, not evidence of an actual data leak, attacker control or tenant authorization bypass. Raw helper errors are not proof of public route diagnostic leakage; scoped route catches remain separate.",
+    "This observes an open defect; do not turn it into a permanent test requiring the defect after repair. No runtime change/deployment. Repair must include repeated owner role checks in content privileges/registered owner paths, preserve confirmed-email owner fallback and cleanup behavior, and keep unrelated write outcomes separate."
+  ]
+}

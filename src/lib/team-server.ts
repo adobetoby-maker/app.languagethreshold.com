@@ -3,6 +3,7 @@ import { createHash, randomBytes } from "node:crypto";
 import { ZodError } from "zod";
 import { teamAuthFetch } from "./team-auth-fetch";
 import { teamMemberFetch } from "./team-member-fetch";
+import { teamOwnerFetch } from "./team-owner-fetch";
 
 // Request scope belongs to the client object; it is never a shared current actor.
 const clientRequests = new WeakMap<object, Request>();
@@ -15,7 +16,11 @@ export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
     ? teamAuthFetch(
         url,
         authRequest.signal,
-        teamMemberFetch(url, authRequest.signal, fetcher ?? fetch),
+        teamMemberFetch(
+          url,
+          authRequest.signal,
+          teamOwnerFetch(url, authRequest.signal, fetcher ?? fetch),
+        ),
       )
     : fetcher;
   const db = createClient(url, key, {
@@ -114,11 +119,25 @@ export async function requireTeamAdmin(db: TeamDb, orgId: string, userId: string
   return role;
 }
 
-export async function requirePlatformOwner(db: TeamDb, user: User, readSignal?: AbortSignal) {
-  const query = db.from("platform_admin_roles").select("role").eq("user_id", user.id);
-  if (readSignal) query.abortSignal(readSignal).retry(false);
+export async function readPlatformRole(db: TeamDb, userId: string, readSignal?: AbortSignal) {
+  const request = clientRequests.get(db);
+  const unavailable = () =>
+    new TeamOperationError("Owner access could not be confirmed. Please try again.", 503);
+  const current = () => {
+    if (request?.signal.aborted) throw new TeamOperationError("Owner request cancelled.", 499);
+    if (readSignal?.aborted) throw unavailable();
+  };
+  current();
+  const query = db.from("platform_admin_roles").select("role").eq("user_id", userId).retry(false);
+  if (readSignal) query.abortSignal(readSignal);
   const { data, error } = await query.maybeSingle();
-  if (error) throw error;
+  current();
+  if (error) throw unavailable();
+  return data;
+}
+
+export async function requirePlatformOwner(db: TeamDb, user: User, readSignal?: AbortSignal) {
+  const data = await readPlatformRole(db, user.id, readSignal);
   const ownerEmail = process.env.PLATFORM_OWNER_EMAIL?.trim().toLowerCase();
   if (
     data?.role !== "owner" &&

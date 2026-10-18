@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest } from "@/lib/team-client";
+import { ownedTeamRequest } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+import { assessmentCsv } from "@/lib/assessments/export";
 import { teamSeatMetrics } from "@/lib/team-seat-metrics";
 
 export const Route = createFileRoute("/owner")({
@@ -111,14 +113,13 @@ const money = (value: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value / 100);
 
 function OwnerDashboard() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
+  return <OwnedOwnerDashboard key={user?.id ?? "guest"} />;
+}
+function OwnedOwnerDashboard() {
+  const { user, loading: authLoading, canUseReader } = useAuth();
   const userId = user?.id;
   const [authOpen, setAuthOpen] = useState(false);
-  const [data, setData] = useState<PlatformData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
-  const [busy, setBusy] = useState(false);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [kind, setKind] = useState<"income" | "expense">("expense");
   const [category, setCategory] = useState("AI services");
@@ -128,38 +129,148 @@ function OwnerDashboard() {
     new Date(Date.now() - 365 * 86400000).toISOString().slice(0, 10),
   );
 
-  const refresh = useCallback(async () => {
-    if (!userId) return;
-    setLoading(true);
-    setError("");
-    try {
-      setData(await teamRequest<PlatformData>(`/api/platform?since=${since}`));
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not load dashboard.");
-    } finally {
-      setLoading(false);
-    }
-  }, [userId, since]);
+  const { key, capture } = usePracticeLifecycle(
+    JSON.stringify(["owner-dashboard", since, authLoading]),
+  );
+  const [report, setReport] = useState<{
+    key: string;
+    data: PlatformData | null;
+    loading: boolean;
+    error: string;
+  } | null>(null);
+  const [action, setAction] = useState<{
+    key: string;
+    busy: boolean;
+    error: string;
+    notice: string;
+  } | null>(null);
+  const readFlight = useRef<AbortController | null>(null);
+  const mutation = useRef<AbortController | null>(null);
+  const data = report?.key === key ? report.data : null;
+  const loading = report?.key === key ? report.loading : !!userId && !authLoading;
+  const error =
+    (action?.key === key ? action.error : "") || (report?.key === key ? report.error : "");
+  const notice = action?.key === key ? action.notice : "";
+  const busy = action?.key === key && action.busy;
+  const latestData = useRef(data);
+  latestData.current = data;
+
+  const refresh = useCallback(
+    async (parentCurrent?: () => boolean) => {
+      const lease = capture();
+      if (
+        !userId ||
+        authLoading ||
+        !canUseReader(userId) ||
+        !lease.isCurrent() ||
+        (mutation.current && !parentCurrent)
+      )
+        return;
+      readFlight.current?.abort();
+      const controller = new AbortController();
+      readFlight.current = controller;
+      const release = lease.own(() => controller.abort());
+      const current = () =>
+        lease.isCurrent() &&
+        canUseReader(userId) &&
+        readFlight.current === controller &&
+        !controller.signal.aborted &&
+        (!parentCurrent || parentCurrent());
+      setReport({ key, data: null, loading: true, error: "" });
+      try {
+        const result = await ownedTeamRequest<PlatformData>(
+          { userId, isCurrent: current, signal: controller.signal },
+          `/api/platform?since=${encodeURIComponent(since)}`,
+        );
+        if (current()) setReport({ key, data: result, loading: false, error: "" });
+      } catch (cause) {
+        if (current())
+          setReport({
+            key,
+            data: null,
+            loading: false,
+            error: cause instanceof Error ? cause.message : "Could not load dashboard.",
+          });
+      } finally {
+        // Pending sign-out freezes private results, but must not leave a mounted spinner stuck.
+        if (lease.isCurrent() && readFlight.current === controller) {
+          setReport((previous) =>
+            previous?.key === key ? { ...previous, loading: false } : previous,
+          );
+          readFlight.current = null;
+        }
+        release();
+        controller.abort();
+      }
+    },
+    [userId, authLoading, canUseReader, capture, key, since],
+  );
   useEffect(() => {
     if (!authLoading && userId) void refresh();
-    else if (!authLoading) setLoading(false);
+    return () => readFlight.current?.abort();
   }, [authLoading, userId, refresh]);
   async function act(body: unknown, message: string) {
-    setBusy(true);
-    setError("");
-    setNotice("");
+    const lease = capture();
+    if (
+      !userId ||
+      authLoading ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      mutation.current ||
+      !data ||
+      latestData.current !== data
+    )
+      return;
+    const controller = new AbortController();
+    mutation.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (mutation.current === controller) mutation.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      mutation.current === controller &&
+      !controller.signal.aborted;
+    readFlight.current?.abort();
+    setAction({ key, busy: true, error: "", notice: "" });
     try {
-      await teamRequest("/api/platform", body);
-      setNotice(message);
-      await refresh();
+      await ownedTeamRequest(
+        { userId, isCurrent: current, signal: controller.signal },
+        "/api/platform",
+        body,
+      );
+      if (!current()) return;
+      setAction({ key, busy: true, error: "", notice: message });
+      await refresh(current);
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Request failed.");
+      if (current())
+        setAction({
+          key,
+          busy: true,
+          error: cause instanceof Error ? cause.message : "Request failed.",
+          notice: "",
+        });
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && mutation.current === controller)
+        setAction((previous) => (previous?.key === key ? { ...previous, busy: false } : previous));
+      if (mutation.current === controller) mutation.current = null;
+      release();
+      controller.abort();
     }
   }
   const csv = () => {
-    if (!data) return;
+    const lease = capture();
+    if (
+      !userId ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      !data ||
+      latestData.current !== data ||
+      mutation.current ||
+      readFlight.current
+    )
+      return;
     const rows = [
       ["Date", "Category", "Amount USD", "Source", "Memo", "Reference"],
       ...data.ledger.map((e) => [
@@ -171,15 +282,32 @@ function OwnerDashboard() {
         e.external_ref ?? "",
       ]),
     ];
-    const text = rows
-      .map((row) => row.map((value) => `"${value.replaceAll('"', '""')}"`).join(","))
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `language-threshold-ledger-${since}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
+    const url = URL.createObjectURL(
+      new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" }),
+    );
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let cleaned = false;
+    let release = () => {};
+    const cleanup = () => {
+      if (cleaned) return;
+      cleaned = true;
+      if (timer !== undefined) clearTimeout(timer);
+      URL.revokeObjectURL(url);
+      release();
+    };
+    release = lease.own(cleanup);
+    try {
+      if (!lease.isCurrent() || !canUseReader(userId)) return;
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `language-threshold-ledger-${since}.csv`;
+      a.click();
+      timer = setTimeout(cleanup, 1000);
+    } catch {
+      cleanup();
+    } finally {
+      if (timer === undefined) cleanup();
+    }
   };
 
   const seatMetrics = teamSeatMetrics(data?.entitlements ?? []);
@@ -335,7 +463,7 @@ function OwnerDashboard() {
                         onChange={(e) => setSince(e.target.value)}
                       />
                     </label>
-                    <button onClick={csv} className={secondary}>
+                    <button disabled={busy || loading} onClick={csv} className={secondary}>
                       Export CSV
                     </button>
                   </div>

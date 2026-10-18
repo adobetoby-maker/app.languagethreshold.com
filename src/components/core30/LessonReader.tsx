@@ -13,6 +13,8 @@ import {
   exactLessonLibraryId,
   libraryTranslationLanguage,
 } from "@/lib/lesson-reading";
+import { useLessonContent } from "@/lib/lesson-content";
+import { pickContentPassage } from "@/lib/lesson-content-core";
 import { languageTag } from "@/lib/lesson-words-core";
 import { cn } from "@/lib/utils";
 import { currentTutorLesson } from "@/lib/lesson-tutor-context";
@@ -61,6 +63,9 @@ export function LessonReader({
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [waited, setWaited] = useState(false);
 
+  // Generated lesson content fills modules without a hand-written lesson reading.
+  const authoredContent = useLessonContent(moduleId, language, state.nativeLanguage);
+
   const sharedLessonCount = readingTemplate
     ? (getCurriculum(moduleId)?.lessons.filter(
         (lesson) => lesson.readingTemplate === readingTemplate,
@@ -90,17 +95,34 @@ export function LessonReader({
     () => authoredLessonReading(moduleId, lessonNumber, language, state.nativeLanguage),
     [moduleId, language, state.nativeLanguage, lessonNumber],
   );
-  const shown = lessonPassage ?? entry;
+  const contentPassage = useMemo(() => {
+    if (lessonPassage || !lessonNumber) return null;
+    const generated = pickContentPassage(authoredContent.content, lessonNumber, state.nativeLanguage);
+    if (!generated) return null;
+    return {
+      id: `lesson-content-${moduleId}-${lessonNumber}`,
+      title: generated.title,
+      sentences: generated.target.map((target, i) => ({ target, en: generated.native[i] ?? "" })),
+    };
+  }, [lessonPassage, lessonNumber, authoredContent.content, state.nativeLanguage, moduleId]);
+  const shown = lessonPassage ?? contentPassage ?? entry;
+  // Hold the generic library reading back until we know whether this lesson has its own.
+  const contentPending =
+    !lessonPassage && !contentPassage && authoredContent.status === "loading";
   const sentences = useMemo(() => shown?.sentences ?? [], [shown]);
   // Chinese has no spaces to tap on; the full Reader adds pinyin and word lookup there.
   const tappable = language !== "Chinese";
   const lang = languageTag(language);
   // Only offer the exact passage shown; authored inline content has no library counterpart.
   const fullReaderId = lessonPassage ? null : (entry?.id ?? null);
-  const translationLanguage = lessonPassage ? "English" : libraryTranslationLanguage(passageId);
+  const translationLanguage = lessonPassage
+    ? "English"
+    : contentPassage
+      ? state.nativeLanguage
+      : libraryTranslationLanguage(passageId);
   const translationAvailable = state.nativeLanguage === translationLanguage;
 
-  if (!shown && !libraryLoaded && !waited) {
+  if (contentPending || (!shown && !libraryLoaded && !waited)) {
     return (
       <div data-testid="lesson-reader-loading" aria-busy="true" className="space-y-2 py-1">
         <div className="h-5 w-1/2 animate-pulse rounded bg-white/[0.06]" />
@@ -269,7 +291,7 @@ export function LessonReader({
           className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg px-1 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
         >
           <ExternalLink className="h-4 w-4" aria-hidden="true" />
-          Open in full Reader
+          {contentPassage ? "Open the longer module reading" : "Open in full Reader"}
         </button>
       )}
 

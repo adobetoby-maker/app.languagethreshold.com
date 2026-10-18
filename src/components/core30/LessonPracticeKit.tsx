@@ -21,6 +21,7 @@ import {
   PenLine,
   Puzzle,
   RotateCcw,
+  Repeat,
   Volume2,
   XCircle,
 } from "lucide-react";
@@ -28,6 +29,7 @@ import { cn } from "@/lib/utils";
 import { useHandwritingReader, type WriteOutcome } from "@/hooks/use-handwriting-reader";
 import { AnswerFeedback } from "@/components/core30/AnswerFeedback";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/HandwritingPad";
+import { VerbPractice } from "@/components/core30/VerbPractice";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
@@ -35,6 +37,7 @@ import { useFlashcards } from "@/state/flashcard-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
 import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import type { LessonWord } from "@/data/curriculum";
+import type { LessonVerb } from "@/lib/lesson-content-core";
 import {
   advanceDeck,
   buildListenOptions,
@@ -53,7 +56,14 @@ import {
   SPECIAL_CHARS_BY_LANGUAGE,
 } from "@/lib/lesson-words-core";
 
-export type PracticeMode = "study" | "flashcards" | "match" | "listen" | "type" | "write";
+export type PracticeMode =
+  | "study"
+  | "flashcards"
+  | "match"
+  | "verbs"
+  | "listen"
+  | "type"
+  | "write";
 
 export interface LessonPracticeKitProps {
   words: LessonWord[];
@@ -75,6 +85,12 @@ export interface LessonPracticeKitProps {
   nativeLanguage?: string;
   matchingBatchSize?: number;
   listeningItems?: LessonWord[];
+  /**
+   * The lesson's verbs (authored lesson content). When present, Recall it gains a Verbs tab
+   * (verb cards) and Type it gains a Words | Verbs switch (conjugation drill). Inside a lesson
+   * only; the standalone six-tab kit ignores them.
+   */
+  verbs?: LessonVerb[];
 }
 
 interface KitLanguages {
@@ -102,6 +118,7 @@ const MODES: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
 const RECALL_MODES = MODES.filter(
   ({ id }) => id === "study" || id === "flashcards" || id === "match",
 );
+const VERBS_TAB = { id: "verbs" as PracticeMode, label: "Verbs", Icon: Repeat };
 
 // ─── Shared styling ───────────────────────────────────────────────────────────
 
@@ -1332,6 +1349,74 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
   );
 }
 
+// ─── Verbs (authored lesson content) ──────────────────────────────────────────
+
+/** VerbPractice with the kit's target-language voice. */
+function VerbsPane({
+  verbs,
+  mode,
+  onComplete,
+}: {
+  verbs: LessonVerb[];
+  mode: "study" | "conjugate";
+  onComplete: () => void;
+}) {
+  const speak = useTargetSpeaker();
+  const { target, native } = useKitLanguages();
+  return (
+    <VerbPractice
+      verbs={verbs}
+      mode={mode}
+      language={target}
+      nativeLanguage={native}
+      speak={speak}
+      onComplete={onComplete}
+    />
+  );
+}
+
+/** Type it: spell the lesson's words, or conjugate its verbs. */
+function TypeKindSwitch({
+  kind,
+  onChange,
+}: {
+  kind: "words" | "verbs";
+  onChange: (kind: "words" | "verbs") => void;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label="What to type"
+      data-testid="type-kind-switch"
+      className="mb-3 grid grid-cols-2 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+    >
+      {(
+        [
+          { id: "words", label: "Words", Icon: Keyboard },
+          { id: "verbs", label: "Verbs", Icon: Repeat },
+        ] as const
+      ).map(({ id, label, Icon }) => (
+        <button
+          key={id}
+          type="button"
+          data-testid={`type-kind-${id}`}
+          aria-pressed={kind === id}
+          onClick={() => onChange(id)}
+          className={cn(
+            "flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-bold transition-all duration-200",
+            kind === id
+              ? "bg-gold text-background"
+              : "text-muted-foreground hover:bg-gold/10 hover:text-foreground",
+          )}
+        >
+          <Icon className="h-4 w-4" aria-hidden="true" />
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ─── Kit shell ────────────────────────────────────────────────────────────────
 
 export function LessonPracticeKit({
@@ -1346,6 +1431,7 @@ export function LessonPracticeKit({
   nativeLanguage = "English",
   matchingBatchSize,
   listeningItems,
+  verbs,
 }: LessonPracticeKitProps) {
   const { state, dispatch } = useApp();
   const languages = useMemo(
@@ -1355,7 +1441,12 @@ export function LessonPracticeKit({
   const targetLang = language as Language;
   const { addCard, hasCard } = useFlashcards();
   const [internalMode, setInternalMode] = useState<PracticeMode>(initialMode);
-  const mode = controlledMode ?? internalMode;
+  // Verbs show only inside a lesson (controlled kit) that has them.
+  const lessonVerbs = controlledMode !== undefined && verbs && verbs.length > 0 ? verbs : null;
+  const requestedMode = controlledMode ?? internalMode;
+  const mode: PracticeMode = requestedMode === "verbs" && !lessonVerbs ? "study" : requestedMode;
+  const [typeKind, setTypeKind] = useState<"words" | "verbs">("words");
+  const recallTabs = lessonVerbs ? [...RECALL_MODES, VERBS_TAB] : RECALL_MODES;
   const setMode = (next: PracticeMode) => {
     setInternalMode(next);
     onModeChange?.(next);
@@ -1407,7 +1498,7 @@ export function LessonPracticeKit({
     setAddedCount(fresh.length);
   };
 
-  const modeTabShown = controlledMode === undefined || RECALL_MODES.some((m) => m.id === mode);
+  const modeTabShown = controlledMode === undefined || recallTabs.some((m) => m.id === mode);
 
   return (
     <KitLanguageContext.Provider value={languages}>
@@ -1472,14 +1563,17 @@ export function LessonPracticeKit({
               })}
             </div>
           </>
-        ) : RECALL_MODES.some((m) => m.id === mode) ? (
+        ) : recallTabs.some((m) => m.id === mode) ? (
           <div
             role="tablist"
             aria-label="Recall practice"
             data-testid="practice-recall-switch"
-            className="grid grid-cols-3 gap-1 rounded-xl border border-border/50 bg-card/30 p-1"
+            className={cn(
+              "grid gap-1 rounded-xl border border-border/50 bg-card/30 p-1",
+              recallTabs.length > 3 ? "grid-cols-4" : "grid-cols-3",
+            )}
           >
-            {RECALL_MODES.map(({ id, label, Icon }) => {
+            {recallTabs.map(({ id, label, Icon }) => {
               const active = mode === id;
               return (
                 <button
@@ -1541,7 +1635,28 @@ export function LessonPracticeKit({
                   onComplete={() => complete("listen")}
                 />
               )}
-              {mode === "type" && <TypeMode words={words} onComplete={() => complete("type")} />}
+              {mode === "type" && lessonVerbs && (
+                <TypeKindSwitch kind={typeKind} onChange={setTypeKind} />
+              )}
+              {mode === "type" && (!lessonVerbs || typeKind === "words") && (
+                <TypeMode words={words} onComplete={() => complete("type")} />
+              )}
+              {mode === "type" && lessonVerbs && typeKind === "verbs" && (
+                <VerbsPane
+                  key="conjugate"
+                  verbs={lessonVerbs}
+                  mode="conjugate"
+                  onComplete={() => complete("type")}
+                />
+              )}
+              {mode === "verbs" && lessonVerbs && (
+                <VerbsPane
+                  key="study"
+                  verbs={lessonVerbs}
+                  mode="study"
+                  onComplete={() => complete("verbs")}
+                />
+              )}
               {mode === "write" && <WriteMode words={words} onComplete={() => complete("write")} />}
             </>
           )}

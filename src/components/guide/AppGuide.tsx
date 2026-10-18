@@ -72,6 +72,8 @@ import {
   writeLessonReturn,
 } from "@/lib/lesson-return";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
+import { prefetchLessonContent, useLessonContent } from "@/lib/lesson-content";
+import { pickContentVerbs } from "@/lib/lesson-content-core";
 import { getLessonDefinition, modulePracticeVersion } from "@/lib/lesson-definition";
 import {
   lessonPositionKey,
@@ -691,6 +693,16 @@ function OwnedLessonRunner({
   );
   const words = lessonWords.words;
   const hasWords = words.length > 0;
+  // Authored lesson content carries the lesson's verbs (roofing too, whose words are authored).
+  const lessonContent = useLessonContent(
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const verbs = useMemo(
+    () => pickContentVerbs(lessonContent.content, lesson.n, state.nativeLanguage),
+    [lessonContent.content, lesson.n, state.nativeLanguage],
+  );
   const definition = getLessonDefinition({
     moduleId,
     lessonNumber: lesson.n,
@@ -1336,6 +1348,7 @@ function OwnedLessonRunner({
                 nativeLanguage={
                   lessonWords.status === "authored" ? "English" : state.nativeLanguage
                 }
+                verbs={verbs}
                 mode={kitMode}
                 onModeChange={onKitModeChange}
                 onActivity={() => recordStepOpened(wordDrillStep)}
@@ -2054,7 +2067,10 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   // Fetch the module's whole pre-built word deck once the learner opens Core 30, so every
   // lesson is ready and the service worker has it for offline use.
   useEffect(() => {
-    if (hasCurriculum) prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
+    if (hasCurriculum) {
+      prefetchLessonContent(moduleId, state.selectedLanguage, state.nativeLanguage);
+      prefetchLessonDeck(moduleId, state.selectedLanguage, state.nativeLanguage);
+    }
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
   const core30Log = state.core30Log[progressKey];

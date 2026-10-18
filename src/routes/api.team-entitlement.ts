@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { authenticatedUser, json, teamAdminClient, teamError } from "@/lib/team-server";
+import { authenticatedUser, json, teamAdminClient, scopedTeamError } from "@/lib/team-server";
 
 export const Route = createFileRoute("/api/team-entitlement")({
   server: {
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/api/team-entitlement")({
             ),
           });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

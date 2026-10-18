@@ -129,7 +129,7 @@ if (process.argv.includes("--self-test")) {
   const report = {
     auditedAt: new Date().toISOString(),
     sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
-    runtimeApplicationCommit: "807117688c92192abab5dde70fbc80871c065641",
+    runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
     scan: {
       typescriptSourceFiles: paths.length,
       legacyFiles: legacy.length,
@@ -144,7 +144,7 @@ if (process.argv.includes("--self-test")) {
     helperDeclarations,
     routes,
     findings: [
-      "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Ten direct calls in six files remain; typed scoped handler is used by activity and legacy assessment only.",
+      "Legacy teamError still exposes arbitrary Error.message and uses regex classification. Eight direct calls in four files remain; typed scoped handler is used by activity, legacy assessment, certificate and entitlement.",
       "Legacy surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
       "Shared auth/config error typing does not sanitize other legacy backend/schema/mail/checkout failures. Migrate fixed intentional guidance with explicit statuses per workflow before replacing catch responses.",
     ],
@@ -155,9 +155,9 @@ if (process.argv.includes("--self-test")) {
       "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform and actual session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance.",
     ],
   };
-  assert.equal(report.scan.legacyDirectCalls, 10);
-  assert.equal(report.scan.legacyFiles, 6);
-  assert.equal(report.scan.scopedDirectCalls, 2);
+  assert.equal(report.scan.legacyDirectCalls, 8);
+  assert.equal(report.scan.legacyFiles, 4);
+  assert.equal(report.scan.scopedDirectCalls, 4);
   assert.equal(report.scan.namespaceCalls, 0);
   writeFileSync(
     "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",

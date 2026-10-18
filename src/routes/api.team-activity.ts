@@ -156,8 +156,24 @@ export const Route = createFileRoute("/api/team-activity")({
                 .eq("module_id", body.moduleId)
                 .eq("lesson_number", body.lessonNumber)
                 .single();
-              if (sessionError || !session || session.completed_at)
+              if (sessionError || !session)
                 throw new Error("Lesson session is invalid or already completed.");
+              if (session.completed_at) {
+                // An exact accepted session can be replayed after a lost response.
+                // Current membership/entitlement and every session scope were checked above.
+                const { data: completion, error: completionError } = await db
+                  .from("team_lesson_completions")
+                  .select("lesson_number")
+                  .eq("organization_id", assignment.organization_id)
+                  .eq("user_id", user.id)
+                  .eq("module_id", body.moduleId)
+                  .eq("lesson_number", body.lessonNumber)
+                  .maybeSingle();
+                if (completionError || !completion)
+                  throw new Error("Lesson session completion could not be verified.");
+                recorded++;
+                continue;
+              }
               if (Date.now() - new Date(session.started_at).getTime() < 45000)
                 throw new Error(
                   "Spend a little more time practicing before finishing this lesson.",

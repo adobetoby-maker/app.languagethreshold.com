@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { checkVoiceCatalogBudget, voiceCatalogOriginDenied } from "../lib/voice-catalog-security";
 import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import {
@@ -40,10 +41,14 @@ const RequestSchema = z.object({
 const GOOGLE_VOICE_CACHE_MS = 6 * 60 * 60 * 1000;
 const voiceCache = new Map<string, { expiresAt: number; voices: GoogleTtsVoice[] }>();
 
-function json(payload: unknown, status = 200) {
+function json(payload: unknown, status = 200, retryAfter?: number) {
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store",
+      ...(retryAfter === undefined ? {} : { "Retry-After": String(retryAfter) }),
+    },
   });
 }
 
@@ -133,6 +138,28 @@ export const Route = createFileRoute("/api/mission-tts")({
         const locale = new URL(request.url).searchParams.get("languageCode") ?? "es-US";
         if (!isSupportedGoogleTtsLocale(locale)) {
           return json({ error: "Unsupported voice language." }, 400);
+        }
+        if (voiceCatalogOriginDenied(request)) {
+          return json({ error: "Cross-origin request rejected." }, 403);
+        }
+        // Public cached metadata and disabled configuration require no provider admission.
+        const cached = voiceCache.get(languageFamily(locale));
+        if (providerReady() && (!cached || cached.expiresAt <= Date.now())) {
+          try {
+            const denied = await withSpeechPreflight(request, (signal) =>
+              checkVoiceCatalogBudget(request, signal),
+            );
+            if (denied) {
+              return json(
+                { error: "Google voice catalog is temporarily unavailable." },
+                denied.status,
+                denied.retryAfter,
+              );
+            }
+          } catch (error) {
+            const status = error instanceof SpeechPreflightError ? error.status : 503;
+            return json({ error: "Google voice catalog is temporarily unavailable." }, status);
+          }
         }
         try {
           return json(await capabilities(locale, request.signal));

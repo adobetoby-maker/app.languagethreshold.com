@@ -32,6 +32,18 @@ for (const [name, path, options, status] of [
     },
     403,
   ],
+  [
+    "foreign-catalog-origin-denied",
+    "/api/mission-tts?languageCode=es-US",
+    { headers: { Origin: "https://outside.invalid" } },
+    403,
+  ],
+  [
+    "cross-site-catalog-denied",
+    "/api/mission-tts?languageCode=es-US",
+    { headers: { "Sec-Fetch-Site": "cross-site" } },
+    403,
+  ],
   ["unsupported-catalog-language-denied", "/api/mission-tts?languageCode=unsupported", {}, 400],
   [
     "malformed-body-denied",

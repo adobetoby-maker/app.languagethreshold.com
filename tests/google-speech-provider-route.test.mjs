@@ -35,6 +35,12 @@ function request(data = body, signal) {
     signal,
   });
 }
+function catalogRequest(signal, headers = { "x-vercel-forwarded-for": "192.0.2.37" }) {
+  return new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US", {
+    signal,
+    headers,
+  });
+}
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/google-tts-route-"));
   const saved = {
@@ -54,6 +60,8 @@ async function fixture(run) {
     logs: [],
     sentry: [],
     gates: [],
+    catalogCounters: [],
+    catalogBudget: async () => true,
     principal: { userId: "synthetic-a" },
     age: true,
     catalog,
@@ -82,12 +90,15 @@ async function fixture(run) {
               path: args.path,
               namespace: "fixture",
             }));
-            b.onResolve({ filter: /^\.\.\/lib\/(speaking-security|sentry)$/ }, (args) => ({
-              path: args.path,
-              namespace: "fixture",
-            }));
+            b.onResolve(
+              { filter: /^(?:\.\.\/lib\/|\.\/)(speaking-security(?:\.ts)?|sentry)$/ },
+              (args) => ({
+                path: args.path,
+                namespace: "fixture",
+              }),
+            );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-              contents: `export const controls=globalThis.__googleSpeechFixture;export const createFileRoute=()=>x=>x;export const initSentry=()=>{};export const Sentry={captureException:e=>controls.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const enforceSpeakingPreAuthRateLimit=async()=>{controls.gates.push('ip');return {allowed:true}};export const authenticateSpeakingRequest=async()=>{controls.gates.push('auth');return controls.authHook?controls.authHook():controls.principal};export const hasSpeakingAgeAttestation=async()=>{controls.gates.push('age');return controls.ageHook?controls.ageHook():controls.age};export const enforceSpeakingRateLimit=async()=>{controls.gates.push('user');return {allowed:true}};`,
+              contents: `export const controls=globalThis.__googleSpeechFixture;export const createFileRoute=()=>x=>x;export const initSentry=()=>{};export const Sentry={captureException:e=>controls.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const consumeServerRequestBudget=async(...args)=>{controls.catalogCounters.push(args);return controls.catalogBudget(...args)};export const enforceSpeakingPreAuthRateLimit=async()=>{controls.gates.push('ip');return {allowed:true}};export const authenticateSpeakingRequest=async()=>{controls.gates.push('auth');return controls.authHook?controls.authHook():controls.principal};export const hasSpeakingAgeAttestation=async()=>{controls.gates.push('age');return controls.ageHook?controls.ageHook():controls.age};export const enforceSpeakingRateLimit=async()=>{controls.gates.push('user');return {allowed:true}};`,
             }));
           },
         },
@@ -171,7 +182,7 @@ test("Google route retains exact synthesis contract, existing gates and public c
     assert.equal(c.requests.length, 3);
     assert.ok(c.gates.includes("age"));
     const capabilities = await h.GET({
-      request: new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US"),
+      request: catalogRequest(),
     });
     assert.equal((await capabilities.json()).ready, true);
     assert.equal(c.requests.length, 3);
@@ -185,7 +196,7 @@ test("Google catalog, synthesis and thrown failures never enter diagnostics with
     const secret = body.text + " synthetic-google-key";
     c.catalog = () => new Response(secret, { status: 503 });
     const caps = await h.GET({
-      request: new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US"),
+      request: catalogRequest(),
     });
     assert.equal((await caps.json()).ready, false);
     c.catalog = catalog;
@@ -324,7 +335,7 @@ test("Google auth, age-attestation and origin denial still precede provider requ
     assert.equal(c.requests.length, 0);
     process.env.GOOGLE_CLOUD_TTS_ENABLED = "false";
     const response = await h.GET({
-      request: new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US"),
+      request: catalogRequest(),
     });
     assert.equal((await response.json()).ready, false);
     assert.equal(c.requests.length, 0);
@@ -338,16 +349,14 @@ test("Google immediate catalog cancellation is settled before another request ca
       return catalog();
     };
     const response = await h.GET({
-      request: new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US", {
-        signal: incoming.signal,
-      }),
+      request: catalogRequest(incoming.signal),
     });
     assert.equal((await response.json()).ready, false);
     assert.equal(c.requests.length, 1);
     assert.equal(c.requests[0].opts.signal.aborted, true);
     c.catalog = catalog;
     const current = await h.GET({
-      request: new Request("https://fixture.invalid/api/mission-tts?languageCode=es-US"),
+      request: catalogRequest(),
     });
     assert.equal((await current.json()).ready, true);
     assert.equal(c.requests.length, 2);
@@ -429,4 +438,111 @@ test("Google departed auth and expired consent preflight cannot admit late work 
     await tick();
     assert.deepEqual(c.gates.slice(offset), ["ip", "auth", "age"]);
     assert.equal(c.requests.length, 2);
+  }));
+
+test("Google cold public catalog denial stops provider and exposes only fixed retry guidance", () =>
+  fixture(async (h, c) => {
+    for (const stop of [1, 2, 3]) {
+      c.catalogCounters.length = 0;
+      c.catalogBudget = async () => c.catalogCounters.length !== stop;
+      const response = await h.GET({ request: catalogRequest() });
+      assert.equal(response.status, 429);
+      assert.equal(response.headers.get("retry-after"), stop === 1 ? "60" : "3600");
+      assert.match(response.headers.get("cache-control"), /no-store/);
+      assert.deepEqual(await response.json(), {
+        error: "Google voice catalog is temporarily unavailable.",
+      });
+      assert.equal(c.catalogCounters.length, stop);
+      assert.equal(c.requests.length, 0);
+    }
+    c.catalogBudget = async () => {
+      throw new Error("synthetic-private-detail");
+    };
+    const failed = await h.GET({ request: catalogRequest() });
+    assert.equal(failed.status, 503);
+    assert.doesNotMatch(await failed.text(), /synthetic-private-detail/);
+    assert.equal(c.requests.length, 0);
+  }));
+test("Google public catalog cache and disabled configuration avoid counters; explicit foreign origins never reach admission", () =>
+  fixture(async (h, c) => {
+    for (const headers of [
+      { Origin: "https://outside.invalid" },
+      { "sec-fetch-site": "cross-site" },
+    ]) {
+      assert.equal((await h.GET({ request: catalogRequest(undefined, headers) })).status, 403);
+    }
+    assert.equal((await h.GET({ request: catalogRequest(undefined, {}) })).status, 503);
+    assert.equal(c.catalogCounters.length, 0);
+    assert.equal(c.requests.length, 0);
+    process.env.GOOGLE_CLOUD_TTS_ENABLED = "false";
+    assert.equal(
+      (await (await h.GET({ request: catalogRequest(undefined, {}) })).json()).ready,
+      false,
+    );
+    assert.equal(c.catalogCounters.length, 0);
+    process.env.GOOGLE_CLOUD_TTS_ENABLED = "true";
+    assert.equal((await (await h.GET({ request: catalogRequest() })).json()).ready, true);
+    assert.equal(c.catalogCounters.length, 3);
+    assert.equal(c.requests.length, 1);
+    c.catalogBudget = async () => {
+      throw new Error("cache should not spend");
+    };
+    assert.equal(
+      (await (await h.GET({ request: catalogRequest(undefined, {}) })).json()).ready,
+      true,
+    );
+    assert.equal(c.catalogCounters.length, 3);
+    assert.equal(c.requests.length, 1);
+    assert.equal(
+      (await h.GET({ request: catalogRequest(undefined, { Origin: "https://outside.invalid" }) }))
+        .status,
+      403,
+    );
+    assert.equal(c.requests.length, 1);
+  }));
+test("Google expired public catalog admission cannot open provider or later counters; next request is independent", () =>
+  fixture(async (h, c) => {
+    const pendingBudget = deferred();
+    c.catalogBudget = () => pendingBudget.promise;
+    const pending = h.GET({ request: catalogRequest() });
+    assert.equal(c.catalogCounters.length, 1);
+    c.expire();
+    const denied = await pending;
+    assert.equal(denied.status, 503);
+    assert.equal(c.catalogCounters[0][4].aborted, true);
+    pendingBudget.resolve(true);
+    await tick();
+    assert.equal(c.catalogCounters.length, 1);
+    assert.equal(c.requests.length, 0);
+    c.catalogBudget = async () => true;
+    const current = await h.GET({ request: catalogRequest() });
+    assert.equal((await current.json()).ready, true);
+    assert.equal(c.catalogCounters.length, 4);
+    assert.equal(c.requests.length, 1);
+  }));
+
+test("Google expired catalog cache requires fresh admission and incoming abort is request-local", () =>
+  fixture(async (h, c) => {
+    assert.equal((await (await h.GET({ request: catalogRequest() })).json()).ready, true);
+    const now = Date.now;
+    try {
+      Date.now = () => now() + 6 * 60 * 60 * 1000 + 1;
+      c.catalogBudget = async () => false;
+      assert.equal((await h.GET({ request: catalogRequest() })).status, 429);
+      assert.equal(c.requests.length, 1);
+      const incoming = new AbortController(),
+        deferredBudget = deferred();
+      c.catalogBudget = () => deferredBudget.promise;
+      const pending = h.GET({ request: catalogRequest(incoming.signal) });
+      incoming.abort();
+      assert.equal((await pending).status, 499);
+      deferredBudget.resolve(true);
+      await tick();
+      assert.equal(c.requests.length, 1);
+      c.catalogBudget = async () => true;
+      assert.equal((await (await h.GET({ request: catalogRequest() })).json()).ready, true);
+      assert.equal(c.requests.length, 2);
+    } finally {
+      Date.now = now;
+    }
   }));

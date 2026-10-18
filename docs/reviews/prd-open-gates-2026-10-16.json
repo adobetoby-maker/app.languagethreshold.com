@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "3596b26",
+  "application": "677c9ab",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-hfiid439l-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-pdssmipb1-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-activity-owner-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-core30-team-chain-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "3596b2661683f549e352fdbca04188d8e975f813",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-activity-owner-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "677c9ab787453c3fb0bbfee5654e72ed0e642651",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-core30-team-chain-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -523,5 +523,11 @@
     "application": "3596b26",
     "deployed": true,
     "evidence": "docs/reviews/qa-team-activity-owner-preview-2026-10-18.json"
+  },
+  "latestLocalCore30TeamChainFollowup": {
+    "application": "677c9ab",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-core30-team-chain-preview-2026-10-18.json",
+    "offlineLimit": "Signed-in completion waits for current start coordination; no durable team completion outbox"
   }
 }

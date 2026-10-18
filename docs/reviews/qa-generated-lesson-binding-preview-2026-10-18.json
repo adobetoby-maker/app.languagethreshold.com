@@ -1,0 +1,98 @@
+{
+  "testedAt": "2026-10-18T16:45:02.664107+00:00",
+  "applicationCommit": "7fb59fbc810e9343addcb9a9aed176e344e10535",
+  "preview": "https://language-threshold-gzpugcdeu-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-gzpugcdeu-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3hXttHUPHihzFwutUK3XW1mqC3Eh",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-gzpugcdeu-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "7fb59fbc810e9343addcb9a9aed176e344e10535",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-generated-lesson-binding-local-2026-10-18.json",
+  "local": {
+    "fullNode22Tests": 1688,
+    "newGeneratedReviewGroups": 9,
+    "typecheck": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.03,
+    "packagedJsonFilesMatchingSourceAndCdn": 60,
+    "generatedTracks": 59,
+    "currentLessons": 1510,
+    "maximumSnapshotBytes": 222912,
+    "sqlSnapshotLimitBytes": 2000000
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 61,
+  "hostedReports": [
+    "qa-exams-assessment-generated-binding-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-generated-binding-content-static-preview-2026-10-18.json"
+  ],
+  "checks": {
+    "generatedMaterialBound": true,
+    "inlineWordsAndReadingRetainPriority": true,
+    "verbsFormsExamplesNotesVisible": true,
+    "exactPairOnly": true,
+    "byteChangeInvalidatesBinding": true,
+    "historicalSnapshotsReadableButStale": true,
+    "missingOrCorruptPackagedSourceFailsClosed": true,
+    "sharedDefinitionReleaseGateUnchanged": true,
+    "reviewFlagNotApproval": true,
+    "allHostedGroupsPass": true,
+    "allStaticBytesMatchSource": true,
+    "qaStateRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "limits": [
+    "No owner freeze, grant or review decision was written. Immutable older bindings require a new release version and actual qualified review.",
+    "Existing schema1 snapshots remain inspectable; no migration, historical data rewrite or policy change.",
+    "Source/SSR/controlled fixtures and HTTP responses do not establish actual reviewer/browser/phone/device/offline/expiry/legacy recovery or human acceptance.",
+    "No provider/model/billing/exam submission/speech/cleanup/schedule action. Official forms remain drafts and generated files reviewed:false.",
+    "Shared-definition completeness, calibration, qualified reviewers, real consented pilots, owner retention and all59-module gates remain open."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T16:45:03.926Z",
+    "sourceCommit": "7fb59fb",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1729,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

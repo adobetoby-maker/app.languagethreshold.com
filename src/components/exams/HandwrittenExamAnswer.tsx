@@ -33,13 +33,12 @@ function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: Handwritten
     pad = useRef<HandwritingPadHandle>(null),
     frame = useRef<(() => void) | null>(null),
     drawingRef = useRef(false);
-  const lifecycle = usePracticeLifecycle(key);
-  const lease = lifecycle.capture();
+  const { capture } = usePracticeLifecycle(key);
   const [drawing, setDrawing] = useState(false),
     [saved, setSaved] = useState(() => !isExamDeviceValueVolatile(key));
   const registryId = `${attemptId}:ink:${itemId}`;
   const update = (next: ExamInk) => {
-    if (!lease.isCurrent() || next.transcript.length > 4000) return;
+    if (!capture().isCurrent() || next.transcript.length > 4000) return;
     current.current = next;
     setValue(next);
     setSaved(saveExamInk(storage, key, next));
@@ -64,6 +63,7 @@ function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: Handwritten
       )}
       <div
         onPointerUp={() => {
+          const lease = capture();
           if (!lease.isCurrent()) return;
           cancelFrame();
           const id = requestAnimationFrame(() => {
@@ -86,7 +86,7 @@ function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: Handwritten
           label="Write your exam answer by hand"
           className={value.ink && !drawing ? "hidden" : undefined}
           onChange={(hasInk) => {
-            if (!lease.isCurrent()) return;
+            if (!capture().isCurrent()) return;
             const wasDrawing = drawingRef.current;
             drawingRef.current = hasInk;
             setDrawing(hasInk);
@@ -103,7 +103,7 @@ function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: Handwritten
         type="button"
         className="min-h-11 rounded-xl border border-border px-4 text-sm"
         onClick={() => {
-          if (!lease.isCurrent()) return;
+          if (!capture().isCurrent()) return;
           cancelFrame();
           pad.current?.clear();
           drawingRef.current = false;
@@ -134,7 +134,7 @@ function OwnedHandwrittenExamAnswer({ attemptId, itemId, onAnswer }: Handwritten
         disabled={value.confirmed || !value.ink || !value.transcript.trim()}
         className="min-h-11 rounded-xl border border-gold/40 px-4 text-sm disabled:opacity-50"
         onClick={() => {
-          if (!lease.isCurrent() || current.current.confirmed) return;
+          if (!capture().isCurrent() || current.current.confirmed) return;
           const latest = current.current;
           const ink = drawingRef.current ? pad.current?.toPngBase64() : latest.ink;
           if (

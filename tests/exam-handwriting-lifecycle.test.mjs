@@ -50,7 +50,7 @@ async function fixture(run) {
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
- export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
+ export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,setup:fn,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
 `,
             }));
@@ -96,6 +96,13 @@ async function fixture(run) {
     const unmount = () => {
       instances.forEach((_, i) => dispose(i));
       instances.length = 0;
+    };
+    const replayEffects = () => {
+      const effects = instances.flatMap((i) => i.slots.filter((s) => s?.setup));
+      effects.forEach((s) => s.cleanup?.());
+      effects.forEach((s) => {
+        s.cleanup = s.setup();
+      });
     };
     const render = (opts = {}) => {
       let n = {
@@ -152,6 +159,7 @@ async function fixture(run) {
     try {
       await run({
         c,
+        replayEffects,
         render,
         unmount,
         draw,
@@ -317,4 +325,22 @@ test("superseded frame cannot export or clear newer work and empty pad cannot co
     get(tree, "pad").props.onChange(false);
     assert.equal(read().ink, null);
     assert.equal(pending("a"), false);
+  }));
+
+test("effect cleanup/setup replay keeps fresh input usable and invalidates earlier RAF work", () =>
+  fixture(({ render, replayEffects, draw, frames, read, answers }) => {
+    const tree = render();
+    draw(tree);
+    get(tree, "textarea").props.onChange({ target: { value: "strict replay" } });
+    nodes(tree)
+      .find((n) => n.props?.onPointerUp)
+      .props.onPointerUp();
+    const late = [...frames.values()][0];
+    replayEffects();
+    late();
+    get(tree, "textarea").props.onChange({ target: { value: "after replay" } });
+    button(tree, "Use this transcript for review").props.onClick();
+    assert.equal(answers.length, 1);
+    assert.equal(read().transcript, "after replay");
+    assert.equal(read().confirmed, true);
   }));

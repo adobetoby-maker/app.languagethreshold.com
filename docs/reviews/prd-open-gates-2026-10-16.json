@@ -1005,5 +1005,18 @@
     "waitSeconds": 15,
     "underlyingSdkTransportCancelled": false,
     "actualSessionExpiryProved": false
+  },
+  "latestTeamAuthSdkContractAudit": {
+    "sourceCommit": "ec99227b6de428b87c6dd6164e4094688ea3fbf7",
+    "runtimeApplicationCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+    "evidence": "docs/reviews/qa-team-auth-sdk-contract-2026-10-18.json",
+    "installedVersions": "2.105.1",
+    "stubRequests": 2,
+    "actualNetworkCalls": 0,
+    "sdkRawLoggingOpen": true,
+    "responseBoundsOpen": true,
+    "transportMisclassifiedAsExpiredSession": true,
+    "runtimeChanged": false,
+    "status": "confirmed-installed-sdk-gaps-implementation-open"
   }
 }

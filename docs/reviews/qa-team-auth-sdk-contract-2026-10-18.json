@@ -1,0 +1,81 @@
+{
+  "auditedAt": "2026-10-18T10:36:17.515Z",
+  "sourceCommit": "ec99227b6de428b87c6dd6164e4094688ea3fbf7",
+  "runtimeApplicationCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+  "versions": {
+    "auth-js": "2.105.1",
+    "supabase-js": "2.105.1"
+  },
+  "installedSource": [
+    {
+      "path": "node_modules/@supabase/auth-js/src/GoTrueClient.ts",
+      "sha256": "7a94d4fbf3bee35b694b6a88d68a2666605f98fdabae086ea45fca55211a5988"
+    },
+    {
+      "path": "node_modules/@supabase/auth-js/src/lib/fetch.ts",
+      "sha256": "e1bb0a054e9311993031f5c902125bb7aa2a6e16f36e3a01d236ece0208e3241"
+    },
+    {
+      "path": "node_modules/@supabase/supabase-js/src/SupabaseClient.ts",
+      "sha256": "6471325c10145a7a6c4f92d1e332fc6d51203ef0c2e7cf022ade5511217c2a60"
+    },
+    {
+      "path": "node_modules/@supabase/supabase-js/src/lib/fetch.ts",
+      "sha256": "07cd17d5fcf6eb4e7c13e515ffdf5ac79da89deb960d756baa3455a19d975757"
+    }
+  ],
+  "observedRequests": [
+    {
+      "method": "GET",
+      "path": "/auth/v1/user",
+      "customFetchUsed": true,
+      "explicitJwtHeaderMatched": true,
+      "projectHeaderMatched": true,
+      "signalProvided": false,
+      "cachePolicy": null
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/user",
+      "customFetchUsed": true,
+      "explicitJwtHeaderMatched": true,
+      "projectHeaderMatched": true,
+      "signalProvided": false,
+      "cachePolicy": null
+    }
+  ],
+  "probes": {
+    "largeUserJson": {
+      "responseBytes": 307425,
+      "metadataCharactersAccepted": 307200,
+      "acceptedByInstalledSdk": true
+    },
+    "transportFailure": {
+      "customFetchCalls": 1,
+      "sdkExplicitErrorLogCalls": 1,
+      "syntheticPrivateMarkerReachedSdkLogger": true,
+      "currentTeamHelperStatus": 403,
+      "currentTeamHelperMessage": "Your session has expired. Sign in again.",
+      "misclassifiedAsExpiredSession": true
+    },
+    "unexpectedGlobalFetchCalls": 0
+  },
+  "findings": [
+    "Installed explicit-JWT getUser branch calls _getUser without waiting for initializePromise/_acquireLock; it does not accept an AbortSignal argument. Its _request GET passes headers but no cancellation/cache option to custom fetch in these probes.",
+    "The same global.fetch option reaches the Auth client and PostgREST wrapper. A future adapter must narrowly select expected Auth origin/path/method and avoid changing write behavior.",
+    "Installed SDK accepts the synthetic over-256-KiB user JSON. Direct success path awaits response.json without a size check in inspected code. This is an observed path, not a claim about all framework/provider limits.",
+    "SDK fetch rejection explicitly calls console.error before wrapping AuthRetryableFetchError. The application original auth helper treats resolved SDK errors as expired-session 403, so the current bounded team wrapper preserves a misleading expired-session response on this synthetic transport failure.",
+    "Current wait bound remains valid for caller continuation but does not supply transport cancellation/response limits or suppress this internal SDK logging. These are open implementation findings."
+  ],
+  "nextEngineering": [
+    "Keep explicit JWT verification through the installed SDK; use its custom-fetch seam for an Auth-only owned transport with shared deadline/abort, no-store, response-byte/read bounds and fixed error objects.",
+    "Classify retryable transport/auth-service failures separately from credential/session denial; avoid raw SDK logging by translating controlled adapter failures before the SDK fetch catch. Preserve legitimate auth headers in memory and isolate the adapter from business writes.",
+    "Add installed-SDK transport tests for late headers/body, abort/deadline/nonsettling cancellation, bounded JSON, no raw SDK logger details and correct 403 versus 499/503 before claiming these findings fixed."
+  ],
+  "limits": [
+    "All URLs/keys/tokens/users/metadata/error markers were synthetic; custom transport returned local Responses or threw local errors. Global transport was replaced with a rejecting guard and observed zero calls. No env file, real credential, Supabase/network/database/provider/browser/login/session/consent/payment/invitation/certificate operation.",
+    "Probe captures console.error only during this isolated script and restores it in finally. No captured message contents or credentials are stored. Source hashes identify installed local files, not global latest SDK behavior.",
+    "No runtime source/dependency/schema/grant/role/policy/schedule change or deployment. Prior 1414 tests and fifteen hosted groups remain the last application verification; no new actual expiry/cancellation/browser acceptance.",
+    "Full goal and human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/session/device/process-restart gates remain open. No main push, production promotion or accepted-hostname advance."
+  ]
+}

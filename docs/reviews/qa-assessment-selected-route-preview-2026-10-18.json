@@ -1,0 +1,118 @@
+{
+  "testedAt": "2026-10-18T15:58:24.878796+00:00",
+  "applicationCommit": "b6df724c1758f6717de90b0c6ad51535f7f4c1ab",
+  "preview": "https://language-threshold-1wihxjbug-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-1wihxjbug-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_2KiZLR61W2BPdFYxjmwTgZ7GPLsh",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-1wihxjbug-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "b6df724c1758f6717de90b0c6ad51535f7f4c1ab",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-selected-route-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.01,
+    "fullNode22Tests": 1666,
+    "newSelectedRouteGroups": 8
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 60,
+  "hostedReports": [
+    "qa-exams-assessment-selected-route-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-selected-route-content-static-preview-2026-10-18.json"
+  ],
+  "checks": {
+    "actualSdkSingleExactImmutableRouteGet": true,
+    "ignoredHeadersAndStalledBodySettle": true,
+    "lateResponseDisposal": true,
+    "fixedService503AndCancellation499": true,
+    "strictUtf8JsonProjectionIdentityCardinalityRevisions": true,
+    "exactCapAcceptedOverflowRejected": true,
+    "noSdkRetryOn429500503": true,
+    "frozenDecisionValidationRetained": true,
+    "confirmedMissing409OrCore18": true,
+    "flatNoReadAndPreabort": true,
+    "legacyNoRequestBehaviorRetained": true,
+    "independentRequestsAndListenerTimerCleanup": true,
+    "actualAiPassesRequestBeforeEvidenceAndClaim": true,
+    "noExtraAuthLookup": true,
+    "hostedGroupsPass": true,
+    "all59ContentFilesAndIndexMatchSource": true,
+    "qaActiveAttemptAndTeamProgressRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "contentInventory": {
+    "files": 59,
+    "lessons": 1510,
+    "filesWith30Lessons": 42,
+    "filesWith15Lessons": 16,
+    "filesWith10Lessons": 1,
+    "reviewedFiles": 0,
+    "totalBytes": 5744847,
+    "gapTo59Times30": 260
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "sourceHashes": {
+    "src/lib/assessments/selected-route-read.ts": "30342bcd799b6742a41f08cdf13a53745ded259ccc90d26a1b097a1f8a20a8ce",
+    "src/lib/assessments/routing-path-server.ts": "cf651e597df257c1723f9ea8a2e64e43ab74a8aa465418b9068e91bb3edcabb4",
+    "src/lib/assessments/ai-server.ts": "1304ac068d7a20035423cc9a8bf8881a122a2bffab6ffd85768959b53c60c8cb",
+    "tests/assessment-selected-route-read.test.mjs": "466045340aaf28cea191fe5fc10e295b97e1dc19338468ec294eae0d2bb9fc74"
+  },
+  "phaseMs": 8000,
+  "maxBytes": 65536,
+  "limits": [
+    "Actual selected-path resolver/installed Supabase SDK and actual AI caller with synthetic attemptAccess/pilot/transport. No actual provider/learner/claim/score/consent/reviewer/policy/schema/calibration/pilot action.",
+    "Only AI HTTP calls pass the new optional Request. The phase begins after existing attemptAccess. Other selectedAttemptPath callers without Request retain legacy behavior. Earlier authorization and later evidence/quota/claim/consent/score/audit/finalization/aggregate waits remain separate.",
+    "Wire cap64KiB is operational, not a SQL decision size invariant. Exact immutable projection includes decision only, no core_snapshot/request_payload or original responses. Existing frozen decision identity/revision/policy/digest/selection validation remains authoritative.",
+    "Cancellation settles selected-route lookup before late result; no inference of physical cancellation, fresh permissions, rollback/refund/nonbilling or automatic replay. Flat forms require no route network lookup.",
+    "Lesson runner source audit found existing learner/lesson/language/enrollment keys and parent completion/owned speech guards. This source review does not replace browser/device/account acceptance.",
+    "Generated59contentfiles remain reviewed:false/17shortmodules260lessons short. Full9dev dependency findings/Prisma and original human/device/expiry/recovery/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain open. DraftPR38 unmerged; no production promotion.",
+    "Hosted18groups use dedicatedQAfixture/denial/anonymous paths; no positive hostedAI/provider/consent/calibration/claim. Static60requests are not browser/serviceworker/offline/device proof. Capability metadata null is not environment readback proof."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T15:58:26.509Z",
+    "sourceCommit": "b6df724",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1711,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

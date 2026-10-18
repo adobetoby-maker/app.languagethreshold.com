@@ -1,0 +1,96 @@
+{
+  "testedAt": "2026-10-18T12:35:25.636028+00:00",
+  "applicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "preview": "https://language-threshold-q01y4rqnd-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-q01y4rqnd-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_D7rCxjWpV9fQp8nDgFhjCJUfMaLs",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-q01y4rqnd-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-email-preview-2026-10-18.json",
+  "local": {
+    "tests": 1466,
+    "runtime": "Node22",
+    "typecheck": true,
+    "lintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.94,
+    "privateMarkers": 96,
+    "sourceFiles": 1564,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Shared sendTeamEmail has one fixed Resend POST,15second header deadline,no redirect/no-store/no automatic retry; missing config stays fixed typed503 before dispatch",
+    "Sync/async/private/malformed failures become fixed typed503 without retaining cause; unneeded provider body is cancelled without parsing diagnostics or waiting on cancellation",
+    "Ignored-abort transport is raced, late headers disposed and late rejection observed; own timer and abort listener release across success/error/deadline paths",
+    "Owner and webhook notification logs and webhook outer error log use fixed single literals; controlled signature rejection remains before business work and processing response/continuation contracts remain",
+    "Six actual-helper transport groups and three actual-route log groups pass in addition to seven prior warning groups; historical5d6bf6d fails one helper assertion and three route log assertions",
+    "All17exact hosted checker groups pass; QA personalrevision12/in_progress/unsubmitted/teamB2opened0mastered retained; main and companion aliases unchanged"
+  ],
+  "baselineComparison": {
+    "commit": "5d6bf6d",
+    "actualHelperAssertionFailures": 1,
+    "actualRouteLogAssertionFailures": 3,
+    "compileFailuresNotCounted": true,
+    "limit": "Synthetic transport/errors and isolated mocked auth/database/Stripe events only; no real email/payment/webhook or production disclosure claim."
+  },
+  "diagnostics": [
+    "Initial log fixture stub omitted imported isAuthRetryableFetchError and failed bundling. Added the unused safe stub, then ran positive tests and historical actual assertion failures; build failures are not baseline proof."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-email-transport-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-cleanup-status-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-email-warnings-local-2026-10-18.json",
+    "docs/reviews/qa-assessment-private-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Provider header wait is separate from input/auth/database phases, not an aggregate endpoint deadline. Abort signal and caller-race proof is not physical network cancellation or durable delivery/outcome proof. HTTP2xx retains prior acceptance behavior, not proof of recipient delivery. No receipt tracking or automatic resend added.",
+    "Transport helper tests use controlled fetch/timers/env; route tests use isolated auth/database/email/Stripe seams. Signature guard control-flow is verified, not actual Stripe signature/payment acceptance. No real email, webhook/payment, financial entry, owner/member/invitation, consent/reviewer/cleanup operation.",
+    "Response bodies are discarded, not parsed/materialized; no general SDK payload cap or appwide logging/cache/private-phase proof. Broader RPC/storage/device/session/human/content/calibration/pilot/retention/scheduler/59module gates remain open.",
+    "Main64f2172/dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR and accepted companiond4ad837 unchanged. No main/production/companion/schema/role/policy/schedule action."
+  ]
+}

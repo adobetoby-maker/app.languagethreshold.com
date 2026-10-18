@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "5d6bf6d",
+  "application": "68e6122",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-gshjot6us-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-q01y4rqnd-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-email-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-email-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -1118,17 +1118,17 @@
     "executionOrPolicyOrScheduleChanged": false
   },
   "latestAssessmentPrivateBoundaryInventory": {
-    "evidenceSourceCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
-    "runtimeApplicationCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+    "evidenceSourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+    "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
     "evidence": "docs/reviews/qa-assessment-private-boundary-inventory-2026-10-18.json",
     "auditOnly": true,
-    "files": 64,
+    "files": 67,
     "typedErrorConstructors": 207,
     "dynamicTypedErrors": 3,
-    "directRpcSites": 11,
-    "consoleSites": 9,
+    "directRpcSites": 16,
+    "consoleSites": 12,
     "conditionalErrorMessageAssignments": 0,
-    "openPriority": "Bound email transport and preserve honest uncertain outcomes; broader private/cache/SDK/RPC audit remains",
+    "openPriority": "Durable/uncertain email outcomes, broader private read/RPC/cache/SDK and endpoint deadlines",
     "fixed": true
   },
   "latestAuthorizedMainRelease": {
@@ -1155,5 +1155,19 @@
     "hostedCheckerGroups": 17,
     "productionPromoted": false,
     "transportAndDurableOutcomeStillOpen": true
+  },
+  "latestTeamEmailTransportFollowup": {
+    "application": "68e6122",
+    "deployedToPreview": true,
+    "evidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
+    "warningGroups": 7,
+    "transportGroups": 6,
+    "logGroups": 3,
+    "providerDeadlineMs": 15000,
+    "automaticRetry": false,
+    "fixedRuntimeLogSites": 3,
+    "hostedCheckerGroups": 17,
+    "productionPromoted": false,
+    "durableDeliveryAndAggregateEndpointDeadlinesStillOpen": true
   }
 }

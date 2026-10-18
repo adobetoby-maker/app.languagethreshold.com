@@ -59,7 +59,16 @@ function inspect(path, text) {
           name: node.arguments[0]?.getText(source) ?? null,
         });
       if (call.expression.getText(source) === "console")
-        rows.push({ kind: "console", ...position(node), method: call.name.text });
+        rows.push({
+          kind: "console",
+          ...position(node),
+          method: call.name.text,
+          argumentCount: node.arguments.length,
+          fixedText:
+            node.arguments[0] && ts.isStringLiteralLike(node.arguments[0])
+              ? node.arguments[0].text
+              : null,
+        });
       if (["localStorage", "sessionStorage", "caches"].includes(call.expression.getText(source)))
         rows.push({
           kind: "browserStorage",
@@ -104,7 +113,7 @@ if (process.argv.includes("--self-test")) {
 } else {
   const candidates = execFileSync(
     "rg",
-    ["--files", "src/lib/assessments", "src/routes", "scripts"],
+    ["--files", "src/lib/assessments", "src/lib/team-server.ts", "src/routes", "scripts"],
     { encoding: "utf8" },
   )
     .trim()
@@ -114,6 +123,8 @@ if (process.argv.includes("--self-test")) {
     .filter(
       (path) =>
         path.startsWith("src/lib/assessments/") ||
+        path === "src/lib/team-server.ts" ||
+        ["src/routes/api.platform.ts", "src/routes/api.stripe-webhook.ts"].includes(path) ||
         /(?:from\s*|import\s*)["'][^"']*assessments\//.test(readFileSync(path, "utf8")),
     )
     .sort();
@@ -158,22 +169,22 @@ if (process.argv.includes("--self-test")) {
         "server.ts request controls choose between two fixed strings/statuses, not backend diagnostics",
       ],
       rpcScope:
-        "Six assessment-library sites: shared wrapper plus five worker sites. Worker resolved errors use fixed local errors/counts; rejected RPCs and subsequent SDK behavior remain separate. Five team RPC sites occur because api.team imports assessment helpers; scoped outer errors do not cover successful warning responses.",
+        "Six assessment-library sites: shared wrapper plus five worker sites. Worker resolved errors use fixed local errors/counts; rejected RPCs and subsequent SDK behavior remain separate. Five team RPC sites and five platform RPC sites are included by the expanded email-caller scope; scoped outer errors do not cover successful warning responses.",
       consoleScope:
-        "Nine direct calls are in operator/import/QA scripts: fixed cleanup failure guidance/help, aggregate run/draft/storage reports, audio asset metadata and RPC audit output. No CLI/import/worker was executed. Implicit SDK logs, thrown exceptions and private file destinations remain separate.",
+        "Nine direct calls are in operator/import/QA scripts; three additional runtime logs in owner/webhook paths now use one fixed literal argument. Existing script sites cover fixed cleanup failure guidance/help, aggregate run/draft/storage reports, audio asset metadata and RPC audit output. No CLI/import/worker was executed. Implicit SDK logs, thrown exceptions and private file destinations remain separate.",
       priorityFinding: {
         path: "src/routes/api.team.ts",
         operations: ["invite", "resend", "assign"],
         mechanism:
           "Historical64f2172 had three cause.message assignments in200 warnings, two persisted diagnostics and GET historical-field serialization. Current route uses fixed contextual warnings and normalizes that GET field.",
         reachableFailureKinds:
-          "sendTeamEmail nonOK HTTP currently throws a fixed status message and missing config is typed; rejected fetch or SDK update may throw arbitrary Error.message inside the same try. This is a source finding, not evidence that production exposed actual private data.",
+          "Historical sendTeamEmail rejections could carry raw Error.message; current helper returns fixed503 and bounds one provider header wait, while route warnings still protect subsequent SDK bookkeeping errors. This is controlled/source evidence, not proof of actual production disclosure.",
         followupEvidence:
-          "Seven controlled actual-route regression groups in tests/team-email-warnings.test.mjs; separate report qa-team-email-warnings-local-2026-10-18.json. Source locations/zero assignments alone are not runtime proof; actual mail/SDK/durable delivery remain separate.",
+          "Seven warning-route, six actual-transport and three owner/webhook-log groups; separate report qa-team-email-warnings-local-2026-10-18.json. Source locations/zero assignments alone are not runtime proof; actual mail/SDK/durable delivery remain separate.",
       },
     },
     limits: [
-      "Syntax inventory of assessment library files plus route/script files with direct assessment-path imports. No transitive graph, symbol resolution, shadowing analysis, namespace constructors, computed calls, destructured methods, reexports or appwide coverage.",
+      "Syntax inventory of assessment library files, direct assessment-path importing route/scripts, shared team-server and explicit owner/webhook email callers. No transitive graph, symbol resolution, shadowing analysis, namespace constructors, computed calls, destructured methods, reexports or appwide coverage.",
       "Dynamic typed messages need manual provenance review; literal syntax alone does not prove safety or correct status/authorization. Direct RPC includes trusted wrapper and unrelated team operations in selected files.",
       "Console/browserStorage counts are direct syntax facts only; not absence of SDK logging, implicit HTTP caches, service workers, indirect persistence or private serialization. No runtime/database/browser/provider/cleanup invocation; no schema/policy/schedule changes.",
     ],

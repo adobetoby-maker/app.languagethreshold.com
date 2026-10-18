@@ -1,3 +1,4 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { z } from "zod";
@@ -70,10 +71,12 @@ export const Route = createFileRoute("/api/module-request")({
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, requestSchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
-          const body = requestSchema.parse(await request.json());
           if (!(await hasActivePlan(db, user.id)))
             throw new TeamOperationError(
               "An active Pro or Team plan is required to request a custom module.",

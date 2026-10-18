@@ -1,3 +1,4 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { backfillStripeLedger } from "@/lib/stripe-ledger-backfill";
@@ -154,11 +155,13 @@ export const Route = createFileRoute("/api/platform")({
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, schema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
           await requirePlatformOwner(db, user);
-          const body = schema.parse(await request.json());
           if (body.action === "ledger_import_stripe") {
             const counts = await backfillStripeLedger(db);
             await audit(db, user.id, "ledger.import_stripe", undefined, counts);

@@ -1,6 +1,8 @@
 import { readPrivateJson, PrivateJsonRequestError } from "./private-json-request.ts";
 export const MAX_TEAM_ACTIVITY_BYTES = 16 * 1024;
 export const MAX_TEAM_ASSESSMENT_BYTES = 64 * 1024;
+// Covers escaped Unicode in bounded custom-module briefs, plus ordinary team/admin payloads.
+export const MAX_TEAM_WORKFLOW_BYTES = 64 * 1024;
 function denied(status: number) {
   return Response.json(
     {

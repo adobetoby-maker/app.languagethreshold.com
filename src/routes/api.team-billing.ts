@@ -1,3 +1,4 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { randomUUID } from "node:crypto";
 import Stripe from "stripe";
@@ -103,10 +104,12 @@ export const Route = createFileRoute("/api/team-billing")({
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, bodySchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
-          const body = bodySchema.parse(await request.json());
           await requireTeamAdmin(db, body.orgId, user.id);
           const key = process.env.STRIPE_SECRET_KEY;
           if (!key) throw new TeamOperationError("Team billing is not configured.", 503);

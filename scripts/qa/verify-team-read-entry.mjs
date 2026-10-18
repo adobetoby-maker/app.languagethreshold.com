@@ -39,7 +39,28 @@ for (const route of ["team", "team-billing", "module-request", "platform"]) {
       cache: "no-store",
       credentials: "omit",
       redirect: "error",
-      ...(method === "POST" ? { headers: { "Content-Type": "application/json" }, body: "{}" } : {}),
+      ...(method === "POST"
+        ? {
+            headers: { "Content-Type": "application/json", Origin: base },
+            body: JSON.stringify(
+              route === "team"
+                ? {
+                    action: "create",
+                    name: "Synthetic QA",
+                    billingEmail: "fixture@example.invalid",
+                  }
+                : route === "team-billing"
+                  ? { action: "quote", orgId: "11111111-1111-4111-8111-111111111111", addSeats: 1 }
+                  : route === "module-request"
+                    ? {
+                        title: "Synthetic QA",
+                        audience: "Synthetic audience",
+                        situations: "Synthetic QA situations only",
+                      }
+                    : { action: "ledger_import_stripe" },
+            ),
+          }
+        : {}),
     });
     assert.equal(response.status, 403);
     assert.match(response.headers.get("cache-control") ?? "", /private.*no-store/);

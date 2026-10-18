@@ -1,3 +1,4 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getModule } from "@/data/modules";
@@ -311,10 +312,12 @@ export const Route = createFileRoute("/api/team")({
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, bodySchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
           const db = teamAdminClient();
           const user = await authenticatedUser(request, db);
-          const body = bodySchema.parse(await request.json());
           if (body.action === "create") {
             const { data, error } = await db.rpc("team_create_organization", {
               p_owner: user.id,

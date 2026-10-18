@@ -4,6 +4,19 @@ import { build } from "esbuild";
 import { mkdtempSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
 async function fixture(name, run) {
+  const valid =
+    name === "team"
+      ? { action: "create", name: "Synthetic fixture", billingEmail: "fixture@example.invalid" }
+      : name === "team-billing"
+        ? { action: "quote", orgId: "11111111-1111-4111-8111-111111111111", addSeats: 1 }
+        : name === "module-request"
+          ? {
+              title: "Synthetic fixture",
+              audience: "Synthetic audience",
+              situations: "Synthetic situations only",
+              vocabulary: "",
+            }
+          : { action: "ledger_import_stripe" };
   const dir = mkdtempSync(resolve("node_modules/.cache/team-workflow-"));
   try {
     await build({
@@ -39,12 +52,19 @@ async function fixture(name, run) {
     const { Route, c } = await import(join(dir, "route.mjs"));
     await run({
       c,
-      call: (method, body = "{}", auth = true) =>
+      valid,
+      post: (request) => Route.server.handlers.POST({ request }),
+      call: (method, body = valid, auth = true) =>
         Route.server.handlers[method]({
           request: new Request(`https://fixture.invalid/api/${name}`, {
             method,
-            headers: auth ? { Authorization: "Bearer synthetic" } : {},
-            ...(method === "POST" ? { body } : {}),
+            headers: {
+              Origin: "https://fixture.invalid",
+              ...(auth ? { Authorization: "Bearer synthetic" } : {}),
+            },
+            ...(method === "POST"
+              ? { body: typeof body === "string" ? body : JSON.stringify(body) }
+              : {}),
           }),
         }),
     });
@@ -71,7 +91,7 @@ for (const name of ["team", "team-billing", "module-request", "platform"]) {
         });
         assert.equal(c.auth, 0);
         c.fail = false;
-        response = await call(method, "{}", false);
+        response = await call(method, undefined, false);
         privacy(response);
         assert.equal(response.status, 403);
         assert.deepEqual(await response.json(), { error: "Sign in to continue." });
@@ -96,3 +116,109 @@ for (const name of ["team", "team-billing", "module-request", "platform"]) {
       assert.equal(c.sideEffects, 0);
     }));
 }
+for (const name of ["team", "team-billing", "module-request", "platform"]) {
+  test(`${name} owns bounded origin/input deadline/abort before SDK authentication`, () =>
+    fixture(name, async ({ c, valid, post }) => {
+      const savedSet = setTimeout,
+        savedClear = clearTimeout,
+        timers = new Map();
+      globalThis.setTimeout = (fn, ms, ...args) => {
+        if (ms !== 10000) return savedSet(fn, ms, ...args);
+        const token = { unref() {} };
+        timers.set(token, fn);
+        return token;
+      };
+      globalThis.clearTimeout = (token) => {
+        if (timers.has(token)) timers.delete(token);
+        else savedClear(token);
+      };
+      try {
+        const request = (body, headers = {}) =>
+          new Request(`https://fixture.invalid/api/${name}`, {
+            method: "POST",
+            headers: { Origin: "https://fixture.invalid", ...headers },
+            body: typeof body === "string" ? body : JSON.stringify(body),
+          });
+        for (const [body, headers, status] of [
+          [valid, { Origin: "" }, 403],
+          [{ invalid: "PRIVATE schema" }, {}, 400],
+          ["{", {}, 400],
+          [valid, { Origin: "https://foreign.invalid" }, 403],
+          [valid, { "Content-Length": "65537" }, 413],
+          [JSON.stringify({ padding: "é".repeat(65536) }), {}, 413],
+        ]) {
+          const response = await post(request(body, headers));
+          privacy(response);
+          assert.equal(response.status, status);
+          assert.equal(c.clients, 0);
+          assert.equal(c.auth, 0);
+          assert.equal(timers.size, 0);
+        }
+        for (const reason of ["timeout", "incoming"]) {
+          const owner = new AbortController();
+          let cancelled = false;
+          const body = new ReadableStream({
+            start(out) {
+              out.enqueue(new TextEncoder().encode('{"action":'));
+            },
+            cancel() {
+              cancelled = true;
+              return new Promise(() => {});
+            },
+          });
+          const input = new Request(`https://fixture.invalid/api/${name}`, {
+            method: "POST",
+            headers: { Origin: "https://fixture.invalid" },
+            body,
+            duplex: "half",
+            signal: owner.signal,
+          });
+          const pending = post(input);
+          for (let i = 0; i < 100 && (!input.body.locked || !timers.size); i++)
+            await new Promise((r) => savedSet(r, 1));
+          assert.equal(input.body.locked, true);
+          assert.equal(timers.size, 1);
+          if (reason === "timeout") for (const fn of [...timers.values()]) fn();
+          else owner.abort();
+          const response = await pending;
+          privacy(response);
+          assert.equal(response.status, reason === "timeout" ? 408 : 499);
+          assert.equal(cancelled, true);
+          assert.equal(input.body.locked, false);
+          assert.equal(timers.size, 0);
+        }
+        assert.equal(c.clients, 0);
+        assert.equal(c.auth, 0);
+        assert.equal(c.privateCalls, 0);
+        assert.equal(c.sideEffects, 0);
+      } finally {
+        globalThis.setTimeout = savedSet;
+        globalThis.clearTimeout = savedClear;
+      }
+    }));
+}
+test("maximum escaped Unicode custom-module brief fits the workflow limit and reaches missing-auth gate", () =>
+  fixture("module-request", async ({ c, post }) => {
+    const payload = JSON.stringify({
+      title: "漢".repeat(120),
+      audience: "漢".repeat(300),
+      situations: "漢".repeat(2000),
+      vocabulary: "漢".repeat(2000),
+    }).replaceAll("漢", "\\u6f22");
+    assert.ok(new TextEncoder().encode(payload).byteLength > 26000);
+    assert.ok(new TextEncoder().encode(payload).byteLength < 65536);
+    const response = await post(
+      new Request("https://fixture.invalid/api/module-request", {
+        method: "POST",
+        headers: { Origin: "https://fixture.invalid" },
+        body: payload,
+      }),
+    );
+    privacy(response);
+    assert.equal(response.status, 403);
+    assert.deepEqual(await response.json(), { error: "Sign in to continue." });
+    assert.equal(c.clients, 1);
+    assert.equal(c.auth, 1);
+    assert.equal(c.privateCalls, 0);
+    assert.equal(c.sideEffects, 0);
+  }));

@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "05614b2",
+  "scope": "Local read-only rendered production view with actual public Roofing practice drafts; not an authenticated hosted reviewer acceptance test",
+  "fixture": "127.0.0.1:4782 (stopped after testing)",
+  "checks": {
+    "roofingLessonRows": 30,
+    "actualLessonOneVocabularyAndPassageVisible": true,
+    "sixRequiredModesVisible": true,
+    "teachingSettingsVisible": true,
+    "unboundReleaseWarningVisible": true,
+    "phoneViewportWidth": 390,
+    "phoneDocumentScrollWidth": 390
+  },
+  "captures": [
+    "/Users/drive/git-backups/language-threshold-roofing-review-phone-2026-10-16.png",
+    "/Users/drive/git-backups/language-threshold-roofing-review-phone-detail-2026-10-16.png"
+  ],
+  "limits": [
+    "Static public-material fixture does not exercise permissions or fetch/refresh",
+    "No lesson review approval or release binding",
+    "No scored keys or learner records used",
+    "Physical iPhone/Safari not tested",
+    "No real learner result or certificate created"
+  ]
+}

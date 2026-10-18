@@ -1,0 +1,95 @@
+{
+  "testedAt": "2026-10-18T09:36:31.980035+00:00",
+  "applicationCommit": "807117688c92192abab5dde70fbc80871c065641",
+  "preview": "https://language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3FAbzLnUNKYxjxHrXnau9JUdDDTn",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "807117688c92192abab5dde70fbc80871c065641",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-headers-preview-2026-10-18.json",
+  "local": {
+    "tests": 1386,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1498,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Activity and legacy Roofing assessment now use scopedTeamError: only TeamOperationError guidance is exposed; unexpected SDK/database/certificate errors return one fixed 503 with check-before-retry wording",
+    "Local intentional route errors now carry explicit statuses rather than inferring status from backend text; original fixed guidance/statuses retained. Shared missing-config/missing-bearer/expired-user errors are typed with existing status and text; other legacy teamError callers retain old behavior",
+    "Three added controlled groups exercise actual helper and both actual routes for unexpected diagnostics; six actual activity replay groups retain acceptance/scope/timing and no duplicate writes/certificates",
+    "Thirteen hosted checker groups pass, including twelve unauthenticated team denials: ten invalid inputs and two valid schemas rejected at missing-bearer authentication, with no authorized writes"
+  ],
+  "controlledEvidence": [
+    "tests/team-json-response.test.mjs",
+    "tests/team-request-admission.test.mjs",
+    "tests/team-lesson-replay-handler.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "f21c4a0",
+    "source": "src/lib/team-server.ts",
+    "case": "Unexpected synthetic backend Error passed to historical teamError",
+    "oldLeaksSyntheticPrivateText": true,
+    "currentScopedResponseFixed": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical helper, no SDK construction, network or database operation."
+  },
+  "diagnostics": [
+    "First six admission fixture builds failed because the plugin namespace lacked resolveDir for the actual helper re-export; corrected before focused/full pass. Historical failure is the actual PRIVATE-text assertion."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-errors-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Only activity and legacy Roofing assessment use the new scoped error response. Other teamError callers still expose arbitrary Error text and regex status classification; broader diagnostics inventory remains open.",
+    "Public TeamOperationError is a code-only trust boundary: callsites must use fixed reviewed text, never backend/user content. Three shared auth/config errors retain fixed guidance for all callers. Unexpected errors now use 503 instead of prior message-based 400/403/503; no assertion that a failed write was rolled back.",
+    "No new auth/read/write/certificate deadline or transaction/exactly-once guarantee. Existing URL privacy middleware can overwrite helper Cache-Control to no-store; final headers remain URL-dependent.",
+    "Hosted missing-auth requests contain no Authorization and cannot authorize activity/test/certificate operations. SDK/database/certificate exceptions in local fixtures are synthetic; no real team write, official test start/submit/score, certificate, provider, consent, browser or device action.",
+    "Legacy signup broad grants/migration drift and all human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push, production promotion, schema/grant/role/policy/schedule change or accepted-hostname advance."
+  ]
+}

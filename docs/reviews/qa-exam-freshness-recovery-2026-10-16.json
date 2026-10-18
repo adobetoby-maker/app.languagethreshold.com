@@ -1,0 +1,55 @@
+{
+  "testedAt": "2026-10-16T22:47:17.483Z",
+  "commit": "271b031",
+  "target": "https://language-threshold-fi5yupnry-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_AWXPMCgbByqeYRHxc4T4zGTv4nW3",
+  "scope": "Existing synthetic personal Day45 attempt; normal UI; no submission",
+  "firstVisit": {
+    "failureOn": "0a40b82",
+    "failure": "First intentional offline page reload returned ERR_FAILED; connection restored; no answer edit",
+    "repair": "Fixed credential-free public Exams shell is prepared during worker installation",
+    "regressionOldSourceFails": true,
+    "finalFreshOriginOfflineReload": true,
+    "noExtraManualOnlineWarmupNavigation": true
+  },
+  "checks": {
+    "savedQuestionTwoRestored": true,
+    "recoveredProvenanceAndLastSyncedLabel": true,
+    "checkServerCopyAction": true,
+    "offlineRetryPreservesQuestion": true,
+    "serverCheckKeepsQuestion": true,
+    "serverCheckClearsDeviceProvenance": true,
+    "noStaleOverviewErrorInActiveExam": true,
+    "viewportReset": true,
+    "normalNetworkRestored": true
+  },
+  "independentOriginsTrial": {
+    "commit": "c2da600",
+    "secondOriginCommit": "00b9cd7",
+    "baselineRevision": 8,
+    "temporaryQaEditRevision": 9,
+    "restoredRevision": 10,
+    "serverNewerAnswerVisibleAfterCheck": true,
+    "nextEditSavesWithoutFalseConflict": true,
+    "originalFourResponsesRestored": true,
+    "submitted": false,
+    "staleOverviewAlertFoundAndThenFixedIn": "271b031"
+  },
+  "unitOnly": [
+    "fresh server revision adoption for clean drafts",
+    "pending/uncertain-flight base retained",
+    "acknowledged answer survives before separate snapshot catches up",
+    "malformed acknowledged records rejected and account cleanup retained"
+  ],
+  "network": {
+    "offline": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t89 pop up button Throttling, Value: Presets: Offline",
+    "restored": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t90 pop up button Throttling, Value: Disabled: No throttling"
+  },
+  "limitations": [
+    "Desktop Chrome network emulation and390x844; not physical device, radio-off or cleared-cache/browser-process restart",
+    "Independent preview origins model separate device storage; not a physical multi-device trial",
+    "Genuine session expiry/re-auth remains untested; existing sign-out cleanup policy unchanged",
+    "Recovered copy currently also has an informational recovery notice above its inline provenance; simplification remains a minor UX follow-up",
+    "No official exam, calibration, review approval, mastery or credential created"
+  ]
+}

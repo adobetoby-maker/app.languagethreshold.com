@@ -1,0 +1,38 @@
+{
+  "testedAt": "2026-10-18T11:54:48.856Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "path": "/api/exam-cleanup?view=status",
+      "shortSyntheticToken": false,
+      "status": 403,
+      "noStore": true,
+      "noReferrer": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/exam-cleanup",
+      "shortSyntheticToken": false,
+      "status": 401,
+      "noStore": true,
+      "noReferrer": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/exam-cleanup",
+      "shortSyntheticToken": true,
+      "status": 401,
+      "noStore": true,
+      "noReferrer": true,
+      "nosniff": true,
+      "fixedError": true
+    }
+  ],
+  "limits": [
+    "Missing user bearer plus missing/short synthetic operator token only. Short token cannot match the required32byte-minimum cron secret. No real operator credential, allowed invocation, owner/history read, deletion, policy/schedule/retention/role action.",
+    "Does not prove actual owner acceptance, expiry, deletion or installed platform scheduling. Controlled local tests cover status service/deadline/abort behavior. Full release/device/human gates remain open."
+  ]
+}

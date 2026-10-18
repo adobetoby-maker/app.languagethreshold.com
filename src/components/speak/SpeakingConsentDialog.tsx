@@ -11,6 +11,8 @@ type SpeakingAudioSource = "device" | "google" | "text";
 interface SpeakingConsentDialogProps {
   open: boolean;
   saving: boolean;
+  unknown: boolean;
+  onCheckSavedStatus: () => void;
   error?: string | null;
   language: string;
   audioSource: SpeakingAudioSource;
@@ -21,6 +23,8 @@ interface SpeakingConsentDialogProps {
 export function SpeakingConsentDialog({
   open,
   saving,
+  unknown,
+  onCheckSavedStatus,
   error,
   language,
   audioSource,
@@ -39,24 +43,27 @@ export function SpeakingConsentDialog({
       <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] overflow-y-auto rounded-3xl border-gold/40 bg-card p-5 sm:max-w-md sm:p-6">
         <DialogHeader className="text-left">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-            One-time speaking confirmation
+            {unknown ? "Confirmation status unconfirmed" : "One-time speaking confirmation"}
           </p>
           <DialogTitle className="font-serif text-2xl leading-tight text-foreground">
-            Confirm once, then start speaking
+            {unknown ? "Check your speaking confirmation" : "Confirm once, then start speaking"}
           </DialogTitle>
           <DialogDescription className="text-sm leading-relaxed">
-            This confirmation is saved to your account. You will not be asked again on future
-            speaking lessons.
+            {unknown
+              ? "Your earlier request may still finish. Check its saved status before sending another confirmation."
+              : "This confirmation will be saved to your account for future speaking lessons."}
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-3 text-sm leading-relaxed text-foreground/90">
-          <div className="rounded-2xl border border-gold/30 bg-gold/10 p-4">
-            <p className="font-semibold text-foreground">I confirm that I am at least 13.</p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              This is an account self-attestation, not identity or age-document verification.
-            </p>
-          </div>
+          {!unknown && (
+            <div className="rounded-2xl border border-gold/30 bg-gold/10 p-4">
+              <p className="font-semibold text-foreground">I confirm that I am at least 13.</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                This is an account self-attestation, not identity or age-document verification.
+              </p>
+            </div>
+          )}
           <p>
             Mission mode sends the current rolling text transcript to Anthropic for the partner's
             next reply and AI-estimated coaching.
@@ -75,11 +82,17 @@ export function SpeakingConsentDialog({
         <div className="grid gap-3 pt-1">
           <button
             type="button"
-            onClick={onConfirm}
+            onClick={unknown ? onCheckSavedStatus : onConfirm}
             disabled={saving}
             className="min-h-14 w-full rounded-2xl bg-gold px-4 py-3 font-semibold text-black shadow-lg shadow-gold/10 disabled:cursor-wait disabled:opacity-60"
           >
-            {saving ? "Saving confirmation…" : "I am 13 or older — start mission"}
+            {saving
+              ? unknown
+                ? "Checking saved confirmation…"
+                : "Saving confirmation…"
+              : unknown
+                ? "Check saved confirmation"
+                : "I am 13 or older — start mission"}
           </button>
           <button
             type="button"

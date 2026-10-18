@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T06:19:39.858570+00:00",
+  "applicationCommit": "e527595a62df1061e1ac18c93fbc62f52943360c",
+  "preview": "https://language-threshold-hfk98w7cr-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-hfk98w7cr-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_611Hf9mKvYoTtwgTGfDHC5LQx1UJ",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-hfk98w7cr-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "e527595a62df1061e1ac18c93fbc62f52943360c",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speaking-admission-preview-2026-10-18.json",
+  "local": {
+    "tests": 1311,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.88,
+    "privateMarkers": 96,
+    "sourceFiles": 1435,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Shared speaking pre-auth IP selection accepts only a valid first canonical x-vercel-forwarded-for IPv4/IPv6 value; absent/malformed canonical values cannot fall back to caller x-forwarded-for or x-real-ip",
+    "Canonical values retain existing ip namespace HMAC, 40-request/60-second RPC contract and no-store transport; rotated fallback headers do not change a valid canonical bucket",
+    "Only NODE_ENV=development with localhost/127.0.0.1/[::1] may use one fixed local-development bucket, not a caller-chosen forwarding value",
+    "Actual speaking and consent POST/GET handlers with real shared guards reject fallback/malformed IPs before any service transport, auth, provider or write; a canonical-IP request succeeds with synthetic auth/counters/model",
+    "Four added helper/actual-route groups cover missing/fallback/malformed headers, exact IPv4/IPv6 hashes/limits, loopback-only development and denied/current real-guard flows",
+    "Eight hosted checker groups retain exact 21 Exams/12 focused-entry/3 public packs/7 scoped-read/14 generation-entry groups, eight Google/six Pashto/ten speaking-consent input denials"
+  ],
+  "controlledEvidence": [
+    "tests/speaking-security.test.mjs",
+    "tests/speaking-admission-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "cdd22f5",
+    "source": "src/lib/speaking-security.ts",
+    "case": "Actual speaking route with real helper and only caller x-forwarded-for",
+    "oldServiceCounterCalls": 1,
+    "expectedServiceCounterCalls": 0,
+    "currentPass": true,
+    "limit": "Actual previous helper under controlled service transport/SDK. Earlier status assertion also records prior 401 versus expected 503; no real provider/counter/consent action."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-speaking-ip-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Canonical header trust assumes the linked Vercel ingress supplies/overwrites that header. Hosted checks remain inadmissible input only and do not establish live canonical-header overwrite semantics, positive admission, real quota exhaustion or counter deltas.",
+    "All real-guard route auth/counters/model outputs are synthetic. No actual consent, push, provider, audio/microphone, browser or physical-device action occurred.",
+    "Shared pre-auth helper is also used by push API admission; source behavior changes there too, but no actual push registration/preferences/delivery acceptance is claimed. User-only assessment budgets retain their existing behavior.",
+    "Valid canonical IP hash/limits/window are retained, not made stage-specific; the new local development fallback is one shared bucket. No schema, role, policy, provider or consent mutation change.",
+    "Speaking provider retries/deadlines/cancellation/output bounds, consent write uncertainty/reconciliation, broader helper/endpoint/cache/diagnostics/device inventory, genuine SDK expiry/process restart/offline acceptance, uncertain writes/legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

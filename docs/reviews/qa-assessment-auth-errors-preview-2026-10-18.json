@@ -1,0 +1,102 @@
+{
+  "testedAt": "2026-10-18T11:09:00.586713+00:00",
+  "applicationCommit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+  "preview": "https://language-threshold-hqtc988g8-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-hqtc988g8-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6PVoJfkoZ6svwzQARkKKSReddvbv",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-hqtc988g8-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "b5f9c90dcb80e2e3d4ebb3266fadcf476cc0bbdc",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-auth-transport-preview-2026-10-18.json",
+  "local": {
+    "tests": 1431,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1532,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Four assessment API catch handlers now recognize only typed TeamOperationError 403 as the shared sign-in denial; untyped errors cannot gain public auth classification by matching Sign in/session/access-required words",
+    "Exams and plan routes no longer expose arbitrary matching error.message. Content/reviewer routes no longer turn unexpected matching diagnostics into misleading 403. Each existing fixed 503 fallback remains",
+    "Eight actual-route GET/POST groups cover eighty injected config/auth failures (Error and plain-object diagnostics) and twenty-four typed guidance/status cases; auth/private/business work stops at the injected boundary. Known auth 403, configured 503 fallback and intentional AssessmentAccessError 409 remain",
+    "Sixteen exact hosted checker groups pass, including eight new missing-bearer assessment GET/POST denials and previous fifteen groups. QA personal revision12 and teamB2opened/0mastered unchanged",
+    "Previously verified eleven team Auth adapters are re-probed against actual installed SDK; transport bounds/log suppression/passthrough remain. Ten original auth calls and cleanup-specific behavior remain unchanged"
+  ],
+  "controlledEvidence": [
+    "tests/assessment-auth-errors.test.mjs",
+    "tests/team-auth-fetch.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "bf308a6",
+    "source": "src/routes/api.exams.ts",
+    "case": "Injected unexpected configuration Error containing session word",
+    "oldStatus": 403,
+    "expectedStatus": 503,
+    "oldExposedSyntheticPrivateDiagnostic": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Historical actual route catch with controlled dependencies. Synthetic marker only; no real diagnostic/credential/backend failure."
+  },
+  "diagnostics": [
+    "Initial copied baseline module outside src resolved a data alias incorrectly and failed module loading. Replaced with onLoad historical source at original route path/resolveDir; actual deep assertion then observed 403 plus raw synthetic message against fixed 503/body. No compile failure counted as proof."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-assessment-auth-errors-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json"
+  ],
+  "limits": [
+    "This is a four-route public catch change, not the original-auth transport/wait migration. Ten direct original helper calls (including cleanup status catch-all403) retain prior behavior.",
+    "Actual route code/schema/catches/JSON helper and actual error classes run with controlled config/auth/private dependencies. These tests do not prove actual backend outage, allowed workflow, SDK expiry/reauth, reviewer/consent/business acceptance.",
+    "AssessmentAccessError processing remains unchanged; server rpc P0001 currently maps database messages to this typed class. Its message provenance/allowlisting and broader diagnostics remain open; typed errors are not appwide privacy proof.",
+    "Hosted new requests contain no Authorization/session or valid mutation payload; no start/save/submit/review/role/content/consent/provider action. Current authenticated QA read/denial checks retain prior scope. No browser/device/network-configuration action.",
+    "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates and prior catalog grants/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "testedAt": "2026-10-18T04:43:09.510157+00:00",
+  "applicationCommit": "ce5fa2a513d076ae43929614dbd2126f30c8e919",
+  "preview": "https://language-threshold-5wdcn2z87-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-5wdcn2z87-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_JC2bpn6sXvBzJtbkWjAdsQYfRrMe",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-5wdcn2z87-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "ce5fa2a513d076ae43929614dbd2126f30c8e919",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1249,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.86,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1395,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/remote-tts-owner.test.mjs",
+    "tests/owned-speaker-hook.test.mjs",
+    "tests/speak-picker-lifecycle.test.mjs",
+    "tests/mission-tts-lifecycle.test.mjs",
+    "tests/fallback-tts-lifecycle.test.mjs",
+    "tests/speech-provider-lifecycle.test.mjs",
+    "tests/missionary-speech-lifecycle.test.mjs",
+    "tests/speaking-preview-lifecycle.test.mjs",
+    "tests/exam-listening-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Google mission TTS passes original account/current owner and its owned abort signal into speaking header lookup; mismatched SDK cannot issue authenticated provider request",
+    "Shared speech router forwards owner/signal to Google TTS, rejects stale starts and suppresses fallback/completion after owner loss; guest Google preference uses installed device fallback without SDK lookup",
+    "Resource generation ownership is distinct from actor validity so original abort and URL/source disposal remain allowed after identity loss without touching newer playback",
+    "Routed request abort only cancels its routing generation; the mission signal independently cancels its own generation, preserving newer direct mission audio",
+    "VoicePicker preview and mission partner TTS pass original account/current preview or audio scope; shared hooks, speech provider, field-prep, missionary and protected QA listening calls forward their original owners",
+    "Owned-speaker and speech-provider guards distinguish retained guest callbacks from a subsequently signed-in actor",
+    "AST inventory finds ten direct named speakMissionTts/speakRemote call-option objects under src, all supplying owner; compatibility options remain optional and broader endpoint/privacy inventory remains open"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-remote-owner-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-assessment-owner-call-inventory-2026-10-18.json",
+    "docs/reviews/qa-remote-tts-owner-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Six added helper/VoicePicker groups and an extended actual speaker-hook group use synthetic SDK sessions, nonlearner text, blobs, Audio/SpeechSynthesis, capability metadata, fetch and URL surfaces. No real Google/ElevenLabs/model request, audio, microphone or billing action occurred",
+    "Owner validity is checked at asynchronous/callback boundaries and existing caller cleanup. This is not an independent identity subscription, instant server revocation or proof that started native delivery can be undone",
+    "Optional owner compatibility remains for external callers/tests; ten-call AST inventory covers direct named options only, not aliases/wrappers/arbitrary fetch or runtime proof",
+    "Existing anonymous Pashto fallback URL contract and public voice-capability cache remain unchanged and require separate endpoint/privacy inventory; no auth/policy/provider contract changed",
+    "Guest cloud preference now falls back to installed device speech without authenticating as another account. Real guest/native/browser behavior remains unverified",
+    "Review caught and corrected cross-path routed/direct cancellation before deployment; the earlier local artifact was not deployed",
+    "Client abort cannot establish provider cancellation, billing rollback, durable recovery or exactly-once generation",
+    "Previous direct-assessment inventory retains its original source/application scope. Broader cache/device privacy inventory remains incomplete",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform and genuine SDK expiry/browser/process-restart/device gates remain open. Collection/policies/schedule OFF; pending owner questions not repeated"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speaking-owner-preview-2026-10-18.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "storageInventoryFollowup": {
+    "scope": "Google remote TTS credential ownership and direct caller forwarding",
+    "remaining": [
+      "aliases/wrappers/arbitrary fetch and broader helper/cache/device inventory, including anonymous Pashto fallback URL contract",
+      "genuine browser/process-restart/SDK expiry/native/device acceptance",
+      "uncertain writes/server concurrency, authentic new offline completion and legacy certificate reconciliation",
+      "human/content/calibration/equivalence/reviewer/pilot/catalog/operational release gates"
+    ]
+  },
+  "documentationConsulted": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/reference/javascript/maybesingle"
+  ],
+  "baselineComparison": {
+    "commit": "11297a884113a623bed328f5d4e0a8c90bbbc3e0",
+    "cases": [
+      {
+        "source": "src/lib/mission-tts.ts",
+        "case": "Previous mission TTS ignores owner with mismatched SDK",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/lib/tts.ts",
+        "case": "Previous shared router drops owner before Google credential lookup",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/hooks/use-owned-speaker.ts",
+        "case": "Retained guest callback after sign-in on same mounted scope",
+        "oldUtterances": 9,
+        "expectedUtterances": 8
+      }
+    ],
+    "crossPathCancellation": {
+      "commit": "0e5ac14",
+      "case": "Old routed abort while newer direct mission audio is playing",
+      "oldAudioSource": "",
+      "expectedAudioSource": "blob:fixture-0",
+      "currentPass": true
+    },
+    "currentCasesPass": true,
+    "limit": "Controlled previous-source/current-helper/native fixtures. Baseline initially matched both data/lib mission-tts basenames; corrected to exact lib path before valid assertion. Not actual provider calls or browser account leakage."
+  },
+  "directCallInventory": {
+    "evidence": "docs/reviews/qa-assessment-owner-call-inventory-2026-10-18.json",
+    "calls": 38,
+    "withoutExplicitOwner": 0,
+    "scope": "Direct named calls under src excluding helper implementation; not aliases/wrappers/arbitrary fetch or runtime ownership proof"
+  },
+  "remoteTtsCallInventory": {
+    "evidence": "docs/reviews/qa-remote-tts-owner-inventory-2026-10-18.json",
+    "calls": 10,
+    "withoutExplicitOwner": 0,
+    "scope": "Direct named speakMissionTts/speakRemote call options under src; not aliases, wrappers, arbitrary fetch, provider policy or native runtime proof"
+  }
+}

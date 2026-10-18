@@ -1,0 +1,76 @@
+{
+  "testedAt": "2026-10-18T11:54:49.648Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "path": "/api/exams",
+      "method": "GET",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exams",
+      "method": "POST",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-plans",
+      "method": "GET",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-plans",
+      "method": "POST",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-content",
+      "method": "GET",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-content",
+      "method": "POST",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-reviewers",
+      "method": "GET",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    },
+    {
+      "path": "/api/exam-reviewers",
+      "method": "POST",
+      "status": 403,
+      "cacheControl": "private, no-store",
+      "nosniff": true,
+      "fixedGuidance": true
+    }
+  ],
+  "limits": [
+    "Eight missing-bearer GET/POST requests only. POST bodies are empty objects with exact Origin; no Authorization/session/credentials, valid mutation input, allowed start/save/submit/review/role/content change or provider action.",
+    "Asserts final no-store/nosniff and exact established denial bodies, not CDN header visibility or current expiry/reauth/browser behavior. Unexpected backend failures are covered by local controlled actual-handler tests; no hosted outage manufactured.",
+    "No main/production/accepted-hostname/schema/grant/role/policy/schedule action. Full goal and human/device/session gates remain open."
+  ]
+}

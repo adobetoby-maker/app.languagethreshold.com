@@ -1,0 +1,105 @@
+{
+  "testedAt": "2026-10-18T11:55:27.590434+00:00",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_HpWWx1CtYQnm4zm7j6J5XLRdyBbT",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "691072f77d35f304b39524ae5e77523b65b7592c",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-cleanup-status-preview-2026-10-18.json",
+  "local": {
+    "tests": 1450,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.94,
+    "privateMarkers": 96,
+    "sourceFiles": 1551,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Selected cleanup status role/history GET responses enforce strict UTF-8/JSON,4096/32768byte caps and exact role/history SQL field/cardinality/invariant validation",
+    "Selected owner/history builders use phase abortSignal and retry(false); actual installed SDK observes exactly1Auth/1owner/2history reads with no retry header or console error",
+    "Four new response groups plus6status ownership and9existing cron/schedule groups pass; cron execution source tail remains byte-identical",
+    "Historical actual handler returns200 with synthetic unknown private field; new default factory rejects it with fixed503. This is synthetic unexpected data, not evidence of actual production leakage",
+    "All17exact hosted checker groups pass; QA personalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained; accepted/live aliases unchanged"
+  ],
+  "controlledEvidence": [
+    "tests/cleanup-status-fetch.test.mjs",
+    "tests/cleanup-status-ownership.test.mjs",
+    "tests/assessment-cleanup-schedule.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "320ba29",
+    "source": "src/lib/assessments/cleanup-schedule-server.ts",
+    "case": "Synthetic unknown private history response field",
+    "oldStatus": 200,
+    "unknownPrivateFieldReturned": true,
+    "expectedStatus": 503,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Controlled unexpected response data, not actual production leakage."
+  },
+  "diagnostics": [
+    "Installed postgrest-js automatically retries GET503. Initial actual-SDK test observed8history calls instead of2. Selected status queries now use retry(false) and phase abortSignal; final exact-request-count tests pass."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-cleanup-response-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-cleanup-status-local-2026-10-18.json",
+    "docs/reviews/qa-cleanup-status-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-assessment-rpc-guidance-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Only exact configured-project cleanup status role/history GET reads receive response bounds; unrelated methods/paths preserve input/init identity. Other SDK/RPC/typed-error/private/cache/diagnostics paths require broader review.",
+    "Auth and owner/history phases have separate deadlines; no aggregate deadline or proof of physical network cancellation/native timeout cleanup. Controlled DB injection is separate from actual installed SDK transport evidence.",
+    "Strict validation mirrors local immutable SQL constraints; not proof of live schema/catalog parity, provenance, actual owner acceptance or platform scheduling. No actual owner/history/deletion/cron execution or role/retention/policy/schedule action.",
+    "Human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

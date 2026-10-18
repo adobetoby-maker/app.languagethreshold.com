@@ -1,11 +1,75 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v11";
+const CACHE = "lt-v17";
+if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
+
+function privateDocument(url) {
+  return (
+    /^\/(?:exams|exam-content|exam-reviewers|team|owner|account|certificate|family-setup|subscribe)(?:\/|$)/.test(
+      url.pathname,
+    ) ||
+    (url.pathname === "/" && url.searchParams.get("tab") === "exams")
+  );
+}
+
+function privateContext(url) {
+  return [
+    "org",
+    "attempt",
+    "plan",
+    "fromPlan",
+    "enrollment",
+    "token",
+    "access_token",
+    "refresh_token",
+    "code",
+    "email",
+  ].some((key) => url.searchParams.has(key));
+}
+
+function cacheableResponse(response) {
+  return (
+    !!response?.ok &&
+    !response.redirected &&
+    !/(?:^|,)\s*(?:no-store|private)(?:\s*(?:=|,|$))/i.test(
+      response.headers.get("Cache-Control") ?? "",
+    )
+  );
+}
+
+const PUBLIC_EXAMS_SHELL = "/.lt-public-exams-shell";
+async function savePublicExamsShell() {
+  // Fixed route, no identity/query/cookies/auth headers. Private navigation responses
+  // are never stored. This public bootstrap lets the owned device draft UI reload.
+  const response = await fetch("/exams?target=Spanish&native=English", {
+    credentials: "omit",
+    cache: "no-store",
+    redirect: "error",
+    signal: AbortSignal.timeout(15000),
+  });
+  if (
+    !response.ok ||
+    response.redirected ||
+    !response.headers.get("Content-Type")?.includes("text/html")
+  )
+    return;
+  await (await caches.open(CACHE)).put(PUBLIC_EXAMS_SHELL, response);
+}
 
 self.addEventListener("install", (event) => {
   // Activate immediately — no "waiting" state between deploys.
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.add("/")));
+  event.waitUntil(
+    Promise.all([
+      caches.open(CACHE).then(async (cache) => {
+        const shell = await fetch("/");
+        if (cacheableResponse(shell)) await cache.put("/", shell);
+      }),
+      // The first page was loaded before this worker controlled it. Prepare the
+      // fixed, credential-free Exams bootstrap now, before the first offline reload.
+      savePublicExamsShell().catch(() => {}),
+    ]),
+  );
 });
 
 // Clean up old caches on activate
@@ -13,7 +77,11 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) =>
+        Promise.all(
+          keys.filter((k) => /^lt-v\d+$/.test(k) && k !== CACHE).map((k) => caches.delete(k)),
+        ),
+      )
       .then(() => self.clients.claim()),
   );
 });
@@ -28,8 +96,26 @@ self.addEventListener("fetch", (event) => {
     url.pathname.startsWith("/api/") ||
     url.hostname.includes("supabase") ||
     url.hostname.includes("anthropic") ||
-    request.method !== "GET"
+    request.method !== "GET" ||
+    request.headers.has("Authorization") ||
+    url.origin !== self.location.origin ||
+    (privateDocument(url) && url.pathname !== "/exams")
   ) {
+    return;
+  }
+
+  if (request.mode === "navigate" && url.pathname === "/exams") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) event.waitUntil(savePublicExamsShell().catch(() => {}));
+          return response;
+        })
+        .catch(
+          async () =>
+            (await (await caches.open(CACHE)).match(PUBLIC_EXAMS_SHELL)) ?? Response.error(),
+        ),
+    );
     return;
   }
 
@@ -45,11 +131,11 @@ self.addEventListener("fetch", (event) => {
         cache.match(request).then((cached) => {
           const refresh = fetch(request)
             .then((response) => {
-              if (response.ok) cache.put(request, response.clone());
+              if (cacheableResponse(response)) cache.put(request, response.clone());
               return response;
             })
             .catch(() => undefined);
-          if (cached) {
+          if (cacheableResponse(cached)) {
             event.waitUntil(refresh);
             return cached;
           }
@@ -64,9 +150,9 @@ self.addEventListener("fetch", (event) => {
   if (/\.(js|mjs|css|woff2?|png|svg|jpg|webp|ico)(\?.*)?$/.test(url.pathname)) {
     event.respondWith(
       caches.match(request).then((cached) => {
-        if (cached) return cached;
+        if (cacheableResponse(cached)) return cached;
         return fetch(request).then((response) => {
-          if (response.ok) {
+          if (cacheableResponse(response)) {
             const clone = response.clone();
             caches.open(CACHE).then((cache) => cache.put(request, clone));
           }
@@ -82,13 +168,27 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          if (response.ok) {
+          if (!privateContext(url) && cacheableResponse(response)) {
             const clone = response.clone();
             caches.open(CACHE).then((cache) => cache.put(request, clone));
           }
           return response;
         })
-        .catch(() => caches.match("/").then((r) => r ?? Response.error())),
+        .catch(
+          async () =>
+            (url.pathname === "/" && typeof offlineLessonShell === "function"
+              ? await offlineLessonShell(
+                  url.searchParams.get("target") === "Spanish" &&
+                    url.searchParams.get("native") === "English" &&
+                    ["roofing", "landscaper"].includes(url.searchParams.get("module"))
+                    ? `${url.searchParams.get("module")}-es-en`
+                    : null,
+                )
+              : null) ??
+            (!privateContext(url) ? await caches.match(request) : null) ??
+            (await caches.match("/")) ??
+            Response.error(),
+        ),
     );
   }
 });

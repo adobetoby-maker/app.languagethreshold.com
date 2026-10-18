@@ -1,0 +1,89 @@
+{
+  "testedAt": "2026-10-18T07:48:06.055850+00:00",
+  "applicationCommit": "ae8ab06f5508ec9705ac834497bc134058b56a95",
+  "preview": "https://language-threshold-h8dtknsul-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-h8dtknsul-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_EkG41ZUTDZevZ1Qs1VhvDiuyktKa",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-h8dtknsul-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "ae8ab06f5508ec9705ac834497bc134058b56a95",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-push-recovery-preview-2026-10-18.json",
+  "local": {
+    "tests": 1348,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1460,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Shared Tutor/Discussion/Field Prep/Module Field Prep input preserves its 96 KiB byte limit and uses the owned 10-second private JSON reader; abort/timeout/overflow release the owned reader without waiting for source cancellation",
+    "Valid parsed conversation requests enter one owned 15-second admission scope and pass its signal into the existing conversation budget helper; late ignored counter results cannot start another stage/model, and already-aborted input spends no counter",
+    "Existing conversation bucket hashes/stage limits, trusted canonical IP policy, schema/lesson context and safe custom conflict messages remain. Admission cancellation/deadline uses fixed 499/503; input uses 400/408/413/499",
+    "All shared-helper denial responses are private/no-store with both CDN no-store directives and nosniff. Provider success/error response headers and provider limits remain a separate existing contract",
+    "Four added actual-route groups cover partial input timeout/abort/nonsettling cancel, already-aborted finite input, overflow reader cleanup, ignored-late budget transport timeout/abort and independent valid synthetic responses for all four routes",
+    "Ten hosted checker groups pass: 20 new conversation invalid-entry denials, 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent/five push entry denials; no admitted conversation/model work"
+  ],
+  "controlledEvidence": [
+    "tests/conversation-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "908278b",
+    "source": "src/lib/conversation-request.ts",
+    "case": "Already-aborted finite valid Tutor request",
+    "oldSyntheticCounterCalls": 3,
+    "expectedCounterCalls": 0,
+    "currentPass": true,
+    "limit": "Actual prior helper/route with synthetic counter and SDK transport. Initial relative-import fixture failure corrected before this assertion; no real counter/model operation."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-conversation-admission-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Input, admission and provider have separate phases. This change bounds only shared conversation input/budget admission, not total end-to-end time, hard CPU preemption or every provider/success response/header path.",
+    "Accepted counters/provider work cannot be rolled back by cancellation; no billing rollback/exactly-once guarantee. Real ingress/header overwrite/counter/slow-upload/platform/provider behavior remains unverified.",
+    "Local route delegates, counters/fetch/timers are synthetic. Hosted checks reject invalid input before counters/model work; no actual conversation/provider/model/audio/consent/push/browser action occurred.",
+    "Initial copied baseline imports were relative to its ignored folder and failed to load; corrected to absolute imports before behavioral evidence. The actual prior helper then made three synthetic budget calls for an already-aborted finite request, where zero is expected.",
+    "Reminder durable unknown-write/authoritative receipt constraints, remaining API/helper/provider opt-ins, sports-news raw diagnostics/body/feed bounds and broader cache/endpoint/device inventory remain open, alongside all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates. No main push/production promotion/accepted-hostname advance."
+  ]
+}

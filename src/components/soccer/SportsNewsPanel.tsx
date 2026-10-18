@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Pencil, RefreshCw, X, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getSportsNews } from "@/lib/sports-news-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import type { NewsArticle } from "@/routes/api.sports-news";
 
 // ---------------------------------------------------------------------------
@@ -112,20 +114,37 @@ function FavoriteTeamInput({
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value ?? "");
   const inputRef = useRef<HTMLInputElement>(null);
+  const active = useRef(false);
+  const focusFrame = useRef<number | null>(null);
+  useEffect(() => {
+    active.current = true;
+    return () => {
+      active.current = false;
+      if (focusFrame.current !== null) cancelAnimationFrame(focusFrame.current);
+      focusFrame.current = null;
+    };
+  }, []);
 
   const startEdit = () => {
+    if (!active.current) return;
     setDraft(value ?? "");
     setEditing(true);
-    requestAnimationFrame(() => inputRef.current?.focus());
+    if (focusFrame.current !== null) cancelAnimationFrame(focusFrame.current);
+    focusFrame.current = requestAnimationFrame(() => {
+      focusFrame.current = null;
+      if (active.current) inputRef.current?.focus();
+    });
   };
 
   const commit = () => {
+    if (!active.current) return;
     const trimmed = draft.trim();
     onChange(trimmed || null);
     setEditing(false);
   };
 
   const cancel = () => {
+    if (!active.current) return;
     setDraft(value ?? "");
     setEditing(false);
   };
@@ -136,7 +155,10 @@ function FavoriteTeamInput({
         <input
           ref={inputRef}
           value={draft}
-          onChange={(e) => setDraft(e.target.value)}
+          maxLength={80}
+          onChange={(e) => {
+            if (active.current) setDraft(e.target.value.slice(0, 80));
+          }}
           onKeyDown={(e) => {
             if (e.key === "Enter") commit();
             if (e.key === "Escape") cancel();
@@ -190,6 +212,7 @@ export function SportsNewsPanel({
   language,
   onSetFavoriteTeam,
 }: SportsPanelProps) {
+  const [resultKey, setResultKey] = useState<string | null>(null);
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -200,53 +223,63 @@ export function SportsNewsPanel({
   const icon = sport === "soccer" ? "⚽" : "⚾";
   const heading = sport === "soccer" ? "Matchday News" : "Baseball News";
 
-  const loadNews = async () => {
+  const { key, capture } = usePracticeLifecycle(JSON.stringify([sport, favoriteTeam, language]));
+  const inFlight = useRef<AbortController | null>(null);
+  const loadNews = useCallback(async () => {
+    const lease = capture();
+    if (!lease.isCurrent() || inFlight.current) return;
+    const controller = new AbortController();
+    inFlight.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (inFlight.current === controller) inFlight.current = null;
+    });
     setLoading(true);
     setError(null);
     setFetchMessage("Fetching latest news...");
-
     try {
-      const res = await fetch("/api/sports-news", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sport, favoriteTeam }),
-      });
-
-      if (!res.ok) {
-        throw new Error(`Request failed: ${res.status}`);
-      }
-
-      const data = (await res.json()) as { articles: NewsArticle[]; error?: string };
-
-      if (data.error) {
-        setError(data.error);
-        setArticles([]);
-      } else {
-        setArticles(data.articles ?? []);
-      }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "News unavailable — check back later.");
+      const articles = await getSportsNews(
+        { sport, favoriteTeam },
+        { signal: controller.signal, isCurrent: lease.isCurrent },
+      );
+      if (lease.isCurrent()) setArticles(articles);
+    } catch {
+      if (!lease.isCurrent()) return;
+      setError("News unavailable — try again later.");
       setArticles([]);
     } finally {
-      setLoading(false);
-      setFetchMessage(null);
+      release();
+      if (inFlight.current === controller) inFlight.current = null;
+      if (lease.isCurrent()) {
+        setLoading(false);
+        setFetchMessage(null);
+      }
     }
-  };
+  }, [capture, sport, favoriteTeam]);
 
-  // Reload whenever favoriteTeam changes
   useEffect(() => {
+    setResultKey(key);
+    setArticles([]);
+    setError(null);
+    setVisible(VISIBLE_INCREMENT);
+    setWorldCupFilter(false);
     void loadNews();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [favoriteTeam, sport]);
+  }, [key, loadNews]);
+
+  const changeFavoriteTeam = (team: string | null) => {
+    if (capture().isCurrent()) onSetFavoriteTeam(team);
+  };
 
   // Apply World Cup filter for soccer
   const displayedAll =
-    sport === "soccer" && worldCupFilter
-      ? articles.filter(
-          (a) =>
-            a.title.toLowerCase().includes("world cup") || a.title.toLowerCase().includes("fifa"),
-        )
-      : articles;
+    resultKey !== key
+      ? []
+      : sport === "soccer" && worldCupFilter
+        ? articles.filter(
+            (a) =>
+              a.title.toLowerCase().includes("world cup") || a.title.toLowerCase().includes("fifa"),
+          )
+        : articles;
 
   const displayed = displayedAll.slice(0, visible);
   const hasMore = visible < displayedAll.length;
@@ -294,10 +327,10 @@ export function SportsNewsPanel({
       </div>
 
       {/* ---- Favorite team ---- */}
-      <FavoriteTeamInput value={favoriteTeam} onChange={onSetFavoriteTeam} />
+      <FavoriteTeamInput key={key} value={favoriteTeam} onChange={changeFavoriteTeam} />
 
       {/* ---- Content ---- */}
-      {loading ? (
+      {loading || resultKey !== key ? (
         <div className="flex flex-col gap-3">
           {fetchMessage && <p className="text-xs text-white/40 text-center py-1">{fetchMessage}</p>}
           <SkeletonCards count={3} />

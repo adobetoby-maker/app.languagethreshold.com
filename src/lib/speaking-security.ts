@@ -1,3 +1,6 @@
+import { isIP } from "node:net";
+import { readPrivateServiceJson } from "./private-service-json.ts";
+
 export interface SpeakingPrincipal {
   userId: string;
 }
@@ -49,34 +52,54 @@ function serviceRoleHeaders(extra?: HeadersInit) {
   });
 }
 
+function requireSpeakingSignal(signal?: AbortSignal) {
+  if (signal?.aborted) throw new DOMException("Speaking request cancelled", "AbortError");
+}
+
+function requireSpeakingResponse(response: Response, signal?: AbortSignal) {
+  if (signal && (signal.aborted || !response.ok)) {
+    void response.body?.cancel().catch(() => {});
+    requireSpeakingSignal(signal);
+  }
+}
+
 export async function authenticateSpeakingRequest(
   request: Request,
+  signal?: AbortSignal,
 ): Promise<SpeakingPrincipal | null> {
+  requireSpeakingSignal(signal);
   const token = bearerToken(request);
   const url = supabaseUrl();
   const publishableKey = supabasePublishableKey();
   if (!token || !url || !publishableKey) return null;
 
   const response = await fetch(`${url}/auth/v1/user`, {
+    ...(signal ? { signal, cache: "no-store" as const } : {}),
     headers: {
       apikey: publishableKey,
       Authorization: `Bearer ${token}`,
     },
   });
+  requireSpeakingResponse(response, signal);
   if (!response.ok) return null;
 
-  const user = (await response.json()) as { id?: unknown };
+  const user = (
+    signal ? await readPrivateServiceJson(response, 256 * 1024, signal) : await response.json()
+  ) as { id?: unknown };
+  requireSpeakingSignal(signal);
   if (typeof user.id !== "string" || !user.id) return null;
   return { userId: user.id };
 }
 
 function trustedClientIp(request: Request) {
-  const forwarded =
-    request.headers.get("x-vercel-forwarded-for") ||
-    request.headers.get("x-forwarded-for") ||
-    request.headers.get("x-real-ip");
-  const first = forwarded?.split(",")[0]?.trim();
-  return first && first.length <= 128 ? first : null;
+  // Vercel supplies this canonical header. Caller forwarding fallbacks cannot select buckets.
+  const first = request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim();
+  if (first && isIP(first)) return first;
+  const host = new URL(request.url).hostname;
+  return process.env.NODE_ENV === "development" &&
+    ["localhost", "127.0.0.1", "[::1]"].includes(host)
+    ? "local-development"
+    : null;
 }
 
 async function speakingBucketHash(namespace: string, value: string) {
@@ -100,30 +123,51 @@ async function speakingBucketHash(namespace: string, value: string) {
   );
 }
 
-async function consumeSpeakingBudget(namespace: string, value: string, limit: number) {
+/** Shared server-only counter; namespaced hashes keep independent feature budgets separate. */
+export async function consumeServerRequestBudget(
+  namespace: string,
+  value: string,
+  limit: number,
+  windowSeconds = 60,
+  signal?: AbortSignal,
+) {
+  requireSpeakingSignal(signal);
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();
   if (!url || !key) throw new Error("Speaking budget storage is unavailable.");
   const bucketHash = await speakingBucketHash(namespace, value);
+  requireSpeakingSignal(signal);
+  const transportSignal = signal
+    ? AbortSignal.any([signal, AbortSignal.timeout(8000)])
+    : AbortSignal.timeout(8000);
   const response = await fetch(`${url}/rest/v1/rpc/consume_speaking_request`, {
     method: "POST",
     headers: serviceRoleHeaders({ "Content-Type": "application/json" }),
     body: JSON.stringify({
       p_bucket_hash: bucketHash,
       p_request_limit: limit,
-      p_window_seconds: 60,
+      p_window_seconds: windowSeconds,
     }),
+    signal: transportSignal,
+    cache: "no-store",
   });
+  requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking budget storage rejected the request.");
-  return (await response.json()) === true;
+  const allowed =
+    (signal
+      ? await readPrivateServiceJson(response, 1024, transportSignal)
+      : await response.json()) === true;
+  requireSpeakingSignal(signal);
+  return allowed;
 }
 
 export async function enforceSpeakingPreAuthRateLimit(
   request: Request,
+  signal?: AbortSignal,
 ): Promise<SpeakingLimitResult> {
   const ip = trustedClientIp(request);
   if (!ip) return { allowed: false, misconfigured: true };
-  const allowed = await consumeSpeakingBudget("ip", ip, IP_REQUESTS_PER_MINUTE);
+  const allowed = await consumeServerRequestBudget("ip", ip, IP_REQUESTS_PER_MINUTE, 60, signal);
   return { allowed, misconfigured: false };
 }
 
@@ -131,21 +175,27 @@ export async function enforceSpeakingRateLimit(
   userId: string,
   purpose = "ai",
   limit = USER_REQUESTS_PER_MINUTE,
+  signal?: AbortSignal,
 ): Promise<SpeakingLimitResult> {
-  const allowed = await consumeSpeakingBudget(`user:${purpose}`, userId, limit);
+  const allowed = await consumeServerRequestBudget(`user:${purpose}`, userId, limit, 60, signal);
   return { allowed, misconfigured: false };
 }
 
-export async function hasSpeakingAgeAttestation(userId: string) {
+export async function hasSpeakingAgeAttestation(userId: string, signal?: AbortSignal) {
+  requireSpeakingSignal(signal);
   const url = supabaseUrl();
   const key = supabaseServiceRoleKey();
   if (!url || !key) throw new Error("Speaking consent storage is unavailable.");
   const response = await fetch(
     `${url}/rest/v1/speaking_age_attestations?select=attested_at&user_id=eq.${encodeURIComponent(userId)}&limit=1`,
-    { headers: serviceRoleHeaders() },
+    { headers: serviceRoleHeaders(), ...(signal ? { signal, cache: "no-store" as const } : {}) },
   );
+  requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking consent storage rejected the request.");
-  const rows = (await response.json()) as Array<{ attested_at?: unknown }>;
+  const rows = (
+    signal ? await readPrivateServiceJson(response, 16 * 1024, signal) : await response.json()
+  ) as Array<{ attested_at?: unknown }>;
+  requireSpeakingSignal(signal);
   const timestamp = rows[0]?.attested_at;
   return typeof timestamp === "string" && Number.isFinite(Date.parse(timestamp));
 }

@@ -1,15 +1,18 @@
-import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { useWordCardCache } from "@/state/word-card-cache";
+import { wordCardCacheKey } from "@/lib/word-card-cache";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { X, Volume2, MessageCircle, Sparkle, BookmarkPlus, BookmarkCheck } from "lucide-react";
-import { lookupWord, type WordCardData } from "@/fns/word-lookup.functions";
+import { lookupWord } from "@/fns/word-lookup.functions";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { useApp, type Language } from "@/state/app-state";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
+import { tutorLessonThread, type TutorLessonReference } from "@/lib/lesson-tutor-context";
+import { lessonWordCard } from "@/lib/lesson-word-card";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -30,31 +33,6 @@ const CARD_W_CJK = 340;
 // the visible height with overflow-y scroll so the card still fits a phone
 // viewport. Used only for the smart-positioning math, not as a hard limit.
 const CARD_H = 560;
-const MAX_CLIENT_CACHE_ENTRIES = 200;
-const wordCardCache = new Map<string, WordCardData>();
-
-function wordCardCacheKey(request: WordCardRequest, nativeLanguage: string): string {
-  return JSON.stringify([
-    request.language,
-    nativeLanguage,
-    request.word,
-    request.sentence,
-  ]);
-}
-
-function getCachedWordCard(key: string): WordCardData | null {
-  return wordCardCache.get(key) ?? null;
-}
-
-function cacheWordCard(key: string, card: WordCardData): void {
-  wordCardCache.delete(key);
-  wordCardCache.set(key, card);
-  if (wordCardCache.size > MAX_CLIENT_CACHE_ENTRIES) {
-    const oldest = wordCardCache.keys().next().value;
-    if (oldest) wordCardCache.delete(oldest);
-  }
-}
-
 function cardWidth(language: Language): number {
   return language === "Japanese" || language === "Korean" ? CARD_W_CJK : CARD_W_DEFAULT;
 }
@@ -111,6 +89,7 @@ export interface WordCardRequest {
   sentenceIndex?: number;
   chapterIndex?: number;
   passage?: string;
+  lesson?: TutorLessonReference;
   x: number;
   y: number;
 }
@@ -125,23 +104,38 @@ export function WordCard({
   onXp: (n: number) => void;
 }) {
   const lookup = useServerFn(lookupWord);
+  const cache = useWordCardCache();
   const { setLastWord, accent, voiceURI } = useSpeech();
   const tutor = useTutor();
   const { state, dispatch } = useApp();
   const lookupKey = wordCardCacheKey(request, state.nativeLanguage);
+  const speakOwned = useOwnedSpeaker(JSON.stringify([lookupKey, accent, voiceURI]));
   const [lookupState, setLookupState] = useState(() => {
-    const cached = getCachedWordCard(lookupKey);
-    return { key: lookupKey, card: cached, error: null as string | null, loading: !cached };
+    const cached = cache.get(lookupKey);
+    return {
+      scope: cache,
+      key: lookupKey,
+      card: cached,
+      error: null as string | null,
+      loading: !cached,
+    };
   });
   // A new tap can update the existing WordCard before its fetch effect runs.
   // Never show the previous word's answer during that render.
-  const currentLookup = lookupState.key === lookupKey
-    ? lookupState
-    : (() => {
-        const cached = getCachedWordCard(lookupKey);
-        return { key: lookupKey, card: cached, error: null, loading: !cached };
-      })();
-  const { card, error, loading } = currentLookup;
+  const currentLookup =
+    lookupState.scope === cache && lookupState.key === lookupKey
+      ? lookupState
+      : (() => {
+          const cached = cache.get(lookupKey);
+          return { key: lookupKey, card: cached, error: null, loading: !cached };
+        })();
+  const { error, loading } = currentLookup;
+  const fallbackCard = useMemo(
+    () => lessonWordCard(request.lesson, request.word, request.language, state.nativeLanguage),
+    [request.lesson, request.word, request.language, state.nativeLanguage],
+  );
+  const card = currentLookup.card ?? (!loading ? fallbackCard : null);
+  const showingLessonWord = Boolean(card && !currentLookup.card);
   const [vocabAdded, setVocabAdded] = useState(false);
   const [showEtymology, setShowEtymology] = useState(false);
   const toggleEtymology = useCallback(() => setShowEtymology((v) => !v), []);
@@ -227,25 +221,37 @@ export function WordCard({
 
   // Fetch card
   useEffect(() => {
-    const cached = getCachedWordCard(lookupKey);
+    const cached = cache.get(lookupKey);
     if (cached) {
-      setLookupState({ key: lookupKey, card: cached, error: null, loading: false });
+      setLookupState({ scope: cache, key: lookupKey, card: cached, error: null, loading: false });
       return;
     }
     let active = true;
-    setLookupState({ key: lookupKey, card: null, error: null, loading: true });
+    if (typeof navigator !== "undefined" && navigator.onLine === false) {
+      setLookupState({
+        scope: cache,
+        key: lookupKey,
+        card: null,
+        error: "offline",
+        loading: false,
+      });
+      return;
+    }
+    setLookupState({ scope: cache, key: lookupKey, card: null, error: null, loading: true });
     lookup({
       data: {
         word: request.word,
         sentence: request.sentence,
         language: request.language,
         nativeLanguage: state.nativeLanguage,
+        lesson: request.lesson,
       },
     })
       .then((res) => {
         if (!active) return;
-        if (res.card) cacheWordCard(lookupKey, res.card);
+        if (res.card) cache.set(lookupKey, res.card);
         setLookupState({
+          scope: cache,
           key: lookupKey,
           card: res.card,
           error: res.error ?? (res.card ? null : "No data returned — tap to retry"),
@@ -255,6 +261,7 @@ export function WordCard({
       .catch((e) => {
         if (!active) return;
         setLookupState({
+          scope: cache,
           key: lookupKey,
           card: null,
           error: e?.message || "Lookup failed — tap to retry",
@@ -264,23 +271,20 @@ export function WordCard({
     return () => {
       active = false;
     };
-  }, [lookupKey, request.word, request.sentence, request.language, state.nativeLanguage, lookup]);
+  }, [
+    lookupKey,
+    cache,
+    request.word,
+    request.sentence,
+    request.language,
+    request.lesson,
+    state.nativeLanguage,
+    lookup,
+  ]);
 
   const speak = () => {
-    if (typeof window === "undefined") return;
     const text = card?.headword ?? request.word;
-    const remoteLocale = accent || LOCALE[request.language];
-    if (needsRemoteTTS(remoteLocale)) {
-      void speakRemote(text, remoteLocale, { rate: 0.9 });
-      return;
-    }
-    if (!("speechSynthesis" in window)) return;
-    const utter = new SpeechSynthesisUtterance(text);
-    const locale = remoteLocale;
-    configureUtterance(utter, locale, voiceURI);
-    utter.rate = 0.9;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
+    speakOwned(text, accent || LOCALE[request.language], voiceURI);
   };
 
   return (
@@ -414,14 +418,15 @@ export function WordCard({
         {/* Learner-facing copy. The raw server string ("AI is not configured")
             is operator language and was being rendered verbatim, in red, to a
             learner. It is kept on `title` so it stays diagnosable. */}
-        {!loading && error && (
+        {!loading && error && !card && (
           <div
             title={error}
             className="mt-3 rounded-xl border border-border/60 bg-card/40 p-3 text-center"
           >
             <p className="text-[13px] leading-relaxed text-muted-foreground">
-              Word details aren&rsquo;t available right now. Your sentence is above — try again in
-              a moment.
+              {error === "offline"
+                ? "You're offline. This word has no exact match in this lesson's saved word list. Your sentence is above; reconnect for dictionary details."
+                : "Word details aren’t available right now. Your sentence is above — try again later."}
             </p>
           </div>
         )}
@@ -436,10 +441,14 @@ export function WordCard({
               )}
             </h3>
             <div className="mt-0.5 flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs text-gold">{card.phonetic}</span>
-              <span className="inline-flex items-center rounded-full border border-border/70 bg-background/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                {card.partOfSpeech}
-              </span>
+              {card.phonetic && (
+                <span className="font-mono text-xs text-gold">{card.phonetic}</span>
+              )}
+              {card.partOfSpeech && (
+                <span className="inline-flex items-center rounded-full border border-border/70 bg-background/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  {card.partOfSpeech}
+                </span>
+              )}
               {card.pitchAccent && (
                 <span
                   title="Tokyo-dialect pitch accent"
@@ -451,6 +460,12 @@ export function WordCard({
             </div>
 
             <p className="mt-3 text-sm leading-relaxed text-foreground/90">{card.baseDefinition}</p>
+            {showingLessonWord && (
+              <p role="status" className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                From this lesson’s word list · draft content. More dictionary detail and Tutor
+                replies require a connection.
+              </p>
+            )}
 
             <div className="my-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-border/70" />
@@ -489,10 +504,12 @@ export function WordCard({
                   </>
                 )}
               </p>
-              <p className="text-[13px] leading-relaxed text-foreground/90">
-                {card.conjugationNote}
-                {card.contextNuance ? ` ${card.contextNuance}` : ""}
-              </p>
+              {(card.conjugationNote || card.contextNuance) && (
+                <p className="text-[13px] leading-relaxed text-foreground/90">
+                  {card.conjugationNote}
+                  {card.contextNuance ? ` ${card.contextNuance}` : ""}
+                </p>
+              )}
             </div>
 
             <ActionHint storageKey="lt.guide.reader.tutor" className="mt-3">
@@ -500,27 +517,29 @@ export function WordCard({
               question starts from what you are reading now.
             </ActionHint>
 
-            <div className="mt-4">
-              {/* Labelled explicitly: this is a generated example, not the
+            {card.exampleSentence && (
+              <div className="mt-4">
+                {/* Labelled explicitly: this is a generated example, not the
                   sentence the learner tapped. Unlabelled — and with the source
                   sentence absent — it was being read as the source sentence. */}
-              <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                ⊕ Another example
-              </div>
-              {/* Deliberately one size below the source sentence above: this is
+                <div className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  ⊕ Another example
+                </div>
+                {/* Deliberately one size below the source sentence above: this is
                   generated illustration, not what the learner tapped. The gloss
                   drops out of mono — it is English prose, not UI chrome. */}
-              <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
-                {request.language === "Japanese" ? (
-                  <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
-                ) : (
-                  `"${card.exampleSentence}"`
-                )}
-              </p>
-              <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                {card.exampleTranslation}
-              </p>
-            </div>
+                <p className="font-display text-[13px] italic leading-relaxed text-foreground/75">
+                  {request.language === "Japanese" ? (
+                    <FuriganaText text={card.exampleSentence} mode="above" script="hiragana" />
+                  ) : (
+                    `"${card.exampleSentence}"`
+                  )}
+                </p>
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                  {card.exampleTranslation}
+                </p>
+              </div>
+            )}
 
             {card.commonCollocations && card.commonCollocations.length > 0 && (
               <div className="mt-4">
@@ -621,7 +640,10 @@ export function WordCard({
                     `Can you explain more about the word "${card.headword}" and how it's used in this sentence?\n\n"${request.sentence}"`,
                     request.textId
                       ? {
-                          threadId: request.textId,
+                          threadId: request.lesson
+                            ? tutorLessonThread(request.lesson)
+                            : request.textId,
+                          textTitle: request.textTitle,
                           selectedWord: card.headword,
                           selectedSentence: request.sentence,
                           passage: request.passage ?? request.sentence,
@@ -636,7 +658,7 @@ export function WordCard({
                       passageExcerpt: request.passage,
                       textTitle: request.textTitle,
                       language: request.language,
-                      learnerLevel: state.level,
+                      learnerLevel: request.lesson ? undefined : state.level,
                       explanation,
                     },
                   );

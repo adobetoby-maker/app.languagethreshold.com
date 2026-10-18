@@ -1,0 +1,34 @@
+{
+  "testedAt": "2026-10-17T20:20:05.599Z",
+  "sourceCommit": "51b9890",
+  "deployed": false,
+  "latestHostedApplication": "5b00bd2",
+  "validation": {
+    "tests": 974,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "artifactMiB": 19.74,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1246,
+    "staticFiles": 148,
+    "privateHits": 0
+  },
+  "controlledEvidence": "tests/missionary-speech-lifecycle.test.mjs; actual hook with controlled auth/timers/TTS boundary",
+  "preserved": [
+    "Word highlighting",
+    "Remote phrase playback",
+    "30ms start and 450ms fade",
+    "Existing device rate preference key and bytes",
+    "No XP/grading changes"
+  ],
+  "remaining": [
+    "Separate Field Prep streaming/microphone lifecycle",
+    "SpeakLearn and device preview lifecycle",
+    "Hosted browser and physical audio acceptance",
+    "Full PRD release gates"
+  ]
+}

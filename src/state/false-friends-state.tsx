@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   useRef,
   type ReactNode,
 } from "react";
@@ -68,16 +70,14 @@ type Action =
   | { type: "ADVANCE" }
   | { type: "END_RUN" };
 
-const STORAGE_KEY = "lt.falseFriends.leaderboard.v1";
 const RUN_LENGTH = 5;
 
-function loadLB(): Record<FFLeaderboardKey, FalseFriendsStats> {
-  if (typeof window === "undefined") return {} as Record<FFLeaderboardKey, FalseFriendsStats>;
+function loadLB(value: unknown): Record<FFLeaderboardKey, FalseFriendsStats> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     if (!raw) return {} as Record<FFLeaderboardKey, FalseFriendsStats>;
     // Migrate: spread EMPTY over each entry so any added field gets a default.
-    const parsed = JSON.parse(raw) as Record<string, Partial<FalseFriendsStats>>;
+    const parsed = raw as Record<string, Partial<FalseFriendsStats>>;
     const out: Record<FFLeaderboardKey, FalseFriendsStats> = {} as Record<
       FFLeaderboardKey,
       FalseFriendsStats
@@ -91,15 +91,6 @@ function loadLB(): Record<FFLeaderboardKey, FalseFriendsStats> {
   }
 }
 
-function saveLB(lb: Record<FFLeaderboardKey, FalseFriendsStats>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lb));
-  } catch {
-    /* quota */
-  }
-}
-
 function statsFor(
   lb: Record<FFLeaderboardKey, FalseFriendsStats>,
   key: FFLeaderboardKey,
@@ -107,7 +98,7 @@ function statsFor(
   return lb[key] ?? { ...EMPTY };
 }
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, leaderboard: action.payload };
@@ -170,7 +161,7 @@ function reducer(state: State, action: Action): State {
         trapsMissed: prev.trapsMissed + (isTrap && !isCorrect ? 1 : 0),
       };
       const newLb = { ...state.leaderboard, [key]: newStats };
-      saveLB(newLb);
+
       return { ...state, run: { ...state.run, questions: updated }, leaderboard: newLb };
     }
 
@@ -191,7 +182,6 @@ function reducer(state: State, action: Action): State {
           `${state.run.language}-${state.run.level}` as FFLeaderboardKey;
         const prev = statsFor(state.leaderboard, key);
         newLb = { ...state.leaderboard, [key]: { ...prev, perfectRuns: prev.perfectRuns + 1 } };
-        saveLB(newLb);
       }
       return { ...state, run: null, leaderboard: newLb };
     }
@@ -226,6 +216,8 @@ interface FFContextValue {
 const Ctx = createContext<FFContextValue | null>(null);
 
 export function FalseFriendsProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("gameFalseFriends");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     leaderboard: {} as Record<FFLeaderboardKey, FalseFriendsStats>,
     run: null,
@@ -234,9 +226,13 @@ export function FalseFriendsProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    const lb = loadLB();
-    if (Object.keys(lb).length) dispatch({ type: "HYDRATE", payload: lb });
-  }, []);
+    dispatch({ type: "HYDRATE", payload: loadLB(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.leaderboard);
+  }, [device, hydrated, state.leaderboard]);
 
   const fetcherRef = useRef<
     | ((args: {

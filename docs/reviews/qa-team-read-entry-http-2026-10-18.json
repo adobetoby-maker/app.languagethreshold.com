@@ -1,0 +1,102 @@
+{
+  "testedAt": "2026-10-18T11:54:50.217Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "path": "/api/certificate",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/certificate?id=",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/certificate?id=synthetic-private-entry-detail",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team-entitlement",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team",
+      "method": "GET",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team",
+      "method": "POST",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team-billing",
+      "method": "GET",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/team-billing",
+      "method": "POST",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/module-request",
+      "method": "GET",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/module-request",
+      "method": "POST",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/platform",
+      "method": "GET",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    },
+    {
+      "path": "/api/platform",
+      "method": "POST",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "fixedError": true
+    }
+  ],
+  "limits": [
+    "Three invalid certificate IDs, missing-bearer entitlement and eight missing-bearer workflow GET/POST denials only. No valid certificate lookup, issuance, qualification, authenticated entitlement, team mutation, payment, invitation, email, consent or browser action. CDN headers checked in local actual-handler tests; Vercel consumes them."
+  ]
+}

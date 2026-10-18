@@ -1,13 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { json, teamAdminClient, teamError } from "@/lib/team-server";
+import { json, teamAdminClient, scopedTeamError } from "@/lib/team-server";
 
 export const Route = createFileRoute("/api/certificate")({
   server: {
     handlers: {
       GET: async ({ request }) => {
         try {
-          const id = z.string().uuid().parse(new URL(request.url).searchParams.get("id"));
+          const parsed = z.string().uuid().safeParse(new URL(request.url).searchParams.get("id"));
+          if (!parsed.success)
+            return json({ error: "Check the certificate link and try again." }, 400);
+          const id = parsed.data;
           const db = teamAdminClient();
           const { data, error } = await db
             .from("team_certificates")
@@ -20,7 +23,7 @@ export const Route = createFileRoute("/api/certificate")({
           if (!data) return json({ error: "Certificate not found." }, 404);
           return json({ certificate: data });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

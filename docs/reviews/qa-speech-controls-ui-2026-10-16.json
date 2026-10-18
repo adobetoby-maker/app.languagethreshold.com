@@ -1,0 +1,28 @@
+{
+  "sourceCommit": "e47bfcc",
+  "fixtureOnly": true,
+  "microphoneSimulated": true,
+  "audio": "generated silent WebM",
+  "hostedWrites": false,
+  "certificatesCreated": false,
+  "phoneViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    "explicit consent before capture",
+    "stop releases tracks",
+    "take survives question remount",
+    "failed upload retains take",
+    "retry request ID stable",
+    "authoritative revision reloaded",
+    "full playback before reviewer acknowledgement",
+    "early stop does not enable score",
+    "confirmed withdrawal removes playback",
+    "microphone denial leaves navigation usable",
+    "recorder startup failure releases tracks and pending guard"
+  ],
+  "realStageGateVerified": true,
+  "realStageMediaCollected": false,
+  "realDeviceCaptureAcceptance": "pending owner policy and pilot"
+}

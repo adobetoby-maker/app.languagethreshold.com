@@ -1,0 +1,49 @@
+{
+  "testedAt": "2026-10-17T14:54:30.186280+00:00",
+  "sourceCommit": "31d487a",
+  "status": "Locally verified; not deployed",
+  "scope": "Three active Grammar title/content/quiz generators; existing practice scoring remains separate from module Exams",
+  "checks": {
+    "strictOriginBeforeBudgetAndProvider": true,
+    "noStore": true,
+    "existingDurableContentPool": true,
+    "budgetDenialAndOutageBeforeConstruction": true,
+    "maxRetries": 0,
+    "sdkTimeoutMs": 30000,
+    "totalAbortDeadlineMs": 30000,
+    "incomingAbortPropagation": true,
+    "exactSixUniqueBoundedLessonStubs": true,
+    "boundedCompleteLessonContent": true,
+    "existingFixedStemConsistencyRetained": true,
+    "exactThreeBoundedQuizQuestions": true,
+    "multipleChoiceAnswerPresentAndNormalizedOptionsUnique": true,
+    "fillBlankSingleBlankAndNoOptions": true,
+    "serverAndUiShareExistingAnswerComparison": true,
+    "unknownModelFieldsStripped": true,
+    "providerErrorsContentFree": true
+  },
+  "localVerification": {
+    "tests": 838,
+    "targetedTests": 8,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "stageBuild": "pass",
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T14:54:01.924Z",
+      "sourceCommit": "31d487a",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1148,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "limitations": [
+    "Controlled actual-handler transport/budget fixtures; no paid provider requests or actual provider timeout/billing trial",
+    "No browser actions, new learner writes, schema/role/active-policy/speech-collection/schedule changes",
+    "Structure and answer-option consistency do not establish linguistic correctness or reviewed curriculum",
+    "Hosted development remains d575a77; accepted companion d4ad837 and live app/main remain unchanged",
+    "Routing database proposal is still unapplied pending the already-sent schema clarification; full release gates remain open"
+  ]
+}

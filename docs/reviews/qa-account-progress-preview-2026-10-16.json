@@ -1,0 +1,25 @@
+{
+  "testedAt": "2026-10-16",
+  "sourceCommit": "0814241",
+  "target": "https://language-threshold-n4kga9q1n-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_5tBGvvvTyLumWec237chzBsLG1AV",
+  "scope": "Dedicated existing QA accounts, valid-session desktop Chrome, no official exam or mastery mutation",
+  "checks": {
+    "learnerCloudXp55AndExistingMasteryRestored": true,
+    "signOutReturnsGuestXp0WithoutMastery": true,
+    "secondAccountXp0WithoutFirstAccountMastery": true,
+    "secondAccountReloadKeepsOwnProgress": true,
+    "currentPackDownloadedAndVerified": true,
+    "signedInOfflineReload": true,
+    "ownTypedResponseRestoredOffline": true,
+    "offlineResponseEditSurvivesReconnectAndReload": true,
+    "normalNetworkingRestoredAndDevtoolsClosed": true
+  },
+  "limits": [
+    "Legacy unowned snapshots preserved but automatic recovery not implemented",
+    "Feature-specific device stores still require account-bound audit",
+    "Expired-session and real iPhone/Safari checks pending",
+    "Private practice response is device-only until sign-out, no cloud response sync claimed",
+    "No microphone, voice, official scoring or human content acceptance proved"
+  ]
+}

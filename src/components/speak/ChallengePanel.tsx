@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Sparkles, Target, Zap } from "lucide-react";
 import { toast } from "sonner";
 import type { Language, NativeLanguage } from "@/state/app-state";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { speakingRequestHeaders } from "@/lib/speaking-client";
 
 export interface SpeakChallenge {
@@ -33,7 +34,8 @@ export function ChallengePanel({
   onSpeakAloud,
 }: Props) {
   const { state } = useGrammar();
-  const [loading, setLoading] = useState<"grammar" | "reach" | null>(null);
+  const [status, setStatus] = useState<{ key: string; kind: "grammar" | "reach" } | null>(null);
+  const pending = useRef<AbortController | null>(null);
 
   // Collect concept titles from completed lessons across ALL CEFR levels
   // for the current language.
@@ -51,18 +53,39 @@ export function ChallengePanel({
     return out;
   }, [state.store, language]);
 
+  const { actor, key, capture } = usePracticeLifecycle(
+    JSON.stringify([language, nativeLanguage, level, completedConcepts, active]),
+  );
+  const loading = status?.key === key ? status.kind : null;
+
   const fetchChallenge = async (kind: "grammar" | "reach") => {
+    const lease = capture();
+    if (!actor || !lease.isCurrent() || pending.current) return;
     if (kind === "grammar" && completedConcepts.length === 0) {
       toast("Finish a Grammar Studio lesson first", {
         description: "Complete any lesson and we'll turn it into a spoken challenge.",
       });
       return;
     }
-    setLoading(kind);
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
+    setStatus({ key, kind });
     try {
+      const headers = await speakingRequestHeaders(
+        { userId: actor, isCurrent: current },
+        controller.signal,
+      );
+      if (!current()) return;
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: await speakingRequestHeaders(),
+        headers,
+        signal: controller.signal,
         body: JSON.stringify({
           mode: "challenge",
           language,
@@ -72,21 +95,28 @@ export function ChallengePanel({
           concepts: kind === "grammar" ? completedConcepts.slice(-12) : undefined,
         }),
       });
+      if (!current()) return;
       if (!res.ok) {
         const j = (await res.json().catch(() => ({}))) as { error?: string };
+        if (!current()) return;
         toast("Couldn't load challenge", {
           description: j.error || "Try again in a moment.",
         });
         return;
       }
       const data = (await res.json()) as Omit<SpeakChallenge, "kind">;
+      if (!current()) return;
       const challenge: SpeakChallenge = { ...data, kind };
       onStart(challenge);
-      onSpeakAloud(challenge.target);
+      if (current()) onSpeakAloud(challenge.target);
     } catch {
-      toast("Network error", { description: "Couldn't reach the challenge generator." });
+      if (current())
+        toast("Network error", { description: "Couldn't reach the challenge generator." });
     } finally {
-      setLoading(null);
+      if (current()) setStatus(null);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
     }
   };
 
@@ -143,7 +173,9 @@ export function ChallengePanel({
               {active.kind === "grammar" ? "Grammar mission" : "Reach mission"}
             </span>
             <button
-              onClick={() => onSpeakAloud(active.target)}
+              onClick={() => {
+                if (capture().isCurrent()) onSpeakAloud(active.target);
+              }}
               className="text-xs text-gold hover:opacity-80"
               aria-label="Replay target"
             >

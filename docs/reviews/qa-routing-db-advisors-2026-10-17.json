@@ -1,0 +1,133 @@
+{
+  "security": {
+    "before": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 44
+      },
+      {
+        "name": "function_search_path_mutable",
+        "level": "WARN",
+        "count": 3
+      },
+      {
+        "name": "extension_in_public",
+        "level": "WARN",
+        "count": 1
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 2
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 2
+      },
+      {
+        "name": "auth_leaked_password_protection",
+        "level": "WARN",
+        "count": 1
+      }
+    ],
+    "after": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 45
+      },
+      {
+        "name": "function_search_path_mutable",
+        "level": "WARN",
+        "count": 3
+      },
+      {
+        "name": "extension_in_public",
+        "level": "WARN",
+        "count": 1
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 2
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 2
+      },
+      {
+        "name": "auth_leaked_password_protection",
+        "level": "WARN",
+        "count": 1
+      }
+    ],
+    "newObjects": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "detail": "Table \\`public.assessment_attempt_routes\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      }
+    ]
+  },
+  "performance": {
+    "before": [
+      {
+        "name": "unindexed_foreign_keys",
+        "level": "INFO",
+        "count": 42
+      },
+      {
+        "name": "auth_rls_initplan",
+        "level": "WARN",
+        "count": 9
+      },
+      {
+        "name": "unused_index",
+        "level": "INFO",
+        "count": 42
+      },
+      {
+        "name": "multiple_permissive_policies",
+        "level": "WARN",
+        "count": 13
+      },
+      {
+        "name": "auth_db_connections_absolute",
+        "level": "INFO",
+        "count": 1
+      }
+    ],
+    "after": [
+      {
+        "name": "unindexed_foreign_keys",
+        "level": "INFO",
+        "count": 42
+      },
+      {
+        "name": "auth_rls_initplan",
+        "level": "WARN",
+        "count": 9
+      },
+      {
+        "name": "unused_index",
+        "level": "INFO",
+        "count": 42
+      },
+      {
+        "name": "multiple_permissive_policies",
+        "level": "WARN",
+        "count": 13
+      },
+      {
+        "name": "auth_db_connections_absolute",
+        "level": "INFO",
+        "count": 1
+      }
+    ],
+    "newObjects": []
+  }
+}

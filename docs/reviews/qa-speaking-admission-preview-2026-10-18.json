@@ -1,0 +1,91 @@
+{
+  "testedAt": "2026-10-18T06:11:28.039212+00:00",
+  "applicationCommit": "cdd22f5ddb9a2b352075577a5978fc7d365d61d1",
+  "preview": "https://language-threshold-4bcl9mne8-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-4bcl9mne8-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_8Qw6Mqb32kePCwkc31B7oMFLTH6L",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-4bcl9mne8-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "cdd22f5ddb9a2b352075577a5978fc7d365d61d1",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-catalog-preview-2026-10-18.json",
+  "local": {
+    "tests": 1307,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.88,
+    "privateMarkers": 96,
+    "sourceFiles": 1433,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "api.speak validates a bounded 384 KiB JSON envelope and api.speaking-consent POST a 1 KiB envelope with the existing owned 10-second reader before admission; invalid/schema failures use fixed errors and consume no counters",
+    "Speaking IP/auth/user and mission age reads, consent GET IP/auth/age reads, and consent POST IP/auth/user admission use the shared 15-second scope and optional bounded/no-store service helpers",
+    "Each gate rechecks its scope after asynchronous results; ignored late delegates cannot admit another counter, provider request or consent write",
+    "Speaking retains its ai/12-user budget and consent updates consent/10-user budget, current actor, boolean writes and mode/prompt/model contracts; private no-store/CDN/nosniff headers apply to every handled response",
+    "Speaking route no longer sends raw provider exceptions to Sentry or logs raw exception text/name or incoming request IDs; fixed errors/status/timing logs remain",
+    "Consent writes remain after the admission scope with original setter behavior and pre-write request check; no mutation timeout/rollback or cancellation guarantee was added",
+    "Nine actual route groups cover malformed/oversized valid JSON, UTF-8 context, input stalls/abort, exact gate denials/ownership/expiry, successful speaking formats, fixed diagnostics and consent read/write contracts",
+    "Hosted ten speaking/consent input denials and eight Google/six Pashto denials pass with exact 21 Exams/12 focused-entry/3 public packs/7 scoped-read/14 generation-entry groups"
+  ],
+  "controlledEvidence": [
+    "tests/speaking-admission-routes.test.mjs",
+    "tests/speech-preflight.test.mjs",
+    "tests/private-json-request.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "908dfc1",
+    "source": "src/routes/api.speak.ts",
+    "case": "Valid challenge JSON with ignored padding exceeding 384 KiB",
+    "oldStatus": 200,
+    "expectedStatus": 413,
+    "currentPass": true,
+    "limit": "Actual prior route bundled with synthetic guards/SDK. No actual model, counter or consent write."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-speaking-admission-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Actual route tests use controlled auth/budget/consent/SDK/timers. Hosted new requests reject before counters/auth/write/provider; no real speaking/consent read/write, model/audio/microphone/browser or human consent was exercised.",
+    "Consent mutations are outside the admission scope. Once a write begins, cancellation/transport loss remains uncertain; no rollback, write receipt/reconciliation or exactly-once guarantee is added.",
+    "Speaking provider retries, complete provider-phase deadlines/cancellation and output bounds remain follow-up work; these changes cover input/admission and explicit route diagnostics only, not global instrumentation or historical logs.",
+    "Invalid inputs now fail before IP/auth/user counters rather than afterward. Model/prompt/token/consent and learner gates remain unchanged; mission age read now sits in the common admission scope before provider configuration/context checks.",
+    "Broader helper/endpoint/cache/diagnostics/device inventory, canonical-IP enforcement for legacy speaking budgets, genuine SDK expiry/current A/guest/B/restore/process restart/offline acceptance, uncertain writes/concurrency/legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

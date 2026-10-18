@@ -1,0 +1,143 @@
+{
+  "testedAt": "2026-10-18T04:08:27.264164+00:00",
+  "applicationCommit": "fa6a88d7a32ecb522758555ebc6261e85c5a7e4e",
+  "preview": "https://language-threshold-8nfg08zso-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-8nfg08zso-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_9KwQHH4eSkQwY5fLchLLoCG1mY3t",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-8nfg08zso-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "fa6a88d7a32ecb522758555ebc6261e85c5a7e4e",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1230,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.85,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1384,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/content-review-lifecycle.test.mjs",
+    "tests/exam-review-queue-lifecycle.test.mjs",
+    "tests/reviewer-admin-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Queue initial read, pagination and claim bind original actual actor/current view or flight; mismatched SDK denial clears old queue metadata using existing behavior",
+    "Reviewer registry read and access mutation bind the originating actual admin identity, independently of the target identity in the unchanged body",
+    "Content decision and lesson freeze bind original actual actor, frozen review context and current operation; same mounted-body retry IDs retained",
+    "Lesson review snapshot read binds original account before SDK transport; existing abort/current access-lost behavior preserved",
+    "React review retained effect dependencies, hook order, scoped remounts, cleanup and accessible confirmation controls without new dependencies"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-review-owner-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Six added actual component/route/lifecycle/client groups use synthetic SDK accounts, registry/queue/lesson metadata, content decisions and transport; nested lesson display is inert in the snapshot-read fixture",
+    "No real reviewer grant/revocation/qualification, queue claim, content decision, approval, lesson snapshot binding or private review material was created or read",
+    "Client cancellation cannot undo a server-accepted claim, access or content change. Existing server expected revisions, request IDs, qualifications and authorization remain authoritative",
+    "Content/freeze retry identity remains mounted-form state; no new durable cross-process reconciliation or exactly-once server guarantee",
+    "All found production examReviewerRequest and examContentRequest callers now supply owners, but readiness/plan/other assessment JSON direct calls and speaking SDK binding remain separate",
+    "Controlled tests and existing read-only hosted checks do not establish real qualified-reviewer/native/browser/process-restart/SDK expiry/device acceptance",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform release gates remain open. Collection/policies/schedule OFF; pending questions not repeated"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-media-owner-preview-2026-10-18.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "storageInventoryFollowup": {
+    "scope": "Reviewer queue/registry/access and content decision/lesson snapshot transport SDK ownership",
+    "remaining": [
+      "private content catalog/form, readiness/cleanup/plan/AI proposal/other assessment JSON callers and speaking SDK binding",
+      "broader helper/cache/device inventory and genuine browser/process-restart/SDK expiry/native/device acceptance",
+      "uncertain writes/server concurrency, authentic new offline completion and legacy certificate reconciliation",
+      "human/content/calibration/equivalence/reviewer/pilot/catalog/operational release gates"
+    ]
+  },
+  "documentationConsulted": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/reference/javascript/maybesingle"
+  ],
+  "baselineComparison": {
+    "commit": "60ba55f6d646aa09d7c5fbfa34baf36f3c8e2756",
+    "cases": [
+      {
+        "source": "src/components/exams/ContentReviewDecision.tsx",
+        "case": "SDK B returned during displayed A content decision",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/components/exams/ExamReviewQueue.tsx",
+        "case": "SDK B returned during displayed A queue read",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      }
+    ],
+    "currentCasesPass": true,
+    "limit": "Controlled previous-component substitution with current helper and synthetic SDK/transport. Not a live cross-account request, reviewer qualification or server authorization bypass."
+  }
+}

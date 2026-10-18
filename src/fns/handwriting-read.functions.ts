@@ -3,6 +3,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { HANDWRITING_READ_LANGUAGES } from "@/lib/handwriting-check";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 
 // Reads a short handwritten word or phrase for the Core 30 "Write it" practice mode. This is
 // separate from handwriting-recognize.functions.ts (Character Studio, single kanji/hanzi with
@@ -50,6 +51,8 @@ export const readHandwriting = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<HandwritingReadResult> => {
     const key = process.env.ANTHROPIC_API_KEY;
     if (!key) return { text: null, error: "AI is not configured" };
+    const budgetError = await learningGenerationError("handwriting");
+    if (budgetError) return { text: null, error: budgetError };
 
     const hint = data.expected?.trim()
       ? ` The writer may have been trying to write "${data.expected.trim()}". Use that only to decide between letters that look alike; if the ink clearly shows something else, transcribe the ink.`

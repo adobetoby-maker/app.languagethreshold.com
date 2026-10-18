@@ -1,0 +1,80 @@
+{
+  "testedAt": "2026-10-18T04:50:31.991879+00:00",
+  "applicationCommit": "85ec972bfba46a6e6898b23f8abbb50f0a2aab61",
+  "preview": "https://language-threshold-pf1v8zcm0-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-pf1v8zcm0-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6ussRKRLeQWgyWyf82sQUpREbpbu",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-pf1v8zcm0-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "85ec972bfba46a6e6898b23f8abbb50f0a2aab61",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-remote-owner-preview-2026-10-18.json",
+  "local": {
+    "tests": 1252,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.86,
+    "privateMarkers": 96,
+    "sourceFiles": 1400,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Pashto fallback sends learner text in a no-store POST body to a fixed URL and plays only a short-lived owned blob URL",
+    "Legacy GET fails closed with 405; malformed/unsupported/oversized bodies fail before provider transport",
+    "Audio and handled errors forbid browser/CDN/Vercel-CDN caching; provider transport uses no-store and original request cancellation signal",
+    "Provider error bodies and thrown exceptions are not logged or returned; generic error responses contain no learner text",
+    "Stop/replacement during transport or blob decoding cannot create late playback; actor loss before blob completion creates no URL; replaced/completed URLs are revoked",
+    "Hosted denial-only GET/malformed-body/unsupported-language checks pass alongside exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups"
+  ],
+  "controlledEvidence": [
+    "tests/pashto-tts-private.test.mjs",
+    "tests/fallback-tts-lifecycle.test.mjs",
+    "tests/remote-tts-owner.test.mjs"
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-pashto-private-preview-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Provider/audio/blob/SDK values in controlled tests are synthetic. Hosted checks intentionally send no valid generation body. No actual provider/audio/microphone/billing/consent or browser action occurred.",
+    "Existing anonymous guest access policy and provider choice are preserved. This work does not establish authentication, rate/budget controls, provider cancellation/billing rollback or exactly-once behavior.",
+    "New clients no longer use text-bearing URLs. Already cached historical GET responses are not purged by this source change. Positive hosted streaming, browser/native playback and previous-cache eviction remain unverified.",
+    "Vercel consumes CDN-specific response headers; all three cache directives are covered locally, browser Cache-Control no-store is checked hosted.",
+    "Cancellation and owner checks occur at boundaries; no independent identity subscription or instant undo of native delivery is claimed.",
+    "Broader helper/endpoint/cache/device inventory, current A/guest/B/restore, real SDK expiry, process restart/offline and physical-device acceptance remain open.",
+    "Human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform release gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

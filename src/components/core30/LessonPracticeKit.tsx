@@ -35,8 +35,7 @@ import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
-import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
-import { configureUtterance } from "@/lib/voices";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import type { LessonWord } from "@/data/curriculum";
 import type { LessonVerb } from "@/lib/lesson-content-core";
 import {
@@ -143,30 +142,8 @@ function useTargetSpeaker(): (text: string) => void {
       ? accent
       : defaultLocale;
 
-  useEffect(
-    () => () => {
-      stopRemoteTTS();
-      if (typeof window !== "undefined") window.speechSynthesis?.cancel();
-    },
-    [],
-  );
-
-  return useCallback(
-    (text: string) => {
-      if (typeof window === "undefined" || !text) return;
-      if (needsRemoteTTS(locale)) {
-        void speakRemote(text, locale, { rate: 0.9 });
-        return;
-      }
-      if (!window.speechSynthesis) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      configureUtterance(utterance, locale);
-      utterance.rate = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    },
-    [locale],
-  );
+  const speakOwned = useOwnedSpeaker(locale);
+  return useCallback((text: string) => speakOwned(text, locale), [locale, speakOwned]);
 }
 
 function SpeakButton({

@@ -1,0 +1,43 @@
+{
+  "testedAt": "2026-10-17T13:04:11.986470+00:00",
+  "applicationSource": "88eb156",
+  "deployed": false,
+  "scope": "Four existing conversation routes: Tutor, Discussion (investigator/companion), missionary Field Prep and module Field Prep.",
+  "changes": [
+    "One provider attempt per accepted request: automatic SDK retries disabled.",
+    "45-second provider timeout plus independent total AbortSignal deadline covering response stream reads.",
+    "Incoming request abort propagated to provider. Platform disconnect propagation is not independently proven.",
+    "Caught initial provider failures produce content-free route telemetry instead of raw provider exceptions. Stream parsing/logging and client partial-response behavior are outside this scoped change."
+  ],
+  "verification": {
+    "tests": 817,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 41,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T13:04:11.931Z",
+      "sourceCommit": "88eb156",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1118,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Actual production route handlers retain origin/body/durable-budget denials and allowed SSE/companion contracts; verify timeout/retry/signal options and initial-failure redaction.",
+    "Controlled deadline signal aborts independently of incoming request.",
+    "Installed Anthropic SDK with synthetic local fetch makes one HTTP attempt on retryable 429.",
+    "Installed SDK with synthetic local streaming fetch forwards incoming abort after headers."
+  ],
+  "noExternalModelCalls": true,
+  "hostedChanges": false,
+  "limitations": [
+    "No actual provider timeout/billing or browser disconnect trial.",
+    "No broad app-wide AI privacy/cost completion claim.",
+    "Adaptive durable runtime, human review, real pilots and physical/operational acceptance remain open.",
+    "Accepted companion remains application d4ad837; isolated hosted development remains 0cea7dc; live app unchanged.",
+    "No schema, role, active policy, speech collection or schedule changes."
+  ]
+}

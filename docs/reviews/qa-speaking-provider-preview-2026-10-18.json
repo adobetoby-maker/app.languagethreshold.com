@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T06:35:02.061184+00:00",
+  "applicationCommit": "e6a20a7f99d0604ee9f8b7c6beff36decfe3e863",
+  "preview": "https://language-threshold-8ixlsxsks-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-8ixlsxsks-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_FJpnU7ve96AGY64MceQezrzEufnC",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-8ixlsxsks-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "e6a20a7f99d0604ee9f8b7c6beff36decfe3e863",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
+  "local": {
+    "tests": 1320,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.89,
+    "privateMarkers": 96,
+    "sourceFiles": 1439,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "All four speaking modes use one owned 45-second provider phase with SDK maxRetries=0, SDK header timeout=45000, no-store transport and combined request/SDK cancellation",
+    "Provider response reads count actual and advertised bytes up to 1 MiB for JSON/SSE; malformed/read/network errors expose fixed provider failures without raw payloads/causes",
+    "Phase races handle stalled/ignored delegates, cancel late header/action responses, immediately release owned readers even when source cancellation never settles, and keep later requests independent",
+    "JSON phases finish after provider processing; SSE phases remain owned through downstream body consumption, cancellation and EOF; interruption errors the body without a fabricated DONE",
+    "Existing SDK/message/prompt/model/token contracts and mission field checks remain; challenge target/gloss/hint/keyword now validate types and caps 240/400/400/80, with nullable keyword; tip is capped at 1200 or soft-fails to null",
+    "Owned pre-header cancellation/deadline/upstream failures use 499/504/502; tip retains its 502 upstream null fallback but does not hide cancellation/deadline; sent SSE headers stay 200 while interrupted bodies error",
+    "Nine added actual installed-SDK/helper/route groups cover one-attempt retryable failure, exact transport, late headers, partial JSON abort, exact/overflow bounds, complete/truncated/expired/oversized SSE, downstream cancellation, all four ignored-late SDK modes and structured output bounds",
+    "Eight hosted checker groups retain exact 21 Exams/12 focused-entry/3 public packs/7 scoped-read/14 generation-entry groups, eight Google/six Pashto/ten speaking-consent input denials"
+  ],
+  "controlledEvidence": [
+    "tests/speaking-provider.test.mjs",
+    "tests/speaking-admission-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "e527595",
+    "source": "src/routes/api.speak.ts",
+    "case": "Challenge tool input with array target instead of string",
+    "oldStatus": 200,
+    "expectedStatus": 502,
+    "currentPass": true,
+    "limit": "Actual prior route bundled with synthetic guards/SDK. Installed-SDK transport tests use controlled fetch; no real provider/counter/consent action."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-speaking-provider-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Actual installed SDK runs only against synthetic fetch; route delegates/counters/consent/timers are controlled. Hosted checks reject before model/counter/write, so real provider timeout/cancellation/billing/native/browser/adapter behavior is unverified.",
+    "SSE phase includes application body consumption, not a guarantee about platform buffering, client receipt or hard CPU preemption. Input/admission/provider are separate phases, not one end-to-end deadline. After SSE headers status cannot change; body interruption is the failure signal.",
+    "Cancellation is best effort and cannot undo provider work or accepted counters or prove billing rollback/exactly-once generation. No model upgrade or paid provider/job call was performed.",
+    "Structured bounds are types/size constraints, not linguistic, curriculum, proficiency, consent or human review approval. Other provider endpoints do not automatically gain this helper.",
+    "Consent write uncertainty/reconciliation, remaining helper/provider/endpoint/cache/diagnostics/device inventory, genuine SDK expiry/current A/guest/B/restore/process restart/offline acceptance, uncertain writes/legacy certificates and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

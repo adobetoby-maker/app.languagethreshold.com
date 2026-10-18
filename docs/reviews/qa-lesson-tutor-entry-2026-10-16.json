@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-10-17T00:26:16.125Z",
+  "sourceCommit": "ea54a27",
+  "preview": "https://language-threshold-leefe4nda-adobetoby-5572s-projects.vercel.app",
+  "scope": "Actual hosted lesson-reference rejection before budget/provider use; no allowed inference or learner/assessment changes",
+  "checks": [
+    {
+      "name": "stale-source-version",
+      "status": 409,
+      "noStore": true
+    },
+    {
+      "name": "wrong-target-language",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "name": "missing-lesson",
+      "status": 400,
+      "noStore": true
+    },
+    {
+      "name": "unknown-module",
+      "status": 400,
+      "noStore": true
+    }
+  ]
+}

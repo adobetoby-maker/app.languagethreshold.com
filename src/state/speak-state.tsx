@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -32,7 +33,6 @@ interface SpeakCtx {
 }
 
 const Ctx = createContext<SpeakCtx | null>(null);
-const STORAGE_KEY = "lt.speak.v1";
 
 interface LangStore {
   turns: SpeakTurn[];
@@ -46,14 +46,15 @@ function emptyLang(): LangStore {
 }
 
 export function SpeakProvider({ children, language }: { children: ReactNode; language: Language }) {
+  const device = useLearnerDeviceStore("speak");
   const [store, setStore] = useState<Store>({});
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw);
+        const parsed = raw as Record<string, LangStore | SpeakTurn[]>;
         // Migrate v0 (just turns array) → v1
         const next: Store = {};
         for (const k of Object.keys(parsed)) {
@@ -74,16 +75,16 @@ export function SpeakProvider({ children, language }: { children: ReactNode; lan
       /* ignore */
     }
     setHydrated(true);
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      device.write(store);
     } catch {
       /* ignore */
     }
-  }, [store, hydrated]);
+  }, [device, store, hydrated]);
 
   const lang = store[language] ?? emptyLang();
 

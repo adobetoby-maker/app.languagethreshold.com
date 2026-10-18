@@ -1,0 +1,29 @@
+{
+  "testedAt": "2026-10-16T10:24:33.657Z",
+  "target": "http://127.0.0.1:4311",
+  "scope": "Synthetic QA exam attempts only; forms remain draft, no human calibration claimed",
+  "checks": {
+    "noTeamIndividual": true,
+    "privateAttemptHiddenFromAdmin": true,
+    "privateAttemptHiddenFromOtherLearner": true,
+    "teamOverviewExcludesPersonal": true,
+    "anonymousDenied": true,
+    "browserKeysAndTranscriptsHiddenUntilSubmission": true,
+    "saveRetryIdempotent": true,
+    "conflictChecked": false,
+    "submissionRetryIdempotent": true,
+    "missingListeningAndSpeechNotZero": true,
+    "writingNeedsReview": true,
+    "manualTeamReviewWorks": true,
+    "insufficientCoverageWithholdsSkillScore": true,
+    "directBrowserDatabaseDenied": true,
+    "noCertificates": true,
+    "originalTeamAssignmentPreserved": true
+  },
+  "qa": {
+    "personalEnrollmentId": "2210372a-8ca8-47d6-a1d8-5ebcfe5e1cb3",
+    "teamEnrollmentId": "af2aa79b-f136-4e54-9d2b-21e07d70ba70",
+    "personalAttemptId": "14e00c0c-df7b-401e-b964-deec56068f2c",
+    "teamAttemptId": "e410138d-ff73-4595-912f-56896277726a"
+  }
+}

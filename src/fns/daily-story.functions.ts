@@ -1,4 +1,6 @@
-import { setResponseHeader } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
 import { usageReceipt } from "@/lib/usage-cost";
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
@@ -24,13 +26,39 @@ export interface DailyStoryData {
   translation: string; // native-language translation of the story
 }
 
+const storyTextKey = (text: string) => text.normalize("NFC").toLowerCase();
+const StorySchema = z
+  .object({
+    story: z.string().trim().min(1).max(6000),
+    vocabHighlights: z.array(z.string().trim().min(1).max(80)).max(10),
+    comprehensionQ: z.string().trim().min(1).max(1000),
+    correctAnswer: z.string().trim().min(1).max(500),
+    translation: z.string().trim().min(1).max(6000),
+  })
+  .refine(({ story, vocabHighlights, correctAnswer }) => {
+    const source = storyTextKey(story);
+    return (
+      source.includes(storyTextKey(correctAnswer)) &&
+      new Set(vocabHighlights.map(storyTextKey)).size === vocabHighlights.length &&
+      vocabHighlights.every((word) => source.includes(storyTextKey(word)))
+    );
+  });
+
 export const generateDailyStory = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => InputSchema.parse(data))
   .handler(async ({ data }): Promise<{ error: string | null; data: DailyStoryData | null }> => {
+    const request = getRequest();
+    setResponseHeader("Cache-Control", "no-store");
+    const originError = learningGenerationOriginError(request);
+    if (originError) {
+      setResponseStatus(originError.status);
+      return { data: null, error: originError.error };
+    }
     const KEY = process.env.ANTHROPIC_API_KEY;
     if (!KEY) return { error: "AI not configured", data: null };
 
-    const client = new Anthropic({ apiKey: KEY });
+    const budgetError = await learningGenerationError("content");
+    if (budgetError) return { data: null, error: budgetError };
     const nativeLanguage = (data.nativeLanguage ?? "English") as NativeLanguage;
 
     const vocabClause = data.vocabWords.length
@@ -59,63 +87,72 @@ ${vocabClause}
 - Return via the story_output tool only`;
 
     try {
-      const response = await client.messages.create({
-        model: "claude-haiku-5-5",
-        max_tokens: 1100,
-        system: `You create short, engaging language-learning stories. Always respond via the story_output tool.`,
-        messages: [{ role: "user", content: prompt }],
-        tools: [
-          {
-            name: "story_output",
-            description: "Output the story and its comprehension exercise.",
-            input_schema: {
-              type: "object" as const,
-              properties: {
-                story: {
-                  type: "string",
-                  description: `The 4-6 sentence story in ${data.language}.`,
+      const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+      const response = await client.messages.create(
+        {
+          model: "claude-haiku-5-5",
+          max_tokens: 1100,
+          system: `You create short, engaging language-learning stories. Always respond via the story_output tool.`,
+          messages: [{ role: "user", content: prompt }],
+          tools: [
+            {
+              name: "story_output",
+              description: "Output the story and its comprehension exercise.",
+              input_schema: {
+                type: "object" as const,
+                properties: {
+                  story: {
+                    type: "string",
+                    description: `The 4-6 sentence story in ${data.language}.`,
+                  },
+                  vocabHighlights: {
+                    type: "array",
+                    items: { type: "string" },
+                    description:
+                      "Which of the learner's vocab words appear in the story (exact forms used).",
+                  },
+                  comprehensionQ: {
+                    type: "string",
+                    description: `One short comprehension question in ${nativeLanguage} about the story.`,
+                  },
+                  correctAnswer: {
+                    type: "string",
+                    description: `A key word or short phrase from the story (in ${data.language}) that correctly answers the question.`,
+                  },
+                  translation: {
+                    type: "string",
+                    description: `Plain ${nativeLanguage} translation of the full story.`,
+                  },
                 },
-                vocabHighlights: {
-                  type: "array",
-                  items: { type: "string" },
-                  description:
-                    "Which of the learner's vocab words appear in the story (exact forms used).",
-                },
-                comprehensionQ: {
-                  type: "string",
-                  description: `One short comprehension question in ${nativeLanguage} about the story.`,
-                },
-                correctAnswer: {
-                  type: "string",
-                  description: `A key word or short phrase from the story (in ${data.language}) that correctly answers the question.`,
-                },
-                translation: {
-                  type: "string",
-                  description: `Plain ${nativeLanguage} translation of the full story.`,
-                },
+                required: [
+                  "story",
+                  "vocabHighlights",
+                  "comprehensionQ",
+                  "correctAnswer",
+                  "translation",
+                ],
+                additionalProperties: false,
               },
-              required: [
-                "story",
-                "vocabHighlights",
-                "comprehensionQ",
-                "correctAnswer",
-                "translation",
-              ],
-              additionalProperties: false,
             },
-          },
-        ],
-        tool_choice: { type: "tool", name: "story_output" },
-      });
+          ],
+          tool_choice: { type: "tool", name: "story_output" },
+        },
+        { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+      );
 
       setResponseHeader("X-LT-AI-Usage", JSON.stringify(usageReceipt(response)));
-      const toolUse = response.content.find((c) => c.type === "tool_use");
+      const toolUse = response.content.find(
+        (c) => c.type === "tool_use" && c.name === "story_output",
+      );
       if (!toolUse || toolUse.type !== "tool_use") {
         return { error: "No story generated.", data: null };
       }
-      return { error: null, data: toolUse.input as DailyStoryData };
-    } catch (e) {
-      console.error("Daily story error:", e);
+      const parsed = StorySchema.safeParse(toolUse.input);
+      if (!parsed.success)
+        return { data: null, error: "Story content came back incomplete. Please try again." };
+      return { error: null, data: parsed.data };
+    } catch {
+      console.error("Daily story generation failed");
       return { error: "Story generation failed.", data: null };
     }
   });

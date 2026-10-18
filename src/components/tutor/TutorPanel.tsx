@@ -1,3 +1,9 @@
+import {
+  currentTutorLesson,
+  resolveTutorLesson,
+  tutorLessonThread,
+} from "@/lib/lesson-tutor-context";
+import { recentConversationMessages } from "@/lib/conversation-history";
 import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -51,7 +57,28 @@ export function TutorPanel() {
   const tutor = useTutor();
   const { gated } = useAiGate();
 
-  const threadId = selected.id;
+  const lessonSearch = typeof window === "undefined" ? "" : window.location.search;
+  const lessonReference = useMemo(
+    () =>
+      currentTutorLesson(lessonSearch, {
+        currentTab: appState.currentTab,
+        activeModuleId: appState.activeModuleId,
+        selectedLanguage: appState.selectedLanguage,
+        nativeLanguage: appState.nativeLanguage,
+      }),
+    [
+      lessonSearch,
+      appState.currentTab,
+      appState.activeModuleId,
+      appState.selectedLanguage,
+      appState.nativeLanguage,
+    ],
+  );
+  const lesson = useMemo(
+    () => (lessonReference ? resolveTutorLesson(lessonReference) : null),
+    [lessonReference],
+  );
+  const threadId = lessonReference ? tutorLessonThread(lessonReference) : selected.id;
   const messages = tutor.messagesFor(threadId);
   const sourceContext = tutor.contextFor(threadId);
   const [input, setInput] = useState("");
@@ -98,11 +125,17 @@ export function TutorPanel() {
   const passage = useMemo(
     () =>
       sourceContext?.passage ??
+      (lesson?.reading
+        ? lesson.reading.sentences
+            .map((sentence) => sentence.target)
+            .join(" ")
+            .slice(0, 2000)
+        : undefined) ??
       selected.sentences
         .slice(0, 4)
         .map((s) => s.target)
         .join(" "),
-    [selected, sourceContext],
+    [selected, sourceContext, lesson],
   );
 
   const send = (text: string) => {
@@ -115,7 +148,7 @@ export function TutorPanel() {
     setError(null);
     // Reader context belongs to the first contextual turn only. Later free-form
     // questions in the same thread should not be steered by a stale word card.
-    const readerContext = tutor.takeReaderContext(selected.title);
+    const readerContext = tutor.takeReaderContext(sourceContext?.textTitle ?? selected.title);
     const userMsg: TutorMessage = {
       id: crypto.randomUUID(),
       role: "user",
@@ -146,15 +179,13 @@ export function TutorPanel() {
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
         body: JSON.stringify({
-          messages: [...messages, userMsg].map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+          messages: recentConversationMessages([...messages, userMsg]),
           context: {
             language: appState.selectedLanguage,
             level: cefr,
             nativeLanguage: appState.nativeLanguage,
-            textTitle: selected.title,
+            textTitle: sourceContext?.textTitle ?? lesson?.title ?? selected.title,
+            lesson: lessonReference ?? undefined,
             passage,
             lastWord: sourceContext?.selectedWord,
             selectedWord: sourceContext?.selectedWord,
@@ -315,8 +346,7 @@ export function TutorPanel() {
         aria-label="Language Threshold Tutor"
         className="lt-tutor-panel relative flex w-full max-w-[min(100%,440px)] flex-col overflow-hidden rounded-2xl border border-gold/40 bg-card/95 shadow-luxe backdrop-blur-xl"
         style={{
-          maxHeight:
-            "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
+          maxHeight: "calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))",
         }}
       >
         {/* Header */}
@@ -348,10 +378,24 @@ export function TutorPanel() {
           </div>
         </div>
 
+        {lesson && (
+          <div
+            className="shrink-0 border-b border-gold/25 bg-gold/5 px-4 py-2 text-xs"
+            role="status"
+          >
+            <p className="font-semibold">
+              Lesson {lesson.lessonNumber} · {lesson.title}
+            </p>
+            <p>{lesson.objective}</p>
+            {lesson.teaching && (
+              <p>Lesson support: {lesson.teaching.stage} · practice, not an exam rating</p>
+            )}
+          </div>
+        )}
         {sourceContext && (
           <div className="shrink-0 border-b border-sky-500/20 bg-sky-500/[0.07] px-4 py-3">
             <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
-              Context from Reader · sentence{" "}
+              {lesson ? "Context from lesson" : "Context from Reader"} · sentence{" "}
               {sourceContext.sentenceIndex === undefined
                 ? "selected"
                 : sourceContext.sentenceIndex + 1}

@@ -1,0 +1,30 @@
+{
+  "testedAt": "2026-10-17T20:00:47.973Z",
+  "sourceCommit": "2ca123d",
+  "deployed": false,
+  "latestHostedApplication": "5b00bd2",
+  "surfaces": [
+    "FlashcardsStudio",
+    "Reader WordCard"
+  ],
+  "validation": {
+    "tests": 973,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "artifactMiB": 19.74,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1243,
+    "staticFiles": 148,
+    "privateHits": 0
+  },
+  "lifecycleEvidence": "tests/owned-speaker-hook.test.mjs; controlled actual hook and TTS wrapper, not browser acceptance",
+  "remaining": [
+    "Other direct utterance surfaces",
+    "Hosted browser and physical audio acceptance",
+    "Full PRD release gates"
+  ]
+}

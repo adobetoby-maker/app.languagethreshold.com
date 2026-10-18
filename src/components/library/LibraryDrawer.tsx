@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { LegacyLibraryRecovery } from "./LegacyLibraryRecovery";
 import {
   ChevronDown,
   ChevronRight,
@@ -17,9 +18,9 @@ import { useApp, type Language } from "@/state/app-state";
 import { getModule } from "@/data/modules";
 import { partitionByFocus } from "@/lib/module-filter";
 import { AddTextModal } from "./AddTextModal";
+import { CultureReadingGenerator } from "./CultureReadingGenerator";
 import type { CefrLevel } from "@/fns/grammar.functions";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 
 const LEVEL_TONE: Record<CefrLevel, string> = {
   A1: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
@@ -146,7 +147,18 @@ type QuickCat = (typeof QUICK_CATEGORIES)[number] | "All";
 type LevelFilter = (typeof CEFR_LEVELS)[number] | "All";
 
 export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { state, dispatch, removeCustomEntry, setReadStatus, setLanguageFilter } = useLibrary();
+  const {
+    state,
+    dispatch,
+    removeCustomEntry,
+    setReadStatus,
+    setLanguageFilter,
+    syncing,
+    pendingChanges,
+    syncError,
+    legacySaved,
+    syncLibrary,
+  } = useLibrary();
   const { state: appState } = useApp();
   const activeModule = getModule(appState.activeModuleId);
   const focus = activeModule?.vocabFocus ?? null;
@@ -272,16 +284,9 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
         {/* Stats + Add button */}
         <div className="flex items-center justify-between border-b border-border/40 px-6 py-3">
-          {state.generating ? (
-            <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-              <Sparkle className="h-3 w-3 animate-pulse" fill="currentColor" />
-              Generating Culture Series…
-            </span>
-          ) : (
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              {state.entries.filter((e) => e.available).length} texts ready
-            </span>
-          )}
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            {state.entries.filter((e) => e.available).length} texts ready
+          </span>
           <button
             onClick={() => setAddOpen(true)}
             className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:bg-gold/15"
@@ -292,6 +297,33 @@ export function LibraryDrawer({ open, onClose }: { open: boolean; onClose: () =>
 
         {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto px-5 py-5">
+          {open && (
+            <CultureReadingGenerator
+              key={`${appState.selectedLanguage}/${appState.nativeLanguage}`}
+              onOpen={onClose}
+            />
+          )}
+          <div className="mb-4 text-xs leading-relaxed text-muted-foreground" aria-live="polite">
+            <p>
+              {syncing
+                ? "Syncing your library…"
+                : pendingChanges
+                  ? `${pendingChanges} library change${pendingChanges === 1 ? " is" : "s are"} saved on this device, waiting to sync.`
+                  : "Your texts stay separate from other accounts on this device."}
+            </p>
+            {syncError && <p className="mt-2 text-amber-300">{syncError}</p>}
+            {(pendingChanges > 0 || syncError) && (
+              <button
+                type="button"
+                disabled={syncing}
+                onClick={syncLibrary}
+                className="mt-2 min-h-11 rounded-lg border border-border px-3 disabled:opacity-50"
+              >
+                Retry library sync
+              </button>
+            )}
+            {legacySaved && <LegacyLibraryRecovery />}
+          </div>
           {/* My Texts — always first */}
           <section className="mb-7">
             <div className="mb-3 flex items-center gap-2 px-1 text-gold">
@@ -515,22 +547,8 @@ function BattleVocabularySection({
   moduleName: string | null;
 }) {
   const { savedVocab, removeVocabWord } = useMatch();
-  const speak = (word: SavedVocabWord) => {
-    try {
-      const locale = SPEECH_LOCALE[word.language];
-      if (needsRemoteTTS(locale)) {
-        void speakRemote(word.word, locale, { rate: 0.9 });
-        return;
-      }
-      const u = new SpeechSynthesisUtterance(word.word);
-      configureUtterance(u, locale);
-      u.rate = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch {
-      /* ignore */
-    }
-  };
+  const speakOwned = useOwnedSpeaker();
+  const speak = (word: SavedVocabWord) => speakOwned(word.word, SPEECH_LOCALE[word.language]);
 
   const { inModule, core } = partitionByFocus(
     savedVocab,

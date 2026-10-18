@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -23,8 +24,6 @@ export interface LeaderboardPlayer {
   wins: number;
   losses: number;
 }
-
-const STORAGE_KEY = "lt.leaderboard.v1";
 
 const NAMES = [
   "AminaK",
@@ -124,14 +123,15 @@ interface LeaderboardCtx {
 const Ctx = createContext<LeaderboardCtx | null>(null);
 
 export function LeaderboardProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("simulatedRivals");
   const [players, setPlayers] = useState<LeaderboardPlayer[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw) as LeaderboardPlayer[];
+        const parsed = raw as LeaderboardPlayer[];
         if (Array.isArray(parsed) && parsed.length === 8) {
           setPlayers(parsed);
           setHydrated(true);
@@ -144,16 +144,16 @@ export function LeaderboardProvider({ children }: { children: ReactNode }) {
     const fresh = seedPlayers();
     setPlayers(fresh);
     setHydrated(true);
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(players));
+      device.write(players);
     } catch {
       /* ignore */
     }
-  }, [players, hydrated]);
+  }, [device, players, hydrated]);
 
   const nudgeOnWin = useCallback(() => {
     setPlayers((ps) =>

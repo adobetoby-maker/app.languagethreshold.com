@@ -1,0 +1,32 @@
+{
+  "testedAt": "2026-10-16",
+  "sourceCommit": "6b4e2ae",
+  "readerEngineCommit": "3eb1b49",
+  "target": "https://language-threshold-5u53sd1cx-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_6s4NXcwDXQvgVWE4XbQ47Rze66Pb",
+  "checks": {
+    "precedingPreviewGuestTextNotImportedOnSignIn": true,
+    "browserPersonalSaveExactlyOneCloudRow": true,
+    "otherLearnerCloudVisibilityZero": true,
+    "finalValidSessionOfflineReload": true,
+    "cachedCore30CannotOverwriteIncomingReaderRoute": true,
+    "ownedBookAvailableInMyTextsOffline": true,
+    "nativeReadOpensBothLanguageParagraphsWhileDevtoolsStillOffline": true,
+    "noPrivateTextNodesAfterSettledSignOut": true,
+    "secondQaIdentityVerifiedWithoutDisclosure": true,
+    "secondAccountSeesNeitherPersonalNorGuestQaText": true,
+    "noThrottlingRestoredAndDevtoolsClosed": true
+  },
+  "retainedFixtures": {
+    "personalQaBook": "One labeled browser-created Reader test text retained in the dedicated individual account",
+    "guestQaBook": "One labeled guest-only text on preceding Preview origin",
+    "apiFixtures": "Removed by hosted integration script"
+  },
+  "limits": [
+    "Reader account cache is retained after sign-out; explicit shared-device cleanup/unsynced warning still required",
+    "Automatic selected-custom-text restoration is not proved; book opened through My Texts",
+    "Legacy unowned library is preserved but explicit recovery is not implemented",
+    "Other private feature stores remain to isolate",
+    "No expired-session, physical iPhone/Safari/audio or official assessment acceptance proved"
+  ]
+}

@@ -35,7 +35,16 @@ import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
  * languages, the panel re-opens automatically so they always see the
  * "first lesson" entry point for the new context.
  */
-export function ModuleStudyGuide({ className = "" }: { className?: string }) {
+export function ModuleStudyGuide({
+  className = "",
+  embedded = false,
+  onOpenReading,
+}: {
+  className?: string;
+  /** The Reader supplies its own disclosure below the passage, without a second dismissal. */
+  embedded?: boolean;
+  onOpenReading?: () => void;
+}) {
   const { state, dispatch } = useApp();
   const tutor = useTutor();
   const library = useLibrary();
@@ -46,6 +55,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
 
   const dismissKey = moduleId ? `lt.studyguide.dismissed.${moduleId}.${language}` : null;
   const [open, setOpen] = useState(() => {
+    if (embedded) return true;
     if (!moduleId) return true;
     try {
       return localStorage.getItem(`lt.studyguide.dismissed.${moduleId}.${language}`) !== "1";
@@ -74,7 +84,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
     if (!moduleId) return [];
     return lessonIds.map((id, idx) => {
       const entry = library.state.entries.find((e) => e.id === id);
-      return { id, idx, title: entry?.title ?? `Lesson ${idx + 1}`, subtitle: entry?.subtitle };
+      return { id, idx, title: entry?.title ?? `Reading ${idx + 1}`, subtitle: entry?.subtitle };
     });
   }, [moduleId, lessonIds, library.state.entries]);
 
@@ -111,6 +121,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
       library.dispatch({ type: "SELECT", payload: targetId });
     }
     dispatch({ type: "SET_TAB", payload: tab });
+    if (tab === "reader") onOpenReading?.();
   }
 
   function startRoleplay(prompt: string) {
@@ -149,20 +160,22 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
         <div className="text-3xl leading-none">{module.emoji}</div>
         <div className="flex-1 min-w-0">
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-            ✦ How to begin · First lesson
+            {embedded ? "✦ Reader study guide" : "✦ How to begin · First lesson"}
           </p>
           <h2 className="font-display text-lg italic leading-snug text-foreground">
             {module.name} <span className="text-muted-foreground">— in {language}</span>
           </h2>
           <p className="mt-1 text-xs leading-relaxed text-foreground/75">{module.blurb}</p>
         </div>
-        <button
-          onClick={dismiss}
-          aria-label="Dismiss study guide"
-          className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
-        >
-          <X className="h-3.5 w-3.5" />
-        </button>
+        {!embedded && (
+          <button
+            onClick={dismiss}
+            aria-label="Dismiss study guide"
+            className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-background/60 hover:text-foreground"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        )}
       </header>
 
       {/* 4 quadrants */}
@@ -295,7 +308,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
         {lessons.length > 0 ? (
           <>
             <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Lessons — tap any to open in Reader
+              Reading passages — tap any to open in Reader
             </p>
             <div className="flex flex-wrap gap-1.5">
               {lessons.map((lesson) => (
@@ -318,7 +331,7 @@ export function ModuleStudyGuide({ className = "" }: { className?: string }) {
           </>
         ) : (
           <div className="flex flex-wrap gap-1.5">
-            <Pill onClick={() => go("guide")} primary>
+            <Pill onClick={() => go("core30")} primary>
               Start first lesson
             </Pill>
             <Pill onClick={() => go("story")}>Generate a field story</Pill>

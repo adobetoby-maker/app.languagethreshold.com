@@ -1,0 +1,71 @@
+{
+  "testedAt": "2026-10-16T11:31:05.038Z",
+  "migration": "20261016113042",
+  "scope": "Security advisor comparison around reviewer-administration migration; no reviewer or content-approval rows created.",
+  "before": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 33
+    },
+    {
+      "name": "function_search_path_mutable",
+      "level": "WARN",
+      "count": 3
+    },
+    {
+      "name": "extension_in_public",
+      "level": "WARN",
+      "count": 1
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 2
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 2
+    },
+    {
+      "name": "auth_leaked_password_protection",
+      "level": "WARN",
+      "count": 1
+    }
+  ],
+  "after": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 37
+    },
+    {
+      "name": "function_search_path_mutable",
+      "level": "WARN",
+      "count": 3
+    },
+    {
+      "name": "extension_in_public",
+      "level": "WARN",
+      "count": 1
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 2
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 2
+    },
+    {
+      "name": "auth_leaked_password_protection",
+      "level": "WARN",
+      "count": 1
+    }
+  ],
+  "interpretation": "No new warning classes/counts. Four additional INFO RLS-without-policy notices correspond to intentional service-only tables: browser table grants and RPC execution are revoked; APIs authenticate and authorize. Existing warnings are unchanged.",
+  "source": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+}

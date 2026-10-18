@@ -1,0 +1,58 @@
+{
+  "testedAt": "2026-10-18T11:54:49.594Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "name": "missing-origin-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "cross-origin-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "foreign-catalog-origin-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "cross-site-catalog-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "unsupported-catalog-language-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "malformed-body-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-body-denied",
+      "status": 413,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-text-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Rejected entry requests only; no admissible speech/catalog request, provider transport, native/browser playback, guard-counter consumption or human approval is exercised."
+  ]
+}

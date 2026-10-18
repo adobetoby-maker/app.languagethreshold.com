@@ -48,3 +48,9 @@ test("start-over still clears local state when sign-out or cache cleanup fails",
     "restart",
   ]);
 });
+
+test("cancelling sign-out protects unsynced exam drafts from a first-run reset", async () => {
+  const events = [];
+  await resetAppToFirstRun(async () => false, resetRuntime(events));
+  assert.deepEqual(events, []);
+});

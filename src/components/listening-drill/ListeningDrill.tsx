@@ -15,8 +15,8 @@ import { useApp, type Language } from "@/state/app-state";
 import { MODULES } from "@/data/modules";
 import { useListeningDrill, type LDLeaderboardKey } from "@/state/listening-drill-state";
 import { generateListeningDrill, type ListeningDrillLevel } from "@/fns/listening-drill.functions";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
+import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
+import { useSpeech } from "@/state/speech-state";
 
 const LEVEL_LABELS: Record<ListeningDrillLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Easy — 4-7 words, A2" },
@@ -36,37 +36,6 @@ const SPEECH_LOCALE: Record<Language, string> = {
   Pashto: "ps-AF",
   English: "en-US",
 };
-
-function speak(text: string, language: Language) {
-  if (typeof window === "undefined") return;
-  if (needsRemoteTTS(SPEECH_LOCALE[language])) {
-    void speakRemote(text, SPEECH_LOCALE[language], { rate: 0.9 });
-    return;
-  }
-  if (!("speechSynthesis" in window)) return;
-  try {
-    // Safari deadlocks if you call speak() while a previous utterance is
-    // still queued or speaking. Cancel first, always.
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    configureUtterance(utter, SPEECH_LOCALE[language]);
-    utter.rate = 0.9;
-    window.speechSynthesis.speak(utter);
-  } catch {
-    // Ignore — TTS is a nice-to-have. The drill still works visually if it
-    // fails (the user just won't hear anything; they'll have to advance).
-  }
-}
-
-function cancelSpeak() {
-  stopRemoteTTS();
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  try {
-    window.speechSynthesis.cancel();
-  } catch {
-    /* noop */
-  }
-}
 
 export function ListeningDrill() {
   const { state: app, dispatch: appDispatch } = useApp();
@@ -88,13 +57,14 @@ export function ListeningDrill() {
     return () => ld.setFetcher(null);
   }, [ld, fetchQuestion, topic]);
 
-  // Always cancel any in-flight TTS when this view unmounts.
-  useEffect(() => () => cancelSpeak(), []);
-
   const [selectedLevel, setSelectedLevel] = useState<ListeningDrillLevel>(1);
   const run = ld.state.run;
   const cur = ld.currentQuestion();
   const score = ld.runScore();
+  const { voiceURI } = useSpeech();
+  const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(
+    JSON.stringify([app.activeModuleId, run?.language, run?.index, cur?.question.phrase, voiceURI]),
+  );
 
   // Auto-load next question when index advances.
   useEffect(() => {
@@ -111,7 +81,7 @@ export function ListeningDrill() {
     if (!run || !cur) return;
     if (cur.submitted) return;
     if (cur.playCount !== 0) return;
-    speak(cur.question.phrase, run.language);
+    speakOwned(cur.question.phrase, SPEECH_LOCALE[run.language], voiceURI);
     ld.incrementPlays();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [run?.index, cur?.question.phrase, cur?.submitted]);
@@ -128,27 +98,27 @@ export function ListeningDrill() {
 
   const onReplay = useCallback(() => {
     if (!run || !cur) return;
-    speak(cur.question.phrase, run.language);
+    speakOwned(cur.question.phrase, SPEECH_LOCALE[run.language], voiceURI);
     ld.incrementPlays();
-  }, [run, cur, ld]);
+  }, [run, cur, ld, speakOwned, voiceURI]);
 
   const onAnswer = useCallback(
     (idx: number) => {
       if (!cur || cur.submitted) return;
-      cancelSpeak();
+      stopOwned();
       ld.answer(idx);
       const wasCorrect = idx === cur.question.correctIndex;
       appDispatch({ type: "ADD_XP", payload: wasCorrect ? 4 : 1 });
     },
-    [cur, ld, appDispatch],
+    [cur, ld, appDispatch, stopOwned],
   );
 
   const onNext = useCallback(() => {
     if (!run) return;
-    cancelSpeak();
+    stopOwned();
     if (run.index >= ld.RUN_LENGTH - 1) return;
     ld.advance();
-  }, [run, ld]);
+  }, [run, ld, stopOwned]);
 
   // ── No-run lobby ───────────────────────────────────────────────────────
   if (!run) {

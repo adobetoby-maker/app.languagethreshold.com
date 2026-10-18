@@ -1,3 +1,7 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
+import { validReadingHints } from "@/lib/reading-hint-cache";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -43,61 +47,76 @@ Always respond by calling the provided tool.`;
 export const addRomaja = createServerFn({ method: "POST" })
   .inputValidator((i: unknown) => InputSchema.parse(i))
   .handler(async ({ data }): Promise<{ data: RomajaResult | null; error: string | null }> => {
-    const KEY = process.env.ANTHROPIC_API_KEY;
-    if (!KEY) return { data: null, error: "AI is not configured" };
+    const request = getRequest();
+    setResponseHeader("Cache-Control", "no-store");
+    const originError = learningGenerationOriginError(request);
+    if (originError) {
+      setResponseStatus(originError.status);
+      return { data: null, error: originError.error };
+    }
 
     // Fast path: no Hangul → nothing to analyze. One plain segment.
     if (!HANGUL_SYL_RE.test(data.text)) {
       return { data: { segments: [{ base: data.text }] }, error: null };
     }
 
+    const KEY = process.env.ANTHROPIC_API_KEY;
+    if (!KEY) return { data: null, error: "AI is not configured" };
+    const budgetError = await learningGenerationError("lookup");
+    if (budgetError) return { data: null, error: budgetError };
+
     try {
-      const client = new Anthropic({ apiKey: KEY });
-      const response = await client.messages.create({
-        model: "claude-haiku-5-5",
-        max_tokens: 1400,
-        system: SYSTEM,
-        messages: [{ role: "user", content: `Analyze this Korean sentence:\n\n${data.text}` }],
-        tools: [
-          {
-            name: "return_romaja",
-            description:
-              "Return ordered segments of the sentence with Revised Romanization on each Hangul syllable.",
-            input_schema: {
-              type: "object" as const,
-              properties: {
-                segments: {
-                  type: "array",
-                  items: {
-                    type: "object",
-                    properties: {
-                      base: { type: "string" },
-                      romaja: { type: "string" },
+      const client = new Anthropic({ apiKey: KEY, timeout: 30_000, maxRetries: 0 });
+      const response = await client.messages.create(
+        {
+          model: "claude-haiku-5-5",
+          max_tokens: 1400,
+          system: SYSTEM,
+          messages: [{ role: "user", content: `Analyze this Korean sentence:\n\n${data.text}` }],
+          tools: [
+            {
+              name: "return_romaja",
+              description:
+                "Return ordered segments of the sentence with Revised Romanization on each Hangul syllable.",
+              input_schema: {
+                type: "object" as const,
+                properties: {
+                  segments: {
+                    type: "array",
+                    items: {
+                      type: "object",
+                      properties: {
+                        base: { type: "string" },
+                        romaja: { type: "string" },
+                      },
+                      required: ["base"],
+                      additionalProperties: false,
                     },
-                    required: ["base"],
-                    additionalProperties: false,
                   },
                 },
+                required: ["segments"],
+                additionalProperties: false,
               },
-              required: ["segments"],
-              additionalProperties: false,
             },
-          },
-        ],
-        tool_choice: { type: "tool", name: "return_romaja" },
-      });
+          ],
+          tool_choice: { type: "tool", name: "return_romaja" },
+        },
+        { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+      );
 
-      const toolUse = response.content.find((c) => c.type === "tool_use");
+      const toolUse = response.content.find(
+        (c) => c.type === "tool_use" && c.name === "return_romaja",
+      );
       if (!toolUse || toolUse.type !== "tool_use") {
         return { data: null, error: "No romaja returned." };
       }
-      const parsed = toolUse.input as RomajaResult;
-      if (!Array.isArray(parsed.segments)) {
+      const segments = (toolUse.input as { segments?: unknown } | null)?.segments;
+      if (!validReadingHints(segments, "romaja", data.text)) {
         return { data: null, error: "Invalid romaja response." };
       }
-      return { data: parsed, error: null };
-    } catch (e) {
-      console.error("addRomaja failed", e);
+      return { data: { segments }, error: null };
+    } catch {
+      console.error("addRomaja provider request failed");
       return { data: null, error: "Romaja request failed." };
     }
   });

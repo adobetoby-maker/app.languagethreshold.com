@@ -17,6 +17,7 @@ export interface ItemEvidence {
   skill: AssessmentSkill;
   /** Reviewed anchor/equivalence group, absent when comparisons are not supported. */
   comparisonGroup?: string;
+  coverage?: "module" | "studied" | "transfer";
   state: EvidenceState;
   points: number | null;
   maximum: number;
@@ -30,6 +31,8 @@ export interface SkillResult {
   objectives: string[];
   evidenceCount: number;
   pendingCount: number;
+  reviewCount: number;
+  availableObjectives: string[];
   missingCount: number;
   /** Scores remain provisional until form/rubric calibration is approved. */
   provisional: boolean;
@@ -55,8 +58,9 @@ export function skillResults(evidence: readonly ItemEvidence[], calibrated = fal
       (entry) =>
         entry.state === "pending" || (entry.state === "scored" && entry.source === "ai_proposal"),
     ).length;
-    const review = rows.some((entry) => entry.state === "needs_review");
-    const missingCount = rows.length - scored.length - pendingCount;
+    const missingCount = rows.filter((entry) => entry.state === "not_assessed").length;
+    const reviewCount = rows.length - scored.length - pendingCount - missingCount;
+    const review = reviewCount > 0;
     const state = review
       ? "needs_review"
       : pendingCount
@@ -77,6 +81,8 @@ export function skillResults(evidence: readonly ItemEvidence[], calibrated = fal
       objectives,
       evidenceCount: scored.length,
       pendingCount,
+      reviewCount,
+      availableObjectives: [...new Set(rows.map((entry) => entry.objectiveId))].sort(),
       missingCount,
       provisional: !calibrated,
     };
@@ -227,4 +233,21 @@ export function checkpointSchedule(startDate: string, timezone: string) {
     );
     return { checkpoint, date, dueAt: localNoonTimestamp(date, timezone), timezone };
   });
+}
+
+/** Midpoint results never masquerade as full-module readiness. */
+export function checkpointProfiles(
+  checkpoint: Checkpoint,
+  evidence: readonly ItemEvidence[],
+  calibrated = false,
+) {
+  if (checkpoint !== "day45")
+    return [{ coverage: "module" as const, skills: skillResults(evidence, calibrated) }];
+  return (["studied", "transfer"] as const).map((coverage) => ({
+    coverage,
+    skills: skillResults(
+      evidence.filter((item) => item.coverage === coverage),
+      calibrated,
+    ),
+  }));
 }

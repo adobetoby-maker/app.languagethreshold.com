@@ -1,0 +1,112 @@
+{
+  "testedAt": "2026-10-17T21:55:11.051718+00:00",
+  "applicationCommit": "a2ff84a52336373378456cea0c378c23f4ff0902",
+  "preview": "https://language-threshold-3wqa8hpxo-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-3wqa8hpxo-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_14rhBErU26tvR1bk1msYMjdiaj9r",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-3wqa8hpxo-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "a2ff84a52336373378456cea0c378c23f4ff0902",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 999,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.76,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1274,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/content-review-lifecycle.test.mjs",
+    "tests/assessment-client-cancellation.test.mjs"
+  ],
+  "checks": [
+    "Content review state belongs to actor/form/fingerprint/review responsibility list/current lesson binding; snapshot state also includes release manifest/content version/canBind",
+    "Changed form or actor resets confirmation/findings/error before interaction; note edits reset confirmation",
+    "Owned abort signals and current leases suppress departed success/access-loss/error/finally callbacks",
+    "Ref locks prevent duplicate submissions; identical mounted-body retries retain request ID",
+    "Review submission requires current assigned kind, explicit confirmation, bounded findings, valid decision and current binding before approval",
+    "Current failures remain visible and retryable; stale 401/403 cannot clear replacement view",
+    "Four controlled actual-source groups verify account/target/manifest/version/permission/binding transitions, retry success, refusal, duplicate and unmount paths"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-content-form-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real microphone, recording, consent, upload, reviewer acknowledgement, withdrawal, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write",
+    "Helper cancellation applies when callers supply/abort a signal; it does not add automatic identity subscriptions or prove every caller has a mounted guard/deadline",
+    "No real human review, lesson binding, reviewer assignment or approval was performed; positive callbacks are controlled fixtures only",
+    "Reviewer-access editor in src/routes/exam-reviewers.tsx still needs mounted-form/context lifecycle review; source inventory is not an app-wide privacy proof"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-assessment-helper-preview-2026-10-17.json"
+}

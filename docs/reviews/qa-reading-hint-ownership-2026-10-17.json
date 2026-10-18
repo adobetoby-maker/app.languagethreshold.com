@@ -1,0 +1,46 @@
+{
+  "testedAt": "2026-10-17T13:35:40.123959+00:00",
+  "applicationSource": "d5820df",
+  "deployed": false,
+  "finding": "Furigana, pinyin and romaja caches previously persisted source sentences and readings under unowned localStorage keys and module-global memory. They are used for private Reader sentences and speaking transcripts as well as public lessons.",
+  "changes": [
+    "Use existing learner-owned account/guest envelopes, separately keyed for three reading formats.",
+    "No mutable module-level sentence cache; no unowned-cache hydration/automatic assignment/deletion.",
+    "Keep at most80valid sentence entries per format/account; source text must match concatenated segments exactly and satisfy bounded shape/format validation.",
+    "Render result only for current owned store and exact text. Ignore cancelled/previous effect responses; use plain text while loading, on invalid response or failure."
+  ],
+  "verification": {
+    "tests": 826,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 43,
+    "artifactMiB": 19.65,
+    "privateBank": {
+      "testedAt": "2026-10-17T13:35:02.400Z",
+      "sourceCommit": "d5820df",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1129,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Production owned-store tests for three added kinds: own reload, guest/B isolation, own restore, stale callbacks and retained original legacy bytes.",
+    "Cache shape/format/source validation, retained original input and bounded eviction.",
+    "Actual hook with controlled React/store boundaries: sentence changes, delayed earlier replies, actor change, own cached return and disabled requests."
+  ],
+  "reactReview": [
+    "No conditional hooks, render-time sentence storage reads or module-level mutable learner data.",
+    "Effect cancellation and store/text result identity guard old callbacks and pending render.",
+    "Existing word-click/accessibility/rendering components retained."
+  ],
+  "limitations": [
+    "No browser/account-switch/offline/physical-device acceptance on these changes.",
+    "Old unowned cache bytes remain on device as instructed; replacement caches are not learner history and no recovery claim is offered.",
+    "No complete app-wide privacy audit claim.",
+    "Conjugation registry/user cache, old AI email-capture marker, remaining in-memory/private-context caches still require scoped review.",
+    "Hosted isolated Preview remains cfa32b6; accepted companion d4ad837 and live app unchanged.",
+    "No schema/role/active-policy/speech-collection/schedule/model calls; durable adaptive runtime and release gates remain open."
+  ]
+}

@@ -1,8 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { prepareTeamJson, MAX_TEAM_ACTIVITY_BYTES } from "@/lib/team-request";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
-import { authenticatedUser, json, teamAdminClient, teamError } from "@/lib/team-server";
+import {
+  authenticatedTeamUser,
+  json,
+  teamAdminClient,
+  scopedTeamError,
+  TeamOperationError,
+} from "@/lib/team-server";
 import { maybeIssueRoofingCertificate } from "@/lib/team-certificate";
 
 const schema = z.discriminatedUnion("action", [
@@ -31,16 +38,18 @@ export const Route = createFileRoute("/api/team-activity")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, schema, MAX_TEAM_ACTIVITY_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
-          const body = schema.parse(await request.json());
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           if (body.moduleId !== "core" && !getModule(body.moduleId))
-            throw new Error("Unknown module.");
+            throw new TeamOperationError("Unknown module.");
           if (body.action === "interval") {
             const when = new Date(body.startedAt).getTime();
             if (!Number.isFinite(when) || when > Date.now() + 5000 || when < Date.now() - 120000)
-              throw new Error("Activity interval is outside the allowed window.");
+              throw new TeamOperationError("Activity interval is outside the allowed window.");
             const { error: siteError } = await db.from("platform_activity_intervals").upsert(
               {
                 user_id: user.id,
@@ -113,7 +122,7 @@ export const Route = createFileRoute("/api/team-activity")({
             } else if (body.action === "lesson_start") {
               const curriculum = getCurriculum(body.moduleId);
               if (!curriculum?.lessons.some((lesson) => lesson.n === body.lessonNumber))
-                throw new Error("Unknown lesson.");
+                throw new TeamOperationError("Unknown lesson.");
               const { data: previous, error: progressError } = await db
                 .from("team_lesson_completions")
                 .select("lesson_number")
@@ -127,7 +136,7 @@ export const Route = createFileRoute("/api/team-activity")({
                   (n) => !done.has(n),
                 )
               )
-                throw new Error(
+                throw new TeamOperationError(
                   "Finish earlier assigned lessons before this one counts toward a certificate.",
                 );
               const { data: session, error: sessionError } = await db
@@ -141,12 +150,16 @@ export const Route = createFileRoute("/api/team-activity")({
                 .select("id")
                 .single();
               if (sessionError || !session)
-                throw sessionError ?? new Error("Could not start lesson session.");
+                throw (
+                  sessionError ?? new TeamOperationError("Could not start lesson session.", 403)
+                );
               sessions[assignment.organization_id] = session.id;
             } else {
               const sessionId = body.sessions[assignment.organization_id];
               if (!sessionId)
-                throw new Error("Start this lesson in the team workspace before completing it.");
+                throw new TeamOperationError(
+                  "Start this lesson in the team workspace before completing it.",
+                );
               const { data: session, error: sessionError } = await db
                 .from("team_lesson_sessions")
                 .select("id,started_at,completed_at")
@@ -156,10 +169,32 @@ export const Route = createFileRoute("/api/team-activity")({
                 .eq("module_id", body.moduleId)
                 .eq("lesson_number", body.lessonNumber)
                 .single();
-              if (sessionError || !session || session.completed_at)
-                throw new Error("Lesson session is invalid or already completed.");
+              if (sessionError || !session)
+                throw new TeamOperationError(
+                  "Lesson session is invalid or already completed.",
+                  403,
+                );
+              if (session.completed_at) {
+                // An exact accepted session can be replayed after a lost response.
+                // Current membership/entitlement and every session scope were checked above.
+                const { data: completion, error: completionError } = await db
+                  .from("team_lesson_completions")
+                  .select("lesson_number")
+                  .eq("organization_id", assignment.organization_id)
+                  .eq("user_id", user.id)
+                  .eq("module_id", body.moduleId)
+                  .eq("lesson_number", body.lessonNumber)
+                  .maybeSingle();
+                if (completionError || !completion)
+                  throw new TeamOperationError(
+                    "Lesson session completion could not be verified.",
+                    403,
+                  );
+                recorded++;
+                continue;
+              }
               if (Date.now() - new Date(session.started_at).getTime() < 45000)
-                throw new Error(
+                throw new TeamOperationError(
                   "Spend a little more time practicing before finishing this lesson.",
                 );
               const { data: intervals, error: activityError } = await db
@@ -172,7 +207,7 @@ export const Route = createFileRoute("/api/team-activity")({
                 .limit(100);
               if (activityError) throw activityError;
               if ((intervals ?? []).reduce((total, item) => total + item.active_seconds, 0) < 30)
-                throw new Error(
+                throw new TeamOperationError(
                   "Use the lesson tools for at least 30 active seconds before finishing.",
                 );
               const { error: insertError } = await db.from("team_lesson_completions").upsert(
@@ -199,7 +234,7 @@ export const Route = createFileRoute("/api/team-activity")({
           }
           return json({ recorded, sessions });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AlertTriangle, AudioLines, ChevronDown, Cloud, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -20,10 +20,11 @@ import {
   preferredMobileCloudVoice,
   shouldAutoSelectMobileVoice,
 } from "@/data/mobile-voice";
-import { getMissionTtsCapabilities, speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
+import { getMissionTtsCapabilities, speakMissionTts } from "@/lib/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
 import { getVoicesForLocale, pickVoice, subscribeVoices } from "@/lib/voices";
 import { useAuth } from "@/state/auth-state";
+import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { useSpeech } from "@/state/speech-state";
 
 const SAMPLES: Record<string, string> = {
@@ -58,7 +59,19 @@ function voiceRegion(locale: string): string {
 export function VoicePicker({ compact = false }: { compact?: boolean }) {
   const { accent, setAccent, accentsForLanguage, rate, voiceURI, setVoiceURI, settingsHydrated } =
     useSpeech();
-  const { session } = useAuth();
+  const { session, user, isCurrentUser } = useAuth();
+  const previewRef = useRef<AbortController | null>(null);
+  const { speak: speakDevice, stop: stopDevice } = useOwnedPlayback(JSON.stringify([accent, rate]));
+  const previewScope = JSON.stringify([accent, user?.id]);
+  const mountedPreviewScope = useRef<string | null>(null);
+  useEffect(() => {
+    mountedPreviewScope.current = previewScope;
+    return () => {
+      mountedPreviewScope.current = null;
+      previewRef.current?.abort();
+      previewRef.current = null;
+    };
+  }, [previewScope]);
   const [mounted, setMounted] = useState(false);
   const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [googleVoices, setGoogleVoices] = useState<GoogleTtsVoice[]>([]);
@@ -78,10 +91,12 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
     const controller = new AbortController();
     getMissionTtsCapabilities(accent, controller.signal)
       .then((capabilities) => {
+        if (controller.signal.aborted) return;
         setGoogleReady(capabilities.ready);
         setGoogleVoices(googleVoicesForLocale(capabilities.voices, accent));
       })
       .catch((error) => {
+        if (controller.signal.aborted) return;
         if (error instanceof DOMException && error.name === "AbortError") return;
         setGoogleReady(false);
         setGoogleVoices([]);
@@ -149,19 +164,19 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
   if (!mounted) return null;
 
   const previewDevice = (voice: SpeechSynthesisVoice) => {
-    stopMissionTts();
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(sample);
-    utterance.voice = voice;
-    utterance.lang = voice.lang;
-    utterance.rate = rate;
-    window.speechSynthesis.speak(utterance);
+    previewRef.current?.abort();
+    previewRef.current = null;
+    speakDevice(sample, voice.lang, voice.voiceURI, rate);
   };
 
   const previewGoogle = async (voice: GoogleTtsVoice) => {
+    if (mountedPreviewScope.current !== previewScope || !user || !isCurrentUser(user.id)) return;
     const languageCode = voice.languageCodes[0];
     if (!languageCode) return;
+    previewRef.current?.abort();
+    const controller = new AbortController();
+    previewRef.current = controller;
+    stopDevice();
     try {
       await speakMissionTts({
         text: sample,
@@ -169,9 +184,25 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         languageCode,
         speakingRate: rate,
         usage: "learning",
+        signal: controller.signal,
+        owner: {
+          userId: user.id,
+          isCurrent: () =>
+            mountedPreviewScope.current === previewScope &&
+            previewRef.current === controller &&
+            isCurrentUser(user.id),
+        },
       });
     } catch (error) {
+      if (
+        controller.signal.aborted ||
+        !isCurrentUser(user.id) ||
+        (error instanceof DOMException && error.name === "AbortError")
+      )
+        return;
       toast.error(error instanceof Error ? error.message : "Google voice preview failed.");
+    } finally {
+      if (previewRef.current === controller) previewRef.current = null;
     }
   };
 
@@ -179,6 +210,9 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
     <DropdownMenu
       onOpenChange={(open) => {
         if (!open) {
+          previewRef.current?.abort();
+          previewRef.current = null;
+          stopDevice();
           setVoiceSearch("");
           setShowAllVoices(false);
         }
@@ -261,8 +295,9 @@ export function VoicePicker({ compact = false }: { compact?: boolean }) {
         </div>
         <DropdownMenuItem
           onSelect={() => {
-            stopMissionTts();
-            window.speechSynthesis?.cancel();
+            previewRef.current?.abort();
+            previewRef.current = null;
+            stopDevice();
             setVoiceURI(DEVICE_DEFAULT_VOICE);
           }}
           className="font-mono text-xs"

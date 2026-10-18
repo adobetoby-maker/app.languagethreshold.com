@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-17T14:35:58.145497+00:00",
+  "applicationSource": "8d77c64",
+  "deployed": false,
+  "scope": [
+    "buildPersonalVocab",
+    "translatePhrases",
+    "convertKana"
+  ],
+  "changes": [
+    "Strict same-origin/no-store before existing-key and durable-budget checks. Vocab creation uses existing content pool; translations/conversion use existing lookup pool.",
+    "One provider attempt,30-second SDK/total deadline and incoming abort propagation.",
+    "Validate named tool outputs, bounded strings/arrays and whitelist returned fields; provider exceptions are not returned/logged with raw payloads.",
+    "Personal vocabulary requested count is integer5..30 and now controls prompt/tool/output validation; remove conflicting25/20..30instructions.",
+    "New vocab rejects duplicates/avoided words, initializes correctCount0 and omits provider-selected module/progress fields.",
+    "Phrase batches must cover exactly the requested phrase multiset, with bounded non-language-name translations, returned in request order. No partial/substituted batch is saved.",
+    "Kana conversion returns only bounded output/breakdown fields."
+  ],
+  "verification": {
+    "tests": 835,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T14:35:01.641Z",
+      "sourceCommit": "8d77c64",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1143,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "All three actual handlers: origin/budget/store/key denials before construction, retry/no-store headers, accepted provider options/signal and generic failure.",
+    "Vocab5and15counts, dynamic tool bounds, zero progress/unassigned fields, duplicate/avoid/category/count rejection.",
+    "Translation reordering, exact duplicate request coverage, missing/unrequested/language-name/oversize rejection.",
+    "Bounded kana structure, removed extras and malformed output rejection."
+  ],
+  "limitations": [
+    "No external model calls, hosted/browser/physical/provider timing or billing trial.",
+    "Structural/request-coverage checks do not establish translation, pronunciation or vocabulary review quality.",
+    "Remaining paid-function audit includes game/grammar/story generators and other explicit cost/privacy boundaries.",
+    "No schema/role/active-policy/speech/schedule changes; routing question remains pending.",
+    "Prior local phonetic/Pen Pal changes are included but also undeployed. Hosted development remains8da3abb; accepted companiond4ad837,live/main unchanged."
+  ],
+  "externalModelCalls": 0,
+  "hostedWrites": false,
+  "browserActions": false
+}

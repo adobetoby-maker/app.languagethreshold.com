@@ -1,0 +1,1134 @@
+{
+  "auditedAt": "2026-10-17T22:27:07.306394+00:00",
+  "prd": "docs/prd-assessments.md",
+  "version": "1.2",
+  "application": "691072f",
+  "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
+  "currentPreview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "liveReadiness": {
+    "verifiedReleases": 0,
+    "verifiedCalibratedForms": 0,
+    "verifiedSupportMappings": 0
+  },
+  "requirements": [
+    {
+      "sections": [
+        "1",
+        "2",
+        "19"
+      ],
+      "requirement": "Roofing first, followed by every published module with complete lessons and three exams",
+      "status": "partial",
+      "evidence": [
+        "docs/module-upgrade-backlog.md",
+        "docs/reviews/qa-authored-module-decks-2026-10-16.json"
+      ],
+      "remaining": [
+        "Roofing human-reviewed release and real pilots",
+        "All remaining modules and released tracks; 17 short modules need 260 lessons"
+      ]
+    },
+    {
+      "sections": [
+        "3",
+        "16",
+        "18"
+      ],
+      "requirement": "Independent/team ownership, role boundaries, authoritative records and audited actions",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "docs/reviews/qa-exams-input-practice-2026-10-16.json",
+        "tests/sql/assessment-engine.sql"
+      ],
+      "remaining": [
+        "Qualified assigned-reviewer acceptance with actual reviewers",
+        "Real individual/team pilot, lifecycle acceptance and final privacy decisions"
+      ]
+    },
+    {
+      "sections": [
+        "4"
+      ],
+      "requirement": "Focused Exams entry, lesson/assignment return and shared companion sign-in",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+        "docs/reviews/qa-exam-return-context-2026-10-16.json",
+        "docs/reviews/qa-exams-companion-setup-2026-10-17.json"
+      ],
+      "remaining": [
+        "Launch acceptance and intentional production rollout remain gated",
+        "No automatic cross-origin browser-session sharing or global cross-origin sign-out is claimed"
+      ]
+    },
+    {
+      "sections": [
+        "4.1",
+        "4.2",
+        "5"
+      ],
+      "requirement": "Private personal and team plans, all three statuses, timing, retakes and schedules",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "docs/reviews/qa-exams-input-practice-2026-10-16.json",
+        "docs/reviews/qa-exams-stage-reporting-2026-10-16.json"
+      ],
+      "remaining": [
+        "Full reviewed-content end-to-end cycles for independent and team learners"
+      ]
+    },
+    {
+      "sections": [
+        "6.3"
+      ],
+      "requirement": "Unscored input rehearsal",
+      "status": "partial",
+      "evidence": [
+        "src/components/exams/ExamInputPractice.tsx",
+        "docs/reviews/qa-input-practice-2026-10-16.json"
+      ],
+      "remaining": [
+        "Optional speech rehearsal remains unavailable until recording/privacy policy is approved",
+        "Current browser rehearsal verifies pad presence and typed controls, not new physical pen or offline drawing"
+      ]
+    },
+    {
+      "sections": [
+        "6.4"
+      ],
+      "requirement": "Fixed core followed by a short evidence-driven routing branch",
+      "status": "engineering_incomplete",
+      "evidence": [
+        "src/lib/assessments/form.ts",
+        "src/lib/assessments/server.ts",
+        "src/components/exams/ExamsArea.tsx",
+        "docs/assessments/adaptive-routing.md",
+        "docs/reviews/qa-adaptive-routing-foundation-2026-10-17.json",
+        "docs/reviews/qa-routing-database-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-api-preview-2026-10-17.json",
+        "docs/reviews/qa-selected-path-preview-2026-10-17.json",
+        "docs/reviews/qa-selected-scoring-preview-2026-10-17.json",
+        "docs/reviews/qa-core-team-preview-2026-10-17.json",
+        "docs/reviews/qa-core-summary-preview-2026-10-17.json",
+        "docs/reviews/qa-selected-review-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-ui-preview-2026-10-17.json",
+        "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json",
+        "docs/reviews/qa-adaptive-runtime-preview-2026-10-17.json"
+      ],
+      "finding": "The selected runtime, reviewer paths, summary/core comparisons and durable learner continuation are implemented with scoped evidence. Preparation/start, catalog/overview readiness and submission are now wired behind an exact true plus Preview-only capability, explicitly pinned false in staging. Adaptive starts require genuine verified/calibrated whole forms, current lesson binding, prepared digest and pilot=false; submission validates the selected frozen path before existing authoritative SQL guards. Controlled actual handlers/readiness and rolled-back local SQL pass. Capability activation, concurrent content-transition/activation and worst-case latency, current browser/phone/SDK/offline/audio, genuine reviewers and consented pilot acceptance remain unfinished."
+    },
+    {
+      "sections": [
+        "4",
+        "6"
+      ],
+      "requirement": "Show form effort before starting and keep the learner informed",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "src/lib/assessments/preparation.ts",
+        "src/routes/api.exams.ts",
+        "src/components/exams/ExamsArea.tsx",
+        "tests/assessment-support-start.test.mjs",
+        "docs/reviews/qa-exams-companion-setup-2026-10-17.json"
+      ],
+      "finding": "Read-only preparation shares Start access/form selection, discloses positive authored timing, explicitly leaves unknown/targeted-subset timing unavailable, and checks a private-form digest before the existing start RPC.",
+      "remaining": [
+        "Positive pre-start browser acceptance with genuinely reviewed forms; hosted official forms remain unavailable",
+        "Reviewed timing for targeted checks; no proportional estimate is invented",
+        "No atomic protection against a concurrent draft definition mutation inside the existing start RPC is claimed"
+      ]
+    },
+    {
+      "sections": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "requirement": "Six skill profiles, comparable forms, uncertainty, scoring and justified corrections",
+      "status": "partial",
+      "evidence": [
+        "src/lib/assessments/core.ts",
+        "src/lib/assessments/form.ts",
+        "docs/assessments/content-workflow.md",
+        "tests/sql/assessment-engine.sql"
+      ],
+      "remaining": [
+        "All three reviewed Roofing forms, versioned private listening clips, calibration/equivalence and human scoring agreement",
+        "All remaining module-specific blueprints/forms and language/domain review"
+      ]
+    },
+    {
+      "sections": [
+        "11",
+        "11.1",
+        "11.2",
+        "11.3"
+      ],
+      "requirement": "Lesson-driven toolkit and shared coherent 30-lesson content",
+      "status": "partial",
+      "evidence": [
+        "src/lib/lesson-definition.ts",
+        "docs/reviews/qa-authored-module-decks-2026-10-16.json",
+        "docs/reviews/qa-landscaper-drafts-2026-10-16.json"
+      ],
+      "remaining": [
+        "Human acceptance of Roofing and other draft tracks",
+        "Catalog gaps, terminology, approved variants, accessible activities and reviewed progression"
+      ]
+    },
+    {
+      "sections": [
+        "12",
+        "13"
+      ],
+      "requirement": "Evidence-linked supporting units/full modules, workload, approval and return",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "docs/reviews/qa-targeted-attempt-guard-2026-10-16.json",
+        "docs/reviews/qa-support-check-readiness-2026-10-16.json",
+        "src/components/exams/DailyLessonPlan.tsx"
+      ],
+      "remaining": [
+        "Actual approved mappings/content and positive real learner/admin lifecycle acceptance",
+        "Verify learner notification in the agreed release workflow; do not assume in-app visibility proves external notification"
+      ]
+    },
+    {
+      "sections": [
+        "14"
+      ],
+      "requirement": "Admin summaries, filters, review queue, insights, exports and readiness",
+      "status": "implemented_with_scoped_evidence",
+      "evidence": [
+        "docs/reviews/qa-exams-input-practice-2026-10-16.json",
+        "docs/reviews/qa-history-export-2026-10-16.json",
+        "src/components/exams/TeamAssessmentInsights.tsx"
+      ],
+      "remaining": [
+        "Owner-reviewed dashboard and real reviewed cohort with privacy suppression",
+        "Actual qualified reviewer queue trial and verified curriculum ownership"
+      ]
+    },
+    {
+      "sections": [
+        "15"
+      ],
+      "requirement": "Actionable learner feedback, philosophy and review requests",
+      "status": "partial",
+      "evidence": [
+        "src/components/exams/ExamsArea.tsx",
+        "src/components/exams/AssessmentPlanPanel.tsx",
+        "src/components/core30/Core30Philosophy.tsx"
+      ],
+      "remaining": [
+        "Real learner interpretation of feedback and recommendations",
+        "Review corrections and resulting proposals with genuinely reviewed forms"
+      ]
+    },
+    {
+      "sections": [
+        "17"
+      ],
+      "requirement": "Resilient online assessments and honest offline capability",
+      "status": "partial",
+      "evidence": [
+        "docs/reviews/qa-exam-session-expiry-2026-10-16.json",
+        "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+        "docs/reviews/qa-exam-freshness-recovery-2026-10-16.json"
+      ],
+      "remaining": [
+        "Physical-device/audio/process-restart and cleared-cache acceptance",
+        "Populated legacy profile/Reader recovery trial",
+        "Scored-offline design review; online start/submission remains required"
+      ]
+    },
+    {
+      "sections": [
+        "18"
+      ],
+      "requirement": "Privacy, retention, accessibility, usage limits and operating controls",
+      "status": "partial",
+      "evidence": [
+        "docs/assessments/speech-operations.md",
+        "src/lib/learning-generation-security.ts",
+        "src/components/exams/AssessmentCleanupStatus.tsx",
+        "docs/reviews/qa-conversation-provider-bounds-2026-10-17.json",
+        "docs/reviews/qa-conversation-stream-lifecycle-2026-10-17.json",
+        "docs/reviews/qa-reading-hint-ownership-2026-10-17.json",
+        "docs/reviews/qa-word-card-cache-privacy-2026-10-17.json",
+        "docs/reviews/qa-reading-aid-server-guards-2026-10-17.json",
+        "docs/reviews/qa-penpal-check-guards-2026-10-17.json",
+        "docs/reviews/qa-personal-practice-guards-2026-10-17.json"
+      ],
+      "remaining": [
+        "Owner-approved retention/deletion policy and operator/scheduler activation",
+        "Remaining AI endpoint cost/privacy coverage",
+        "Physical keyboard/screen-reader/device acceptance"
+      ]
+    },
+    {
+      "sections": [
+        "19.1",
+        "19.2"
+      ],
+      "requirement": "Repeatable module pipeline and honest readiness/migration",
+      "status": "partial",
+      "evidence": [
+        "docs/module-upgrade-backlog.md",
+        "docs/assessments/content-workflow.md",
+        "src/lib/assessments/server.ts"
+      ],
+      "remaining": [
+        "Assigned review owners and disposition of every remaining gap",
+        "Verified releases and per-module independent/team pilots"
+      ]
+    },
+    {
+      "sections": [
+        "20",
+        "21"
+      ],
+      "requirement": "Release acceptance and representative pilot measurement",
+      "status": "not_achieved",
+      "evidence": [
+        "docs/prd-assessments.md",
+        "docs/reviews/2026-10-15-review-and-sequence.md"
+      ],
+      "remaining": [
+        "No verified release exists",
+        "Adaptive routing engineering, published content/calibration, actual pilots, latency/cost and measurement validation",
+        "No test total, synthetic fixture or provisional score substitutes for release acceptance"
+      ]
+    },
+    {
+      "sections": [
+        "22"
+      ],
+      "requirement": "Resolve owner operational decisions",
+      "status": "owner_decisions_pending",
+      "remaining": [
+        "Reviewer identities and review capacity",
+        "Retention/deletion and evidence-access choices",
+        "Scoring acceptance thresholds after calibration/pilot",
+        "Production promotion after acceptance"
+      ]
+    }
+  ],
+  "nextEngineering": {
+    "task": "Complete selected reviewer boundaries and core-to-branch learner flow",
+    "constraints": [
+      "Preserve existing fixed-form attempts and all original results",
+      "Private reviewed policy selects only valid frozen item IDs",
+      "Missing or uncertain evidence must not count as wrong answers",
+      "Persist one idempotent branch decision with reason and policy/form versions",
+      "Do not expose keys, correctness or unselected private items during an active attempt",
+      "Branch coverage must not masquerade as comparable score growth",
+      "No universal threshold or production form approval is inferred from a draft policy"
+    ],
+    "followUps": [
+      "Integrate selected human/AI review, core-to-branch Continue/reconnect/resume UI and then guarded start/submission acceptance; retain human content/equivalence gates",
+      "Accept pre-start disclosure against genuinely reviewed form metadata",
+      "Finish additional acceptance and cost/privacy gaps identified above"
+    ]
+  },
+  "limitations": [
+    "This audit records implementation and release gaps; it does not certify the app complete.",
+    "Evidence files retain their original dates/builds unless rerun on the current Preview.",
+    "No reviewer, policy, pilot result or domain choice has been manufactured."
+  ],
+  "ownerHostnameDecision": {
+    "hostname": "exams.languagethreshold.com",
+    "decidedOn": "2026-10-17",
+    "source": "Direct owner reply to pending hostname question",
+    "status": "Staged DNS, certificate, Preview hosting, email/Google sign-in and return-context acceptance verified",
+    "setupAuthorizedOn": "2026-10-17",
+    "launchConstraint": "Staged until launch acceptance is complete"
+  },
+  "acceptedCompanionApplication": "d4ad837",
+  "mainPushAuthorization": {
+    "condition": "When complete and launch acceptance is satisfied",
+    "source": "Direct owner instruction, October 17",
+    "status": "Condition not yet met; remain staged"
+  },
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-cleanup-response-preview-2026-10-18.json",
+  "routingSchemaScope": {
+    "status": "Owner authorized; private database foundation applied; runtime remains gated",
+    "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
+    "authorization": "Direct owner reply October 17: Allow the proposed database work; keep launch gated",
+    "scope": "Exception to the prior schema freeze is limited to the reviewed durable-routing proposal",
+    "migrationApplied": true,
+    "localMigration": "20261017153951_assessment_adaptive_route_records.sql",
+    "hostedMigration": {
+      "version": "20261017155354",
+      "name": "assessment_adaptive_route_records"
+    }
+  },
+  "liveReadinessObservedAt": "2026-10-17T15:59:24.088662+00:00",
+  "latestLocalLifecycleEvidence": "docs/reviews/qa-routing-hook-lifecycle-2026-10-17.json",
+  "preparedStartSchemaProposal": {
+    "status": "Owner approved; final migration applied and API wired behind disabled Preview capability; activation remains gated",
+    "authorization": "Direct owner answer: Approve additional RPC; keep launch gated",
+    "proposal": "docs/assessments/prepared-start-migration-proposal.md",
+    "evidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json",
+    "localMigration": "20261017194728_assessment_prepared_start.sql",
+    "hostedMigration": {
+      "version": "20261017194816",
+      "name": "assessment_prepared_start"
+    },
+    "migrationApplied": true,
+    "applicationWired": true,
+    "adaptiveActivated": false
+  },
+  "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
+  "latestLocalSourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-cleanup-response-preview-2026-10-18.json",
+  "optionalFieldPrepAnalytics": {
+    "enabled": false,
+    "feedbackPromptEnabled": false,
+    "reason": "Public legacy analytics/feedback tables absent in read-only hosted metadata check",
+    "evidence": "docs/reviews/qa-analytics-gate-preview-2026-10-17.json",
+    "backendChangesAuthorized": false
+  },
+  "latestLocalSpeakerFollowup": {
+    "application": "a2ff84a",
+    "includes": "29e6dbf",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-content-form-preview-2026-10-17.json"
+  },
+  "liveApplicationObserved": {
+    "application": "9f90996f99635647aab2d8e490e12b3275786b52",
+    "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+    "readyAt": "2026-10-17T19:58:14.424000+00:00",
+    "observedAt": "2026-10-17T20:44:00.594917+00:00",
+    "mainBranchReadOnlyVerified": true,
+    "promotedByThisRun": false
+  },
+  "mainReconciliation": {
+    "mergeCommit": "c4327d1d44bb391749eb0ec21bf74ee0d79b545b",
+    "mainCommit": "9f90996f99635647aab2d8e490e12b3275786b52",
+    "fileTreeChanged": false,
+    "applicationMatchesHosted": true,
+    "githubRestMergeable": true,
+    "externalChecksState": "unstable",
+    "evidence": "docs/reviews/qa-main-lesson-first-reconcile-2026-10-17.json",
+    "applicationComparisonVerifiedAtCommit": "c4327d1"
+  },
+  "latestLocalReviewerFollowup": {
+    "application": "2992644",
+    "includes": "a2ff84a",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-reviewer-editor-preview-2026-10-17.json"
+  },
+  "latestLocalOperationsDisplayFollowup": {
+    "application": "1f9f93d",
+    "includes": "2992644",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-cleanup-status-preview-2026-10-17.json",
+    "executionInvoked": false
+  },
+  "latestLocalHistoryExportFollowup": {
+    "application": "1b0b3fd",
+    "includes": "1f9f93d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-history-export-preview-2026-10-17.json"
+  },
+  "latestLocalPlanPanelFollowup": {
+    "application": "4e0738a",
+    "includes": "1b0b3fd",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-plan-panel-preview-2026-10-17.json"
+  },
+  "latestLocalPrivateReportFollowup": {
+    "application": "5205a3e",
+    "includes": "4e0738a",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-private-reports-preview-2026-10-17.json"
+  },
+  "latestLocalTeamInsightsFollowup": {
+    "application": "228f649",
+    "includes": "5205a3e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-insights-preview-2026-10-17.json"
+  },
+  "latestLocalExamEntryFollowup": {
+    "application": "e0c2d4c",
+    "includes": "228f649",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-entry-lifecycle-preview-2026-10-17.json"
+  },
+  "latestLocalExamMutationFollowup": {
+    "application": "514e002",
+    "includes": "e0c2d4c",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-mutation-preview-2026-10-17.json"
+  },
+  "latestLocalAIWritingConsentFollowup": {
+    "application": "c784192",
+    "includes": "514e002",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-ai-writing-consent-preview-2026-10-17.json"
+  },
+  "latestLocalExamResultFollowup": {
+    "application": "2256f05",
+    "includes": "c784192",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-result-preview-2026-10-17.json"
+  },
+  "latestLocalRubricReviewFollowup": {
+    "application": "2060e08",
+    "includes": [
+      "1a02a0f",
+      "2256f05"
+    ],
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-rubric-preview-2026-10-17.json"
+  },
+  "latestLocalReadinessExportFollowup": {
+    "application": "7b4fe1c",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-readiness-export-preview-2026-10-17.json"
+  },
+  "latestLocalReviewQueueFollowup": {
+    "application": "d77102e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-review-queue-preview-2026-10-18.json"
+  },
+  "latestLocalRunnerActionsFollowup": {
+    "application": "7a12aa5",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-runner-actions-preview-2026-10-18.json"
+  },
+  "latestLocalDailyPlanActionsFollowup": {
+    "application": "1ab54ff",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-daily-plan-actions-preview-2026-10-18.json"
+  },
+  "latestLocalDraftLifecycleFollowup": {
+    "application": "61a16b8",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-draft-lifecycle-preview-2026-10-18.json"
+  },
+  "latestLocalHandwritingFollowup": {
+    "application": "a54d4fd",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-exam-handwriting-preview-2026-10-18.json"
+  },
+  "latestLocalReminderOwnershipFollowup": {
+    "application": "82cf017",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-reminder-ownership-preview-2026-10-18.json"
+  },
+  "latestLocalTeamActivityFollowup": {
+    "application": "3596b26",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-activity-owner-preview-2026-10-18.json"
+  },
+  "latestLocalCore30TeamChainFollowup": {
+    "application": "677c9ab",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-core30-team-chain-preview-2026-10-18.json",
+    "offlineLimit": "Signed-in completion waits for current start coordination; no durable team completion outbox",
+    "historical": true,
+    "supersededBy": "latestLocalTeamCompletionDeviceFollowup"
+  },
+  "latestLocalTeamLessonReplayFollowup": {
+    "application": "8330413",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-lesson-replay-preview-2026-10-18.json",
+    "offlineQueueImplemented": false,
+    "historical": true,
+    "supersededBy": "latestLocalTeamCompletionDeviceFollowup"
+  },
+  "latestLocalTeamCompletionDeviceFollowup": {
+    "application": "25adcbe",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-completion-device-preview-2026-10-18.json",
+    "uncertainOriginalRequestRecoveryImplemented": true,
+    "newOfflineCompletionImplemented": false,
+    "actualBrowserAcceptance": false
+  },
+  "latestLocalTeamInvitationOwnerFollowup": {
+    "application": "ebcaea0",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-invitation-owner-preview-2026-10-18.json",
+    "actualInvitationAccepted": false
+  },
+  "latestLocalOwnerDashboardFollowup": {
+    "application": "639a7e9",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-owner-dashboard-preview-2026-10-18.json",
+    "actualOwnerMutation": false,
+    "actualNativeExport": false
+  },
+  "latestLocalTeamQuizFollowup": {
+    "application": "62c5623",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-quiz-preview-2026-10-18.json",
+    "actualQuizStartOrSubmit": false,
+    "actualScoreOrCertificate": false
+  },
+  "latestLocalTeamWorkspaceFollowup": {
+    "application": "99de5ca",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-workspace-preview-2026-10-18.json",
+    "actualTeamMutationOrPayment": false,
+    "adminWorkspaceDirectRequestsMigrated": false
+  },
+  "latestLocalTeamAdminFollowup": {
+    "application": "0ba685d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-admin-preview-2026-10-18.json",
+    "actualInvitationEmailPaymentOrSeatMutation": false,
+    "actualClipboardOrNativeDownload": false
+  },
+  "latestLocalModuleRequestFollowup": {
+    "application": "d08836e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-module-request-preview-2026-10-18.json",
+    "actualCustomRequestCheckoutOrPayment": false
+  },
+  "latestLocalAdminFormsFollowup": {
+    "application": "399c82d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-admin-forms-preview-2026-10-18.json",
+    "actualInvitationEmailSeatOrRoleMutation": false
+  },
+  "latestLocalAdminTourFollowup": {
+    "application": "d0b781b",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-admin-tour-preview-2026-10-18.json",
+    "actualOnboardingOrAdminMutation": false
+  },
+  "latestLocalAssignmentRowFollowup": {
+    "application": "194c56f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assignment-row-preview-2026-10-18.json",
+    "actualAssignmentSeatOrRoleMutation": false
+  },
+  "latestLocalReleaseSeatFollowup": {
+    "application": "96fe1f3",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-release-seat-preview-2026-10-18.json",
+    "actualSeatMemberOrRoleMutation": false,
+    "nativeConfirmationPerformed": false
+  },
+  "latestLocalAssessmentOwnerFollowup": {
+    "application": "2736937",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-owner-preview-2026-10-18.json",
+    "sharedMutationMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualAssessmentMutation": false
+  },
+  "latestLocalAssessmentReadsFollowup": {
+    "application": "4b5d7d1",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-reads-preview-2026-10-18.json",
+    "entryPreparationPagedReportsMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualAssessmentMutationOrRecovery": false
+  },
+  "latestLocalDraftOwnerFollowup": {
+    "application": "dba42bb",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-draft-owner-preview-2026-10-18.json",
+    "draftRunnerMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualAssessmentMutationOrRecovery": false
+  },
+  "latestLocalMediaOwnerFollowup": {
+    "application": "f3610dd",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-media-owner-preview-2026-10-18.json",
+    "audioUploadHistoryCallersMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualSpeechOrNativeDownload": false
+  },
+  "latestLocalReviewOwnerFollowup": {
+    "application": "fa6a88d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-review-owner-preview-2026-10-18.json",
+    "reviewerContentCallersMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualReviewOrGrant": false
+  },
+  "latestLocalRemainingOwnerFollowup": {
+    "application": "977726e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-remaining-owner-preview-2026-10-18.json",
+    "directNamedAssessmentHelperCalls": 38,
+    "directNamedCallsWithoutOwner": 0,
+    "broaderAssessmentTransportInventoryComplete": false,
+    "actualAssessmentOrProviderWrite": false
+  },
+  "latestLocalSpeakingOwnerFollowup": {
+    "application": "22627db",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-owner-preview-2026-10-18.json",
+    "chatTipChallengeAttestationOwned": true,
+    "remoteTtsOwned": false,
+    "actualConsentOrProviderCall": false
+  },
+  "latestLocalRemoteOwnerFollowup": {
+    "application": "ce5fa2a",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-remote-owner-preview-2026-10-18.json",
+    "googleTtsOwnerForwarded": true,
+    "directNamedTtsCalls": 10,
+    "directNamedTtsCallsWithoutOwner": 0,
+    "broaderTransportInventoryComplete": false,
+    "actualProviderOrNativeAudio": false
+  },
+  "latestLocalPashtoPrivacyFollowup": {
+    "application": "85ec972",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-pashto-private-preview-2026-10-18.json",
+    "textInPostBody": true,
+    "sharedCacheDisabled": true,
+    "historicalCachePurgeVerified": false,
+    "actualProviderOrNativeAudio": false,
+    "guestAccessPolicyChanged": false
+  },
+  "latestLocalPashtoGuardFollowup": {
+    "application": "611e18f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-pashto-guard-preview-2026-10-18.json",
+    "strictOrigin": true,
+    "boundedBodyBytes": 4096,
+    "durableSpeechLimits": {
+      "minute": 30,
+      "ipHour": 300,
+      "globalHour": 600
+    },
+    "newAuthenticationGate": false,
+    "actualProviderOrNativeAudio": false,
+    "hostedDurableExhaustionVerified": false
+  },
+  "latestLocalSpeechStreamFollowup": {
+    "application": "3f2e7e6",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
+    "providerPhaseDeadlineMs": 45000,
+    "maximumAudioBytes": 4194304,
+    "singleProviderAttempt": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedPositiveStreamingVerified": false
+  },
+  "latestLocalGoogleSpeechFollowup": {
+    "application": "78741e4",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-google-speech-preview-2026-10-18.json",
+    "providerPhaseDeadlineMs": 45000,
+    "maximumCatalogJsonBytes": 2097152,
+    "maximumSynthesisJsonBytes": 6291456,
+    "maximumDecodedAudioBytes": 4194304,
+    "rawRouteExceptionCaptureRemoved": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedPositiveProviderVerified": false
+  },
+  "latestLocalSpeechInputFollowup": {
+    "application": "5d0e43b",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speech-input-preview-2026-10-18.json",
+    "inputReadDeadlineMs": 10000,
+    "maximumGoogleBodyBytes": 16384,
+    "maximumPashtoBodyBytes": 4096,
+    "invalidGoogleInputBeforeCounters": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedSlowUploadVerified": false
+  },
+  "latestLocalSpeechPreflightFollowup": {
+    "application": "a98d4d8",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speech-preflight-preview-2026-10-18.json",
+    "preflightDeadlineMs": 15000,
+    "sharedHelpersAcceptOptionalSignal": true,
+    "lateBudgetOrAuthCannotAdmitNextStage": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedPreflightExpiryVerified": false
+  },
+  "latestLocalServiceJsonFollowup": {
+    "application": "7251a1d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-service-json-preview-2026-10-18.json",
+    "authMaxBytes": 262144,
+    "consentMaxBytes": 16384,
+    "counterMaxBytes": 1024,
+    "requiresScopedSignal": true,
+    "actualHostedOverflowOrProviderVerified": false
+  },
+  "latestLocalVoiceCatalogFollowup": {
+    "application": "908dfc1",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-catalog-preview-2026-10-18.json",
+    "coldLookupLimits": {
+      "ipMinute": 20,
+      "ipHour": 120,
+      "globalHour": 600
+    },
+    "cachedMetadataPublic": true,
+    "actualHostedColdLookupOrCountersVerified": false
+  },
+  "latestLocalSpeakingAdmissionFollowup": {
+    "application": "cdd22f5",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-admission-preview-2026-10-18.json",
+    "speakingInputBytes": 393216,
+    "consentInputBytes": 1024,
+    "inputDeadlineMs": 10000,
+    "readAdmissionDeadlineMs": 15000,
+    "consentWriteWithinAdmissionDeadline": false,
+    "actualConsentWriteOrModelVerified": false
+  },
+  "latestLocalSpeakingCanonicalIpFollowup": {
+    "application": "e527595",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
+    "canonicalIpv4OrIpv6Only": true,
+    "callerForwardingFallbackAllowed": false,
+    "fixedLoopbackDevelopmentBucket": true,
+    "actualVercelHeaderOverwriteVerified": false
+  },
+  "latestLocalSpeakingProviderFollowup": {
+    "application": "e6a20a7",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-provider-preview-2026-10-18.json",
+    "providerDeadlineMs": 45000,
+    "maxRetries": 0,
+    "providerMaxBytes": 1048576,
+    "fourModesOwned": true,
+    "actualProviderOrNativeVerified": false
+  },
+  "latestLocalSpeakingConsentRecoveryFollowup": {
+    "application": "c2351a7",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-consent-recovery-preview-2026-10-18.json",
+    "acknowledgementWaitMs": 30000,
+    "unknownRecoveryGetOnly": true,
+    "actualConsentWriteOrBrowserVerified": false,
+    "durableJournal": false
+  },
+  "latestLocalPushAdmissionFollowup": {
+    "application": "6353986",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-admission-preview-2026-10-18.json",
+    "inputMaxBytes": 16384,
+    "inputDeadlineMs": 10000,
+    "admissionDeadlineMs": 15000,
+    "settingsMaxBytes": 16384,
+    "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalPushAcknowledgementFollowup": {
+    "application": "3e88d02",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-ack-preview-2026-10-18.json",
+    "unsubscribeChecksBothHttpAcknowledgements": true,
+    "actualSubscriptionOrDeliveryVerified": false,
+    "atomicTransaction": false
+  },
+  "latestLocalPushClientValidationFollowup": {
+    "application": "6499343",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
+    "strictWriteAcknowledgement": true,
+    "typedSettings": true,
+    "unknownWriteRecovery": false,
+    "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalPushClientWaitFollowup": {
+    "application": "e458dee",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-wait-preview-2026-10-18.json",
+    "requestWaitMs": 30000,
+    "responseMaxBytes": 16384,
+    "unknownWriteRecovery": false,
+    "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalPushUnknownWriteFollowup": {
+    "application": "908278b",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-recovery-preview-2026-10-18.json",
+    "mountedControlPause": true,
+    "readOnlyObservations": true,
+    "observationsClearUnknown": false,
+    "durableReconciliation": false,
+    "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalConversationAdmissionFollowup": {
+    "application": "ae8ab06",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-conversation-admission-preview-2026-10-18.json",
+    "routes": 4,
+    "inputMaxBytes": 98304,
+    "inputDeadlineMs": 10000,
+    "admissionDeadlineMs": 15000,
+    "actualProviderOrBrowserVerified": false
+  },
+  "latestLocalConversationHeadersFollowup": {
+    "application": "5fef684",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-conversation-headers-preview-2026-10-18.json",
+    "handledProviderResponseSites": 14,
+    "actualProviderOrBrowserVerified": false
+  },
+  "latestLocalConversationProviderFollowup": {
+    "application": "c4c3ff4",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-conversation-provider-preview-2026-10-18.json",
+    "ownedProviderTimeoutMs": 45000,
+    "maxProviderBytes": 1048576,
+    "actualProviderOrBrowserVerified": false
+  },
+  "latestLocalSportsNewsFollowup": {
+    "application": "245ad15",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-news-preview-2026-10-18.json",
+    "feedTimeoutMs": 8000,
+    "maxFeedBytes": 1048576,
+    "actualFeedOrBrowserVerified": false
+  },
+  "latestLocalSportsClientFollowup": {
+    "application": "8f1a360",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-client-preview-2026-10-18.json",
+    "ownedSelectionAndAccount": true,
+    "actualBrowserVerified": false
+  },
+  "latestLocalSportsBoundsFollowup": {
+    "application": "1c781e4",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-bounds-preview-2026-10-18.json",
+    "clientTimeoutMs": 30000,
+    "maxResponseBytes": 65536,
+    "typedArticles": true,
+    "actualBrowserVerified": false
+  },
+  "latestLocalSportsEditorFollowup": {
+    "application": "ec39337",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-sports-editor-preview-2026-10-18.json",
+    "ownedEditorRemountAndFocus": true,
+    "actualBrowserVerified": false
+  },
+  "latestLocalEmailRetiredFollowup": {
+    "application": "37c0aea",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-email-retired-preview-2026-10-18.json",
+    "legacyPostStatus": 410,
+    "realContactOperation": false,
+    "productionUnchanged": true
+  },
+  "latestLegacySignupMetadataAudit": {
+    "evidence": "docs/reviews/qa-legacy-signup-access-metadata-2026-10-18.json",
+    "status": "metadata-reviewed-migration-parity-and-broad-grants-open",
+    "rlsEnabled": true,
+    "policyCount": 0,
+    "browserRolesBypassRls": false,
+    "signupRowsRead": false,
+    "grantsPoliciesChanged": false,
+    "runtimeChanged": false
+  },
+  "latestLocalTeamInputFollowup": {
+    "application": "da7648f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-input-preview-2026-10-18.json",
+    "inputSeconds": 10,
+    "activityBytes": 16384,
+    "assessmentBytes": 65536,
+    "actualTeamWrite": false,
+    "authAndWritePhasesUnchanged": true
+  },
+  "latestLocalTeamHeadersFollowup": {
+    "application": "2f9f9ee",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-headers-preview-2026-10-18.json",
+    "rawTeamErrorsStillOpen": true,
+    "actualTeamWrite": false
+  },
+  "latestLocalTeamErrorsFollowup": {
+    "application": "8071176",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-errors-preview-2026-10-18.json",
+    "scopedRoutes": [
+      "team-activity",
+      "team-assessment"
+    ],
+    "otherRawTeamErrorsStillOpen": true,
+    "actualTeamWrite": false
+  },
+  "latestTeamErrorBoundaryInventory": {
+    "sourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+    "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+    "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "typescriptSourceFiles": 623,
+    "legacyDirectCalls": 0,
+    "scopedDirectCalls": 12,
+    "boundedAuthDirectCalls": 11,
+    "originalAuthDirectCalls": 0,
+    "status": "bounded-direct-call-inventory-broader-workflow-privacy-gates-open",
+    "assessmentAuthDirectCalls": 10
+  },
+  "latestLocalTeamReadErrorsFollowup": {
+    "application": "de17167",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-reads-preview-2026-10-18.json",
+    "scopedRoutes": [
+      "certificate",
+      "team-entitlement"
+    ],
+    "otherRawTeamErrorsStillOpen": true,
+    "actualCertificateOperation": false
+  },
+  "latestLocalTeamWorkflowErrorsFollowup": {
+    "application": "b7c3a24",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-workflows-preview-2026-10-18.json",
+    "directLegacyCalls": 0,
+    "directScopedCalls": 12,
+    "compatibilityAliasFixed": true,
+    "actualWorkflowSideEffect": false
+  },
+  "latestLocalTeamWorkflowInputFollowup": {
+    "application": "a877e97",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-workflow-input-preview-2026-10-18.json",
+    "workflowPostRoutes": 4,
+    "inputSeconds": 10,
+    "workflowBytes": 65536,
+    "actualWorkflowSideEffect": false
+  },
+  "latestLocalTeamAuthWaitFollowup": {
+    "application": "12d25f0",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-auth-preview-2026-10-18.json",
+    "directBoundedAuthCalls": 11,
+    "waitSeconds": 15,
+    "underlyingSdkTransportCancelled": false,
+    "actualSessionExpiryProved": false
+  },
+  "latestTeamAuthSdkContractAudit": {
+    "sourceCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+    "runtimeApplicationCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+    "evidence": "docs/reviews/qa-team-auth-sdk-contract-2026-10-18.json",
+    "installedVersions": "2.105.1",
+    "stubRequests": 2,
+    "actualNetworkCalls": 0,
+    "sdkRawLoggingOpen": true,
+    "responseBoundsOpen": true,
+    "boundedTeamTransportMisclassifiedAsExpiredSession": false,
+    "originalHelperClassificationUnchanged": true,
+    "status": "bounded-classification-fixed-transport-bytes-logging-open"
+  },
+  "latestLocalTeamAuthClassificationFollowup": {
+    "application": "635c79e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-auth-class-preview-2026-10-18.json",
+    "boundedTeamRetryableStatus": 503,
+    "credentialDenialStatus": 403,
+    "originalHelperBehaviorUnchanged": true,
+    "sdkLoggingAndBytesOpen": true
+  },
+  "latestLocalTeamAuthTransportFollowup": {
+    "application": "d9c9d62",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-auth-transport-preview-2026-10-18.json",
+    "sdkEvidence": "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json",
+    "selectedFactoryCalls": 11,
+    "routeFiles": 7,
+    "responseMaxBytes": 262144,
+    "transportPhaseMs": 15000,
+    "sdkLoggerCallsInControlledTests": 0,
+    "originalTenHelperCallersUnchanged": true,
+    "nonAuthBusinessTransportUnchanged": true,
+    "physicalNetworkCancellationProved": false,
+    "aggregateWorkflowDeadline": false
+  },
+  "latestAssessmentAuthBoundaryFollowup": {
+    "application": "b5f9c90",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-auth-errors-preview-2026-10-18.json",
+    "localEvidence": "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "httpEvidence": "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "routeFiles": 4,
+    "actualHandlerGroups": 8,
+    "unexpectedControlledCases": 80,
+    "typedControlledCases": 24,
+    "missingBearerHostedDenials": 8,
+    "originalTenAuthCallersUnchanged": true,
+    "assessmentTypedRpcMessagesStillNeedReview": true
+  },
+  "latestAssessmentRpcGuidanceFollowup": {
+    "application": "88078ea",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-rpc-guidance-preview-2026-10-18.json",
+    "sourceEvidence": "docs/reviews/qa-assessment-rpc-guidance-2026-10-18.json",
+    "knownFixedMessages": 227,
+    "localRaiseSites": 342,
+    "localMigrationFiles": 27,
+    "actualHelperGroups": 4,
+    "unknownP0001Status": 503,
+    "hostedFunctionParityProved": false,
+    "immutableSqlChanged": false,
+    "directRpcAndOtherTypedErrorsStillNeedReview": true
+  },
+  "latestAssessmentAuthOwnershipFollowup": {
+    "application": "9e0757f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-auth-preview-2026-10-18.json",
+    "assessmentCalls": 9,
+    "teamCalls": 11,
+    "adaptedFactories": 20,
+    "routeFiles": 11,
+    "originalCleanupCalls": 1,
+    "newActualRouteGroups": 4,
+    "ownedWaitBranchCases": 27,
+    "newInstalledSdkGroup": 1,
+    "cancelledStatus": 499,
+    "aggregateDeadline": false,
+    "cleanupExecutionChanged": false
+  },
+  "latestCleanupStatusOwnershipFollowup": {
+    "application": "320ba29",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-cleanup-status-preview-2026-10-18.json",
+    "statusEvidence": "docs/reviews/qa-cleanup-status-local-2026-10-18.json",
+    "newStatusGroups": 6,
+    "existingCronGroups": 9,
+    "hostedCleanupDenials": 3,
+    "ownerHistoryPhaseMs": 8000,
+    "originalDirectAuthCalls": 0,
+    "adaptedFactoryCalls": 21,
+    "cronSourceByteIdentical": true,
+    "executionOrPolicyOrScheduleChanged": false,
+    "historyResponseByteShapeBoundsStillNeedReview": true
+  },
+  "latestCleanupStatusResponseFollowup": {
+    "application": "691072f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-cleanup-response-preview-2026-10-18.json",
+    "responseGroups": 4,
+    "statusGroups": 6,
+    "existingCronGroups": 9,
+    "hostedCleanupDenials": 3,
+    "ownerMaxBytes": 4096,
+    "historyMaxBytes": 32768,
+    "selectedRetriesDisabled": true,
+    "cronSourceByteIdentical": true,
+    "executionOrPolicyOrScheduleChanged": false
+  },
+  "latestAssessmentPrivateBoundaryInventory": {
+    "evidenceSourceCommit": "e76c4ac35b37056ba3946c478b9a25cc8a0b5b3d",
+    "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+    "evidence": "docs/reviews/qa-assessment-private-boundary-inventory-2026-10-18.json",
+    "auditOnly": true,
+    "files": 64,
+    "typedErrorConstructors": 207,
+    "dynamicTypedErrors": 3,
+    "directRpcSites": 11,
+    "consoleSites": 9,
+    "conditionalErrorMessageAssignments": 3,
+    "openPriority": "Team invite/resend/assign success warnings and historical invitation diagnostic serialization",
+    "fixed": false
+  }
+}

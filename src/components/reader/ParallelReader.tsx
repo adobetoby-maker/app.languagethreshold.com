@@ -28,7 +28,6 @@ import { NoteBubble } from "./NoteBubble";
 import { NotesPanel } from "./NotesPanel";
 import { MiniPlayer } from "./MiniPlayer";
 import { LibraryDrawer } from "@/components/library/LibraryDrawer";
-import { useCultureGenerator } from "@/components/library/useCultureGenerator";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getAvailableModuleLessons } from "@/data/module-starters";
@@ -36,6 +35,7 @@ import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 import { browserReturnStorage, readLessonReturn } from "@/lib/lesson-return";
+import { moduleReaderSelection, readerSelectionScope } from "@/lib/reader-selection";
 
 type TextSize = "S" | "M" | "L";
 
@@ -87,8 +87,15 @@ const SIZE_CLASS: Record<TextSize, string> = {
 };
 
 export function ParallelReader() {
+  const studyGuideRef = useRef<HTMLDetailsElement>(null);
+  const readingContentRef = useRef<HTMLDivElement>(null);
+  function showSelectedReading() {
+    if (studyGuideRef.current) studyGuideRef.current.open = false;
+    readingContentRef.current?.focus({ preventScroll: true });
+    readingContentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   const { state, dispatch } = useApp();
-  const { selected, state: lib, dispatch: libDispatch } = useLibrary();
+  const { selected, state: lib, dispatch: libDispatch, readyToSelect } = useLibrary();
   const { add: addAnnotation, forText } = useNotes();
   const { activeSentenceIndex, speakSentence, speakSentences, stop, playing } = useSpeech();
   const tutor = useTutor();
@@ -142,21 +149,30 @@ export function ParallelReader() {
     }
   }, [lessonPassageId, lib.selectedId, dispatch]);
 
-  // Auto-load module-relevant reading when active module changes
-  const lastAutoModule = useRef<string | null>(null);
+  // Resume the learner's chosen text in this context; deliberate module/pair changes choose
+  // relevant reading. Persisted scope survives leaving Reader and a full page reload.
   useEffect(() => {
     const moduleId = state.activeModuleId;
     if (!moduleId) return;
-    const key = `${moduleId}:${state.selectedLanguage}`;
-    const readingId = lessonIds[0];
-    if (!readingId || lastAutoModule.current === key) return;
-    lastAutoModule.current = key;
-    if (readingId && readingId !== lib.selectedId && lib.selectedId !== lessonPassageId) {
+    const readingId = moduleReaderSelection({
+      ready: readyToSelect,
+      scope: readerSelectionScope(moduleId, state.selectedLanguage, state.nativeLanguage),
+      savedScope: lib.selectionScope,
+      selectedId: lib.selectedId,
+      selected: lib.entries.find((entry) => entry.id === lib.selectedId),
+      target: state.selectedLanguage,
+      firstLessonId: lessonIds[0],
+      lessonPassageId,
+    });
+    if (readingId) {
       libDispatch({ type: "SELECT", payload: readingId });
     }
   }, [
     state.activeModuleId,
     state.selectedLanguage,
+    state.nativeLanguage,
+    readyToSelect,
+    lib.selectionScope,
     lib.entries,
     lib.selectedId,
     libDispatch,
@@ -250,8 +266,6 @@ export function ParallelReader() {
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [selection, setSelection] = useState<SelectionInfo | null>(null);
   const [noteBubble, setNoteBubble] = useState<SelectionInfo | null>(null);
-
-  useCultureGenerator();
 
   // Track Culture Series exposure for the "Culture Buff 🌍" achievement
   useEffect(() => {
@@ -575,24 +589,25 @@ export function ParallelReader() {
     });
   }, [activeSentenceIndex, autoScroll]);
 
+  if (!readyToSelect) {
+    return (
+      <p role="status" className="mx-auto max-w-6xl p-6 text-muted-foreground">
+        Loading your saved reading…
+      </p>
+    );
+  }
+
   return (
     <div className="fade-in mx-auto w-full max-w-6xl">
       <LessonReturnPill kind="see" />
-      <ModuleStudyGuide />
-      <ModuleMatchPanel surface="Reader" className="mb-4" />
-      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
-        <strong>Your training demo.</strong> Tap a word on either side — {state.nativeLanguage} or{" "}
-        {state.selectedLanguage} — to see what it means in this sentence, ask the Tutor about it,
-        then save it. This disappears once you have tried both sides.
-      </ActionHint>
 
-      {/* Lesson navigation — shown when the active module has multiple lessons */}
+      {/* Library readings are separate from the module's Core 30 lessons. */}
       {lessonIds.length > 1 && (
         <div className="mb-4 flex items-center gap-2 rounded-xl border border-border/50 bg-card/40 px-4 py-2.5">
           <button
             onClick={() => goToLesson(currentLessonIndex - 1)}
             disabled={currentLessonIndex <= 0}
-            aria-label="Previous lesson"
+            aria-label="Previous reading"
             className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-background/50 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:border-gold/50 hover:text-gold disabled:pointer-events-none disabled:opacity-30"
           >
             <ChevronLeft className="h-3 w-3" /> Prev
@@ -603,8 +618,8 @@ export function ParallelReader() {
               <button
                 key={id}
                 onClick={() => goToLesson(idx)}
-                title={`Lesson ${idx + 1}`}
-                aria-label={`Go to lesson ${idx + 1}`}
+                title={`Reading ${idx + 1}`}
+                aria-label={`Go to reading ${idx + 1}`}
                 className={
                   "h-1.5 rounded-full transition-all " +
                   (idx === currentLessonIndex
@@ -617,16 +632,16 @@ export function ParallelReader() {
             ))}
           </div>
 
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          <span className="shrink-0 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
             {currentLessonIndex >= 0
-              ? `${currentLessonIndex + 1} / ${lessonIds.length}`
-              : `${lessonIds.length} lessons`}
+              ? `Reading ${currentLessonIndex + 1}/${lessonIds.length}`
+              : `${lessonIds.length} readings`}
           </span>
 
           <button
             onClick={() => goToLesson(currentLessonIndex < 0 ? 0 : currentLessonIndex + 1)}
             disabled={currentLessonIndex >= lessonIds.length - 1}
-            aria-label="Next lesson"
+            aria-label="Next reading"
             className="inline-flex items-center gap-1 rounded-full border border-gold/50 bg-gold/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-gold transition-colors hover:bg-gold/25 disabled:pointer-events-none disabled:opacity-30"
           >
             {currentLessonIndex < 0 ? "Start" : "Next"} <ChevronRight className="h-3 w-3" />
@@ -645,11 +660,6 @@ export function ParallelReader() {
           {selected.title}
         </button>
         <div className="flex items-center gap-2">
-          {lib.generating && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-              ✦ Generating Culture Series…
-            </span>
-          )}
           <button
             onClick={() => setDrawerOpen(true)}
             className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-gold hover:bg-gold/15"
@@ -912,9 +922,18 @@ export function ParallelReader() {
         </div>
       </div>
 
+      <ActionHint storageKey="lt.guide.reader.tap" className="mb-4">
+        Tap a word on either side for its meaning, audio and a flashcard. Ask the Tutor to explain
+        how it works in the sentence.
+      </ActionHint>
+
       {/* Reader */}
       <div
-        className={`relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur ${fullscreen ? "fixed inset-2 z-40 md:inset-6" : ""}`}
+        ref={readingContentRef}
+        tabIndex={-1}
+        role="region"
+        aria-label="Selected reading"
+        className={`relative scroll-mt-20 overflow-hidden rounded-2xl border border-border/60 bg-card/40 shadow-luxe backdrop-blur md:scroll-mt-40 ${fullscreen ? "fixed inset-2 z-40 md:inset-6" : ""}`}
       >
         <div className={fullscreen ? "grid grid-cols-1" : "grid grid-cols-2"}>
           {!fullscreen && (
@@ -1016,6 +1035,24 @@ export function ParallelReader() {
           </div>
         </div>
       </div>
+
+      <details
+        ref={studyGuideRef}
+        className="mt-5 rounded-2xl border border-border/60 bg-card/40"
+        aria-label="Reader study guide"
+      >
+        <summary className="min-h-11 cursor-pointer px-4 py-3 text-sm font-semibold text-gold">
+          Study guide and practice ideas
+        </summary>
+        <div className="px-3 pb-3">
+          <ModuleStudyGuide
+            key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            embedded
+            onOpenReading={showSelectedReading}
+          />
+          <ModuleMatchPanel surface="Reader" />
+        </div>
+      </details>
 
       <LibraryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 

@@ -108,3 +108,105 @@ test("account age self-attestation is read from server-only storage", async () =
     assert.equal(await hasSpeakingAgeAttestation("user-123"), false);
   });
 });
+
+test("speaking pre-auth refuses absent/malformed canonical IPs and ignores caller forwarding fallbacks", async () => {
+  await withSpeakingServerEnv(async () => {
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls++;
+      return Response.json(true);
+    };
+    for (const headers of [
+      {},
+      { "x-forwarded-for": "192.0.2.10" },
+      { "x-real-ip": "192.0.2.11" },
+      { "x-vercel-forwarded-for": "synthetic-chosen-bucket", "x-forwarded-for": "192.0.2.12" },
+      { "x-vercel-forwarded-for": "192.0.2.999" },
+      { "x-vercel-forwarded-for": " ,192.0.2.13" },
+    ]) {
+      assert.deepEqual(
+        await enforceSpeakingPreAuthRateLimit(
+          new Request("https://fixture.invalid/api/speak", { headers }),
+        ),
+        { allowed: false, misconfigured: true },
+      );
+    }
+    assert.equal(calls, 0);
+  });
+});
+test("speaking canonical IPv4/IPv6 retain the exact hashed IP budget and ignore rotated fallback values", async () => {
+  await withSpeakingServerEnv(async () => {
+    const calls = [];
+    globalThis.fetch = async (url, opts) => {
+      calls.push({ url, opts, body: JSON.parse(opts.body) });
+      return Response.json(true);
+    };
+    for (const ip of ["192.0.2.10", "2001:db8::10"]) {
+      for (const fallback of ["192.0.2.20", "192.0.2.21"]) {
+        assert.deepEqual(
+          await enforceSpeakingPreAuthRateLimit(
+            new Request("https://fixture.invalid/api/speak", {
+              headers: {
+                "x-vercel-forwarded-for": ` ${ip}, 192.0.2.30`,
+                "x-forwarded-for": fallback,
+                "x-real-ip": fallback,
+              },
+            }),
+          ),
+          { allowed: true, misconfigured: false },
+        );
+      }
+    }
+    assert.equal(calls.length, 4);
+    const { createHmac } = await import("node:crypto");
+    for (let i = 0; i < 4; i++) {
+      const ip = i < 2 ? "192.0.2.10" : "2001:db8::10";
+      const hash = createHmac("sha256", "server-secret-test-key")
+        .update(`language-threshold:speaking:v1:ip:${ip}`)
+        .digest("hex");
+      assert.deepEqual(calls[i].body, {
+        p_bucket_hash: hash,
+        p_request_limit: 40,
+        p_window_seconds: 60,
+      });
+      assert.equal(calls[i].opts.cache, "no-store");
+      assert.doesNotMatch(JSON.stringify(calls[i].body), /192\.0\.2|2001:db8/);
+    }
+  });
+});
+test("only explicit loopback development uses the fixed local speaking bucket", async () => {
+  const nodeEnv = process.env.NODE_ENV;
+  try {
+    await withSpeakingServerEnv(async () => {
+      const calls = [];
+      globalThis.fetch = async (url, opts) => {
+        calls.push(JSON.parse(opts.body));
+        return Response.json(true);
+      };
+      process.env.NODE_ENV = "development";
+      for (const host of ["localhost", "127.0.0.1", "[::1]"])
+        assert.deepEqual(
+          await enforceSpeakingPreAuthRateLimit(new Request(`http://${host}/api/speak`)),
+          { allowed: true, misconfigured: false },
+        );
+      assert.equal(new Set(calls.map((c) => c.p_bucket_hash)).size, 1);
+      assert.deepEqual(
+        await enforceSpeakingPreAuthRateLimit(
+          new Request("https://outside.invalid/api/speak", {
+            headers: { "x-forwarded-for": "192.0.2.10" },
+          }),
+        ),
+        { allowed: false, misconfigured: true },
+      );
+      process.env.NODE_ENV = "production";
+      assert.deepEqual(
+        await enforceSpeakingPreAuthRateLimit(new Request("http://localhost/api/speak")),
+        { allowed: false, misconfigured: true },
+      );
+      assert.equal(calls.length, 3);
+    });
+  } finally {
+    if (nodeEnv === undefined) delete process.env.NODE_ENV;
+    else process.env.NODE_ENV = nodeEnv;
+  }
+});

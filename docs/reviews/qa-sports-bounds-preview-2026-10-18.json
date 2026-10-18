@@ -1,0 +1,94 @@
+{
+  "testedAt": "2026-10-18T08:37:20.113759+00:00",
+  "applicationCommit": "1c781e43b49e913fb9c2e99c0239cebafe80947f",
+  "preview": "https://language-threshold-3rz7xrbtd-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-3rz7xrbtd-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3zVjCMFDztPZoxDKotiQSAeHSKnJ",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-3rz7xrbtd-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "1c781e43b49e913fb9c2e99c0239cebafe80947f",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-sports-client-preview-2026-10-18.json",
+  "local": {
+    "tests": 1372,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1478,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "SportsNewsPanel delegates one owned current request to getSportsNews with a 30-second credential-free transport/JSON phase, child cancellation and fixed non-echoed failures; current timeout releases busy state and permits explicit retry",
+    "Browser JSON reading is bounded to 64 KiB advertised/actual UTF-8 bytes, strict decoding and JSON parsing; deadline/incoming abort cancel and release owned readers even if source cancellation never settles; ignored late headers are disposed",
+    "Before reaching article cards, response validates at most ten records with bounded text/id/source/date/URL/team lists, finite dates, matching requested sport, absolute HTTP(S) links without credentials; unknown record fields are omitted",
+    "Existing reminder JSON reader is extracted into shared readBrowserJson with adapter preserving its 16 KiB limit and fixed Reminder response unavailable message; reminder request ownership/write outcome/30-second wait behavior remains unchanged",
+    "Five new direct client groups exercise typed negative/positive contracts, exact/excess UTF-8 bytes, advertised length, malformed encoding, ignored late headers, deadline/abort, nonsettling cleanup and completed listener release; two new actual-panel groups verify current timeout retry and unsafe article rejection",
+    "Existing account/selection/guest/B/retained callback/unmount component cases now use actual Response streams through the bounded reader; all reminder suites pass after shared-reader extraction",
+    "Eleven hosted checker groups pass on exact application; sports input denials precede RSS retrieval. No live news feed, paid provider/model, consent/push write or browser action"
+  ],
+  "controlledEvidence": [
+    "tests/sports-news-client.test.mjs",
+    "tests/sports-news-lifecycle.test.mjs",
+    "tests/push-reminder-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "421e69f",
+    "source": "src/components/soccer/SportsNewsPanel.tsx",
+    "case": "Successful synthetic JSON contains article with javascript URL",
+    "oldPassesUnsafeArticleToCard": true,
+    "currentRejectsBeforeCard": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical component in controlled hooks/auth/fetch fixture; no unsafe URL navigation/execution or real browser action."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-sports-bounds-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled hooks/auth/transport/timers prove local contracts only; no actual browser effect timing, live news availability/factual accuracy/licensing, native transport/platform buffering or physical-device acceptance.",
+    "Cooperative client 30-second, server input 10-second and per-feed eight-second phases remain distinct. Byte limits count fetch-exposed bytes and do not provide hard CPU/network/billing/aggregate request bounds.",
+    "Article structural validation does not establish source truth. Valid but over-limit responses fail honestly; no truncation into fabricated successful data. Duplicate source stories remain handled by existing server deduplication.",
+    "Client abort cannot roll back feed work already accepted by the server. Ignored transport may finish underneath but cannot affect a departed/current replacement panel; no exactly-once or actual platform cancellation guarantee.",
+    "Remaining helper/provider/endpoint/cache/diagnostics/device inventory, durable reminder unknown-write receipts, real current A/guest/B/restore/SDK expiry/process-restart and all human/content/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deploy pin retained; absent metadata env is not false readback proof. No schema/role/policy/schedule/main push, production promotion or accepted-hostname advance."
+  ]
+}

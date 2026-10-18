@@ -1,0 +1,140 @@
+{
+  "testedAt": "2026-10-18T11:51:28.354Z",
+  "sourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "versions": {
+    "auth-js": "2.105.1",
+    "supabase-js": "2.105.1"
+  },
+  "testGroups": 9,
+  "factoryWiring": [
+    {
+      "path": "src/routes/api.team.ts",
+      "requestBoundFactoryCallLines": [
+        88,
+        319
+      ]
+    },
+    {
+      "path": "src/routes/api.team-billing.ts",
+      "requestBoundFactoryCallLines": [
+        76,
+        111
+      ]
+    },
+    {
+      "path": "src/routes/api.module-request.ts",
+      "requestBoundFactoryCallLines": [
+        58,
+        78
+      ]
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "requestBoundFactoryCallLines": [
+        56,
+        162
+      ]
+    },
+    {
+      "path": "src/routes/api.team-activity.ts",
+      "requestBoundFactoryCallLines": [
+        45
+      ]
+    },
+    {
+      "path": "src/routes/api.team-assessment.ts",
+      "requestBoundFactoryCallLines": [
+        36
+      ]
+    },
+    {
+      "path": "src/routes/api.team-entitlement.ts",
+      "requestBoundFactoryCallLines": [
+        9
+      ]
+    },
+    {
+      "path": "src/routes/api.exams.ts",
+      "requestBoundFactoryCallLines": [
+        225,
+        395,
+        402
+      ]
+    },
+    {
+      "path": "src/routes/api.exam-plans.ts",
+      "requestBoundFactoryCallLines": [
+        145,
+        216
+      ]
+    },
+    {
+      "path": "src/routes/api.exam-content.ts",
+      "requestBoundFactoryCallLines": [
+        64,
+        217
+      ]
+    },
+    {
+      "path": "src/routes/api.exam-reviewers.ts",
+      "requestBoundFactoryCallLines": [
+        46,
+        109
+      ]
+    }
+  ],
+  "cleanupStatusFactory": {
+    "path": "src/lib/assessments/cleanup-schedule-server.ts",
+    "requestBoundFactoryCallLines": [
+      118
+    ]
+  },
+  "adaptedFactoryTotal": 21,
+  "checks": {
+    "actualProductionFactoryAndInstalledSdk": true,
+    "explicitJwtAndProjectHeadersMatchedInMemory": true,
+    "authSignalAndNoStore": true,
+    "exact256KiBValidJsonAccepted": true,
+    "advertisedAndActualExcessRejected": true,
+    "invalidUtf8AndJsonRejected": true,
+    "credential401And403BecomeFixed403": true,
+    "service429And500And503BecomeFixed503": true,
+    "fetchRejectionBecomesFixed503": true,
+    "sdkConsoleErrorCalls": 0,
+    "unexpectedGlobalFetchCalls": 0,
+    "deadlineAbortsSuppliedSignal": true,
+    "ignoredLateHeadersDisposed": true,
+    "requestAbortStopsBodyRead": true,
+    "nonsettlingCancelDoesNotBlockAndReaderUnlocks": true,
+    "preabortDispatchesZero": true,
+    "timersAndIncomingListenersReleased": true,
+    "actualSdkBusinessPostUnchanged": true,
+    "unrelatedUrlMethodInputAndInitIdentityPreserved": true
+  },
+  "sources": [
+    {
+      "path": "src/lib/team-auth-fetch.ts",
+      "sha256": "ecd106676f49d031b78d6adf1e5d7fdbf2e45864e7da19577442eb941a0fe97b"
+    },
+    {
+      "path": "src/lib/private-service-json.ts",
+      "sha256": "d1a793aaa45974bdecb2804971cd1fdd4709236aa4a6157b36918eb18a304f56"
+    },
+    {
+      "path": "src/lib/team-server.ts",
+      "sha256": "b68e1b4633e6c4d18ce456450f512c27abefc8b31cfc533245e8d27d86e5fce2"
+    },
+    {
+      "path": "tests/team-auth-fetch.test.mjs",
+      "sha256": "150f736dca5c171d9cb8b6f1f81b4fc6d696330ad73e3beb5d77eaecfea24c73"
+    }
+  ],
+  "limits": [
+    "Synthetic credentials/URLs/user/Responses and controlled timers; no actual network, credentials, database, provider, browser, expiry or business action. Global fetch rejection guard and logger capture restored in finally.",
+    "Twenty direct route factories plus one injected/default cleanup-status factory install the Auth adapter. No original named helper calls remain in the source inventory; other clients without authRequest remain separate. Cleanup SDK/status behavior has its own tests.",
+    "Caller wait and transport timers each start in their own phase; no single aggregate request deadline. Supplied signal is cooperatively honored by real fetch; ignored synthetic transport is raced and late response disposed, not proof of physical network cancellation.",
+    "Only Auth GET exact project endpoint is selected. Other SDK requests pass through, including writes after request abort; later private/business phases and unknown outcomes need separate review.",
+    "No main push, production promotion, accepted-hostname advance, schema/grant/role/policy/schedule changes; full goal/human/device/reviewer/retention gates remain open."
+  ]
+}

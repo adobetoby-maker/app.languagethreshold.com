@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest } from "@/lib/team-client";
+import { ownedTeamRequest } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 
 export const Route = createFileRoute("/team_/accept")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -17,23 +18,66 @@ export const Route = createFileRoute("/team_/accept")({
 });
 
 function AcceptInvite() {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
+  const { token } = Route.useSearch();
+  return (
+    <OwnedAcceptInvite key={JSON.stringify([user?.id ?? null, token ?? null])} token={token} />
+  );
+}
+
+function OwnedAcceptInvite({ token }: { token: string | undefined }) {
+  const { user, loading, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-invite", token ?? null]));
+  const pending = useRef<AbortController | null>(null);
+  const completed = useRef(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
-  const { token } = Route.useSearch();
   async function accept() {
-    if (!token) return;
+    const lease = capture();
+    if (
+      !actor ||
+      !token ||
+      loading ||
+      !canUseReader(actor) ||
+      !lease.isCurrent() ||
+      pending.current ||
+      completed.current
+    )
+      return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(actor) &&
+      pending.current === controller &&
+      !controller.signal.aborted;
     setBusy(true);
     setError("");
     try {
-      await teamRequest("/api/team", { action: "accept", token });
-      setAccepted(true);
+      await ownedTeamRequest(
+        { userId: actor, isCurrent: current, signal: controller.signal },
+        "/api/team",
+        { action: "accept", token },
+      );
+      if (current()) {
+        completed.current = true;
+        setAccepted(true);
+      }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not accept invitation.");
+      if (current())
+        setError(cause instanceof Error ? cause.message : "Could not accept invitation.");
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && pending.current === controller) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
     }
   }
   return (
@@ -50,7 +94,7 @@ function AcceptInvite() {
           </p>
         ) : accepted ? (
           <>
-            <p className="mt-4 text-sm text-emerald-700 dark:text-emerald-300">
+            <p role="status" className="mt-4 text-sm text-emerald-700 dark:text-emerald-300">
               Your seat is ready. You can use every published module, starting with your team's
               focus.
             </p>
@@ -76,7 +120,7 @@ function AcceptInvite() {
                   Signed in as <strong>{user.email}</strong>
                 </p>
                 <button
-                  disabled={busy}
+                  disabled={busy || !canUseReader(user.id)}
                   onClick={() => void accept()}
                   className="mt-4 rounded-lg bg-gold px-4 py-2.5 font-semibold text-midnight disabled:opacity-50"
                 >

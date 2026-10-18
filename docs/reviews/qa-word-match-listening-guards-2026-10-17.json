@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-17T15:14:34.893323+00:00",
+  "sourceCommit": "158fad4",
+  "status": "Locally verified; not deployed",
+  "scope": "Word Match and Listening Drill active generation handlers; no changes to account-owned progress stores",
+  "checks": {
+    "strictOriginBeforeCacheAccess": true,
+    "noStore": true,
+    "existingContentPoolBeforePaidMiss": true,
+    "deniedOrUnavailableBudgetPreventsProviderConstruction": true,
+    "publicWarmCacheNoKeyBudgetOrProviderRequired": true,
+    "wordMatchPrivateVocabularyCannotReadOrPopulatePublicCache": true,
+    "maxRetries": 0,
+    "sdkTimeoutMs": 30000,
+    "totalDeadlineMs": 30000,
+    "incomingAbortPropagation": true,
+    "boundedWhitelistedOutput": true,
+    "requestedBoardCountAndCefrEnforced": true,
+    "distinctWordMatchTargetsAndMeanings": true,
+    "fourDistinctListeningTranscripts": true,
+    "exactListeningAnswerPresenceAndExistingIndexRepair": true,
+    "invalidOutputNotCached": true,
+    "rawProviderErrorNotLoggedOrReturned": true,
+    "existingConjugationAndWordMatchCacheRegressionCasesRetained": true
+  },
+  "localVerification": {
+    "tests": 841,
+    "targetedTests": 7,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "stageBuild": "pass",
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T15:14:03.581Z",
+      "sourceCommit": "158fad4",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1154,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "limitations": [
+    "Controlled production-handler SDK/budget fixtures; no paid provider request, hosted positive generation or actual timeout/billing trial",
+    "Output structure, uniqueness and transcript/index consistency do not establish linguistic quality, level calibration or reviewed content",
+    "No browser actions, new learner writes, schema/role/active-policy/speech/schedule changes",
+    "Generic public cache free-text context and remaining game generators still require audit; no app-wide cache/privacy completion claim",
+    "Hosted development remains 858c47a; accepted companion d4ad837/live app/main unchanged; routing schema question and release gates remain open"
+  ]
+}

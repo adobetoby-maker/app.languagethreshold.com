@@ -2,6 +2,8 @@
 import { execFileSync, spawn } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { parseEnv } from "node:util";
+import { homedir } from "node:os";
+import { join } from "node:path";
 const project = "pollhlkgltdkdskdzsgd";
 const keys = JSON.parse(
   execFileSync(
@@ -31,6 +33,17 @@ const aiFileIndex = process.argv.indexOf("--ai-env-file");
 if (aiFileIndex >= 0) {
   const configured = parseEnv(readFileSync(process.argv[aiFileIndex + 1], "utf8"));
   if (configured.ANTHROPIC_API_KEY) env.ANTHROPIC_API_KEY = configured.ANTHROPIC_API_KEY;
+}
+try {
+  const qa = JSON.parse(
+    readFileSync(join(homedir(), ".codex/tmp/language-threshold-qa/roofing-20261015.json"), "utf8"),
+  );
+  if (qa.project === project && qa.run === "roofing-20261015")
+    env.LT_EXAMS_PILOT_USER_IDS = [qa.learnerId, qa.adminId, qa.personalId]
+      .filter(Boolean)
+      .join(",");
+} catch {
+  /* A normal dev server does not enable assessment pilots. */
 }
 const child = spawn(
   process.execPath,

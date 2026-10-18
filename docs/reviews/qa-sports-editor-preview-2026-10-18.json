@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T08:46:40.115946+00:00",
+  "applicationCommit": "ec39337b1a10de61c7c934f8ad6f6a1e1657fbb5",
+  "preview": "https://language-threshold-mpicq8113-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-mpicq8113-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6yXCTqBt8kw3iQX9fuD6SRDHYMC2",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-mpicq8113-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "ec39337b1a10de61c7c934f8ad6f6a1e1657fbb5",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-sports-bounds-preview-2026-10-18.json",
+  "local": {
+    "tests": 1374,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1480,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "FavoriteTeamInput is keyed to the panel actual account/sport/favorite-team/language lifecycle so unfinished local editor state remounts on owner/context replacement",
+    "Editor owns its pending animation-frame focus request, cancels it on unmount and guards focus/start/input/commit/cancel callbacks with mounted state; retained callbacks cannot update departed editor state or invoke its preference callback",
+    "Input enforces the existing endpoint 80-character favorite-team bound through maxlength and controlled value slicing; committed current-owner behavior otherwise remains",
+    "Two added controlled actual-component cases assert distinct editor keys across account/guest/B/language/selection and execute editor callbacks/focus after cleanup with zero writes/preference calls/focus; prior request/JSON/ownership suites remain green",
+    "Eleven hosted checker groups pass on exact application; sports entry checks deny before any RSS fetch. No actual editor browser/focus/draft screen proof, feed/model/provider/audio/consent/push action"
+  ],
+  "controlledEvidence": [
+    "tests/sports-news-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "45aa6d1",
+    "source": "src/components/soccer/SportsNewsPanel.tsx",
+    "case": "Editor node requires an owner/context remount key",
+    "oldEditorKey": null,
+    "currentKeyVariesWithAccountAndSelection": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Structural assertion on actual historical component in controlled hooks/fetch fixture; no actual visible cross-account draft trial."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-sports-editor-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Editor key assertion is a structural remount contract on the actual component; callback/resource cleanup executes the actual editor with controlled hooks and animation frames. This is not actual React DOM reconciliation, visible draft-clear, focus/accessibility, physical-device or browser scheduling proof.",
+    "Existing child editor state remains local and the parent preference callback has its own current-owner guard. Accepted earlier preference changes cannot be undone by unmount; no SDK persistence or cross-device ordering guarantee.",
+    "Client/server input/feed cooperative phases and bounds remain separate; no broader appwide cache/diagnostics/endpoint or actual native/platform cancellation guarantee.",
+    "Remaining helper/provider/endpoint/cache/diagnostics/device inventory includes capture-email unbounded input, ignored acknowledgements/configuration and raw explicit errors; no contact/mail operation or behavior change made there.",
+    "Durable reminder unknown-write receipts, actual A/guest/B/restore/SDK expiry/process-restart and all human/content/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deploy pin retained; absent metadata env is not false readback proof. No schema/role/policy/schedule/main push, production promotion or accepted-hostname advance."
+  ]
+}

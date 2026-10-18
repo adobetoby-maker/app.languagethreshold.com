@@ -1,4 +1,12 @@
+import { WordCardCacheProvider } from "./word-card-cache";
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
+import type { AppTab } from "@/lib/app-navigation";
+import { useAuth } from "./auth-state";
+import {
+  readProfileSnapshot,
+  saveProfileSnapshot,
+  hasUnassignedProfileSnapshot,
+} from "@/lib/profile-device-snapshot";
 import {
   createContext,
   useCallback,
@@ -18,6 +26,7 @@ import {
   THEME_PREFERENCE_KEY,
 } from "@/lib/theme-preference";
 import { mergeCore30Log, type Core30Log, type Core30Way } from "@/lib/core30-plan";
+import { core30ScopeKey, claimLegacyCore30, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
   core30RecordReview,
   core30SetMastered,
@@ -48,102 +57,10 @@ import {
   type VocabRevisionByLanguage,
 } from "./vocab-store";
 
-export type Language =
-  | "Spanish"
-  | "French"
-  | "German"
-  | "Italian"
-  | "Japanese"
-  | "Chinese"
-  | "Korean"
-  | "Portuguese"
-  | "Pashto"
-  | "English";
+import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+export { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 
-export const LANGUAGES: Language[] = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Chinese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-];
-
-// The learner's native ("translation") language — used for the left pane,
-// definitions, lesson explanations, etc. Default English; expandable.
-export type NativeLanguage =
-  | "English"
-  | "Spanish"
-  | "French"
-  | "German"
-  | "Italian"
-  | "Portuguese"
-  | "Dutch"
-  | "Polish"
-  | "Russian"
-  | "Turkish"
-  | "Arabic"
-  | "Hindi"
-  | "Chinese (Simplified)"
-  | "Japanese"
-  | "Korean";
-
-export const NATIVE_LANGUAGES: NativeLanguage[] = [
-  "English",
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Portuguese",
-  "Dutch",
-  "Polish",
-  "Russian",
-  "Turkish",
-  "Arabic",
-  "Hindi",
-  "Chinese (Simplified)",
-  "Japanese",
-  "Korean",
-];
-
-export type TabKey =
-  | "missionary"
-  | "orthopedics"
-  | "reader"
-  | "grammar"
-  | "speak"
-  | "discussions"
-  | "dashboard"
-  | "anatomy"
-  | "modules"
-  | "kana"
-  | "characters"
-  | "conjugation"
-  | "sentenceBuild"
-  | "games"
-  | "listeningDrill"
-  | "wordMatch"
-  | "idiomMaster"
-  | "falseFriends"
-  | "soccer"
-  | "baseball"
-  | "orEvs"
-  | "fmg"
-  | "penpal"
-  | "patterns"
-  | "cognates"
-  | "story"
-  | "guide"
-  | "core30"
-  | "climbing"
-  | "fishing"
-  | "fieldPrep"
-  | "dictionary"
-  | "flashcards";
+export type TabKey = AppTab;
 
 // Learner CEFR-ish self level (used elsewhere for AI prompts)
 export type Level = "Beginner" | "Intermediate" | "Advanced" | "Fluent";
@@ -359,24 +276,57 @@ export type AppAction =
   | { type: "UPDATE_SM2_CARD"; payload: { key: string; card: SM2Card } }
   | { type: "FIRST_SENTENCE_MOMENT" }
   | { type: "_DERIVE" }
-  | { type: "COMPLETE_LESSON"; payload: string }
+  | {
+      type: "COMPLETE_LESSON";
+      payload: string | { moduleId: string; context: Core30ProgressContext };
+    }
+  | {
+      type: "CORE30_CLAIM_LEGACY";
+      payload: { moduleId: string; context: Core30ProgressContext; at: string };
+    }
   | {
       type: "CORE30_STEP_OPENED";
-      payload: { moduleId: string; lesson: number; step: number; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        step: number;
+        at: string;
+      };
     }
   | {
       type: "CORE30_WAY_OPENED";
-      payload: { moduleId: string; lesson: number; way: Core30Way; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        way: Core30Way;
+        at: string;
+      };
     }
   | {
       type: "CORE30_SET_MASTERED";
       // `mastered` is the literal true: there is no un-master (cloud merge keeps the earliest masteredAt).
-      payload: { moduleId: string; lesson: number; mastered: true; at: string };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        lesson: number;
+        mastered: true;
+        at: string;
+      };
     }
-  | { type: "CORE30_SET_START_DATE"; payload: { moduleId: string; date: string; at?: string } }
+  | {
+      type: "CORE30_SET_START_DATE";
+      payload: { moduleId: string; context?: Core30ProgressContext; date: string; at?: string };
+    }
   | {
       type: "CORE30_RECORD_REVIEW";
-      payload: { moduleId: string; at: string; results: { lesson: number; ok: boolean }[] };
+      payload: {
+        moduleId: string;
+        context?: Core30ProgressContext;
+        at: string;
+        results: { lesson: number; ok: boolean }[];
+      };
     }
   | { type: "MERGE_REMOTE"; payload: PersistedShape };
 
@@ -654,7 +604,17 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "COMPLETE_ONBOARDING":
       return { ...state, onboardingComplete: true };
     case "COMPLETE_LESSON": {
-      const moduleId = action.payload;
+      const payload =
+        typeof action.payload === "string" ? { moduleId: action.payload } : action.payload;
+      const moduleId = core30ScopeKey(
+        payload.moduleId,
+        "context" in payload
+          ? payload.context
+          : {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+      );
       const current = state.lessonProgress[moduleId] ?? 0;
       return withPracticeStreak(
         {
@@ -663,26 +623,92 @@ export function reducer(state: AppState, action: AppAction): AppState {
           lessonsCompleted: state.lessonsCompleted + 1,
           lastPracticeDateByLanguage: {
             ...state.lastPracticeDateByLanguage,
-            [state.selectedLanguage]: todayKey(),
+            ["context" in payload ? payload.context.targetLanguage : state.selectedLanguage]:
+              todayKey(),
           },
         },
         recordPracticeCompletion(state.practiceStreak, todayKey()),
       );
     }
+    case "CORE30_CLAIM_LEGACY": {
+      const { moduleId, context, at } = action.payload;
+      const claimed = claimLegacyCore30(
+        state.core30Log,
+        state.lessonProgress,
+        moduleId,
+        context,
+        at,
+      );
+      return { ...state, core30Log: claimed.log, lessonProgress: claimed.progress };
+    }
     case "CORE30_STEP_OPENED": {
-      const core30Log = core30StepOpened(state.core30Log, action.payload);
+      const core30Log = core30StepOpened(state.core30Log, {
+        ...action.payload,
+        moduleId: core30ScopeKey(
+          action.payload.moduleId,
+          action.payload.context ?? {
+            targetLanguage: state.selectedLanguage,
+            instructionLanguage: state.nativeLanguage,
+          },
+        ),
+      });
       return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
     case "CORE30_WAY_OPENED": {
-      const core30Log = core30WayOpened(state.core30Log, action.payload);
+      const core30Log = core30WayOpened(state.core30Log, {
+        ...action.payload,
+        moduleId: core30ScopeKey(
+          action.payload.moduleId,
+          action.payload.context ?? {
+            targetLanguage: state.selectedLanguage,
+            instructionLanguage: state.nativeLanguage,
+          },
+        ),
+      });
       return core30Log === state.core30Log ? state : { ...state, core30Log };
     }
     case "CORE30_SET_MASTERED":
-      return { ...state, core30Log: core30SetMastered(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30SetMastered(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "CORE30_SET_START_DATE":
-      return { ...state, core30Log: core30SetStartDate(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30SetStartDate(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "CORE30_RECORD_REVIEW":
-      return { ...state, core30Log: core30RecordReview(state.core30Log, action.payload) };
+      return {
+        ...state,
+        core30Log: core30RecordReview(state.core30Log, {
+          ...action.payload,
+          moduleId: core30ScopeKey(
+            action.payload.moduleId,
+            action.payload.context ?? {
+              targetLanguage: state.selectedLanguage,
+              instructionLanguage: state.nativeLanguage,
+            },
+          ),
+        }),
+      };
     case "SET_USER_VOCAB": {
       const base = includeLegacyVocab(
         state.vocabByLanguage,
@@ -929,8 +955,6 @@ export function reducer(state: AppState, action: AppAction): AppState {
   }
 }
 
-const STORAGE_KEY = "lt.app.v2";
-const LEGACY_STORAGE_KEYS = ["lt.app", "lt.app.v1"];
 const SCHEMA_VERSION = 5;
 
 type PersistedShape = Partial<AppState> & { __v?: number };
@@ -997,31 +1021,6 @@ function migrate(raw: unknown): PersistedShape {
   return data;
 }
 
-function loadPersisted(): PersistedShape | null {
-  try {
-    let raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      for (const legacy of LEGACY_STORAGE_KEYS) {
-        const v = localStorage.getItem(legacy);
-        if (v) {
-          raw = v;
-          localStorage.removeItem(legacy);
-          break;
-        }
-      }
-    }
-    if (!raw) return null;
-    return migrate(JSON.parse(raw));
-  } catch {
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
-    return null;
-  }
-}
-
 const PERSIST_KEYS: (keyof AppState)[] = [
   "selectedLanguage",
   "nativeLanguage",
@@ -1086,10 +1085,38 @@ const AppContext = createContext<{
 } | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
+  const { user, loading } = useAuth();
+  const actor = user?.id ?? null;
+  if (loading)
+    return (
+      <div
+        className="flex min-h-screen items-center justify-center bg-background p-6 text-foreground"
+        role="status"
+      >
+        Loading your learning space…
+      </div>
+    );
+  return (
+    <AccountAppProvider key={actor ?? "guest"} actor={actor}>
+      {children}
+    </AccountAppProvider>
+  );
+}
+
+function AccountAppProvider({ children, actor }: { children: ReactNode; actor: string | null }) {
+  const { isCurrentUser } = useAuth();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const parsed = loadPersisted();
+    const stored = readProfileSnapshot<object>(window.localStorage, actor);
+    const parsed = stored ? migrate(stored) : null;
+    if (!parsed && hasUnassignedProfileSnapshot(window.localStorage))
+      toast("Progress from an older app version is still on this device", {
+        id: "account-progress-migration",
+        description:
+          "Reconnect while signed in to restore your account’s cloud progress. Earlier offline changes remain untouched for recovery.",
+        duration: 10000,
+      });
     if (parsed) {
       const xp = typeof parsed.xp === "number" ? parsed.xp : 0;
       const { __v: _v, ...rest } = parsed;
@@ -1105,7 +1132,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     } else {
       dispatch({ type: "HYDRATE", payload: { darkMode: readDarkModePreference() } });
     }
-  }, []);
+  }, [actor]);
 
   useEffect(() => {
     const sync = (event: StorageEvent) => {
@@ -1130,11 +1157,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       for (const k of PERSIST_KEYS) {
         toSave[k] = (state as unknown as Record<string, unknown>)[k];
       }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+      saveProfileSnapshot(window.localStorage, actor, toSave);
     } catch {
       /* ignore quota */
     }
-  }, [state]);
+  }, [state, actor]);
 
   useEffect(() => {
     if (state.hydrated) saveDarkModePreference(state.darkMode);
@@ -1186,6 +1213,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (!actor) return;
     const profileSync = createDeferredAuthSync({
       reset() {
         setUserId(null);
@@ -1198,6 +1226,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       load: (uid) =>
         Promise.resolve(supabase.from("profiles").select("data").eq("id", uid).maybeSingle()),
       apply(uid, { data, error }) {
+        if (uid !== actor || !isCurrentUser(actor)) return;
         setProfileReadyUserId(uid);
         if (error) return;
         if (data?.data) {
@@ -1206,21 +1235,31 @@ export function AppProvider({ children }: { children: ReactNode }) {
         }
         setUserId(uid);
       },
-      failed: setProfileReadyUserId,
+      failed(uid) {
+        if (uid === actor && isCurrentUser(actor)) setProfileReadyUserId(uid);
+      },
     });
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      profileSync.handle(session);
+      if (session?.user.id === actor) profileSync.handle(session);
+      else profileSync.handle(null);
     });
+    const retry = () => {
+      if (isCurrentUser(actor)) profileSync.handle({ user: { id: actor } });
+    };
+    retry();
+    window.addEventListener("online", retry);
     return () => {
       profileSync.dispose();
       sub.subscription.unsubscribe();
+      window.removeEventListener("online", retry);
     };
-  }, []);
+  }, [actor, isCurrentUser]);
 
   useEffect(() => {
-    if (!state.hydrated || !userId) return;
+    if (!state.hydrated || !userId || userId !== actor || !isCurrentUser(userId)) return;
     if (syncTimer.current) clearTimeout(syncTimer.current);
     syncTimer.current = setTimeout(async () => {
+      if (userId !== actor || !isCurrentUser(userId)) return;
       const toSave: Record<string, unknown> = { __v: SCHEMA_VERSION };
       for (const k of PERSIST_KEYS) toSave[k] = (state as unknown as Record<string, unknown>)[k];
       await supabase.from("profiles").upsert({ id: userId, data: toSave });
@@ -1228,7 +1267,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return () => {
       if (syncTimer.current) clearTimeout(syncTimer.current);
     };
-  }, [state, userId]);
+  }, [state, userId, actor, isCurrentUser]);
 
   const pingActivity = useCallback(() => {
     const today = todayKey();
@@ -1241,7 +1280,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [state, pingActivity, profileReadyUserId],
   );
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <WordCardCacheProvider>{children}</WordCardCacheProvider>
+    </AppContext.Provider>
+  );
 }
 
 export function useApp() {

@@ -1,9 +1,9 @@
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
-import { roofingTeachingSettings, type RoofingTeachingSettings } from "../data/roofing-teaching.ts";
+import { moduleTeachingSettings } from "../data/module-teaching.ts";
+import type { LessonTeachingSettings } from "./teaching-settings.ts";
+export { ROOFING_PRACTICE_VERSION, modulePracticeVersion } from "../data/module-teaching.ts";
 import { CORE30_WAYS, type Core30Way } from "./core30-plan.ts";
-import { ROOFING_LESSON_PASSAGES } from "../data/roofing-lesson-passages.ts";
-
-export const ROOFING_PRACTICE_VERSION = "roofing-es-en-2026-10-16-draft";
+import { authoredLessonReading } from "./lesson-reading.ts";
 
 import { lessonObjectiveId } from "./learning-identity.ts";
 export { lessonObjectiveId } from "./learning-identity.ts";
@@ -23,7 +23,7 @@ export interface LessonDefinition {
   source: Lesson;
   words: LessonWord[];
   modes: readonly Core30Way[];
-  teaching: RoofingTeachingSettings | null;
+  teaching: LessonTeachingSettings | null;
   reading: { title: string; sentences: { target: string; native: string }[] } | null;
   listeningItems: LessonWord[];
   /** Structural coverage is not reviewer approval or a claim that the module is complete. */
@@ -43,17 +43,28 @@ export function getLessonDefinition(input: {
   if (!source) return null;
   const roofingTrack =
     moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
-  const words = roofingTrack ? (source.words ?? []) : [];
-  const teaching = roofingTrack ? roofingTeachingSettings(lessonNumber) : null;
-  const passage = roofingTrack ? ROOFING_LESSON_PASSAGES[lessonNumber] : undefined;
+  const words =
+    targetLanguage === "Spanish" && instructionLanguage === "English" ? (source.words ?? []) : [];
+  const teaching = moduleTeachingSettings(
+    moduleId,
+    lessonNumber,
+    targetLanguage,
+    instructionLanguage,
+  );
+  const passage = authoredLessonReading(
+    moduleId,
+    lessonNumber,
+    targetLanguage,
+    instructionLanguage,
+  );
   const reading = passage
     ? {
         title: passage.title,
-        sentences: passage.es.map((target, index) => ({ target, native: passage.en[index] })),
+        sentences: passage.sentences.map(({ target, en }) => ({ target, native: en })),
       }
     : null;
   const listeningItems: LessonWord[] = [];
-  if (teaching?.stage === "supported" || !reading) listeningItems.push(...words);
+  if (!teaching || teaching.stage === "supported" || !reading) listeningItems.push(...words);
   else if (teaching && reading) {
     const size = teaching.stage === "independent" ? 2 : 1;
     for (let start = 0; start < reading.sentences.length; start += size) {
@@ -66,7 +77,7 @@ export function getLessonDefinition(input: {
     }
   }
   const gaps: string[] = [];
-  if (!roofingTrack)
+  if (!roofingTrack && !teaching)
     gaps.push(
       "Reviewed vocabulary, contextual passages and teaching settings for this language track are not yet mapped.",
     );

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   checkpointSchedule,
+  checkpointProfiles,
   addCalendarDays,
   localNoonTimestamp,
   skillResults,
@@ -87,4 +88,32 @@ test("accepted variants respect item-specific accents and preserve meaningful ma
     true,
   );
   assert.equal(scoreFixedAnswer("", [""], strict), false);
+});
+
+test("midpoint studied evidence and transfer evidence are reported separately", () => {
+  const studied = [
+    row("a", 1, { coverage: "studied" }),
+    row("b", 1, { coverage: "studied" }),
+    row("c", 1, { coverage: "studied" }),
+  ];
+  const transfer = [
+    row("d", 0, { coverage: "transfer" }),
+    row("e", 0, { coverage: "transfer" }),
+    row("f", 0, { coverage: "transfer" }),
+  ];
+  const profiles = checkpointProfiles("day45", [...studied, ...transfer]);
+  assert.equal(
+    profiles.find((p) => p.coverage === "studied").skills.find((s) => s.skill === "listening")
+      .score,
+    100,
+  );
+  assert.equal(
+    profiles.find((p) => p.coverage === "transfer").skills.find((s) => s.skill === "listening")
+      .score,
+    0,
+  );
+  assert.equal(
+    profiles.some((p) => p.coverage === "module"),
+    false,
+  );
 });

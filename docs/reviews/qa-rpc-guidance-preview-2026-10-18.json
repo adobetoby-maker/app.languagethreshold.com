@@ -1,0 +1,103 @@
+{
+  "testedAt": "2026-10-18T11:19:33.571087+00:00",
+  "applicationCommit": "88078ea27aa07996a638eb14d124a913879e3421",
+  "preview": "https://language-threshold-8yxw23eps-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-8yxw23eps-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_4ir3roVi2Em8vmEePnpJNYtoHCw2",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-8yxw23eps-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "88078ea27aa07996a638eb14d124a913879e3421",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-assessment-auth-errors-preview-2026-10-18.json",
+  "local": {
+    "tests": 1435,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.93,
+    "privateMarkers": 96,
+    "sourceFiles": 1538,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Shared assessment rpc wrapper permits only an exact explicit registry of227 fixed guidance strings before constructing a public AssessmentAccessError from P0001. Unknown/private/near-match/malformed messages use the existing fixed storage503",
+    "All227 known messages retain previous statuses:152bad-request400,26access403,49conflict409. Duplicate23505 mapping and successful result identity remain unchanged",
+    "Four added actual-helper groups cover all227 messages, unknown/private/prefix/suffix/case/hidden-character/prototype/non-string diagnostics, otherSQLcodes and lookup projection independence",
+    "Source audit records27local assessment-related migration files,342fixed RAISE sites,227unique messages and hashes/locations. Synthetic extraction checks reject dynamic/format/USING candidates; audit does not automatically add registry entries",
+    "Sixteen exact hosted checker groups pass, including unchanged authenticated individual/team reads and ordinary missing-sign-in guidance; QA personalrevision12/teamB2opened0mastered retained"
+  ],
+  "controlledEvidence": [
+    "tests/assessment-rpc-errors.test.mjs",
+    "tests/assessment-routing-server.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "7fc167e",
+    "source": "src/lib/assessments/server.ts",
+    "case": "Unknown synthetic private P0001 diagnostic",
+    "oldStatus": 400,
+    "expectedStatus": 503,
+    "oldExposedSyntheticPrivateDiagnostic": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Historical actual helper loaded at original source path with controlled DB result; no real RPC/network."
+  },
+  "diagnostics": [
+    "One existing reviewer fixture used Reviewer access required, absent from migration guidance; corrected to actual assessment_review_rubric denial Assessment review access required and added exact-body assertion. Registry was not expanded to invented test wording."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-rpc-guidance-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-rpc-guidance-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json"
+  ],
+  "limits": [
+    "Registry is a union of fixed literals from local assessment-related migration files, including historical definitions and potentially unrelated functions in those files. Regex inventory is not a full SQL parser, hosted-function parity or runtime reachability proof. No immutable SQL was edited.",
+    "Only resolved error objects through shared assessment rpc are sanitized by this registry. Direct db.rpc callers, Promise rejections, other typed errors, diagnostics/logging and later private phases remain separate review items.",
+    "Actual-helper tests use controlled synthetic DB results, with no actual database/provider/credential/browser/role/review/consent/qualification action. Hosted read/denial checks retain prior QA scope; no outage or fabricated approval/result.",
+    "One existing reviewer fixture used Reviewer access required, absent from migration guidance; corrected to actual assessment_review_rubric denial Assessment review access required and added exact-body assertion. Registry was not expanded to invented test wording.",
+    "Ten original auth callers, broader endpoint/cache/diagnostics/device inventory, prior catalog grant/migration parity and durable reminder outcomes remain open. All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

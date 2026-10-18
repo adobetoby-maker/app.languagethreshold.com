@@ -1,0 +1,87 @@
+{
+  "testedAt": "2026-10-18T07:05:29.121768+00:00",
+  "applicationCommit": "3e88d02733b24c7360f8edfd5daaece8024a0db6",
+  "preview": "https://language-threshold-qg8xz4j5f-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-qg8xz4j5f-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_EvwEvwnSjFA1wKbGqcRjKEwSssAA",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-qg8xz4j5f-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "3e88d02733b24c7360f8edfd5daaece8024a0db6",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-push-admission-preview-2026-10-18.json",
+  "local": {
+    "tests": 1333,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.9,
+    "privateMarkers": 96,
+    "sourceFiles": 1449,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Unsubscribe returns success only after both the user/endpoint-scoped subscription DELETE and user-scoped enabled=false preference PATCH return successful HTTP acknowledgements",
+    "Rejected or thrown second write returns the existing fixed private 503 storage error instead of a success claim; first-write failure stops the second write, and no automatic retries are introduced",
+    "Two added actual-route groups verify each unsubscribe failure/success path and existing subscribe/preference/context acknowledgement requirements with synthetic storage and exact user scopes",
+    "Existing input/read admission, private headers, gates and subscription/preference/context payloads remain; no new schema, role, policy, schedule, native push delivery or real storage mutation",
+    "Nine hosted checker groups pass: 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejections), eight Google/six Pashto/ten speaking-consent/five push input denials; no admitted push write"
+  ],
+  "controlledEvidence": [
+    "tests/push-admission-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "6353986",
+    "source": "src/routes/api.push.ts",
+    "case": "Successful scoped subscription DELETE followed by rejected enabled=false preference PATCH",
+    "oldStatus": 200,
+    "expectedStatus": 503,
+    "currentPass": true,
+    "limit": "Actual prior handler bundled with synthetic auth/counters/storage. No real unsubscribe or preference write."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-push-ack-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "This is an HTTP acknowledgement check, not a transaction or verified affected-row count. A successful first write is not rolled back when the second fails; zero-row 2xx responses still have existing semantics.",
+    "Unknown write outcomes, client strict acknowledgement parsing, native unsubscribe result, cross-device ordering and durable reconciliation remain separate open work. Cancellation/deadlines cannot prove rollback or exactly-once.",
+    "Actual-route write tests use synthetic auth/counters/storage only. Hosted checks reject push input before counters/auth/storage; no real preferences/subscription/consent write, permission prompt, service worker, push send or browser action occurred.",
+    "Real provider/SDK expiry/current A/guest/B/restore/native/device/process-restart/offline acceptance, broader helper/endpoint/cache/diagnostics inventory and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive runtime explicitly pinned false at deploy; absent metadata env is not false readback proof. No main push, production promotion or accepted hostname advance."
+  ]
+}

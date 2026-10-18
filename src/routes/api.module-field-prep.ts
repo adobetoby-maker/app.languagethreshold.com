@@ -1,4 +1,10 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { anthropicTextStream } from "@/lib/anthropic-text-stream";
+import {
+  withConversationProvider,
+  ConversationProviderError,
+  conversationResponseHeaders,
+} from "@/lib/conversation-provider";
+import { prepareConversationRequest } from "@/lib/conversation-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
@@ -119,52 +125,22 @@ function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
   return lines.filter(Boolean).join("\n");
 }
 
-function anthropicStreamToSSE(
-  stream: AsyncIterable<Anthropic.MessageStreamEvent>,
-): ReadableStream<Uint8Array> {
-  const enc = new TextEncoder();
-  return new ReadableStream({
-    async start(controller) {
-      try {
-        for await (const event of stream) {
-          if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-            const chunk = `data: ${JSON.stringify({
-              choices: [{ delta: { content: event.delta.text } }],
-            })}\n\n`;
-            controller.enqueue(enc.encode(chunk));
-          }
-        }
-        controller.enqueue(enc.encode("data: [DONE]\n\n"));
-      } finally {
-        controller.close();
-      }
-    },
-  });
-}
-
 export const Route = createFileRoute("/api/module-field-prep")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        let payload: z.infer<typeof BodySchema>;
-        try {
-          payload = BodySchema.parse(await request.json());
-        } catch (e) {
-          return new Response(
-            JSON.stringify({ error: e instanceof Error ? e.message : "Invalid input" }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
-          );
-        }
+        const prepared = await prepareConversationRequest(request, BodySchema);
+        if (prepared.response) return prepared.response;
+        const payload = prepared.data;
 
         const KEY = process.env.ANTHROPIC_API_KEY;
         if (!KEY) {
           return new Response(JSON.stringify({ error: "AI is not configured" }), {
             status: 500,
-            headers: { "Content-Type": "application/json" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
         const systemPrompt = buildSystemPrompt(payload);
 
         const messages: { role: "user" | "assistant"; content: string }[] =
@@ -179,27 +155,28 @@ export const Route = createFileRoute("/api/module-field-prep")({
             : payload.messages.map((m) => ({ role: m.role, content: m.content }));
 
         try {
-          const stream = await client.messages.create({
-            model: "claude-sonnet-5-5",
-            max_tokens: 700,
-            system: systemPrompt,
-            messages,
-            stream: true,
-          });
+          return await withConversationProvider(request, KEY, async (client, options) => {
+            const stream = await client.messages.create(
+              {
+                model: "claude-sonnet-5-5",
+                max_tokens: 700,
+                system: systemPrompt,
+                messages,
+                stream: true,
+              },
+              options,
+            );
 
-          return new Response(anthropicStreamToSSE(stream), {
-            status: 200,
-            headers: {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-cache, no-transform",
-              Connection: "keep-alive",
-            },
+            return new Response(anthropicTextStream(stream), {
+              status: 200,
+              headers: conversationResponseHeaders("text/event-stream"),
+            });
           });
-        } catch (e) {
-          Sentry.captureException(e);
+        } catch (error) {
+          Sentry.captureException(new Error("module-field-prep provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
-            status: 500,
-            headers: { "Content-Type": "application/json" },
+            status: error instanceof ConversationProviderError ? error.status : 500,
+            headers: conversationResponseHeaders("application/json"),
           });
         }
       },

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useReadingHints } from "@/hooks/use-reading-hints";
 import { wordA11yProps } from "@/lib/learning-guidance";
 import { useServerFn } from "@tanstack/react-start";
 import { addPinyin, type PinyinSegment } from "@/fns/pinyin.functions";
@@ -6,38 +7,13 @@ import { addPinyin, type PinyinSegment } from "@/fns/pinyin.functions";
 /**
  * Renders a Chinese sentence with pinyin above each hanzi — the Mandarin mirror
  * of <FuriganaText /> (and <HangulText /> for Korean). Readings are fetched
- * lazily from the server, cached in localStorage, and rendered with native
+ * lazily from the server, cached for the current account, and rendered with native
  * <ruby>/<rt> tags so the reading tucks into the existing leading instead of
  * growing the line box.
  *
  * Each hanzi and each run of non-hanzi stays individually clickable so word
  * lookups keep working.
  */
-
-const CACHE_KEY = "lt.pinyin.v1";
-type Cache = Record<string, PinyinSegment[]>;
-
-let memCache: Cache | null = null;
-function loadCache(): Cache {
-  if (memCache) return memCache;
-  try {
-    const raw = typeof window !== "undefined" ? localStorage.getItem(CACHE_KEY) : null;
-    memCache = raw ? (JSON.parse(raw) as Cache) : {};
-  } catch {
-    memCache = {};
-  }
-  return memCache;
-}
-function saveCache(cache: Cache) {
-  memCache = cache;
-  try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-  } catch {
-    /* quota — ignore */
-  }
-}
-
-const HANZI_RE = /[一-鿿]/;
 
 /**
  * Fetch (and cache) pinyin segments for a string. Exported so surfaces that own
@@ -46,51 +22,8 @@ const HANZI_RE = /[一-鿿]/;
  * loading; render plain text until then so layout does not jump.
  */
 export function usePinyinSegments(text: string, enabled: boolean = true): PinyinSegment[] | null {
-  const fetchPinyin = useServerFn(addPinyin);
-  const [segments, setSegments] = useState<PinyinSegment[] | null>(
-    () => loadCache()[text] ?? null,
-  );
-  const inFlight = useRef(false);
-
-  useEffect(() => {
-    if (!enabled) return;
-    const cached = loadCache()[text];
-    if (cached) {
-      setSegments(cached);
-      return;
-    }
-    if (!HANZI_RE.test(text)) {
-      setSegments([{ base: text }]);
-      return;
-    }
-    if (inFlight.current) return;
-    inFlight.current = true;
-
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetchPinyin({ data: { text } });
-        if (cancelled) return;
-        const segs = res.data?.segments ?? [{ base: text }];
-        saveCache({ ...loadCache(), [text]: segs });
-        setSegments(segs);
-      } catch {
-        if (!cancelled) setSegments([{ base: text }]); // graceful fallback
-      } finally {
-        inFlight.current = false;
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      inFlight.current = false;
-    };
-    // `enabled` must stay in the deps: the effect early-returns when pinyin is
-    // off, so switching it back on has to re-run this to fetch the readings.
-    // Without it, toggling off then on leaves the sentence permanently bare.
-  }, [text, fetchPinyin, enabled]);
-
-  return segments;
+  const fetchReadings = useServerFn(addPinyin);
+  return useReadingHints("pinyin", text, fetchReadings, enabled);
 }
 
 export function PinyinText({

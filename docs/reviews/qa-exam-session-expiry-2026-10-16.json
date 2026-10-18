@@ -1,0 +1,37 @@
+{
+  "testedAt": "2026-10-17T00:31:07.180969+00:00",
+  "sourceCommit": "18ff794",
+  "preview": "https://language-threshold-nxra0dkb7-adobetoby-5572s-projects.vercel.app",
+  "scope": "Genuine elapsed-token/revoked-refresh recovery of an existing synthetic independent QA draft on its original owned browser tab; no token editing, project auth changes or manufactured expiry event",
+  "observedAccessTokenTtlSeconds": 3600,
+  "safetyMarginSeconds": 300,
+  "reconnectedAfterOriginalDeadline": true,
+  "checks": {
+    "originalTabStillOfflineWithPendingAnswerBeforeReconnect": true,
+    "nativeNoThrottlingRestored": true,
+    "refreshRetriesWhileOfflineObserved": true,
+    "reconnectedRefreshHttpStatus": 400,
+    "privateExamQuestionHiddenBeforeNormalSignIn": true,
+    "normalSignInAsOriginalQaOwner": true,
+    "pendingDeviceAnswerRecoveredAtQuestion1": true,
+    "serverRevisionBeforeReauth": 10,
+    "pendingAnswerSyncedRevision": 11,
+    "originalAnswerRestoredRevision": 12,
+    "originalFourResponsesVerified": true,
+    "draftInProgressAndUnsubmitted": true,
+    "ownedTrialTabAndInspectorClosed": true
+  },
+  "evidence": [
+    "qa-exam-expiry-before-reauth-2026-10-16.json",
+    "qa-exam-expiry-synced-2026-10-16.json",
+    "qa-exam-expiry-restored-2026-10-16.json"
+  ],
+  "screenshot": "/Users/drive/git-backups/language-threshold-exam-expiry-recovered-2026-10-16.png",
+  "cleanup": "Normal network restored before closing completed owned trial tab1361372064; verified absent. No remaining expiry wait to restart. Current public Landscaper lesson preview retained separately.",
+  "limits": [
+    "One dedicated independent QA account/draft in desktop Chrome",
+    "Not physical-phone, browser-process-restart, scored-offline or human learner acceptance",
+    "No new attempt, submission, score, mastery, certificate or approval",
+    "Other-account denial remains separate earlier A/B trial evidence, not newly repeated inside this expiry trial"
+  ]
+}

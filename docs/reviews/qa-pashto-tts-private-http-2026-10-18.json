@@ -1,0 +1,46 @@
+{
+  "testedAt": "2026-10-18T11:54:49.242Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "name": "legacy-url-refused",
+      "status": 405,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "malformed-body-refused",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "unsupported-language-refused",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "absent-origin-refused",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "cross-origin-refused",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-body-refused",
+      "status": 413,
+      "noStore": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Denial-only HTTP checks. No same-origin valid generation body, real provider, browser/native playback or previous-cache purge proof. No new authentication gate; origin and durable budget guards apply to guests."
+  ]
+}

@@ -1,3 +1,4 @@
+import { core30ScopeKey } from "@/lib/core30-scope";
 // Built by TAC — 2026-10-15
 import { useMemo, useState } from "react";
 import { CheckCircle2, X } from "lucide-react";
@@ -6,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { getModule } from "@/data/modules";
 import type { Lesson, LessonWord } from "@/data/curriculum";
 import { pickAuthoredWords, readCachedLessonWords } from "@/lib/lesson-words-core";
-import { masteredLessons } from "@/lib/core30-plan";
+import { previouslyMasteredLessons } from "@/lib/core30-plan";
 
 const WORDS_PER_LESSON = 5;
 
@@ -75,22 +76,30 @@ function reviewWordsFor(
 }
 
 export function Core30Review({
+  enrollmentId,
   moduleId,
   lessons,
   onClose,
 }: {
+  enrollmentId?: string;
   moduleId: string;
   lessons: Lesson[];
   onClose: () => void;
 }) {
   const { state, dispatch } = useApp();
-  const log = state.core30Log[moduleId];
+  const context = {
+    targetLanguage: state.selectedLanguage,
+    instructionLanguage: state.nativeLanguage,
+    enrollmentId,
+  };
+  const progressKey = core30ScopeKey(moduleId, context);
+  const log = state.core30Log[progressKey];
   const fallbackTerms = useMemo(() => getModule(moduleId)?.vocabFocus ?? [], [moduleId]);
 
   // Fixed for the whole session so the list does not reshuffle while the learner works.
   const items = useMemo(() => {
     const seen = new Set<string>();
-    return masteredLessons(log)
+    return previouslyMasteredLessons(log)
       .map((n) => lessons.find((l) => l.n === n))
       .filter((l): l is Lesson => !!l)
       .map((lesson) => ({
@@ -98,7 +107,7 @@ export function Core30Review({
         words: reviewWordsFor(
           // Authored (Spanish) first, else the list generated earlier for this language pair.
           // Read-only: review never calls the network, so an unvisited lesson uses vocabFocus.
-          pickAuthoredWords(lesson.words, state.selectedLanguage) ??
+          pickAuthoredWords(lesson.words, state.selectedLanguage, state.nativeLanguage) ??
             readCachedLessonWords(
               moduleId,
               lesson.n,
@@ -136,6 +145,7 @@ export function Core30Review({
       type: "CORE30_RECORD_REVIEW",
       payload: {
         moduleId,
+        context,
         at: new Date().toISOString(),
         results: items.map((it) => ({ lesson: it.lesson.n, ok: results[it.lesson.n] === true })),
       },
@@ -163,7 +173,9 @@ export function Core30Review({
             your list until you mark them mastered again.
           </p>
         ) : (
-          <p className="mt-2 text-sm text-white/60">Everything held. Next review in 4 days.</p>
+          <p className="mt-2 text-sm text-white/60">
+            Everything held. Your plan shows the next review.
+          </p>
         )}
         <button
           type="button"
@@ -186,7 +198,8 @@ export function Core30Review({
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-              Review · {items.length} mastered lesson{items.length === 1 ? "" : "s"}
+              Review · {items.length} lesson{items.length === 1 ? "" : "s"} previously marked
+              mastered
             </p>
             <h3 className="mt-1 text-lg font-semibold text-white">Quick check</h3>
             <p className="mt-1 text-xs leading-relaxed text-white/60">

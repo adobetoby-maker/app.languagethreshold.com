@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useReadingHints } from "@/hooks/use-reading-hints";
 import { wordA11yProps } from "@/lib/learning-guidance";
 import { useServerFn } from "@tanstack/react-start";
 import { addFurigana, type FuriganaSegment } from "@/fns/furigana.functions";
@@ -6,40 +7,13 @@ import { addFurigana, type FuriganaSegment } from "@/fns/furigana.functions";
 /**
  * Renders a Japanese sentence with furigana (small reading hints above kanji)
  * using native <ruby>/<rt> tags. Readings are fetched lazily from the server,
- * cached in localStorage, and can be displayed as either hiragana or romaji
+ * cached for the current account, and can be displayed as either hiragana or romaji
  * (Hepburn). Layout is height-stable: the small <rt> labels tuck into the
  * paragraph's existing line-height (≥1.7), so sentence height does not grow.
  *
  * Each kana run, kanji compound, and punctuation chunk stays individually
  * clickable so word lookups continue to work in every mode.
  */
-
-// v3 cache: prompt now emits one segment per kanji (so the reading sits
-// directly above each character). Bump key to invalidate v2 compound entries.
-const CACHE_KEY = "lt.furigana.v3";
-type Cache = Record<string, FuriganaSegment[]>;
-
-let memCache: Cache | null = null;
-function loadCache(): Cache {
-  if (memCache) return memCache;
-  try {
-    const raw = typeof window !== "undefined" ? localStorage.getItem(CACHE_KEY) : null;
-    memCache = raw ? (JSON.parse(raw) as Cache) : {};
-  } catch {
-    memCache = {};
-  }
-  return memCache;
-}
-function saveCache(cache: Cache) {
-  memCache = cache;
-  try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-  } catch {
-    /* quota — ignore */
-  }
-}
-
-const KANJI_RE = /[\u4E00-\u9FFF]/;
 
 export type FuriganaScript = "hiragana" | "romaji";
 
@@ -49,52 +23,13 @@ export type FuriganaScript = "hiragana" | "romaji";
  * Extracted so surfaces other than <FuriganaText /> — e.g. the Core Speaking
  * transcript, which needs its own long-press word handling and therefore
  * cannot delegate rendering — can reuse the exact same request path, the same
- * localStorage cache, and the same graceful fallback instead of duplicating
+ * account-owned cache, and the same graceful fallback instead of duplicating
  * them. Returns null while loading; callers should render plain text until
  * then so layout does not jump.
  */
 export function useFuriganaSegments(text: string): FuriganaSegment[] | null {
-  const fetchFurigana = useServerFn(addFurigana);
-  const [segments, setSegments] = useState<FuriganaSegment[] | null>(
-    () => loadCache()[text] ?? null,
-  );
-  const inFlight = useRef(false);
-
-  useEffect(() => {
-    const cached = loadCache()[text];
-    if (cached) {
-      setSegments(cached);
-      return;
-    }
-    if (!KANJI_RE.test(text)) {
-      setSegments([{ base: text }]);
-      return;
-    }
-    if (inFlight.current) return;
-    inFlight.current = true;
-
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetchFurigana({ data: { text } });
-        if (cancelled) return;
-        const segs = res.data?.segments ?? [{ base: text }];
-        saveCache({ ...loadCache(), [text]: segs });
-        setSegments(segs);
-      } catch {
-        if (!cancelled) setSegments([{ base: text }]); // graceful fallback
-      } finally {
-        inFlight.current = false;
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      inFlight.current = false;
-    };
-  }, [text, fetchFurigana]);
-
-  return segments;
+  const fetchReadings = useServerFn(addFurigana);
+  return useReadingHints("furigana", text, fetchReadings);
 }
 
 export function FuriganaText({
@@ -159,7 +94,7 @@ export function FuriganaText({
             <ruby key={i} className="furigana-ruby">
               <span
                 className="lt-word"
-            {...wordA11yProps}
+                {...wordA11yProps}
                 onClick={
                   onWordClick
                     ? (e) => {

@@ -29,6 +29,8 @@ export interface Core30LessonLog {
 }
 
 export interface Core30ModuleLog {
+  /** Learner explicitly identified the pair/plan for a copy of older unlabeled history. */
+  legacyImportedAt?: string;
   startDate?: string;
   /** ISO time the startDate was last set; the later stamp wins on cloud merge. */
   startDateSetAt?: string;
@@ -37,7 +39,7 @@ export interface Core30ModuleLog {
   lastReviewAt?: string;
 }
 
-/** key = moduleId */
+/** New keys include module, language pair and enrollment; bare module keys are archived history. */
 export type Core30Log = Record<string, Core30ModuleLog>;
 
 export const CORE30_NEW_LESSON_EVERY_DAYS = 3;
@@ -80,26 +82,31 @@ export function lessonDueDate(startDate: string, lessonNumber: number): string {
 }
 
 /** start+4, +8, ... while <= start+90. */
-export function reviewDates(startDate: string): string[] {
+function reviewInterval(days: number) {
+  return Number.isInteger(days) && days >= 1 && days <= 30 ? days : CORE30_REVIEW_EVERY_DAYS;
+}
+export function reviewDates(startDate: string, everyDays = CORE30_REVIEW_EVERY_DAYS): string[] {
+  const interval = reviewInterval(everyDays);
   const out: string[] = [];
-  for (
-    let offset = CORE30_REVIEW_EVERY_DAYS;
-    offset <= CORE30_PLAN_DAYS;
-    offset += CORE30_REVIEW_EVERY_DAYS
-  ) {
+  for (let offset = interval; offset < CORE30_PLAN_DAYS; offset += interval) {
     out.push(addDays(startDate, offset));
   }
   return out;
 }
 
-/** Sorted lesson numbers that carry a masteredAt stamp. */
-export function masteredLessons(log: Core30ModuleLog | undefined): number[] {
+/** Historical declarations stay available for reviews, even after a failed recall. */
+export function previouslyMasteredLessons(log: Core30ModuleLog | undefined): number[] {
   if (!log?.lessons) return [];
   return Object.entries(log.lessons)
     .filter(([, l]) => !!l?.masteredAt)
     .map(([k]) => Number(k))
     .filter((n) => Number.isFinite(n))
     .sort((a, b) => a - b);
+}
+
+/** Current self-reported mastery excludes lessons the learner says need practice. */
+export function masteredLessons(log: Core30ModuleLog | undefined): number[] {
+  return previouslyMasteredLessons(log).filter((n) => !log?.lessons[String(n)]?.needsPractice);
 }
 
 function needsPracticeLessons(log: Core30ModuleLog | undefined): number[] {
@@ -117,6 +124,7 @@ export interface Core30Today {
   dayNumber: number;
   totalLessons: number;
   masteredCount: number;
+  previouslyMasteredCount: number;
   expectedMastered: number;
   status: "not-started" | "ahead" | "on-track" | "behind";
   behindBy: number;
@@ -138,8 +146,10 @@ export function planToday(
   log: Core30ModuleLog | undefined,
   totalLessons: number,
   today: string,
+  reviewEveryDays = CORE30_REVIEW_EVERY_DAYS,
 ): Core30Today {
   const mastered = masteredLessons(log);
+  const previouslyMastered = previouslyMasteredLessons(log);
   const needsPractice = needsPracticeLessons(log);
   const startDate = log?.startDate;
   if (!startDate || Number.isNaN(parseKey(startDate))) {
@@ -148,6 +158,7 @@ export function planToday(
       dayNumber: 0,
       totalLessons,
       masteredCount: mastered.length,
+      previouslyMasteredCount: previouslyMastered.length,
       expectedMastered: 0,
       status: "not-started",
       behindBy: 0,
@@ -186,13 +197,14 @@ export function planToday(
       ? "ahead"
       : "on-track";
 
-  const dates = reviewDates(startDate);
+  const dates = reviewDates(startDate, reviewEveryDays);
   const pastDates = dates.filter((d) => d <= today);
   const lastReviewDate = pastDates.length ? pastDates[pastDates.length - 1] : undefined;
   const nextReviewDate = dates.find((d) => d > today);
   const lastDoneKey = log?.lastReviewAt ? isoToDateKey(log.lastReviewAt) : undefined;
   const reviewDue =
-    masteredCount > 0 && pastDates.some((d) => lastDoneKey === undefined || d > lastDoneKey);
+    previouslyMastered.length > 0 &&
+    pastDates.some((d) => lastDoneKey === undefined || d > lastDoneKey);
 
   return {
     started: true,
@@ -200,6 +212,7 @@ export function planToday(
     dayNumber,
     totalLessons,
     masteredCount,
+    previouslyMasteredCount: previouslyMastered.length,
     expectedMastered,
     status,
     behindBy,
@@ -207,7 +220,7 @@ export function planToday(
     reviewDue,
     lastReviewDate,
     nextReviewDate,
-    reviewLessons: reviewDue ? mastered : [],
+    reviewLessons: reviewDue ? previouslyMastered : [],
     needsPractice,
   };
 }
@@ -223,7 +236,12 @@ export interface Core30CalendarDay {
  * One entry per plan day that has a new lesson or a review. `day` is 1-based:
  * day 1 is the start date, so lesson n lands on day 3*(n-1)+1 and the first review on day 5.
  */
-export function planCalendar(startDate: string, totalLessons: number): Core30CalendarDay[] {
+export function planCalendar(
+  startDate: string,
+  totalLessons: number,
+  reviewEveryDays = CORE30_REVIEW_EVERY_DAYS,
+): Core30CalendarDay[] {
+  const interval = reviewInterval(reviewEveryDays);
   const lastLessonDay =
     totalLessons > 0 ? CORE30_NEW_LESSON_EVERY_DAYS * (totalLessons - 1) + 1 : 0;
   const lastDay = Math.max(CORE30_PLAN_DAYS, lastLessonDay);
@@ -235,10 +253,7 @@ export function planCalendar(startDate: string, totalLessons: number): Core30Cal
       const n = offset / CORE30_NEW_LESSON_EVERY_DAYS + 1;
       if (n <= totalLessons) newLesson = n;
     }
-    const review =
-      offset >= CORE30_REVIEW_EVERY_DAYS &&
-      offset <= CORE30_PLAN_DAYS &&
-      offset % CORE30_REVIEW_EVERY_DAYS === 0;
+    const review = offset >= interval && offset < CORE30_PLAN_DAYS && offset % interval === 0;
     if (newLesson === undefined && !review) continue;
     const entry: Core30CalendarDay = { date: addDays(startDate, offset), day, review };
     if (newLesson !== undefined) entry.newLesson = newLesson;
@@ -337,6 +352,8 @@ function mergeModule(
   ]);
   for (const k of keys) lessons[k] = mergeLesson(local?.lessons?.[k], remote?.lessons?.[k]);
   const out: Core30ModuleLog = { lessons };
+  const legacyImportedAt = earlier(local?.legacyImportedAt, remote?.legacyImportedAt);
+  if (legacyImportedAt) out.legacyImportedAt = legacyImportedAt;
   let startDate = local?.startDate ?? remote?.startDate;
   let startDateSetAt: string | undefined;
   if (local?.startDateSetAt && remote?.startDateSetAt) {

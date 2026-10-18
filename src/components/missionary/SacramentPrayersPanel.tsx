@@ -50,7 +50,7 @@ const PRAYERS: PrayerSpec[] = [
 export function SacramentPrayersPanel() {
   const { state, dispatch } = useApp();
   const tutor = useTutor();
-  const { rate, cycleRate, speak, speaking } = useMissionarySpeech();
+  const { rate, cycleRate, speak, speaking } = useMissionarySpeech(state.selectedLanguage);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
 
   const onWord = (word: string, sentence: string, x: number, y: number) =>

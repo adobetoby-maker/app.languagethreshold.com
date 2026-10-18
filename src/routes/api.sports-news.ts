@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { readSportsFeed } from "../lib/sports-news-feed.ts";
+import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request.ts";
+import { isStrictSameOrigin } from "../lib/speaking-security.ts";
 import { initSentry, Sentry } from "../lib/sentry";
 initSentry();
 
@@ -140,14 +143,27 @@ function parseRssItems(xml: string): RssItem[] {
   const items: RssItem[] = [];
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match: RegExpExecArray | null;
-  while ((match = itemRegex.exec(xml)) !== null) {
+  while (items.length < 100 && (match = itemRegex.exec(xml)) !== null) {
     const block = match[1];
     const title = extractTagContent(block, "title");
     const link = extractTagContent(block, "link") || extractTagContent(block, "guid");
     const description = extractTagContent(block, "description");
     const pubDate = extractTagContent(block, "pubDate") || extractTagContent(block, "dc:date");
-    if (title) {
-      items.push({ title, link, description, pubDate });
+    let safeLink = "";
+    try {
+      const parsed = new URL(link);
+      if (
+        (parsed.protocol === "https:" || parsed.protocol === "http:") &&
+        link.length <= 2048 &&
+        !parsed.username &&
+        !parsed.password
+      )
+        safeLink = parsed.href;
+    } catch {
+      /* Feed links must be absolute web URLs. */
+    }
+    if (title && safeLink) {
+      items.push({ title: title.slice(0, 400), link: safeLink, description, pubDate });
     }
   }
   return items;
@@ -183,59 +199,12 @@ function toIso(pubDate: string): string {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Static seed for baseball (fallback when feed is unreachable)
-// ---------------------------------------------------------------------------
-
-const BASEBALL_SEED: NewsArticle[] = [
-  {
-    id: "seed-bb-1",
-    title: "MLB Power Rankings: Who's hot heading into the second half",
-    summary:
-      "A look at which teams are surging and which are fading as we approach the all-star break.",
-    url: "https://www.mlb.com/news",
-    pubDate: new Date().toISOString(),
-    source: "MLB",
-    sport: "baseball",
-    teamMentions: [],
-  },
-  {
-    id: "seed-bb-2",
-    title: "Top pitching performances of the week",
-    summary: "Five starters stood out this week with dominant outings across both leagues.",
-    url: "https://www.mlb.com/news",
-    pubDate: new Date().toISOString(),
-    source: "MLB",
-    sport: "baseball",
-    teamMentions: [],
-  },
-  {
-    id: "seed-bb-3",
-    title: "Rookie watch: breakout stars making their mark in 2026",
-    summary:
-      "Several first-year players are turning heads with impressive early-season statistics.",
-    url: "https://www.mlb.com/news",
-    pubDate: new Date().toISOString(),
-    source: "MLB",
-    sport: "baseball",
-    teamMentions: [],
-  },
-];
-
-// ---------------------------------------------------------------------------
-// Fetch and parse one feed URL
-// ---------------------------------------------------------------------------
-
 async function fetchFeed(
   url: string,
   sport: "soccer" | "baseball" | "general",
+  signal: AbortSignal,
 ): Promise<NewsArticle[]> {
-  const res = await fetch(url, {
-    headers: { "User-Agent": "LanguageThreshold/1.0 (+https://app.languagethreshold.com)" },
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-  const xml = await res.text();
+  const xml = await readSportsFeed(url, signal);
   const items = parseRssItems(xml);
   const host = hostnameFrom(url);
   const sourceName = SOURCE_NAMES[host] ?? host;
@@ -269,46 +238,50 @@ export const Route = createFileRoute("/api/sports-news")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        const reply = (body: unknown, status = 200) =>
+          Response.json(body, {
+            status,
+            headers: {
+              "Cache-Control": "private, no-store",
+              "CDN-Cache-Control": "no-store",
+              "Vercel-CDN-Cache-Control": "no-store",
+              "X-Content-Type-Options": "nosniff",
+            },
+          });
+        if (!isStrictSameOrigin(request))
+          return reply({ error: "Open the app to read sports news." }, 403);
         let payload: z.infer<typeof BodySchema>;
         try {
-          payload = BodySchema.parse(await request.json());
-        } catch (e) {
-          return new Response(
-            JSON.stringify({ error: e instanceof Error ? e.message : "Invalid input" }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
+          payload = BodySchema.parse(await readPrivateJson(request, 4096));
+        } catch (error) {
+          return reply(
+            { error: "Check your news request and try again." },
+            error instanceof PrivateJsonRequestError ? error.status : 400,
           );
         }
 
         const feedUrls = FEEDS[payload.sport];
         let articles: NewsArticle[] = [];
-        const errors: string[] = [];
+        let failed = false;
 
         // Fetch all feeds for the sport in parallel, tolerating individual failures
         const results = await Promise.allSettled(
-          feedUrls.map((url) => fetchFeed(url, payload.sport)),
+          feedUrls.map((url) => fetchFeed(url, payload.sport, request.signal)),
         );
 
         for (const result of results) {
           if (result.status === "fulfilled") {
             articles = articles.concat(result.value);
           } else {
-            const msg =
-              result.reason instanceof Error ? result.reason.message : String(result.reason);
-            errors.push(msg);
-            Sentry.captureException(result.reason);
+            failed = true;
+            if (!request.signal.aborted)
+              Sentry.captureException(new Error("Sports news feed unavailable"));
           }
         }
-
-        // If baseball returned nothing, fall back to seed data
-        if (payload.sport === "baseball" && articles.length === 0) {
-          articles = [...BASEBALL_SEED];
-        }
-
-        if (articles.length === 0 && errors.length > 0) {
-          return new Response(
-            JSON.stringify({ articles: [], error: "News feeds unavailable — try again later." }),
-            { status: 200, headers: { "Content-Type": "application/json" } },
-          );
+        if (request.signal.aborted)
+          return reply({ articles: [], error: "News request cancelled." }, 499);
+        if (articles.length === 0 && failed) {
+          return reply({ articles: [], error: "News feeds unavailable — try again later." });
         }
 
         // Deduplicate by id
@@ -341,10 +314,7 @@ export const Route = createFileRoute("/api/sports-news")({
         // Cap at 10
         articles = articles.slice(0, 10);
 
-        return new Response(JSON.stringify({ articles }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        });
+        return reply({ articles });
       },
     },
   },

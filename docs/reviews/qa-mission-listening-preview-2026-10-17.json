@@ -1,0 +1,113 @@
+{
+  "testedAt": "2026-10-17T21:18:47.297803+00:00",
+  "applicationCommit": "8e95e3f63258d91fe54deda9d54cf2e18bccd959",
+  "preview": "https://language-threshold-jfxi6y4bn-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-jfxi6y4bn-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_BXrBLkUg5NaUkKN6KfXYrwUGyVss",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-jfxi6y4bn-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "8e95e3f63258d91fe54deda9d54cf2e18bccd959",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 982,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.75,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1258,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/speaking-preview-lifecycle.test.mjs",
+    "tests/speaking-client-cancellation.test.mjs",
+    "tests/fallback-tts-lifecycle.test.mjs",
+    "tests/exam-listening-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Mission restart isolates old reply/body/finally and practice credit",
+    "Single request before disabled control render",
+    "Response playback-start timing remains current-only",
+    "Duplicate dictation result/end sends one transcript",
+    "Unmount/account loss prevents late reply/mic/timing work",
+    "Mission cancellation while awaiting credentials prevents request dispatch",
+    "Late age-save acknowledgement cannot start a mission",
+    "Attestation helper rechecks cancellation/identity after headers and JSON",
+    "Native/Google playback-start callbacks notify once and ignore cancelled generations",
+    "Exam attempt/item/account clip and heard/choice isolation; QA device-only bypasses remote fallback"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-mission-listening-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real consent/attestation, provider call, hosted answer/result or reviewed approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open"
+  ],
+  "additionalTargetedValidation": "Mission credential-cancel scenario added to same actual-screen test group after deployment; targeted test passed; application files unchanged."
+}

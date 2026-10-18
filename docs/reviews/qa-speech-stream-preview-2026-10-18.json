@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T05:11:31.887311+00:00",
+  "applicationCommit": "3f2e7e64a52b3835cbc50626ccbafc5ea36312fd",
+  "preview": "https://language-threshold-gomu7bybn-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-gomu7bybn-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_97H9e85ebZqyR46DpKJ825yrMEWA",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-gomu7bybn-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "3f2e7e64a52b3835cbc50626ccbafc5ea36312fd",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-pashto-guard-preview-2026-10-18.json",
+  "local": {
+    "tests": 1262,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.86,
+    "privateMarkers": 96,
+    "sourceFiles": 1406,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Pashto provider phase has one attempt and a 45-second owned deadline covering headers and downstream audio consumption",
+    "Stalled headers reject with generic private 504; late response bodies are disposed even when synthetic transport ignores cancellation",
+    "Original request abort and downstream cancellation stop only their transport, cancel/release the upstream reader and remove deadline/listeners",
+    "Partial audio errors rather than closing as success on timeout, cancellation, upstream failure or cumulative output beyond 4 MiB; the client blob read rejects before audio playback",
+    "Successful bounded streams close normally and release deadline and incoming listener; a later abort does not mutate the finished transport",
+    "Non-success provider body cancellation is nonblocking; raw provider details are suppressed and no automatic retry is introduced",
+    "Existing origin/body/durable-budget/no-store/guest behavior is retained; five hosted Pashto rejection checks and exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups pass"
+  ],
+  "controlledEvidence": [
+    "tests/remote-speech-stream.test.mjs",
+    "tests/pashto-tts-private.test.mjs",
+    "tests/fallback-tts-lifecycle.test.mjs"
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-speech-stream-preview-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Seven added actual helper/route groups use controlled fetch/ReadableStream/deadline/counter surfaces. Hosted checks send no admissible speech request. No real provider/native/audio/microphone/billing/consent/browser action occurred.",
+    "Deadline starts at the provider phase after origin/body/schema/budget checks; this is not a total input-read/preflight deadline. Existing budget-store calls retain their own timeouts.",
+    "Once audio headers are sent the status remains 200; timeout/overflow/cancellation errors the body instead of producing a successful partial audio blob. Actual deployed positive streaming/adapter behavior and device playback remain unverified.",
+    "Abort and reader cancellation are best effort: an already accepted upstream request or budget charge cannot be undone and billing rollback is not proved. No durable/exactly-once or instant server identity revocation guarantee.",
+    "No new authentication gate or durable schema/policy/role change. Existing hashed request-volume budgets are not a provider financial cap; historical cached GET responses are not purged.",
+    "Broader helper/endpoint/cache/device audit, current A/guest/B/restore, genuine SDK expiry/process restart/offline/physical-device acceptance, uncertain writes/concurrency/legacy certificate reconciliation and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ],
+  "baselineComparison": {
+    "commit": "d3e917b",
+    "case": "Downstream cancellation while upstream cancel never settles",
+    "oldUpstreamLocked": true,
+    "expectedUpstreamLocked": false,
+    "currentPass": true,
+    "limit": "Controlled intermediate helper; the earlier artifact was not deployed."
+  }
+}

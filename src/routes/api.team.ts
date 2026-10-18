@@ -1,10 +1,13 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getModule } from "@/data/modules";
-import { extractCore30Log } from "@/lib/team-core30";
+import { studyPlanStart } from "@/lib/assessments/plan-timing";
+import { getCurriculum } from "@/data/curriculum";
+import { describeCore30Tracks, type Core30TrackDisplay, extractCore30Log } from "@/lib/team-core30";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   hashInviteToken,
   inviteToken,
   json,
@@ -13,7 +16,8 @@ import {
   sendTeamEmail,
   teamAdminClient,
   teamBillingReady,
-  teamError,
+  scopedTeamError,
+  TeamOperationError,
 } from "@/lib/team-server";
 
 const id = z.string().uuid();
@@ -81,8 +85,8 @@ export const Route = createFileRoute("/api/team")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           const orgId = new URL(request.url).searchParams.get("org");
           if (!orgId) {
             const { data, error } = await db
@@ -97,7 +101,7 @@ export const Route = createFileRoute("/api/team")({
           }
           id.parse(orgId);
           const member = await memberRole(db, orgId, user.id);
-          if (!member) throw new Error("Team access required.");
+          if (!member) throw new TeamOperationError("Team access required.", 403);
           const isAdmin = member.role === "owner" || member.role === "admin";
           const [
             org,
@@ -205,12 +209,51 @@ export const Route = createFileRoute("/api/team")({
               ]
             : [user.id];
           const core30: Record<string, ReturnType<typeof extractCore30Log>> = {};
+          const core30Tracks: Record<string, Core30TrackDisplay[]> = {};
           if (memberUserIds.length) {
-            const { data: profiles, error: profilesError } = await db
-              .from("profiles")
-              .select("id,data")
-              .in("id", memberUserIds);
-            if (profilesError) throw profilesError;
+            const [profileResult, trackResult] = await Promise.all([
+              db.from("profiles").select("id,data").in("id", memberUserIds),
+              db
+                .from("assessment_enrollments")
+                .select(
+                  "id,user_id,module_id,target_language,instruction_language,start_date,timezone,status,paused_on",
+                )
+                .eq("organization_id", orgId)
+                .eq("scope", "team")
+                .eq("program_scope", "full_module")
+                .in("user_id", memberUserIds),
+            ]);
+            if (profileResult.error) throw profileResult.error;
+            if (trackResult.error) throw trackResult.error;
+            const profiles = profileResult.data;
+            const scopedTracks = (trackResult.data ?? []).filter((track) =>
+              (assignments.data ?? []).some(
+                (assignment) =>
+                  assignment.user_id === track.user_id && assignment.module_id === track.module_id,
+              ),
+            );
+            const timedTracks = await Promise.all(
+              scopedTracks.map(async (track) => {
+                const history = await db
+                  .from("assessment_events")
+                  .select("created_at,detail")
+                  .eq("enrollment_id", track.id)
+                  .eq("action", "schedule.changed")
+                  .eq("detail->>change", "resume")
+                  .order("created_at")
+                  .limit(1000);
+                if (history.error || (history.data?.length ?? 0) >= 1000)
+                  throw new TeamOperationError("Team plan pause history is unavailable.");
+                return {
+                  ...track,
+                  studyStartDate: studyPlanStart(
+                    track.start_date,
+                    track.timezone,
+                    history.data ?? [],
+                  ),
+                };
+              }),
+            );
             for (const profile of profiles ?? []) {
               if (!memberUserIds.includes(profile.id)) continue;
               // A team assignment grants visibility into that module only. Other personal
@@ -220,6 +263,18 @@ export const Route = createFileRoute("/api/team")({
                 .map((assignment) => assignment.module_id);
               const log = extractCore30Log(profile.data, assignedModules);
               if (Object.keys(log).length) core30[profile.id] = log;
+              core30Tracks[profile.id] = describeCore30Tracks(
+                profile.data,
+                timedTracks
+                  .filter(
+                    (track) =>
+                      track.user_id === profile.id && assignedModules.includes(track.module_id),
+                  )
+                  .map((track) => ({
+                    ...track,
+                    lessonCount: getCurriculum(track.module_id)?.lessons.length ?? 30,
+                  })),
+              );
             }
           }
           for (const result of [
@@ -250,16 +305,19 @@ export const Route = createFileRoute("/api/team")({
             attempts: attempts.data ?? [],
             certificates: certificates.data ?? [],
             core30,
+            core30Tracks,
           });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, bodySchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
-          const body = bodySchema.parse(await request.json());
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           if (body.action === "create") {
             const { data, error } = await db.rpc("team_create_organization", {
               p_owner: user.id,
@@ -286,11 +344,14 @@ export const Route = createFileRoute("/api/team")({
             .select("name,billing_email")
             .eq("id", body.orgId)
             .single();
-          if (orgError || !org) throw orgError ?? new Error("Company not found.");
+          if (orgError || !org) throw orgError ?? new TeamOperationError("Company not found.");
           if (body.action === "invite") {
-            if (body.moduleId && !getModule(body.moduleId)) throw new Error("Unknown module.");
+            if (body.moduleId && !getModule(body.moduleId))
+              throw new TeamOperationError("Unknown module.");
             if (body.requireCertificate && body.moduleId !== "roofing")
-              throw new Error("A reviewed final test is not yet available for this module.");
+              throw new TeamOperationError(
+                "A reviewed final test is not yet available for this module.",
+              );
             const { token, hash } = inviteToken();
             const { data: invitationId, error } = await db.rpc("team_reserve_invitation", {
               p_org: body.orgId,
@@ -346,7 +407,7 @@ export const Route = createFileRoute("/api/team")({
               .eq("organization_id", body.orgId)
               .single();
             if (error || !invite || invite.status !== "pending")
-              throw new Error("Pending invitation not found.");
+              throw new TeamOperationError("Pending invitation not found.");
             const { token, hash } = inviteToken();
             const { error: updateError } = await db
               .from("team_invitations")
@@ -409,13 +470,13 @@ export const Route = createFileRoute("/api/team")({
                 .eq("organization_id", body.orgId)
                 .single();
               if (error || !target || target.role === "owner")
-                throw new Error("This member cannot be deactivated.");
+                throw new TeamOperationError("This member cannot be deactivated.");
               const { error: updateError } = await db
                 .from("team_members")
                 .update({ status: "inactive" })
                 .eq("id", body.memberId);
               if (updateError) throw updateError;
-            } else throw new Error("Choose a member or invitation.");
+            } else throw new TeamOperationError("Choose a member or invitation.");
             await audit(db, user.id, "team.revoke", body.orgId, {
               invitationId: body.invitationId,
               memberId: body.memberId,
@@ -423,9 +484,11 @@ export const Route = createFileRoute("/api/team")({
             return json({ ok: true });
           }
           if (body.action === "assign") {
-            if (!getModule(body.moduleId)) throw new Error("Unknown module.");
+            if (!getModule(body.moduleId)) throw new TeamOperationError("Unknown module.");
             if (body.requireCertificate && body.moduleId !== "roofing")
-              throw new Error("A reviewed final test is not yet available for this module.");
+              throw new TeamOperationError(
+                "A reviewed final test is not yet available for this module.",
+              );
             const { data: target, error } = await db
               .from("team_members")
               .select("user_id,display_name,role,status")
@@ -433,7 +496,7 @@ export const Route = createFileRoute("/api/team")({
               .eq("organization_id", body.orgId)
               .single();
             if (error || !target || target.status !== "active")
-              throw new Error("Active employee not found.");
+              throw new TeamOperationError("Active employee not found.");
             const { error: upsertError } = await db.from("team_assignments").upsert(
               {
                 organization_id: body.orgId,
@@ -505,7 +568,7 @@ export const Route = createFileRoute("/api/team")({
           }
           return json({ error: "Unknown action." }, 400);
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

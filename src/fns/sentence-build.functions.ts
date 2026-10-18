@@ -1,3 +1,6 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 import Anthropic from "@anthropic-ai/sdk";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -26,30 +29,6 @@ export interface SentenceBuildQuestion {
   explanation: string; // 1 sentence on why this order is right (focus on the tricky part)
 }
 
-const MAX_CACHE = 200;
-const cache = new Map<string, SentenceBuildQuestion>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): SentenceBuildQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: SentenceBuildQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
-
 const SYSTEM = `You are a precise sentence-builder drill author. You generate natural target-language sentences for adult language learners and decompose each sentence into ordered tokens. The learner gets the tokens shuffled and must reorder them.
 
 Rules — non-negotiable:
@@ -70,15 +49,22 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
     async ({
       data,
     }): Promise<{ data: SentenceBuildQuestion | null; error: string | null; cached?: boolean }> => {
+      const request = getRequest();
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(request);
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { data: null, error: originError.error };
+      }
+      const signal = AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]);
       const KEY = process.env.ANTHROPIC_API_KEY;
       if (!KEY) return { data: null, error: "AI is not configured" };
+      if (signal.aborted) return { data: null, error: "Request cancelled." };
+      const budgetError = await learningGenerationError("content");
+      if (budgetError) return { data: null, error: budgetError };
+      if (signal.aborted) return { data: null, error: "Request cancelled." };
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
-
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash);
-      const hit = cacheGet(key);
-      if (hit) return { data: hit, error: null, cached: true };
 
       const lengthGuidance =
         data.level === 1
@@ -99,69 +85,100 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE ${data.language} sentence-builder question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
-        const response = await client.messages.create({
-          // Sonnet 4.6 — same reasoning as conjugation. Bad token splits or
-          // a "scrambled" array that doesn't permute "tokens" silently breaks
-          // the game. Sonnet is reliable here.
-          model: "claude-haiku-5-5",
-          max_tokens: 850,
-          system: SYSTEM,
-          messages: [{ role: "user", content: userMsg }],
-          tools: [
-            {
-              name: "return_sentence_question",
-              description: "Return one sentence-builder question.",
-              input_schema: {
-                type: "object" as const,
-                properties: {
-                  targetSentence: {
-                    type: "string",
-                    description: "Canonical target-language sentence.",
+        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const response = await client.messages.create(
+          {
+            // Sonnet 4.6 — same reasoning as conjugation. Bad token splits or
+            // a "scrambled" array that doesn't permute "tokens" silently breaks
+            // the game. Sonnet is reliable here.
+            model: "claude-haiku-5-5",
+            max_tokens: 850,
+            system: SYSTEM,
+            messages: [{ role: "user", content: userMsg }],
+            tools: [
+              {
+                name: "return_sentence_question",
+                description: "Return one sentence-builder question.",
+                input_schema: {
+                  type: "object" as const,
+                  properties: {
+                    targetSentence: {
+                      type: "string",
+                      description: "Canonical target-language sentence.",
+                    },
+                    englishTranslation: { type: "string", description: "English translation." },
+                    tokens: {
+                      type: "array",
+                      items: { type: "string" },
+                      minItems: 4,
+                      maxItems: 16,
+                      description: "Sentence split into ordered tokens.",
+                    },
+                    scrambled: {
+                      type: "array",
+                      items: { type: "string" },
+                      minItems: 4,
+                      maxItems: 16,
+                      description: "Same tokens, shuffled.",
+                    },
+                    topic: { type: "string" },
+                    cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
+                    explanation: {
+                      type: "string",
+                      description: "One-sentence English explanation of the tricky bit.",
+                    },
                   },
-                  englishTranslation: { type: "string", description: "English translation." },
-                  tokens: {
-                    type: "array",
-                    items: { type: "string" },
-                    minItems: 4,
-                    maxItems: 16,
-                    description: "Sentence split into ordered tokens.",
-                  },
-                  scrambled: {
-                    type: "array",
-                    items: { type: "string" },
-                    minItems: 4,
-                    maxItems: 16,
-                    description: "Same tokens, shuffled.",
-                  },
-                  topic: { type: "string" },
-                  cefr: { type: "string", enum: ["A1", "A2", "B1", "B2", "C1", "C2"] },
-                  explanation: {
-                    type: "string",
-                    description: "One-sentence English explanation of the tricky bit.",
-                  },
+                  required: [
+                    "targetSentence",
+                    "englishTranslation",
+                    "tokens",
+                    "scrambled",
+                    "topic",
+                    "cefr",
+                    "explanation",
+                  ],
+                  additionalProperties: false,
                 },
-                required: [
-                  "targetSentence",
-                  "englishTranslation",
-                  "tokens",
-                  "scrambled",
-                  "topic",
-                  "cefr",
-                  "explanation",
-                ],
-                additionalProperties: false,
               },
-            },
-          ],
-          tool_choice: { type: "tool", name: "return_sentence_question" },
-        });
+            ],
+            tool_choice: { type: "tool", name: "return_sentence_question" },
+          },
+          { signal },
+        );
+        signal.throwIfAborted();
 
-        const toolUse = response.content.find((c) => c.type === "tool_use");
+        const toolUse = response.content.find(
+          (c) => c.type === "tool_use" && c.name === "return_sentence_question",
+        );
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const q = toolUse.input as SentenceBuildQuestion;
+        const minimum = data.level === 1 ? 4 : data.level === 2 ? 6 : 9;
+        const maximum = data.level === 1 ? 6 : data.level === 2 ? 9 : 13;
+        const token = z.string().trim().min(1).max(120);
+        const parsed = z
+          .object({
+            targetSentence: z.string().trim().min(1).max(1600),
+            englishTranslation: z.string().trim().min(1).max(1600),
+            tokens: z.array(token).min(minimum).max(maximum),
+            scrambled: z.array(token).min(minimum).max(maximum),
+            topic: z.string().trim().min(1).max(80),
+            cefr: z.literal(cefr),
+            explanation: z.string().trim().min(1).max(1200),
+          })
+          .safeParse(toolUse.input);
+        if (!parsed.success) return { data: null, error: "Sentence content came back incomplete." };
+        const q = parsed.data;
+        const canonical = (value: string) =>
+          value
+            .normalize("NFC")
+            .replace(/\s+/g, /japanese|chinese/i.test(data.language) ? "" : " ")
+            .trim();
+        if (
+          canonical(q.tokens.join(" ")) !== canonical(q.targetSentence) ||
+          new Set(q.tokens).size < 2
+        )
+          return { data: null, error: "Sentence tokens do not match the question." };
 
         // Defensive: ensure scrambled is a permutation of tokens. Re-shuffle
         // ourselves if the model returned the same order or a non-permutation.
@@ -172,21 +189,23 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         ) {
           return { data: null, error: "Token/scrambled mismatch." };
         }
-        const sortedT = [...q.tokens].sort().join("|");
-        const sortedS = [...q.scrambled].sort().join("|");
+        const sortedT = JSON.stringify([...q.tokens].sort());
+        const sortedS = JSON.stringify([...q.scrambled].sort());
         if (sortedT !== sortedS) {
           return { data: null, error: "Scrambled is not a permutation of tokens." };
         }
         // If the model returned scrambled identical to tokens, shuffle defensively.
-        if (q.scrambled.join("|") === q.tokens.join("|")) {
+        if (JSON.stringify(q.scrambled) === JSON.stringify(q.tokens)) {
           q.scrambled = shuffle([...q.tokens]);
-          // If still identical (length 1 or all-same items — unlikely), accept.
+          if (JSON.stringify(q.scrambled) === JSON.stringify(q.tokens)) {
+            const different = q.scrambled.findIndex((value) => value !== q.scrambled[0]);
+            [q.scrambled[0], q.scrambled[different]] = [q.scrambled[different], q.scrambled[0]];
+          }
         }
 
-        cacheSet(key, q);
         return { data: q, error: null, cached: false };
-      } catch (e) {
-        console.error("generateSentenceBuilder failed", e);
+      } catch {
+        console.error("Sentence builder generation failed");
         return { data: null, error: "Generation failed." };
       }
     },

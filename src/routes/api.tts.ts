@@ -1,89 +1,95 @@
-// Built by ATLAS — 2026-07-07
-// Server TTS for languages browsers cannot speak (no SpeechSynthesis voice).
-// Currently: Pashto (ps) via ElevenLabs eleven_v3 — the only model with ps support.
-//
-// GET /api/tts?text=<utf8>&lang=ps
-//  → audio/mpeg, Cache-Control immutable (Vercel edge caches per unique text,
-//    so each static reading sentence is generated at most once globally).
-
+// Pashto fallback for languages without an installed device voice.
+// Learner text travels in a POST body; generated audio must never be shared-cached.
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { initSentry, Sentry } from "../lib/sentry";
-initSentry();
+import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
+import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
+import { isStrictSameOrigin } from "../lib/speaking-security";
+import { checkLearningGenerationBudget } from "../lib/learning-generation-security";
+import { remoteSpeechAudio, RemoteSpeechProviderError } from "../lib/remote-speech-provider";
 
-// Only languages with NO browser voice belong here — everything else uses
-// SpeechSynthesis for free on-device.
-const REMOTE_TTS_LANGS: Record<string, { language_code: string; voice_id: string }> = {
-  ps: { language_code: "ps", voice_id: "XrExE9yKIg1WjnnlVkGX" }, // Matilda — warm, clear
-};
-
-const QuerySchema = z.object({
+const BodySchema = z.object({
   text: z.string().min(1).max(400),
-  lang: z.enum(["ps"]),
+  lang: z.literal("ps"),
 });
+
+const privateHeaders = {
+  "Cache-Control": "private, no-store",
+  "CDN-Cache-Control": "no-store",
+  "Vercel-CDN-Cache-Control": "no-store",
+  "X-Content-Type-Options": "nosniff",
+};
+function json(error: string, status: number, extra = {}) {
+  return new Response(JSON.stringify({ error }), {
+    status,
+    headers: { ...privateHeaders, "Content-Type": "application/json", ...extra },
+  });
+}
 
 export const Route = createFileRoute("/api/tts")({
   server: {
     handlers: {
-      GET: async ({ request }) => {
-        const url = new URL(request.url);
-        const parsed = QuerySchema.safeParse({
-          text: url.searchParams.get("text") ?? "",
-          lang: url.searchParams.get("lang") ?? "",
-        });
-        if (!parsed.success) {
-          return new Response(JSON.stringify({ error: "Invalid text/lang" }), {
-            status: 400,
-            headers: { "Content-Type": "application/json" },
-          });
-        }
-
-        const apiKey = process.env.ELEVEN_API_KEY;
-        if (!apiKey) {
-          return new Response(JSON.stringify({ error: "TTS not configured" }), {
-            status: 503,
-            headers: { "Content-Type": "application/json" },
-          });
-        }
-
-        const { text, lang } = parsed.data;
-        const cfg = REMOTE_TTS_LANGS[lang];
-
+      // Old clients must not generate/cache audio from learner text in a URL.
+      GET: async () => json("Use POST", 405, { Allow: "POST" }),
+      POST: async ({ request }) => {
+        if (!isStrictSameOrigin(request)) return json("Open the app to use remote speech.", 403);
+        let body: unknown;
         try {
-          const res = await fetch(
-            `https://api.elevenlabs.io/v1/text-to-speech/${cfg.voice_id}?output_format=mp3_44100_64`,
-            {
-              method: "POST",
-              headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
-              body: JSON.stringify({
-                text,
-                model_id: "eleven_v3",
-                language_code: cfg.language_code,
-              }),
-            },
+          body = await readPrivateJson(request, 4096);
+        } catch (error) {
+          const status = error instanceof PrivateJsonRequestError ? error.status : 400;
+          return json(
+            status === 413
+              ? "TTS request too large"
+              : status === 408
+                ? "TTS request timed out"
+                : status === 499
+                  ? "TTS cancelled"
+                  : "Invalid text/lang",
+            status,
           );
-          if (!res.ok) {
-            const detail = await res.text();
-            Sentry.captureException(new Error(`TTS upstream ${res.status}: ${detail.slice(0, 200)}`));
-            return new Response(JSON.stringify({ error: "TTS generation failed" }), {
-              status: 502,
-              headers: { "Content-Type": "application/json" },
-            });
-          }
-          return new Response(res.body, {
-            status: 200,
-            headers: {
-              "Content-Type": "audio/mpeg",
-              // Same text+lang always yields equivalent audio — cache hard at the edge.
-              "Cache-Control": "public, max-age=31536000, s-maxage=31536000, immutable",
-            },
+        }
+        const parsed = BodySchema.safeParse(body);
+        if (!parsed.success) return json("Invalid text/lang", 400);
+        if (request.signal.aborted) return json("TTS cancelled", 499);
+        const apiKey = process.env.ELEVEN_API_KEY;
+        if (!apiKey) return json("TTS not configured", 503);
+        let denied;
+        try {
+          denied = await withSpeechPreflight(request, (signal) =>
+            checkLearningGenerationBudget(request, "speech", signal),
+          );
+        } catch (error) {
+          const status = error instanceof SpeechPreflightError ? error.status : 503;
+          return json(
+            status === 499 ? "TTS cancelled" : "Remote speech is temporarily unavailable.",
+            status,
+          );
+        }
+        if (denied)
+          return json(
+            denied.status === 429
+              ? "Remote speech limit reached. Try again later."
+              : "Remote speech is temporarily unavailable.",
+            denied.status,
+            denied.retryAfter ? { "Retry-After": String(denied.retryAfter) } : {},
+          );
+        if (request.signal.aborted) return json("TTS cancelled", 499);
+        try {
+          const audio = await remoteSpeechAudio(parsed.data.text, apiKey, request.signal);
+          return new Response(audio, {
+            headers: { ...privateHeaders, "Content-Type": "audio/mpeg" },
           });
-        } catch (err) {
-          Sentry.captureException(err);
-          return new Response(JSON.stringify({ error: "TTS error" }), {
-            status: 500,
-            headers: { "Content-Type": "application/json" },
-          });
+        } catch (error) {
+          // Provider bodies and thrown errors may contain learner text or credentials.
+          return json(
+            request.signal.aborted ? "TTS cancelled" : "TTS error",
+            request.signal.aborted
+              ? 499
+              : error instanceof RemoteSpeechProviderError
+                ? error.status
+                : 500,
+          );
         }
       },
     },

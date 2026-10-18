@@ -1,0 +1,45 @@
+{
+  "testedAt": "2026-10-17T13:46:09.798549+00:00",
+  "applicationSource": "2ade3af",
+  "deployed": false,
+  "findings": {
+    "conjugation": "Current source search found no live UI callers of learner cache write/ensure helpers. Dormant mutable registry remains a future-use concern; no active leak is claimed from it.",
+    "dictionary": "Active WordCard client cache and lookupWord server cache retained arbitrary source sentences in module-wide maps without account boundaries."
+  },
+  "changes": [
+    "Move client cache into a fresh provider inside the existing account-keyed app subtree; at most200cards, clear on unmount, no persistent storage.",
+    "Include exact cache instance and request key in rendered result identity; existing effect cleanup excludes late replies.",
+    "Allow shared server cache only when the source sentence exactly matches current public-authored lesson reading/vocabulary and the requested word occurs in that text.",
+    "A valid lesson reference alone does not permit arbitrary private/custom/transcript sentences in the shared server cache.",
+    "Caught provider failures log a fixed label instead of raw provider exception."
+  ],
+  "verification": {
+    "tests": 828,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "artifactMiB": 19.66,
+    "privateBank": {
+      "testedAt": "2026-10-17T13:45:33.535Z",
+      "sourceCommit": "2ade3af",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1133,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "meaningfulTests": [
+    "Independent client cache factories exclude the same private key, clear releases data, and bounded replacement/eviction retains context/pair/lesson distinctions.",
+    "Actual production server handler with synthetic provider: repeated general/private sentence requests are uncached, including private text with a valid lesson reference.",
+    "Exact public lesson sentence is cached with zero new provider/budget calls on repeat; word absent from the public sentence cannot enter that shared cache.",
+    "Stale lesson and wrong-origin denial still precede provider/cache access."
+  ],
+  "limitations": [
+    "No current browser account-switch, offline private lookup or hosted positive provider trial.",
+    "Returning after account sign-out creates a fresh in-memory client cache; no persistent dictionary history is claimed.",
+    "No complete app-wide cache/privacy, SDK logging, provider timing or cost audit claim.",
+    "No model calls, browser actions, hosted writes, schema/role/active-policy/speech-collection/schedule changes.",
+    "Hosted development remains cfa32b6; accepted companion d4ad837 and live app unchanged.",
+    "Durable adaptive routing and release acceptance remain open; main remains untouched."
+  ]
+}

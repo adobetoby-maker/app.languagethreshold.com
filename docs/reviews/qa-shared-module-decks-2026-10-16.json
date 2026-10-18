@@ -1,0 +1,64 @@
+{
+  "testedAt": "2026-10-17T02:39:45.263Z",
+  "sourceCommit": "fc66cc9",
+  "preview": "https://language-threshold-mxb7pxs74-adobetoby-5572s-projects.vercel.app",
+  "checks": {
+    "guestAndLearnerTableReadsDenied": true,
+    "allThreeDraftRpcsDeniedToGuestAndLearner": true,
+    "serverRoleClaimWorks": true,
+    "competingClaimPending": true,
+    "disposableClaimRemoved": true
+  },
+  "liveGeneration": {
+    "attempted": true,
+    "moduleId": "landscaper",
+    "pair": "English \u2192 Spanish",
+    "simultaneousResponses": [
+      202,
+      200
+    ],
+    "generatedListsThisVerification": 1,
+    "resumedExistingDraft": false,
+    "coldConcurrentHttpAcceptance": true,
+    "cardCount": 40,
+    "durableCopyVerified": true,
+    "repeatSharedHit": true,
+    "repeatProviderCalls": 0,
+    "warmCacheWrongOriginDenied": true,
+    "rawCardsPrinted": false
+  },
+  "limits": [
+    "No learner progress, exam, score, approval or certificate writes",
+    "Generated vocabulary remains an unreviewed public draft; this does not validate terminology"
+  ],
+  "storage": {
+    "migration": "20261017023842",
+    "repositoryMigration": "20261017023616",
+    "rls": true,
+    "securityInvoker": true,
+    "fixedSearchPaths": true,
+    "browserRoleExecute": false,
+    "localRollbackSuitePassed": true,
+    "contentStatus": "unreviewed draft",
+    "readyDays": 30,
+    "leaseSeconds": 120
+  },
+  "browser": {
+    "account": "guest",
+    "module": "landscaper",
+    "pair": "English \u2192 Spanish",
+    "generatedCards": 40,
+    "existingReadingCards": 9,
+    "afterRefreshTotal": 49,
+    "viewport": [
+      390,
+      844
+    ],
+    "documentScrollWidth": 375,
+    "lessonPlanReturnFocused": true,
+    "physicalDeviceAcceptance": false,
+    "offlineAcceptance": false,
+    "viewportReset": true,
+    "screenshot": "/Users/drive/git-backups/language-threshold-shared-module-deck-phone-top-2026-10-16.jpg"
+  }
+}

@@ -1,13 +1,15 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
 import { z } from "zod";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   memberRole,
   teamAdminClient,
-  teamError,
+  scopedTeamError,
+  TeamOperationError,
 } from "@/lib/team-server";
 
 const requestSchema = z.object({
@@ -53,8 +55,8 @@ export const Route = createFileRoute("/api/module-request")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           const { data, error } = await db
             .from("custom_module_requests")
             .select("id,title,status,fee_cents,created_at,paid_at,owner_note")
@@ -65,23 +67,30 @@ export const Route = createFileRoute("/api/module-request")({
           if (error) throw error;
           return json({ requests: data ?? [] });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, requestSchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
-          const body = requestSchema.parse(await request.json());
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           if (!(await hasActivePlan(db, user.id)))
-            throw new Error("An active Pro or Team plan is required to request a custom module.");
+            throw new TeamOperationError(
+              "An active Pro or Team plan is required to request a custom module.",
+            );
           if (body.organizationId) {
             const member = await memberRole(db, body.organizationId, user.id);
             if (!member || !["owner", "admin"].includes(member.role))
-              throw new Error("Company admin access required to request on behalf of a team.");
+              throw new TeamOperationError(
+                "Company admin access required to request on behalf of a team.",
+                403,
+              );
           }
           const key = process.env.STRIPE_SECRET_KEY;
-          if (!key) throw new Error("Custom module checkout is not configured.");
+          if (!key) throw new TeamOperationError("Custom module checkout is not configured.", 503);
           const { data: item, error } = await db
             .from("custom_module_requests")
             .insert({
@@ -94,7 +103,7 @@ export const Route = createFileRoute("/api/module-request")({
             })
             .select("id")
             .single();
-          if (error || !item) throw error ?? new Error("Could not save request.");
+          if (error || !item) throw error ?? new TeamOperationError("Could not save request.");
           const stripe = new Stripe(key, { apiVersion: "2026-04-22.dahlia" });
           const origin = new URL(request.url).origin;
           const session = await stripe.checkout.sessions.create(
@@ -136,10 +145,11 @@ export const Route = createFileRoute("/api/module-request")({
               requestId: item.id,
             },
           );
-          if (!session.url) throw new Error("Checkout could not be opened. Please try again.");
+          if (!session.url)
+            throw new TeamOperationError("Checkout could not be opened. Please try again.");
           return json({ url: session.url });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

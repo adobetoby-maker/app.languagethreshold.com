@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -20,6 +21,7 @@ export interface TutorMessage {
 
 export interface TutorSourceContext {
   threadId: string;
+  textTitle?: string;
   selectedWord: string;
   selectedSentence: string;
   passage: string;
@@ -81,8 +83,6 @@ type Action =
       payload: { threadId: string; messageId: string; delta: string };
     }
   | { type: "CLEAR_THREAD"; payload: string };
-
-const STORAGE_KEY = "lt.tutor.v1";
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -178,6 +178,7 @@ interface Ctx {
 const TutorCtx = createContext<Ctx | null>(null);
 
 export function TutorProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("tutor");
   const [state, dispatch] = useReducer(reducer, {
     threads: {},
     sourceContexts: {},
@@ -191,9 +192,9 @@ export function TutorProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = device.read();
       if (raw) {
-        const parsed = JSON.parse(raw) as unknown;
+        const parsed = raw;
         let payload: PersistedTutorState;
         if (
           parsed !== null &&
@@ -225,22 +226,19 @@ export function TutorProvider({ children }: { children: ReactNode }) {
         payload: { threads: {}, sourceContexts: {} },
       });
     }
-  }, []);
+  }, [device]);
 
   useEffect(() => {
     if (!state.hydrated) return;
     try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          threads: state.threads,
-          sourceContexts: state.sourceContexts,
-        } satisfies PersistedTutorState),
-      );
+      device.write({
+        threads: state.threads,
+        sourceContexts: state.sourceContexts,
+      } satisfies PersistedTutorState);
     } catch {
       /* ignore */
     }
-  }, [state.threads, state.sourceContexts, state.hydrated]);
+  }, [device, state.threads, state.sourceContexts, state.hydrated]);
 
   const messagesFor = useCallback(
     (threadId: string) => state.threads[threadId] ?? [],

@@ -48,9 +48,12 @@ function deckKey(moduleId: string, language: string): string {
 }
 
 /** True when this module+language has authored words, so no deck is ever needed. */
-function hasAuthoredWords(moduleId: string, language: string): boolean {
+function hasAuthoredWords(moduleId: string, language: string, nativeLanguage: string): boolean {
   const lessons = getCurriculum(moduleId)?.lessons ?? [];
-  return lessons.some((lesson) => pickAuthoredWords(lesson.words, language) !== null);
+  return (
+    lessons.length > 0 &&
+    lessons.every((lesson) => pickAuthoredWords(lesson.words, language, nativeLanguage) !== null)
+  );
 }
 
 /**
@@ -94,7 +97,7 @@ export function prefetchLessonDeck(moduleId: string, language: string, nativeLan
   if (typeof fetch !== "function" || !moduleId) return;
   // Decks exist only for the default pairing of each target language.
   if (nativeLanguage !== deckNativeLanguage(language)) return;
-  if (hasAuthoredWords(moduleId, language)) return;
+  if (hasAuthoredWords(moduleId, language, nativeLanguage)) return;
   void loadLessonDeck(moduleId, language);
 }
 
@@ -140,8 +143,8 @@ export function useLessonWords(
   generateRef.current = generate;
   const authored = useMemo(() => {
     const lesson = getCurriculum(moduleId)?.lessons.find((item) => item.n === lessonNumber);
-    return pickAuthoredWords(lesson?.words, language);
-  }, [moduleId, lessonNumber, language]);
+    return pickAuthoredWords(lesson?.words, language, nativeLanguage);
+  }, [moduleId, lessonNumber, language, nativeLanguage]);
   const key = lessonWordsKey(moduleId, lessonNumber, language, nativeLanguage);
   const [fetched, setFetched] = useState<Fetched | null>(null);
   // Retry count is tied to the key it was pressed for, so switching lessons starts at 0 again.

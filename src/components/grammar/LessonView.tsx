@@ -14,6 +14,7 @@ import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { QuizCard } from "./QuizCard";
 import { MorphologyCard } from "./MorphologyCard";
 import { resolveNextStep, nextCefrLevel, isLevelComplete, CEFR_ORDER } from "@/lib/grammar-flow";
+import { hasConsistentGrammarMorphology } from "@/lib/grammar-morphology";
 
 const LEVEL_LABEL: Record<CefrLevel, string> = {
   A1: "Beginner",
@@ -50,6 +51,7 @@ export function LessonView({
   const [showQuiz, setShowQuiz] = useState(false);
   const [wordReq, setWordReq] = useState<WordCardRequest | null>(null);
   const [finished, setFinished] = useState(false);
+  const [loadAttempt, setLoadAttempt] = useState(0);
 
   // Finding 2: reset completion state when the desktop sidebar selects a
   // different lesson. The same LessonView instance is reused, so local state
@@ -59,7 +61,10 @@ export function LessonView({
   }, [lesson.id]);
 
   const lvl = getLevel(state.selectedLanguage, level);
-  const content: LessonContent | undefined = lvl?.contents[lesson.id];
+  const cachedContent: LessonContent | undefined = lvl?.contents[lesson.id];
+  // Older generated/cache entries need the same check as a fresh server response.
+  const content = cachedContent && (!cachedContent.morphology ||
+    hasConsistentGrammarMorphology(cachedContent.morphology)) ? cachedContent : undefined;
   const isComplete = !!lvl?.completed[lesson.id];
 
   // Finding 3: truthful copy for the course-complete panel. course-complete
@@ -90,7 +95,7 @@ export function LessonView({
         });
         if (cancelled) return;
         if (res.data) setContent(state.selectedLanguage, level, lesson.id, res.data);
-        else if (res.error) setError(res.error);
+        else setError(res.error || "This lesson could not be prepared. Try again.");
       } catch {
         if (!cancelled) setError("Failed to load lesson.");
       } finally {
@@ -101,7 +106,7 @@ export function LessonView({
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson.id, state.selectedLanguage, level]);
+  }, [lesson.id, state.selectedLanguage, level, loadAttempt]);
 
   const handleWord = (word: string, sentence: string, x: number, y: number) => {
     setWordReq({ word, sentence, language: state.selectedLanguage, x, y });
@@ -168,8 +173,12 @@ export function LessonView({
         )}
 
         {error && !loading && (
-          <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 font-mono text-xs text-destructive">
-            {error}
+          <div>
+            <p role="alert" className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 font-mono text-xs text-destructive">{error}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button type="button" onClick={() => setLoadAttempt((n) => n + 1)} className="min-h-11 rounded-lg border border-gold/50 px-4 text-sm text-gold">Try again</button>
+              {onBack && <button type="button" onClick={onBack} className="min-h-11 rounded-lg border border-border px-4 text-sm">Back to Grammar</button>}
+            </div>
           </div>
         )}
 

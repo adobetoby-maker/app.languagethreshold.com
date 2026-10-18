@@ -1,14 +1,16 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { backfillStripeLedger } from "@/lib/stripe-ledger-backfill";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   requirePlatformOwner,
   sendTeamEmail,
   teamAdminClient,
-  teamError,
+  scopedTeamError,
+  TeamOperationError,
 } from "@/lib/team-server";
 
 const schema = z.discriminatedUnion("action", [
@@ -51,8 +53,8 @@ export const Route = createFileRoute("/api/platform")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
           const since =
             new URL(request.url).searchParams.get("since") ??
@@ -149,15 +151,17 @@ export const Route = createFileRoute("/api/platform")({
             moduleRequests: moduleRequests.data ?? [],
           });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, schema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
-          const body = schema.parse(await request.json());
           if (body.action === "ledger_import_stripe") {
             const counts = await backfillStripeLedger(db);
             await audit(db, user.id, "ledger.import_stripe", undefined, counts);
@@ -190,12 +194,12 @@ export const Route = createFileRoute("/api/platform")({
               .select("id,category,amount_cents,organization_id,source,external_ref")
               .eq("id", body.entryId)
               .single();
-            if (error || !entry) throw error ?? new Error("Entry not found.");
+            if (error || !entry) throw error ?? new TeamOperationError("Entry not found.");
             if (entry.source !== "manual" || entry.external_ref)
-              throw new Error(
+              throw new TeamOperationError(
                 "Stripe and reversal entries must be corrected through their source.",
               );
-            if (entry.amount_cents === 0) throw new Error("Entry cannot be reversed.");
+            if (entry.amount_cents === 0) throw new TeamOperationError("Entry cannot be reversed.");
             const { data, error: insertError } = await db
               .from("platform_ledger_entries")
               .insert({
@@ -219,15 +223,18 @@ export const Route = createFileRoute("/api/platform")({
           }
           if (body.action === "manual_grant") {
             if (new Date(body.periodEnd).getTime() <= Date.now())
-              throw new Error("The manual grant end date must be in the future.");
+              throw new TeamOperationError("The manual grant end date must be in the future.");
             const { data: existing, error: readError } = await db
               .from("team_entitlements")
               .select("stripe_subscription_id")
               .eq("organization_id", body.orgId)
               .single();
-            if (readError || !existing) throw readError ?? new Error("Company not found.");
+            if (readError || !existing)
+              throw readError ?? new TeamOperationError("Company not found.");
             if (existing.stripe_subscription_id)
-              throw new Error("Use Stripe billing to change seats on a paid subscription.");
+              throw new TeamOperationError(
+                "Use Stripe billing to change seats on a paid subscription.",
+              );
             const { error } = await db
               .from("team_entitlements")
               .update({
@@ -251,7 +258,7 @@ export const Route = createFileRoute("/api/platform")({
               (body.status === "delivered" || body.status === "declined") &&
               body.ownerNote.length < 20
             )
-              throw new Error(
+              throw new TeamOperationError(
                 "Add a useful content brief or explanation before closing the request.",
               );
             const { data: item, error } = await db
@@ -265,7 +272,7 @@ export const Route = createFileRoute("/api/platform")({
               .neq("status", "pending_payment")
               .select("id,organization_id,requester_id,title")
               .maybeSingle();
-            if (error || !item) throw error ?? new Error("Paid request not found.");
+            if (error || !item) throw error ?? new TeamOperationError("Paid request not found.");
             await audit(
               db,
               user.id,
@@ -306,7 +313,7 @@ export const Route = createFileRoute("/api/platform")({
           });
           return json({ ok: true });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

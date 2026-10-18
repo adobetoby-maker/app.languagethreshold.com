@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { legacyExamsLocation } from "@/lib/exam-navigation";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Toaster } from "sonner";
 import { AppProvider, useApp } from "@/state/app-state";
@@ -37,11 +38,27 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
-import { getModule } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
+import { appNavigationLocation, appTab } from "@/lib/app-navigation";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: ({ location }) => {
+    const destination = legacyExamsLocation(location.href);
+    if (destination)
+      throw redirect({
+        href: destination,
+        reloadDocument: true,
+        replace: true,
+        headers: {
+          "Cache-Control": "no-store",
+          "Referrer-Policy": "no-referrer",
+          "X-Robots-Tag": "noindex, nofollow",
+        },
+      });
+  },
   component: Index,
   head: () => ({
     meta: [
@@ -72,6 +89,7 @@ function UrlModuleBridge() {
   const { user, loading: authLoading } = useAuth();
   const userId = user?.id ?? null;
   const appliedFor = useRef<string | null>(null);
+  const [navigationReadyFor, setNavigationReadyFor] = useState<string | null>(null);
 
   useEffect(() => {
     const identity = learningLinkIdentity({
@@ -85,7 +103,8 @@ function UrlModuleBridge() {
     appliedFor.current = identity;
     const params = new URLSearchParams(window.location.search);
     const moduleId = params.get("module");
-    const tab = params.get("tab");
+    const coreLink = moduleId === "core";
+    const tab = appTab(params.get("tab"));
     const linkedModule = getModule(moduleId);
     const targetLanguage =
       linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];
@@ -97,6 +116,22 @@ function UrlModuleBridge() {
     ) {
       dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
+    const requestedTarget = params.get("target") as Language,
+      requestedNative = params.get("native") as NativeLanguage;
+    if (
+      LANGUAGES.includes(requestedTarget) &&
+      NATIVE_LANGUAGES.includes(requestedNative) &&
+      (coreLink ||
+        (linkedModule &&
+          moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)))
+    ) {
+      if (state.selectedLanguage !== requestedTarget)
+        dispatch({ type: "SET_LANGUAGE", payload: requestedTarget });
+      if (state.nativeLanguage !== requestedNative)
+        dispatch({ type: "SET_NATIVE_LANGUAGE", payload: requestedNative });
+    }
+    if (coreLink && state.activeModuleId !== null)
+      dispatch({ type: "SET_ACTIVE_MODULE", payload: null });
     if (linkedModule && linkedModule.id !== state.activeModuleId) {
       dispatch({ type: "PURCHASE_MODULE", payload: linkedModule.id });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: linkedModule.id });
@@ -104,35 +139,40 @@ function UrlModuleBridge() {
         dispatch({ type: "SET_TAB", payload: "discussions" });
       }
     }
-    const allowedTabs = new Set([
-      "reader",
-      "grammar",
-      "speak",
-      "dashboard",
-      "modules",
-      "games",
-      "flashcards",
-      "guide",
-      "core30",
-    ]);
-    if (tab && allowedTabs.has(tab)) {
-      dispatch({
-        type: "SET_TAB",
-        payload: tab as
-          | "reader"
-          | "grammar"
-          | "speak"
-          | "dashboard"
-          | "modules"
-          | "games"
-          | "flashcards"
-          | "guide"
-          | "core30",
-      });
-    }
+    if (tab) dispatch({ type: "SET_TAB", payload: tab });
+    // This state update is batched with the URL's app-state actions. A ref alone would
+    // let the writer below run against the previous render and erase the incoming link.
+    setNavigationReadyFor(identity);
     // Apply the URL once per identity, after local and cloud state are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated, authLoading, userId, profileReadyUserId]);
+
+  useEffect(() => {
+    const identity = userId ?? "guest";
+    const next = appNavigationLocation(window.location.href, {
+      ready:
+        navigationReadyFor === identity &&
+        state.hydrated &&
+        !authLoading &&
+        (!userId || profileReadyUserId === userId),
+      moduleId: state.activeModuleId,
+      target: state.selectedLanguage,
+      native: state.nativeLanguage,
+      tab: state.currentTab,
+    });
+    if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+      window.history.replaceState(window.history.state, "", next);
+  }, [
+    navigationReadyFor,
+    userId,
+    authLoading,
+    profileReadyUserId,
+    state.hydrated,
+    state.activeModuleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    state.currentTab,
+  ]);
 
   return null;
 }
@@ -171,8 +211,8 @@ function Index() {
     return () => window.removeEventListener("lt:open-personalization", handler);
   }, []);
   return (
-    <AppProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <AppProvider>
         <SubscriptionProvider>
           <AiGateProvider>
             <MatchProvider>
@@ -256,7 +296,7 @@ function Index() {
             </MatchProvider>
           </AiGateProvider>
         </SubscriptionProvider>
-      </AuthProvider>
-    </AppProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }

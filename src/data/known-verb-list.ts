@@ -3,7 +3,7 @@
  * Source: Spanish wordData + Italian italianWordData (partOfSpeech === "verb").
  * Full inventory (~757) lives in the build; this core set + regular engine +
  * FREQUENCY_CONJUGATIONS covers the high-frequency offline path.
- * Novel verbs still use ensureConjugation (AI once, then user-cache).
+ * Novel verbs may be filled through an explicit account-owned conjugation cache.
  */
 import type { Language } from "@/state/app-state";
 

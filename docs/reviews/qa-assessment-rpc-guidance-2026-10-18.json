@@ -1,0 +1,2900 @@
+{
+  "auditedAt": "2026-10-18T11:51:29.513Z",
+  "sourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "scan": {
+    "assessmentRelatedMigrationFiles": 27,
+    "fixedRaiseSites": 342,
+    "uniqueFixedMessages": 227,
+    "statusCounts": {
+      "400": 152,
+      "403": 26,
+      "409": 49
+    },
+    "actualHelperTestGroups": 4
+  },
+  "checks": {
+    "allKnownMessagesAndPriorStatusesMatch": true,
+    "unknownP0001DiagnosticsUseFixed503": true,
+    "exactMatchRejectsPrefixesSuffixesCaseAndHiddenCharacters": true,
+    "malformedOrNonStringMessageRejectedWithoutCoercion": true,
+    "duplicate23505AndOtherCodesRemainFixed": true,
+    "successfulResultIdentityPreserved": true,
+    "lookupProjectionCannotMutateRegistry": true
+  },
+  "files": [
+    {
+      "path": "supabase/migrations/20261009000000_team_platform.sql",
+      "sha256": "df4eb45390c8678a76948e036128557d6703b866c38f80b1c85d1b2f7515ae92",
+      "fixedRaiseSites": 14
+    },
+    {
+      "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+      "sha256": "20a460158750789af35a585de45ba1223baeffc2036363303105acdee2ae87d7",
+      "fixedRaiseSites": 39
+    },
+    {
+      "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+      "sha256": "146bca1493a2cf939a2819d3e740004b6601c568fa2b8357e60e3c94292c3bec",
+      "fixedRaiseSites": 28
+    },
+    {
+      "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+      "sha256": "497477965dad63ebe41e94758167c19675f40d565dc36136fe89bf24534f47a5",
+      "fixedRaiseSites": 6
+    },
+    {
+      "path": "supabase/migrations/20261016074137_assessment_independent_review.sql",
+      "sha256": "efbcf92fe2b0bc463848463ba4e70ce7e346df404b735ceb355419b5788cd1f4",
+      "fixedRaiseSites": 1
+    },
+    {
+      "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+      "sha256": "c83ab875912db8dd82fbca59123927e43c99a40ecba27497834b83034169baae",
+      "fixedRaiseSites": 9
+    },
+    {
+      "path": "supabase/migrations/20261016074739_assessment_progress_summary.sql",
+      "sha256": "ec6f8c89fbcf62e7eb839bd7b24d52253730497dca8fdc27de052ced3669ea94",
+      "fixedRaiseSites": 2
+    },
+    {
+      "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+      "sha256": "60bd64993befb01e1577e61bbb9be3c2433ab9f075fd7ac13312304d77958b2a",
+      "fixedRaiseSites": 54
+    },
+    {
+      "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+      "sha256": "4842f7d40369f88b3be80199995cdd0e923e9014270de54e69960548eedb4296",
+      "fixedRaiseSites": 12
+    },
+    {
+      "path": "supabase/migrations/20261016092537_assessment_review_queue.sql",
+      "sha256": "7a8485f109d156552a6f090261d2ab249eab656b32e04de89b7e9a2967b6b7d0",
+      "fixedRaiseSites": 3
+    },
+    {
+      "path": "supabase/migrations/20261016093121_assessment_human_decision_priority.sql",
+      "sha256": "defb69ed06f046e7450a29aa3d306688b72e8b9a750182bd70e35ff7679ddccf",
+      "fixedRaiseSites": 1
+    },
+    {
+      "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+      "sha256": "2afe4c72556ffaa196a543635ef9c3fea23e4a28930207e3a56ab83a4d8a9d31",
+      "fixedRaiseSites": 6
+    },
+    {
+      "path": "supabase/migrations/20261016103623_assessment_checkpoint_heads.sql",
+      "sha256": "f66120bafa78df01346ed2aa9a437192b0f784a1b2d41ecbddc0cdd872a36572",
+      "fixedRaiseSites": 2
+    },
+    {
+      "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+      "sha256": "8c2aca12fbe4238d3573b2c02645e6e29b8cfa5feecad2e5977d18206e5d5d8d",
+      "fixedRaiseSites": 17
+    },
+    {
+      "path": "supabase/migrations/20261016114250_assessment_content_review_exposure.sql",
+      "sha256": "496e85e56f97430456fbe4394a5b7f2d11818eb8bf2b4aa8ded9881dd11ce6b6",
+      "fixedRaiseSites": 4
+    },
+    {
+      "path": "supabase/migrations/20261016115847_assessment_private_listening_assets.sql",
+      "sha256": "b63e695263717abcc77643a2468d965a0450af13a0ef4dfe551643fea51f65ab",
+      "fixedRaiseSites": 1
+    },
+    {
+      "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+      "sha256": "ee181244b5a46a543a28a0b74acef0fe69723c46dac71c1cb11c3a2d4688cc31",
+      "fixedRaiseSites": 32
+    },
+    {
+      "path": "supabase/migrations/20261016121803_assessment_goal_full_module_coverage.sql",
+      "sha256": "2589394bff76c11ca27dad9c26d540a1664518ca2cefb91dc68f0991a70eba25",
+      "fixedRaiseSites": 1
+    },
+    {
+      "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+      "sha256": "1e012bc619d1ee2b7c0c0c1bc7c0a4186d89919ef8133a2196fad4b5de80635a",
+      "fixedRaiseSites": 20
+    },
+    {
+      "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+      "sha256": "40e12d94b3ca1e55fdac2a4b2d6860fd4596038bca5c77ac7c158932b7dd2ead",
+      "fixedRaiseSites": 5
+    },
+    {
+      "path": "supabase/migrations/20261016133823_assessment_cleanup_runs.sql",
+      "sha256": "61fd353bf6ee9c975f7486de71bbed3648493c86a00ee23848c23a358ab50651",
+      "fixedRaiseSites": 3
+    },
+    {
+      "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+      "sha256": "a359e50f7a418e0ca6920d84e8ad6d811ad38302e17238846924935f9dcae5ad",
+      "fixedRaiseSites": 22
+    },
+    {
+      "path": "supabase/migrations/20261017005745_assessment_checkpoint_overview_filter.sql",
+      "sha256": "130173f4eea110081d81e6cf4b5f14d7121b0b1a461faadaf80f4e6ea189e43e",
+      "fixedRaiseSites": 3
+    },
+    {
+      "path": "supabase/migrations/20261017010752_assessment_team_insight_evidence.sql",
+      "sha256": "677bd49dc01b5ea4ce03af9233180902c658a2cdd9c146161190a85a0667809a",
+      "fixedRaiseSites": 4
+    },
+    {
+      "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+      "sha256": "240e0859f209d7d38f53c1d99a19fb7722fbdc138ed5cec2726888ccbacd0ef4",
+      "fixedRaiseSites": 15
+    },
+    {
+      "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+      "sha256": "84988f309da3ae058b747b2fbd8f086f1ee0567562b86e3a969030cfd6dd05e1",
+      "fixedRaiseSites": 30
+    },
+    {
+      "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+      "sha256": "30368aaa4e3e04cb58b3eb2a8da1a407be0d3207f8f3e3dfc4380c0f529d5696",
+      "fixedRaiseSites": 8
+    }
+  ],
+  "guidance": [
+    {
+      "message": "A frozen 30-lesson snapshot is required before verification",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "message": "A full module includes its complete curriculum",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 243
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 160
+        }
+      ]
+    },
+    {
+      "message": "A schedule change reason is required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 324
+        }
+      ]
+    },
+    {
+      "message": "A targeted check is not a full-module exam",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 311
+        }
+      ]
+    },
+    {
+      "message": "AI proposals require review",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 130
+        }
+      ]
+    },
+    {
+      "message": "Active cleanup run required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016133823_assessment_cleanup_runs.sql",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "message": "Active full-module assessment required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "message": "Active learner assessment required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 67
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 89
+        },
+        {
+          "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+          "line": 15
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "message": "All frozen rubric dimensions required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "message": "An active team plan is required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 236
+        },
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 249
+        }
+      ]
+    },
+    {
+      "message": "An invitation is already pending for this email",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "message": "An owner cannot grant themselves reviewer access",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "message": "Approved media policy is immutable; create a new version",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "message": "Approved support snapshot is immutable",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 428
+        }
+      ]
+    },
+    {
+      "message": "Assessment access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "message": "Assessment content review is pending",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 236
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 299
+        }
+      ]
+    },
+    {
+      "message": "Assessment enrollment is archived",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "message": "Assessment evidence is append-only",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "message": "Assessment form has no items",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 237
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 300
+        }
+      ]
+    },
+    {
+      "message": "Assessment form unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 235
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 298
+        }
+      ]
+    },
+    {
+      "message": "Assessment grading access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 118
+        },
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 153
+        },
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "message": "Assessment listening bucket must be private and limited to 4 MiB",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016115847_assessment_private_listening_assets.sql",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "message": "Assessment plan approval access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 188
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 220
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 331
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 377
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 8
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 39
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 93
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 137
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 206
+        }
+      ]
+    },
+    {
+      "message": "Assessment plan is paused or checkpoint exempt",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 230
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 264
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 288
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 293
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 195
+        }
+      ]
+    },
+    {
+      "message": "Assessment recommendation access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "message": "Assessment report access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074739_assessment_progress_summary.sql",
+          "line": 7
+        },
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "message": "Assessment report attempt scope mismatch",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "message": "Assessment report limit exceeded",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074739_assessment_progress_summary.sql",
+          "line": 6
+        },
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "message": "Assessment review access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 115
+        },
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "message": "Assessment reviewer access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "message": "Assessment revision conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 265
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 289
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 68
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 90
+        },
+        {
+          "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+          "line": 16
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 92
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 196
+        }
+      ]
+    },
+    {
+      "message": "Assessment schedule access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 317
+        }
+      ]
+    },
+    {
+      "message": "Assessment schedule revision conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 323
+        }
+      ]
+    },
+    {
+      "message": "Assessment score access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016092537_assessment_review_queue.sql",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "message": "Assessment speech bucket must be private and limited to 4 MiB",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "message": "Assign the work module first",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 208
+        }
+      ]
+    },
+    {
+      "message": "Assigned assessment reviewer access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 183
+        },
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "message": "Assigned content reviewer access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 85
+        },
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 105
+        },
+        {
+          "path": "supabase/migrations/20261016114250_assessment_content_review_exposure.sql",
+          "line": 10
+        },
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "message": "Bind lesson materials before recording approval",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "message": "Bound lesson fingerprint is immutable",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "message": "Bound lesson identity is immutable; create a new release version",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "message": "Catch-up objectives must belong to the primary module",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 392
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 55
+        }
+      ]
+    },
+    {
+      "message": "Checkpoint access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 341
+        }
+      ]
+    },
+    {
+      "message": "Checkpoint attempt limit reached",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 244
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 317
+        }
+      ]
+    },
+    {
+      "message": "Checkpoint report access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016103623_assessment_checkpoint_heads.sql",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "message": "Checkpoint report limit exceeded",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016103623_assessment_checkpoint_heads.sql",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "message": "Choose a checkpoint date",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 344
+        }
+      ]
+    },
+    {
+      "message": "Choose a current primary learning plan",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "message": "Choose a review interval from 1 to 30 days",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "message": "Choose a support start date and timezone",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 252
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "message": "Choose a valid lesson, learning focus and rationale",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 391
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "message": "Choose distinct learner goals",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "message": "Choose distinct reviewed supporting units",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 250
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "message": "Choose targeted units or a full additional module",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 238
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "message": "Choose up to three valid learner goals",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "message": "Choose when to revisit the supporting units",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 247
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 164
+        }
+      ]
+    },
+    {
+      "message": "Cleanup counts required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016133823_assessment_cleanup_runs.sql",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "message": "Complete and review the follow-up check before ending supporting practice",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 341
+        }
+      ]
+    },
+    {
+      "message": "Completed support history is preserved",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "message": "Content conflict; reload before reviewing",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 87
+        },
+        {
+          "path": "supabase/migrations/20261016114250_assessment_content_review_exposure.sql",
+          "line": 12
+        },
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 84
+        }
+      ]
+    },
+    {
+      "message": "Content form was not found",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 106
+        },
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "message": "Content review request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 91
+        },
+        {
+          "path": "supabase/migrations/20261016114250_assessment_content_review_exposure.sql",
+          "line": 18
+        },
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "message": "Dimensions only apply to scored rubric responses",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "message": "Duplicate lesson snapshot objective",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "message": "Existing reviewer account required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "message": "Explain the change from the default 80/20 study budget",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 237
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 154
+        }
+      ]
+    },
+    {
+      "message": "Explain why the learner goal requires the full additional module",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 241
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 158
+        }
+      ]
+    },
+    {
+      "message": "Finish your official assessment before opening private question keys",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "message": "Frozen assessment identity cannot change",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "message": "Frozen assessment item missing",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 126
+        },
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "message": "Frozen rubric dimensions required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "message": "Frozen speaking item required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "message": "Grading lease mismatch",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "message": "Grading lease required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 154
+        }
+      ]
+    },
+    {
+      "message": "Historical checkpoint schedule cannot be changed",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "message": "Human review cannot be replaced by an AI proposal",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016093121_assessment_human_decision_priority.sql",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "message": "Incomplete core response",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 107
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 109
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 110
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "message": "Invalid assessment answer",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "message": "Invalid assessment overview request",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 8
+        },
+        {
+          "path": "supabase/migrations/20261017005745_assessment_checkpoint_overview_filter.sql",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "message": "Invalid assessment response batch",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 266
+        }
+      ]
+    },
+    {
+      "message": "Invalid content review",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 81
+        },
+        {
+          "path": "supabase/migrations/20261016114250_assessment_content_review_exposure.sql",
+          "line": 6
+        },
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "message": "Invalid core response",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "message": "Invalid frozen routing policy",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 70
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "message": "Invalid insufficient-evidence route",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "message": "Invalid lesson snapshot",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "message": "Invalid plan timezone",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "message": "Invalid review queue request",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016092537_assessment_review_queue.sql",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "message": "Invalid reviewed insight form",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017010752_assessment_team_insight_evidence.sql",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "message": "Invalid reviewer scope",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "message": "Invalid role",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "message": "Invalid route decision shape",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 113
+        }
+      ]
+    },
+    {
+      "message": "Invalid route request payload",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "message": "Invalid routing evidence counts",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 124
+        }
+      ]
+    },
+    {
+      "message": "Invalid routing reason",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "message": "Invalid score-band route",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "message": "Invalid studied coverage",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 238
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 301
+        }
+      ]
+    },
+    {
+      "message": "Invalid team insight request",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017010752_assessment_team_insight_evidence.sql",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "message": "Invitation is invalid or expired",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 268
+        }
+      ]
+    },
+    {
+      "message": "Invitation was already used",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 278
+        }
+      ]
+    },
+    {
+      "message": "Keep targeted catch-up for unassessed or incomplete prerequisites",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 408
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "message": "Learner already has this module; review the existing plan",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 201
+        }
+      ]
+    },
+    {
+      "message": "Learner assessment access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 227
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 258
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 286
+        },
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 72
+        },
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 290
+        },
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 144
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 90
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 158
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 193
+        },
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 17
+        },
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "message": "Learner filter access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 13
+        },
+        {
+          "path": "supabase/migrations/20261017005745_assessment_checkpoint_overview_filter.sql",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "message": "Learner goal access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 31
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 62
+        },
+        {
+          "path": "supabase/migrations/20261016121803_assessment_goal_full_module_coverage.sql",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "message": "Learner goal or reviewed content changed; refresh before suggesting support",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "message": "Learner goal request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "message": "Learner goals conflict; refresh before saving",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "message": "Learner speech access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 59
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 85
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 148
+        },
+        {
+          "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "message": "Learner support access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 362
+        }
+      ]
+    },
+    {
+      "message": "Learning focus needs assessed evidence; missing inputs are not a weakness",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 400
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "message": "Lesson release conflict; refresh before binding",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "message": "Lesson release was not found",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot count conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot fingerprint conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot is immutable; create a new release version",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot objective conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot objectives conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "message": "Lesson snapshot track conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "message": "Local checkpoint date unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 213
+        },
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 345
+        }
+      ]
+    },
+    {
+      "message": "Local support-check date unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 266
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 183
+        }
+      ]
+    },
+    {
+      "message": "Missing evidence cannot be scored",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "message": "Module assessment track unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "message": "No learner seats are available",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 254
+        },
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 275
+        }
+      ]
+    },
+    {
+      "message": "No reviewed check items match these supporting units",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 310
+        }
+      ]
+    },
+    {
+      "message": "Numeric rubric dimension required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "message": "Only a draft release can bind lesson materials",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "message": "Organization not found",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 232
+        }
+      ]
+    },
+    {
+      "message": "Overlapping activity interval",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "message": "Personal assessment access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 201
+        }
+      ]
+    },
+    {
+      "message": "Plan is already paused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 330
+        }
+      ]
+    },
+    {
+      "message": "Plan is not paused",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "message": "Plan revision key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 380
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "message": "Prepared assessment source changed; reopen start details",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "message": "Prepared assessment source required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "message": "Primary curriculum and exams must be reviewed before plan personalization",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 387
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "message": "Private question keys were viewed for this language track; an independent assessment bank is required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 146
+        }
+      ]
+    },
+    {
+      "message": "Production response requires rubric review",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "message": "Registered platform owner access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 37
+        },
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "message": "Remove an earlier recording before recording again",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "message": "Request key reused with different enrollment",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 197
+        }
+      ]
+    },
+    {
+      "message": "Request key reused with different responses",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 260
+        }
+      ]
+    },
+    {
+      "message": "Resolve pending item evidence first",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "message": "Response identity cannot change",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 21
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "message": "Response item is not in frozen form",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 268
+        },
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 24
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "message": "Response item is not in selected frozen path",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "message": "Resume the primary plan before assigning support",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 230
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "message": "Resume the primary plan before suggesting support",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "message": "Review already claimed by another reviewer",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "message": "Review reason required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 75
+        },
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "message": "Review request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 78
+        },
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "message": "Review request unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "message": "Review resolution reason required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 186
+        }
+      ]
+    },
+    {
+      "message": "Review sharing confirmation required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "message": "Review the existing active supporting module first",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 239
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "message": "Review the two existing suggestions first",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 197
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "message": "Reviewed calibrated adaptive assessment required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 55
+        }
+      ]
+    },
+    {
+      "message": "Reviewed calibrated insight form required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017010752_assessment_team_insight_evidence.sql",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "message": "Reviewed content and sufficient recent assessment evidence are required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 200
+        }
+      ]
+    },
+    {
+      "message": "Reviewed lesson binding required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "message": "Reviewed primary-module evidence is required for an assessed plan revision",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 385
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "message": "Reviewed score is immutable to background grading",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "message": "Reviewer request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "message": "Reviewer scope conflict; refresh before updating",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 55
+        }
+      ]
+    },
+    {
+      "message": "Reviewer scope was not found",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016113042_assessment_reviewer_administration.sql",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "message": "Route identity does not match frozen form",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "message": "Route request key reused with different payload",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "message": "Rubric dimension out of range",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "message": "Rubric total must match frozen dimensions",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074420_assessment_rubric_review.sql",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "message": "Saved core response conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "message": "Schedule request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 320
+        }
+      ]
+    },
+    {
+      "message": "Scoring request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "message": "Select a route before submission",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "message": "Sign in with the invited email address",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "message": "Source assessment belongs to another plan",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 195
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 10
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "message": "Speech collection policy is not enabled",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 60
+        },
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 86
+        },
+        {
+          "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "message": "Speech evidence is no longer available",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "message": "Speech item is not in selected frozen path",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "message": "Speech request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "message": "Speech review request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 123
+        }
+      ]
+    },
+    {
+      "message": "Speech upload expired",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 88
+        },
+        {
+          "path": "supabase/migrations/20261016130745_assessment_speech_replacements.sql",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "message": "Start request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017194728_assessment_prepared_start.sql",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "message": "Stored lesson snapshot required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016184243_assessment_lesson_snapshots.sql",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "message": "Submit this assessment before requesting review",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "message": "Submitted assessment history cannot change",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "message": "Submitted assessment required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 113
+        }
+      ]
+    },
+    {
+      "message": "Submitted responses are immutable",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 263
+        },
+        {
+          "path": "supabase/migrations/20261016071020_assessment_integrity.sql",
+          "line": 23
+        },
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 179
+        }
+      ]
+    },
+    {
+      "message": "Submitted speech review access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "message": "Support decision and reason required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 222
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 139
+        }
+      ]
+    },
+    {
+      "message": "Support decision key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 225
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "message": "Support evidence or reviewed content changed; review again",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 234
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "message": "Support exceeds the approved study-time budget",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 236
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "message": "Support rationale required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 196
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "message": "Support request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 192
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "message": "Support status and reason required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "message": "Support status request key reused",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 336
+        }
+      ]
+    },
+    {
+      "message": "Support suggestion evidence is immutable",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 426
+        }
+      ]
+    },
+    {
+      "message": "Targeted before/after checks are not reviewed for these units",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 246
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "message": "Targeted support assignment unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 26
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "message": "Targeted support check must cover every assigned unit",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "message": "Targeted support check unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 307
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "message": "Targeted support content review is pending",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "message": "Targeted support frozen items conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "message": "Targeted support frozen units conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 80
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "message": "Targeted support frozen version conflict",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "message": "Targeted support items unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 84
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "message": "Targeted support mapping unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "message": "Targeted support units unavailable",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 68
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 71
+        },
+        {
+          "path": "supabase/migrations/20261017022848_assessment_targeted_attempt_guard.sql",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "message": "Team assessment access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 204
+        },
+        {
+          "path": "supabase/migrations/20261016102338_assessment_paged_reports.sql",
+          "line": 11
+        },
+        {
+          "path": "supabase/migrations/20261017005745_assessment_checkpoint_overview_filter.sql",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "message": "Team assessment review access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "message": "Team insight admin access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017010752_assessment_team_insight_evidence.sql",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "message": "Team review access required",
+      "status": 403,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016092537_assessment_review_queue.sql",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "message": "The team plan is no longer active",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 273
+        }
+      ]
+    },
+    {
+      "message": "This employee already belongs to the company",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 245
+        }
+      ]
+    },
+    {
+      "message": "This support suggestion already has a final decision",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 228
+        },
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 145
+        }
+      ]
+    },
+    {
+      "message": "Three assessed objectives are required for plan personalization",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 397
+        },
+        {
+          "path": "supabase/migrations/20261016083646_assessment_plan_reads.sql",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "message": "Too many admin invitations are pending",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261009000000_team_platform.sql",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "message": "Unexpected pre-route response",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261017153951_assessment_adaptive_route_records.sql",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "message": "Unknown schedule change",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 325
+        }
+      ]
+    },
+    {
+      "message": "Unsupported assessment answer fields",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071011_assessment_engine.sql",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "message": "Valid cleanup run required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016133823_assessment_cleanup_runs.sql",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "message": "Valid learner goal revision required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016121557_assessment_learner_goals.sql",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "message": "Verified speech reference required",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "message": "Verified spoken evidence workflow is not enabled",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016074137_assessment_independent_review.sql",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "message": "Verified spoken evidence workflow is not enabled for this response",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016124934_assessment_speech_evidence.sql",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "message": "Verified support mapping is immutable; publish a new version",
+      "status": 409,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016082845_assessment_support_plans.sql",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "message": "Written input is not spoken evidence",
+      "status": 400,
+      "sites": [
+        {
+          "path": "supabase/migrations/20261016071015_assessment_scoring.sql",
+          "line": 128
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Regex candidate extraction from all local migration files containing assessment_. All342 observed RAISE EXCEPTION sites fit fixed literal syntax; this is not a full SQL lexer/parser, live catalog verification or runtime reachability proof. Comments/embedded text, retired definitions and non-assessment functions in these files can be included.",
+    "Registry is an explicit union of227 safe fixed strings, including historical definitions; runtime accepts only exact strings. Audit fails on new/unrecognized guidance or differently written/dynamic RAISE candidates; it does not auto-add messages. This preserves the old status selection for these known strings, not human linguistic/content approval.",
+    "Actual rpc helper tests use controlled DB results and synthetic private markers, no actual database/provider/credential/browser/role/review/consent/qualification operation. Promise rejection, direct db.rpc callers, other typed errors and later private phases remain separate.",
+    "No immutable migration/schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Broader indirect auth/endpoint/cache/device/release gates remain open."
+  ]
+}

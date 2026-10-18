@@ -45,7 +45,12 @@ export function MissionaryQuickStart() {
   };
   const onXp = (n: number) => dispatch({ type: "ADD_XP", payload: n });
 
-  const { rate, cycleRate, speak: speakPhrase, speaking } = useMissionarySpeech();
+  const {
+    rate,
+    cycleRate,
+    speak: speakPhrase,
+    speaking,
+  } = useMissionarySpeech(JSON.stringify([category, state.selectedLanguage]));
 
   const assignedAreaId = state.moduleAssignments["lds-missionary"] ?? null;
   const area = getMissionArea(assignedAreaId);

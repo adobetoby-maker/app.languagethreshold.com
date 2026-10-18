@@ -1,0 +1,89 @@
+{
+  "testedAt": "2026-10-18T06:56:24.487134+00:00",
+  "applicationCommit": "6353986e0673929c10260006d751d0656144118d",
+  "preview": "https://language-threshold-coz099qm0-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-coz099qm0-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_AoAzhkMefHQFKPRhtaK6VJJ7LXLj",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-coz099qm0-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "6353986e0673929c10260006d751d0656144118d",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-consent-recovery-preview-2026-10-18.json",
+  "local": {
+    "tests": 1331,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.9,
+    "privateMarkers": 96,
+    "sourceFiles": 1447,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Push POST reads JSON within 16 KiB and 10 seconds before IP/auth/user counters; invalid origin, JSON or schema never reaches admission/storage",
+    "Push GET IP/auth/settings reads and POST IP/auth/push-30-user admission share the owned 15-second scope, optional shared-helper signals and post-await cancellation checks; unavailable controls use fixed 503, actual rate denials 429 and missing identity 401",
+    "GET preference query forwards signal and no-store, bounds service JSON to 16 KiB and validates at most one row with boolean enabled, hour 0..23 and bounded timezone; empty rows retain false/19/UTC defaults",
+    "Late settings responses are disposed; partial-read cancellation releases the owned reader even if source cancel never settles. Late ignored auth/budget cannot begin storage writes",
+    "All handled route responses have private/no-store, CDN/no-store and nosniff. Existing subscription/preferences/unsubscribe/sync write branches remain outside admission; no delivery, schema, role, schedule or policy changes",
+    "Five added actual-route groups cover boundary/oversized input, stalled/cancelled input, ignored-late auth and user budget, typed/bounded settings, late headers/partial response cleanup and independent retries with synthetic storage only",
+    "Nine hosted checker groups pass including five new push input denials before counters/auth/storage; exact 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejections), eight Google/six Pashto/ten speaking-consent denials retained"
+  ],
+  "controlledEvidence": [
+    "tests/push-admission-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "c2351a7",
+    "source": "src/routes/api.push.ts",
+    "case": "Structurally valid sync-context JSON with padding exceeding 16 KiB",
+    "oldStatus": 200,
+    "expectedStatus": 413,
+    "currentPass": true,
+    "limit": "Actual prior handler bundled with synthetic auth/counters/storage; baseline skips separate privacy assertions to reach byte-limit behavior. No real write/delivery."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-push-admission-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Only read admission/input/GET response ownership is changed. Existing writes remain outside admission and may complete after cancellation; no rollback, transaction, exactly-once, durable receipt or unknown-write reconciliation guarantee.",
+    "Existing subscription/preference multi-write acknowledgements and push client transport/error/uncertainty behavior need separate audit. This change does not claim complete push correctness or actual delivery.",
+    "Local route tests use synthetic auth/counters/storage/timers. Hosted checks reject invalid input before admitted work; no real subscription/preferences/consent writes, permission prompts, service worker or push send occurred.",
+    "Real canonical ingress overwrite/counter, browser SDK expiry/current A/guest/B/restore, native permission/delivery/audio, device/process-restart/offline acceptance and broader endpoint/cache/diagnostics inventory remain unverified.",
+    "All human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Adaptive runtime explicitly pinned false at deploy; absent metadata env is not false readback proof. No main push, production promotion or accepted hostname advance."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "sourceCommit": "2fa1134",
+  "migration": "20261016184243_assessment_lesson_snapshots",
+  "scope": "Local rolled-back SQL and unit fixtures; local simulated owner UI; hosted schema/permission/count verification only",
+  "checks": {
+    "unitTests": 583,
+    "localDatabaseSuite": "passed and rolled back",
+    "typecheck": "passed",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "hostedSnapshotCount": 0,
+    "hostedVerifiedReleaseCount": 0,
+    "authenticatedTableAccess": false,
+    "authenticatedBindingRpcAccess": false,
+    "localUiOwnerControlsHiddenWithoutPermission": true,
+    "localUiConfirmationRequired": true,
+    "localUiFailureRetryPreservedRequest": true,
+    "localUiFreezeDidNotCreateReviewApproval": true,
+    "phoneWidth": 390,
+    "phoneScrollWidth": 390,
+    "hostedContentDecisions": 0
+  },
+  "advisors": {
+    "warningCountsUnchanged": true,
+    "expectedNewInfo": "RLS enabled without public policies on the service-only snapshot table; authenticated/anon access remains revoked",
+    "remediationReference": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+  },
+  "capture": "/Users/drive/git-backups/language-threshold-frozen-lesson-fixture-phone-2026-10-16.png",
+  "limits": [
+    "No actual owner/reviewer access was granted for QA",
+    "No hosted lesson snapshot or reviewer decision was created",
+    "Authenticated positive owner/reviewer acceptance remains pending",
+    "Content review, calibration, reviewed clips and real learner pilots remain pending"
+  ],
+  "preview": {
+    "url": "https://language-threshold-lqqp4m9ug-adobetoby-5572s-projects.vercel.app",
+    "deploymentId": "dpl_GCfRstbC5xBxReZde7Bw2AN2Uye3",
+    "state": "READY",
+    "target": null,
+    "artifactMiB": 19.43,
+    "assessmentApiGroups": 15,
+    "focusedEntryHttpChecks": 9
+  },
+  "liveDeploymentUnchanged": "dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA",
+  "migrationHistory": "CLI dry-run stopped on six pre-existing remote-only migration versions; no legacy history was repaired. The isolated migration was applied through Supabase MCP and its source filename matches the authoritative applied version."
+}

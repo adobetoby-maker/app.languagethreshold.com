@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest } from "@/lib/team-client";
+import { ownedTeamRequest } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 
 export const Route = createFileRoute("/module-request")({
   component: () => (
@@ -29,7 +30,19 @@ type Organization = {
 const input = "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-foreground";
 
 function ModuleRequestPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading } = useAuth();
+  return <OwnedModuleRequestPage key={JSON.stringify([user?.id ?? null, loading])} />;
+}
+
+function OwnedModuleRequestPage() {
+  const { user, loading: authLoading, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["module-request", authLoading]));
+  const pending = useRef<AbortController | null>(null);
+  const readFlight = useRef<AbortController | null>(null);
+  const checkoutStarted = useRef(false);
+  const revision = useRef(0);
+  const renderedRevision = revision.current;
   const [authOpen, setAuthOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [audience, setAudience] = useState("");
@@ -46,49 +59,147 @@ function ModuleRequestPage() {
     setIsPreview(window.location.hostname.endsWith(".vercel.app"));
   }, []);
 
+  const [ready, setReady] = useState(false);
   const refresh = useCallback(async () => {
-    if (!user) return;
+    const lease = capture();
+    if (
+      !actor ||
+      authLoading ||
+      !canUseReader(actor) ||
+      !lease.isCurrent() ||
+      pending.current ||
+      checkoutStarted.current
+    )
+      return;
+    const controller = new AbortController();
+    readFlight.current?.abort();
+    readFlight.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (readFlight.current === controller) readFlight.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(actor) &&
+      readFlight.current === controller &&
+      !controller.signal.aborted;
+    const owner = { userId: actor, isCurrent: current, signal: controller.signal };
+    setReady(false);
+    setError("");
+    setRequests([]);
+    setOrganizations([]);
     try {
       const [own, teams] = await Promise.all([
-        teamRequest<{ requests: RequestItem[] }>("/api/module-request"),
-        teamRequest<{ organizations: Organization[] }>("/api/team").catch(() => ({
-          organizations: [],
-        })),
+        ownedTeamRequest<{ requests: RequestItem[] }>(owner, "/api/module-request"),
+        ownedTeamRequest<{ organizations: Organization[] }>(owner, "/api/team"),
       ]);
+      if (!current()) return;
       setRequests(own.requests);
       setOrganizations(
         teams.organizations.filter((org) => org.role === "owner" || org.role === "admin"),
       );
+      setReady(true);
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not load requests.");
+      if (current()) setError(cause instanceof Error ? cause.message : "Could not load requests.");
+    } finally {
+      if (readFlight.current === controller) readFlight.current = null;
+      release();
+      controller.abort();
     }
-  }, [user]);
+  }, [actor, authLoading, canUseReader, capture]);
 
   useEffect(() => {
-    if (!authLoading && user) void refresh();
-  }, [authLoading, user, refresh]);
+    void refresh();
+  }, [refresh]);
+
+  function edit(write: () => void) {
+    if (
+      !capture().isCurrent() ||
+      authLoading ||
+      pending.current ||
+      checkoutStarted.current ||
+      renderedRevision !== revision.current ||
+      (actor && !canUseReader(actor))
+    )
+      return;
+    revision.current += 1;
+    write();
+  }
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (isPreview) return;
-    if (!user) {
+    const lease = capture();
+    if (
+      typeof window === "undefined" ||
+      window.location.hostname.endsWith(".vercel.app") ||
+      authLoading ||
+      !lease.isCurrent() ||
+      pending.current ||
+      checkoutStarted.current ||
+      renderedRevision !== revision.current
+    )
+      return;
+    if (!actor) {
       setAuthOpen(true);
       return;
     }
+    if (!ready || readFlight.current || !canUseReader(actor)) return;
+    if (organizationId && !organizations.some((org) => org.organization_id === organizationId)) {
+      setError("Choose an available company or your own account.");
+      return;
+    }
+    if (
+      title.trim().length < 3 ||
+      title.trim().length > 120 ||
+      audience.trim().length < 3 ||
+      audience.trim().length > 300 ||
+      situations.trim().length < 10 ||
+      situations.trim().length > 2000 ||
+      vocabulary.trim().length > 2000
+    ) {
+      setError("Complete the required fields within their length limits.");
+      return;
+    }
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(actor) &&
+      pending.current === controller &&
+      !controller.signal.aborted &&
+      renderedRevision === revision.current;
     setBusy(true);
     setError("");
     try {
-      const result = await teamRequest<{ url: string }>("/api/module-request", {
-        title,
-        audience,
-        situations,
-        vocabulary,
-        organizationId: organizationId || null,
-      });
-      window.location.assign(result.url);
+      const result = await ownedTeamRequest<{ url: string }>(
+        { userId: actor, isCurrent: current, signal: controller.signal },
+        "/api/module-request",
+        { title, audience, situations, vocabulary, organizationId: organizationId || null },
+      );
+      if (current()) {
+        const target = new URL(result.url);
+        if (target.origin !== "https://checkout.stripe.com" || target.username || target.password)
+          throw new Error("Checkout returned an invalid destination.");
+        checkoutStarted.current = true;
+        window.location.assign(target.href);
+      }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not start checkout.");
-      setBusy(false);
+      checkoutStarted.current = false;
+      if (current())
+        setError(
+          (cause instanceof Error ? cause.message : "Could not start checkout.") +
+            " A request may already have been created. Check your requests or contact support before retrying.",
+        );
+    } finally {
+      if (lease.isCurrent() && pending.current === controller && !checkoutStarted.current)
+        setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
     }
   }
 
@@ -124,8 +235,8 @@ function ModuleRequestPage() {
               className="mt-4 rounded-lg border border-emerald-500/40 p-3 text-sm text-emerald-700 dark:text-emerald-300"
               role="status"
             >
-              Checkout returned successfully. Your request will show as submitted after payment
-              confirmation.
+              Checkout returned. This return link does not confirm payment. Your request will show
+              as submitted after payment confirmation.
             </p>
           )}
           {checkout === "cancel" && (
@@ -133,7 +244,7 @@ function ModuleRequestPage() {
               className="mt-4 rounded-lg border border-border p-3 text-sm text-muted-foreground"
               role="status"
             >
-              Checkout was canceled. You have not been charged.
+              You returned from checkout. Payment status has not been confirmed.
             </p>
           )}
           {error && (
@@ -158,13 +269,24 @@ function ModuleRequestPage() {
               You can review the form now. Sign in before sending your request to checkout.
             </p>
           )}
+          {actor && !ready && !authLoading && (
+            <button
+              type="button"
+              onClick={() => void refresh()}
+              disabled={busy || !canUseReader(actor)}
+              className="mt-4 text-sm underline"
+            >
+              Reload requests and companies
+            </button>
+          )}
           <form onSubmit={(event) => void submit(event)} className="mt-6 space-y-4">
             <label className="block text-sm">
               Specialty or module name
               <input
                 className={input + " mt-1"}
                 value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                disabled={busy || authLoading}
+                onChange={(event) => edit(() => setTitle(event.target.value))}
                 minLength={3}
                 maxLength={120}
                 required
@@ -176,7 +298,8 @@ function ModuleRequestPage() {
               <input
                 className={input + " mt-1"}
                 value={audience}
-                onChange={(event) => setAudience(event.target.value)}
+                disabled={busy || authLoading}
+                onChange={(event) => edit(() => setAudience(event.target.value))}
                 minLength={3}
                 maxLength={300}
                 required
@@ -188,7 +311,8 @@ function ModuleRequestPage() {
               <textarea
                 className={input + " mt-1 min-h-28"}
                 value={situations}
-                onChange={(event) => setSituations(event.target.value)}
+                disabled={busy || authLoading}
+                onChange={(event) => edit(() => setSituations(event.target.value))}
                 minLength={10}
                 maxLength={2000}
                 required
@@ -200,7 +324,8 @@ function ModuleRequestPage() {
               <textarea
                 className={input + " mt-1 min-h-20"}
                 value={vocabulary}
-                onChange={(event) => setVocabulary(event.target.value)}
+                disabled={busy || authLoading}
+                onChange={(event) => edit(() => setVocabulary(event.target.value))}
                 maxLength={2000}
                 placeholder="Include trade terms, product names, and regional wording."
               />
@@ -211,7 +336,8 @@ function ModuleRequestPage() {
                 <select
                   className={input + " mt-1"}
                   value={organizationId}
-                  onChange={(event) => setOrganizationId(event.target.value)}
+                  disabled={busy || authLoading}
+                  onChange={(event) => edit(() => setOrganizationId(event.target.value))}
                 >
                   <option value="">My account</option>
                   {organizations.map((org) => (
@@ -223,7 +349,9 @@ function ModuleRequestPage() {
               </label>
             )}
             <button
-              disabled={busy || authLoading || isPreview}
+              disabled={
+                busy || authLoading || isPreview || (!!actor && (!ready || !canUseReader(actor)))
+              }
               className="rounded-lg bg-gold px-5 py-3 font-semibold text-midnight disabled:opacity-50"
             >
               {isPreview

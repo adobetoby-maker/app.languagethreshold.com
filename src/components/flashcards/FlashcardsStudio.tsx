@@ -16,10 +16,10 @@ import { translatePhrases } from "@/fns/phrase-translate.functions";
 import { getModule } from "@/data/modules";
 import { getAvailableModuleLessons } from "@/data/module-starters";
 import { useLibrary } from "@/state/library-state";
+import { authoredModuleDeck } from "@/lib/authored-module-deck";
 import { generateModuleDeck } from "@/fns/module-deck.functions";
 import { getCuratedModulePairs } from "@/data/curated-module-pairs";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
 import { FuriganaText } from "@/components/reader/FuriganaText";
@@ -119,6 +119,10 @@ export function FlashcardsStudio() {
   const generatedAttempts = useRef(new Set<string>());
   const [generatingFieldDeck, setGeneratingFieldDeck] = useState(false);
   const [fieldDeckError, setFieldDeckError] = useState<string | null>(null);
+  const lessonDeck = useMemo(
+    () => authoredModuleDeck(moduleId, language, appState.nativeLanguage),
+    [moduleId, language, appState.nativeLanguage],
+  );
   const generatedCount = moduleId
     ? Object.values(state.cards).filter((card) =>
         card.id.startsWith(`module-generated:${language}:${moduleId}:`),
@@ -130,14 +134,14 @@ export function FlashcardsStudio() {
     [moduleId, language, library.state.entries],
   );
   const readingPairs = useMemo(() => {
-    if (moduleId === "roofing") return []; // The authored deck includes both learning directions.
+    if (lessonDeck || moduleId === "roofing") return []; // The authored deck includes both learning directions.
     const selected = new Set(readingIds);
     return library.state.entries
       .filter((entry) => selected.has(entry.id))
       .flatMap((entry) => entry.sentences)
       .filter((pair) => pair.en.trim() && pair.target.trim() && pair.en.length <= 180)
       .map((pair) => ({ english: pair.en, translation: pair.target, kind: "phrase" as const }));
-  }, [moduleId, readingIds, library.state.entries]);
+  }, [moduleId, readingIds, library.state.entries, lessonDeck]);
 
   useEffect(() => {
     if (!state.hydrated || !moduleId || !readingPairs.length) return;
@@ -159,11 +163,19 @@ export function FlashcardsStudio() {
     async (force = false) => {
       const climbingHasCuratedLanguage =
         moduleId === "rock-climbing" &&
-        ["Spanish", "English", "French", "German", "Italian", "Japanese", "Korean", "Portuguese"].includes(
-          language,
-        );
+        [
+          "Spanish",
+          "English",
+          "French",
+          "German",
+          "Italian",
+          "Japanese",
+          "Korean",
+          "Portuguese",
+        ].includes(language);
       if (
         !moduleId ||
+        lessonDeck ||
         moduleId === "roofing" ||
         climbingHasCuratedLanguage ||
         !state.hydrated ||
@@ -182,8 +194,12 @@ export function FlashcardsStudio() {
         if (result.error || !result.pairs?.length)
           throw new Error(result.error ?? "No cards returned");
         addModuleCards(language, moduleId, "generated", result.pairs);
-      } catch {
-        setFieldDeckError(`Couldn't prepare ${moduleName} practice cards. Try again.`);
+      } catch (error) {
+        setFieldDeckError(
+          error instanceof Error
+            ? error.message
+            : `Couldn't prepare ${moduleName} practice cards. Try again.`,
+        );
       } finally {
         setGeneratingFieldDeck(false);
       }
@@ -195,6 +211,7 @@ export function FlashcardsStudio() {
       moduleName,
       state.hydrated,
       generatedCount,
+      lessonDeck,
       generateFieldDeck,
       addModuleCards,
     ],
@@ -235,7 +252,9 @@ export function FlashcardsStudio() {
       const have = new Set(
         cardsForCategories(language, [`block:${blockId}`]).map((c) =>
           (language === "English" && appState.nativeLanguage === "Spanish"
-            ? c.word : c.translation).toLowerCase(),
+            ? c.word
+            : c.translation
+          ).toLowerCase(),
         ),
       );
       const next = block.words.filter((w) => !have.has(w.toLowerCase())).slice(0, 24);
@@ -248,15 +267,22 @@ export function FlashcardsStudio() {
           const res = await translate({
             data: {
               phrases: next.slice(i, i + 8),
-              targetLanguage: language === "English" && appState.nativeLanguage === "Spanish"
-                ? "Spanish" : language,
+              targetLanguage:
+                language === "English" && appState.nativeLanguage === "Spanish"
+                  ? "Spanish"
+                  : language,
               context: `${block.label} vocabulary`,
             },
           });
           if (res.error || !res.phrases) throw new Error(res.error ?? "translation failed");
-          pairs.push(...(language === "English" && appState.nativeLanguage === "Spanish"
-            ? res.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
-            : res.phrases));
+          pairs.push(
+            ...(language === "English" && appState.nativeLanguage === "Spanish"
+              ? res.phrases.map((pair) => ({
+                  english: pair.translation,
+                  translation: pair.english,
+                }))
+              : res.phrases),
+          );
         }
         addBlockCards(language, blockId, pairs);
       } catch {
@@ -265,7 +291,15 @@ export function FlashcardsStudio() {
         setIntroducing(null);
       }
     },
-    [blocks, introducing, cardsForCategories, language, appState.nativeLanguage, translate, addBlockCards],
+    [
+      blocks,
+      introducing,
+      cardsForCategories,
+      language,
+      appState.nativeLanguage,
+      translate,
+      addBlockCards,
+    ],
   );
 
   useEffect(() => {
@@ -274,12 +308,26 @@ export function FlashcardsStudio() {
     for (const category of FLASHCARD_CATEGORIES) {
       if (category === "vocab" || category === "verbs") continue;
       if (category === "module") {
-        if (moduleAvailable && moduleId) seedDeck(language, "module", moduleId, appState.nativeLanguage);
+        if (moduleAvailable && moduleId)
+          seedDeck(language, "module", moduleId, appState.nativeLanguage);
         continue;
       }
       seedDeck(language, category, undefined, appState.nativeLanguage);
     }
-  }, [state.hydrated, language, appState.nativeLanguage, moduleId, moduleAvailable, seedStarter, seedDeck]);
+  }, [
+    state.hydrated,
+    language,
+    appState.nativeLanguage,
+    moduleId,
+    moduleAvailable,
+    seedStarter,
+    seedDeck,
+  ]);
+
+  useEffect(() => {
+    if (!state.hydrated || !moduleId || !lessonDeck) return;
+    addModuleCards(language, moduleId, "lesson", lessonDeck.pairs);
+  }, [state.hydrated, moduleId, language, lessonDeck, addModuleCards]);
 
   useEffect(() => {
     if (!state.hydrated) return;
@@ -344,9 +392,11 @@ export function FlashcardsStudio() {
         );
         return;
       }
-      saveCards(language === "English" && appState.nativeLanguage === "Spanish"
-        ? [{ english: newTranslation.trim(), translation: items[0] }]
-        : [{ english: items[0], translation: newTranslation.trim() }]);
+      saveCards(
+        language === "English" && appState.nativeLanguage === "Spanish"
+          ? [{ english: newTranslation.trim(), translation: items[0] }]
+          : [{ english: items[0], translation: newTranslation.trim() }],
+      );
       return;
     }
     setAdding(true);
@@ -355,17 +405,18 @@ export function FlashcardsStudio() {
       const result = await translate({
         data: {
           phrases: items,
-          targetLanguage: language === "English" && appState.nativeLanguage === "Spanish"
-            ? "Spanish"
-            : language,
+          targetLanguage:
+            language === "English" && appState.nativeLanguage === "Spanish" ? "Spanish" : language,
           context: `${moduleName} learner flashcards`,
         },
       });
       if (result.error || !result.phrases?.length)
         throw new Error(result.error ?? "Translation failed");
-      saveCards(language === "English" && appState.nativeLanguage === "Spanish"
-        ? result.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
-        : result.phrases);
+      saveCards(
+        language === "English" && appState.nativeLanguage === "Spanish"
+          ? result.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
+          : result.phrases,
+      );
     } catch {
       setAddMessage("Translation is unavailable. Enter a translation for one card and try again.");
     } finally {
@@ -392,6 +443,9 @@ export function FlashcardsStudio() {
     [dueCardsForCategories, language, selectedCategories],
   );
   const current = dueCards[0];
+  const speakOwned = useOwnedSpeaker(
+    JSON.stringify([language, moduleId, current?.id, accent, voiceURI]),
+  );
 
   const nextUp = useMemo(() => {
     if (dueCards.length > 0) return null;
@@ -454,17 +508,7 @@ export function FlashcardsStudio() {
   }, [current, flipped, grade]);
 
   function speak(word: string) {
-    if (typeof window === "undefined") return;
-    if (needsRemoteTTS(accent, voiceURI)) {
-      void speakRemote(word, accent, { rate: 0.9, voiceURI });
-      return;
-    }
-    if (!("speechSynthesis" in window)) return;
-    const utter = new SpeechSynthesisUtterance(word);
-    configureUtterance(utter, accent, voiceURI);
-    utter.rate = 0.9;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
+    speakOwned(word, accent, voiceURI);
   }
 
   return (
@@ -504,6 +548,12 @@ export function FlashcardsStudio() {
                 {cardsForCategories(language, [moduleSection]).length} field terms and phrases ·
                 study this specialty without mixing other subjects.
               </p>
+              {lessonDeck && (
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Includes vocabulary from all {lessonDeck.lessonCount} Core 30 lessons. Draft
+                  practice content.
+                </p>
+              )}
               {generatedCount > 0 && (
                 <p className="mt-1 text-xs text-muted-foreground">
                   Includes {generatedCount} AI-generated practice cards.

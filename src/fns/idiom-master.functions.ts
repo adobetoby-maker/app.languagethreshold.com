@@ -1,4 +1,8 @@
+import { getRequest, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { learningGenerationOriginError } from "@/lib/learning-generation-security";
+import { learningGenerationError } from "@/lib/learning-generation-server";
 import Anthropic from "@anthropic-ai/sdk";
+import { PublicGameGenerationCache } from "@/lib/game-generation-cache";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
@@ -30,29 +34,7 @@ export interface IdiomQuestion {
 // ── Server-side cache ─────────────────────────────────────────────────────
 // 200-entry LRU keyed by language+level+avoid hash. Same shape as the other
 // game caches so the cross-game memory footprint is predictable.
-const MAX_CACHE = 200;
-const cache = new Map<string, IdiomQuestion>();
-
-function cacheKey(language: string, level: number, avoidHash: string): string {
-  return `${language}|${level}|${avoidHash}`;
-}
-
-function cacheGet(key: string): IdiomQuestion | undefined {
-  const v = cache.get(key);
-  if (v !== undefined) {
-    cache.delete(key);
-    cache.set(key, v);
-  }
-  return v;
-}
-
-function cacheSet(key: string, value: IdiomQuestion) {
-  if (cache.size >= MAX_CACHE) {
-    const first = cache.keys().next().value;
-    if (first !== undefined) cache.delete(first);
-  }
-  cache.set(key, value);
-}
+const cache = new PublicGameGenerationCache<IdiomQuestion>();
 
 const SYSTEM = `You are a precise cultural-fluency drill author for adult language learners. You generate fill-in-the-blank questions built around REAL native idioms — the kind of expressions native speakers actually use, not literal translations of English idioms.
 
@@ -90,15 +72,23 @@ export const generateIdiomQuestion = createServerFn({ method: "POST" })
     async ({
       data,
     }): Promise<{ data: IdiomQuestion | null; error: string | null; cached?: boolean }> => {
-      const KEY = process.env.ANTHROPIC_API_KEY;
-      if (!KEY) return { data: null, error: "AI is not configured" };
+      const request = getRequest();
+      setResponseHeader("Cache-Control", "no-store");
+      const originError = learningGenerationOriginError(request);
+      if (originError) {
+        setResponseStatus(originError.status);
+        return { data: null, error: originError.error };
+      }
 
       const cefr: CefrLevel = data.level === 1 ? "A2" : data.level === 2 ? "B1" : "B2";
 
-      const avoidHash = (data.avoid ?? []).slice().sort().join(",");
-      const key = cacheKey(data.language, data.level, avoidHash);
-      const hit = cacheGet(key);
+      const cacheContext = { ...data, cefr };
+      const hit = cache.get(cacheContext);
       if (hit) return { data: hit, error: null, cached: true };
+      const KEY = process.env.ANTHROPIC_API_KEY;
+      if (!KEY) return { data: null, error: "AI is not configured" };
+      const budgetError = await learningGenerationError("content");
+      if (budgetError) return { data: null, error: budgetError };
 
       const levelGuidance =
         data.level === 1
@@ -119,117 +109,117 @@ export const generateIdiomQuestion = createServerFn({ method: "POST" })
       const userMsg = `Generate ONE ${data.language} idiom-master question.\n${levelGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
-        const client = new Anthropic({ apiKey: KEY });
-        const response = await client.messages.create({
-          // Idiom authenticity is the whole game. A made-up or
-          // English-translated phrase silently destroys cultural credibility,
-          // which is exactly what learners come here for. Sonnet's much more
-          // reliable than Haiku on idiom recall + cultural notes.
-          model: "claude-haiku-5-5",
-          max_tokens: 1000,
-          system: SYSTEM,
-          messages: [{ role: "user", content: userMsg }],
-          tools: [
-            {
-              name: "return_idiom_question",
-              description: "Return one fill-in-the-blank idiom question.",
-              input_schema: {
-                type: "object" as const,
-                properties: {
-                  idiom: {
-                    type: "string",
-                    description: 'Target-language idiom with exactly one "___" blank.',
+        const client = new Anthropic({ apiKey: KEY, maxRetries: 0, timeout: 30_000 });
+        const response = await client.messages.create(
+          {
+            model: "claude-haiku-5-5",
+            max_tokens: 1000,
+            system: SYSTEM,
+            messages: [{ role: "user", content: userMsg }],
+            tools: [
+              {
+                name: "return_idiom_question",
+                description: "Return one fill-in-the-blank idiom question.",
+                input_schema: {
+                  type: "object" as const,
+                  properties: {
+                    idiom: {
+                      type: "string",
+                      description: 'Target-language idiom with exactly one "___" blank.',
+                    },
+                    fullIdiom: {
+                      type: "string",
+                      description: "The same idiom without the blank (for the reveal).",
+                    },
+                    literalGloss: {
+                      type: "string",
+                      description: "Literal word-by-word English translation of the full idiom.",
+                    },
+                    figurativeMeaning: {
+                      type: "string",
+                      description: "What the idiom actually means in everyday English.",
+                    },
+                    culturalNote: {
+                      type: "string",
+                      description: "One-sentence note on origin, register, region, or usage.",
+                    },
+                    options: {
+                      type: "array",
+                      minItems: 4,
+                      maxItems: 4,
+                      items: { type: "string" },
+                      description:
+                        "Exactly 4 options for the blank — correct + 3 plausible distractors.",
+                    },
+                    correctAnswer: {
+                      type: "string",
+                      description:
+                        "The correct missing word/phrase. MUST match one of options exactly.",
+                    },
+                    cefr: {
+                      type: "string",
+                      enum: ["A1", "A2", "B1", "B2", "C1", "C2"],
+                      description: "Difficulty bucket of this question.",
+                    },
                   },
-                  fullIdiom: {
-                    type: "string",
-                    description: "The same idiom without the blank (for the reveal).",
-                  },
-                  literalGloss: {
-                    type: "string",
-                    description: "Literal word-by-word English translation of the full idiom.",
-                  },
-                  figurativeMeaning: {
-                    type: "string",
-                    description: "What the idiom actually means in everyday English.",
-                  },
-                  culturalNote: {
-                    type: "string",
-                    description: "One-sentence note on origin, register, region, or usage.",
-                  },
-                  options: {
-                    type: "array",
-                    minItems: 4,
-                    maxItems: 4,
-                    items: { type: "string" },
-                    description:
-                      "Exactly 4 options for the blank — correct + 3 plausible distractors.",
-                  },
-                  correctAnswer: {
-                    type: "string",
-                    description:
-                      "The correct missing word/phrase. MUST match one of options exactly.",
-                  },
-                  cefr: {
-                    type: "string",
-                    enum: ["A1", "A2", "B1", "B2", "C1", "C2"],
-                    description: "Difficulty bucket of this question.",
-                  },
+                  required: [
+                    "idiom",
+                    "fullIdiom",
+                    "literalGloss",
+                    "figurativeMeaning",
+                    "culturalNote",
+                    "options",
+                    "correctAnswer",
+                    "cefr",
+                  ],
+                  additionalProperties: false,
                 },
-                required: [
-                  "idiom",
-                  "fullIdiom",
-                  "literalGloss",
-                  "figurativeMeaning",
-                  "culturalNote",
-                  "options",
-                  "correctAnswer",
-                  "cefr",
-                ],
-                additionalProperties: false,
               },
-            },
-          ],
-          tool_choice: { type: "tool", name: "return_idiom_question" },
-        });
+            ],
+            tool_choice: { type: "tool", name: "return_idiom_question" },
+          },
+          { signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]) },
+        );
 
-        const toolUse = response.content.find((c) => c.type === "tool_use");
+        const toolUse = response.content.find(
+          (c) => c.type === "tool_use" && c.name === "return_idiom_question",
+        );
         if (!toolUse || toolUse.type !== "tool_use") {
           return { data: null, error: "No question returned." };
         }
-        const q = toolUse.input as IdiomQuestion;
-
-        // ── Defensive validation ─────────────────────────────────────────
-        if (!Array.isArray(q.options) || q.options.length !== 4) {
-          return { data: null, error: "Invalid options array (must be exactly 4)." };
-        }
-        // Deduplicate options defensively — the model occasionally repeats one.
-        const uniqueOpts = Array.from(new Set(q.options));
-        if (uniqueOpts.length !== 4) {
-          return { data: null, error: "Options must be 4 distinct values." };
-        }
-        if (!q.options.includes(q.correctAnswer)) {
-          return { data: null, error: "correctAnswer not present in options." };
-        }
-        // The idiom must contain exactly one "___" blank.
-        const blanks = q.idiom.match(/_{3,}/g) ?? [];
-        if (blanks.length !== 1) {
-          return { data: null, error: "Idiom must contain exactly one ___ blank." };
-        }
-        if (typeof q.fullIdiom !== "string" || q.fullIdiom.length === 0) {
-          return { data: null, error: "Missing fullIdiom." };
-        }
+        const parsed = z
+          .object({
+            idiom: z.string().trim().min(1).max(200),
+            fullIdiom: z.string().trim().min(1).max(200),
+            literalGloss: z.string().trim().min(1).max(1000),
+            figurativeMeaning: z.string().trim().min(1).max(1000),
+            culturalNote: z.string().trim().min(1).max(1000),
+            options: z.array(z.string().trim().min(1).max(80)).length(4),
+            correctAnswer: z.string().trim().min(1).max(80),
+            cefr: z.literal(cefr),
+          })
+          .safeParse(toolUse.input);
+        if (!parsed.success)
+          return { data: null, error: "Idiom content came back incomplete. Please try again." };
+        const q = parsed.data;
+        const blanks = q.idiom.match(/_+/g) ?? [];
         if (
-          typeof q.literalGloss !== "string" ||
-          typeof q.figurativeMeaning !== "string" ||
-          typeof q.culturalNote !== "string"
+          blanks.length !== 1 ||
+          blanks[0] !== "___" ||
+          !q.options.includes(q.correctAnswer) ||
+          new Set(q.options.map((option) => option.normalize("NFC").toLowerCase())).size !== 4 ||
+          q.idiom.replace("___", q.correctAnswer).normalize("NFC") !== q.fullIdiom.normalize("NFC")
         ) {
-          return { data: null, error: "Missing reveal fields." };
+          return {
+            data: null,
+            error: "Idiom blank, answer and options were inconsistent. Please try again.",
+          };
         }
 
-        cacheSet(key, q);
+        cache.set(cacheContext, q);
         return { data: q, error: null, cached: false };
-      } catch (e) {
-        console.error("generateIdiomQuestion failed", e);
+      } catch {
+        console.error("Idiom Master generation failed");
         return { data: null, error: "Generation failed." };
       }
     },

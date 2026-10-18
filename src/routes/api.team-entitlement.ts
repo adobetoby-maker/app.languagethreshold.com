@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { authenticatedUser, json, teamAdminClient, teamError } from "@/lib/team-server";
+import { authenticatedTeamUser, json, teamAdminClient, scopedTeamError } from "@/lib/team-server";
 
 export const Route = createFileRoute("/api/team-entitlement")({
   server: {
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           const { data: memberships, error } = await db
             .from("team_members")
             .select("organization_id")
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/api/team-entitlement")({
             ),
           });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

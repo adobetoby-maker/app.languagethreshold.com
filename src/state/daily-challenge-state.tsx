@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   type ReactNode,
 } from "react";
 import type { TabKey } from "./app-state";
@@ -60,8 +62,6 @@ type Action =
   | { type: "RECORD_COMPLETION" }
   | { type: "RESET" };
 
-const STORAGE_KEY = "lt.dailyChallenge.v1";
-
 const EMPTY: DailyChallengeData = {
   lastCompletedDay: null,
   currentStreak: 0,
@@ -83,27 +83,17 @@ function dayDiff(a: string, b: string): number {
   return Math.round((db - da) / 86_400_000);
 }
 
-function load(): DailyChallengeData {
-  if (typeof window === "undefined") return { ...EMPTY };
+function load(value: unknown): DailyChallengeData {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     if (!raw) return { ...EMPTY };
-    return { ...EMPTY, ...(JSON.parse(raw) as Partial<DailyChallengeData>) };
+    return { ...EMPTY, ...(raw as Partial<DailyChallengeData>) };
   } catch {
     return { ...EMPTY };
   }
 }
 
-function save(d: DailyChallengeData) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
-  } catch {
-    /* quota */
-  }
-}
-
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, data: action.payload };
@@ -115,7 +105,7 @@ function reducer(state: State, action: Action): State {
       // Already completed today — only bump totalCompletions, don't double-streak.
       if (prev.lastCompletedDay === today) {
         const next = { ...prev, totalCompletions: prev.totalCompletions + 1 };
-        save(next);
+
         return { data: next };
       }
 
@@ -138,12 +128,11 @@ function reducer(state: State, action: Action): State {
         longestStreak: Math.max(prev.longestStreak, newStreak),
         totalCompletions: prev.totalCompletions + 1,
       };
-      save(next);
+
       return { data: next };
     }
 
     case "RESET": {
-      save({ ...EMPTY });
       return { data: { ...EMPTY } };
     }
 
@@ -190,14 +179,18 @@ function pickGameForDay(dayString: string): {
 }
 
 export function DailyChallengeProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("dailyChallenge");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, { data: { ...EMPTY } });
 
   useEffect(() => {
-    const data = load();
-    if (data.lastCompletedDay !== null || data.totalCompletions > 0) {
-      dispatch({ type: "HYDRATE", payload: data });
-    }
-  }, []);
+    dispatch({ type: "HYDRATE", payload: load(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.data);
+  }, [device, hydrated, state.data]);
 
   const recordCompletion = useCallback(() => dispatch({ type: "RECORD_COMPLETION" }), []);
   const reset = useCallback(() => dispatch({ type: "RESET" }), []);

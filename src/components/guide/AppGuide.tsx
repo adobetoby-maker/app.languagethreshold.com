@@ -1,4 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { examsLocation } from "@/lib/exam-navigation";
+import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
+import { core30ScopeKey } from "@/lib/core30-scope";
+import { LegacyCore30History } from "@/components/core30/LegacyCore30History";
+import type { AssessedPlanTiming } from "@/components/exams/DailyLessonPlan";
+import {
+  requestedLesson,
+  lessonLocation,
+  lessonOverviewLocation,
+  canRestoreLessonReturn,
+} from "@/lib/learning-link";
+import { lazy, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { toast } from "sonner";
 import {
   BookOpen,
@@ -33,16 +44,22 @@ import {
   Map,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
-import { teamRequest } from "@/lib/team-client";
+import {
+  createTeamCompletionJournal,
+  browserTeamCompletionStorage,
+} from "@/lib/team-completion-device";
+import { ownedTeamRequest, type TeamRequestOwner } from "@/lib/team-client";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useAuth } from "@/state/auth-state";
 import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
-import { isToolAvailable, TOOL_CATALOG_LIST, type LearningStage } from "@/components/tab-registry";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
 import { Core30PlanCard } from "@/components/core30/Core30PlanCard";
+import { LessonSpeakingPractice } from "@/components/core30/LessonSpeakingPractice";
+import { OfflineLessonDownload } from "@/components/core30/OfflineLessonDownload";
 import { Core30Review } from "@/components/core30/Core30Review";
 import { Core30Philosophy } from "@/components/core30/Core30Philosophy";
 import { LessonReader } from "@/components/core30/LessonReader";
@@ -54,11 +71,10 @@ import {
   readLessonReturn,
   writeLessonReturn,
 } from "@/lib/lesson-return";
-import { requestSpeakingMission } from "@/lib/speaking-navigation";
 import { prefetchLessonDeck, useLessonWords } from "@/lib/lesson-words";
 import { prefetchLessonContent, useLessonContent } from "@/lib/lesson-content";
 import { pickContentVerbs } from "@/lib/lesson-content-core";
-import { getLessonDefinition, ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
+import { getLessonDefinition, modulePracticeVersion } from "@/lib/lesson-definition";
 import {
   lessonPositionKey,
   readLessonPosition,
@@ -73,6 +89,12 @@ import {
   toDateKey,
   type Core30Way,
 } from "@/lib/core30-plan";
+
+const DailyLessonPlan = lazy(() =>
+  import("@/components/exams/DailyLessonPlan").then((module) => ({
+    default: module.DailyLessonPlan,
+  })),
+);
 
 // ─── Legacy daily-flow fallback (for modules without a Core 30) ────────────
 
@@ -515,7 +537,7 @@ const SECTIONS: SectionDef[] = [
   {
     id: "see",
     label: "See it",
-    why: "Read the passage first so the words arrive in context.",
+    why: "Start with this lesson's reading or word list.",
     Icon: Eye,
   },
   {
@@ -587,28 +609,70 @@ function scrollStepBarIntoView(el: HTMLElement | null, behavior: ScrollBehavior)
   el.scrollIntoView({ behavior, block: "start" });
 }
 
-function LessonRunner({
+function LessonRunner(props: Parameters<typeof OwnedLessonRunner>[0]) {
+  const { user } = useAuth();
+  const { state } = useApp();
+  return (
+    <OwnedLessonRunner
+      key={JSON.stringify([
+        user?.id,
+        props.moduleId,
+        props.lesson.n,
+        state.selectedLanguage,
+        state.nativeLanguage,
+        props.enrollmentId,
+      ])}
+      {...props}
+    />
+  );
+}
+function OwnedLessonRunner({
+  enrollmentId,
   lesson,
   moduleId,
   totalLessons,
   initialSection,
+  syncLocation = false,
   onComplete,
   onExit,
   onNavigate,
+  onSectionChange,
 }: {
+  enrollmentId?: string;
   lesson: Lesson;
   moduleId: string;
   totalLessons: number;
   /** Section to open on (a learner returning from the Speak tab or the full Reader). */
   initialSection?: SectionId;
+  syncLocation?: boolean;
   onComplete: () => void;
   onExit: () => void;
   onNavigate: (n: number) => void;
+  onSectionChange?: (section: SectionId) => void;
 }) {
   const { state, dispatch } = useApp();
-  const { user } = useAuth();
+  const { user, canUseReader } = useAuth();
   const userId = user?.id;
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, enrollmentId],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
   const teamSessions = useRef<Record<string, string>>({});
+  const sessionStart = useRef<Promise<{ sessions?: Record<string, string> }> | null>(null);
+  const { capture, cancel } = usePracticeLifecycle(
+    JSON.stringify([moduleId, lesson.n, progressKey, state.hydrated]),
+  );
+  const markFlight = useRef<AbortController | null>(null);
+  const completed = useRef(false);
+  const leaving = useRef(false);
+  const journalRef = useRef<ReturnType<typeof createTeamCompletionJournal> | null>(null);
+  const [teamRecovery, setTeamRecovery] = useState("");
+  const [hasTeamRecovery, setHasTeamRecovery] = useState(false);
   const { dispatch: libDispatch } = useLibrary();
 
   const [marking, setMarking] = useState(false);
@@ -644,13 +708,14 @@ function LessonRunner({
     lessonNumber: lesson.n,
     targetLanguage: state.selectedLanguage,
     instructionLanguage: state.nativeLanguage,
-    contentVersion: ROOFING_PRACTICE_VERSION,
+    contentVersion: modulePracticeVersion(moduleId, state.selectedLanguage, state.nativeLanguage),
   });
 
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
-  const isCurrentSequential = getCurrentLesson(moduleId, state.lessonProgress)?.n === lesson.n;
-  const lessonLog = state.core30Log[moduleId]?.lessons[String(lesson.n)];
+  const isCurrentSequential =
+    getCurrentLesson(moduleId, state.lessonProgress, progressKey)?.n === lesson.n;
+  const lessonLog = state.core30Log[progressKey]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
   // Preserve old curriculum-step evidence; new mode evidence is independent below.
@@ -679,8 +744,28 @@ function LessonRunner({
   useEffect(() => {
     dispatch({
       type: "CORE30_WAY_OPENED",
-      payload: { moduleId, lesson: lesson.n, way: section, at: new Date().toISOString() },
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        way: section,
+        at: new Date().toISOString(),
+      },
     });
+    onSectionChange?.(section);
+    if (syncLocation) {
+      const next = lessonLocation(
+        window.location.href,
+        {
+          moduleId,
+          target: state.selectedLanguage,
+          native: state.nativeLanguage,
+        },
+        { lesson: lesson.n, way: section },
+      );
+      if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+        window.history.replaceState(window.history.state, "", next);
+    }
     try {
       const storage = userId ? window.localStorage : window.sessionStorage;
       saveLessonPosition(
@@ -690,40 +775,96 @@ function LessonRunner({
           moduleId,
           state.selectedLanguage,
           state.nativeLanguage,
+          enrollmentId,
         ),
         { lesson: lesson.n, way: section, at: new Date().toISOString() },
       );
     } catch {
       /* The lesson remains usable when device storage is unavailable. */
     }
-  }, [dispatch, moduleId, lesson.n, section, userId, state.selectedLanguage, state.nativeLanguage]);
+  }, [
+    dispatch,
+    moduleId,
+    lesson.n,
+    section,
+    onSectionChange,
+    userId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+    syncLocation,
+    progressKey,
+    progressContext,
+    enrollmentId,
+  ]);
 
   useEffect(() => {
     teamSessions.current = {};
-    if (!userId) return;
-    let live = true;
-    void teamRequest<{ sessions?: Record<string, string> }>("/api/team-activity", {
-      action: "lesson_start",
-      moduleId,
-      lessonNumber: lesson.n,
-    })
+    sessionStart.current = null;
+    if (!userId || !state.hydrated) return;
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    // The existing sign-out guard also freezes private completion writes while approval is pending.
+    const journal = createTeamCompletionJournal(
+      browserTeamCompletionStorage(),
+      userId,
+      () => lease.isCurrent() && canUseReader(userId),
+    );
+    journalRef.current = journal;
+    try {
+      const saved = journal.read(progressKey, lesson.n, moduleId)[0];
+      if (saved) {
+        teamSessions.current = saved.sessions;
+        sessionStart.current = Promise.resolve({ sessions: saved.sessions });
+        setTeamRecovery(
+          "An earlier team-completion request is saved on this device. Retry uses its original session proof and adds no extra XP.",
+        );
+        setHasTeamRecovery(true);
+        return;
+      }
+    } catch (error) {
+      setTeamRecovery(
+        error instanceof Error ? error.message : "Saved team completion could not be checked.",
+      );
+      setHasTeamRecovery(true);
+      return;
+    }
+    const controller = new AbortController();
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() && canUseReader(userId) && !controller.signal.aborted;
+    const promise = ownedTeamRequest<{ sessions?: Record<string, string> }>(
+      { userId, isCurrent: current, signal: controller.signal },
+      "/api/team-activity",
+      {
+        action: "lesson_start",
+        moduleId,
+        lessonNumber: lesson.n,
+      },
+    );
+    sessionStart.current = promise;
+    void promise
       .then((result) => {
-        if (live) teamSessions.current = result.sessions ?? {};
+        if (current()) teamSessions.current = result.sessions ?? {};
       })
       .catch((error) => {
-        if (live)
-          toast.error(
-            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
-          );
-      });
+        if (current()) {
+          if (sessionStart.current === promise) sessionStart.current = null;
+          if (!markFlight.current)
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
+        }
+      })
+      .finally(release);
     return () => {
-      live = false;
+      controller.abort();
+      release();
     };
-  }, [userId, moduleId, lesson.n]);
+  }, [userId, moduleId, lesson.n, progressKey, state.hydrated, capture, canUseReader]);
 
-  // Coming back from the Speak tab or the full Reader: bring the section nav into view.
+  // Later practice steps resume at their controls. Starting/reopening See it
+  // keeps the lesson title and Previous/Next controls visible at the page top.
   useEffect(() => {
-    if (!initialSection) return;
+    if (!initialSection || initialSection === "see") return;
     const frame = requestAnimationFrame(() => scrollStepBarIntoView(navRef.current, "auto"));
     return () => cancelAnimationFrame(frame);
   }, [initialSection]);
@@ -733,7 +874,13 @@ function LessonRunner({
     if (i < 0) return;
     dispatch({
       type: "CORE30_STEP_OPENED",
-      payload: { moduleId, lesson: lesson.n, step: i, at: new Date().toISOString() },
+      payload: {
+        moduleId,
+        context: progressContext,
+        lesson: lesson.n,
+        step: i,
+        at: new Date().toISOString(),
+      },
     });
   }
 
@@ -752,80 +899,111 @@ function LessonRunner({
     setSection(sectionForMode(mode));
   }
 
-  /** Say it: the mission runs on the Speak tab; finishing or closing it brings the learner back. */
+  /** Record the opened practice without leaving the lesson. */
   function goSay() {
     recordStepOpened(speakStep);
-    writeLessonReturn(browserReturnStorage(), {
-      moduleId,
-      lesson: lesson.n,
-      section: "say",
-      at: Date.now(),
-    });
-    requestSpeakingMission(lessonMissionPrefix(moduleId, lesson.n));
-    dispatch({ type: "SET_TAB", payload: "speak" });
   }
 
   /** See it, full size: the whole Reader, with a way straight back to this lesson. */
   function openFullReader(passageId: string) {
-    recordStepOpened(readerStep);
-    writeLessonReturn(browserReturnStorage(), {
-      moduleId,
-      lesson: lesson.n,
-      section: "see",
-      at: Date.now(),
-      ref: passageId,
+    leaveLesson(() => {
+      recordStepOpened(readerStep);
+      writeLessonReturn(browserReturnStorage(), {
+        moduleId,
+        lesson: lesson.n,
+        section: "see",
+        at: Date.now(),
+        ref: passageId,
+      });
+      libDispatch({ type: "SELECT", payload: passageId });
+      dispatch({ type: "SET_TAB", payload: "reader" });
     });
-    libDispatch({ type: "SELECT", payload: passageId });
-    dispatch({ type: "SET_TAB", payload: "reader" });
   }
 
   /** A step with no section of its own opens its own tab, as before. */
   function openOtherStep(i: number) {
-    const step = lesson.steps[i];
-    recordStepOpened(i);
-    dispatch({ type: "SET_TAB", payload: step.tab });
+    leaveLesson(() => {
+      const step = lesson.steps[i];
+      recordStepOpened(i);
+      dispatch({ type: "SET_TAB", payload: step.tab });
+    });
   }
 
   /** Posts lesson `n` to the team workspace. True when there is nothing to post or the post worked. */
-  async function postTeamLesson(n: number, sessions: Record<string, string>): Promise<boolean> {
-    if (!user || !Object.keys(sessions).length) return true;
+  async function postTeamLesson(
+    n: number,
+    sessions: Record<string, string>,
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ): Promise<boolean> {
+    if (!current()) return false;
+    if (!owner || !Object.keys(sessions).length) return true;
     try {
-      await teamRequest("/api/team-activity", {
+      const journal = journalRef.current;
+      if (!journal)
+        throw new Error(
+          "This device could not save a recovery copy. Keep the lesson open and retry.",
+        );
+      const request = journal.prepare(progressKey, moduleId, n, sessions);
+      setHasTeamRecovery(true);
+      setTeamRecovery("Team completion is pending. Its original request is saved on this device.");
+      const result = await ownedTeamRequest<{ recorded: number }>(owner, "/api/team-activity", {
         action: "lesson",
-        moduleId,
-        lessonNumber: n,
-        sessions,
+        moduleId: request.moduleId,
+        lessonNumber: request.lessonNumber,
+        sessions: request.sessions,
       });
-      return true;
+      if (!current()) return false;
+      if (result.recorded !== Object.keys(request.sessions).length)
+        throw new Error(
+          "Some teams could not confirm this completion. The saved request remains for retry; no new local credit was added.",
+        );
+      journal.acknowledge(request);
+      setTeamRecovery(
+        "The team request was acknowledged. Finish this lesson if local practice progress still needs updating.",
+      );
+      return current();
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
+      if (current())
+        toast.error(error instanceof Error ? error.message : "Team lesson could not be recorded.");
       return false;
     }
   }
 
   /** After lesson `fromN` completes, keep advancing over lessons the learner already mastered. */
-  async function advancePastMastered(fromN: number) {
-    const lessonsLog = state.core30Log[moduleId]?.lessons ?? {};
+  async function advancePastMastered(
+    fromN: number,
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ) {
+    const lessonsLog = state.core30Log[progressKey]?.lessons ?? {};
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     let n = fromN + 1;
     while (n <= total && lessonsLog[String(n)]?.masteredAt) {
       let sessions: Record<string, string> = {};
-      if (user) {
+      if (!current()) return;
+      if (owner) {
         try {
-          const started = await teamRequest<{ sessions?: Record<string, string> }>(
-            "/api/team-activity",
-            { action: "lesson_start", moduleId, lessonNumber: n },
-          );
+          const saved = journalRef.current?.read(progressKey, n, moduleId)[0];
+          const started = saved
+            ? { sessions: saved.sessions }
+            : await ownedTeamRequest<{ sessions?: Record<string, string> }>(
+                owner,
+                "/api/team-activity",
+                { action: "lesson_start", moduleId, lessonNumber: n },
+              );
+          if (!current()) return;
           sessions = started.sessions ?? {};
         } catch (error) {
-          toast.error(
-            error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
-          );
+          if (current())
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
           return;
         }
       }
-      if (!(await postTeamLesson(n, sessions))) return;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      if (!(await postTeamLesson(n, sessions, owner, current)) || !current()) return;
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
       n += 1;
     }
@@ -836,46 +1014,161 @@ function LessonRunner({
    * are already mastered. COMPLETE_LESSON only ever fires for the lesson the counter is on.
    * Returns false when nothing was recorded (team post failed, or not the current lesson).
    */
-  async function recordSequentialCompletion(): Promise<boolean> {
+  async function recordSequentialCompletion(
+    owner: TeamRequestOwner | null,
+    current: () => boolean,
+  ): Promise<boolean> {
+    if (!current()) return false;
     if (completionLock.current) return false;
-    if ((state.lessonProgress[moduleId] ?? 0) + 1 !== lesson.n) return false;
+    if ((state.lessonProgress[progressKey] ?? 0) + 1 !== lesson.n) return false;
     completionLock.current = true;
     try {
-      if (!(await postTeamLesson(lesson.n, teamSessions.current))) return false;
-      dispatch({ type: "COMPLETE_LESSON", payload: moduleId });
+      let sessions = teamSessions.current;
+      if (owner) {
+        try {
+          const saved = journalRef.current?.read(progressKey, lesson.n, moduleId)[0];
+          if (saved) sessionStart.current = Promise.resolve({ sessions: saved.sessions });
+          let start = sessionStart.current;
+          if (!start) {
+            start = ownedTeamRequest<{ sessions?: Record<string, string> }>(
+              owner,
+              "/api/team-activity",
+              { action: "lesson_start", moduleId, lessonNumber: lesson.n },
+            );
+            sessionStart.current = start;
+          }
+          const started = await start;
+          if (!current()) return false;
+          sessions = started.sessions ?? {};
+          teamSessions.current = sessions;
+        } catch (error) {
+          if (current()) {
+            sessionStart.current = null;
+            toast.error(
+              error instanceof Error ? error.message : "Team lesson tracking is unavailable.",
+            );
+          }
+          return false;
+        }
+      }
+      if (!(await postTeamLesson(lesson.n, sessions, owner, current)) || !current()) return false;
+      dispatch({ type: "COMPLETE_LESSON", payload: { moduleId, context: progressContext } });
       dispatch({ type: "ADD_XP", payload: 50 });
-      await advancePastMastered(lesson.n);
-      return true;
+      await advancePastMastered(lesson.n, owner, current);
+      return current();
     } finally {
       completionLock.current = false;
     }
   }
 
-  /** Counter is on this lesson but it is already mastered (e.g. synced from another device). */
-  async function recordAlreadyMastered() {
-    if (marking) return;
-    setMarking(true);
-    try {
-      if (await recordSequentialCompletion()) onComplete();
-    } finally {
-      setMarking(false);
-    }
-  }
-
-  async function markMastered() {
-    if (marking) return;
+  /** One mounted completion action, including any team requests and mastered-lesson chain. */
+  async function finishLesson(mark: boolean) {
+    const lease = capture();
+    if (
+      !state.hydrated ||
+      !lease.isCurrent() ||
+      (userId && !canUseReader(userId)) ||
+      leaving.current ||
+      markFlight.current ||
+      completed.current
+    )
+      return;
+    const controller = new AbortController();
+    markFlight.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() &&
+      (!userId || canUseReader(userId)) &&
+      markFlight.current === controller &&
+      !controller.signal.aborted;
+    const owner = userId ? { userId, isCurrent: current, signal: controller.signal } : null;
     setMarking(true);
     try {
       const sequential = isCurrentSequential;
-      if (sequential && !(await recordSequentialCompletion())) return;
-      dispatch({
-        type: "CORE30_SET_MASTERED",
-        payload: { moduleId, lesson: lesson.n, mastered: true, at: new Date().toISOString() },
-      });
+      if (!mark && !sequential) return;
+      if (sequential && !(await recordSequentialCompletion(owner, current))) return;
+      if (!current()) return;
+      if (mark)
+        dispatch({
+          type: "CORE30_SET_MASTERED",
+          payload: {
+            moduleId,
+            context: progressContext,
+            lesson: lesson.n,
+            mastered: true,
+            at: new Date().toISOString(),
+          },
+        });
+      completed.current = sequential;
       if (sequential) onComplete();
     } finally {
-      setMarking(false);
+      if (lease.isCurrent() && markFlight.current === controller) setMarking(false);
+      if (markFlight.current === controller) markFlight.current = null;
+      release();
+      controller.abort();
     }
+  }
+  function recordAlreadyMastered() {
+    return finishLesson(false);
+  }
+  function markMastered() {
+    return finishLesson(true);
+  }
+
+  async function retrySavedTeamCompletion() {
+    const lease = capture();
+    if (
+      !state.hydrated ||
+      !userId ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      leaving.current ||
+      markFlight.current
+    )
+      return;
+    const controller = new AbortController();
+    markFlight.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      markFlight.current === controller &&
+      !controller.signal.aborted;
+    setMarking(true);
+    try {
+      const request = journalRef.current?.read(progressKey, lesson.n, moduleId)[0];
+      if (!request) {
+        setHasTeamRecovery(false);
+        setTeamRecovery(
+          "No saved request remains for this lesson. Use the lesson controls to finish your practice.",
+        );
+        return;
+      }
+      await postTeamLesson(
+        request.lessonNumber,
+        request.sessions,
+        { userId, isCurrent: current, signal: controller.signal },
+        current,
+      );
+    } catch (error) {
+      if (current())
+        setTeamRecovery(
+          error instanceof Error ? error.message : "Saved team completion could not be checked.",
+        );
+    } finally {
+      if (lease.isCurrent() && markFlight.current === controller) setMarking(false);
+      if (markFlight.current === controller) markFlight.current = null;
+      release();
+      controller.abort();
+    }
+  }
+
+  function leaveLesson(action: () => void) {
+    if (leaving.current || !capture().isCurrent()) return;
+    leaving.current = true;
+    markFlight.current?.abort();
+    cancel();
+    action();
   }
 
   /** Each mode shows its own first visit; older step records cannot imply a mode visit. */
@@ -897,7 +1190,7 @@ function LessonRunner({
     <div className="flex items-center justify-between gap-2" data-testid={`lesson-nav-${position}`}>
       <button
         type="button"
-        onClick={() => onNavigate(lesson.n - 1)}
+        onClick={() => leaveLesson(() => onNavigate(lesson.n - 1))}
         disabled={lesson.n <= 1}
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
@@ -906,7 +1199,7 @@ function LessonRunner({
       </button>
       <button
         type="button"
-        onClick={() => onNavigate(lesson.n + 1)}
+        onClick={() => leaveLesson(() => onNavigate(lesson.n + 1))}
         disabled={lesson.n >= totalLessons}
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
@@ -955,7 +1248,7 @@ function LessonRunner({
             <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
           </div>
           <button
-            onClick={onExit}
+            onClick={() => leaveLesson(onExit)}
             className="min-h-11 shrink-0 px-1 text-[11px] text-white/50 transition-colors hover:text-white/80"
           >
             ✕ Exit
@@ -1113,23 +1406,17 @@ function LessonRunner({
 
       <section data-testid="lesson-section-say" hidden={section !== "say"} className={panelClass}>
         {panelHeader(SECTIONS[4], 5)}
-        <p className="mt-3 text-sm leading-relaxed text-white/70">{speakInstruction}</p>
-        <button
-          type="button"
-          data-testid="lesson-say-go"
-          onClick={goSay}
-          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-          style={{
-            background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-            color: "#0B0B0F",
-          }}
-        >
-          <Mic className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-          Start the Lesson {lesson.n} speaking mission
-        </button>
-        <p className="mt-2 text-center text-[11px] text-white/50">
-          It opens in Speak &amp; Learn. When you finish or close it, you come back here.
-        </p>
+        {section === "say" && (
+          <LessonSpeakingPractice
+            key={`${moduleId}:${lesson.n}:${state.selectedLanguage}:${state.nativeLanguage}`}
+            missionPrefix={lessonMissionPrefix(moduleId, lesson.n)}
+            instruction={speakInstruction}
+            definition={definition}
+            words={words}
+            language={state.selectedLanguage}
+            onOpen={goSay}
+          />
+        )}
         {section === "say" && nextButton}
       </section>
 
@@ -1173,6 +1460,25 @@ function LessonRunner({
               );
             })}
           </ul>
+        </section>
+      )}
+
+      {teamRecovery && (
+        <section
+          className="rounded-xl border border-border p-3 text-sm"
+          aria-label="Saved team completion"
+        >
+          <p role="status">{teamRecovery}</p>
+          {hasTeamRecovery && (
+            <button
+              type="button"
+              disabled={marking}
+              onClick={() => void retrySavedTeamCompletion()}
+              className="mt-2 min-h-11 rounded-xl border border-border px-4 disabled:opacity-50"
+            >
+              Check saved team request
+            </button>
+          )}
         </section>
       )}
 
@@ -1247,8 +1553,15 @@ const XP_TIERS = [
   { name: "Maestro", min: 3000, emoji: "✦", color: "#d4af37" },
 ];
 
+function scrollLessonPageToTop() {
+  window.scrollTo({ top: 0, behavior: "instant" });
+  document.querySelector("main")?.scrollTo({ top: 0, behavior: "instant" });
+}
+
 export function AppGuide() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
 
@@ -1278,7 +1591,9 @@ export function AppGuide() {
       <div className="mx-auto max-w-2xl space-y-8 pb-12">
         {/* ── Lesson Planner ────────────────────────────────────────────── */}
         {curriculum ? (
-          <Core30Section />
+          <Core30Section
+            key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          />
         ) : (
           /* ── Fallback: legacy daily flow for modules without Core 30 ── */
           <section>
@@ -1381,6 +1696,112 @@ export function AppGuide() {
             )}
           </section>
         )}
+
+        {/* ── Feature Map (collapsible) ────────────────────────────────────── */}
+        <section>
+          <button
+            onClick={() => setFeaturesOpen((o) => !o)}
+            className="flex items-center gap-2 mb-3 group"
+          >
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
+              The Toolkit
+            </h2>
+            <ChevronRight
+              className={cn(
+                "h-3.5 w-3.5 text-gold/60 transition-transform",
+                featuresOpen && "rotate-90",
+              )}
+            />
+          </button>
+          {featuresOpen && (
+            <div className="space-y-1.5">
+              {FEATURES.map(({ Icon, label, value }) => (
+                <div
+                  key={label}
+                  className="flex items-start gap-3 rounded-xl border border-border/30 bg-card/30 px-4 py-3 hover:border-border/60 transition-colors"
+                >
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card/80 border border-border/40">
+                    <Icon className="h-3.5 w-3.5 text-gold/80" strokeWidth={1.6} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[12px] font-semibold">{label}</p>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">{value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* ── Change Module CTA ─────────────────────────────────────────────── */}
+        <section className="rounded-2xl border border-gold/20 bg-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <Puzzle className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
+            <div>
+              <p className="text-sm font-semibold">Switch your module anytime</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Medical, trades, sports, faith — each module unlocks a vocabulary pack and a Core 30
+                curriculum tuned to your field.
+              </p>
+              <button
+                onClick={() => go("modules")}
+                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
+              >
+                Change module <Activity className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Optional personalization remains reachable after module selection ─── */}
+        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
+          <div className="flex items-start gap-4">
+            <span className="text-2xl shrink-0">✦</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">
+                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                Reader works without setup. Choose or update your profession and level to tailor
+                Tutor, readings, and relevant practice. Current level: {state.level}.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
+                >
+                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
+        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
+          <div className="flex items-start gap-4">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
+              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold">App Walkthrough</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
+                {state.activeModuleId
+                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
+                  : " your learning goals"}
+                .
+              </p>
+              <button
+                onClick={() => setTourOpen(true)}
+                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
+              >
+                Start Tour <ArrowRight className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
+        </section>
 
         {/* ── How Core 30 works ──────────────────────────────────────────── */}
         {curriculum && (
@@ -1497,112 +1918,6 @@ export function AppGuide() {
             </div>
           </details>
         </section>
-
-        {/* ── App Tour Banner ─────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card/80 to-card/40 p-5">
-          <div className="flex items-start gap-4">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold/10 border border-gold/20">
-              <Map className="h-4.5 w-4.5 text-gold" strokeWidth={1.5} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">App Walkthrough</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Highlights every icon in your sidebar — {tourSteps.length} stops tailored to
-                {state.activeModuleId
-                  ? ` your ${state.activeModuleId.replace(/-/g, " ")} module`
-                  : " your learning goals"}
-                .
-              </p>
-              <button
-                onClick={() => setTourOpen(true)}
-                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-mono font-medium text-gold hover:bg-gold/20 transition-colors uppercase tracking-widest"
-              >
-                Start Tour <ArrowRight className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Feature Map (collapsible) ────────────────────────────────────── */}
-        <section>
-          <button
-            onClick={() => setFeaturesOpen((o) => !o)}
-            className="flex items-center gap-2 mb-3 group"
-          >
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
-              The Toolkit
-            </h2>
-            <ChevronRight
-              className={cn(
-                "h-3.5 w-3.5 text-gold/60 transition-transform",
-                featuresOpen && "rotate-90",
-              )}
-            />
-          </button>
-          {featuresOpen && (
-            <div className="space-y-1.5">
-              {FEATURES.map(({ Icon, label, value }) => (
-                <div
-                  key={label}
-                  className="flex items-start gap-3 rounded-xl border border-border/30 bg-card/30 px-4 py-3 hover:border-border/60 transition-colors"
-                >
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card/80 border border-border/40">
-                    <Icon className="h-3.5 w-3.5 text-gold/80" strokeWidth={1.6} />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="text-[12px] font-semibold">{label}</p>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed">{value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* ── Optional personalization remains reachable after module selection ─── */}
-        <section className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/10 to-gold/5 p-5">
-          <div className="flex items-start gap-4">
-            <span className="text-2xl shrink-0">✦</span>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold">
-                {state.activeModuleId ? "Adjust your learning setup" : "Personalize for your goals"}
-              </p>
-              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                Reader works without setup. Choose or update your profession and level to tailor
-                Tutor, readings, and relevant practice. Current level: {state.level}.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  onClick={() => window.dispatchEvent(new CustomEvent("lt:open-personalization"))}
-                  className="flex min-h-11 items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-semibold text-gold-ink hover:bg-gold/25 transition-colors"
-                >
-                  {state.activeModuleId ? "Update profession or level" : "Personalize my learning"}{" "}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Change Module CTA ─────────────────────────────────────────────── */}
-        <section className="rounded-2xl border border-gold/20 bg-gold/5 p-5">
-          <div className="flex items-start gap-4">
-            <Puzzle className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.5} />
-            <div>
-              <p className="text-sm font-semibold">Switch your module anytime</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Medical, trades, sports, faith — each module unlocks a vocabulary pack and a Core 30
-                curriculum tuned to your field.
-              </p>
-              <button
-                onClick={() => go("modules")}
-                className="mt-3 flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold hover:bg-gold/20 transition-colors"
-              >
-                Browse modules <Activity className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );
@@ -1638,15 +1953,44 @@ function consumeCore30Philosophy(): boolean {
  *  reopens the lesson a learner left for the Speak tab or the Reader, and honors a request to
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
+  const downloadPackId = offlineLessonPackId(
+    moduleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
+  const [activeAssessmentPlan] = useState(() => {
+    if (typeof window === "undefined") return undefined;
+    const params = new URLSearchParams(window.location.search);
+    if (
+      params.get("module") !== moduleId ||
+      params.get("target") !== state.selectedLanguage ||
+      params.get("native") !== state.nativeLanguage
+    )
+      return undefined;
+    const value = params.get("plan");
+    return value && /^[0-9a-f-]{36}$/i.test(value) ? value : undefined;
+  });
+  const progressContext = useMemo(
+    () => ({
+      targetLanguage: state.selectedLanguage,
+      instructionLanguage: state.nativeLanguage,
+      enrollmentId: activeAssessmentPlan,
+    }),
+    [state.selectedLanguage, state.nativeLanguage, activeAssessmentPlan],
+  );
+  const progressKey = core30ScopeKey(moduleId, progressContext);
+  const [approvedPlanTiming, setApprovedPlanTiming] = useState<AssessedPlanTiming | null>(
+    activeAssessmentPlan ? null : { reviewEveryDays: 4 },
+  );
   const positionKey = lessonPositionKey(
     user?.id ?? "anonymous",
     moduleId,
     state.selectedLanguage,
     state.nativeLanguage,
+    activeAssessmentPlan,
   );
   const [savedPositionState, setSavedPositionState] = useState<{
     key: string;
@@ -1654,13 +1998,37 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }>({ key: positionKey, position: null });
   const savedPosition = savedPositionState.key === positionKey ? savedPositionState.position : null;
   const [returnTarget] = useState(() => {
-    if (!restoreView) return null;
+    if (
+      !restoreView ||
+      !canRestoreLessonReturn(window.location.href, {
+        moduleId,
+        target: state.selectedLanguage,
+        native: state.nativeLanguage,
+      })
+    )
+      return null;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
     const total = getCurriculum(moduleId)?.lessons.length ?? 0;
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
   });
-  const [openLessonN, setOpenLessonN] = useState<number | null>(returnTarget?.lesson ?? null);
-  const [initialWay, setInitialWay] = useState<SectionId | undefined>(returnTarget?.section);
+  const [linkedLesson] = useState(() =>
+    restoreView &&
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("target") === state.selectedLanguage &&
+    new URLSearchParams(window.location.search).get("native") === state.nativeLanguage
+      ? requestedLesson(
+          new URLSearchParams(window.location.search),
+          moduleId,
+          getCurriculum(moduleId)?.lessons.length ?? 0,
+        )
+      : null,
+  );
+  const [openLessonN, setOpenLessonN] = useState<number | null>(
+    linkedLesson?.lesson ?? returnTarget?.lesson ?? null,
+  );
+  const [initialWay, setInitialWay] = useState<SectionId | undefined>(
+    (linkedLesson?.way as SectionId | undefined) ?? returnTarget?.section,
+  );
   useEffect(() => {
     try {
       const storage = user?.id ? window.localStorage : window.sessionStorage;
@@ -1674,6 +2042,16 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       setSavedPositionState({ key: positionKey, position: null });
     }
   }, [positionKey, moduleId, user?.id, openLessonN]);
+  useEffect(() => {
+    if (!restoreView || openLessonN !== null) return;
+    const next = lessonOverviewLocation(window.location.href, {
+      moduleId,
+      target: state.selectedLanguage,
+      native: state.nativeLanguage,
+    });
+    if (next && next !== window.location.pathname + window.location.search + window.location.hash)
+      window.history.replaceState(window.history.state, "", next);
+  }, [restoreView, openLessonN, moduleId, state.selectedLanguage, state.nativeLanguage]);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [howOpen, setHowOpen] = useState(() => (restoreView ? consumeCore30Philosophy() : false));
@@ -1695,32 +2073,42 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     }
   }, [hasCurriculum, moduleId, state.selectedLanguage, state.nativeLanguage]);
   if (!curriculum) return null;
-  const currentLesson = getCurrentLesson(moduleId, state.lessonProgress);
+  const core30Log = state.core30Log[progressKey];
+  const practiceLesson = curriculum.lessons.find(
+    (lesson) => core30Log?.lessons[String(lesson.n)]?.needsPractice,
+  );
+  const currentLesson =
+    practiceLesson ?? getCurrentLesson(moduleId, state.lessonProgress, progressKey);
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
-  const core30Log = state.core30Log[moduleId];
   const masteredSet = new Set(masteredLessons(core30Log));
-  const completedCount = state.lessonProgress[moduleId] ?? 0;
+  const completedCount = state.lessonProgress[progressKey] ?? 0;
   const totalLessons = curriculum.lessons.length;
   const progressPct = (completedCount / totalLessons) * 100;
   const allDone = completedCount >= totalLessons;
   const planStarted = planToday(core30Log, totalLessons, toDateKey(new Date())).started;
 
-  // Scroll to the top of Core 30 itself, not the page: on the App Guide page other
-  // panels sit above it, so scrolling the window to 0 left the lesson off-screen.
-  function scrollToCore30() {
-    const el = sectionRef.current;
-    const top = el ? el.getBoundingClientRect().top + window.scrollY - stickyTopOffset() : 0;
-    window.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior() });
-  }
-
-  function openLessonFromPlan(n: number) {
+  function openLessonFromPlan(n: number, way: SectionId = "see") {
+    if (!restoreView) {
+      // All entry points use the standalone runner, which owns refreshable
+      // lesson/way links. Set the location before mounting that runner so it
+      // reads the requested position rather than falling back to the overview.
+      const next = lessonLocation(
+        window.location.href,
+        { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+        { lesson: n, way },
+      );
+      if (next) window.history.replaceState(window.history.state, "", next);
+      dispatch({ type: "SET_TAB", payload: "core30" });
+      scrollLessonPageToTop();
+      return;
+    }
     setReviewOpen(false);
     setHowOpen(false);
-    setInitialWay(undefined);
+    setInitialWay(way);
     setOpenLessonN(n);
-    scrollToCore30();
+    scrollLessonPageToTop();
   }
 
   function handleComplete() {
@@ -1731,7 +2119,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   }
 
   return (
-    <section ref={sectionRef}>
+    <section>
       {/* Curriculum header (an open lesson takes the whole page) */}
       {!runnerActive && (
         <div className="mb-4">
@@ -1739,6 +2127,18 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
+          <a
+            className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+            href={examsLocation({
+              moduleId,
+              target: state.selectedLanguage,
+              native: state.nativeLanguage,
+              returnPlanId: activeAssessmentPlan,
+              orgId: approvedPlanTiming?.organizationId,
+            })}
+          >
+            Entrance, day 45 and day 90 exams
+          </a>
           {!howOpen && (
             <button
               type="button"
@@ -1747,7 +2147,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 setReviewOpen(false);
                 setOpenLessonN(null);
                 setHowOpen(true);
-                scrollToCore30();
+                window.scrollTo({ top: 0, behavior: scrollBehavior() });
               }}
               className="mt-1 inline-flex min-h-11 items-center gap-1.5 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
             >
@@ -1763,45 +2163,6 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
       {!howOpen && (
         <>
-          {/* 90-day plan: start date, today's lesson, review cadence */}
-          {!reviewOpen && !runnerActive && (
-            <Core30PlanCard
-              moduleId={moduleId}
-              totalLessons={totalLessons}
-              onOpenLesson={openLessonFromPlan}
-              onStartReview={() => {
-                setOpenLessonN(null);
-                setReviewOpen(true);
-              }}
-            />
-          )}
-
-          {/* Progress bar */}
-          {!runnerActive && (
-            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
-                  {completedCount} / {totalLessons} lessons complete
-                </span>
-                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
-              </div>
-              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${progressPct}%`,
-                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
-                  }}
-                />
-              </div>
-              {allDone && (
-                <p className="mt-2 text-xs text-gold text-center">
-                  🎉 Curriculum complete! You are past the threshold.
-                </p>
-              )}
-            </div>
-          )}
-
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
@@ -1815,6 +2176,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* Review session */}
           {reviewOpen && (
             <Core30Review
+              enrollmentId={activeAssessmentPlan}
               moduleId={moduleId}
               lessons={curriculum.lessons}
               onClose={() => setReviewOpen(false)}
@@ -1824,11 +2186,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           {/* Any lesson opened from the plan or the lesson list */}
           {!reviewOpen && openLesson && (
             <LessonRunner
-              key={openLesson.n}
+              enrollmentId={activeAssessmentPlan}
+              key={`${progressKey}:${openLesson.n}`}
               lesson={openLesson}
               moduleId={moduleId}
               totalLessons={totalLessons}
               initialSection={initialWay}
+              onSectionChange={setInitialWay}
+              syncLocation={restoreView}
               onComplete={handleComplete}
               onExit={() => setOpenLessonN(null)}
               onNavigate={openLessonFromPlan}
@@ -1836,12 +2201,12 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
 
           {/* Current lesson card or all-done state */}
-          {!reviewOpen && !runnerActive && !allDone && currentLesson && (
+          {!reviewOpen && !runnerActive && (!allDone || practiceLesson) && currentLesson && (
             <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-card/60 p-5">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    Next Up · Lesson {currentLesson.n}
+                    {practiceLesson ? "Practice again" : "Next Up"} · Lesson {currentLesson.n}
                   </p>
                   <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
                 </div>
@@ -1857,6 +2222,26 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 {currentLesson.objective}
               </p>
 
+              {/* Start stays reachable before the detailed six-mode preview. */}
+              <button
+                onClick={() => openLessonFromPlan(currentLesson.n)}
+                className={cn(
+                  "mb-4 w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
+                  planStarted && "border border-gold/40 bg-transparent text-gold",
+                )}
+                style={
+                  planStarted
+                    ? undefined
+                    : {
+                        background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
+                        color: "#0B0B0F",
+                      }
+                }
+              >
+                {practiceLesson ? "Practice" : "Start"} Lesson {currentLesson.n}
+                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              </button>
+
               {/* Step preview */}
               <div className="space-y-1.5 mb-5">
                 {SECTIONS.map((step, i) => (
@@ -1871,25 +2256,6 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                   </div>
                 ))}
               </div>
-
-              <button
-                onClick={() => openLessonFromPlan(currentLesson.n)}
-                className={cn(
-                  "w-full min-h-11 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all hover:opacity-90",
-                  planStarted && "border border-gold/40 bg-transparent text-gold",
-                )}
-                style={
-                  planStarted
-                    ? undefined
-                    : {
-                        background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)",
-                        color: "#0B0B0F",
-                      }
-                }
-              >
-                Start Lesson {currentLesson.n}
-                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </button>
             </div>
           )}
 
@@ -1898,11 +2264,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             <button
               type="button"
               className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
-              onClick={() => {
-                setInitialWay(savedPosition.way);
-                setOpenLessonN(savedPosition.lesson);
-                setHowOpen(false);
-              }}
+              onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
             >
               {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"} Lesson{" "}
               {savedPosition.lesson} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
@@ -1981,6 +2343,88 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             </div>
           )}
 
+          {!reviewOpen && (
+            <Suspense fallback={null}>
+              <DailyLessonPlan
+                moduleId={moduleId}
+                target={state.selectedLanguage}
+                native={state.nativeLanguage}
+                lessonNumber={openLesson?.n}
+                lessonWay={initialWay}
+                activePlanId={activeAssessmentPlan}
+                onPlanTiming={setApprovedPlanTiming}
+              />
+            </Suspense>
+          )}
+
+          {/* Planning and progress follow the lesson actions on every screen size. */}
+          {/* 90-day plan: start date, today's lesson, review cadence */}
+          {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
+            <p role="status" className="my-4 text-sm">
+              This plan’s schedule is not available. Your lesson list remains available.
+            </p>
+          )}
+          {!reviewOpen && !runnerActive && approvedPlanTiming !== null && (
+            <Core30PlanCard
+              enrollmentId={activeAssessmentPlan}
+              reviewEveryDays={approvedPlanTiming.reviewEveryDays}
+              assessedTiming={activeAssessmentPlan ? approvedPlanTiming : undefined}
+              managedPlanUrl={
+                activeAssessmentPlan
+                  ? examsLocation({
+                      moduleId,
+                      target: state.selectedLanguage,
+                      native: state.nativeLanguage,
+                      orgId: approvedPlanTiming.organizationId,
+                      returnPlanId: activeAssessmentPlan,
+                    })
+                  : undefined
+              }
+              moduleId={moduleId}
+              totalLessons={totalLessons}
+              onOpenLesson={openLessonFromPlan}
+              onStartReview={() => {
+                setOpenLessonN(null);
+                setReviewOpen(true);
+              }}
+            />
+          )}
+
+          {!runnerActive && <LegacyCore30History moduleId={moduleId} context={progressContext} />}
+
+          {/* Progress bar */}
+          {!runnerActive && (
+            <div className="mb-5 rounded-2xl border border-white/[0.07] bg-card/40 p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-white/50 uppercase tracking-wider">
+                  {completedCount} / {totalLessons} lessons complete
+                </span>
+                <span className="text-xs font-mono text-gold">{Math.round(progressPct)}%</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${progressPct}%`,
+                    background: "linear-gradient(90deg, #C9A84C, #E8C878)",
+                  }}
+                />
+              </div>
+              {allDone && (
+                <p className="mt-2 text-xs text-gold text-center">
+                  🎉 Curriculum complete! You are past the threshold.
+                </p>
+              )}
+            </div>
+          )}
+
+          {!reviewOpen && !runnerActive && downloadPackId && (
+            <OfflineLessonDownload
+              key={`${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+              packId={downloadPackId}
+            />
+          )}
+
           {/* Completed lessons list (collapsed) */}
           {completedCount > 0 && !runnerActive && !reviewOpen && (
             <details className="mt-4 group">
@@ -2006,12 +2450,17 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
 /** Standalone Core 30 tab. Without a module that has a Core 30, it points to Modules. */
 export function Core30Tab() {
+  useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const { user } = useAuth();
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
       {hasCore30 ? (
-        <Core30Section restoreView />
+        <Core30Section
+          key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
+          restoreView
+        />
       ) : (
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>

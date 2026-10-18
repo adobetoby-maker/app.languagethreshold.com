@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -13,12 +13,20 @@ import {
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { teamRequest } from "@/lib/team-client";
+import { ownedTeamRequest } from "@/lib/team-client";
+import { assessmentCsv } from "@/lib/assessments/export";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { TEAM_MIN_SEATS, teamPeriodCents, type TeamTerm } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
 import type { Core30Log } from "@/lib/core30-plan";
-import { describeCore30, type Core30Display } from "@/lib/team-core30";
+import { describeCore30, type Core30Display, type Core30TrackDisplay } from "@/lib/team-core30";
+
+const TeamExamsPanel = lazy(() =>
+  import("@/components/exams/TeamExamsPanel").then((module) => ({
+    default: module.TeamExamsPanel,
+  })),
+);
 
 export const Route = createFileRoute("/team")({
   component: () => (
@@ -92,7 +100,16 @@ type TeamData = {
   certificates: Certificate[];
   /** Per-user Core 30 log; absent on older servers. */
   core30?: Record<string, Core30Log>;
+  core30Tracks?: Record<string, Core30TrackDisplay[]>;
 };
+type TeamActionIntent = { isCurrent: () => boolean; signal: AbortSignal };
+type TeamAction = <T>(
+  body: unknown,
+  message: string,
+  after?: (result: T) => void,
+  intent?: TeamActionIntent,
+) => Promise<void>;
+
 type QuizQuestion = { id: string; area: string; prompt: string; options: string[] };
 type InviteLink = { id: string; name: string; email: string; url: string };
 
@@ -125,102 +142,279 @@ function parseCsvLine(line: string): string[] {
 }
 
 function TeamPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
+  return <OwnedTeamPage key={user?.id ?? "guest"} />;
+}
+function OwnedTeamPage() {
+  const { user, loading: authLoading, canUseReader } = useAuth();
   const userId = user?.id;
   const [organizations, setOrganizations] = useState<OrgMembership[]>([]);
-  const [orgId, setOrgId] = useState<string | null>(null);
-  const [data, setData] = useState<TeamData | null>(null);
+  const [orgId, setOrgId] = useState<string | null>(() =>
+    typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("org"),
+  );
+  const [rawData, setData] = useState<TeamData | null>(null);
+  const data = rawData?.organization.id === orgId ? rawData : null;
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
+  const [error, setErrorState] = useState("");
+  const [notice, setNoticeState] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [billingEmail, setBillingEmail] = useState("");
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusyState] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const handledCheckout = useRef("");
 
+  const { capture, cancel } = usePracticeLifecycle(
+    JSON.stringify(["team-workspace", orgId, authLoading]),
+  );
+  const selected = useRef(orgId);
+  const latestData = useRef(data);
+  latestData.current = data;
+  const readFlight = useRef<AbortController | null>(null);
+  const mutation = useRef<AbortController | null>(null);
+  const busyRef = useRef(false);
+  const currentPage = () =>
+    !!userId &&
+    !authLoading &&
+    canUseReader(userId) &&
+    selected.current === orgId &&
+    capture().isCurrent();
+  const setBusy = (value: boolean) => {
+    const mountedCleanup =
+      !value && !!userId && selected.current === orgId && capture().isCurrent();
+    if (currentPage() || mountedCleanup) {
+      busyRef.current = value;
+      setBusyState(value);
+    }
+  };
+  const setError = (value: string) => {
+    if (currentPage()) setErrorState(value);
+  };
+  const setNotice = (value: string) => {
+    if (currentPage()) setNoticeState(value);
+  };
+  const selectOrganization = useCallback(
+    (next: string | null) => {
+      if (
+        !userId ||
+        authLoading ||
+        !canUseReader(userId) ||
+        !capture().isCurrent() ||
+        selected.current !== orgId ||
+        selected.current === next
+      )
+        return;
+      selected.current = next;
+      latestData.current = null;
+      cancel();
+      setData(null);
+      setErrorState("");
+      setNoticeState("");
+      setBusyState(false);
+      busyRef.current = false;
+      setOrgId(next);
+    },
+    [userId, authLoading, canUseReader, capture, cancel, orgId],
+  );
   const refresh = useCallback(
-    async (current?: string | null) => {
-      if (!userId) return;
+    async (next?: string | null, parentCurrent?: () => boolean) => {
+      const lease = capture();
+      if (
+        !userId ||
+        authLoading ||
+        !canUseReader(userId) ||
+        !lease.isCurrent() ||
+        selected.current !== orgId
+      )
+        return;
+      if (next !== undefined && next !== orgId) {
+        selectOrganization(next);
+        return;
+      }
+      if (mutation.current && !parentCurrent) return;
+      readFlight.current?.abort();
+      const controller = new AbortController();
+      readFlight.current = controller;
+      const release = lease.own(() => controller.abort());
+      const current = () =>
+        lease.isCurrent() &&
+        canUseReader(userId) &&
+        selected.current === orgId &&
+        readFlight.current === controller &&
+        !controller.signal.aborted &&
+        (!parentCurrent || parentCurrent());
+      const owner = { userId, isCurrent: current, signal: controller.signal };
+      // Keep the same company's mounted panel (including manual invite links) during refresh.
+      // Selection/account changes and denied reads still remove its private data.
+      latestData.current = null;
       setLoading(true);
-      setError("");
+      setErrorState("");
       try {
-        const list = await teamRequest<{ organizations: OrgMembership[] }>("/api/team");
+        const list = await ownedTeamRequest<{ organizations: OrgMembership[] }>(owner, "/api/team");
+        if (!current()) return;
         setOrganizations(list.organizations);
-        const selected =
-          current ??
-          orgId ??
-          new URLSearchParams(window.location.search).get("org") ??
-          list.organizations[0]?.organization_id ??
-          null;
-        if (selected) {
-          setOrgId(selected);
-          setData(await teamRequest<TeamData>(`/api/team?org=${encodeURIComponent(selected)}`));
-        } else setData(null);
+        if (!orgId) {
+          const first = list.organizations[0]?.organization_id ?? null;
+          if (first) {
+            selectOrganization(first);
+            return;
+          }
+        } else {
+          if (!list.organizations.some((item) => item.organization_id === orgId))
+            throw new Error(
+              "This account does not have access to the selected company. Choose one of your companies.",
+            );
+          const detail = await ownedTeamRequest<TeamData>(
+            owner,
+            `/api/team?org=${encodeURIComponent(orgId)}`,
+          );
+          if (!current()) return;
+          if (detail.organization.id !== orgId)
+            throw new Error(
+              "The company response did not match the selected workspace. Refresh and retry.",
+            );
+          setData(detail);
+        }
       } catch (cause) {
-        setError(cause instanceof Error ? cause.message : "Could not load team.");
+        if (current()) {
+          setData(null);
+          setErrorState(cause instanceof Error ? cause.message : "Could not load team.");
+        }
       } finally {
-        setLoading(false);
+        if (lease.isCurrent() && readFlight.current === controller) {
+          setLoading(false);
+          readFlight.current = null;
+        }
+        release();
+        controller.abort();
       }
     },
-    [userId, orgId],
+    [userId, authLoading, canUseReader, orgId, capture, selectOrganization],
   );
   useEffect(() => {
     if (!authLoading && userId) void refresh();
     else if (!authLoading) setLoading(false);
+    return () => readFlight.current?.abort();
   }, [authLoading, userId, refresh]);
 
   useEffect(() => {
-    if (!userId) return;
+    const lease = capture();
+    if (!userId || authLoading || !canUseReader(userId) || !lease.isCurrent()) return;
     const url = new URL(window.location.href);
-    const checkout = url.searchParams.get("checkout");
-    const sessionId = url.searchParams.get("session_id");
-    const checkoutOrg = url.searchParams.get("org");
-    if (!checkout || handledCheckout.current === `${checkout}:${sessionId}`) return;
-    handledCheckout.current = `${checkout}:${sessionId}`;
-    if (checkout === "cancel") {
-      setNotice("Checkout was canceled. No team plan was purchased.");
-    } else if (checkout === "success" && sessionId && checkoutOrg) {
-      void (async () => {
-        try {
-          const result = await teamRequest<{ status: string }>(
+    const checkout = url.searchParams.get("checkout"),
+      sessionId = url.searchParams.get("session_id"),
+      checkoutOrg = url.searchParams.get("org");
+    const mark = JSON.stringify([checkout, sessionId, orgId]);
+    if (!checkout || (checkoutOrg && checkoutOrg !== orgId) || handledCheckout.current === mark)
+      return;
+    handledCheckout.current = mark;
+    const controller = new AbortController();
+    let finished = false;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      selected.current === orgId &&
+      !controller.signal.aborted &&
+      window.location.href === url.href;
+    void (async () => {
+      try {
+        if (checkout === "cancel") {
+          if (current()) setNoticeState("Checkout was canceled. No team plan was purchased.");
+        } else if (checkout === "success" && sessionId && checkoutOrg) {
+          const result = await ownedTeamRequest<{ status: string }>(
+            { userId, isCurrent: current, signal: controller.signal },
             `/api/team-billing?orgId=${encodeURIComponent(checkoutOrg)}&sessionId=${encodeURIComponent(sessionId)}`,
           );
-          setNotice(
+          if (!current()) return;
+          setNoticeState(
             result.status === "active" || result.status === "trialing"
               ? "Payment confirmed. Your team seats are ready to assign."
               : "Stripe is still processing this payment. Refresh the team page to check your seats.",
           );
-          await refresh(checkoutOrg);
-        } catch (cause) {
-          setError(cause instanceof Error ? cause.message : "Could not verify checkout.");
-          handledCheckout.current = "";
-          return;
+          await refresh(checkoutOrg, current);
+          if (!current()) return;
         }
-        url.searchParams.delete("checkout");
-        url.searchParams.delete("session_id");
-        window.history.replaceState(null, "", url);
-      })();
-      return;
-    }
-    url.searchParams.delete("checkout");
-    url.searchParams.delete("session_id");
-    window.history.replaceState(null, "", url);
-  }, [userId, refresh]);
+        if (!current()) return;
+        const clean = new URL(url);
+        clean.searchParams.delete("checkout");
+        clean.searchParams.delete("session_id");
+        window.history.replaceState(null, "", clean);
+        finished = true;
+      } catch (cause) {
+        if (current())
+          setErrorState(cause instanceof Error ? cause.message : "Could not verify checkout.");
+      } finally {
+        if (!finished && handledCheckout.current === mark) handledCheckout.current = "";
+        release();
+        controller.abort();
+      }
+    })();
+    return () => {
+      controller.abort();
+      release();
+      if (!finished && handledCheckout.current === mark) handledCheckout.current = "";
+    };
+  }, [userId, orgId, authLoading, canUseReader, capture, refresh]);
 
-  async function act<T>(body: unknown, message: string, after?: (result: T) => void) {
-    setBusy(true);
-    setError("");
-    setNotice("");
+  async function act<T>(
+    body: unknown,
+    message: string,
+    after?: (result: T) => void,
+    intent?: TeamActionIntent,
+  ) {
+    const lease = capture();
+    if (
+      !userId ||
+      !currentPage() ||
+      (intent && (!intent.isCurrent() || intent.signal.aborted)) ||
+      mutation.current ||
+      busyRef.current ||
+      (readFlight.current && !readFlight.current.signal.aborted) ||
+      latestData.current !== data
+    )
+      return;
+    if (body && typeof body === "object" && "orgId" in body && body.orgId !== orgId) return;
+    const controller = new AbortController();
+    const abortIntent = () => controller.abort();
+    intent?.signal.addEventListener("abort", abortIntent, { once: true });
+    mutation.current = controller;
+    busyRef.current = true;
+    const release = lease.own(() => {
+      controller.abort();
+      if (mutation.current === controller) mutation.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      selected.current === orgId &&
+      (!intent || (intent.isCurrent() && !intent.signal.aborted)) &&
+      mutation.current === controller &&
+      !controller.signal.aborted;
+    readFlight.current?.abort();
+    setBusyState(true);
+    setErrorState("");
+    setNoticeState("");
     try {
-      const result = await teamRequest<T & { warning?: string }>("/api/team", body);
-      setNotice(result.warning ? `${message} ${result.warning}` : message);
+      const result = await ownedTeamRequest<T & { warning?: string }>(
+        { userId, isCurrent: current, signal: controller.signal },
+        "/api/team",
+        body,
+      );
+      if (!current()) return;
+      setNoticeState(result.warning ? `${message} ${result.warning}` : message);
       after?.(result);
-      await refresh();
+      if (current()) await refresh(undefined, current);
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Request failed.");
+      if (current()) setErrorState(cause instanceof Error ? cause.message : "Request failed.");
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && mutation.current === controller) {
+        busyRef.current = false;
+        setBusyState(false);
+      }
+      if (mutation.current === controller) mutation.current = null;
+      intent?.signal.removeEventListener("abort", abortIntent);
+      release();
+      controller.abort();
     }
   }
 
@@ -261,6 +455,11 @@ function TeamPage() {
           <Link to="/" className={secondary}>
             ← Learning app
           </Link>
+          {data && (
+            <a href={`/exams?org=${encodeURIComponent(data.organization.id)}`} className={button}>
+              Exams and assessment progress
+            </a>
+          )}
           {data && (data.role === "owner" || data.role === "admin") && (
             <Link to="/module-request" className={secondary}>
               Custom module request · $20
@@ -319,7 +518,7 @@ function TeamPage() {
               void act<{ orgId: string }>(
                 { action: "create", name: companyName, billingEmail: billingEmail || user.email },
                 "Company workspace created.",
-                (result) => setOrgId(result.orgId),
+                (result) => selectOrganization(result.orgId),
               );
             }}
             className="space-y-4"
@@ -351,6 +550,11 @@ function TeamPage() {
           </form>
         </section>
       )}
+      {data && (
+        <Suspense fallback={<p role="status">Loading assessment tools…</p>}>
+          <TeamExamsPanel key={data.organization.id} orgId={data.organization.id} />
+        </Suspense>
+      )}
       {data &&
         (data.role === "owner" || data.role === "admin" ? (
           <AdminWorkspace
@@ -358,13 +562,19 @@ function TeamPage() {
             data={data}
             busy={busy}
             setBusy={setBusy}
+            isBusy={() =>
+              busyRef.current ||
+              mutation.current !== null ||
+              !!(readFlight.current && !readFlight.current.signal.aborted)
+            }
+            isContextCurrent={currentPage}
             act={act}
             refresh={() => refresh()}
             setError={setError}
             setNotice={setNotice}
           />
         ) : (
-          <LearnerWorkspace data={data} />
+          <LearnerWorkspace key={data.organization.id} data={data} />
         ))}
     </Page>
   );
@@ -398,10 +608,18 @@ function memberModules(data: TeamData, userId: string): Assignment[] {
   ];
 }
 
-function AdminWorkspace({
+function AdminWorkspace(props: Parameters<typeof OwnedAdminWorkspace>[0]) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedAdminWorkspace key={JSON.stringify([user.id, props.data.organization.id])} {...props} />
+  ) : null;
+}
+function OwnedAdminWorkspace({
   data,
   busy,
   setBusy,
+  isBusy,
+  isContextCurrent,
   act,
   refresh,
   setError,
@@ -410,11 +628,17 @@ function AdminWorkspace({
   data: TeamData;
   busy: boolean;
   setBusy: (value: boolean) => void;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
+  act: TeamAction;
   refresh: () => Promise<void>;
   setError: (value: string) => void;
   setNotice: (value: string) => void;
 }) {
+  const { user, canUseReader } = useAuth();
+  const userId = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-admin", data.organization.id]));
+  const operation = useRef<AbortController | null>(null);
   const orgId = data.organization.id;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -443,47 +667,214 @@ function AdminWorkspace({
   const remaining = Math.max(0, data.entitlement.seat_limit - seatsUsed);
   const canStartPlan = ["pending", "manual", "canceled"].includes(data.entitlement.status);
 
+  const settingsKey = JSON.stringify([
+    moduleId,
+    certificate,
+    delivery,
+    term,
+    initialSeats,
+    addSeats,
+  ]);
+  const live = useRef({ data, settingsKey, inviteLinks });
+  live.current = { data, settingsKey, inviteLinks };
+  const viewCurrent = () =>
+    !!userId &&
+    canUseReader(userId) &&
+    isContextCurrent() &&
+    live.current.data === data &&
+    live.current.settingsKey === settingsKey;
+  const inviteKey = JSON.stringify([name, email, inviteRole, moduleId, certificate, delivery]);
+  const inviteRevision = useRef(0);
+  const renderedInviteRevision = inviteRevision.current;
+  const latestInvite = useRef(inviteKey);
+  latestInvite.current = inviteKey;
+  function editInvite(write: () => void) {
+    if (
+      !capture().isCurrent() ||
+      !viewCurrent() ||
+      isBusy() ||
+      latestInvite.current !== inviteKey ||
+      renderedInviteRevision !== inviteRevision.current
+    )
+      return;
+    inviteRevision.current += 1;
+    write();
+  }
+  function rememberInvite(id: string, url: string | null, displayName: string, address: string) {
+    setInviteLinks((previous) => [
+      ...previous.filter((link) => link.id !== id),
+      ...(url ? [{ id, name: displayName, email: address, url }] : []),
+    ]);
+  }
+  function adminAct<T>(
+    body: unknown,
+    message: string,
+    after?: (result: T) => void,
+    intent?: TeamActionIntent,
+  ) {
+    const lease = capture();
+    if (
+      !lease.isCurrent() ||
+      !viewCurrent() ||
+      isBusy() ||
+      (intent && (!intent.isCurrent() || intent.signal.aborted))
+    )
+      return Promise.resolve();
+    return act<T>(
+      body,
+      message,
+      (result) => {
+        if (lease.isCurrent() && viewCurrent() && (!intent || intent.isCurrent())) after?.(result);
+      },
+      intent,
+    );
+  }
+  const tourRevision = useRef(0);
+  const renderedTourRevision = tourRevision.current;
+  const currentTour = () =>
+    capture().isCurrent() &&
+    viewCurrent() &&
+    !isBusy() &&
+    renderedTourRevision === tourRevision.current;
+  function changeTour(step: number, show: boolean) {
+    tourRevision.current += 1;
+    setTourStep(step);
+    setShowTour(show);
+  }
+  function openTour() {
+    if (currentTour()) changeTour(1, true);
+  }
+  function closeTour() {
+    if (currentTour()) changeTour(tourStep, false);
+  }
+  function backTour() {
+    if (currentTour() && showTour && tourStep > 1) changeTour(tourStep - 1, true);
+  }
+  async function nextTour() {
+    if (!currentTour() || !showTour || tourStep < 1 || tourStep > 6) return;
+    const next = Math.min(6, tourStep + 1);
+    const show = tourStep < 6;
+    if (next <= data.organization.onboarding_step) {
+      changeTour(next, show);
+      return;
+    }
+    const lease = capture();
+    await adminAct(
+      { action: "onboarding", orgId, step: next },
+      show ? "Setup progress saved." : "Setup complete.",
+      () => {
+        // Parent keeps its shared flight busy through acknowledgement and refresh.
+        if (lease.isCurrent() && viewCurrent() && renderedTourRevision === tourRevision.current)
+          changeTour(next, show);
+      },
+    );
+  }
+  function begin() {
+    const lease = capture();
+    if (!userId || !viewCurrent() || !lease.isCurrent() || operation.current || isBusy())
+      return null;
+    const controller = new AbortController();
+    operation.current = controller;
+    setBusy(true);
+    const release = lease.own(() => {
+      controller.abort();
+      if (operation.current === controller) {
+        operation.current = null;
+        setBusy(false);
+      }
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      viewCurrent() &&
+      operation.current === controller &&
+      !controller.signal.aborted;
+    return {
+      current,
+      owner: { userId, isCurrent: current, signal: controller.signal },
+      finish() {
+        if (operation.current === controller) {
+          operation.current = null;
+          setBusy(false);
+        }
+        release();
+        controller.abort();
+      },
+    };
+  }
   async function copyText(value: string, success: string) {
+    if (live.current.inviteLinks !== inviteLinks) return;
+    const flight = begin();
+    if (!flight) return;
     try {
+      if (!flight.current()) return;
       await navigator.clipboard.writeText(value);
-      setNotice(success);
+      if (flight.current()) setNotice(success);
     } catch {
-      setError("Copy was blocked by your browser. Select the text and copy it manually.");
+      if (flight.current())
+        setError("Copy was blocked by your browser. Select the text and copy it manually.");
+    } finally {
+      flight.finish();
     }
   }
-
+  function downloadRows(rows: unknown[][], filename: string) {
+    const lease = capture();
+    if (
+      !viewCurrent() ||
+      !lease.isCurrent() ||
+      operation.current ||
+      isBusy() ||
+      live.current.inviteLinks !== inviteLinks
+    )
+      return;
+    const url = URL.createObjectURL(
+      new Blob([assessmentCsv(rows)], { type: "text/csv;charset=utf-8" }),
+    );
+    let timer: ReturnType<typeof setTimeout> | undefined,
+      cleaned = false;
+    let release = () => {};
+    const cleanup = () => {
+      if (cleaned) return;
+      cleaned = true;
+      if (timer !== undefined) clearTimeout(timer);
+      URL.revokeObjectURL(url);
+      release();
+    };
+    release = lease.own(cleanup);
+    try {
+      if (!lease.isCurrent() || !viewCurrent()) return;
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.click();
+      timer = setTimeout(cleanup, 1000);
+    } catch {
+      cleanup();
+      if (lease.isCurrent() && viewCurrent())
+        setError("The download could not start. Retry from the current workspace.");
+    } finally {
+      if (timer === undefined) cleanup();
+    }
+  }
   function downloadInviteLinks() {
-    const rows = [
-      ["Name", "Email", "Invitation link"],
-      ...inviteLinks.map((link) => [link.name, link.email, link.url]),
-    ];
-    const csvText = rows
-      .map((row) =>
-        row
-          .map((value) => {
-            const safe = /^[=+@-]/.test(value) ? `'${value}` : value;
-            return `"${safe.replaceAll('"', '""')}"`;
-          })
-          .join(","),
-      )
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([csvText], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "team-invitation-links.csv";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadRows(
+      [
+        ["Name", "Email", "Invitation link"],
+        ...inviteLinks.map((link) => [link.name, link.email, link.url]),
+      ],
+      "team-invitation-links.csv",
+    );
   }
 
   function adminSummary() {
     const modules = [
       ...new Set(data.assignments.map((a) => getModule(a.module_id)?.name ?? a.module_id)),
     ];
-    return `${data.organization.name} · Language Threshold team setup\nLearner seats: ${data.entitlement.seat_limit}\nActive learners: ${activeLearners.length}\nPending invitations: ${pending.length}\nAssigned modules: ${modules.join(", ") || "None yet"}\nDashboard and walkthrough: ${window.location.origin}/team\nRoofing certificates require 30 lessons and at least 80% on the reviewed final test.`;
+    return `${data.organization.name} · Language Threshold team setup\nLearner seats: ${data.entitlement.seat_limit}\nActive learners: ${activeLearners.length}\nPending invitations: ${pending.length}\nAssigned modules: ${modules.join(", ") || "None yet"}\nDashboard and walkthrough: ${window.location.origin}/team\nRoofing certificates require 30 lessons and at least 80% on the legacy completion test. This is not a calibrated proficiency assessment.`;
   }
 
   async function importRoster(file: File) {
-    setBusy(true);
+    const flight = begin();
+    if (!flight) return;
     setError("");
     setNotice("");
     let reserved = 0;
@@ -491,11 +882,13 @@ function AdminWorkspace({
     const failures: string[] = [];
     try {
       if (file.size > 65536) throw new Error("Use a CSV smaller than 64 KB.");
-      const lines = (await file.text())
+      const raw = await file.text();
+      if (!flight.current()) return;
+      const rows = raw
         .replace(/^\uFEFF/, "")
         .split(/\r?\n/)
-        .filter(Boolean);
-      const rows = lines.map(parseCsvLine);
+        .filter(Boolean)
+        .map(parseCsvLine);
       if (rows[0]?.[0]?.toLowerCase() === "name") rows.shift();
       if (!rows.length) throw new Error("The CSV has no employees.");
       if (rows.length > remaining)
@@ -509,12 +902,13 @@ function AdminWorkspace({
         seen.add(normalized);
       }
       for (const [name, email] of rows) {
+        if (!flight.current()) return;
         try {
-          const result = await teamRequest<{
+          const result = await ownedTeamRequest<{
             invitationId: string;
             inviteUrl: string | null;
             warning?: string;
-          }>("/api/team", {
+          }>(flight.owner, "/api/team", {
             action: "invite",
             orgId,
             name,
@@ -524,39 +918,50 @@ function AdminWorkspace({
             requireCertificate: certificate && moduleId === "roofing",
             delivery,
           });
+          if (!flight.current()) return;
           reserved++;
-          if (result.inviteUrl)
+          if (result.inviteUrl) {
             createdLinks.push({ id: result.invitationId, name, email, url: result.inviteUrl });
-          if (result.warning) failures.push(`${email}: invitation reserved; ${result.warning}`);
+            setInviteLinks((previous) => [
+              ...new Map([...previous, ...createdLinks].map((link) => [link.id, link])).values(),
+            ]);
+          }
+          if (result.warning) failures.push(`${email}: invitation confirmed; ${result.warning}`);
         } catch (cause) {
-          failures.push(`${email}: ${cause instanceof Error ? cause.message : "failed"}`);
+          if (!flight.current()) return;
+          failures.push(
+            `${email}: ${cause instanceof Error ? cause.message : "could not confirm"}. Import paused; refresh existing invitations before retrying because this request may have succeeded.`,
+          );
+          break;
         }
       }
-      setInviteLinks(createdLinks);
+      if (!flight.current()) return;
       setNotice(
-        `${reserved} of ${rows.length} invitations reserved.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
+        `${reserved} of ${rows.length} invitations confirmed in this import.${createdLinks.length ? " Download or copy the links below to send through your company email." : ""}`,
       );
       if (failures.length) setError(failures.join(" "));
       await refresh();
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not read CSV.");
+      if (flight.current())
+        setError(cause instanceof Error ? cause.message : "Could not read CSV.");
     } finally {
-      setBusy(false);
+      flight.finish();
     }
   }
-
   async function billing(action: string, extra: Record<string, unknown> = {}) {
-    setBusy(true);
+    const flight = begin();
+    if (!flight) return;
     setError("");
     setNotice("");
     try {
-      const result = await teamRequest<{
+      const result = await ownedTeamRequest<{
         url?: string;
         estimateCents?: number;
         newSeatLimit?: number;
         note?: string;
         message?: string;
-      }>("/api/team-billing", { action, orgId, ...extra });
+      }>(flight.owner, "/api/team-billing", { ...extra, action, orgId });
+      if (!flight.current()) return;
       if (result.url) {
         window.location.href = result.url;
         return;
@@ -571,9 +976,10 @@ function AdminWorkspace({
         await refresh();
       }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Billing request failed.");
+      if (flight.current())
+        setError(cause instanceof Error ? cause.message : "Billing request failed.");
     } finally {
-      setBusy(false);
+      flight.finish();
     }
   }
 
@@ -586,8 +992,9 @@ function AdminWorkspace({
         "Active minutes (7d)",
         "Active minutes (30d)",
         "Lessons",
-        "Core 30 mastered",
-        "Core 30 status",
+        "Earlier unlabeled Core 30 currently mastered",
+        "Earlier unlabeled Core 30 status",
+        "Team plan Core 30 progress",
         "Best test",
         "Certificate",
       ],
@@ -632,20 +1039,19 @@ function AdminWorkspace({
           String(lessons),
           `${core.mastered}/${core.total}`,
           core.statusLabel,
+          (data.core30Tracks?.[member.user_id] ?? [])
+            .filter((track) => track.moduleId === assignment.module_id)
+            .map(
+              (track) =>
+                `${track.instructionLanguage} → ${track.targetLanguage}; ${track.startDate ?? ""}; ${track.mastered}/${track.total} currently self-marked mastered; ${track.opened} opened; ${track.statusLabel}`,
+            )
+            .join(" | "),
           best ? `${best}/25` : "",
           cert?.id ?? "",
         ]);
       }
     }
-    const text = rows
-      .map((row) => row.map((value) => `"${value.replaceAll('"', '""')}"`).join(","))
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "team-progress.csv";
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadRows(rows, "team-progress.csv");
   };
 
   return (
@@ -693,42 +1099,22 @@ function AdminWorkspace({
                     "Manage seats, assign Spanish modules, and review practice. Private AI conversations stay private.",
                     "Confirm the company and billing contact before inviting learners.",
                     "Each pending learner invitation reserves one paid seat.",
-                    "Every published module is included for each learner; Roofing Foreman is ready for your crew.",
-                    "For Roofing, require 30 lessons and at least 20 of 25 correct answers for a certificate.",
+                    "Each learner can practice any published module; choose the first module for this team.",
+                    "Legacy Roofing completion certificates require 30 recorded lessons and 20 of 25 test answers correct. This is separate from assessed proficiency.",
                     "Check your roster, copy the admin summary, and track progress here. Share invitation links through your company email when automatic email is unavailable.",
                   ][tourStep - 1]
                 }
               </p>
             </div>
-            <button className={secondary + " h-fit"} onClick={() => setShowTour(false)}>
+            <button disabled={busy} className={secondary + " h-fit"} onClick={closeTour}>
               Close walkthrough
             </button>
           </div>
           <div className="mt-5 flex gap-2">
-            <button
-              disabled={busy || tourStep === 1}
-              onClick={() => setTourStep((step) => Math.max(1, step - 1))}
-              className={secondary}
-            >
+            <button disabled={busy || tourStep === 1} onClick={backTour} className={secondary}>
               Back
             </button>
-            <button
-              disabled={busy}
-              onClick={async () => {
-                if (tourStep === 6) {
-                  setShowTour(false);
-                  await act({ action: "onboarding", orgId, step: 6 }, "Setup complete.");
-                } else {
-                  setTourStep((step) => step + 1);
-                  if (tourStep >= data.organization.onboarding_step)
-                    await act(
-                      { action: "onboarding", orgId, step: tourStep + 1 },
-                      "Setup progress saved.",
-                    );
-                }
-              }}
-              className={button}
-            >
+            <button disabled={busy} onClick={() => void nextTour()} className={button}>
               {tourStep === 6 ? "Finish setup" : "Next step"}
             </button>
           </div>
@@ -747,13 +1133,7 @@ function AdminWorkspace({
             <button className={secondary} onClick={csv}>
               <FileDown className="mr-1 inline h-4 w-4" /> Export CSV
             </button>
-            <button
-              className={secondary}
-              onClick={() => {
-                setTourStep(1);
-                setShowTour(true);
-              }}
-            >
+            <button className={secondary} disabled={busy} onClick={openTour}>
               Admin walkthrough
             </button>
             <button
@@ -767,7 +1147,7 @@ function AdminWorkspace({
                 disabled={busy}
                 className={secondary}
                 onClick={() =>
-                  void act({ action: "email_summary", orgId }, "Admin setup summary emailed.")
+                  void adminAct({ action: "email_summary", orgId }, "Admin setup summary emailed.")
                 }
               >
                 <Mail className="mr-1 inline h-4 w-4" /> Email admin summary
@@ -776,9 +1156,10 @@ function AdminWorkspace({
           </div>
         </div>
         <p className="mb-4 text-sm text-muted-foreground">
-          Recorded lessons track qualifying practice. Core 30 mastery is the learner’s own
-          assessment; opening a step does not demonstrate mastery. The certificate test is a
-          separate result.
+          Core 30 team plans show progress for their own language pair. Independent practice stays
+          private; earlier records have no language or plan label. Recorded lessons track qualifying
+          practice. Core 30 mastery is the learner’s own assessment; opening a step does not
+          demonstrate mastery. The certificate test is a separate result.
         </p>
         <div className="space-y-4 lg:hidden">
           {activeLearners.map((member) => (
@@ -791,7 +1172,9 @@ function AdminWorkspace({
                   assignment={assignment}
                   data={data}
                   busy={busy}
-                  act={act}
+                  act={adminAct}
+                  isBusy={isBusy}
+                  isContextCurrent={viewCurrent}
                   orgId={orgId}
                   asCard
                 />
@@ -803,10 +1186,19 @@ function AdminWorkspace({
                 member={member}
                 orgId={orgId}
                 busy={busy}
-                act={act}
+                act={adminAct}
+                isBusy={isBusy}
+                isContextCurrent={viewCurrent}
                 assignments={data.assignments}
               />
-              <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
+              <ReleaseSeat
+                member={member}
+                orgId={orgId}
+                busy={busy}
+                act={adminAct}
+                isBusy={isBusy}
+                isContextCurrent={viewCurrent}
+              />
             </article>
           ))}
         </div>
@@ -847,7 +1239,9 @@ function AdminWorkspace({
                       assignment={a}
                       data={data}
                       busy={busy}
-                      act={act}
+                      act={adminAct}
+                      isBusy={isBusy}
+                      isContextCurrent={viewCurrent}
                       orgId={orgId}
                     />
                   ))
@@ -862,7 +1256,9 @@ function AdminWorkspace({
                         member={member}
                         orgId={orgId}
                         busy={busy}
-                        act={act}
+                        act={adminAct}
+                        isBusy={isBusy}
+                        isContextCurrent={viewCurrent}
                         assignments={data.assignments}
                       />
                     </td>
@@ -903,7 +1299,8 @@ function AdminWorkspace({
                 <select
                   className={input + " max-w-40"}
                   value={term}
-                  onChange={(e) => setTerm(e.target.value as typeof term)}
+                  disabled={busy}
+                  onChange={(e) => editInvite(() => setTerm(e.target.value as typeof term))}
                 >
                   <option value="monthly">Monthly</option>
                   <option value="quarterly">3 months</option>
@@ -916,7 +1313,8 @@ function AdminWorkspace({
                   max={1000}
                   className={input + " max-w-28"}
                   value={initialSeats}
-                  onChange={(e) => setInitialSeats(Number(e.target.value))}
+                  disabled={busy}
+                  onChange={(e) => editInvite(() => setInitialSeats(Number(e.target.value)))}
                 />
               </div>
               <p className="text-sm text-gold-ink dark:text-gold">
@@ -965,10 +1363,13 @@ function AdminWorkspace({
                       max={100}
                       aria-label="Seats to add"
                       value={addSeats}
-                      onChange={(e) => {
-                        setAddSeats(Number(e.target.value));
-                        setQuote(null);
-                      }}
+                      disabled={busy}
+                      onChange={(e) =>
+                        editInvite(() => {
+                          setAddSeats(Number(e.target.value));
+                          setQuote(null);
+                        })
+                      }
                       className={input + " max-w-28"}
                     />
                     <button
@@ -1020,7 +1421,15 @@ function AdminWorkspace({
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              void act<{ invitationId: string; inviteUrl: string | null; warning?: string }>(
+              if (
+                latestInvite.current !== inviteKey ||
+                renderedInviteRevision !== inviteRevision.current ||
+                name.trim().length < 2 ||
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) ||
+                (inviteRole === "learner" && remaining < 1)
+              )
+                return;
+              void adminAct<{ invitationId: string; inviteUrl: string | null; warning?: string }>(
                 {
                   action: "invite",
                   orgId,
@@ -1035,13 +1444,15 @@ function AdminWorkspace({
                   ? "Invitation reserved. Share the link below."
                   : "Invitation reserved.",
                 (result) => {
-                  setInviteLinks(
-                    result.inviteUrl
-                      ? [{ id: result.invitationId, name, email, url: result.inviteUrl }]
-                      : [],
-                  );
-                  setName("");
-                  setEmail("");
+                  rememberInvite(result.invitationId, result.inviteUrl, name, email);
+                  if (
+                    latestInvite.current === inviteKey &&
+                    renderedInviteRevision === inviteRevision.current
+                  ) {
+                    inviteRevision.current += 1;
+                    setName("");
+                    setEmail("");
+                  }
                 },
               );
             }}
@@ -1054,7 +1465,8 @@ function AdminWorkspace({
               aria-label="Employee name"
               className={input}
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setName(e.target.value))}
             />
             <input
               required
@@ -1063,13 +1475,15 @@ function AdminWorkspace({
               aria-label="Employee email"
               className={input}
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setEmail(e.target.value))}
             />
             <select
               aria-label="Invitation role"
               className={input}
               value={inviteRole}
-              onChange={(e) => setInviteRole(e.target.value as typeof inviteRole)}
+              disabled={busy}
+              onChange={(e) => editInvite(() => setInviteRole(e.target.value as typeof inviteRole))}
             >
               <option value="learner">Learner · uses one seat</option>
               <option value="admin">Company admin · no learner seat</option>
@@ -1080,7 +1494,10 @@ function AdminWorkspace({
                 aria-label="Invitation delivery"
                 className={input + " mt-1"}
                 value={delivery}
-                onChange={(event) => setDelivery(event.target.value as "manual" | "email")}
+                disabled={busy}
+                onChange={(event) =>
+                  editInvite(() => setDelivery(event.target.value as "manual" | "email"))
+                }
               >
                 <option value="manual">Copy link and send with your company email</option>
                 {data.emailEnabled && (
@@ -1094,10 +1511,13 @@ function AdminWorkspace({
                   aria-label="First module"
                   className={input}
                   value={moduleId}
-                  onChange={(e) => {
-                    setModuleId(e.target.value);
-                    if (e.target.value !== "roofing") setCertificate(false);
-                  }}
+                  disabled={busy}
+                  onChange={(e) =>
+                    editInvite(() => {
+                      setModuleId(e.target.value);
+                      if (e.target.value !== "roofing") setCertificate(false);
+                    })
+                  }
                 >
                   {MODULES.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -1109,12 +1529,13 @@ function AdminWorkspace({
                   <input
                     type="checkbox"
                     checked={certificate}
-                    disabled={moduleId !== "roofing"}
-                    onChange={(e) => setCertificate(e.target.checked)}
+                    disabled={busy || moduleId !== "roofing"}
+                    onChange={(e) => editInvite(() => setCertificate(e.target.checked))}
                   />
                   <span>
-                    Require the 80% Roofing final test for a completion certificate
-                    {moduleId !== "roofing" && " (reviewed test not available for this module)"}
+                    Require the legacy Roofing completion test (80%) for a completion certificate
+                    {moduleId !== "roofing" &&
+                      " (legacy completion test is only available for Roofing)"}
                   </span>
                 </label>
               </>
@@ -1214,19 +1635,16 @@ function AdminWorkspace({
                     disabled={busy}
                     className={secondary}
                     onClick={() =>
-                      void act<{ inviteUrl: string | null }>(
+                      void adminAct<{ inviteUrl: string | null }>(
                         { action: "resend", orgId, invitationId: invite.id, delivery: "manual" },
                         "Fresh invitation link ready in the invitation panel above. The previous link is no longer valid.",
                         (result) => {
-                          if (result.inviteUrl)
-                            setInviteLinks([
-                              {
-                                id: invite.id,
-                                name: invite.display_name,
-                                email: invite.email,
-                                url: result.inviteUrl,
-                              },
-                            ]);
+                          rememberInvite(
+                            invite.id,
+                            result.inviteUrl,
+                            invite.display_name,
+                            invite.email,
+                          );
                         },
                       )
                     }
@@ -1238,19 +1656,16 @@ function AdminWorkspace({
                       disabled={busy}
                       className={secondary}
                       onClick={() =>
-                        void act<{ inviteUrl: string | null }>(
+                        void adminAct<{ inviteUrl: string | null }>(
                           { action: "resend", orgId, invitationId: invite.id, delivery: "email" },
                           "Invitation email requested.",
                           (result) => {
-                            if (result.inviteUrl)
-                              setInviteLinks([
-                                {
-                                  id: invite.id,
-                                  name: invite.display_name,
-                                  email: invite.email,
-                                  url: result.inviteUrl,
-                                },
-                              ]);
+                            rememberInvite(
+                              invite.id,
+                              result.inviteUrl,
+                              invite.display_name,
+                              invite.email,
+                            );
                           },
                         )
                       }
@@ -1262,9 +1677,10 @@ function AdminWorkspace({
                     disabled={busy}
                     className={secondary}
                     onClick={() =>
-                      void act(
+                      void adminAct(
                         { action: "revoke", orgId, invitationId: invite.id },
                         "Invitation revoked.",
+                        () => rememberInvite(invite.id, null, invite.display_name, invite.email),
                       )
                     }
                   >
@@ -1314,11 +1730,53 @@ const CORE30_CHIP: Record<Core30Display["status"], string> = {
   "not-started": "bg-muted text-muted-foreground",
 };
 
-function Core30Cell({ core }: { core: Core30Display }) {
+function Core30Cell({
+  core,
+  tracks = [],
+  showLinks = false,
+}: {
+  core: Core30Display;
+  tracks?: Core30TrackDisplay[];
+  showLinks?: boolean;
+}) {
+  const showLegacy =
+    !tracks.length || core.mastered > 0 || core.opened > 0 || core.status !== "not-started";
+  return (
+    <div className="space-y-3">
+      {tracks.map((track) => (
+        <div key={track.enrollmentId} className="space-y-1">
+          <p className="text-xs font-medium break-words">
+            {track.instructionLanguage} → {track.targetLanguage} · Team plan
+            {track.startDate ? ` · ${track.startDate}` : ""}
+          </p>
+          <Core30Summary core={track} />
+          {showLinks && (
+            <a
+              className="text-xs underline"
+              href={`/?${new URLSearchParams({ module: track.moduleId, tab: "core30", target: track.targetLanguage, native: track.instructionLanguage, plan: track.enrollmentId })}`}
+            >
+              Open this lesson plan
+            </a>
+          )}
+        </div>
+      ))}
+      {showLegacy && (
+        <div>
+          <p className="text-xs text-muted-foreground">
+            Earlier record · language and plan not recorded
+          </p>
+          <Core30Summary core={core} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Core30Summary({ core }: { core: Core30Display }) {
   return (
     <div className="space-y-1">
       <div>
-        {core.mastered}/{core.total} mastered · {core.opened} opened
+        {core.mastered}/{core.total} currently mastered · {core.opened} opened
       </div>
       <span
         className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${CORE30_CHIP[core.status]}`}
@@ -1345,13 +1803,17 @@ function EmployeeRow({
   act,
   orgId,
   asCard = false,
+  isBusy,
+  isContextCurrent,
 }: {
   member: Member;
   assignment: Assignment;
   data: TeamData;
   asCard?: boolean;
   busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
+  act: TeamAction;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
   orgId: string;
 }) {
   const seconds7 = data.activity7
@@ -1387,6 +1849,9 @@ function EmployeeRow({
             (assignment.module_id === "core" ? "General language" : assignment.module_id)}
         </h4>
         <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
           core={describeCore30(
             data.core30,
             member.user_id,
@@ -1428,6 +1893,8 @@ function EmployeeRow({
           busy={busy}
           act={act}
           assignments={data.assignments}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
           initialAssignment={assignment}
         />
       </div>
@@ -1450,6 +1917,9 @@ function EmployeeRow({
       </td>
       <td className="p-2">
         <Core30Cell
+          tracks={data.core30Tracks?.[member.user_id]?.filter(
+            (track) => track.moduleId === assignment.module_id,
+          )}
           core={describeCore30(
             data.core30,
             member.user_id,
@@ -1475,58 +1945,164 @@ function EmployeeRow({
           busy={busy}
           act={act}
           assignments={data.assignments}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
           initialAssignment={assignment}
         />
-        <ReleaseSeat member={member} orgId={orgId} busy={busy} act={act} />
+        <ReleaseSeat
+          member={member}
+          orgId={orgId}
+          busy={busy}
+          act={act}
+          isBusy={isBusy}
+          isContextCurrent={isContextCurrent}
+        />
       </td>
     </tr>
   );
 }
 
-function ReleaseSeat({
+type ReleaseSeatProps = {
+  member: Member;
+  orgId: string;
+  busy: boolean;
+  act: TeamAction;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
+};
+function ReleaseSeat(props: ReleaseSeatProps) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedReleaseSeat key={JSON.stringify([user.id, props.orgId, props.member])} {...props} />
+  ) : null;
+}
+function OwnedReleaseSeat({
   member,
   orgId,
   busy,
   act,
-}: {
-  member: Member;
-  orgId: string;
-  busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
-}) {
-  return (
-    <button
-      disabled={busy}
-      className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
-      onClick={() => {
-        if (
-          window.confirm(
-            `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
-          )
+  isBusy,
+  isContextCurrent,
+}: ReleaseSeatProps) {
+  const { user, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-release-seat", orgId, member.id]));
+  const pending = useRef<AbortController | null>(null);
+  const completed = useRef(false);
+  const [working, setWorking] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+  const [error, setError] = useState("");
+  const viewCurrent = () =>
+    !!actor &&
+    capture().isCurrent() &&
+    canUseReader(actor) &&
+    isContextCurrent() &&
+    member.role === "learner" &&
+    member.status === "active";
+  async function releaseSeat() {
+    const lease = capture();
+    if (!lease.isCurrent() || !viewCurrent() || isBusy() || pending.current || completed.current)
+      return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      viewCurrent() &&
+      pending.current === controller &&
+      !controller.signal.aborted;
+    setWorking(true);
+    setError("");
+    try {
+      if (
+        !current() ||
+        !window.confirm(
+          `Deactivate ${member.display_name}'s team seat? Their certificate record stays.`,
         )
-          void act({ action: "revoke", orgId, memberId: member.id }, "Seat released.");
-      }}
-    >
-      Release seat
-    </button>
+      )
+        return;
+      if (!current() || isBusy()) return;
+      await act(
+        { action: "revoke", orgId, memberId: member.id },
+        "Seat released.",
+        () => {
+          if (current()) {
+            completed.current = true;
+            setConfirmed(true);
+          }
+        },
+        { isCurrent: current, signal: controller.signal },
+      );
+    } catch (cause) {
+      if (current())
+        setError(cause instanceof Error ? cause.message : "Could not confirm seat release.");
+    } finally {
+      if (lease.isCurrent() && pending.current === controller) setWorking(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
+  return (
+    <div>
+      <button
+        disabled={busy || working || confirmed}
+        className="mt-2 block text-xs text-red-700 dark:text-red-300 underline"
+        onClick={() => void releaseSeat()}
+      >
+        {confirmed ? "Seat release confirmed" : working ? "Releasing seat…" : "Release seat"}
+      </button>
+      {error && (
+        <p role="alert" className="text-xs text-red-700 dark:text-red-300">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 
-function AssignModule({
+type AssignmentEditorProps = {
+  member: Member;
+  assignments: Assignment[];
+  initialAssignment?: Assignment;
+  orgId: string;
+  busy: boolean;
+  act: TeamAction;
+  isBusy: () => boolean;
+  isContextCurrent: () => boolean;
+};
+function AssignModule(props: AssignmentEditorProps) {
+  const { user } = useAuth();
+  const context = JSON.stringify([
+    user?.id ?? null,
+    props.orgId,
+    props.member,
+    props.initialAssignment ?? null,
+    props.assignments.filter((a) => a.user_id === props.member.user_id),
+  ]);
+  return user ? <OwnedAssignModule key={context} {...props} /> : null;
+}
+function OwnedAssignModule({
   member,
   orgId,
   busy,
   act,
   assignments,
   initialAssignment,
-}: {
-  member: Member;
-  assignments: Assignment[];
-  initialAssignment?: Assignment;
-  orgId: string;
-  busy: boolean;
-  act: <T>(body: unknown, message: string, after?: (result: T) => void) => Promise<void>;
-}) {
+  isBusy,
+  isContextCurrent,
+}: AssignmentEditorProps) {
+  const { user, canUseReader } = useAuth();
+  const actor = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["team-assignment", orgId, member.id]));
+  const revision = useRef(0);
+  const renderedRevision = revision.current;
+  const pending = useRef<AbortController | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
   const editableAssignment =
     initialAssignment && getModule(initialAssignment.module_id) ? initialAssignment : undefined;
   const [open, setOpen] = useState(false);
@@ -1534,22 +2110,109 @@ function AssignModule({
   const [requireCertificate, setRequireCertificate] = useState(
     editableAssignment?.require_certificate ?? false,
   );
-  const selectedAssignment = assignments.find(
-    (assignment) => assignment.user_id === member.user_id && assignment.module_id === moduleId,
-  );
+  const current = () =>
+    !!actor &&
+    capture().isCurrent() &&
+    canUseReader(actor) &&
+    isContextCurrent() &&
+    member.role === "learner" &&
+    member.status === "active" &&
+    renderedRevision === revision.current;
+  const editable = () => current() && !isBusy() && !pending.current;
+  function change(write: () => void) {
+    if (!editable()) return;
+    revision.current += 1;
+    setError("");
+    write();
+  }
+  function selectModule(next: string) {
+    if (!getModule(next)) return;
+    change(() => {
+      setModuleId(next);
+      const existing = assignments.find(
+        (a) => a.user_id === member.user_id && a.module_id === next,
+      );
+      setRequireCertificate(next === "roofing" && (existing?.require_certificate ?? false));
+    });
+  }
+  function start() {
+    change(() => {
+      const selected =
+        editableAssignment ??
+        assignments.find((a) => a.user_id === member.user_id && a.module_id === "roofing");
+      setModuleId(selected?.module_id ?? "roofing");
+      setRequireCertificate(
+        selected?.module_id === "roofing" && (selected?.require_certificate ?? false),
+      );
+      setOpen(true);
+    });
+  }
+  async function save() {
+    if (!editable() || !open || !getModule(moduleId)) return;
+    const selected = assignments.find(
+      (a) => a.user_id === member.user_id && a.module_id === moduleId,
+    );
+    const due = selected?.due_at ? new Date(selected.due_at) : null;
+    if (due && !Number.isFinite(due.getTime())) {
+      setError("This assignment has an invalid due date. Refresh the workspace before saving.");
+      return;
+    }
+    const lease = capture();
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const owns = () =>
+      lease.isCurrent() &&
+      current() &&
+      pending.current === controller &&
+      !controller.signal.aborted;
+    let acknowledged = false;
+    setSaving(true);
+    try {
+      await act(
+        {
+          action: "assign",
+          orgId,
+          memberId: member.id,
+          moduleId,
+          requireCertificate: moduleId === "roofing" && requireCertificate,
+          dueAt: due?.toISOString() ?? null,
+        },
+        "Assignment saved.",
+        () => {
+          if (owns()) {
+            acknowledged = true;
+            setOpen(false);
+          }
+        },
+        { isCurrent: owns, signal: controller.signal },
+      );
+    } finally {
+      if (lease.isCurrent() && pending.current === controller) {
+        if (acknowledged) revision.current += 1;
+        setSaving(false);
+      }
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
   return open ? (
     <div className="flex min-w-48 flex-col gap-2">
+      {error && (
+        <p role="alert" className="text-xs text-red-700 dark:text-red-300">
+          {error}
+        </p>
+      )}
       <select
         aria-label={`Module for ${member.display_name}`}
         className={input}
         value={moduleId}
-        onChange={(e) => {
-          setModuleId(e.target.value);
-          const existing = assignments.find(
-            (a) => a.user_id === member.user_id && a.module_id === e.target.value,
-          );
-          setRequireCertificate(existing?.require_certificate ?? false);
-        }}
+        disabled={busy || saving}
+        onChange={(e) => selectModule(e.target.value)}
       >
         {MODULES.map((m) => (
           <option key={m.id} value={m.id}>
@@ -1560,55 +2223,39 @@ function AssignModule({
       <label className="text-xs">
         <input
           type="checkbox"
-          disabled={moduleId !== "roofing"}
+          disabled={busy || saving || moduleId !== "roofing"}
           checked={requireCertificate}
-          onChange={(e) => setRequireCertificate(e.target.checked)}
+          onChange={(e) => {
+            if (moduleId === "roofing") change(() => setRequireCertificate(e.target.checked));
+          }}
         />{" "}
-        Require certificate
+        Require legacy Roofing completion certificate
       </label>
-      <button
-        disabled={busy}
-        className={button}
-        onClick={() =>
-          void act(
-            {
-              action: "assign",
-              orgId,
-              memberId: member.id,
-              moduleId,
-              requireCertificate,
-              dueAt: selectedAssignment?.due_at
-                ? new Date(selectedAssignment.due_at).toISOString()
-                : null,
-            },
-            "Assignment saved.",
-            () => setOpen(false),
-          )
-        }
-      >
-        {assignments.some((a) => a.user_id === member.user_id && a.module_id === moduleId)
+      <button disabled={busy || saving} className={button} onClick={() => void save()}>
+        {selectedModuleExists(assignments, member.user_id, moduleId)
           ? "Save assignment"
           : "Assign module"}
       </button>
-      <button disabled={busy} className={secondary} onClick={() => setOpen(false)}>
+      <button
+        disabled={busy || saving}
+        className={secondary}
+        onClick={() => change(() => setOpen(false))}
+      >
         Cancel
       </button>
     </div>
   ) : (
     <button
+      disabled={busy || saving}
       className="text-xs text-gold-ink dark:text-gold underline"
-      onClick={() => {
-        const selected =
-          editableAssignment ??
-          assignments.find((a) => a.user_id === member.user_id && a.module_id === "roofing");
-        setModuleId(selected?.module_id ?? "roofing");
-        setRequireCertificate(selected?.require_certificate ?? false);
-        setOpen(true);
-      }}
+      onClick={start}
     >
       {editableAssignment ? "Edit assignment" : "Assign module"}
     </button>
   );
+}
+function selectedModuleExists(assignments: Assignment[], userId: string, moduleId: string) {
+  return assignments.some((a) => a.user_id === userId && a.module_id === moduleId);
 }
 
 function LearnerWorkspace({ data }: { data: TeamData }) {
@@ -1641,18 +2288,15 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
               {a.module_id === "roofing" ? "/30" : ""} lessons recorded
             </p>
             {user?.id && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                Core 30:{" "}
-                {(() => {
-                  const core = describeCore30(
-                    data.core30,
-                    user.id,
-                    a.module_id,
-                    core30Total(a.module_id),
-                  );
-                  return `${core.mastered}/${core.total} mastered · ${core.statusLabel}`;
-                })()}
-              </p>
+              <div className="mt-2 text-sm">
+                <Core30Cell
+                  showLinks
+                  tracks={data.core30Tracks?.[user.id]?.filter(
+                    (track) => track.moduleId === a.module_id,
+                  )}
+                  core={describeCore30(data.core30, user.id, a.module_id, core30Total(a.module_id))}
+                />
+              </div>
             )}
             <div className="mt-4 flex flex-wrap gap-2">
               <a href={`/?module=${encodeURIComponent(a.module_id)}&tab=core30`} className={button}>
@@ -1691,7 +2335,13 @@ function LearnerWorkspace({ data }: { data: TeamData }) {
   );
 }
 
-function RoofingAssessment({
+function RoofingAssessment(props: Parameters<typeof OwnedRoofingAssessment>[0]) {
+  const { user } = useAuth();
+  return user ? (
+    <OwnedRoofingAssessment key={JSON.stringify([user.id, props.orgId])} {...props} />
+  ) : null;
+}
+function OwnedRoofingAssessment({
   orgId,
   lessons,
   attempts,
@@ -1702,6 +2352,10 @@ function RoofingAssessment({
   attempts: Attempt[];
   certificate: Certificate | null;
 }) {
+  const { user, canUseReader } = useAuth();
+  const userId = user?.id;
+  const { capture } = usePracticeLifecycle(JSON.stringify(["legacy-roofing-quiz", orgId]));
+  const pending = useRef<AbortController | null>(null);
   const [quiz, setQuiz] = useState<{ attemptId: string; questions: QuizQuestion[] } | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<{
@@ -1714,38 +2368,95 @@ function RoofingAssessment({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const best = Math.max(0, ...attempts.map((a) => a.score ?? 0));
-  async function start() {
+  const latest = useRef({ quiz, answers });
+  latest.current = { quiz, answers };
+  async function run(kind: "start" | "submit") {
+    const lease = capture();
+    if (!userId || !canUseReader(userId) || !lease.isCurrent() || pending.current) return;
+    const snapshot = latest.current;
+    if (kind === "start" && snapshot.quiz) return;
+    if (
+      kind === "submit" &&
+      (!quiz ||
+        snapshot.quiz !== quiz ||
+        snapshot.answers !== answers ||
+        quiz.questions.length !== Object.keys(answers).length ||
+        !quiz.questions.every((q) => q.options.includes(answers[q.id])))
+    )
+      return;
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => {
+      controller.abort();
+      if (pending.current === controller) pending.current = null;
+    });
+    const current = () =>
+      lease.isCurrent() &&
+      canUseReader(userId) &&
+      pending.current === controller &&
+      !controller.signal.aborted;
     setBusy(true);
     setError("");
     try {
-      setQuiz(await teamRequest("/api/team-assessment", { action: "start", orgId }));
-      setAnswers({});
-      setResult(null);
+      const owner = { userId, isCurrent: current, signal: controller.signal };
+      if (kind === "start") {
+        const next = await ownedTeamRequest<NonNullable<typeof quiz>>(
+          owner,
+          "/api/team-assessment",
+          { action: "start", orgId },
+        );
+        if (!current()) return;
+        latest.current = { quiz: next, answers: {} };
+        setQuiz(next);
+        setAnswers({});
+        setResult(null);
+      } else {
+        const next = await ownedTeamRequest<NonNullable<typeof result>>(
+          owner,
+          "/api/team-assessment",
+          { action: "submit", attemptId: quiz!.attemptId, answers: { ...snapshot.answers } },
+        );
+        if (!current()) return;
+        latest.current = { quiz: null, answers: {} };
+        setResult(next);
+        setQuiz(null);
+        setAnswers({});
+      }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not start test.");
+      if (current())
+        setError(
+          cause instanceof Error
+            ? cause.message
+            : kind === "start"
+              ? "Could not start test."
+              : "Could not submit test.",
+        );
     } finally {
-      setBusy(false);
+      if (lease.isCurrent() && pending.current === controller) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
     }
   }
-  async function submit() {
-    if (!quiz) return;
-    setBusy(true);
-    setError("");
-    try {
-      setResult(
-        await teamRequest("/api/team-assessment", {
-          action: "submit",
-          attemptId: quiz.attemptId,
-          answers,
-        }),
-      );
-      setQuiz(null);
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not submit test.");
-    } finally {
-      setBusy(false);
-    }
+  function answer(question: QuizQuestion, option: string) {
+    const lease = capture();
+    if (
+      !userId ||
+      !canUseReader(userId) ||
+      !lease.isCurrent() ||
+      pending.current ||
+      !quiz ||
+      latest.current.quiz !== quiz ||
+      !quiz.questions.includes(question) ||
+      !question.options.includes(option)
+    )
+      return;
+    const next = { ...latest.current.answers, [question.id]: option };
+    latest.current = { quiz, answers: next };
+    setAnswers(next);
   }
+  const start = () => run("start"),
+    submit = () => run("submit");
   return (
     <div className="mt-5 border-t border-border pt-4">
       <h4 className="font-semibold">Roofing Spanish completion test</h4>
@@ -1796,7 +2507,8 @@ function RoofingAssessment({
                       type="radio"
                       name={q.id}
                       checked={answers[q.id] === option}
-                      onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: option }))}
+                      disabled={busy || !userId || !canUseReader(userId)}
+                      onChange={() => answer(q, option)}
                     />
                     {option}
                   </label>
@@ -1805,7 +2517,12 @@ function RoofingAssessment({
             </fieldset>
           ))}
           <button
-            disabled={busy || Object.keys(answers).length !== quiz.questions.length}
+            disabled={
+              busy ||
+              !userId ||
+              !canUseReader(userId) ||
+              Object.keys(answers).length !== quiz.questions.length
+            }
             onClick={() => void submit()}
             className={button}
           >
@@ -1813,7 +2530,11 @@ function RoofingAssessment({
           </button>
         </div>
       ) : (
-        <button disabled={busy} onClick={() => void start()} className={secondary + " mt-3"}>
+        <button
+          disabled={busy || !userId || !canUseReader(userId)}
+          onClick={() => void start()}
+          className={secondary + " mt-3"}
+        >
           <BookOpen className="mr-1 inline h-4 w-4" /> {busy ? "Loading…" : "Start or retake test"}
         </button>
       )}

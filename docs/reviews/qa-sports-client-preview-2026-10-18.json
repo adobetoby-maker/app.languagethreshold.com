@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T08:27:02.663176+00:00",
+  "applicationCommit": "8f1a360e1ecdfa3edee5fed57d1a86f9c8d0fec2",
+  "preview": "https://language-threshold-eb61cnlap-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-eb61cnlap-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_C7jcgGjJ85K3kLYe8yivJKXahsR5",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-eb61cnlap-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "8f1a360e1ecdfa3edee5fed57d1a86f9c8d0fec2",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-sports-news-preview-2026-10-18.json",
+  "local": {
+    "tests": 1365,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1473,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "SportsNewsPanel uses the existing actual-account lifecycle with sport, favorite team and display language context; one owned active request, no-store fetch and context/unmount abort",
+    "Late response headers are disposed, parsed bodies/errors/finally updates require current ownership, completed actions release resources and departed actions cannot clear a replacement request",
+    "Result ownership key hides prior articles/errors before passive effects on account or selection changes; replacement effect clears articles/error and resets visible count/filter before new load",
+    "Retained refresh and favorite-team callbacks cannot dispatch through an old owner; duplicate refresh invocations share one active request; current failures use fixed non-echoed text and permit explicit retry",
+    "Four controlled actual-component plus actual-lifecycle groups cover selection/actor-to-guest-to-B replacement, late headers/body parse/rejection, pre-effect hiding, unmount, duplicate refresh, retained callbacks, fixed errors and view reset",
+    "Eleven hosted checker groups pass at exact application commit; sports checks deny input before RSS retrieval and no actual browser/feed/provider/model/audio/consent/push action occurred"
+  ],
+  "controlledEvidence": [
+    "tests/sports-news-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "c9887e5",
+    "source": "src/components/soccer/SportsNewsPanel.tsx",
+    "case": "Retained refresh callback invoked twice during initial pending fetch",
+    "oldRequestCount": 3,
+    "expectedRequestCount": 1,
+    "currentPass": true,
+    "limit": "Actual historical component in controlled hooks/auth/fetch fixture; assertion fails on request count before later cases. No real news/browser request."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-sports-client-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled hook/auth/transport fixtures are not actual browser effect scheduling, real SDK expiry, device layout/accessibility, physical audio or live feed acceptance.",
+    "Current change owns requests and late updates. It does not add a browser-wide request/JSON wait deadline, response byte bound or full article schema validation; those remain separate follow-up work.",
+    "Abort cannot undo public feed work already accepted by the server; ignored fetch may remain pending underneath, while departed results cannot mutate the mounted replacement. Native/platform cancellation/buffering is not proved.",
+    "Remaining helper/provider/endpoint/cache/diagnostics/device inventory, durable reminder unknown-write receipts, real current A/guest/B/restore/SDK expiry/process-restart and all human/content/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deploy pin retained; absent metadata env is not false readback proof. No schema/role/policy/schedule/main push, production promotion or accepted-hostname advance."
+  ]
+}

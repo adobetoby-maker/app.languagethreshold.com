@@ -4,8 +4,9 @@ import { toast } from "sonner";
 import { useApp, type Language } from "@/state/app-state";
 import { useSpeak } from "@/state/speak-state";
 import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
+import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+import { useAuth } from "@/state/auth-state";
 import { celebrate, looseIncludes } from "@/lib/confetti";
 import { getModule } from "@/data/modules";
 import { matchesFocus } from "@/lib/module-filter";
@@ -140,6 +141,36 @@ export function SpeakLearn() {
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const sessionStartRef = useRef<number | null>(null);
+  const { isCurrentUser } = useAuth();
+  const {
+    key: lifecycleKey,
+    actor,
+    capture,
+    cancel,
+  } = usePracticeLifecycle(
+    JSON.stringify([
+      language,
+      state.nativeLanguage,
+      state.activeModuleId,
+      accent,
+      voiceURI,
+      surface,
+    ]),
+  );
+  const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(lifecycleKey);
+  useEffect(() => {
+    setListening(false);
+    setInterim("");
+    setThinking(false);
+  }, [lifecycleKey]);
+  const stopPractice = () => {
+    if (!capture().isCurrent()) return;
+    cancel();
+    stopOwned();
+    setListening(false);
+    setInterim("");
+    setThinking(false);
+  };
 
   useEffect(() => {
     setSpeakingPrivacyMode(true);
@@ -164,14 +195,12 @@ export function SpeakLearn() {
   // Track conversation minutes — start clock on first user turn, flush on unmount
   useEffect(() => {
     return () => {
-      recognitionRef.current?.abort();
-      abortRef.current?.abort();
-      if (typeof window !== "undefined" && window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-      }
-      stopRemoteTTS();
       if (sessionStartRef.current != null) {
         const secs = Math.round((Date.now() - sessionStartRef.current) / 1000);
+        if (actor !== null && !isCurrentUser(actor)) {
+          sessionStartRef.current = null;
+          return;
+        }
         addSeconds(secs);
         if (secs > 0) {
           dispatch({
@@ -182,23 +211,13 @@ export function SpeakLearn() {
         sessionStartRef.current = null;
       }
     };
-  }, [addSeconds, dispatch, language]);
+  }, [addSeconds, dispatch, language, actor, isCurrentUser]);
 
   const speakAloud = useCallback(
     (text: string) => {
-      if (typeof window === "undefined") return;
-      if (needsRemoteTTS(accent, voiceURI)) {
-        void speakRemote(text, accent, { rate: 1, voiceURI });
-        return;
-      }
-      if (!window.speechSynthesis) return;
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      configureUtterance(u, accent, voiceURI);
-      u.rate = 1;
-      window.speechSynthesis.speak(u);
+      speakOwned(text, accent, voiceURI, 1);
     },
-    [accent, voiceURI],
+    [speakOwned, accent, voiceURI],
   );
 
   const awardExchange = () => {
@@ -207,10 +226,21 @@ export function SpeakLearn() {
   };
 
   const fetchGrammarTip = async (userId: string, userText: string) => {
+    const lease = capture();
+    if (!lease.isCurrent()) return;
+    const ctrl = new AbortController();
+    const release = lease.own(() => ctrl.abort());
+    const current = () => lease.isCurrent() && !ctrl.signal.aborted;
     try {
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        ctrl.signal,
+      );
+      if (!current()) return;
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: await speakingRequestHeaders(),
+        headers,
+        signal: ctrl.signal,
         body: JSON.stringify({
           mode: "tip",
           language,
@@ -219,19 +249,28 @@ export function SpeakLearn() {
           userText,
         }),
       });
-      if (!res.ok) return;
+      if (!current() || !res.ok) return;
       const data = (await res.json()) as { tip: string | null };
-      if (data.tip) setTipFor(userId, data.tip);
+      if (current() && data.tip) setTipFor(userId, data.tip);
     } catch {
-      /* soft-fail */
+      /* Optional tip; cancellation is silent. */
+    } finally {
+      release();
     }
   };
 
   const streamReply = async (userText: string) => {
+    const lease = capture();
+    if (!lease.isCurrent() || abortRef.current) return;
     setThinking(true);
-    abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
+    const release = lease.own(() => {
+      ctrl.abort();
+      if (abortRef.current === ctrl) abortRef.current = null;
+    });
+    const current = () => lease.isCurrent() && !ctrl.signal.aborted && abortRef.current === ctrl;
+    let closeReader: (() => void) | undefined;
 
     // Build history payload from existing turns + new user turn
     const history = [
@@ -243,9 +282,14 @@ export function SpeakLearn() {
     ];
 
     try {
+      const headers = await speakingRequestHeaders(
+        { userId: actor ?? "", isCurrent: current },
+        ctrl.signal,
+      );
+      if (!current()) return;
       const res = await fetch("/api/speak", {
         method: "POST",
-        headers: await speakingRequestHeaders(),
+        headers,
         body: JSON.stringify({
           mode: "chat",
           language,
@@ -260,6 +304,10 @@ export function SpeakLearn() {
         signal: ctrl.signal,
       });
 
+      if (!current()) {
+        void res.body?.cancel().catch(() => {});
+        return;
+      }
       if (!res.ok) {
         let msg = "AI reply failed.";
         try {
@@ -268,6 +316,7 @@ export function SpeakLearn() {
         } catch {
           /* ignore */
         }
+        if (!current()) return;
         toast("Conversation paused", { description: msg });
         setThinking(false);
         return;
@@ -279,6 +328,14 @@ export function SpeakLearn() {
 
       const aiTurn = addTurn("ai", "");
       const reader = res.body.getReader();
+      const disposeReader = () => {
+        void reader.cancel().catch(() => {});
+      };
+      const releaseReader = lease.own(disposeReader);
+      closeReader = () => {
+        releaseReader();
+        disposeReader();
+      };
       const decoder = new TextDecoder();
       let buf = "";
       let full = "";
@@ -286,6 +343,7 @@ export function SpeakLearn() {
 
       while (!done) {
         const { done: d, value } = await reader.read();
+        if (!current()) return;
         if (d) break;
         buf += decoder.decode(value, { stream: true });
         let idx: number;
@@ -314,6 +372,7 @@ export function SpeakLearn() {
         }
       }
 
+      if (!current()) return;
       setThinking(false);
       if (full.trim()) {
         speakAloud(full);
@@ -321,12 +380,20 @@ export function SpeakLearn() {
         awardExchange();
       }
     } catch (e: unknown) {
+      if (!current()) return;
       setThinking(false);
       if (!(e instanceof DOMException && e.name === "AbortError")) {
         toast("Network error", {
           description: "Couldn't reach the conversation partner.",
         });
       }
+    } finally {
+      closeReader?.();
+      if (current()) {
+        setThinking(false);
+        abortRef.current = null;
+      }
+      release();
     }
   };
 
@@ -337,6 +404,7 @@ export function SpeakLearn() {
   };
 
   const doSubmitTurn = (trimmed: string) => {
+    if (!capture().isCurrent() || abortRef.current || !learningPairIsValid) return;
     if (sessionStartRef.current == null) sessionStartRef.current = Date.now();
     const userTurn = addTurn("user", trimmed);
 
@@ -373,6 +441,8 @@ export function SpeakLearn() {
   };
 
   const startListening = () => {
+    const lease = capture();
+    if (!lease.isCurrent() || recognitionRef.current || abortRef.current) return;
     const Ctor = getRecognitionCtor();
     if (!Ctor) {
       toast("Speech recognition not supported", {
@@ -387,30 +457,67 @@ export function SpeakLearn() {
       rec.interimResults = true;
 
       let finalText = "";
+      let ended = false;
+      const current = () => lease.isCurrent() && recognitionRef.current === rec && !ended;
+      const dispose = () => {
+        rec.onresult = null;
+        rec.onerror = null;
+        rec.onend = null;
+        if (recognitionRef.current === rec) recognitionRef.current = null;
+        try {
+          rec.abort();
+        } catch {
+          /* Browser may already have stopped. */
+        }
+      };
+      const release = lease.own(dispose);
+      const finalResults = new Map<number, string>();
       rec.onresult = (e) => {
+        if (!current()) return;
         let interimText = "";
         for (let i = e.resultIndex; i < e.results.length; i++) {
           const r = e.results[i];
-          if (r.isFinal) finalText += r[0].transcript;
+          if (r.isFinal) finalResults.set(i, r[0].transcript);
           else interimText += r[0].transcript;
         }
+        finalText = [...finalResults]
+          .sort(([a], [b]) => a - b)
+          .map(([, value]) => value)
+          .join(" ");
         setInterim(interimText);
       };
       rec.onerror = (e) => {
+        if (!current()) return;
+        ended = true;
+        release();
+        dispose();
+        setListening(false);
+        setInterim("");
         if (e?.error && e.error !== "no-speech" && e.error !== "aborted") {
           toast("Mic error", { description: String(e.error) });
         }
       };
       rec.onend = () => {
+        if (!current()) return;
+        ended = true;
+        release();
+        dispose();
         setListening(false);
         setInterim("");
         if (finalText.trim()) submitTurn(finalText);
       };
 
       recognitionRef.current = rec;
-      rec.start();
-      setListening(true);
+      try {
+        rec.start();
+        setListening(true);
+      } catch (err) {
+        release();
+        dispose();
+        throw err;
+      }
     } catch (err) {
+      if (!lease.isCurrent()) return;
       toast("Could not start mic", {
         description: err instanceof Error ? err.message : "Unknown error",
       });
@@ -420,6 +527,7 @@ export function SpeakLearn() {
   const stopListening = () => recognitionRef.current?.stop();
 
   const sendChip = (text: string) => {
+    if (!capture().isCurrent() || abortRef.current) return;
     speakAloud(text);
     submitTurn(text);
   };
@@ -513,7 +621,10 @@ export function SpeakLearn() {
         </div>
         {surface === "conversation" && turns.length > 0 && (
           <button
-            onClick={clear}
+            onClick={() => {
+              stopPractice();
+              clear();
+            }}
             className="flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             <Trash2 className="h-3.5 w-3.5" />

@@ -1,0 +1,125 @@
+{
+  "testedAt": "2026-10-18T10:08:44.946326+00:00",
+  "applicationCommit": "b7c3a24159c7830d04b3958541290c56b690cba8",
+  "preview": "https://language-threshold-ib12h8hyu-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ib12h8hyu-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_CknxefSua3AJ3EaBhMPPD7LXix5n",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ib12h8hyu-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "b7c3a24159c7830d04b3958541290c56b690cba8",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-reads-preview-2026-10-18.json",
+  "local": {
+    "tests": 1403,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1508,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Company/invitation, billing, custom-module and platform-admin routes use scopedTeamError for all eight GET/POST catches; shared teamError compatibility export aliases the same handler with no raw-message/regex fallback",
+    "Forty route-local literal guidance messages retain historical text/status via explicit TeamOperationError. Shared admin/owner denials and email configuration guidance are typed; unexpected backend errors use fixed 503, ZodError/SyntaxError use fixed 400 with no input/schema details",
+    "Twelve new actual-route controlled groups cover all eight method catches for SDK error/missing auth and four POST schema/syntax failures with zero private/side-effect calls; additional actual shared admin/owner denial test preserves fixed 403",
+    "Fourteen hosted checker groups pass, including eight new unauthenticated workflow GET/POST denials; no actual payment, invitation, grant, certificate or email operation",
+    "Refreshed AST inventory finds zero direct legacy helper calls, twelve scoped calls across eight route files and an actual compatibility alias initializer. This is bounded direct-import evidence, not appwide safety proof"
+  ],
+  "controlledEvidence": [
+    "tests/team-workflow-errors.test.mjs",
+    "tests/team-json-response.test.mjs",
+    "tests/team-lesson-replay-handler.test.mjs"
+  ],
+  "literalGuidanceComparison": {
+    "historicalSource": "e76a8fa",
+    "records": [
+      {
+        "file": "src/routes/api.team.ts",
+        "fixedRouteGuidanceCompared": 11,
+        "originalMessagesAndStatusesRetained": true
+      },
+      {
+        "file": "src/routes/api.team-billing.ts",
+        "fixedRouteGuidanceCompared": 16,
+        "originalMessagesAndStatusesRetained": true
+      },
+      {
+        "file": "src/routes/api.module-request.ts",
+        "fixedRouteGuidanceCompared": 5,
+        "originalMessagesAndStatusesRetained": true
+      },
+      {
+        "file": "src/routes/api.platform.ts",
+        "fixedRouteGuidanceCompared": 8,
+        "originalMessagesAndStatusesRetained": true
+      }
+    ],
+    "totalFixedRouteGuidance": 40,
+    "limits": "Only literal new Error expressions in four route files, not all nested helpers or runtime workflow behavior."
+  },
+  "baselineComparison": {
+    "commit": "e76a8fa",
+    "source": "src/lib/team-server.ts",
+    "case": "Historical legacy helper with unexpected synthetic Error",
+    "oldLeaksSyntheticPrivateText": true,
+    "currentCompatibilityAliasFixed": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual old helper with synthetic text, no network/SDK/write."
+  },
+  "diagnostics": [
+    "Existing replay fixture could not resolve new zod import from its plugin namespace; added resolveDir before combined focused/full pass. Baseline failure is actual private-text assertion."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-workflows-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "No successful invitation, checkout/portal/quote/seat change, subscription synchronization, module request/payment, ledger/grant/owner action, certificate, email, consent or provider call occurred. Side effects and SDK services in local tests are controlled stubs; hosted workflow requests have no bearer credential.",
+    "Unexpected errors now use 503; schema and syntax exceptions use fixed 400. An error is not proof that earlier writes or external services were rolled back; existing unknown-outcome reconciliation remains separate. No auth/input/SDK/database/write/provider deadline, byte bound, atomicity or exactly-once guarantee added.",
+    "Public typed errors are a code-only trust boundary for fixed reviewed strings; wrapping backend/user content in that class would bypass suppression. Forty route-local literal checks do not cover every nested helper or successful workflow path.",
+    "Zero direct legacy calls is only this exact module import/AST inventory, excluding re-exports, arbitrary alias chains/dynamic calls, custom Response paths, automatic telemetry and broader endpoint/device/cache privacy. Existing URL middleware can overwrite cache-control to no-store.",
+    "All content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform and session/device/process-restart gates remain open. Legacy catalog grants/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

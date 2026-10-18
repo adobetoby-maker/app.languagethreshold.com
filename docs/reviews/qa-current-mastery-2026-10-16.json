@@ -1,0 +1,35 @@
+{
+  "testedAt": "2026-10-17T00:27:22.994836+00:00",
+  "sourceCommit": "ea54a27",
+  "preview": "https://language-threshold-leefe4nda-adobetoby-5572s-projects.vercel.app",
+  "scope": "Isolated guest browser self-report fixture; no signed-in learner or official assessment changes",
+  "checks": {
+    "declaredMasteryOne": true,
+    "needsPracticeDropsCurrentMasteryToZero": true,
+    "earlierCompletionRemainsOne": true,
+    "flaggedLessonRemainsReviewableAtZeroCurrentMastery": true,
+    "flaggedPracticeIsFirstLessonAction": true,
+    "needsPracticeStateSurvivesRefresh": true,
+    "practiceButtonOpensCorrectLesson": true,
+    "declareAgainRestoresOneCurrentMastery": true,
+    "noDuplicateCompletion": true,
+    "reviewLabelSaysPreviouslyMarked": true
+  },
+  "precedingBuild": "b992f3c browser loop passed counts/history but exposed next-up advancing to Lesson2 while Lesson1 needed practice. ea54a27 prioritizes the flagged lesson and clarifies review history.",
+  "validation": {
+    "unitTests": 729,
+    "typecheck": "clean",
+    "lintErrors": 0,
+    "lintWarnings": 41,
+    "artifactMiB": 19.55,
+    "teamProjection": "Production describeCore30 test now includes a historically mastered needs-practice lesson and excludes it from current count"
+  },
+  "schedule": "Final browser trial uses the default Oct16 start and manual Review now; no accelerated calendar acceptance is claimed.",
+  "screenshot": "/Users/drive/git-backups/language-threshold-practice-needed-plan-2026-10-16.png",
+  "limits": [
+    "Guest self-report is a synthetic usability fixture, not proof the tester learned the lesson",
+    "No profile, team member, official score or certificate was altered",
+    "No new signed-in admin browser-count, physical phone or offline-mastery acceptance",
+    "Original mastery stamps and review records are preserved in production reducer tests; calendar all-practice-needed review is covered by production schedule tests"
+  ]
+}

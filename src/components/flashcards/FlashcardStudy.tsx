@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Volume2, X, RotateCcw } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
 import { updateSM2, sortByDue } from "@/state/sm2";
-import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote } from "@/lib/tts";
+import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
 
 const LOCALE: Record<Language, string> = {
   Spanish: "es-CR",
@@ -58,26 +57,12 @@ export function FlashcardStudy({
   const total = cards.length;
   const current = queue[0];
   const done = queue.length === 0;
-  const voiceUnavailable = useRef(false);
-
+  const speakOwned = useOwnedSpeaker(backLanguage);
   const speak = useCallback(
     (text: string) => {
-      const locale = LOCALE[backLanguage] ?? "es-CR";
-      if (needsRemoteTTS(locale)) {
-        void speakRemote(text, locale, { rate: 0.9 });
-        return;
-      }
-      if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-        voiceUnavailable.current = true;
-        return;
-      }
-      const utter = new SpeechSynthesisUtterance(text);
-      configureUtterance(utter, locale, undefined);
-      utter.rate = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utter);
+      speakOwned(text, LOCALE[backLanguage] ?? "es-CR");
     },
-    [backLanguage],
+    [backLanguage, speakOwned],
   );
 
   useEffect(() => {
@@ -146,9 +131,7 @@ export function FlashcardStudy({
   return (
     <div className="mx-auto max-w-sm px-5 pt-6 pb-16">
       <div className="mb-4 flex items-center justify-between">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-          {title}
-        </span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{title}</span>
         <button
           onClick={onExit}
           aria-label="Exit"

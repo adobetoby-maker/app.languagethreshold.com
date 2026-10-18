@@ -1,0 +1,106 @@
+{
+  "testedAt": "2026-10-18T11:54:50.377Z",
+  "applicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "preview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "team-activity",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "missing-auth",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "oversized-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "missing-auth",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "oversized-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Invalid origin/JSON/schema/size plus valid-schema missing-auth denials, all without Authorization. These cannot authorize team writes even on historical routes; valid schemas stop at missing-bearer authentication before database operations. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

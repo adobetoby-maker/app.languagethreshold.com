@@ -1,4 +1,10 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { anthropicTextStream } from "@/lib/anthropic-text-stream";
+import {
+  withConversationProvider,
+  ConversationProviderError,
+  conversationResponseHeaders,
+} from "@/lib/conversation-provider";
+import { prepareConversationRequest } from "@/lib/conversation-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { initSentry, Sentry } from "../lib/sentry";
@@ -83,107 +89,91 @@ function companionPrompt(p: z.infer<typeof BodySchema>) {
 
 // Wraps an Anthropic stream in a ReadableStream emitting OpenAI-compatible SSE
 // so existing client parsers (choices[0].delta.content) work without changes.
-function anthropicStreamToSSE(
-  stream: AsyncIterable<Anthropic.MessageStreamEvent>,
-): ReadableStream<Uint8Array> {
-  const enc = new TextEncoder();
-  return new ReadableStream({
-    async start(controller) {
-      try {
-        for await (const event of stream) {
-          if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-            const chunk = `data: ${JSON.stringify({ choices: [{ delta: { content: event.delta.text } }] })}\n\n`;
-            controller.enqueue(enc.encode(chunk));
-          }
-        }
-        controller.enqueue(enc.encode("data: [DONE]\n\n"));
-      } finally {
-        controller.close();
-      }
-    },
-  });
-}
 
 export const Route = createFileRoute("/api/discussion")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        let payload: z.infer<typeof BodySchema>;
-        try {
-          payload = BodySchema.parse(await request.json());
-        } catch (e) {
-          return new Response(
-            JSON.stringify({ error: e instanceof Error ? e.message : "Invalid input" }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
-          );
-        }
+        const prepared = await prepareConversationRequest(request, BodySchema);
+        if (prepared.response) return prepared.response;
+        const payload = prepared.data;
 
         const KEY = process.env.ANTHROPIC_API_KEY;
         if (!KEY) {
           return new Response(JSON.stringify({ error: "AI is not configured" }), {
             status: 500,
-            headers: { "Content-Type": "application/json" },
+            headers: conversationResponseHeaders("application/json"),
           });
         }
 
-        const client = new Anthropic({ apiKey: KEY });
         const system =
           payload.mode === "investigator" ? investigatorPrompt(payload) : companionPrompt(payload);
 
         // Companion mode: single short tip (non-streaming)
         if (payload.mode === "companion") {
           try {
-            const response = await client.messages.create({
-              model: "claude-haiku-5-5",
-              max_tokens: 200,
-              thinking: { type: "disabled" },
-              system,
-              messages: [
+            return await withConversationProvider(request, KEY, async (client, options) => {
+              const response = await client.messages.create(
                 {
-                  role: "user",
-                  content: `Missionary just said (in ${payload.language}): "${payload.userText ?? ""}"`,
+                  model: "claude-haiku-5-5",
+                  max_tokens: 200,
+                  thinking: { type: "disabled" },
+                  system,
+                  messages: [
+                    {
+                      role: "user",
+                      content: `Missionary just said (in ${payload.language}): "${payload.userText ?? ""}"`,
+                    },
+                  ],
                 },
-              ],
+                options,
+              );
+              const tip =
+                response.content[0]?.type === "text" ? response.content[0].text.trim() : null;
+              return new Response(JSON.stringify({ tip }), {
+                status: 200,
+                headers: conversationResponseHeaders("application/json"),
+              });
             });
-            const tip =
-              response.content[0]?.type === "text" ? response.content[0].text.trim() : null;
-            return new Response(JSON.stringify({ tip }), {
-              status: 200,
-              headers: { "Content-Type": "application/json" },
-            });
-          } catch {
+          } catch (error) {
+            if (error instanceof ConversationProviderError && error.status !== 502) {
+              return new Response(JSON.stringify({ error: "AI request failed." }), {
+                status: error.status,
+                headers: conversationResponseHeaders("application/json"),
+              });
+            }
             return new Response(JSON.stringify({ tip: null }), {
               status: 200,
-              headers: { "Content-Type": "application/json" },
+              headers: conversationResponseHeaders("application/json"),
             });
           }
         }
 
         // Investigator mode: streaming
         try {
-          const stream = await client.messages.create({
-            model: "claude-haiku-5-5",
-            max_tokens: 384,
-            thinking: { type: "disabled" },
-            system,
-            messages: payload.messages,
-            stream: true,
-          });
+          return await withConversationProvider(request, KEY, async (client, options) => {
+            const stream = await client.messages.create(
+              {
+                model: "claude-haiku-5-5",
+                max_tokens: 384,
+                thinking: { type: "disabled" },
+                system,
+                messages: payload.messages,
+                stream: true,
+              },
+              options,
+            );
 
-          return new Response(anthropicStreamToSSE(stream), {
-            status: 200,
-            headers: {
-              "Content-Type": "text/event-stream",
-              "Cache-Control": "no-cache, no-transform",
-              Connection: "keep-alive",
-            },
+            return new Response(anthropicTextStream(stream), {
+              status: 200,
+              headers: conversationResponseHeaders("text/event-stream"),
+            });
           });
-        } catch (e) {
-          Sentry.captureException(e);
-          console.error("Discussion stream error:", e);
+        } catch (error) {
+          Sentry.captureException(new Error("discussion provider request failed"));
           return new Response(JSON.stringify({ error: "AI request failed." }), {
-            status: 500,
-            headers: { "Content-Type": "application/json" },
+            status: error instanceof ConversationProviderError ? error.status : 500,
+            headers: conversationResponseHeaders("application/json"),
           });
         }
       },

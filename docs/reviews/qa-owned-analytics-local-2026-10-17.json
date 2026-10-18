@@ -1,0 +1,44 @@
+{
+  "testedAt": "2026-10-17T19:28:25.696982+00:00",
+  "sourceCommit": "4cb03c7e80b9861dc221480126c11a31012d26a8",
+  "scope": "Local Field Prep analytics identity and feedback acknowledgement; not deployed/hosted transport proof",
+  "latestHostedApplication": "78b3f5bc9344400b3e0511a53a4db9406b2db898",
+  "latestHostedPreview": "https://language-threshold-91ol2zv5p-adobetoby-5572s-projects.vercel.app",
+  "latestHostedEvidence": "docs/reviews/qa-picker-preview-2026-10-17.json",
+  "localVerification": {
+    "tests": 968,
+    "newControlledGroups": 4,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "localStageArtifactMiB": 19.74,
+    "privateBank": {
+      "testedAt": "2026-10-17T19:27:29.735Z",
+      "sourceCommit": "4cb03c7",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1231,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "changes": [
+    "Replaced browser-wide analytics singleton/sessionStorage ID and anon fallback with an explicit per-mounted-instance factory; parent shares its instance with feedback child. No actor singleton or browser persistence; legacy bytes untouched.",
+    "Hook creates factory in effect, aborts/disposes on cleanup, creates fresh instance on setup; SDK session owner checked against captured actor before existing insert, abort signal passed to PostgREST. No new role/schema/policy or manufactured ownership column.",
+    "Known event/metadata/feedback fields only, bounded strings/counts/comments and20pending requests maximum; unused arbitrary error logging API removed.",
+    "Feedback reports confirmed success only after error-free current-instance return; double submit blocked, failures retry, late unmounted replies and close timers ignored; rating buttons labelled and textarea capped2000characters."
+  ],
+  "controlledProof": [
+    "Actual factory separate A/B/remount identifiers, same-instance event/feedback grouping",
+    "Throwing legacy sessionStorage getter never touched",
+    "Known metadata/columns only, invalid values and pending cap rejected",
+    "Database error/throw returns false; disposal aborts signal and late/foreign-owner replies return false",
+    "Actual feedback component controlled hook harness: failed save stays open with error, duplicate submit blocked, retry success, unmounted late reply and captured timer cannot close new UI"
+  ],
+  "limits": [
+    "Factory and feedback production code run with controlled insert/auth predicates/hooks/timers. Hook session-check/SDK adapter source reviewed; actual SDK dispatch/account-switch behavior and hosted table grants/RLS/delivery remain unverified. Cancellation cannot undo a request already accepted by the server.",
+    "Existing analytics tables do not appear in repository migrations/generated database types; this does not establish their hosted existence or policy state. No database objects/policies were added or changed to force success.",
+    "No browser actions, hosted feedback/telemetry writes, new deployment, hosted QA or alias inspection; current78b3f5b evidence remains separately dated.",
+    "Direct utterance/device sample cleanup, Reader/device guidance and wider component/lib privacy inventory remain open; not app-wide privacy completion.",
+    "No model requests/schema/role/active speech/retention/schedule/main/alias/production changes. Additional prepared-start RPC approval pending, no apply/wiring, adaptive capability off. All release gates/full goal remain open."
+  ]
+}

@@ -4,10 +4,15 @@ import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "./auth/AuthModal";
 
 const DISMISSED_KEY = "lt.save-progress-dismissed";
-const EARNED_KEY = "lt.save-progress-earned";
 
 export function SaveProgressBanner() {
   const { user, loading } = useAuth();
+  // Unmount guest eligibility and open auth UI at every authenticated/loading boundary.
+  if (user || loading) return null;
+  return <GuestSaveProgressBanner />;
+}
+
+function GuestSaveProgressBanner() {
   const [dismissed, setDismissed] = useState(() => {
     try {
       return localStorage.getItem(DISMISSED_KEY) === "1";
@@ -16,22 +21,13 @@ export function SaveProgressBanner() {
     }
   });
   const [authOpen, setAuthOpen] = useState(false);
-  const [earned, setEarned] = useState(() => {
-    try {
-      return localStorage.getItem(EARNED_KEY) === "1";
-    } catch {
-      return false;
-    }
-  });
+  // Eligibility describes this guest visit only. Old device-wide flags may
+  // originate from another learner and are deliberately left unread/untouched.
+  const [earned, setEarned] = useState(false);
   const [wordCardOpen, setWordCardOpen] = useState(false);
 
   useEffect(() => {
     const onMeaningfulAction = () => {
-      try {
-        localStorage.setItem(EARNED_KEY, "1");
-      } catch {
-        /* local-only eligibility is best effort */
-      }
       setEarned(true);
     };
     const onWordCardState = (event: Event) => {
@@ -45,7 +41,7 @@ export function SaveProgressBanner() {
     };
   }, []);
 
-  if (user || dismissed || loading || !earned || wordCardOpen) return null;
+  if (dismissed || !earned || wordCardOpen) return null;
 
   return (
     <>

@@ -1,0 +1,95 @@
+{
+  "testedAt": "2026-10-18T09:27:39.844340+00:00",
+  "applicationCommit": "2f9f9ee0a6241c2d1c305ef3c935df13aaceadb7",
+  "preview": "https://language-threshold-dp350ku95-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-dp350ku95-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_EezRgxaWr4styt8eJyX8WKWUzhjN",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-dp350ku95-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "2f9f9ee0a6241c2d1c305ef3c935df13aaceadb7",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-input-preview-2026-10-18.json",
+  "local": {
+    "tests": 1383,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1496,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Shared team-server json helper now returns private/no-store, both CDN no-store headers and nosniff on success and handled error responses; per-response headers are independent",
+    "Two actual-helper groups preserve bodies/statuses and verify fresh headers after another response is mutated; six actual activity/replay groups remain green",
+    "Existing scheduled cleanup fixture expects private/no-store locally. Hosted assessment middleware overwrites cache-control to no-store on private-URL-classified requests; corrected hosted checker expects no-store on classified GET URLs, private/no-store on remaining shared-helper responses, and nosniff on scoped JSON responses; cleanup execution remains disabled in hosted configuration",
+    "Thirteen hosted checker groups pass, retaining existing denial/read-only acceptance without team writes, submitted scores, certificates or provider calls"
+  ],
+  "controlledEvidence": [
+    "tests/team-json-response.test.mjs",
+    "tests/team-lesson-replay-handler.test.mjs",
+    "tests/assessment-cleanup-schedule.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "38eebb1",
+    "source": "src/lib/team-server.ts",
+    "case": "Actual JSON helper success cache-control",
+    "oldHeader": "no-store",
+    "expectedHeader": "private, no-store",
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical helper, no SDK construction, network or database operation."
+  },
+  "diagnostics": [
+    "Initial full suite failed the existing cleanup exact header expectation; corrected to private, no-store and reran all tests. An initial replacement used the wrong variable name and did not change that assertion; corrected before passing suite. Build repeated after adding the hosted checker expectation to the application commit. Hosted checker then exposed existing assessment middleware overriding Cache-Control to no-store; corrected tooling checks the respective final header by URL and nosniff. No runtime middleware change was made."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-headers-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "This change applies to declarations made by the shared team-server json helper. Existing src/start.ts assessment/companion/server-function middleware overwrites Cache-Control to no-store on private-URL-classified requests; hosted final assessment responses therefore do not preserve private. Other headers survive that wrapper, with hosted nosniff checks. Framework/static/custom Response paths and automatic diagnostics are separate. The thirteen direct route imports include users of other helpers and are not thirteen proved response surfaces.",
+    "teamError still returns arbitrary Error messages and classifies status using message regexes. Raw backend diagnostics remain an explicit open finding; this header change does not sanitize errors.",
+    "Auth, entitlement/database/write/certificate deadlines, underlying platform caching and ingress behavior, actual browser/native/device/session/process-restart acceptance remain open. Synthetic helper/replay fixtures do not prove full hosted successful team/certificate behavior.",
+    "No DDL/grant/role/policy/schedule changes or real consent/mail/payment/invitation/certificate action. Legacy signup broad grants and old PUBLIC-policy migration drift remain open.",
+    "Human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open; pending owner questions not repeated. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push, production promotion or accepted-hostname advance."
+  ]
+}

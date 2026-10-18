@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T07:27:32.188275+00:00",
+  "applicationCommit": "e458dee5126e2a896fe6ce32b1d8ad91afe106ed",
+  "preview": "https://language-threshold-4ddwacno5-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-4ddwacno5-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_J3rmhRFezawH2GGc6CYxb4XYe2DJ",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-4ddwacno5-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "e458dee5126e2a896fe6ce32b1d8ad91afe106ed",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
+  "local": {
+    "tests": 1340,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.9,
+    "privateMarkers": 96,
+    "sourceFiles": 1454,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "One owned 30-second helper phase spans SDK credential lookup, transport and acknowledgement reading. Incoming cancellation propagates; late credentials cannot dispatch and late headers are disposed after timeout/departure",
+    "Browser response reader bounds advertised/actual JSON bytes to 16 KiB, decodes strict UTF-8 and releases the owned reader on EOF/overflow/cancellation without waiting for a stalled source cancel promise",
+    "PushRequestError distinguishes not_started before POST dispatch, unknown after POST dispatch, and unavailable reads. Fixed sign-in guidance remains for missing/mismatched SDK actor; raw SDK/transport/parser failures are normalized and no automatic retry is added",
+    "Internal expiry aborts the owned transport without aborting the caller controller, allowing current UI cleanup/error display. External owner abort remains AbortError; completed phases clear timers/listeners and later requests remain independent",
+    "Four added actual helper/component groups cover credential stalls/late SDK, ignored late headers/abort, exact/overflow UTF-8 bytes/advertised limits, malformed encoding, nonsettling reader cancel and current UI busy/cache/toast cleanup. Existing fixtures now use real Response streams and owned child signals",
+    "Nine hosted checker groups retain 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent/five push entry denials; no admitted push write"
+  ],
+  "controlledEvidence": [
+    "tests/push-reminder-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "6499343",
+    "source": "src/lib/push-api.ts",
+    "case": "Finite successful JSON acknowledgement with ok=true and padding exceeding 16 KiB",
+    "oldBehavior": "Resolves; missing expected rejection",
+    "expectedBehavior": "Fixed unknown PushRequestError",
+    "currentPass": true,
+    "limit": "Actual prior/current helpers with same controlled finite Response. No real subscription/write/permission/delivery."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-push-wait-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "The deadline covers pushApi only, not Notification permission, service-worker readiness, native subscribe/unsubscribe or the entire user action. Native delivery/permission timing remains unverified.",
+    "not_started means the API POST was not dispatched; earlier native permission/subscription work may already have happened. After dispatch timeout/cancellation cannot undo or prove rollback of writes. Unknown-write latch/read-only reconciliation and durable receipt/cross-device ordering remain open.",
+    "Response bounds apply to bytes exposed by browser fetch, not a platform/network allocation cap. Timers are cooperative, not hard CPU preemption. SDK lookup itself cannot be cancelled, but late completion cannot dispatch after the owned signal ends.",
+    "Controlled tests use actual helper/component/Response streams with synthetic SDK/browser/transport/timers. Hosted checks reject input before admitted push work; no real subscription/preferences/consent mutation, permission prompt, service worker, push send/model/provider/browser action occurred.",
+    "Real SDK expiry/current A/guest/B/restore/native/device/process-restart/offline acceptance, broader helper/endpoint/cache/diagnostics inventory and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push/production promotion/accepted-hostname advance."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "testedAt": "2026-10-17T15:33:59.075733+00:00",
+  "sourceCommit": "a762d27",
+  "status": "Locally verified; not deployed",
+  "scope": "Conjugation generation plus independent AI consistency request; existing owned progress unchanged",
+  "checks": {
+    "originBeforeCache": true,
+    "noStore": true,
+    "existingContentAllowanceBeforePaidMiss": true,
+    "deniedOrUnavailableBudgetPreventsProviderConstruction": true,
+    "warmPublicReuseNoKeyBudgetOrModel": true,
+    "personalVocabularyNeverUsesSharedCache": true,
+    "maxModelCallsPerLogicalMiss": 2,
+    "maxRetries": 0,
+    "sdkTimeoutMs": 30000,
+    "sharedTotalDeadlineMs": 30000,
+    "sameSignalObjectForBothCalls": true,
+    "requestAbortPropagated": true,
+    "abortBetweenCallsPreventsReview": true,
+    "abortAfterReviewPreventsCacheWrite": true,
+    "requestedCefrAndAxisRequired": true,
+    "existingStructuralAndIndependentReviewChecksRetained": true,
+    "designationNotSentToIndependentSolver": true,
+    "invalidCancelledOrRejectedItemsNotCached": true,
+    "providerErrorsContentFree": true
+  },
+  "localVerification": {
+    "tests": 844,
+    "focusedTests": 5,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 44,
+    "stageBuild": "pass",
+    "artifactMiB": 19.67,
+    "privateBank": {
+      "testedAt": "2026-10-17T15:33:36.695Z",
+      "sourceCommit": "a762d27",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1160,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "limitations": [
+    "Controlled production-handler SDK/budget boundaries, not an actual timed provider/billing/browser trial",
+    "One existing content allowance gates a logical miss with at most two model requests; no new budget pool or database policy",
+    "Independent AI consistency checking is not fluent/human content approval or calibrated proficiency evidence",
+    "No browser actions, paid model calls, new learner writes, schema/role/active-policy/speech/schedule changes",
+    "Hosted development remains 7e8e779; accepted companion d4ad837/live app/main unchanged; full requirements remain open"
+  ]
+}

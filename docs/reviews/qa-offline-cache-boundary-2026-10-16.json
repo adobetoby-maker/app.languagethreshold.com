@@ -1,0 +1,56 @@
+{
+  "testedAt": "2026-10-16T21:24:47.847174+00:00",
+  "applicationCommit": "443d9a2",
+  "target": "https://language-threshold-eonu9uv93-adobetoby-5572s-projects.vercel.app",
+  "deploymentId": "dpl_67YHiKUnWh9BGC4gvgc4miTpznrb",
+  "deploymentTarget": null,
+  "verification": {
+    "tests": 656,
+    "newWorkerAndHeaderTests": 7,
+    "typecheck": "clean",
+    "lintErrors": 0,
+    "lintWarnings": 40,
+    "artifactMiB": 19.47,
+    "hostedAssessmentAndTeamGroups": 18,
+    "hostedFocusedEntryAndPrivateHeaderGroups": 11,
+    "hostedGenerationDenials": 6
+  },
+  "policyEvidence": [
+    "General worker cache upgraded lt-v12→lt-v13; old numbered caches removed and public lesson packs retained.",
+    "Private navigation HTML, authorized API responses, response no-store/private directives and other origins are excluded from general caching.",
+    "A private-context root lesson may use only the public offline shell; its identity-specific URL is not saved.",
+    "Offline Exams refresh uses only a fixed canonical signed-out HTML bootstrap fetched with credentials omitted and redirects rejected. Device copies/keys stay in their established stores.",
+    "Private SSR HTTP responses, including normalized redirects and canonical endpoints, have no-store/no-referrer. Existing CSRF and retry behavior remains verified."
+  ],
+  "browserEvidence": {
+    "account": "Guest; no credentials or assessment response used in this trial",
+    "downloadCompleted": true,
+    "lessons": 30,
+    "displayedMiB": 10.4,
+    "publicPackVersionPrefix": "d6b21f4bbe1b",
+    "allFilesVerifiedMessage": "All required lesson and app files are saved on this browser.",
+    "closedAndReopenedTabRetainsVerifiedPack": true,
+    "phoneScreenshotVisuallyReviewed": true,
+    "phoneViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportRestored": true,
+    "screenshot": "/Users/drive/git-backups/language-threshold-roofing-download-ready-phone-2026-10-16.png"
+  },
+  "notAchieved": {
+    "offlineColdPageReload": false,
+    "actualOfflineAttemptRefresh": false,
+    "reason": "Chrome DevTools Network was visible on the exact test tab, but native accessibility/keyboard/coordinate input did not apply Offline; selector remained Disabled: No throttling. No network disconnection was verified.",
+    "cleanup": "Inspector target tab closed; a fresh tab reopened; native state confirmed developer panel absent. Normal networking unchanged."
+  },
+  "corrections": [
+    "An existing navigation test exposed the need to preserve offline Exams bootstrap; private-shell bypass alone would have removed that path. Test now asserts a canonical signed-out cache key and original private-response exclusion.",
+    "Hosted header check first expected200 on bare/exams but received its legitimate307 normalization. Worker public bootstrap was corrected to the observed canonical query. Final verifier checks redirect destination and canonical200 headers; header criteria were not relaxed."
+  ],
+  "dataChanges": "Public browser lesson/app download only; no mastery, score, learner response, certificate, role, reviewer approval, schema or production promotion.",
+  "remaining": [
+    "Actual offline root/Exams reload and account/context restoration in browser.",
+    "Physical phone/Safari/audio, reviewer acceptance, approved/calibrated forms, real learner pilots and all-module parity."
+  ]
+}

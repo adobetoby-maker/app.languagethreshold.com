@@ -1,0 +1,129 @@
+{
+  "testedAt": "2026-10-17T22:54:54.248419+00:00",
+  "applicationCommit": "228f649090a24a951a7396535bd86ad4353bc815",
+  "preview": "https://language-threshold-eg510ro2o-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-eg510ro2o-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_7b4fcmMAB6ku6fjT3TjBqYTpzzjN",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-eg510ro2o-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "228f649090a24a951a7396535bd86ad4353bc815",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1025,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.77,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1292,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/team-insights-lifecycle.test.mjs",
+    "tests/private-report-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Team insights internally keys disclosure and draft/applied filters by actual account, organization and module/target/instruction track",
+    "Draft edits remain local until explicit Apply; applied label and report query use the same scope, with previous report data hidden during loading",
+    "Mounted leases bind open/draft/applied/report context; departed toggle, select, submit and refresh callbacks cannot alter a replacement",
+    "Current loading prevents duplicate scope apply/refresh; late account/unmount replies remain suppressed by the shared report loader",
+    "Current select/apply handlers capture a lease when invoked, preserving sequential edits after context effect cleanup",
+    "Existing report endpoint, permissions, small-group and per-cell suppression, comparable evidence labels and metadata contracts unchanged"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-history-export-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry proof",
+    "No real microphone, recording, consent, upload, reviewer acknowledgement, withdrawal, provider call, hosted answer/result or approval was created",
+    "Cancelling or rejecting a late acknowledgement cannot undo a write the server already accepted",
+    "Broader component/helper/endpoint/cache/device inventory incomplete",
+    "Full human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational release gates remain open",
+    "The endpoint authorization and policy contracts are unchanged; this is client resource/completion isolation, not server revocation or undo of an accepted write",
+    "Helper cancellation applies when callers supply/abort a signal; it does not add automatic identity subscriptions or prove every caller has a mounted guard/deadline",
+    "No real human review, lesson binding, reviewer assignment or approval was performed; positive callbacks are controlled fixtures only",
+    "No actual grant, revocation, role assignment, qualification check or human review was performed; all positive mutation responses are synthetic fixtures",
+    "Healthy/attention/not-observed results in the new component fixture are synthetic, not actual cleanup or scheduler/platform proof; receipt time is client read time",
+    "No actual private CSV file or native browser download was created; controlled transport, blob, anchor and timer fixtures only",
+    "Cancellation/resource cleanup cannot undo a browser download already handed off; current browser/Safari handoff acceptance remains open",
+    "Plan-panel positive saves, conflicts and checkpoint starts use synthetic component transport only; no actual plan/goal/support write or hosted checkpoint start was performed",
+    "Client cancellation cannot undo an accepted server write; abort is not server revocation",
+    "Private-report tests use synthetic auth, rows, metadata and deferred transport; no real private report content or current browser acceptance was manufactured",
+    "Team-insights acceptance uses controlled public catalog/auth/transport and synthetic metadata; no actual team-admin browser acceptance or learner cohort evidence was manufactured",
+    "ExamsArea attempt open/prepare/start/schedule/reviewer callbacks remain next audit; broader component/helper/endpoint/cache/device inventory remains incomplete"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-private-reports-preview-2026-10-17.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "baselineComparison": {
+    "commit": "8a631dab336521ef9d7ccc9b775c2d3401bbc2ec",
+    "source": "src/components/exams/TeamAssessmentInsights.tsx",
+    "case": "Open team insights reused under changed organization/track props",
+    "expectedOldDisclosureResetFailureObserved": true,
+    "currentCasePasses": true,
+    "limit": "Controlled actual-component source comparison only; no live browser defect or authorization bypass established"
+  }
+}

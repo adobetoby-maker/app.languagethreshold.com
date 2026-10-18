@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T07:57:02.314958+00:00",
+  "applicationCommit": "5fef684edaaa698c895fca441081f6f97b704527",
+  "preview": "https://language-threshold-jro69hypy-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-jro69hypy-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_9i7fSt1iphbM1Dv9iDJZREHpRZdK",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-jro69hypy-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "5fef684edaaa698c895fca441081f6f97b704527",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-conversation-admission-preview-2026-10-18.json",
+  "local": {
+    "tests": 1348,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1462,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "All fourteen handled provider-result paths in Tutor, Discussion and both Field Prep routes use fresh shared private/no-store, CDN/no-store, Vercel-CDN/no-store and nosniff headers",
+    "Streaming retains text/event-stream, no-transform and Connection keep-alive; JSON configuration errors, provider errors, Discussion companion tip and companion soft-failure retain their original status/body contracts",
+    "No provider/model/prompt/token/retry/timeout, input/budget/auth/schema/role/policy/schedule changes. Existing shared input/admission denial privacy remains",
+    "Existing four actual-route groups now exercise provider configuration failures, streaming successes, provider failures and Discussion companion success/soft failure with full private header assertions and synthetic delegates",
+    "Ten hosted checker groups retain 20 conversation invalid-entry denials, 21 Exams/12 focused/3 public packs/7 scope/14 generation (28 rejected requests), eight Google/six Pashto/ten speaking-consent/five push entry denials; no admitted conversation/provider generation"
+  ],
+  "controlledEvidence": [
+    "tests/conversation-routes.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "ae8ab06",
+    "source": "src/routes/api.tutor.ts",
+    "case": "Handled missing-provider-configuration response",
+    "oldCacheControl": "no-store",
+    "expectedPrivateAndCdnDirectives": true,
+    "currentPass": true,
+    "limit": "Actual prior route bundled with synthetic budget/provider; new full-header assertion fails on old Cache-Control. No real provider generation or historical cache evidence."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-conversation-headers-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Prior provider responses already had no-store. This adds explicit private/CDN/nosniff directives; it is not evidence that prior content was cached, a historical purge, platform buffering proof or browser delivery proof.",
+    "Tests cover fourteen handled response sites. Framework/unhandled failures and other endpoints remain outside this claim. Provider response/read/size behavior and real upstream/native/browser/SDK expiry/platform acceptance remain separate work.",
+    "Local provider and budget transports are synthetic; hosted conversation tests reject input before admitted counters/model work. No real model/provider/audio/consent/push/browser action occurred.",
+    "Durable reminder unknown-write/authoritative receipt constraints, sports-news raw errors/body/feed bounds, remaining helper/provider/endpoint/cache/diagnostics/device inventory and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push/production promotion/accepted-hostname advance."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "testedAt": "2026-10-17T18:38:49.797063+00:00",
+  "sourceCommit": "04a01816878aa5cc099fc5cc41d4e54a8c00784f",
+  "scope": "Local component/library privacy follow-up; not deployed/browser-tested",
+  "latestHostedApplication": "eda1f26b6cd904660664da621ad96c59ba0911e9",
+  "latestHostedPreview": "https://language-threshold-b4rpzqw29-adobetoby-5572s-projects.vercel.app",
+  "localVerification": {
+    "tests": 960,
+    "newControlledComponentGroups": 1,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "localStageArtifactMiB": 19.73,
+    "privateBank": {
+      "testedAt": "2026-10-17T18:37:59.371Z",
+      "sourceCommit": "04a0181",
+      "checkedPrivateMarkers": 96,
+      "checkedSourceFiles": 1219,
+      "checkedStaticFiles": 148,
+      "privateContentHits": 0
+    }
+  },
+  "changes": [
+    "Disabled client gate no longer writes a device-wide usage count; removed unused raw-email capture/read storage helpers and modal persistence call. Gate remains open; server generation controls unchanged.",
+    "SaveProgressBanner mounts guest-only child after auth loading resolves; authenticated/loading boundaries unmount eligibility, auth modal and event listeners. Earned state is memory-only for current guest visit.",
+    "Old email/call-count/earned bytes never read, claimed, deleted or overwritten. Presentation dismissal remains an optional device preference."
+  ],
+  "controlledProof": [
+    "Legacy earned flag does not establish current guest eligibility",
+    "Current guest action shows banner; signed-in activity cannot qualify later guest",
+    "Authentication loading also resets eligibility",
+    "Dismissal persists across guest remount",
+    "Only dismissal preference touched; old bytes retained; gate open for subscribed/unsubscribed"
+  ],
+  "inventoryNotes": [
+    "Reader pane tap counts and first-use visited/help flags still require classification; no app-wide privacy completion claimed.",
+    "Mission TTS capability cache contains voice/language/rate availability, not generated text; active playback globals and cleanup still need full ownership review.",
+    "voices.ts still reads legacy lt.speech.v1 for voice preference; inspect consumers against owned Speech state next.",
+    "app-update routine version reload clears only prefixed app caches and updates service workers; destructive local/session clear is reached by explicit Start over confirmation. No reset invoked.",
+    "Analytics session identifier and event payload/identity handling remain to audit."
+  ],
+  "limits": [
+    "Controlled hooks/events/storage exercise production component code locally; not browser/phone/account-switch acceptance.",
+    "No new deployment, hosted QA, alias inspection, model requests, schema/role/active speech/retention/schedule/main/production changes. Hosted evidence remains at eda1f26.",
+    "Additional prepared-start RPC authorization remains pending; no migration applied or runtime wired. Adaptive capability remains off.",
+    "Full goal and human/content/calibration/equivalence/reviewer/consented-pilot/catalog/device/operational gates remain open."
+  ]
+}

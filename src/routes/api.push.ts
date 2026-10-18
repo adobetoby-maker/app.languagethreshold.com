@@ -14,6 +14,20 @@ import {
   webPushPublicKey,
 } from "@/lib/push-server";
 
+import { readPrivateJson, PrivateJsonRequestError } from "@/lib/private-json-request";
+import { readPrivateServiceJson } from "@/lib/private-service-json";
+import { withSpeechPreflight, SpeechPreflightError } from "@/lib/speech-preflight";
+
+const SettingsRowsSchema = z
+  .array(
+    z.object({
+      enabled: z.boolean().optional(),
+      reminder_hour: z.number().int().min(0).max(23).optional(),
+      timezone: z.string().min(1).max(80).optional(),
+    }),
+  )
+  .max(1);
+
 const CountdownSchema = z
   .object({
     label: z.string().min(1).max(80),
@@ -96,17 +110,51 @@ const BodySchema = z.discriminatedUnion("action", [
 function json(payload: unknown, status = 200) {
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "private, no-store",
+      "CDN-Cache-Control": "no-store",
+      "Vercel-CDN-Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+    },
   });
 }
 
-async function principalFor(request: Request) {
-  const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
+function controlsFailure(error: unknown) {
+  return json(
+    { error: "Practice reminder controls are unavailable." },
+    error instanceof SpeechPreflightError ? error.status : 503,
+  );
+}
+async function principalFor(request: Request, signal: AbortSignal, updating: boolean) {
+  const ipBudget = await enforceSpeakingPreAuthRateLimit(request, signal).catch(() => ({
     allowed: false,
     misconfigured: true,
   }));
-  if (!ipBudget.allowed) return null;
-  return authenticateSpeakingRequest(request).catch(() => null);
+  signal.throwIfAborted();
+  if (!ipBudget.allowed)
+    return json(
+      { error: "Practice reminder controls are unavailable." },
+      ipBudget.misconfigured ? 503 : 429,
+    );
+  const principal = await authenticateSpeakingRequest(request, signal).catch(() => null);
+  signal.throwIfAborted();
+  if (!principal) return json({ error: "Sign in to manage practice reminders." }, 401);
+  if (updating) {
+    const budget = await enforceSpeakingRateLimit(principal.userId, "push", 30, signal).catch(
+      () => ({
+        allowed: false,
+        misconfigured: true,
+      }),
+    );
+    signal.throwIfAborted();
+    if (!budget.allowed)
+      return json(
+        { error: "Practice reminder controls are unavailable." },
+        budget.misconfigured ? 503 : 429,
+      );
+  }
+  return principal;
 }
 
 async function upsertPreferences(
@@ -136,41 +184,59 @@ export const Route = createFileRoute("/api/push")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const principal = await principalFor(request);
-        if (!principal) return json({ error: "Sign in to manage practice reminders." }, 401);
-        const response = await pushSupabase(
-          `push_reminder_preferences?select=enabled,reminder_hour,timezone&user_id=eq.${encodeURIComponent(principal.userId)}&limit=1`,
-        ).catch(() => null);
-        if (!response?.ok) return json({ error: "Practice reminders are unavailable." }, 503);
-        const rows = (await response.json()) as Array<{
-          enabled?: boolean;
-          reminder_hour?: number;
-          timezone?: string;
-        }>;
-        const row = rows[0];
-        return json({
-          configured: pushServerConfigured(),
-          enabled: row?.enabled === true,
-          reminderHour: row?.reminder_hour ?? 19,
-          timezone: row?.timezone ?? "UTC",
-          publicKey: webPushPublicKey(),
-        });
+        try {
+          return await withSpeechPreflight(request, async (signal) => {
+            const principal = await principalFor(request, signal, false);
+            if (principal instanceof Response) return principal;
+            const response = await pushSupabase(
+              `push_reminder_preferences?select=enabled,reminder_hour,timezone&user_id=eq.${encodeURIComponent(principal.userId)}&limit=1`,
+              { signal, cache: "no-store" },
+            );
+            if (signal.aborted || !response.ok) {
+              void response.body?.cancel().catch(() => {});
+              signal.throwIfAborted();
+              return json({ error: "Practice reminders are unavailable." }, 503);
+            }
+            const rows = SettingsRowsSchema.parse(
+              await readPrivateServiceJson(response, 16 * 1024, signal),
+            );
+            signal.throwIfAborted();
+            const row = rows[0];
+            return json({
+              configured: pushServerConfigured(),
+              enabled: row?.enabled === true,
+              reminderHour: row?.reminder_hour ?? 19,
+              timezone: row?.timezone ?? "UTC",
+              publicKey: webPushPublicKey(),
+            });
+          });
+        } catch (error) {
+          return controlsFailure(error);
+        }
       },
       POST: async ({ request }) => {
         if (!isStrictSameOrigin(request))
           return json({ error: "Cross-origin request rejected." }, 403);
-        const principal = await principalFor(request);
-        if (!principal) return json({ error: "Sign in to manage practice reminders." }, 401);
-        const budget = await enforceSpeakingRateLimit(principal.userId, "push", 30).catch(() => ({
-          allowed: false,
-          misconfigured: true,
-        }));
-        if (!budget.allowed)
-          return json({ error: "Too many reminder changes. Try again soon." }, 429);
-
-        const parsed = BodySchema.safeParse(await request.json().catch(() => null));
-        if (!parsed.success) return json({ error: "Invalid reminder request." }, 400);
-        const body = parsed.data;
+        let body: z.infer<typeof BodySchema>;
+        try {
+          body = BodySchema.parse(await readPrivateJson(request, 16 * 1024));
+        } catch (error) {
+          return json(
+            { error: "Invalid reminder request." },
+            error instanceof PrivateJsonRequestError ? error.status : 400,
+          );
+        }
+        let principal: Awaited<ReturnType<typeof principalFor>>;
+        try {
+          principal = await withSpeechPreflight(request, (signal) =>
+            principalFor(request, signal, true),
+          );
+        } catch (error) {
+          return controlsFailure(error);
+        }
+        if (principal instanceof Response) return principal;
+        if (request.signal.aborted) return json({ error: "Reminder request cancelled." }, 499);
+        // Admission owns reads only. Existing writes below have no rollback/deadline guarantee.
         try {
           if (body.action === "unsubscribe") {
             const endpointHash = await hashPushEndpoint(body.endpoint);
@@ -179,7 +245,7 @@ export const Route = createFileRoute("/api/push")({
               { method: "DELETE" },
             );
             if (!deleted.ok) throw new Error("Subscription removal failed.");
-            await pushSupabase(
+            const disabled = await pushSupabase(
               `push_reminder_preferences?user_id=eq.${encodeURIComponent(principal.userId)}`,
               {
                 method: "PATCH",
@@ -187,6 +253,7 @@ export const Route = createFileRoute("/api/push")({
                 body: JSON.stringify({ enabled: false, updated_at: new Date().toISOString() }),
               },
             );
+            if (!disabled.ok) throw new Error("Reminder preference update failed.");
             return json({ ok: true });
           }
 

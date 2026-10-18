@@ -1,3 +1,4 @@
+import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import {
   createContext,
   useCallback,
@@ -5,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useReducer,
+  useState,
   useRef,
   type ReactNode,
 } from "react";
@@ -69,15 +71,13 @@ type Action =
   | { type: "ADVANCE" }
   | { type: "END_RUN" };
 
-const STORAGE_KEY = "lt.listeningDrill.leaderboard.v1";
 const RUN_LENGTH = 5;
 
-function loadLeaderboard(): Record<LDLeaderboardKey, ListeningDrillStats> {
-  if (typeof window === "undefined") return {} as Record<LDLeaderboardKey, ListeningDrillStats>;
+function loadLeaderboard(value: unknown): Record<LDLeaderboardKey, ListeningDrillStats> {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = value;
     if (!raw) return {} as Record<LDLeaderboardKey, ListeningDrillStats>;
-    const parsed = JSON.parse(raw) as Record<string, Partial<ListeningDrillStats>>;
+    const parsed = raw as Record<string, Partial<ListeningDrillStats>>;
     // Migrate older entries that may not have `totalPlays`.
     const out: Record<string, ListeningDrillStats> = {};
     for (const [k, v] of Object.entries(parsed)) {
@@ -89,15 +89,6 @@ function loadLeaderboard(): Record<LDLeaderboardKey, ListeningDrillStats> {
   }
 }
 
-function saveLeaderboard(lb: Record<LDLeaderboardKey, ListeningDrillStats>) {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lb));
-  } catch {
-    /* quota */
-  }
-}
-
 function statsFor(
   lb: Record<LDLeaderboardKey, ListeningDrillStats>,
   key: LDLeaderboardKey,
@@ -105,7 +96,7 @@ function statsFor(
   return lb[key] ?? { ...EMPTY };
 }
 
-function reducer(state: State, action: Action): State {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "HYDRATE":
       return { ...state, leaderboard: action.payload };
@@ -183,7 +174,7 @@ function reducer(state: State, action: Action): State {
         totalPlays: prev.totalPlays + Math.max(1, q.playCount),
       };
       const newLb = { ...state.leaderboard, [key]: newStats };
-      saveLeaderboard(newLb);
+
       return { ...state, run: { ...state.run, questions: updated }, leaderboard: newLb };
     }
 
@@ -204,7 +195,6 @@ function reducer(state: State, action: Action): State {
           `${state.run.language}-${state.run.level}` as LDLeaderboardKey;
         const prev = statsFor(state.leaderboard, key);
         newLb = { ...state.leaderboard, [key]: { ...prev, perfectRuns: prev.perfectRuns + 1 } };
-        saveLeaderboard(newLb);
       }
       return { ...state, run: null, leaderboard: newLb };
     }
@@ -240,6 +230,8 @@ interface ListeningDrillContextValue {
 const Ctx = createContext<ListeningDrillContextValue | null>(null);
 
 export function ListeningDrillProvider({ children }: { children: ReactNode }) {
+  const device = useLearnerDeviceStore("gameListening");
+  const [hydrated, setHydrated] = useState(false);
   const [state, dispatch] = useReducer(reducer, {
     leaderboard: {} as Record<LDLeaderboardKey, ListeningDrillStats>,
     run: null,
@@ -248,9 +240,13 @@ export function ListeningDrillProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    const lb = loadLeaderboard();
-    if (Object.keys(lb).length) dispatch({ type: "HYDRATE", payload: lb });
-  }, []);
+    dispatch({ type: "HYDRATE", payload: loadLeaderboard(device.read()) });
+    setHydrated(true);
+  }, [device]);
+
+  useEffect(() => {
+    if (hydrated) device.write(state.leaderboard);
+  }, [device, hydrated, state.leaderboard]);
 
   const fetcherRef = useRef<
     | ((args: {

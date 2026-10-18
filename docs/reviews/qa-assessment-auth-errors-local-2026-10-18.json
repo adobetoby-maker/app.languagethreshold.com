@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-18T11:51:29.067Z",
+  "sourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "testGroups": 12,
+  "controlledHandlerCases": {
+    "unexpectedErrors": 80,
+    "typedErrors": 24,
+    "boundedAuthCases": 27
+  },
+  "checks": {
+    "actualRouteGetAndPostCatches": true,
+    "preabortDeadlineDisconnectAndLateSdkStopsPrivateWork": true,
+    "requestBoundFactoryArgumentMatched": true,
+    "includesExamsSpeechUploadBranch": true,
+    "typedAuthDenialPreserved": true,
+    "typedAssessmentGuidanceAndStatusPreserved": true,
+    "configuration503KeepsRouteSpecificFixedFallback": true,
+    "unknownErrorsCannotForge403WithSessionOrSignInOrAccessWords": true,
+    "rawUnexpectedMessagesSuppressed": true,
+    "privateNoStoreAndNosniff": true,
+    "failedFactoryStartsZeroAuth": true,
+    "noPrivateOrBusinessOperationAfterInjectedFailure": true
+  },
+  "sources": [
+    {
+      "path": "src/routes/api.exams.ts",
+      "sha256": "5bee1741b7e92a76835bddfca8b0d2f26458f99ace9a978f936e7f9c1144661e"
+    },
+    {
+      "path": "src/routes/api.exam-plans.ts",
+      "sha256": "e2f24183cf35363ea1597f6fc0e84713d2aef6a93e56bd02f4484e96544dbd19"
+    },
+    {
+      "path": "src/routes/api.exam-content.ts",
+      "sha256": "6620eb23fd2b980da996f7669aa5332f32a534749bebe549a0479553d46e0e0a"
+    },
+    {
+      "path": "src/routes/api.exam-reviewers.ts",
+      "sha256": "12ca1379b781960365fa62e8e5d04613da2707d5f8322e84686c69c645b188dc"
+    }
+  ],
+  "limits": [
+    "Four assessment API catches preserve known403 guidance and fixed503 fallback, and now return fixed499 for cancelled assessment requests. Bounded auth is applied in nine branches; body/private/business phases remain separate.",
+    "Tests bundle actual production route code/schema/catch/JSON helper with controlled client/auth/private dependencies and actual error classes. They are not allowed workflow, actual SDK, network, expiry, browser, reviewer, consent or business acceptance.",
+    "Nine assessment calls now use real bounded helper with controlled SDK results. Twenty direct route factories plus cleanup status install Auth transport. Cleanup status has separate bounded owner/history tests. No original direct named auth-helper callers remain in the source inventory; indirect callers remain outside this claim.",
+    "AssessmentAccessError keeps intentional statuses/messages. Shared assessment rpc already restricts P0001 to227exact fixed strings; direct RPC, other typed-error provenance and broader diagnostics remain separate review items.",
+    "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Human/content/reviewer/calibration/pilot/retention/device/session/process-restart gates remain open."
+  ]
+}

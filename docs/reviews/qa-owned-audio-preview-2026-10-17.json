@@ -1,0 +1,116 @@
+{
+  "testedAt": "2026-10-17T20:44:00.594917+00:00",
+  "applicationCommit": "0d8508afa227a47c16c8c0c48d2e2b3d20816948",
+  "preview": "https://language-threshold-hsya76mk6-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-hsya76mk6-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_HSuCqjq4gALcFcYSxS8b7ciU7EJL",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-hsya76mk6-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "0d8508afa227a47c16c8c0c48d2e2b3d20816948",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata does not expose deployment env; absence is not false readback proof"
+  },
+  "analyticsEnabled": false,
+  "local": {
+    "tests": 978,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.75,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1251,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "evidence": [
+    "tests/speak-picker-lifecycle.test.mjs",
+    "tests/field-prep-lifecycle.test.mjs",
+    "tests/missionary-speech-lifecycle.test.mjs",
+    "tests/owned-speaker-hook.test.mjs",
+    "docs/reviews/qa-exams-owned-audio-preview-2026-10-17.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "liveDeploymentObserved": {
+    "id": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+    "url": "language-threshold-f10co4045-adobetoby-5572s-projects.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "9f90996f99635647aab2d8e490e12b3275786b52",
+    "createdAt": 1792267088039,
+    "readyAt": 1792267094424,
+    "gitBranch": "main",
+    "alias": [
+      "app.languagethreshold.com",
+      "language-threshold-app.vercel.app",
+      "language-lens-elite.worker-bee.app",
+      "language-threshold-app-adobetoby-5572s-projects.vercel.app"
+    ],
+    "gitCommitMessage": "Lesson first: Core 30 at the top, dashboard panels at the bottom",
+    "createdAtIso": "2026-10-17T19:58:08.039000+00:00",
+    "readyAtIso": "2026-10-17T19:58:14.424000+00:00"
+  },
+  "mainRemoteReadOnlyCheck": "refs/heads/main = 9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionChangeObservation": "Live alias differs from prior f9f8685/dpl_H5ESoS2sSL969zMZGBt9AuA1G7aA checkpoint. Current production deployment created19:58:08UTC before this run. This run issued no production deploy/promotion/alias/main mutation.",
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "limitations": [
+    "Controlled source fixtures are not actual browser/physical audio/microphone/SDK expiry acceptance",
+    "Wider endpoint/cache/device-state inventory remains incomplete",
+    "No new DDL, policy, role, speech collection, retention or schedule activation",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/device/operational gates remain open"
+  ],
+  "historicalPreparedRpcEvidence": "docs/reviews/qa-prepared-start-preview-2026-10-17.json"
+}

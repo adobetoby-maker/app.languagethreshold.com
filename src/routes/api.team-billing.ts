@@ -1,15 +1,17 @@
+import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { randomUUID } from "node:crypto";
 import Stripe from "stripe";
 import { z } from "zod";
 import {
   audit,
-  authenticatedUser,
+  authenticatedTeamUser,
   json,
   requireTeamAdmin,
   teamAdminClient,
   teamBillingReady,
-  teamError,
+  scopedTeamError,
+  TeamOperationError,
 } from "@/lib/team-server";
 import { syncTeamSubscription } from "@/lib/team-subscription";
 import {
@@ -71,8 +73,8 @@ export const Route = createFileRoute("/api/team-billing")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           const params = new URL(request.url).searchParams;
           const orgId = z.string().uuid().parse(params.get("orgId"));
           const sessionId = z
@@ -81,11 +83,11 @@ export const Route = createFileRoute("/api/team-billing")({
             .parse(params.get("sessionId"));
           await requireTeamAdmin(db, orgId, user.id);
           const key = process.env.STRIPE_SECRET_KEY;
-          if (!key) throw new Error("Team billing is not configured.");
+          if (!key) throw new TeamOperationError("Team billing is not configured.", 503);
           const stripe = new Stripe(key, { apiVersion: "2026-04-22.dahlia" });
           const session = await stripe.checkout.sessions.retrieve(sessionId);
           if (session.mode !== "subscription" || session.metadata?.organizationId !== orgId)
-            throw new Error("This checkout does not belong to your team.");
+            throw new TeamOperationError("This checkout does not belong to your team.");
           if (session.status !== "complete") return json({ status: session.status });
           const subscriptionId =
             typeof session.subscription === "string"
@@ -94,21 +96,23 @@ export const Route = createFileRoute("/api/team-billing")({
           if (!subscriptionId) return json({ status: "processing" });
           const subscription = await stripe.subscriptions.retrieve(subscriptionId);
           if (subscription.metadata?.organizationId !== orgId)
-            throw new Error("Billing account mismatch.");
+            throw new TeamOperationError("Billing account mismatch.");
           await syncTeamSubscription(subscription);
           return json({ status: subscription.status });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
       POST: async ({ request }) => {
+        const prepared = await prepareTeamJson(request, bodySchema, MAX_TEAM_WORKFLOW_BYTES);
+        if (prepared.response) return prepared.response;
+        const body = prepared.data;
         try {
-          const db = teamAdminClient();
-          const user = await authenticatedUser(request, db);
-          const body = bodySchema.parse(await request.json());
+          const db = teamAdminClient(undefined, request);
+          const user = await authenticatedTeamUser(request, db);
           await requireTeamAdmin(db, body.orgId, user.id);
           const key = process.env.STRIPE_SECRET_KEY;
-          if (!key) throw new Error("Team billing is not configured.");
+          if (!key) throw new TeamOperationError("Team billing is not configured.", 503);
           const stripe = new Stripe(key, { apiVersion: "2026-04-22.dahlia" });
           const { data: org, error: orgError } = await db
             .from("team_organizations")
@@ -121,15 +125,16 @@ export const Route = createFileRoute("/api/team-billing")({
             .eq("organization_id", body.orgId)
             .single();
           if (orgError || entitlementError || !org || !entitlement)
-            throw orgError ?? entitlementError ?? new Error("Team not found.");
+            throw orgError ?? entitlementError ?? new TeamOperationError("Team not found.");
           const origin = new URL(request.url).origin;
           if (body.action === "checkout") {
-            if (!teamBillingReady()) throw new Error("Team checkout is not configured yet.");
+            if (!teamBillingReady())
+              throw new TeamOperationError("Team checkout is not configured yet.", 503);
             if (
               entitlement.stripe_subscription_id &&
               ["active", "past_due"].includes(entitlement.status)
             )
-              throw new Error(
+              throw new TeamOperationError(
                 "This team already has a subscription. Use Add seats or Manage billing.",
               );
             const [learners, pendingInvites] = await Promise.all([
@@ -150,7 +155,9 @@ export const Route = createFileRoute("/api/team-billing")({
             if (learners.error || pendingInvites.error)
               throw learners.error ?? pendingInvites.error;
             if (body.seats < (learners.count ?? 0) + (pendingInvites.count ?? 0))
-              throw new Error("Choose enough seats for active learners and pending invitations.");
+              throw new TeamOperationError(
+                "Choose enough seats for active learners and pending invitations.",
+              );
             const price = await teamStripePrice(stripe, body.term);
             const checkout: Stripe.Checkout.SessionCreateParams = {
               mode: "subscription",
@@ -186,12 +193,12 @@ export const Route = createFileRoute("/api/team-billing")({
                   ? session.subscription
                   : session.subscription?.id;
               if (!previousSubscriptionId)
-                throw new Error(
+                throw new TeamOperationError(
                   "The previous checkout is still processing. Refresh the team page.",
                 );
               const previous = await stripe.subscriptions.retrieve(previousSubscriptionId);
               if (!["canceled", "incomplete_expired"].includes(previous.status))
-                throw new Error(
+                throw new TeamOperationError(
                   "This team already has a checkout in progress. Refresh the team page.",
                 );
             }
@@ -201,7 +208,9 @@ export const Route = createFileRoute("/api/team-billing")({
               });
             }
             if (!session.url)
-              throw new Error("The existing checkout is being confirmed. Refresh the team page.");
+              throw new TeamOperationError(
+                "The existing checkout is being confirmed. Refresh the team page.",
+              );
             await audit(db, user.id, "team.checkout_started", body.orgId, {
               seats: body.seats,
               term: body.term,
@@ -210,7 +219,7 @@ export const Route = createFileRoute("/api/team-billing")({
           }
           if (body.action === "portal") {
             if (!entitlement.stripe_customer_id)
-              throw new Error("No Stripe billing account is linked to this team.");
+              throw new TeamOperationError("No Stripe billing account is linked to this team.");
             const session = await stripe.billingPortal.sessions.create({
               customer: entitlement.stripe_customer_id,
               return_url: `${origin}/team`,
@@ -222,15 +231,16 @@ export const Route = createFileRoute("/api/team-billing")({
             !entitlement.term ||
             entitlement.status !== "active"
           )
-            throw new Error("An active Stripe team plan is required to add seats.");
+            throw new TeamOperationError("An active Stripe team plan is required to add seats.");
           const sub = await stripe.subscriptions.retrieve(entitlement.stripe_subscription_id);
           if (sub.metadata?.organizationId !== body.orgId)
-            throw new Error("Billing account mismatch.");
+            throw new TeamOperationError("Billing account mismatch.");
           const item = sub.items.data[0];
-          if (!item) throw new Error("The seat item is missing from this subscription.");
+          if (!item)
+            throw new TeamOperationError("The seat item is missing from this subscription.");
           const current = item.quantity ?? entitlement.seat_limit;
           if (current + body.addSeats > 1000)
-            throw new Error("Contact us for teams over 1,000 seats.");
+            throw new TeamOperationError("Contact us for teams over 1,000 seats.");
           const periodEnd = item.current_period_end * 1000;
           const periodStart = item.current_period_start * 1000;
           const fraction = Math.max(
@@ -278,7 +288,7 @@ export const Route = createFileRoute("/api/team-billing")({
               "Stripe is processing the seat change. Available seats update after payment confirmation.",
           });
         } catch (error) {
-          return teamError(error);
+          return scopedTeamError(error);
         }
       },
     },

@@ -1,0 +1,67 @@
+{
+  "testedAt": "2026-10-16T21:55:20.739402+00:00",
+  "applicationCommit": "e4b6ac0",
+  "target": "https://language-threshold-17ccl22e6-adobetoby-5572s-projects.vercel.app",
+  "account": "Guest",
+  "networkEvidence": {
+    "exactSavedPackTabActivatedInNativeChrome": true,
+    "nativeWindowRaisedBeforeKeyboardInput": true,
+    "devtoolsCommand": "Go offline",
+    "visibleSetting": "Presets: Offline",
+    "disconnectedRequestsObserved": "net::ERR_INTERNET_DISCONNECTED",
+    "serviceWorkerResponsesObserved": true,
+    "httpMemoryCacheAlsoObserved": true,
+    "httpCacheCleared": false,
+    "browserRestarted": false
+  },
+  "actualTrial": {
+    "roofingCore30PageReloadOffline": true,
+    "roofing15NewDocumentNavigationOffline": true,
+    "roofing15OwnValleyPassageRendered": true,
+    "roofing15TypedPhraseComparedLocally": "Correct: Quiten el papel protector.",
+    "landscaper30NewDocumentNavigationOffline": true,
+    "landscaper30HandwritingCopyAndThreeSentenceResponseRendered": true,
+    "landscaper30SpeakingWordBankOpenedOffline": true,
+    "landscaper30SayRouteRestoredAfterOfflineReload": true,
+    "handwritingInkOrRecognitionTested": false,
+    "audioOutputTested": false,
+    "signedInAssessmentDraftTested": false,
+    "officialResultOrMasteryWritten": false
+  },
+  "cleanup": {
+    "command": "Go online",
+    "visibleSetting": "Disabled: No throttling",
+    "disableHttpCacheRemainedUnchecked": true,
+    "ownedInspectorTabClosed": true,
+    "freshNormalLessonTabOpened": true
+  },
+  "screenshot": "/Users/drive/git-backups/language-threshold-offline-cold-landscaper-2026-10-16.png",
+  "observations": [
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t90 pop up button Throttling, Value: Presets: Offline",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t91 (selected) Presets: Offline",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t143 cell (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t144 text (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t424 cell (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t425 text (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t593 cell (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t594 text (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t613 cell Served from ServiceWorker, resource size: 1.0 kB",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t650 cell (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t651 text (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t665 cell (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t666 text (failed) net::ERR_INTERNET_DISCONNECTED",
+    "\t\t\t\t\t725 HTML content Language Threshold — A Premium Language Learning Experience, URL: language-threshold-17ccl22e6-adobetoby-5572s-projects.vercel.app/?module=landscaper&target=Spanish&native=English&tab=core30&lesson=30&way=write",
+    "\t\t\t\t\t\t\t792 heading THRESHOLD — Full Landscape Service Day, Value: 3",
+    "\t\t\t\t\t\t\t\t793 text THRESHOLD — Full Landscape Service Day",
+    "\t\t\t\t\t\t\t\t805 button Write it",
+    "\t\t\t\t\t\t\t\t809 heading Write it, Value: 4",
+    "\t\t\t\t\t\t\t\t\t810 text Write it",
+    "\t\t\t\t\t\t\t\t\t\t837 text Try about  3 sentences  in  Spanish . Work from memory, then open the phrases if you need help."
+  ],
+  "limits": [
+    "Cold page here means a real document navigation/reload while DevTools Network is visibly Offline; it does not mean a browser process restart, cleared browser HTTP cache or physical radio-off device.",
+    "AI speaking was not invoked. Its button remained enabled under DevTools emulation, so this trial does not validate navigator.onLine-driven disabled UI.",
+    "No official offline assessment start, submission, result or credential is claimed.",
+    "Physical iPhone/Safari, installed voice availability and signed-in saved-assessment refresh remain open."
+  ]
+}

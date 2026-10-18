@@ -1,0 +1,95 @@
+{
+  "testedAt": "2026-10-18T08:09:18.684754+00:00",
+  "applicationCommit": "c4c3ff430a39df87597a9a963ec4fa0cfc96d651",
+  "preview": "https://language-threshold-1e5rpzuhc-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-1e5rpzuhc-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_83BsgLjHhAQERjua9pDiU6YbfK6d",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-1e5rpzuhc-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "c4c3ff430a39df87597a9a963ec4fa0cfc96d651",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-conversation-headers-preview-2026-10-18.json",
+  "local": {
+    "tests": 1353,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1464,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Tutor, Discussion investigator/companion and both Field Prep routes reuse the exercised Speaking owned provider wrapper through conversation aliases: one 45-second phase, zero SDK retries, no-store transport and 1 MiB advertised/actual provider byte bounds",
+    "Owned deadline/cancellation covers ignored late headers, SDK action/JSON processing and streamed reads; late responses disposed, owned readers cancelled/released without waiting on nonsettling source cancellation, completed phase listeners removed",
+    "Handled pre-header timeout/cancellation/provider failures map to fixed private 504/499/502 errors; optional companion tip retains 200/null for provider failure but uses explicit 504/499 for timeout/disconnect; interrupted SSE errors without fabricated DONE",
+    "Five added actual-route installed-SDK controlled-transport groups cover all four stream routes plus companion JSON: ignored late headers, successful bounded SSE completion, overflow, incoming cancellation, companion overflow fallback, valid short tip and timeout",
+    "Existing seven installed-SDK Speaking transport groups continue to cover exact boundaries, partial JSON, truncated SSE, downstream cancellation and cleanup on the identical reused implementation; conversation alias identity/no-retry/pre-aborted tests retained",
+    "Ten hosted checker groups pass on exact application; conversation hosted checks reject invalid input before admitted counters/model stages. No real model/provider generation, audio, consent/push write or browser action"
+  ],
+  "controlledEvidence": [
+    "tests/conversation-provider.test.mjs",
+    "tests/conversation-routes.test.mjs",
+    "tests/speaking-provider.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "5fef684",
+    "source": [
+      "src/routes/api.discussion.ts",
+      "src/lib/conversation-provider.ts"
+    ],
+    "case": "Finite synthetic installed-SDK JSON companion response containing more than 1 MiB of text",
+    "oldReturnsOversizedTip": true,
+    "currentReturnsNull": true,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Historical actual route/helper bundled with synthetic transport; assertion failure on tip value, no real provider call."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-conversation-provider-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Cooperative timers and fetch-exposed bytes only; no hard CPU limit, total input/admission/provider deadline, provider billing rollback, native platform buffering or actual upstream timeout proof.",
+    "Provider models, prompts, token caps, admission budgets, SDK version and protocol remain unchanged. Structural response bytes do not validate linguistic content. Optional companion text relies on transport byte bound, not a new semantic quality check.",
+    "Stream headers may already be 200 when body interruption occurs; clients must handle failed body reads. Framework/unhandled response paths and other endpoints remain outside this bounded change.",
+    "Controlled local installed-SDK tests use synthetic fetch only. Hosted acceptance covers denied entry paths and existing Exams/readonly flows, not successful hosted provider generation or actual client device delivery.",
+    "Durable reminder unknown-write receipts, sports-news raw errors/body/feed bounds, remaining helper/provider/endpoint/cache/diagnostics/device inventory and all human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open.",
+    "Adaptive false deployment pin retained; absent metadata env is not false readback proof. No main push, production promotion or accepted-hostname advance."
+  ]
+}

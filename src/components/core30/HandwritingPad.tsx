@@ -10,6 +10,7 @@ import {
 } from "react";
 import { Trash2, Undo2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { fitWriting, writingFrame, writingPoint, type InkPoint, type WritingSize, type WritingView } from "@/lib/handwriting-layout";
 
 // A pen, finger and mouse drawing pad for writing a word or short phrase in any script.
 // Ink is kept as strokes (not pixels), so Undo is exact, the pad redraws crisply at any
@@ -39,14 +40,7 @@ export interface HandwritingPadProps {
   className?: string;
 }
 
-interface Point {
-  x: number;
-  y: number;
-  /** Line width in CSS pixels at this point (pressure-scaled for a pen). */
-  w: number;
-}
-
-type Stroke = Point[];
+type Stroke = InkPoint[];
 
 const PAPER = "#FAF8F3";
 const INK = "#1a1a2e";
@@ -147,6 +141,8 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const strokesRef = useRef<Stroke[]>([]);
     const sizeRef = useRef({ w: 0, h: 0 });
+    const writingSizeRef = useRef<WritingSize>({ w: 0, h: 0 });
+    const viewRef = useRef<WritingView>({ scale: 1, x: 0, y: 0 });
     const activePointer = useRef<number | null>(null);
     const sawPen = useRef(false);
     const onChangeRef = useRef(onChange);
@@ -165,8 +161,15 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
       if (w === 0 || h === 0) return;
       const dpr = Math.max(1, window.devicePixelRatio || 1);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      drawPaper(ctx, w, h, guideRef.current);
-      drawStrokes(ctx, strokesRef.current, 1, INK, 1);
+      ctx.fillStyle = PAPER;
+      ctx.fillRect(0, 0, w, h);
+      const view = viewRef.current;
+      ctx.save();
+      ctx.translate(view.x, view.y);
+      ctx.scale(view.scale, view.scale);
+      drawPaper(ctx, writingSizeRef.current.w, writingSizeRef.current.h, guideRef.current);
+      drawStrokes(ctx, strokesRef.current, 1, INK, 1 / view.scale);
+      ctx.restore();
     }, []);
 
     // The parent is told outside any state updater: calling its setState from inside this
@@ -189,6 +192,11 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
         const h = wrap.clientHeight;
         if (w === 0 || h === 0) return;
         const dpr = Math.max(1, window.devicePixelRatio || 1);
+        // Never rescale the stored points: repeated rotations must not shrink or
+        // distort the ink, and recognition must export the same original writing.
+        if (strokesRef.current.length === 0) writingSizeRef.current = { w, h };
+        viewRef.current = fitWriting(writingFrame(writingSizeRef.current, strokesRef.current), { w, h });
+        if (w !== sizeRef.current.w || h !== sizeRef.current.h) activePointer.current = null;
         sizeRef.current = { w, h };
         canvas.width = Math.round(w * dpr);
         canvas.height = Math.round(h * dpr);
@@ -208,6 +216,8 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
     const clear = useCallback(() => {
       strokesRef.current = [];
       activePointer.current = null;
+      writingSizeRef.current = { ...sizeRef.current };
+      viewRef.current = { scale: 1, x: 0, y: 0 };
       render();
       syncInk(false);
     }, [render, syncInk]);
@@ -228,8 +238,7 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
         toPngBase64: (options) => {
           const strokes = strokesRef.current;
           if (strokes.length === 0) return null;
-          const { w, h } = sizeRef.current;
-          let box = { x: 0, y: 0, w, h };
+          let box = writingFrame(writingSizeRef.current, strokes);
           if (options?.crop !== false) {
             let minX = Infinity;
             let minY = Infinity;
@@ -263,13 +272,13 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
       [clear, undo],
     );
 
-    const pointAt = (event: ReactPointerEvent<HTMLCanvasElement>, source: PointerEvent): Point => {
+    const pointAt = (event: ReactPointerEvent<HTMLCanvasElement>, source: PointerEvent): InkPoint => {
       const rect = event.currentTarget.getBoundingClientRect();
-      return {
-        x: source.clientX - rect.left,
-        y: source.clientY - rect.top,
+      return writingPoint({
+        x: Math.max(0, Math.min(rect.width, source.clientX - rect.left)),
+        y: Math.max(0, Math.min(rect.height, source.clientY - rect.top)),
         w: widthFor(source),
-      };
+      }, viewRef.current);
     };
 
     // Palm rejection: once a pen has touched this pad, finger contacts are ignored so a
@@ -308,7 +317,7 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
       for (const source of events) {
         const point = pointAt(event, source);
         const last = stroke[stroke.length - 1];
-        if (last && Math.hypot(point.x - last.x, point.y - last.y) < 0.8) continue;
+        if (last && Math.hypot(point.x - last.x, point.y - last.y) * viewRef.current.scale < 0.8) continue;
         stroke.push(point);
       }
       render();
@@ -350,6 +359,7 @@ export const HandwritingPad = forwardRef<HandwritingPadHandle, HandwritingPadPro
             onPointerMove={onPointerMove}
             onPointerUp={onPointerEnd}
             onPointerCancel={onPointerEnd}
+            onLostPointerCapture={onPointerEnd}
             onContextMenu={(event) => event.preventDefault()}
           />
         </div>

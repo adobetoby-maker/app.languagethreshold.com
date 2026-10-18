@@ -42,7 +42,7 @@ export const Route = createFileRoute("/api/team-activity")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           if (body.moduleId !== "core" && !getModule(body.moduleId))
             throw new TeamOperationError("Unknown module.");

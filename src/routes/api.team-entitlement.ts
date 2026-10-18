@@ -6,7 +6,7 @@ export const Route = createFileRoute("/api/team-entitlement")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           const { data: memberships, error } = await db
             .from("team_members")

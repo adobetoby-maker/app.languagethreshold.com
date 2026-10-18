@@ -55,7 +55,7 @@ export const Route = createFileRoute("/api/module-request")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           const { data, error } = await db
             .from("custom_module_requests")
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/api/module-request")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           if (!(await hasActivePlan(db, user.id)))
             throw new TeamOperationError(

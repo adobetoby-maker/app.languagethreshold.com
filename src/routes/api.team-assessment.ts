@@ -33,7 +33,7 @@ export const Route = createFileRoute("/api/team-assessment")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           if (body.action === "start") {
             const member = await memberRole(db, body.orgId, user.id);

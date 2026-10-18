@@ -1,14 +1,18 @@
 import { createClient, isAuthRetryableFetchError, type User } from "@supabase/supabase-js";
 import { createHash, randomBytes } from "node:crypto";
 import { ZodError } from "zod";
+import { teamAuthFetch } from "./team-auth-fetch";
 
-export function teamAdminClient(fetcher?: typeof fetch) {
+export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new TeamOperationError("Team database is not configured.", 503);
+  const transport = authRequest
+    ? teamAuthFetch(url, authRequest.signal, fetcher ?? fetch)
+    : fetcher;
   return createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
-    ...(fetcher ? { global: { fetch: fetcher } } : {}),
+    ...(transport ? { global: { fetch: transport } } : {}),
   });
 }
 

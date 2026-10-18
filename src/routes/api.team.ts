@@ -85,7 +85,7 @@ export const Route = createFileRoute("/api/team")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           const orgId = new URL(request.url).searchParams.get("org");
           if (!orgId) {
@@ -316,7 +316,7 @@ export const Route = createFileRoute("/api/team")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           if (body.action === "create") {
             const { data, error } = await db.rpc("team_create_organization", {

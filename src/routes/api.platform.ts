@@ -53,7 +53,7 @@ export const Route = createFileRoute("/api/platform")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
           const since =
@@ -159,7 +159,7 @@ export const Route = createFileRoute("/api/platform")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, user);
           if (body.action === "ledger_import_stripe") {

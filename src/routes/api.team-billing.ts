@@ -73,7 +73,7 @@ export const Route = createFileRoute("/api/team-billing")({
     handlers: {
       GET: async ({ request }) => {
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           const params = new URL(request.url).searchParams;
           const orgId = z.string().uuid().parse(params.get("orgId"));
@@ -108,7 +108,7 @@ export const Route = createFileRoute("/api/team-billing")({
         if (prepared.response) return prepared.response;
         const body = prepared.data;
         try {
-          const db = teamAdminClient();
+          const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
           await requireTeamAdmin(db, body.orgId, user.id);
           const key = process.env.STRIPE_SECRET_KEY;

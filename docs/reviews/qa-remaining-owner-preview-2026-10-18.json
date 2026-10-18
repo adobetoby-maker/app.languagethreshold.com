@@ -1,0 +1,154 @@
+{
+  "testedAt": "2026-10-18T04:19:05.495436+00:00",
+  "applicationCommit": "977726e85f406a58b2c0fcae16a72d583e9cd3e6",
+  "preview": "https://language-threshold-2uiwp8sl0-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-2uiwp8sl0-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6jsMhjaJec5F36jmEjuFzUXiGT9G",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-2uiwp8sl0-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "977726e85f406a58b2c0fcae16a72d583e9cd3e6",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1238,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.85,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1388,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/assessment-private-content-owner.test.mjs",
+    "tests/assessment-cleanup-status-lifecycle.test.mjs",
+    "tests/exam-readiness-export-lifecycle.test.mjs",
+    "tests/ai-writing-consent-lifecycle.test.mjs",
+    "tests/assessment-plan-lifecycle.test.mjs",
+    "tests/daily-plan-action-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Private content catalog/form, readiness and cleanup status bind the originating actor before SDK fetch and response adoption",
+    "Optional writing feedback binds its actual actor and current flight before provider-capable transport, preserving existing consent and durable-job observation callback",
+    "Plan reads, goals/support/revision mutation, checkpoint start and follow-up reload bind original actor/current read or action",
+    "Daily guidance read/cache and support acknowledgement/checkpoint actions bind original actor/snapshot; SDK denial cannot become offline cached recovery",
+    "Current mounted goal-action retry IDs and request contracts remain stable; server authorization, content/scoring/provider policy and storage schema unchanged",
+    "AST inventory finds 38 direct named calls to seven helper modes under src (excluding implementation), all with an explicit owner argument; this does not prove aliases/wrappers/arbitrary fetch or runtime/native acceptance",
+    "React review retained hook order, effect dependencies, existing scoped remounts, cancellation cleanup and accessible controls; ExamsArea change is one surgical line"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-remaining-owner-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-assessment-owner-call-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Eight added actual route/component/hook/client groups use synthetic SDK identities, private catalog/form/plan metadata, goals/checkpoint actions, browser/offline/cache and transport. Nested content reviewers, audit/history/goals UI and daily Exams children are inert fixture surfaces",
+    "No actual private bank/form was opened, cleanup health manufactured, goals/support/plan changed, assessment started or optional writing consent/provider request performed",
+    "Direct named helper inventory is bounded source evidence; it does not resolve speaking headers, aliases/wrappers/arbitrary fetch, server revocation or broad cache/device privacy",
+    "Existing request IDs remain mounted-context retry state; cancellation cannot undo accepted server/provider writes or establish exactly-once/durable process-restart reconciliation",
+    "Current SDK expiry/reauth, native/browser/process-restart/iPhone/audio/microphone and real owner/reviewer/pilot acceptance remain open",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. Collection/policies/schedule OFF; pending owner questions not repeated"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-review-owner-preview-2026-10-18.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "storageInventoryFollowup": {
+    "scope": "All currently found direct calls to seven assessment helper modes now supply owners",
+    "remaining": [
+      "speaking SDK credential binding; aliases/wrappers/arbitrary fetch and broader helper/cache/device inventory",
+      "genuine browser/process-restart/SDK expiry/native/device acceptance",
+      "uncertain writes/server concurrency, authentic new offline completion and legacy certificate reconciliation",
+      "human/content/calibration/equivalence/reviewer/pilot/catalog/operational release gates"
+    ]
+  },
+  "documentationConsulted": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/reference/javascript/maybesingle"
+  ],
+  "baselineComparison": {
+    "commit": "06a2eb072eb83b7e1d95b781afe83d50c4f2f1c3",
+    "cases": [
+      {
+        "source": "src/components/exams/AssessmentPlanPanel.tsx",
+        "case": "SDK B during displayed A goals save",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/hooks/use-daily-plan-actions.ts",
+        "case": "SDK B during displayed A acknowledgement",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      }
+    ],
+    "currentCasesPass": true,
+    "limit": "Controlled prior-production-source substitution with current helper and synthetic SDK/transport. Not actual plan changes, start, consent/provider action or server authorization bypass."
+  },
+  "directCallInventory": {
+    "evidence": "docs/reviews/qa-assessment-owner-call-inventory-2026-10-18.json",
+    "calls": 38,
+    "withoutExplicitOwner": 0,
+    "scope": "Direct named calls under src excluding helper implementation; not aliases/wrappers/arbitrary fetch or runtime ownership proof"
+  }
+}

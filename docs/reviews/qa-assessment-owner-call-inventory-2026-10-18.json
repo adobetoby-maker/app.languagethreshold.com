@@ -1,0 +1,275 @@
+{
+  "scope": "Direct named calls under src excluding helper implementation; not aliases/wrappers/arbitrary fetch or runtime ownership proof",
+  "calls": 38,
+  "withoutExplicitOwner": [],
+  "entries": [
+    {
+      "path": "src/components/exams/AIWritingProposal.tsx",
+      "line": 38,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/AssessmentAuditHistory.tsx",
+      "line": 69,
+      "helper": "examHistoryExport",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/AssessmentCleanupStatus.tsx",
+      "line": 52,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/AssessmentPlanPanel.tsx",
+      "line": 108,
+      "helper": "examPlanRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/AssessmentPlanPanel.tsx",
+      "line": 146,
+      "helper": "examPlanRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/AssessmentPlanPanel.tsx",
+      "line": 442,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ContentReviewDecision.tsx",
+      "line": 93,
+      "helper": "examContentRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/DailyLessonPlan.tsx",
+      "line": 127,
+      "helper": "examPlanRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamListeningQuestion.tsx",
+      "line": 74,
+      "helper": "examAudioRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamReviewQueue.tsx",
+      "line": 66,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamReviewQueue.tsx",
+      "line": 122,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamReviewQueue.tsx",
+      "line": 146,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamSpeechQuestion.tsx",
+      "line": 81,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamSpeechQuestion.tsx",
+      "line": 135,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamSpeechQuestion.tsx",
+      "line": 289,
+      "helper": "uploadExamSpeech",
+      "arguments": 4,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamSpeechQuestion.tsx",
+      "line": 349,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamsArea.tsx",
+      "line": 2239,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/ExamsArea.tsx",
+      "line": 2380,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/FreezeLessonSnapshot.tsx",
+      "line": 68,
+      "helper": "examContentRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/LessonContentReview.tsx",
+      "line": 27,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/PrivateExamAudio.tsx",
+      "line": 62,
+      "helper": "examAudioRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/components/exams/SpeechEvidencePlayback.tsx",
+      "line": 67,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-daily-plan-actions.ts",
+      "line": 75,
+      "helper": "examPlanRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-daily-plan-actions.ts",
+      "line": 76,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-draft.ts",
+      "line": 60,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-draft.ts",
+      "line": 192,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-draft.ts",
+      "line": 421,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-draft.ts",
+      "line": 428,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-entry.ts",
+      "line": 44,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-entry.ts",
+      "line": 99,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-mutation.ts",
+      "line": 39,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-exam-runner-actions.ts",
+      "line": 87,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-private-paged-report.ts",
+      "line": 62,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/hooks/use-private-paged-report.ts",
+      "line": 131,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/routes/exam-content.tsx",
+      "line": 94,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/routes/exam-content.tsx",
+      "line": 126,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/routes/exam-reviewers.tsx",
+      "line": 96,
+      "helper": "examRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    },
+    {
+      "path": "src/routes/exam-reviewers.tsx",
+      "line": 186,
+      "helper": "examReviewerRequest",
+      "arguments": 3,
+      "ownerSupplied": true
+    }
+  ],
+  "applicationCommit": "977726e85f406a58b2c0fcae16a72d583e9cd3e6",
+  "testedAt": "2026-10-18T04:18:02.791908+00:00"
+}

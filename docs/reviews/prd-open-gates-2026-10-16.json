@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-18T14:21:32.622231+00:00",
+  "auditedAt": "2026-10-18T14:33:49.689034+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "7c1028ca9130c594b2ac5cf586a08e235eaad676",
+  "application": "0a62c7dcdc210ef4153675bf10f322f570180048",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-apv7sz25b-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-cx3s3pa9i-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -1377,6 +1377,22 @@
     "alreadyDispatchedUpdateOutcomeUnchanged": true,
     "counterConsumptionCanBeUncertain": true,
     "otherBudgetsAndMutationRpcStillSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestAssessmentHttpBudgetAdoption": {
+    "application": "0a62c7dcdc210ef4153675bf10f322f570180048",
+    "evidence": "docs/reviews/qa-assessment-budget-adoption-preview-2026-10-18.json",
+    "newActualRouteBudgetGroups": 8,
+    "newlyAdoptedCallsites": 14,
+    "totalDirectHttpAssessmentBudgetCallsitesAdopted": 16,
+    "fullNode22Tests": 1528,
+    "hostedCheckerGroups": 18,
+    "quotaPhaseMs": 8000,
+    "quotaBodyMaxBytes": 1024,
+    "historyExportSecondBudgetOwned": true,
+    "speechUploadQuotaAdmissionOnlyNoCollection": true,
+    "laterReadsAndAlreadyDispatchedWritesSeparate": true,
+    "internalAiProposalQuotaStillUnowned": true,
     "fullGoalComplete": false
   }
 }

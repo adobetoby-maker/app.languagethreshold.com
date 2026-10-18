@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "12d25f0",
+  "application": "635c79e",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-3bkgjryap-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-iwuq86i0v-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-auth-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-team-auth-class-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-auth-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-team-auth-class-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -958,8 +958,8 @@
     "actualTeamWrite": false
   },
   "latestTeamErrorBoundaryInventory": {
-    "sourceCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
-    "runtimeApplicationCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+    "sourceCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+    "runtimeApplicationCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
     "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     "typescriptSourceFiles": 620,
     "legacyDirectCalls": 0,
@@ -1007,16 +1007,25 @@
     "actualSessionExpiryProved": false
   },
   "latestTeamAuthSdkContractAudit": {
-    "sourceCommit": "ec99227b6de428b87c6dd6164e4094688ea3fbf7",
-    "runtimeApplicationCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+    "sourceCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+    "runtimeApplicationCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
     "evidence": "docs/reviews/qa-team-auth-sdk-contract-2026-10-18.json",
     "installedVersions": "2.105.1",
     "stubRequests": 2,
     "actualNetworkCalls": 0,
     "sdkRawLoggingOpen": true,
     "responseBoundsOpen": true,
-    "transportMisclassifiedAsExpiredSession": true,
-    "runtimeChanged": false,
-    "status": "confirmed-installed-sdk-gaps-implementation-open"
+    "boundedTeamTransportMisclassifiedAsExpiredSession": false,
+    "originalHelperClassificationUnchanged": true,
+    "status": "bounded-classification-fixed-transport-bytes-logging-open"
+  },
+  "latestLocalTeamAuthClassificationFollowup": {
+    "application": "635c79e",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-team-auth-class-preview-2026-10-18.json",
+    "boundedTeamRetryableStatus": 503,
+    "credentialDenialStatus": 403,
+    "originalHelperBehaviorUnchanged": true,
+    "sdkLoggingAndBytesOpen": true
   }
 }

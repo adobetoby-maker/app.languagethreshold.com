@@ -1,0 +1,98 @@
+{
+  "testedAt": "2026-10-18T10:48:22.697475+00:00",
+  "applicationCommit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+  "preview": "https://language-threshold-iwuq86i0v-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-iwuq86i0v-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_BQPUSMZagp64XSHU3JfopDEPFCwu",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-iwuq86i0v-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "635c79e3c90c98a5287a8659104e33ffc63707cf",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-auth-preview-2026-10-18.json",
+  "local": {
+    "tests": 1415,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1519,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Bounded team authentication now recognizes the installed SDK isAuthRetryableFetchError guard and returns fixed 503 for resolved retryable failures rather than expired-session 403",
+    "Original authenticatedUser behavior remains unchanged for ten direct official-assessment/cleanup callers. Missing/invalid credentials on bounded team paths remain fixed 403; owned deadline/disconnect retain 503/499",
+    "One added actual installed-SDK group exercises 503 service response, thrown fetch rejection, malformed 200 JSON and 401 denial with synthetic custom fetch; confirms one fetch per probe, no global transport, fixed bodies, resource cleanup and unchanged original-helper classification",
+    "Refreshed installed-SDK probe verifies bounded-team classification fixed while still observing over-300-KiB JSON acceptance and internal raw fetch-error logging. These transport/bytes/logging findings are open",
+    "Fifteen exact hosted checker groups retain current read/denial behavior; no real service outage, expired session or browser reauthentication was manufactured"
+  ],
+  "controlledEvidence": [
+    "tests/team-auth-wait.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "643c2a4",
+    "source": "src/lib/team-server.ts",
+    "case": "Actual installed SDK returns retryable 503 service failure to bounded team helper",
+    "oldStatus": 403,
+    "expectedStatus": 503,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual old helper with installed SDK and synthetic custom fetch, no real network/credentials."
+  },
+  "diagnostics": [
+    "Initial global-fetch guard text edit missed its formatted declaration, leaving an undefined counter assertion. Corrected guard/restoration before rerunning full suite. Historical failure is actual 403 versus 503 status assertion."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-auth-class-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-team-auth-sdk-contract-2026-10-18.json"
+  ],
+  "limits": [
+    "Only bounded-team retryable failure classification changes. SDK transport cancellation, response-byte bounds and internal raw logging remain unchanged/open; the outer wait is still not network cancellation.",
+    "Ten original authenticatedUser callsites retain prior behavior, including resolved retryable failures being labeled expired-session 403. No new claim for official assessment/cleanup auth handling or indirect callers.",
+    "Installed-SDK transport fixtures use synthetic credentials/Responses and a rejecting global-fetch guard. Captured console logs are intercepted/restored only in isolated tests/probe; runtime logs are not suppressed by this change.",
+    "No actual expiry, slow auth, SDK transport cancellation, browser/device/reauth, payment/invitation/grant/module/mail/certificate/consent/provider action. Successful business workflows and later private phases remain separate.",
+    "All content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates and catalog grants/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

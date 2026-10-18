@@ -1,0 +1,95 @@
+{
+  "testedAt": "2026-10-18T13:46:55.353857+00:00",
+  "applicationCommit": "006304bf57221938323389b5d7e2a552b03564ad",
+  "preview": "https://language-threshold-gv6keu2j2-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-gv6keu2j2-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_8zM9W8RgtdPxNiTbHT3dHJ9pKFzC",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-gv6keu2j2-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "006304bf57221938323389b5d7e2a552b03564ad",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "local": {
+    "newActualSdkGroups": 8,
+    "fullNode22Tests": 1498,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.96
+  },
+  "hostedCheckerGroups": 17,
+  "hostedReports": [
+    "qa-exams-evidence-reviewer-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "phaseMs": 8000,
+  "responseMaxBytes": 4096,
+  "checks": {
+    "exactActorActiveTrackProjectionRetained": true,
+    "personalQueueLimitOneRetained": true,
+    "orgQueueExistingRpcAuthorizationUnchanged": true,
+    "claimedPersonalShareAndNonselfReviewerRequired": true,
+    "noReviewerRemains403": true,
+    "serviceFailureUsesFixed503": true,
+    "actualAttemptAndPersonalQueueReturn499OnDeparture": true,
+    "noSavedResponsesReadAfterReviewerDeparture": true,
+    "selectedRetryDisabled": true,
+    "strictUserProjectionActorAndCardinality": true,
+    "lateBodyDisposed": true,
+    "stalledBodyDeadline": true,
+    "unrelatedAdminListsAndWritesPassThrough": true,
+    "concurrentClientsIndependent": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/evidence-reviewer-fetch.ts": "c13c48bcfecfd6982d2fdec8cc8fb346ab780dca74021ef80cd79506eb4e528a",
+    "src/lib/assessments/reviewer-status.ts": "baa50f44d2e956db894e7aee40d376f4f2b482432ebeb2f2291c1c46239e547c",
+    "src/lib/team-server.ts": "7d155e1a62855af127e0c586b38b935adcb27ed4c29ceb9ebce57cdcda999db7",
+    "src/lib/assessments/server.ts": "55fa3cbab6f0b1a3b0c845dbe650fc8ea91e8412cb8eaf7fdee50f120e0a593c",
+    "src/routes/api.exams.ts": "ab19c0d22dffd01c6c263552bdc032ba09d112fb4cba7172940ef8b63fa3cd45",
+    "tests/evidence-reviewer-transport.test.mjs": "2ee37f9e586debb759d96debea5635236e07982e038af46e5833f432f3308ccb"
+  },
+  "limits": [
+    "Historical52f0e3b/be0f47c actual SDK probe used synthetic HTTP/Auth/claim/enrollment/reviewer data only. Exact reviewer503 retried four times then became403; cancellation allowed late reviewer context and one mock saved-response GET, whose400 deliberately stopped serialization. Personal queue late eligibility returned200 with empty synthetic requests. No actual private evidence leak, tenant authorization bypass, grant, claim, reviewer approval or role change is proved.",
+    "Only two exact configured-project assessment_reviewers GET shapes are bounded: active actor/exact track user_id projection and active actor user_id projection limit1. FourKiB is a resource budget; user_id is a UUID in the immutable SQL schema, and exact track PK/limit1 constrain cardinality. Other projections/admin lists, earlier claim/enrollment reads, queue RPC and later private reads remain separate. Queue RPC executes before registry lookup; no aggregate endpoint or physical cancellation claim.",
+    "All17hosted groups use dedicated QA/rejected mutations/read-only checks. No business/owner/reviewer write, form publication, provider email/model/speech/payment call, exam submit, cleanup or schema/policy/schedule action. Browser/device/expiry/content/calibration/pilot/retention/scheduler/59module gates remain open; full goal active.",
+    "First focused test incorrectly omitted synthetic membership denial for a team enrollment; corrected fixture before final8pass. Read-only state check first selected the historical submitted attempt, then treated an omitted serialized submitted_at as a value. Corrected to the existing active attempt and explicit database submitted_at read; final revision12/in_progress/null confirmed. Neither failed assertion changed QA data.",
+    "Prior full dependency audit remains9findings(5high/4moderate), and pre-existing Prisma schema validation remains open. Main64f2172 and accepted companiond4ad837 unchanged; draftPR38 remains unmerged."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T13:46:56.582Z",
+    "sourceCommit": "006304b",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1591,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

@@ -7,7 +7,8 @@ import {
 } from "@/lib/assessments/offline";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { useAuth } from "@/state/auth-state";
-import { examPlanRequest, examRequest } from "@/lib/assessments/client";
+import { useDailyPlanActions } from "@/hooks/use-daily-plan-actions";
+import { examPlanRequest, ExamRequestError } from "@/lib/assessments/client";
 import type { PlanRevision, SupportAssignment } from "@/lib/assessments/plans";
 import { getCurriculum } from "@/data/curriculum";
 import { moduleLessonUrl } from "@/lib/learning-link";
@@ -98,13 +99,31 @@ function DailyLessonPlanContent({
   }, []);
   const [localAttempts, setLocalAttempts] = useState<Record<string, string>>({});
   const [data, setData] = useState<DailyView | null>(null),
-    [error, setError] = useState(""),
-    [busy, setBusy] = useState(false),
+    [readError, setError] = useState(""),
+    [loading, setLoading] = useState(true),
     [attemptId, setAttemptId] = useState<string | null>(null);
+  const actions = useDailyPlanActions(
+    JSON.stringify([
+      moduleId,
+      target,
+      native,
+      activePlanId,
+      lessonNumber,
+      lessonWay,
+      attemptId,
+      connectionEpoch,
+    ]),
+    data,
+    !loading && !attemptId,
+    () => setError(""),
+  );
+  const busy = loading || actions.busy,
+    error = actions.error || readError;
   useEffect(() => {
     if (!viewer) return;
     const controller = new AbortController();
     setError("");
+    setLoading(true);
     void examPlanRequest<DailyView>(
       `/api/exam-plans?action=daily&module=${encodeURIComponent(moduleId)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}${activePlanId ? `&plan=${encodeURIComponent(activePlanId)}` : ""}`,
       controller.signal,
@@ -137,7 +156,7 @@ function DailyLessonPlanContent({
       .catch((err) => {
         if (isCurrentUser(viewer) && !controller.signal.aborted) {
           const cached =
-            err instanceof TypeError || !navigator.onLine
+            err instanceof TypeError || (!navigator.onLine && !(err instanceof ExamRequestError))
               ? readOfflineGuidance<DailyView>(
                   browserExamStorage(),
                   examGuidanceKey(viewer, moduleId, target, native, activePlanId),
@@ -162,10 +181,14 @@ function DailyLessonPlanContent({
                 : { reviewEveryDays: 4 },
             );
           } else {
+            setData(null);
             setError(err.message);
             onPlanTiming?.(activePlanId ? null : { reviewEveryDays: 4 });
           }
         }
+      })
+      .finally(() => {
+        if (isCurrentUser(viewer) && !controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
   }, [
@@ -191,7 +214,12 @@ function DailyLessonPlanContent({
   if (attemptId)
     return (
       <section className="my-4 rounded-2xl border border-gold/30 p-4">
-        <button className={button + " mb-4"} onClick={() => setAttemptId(null)}>
+        <button
+          className={button + " mb-4"}
+          onClick={() => {
+            if (actions.isCurrentView() && !actions.isPending()) setAttemptId(null);
+          }}
+        >
           Return to this module lesson
         </button>
         <Suspense fallback={<p role="status">Opening your supporting check…</p>}>
@@ -256,7 +284,7 @@ function DailyLessonPlanContent({
     if (lessonNumber)
       return error ? (
         <p className="my-3 text-xs text-muted-foreground">
-          Assessment guidance needs a connection. Your lesson is still available.
+          Assessment guidance could not be loaded. Your lesson is still available.
         </p>
       ) : null;
     return (
@@ -267,7 +295,7 @@ function DailyLessonPlanContent({
         </a>
         {error && (
           <p className="mt-2 text-xs">
-            Your saved assessment plan needs a connection. Lessons remain available.
+            Your saved assessment plan could not be loaded. Lessons remain available.
           </p>
         )}
       </aside>
@@ -279,6 +307,11 @@ function DailyLessonPlanContent({
       aria-label="Your assessed daily learning plan"
     >
       <h3 className="font-semibold">Your lesson plan</h3>
+      {loading && (
+        <p role="status" className="text-xs">
+          Checking the current learning plan…
+        </p>
+      )}
       {error && (
         <p role="alert" className="text-sm">
           {error}
@@ -438,29 +471,19 @@ function DailyLessonPlanContent({
                             key={id}
                             className={button}
                             disabled={busy}
-                            onClick={() => {
-                              setBusy(true);
-                              setError("");
-                              void examPlanRequest({
-                                action: "acknowledge",
-                                assignmentId: assignment.id,
-                                requestId: crypto.randomUUID(),
+                            onClick={() =>
+                              void actions.act("acknowledge", assignment.id, () => {
+                                window.location.assign(
+                                  moduleLessonUrl({
+                                    moduleId: assignment.capability_snapshot.moduleId,
+                                    target,
+                                    native,
+                                    lesson: n,
+                                    way: "see",
+                                  }),
+                                );
                               })
-                                .then(() => {
-                                  if (isCurrentUser(user.id))
-                                    window.location.assign(
-                                      moduleLessonUrl({
-                                        moduleId: assignment.capability_snapshot.moduleId,
-                                        target,
-                                        native,
-                                        lesson: n,
-                                        way: "see",
-                                      }),
-                                    );
-                                })
-                                .catch((err) => setError(err.message))
-                                .finally(() => setBusy(false));
-                            }}
+                            }
                           >
                             Practice {n}
                             {title ? `: ${title}` : ""}
@@ -475,29 +498,19 @@ function DailyLessonPlanContent({
                           className={button}
                           disabled={busy}
                           onClick={() => {
+                            if (!actions.isCurrentView() || busy || actions.isPending()) return;
                             const existing = cp.attempts[0]?.id ?? localAttempts[cp.id];
                             if (existing) {
                               setAttemptId(existing);
                               return;
                             }
-                            setBusy(true);
-                            setError("");
-                            void examRequest<{ id: string }>({
-                              action: "start",
-                              checkpointId: cp.id,
-                              requestId: crypto.randomUUID(),
-                            })
-                              .then((attempt) => {
-                                if (isCurrentUser(user.id)) {
-                                  setLocalAttempts((previous) => ({
-                                    ...previous,
-                                    [cp.id]: attempt.id,
-                                  }));
-                                  setAttemptId(attempt.id);
-                                }
-                              })
-                              .catch((err) => setError(err.message))
-                              .finally(() => setBusy(false));
+                            void actions.act<{ id: string }>("start", cp.id, (attempt) => {
+                              setLocalAttempts((previous) => ({
+                                ...previous,
+                                [cp.id]: attempt.id,
+                              }));
+                              setAttemptId(attempt.id);
+                            });
                           }}
                         >
                           {assignment.mode === "units"

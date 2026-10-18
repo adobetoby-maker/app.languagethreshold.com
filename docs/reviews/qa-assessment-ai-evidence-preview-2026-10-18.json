@@ -1,0 +1,100 @@
+{
+  "testedAt": "2026-10-18T15:20:57.148555+00:00",
+  "applicationCommit": "145c52d6a917a2db630bb14758bc42679ffc6c1f",
+  "preview": "https://language-threshold-rjoei2ilv-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-rjoei2ilv-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DTVLLXVnZW7zhfE6FzWBFXYq1oFQ",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-rjoei2ilv-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "145c52d6a917a2db630bb14758bc42679ffc6c1f",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-ai-evidence-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.98,
+    "newInstalledSdkEvidenceGroups": 8,
+    "fullNode22Tests": 1560
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-ai-evidence-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "checks": {
+    "sharedSavedResponseHumanHistoryPhase": true,
+    "requestAbortBeforeLateHistoryRead": true,
+    "bothHeaderAndBodyDeadlines": true,
+    "strictUtf8JsonProjectionAndResponseId": true,
+    "sqlLegacyAnswerObjectKeysRetained": true,
+    "humanUuidOnlyCardinality": true,
+    "byteCaps": true,
+    "normalFiltersHumanPrecedenceBeforeQuota": true,
+    "oneSdkAttemptPerGet": true,
+    "absence404Service503Eligibility400SelectedPath403": true,
+    "existingMissingKeyStopsBeforeHistory": true,
+    "independentPhasesAndListenerCleanup": true,
+    "preabortAndHumanLookupAbortBeforeQuotaClaim": true,
+    "existingAllowanceProviderQuotaRoutingTestsRetained": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaActiveAttemptAndTeamProgressRetained": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "b2248252816f5c1a04f2062e83e790b4cd32085b37c85a92b1bea0bacd757c7c",
+    "src/lib/assessments/writing-evidence.ts": "5d4b6770fe155176b3da9648466b5958c90fe8cfcf9c5045a7a537cdebfd8fff",
+    "tests/assessment-ai-evidence.test.mjs": "e75ecd8b00950f6bf60e7dbd8c9f5a4502562a7abe9784fb7658074c736fd1f0",
+    "tests/assessment-ai-budget.test.mjs": "a63817842a105944ef334ca5bec4f8c0ac48490539feab74e8da30ca493f8e69",
+    "tests/assessment-ai-provider.test.mjs": "590d12d16741ea30c76855f220b893b777fa0622a8be22acf4653cc859d897b5"
+  },
+  "limits": [
+    "Actual AI source/installed Supabase SDK and selected transport; access/path, quota, DB replies and claim refusal are synthetic. No real private learner evidence, provider/model/billing, consent/calibration/reviewer/pilot/claim/score action. Historical old flow eventually499 from existing quota guard with zero claims: late authorized history lookup/liveness finding, not a private leak or permission bypass.",
+    "Request path uses a dedicated service client(no extra Auth call) and one8second phase for exact saved response(id,item_id,answer bound to response+attempt) plus human-score id/response/sourcehuman/limit1.64KiB/4KiB strict UTF8/JSON/selected projection/cardinality/response identity. SQL legacy answer object keys retained; frozen item membership/writing eligibility still authoritative. Caps operational, not SQL item-id size invariants.",
+    "Confirmed empty response remains404; selected item403, ineligible writing400, missing provider key503 and human-review priority before quota/claim remain. Response service/shape failure nowfixed503 instead of old misleading404. Human service failure remains fixed503. No Request retains legacy query path without new retry flags; all runtime HTTP AI calls pass Request.",
+    "Phase starts after existing attempt access and selected path; it does not bound those earlier reads, quota, allowance, claim/consent/score/audit/finalization database waits or whole endpoint lifetime. Existing claim/provider outcomes, no automatic retry/replay/refund/rollback inference unchanged.",
+    "All1560tests/typecheck/changed-filelint/productionaudit pass. Prior historical overwritten-log gap and prior reviewer-quota ordering fixture failure remain in their original reports; current full log is distinct and passes. Guarded build/artifact checks pass.",
+    "Main and companion unchanged; draftPR38 unmerged. Original human/device/session/content/calibration/reviewer/pilot/retention/scheduler/59module gates, full9dependency audit findings(5high/4moderate) and legacy Prisma remain open.",
+    "All18hosted checker groups use dedicated QA fixture paths/rejected requests/anonymous denials. Uncalibrated AI remains denied; no positive hosted AI claim/provider call/consent/calibration. Preview capability metadata null is not environment readback proof."
+  ],
+  "phaseMs": 8000,
+  "savedResponseMaxBytes": 65536,
+  "humanHistoryMaxBytes": 4096,
+  "privateBankScan": {
+    "testedAt": "2026-10-18T15:21:03.777Z",
+    "sourceCommit": "145c52d",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1632,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

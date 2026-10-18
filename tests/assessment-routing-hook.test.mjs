@@ -409,8 +409,9 @@ test("actual hook forwards runner conflict cancellation and refuses a late serve
     const hook = f.render(),
       before = f.storage.getItem(f.key);
     const work = hook.resolve(false, controller.signal);
-    assert.equal(f.calls[0].signal, controller.signal);
+    assert.equal(f.calls[0].signal.aborted, false);
     controller.abort();
+    assert.equal(f.calls[0].signal.aborted, true);
     read.resolve(attempt(true));
     await assert.rejects(work, /session changed/);
     assert.equal(f.storage.getItem(f.key), before);
@@ -434,4 +435,145 @@ test("actual hook links runner cancellation to continuation transport and keeps 
     assert.equal(f.calls.length, 1);
     assert.deepEqual(m.readExamDraft(f.storage, f.key).routeFlight, saved);
     assert.equal(m.readOfflineExams(f.storage, "owner-a")[0].routing.state, "core");
+  }));
+
+test("late successful save after same-owner unmount keeps the original uncertain flight for exact replay", () =>
+  fixture(async (f) => {
+    let hook = f.render();
+    hook.edit("core-a", { inputMethod: "typed", text: "Owned pending answer" });
+    hook = f.render();
+    const save = deferred();
+    f.request = () => save.promise;
+    const work = hook.sync();
+    const body = f.calls[0].body,
+      bytes = f.storage.getItem(f.key);
+    m.controls.unmount();
+    save.resolve({ revision: 5, syncedAt: "2026-10-18T00:32:00Z" });
+    assert.equal(await work, false);
+    assert.equal(f.storage.getItem(f.key), bytes);
+    assert.equal(m.hasUnsyncedExamDrafts(f.storage, "owner-a"), true);
+    f.request = async () => ({ revision: 5, syncedAt: "2026-10-18T00:32:00Z" });
+    hook = f.remount(attempt(), true);
+    assert.equal(await hook.sync(), true);
+    assert.deepEqual(f.calls.at(-1).body, body);
+    assert.equal(m.readExamDraft(f.storage, f.key).flight, null);
+  }));
+test("departed edit, index, sync, flush, clear and reload handlers cannot modify either owner draft", () =>
+  fixture(async (f) => {
+    const hook = f.render();
+    hook.edit("core-a", { inputMethod: "typed", text: "Keep this answer" });
+    const bytes = f.storage.getItem(f.key);
+    m.controls.actor = "owner-b";
+    hook.edit("core-a", { inputMethod: "typed", text: "Wrong actor" });
+    hook.setIndex(1);
+    hook.clearSubmitted();
+    assert.equal(await hook.sync(), false);
+    assert.equal(await hook.flush(), false);
+    await assert.rejects(hook.reloadAfterExternal(), /session changed/);
+    assert.equal(f.calls.length, 0);
+    assert.equal(f.storage.getItem(f.key), bytes);
+    assert.equal(m.readExamDraft(f.storage, m.examDraftKey("owner-b", "local-attempt")), null);
+    m.controls.actor = "owner-a";
+    m.controls.unmount();
+    hook.edit("core-a", { inputMethod: "typed", text: "Unmounted edit" });
+    hook.clearSubmitted();
+    assert.equal(f.storage.getItem(f.key), bytes);
+    assert.equal(await hook.flush(), false);
+  }));
+test("save-conflict read shares cancellation and cannot replace state after unmount", () =>
+  fixture(async (f) => {
+    let hook = f.render();
+    hook.edit("core-a", { inputMethod: "typed", text: "Conflict answer" });
+    hook = f.render();
+    const read = deferred();
+    f.request = (body) => {
+      if (typeof body === "string") return read.promise;
+      throw new m.ExamRequestError("Conflict", 409);
+    };
+    const work = hook.sync();
+    await tick();
+    assert.equal(f.calls.length, 2);
+    assert.ok(f.calls[1].signal);
+    const bytes = f.storage.getItem(f.key);
+    m.controls.unmount();
+    assert.equal(f.calls[1].signal.aborted, true);
+    read.resolve({ ...attempt(), revision: 9 });
+    assert.equal(await work, false);
+    assert.equal(f.storage.getItem(f.key), bytes);
+  }));
+test("external reload coalesces and cannot adopt a late copy after unmount", () =>
+  fixture(async (f) => {
+    const read = deferred();
+    f.request = () => read.promise;
+    const hook = f.render();
+    const work = hook.reloadAfterExternal();
+    assert.equal(hook.reloadAfterExternal(), work);
+    await tick();
+    assert.equal(f.calls.length, 1);
+    const bytes = f.storage.getItem(f.key);
+    m.controls.unmount();
+    assert.equal(f.calls[0].signal.aborted, true);
+    read.resolve({ ...attempt(), revision: 9 });
+    await assert.rejects(work, /session changed/);
+    assert.equal(f.storage.getItem(f.key), bytes);
+  }));
+test("external reload cannot fetch after a departed flush and preserves queued edits", () =>
+  fixture(async (f) => {
+    let hook = f.render();
+    hook.edit("core-a", { inputMethod: "typed", text: "Queued before upload" });
+    hook = f.render();
+    const save = deferred();
+    f.request = () => save.promise;
+    const work = hook.reloadAfterExternal();
+    assert.equal(f.calls.length, 1);
+    m.controls.unmount();
+    save.resolve({ revision: 5, syncedAt: "later" });
+    await assert.rejects(work, /Sync answers/);
+    assert.equal(f.calls.length, 1);
+    assert.equal(
+      m.readExamDraft(f.storage, f.key).pending["core-a"].answer.text,
+      "Queued before upload",
+    );
+  }));
+test("newest owned read wins and external refresh never overwrites answers edited during the read", () =>
+  fixture(async (f) => {
+    const first = deferred(),
+      second = deferred();
+    let reads = 0;
+    f.request = () => (++reads === 1 ? first.promise : second.promise);
+    const hook = f.render();
+    const old = hook.resolve(false),
+      current = hook.reloadAfterExternal();
+    await tick();
+    second.resolve({ ...attempt(), revision: 8 });
+    assert.equal((await current).revision, 8);
+    first.resolve({ ...attempt(), revision: 5 });
+    await assert.rejects(old, /newer server-copy/);
+    assert.equal(m.readExamDraft(f.storage, f.key).revision, 8);
+    const late = deferred();
+    f.request = () => late.promise;
+    const active = f.render(),
+      reload = active.reloadAfterExternal();
+    await tick();
+    active.edit("core-a", { inputMethod: "typed", text: "New local input" });
+    late.resolve({ ...attempt(), revision: 9 });
+    await assert.rejects(reload, /Answers changed/);
+    assert.equal(
+      m.readExamDraft(f.storage, f.key).pending["core-a"].answer.text,
+      "New local input",
+    );
+  }));
+test("owned server-copy reads reject wrong attempt, enrollment and frozen form before adoption", () =>
+  fixture(async (f) => {
+    const hook = f.render();
+    for (const latest of [
+      { ...attempt(), id: "other" },
+      { ...attempt(), enrollment: { ...attempt().enrollment, id: "other" } },
+      { ...attempt(), form: { ...attempt().form, version: "other" } },
+    ]) {
+      f.request = () => latest;
+      const bytes = f.storage.getItem(f.key);
+      await assert.rejects(hook.reloadAfterExternal(), /does not match/);
+      assert.equal(f.storage.getItem(f.key), bytes);
+    }
   }));

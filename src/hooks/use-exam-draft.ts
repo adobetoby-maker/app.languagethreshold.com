@@ -38,6 +38,58 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     continuing = useRef<Promise<ExamAttemptView> | null>(null),
     continuationAbort = useRef<AbortController | null>(null),
     controller = useRef<AbortController | null>(null);
+  const reads = useRef(new Set<AbortController>()),
+    readVersion = useRef(0),
+    reloading = useRef<Promise<ExamAttemptView> | null>(null);
+  const active = useCallback(
+    () => mounted.current && !!userId && isCurrentUser(userId),
+    [isCurrentUser, userId],
+  );
+  const readServerCopy = useCallback(
+    async <T>(
+      signal: AbortSignal | undefined,
+      adopt: (latest: ExamAttemptView) => T,
+    ): Promise<T> => {
+      if (!active() || signal?.aborted) throw new Error("Your session changed.");
+      const abort = new AbortController(),
+        version = ++readVersion.current;
+      const cancel = () => abort.abort();
+      reads.current.add(abort);
+      signal?.addEventListener("abort", cancel, { once: true });
+      try {
+        const latest = await examRequest<ExamAttemptView>(
+          `/api/exams?action=attempt&attempt=${attempt.id}`,
+          abort.signal,
+        );
+        if (!active() || abort.signal.aborted || signal?.aborted)
+          throw new Error("Your session changed.");
+        if (version !== readVersion.current)
+          throw new Error("A newer server-copy check replaced this one. Retry the current view.");
+        if (
+          latest.id !== attempt.id ||
+          latest.form.id !== attempt.form.id ||
+          latest.form.version !== attempt.form.version ||
+          latest.form.rubricVersion !== attempt.form.rubricVersion ||
+          latest.enrollment.id !== attempt.enrollment.id ||
+          !latest.isLearner
+        )
+          throw new Error("The server copy does not match your active attempt. Reopen Exams.");
+        return adopt(latest);
+      } finally {
+        signal?.removeEventListener("abort", cancel);
+        reads.current.delete(abort);
+        abort.abort();
+      }
+    },
+    [
+      active,
+      attempt.id,
+      attempt.form.id,
+      attempt.form.version,
+      attempt.form.rubricVersion,
+      attempt.enrollment.id,
+    ],
+  );
   const initial = useRef<ExamDeviceDraft | null>(null);
   if (!initial.current) {
     const saved = readExamDraft(storage, key);
@@ -79,7 +131,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   );
   const update = useCallback(
     (next: ExamDeviceDraft, nextStatus?: SaveStatus) => {
-      if (!isCurrentUser(userId)) return false;
+      if (!active()) return false;
       current.current = next;
       const pending = Boolean(Object.keys(next.pending).length || next.flight || next.routeFlight);
       registerPendingExam(userId, attempt.id, pending);
@@ -90,11 +142,17 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
       }
       return saved;
     },
-    [attempt.id, isCurrentUser, key, storage, userId],
+    [active, attempt.id, key, storage, userId],
   );
   const edit = useCallback(
     (itemId: string, answer: AssessmentAnswer) => {
-      if (current.current.routeFlight) return;
+      if (
+        !active() ||
+        attempt.submittedAt ||
+        !attempt.form.items.some((item) => item.id === itemId) ||
+        current.current.routeFlight
+      )
+        return;
       const seq = current.current.sequence + 1;
       const next = {
         ...current.current,
@@ -110,10 +168,11 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
         );
       }
     },
-    [conflict, update],
+    [active, attempt.form.items, attempt.submittedAt, conflict, update],
   );
   const sync = useCallback(
     async (recover = false): Promise<boolean> => {
+      if (!active() || attempt.submittedAt) return false;
       if (saving.current) return saving.current;
       if ((conflict || conflictBlocked.current) && !recover) return false;
       if (typeof navigator !== "undefined" && !navigator.onLine) return false;
@@ -135,7 +194,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
             },
             abort.signal,
           );
-          if (!isCurrentUser(userId)) return false;
+          if (!active() || abort.signal.aborted || controller.current !== abort) return false;
           const next = acknowledgeFlight(current.current, result.revision);
           const anotherDevice = remote.current.revision > result.revision;
           if (anotherDevice && Object.keys(next.pending).length) {
@@ -158,19 +217,24 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
           }
           return true;
         } catch (err) {
-          if (!isCurrentUser(userId)) return false;
+          if (!active() || abort.signal.aborted || controller.current !== abort) return false;
           if (err instanceof ExamRequestError && err.status === 409) {
             conflictBlocked.current = true;
+            const conflictReadVersion = readVersion.current + 1;
             try {
-              const latest = await examRequest<ExamAttemptView>(
-                `/api/exams?action=attempt&attempt=${attempt.id}`,
-              );
-              remote.current = latest;
-              if (mounted.current) setConflict(latest);
+              await readServerCopy(abort.signal, (latest) => {
+                remote.current = latest;
+                setConflict(latest);
+              });
             } catch {
               /* Keep the local draft until a current server copy is available. */
             }
-            if (mounted.current) {
+            if (
+              active() &&
+              !abort.signal.aborted &&
+              controller.current === abort &&
+              readVersion.current === conflictReadVersion
+            ) {
               setStatus("conflict");
               setError(
                 "Another device or request changed this attempt. Review both copies before saving.",
@@ -184,32 +248,38 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
           }
           return false;
         } finally {
-          saving.current = null;
-          if (controller.current === abort) controller.current = null;
+          if (controller.current === abort) {
+            saving.current = null;
+            controller.current = null;
+          }
         }
       })();
       saving.current = work;
       return work;
     },
-    [attempt.id, conflict, isCurrentUser, key, storage, update, userId],
+    [active, attempt.id, attempt.submittedAt, conflict, key, readServerCopy, storage, update],
   );
   useEffect(() => {
     mounted.current = true;
-    registerPendingExam(
-      userId,
-      attempt.id,
-      Boolean(
-        Object.keys(current.current.pending).length ||
-        current.current.flight ||
-        current.current.routeFlight,
-      ),
-    );
+    const ownedReads = reads.current;
+    if (active())
+      registerPendingExam(
+        userId,
+        attempt.id,
+        Boolean(
+          Object.keys(current.current.pending).length ||
+          current.current.flight ||
+          current.current.routeFlight,
+        ),
+      );
     return () => {
       mounted.current = false;
       controller.current?.abort();
       continuationAbort.current?.abort();
+      for (const read of ownedReads) read.abort();
+      ownedReads.clear();
     };
-  }, [attempt.id, userId]);
+  }, [active, attempt.id, userId]);
   useEffect(() => {
     if (!Object.keys(draft.pending).length || conflict || attempt.submittedAt) return;
     const timer = setTimeout(() => void sync(), 700);
@@ -225,14 +295,14 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   useEffect(() => {
     // A fresh selected snapshot may have recovered an uncertain route during
     // initialization. Persist that receipt so sign-out checks see the same state.
-    if (attempt.routing?.state === "selected" && !current.current.routeFlight)
+    if (active() && attempt.routing?.state === "selected" && !current.current.routeFlight)
       saveExamDraft(storage, key, current.current);
-  }, [attempt.routing?.state, key, storage]);
+  }, [active, attempt.routing?.state, key, storage]);
   useEffect(() => {
     if (current.current.flight && current.current.revision !== attempt.revision) void sync(true);
   }, [attempt.revision, sync]);
   useEffect(() => {
-    if (!isCurrentUser(userId) || attempt.submittedAt) return;
+    if (!active() || attempt.submittedAt) return;
     if (remote.current.routing?.state === "selected" && attempt.routing?.state === "core") return;
     saveOfflineExam(storage, userId, {
       ...attempt,
@@ -245,7 +315,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
         saved_at: draft.savedAt,
       })),
     });
-  }, [answers, attempt, draft.revision, draft.savedAt, isCurrentUser, storage, userId]);
+  }, [active, answers, attempt, draft.revision, draft.savedAt, storage, userId]);
   const setIndex = (index: number) =>
     update({
       ...current.current,
@@ -253,8 +323,9 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     });
   const flush = async () => {
     for (let i = 0; i < 12; i++) {
+      if (!active()) return false;
       if (!Object.keys(current.current.pending).length && !current.current.flight) return true;
-      if (!(await sync())) return false;
+      if (!(await sync()) || !active()) return false;
     }
     return false;
   };
@@ -263,41 +334,42 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
       throw new Error("Your session changed.");
     if (current.current.routeFlight)
       throw new Error("Recover the saved continuation before changing core answers.");
-    const latest = await examRequest<ExamAttemptView>(
-      `/api/exams?action=attempt&attempt=${attempt.id}`,
-      signal,
-    );
-    if (!mounted.current || !isCurrentUser(userId) || signal?.aborted)
-      throw new Error("Your session changed.");
-    remote.current = latest;
-    if (latest.submittedAt) {
-      setConflict(latest);
-      setError(
-        "This attempt was already submitted. Your device answers cannot replace its submitted record.",
-      );
-      return;
-    }
-    const next = {
-      ...current.current,
-      revision: latest.revision,
-      index:
-        attempt.routing?.state === "core" && latest.routing?.state === "selected"
-          ? latest.routing.coreItemCount
-          : current.current.index,
-      flight: null,
-      pending: keepDevice ? current.current.pending : {},
-      acknowledged: undefined,
-    };
-    update(next, keepDevice && Object.keys(next.pending).length ? "device" : "synced");
-    setAnswers({
-      ...answersFrom(latest),
-      ...Object.fromEntries(Object.entries(next.pending).map(([id, entry]) => [id, entry.answer])),
+    const sequence = current.current.sequence;
+    return readServerCopy(signal, (latest) => {
+      if (current.current.sequence !== sequence)
+        throw new Error("Answers changed while checking the server. Review both copies again.");
+      remote.current = latest;
+      if (latest.submittedAt) {
+        setConflict(latest);
+        setError(
+          "This attempt was already submitted. Your device answers cannot replace its submitted record.",
+        );
+        return;
+      }
+      const next = {
+        ...current.current,
+        revision: latest.revision,
+        index:
+          attempt.routing?.state === "core" && latest.routing?.state === "selected"
+            ? latest.routing.coreItemCount
+            : current.current.index,
+        flight: null,
+        pending: keepDevice ? current.current.pending : {},
+        acknowledged: undefined,
+      };
+      update(next, keepDevice && Object.keys(next.pending).length ? "device" : "synced");
+      setAnswers({
+        ...answersFrom(latest),
+        ...Object.fromEntries(
+          Object.entries(next.pending).map(([id, entry]) => [id, entry.answer]),
+        ),
+      });
+      conflictBlocked.current = false;
+      setConflict(null);
+      setError("");
+      saveOfflineExam(storage, userId, latest);
+      return latest;
     });
-    conflictBlocked.current = false;
-    setConflict(null);
-    setError("");
-    saveOfflineExam(storage, userId, latest);
-    return latest;
   };
   const continueRouting = (signal?: AbortSignal): Promise<ExamAttemptView> => {
     if (!mounted.current || !isCurrentUser(userId) || signal?.aborted)
@@ -359,30 +431,51 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
   };
   // Upload attaches a response atomically on the server. Flush first and adopt its
   // current revision without inventing a local answer or overwriting pending edits.
-  const reloadAfterExternal = async () => {
-    if (!(await flush()))
-      throw new Error("Sync answers and resolve conflicts before loading the recording.");
-    const latest = await examRequest<ExamAttemptView>(
-      `/api/exams?action=attempt&attempt=${attempt.id}`,
-    );
-    if (!isCurrentUser(userId)) throw new Error("Your session changed.");
-    if (Object.keys(current.current.pending).length || current.current.flight)
-      throw new Error("Answers changed while loading. Sync them before continuing.");
-    if (latest.submittedAt)
-      throw new Error(
-        "This attempt was submitted on another device. Return to Exams to view its saved result.",
-      );
-    const adopted = adoptExternalDraft(current.current, latest.revision, latest.savedAt);
-    remote.current = latest;
-    update(adopted, "synced");
-    setAnswers(answersFrom(latest));
-    conflictBlocked.current = false;
-    setConflict(null);
-    setError("");
-    return latest;
+  const reloadAfterExternal = (): Promise<ExamAttemptView> => {
+    if (!active()) return Promise.reject(new Error("Your session changed."));
+    if (reloading.current) return reloading.current;
+    const abort = new AbortController();
+    reads.current.add(abort);
+    const work = (async () => {
+      if (!(await flush()))
+        throw new Error("Sync answers and resolve conflicts before loading the recording.");
+      if (!active() || abort.signal.aborted) throw new Error("Your session changed.");
+      const sequence = current.current.sequence,
+        revision = current.current.revision;
+      return readServerCopy(abort.signal, (latest) => {
+        if (
+          Object.keys(current.current.pending).length ||
+          current.current.flight ||
+          current.current.sequence !== sequence ||
+          current.current.revision !== revision
+        )
+          throw new Error("Answers changed while loading. Sync them before continuing.");
+        if (latest.submittedAt)
+          throw new Error(
+            "This attempt was submitted on another device. Return to Exams to view its saved result.",
+          );
+        const adopted = adoptExternalDraft(current.current, latest.revision, latest.savedAt);
+        remote.current = latest;
+        update(adopted, "synced");
+        setAnswers(answersFrom(latest));
+        conflictBlocked.current = false;
+        setConflict(null);
+        setError("");
+        return latest;
+      });
+    })();
+    reloading.current = work;
+    void work
+      .finally(() => {
+        reads.current.delete(abort);
+        abort.abort();
+        if (reloading.current === work) reloading.current = null;
+      })
+      .catch(() => undefined);
+    return work;
   };
   const clearSubmitted = () => {
-    if (!isCurrentUser(userId)) return;
+    if (!active()) return;
     try {
       removeExamDeviceValue(storage, key);
     } catch {

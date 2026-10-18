@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-10-18T05:22:42.622Z",
+  "applicationCommit": "78741e4f6848327344bf0c9693abe18cdd3e2441",
+  "preview": "https://language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "name": "missing-origin-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "cross-origin-denied",
+      "status": 403,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "unsupported-catalog-language-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Rejected entry requests only; no admissible speech/catalog request, provider transport, native/browser playback, guard-counter consumption or human approval is exercised."
+  ]
+}

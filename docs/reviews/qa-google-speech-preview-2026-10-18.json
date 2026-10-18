@@ -1,0 +1,92 @@
+{
+  "testedAt": "2026-10-18T05:23:13.018453+00:00",
+  "applicationCommit": "78741e4f6848327344bf0c9693abe18cdd3e2441",
+  "preview": "https://language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_87SNTi4vfSRsQzgsSwsXPK8qPu96",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "78741e4f6848327344bf0c9693abe18cdd3e2441",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
+  "local": {
+    "tests": 1270,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.87,
+    "privateMarkers": 96,
+    "sourceFiles": 1412,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Google provider phase has one owned 45-second deadline across catalog lookup and synthesis including headers and JSON body reads; neither fetch adds automatic retries",
+    "Incoming abort and timeout race pending headers/reads, dispose late response bodies, cancel/release owned readers even when cancel promises stall, and release deadline/listeners",
+    "Public catalog JSON is bounded to 2 MiB and synthesis JSON to 6 MiB; audioContent must be a nonempty string within encoded/decoded 4 MiB audio bounds with valid base64",
+    "Google route does not capture raw exceptions or print upstream response/error bodies/names/request identifiers; fixed diagnostic codes/timing replace raw details",
+    "Exact synthesis input/voice/audioConfig and response audio/rate metadata are retained; six-hour public catalog reuse contains no learner text or generated audio",
+    "Existing origin/IP/auth/user-budget/mission age-attestation/provider-enabled gates remain; actual route fixture uses controlled guard outcomes and verifies provider refusal",
+    "Immediate catalog cancellation settles without caching its result; a subsequent current catalog lookup succeeds independently",
+    "Three Google hosted denial-only checks plus five Pashto denials and exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups pass"
+  ],
+  "controlledEvidence": [
+    "tests/google-speech-provider-route.test.mjs",
+    "tests/remote-tts-owner.test.mjs",
+    "tests/mission-tts-lifecycle.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "eebb1ef",
+    "source": "src/routes/api.mission-tts.ts",
+    "case": "Catalog/synthesis/thrown synthetic private provider errors",
+    "oldRawExceptionCaptures": 3,
+    "expectedRawExceptionCaptures": 0,
+    "currentPass": true,
+    "limit": "Actual previous route with controlled Sentry/console/provider surfaces; no real private text or provider call."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-google-speech-preview-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Eight added actual route/provider groups use synthetic fetch/ReadableStream/deadline/console/Sentry and controlled auth/budget/consent guard outcomes. This is not hosted positive authentication, provider delivery or real consent evidence.",
+    "Hosted checks send no admissible Google speech/catalog request or Pashto generation request and do not consume those counters. No real Google/ElevenLabs/model/audio/microphone/billing/browser action occurred.",
+    "The 45-second deadline starts after existing input/auth/consent/budget preflight. Total input-read/preflight bounds and public catalog admission controls remain separate audit work.",
+    "Catalog reuse remains public voice metadata only; speech output and learner text are not added to the cache. This is bounded source evidence, not an app-wide cache/diagnostics audit.",
+    "Route diagnostics now suppress raw provider details, but historical logs and broader platform/Sentry instrumentation are not purged or audited by this change.",
+    "Cancellation is best effort and cannot undo already accepted provider work/counter consumption or establish billing rollback, durable exactly-once execution or instant server identity revocation.",
+    "Current A/guest/B/restore, genuine SDK expiry/process restart/offline/physical-device/provider/native acceptance, uncertain writes/concurrency/legacy certificate reconciliation and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

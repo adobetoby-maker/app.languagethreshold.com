@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "3f2e7e6",
+  "application": "78741e4",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-gomu7bybn-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-google-speech-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "3f2e7e64a52b3835cbc50626ccbafc5ea36312fd",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-speech-stream-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "78741e4f6848327344bf0c9693abe18cdd3e2441",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-google-speech-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -714,5 +714,17 @@
     "singleProviderAttempt": true,
     "actualProviderOrNativeAudio": false,
     "hostedPositiveStreamingVerified": false
+  },
+  "latestLocalGoogleSpeechFollowup": {
+    "application": "78741e4",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-google-speech-preview-2026-10-18.json",
+    "providerPhaseDeadlineMs": 45000,
+    "maximumCatalogJsonBytes": 2097152,
+    "maximumSynthesisJsonBytes": 6291456,
+    "maximumDecodedAudioBytes": 4194304,
+    "rawRouteExceptionCaptureRemoved": true,
+    "actualProviderOrNativeAudio": false,
+    "hostedPositiveProviderVerified": false
   }
 }

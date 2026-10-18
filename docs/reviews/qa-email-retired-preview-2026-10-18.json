@@ -1,0 +1,95 @@
+{
+  "testedAt": "2026-10-18T08:57:45.652761+00:00",
+  "applicationCommit": "37c0aea71feced3d2804e30119bec1a3cd347f07",
+  "preview": "https://language-threshold-baqywktdf-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-baqywktdf-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_CaBfaXGaUdtVXTXQvDu7GEyVmGe1",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-baqywktdf-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "37c0aea71feced3d2804e30119bec1a3cd347f07",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-sports-editor-preview-2026-10-18.json",
+  "local": {
+    "tests": 1377,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1485,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Existing checkGate remains deliberately open/disabled for subscribed and unsubscribed callers; AiGateModal email flow has no current enabled entry through its only provider",
+    "Legacy capture-email POST now returns fixed private 410/ok=false before parsing, credential access, contact/signup operations or raw diagnostics, aligning the server path with the disabled client gate",
+    "Unread request body is cancelled without waiting on nonsettling source cancellation; missing/malformed/oversized/foreign input and configured/partial/absent backend settings cannot reactivate collection",
+    "Removed Resend and beta_signups operations only from this endpoint; no contact/mail/signup operation, row/audience deletion, grant/policy/schema/subscription or data migration performed",
+    "Three new actual-route controlled groups instrument SDK construction, signup upsert, fetch and explicit logging: all zero with synthetic valid payload/configuration, malformed/oversized/foreign/configuration variants and partial/aborted input",
+    "Twelve hosted checker groups pass; new five legacy-email checks have no email field and would fail historical schema validation, preventing contact/signup operations even on regression; other entry/Exams/readonly acceptance retained"
+  ],
+  "controlledEvidence": [
+    "tests/email-capture-retired.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "c3d8018",
+    "source": "src/routes/api.capture-email.ts",
+    "case": "Synthetic configured valid email POST while client gate is disabled",
+    "oldStatus": 200,
+    "oldSyntheticClientConstructions": 1,
+    "oldSyntheticSignupWrites": 1,
+    "oldSyntheticContactFetches": 1,
+    "expectedStatus": 410,
+    "currentBackendCalls": 0,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical route with mocked SDK/contact transport, no actual contact/write/mail operation or real email value."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-email-retired-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Preview/application source retirement only; production remains on unchanged main and is not claimed retired. Existing signup/audience data and access policies are unchanged; storage access/retention remain separate audit/owner gates.",
+    "No positive email/contact delivery or actual signup write was attempted. Local SDK/fetch delegates are synthetic; hosted payloads deliberately never satisfy the historical email schema.",
+    "Tests cover the legacy POST and disabled client gate; other signup/contact paths, framework methods/headers, automatic telemetry, underlying ingress upload limits and platform disposal are outside this claim.",
+    "Actual editor/browser/keyboard/device/feed/provider acceptance, remaining helper/endpoint/cache/diagnostics inventory, legacy beta_signups grant/RLS metadata review and durable reminder unknown-write receipts remain open.",
+    "All human/content/reviewer/pilot/retention/deletion/scheduler/platform gates remain open; pending owner questions not repeated. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push, production promotion or accepted-hostname advance."
+  ]
+}

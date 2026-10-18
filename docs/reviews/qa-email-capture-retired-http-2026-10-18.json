@@ -1,0 +1,50 @@
+{
+  "testedAt": "2026-10-18T08:57:24.154Z",
+  "applicationCommit": "37c0aea71feced3d2804e30119bec1a3cd347f07",
+  "preview": "https://language-threshold-baqywktdf-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "capture-email",
+      "name": "missing-origin",
+      "status": 410,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "capture-email",
+      "name": "foreign-origin",
+      "status": 410,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "capture-email",
+      "name": "malformed",
+      "status": 410,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "capture-email",
+      "name": "invalid-schema",
+      "status": 410,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "capture-email",
+      "name": "oversized-json",
+      "status": 410,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Only missing/foreign origin and malformed/schema-invalid/oversized bodies without any email field. These also fail validation on the historical route, preventing contact/signup writes on regression. No actual contact/mail/signup, credentials, subscription or browser action. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

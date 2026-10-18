@@ -4,6 +4,18 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+
+### Team permission transport probe confirms remaining cancellation gap — October 18
+
+Audit only, source3c51f9c/runtime68e6122. The actual installed Supabase/PostgREST2.105.1 SDK, production teamAdminClient/memberRole/requireTeamAdmin and api.team POST were exercised with synthetic in-process transports. The exact configured project and organization/user filters are correct. Membership GET has no request signal or explicit no-store; injected300KiB display_name plus an unexpected field reaches the helper. A503 response dispatches four attempts with retry headers absent/1/2/3. Raw synthetic diagnostic reaches the helper; this is not a public API diagnostic exposure claim, since scoped route catches remain separate.
+
+Aborting the incoming request while membership lookup is pending does not settle that wait; a late active-admin response still authorizes continuation. The actual onboarding route then dispatches one synthetic team_organizations PATCH after abort and returns200. Initial probe expected an audit POST too; source inspection confirms onboarding has no audit call, and that mistaken expectation was corrected before successful rerun. No real network or database writes, role changes, provider calls or private-data access. Oversized/unknown fields were injected fixtures, not evidence of database leakage or attacker control.
+
+Evidence qa-team-permission-transport-probe-2026-10-18.json; runnable probe scripts/qa/probe-team-permission-transport.mjs. This intentionally observes a defect and must be updated/replaced after repair, not added as a permanent test requiring the defect. NEXT: narrowly bind the selected membership permission read to incoming cancellation and a finite deadline/response budget, disable selected-query retries, and prove late authorization cannot release subsequent work. Preserve unrelated write outcome semantics; this finding does not establish tenant authorization bypass or appwide cancellation behavior. Durable email outcomes and other private-read/owner/RPC/cache/endpoint audits remain open.
+
+No runtime change/build/deployment this group; latest email Preview68e6122/dpl_D7rCxjWpV9fQp8nDgFhjCJUfMaLs and verified main64f2172/dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR remain the checkpoint. Draft PR38 stays unmerged. No main/companion/schema/policy/schedule action. User-authorized main push and Claude coordination remain fulfilled; broader PRD/human/content/device/session/pilot/retention/scheduler gates remain open and full goal active.
+
+
 ### Shared email transport and notification logs are bounded — October 18
 
 Application 68e6122 adds a 15-second provider-header deadline to sendTeamEmail, with one fixed Resend POST, no redirects/no-store and no automatic retry. Missing config remains typed503 before dispatch. Other sync/async/HTTP failures use fixed typed503 with no original cause. The caller races ignored abort, disposes late/unneeded response bodies without reading provider diagnostics, observes late rejections and clears its timer/abort listener. Owner notification and webhook email catches log one fixed literal; the webhook outer failure log also drops raw exception objects while retaining its existing500 response. Payment/signature APIs, event workflow and successful responses are unchanged.

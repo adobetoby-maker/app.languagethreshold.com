@@ -1169,5 +1169,21 @@
     "hostedCheckerGroups": 17,
     "productionPromoted": false,
     "durableDeliveryAndAggregateEndpointDeadlinesStillOpen": true
+  },
+  "latestTeamPermissionTransportProbe": {
+    "sourceCommit": "3c51f9c4f9d840dcec98e3437d04b52c6757fcb7",
+    "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+    "auditOnly": true,
+    "evidence": "docs/reviews/qa-team-permission-transport-probe-2026-10-18.json",
+    "syntheticOnly": true,
+    "signalPresent": false,
+    "explicitNoStore": false,
+    "transient503Dispatches": 4,
+    "acceptedSyntheticNameBytes": 307200,
+    "latePermissionAllowedSyntheticUpdateAfterAbort": true,
+    "subsequentMockWrites": 1,
+    "fixed": false,
+    "next": "Bound exact membership permission read cancellation/deadline/response and disable its retries; prove late authorization cannot release work without changing unrelated write semantics.",
+    "fullGoalComplete": false
   }
 }

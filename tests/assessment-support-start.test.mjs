@@ -180,6 +180,31 @@ test("flat recovery keeps ownership and store errors ahead of any start RPC", as
   );
 });
 
+test("saved flat start recovers a full-module attempt despite stale lesson binding and preparation", async () => {
+  const f = await supportCheckFixture();
+  f.enrollment.program_scope = "full_module";
+  for (const form of f.forms) form.purpose = "module";
+  f.rows.assessment_releases[0].lesson_manifest.lessonSnapshotFingerprint = "b".repeat(64);
+  f.rows.assessment_attempts = [
+    {
+      id: "controlled-attempt",
+      checkpoint_id: f.checkpoints[0].id,
+      start_request_id: "33333333-3333-4333-8333-333333333333",
+      status: "in_progress",
+      form_snapshot: { definition: { items: [] } },
+    },
+  ];
+  const response = await start(f, 0, "learner", { preparedForm: "a".repeat(64) });
+  assert.equal(response.status, 200, await response.clone().text());
+  assert.equal(f.rpcs.find((r) => r.name === "assessment_start_attempt").args.p_form, null);
+  assert.equal(
+    f.queries.some((q) =>
+      ["assessment_forms", "assessment_lesson_snapshots", "profiles"].includes(q.table),
+    ),
+    false,
+  );
+});
+
 test("Prepare and genuinely new starts still require current material; adaptive snapshots are not flat recovery", async () => {
   for (const routing of [undefined, null, { schema: 99 }]) {
     const f = await supportCheckFixture();

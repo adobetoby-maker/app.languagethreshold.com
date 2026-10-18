@@ -1,0 +1,86 @@
+{
+  "testedAt": "2026-10-18T17:00:31.646697+00:00",
+  "applicationCommit": "8d3cd59a1e54fa4c2fab18a2d0903892ba176438",
+  "preview": "https://language-threshold-jtdkilgo2-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-jtdkilgo2-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_D7bYwNEZQZNNAJsys5Asd2qUqKEn",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-jtdkilgo2-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "8d3cd59a1e54fa4c2fab18a2d0903892ba176438",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-flat-start-resume-local-2026-10-18.json",
+  "local": {
+    "fullNode22Tests": 1692,
+    "newRouteRecoveryGroups": 4,
+    "focusedStartGroups": 14,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 0,
+    "productionAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.03,
+    "localSqlPassedAndRolledBack": true,
+    "retainedQaTables": 0
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 61,
+  "hostedReports": [
+    "qa-exams-assessment-flat-start-resume-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-flat-start-resume-content-static-preview-2026-10-18.json"
+  ],
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "checks": {
+    "allHostedGroupsPass": true,
+    "allStaticBytesMatchSource": true,
+    "qaStateRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "limits": [
+    "No real hosted start/retry/submit or learner/owner/reviewer/provider action.",
+    "Positive existing-start recovery is controlled handler/SDK plus real rolled-back local SQL evidence, not hosted/browser/device acceptance.",
+    "No migration/schema/role/policy/speech/schedule/cleanup or production promotion.",
+    "Existing new-form/lesson binding/preparation/adaptive permissions and all original human release gates remain open."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T17:00:33.280Z",
+    "sourceCommit": "8d3cd59",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1736,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

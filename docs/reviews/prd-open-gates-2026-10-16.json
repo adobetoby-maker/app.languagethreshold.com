@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "f3610dd",
+  "application": "fa6a88d",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-qo9x2xka2-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-8nfg08zso-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-media-owner-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-review-owner-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "f3610dd6ff39a974b0e0a8203a467ff3644b404a",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-media-owner-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "fa6a88d7a32ecb522758555ebc6261e85c5a7e4e",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-review-owner-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -644,5 +644,13 @@
     "audioUploadHistoryCallersMigrated": true,
     "allAssessmentCallersMigrated": false,
     "actualSpeechOrNativeDownload": false
+  },
+  "latestLocalReviewOwnerFollowup": {
+    "application": "fa6a88d",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-review-owner-preview-2026-10-18.json",
+    "reviewerContentCallersMigrated": true,
+    "allAssessmentCallersMigrated": false,
+    "actualReviewOrGrant": false
   }
 }

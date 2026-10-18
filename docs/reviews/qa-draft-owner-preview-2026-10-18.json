@@ -1,0 +1,143 @@
+{
+  "testedAt": "2026-10-18T03:50:55.175884+00:00",
+  "applicationCommit": "dba42bb9b95f66cfea4288d6f10b85a9b03e0517",
+  "preview": "https://language-threshold-nv2eug2j6-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-nv2eug2j6-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_BechAffFdgjUKTbYYybKomAjMV8d",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-nv2eug2j6-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "dba42bb9b95f66cfea4288d6f10b85a9b03e0517",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "adaptiveRuntime": {
+    "explicitDeployArgument": false,
+    "metadataReadback": null,
+    "enabled": false,
+    "limitation": "Metadata env absent; not false readback proof"
+  },
+  "optionalAnalyticsEnabled": false,
+  "local": {
+    "tests": 1218,
+    "failed": 0,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 19.85,
+    "targetGuard": "pass",
+    "artifactGuard": "pass",
+    "privateMarkers": 96,
+    "sourceFiles": 1380,
+    "staticFiles": 149,
+    "privateHits": 0
+  },
+  "hosted": {
+    "examsGroups": 21,
+    "focusedEntryGroups": 12,
+    "publicPacks": 3,
+    "readOnlyScopeGroups": 7,
+    "generationEntryGroups": 14,
+    "generationRejectedRequests": 28,
+    "allowedModelRequests": 0
+  },
+  "controlledEvidence": [
+    "tests/assessment-routing-hook.test.mjs",
+    "tests/exam-runner-actions-lifecycle.test.mjs"
+  ],
+  "checks": [
+    "Draft save, conflict/server-copy and upload-refresh reads pass the original actual actor and active flight/read version to assessment transport",
+    "Route selection and its authoritative read share the original continuation owner; SDK mismatch cannot send replacement credentials or adopt replacement data",
+    "Final runner submission passes its original actor/current action owner after flushing and checking inputs",
+    "SDK denial/unknown result retains pending answers and original persisted save/route retry IDs; submission retry ID remains stable for the same mounted revision",
+    "Superseded server-copy credential lookup cannot start the old fetch; original body, storage schema, expected revision and server authorization contracts unchanged"
+  ],
+  "qa": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalUnsubmitted": true,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "acceptedCompanionApplication": "d4ad837",
+  "liveApplication": "9f90996f99635647aab2d8e490e12b3275786b52",
+  "productionPromoted": false,
+  "mainWritten": false,
+  "databaseChanged": false,
+  "evidence": [
+    "docs/reviews/qa-exams-draft-owner-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Six added actual hook/client groups use synthetic SDK identities/credentials, attempt/route/answer/transport and in-memory device storage. No actual save, route, submit, upload, conflict adoption or recovered learner record was created",
+    "A fixture initially expected local-only edits metadata in the outbound save body; corrected to the existing transport contract before valid checks",
+    "Mounted attempt ownership relies on the existing parent actor/attempt/item key contract; no broader arbitrary prop-reuse guarantee added",
+    "Submission retry identity remains mounted-action state; only existing draft save/route identities are durable. No new process-restart submission guarantee",
+    "Client cancellation cannot undo a write the server accepted; server authorization, expected revision and request identity remain authoritative",
+    "Remaining media/upload/export/reviewer/content/readiness/plan direct callers and speaking SDK binding still require migration; broader helper/cache/device inventory incomplete",
+    "Controlled source tests and read-only hosted checks do not establish current browser/process-restart/genuine SDK expiry/native/physical iPhone audio or microphone acceptance",
+    "All human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform release gates remain open. Speech collection/policy/schedule remain OFF"
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-assessment-reads-preview-2026-10-18.json",
+  "operationalControlsChanged": false,
+  "cleanupExecutionInvoked": false,
+  "storageInventoryFollowup": {
+    "scope": "Draft/continuation/server-copy reads and final runner submission SDK ownership",
+    "remaining": [
+      "remaining media/upload/export/reviewer/content/readiness/plan direct assessment callers and speaking SDK binding",
+      "broader helper/cache/device inventory and genuine browser/process-restart/SDK expiry/native/device acceptance",
+      "uncertain writes/server concurrency, authentic new offline completion and legacy certificate reconciliation",
+      "human/content/calibration/equivalence/reviewer/pilot/catalog/operational release gates"
+    ]
+  },
+  "documentationConsulted": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/reference/javascript/maybesingle"
+  ],
+  "baselineComparison": {
+    "commit": "c66a560404aa7e951f9f89aadf16c4f75b20ff00",
+    "cases": [
+      {
+        "source": "src/hooks/use-exam-draft.ts",
+        "case": "SDK B returned during displayed A save",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      },
+      {
+        "source": "src/hooks/use-exam-runner-actions.ts",
+        "case": "SDK B returned during displayed A submit",
+        "oldFetches": 1,
+        "expectedFetches": 0
+      }
+    ],
+    "currentCasesPass": true,
+    "limit": "Controlled prior-hook substitution with current helper and synthetic SDK/transport. Initial temporary baseline alias-resolution errors corrected before valid assertion failures. Not actual cross-account writes or server authorization bypass."
+  }
+}

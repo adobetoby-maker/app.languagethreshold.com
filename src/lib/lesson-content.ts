@@ -43,7 +43,10 @@ export function loadLessonContent(
   if (existing) return existing;
   const promise = (async () => {
     try {
-      const response = await fetch(lessonContentPath(moduleId, language));
+      // A stalled request must not hold See it on its loading skeleton.
+      const response = await fetch(lessonContentPath(moduleId, language), {
+        signal: AbortSignal.timeout(8000),
+      });
       if (response.status === 404) {
         files.set(key, null);
         return null;

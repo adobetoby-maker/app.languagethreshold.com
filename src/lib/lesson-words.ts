@@ -9,6 +9,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { getCurriculum, type LessonWord } from "@/data/curriculum";
 import { generateLessonWords } from "@/fns/lesson-words.functions";
 import { loadedLessonContent, loadLessonContent } from "@/lib/lesson-content";
+import { contentNativeLanguage } from "@/lib/lesson-content-core";
 import { pickContentWords } from "@/lib/lesson-content-core";
 import {
   deckNativeLanguage,
@@ -206,6 +207,13 @@ export function useLessonWords(
       if (hit) show(hit);
       else fromDeck();
     };
+    // Content files exist only for one native language per target; skip the download otherwise.
+    if (contentNativeLanguage(language) !== nativeLanguage) {
+      fromDeck();
+      return () => {
+        live = false;
+      };
+    }
     const knownContent = loadedLessonContent(moduleId, language);
     if (knownContent !== undefined) {
       fromContent(knownContent);

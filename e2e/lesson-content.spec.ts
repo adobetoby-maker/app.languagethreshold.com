@@ -3,9 +3,10 @@ import { expect, test, type Page } from "@playwright/test";
 
 // Authored lesson content on the Landscaper module (Spanish): lesson 1's passage in See it, and
 // the verb drill under Type it. The expected text is read from the same generated file the app
-// serves (public/lesson-content/es/landscaper.json), so the test follows the content.
+// serves (public/lesson-content/es/plumber.json; landscaper, roofing and
+// construction-foreman show their hand-written readings instead), so the test follows the content.
 
-const MODULE = "landscaper";
+const MODULE = "plumber";
 
 interface Verb {
   infinitive: string;
@@ -18,7 +19,7 @@ interface LessonContent {
   verbs: Verb[];
 }
 const content = JSON.parse(
-  readFileSync(new URL("../public/lesson-content/es/landscaper.json", import.meta.url), "utf8"),
+  readFileSync(new URL("../public/lesson-content/es/plumber.json", import.meta.url), "utf8"),
 ) as { lessons: Record<string, LessonContent> };
 const LESSON_1 = content.lessons["1"];
 
@@ -30,11 +31,11 @@ function dateKey(offsetDays: number): string {
 }
 
 /**
- * Opens the app on the Core 30 tab of the Landscaper module with the plan started today. A cold
+ * Opens the app on the Core 30 tab of the test module with the plan started today. A cold
  * dev server can finish loading after the seed is written and drop it, so the seed is written
  * again (up to three times) until the app keeps it.
  */
-async function openLandscaper(page: Page) {
+async function openModuleCore30(page: Page) {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
@@ -65,7 +66,8 @@ async function openLandscaper(page: Page) {
       },
       { id: MODULE, date: startDate },
     );
-    await page.reload();
+    // Name the module in the address: the app routes a bare Core 30 link to its default module.
+    await page.goto(`/?tab=core30&module=${MODULE}&target=Spanish&native=English`);
     await page
       .getByTestId("core30-plan-card")
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
@@ -78,7 +80,7 @@ async function openLandscaper(page: Page) {
 }
 
 async function openLesson1(page: Page) {
-  await page.getByRole("button", { name: /Today: Lesson 1/ }).click();
+  await page.getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ }).first().click();
   await expect(page.getByText("✕ Exit")).toBeVisible();
   await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
 }
@@ -88,9 +90,9 @@ async function goSection(page: Page, section: "see" | "recall" | "type") {
   await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute("aria-current", "step");
 }
 
-test.describe("Lesson content: Landscaper lesson 1", () => {
+test.describe("Lesson content: Plumber lesson 1", () => {
   test("See it shows the passage written for this lesson", async ({ page }) => {
-    await openLandscaper(page);
+    await openModuleCore30(page);
     await openLesson1(page);
     const reader = page.getByTestId("lesson-reader");
     await expect(reader).toBeVisible({ timeout: 60_000 });
@@ -105,7 +107,7 @@ test.describe("Lesson content: Landscaper lesson 1", () => {
   });
 
   test("Recall it has a Verbs tab with the lesson's verb cards", async ({ page }) => {
-    await openLandscaper(page);
+    await openModuleCore30(page);
     await openLesson1(page);
     await goSection(page, "recall");
     await expect(page.getByTestId("practice-recall-switch")).toBeVisible({ timeout: 60_000 });
@@ -121,7 +123,7 @@ test.describe("Lesson content: Landscaper lesson 1", () => {
   test("Type it, Verbs: a correct form is accepted and a wrong one gets feedback", async ({
     page,
   }) => {
-    await openLandscaper(page);
+    await openModuleCore30(page);
     await openLesson1(page);
     await goSection(page, "type");
     await expect(page.getByTestId("type-kind-switch")).toBeVisible({ timeout: 60_000 });

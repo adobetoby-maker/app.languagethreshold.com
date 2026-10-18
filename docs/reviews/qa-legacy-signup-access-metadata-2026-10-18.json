@@ -1,0 +1,109 @@
+{
+  "recordedAt": "2026-10-18T09:06:21.850Z",
+  "project": "pollhlkgltdkdskdzsgd",
+  "sourceCommitAtAudit": "71990f4b2f4f5b0eaf03f558218c0bdc56678f51",
+  "applicationCommit": "37c0aea71feced3d2804e30119bec1a3cd347f07",
+  "currentApplicationEvidence": "docs/reviews/qa-email-retired-preview-2026-10-18.json",
+  "query": "scripts/qa/audit-legacy-signup-access.sql",
+  "metadata": {
+    "roles": [
+      {
+        "role": "anon",
+        "delete": true,
+        "insert": true,
+        "select": true,
+        "update": true,
+        "trigger": true,
+        "canLogin": false,
+        "truncate": true,
+        "bypassRls": false,
+        "references": true,
+        "schemaUsage": true,
+        "anyColumnInsert": true,
+        "anyColumnSelect": true,
+        "anyColumnUpdate": true,
+        "ownerRoleMembership": false,
+        "serviceRoleMembership": false
+      },
+      {
+        "role": "authenticated",
+        "delete": true,
+        "insert": true,
+        "select": true,
+        "update": true,
+        "trigger": true,
+        "canLogin": false,
+        "truncate": true,
+        "bypassRls": false,
+        "references": true,
+        "schemaUsage": true,
+        "anyColumnInsert": true,
+        "anyColumnSelect": true,
+        "anyColumnUpdate": true,
+        "ownerRoleMembership": false,
+        "serviceRoleMembership": false
+      },
+      {
+        "role": "service_role",
+        "delete": true,
+        "insert": true,
+        "select": true,
+        "update": true,
+        "trigger": true,
+        "canLogin": false,
+        "truncate": true,
+        "bypassRls": true,
+        "references": true,
+        "schemaUsage": true,
+        "anyColumnInsert": true,
+        "anyColumnSelect": true,
+        "anyColumnUpdate": true,
+        "ownerRoleMembership": false,
+        "serviceRoleMembership": true
+      }
+    ],
+    "table": {
+      "rls": true,
+      "owner": "postgres",
+      "forceRls": false
+    },
+    "policies": [],
+    "tableExists": true,
+    "dependentViews": [],
+    "referencingFunctions": []
+  },
+  "interpretation": {
+    "browserRowAccess": "RLS enabled with no policies implies default-deny SELECT/INSERT/UPDATE/DELETE for the inspected anon/authenticated roles; neither bypasses RLS, owns the table or has owner/service-role membership.",
+    "privilegedAccess": "postgres owns the table and service_role bypasses RLS; this is not a claim that privileged access is blocked.",
+    "broadGrants": "Both browser roles retain broad table/column grants, including TRUNCATE and REFERENCES. Those whole-table operations are outside RLS; no execution was attempted.",
+    "legacyMigrationDrift": "supabase/migrations/20260531000000_create_beta_signups.sql creates service_role_full_access without TO service_role. Its unrestricted USING/WITH CHECK would apply to PUBLIC on a fresh application. That policy is absent in this hosted snapshot; do not replay the old definition as a security fix.",
+    "dependencies": "No direct pg_depend view references or pg_proc source/name-tracked references matched this table."
+  },
+  "limits": [
+    "Catalog metadata only; no signup rows, row counts, emails, tokens, contact/audience operations, writes, role switches, grants, policies or migrations.",
+    "No HTTP row reads, INSERT/UPDATE/DELETE/TRUNCATE probes, direct database login attempts or privileged service-key access trials.",
+    "Dependency search covers direct catalog dependencies and literal beta_signups source references, not arbitrary dynamic SQL, every indirect RPC, schema exposure configuration, all role-membership paths or external integrations.",
+    "Metadata is a point-in-time snapshot; it does not establish historical access or absence of prior disclosure. Broad grants and fresh-environment migration parity remain open review items under the no-grant/policy-change constraint.",
+    "No runtime change or deployment; previous application verification remains at 1377 tests and twelve hosted checker groups. Human/content/device/retention and other release gates remain open.",
+    "The first tool-result wrapper parse selected an instructional tag mention; parsing was corrected against the stored response without re-running SQL or issuing a row query."
+  ],
+  "sources": [
+    {
+      "title": "PostgreSQL row security policies",
+      "url": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+      "supports": "Default-deny without policies, owner/bypass exceptions, PUBLIC policy scope and whole-table operation exclusions."
+    },
+    {
+      "title": "Supabase row level security",
+      "url": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "supports": "Policy/grant separation and service-role bypass."
+    }
+  ],
+  "privateBankScan": {
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1487,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  },
+  "executedCatalogQueryCount": 2
+}

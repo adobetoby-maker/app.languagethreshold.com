@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "6499343",
+  "application": "e458dee",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-av40mrn5u-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-4ddwacno5-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-push-wait-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "64993438320839d482cdb8dbe0e65fcd51197657",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "e458dee5126e2a896fe6ce32b1d8ad91afe106ed",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-push-wait-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -833,6 +833,15 @@
     "evidence": "docs/reviews/qa-push-client-preview-2026-10-18.json",
     "strictWriteAcknowledgement": true,
     "typedSettings": true,
+    "unknownWriteRecovery": false,
+    "actualSubscriptionOrDeliveryVerified": false
+  },
+  "latestLocalPushClientWaitFollowup": {
+    "application": "e458dee",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-push-wait-preview-2026-10-18.json",
+    "requestWaitMs": 30000,
+    "responseMaxBytes": 16384,
     "unknownWriteRecovery": false,
     "actualSubscriptionOrDeliveryVerified": false
   }

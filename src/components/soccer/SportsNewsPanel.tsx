@@ -3,6 +3,7 @@ import { Pencil, RefreshCw, X, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getSportsNews } from "@/lib/sports-news-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import type { NewsArticle } from "@/routes/api.sports-news";
 
@@ -217,25 +218,11 @@ export function SportsNewsPanel({
     setError(null);
     setFetchMessage("Fetching latest news...");
     try {
-      const res = await fetch("/api/sports-news", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sport, favoriteTeam }),
-        cache: "no-store",
-        signal: controller.signal,
-      });
-      if (!lease.isCurrent()) {
-        void res.body?.cancel().catch(() => {});
-        return;
-      }
-      if (!res.ok) {
-        void res.body?.cancel().catch(() => {});
-        throw new Error("News unavailable");
-      }
-      const data = (await res.json()) as { articles?: NewsArticle[]; error?: unknown } | null;
-      if (!lease.isCurrent()) return;
-      if (!data || data.error || !Array.isArray(data.articles)) throw new Error("News unavailable");
-      setArticles(data.articles);
+      const articles = await getSportsNews(
+        { sport, favoriteTeam },
+        { signal: controller.signal, isCurrent: lease.isCurrent },
+      );
+      if (lease.isCurrent()) setArticles(articles);
     } catch {
       if (!lease.isCurrent()) return;
       setError("News unavailable — try again later.");

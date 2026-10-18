@@ -31,6 +31,20 @@ const article = (title) => ({
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/sports-lifecycle-"));
   const saved = fetch;
+  const savedSet = setTimeout,
+    savedClear = clearTimeout;
+  const timers = new Map();
+  let mounted;
+  globalThis.setTimeout = (fn, ms, ...args) => {
+    if (ms !== 30000) return savedSet(fn, ms, ...args);
+    const token = {};
+    timers.set(token, fn);
+    return token;
+  };
+  globalThis.clearTimeout = (token) => {
+    if (timers.has(token)) timers.delete(token);
+    else savedClear(token);
+  };
   try {
     await build({
       stdin: {
@@ -75,6 +89,10 @@ async function fixture(run) {
     const { SportsNewsPanel, c } = await import(join(dir, "case.mjs"));
     globalThis.fetch = (url, options) =>
       new Promise((resolve, reject) => c.requests.push({ url, options, resolve, reject }));
+    mounted = c;
+    c.expire = () => {
+      for (const fn of [...timers.values()]) fn();
+    };
     c.props = {
       sport: "soccer",
       favoriteTeam: "Arsenal",
@@ -97,7 +115,10 @@ async function fixture(run) {
     await run(c);
     c.unmount();
   } finally {
+    mounted?.unmount?.();
     globalThis.fetch = saved;
+    globalThis.setTimeout = savedSet;
+    globalThis.clearTimeout = savedClear;
     rmSync(dir, { recursive: true, force: true });
   }
 }
@@ -132,7 +153,9 @@ test("sports actual panel owns one current selection request and refuses retaine
     await tick();
     assert.equal(cancelled, true);
     assert.equal(c.writes, before);
-    c.requests[1].resolve(Response.json({ articles: [article("Current selection")] }));
+    c.requests[1].resolve(
+      Response.json({ articles: [{ ...article("Current selection"), sport: "baseball" }] }),
+    );
     await tick();
     tree = c.render();
     assert.deepEqual(titles(tree), ["Current selection"]);
@@ -149,9 +172,19 @@ test("sports panel hides departed account data before effects and ignores late p
     const retained = refresh(tree).props.onClick;
     retained();
     assert.equal(c.requests.length, 2);
-    let parsed;
-    const body = new Promise((resolve) => (parsed = resolve));
-    c.requests[1].resolve({ ok: true, json: () => body });
+    let parsed,
+      cancelled = false;
+    const body = new ReadableStream({
+      start(out) {
+        parsed = out;
+        out.enqueue(new TextEncoder().encode('{"articles":'));
+      },
+      cancel() {
+        cancelled = true;
+        return new Promise(() => {});
+      },
+    });
+    c.requests[1].resolve(new Response(body));
     await tick();
     c.actor = null;
     tree = c.render(false);
@@ -161,7 +194,8 @@ test("sports panel hides departed account data before effects and ignores late p
     assert.equal(c.requests.length, 3);
     assert.equal(c.requests[1].options.signal.aborted, true);
     const before = c.writes;
-    parsed({ articles: [article("Late A private selection")] });
+    assert.equal(cancelled, true);
+    assert.throws(() => parsed.enqueue(new TextEncoder().encode("late")));
     await tick();
     assert.equal(c.writes, before);
     retained();
@@ -222,4 +256,35 @@ test("sports panel current failures use fixed errors, release retry and reset vi
     );
     await tick();
     assert.equal(titles(c.render()).length, 6);
+  }));
+test("sports panel deadline clears current busy state and allows one explicit retry", () =>
+  fixture(async (c) => {
+    c.render();
+    c.expire();
+    await tick();
+    let tree = c.render();
+    assert.ok(JSON.stringify(tree).includes("News unavailable — try again later."));
+    assert.equal(refresh(tree).props.disabled, false);
+    refresh(tree).props.onClick();
+    assert.equal(c.requests.length, 2);
+    c.requests[0].resolve(Response.json({ articles: [article("Late expired selection")] }));
+    await tick();
+    assert.deepEqual(titles(c.render()), []);
+    c.requests[1].resolve(Response.json({ articles: [article("Retry selection")] }));
+    await tick();
+    assert.deepEqual(titles(c.render()), ["Retry selection"]);
+  }));
+test("sports panel rejects unsafe article data before card rendering", () =>
+  fixture(async (c) => {
+    c.render();
+    c.requests[0].resolve(
+      Response.json({
+        articles: [{ ...article("Unsafe private-shaped title"), url: "javascript:alert(1)" }],
+      }),
+    );
+    await tick();
+    const tree = c.render();
+    assert.deepEqual(titles(tree), []);
+    assert.ok(JSON.stringify(tree).includes("News unavailable — try again later."));
+    assert.ok(!JSON.stringify(tree).includes("Unsafe private-shaped title"));
   }));

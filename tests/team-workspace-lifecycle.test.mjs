@@ -390,3 +390,24 @@ test("company creation selects the returned company before its next owned read w
     await reply(3, detail("synthetic-created", "new synthetic company"));
     assert.match(text(render()), /new synthetic company/);
   }));
+
+test("same-company refresh preserves the mounted admin panel but freezes generic actions until the read settles", () =>
+  fixture(async (f) => {
+    const { c, render, reply } = f;
+    const tree = await load(f);
+    refresh(tree).props.onClick();
+    await tick();
+    let next = render();
+    assert.equal(admin(next).key, admin(tree).key);
+    assert.match(text(next), /private company A/);
+    await admin(tree).props.act(
+      { action: "onboarding", orgId: "synthetic-a", step: 1 },
+      "stale action",
+    );
+    assert.equal(c.requests.length, 3);
+    await reply(2, { error: "synthetic access denial" }, false);
+    next = render();
+    assert.equal(admin(next), undefined);
+    assert.doesNotMatch(text(next), /private company A/);
+    assert.match(text(next), /synthetic access denial/);
+  }));

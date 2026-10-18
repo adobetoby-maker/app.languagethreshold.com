@@ -232,8 +232,9 @@ function OwnedTeamPage() {
         !controller.signal.aborted &&
         (!parentCurrent || parentCurrent());
       const owner = { userId, isCurrent: current, signal: controller.signal };
+      // Keep the same company's mounted panel (including manual invite links) during refresh.
+      // Selection/account changes and denied reads still remove its private data.
       latestData.current = null;
-      setData(null);
       setLoading(true);
       setErrorState("");
       try {
@@ -351,6 +352,7 @@ function OwnedTeamPage() {
       !currentPage() ||
       mutation.current ||
       busyRef.current ||
+      (readFlight.current && !readFlight.current.signal.aborted) ||
       latestData.current !== data
     )
       return;

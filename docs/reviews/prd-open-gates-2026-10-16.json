@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-18T13:46:55.353857+00:00",
+  "auditedAt": "2026-10-18T13:55:38.686940+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "006304bf57221938323389b5d7e2a552b03564ad",
+  "application": "c972dc6097cc675e5ba5884b2cd99263c2299934",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-gv6keu2j2-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -1312,6 +1312,22 @@
     "orgQueueUnchanged": true,
     "serviceFailureFixed503": true,
     "earlierClaimQueueRpcAndAdminListsSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestReviewerAdminInputFollowup": {
+    "application": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+    "evidence": "docs/reviews/qa-reviewer-admin-input-preview-2026-10-18.json",
+    "actualSdkGroups": 6,
+    "existingAssessmentAuthGroups": 12,
+    "fullNode22Tests": 1504,
+    "hostedCheckerGroups": 18,
+    "newAnonymousInputDenials": 6,
+    "requestMaxBytes": 16384,
+    "inputPhaseMs": 10000,
+    "bodyBeforeSdkOwnerAndBudget": true,
+    "maxEscapedReasonSupported": true,
+    "registeredOwnerAndRpcSemanticsRetained": true,
+    "privateAdminListReadsAndLaterRpcStillSeparate": true,
     "fullGoalComplete": false
   }
 }

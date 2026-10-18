@@ -1,7 +1,7 @@
 {
-  "testedAt": "2026-10-18T13:44:54.816Z",
-  "applicationCommit": "006304bf57221938323389b5d7e2a552b03564ad",
-  "preview": "https://language-threshold-gv6keu2j2-adobetoby-5572s-projects.vercel.app",
+  "testedAt": "2026-10-18T13:54:55.751Z",
+  "applicationCommit": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+  "preview": "https://language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
   "checks": [
     {
       "path": "/api/exams",
@@ -69,7 +69,7 @@
     }
   ],
   "limits": [
-    "Eight missing-bearer GET/POST requests only. POST bodies are empty objects with exact Origin; no Authorization/session/credentials, valid mutation input, allowed start/save/submit/review/role/content change or provider action.",
+    "Eight missing-bearer GET/POST requests only. POST bodies use exact Origin and empty objects, except reviewer administration supplies a synthetic schema-valid scope to reach the unchanged missing-bearer gate. No Authorization/session/credentials, allowed start/save/submit/review/role/content change or provider action.",
     "Asserts final no-store/nosniff and exact established denial bodies, not CDN header visibility or current expiry/reauth/browser behavior. Unexpected backend failures are covered by local controlled actual-handler tests; no hosted outage manufactured.",
     "No main/production/accepted-hostname/schema/grant/role/policy/schedule action. Full goal and human/device/session gates remain open."
   ]

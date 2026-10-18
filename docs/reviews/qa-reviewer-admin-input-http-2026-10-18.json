@@ -1,0 +1,59 @@
+{
+  "testedAt": "2026-10-18T13:54:57.552Z",
+  "applicationCommit": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+  "preview": "https://language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": true
+    },
+    {
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": false
+    },
+    {
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": true
+    },
+    {
+      "name": "invalid-UTF8",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": true
+    },
+    {
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": true
+    },
+    {
+      "name": "oversized-UTF8",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noBodyEcho": true,
+      "fixedGuidance": true
+    }
+  ],
+  "limits": [
+    "Six anonymous invalid-origin/body denials only, no Authorization/session/cookies and no valid mutation or actual owner/reviewer operation. Foreign-origin rejection can occur at the hosted framework before the route; only status/privacy/no-echo is claimed for that case.",
+    "Streaming timeout/disconnect/advertised-length/ignored-cancel and before-SDK call ordering are actual local handler/SDK tests; no hosted stalled upload, grant, revocation, reviewer approval, quota consumption or private registry read is attempted. No full endpoint or list-response repair claim."
+  ]
+}

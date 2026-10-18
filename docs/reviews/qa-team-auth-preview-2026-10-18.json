@@ -1,0 +1,94 @@
+{
+  "testedAt": "2026-10-18T10:29:27.119233+00:00",
+  "applicationCommit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+  "preview": "https://language-threshold-3bkgjryap-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-3bkgjryap-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_G6MMFsPK6HB8t2KbKR77VwoZ2xa2",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-3bkgjryap-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "12d25f0e7e8f3ac22945ef8b8f961b8109da1e4f",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-workflow-input-preview-2026-10-18.json",
+  "local": {
+    "tests": 1414,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1515,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Eleven direct authentication callsites across seven team workflow routes use authenticatedTeamUser, with an owned fifteen-second wait and incoming-abort guard; official Exams/content/plans/reviewer/cleanup original helper callsites remain unchanged",
+    "Pre-aborted request starts no getUser lookup; missing bearer/expired session retain fixed 403, lookup rejection/deadline use fixed 503, incoming abort uses typed 499. Wait timer/listener released on all tested outcomes",
+    "One getUser invocation per helper action; race discards late ignored SDK success/rejection and prevents private caller continuation. SDK underlying transport/internal retry and response-byte behavior are unchanged, not claimed cancelled",
+    "Six added actual-helper/actual-entitlement-handler controlled groups cover success/token preservation, missing/preabort, late deadline success, disconnect/late rejection, expired/rejected SDK outcomes and zero post-departure database reads",
+    "Fifteen hosted checker groups pass at exact application; no actual expiry/slow-auth/reauth/SDK cancellation or successful business workflow was manufactured"
+  ],
+  "controlledEvidence": [
+    "tests/team-auth-wait.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "b4509cd",
+    "source": "src/routes/api.team-entitlement.ts",
+    "case": "Already-aborted entitlement request with controlled immediate auth success",
+    "oldGetUserCalls": 1,
+    "expectedGetUserCalls": 0,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual old route with actual original auth helper and synthetic SDK/database delegates; no actual network/private I/O."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-team-auth-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "This bounds the team helper wait only. It neither supplies a cancellation signal to getUser nor cancels/limits its network request, SDK-internal retry, body bytes, storage/lock behavior or all in-flight resources. Late SDK results are discarded.",
+    "Guard applies before/during this wait; private reads/writes/services after successful authentication remain separate phases. Timeout/abort cannot roll back prior accepted side effects. Helper receives an already constructed client; no claim that client construction is skipped by the route.",
+    "Ten direct original authenticatedUser calls remain in official assessment/content/plans/reviewer/cleanup endpoints; this group makes no new wait/cancellation claim for those callers. AST records do not prove all aliases, indirect callers, external deadlines or appwide auth handling.",
+    "Hosted checks exercise current read/denial behavior, not actual expiry, forced authentication slowness, interrupted SDK transport, real browser/phone/device/reauth or successful payment/invitation/grant/mail/certificate/consent/provider work.",
+    "All content/human/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates and earlier catalog grants/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule change."
+  ]
+}

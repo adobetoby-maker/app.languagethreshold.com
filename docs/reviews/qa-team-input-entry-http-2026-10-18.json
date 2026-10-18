@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T09:20:01.793Z",
+  "applicationCommit": "da7648fdffd007b7719c7b20bddecac1bfac2b47",
+  "preview": "https://language-threshold-bhwyzzj9t-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "route": "team-activity",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "oversized-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "oversized-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Invalid origin/JSON/schema/size only, without Authorization and before new team input admission. These cannot authorize team writes even on historical routes. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "testedAt": "2026-10-18T09:20:18.475909+00:00",
+  "applicationCommit": "da7648fdffd007b7719c7b20bddecac1bfac2b47",
+  "preview": "https://language-threshold-bhwyzzj9t-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-bhwyzzj9t-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DLuVwiUL8RtNrrojYLQ7PBF9XUET",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-bhwyzzj9t-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "da7648fdffd007b7719c7b20bddecac1bfac2b47",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-email-retired-preview-2026-10-18.json",
+  "local": {
+    "tests": 1381,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.91,
+    "privateMarkers": 96,
+    "sourceFiles": 1493,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Team activity and legacy Roofing assessment require exact same-origin input before SDK construction/authentication, schema parsing uses the shared owned ten-second reader with 16/64 KiB actual and advertised byte limits",
+    "Fixed input denials 400/403/408/413/499 are private/no-store with both CDN no-store headers and nosniff; parser/schema diagnostics are not echoed",
+    "Four added actual-handler controlled groups cover invalid origin/schema/bytes, partial-body deadline, incoming/already-aborted input and reader unlock despite nonsettling source cancellation, with zero SDK/auth/query/write/certificate calls for rejected input",
+    "Six existing actual lesson replay groups retain acknowledgements without extra writes or certificates and multi-team retry behavior",
+    "Thirteen hosted checker groups pass, including ten new unauthenticated invalid team input denials; no valid team activity, test start/submit/score or certificate action was dispatched"
+  ],
+  "controlledEvidence": [
+    "tests/team-request-admission.test.mjs",
+    "tests/team-lesson-replay-handler.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "b3e2647",
+    "source": "src/routes/api.team-activity.ts",
+    "case": "Synthetic valid interval with no Origin header",
+    "oldStatus": 200,
+    "expectedStatus": 403,
+    "currentRejectedInputBackendCalls": 0,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual historical route with mocked SDK/DB, no actual write/certificate or network operation."
+  },
+  "diagnostics": [
+    "Initial controlled fixture had a missing object brace causing esbuild failure; corrected before passing focused/full results. Baseline failure is the actual 200 versus 403 assertion, not a compiler failure."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-team-input-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Input phase only. SDK authentication, entitlement/authorization reads, database transport/write and certificate phases retain existing timing/cancellation policies. Existing team-server responses and raw backend teamError diagnostics are unchanged; this is not all-response or appwide privacy proof.",
+    "Controlled SDK/DB fixtures are synthetic. Hosted team requests omit Authorization and never satisfy an action schema; no team activity/test/certificate/payment/invitation/role operation was authorized or performed.",
+    "Legacy Roofing assessment is not a calibrated official PRD form. Actual browser SDK expiry/current A/guest/B/restore, editor keyboard/device/audio/provider/process-restart acceptance and broader endpoint/cache/diagnostics inventory remain open.",
+    "Legacy signup broad grants, old unrestricted PUBLIC-policy migration drift and indirect access review remain open from catalog-only evidence; no schema/role/grant/policy/schedule change was made.",
+    "All human/content/calibration/equivalence/reviewer/pilot/retention/deletion/scheduler/platform gates remain open; pending owner questions not repeated. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main push, production promotion or accepted-hostname advance."
+  ]
+}

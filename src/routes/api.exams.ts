@@ -1,3 +1,4 @@
+import { evidenceReviewerStatus } from "@/lib/assessments/reviewer-status";
 import {
   resumePreparedAssessment,
   startPreparedAssessment,
@@ -237,17 +238,8 @@ export const Route = createFileRoute("/api/exams")({
               p_after: after ? z.string().datetime({ offset: true }).parse(after) : null,
               p_after_id: afterId ? id.parse(afterId) : null,
             });
-            const registry = !org
-              ? await db
-                  .from("assessment_reviewers")
-                  .select("user_id")
-                  .eq("user_id", user.id)
-                  .eq("active", true)
-                  .limit(1)
-              : { data: [{ user_id: user.id }], error: null };
-            if (registry.error)
-              throw new AssessmentAccessError("Reviewer status could not be loaded.", 503);
-            return json({ ...queue, eligible: !!registry.data?.length });
+            const eligible = org ? true : await evidenceReviewerStatus(db, user.id);
+            return json({ ...queue, eligible });
           }
           if (action === "checkpoint_history") {
             await budget(user.id, "history_read");

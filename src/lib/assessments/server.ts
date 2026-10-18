@@ -1,3 +1,4 @@
+import { evidenceReviewerStatus } from "./reviewer-status";
 import { hasAdaptiveRouting } from "./routing-contract";
 import { AssessmentAccessError } from "./errors";
 import { assessmentRpcGuidance } from "./rpc-errors";
@@ -168,16 +169,7 @@ export async function attemptAccess(
       .single();
     if (!request || !enrollment || enrollment.scope !== "personal" || enrollment.user_id === actor)
       throw error;
-    const { data: reviewer } = await db
-      .from("assessment_reviewers")
-      .select("user_id")
-      .eq("user_id", actor)
-      .eq("module_id", enrollment.module_id)
-      .eq("target_language", enrollment.target_language)
-      .eq("instruction_language", enrollment.instruction_language)
-      .eq("active", true)
-      .maybeSingle();
-    if (!reviewer) throw error;
+    if (!(await evidenceReviewerStatus(db, actor, enrollment))) throw error;
     if (runtime === "fixed") requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   }

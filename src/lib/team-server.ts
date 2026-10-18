@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 import { teamAuthFetch } from "./team-auth-fetch";
 import { teamMemberFetch } from "./team-member-fetch";
 import { teamOwnerFetch } from "./team-owner-fetch";
+import { evidenceReviewerFetch } from "./evidence-reviewer-fetch";
 import { teamContentGrantsFetch } from "./team-content-grants-fetch";
 
 // Request scope belongs to the client object; it is never a shared current actor.
@@ -23,7 +24,11 @@ export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
           teamOwnerFetch(
             url,
             authRequest.signal,
-            teamContentGrantsFetch(url, authRequest.signal, fetcher ?? fetch),
+            teamContentGrantsFetch(
+              url,
+              authRequest.signal,
+              evidenceReviewerFetch(url, authRequest.signal, fetcher ?? fetch),
+            ),
           ),
         ),
       )

@@ -1,0 +1,98 @@
+{
+  "testedAt": "2026-10-18T11:01:07.741954+00:00",
+  "applicationCommit": "d9c9d62dd15fd99528684aca3d54697d2f980455",
+  "preview": "https://language-threshold-b8emr3ykl-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-b8emr3ykl-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_EEeo7ukDVpc2vTfyh4sQBLZEYJyD",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-b8emr3ykl-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "d9c9d62dd15fd99528684aca3d54697d2f980455",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-team-auth-class-preview-2026-10-18.json",
+  "local": {
+    "tests": 1423,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.92,
+    "privateMarkers": 96,
+    "sourceFiles": 1525,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Eleven team client factories across seven workflow routes install an Auth-only adapter for GET exact project /auth/v1/user. Explicit JWT verification remains in installed SDK 2.105.1; Authorization/apikey stay in memory",
+    "Selected transport owns a fifteen-second deadline and incoming abort across headers/body, no-store and a 256 KiB advertised/actual strict UTF-8 JSON cap. Ignored headers are raced and late body disposed; reader cleanup does not wait for nonsettling cancellation",
+    "Controlled transport/read/parse/service errors become fixed synthetic HTTP 503 before the SDK fetch catch; credential-shaped HTTP 401/403 use fixed denial. Tests observe zero SDK console.error calls and zero global network calls",
+    "Eight actual SDK/production-factory test groups cover exact-limit success, oversized/invalid payloads, credentials/service/fetch failure, stalled headers/body, deadline/disconnect/preabort, timer/listener/reader cleanup, actual SDK business POST and exact endpoint/method passthrough",
+    "Fifteen exact hosted checker groups pass, including authenticated QA team GET through the new adapter and unchanged individual/team draft scope. No business mutation/provider/consent/reviewer action"
+  ],
+  "controlledEvidence": [
+    "tests/team-auth-fetch.test.mjs",
+    "tests/team-auth-wait.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "635c79e",
+    "source": "src/lib/team-server.ts",
+    "case": "Valid user JSON with advertised body over 256KiB",
+    "oldResult": "SDK accepted user; expected rejection missing",
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Historical production helper and actual installed SDK, synthetic custom fetch only."
+  },
+  "diagnostics": [
+    "Initial baseline invocation using a relative path under node_modules/.cache was not discovered by Node. Absolute-path rerun reached actual test assertion. Earlier signal/no-store baseline was swallowed by the old SDK; strengthened to valid-user advertised excess and observed Missing expected rejection."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-auth-transport-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json"
+  ],
+  "limits": [
+    "Auth adapter applies only when teamAdminClient receives authRequest; eleven current calls in seven routes are statically pinned. Ten original official-assessment/cleanup auth calls and clients without authRequest retain prior behavior. Raw-SDK audit remains valid for unadapted paths.",
+    "Outer caller wait and adapter transport phase each start a separate fifteen-second timer; no aggregate workflow deadline. Real fetch receives a cooperative signal; local ignored-transport tests prove caller completion/late disposal, not physical network cancellation.",
+    "Non-Auth SDK transports are forwarded unchanged, including writes after caller abort. Later authorization/private read/write/provider/certificate phases, unknown outcomes and business workflows need separate review.",
+    "Local actual-SDK fixtures use synthetic credentials/URLs/users/Responses and controlled timers; console/global/env restored in finally. Hosted checks use existing dedicated QA login/read/denial scope. No manufactured actual expiry, session bypass, browser/device/purchase/invitation/mail/certificate/consent/provider acceptance.",
+    "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates, broader cache/diagnostic inventory and prior catalog grants/migration parity remain open. Adaptive false deployment pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

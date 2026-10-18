@@ -38,15 +38,17 @@ async function fixture(action) {
       requests = [];
     globalThis.fetch = (url, opts) =>
       new Promise((resolve) => requests.push({ url, opts, resolve }));
-    const auth = () =>
-      m.c.sessions.shift()({ data: { session: { access_token: "synthetic-token" } } });
+    const auth = (actor = "synthetic-a") =>
+      m.c.sessions.shift()({
+        data: { session: { user: { id: actor }, access_token: "synthetic-token" } },
+      });
     const calls = [
-      (s) => m.examRequest({ action: "fixture" }, s),
-      (s) => m.examPlanRequest("/api/exam-plans?fixture", s),
-      (s) => m.examReviewerRequest({ action: "fixture" }, s),
-      (s) => m.examContentRequest({ action: "fixture" }, s),
-      (s) => m.examAudioRequest("/api/exams?fixture", s),
-      (s) =>
+      (s, o) => m.examRequest({ action: "fixture" }, s, o),
+      (s, o) => m.examPlanRequest("/api/exam-plans?fixture", s, o),
+      (s, o) => m.examReviewerRequest({ action: "fixture" }, s, o),
+      (s, o) => m.examContentRequest({ action: "fixture" }, s, o),
+      (s, o) => m.examAudioRequest("/api/exams?fixture", s, o),
+      (s, o) =>
         m.uploadExamSpeech(
           {
             attemptId: "fixture",
@@ -60,8 +62,9 @@ async function fixture(action) {
           },
           new Blob(["synthetic non-speech"]),
           s,
+          o,
         ),
-      (s) => m.examHistoryExport("fixture", s),
+      (s, o) => m.examHistoryExport("fixture", s, o),
     ];
     const response = (index, body) => ({
       ok: true,
@@ -158,11 +161,73 @@ test("active assessment authorization and attachment/export validation failures 
     const csv = calls[6]();
     auth();
     await tick();
-    requests
-      .at(-1)
-      .resolve({
-        ...response(6),
-        headers: new Headers({ "Content-Type": "text/csv", "x-lt-export-events": "10001" }),
-      });
+    requests.at(-1).resolve({
+      ...response(6),
+      headers: new Headers({ "Content-Type": "text/csv", "x-lt-export-events": "10001" }),
+    });
     await assert.rejects(csv, (e) => e.status === 503);
+  }));
+test("owned assessment helpers refuse stale or empty owners before credential lookup", () =>
+  fixture(async ({ m, calls, requests }) => {
+    for (const call of calls) {
+      await assert.rejects(call(undefined, { userId: "a", isCurrent: () => false }), {
+        name: "AbortError",
+      });
+      await assert.rejects(call(undefined, { userId: "", isCurrent: () => true }), {
+        name: "AbortError",
+      });
+    }
+    assert.equal(m.c.sessions.length, 0);
+    assert.equal(requests.length, 0);
+  }));
+test("all owned assessment helpers reject replacement SDK credentials and retain exact current transport contracts", () =>
+  fixture(async ({ m, calls, requests, auth, response }) => {
+    for (const [i, call] of calls.entries()) {
+      const controller = new AbortController(),
+        owner = { userId: "synthetic-a", isCurrent: () => true };
+      let p = call(controller.signal, owner);
+      auth("synthetic-b");
+      await assert.rejects(p, (e) => e instanceof m.ExamRequestError && e.status === 403);
+      assert.equal(requests.length, i);
+      p = call(controller.signal, owner);
+      auth();
+      await tick();
+      assert.equal(requests.length, i + 1);
+      const r = requests.at(-1);
+      assert.equal(r.opts.headers.Authorization, "Bearer synthetic-token");
+      assert.equal(r.opts.signal, controller.signal);
+      assert.equal(r.opts.cache, "no-store");
+      r.resolve(response(i));
+      await p;
+    }
+  }));
+test("owned helpers stop after owner departure during credentials, transport and JSON/blob parsing", () =>
+  fixture(async ({ calls, requests, auth, response }) => {
+    for (const [i, call] of calls.entries()) {
+      let current = true;
+      const owner = { userId: "synthetic-a", isCurrent: () => current };
+      let p = call(undefined, owner);
+      current = false;
+      auth();
+      await assert.rejects(p, { name: "AbortError" });
+      current = true;
+      p = call(undefined, owner);
+      auth();
+      await tick();
+      current = false;
+      requests.at(-1).resolve(response(i));
+      await assert.rejects(p, { name: "AbortError" });
+      current = true;
+      p = call(undefined, owner);
+      auth();
+      await tick();
+      let finish;
+      requests.at(-1).resolve(response(i, () => new Promise((r) => (finish = r))));
+      await tick();
+      current = false;
+      finish(
+        i === 4 || i === 6 ? new Blob(["synthetic"]) : { attached: true, evidenceId: "fixture" },
+      );
+      await assert.rejects(p, { name: "AbortError" });
+    }
   }));

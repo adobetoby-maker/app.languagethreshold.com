@@ -12,9 +12,10 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "navigator");
+  const oldFetch = globalThis.fetch;
   try {
     await build({
       stdin: {
@@ -34,20 +35,23 @@ async function fixture(run) {
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/(client|drafts|offline))$/,
+                  /^(fixture|react|@\/state\/auth-state|@\/lib\/assessments\/(client|drafts|offline)|@\/integrations\/supabase\/client)$/,
               },
-              () => ({ path: "fixture", namespace: "fixture" }),
+              (args) =>
+                realClient && args.path === "@/lib/assessments/client"
+                  ? undefined
+                  : { path: "fixture", namespace: "fixture" },
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0,offline:[],persisted:[],reads:0};export const browserExamStorage=()=>({});export const readOfflineExams=()=>{c.reads++;return c.offline;};export const saveOfflineExam=(s,actor,attempt)=>c.persisted.push({actor,attempt});export const recoveryCopiesForScope=(rows,org)=>rows.filter(row=>!org||(row.enrollment.scope==='team'&&row.enrollment.organizationId===org));
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};export const c={sessions:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],stateWrites:0,offline:[],persisted:[],reads:0};export const browserExamStorage=()=>({});export const readOfflineExams=()=>{c.reads++;return c.offline;};export const saveOfflineExam=(s,actor,attempt)=>c.persisted.push({actor,attempt});export const recoveryCopiesForScope=(rows,org)=>rows.filter(row=>!org||(row.enrollment.scope==='team'&&row.enrollment.organizationId===org));
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useState(initial){const slots=c.slots,i=c.cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return[slots[i],v=>{c.stateWrites++;slots[i]=typeof v==='function'?v(slots[i]):v;}];}
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const slots=c.slots,i=c.cursor++,old=slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});}
- const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
+ const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser,canUseReader:id=>c.actor===id&&!c.signingOut});
+ export const examRequest=(url,signal,owner)=>new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
  export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}c.Error=ExamRequestError;
  `,
             }));
@@ -56,6 +60,9 @@ async function fixture(run) {
       ],
     });
     const { useExamMutation, c } = await import(join(dir, "case.mjs"));
+    if (realClient)
+      globalThis.fetch = (url, opts) =>
+        new Promise((resolve) => c.requests.push({ url, opts, resolve }));
     const slots = [],
       started = [];
     const onStart = () => started.push(true);
@@ -85,6 +92,7 @@ async function fixture(run) {
       unmount();
     }
   } finally {
+    globalThis.fetch = oldFetch;
     if (old) Object.defineProperty(globalThis, "navigator", old);
     else delete globalThis.navigator;
     rmSync(dir, { recursive: true, force: true });
@@ -204,3 +212,45 @@ test("current server/callback failures remain retryable; status clears only in c
     assert.equal(c.stateWrites, writes);
     assert.equal(render("form-b").error, "");
   }));
+
+test("mutation passes its original owner through success context and releases busy after pending signout", () =>
+  fixture(async ({ c, render }) => {
+    let successes = 0;
+    const view = render();
+    const done = view.act({ action: "synthetic" }, () => successes++);
+    assert.equal(c.requests[0].owner.userId, "a");
+    c.signingOut = true;
+    c.requests[0].resolve({});
+    await done;
+    assert.equal(successes, 0);
+    c.signingOut = false;
+    assert.equal(render().busy, false);
+    let context;
+    const again = render().act({ action: "synthetic" }, (_v, ctx) => (context = ctx));
+    c.requests[1].resolve({});
+    await again;
+    assert.equal(context.owner, c.requests[1].owner);
+    assert.equal(context.owner.userId, "a");
+    assert.equal(context.owner.isCurrent(), false);
+  }));
+test("actual mutation hook and assessment client refuse mismatched SDK credentials before transport", () =>
+  fixture(async ({ c, render }) => {
+    let successes = 0;
+    let done = render().act({ action: "synthetic" }, () => successes++);
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.requests.length, 0);
+    await done;
+    assert.equal(successes, 0);
+    assert.match(render().error, /Sign in to continue/);
+    assert.equal(render().busy, false);
+    done = render().act({ action: "synthetic" }, () => successes++);
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    assert.equal(c.requests.length, 1);
+    assert.deepEqual(JSON.parse(c.requests[0].opts.body), { action: "synthetic" });
+    assert.equal(c.requests[0].opts.headers.Authorization, "Bearer synthetic-a");
+    c.requests[0].resolve({ ok: true, json: async () => ({ ok: true }) });
+    await done;
+    assert.equal(successes, 1);
+  }, true));

@@ -1,7 +1,9 @@
 import { supabase } from "@/integrations/supabase/client";
+export type AssessmentRequestOwner = { userId: string; isCurrent: () => boolean };
 /** Cancellation must also survive transports/parsers that finish after abort. */
-function requireActive(signal?: AbortSignal) {
-  if (signal?.aborted) throw new DOMException("Assessment request cancelled.", "AbortError");
+function requireActive(signal?: AbortSignal, owner?: AssessmentRequestOwner) {
+  if (signal?.aborted || (owner && (!owner.userId || !owner.isCurrent())))
+    throw new DOMException("Assessment request cancelled.", "AbortError");
 }
 export class ExamRequestError extends Error {
   constructor(
@@ -11,20 +13,33 @@ export class ExamRequestError extends Error {
     super(message);
   }
 }
-export function examRequest<T>(pathOrBody: string | Record<string, unknown>, signal?: AbortSignal) {
-  return assessmentRequest<T>(pathOrBody, "/api/exams", signal);
+export function examRequest<T>(
+  pathOrBody: string | Record<string, unknown>,
+  signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
+) {
+  return assessmentRequest<T>(pathOrBody, "/api/exams", signal, owner);
 }
 export function examPlanRequest<T>(
   pathOrBody: string | Record<string, unknown>,
   signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
 ) {
-  return assessmentRequest<T>(pathOrBody, "/api/exam-plans", signal);
+  return assessmentRequest<T>(pathOrBody, "/api/exam-plans", signal, owner);
 }
-export function examReviewerRequest<T>(body: Record<string, unknown>, signal?: AbortSignal) {
-  return assessmentRequest<T>(body, "/api/exam-reviewers", signal);
+export function examReviewerRequest<T>(
+  body: Record<string, unknown>,
+  signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
+) {
+  return assessmentRequest<T>(body, "/api/exam-reviewers", signal, owner);
 }
-export function examContentRequest<T>(body: Record<string, unknown>, signal?: AbortSignal) {
-  return assessmentRequest<T>(body, "/api/exam-content", signal);
+export function examContentRequest<T>(
+  body: Record<string, unknown>,
+  signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
+) {
+  return assessmentRequest<T>(body, "/api/exam-content", signal, owner);
 }
 export type ExamAudioInput =
   | { mode: "private_clip"; blob: Blob }
@@ -32,25 +47,26 @@ export type ExamAudioInput =
 export async function examAudioRequest(
   path: string,
   signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
 ): Promise<ExamAudioInput> {
-  requireActive(signal);
+  requireActive(signal, owner);
   const { data } = await supabase.auth.getSession();
-  requireActive(signal);
-  if (!data.session?.access_token)
+  requireActive(signal, owner);
+  if (!data.session?.access_token || (owner && data.session.user?.id !== owner.userId))
     throw new ExamRequestError("Sign in to play this assessment clip.", 403);
   const response = await fetch(path, {
     headers: { Authorization: `Bearer ${data.session.access_token}` },
     cache: "no-store",
     signal,
   });
-  requireActive(signal);
+  requireActive(signal, owner);
   if (response.ok && response.headers.get("Content-Type")?.startsWith("audio/")) {
     const blob = await response.blob();
-    requireActive(signal);
+    requireActive(signal, owner);
     return { mode: "private_clip", blob };
   }
   const body = await response.json().catch(() => null);
-  requireActive(signal);
+  requireActive(signal, owner);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "The assessment clip could not be played.",
@@ -68,11 +84,12 @@ async function assessmentRequest<T>(
   pathOrBody: string | Record<string, unknown>,
   endpoint: string,
   signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
 ): Promise<T> {
-  requireActive(signal);
+  requireActive(signal, owner);
   const { data } = await supabase.auth.getSession();
-  requireActive(signal);
-  if (!data.session?.access_token)
+  requireActive(signal, owner);
+  if (!data.session?.access_token || (owner && data.session.user?.id !== owner.userId))
     throw new ExamRequestError("Sign in to continue this assessment.", 403);
   const get = typeof pathOrBody === "string";
   const response = await fetch(get ? pathOrBody : endpoint, {
@@ -85,9 +102,9 @@ async function assessmentRequest<T>(
     cache: "no-store",
     signal,
   });
-  requireActive(signal);
+  requireActive(signal, owner);
   const body = await response.json().catch(() => null);
-  requireActive(signal);
+  requireActive(signal, owner);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "Assessment request failed. Your device draft is kept.",
@@ -109,11 +126,12 @@ export async function uploadExamSpeech(
   },
   blob: Blob,
   signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
 ) {
-  requireActive(signal);
+  requireActive(signal, owner);
   const { data } = await supabase.auth.getSession();
-  requireActive(signal);
-  if (!data.session?.access_token)
+  requireActive(signal, owner);
+  if (!data.session?.access_token || (owner && data.session.user?.id !== owner.userId))
     throw new ExamRequestError("Sign in to upload this recording.", 403);
   const response = await fetch("/api/exams?action=speech_upload", {
     method: "POST",
@@ -126,9 +144,9 @@ export async function uploadExamSpeech(
     cache: "no-store",
     signal,
   });
-  requireActive(signal);
+  requireActive(signal, owner);
   const body = await response.json().catch(() => null);
-  requireActive(signal);
+  requireActive(signal, owner);
   if (!response.ok)
     throw new ExamRequestError(
       body?.error ?? "Recording upload failed. Keep this page open to retry.",
@@ -143,11 +161,16 @@ export async function uploadExamSpeech(
 }
 
 /** Download private CSV through authenticated fetch; never put a bearer token in a link. */
-export async function examHistoryExport(enrollmentId: string, signal?: AbortSignal) {
-  requireActive(signal);
+export async function examHistoryExport(
+  enrollmentId: string,
+  signal?: AbortSignal,
+  owner?: AssessmentRequestOwner,
+) {
+  requireActive(signal, owner);
   const { data } = await supabase.auth.getSession();
-  requireActive(signal);
-  if (!data.session?.access_token) throw new ExamRequestError("Sign in to export this plan.", 403);
+  requireActive(signal, owner);
+  if (!data.session?.access_token || (owner && data.session.user?.id !== owner.userId))
+    throw new ExamRequestError("Sign in to export this plan.", 403);
   const response = await fetch(
     `/api/exam-plans?${new URLSearchParams({ action: "history_export", enrollment: enrollmentId })}`,
     {
@@ -156,10 +179,10 @@ export async function examHistoryExport(enrollmentId: string, signal?: AbortSign
       signal,
     },
   );
-  requireActive(signal);
+  requireActive(signal, owner);
   if (!response.ok) {
     const result = await response.json().catch(() => null);
-    requireActive(signal);
+    requireActive(signal, owner);
     throw new ExamRequestError(
       result?.error ?? "Plan history could not be exported. No partial file was created.",
       response.status,
@@ -177,6 +200,6 @@ export async function examHistoryExport(enrollmentId: string, signal?: AbortSign
   )
     throw new ExamRequestError("The export count was invalid. No file was downloaded.", 503);
   const blob = await response.blob();
-  requireActive(signal);
+  requireActive(signal, owner);
   return { blob, eventCount };
 }

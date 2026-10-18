@@ -11,23 +11,35 @@ export interface PushSettingsResponse {
 
 const enabledKey = (userId: string) => `lt.push.enabled.${userId}`;
 
-async function accessToken() {
-  const { data } = await supabase.auth.getSession();
-  return data.session?.access_token ?? null;
+export interface PushRequestOwner {
+  userId: string;
+  isCurrent: () => boolean;
+  signal: AbortSignal;
+}
+function requireCurrent(owner: PushRequestOwner) {
+  if (!owner.userId || owner.signal.aborted || !owner.isCurrent())
+    throw new DOMException("Reminder request cancelled.", "AbortError");
 }
 
-export async function pushApi<T>(init?: RequestInit): Promise<T> {
-  const token = await accessToken();
-  if (!token) throw new Error("Sign in to manage practice reminders.");
+export async function pushApi<T>(owner: PushRequestOwner, init?: RequestInit): Promise<T> {
+  requireCurrent(owner);
+  const { data } = await supabase.auth.getSession();
+  requireCurrent(owner);
+  if (!data.session?.access_token || data.session.user.id !== owner.userId)
+    throw new Error("Sign in to manage practice reminders.");
   const response = await fetch("/api/push", {
     ...init,
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
       ...Object.fromEntries(new Headers(init?.headers).entries()),
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${data.session.access_token}`,
     },
+    cache: "no-store",
+    signal: owner.signal,
   });
+  requireCurrent(owner);
   const payload = (await response.json().catch(() => ({}))) as T & { error?: string };
+  requireCurrent(owner);
   if (!response.ok) throw new Error(payload.error ?? "Practice reminders are unavailable.");
   return payload;
 }
@@ -49,8 +61,8 @@ export function wasPushEnabled(userId: string) {
   }
 }
 
-export async function syncPushContext(context: LearningReminderContext) {
-  return pushApi<{ ok: true }>({
+export async function syncPushContext(owner: PushRequestOwner, context: LearningReminderContext) {
+  return pushApi<{ ok: true }>(owner, {
     method: "POST",
     body: JSON.stringify({ action: "sync-context", context }),
   });

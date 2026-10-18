@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BellOff, BellRing, Loader2, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 import { buildLearningReminderContext } from "@/lib/learning-reminders";
@@ -6,8 +6,10 @@ import {
   pushApi,
   rememberPushEnabled,
   type PushSettingsResponse,
+  type PushRequestOwner,
   urlBase64ToUint8Array,
 } from "@/lib/push-api";
+import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { LANGUAGES, useApp, type Language } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 
@@ -45,9 +47,16 @@ function subscriptionShape(subscription: PushSubscription) {
 }
 
 export function PushReminderControl() {
+  const { user } = useAuth();
+  return <OwnedPushReminderControl key={user?.id ?? "guest"} />;
+}
+function OwnedPushReminderControl() {
   const { state, dispatch } = useApp();
   const { session, user } = useAuth();
   const context = useMemo(() => buildLearningReminderContext(state), [state]);
+  const { capture } = usePracticeLifecycle(JSON.stringify(context));
+  const pending = useRef<AbortController | null>(null);
+  const [loading, setLoading] = useState(true);
   const [settings, setSettings] = useState<PushSettingsResponse | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -55,63 +64,105 @@ export function PushReminderControl() {
   const reminderLanguage = state.practiceReminderLanguage ?? state.selectedLanguage;
 
   useEffect(() => {
-    if (!session) {
-      setSettings(null);
+    const lease = capture();
+    setSettings(null);
+    setMessage(null);
+    setBusy(false);
+    pending.current = null;
+    if (!session || !user || !state.hydrated || !lease.isCurrent()) {
+      setLoading(false);
       return;
     }
-    let active = true;
-    pushApi<PushSettingsResponse>()
+    setLoading(true);
+    const controller = new AbortController();
+    const release = lease.own(() => controller.abort());
+    const current = () => lease.isCurrent() && !controller.signal.aborted;
+    void pushApi<PushSettingsResponse>({
+      userId: user.id,
+      isCurrent: current,
+      signal: controller.signal,
+    })
       .then((value) => {
-        if (!active) return;
+        if (!current()) return;
         setSettings(value);
-        if (user) rememberPushEnabled(user.id, value.enabled);
+        rememberPushEnabled(user.id, value.enabled);
       })
-      .catch((error: unknown) => {
-        if (active)
+      .catch((error) => {
+        if (current())
           setMessage(error instanceof Error ? error.message : "Reminders are unavailable.");
+      })
+      .finally(() => {
+        if (current()) setLoading(false);
+        release();
       });
     return () => {
-      active = false;
+      controller.abort();
+      release();
     };
-  }, [session, user]);
+  }, [capture, session, user, state.hydrated]);
 
-  async function enable() {
-    if (!session || !user) {
-      setMessage("Sign in first so reminders can follow you across devices.");
+  async function run(action: (owner: PushRequestOwner, check: () => void) => Promise<void>) {
+    const lease = capture();
+    if (
+      !session ||
+      !user ||
+      !state.hydrated ||
+      loading ||
+      !settings ||
+      pending.current ||
+      !lease.isCurrent()
+    )
       return;
-    }
-    if (!supported) {
-      setMessage("Push notifications are not available in this browser.");
-      return;
-    }
-    if (isIos() && !isStandalone()) {
-      setMessage(
-        "On iPhone, install Language Threshold on your Home Screen, open the app, then enable reminders here.",
-      );
-      return;
-    }
-    if (!settings?.publicKey || !settings.configured) {
-      setMessage("Push delivery is not configured yet.");
-      return;
-    }
-
+    const controller = new AbortController();
+    pending.current = controller;
+    const release = lease.own(() => controller.abort());
+    const current = () =>
+      lease.isCurrent() && pending.current === controller && !controller.signal.aborted;
+    const check = () => {
+      if (!current()) throw new DOMException("Reminder request cancelled.", "AbortError");
+    };
     setBusy(true);
     setMessage(null);
     try {
+      await action({ userId: user.id, isCurrent: current, signal: controller.signal }, check);
+    } catch (error) {
+      if (current())
+        setMessage(error instanceof Error ? error.message : "Reminders are unavailable.");
+    } finally {
+      if (current()) setBusy(false);
+      if (pending.current === controller) pending.current = null;
+      release();
+      controller.abort();
+    }
+  }
+
+  function enable() {
+    return run(async (owner, check) => {
+      if (!supported) throw new Error("Push notifications are not available in this browser.");
+      if (isIos() && !isStandalone())
+        throw new Error(
+          "On iPhone, install Language Threshold on your Home Screen, open the app, then enable reminders here.",
+        );
+      if (!settings?.publicKey || !settings.configured)
+        throw new Error("Push delivery is not configured yet.");
       const permission = await Notification.requestPermission();
+      check();
       if (permission !== "granted")
         throw new Error(
           "Notifications were not allowed. You can change this in your device settings.",
         );
       const registration = await navigator.serviceWorker.ready;
+      check();
       const existing = await registration.pushManager.getSubscription();
+      check();
       const subscription =
         existing ??
         (await registration.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey: urlBase64ToUint8Array(settings.publicKey),
         }));
-      await pushApi<{ ok: true }>({
+      check();
+      await pushApi<{ ok: true }>(owner, {
         method: "POST",
         body: JSON.stringify({
           action: "subscribe",
@@ -121,34 +172,32 @@ export function PushReminderControl() {
           context,
         }),
       });
+      check();
       const next = { ...settings, enabled: true, timezone: timezone() };
       setSettings(next);
-      rememberPushEnabled(user.id, true);
+      rememberPushEnabled(owner.userId, true);
       toast(`${reminderLanguage} reminders are on`, {
         description: `Daily at ${formatHour(next.reminderHour)}.`,
       });
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Could not enable reminders.");
-    } finally {
-      setBusy(false);
-    }
+    });
   }
-
-  async function disable() {
-    if (!user) return;
-    setBusy(true);
-    setMessage(null);
-    try {
+  function disable() {
+    return run(async (owner, check) => {
+      if (!supported) throw new Error("Push notifications are not available in this browser.");
       const registration = await navigator.serviceWorker.ready;
+      check();
       const subscription = await registration.pushManager.getSubscription();
+      check();
       if (subscription) {
-        await pushApi<{ ok: true }>({
+        await pushApi<{ ok: true }>(owner, {
           method: "POST",
           body: JSON.stringify({ action: "unsubscribe", endpoint: subscription.endpoint }),
         });
+        check();
         await subscription.unsubscribe();
+        check();
       } else {
-        await pushApi<{ ok: true }>({
+        await pushApi<{ ok: true }>(owner, {
           method: "POST",
           body: JSON.stringify({
             action: "preferences",
@@ -158,34 +207,31 @@ export function PushReminderControl() {
             context,
           }),
         });
+        check();
       }
       setSettings((current) => (current ? { ...current, enabled: false } : current));
-      rememberPushEnabled(user.id, false);
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Could not turn reminders off.");
-    } finally {
-      setBusy(false);
-    }
+      rememberPushEnabled(owner.userId, false);
+    });
   }
-
-  async function changeHour(reminderHour: number) {
-    if (!settings || !user) return;
-    setSettings({ ...settings, reminderHour });
-    if (!settings.enabled) return;
-    try {
-      await pushApi<{ ok: true }>({
-        method: "POST",
-        body: JSON.stringify({
-          action: "preferences",
-          enabled: true,
-          reminderHour,
-          timezone: timezone(),
-          context,
-        }),
-      });
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Could not change reminder time.");
-    }
+  function changeHour(reminderHour: number) {
+    if (!Number.isInteger(reminderHour) || reminderHour < 7 || reminderHour > 21) return;
+    return run(async (owner, check) => {
+      if (!settings) return;
+      if (settings.enabled) {
+        await pushApi<{ ok: true }>(owner, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "preferences",
+            enabled: true,
+            reminderHour,
+            timezone: timezone(),
+            context,
+          }),
+        });
+        check();
+      }
+      setSettings({ ...settings, reminderHour });
+    });
   }
 
   return (
@@ -215,12 +261,14 @@ export function PushReminderControl() {
               Remind me to speak
               <select
                 value={reminderLanguage}
-                onChange={(event) =>
+                disabled={busy || loading}
+                onChange={(event) => {
+                  if (!capture().isCurrent() || pending.current || loading) return;
                   dispatch({
                     type: "SET_REMINDER_LANGUAGE",
                     payload: event.target.value as Language,
-                  })
-                }
+                  });
+                }}
                 className="ml-2 min-h-11 rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
               >
                 {LANGUAGES.map((language) => (
@@ -242,6 +290,7 @@ export function PushReminderControl() {
                 Remind me at
                 <select
                   value={settings.reminderHour}
+                  disabled={busy || loading}
                   onChange={(event) => void changeHour(Number(event.target.value))}
                   className="ml-2 min-h-11 rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
                 >
@@ -255,7 +304,7 @@ export function PushReminderControl() {
               <button
                 type="button"
                 onClick={() => void disable()}
-                disabled={busy}
+                disabled={busy || loading}
                 className="min-h-11 rounded-xl border border-border px-4 py-2 text-xs text-muted-foreground hover:text-foreground disabled:opacity-50"
               >
                 Turn off
@@ -265,7 +314,7 @@ export function PushReminderControl() {
             <button
               type="button"
               onClick={() => void enable()}
-              disabled={busy || !settings}
+              disabled={busy || loading || !settings}
               className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-cyan-300 px-4 py-2 text-xs font-semibold text-slate-950 disabled:opacity-45"
             >
               {busy ? (

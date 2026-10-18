@@ -16,12 +16,21 @@ const button = (tree, label) =>
   nodes(tree).find((n) => n.type === "button" && JSON.stringify(n.props.children).includes(label));
 async function fixture(run) {
   const dir = mkdtempSync(resolve("node_modules/.cache/push-"));
-  const globals = ["window", "document", "navigator", "Notification", "fetch", "localStorage"];
+  const globals = [
+    "window",
+    "document",
+    "navigator",
+    "Notification",
+    "fetch",
+    "localStorage",
+    "setTimeout",
+    "clearTimeout",
+  ];
   const saved = globals.map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]);
   try {
     await build({
       stdin: {
-        contents: `export {PushReminderControl} from '@/components/PushReminderControl';export {PushReminderSync} from '@/components/PushReminderSync';export {pushApi} from '@/lib/push-api';export {c} from 'fixture';`,
+        contents: `export {PushReminderControl} from '@/components/PushReminderControl';export {PushReminderSync} from '@/components/PushReminderSync';export {pushApi} from '@/lib/push-api';export {PUSH_REQUEST_WAIT_MS,PUSH_RESPONSE_MAX_BYTES} from '@/lib/push-response';export {c} from 'fixture';`,
         resolveDir: process.cwd(),
         loader: "tsx",
       },
@@ -62,9 +71,14 @@ async function fixture(run) {
         },
       ],
     });
-    const { PushReminderControl, PushReminderSync, pushApi, c } = await import(
-      join(dir, "case.mjs")
-    );
+    const {
+      PushReminderControl,
+      PushReminderSync,
+      pushApi,
+      PUSH_REQUEST_WAIT_MS,
+      PUSH_RESPONSE_MAX_BYTES,
+      c,
+    } = await import(join(dir, "case.mjs"));
     Object.assign(c, {
       context: { version: 1, language: "English", topicTitle: "synthetic private topic" },
       state: { hydrated: true, selectedLanguage: "English" },
@@ -82,6 +96,23 @@ async function fixture(run) {
         timezone: "UTC",
       },
     });
+    const nativeSet = globalThis.setTimeout,
+      nativeClear = globalThis.clearTimeout;
+    c.deadlines = new Map();
+    globalThis.setTimeout = (fn, ms, ...args) => {
+      if (ms !== PUSH_REQUEST_WAIT_MS) return nativeSet(fn, ms, ...args);
+      const id = {};
+      c.deadlines.set(id, fn);
+      return id;
+    };
+    globalThis.clearTimeout = (id) => {
+      if (c.deadlines.has(id)) c.deadlines.delete(id);
+      else nativeClear(id);
+    };
+    c.expire = () => {
+      for (const fn of [...c.deadlines.values()]) fn();
+    };
+    const directOwners = [];
     const storage = new Map(),
       timers = new Map();
     let serial = 0;
@@ -176,7 +207,7 @@ async function fixture(run) {
       return n;
     };
     const reply = async (index, payload = c.settings, ok = true) => {
-      c.requests[index].resolve({ ok, json: async () => payload });
+      c.requests[index].resolve(Response.json(payload, { status: ok ? 200 : 503 }));
       await tick();
     };
     const loaded = async () => {
@@ -185,11 +216,10 @@ async function fixture(run) {
       await reply(c.requests.length - 1);
       return render();
     };
-    const owner = (controller = new AbortController()) => ({
-      userId: "a",
-      isCurrent: () => c.actor === "a",
-      signal: controller.signal,
-    });
+    const owner = (controller = new AbortController()) => {
+      directOwners.push(controller);
+      return { userId: "a", isCurrent: () => c.actor === "a", signal: controller.signal };
+    };
     try {
       await run({
         c,
@@ -202,9 +232,13 @@ async function fixture(run) {
         storage,
         timers,
         subscription,
+        PUSH_RESPONSE_MAX_BYTES,
       });
     } finally {
       unmount();
+      for (const controller of directOwners) controller.abort();
+      await tick();
+      assert.equal(c.deadlines.size, 0);
       if (localDescriptor) Object.defineProperty(globalThis, "localStorage", localDescriptor);
       else delete globalThis.localStorage;
     }
@@ -245,12 +279,23 @@ test("request pins no-store/auth/signal and rejects late transport or parser aft
     await tick();
     assert.equal(c.requests[0].init.headers.Authorization, "Bearer synthetic-token");
     assert.equal(c.requests[0].init.cache, "no-store");
-    assert.equal(c.requests[0].init.signal, control.signal);
-    let parse;
-    c.requests[0].resolve({ ok: true, json: () => new Promise((resolve) => (parse = resolve)) });
+    assert.notEqual(c.requests[0].init.signal, control.signal);
+    assert.ok(c.requests[0].init.signal instanceof AbortSignal);
+    let body;
+    c.requests[0].resolve(
+      new Response(
+        new ReadableStream({
+          start(x) {
+            body = x;
+            x.enqueue(new TextEncoder().encode("{"));
+          },
+        }),
+      ),
+    );
     await tick();
     c.actor = "b";
-    parse({ private: "synthetic" });
+    body.enqueue(new TextEncoder().encode('"private":"synthetic"}'));
+    body.close();
     await assert.rejects(request, { name: "AbortError" });
   }));
 test("duplicate enable shares one permission action and departure stops before subscription/server work", () =>
@@ -516,4 +561,146 @@ test("malformed successful reminder write cannot enable UI, persist enabled flag
     assert.equal(c.toasts.length, 0);
     assert.equal(c.requests.length, 2);
     assert.equal(c.unsubscribes, 0);
+  }));
+test("reminder wait covers credential lookup and prevents late or departed credentials from dispatching", () =>
+  fixture(async ({ c, pushApi, owner }) => {
+    c.credentials = [];
+    const p = pushApi(owner(), { method: "POST" });
+    const rejection = assert.rejects(
+      p,
+      (error) =>
+        error.outcome === "not_started" &&
+        error.message === "The reminder request did not start. Please try again." &&
+        error.cause === undefined,
+    );
+    c.expire();
+    await rejection;
+    c.credentials[0]({ data: { session: { user: { id: "a" }, access_token: "synthetic-token" } } });
+    await tick();
+    assert.equal(c.requests.length, 0);
+    const control = new AbortController();
+    const departed = pushApi(owner(control), { method: "POST" });
+    const abort = assert.rejects(departed, { name: "AbortError" });
+    control.abort();
+    await abort;
+    c.credentials[1]({ data: { session: { user: { id: "a" }, access_token: "synthetic-token" } } });
+    await tick();
+    assert.equal(c.requests.length, 0);
+  }));
+test("reminder header expiry reports unknown, disposes late responses and keeps later requests independent", () =>
+  fixture(async ({ c, pushApi, owner }) => {
+    const controller = new AbortController();
+    const p = pushApi(owner(controller), { method: "POST" });
+    const rejection = assert.rejects(
+      p,
+      (error) =>
+        error.outcome === "unknown" &&
+        error.message === "The reminder change could not be confirmed.",
+    );
+    await tick();
+    const request = c.requests[0];
+    c.expire();
+    await rejection;
+    assert.equal(controller.signal.aborted, false);
+    assert.equal(request.init.signal.aborted, true);
+    let cancelled = 0;
+    request.resolve(
+      new Response(
+        new ReadableStream({
+          cancel() {
+            cancelled++;
+          },
+        }),
+      ),
+    );
+    await tick();
+    assert.equal(cancelled, 1);
+    const next = pushApi(owner());
+    await tick();
+    c.requests[1].resolve(Response.json(c.settings));
+    assert.deepEqual(await next, c.settings);
+    assert.equal(c.requests.length, 2);
+    const control = new AbortController();
+    const aborted = pushApi(owner(control), { method: "POST" });
+    const expected = assert.rejects(aborted, { name: "AbortError" });
+    await tick();
+    control.abort();
+    await expected;
+    c.requests[2].resolve(Response.json({ ok: true }));
+    await tick();
+  }));
+test("reminder response reader counts exact and streamed UTF-8 bytes and rejects advertised or actual overflow", () =>
+  fixture(async ({ c, pushApi, owner, PUSH_RESPONSE_MAX_BYTES }) => {
+    const raw = JSON.stringify({ ...c.settings, padding: "" });
+    const exact = JSON.stringify({
+      ...c.settings,
+      padding: "x".repeat(PUSH_RESPONSE_MAX_BYTES - Buffer.byteLength(raw)),
+    });
+    assert.equal(Buffer.byteLength(exact), PUSH_RESPONSE_MAX_BYTES);
+    const good = pushApi(owner());
+    await tick();
+    c.requests.at(-1).resolve(new Response(exact));
+    assert.equal((await good).enabled, false);
+    for (const advertised of [true, false]) {
+      let cancelled = 0;
+      const stream = new ReadableStream({
+        start(x) {
+          x.enqueue(
+            new TextEncoder().encode(
+              JSON.stringify({ ok: true, padding: "é".repeat(PUSH_RESPONSE_MAX_BYTES) }),
+            ),
+          );
+        },
+        cancel() {
+          cancelled++;
+          return new Promise(() => {});
+        },
+      });
+      const p = pushApi(owner(), { method: "POST" });
+      const rejection = assert.rejects(p, (error) => error.outcome === "unknown");
+      await tick();
+      c.requests
+        .at(-1)
+        .resolve(
+          new Response(stream, {
+            headers: advertised ? { "content-length": String(PUSH_RESPONSE_MAX_BYTES + 1) } : {},
+          }),
+        );
+      await rejection;
+      assert.equal(cancelled, 1);
+      assert.equal(stream.locked, false);
+    }
+    const bad = pushApi(owner());
+    const rejection = assert.rejects(bad, { message: "Practice reminders are unavailable." });
+    await tick();
+    c.requests.at(-1).resolve(new Response(new Uint8Array([255])));
+    await rejection;
+  }));
+test("reminder partial-body deadline releases reader and returns UI from busy without success or retry", () =>
+  fixture(async ({ c, loaded, render, storage }) => {
+    const tree = await loaded();
+    button(tree, "Allow practice reminders").props.onClick();
+    await tick();
+    let cancelled = 0;
+    const stream = new ReadableStream({
+      start(x) {
+        x.enqueue(new TextEncoder().encode("{"));
+      },
+      cancel() {
+        cancelled++;
+        return new Promise(() => {});
+      },
+    });
+    c.requests[1].resolve(new Response(stream));
+    await tick();
+    c.expire();
+    await tick();
+    const current = render();
+    assert.match(JSON.stringify(current), /The reminder change could not be confirmed/);
+    assert.equal(button(current, "Allow practice reminders").props.disabled, false);
+    assert.equal(storage.has("lt.push.enabled.a"), false);
+    assert.equal(c.toasts.length, 0);
+    assert.equal(c.requests.length, 2);
+    assert.equal(cancelled, 1);
+    assert.equal(stream.locked, false);
   }));

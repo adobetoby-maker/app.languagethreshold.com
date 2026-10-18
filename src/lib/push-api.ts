@@ -1,5 +1,6 @@
 import type { LearningReminderContext } from "@/lib/learning-reminders";
 import { supabase } from "@/integrations/supabase/client";
+import { withPushRequest, readPushResponse } from "@/lib/push-response";
 
 export interface PushSettingsResponse {
   configured: boolean;
@@ -40,48 +41,79 @@ function validPushSettings(value: unknown): value is PushSettingsResponse {
   );
 }
 
+export class PushRequestError extends Error {
+  constructor(readonly outcome: "not_started" | "unknown" | "unavailable") {
+    super(
+      outcome === "not_started"
+        ? "The reminder request did not start. Please try again."
+        : outcome === "unknown"
+          ? "The reminder change could not be confirmed."
+          : "Practice reminders are unavailable.",
+    );
+  }
+}
+class PushSignInError extends Error {
+  constructor() {
+    super("Sign in to manage practice reminders.");
+  }
+}
 export async function pushApi<T>(owner: PushRequestOwner, init?: RequestInit): Promise<T> {
   requireCurrent(owner);
-  const { data } = await supabase.auth.getSession();
-  requireCurrent(owner);
-  if (!data.session?.access_token || data.session.user.id !== owner.userId)
-    throw new Error("Sign in to manage practice reminders.");
   const writing = init?.method?.toUpperCase() === "POST";
-  let response: Response | undefined;
+  let dispatched = false;
   try {
-    response = await fetch("/api/push", {
-      ...init,
-      headers: {
-        ...Object.fromEntries(new Headers(init?.headers).entries()),
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${data.session.access_token}`,
-      },
-      cache: "no-store",
-      signal: owner.signal,
+    return await withPushRequest(owner.signal, owner.isCurrent, async (signal) => {
+      const check = () => {
+        requireCurrent(owner);
+        signal.throwIfAborted();
+      };
+      const { data } = await supabase.auth.getSession();
+      check();
+      if (!data.session?.access_token || data.session.user.id !== owner.userId)
+        throw new PushSignInError();
+      dispatched = true;
+      const pending = fetch("/api/push", {
+        ...init,
+        headers: {
+          ...Object.fromEntries(new Headers(init?.headers).entries()),
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${data.session.access_token}`,
+        },
+        cache: "no-store",
+        signal,
+      });
+      void pending.then(
+        (response) => {
+          if (signal.aborted || !owner.isCurrent()) void response.body?.cancel().catch(() => {});
+        },
+        () => {},
+      );
+      const response = await pending;
+      try {
+        check();
+        if (!response.ok) throw new Error("Unconfirmed response");
+        const payload = await readPushResponse(response, signal);
+        check();
+        if (writing) {
+          if (
+            !payload ||
+            typeof payload !== "object" ||
+            Array.isArray(payload) ||
+            !("ok" in payload) ||
+            payload.ok !== true
+          )
+            throw new Error("Unconfirmed response");
+        } else if (!validPushSettings(payload)) throw new Error("Unavailable settings");
+        return payload as T;
+      } catch (error) {
+        void response.body?.cancel().catch(() => {});
+        throw error;
+      }
     });
+  } catch (error) {
     requireCurrent(owner);
-    if (!response.ok) throw new Error("Unconfirmed response");
-    const payload: unknown = await response.json();
-    requireCurrent(owner);
-    if (writing) {
-      if (
-        !payload ||
-        typeof payload !== "object" ||
-        Array.isArray(payload) ||
-        !("ok" in payload) ||
-        payload.ok !== true
-      )
-        throw new Error("Unconfirmed response");
-    } else if (!validPushSettings(payload)) throw new Error("Unavailable settings");
-    return payload as T;
-  } catch {
-    void response?.body?.cancel().catch(() => {});
-    requireCurrent(owner);
-    throw new Error(
-      writing
-        ? "The reminder change could not be confirmed."
-        : "Practice reminders are unavailable.",
-    );
+    if (error instanceof PushSignInError) throw error;
+    throw new PushRequestError(writing ? (dispatched ? "unknown" : "not_started") : "unavailable");
   }
 }
 

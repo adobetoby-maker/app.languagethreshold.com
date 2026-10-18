@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { verifyLessonPackRoutes } from "./verify-lesson-pack-routes.mjs";
+import { verifyLessonReviewContent } from "./verify-lesson-review-content.mjs";
 
 const outputConfig = ".vercel/output/config.json";
 const functionConfig = ".vercel/output/functions/index.func/.vc-config.json";
@@ -17,14 +18,25 @@ const output = JSON.parse(readFileSync(outputConfig, "utf8"));
 const runtime = JSON.parse(readFileSync(functionConfig, "utf8"));
 const bundleText = readFileSync(serverBundle, "utf8");
 const bundleBytes = statSync(serverBundle).size;
+verifyLessonReviewContent(
+  "public/lesson-content",
+  ".vercel/output/functions/index.func/lesson-content",
+  ".vercel/output/static/lesson-content",
+);
+if (
+  !readFileSync(".vercel/output/functions/index.func/entry.cjs", "utf8").includes(
+    "process.env.LT_INTERNAL_LESSON_CONTENT_ROOT = require('node:path').join(__dirname, 'lesson-content')",
+  )
+)
+  throw new Error("Lesson review runtime source root is not initialized by the deployment entry.");
 
 if (output.version !== 3 || !Array.isArray(output.routes)) {
   throw new Error("Vercel Build Output API config is not version 3.");
 }
 const packDirectory = ".vercel/output/static/lesson-packs";
 const manifests = readdirSync(packDirectory)
-  .filter(name => /^[a-z0-9-]+\.json$/.test(name) && !/-[a-f0-9]{64}\.json$/.test(name))
-  .map(name => JSON.parse(readFileSync(`${packDirectory}/${name}`, "utf8")));
+  .filter((name) => /^[a-z0-9-]+\.json$/.test(name) && !/-[a-f0-9]{64}\.json$/.test(name))
+  .map((name) => JSON.parse(readFileSync(`${packDirectory}/${name}`, "utf8")));
 verifyLessonPackRoutes(output.routes, manifests);
 if (runtime.runtime !== "nodejs22.x" || runtime.handler !== "entry.cjs") {
   throw new Error("Vercel function runtime or handler is not the approved Node 22 entry.");

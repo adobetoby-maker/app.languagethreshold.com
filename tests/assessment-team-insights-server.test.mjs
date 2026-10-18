@@ -8,8 +8,11 @@ const { teamAssessmentInsights } = await loadModule("src/lib/assessments/team-in
 const { lessonReviewSnapshot, lessonReviewFingerprint } = await loadModule(
   "src/lib/lesson-review.ts",
 );
+const { currentLessonReviewSnapshot } = await loadModule("src/lib/lesson-review-server.ts", {
+  stubs: [/^@tanstack\/react-start\/server-only$/],
+});
 async function fixture() {
-  const snapshot = lessonReviewSnapshot("roofing", "Spanish", "English"),
+  const snapshot = currentLessonReviewSnapshot("roofing", "Spanish", "English"),
     fingerprint = await lessonReviewFingerprint(snapshot);
   const rows = {
     team_members: { role: "admin", status: "active" },
@@ -60,7 +63,10 @@ async function fixture() {
         limit() {
           return Promise.resolve(result());
         },
-        retry(enabled) { assert.equal(enabled, false); return this; },
+        retry(enabled) {
+          assert.equal(enabled, false);
+          return this;
+        },
         maybeSingle() {
           return Promise.resolve(result());
         },

@@ -1,9 +1,6 @@
+import { currentLessonReviewSnapshot } from "@/lib/lesson-review-server";
 import { hasAdaptiveRouting } from "./routing-contract";
-import {
-  lessonReviewSnapshot,
-  lessonReviewFingerprint,
-  type LessonReviewSnapshot,
-} from "@/lib/lesson-review";
+import { lessonReviewFingerprint, type LessonReviewSnapshot } from "@/lib/lesson-review";
 import { lessonSourceCoverage } from "@/lib/lesson-source-coverage";
 
 export interface LessonReleaseRecord {
@@ -35,7 +32,7 @@ export async function lessonReleaseReadiness(
   if (binding && binding.fingerprint === release.lesson_manifest?.lessonSnapshotFingerprint) {
     try {
       const frozen = JSON.parse(binding.snapshot_text) as LessonReviewSnapshot;
-      const source = lessonReviewSnapshot(
+      const source = currentLessonReviewSnapshot(
         release.module_id,
         release.target_language,
         release.instruction_language,

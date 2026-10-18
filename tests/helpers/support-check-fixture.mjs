@@ -2,9 +2,12 @@ import { loadModule } from "./bundle.mjs";
 const { lessonReviewSnapshot, lessonReviewFingerprint, serializeLessonReviewSnapshot } =
   await loadModule("src/lib/lesson-review.ts");
 
+const { currentLessonReviewSnapshot } = await loadModule("src/lib/lesson-review-server.ts", {
+  stubs: [/^@tanstack\/react-start\/server-only$/],
+});
 /** Deliberately fictional review state, never inserted into the hosted project. */
 export async function supportCheckFixture() {
-  const snapshot = lessonReviewSnapshot("roofing", "Spanish", "English"),
+  const snapshot = currentLessonReviewSnapshot("roofing", "Spanish", "English"),
     fingerprint = await lessonReviewFingerprint(snapshot);
   const enrollment = {
     id: "11111111-1111-4111-8111-111111111111",
@@ -212,7 +215,10 @@ export async function supportCheckFixture() {
           const r = result();
           return { ...r, data: r.data[0] ?? null };
         },
-        retry(enabled) { if (enabled !== false) throw new Error("Expected selected retry disabled"); return this; },
+        retry(enabled) {
+          if (enabled !== false) throw new Error("Expected selected retry disabled");
+          return this;
+        },
         async maybeSingle() {
           const r = result();
           return { ...r, data: r.data[0] ?? null };

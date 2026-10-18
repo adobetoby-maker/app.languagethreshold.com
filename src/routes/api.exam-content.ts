@@ -1,8 +1,5 @@
-import {
-  lessonReviewSnapshot,
-  lessonReviewFingerprint,
-  serializeLessonReviewSnapshot,
-} from "@/lib/lesson-review";
+import { currentLessonReviewSnapshot } from "@/lib/lesson-review-server";
+import { lessonReviewFingerprint, serializeLessonReviewSnapshot } from "@/lib/lesson-review";
 import { boundLessonSnapshot, requireCurrentLessonBinding } from "@/lib/assessments/lesson-binding";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -88,7 +85,7 @@ export const Route = createFileRoute("/api/exam-content")({
             if (!result.data) throw new AssessmentAccessError("Lesson release was not found.", 404);
             if (!contentTrackAllowed(access, result.data))
               throw new AssessmentAccessError("Assigned content reviewer access required.", 403);
-            const snapshot = lessonReviewSnapshot(
+            const snapshot = currentLessonReviewSnapshot(
               result.data.module_id,
               result.data.target_language,
               result.data.instruction_language,
@@ -242,7 +239,7 @@ export const Route = createFileRoute("/api/exam-content")({
               throw new AssessmentAccessError("Lesson release could not be loaded.", 503);
             if (!release.data)
               throw new AssessmentAccessError("Lesson release was not found.", 404);
-            const snapshot = lessonReviewSnapshot(
+            const snapshot = currentLessonReviewSnapshot(
               release.data.module_id,
               release.data.target_language,
               release.data.instruction_language,

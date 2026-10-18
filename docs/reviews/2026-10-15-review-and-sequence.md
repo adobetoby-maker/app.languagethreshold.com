@@ -5,6 +5,21 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 18
 
 
+### AI authorization handoffs stop late private work; checkpoint outages remain service errors — October 18
+
+Application75199a8 passes the explicit AI HTTP Request through attemptAccess/enrollmentAccess. Three primary attempt/checkpoint/enrollment GETs receive incoming signal and retry(false) before maybeSingle; checks at entry/between awaits prevent an ignored late result from releasing the next private lookup. Existing personal/team/member/independent-review rules remain. Other callers withoutRequest retain retry/permission behavior. No new shared timer/bytes/projection caps: a transport ignoring abort can still wait until its late reply; this is handoff fencing, not an aggregate deadline.
+
+Checkpoint lookup now uses maybeSingle and checks its error before absence for all callers: service/storage/cardinality errors fixed503; confirmed empty404. Historicale6f4631 actual source/installedSDK assertion reproduced404instead of503 on checkpoint service error. Command/hash/log in qa-assessment-access-handoff-local-2026-10-18.json. Eight new actualSDK groups cover exactlinkedreads/signals,preabort/allthreeignoredlatehandoffs/nativeabort,one429/500/503attempt,servicevsabsence/duplicates,personal/team/reviewerpermissions,independent/noRequestcallers and actualAIRequestpropagation before route/evidence. No real learner/owner/reviewer/pilot/provider/claim/score action.
+
+Typecheck first found abortSignal typed only before maybeSingle. Signal/retry configuration moved onto filter builder before maybeSingle, original type-error log retained; initial build notdeployed. Final1674Node22tests/typecheck/changedfilelint/productionaudit0/guardedartifact20.01MiB pass; final build distinct. Focused first fixture omitted empty review-request table and unnecessarily retried mock errors during own-review denial; fixture corrected, no production review rule change. Prior final evidencee6f4631 cleanLinuxCI39142896323 succeeded, production skipped/VercelchecksSUCCESS.
+
+Exact Preview https://language-threshold-ougej6oy8-adobetoby-5572s-projects.vercel.app, dpl_9WoUe3b3E3VEwxwqQqFiacXpF6K5, independently READY/targetnull/exact75199a8fee5cb46d2d2011e1c0b117a64757a288/project/team/alias[]. All18hosted checker groups pass; all59contentfiles+index exact source hashes/JSON/publiccache(60readonlyrequests) retained. QA activepersonalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained read-only. Combined qa-assessment-access-handoff-preview-2026-10-18.json. Final private-bank scan96markers/1716source/209static/0hits.
+
+Main/live814b304 and acceptedcompaniond4ad837 remain baselines; PR38draft/unmerged and no production promotion. Generated59files reviewed:false/17shortmodules260lessons short. No browser/device/offline/expiry/recovery acceptance inferred; no schema/role/policy/speech/schedule/cleanup action.
+
+NEXT: final exactheadCI; remaining authorization/read body/aggregate bounds and uncertain mutation/claim/consent/score/audit/finalization waits, original learner/browser/device/expiry/recovery/content acceptance. No physical cancellation/atomicpermissionfreshness/rollback/refund/nonbilling/replay inference. Humanreview/calibration/reviewer/realconsentedpilot/retention/scheduler/59module gates,9developmentauditfindings/legacyPrisma remainopen. No repeated retention question. Full goal active.
+
+
 ### AI selected-route read owns cancellation and body deadline — October 18
 
 Applicationb6df724 passes the AI HTTP Request into selectedAttemptPath. Only that caller adopts a new8second/64KiB read phase after existing attemptAccess. Exact configured-project immutable route GET selects attempt_id/source_revision/decision_revision/decision only, no original core_snapshot/request_payload/response data; one SDK attempt, no-store/no-redirect, strictUTF8JSON/projection/literalattempt/cardinality/revisionwire validation. Existing resolveSelectedAttemptPath still validates frozen form/policy/digest/identity/revision/selection. Confirmed absent route retains409whenrequired or coreitemsotherwise; service failures503/cancellation499. Flat forms need no route network lookup. Other callers withoutRequest retain legacy behavior. Wire cap operational, not a SQL size invariant.

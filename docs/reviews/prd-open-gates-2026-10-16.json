@@ -1182,8 +1182,55 @@
     "acceptedSyntheticNameBytes": 307200,
     "latePermissionAllowedSyntheticUpdateAfterAbort": true,
     "subsequentMockWrites": 1,
-    "fixed": false,
+    "fixed": true,
     "next": "Bound exact membership permission read cancellation/deadline/response and disable its retries; prove late authorization cannot release work without changing unrelated write semantics.",
+    "fullGoalComplete": false,
+    "resolvedByApplication": "57e74bf9114a2876df6cba30e740b8661fc109e3"
+  },
+  "latestTeamPermissionTransportFollowup": {
+    "application": "57e74bf9114a2876df6cba30e740b8661fc109e3",
+    "deployedToPreview": true,
+    "evidence": "docs/reviews/qa-team-member-transport-preview-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1474,
+    "hostedCheckerGroups": 17,
+    "permissionPhaseMs": 8000,
+    "responseMaxBytes": 32768,
+    "latePermissionUpdateRegressionFixed": true,
+    "selectedRetriesDisabled": true,
+    "unboundClientsAndLaterPhasesSeparate": true,
     "fullGoalComplete": false
+  },
+  "latestDependencyAudit": {
+    "application": "57e74bf9114a2876df6cba30e740b8661fc109e3",
+    "productionDependencyVulnerabilities": 0,
+    "fullDependencyVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 13,
+      "critical": 0,
+      "total": 15
+    },
+    "fullDependencyAuditPassed": false,
+    "packages": [
+      "@humanfs/node",
+      "@lovable.dev/vite-tanstack-config",
+      "@prisma/config",
+      "brace-expansion",
+      "braces",
+      "chokidar",
+      "deepmerge-ts",
+      "fast-glob",
+      "fast-uri",
+      "lovable-tagger",
+      "micromatch",
+      "mysql2",
+      "postcss-selector-parser",
+      "prisma",
+      "tailwindcss"
+    ],
+    "lockfileChanged": false,
+    "next": "Review development/build dependency advisories and nonbreaking fixes separately; no blanket forced upgrade."
   }
 }

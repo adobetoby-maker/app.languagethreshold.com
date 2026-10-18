@@ -4,6 +4,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Membership permission read now stops at request departure — October 18
+
+Application57e74bf bounds only the configured-project GET team_members permission projection role/status/display_name with exact organization/user filters. Request-bound clients use an eight-second header/body deadline, owned abort signal/no-store/no-redirect, strict UTF8/JSON and32KiB response budget, selected row shape/cardinality and late-body disposal. memberRole disables SDK retry and returns fixed503 service guidance on query failure; request scope is held in a WeakMap keyed by the client, with cancellation guards before/after lookup returning499. No shared current actor. Inactive/absent/learner denial semantics remain; other queries/projects/methods and writes pass through. Unbound clients do not gain request ownership. SQL display_name has no hard length invariant:32KiB is an intentional resource limit; oversized legacy records can fail permission lookup with service guidance.
+
+Eight actual-SDK groups pass: normal exact filters/roles, one-call private/HTTP failures, malformed/oversized/unknown responses, ignored-abort/late-body disposal, stalled body deadline, actual onboarding abort with zero subsequent private work, unrelated forwarding and independent concurrent clients. Baseline4cad24e fails an actual signal assertion. The historical defect probe now requires an explicit baseline and defaults to scratch output, so it no longer asserts the defect against current code or overwrites historical evidence. Explicit historical replay passes. Initial full run found19 failures in older query doubles missing retry; six fixture files now assert retry(false), retaining original permission/business assertions. Full Node22 suite1474passes; typecheckclean, changed-file lint0errors0warnings, guardedartifact19.95MiB.
+
+Production dependency audit0. Separately, full npm audit including development/build dependencies reports15advisories(13high/2moderate); it is NOT clean. No lockfile/package upgrade was made. Earlier generic audit0 means the required production-only audit. Review build/development advisories and safe fixes separately; do not blanket force-upgrade the build stack.
+
+Exact Preview https://language-threshold-qf1sughsd-adobetoby-5572s-projects.vercel.app, dpl_3jn3zV4bAVcQwx31SGLaboN8X5Hs, READY/targetnull/exact57e74bf9114a2876df6cba30e740b8661fc109e3/project/team/alias[] independently verified. All17hosted checker groups pass, including21authenticatedExams; QA personalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained. Combined evidence qa-team-member-transport-preview-2026-10-18.json. Main64f2172/dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR and accepted Exams companiond4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT unchanged. No real business/provider/email/financial/membership/role/assessment-submit/cleanup action, browser action, schema/policy/schedule change or production promotion.
+
+NEXT: development/build dependency advisories, broader owner/private-read/RPC/cache/aggregate endpoint deadlines and durable email outcomes. This phase does not prove physical network cancellation, whole-endpoint write cancellation or tenant authorization bypass. Actual device/session/expiry/browser/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain open; full goal active. User-authorized main release/Claude coordination remains fulfilled. Draft PR38 will describe the combined private team-operation boundaries and remain unmerged.
+
+
 
 ### Team permission transport probe confirms remaining cancellation gap — October 18
 

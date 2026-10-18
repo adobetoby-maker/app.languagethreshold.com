@@ -180,24 +180,45 @@ test("speech abort during HMAC work prevents counter fetch and cannot cancel a l
   }));
 test("speech late budget JSON after cancellation cannot spend the next hourly counter", () =>
   fixture(async (m, c) => {
-    const json = deferred();
-    c.provider = async () => ({ ok: true, json: () => json.promise });
+    let cancelled = 0;
+    c.provider = async () =>
+      new Response(
+        new ReadableStream({
+          start(controller) {
+            controller.enqueue(new TextEncoder().encode("["));
+          },
+          cancel() {
+            cancelled++;
+          },
+        }),
+      );
     const incoming = new AbortController();
     const pending = m.withSpeechPreflight(request(incoming.signal), (signal) =>
       m.checkLearningGenerationBudget(request(), "speech", signal),
     );
     await c.until(() => c.requests.length === 1);
+    await tick();
     incoming.abort();
     await assert.rejects(pending, (e) => e.status === 499);
-    json.resolve(true);
+    assert.equal(cancelled, 1);
     await tick();
     assert.equal(c.requests.length, 1);
     assert.equal(c.requests[0].opts.signal.aborted, true);
   }));
 test("speech late consent JSON cannot open user-budget or provider work after expiry", () =>
   fixture(async (m, c) => {
-    const json = deferred();
-    c.provider = async () => ({ ok: true, json: () => json.promise });
+    let cancelled = 0;
+    c.provider = async () =>
+      new Response(
+        new ReadableStream({
+          start(controller) {
+            controller.enqueue(new TextEncoder().encode("["));
+          },
+          cancel() {
+            cancelled++;
+          },
+        }),
+      );
     let next = 0;
     const pending = m.withSpeechPreflight(request(), async (signal) => {
       if (await m.hasSpeakingAgeAttestation("synthetic-a", signal)) {
@@ -206,10 +227,78 @@ test("speech late consent JSON cannot open user-budget or provider work after ex
       }
     });
     assert.equal(c.requests.length, 1);
+    await tick();
     c.expire();
     await assert.rejects(pending, (e) => e.status === 503);
-    json.resolve([{ attested_at: "2026-08-13T12:00:00.000Z" }]);
+    assert.equal(cancelled, 1);
     await tick();
     assert.equal(next, 0);
     assert.equal(c.requests.length, 1);
+  }));
+
+test("owned speech helpers reject oversized successful service payloads before later gates", () =>
+  fixture(async (m, c) => {
+    const cases = [
+      [
+        () => m.authenticateSpeakingRequest(request(), new AbortController().signal),
+        JSON.stringify({ id: "synthetic-a", metadata: "x".repeat(256 * 1024) }),
+      ],
+      [
+        () => m.hasSpeakingAgeAttestation("synthetic-a", new AbortController().signal),
+        JSON.stringify([
+          { attested_at: "2026-08-13T12:00:00.000Z", padding: "x".repeat(16 * 1024) },
+        ]),
+      ],
+      [
+        () => m.consumeServerRequestBudget("synthetic", "a", 30, 60, new AbortController().signal),
+        "true" + " ".repeat(1024),
+      ],
+    ];
+    for (const [action, body] of cases) {
+      c.provider = async () => new Response(body);
+      await assert.rejects(action(), (e) => e.message === "Private service response unavailable");
+    }
+    assert.equal(c.requests.length, 3);
+    // Existing callers without a scoped signal keep their previous JSON contract.
+    c.provider = async () => Response.json({ id: "synthetic-a", metadata: "x".repeat(256 * 1024) });
+    assert.deepEqual(await m.authenticateSpeakingRequest(request()), { userId: "synthetic-a" });
+  }));
+
+test("owned speech helper bounds admit exact-size valid JSON and dispose rejected HTTP bodies", () =>
+  fixture(async (m, c) => {
+    const owned = new AbortController().signal;
+    for (const [action, value, size, expected] of [
+      [
+        () => m.authenticateSpeakingRequest(request(), owned),
+        { id: "synthetic-a" },
+        256 * 1024,
+        { userId: "synthetic-a" },
+      ],
+      [
+        () => m.hasSpeakingAgeAttestation("synthetic-a", owned),
+        [{ attested_at: "2026-08-13T12:00:00.000Z" }],
+        16 * 1024,
+        true,
+      ],
+      [() => m.consumeServerRequestBudget("synthetic", "a", 30, 60, owned), true, 1024, true],
+    ]) {
+      const json = JSON.stringify(value);
+      c.provider = async () =>
+        new Response(json + " ".repeat(size - new TextEncoder().encode(json).length));
+      assert.deepEqual(await action(), expected);
+    }
+    let cancelled = 0;
+    c.provider = async () =>
+      new Response(
+        new ReadableStream({
+          cancel() {
+            cancelled++;
+          },
+        }),
+        { status: 503 },
+      );
+    assert.equal(await m.authenticateSpeakingRequest(request(), owned), null);
+    await assert.rejects(m.hasSpeakingAgeAttestation("synthetic-a", owned));
+    await assert.rejects(m.consumeServerRequestBudget("synthetic", "a", 30, 60, owned));
+    assert.equal(cancelled, 3);
   }));

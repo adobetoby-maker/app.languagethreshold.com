@@ -1,3 +1,5 @@
+import { readPrivateServiceJson } from "./private-service-json.ts";
+
 export interface SpeakingPrincipal {
   userId: string;
 }
@@ -54,7 +56,7 @@ function requireSpeakingSignal(signal?: AbortSignal) {
 }
 
 function requireSpeakingResponse(response: Response, signal?: AbortSignal) {
-  if (signal?.aborted) {
+  if (signal && (signal.aborted || !response.ok)) {
     void response.body?.cancel().catch(() => {});
     requireSpeakingSignal(signal);
   }
@@ -80,7 +82,9 @@ export async function authenticateSpeakingRequest(
   requireSpeakingResponse(response, signal);
   if (!response.ok) return null;
 
-  const user = (await response.json()) as { id?: unknown };
+  const user = (
+    signal ? await readPrivateServiceJson(response, 256 * 1024, signal) : await response.json()
+  ) as { id?: unknown };
   requireSpeakingSignal(signal);
   if (typeof user.id !== "string" || !user.id) return null;
   return { userId: user.id };
@@ -130,6 +134,9 @@ export async function consumeServerRequestBudget(
   if (!url || !key) throw new Error("Speaking budget storage is unavailable.");
   const bucketHash = await speakingBucketHash(namespace, value);
   requireSpeakingSignal(signal);
+  const transportSignal = signal
+    ? AbortSignal.any([signal, AbortSignal.timeout(8000)])
+    : AbortSignal.timeout(8000);
   const response = await fetch(`${url}/rest/v1/rpc/consume_speaking_request`, {
     method: "POST",
     headers: serviceRoleHeaders({ "Content-Type": "application/json" }),
@@ -138,14 +145,15 @@ export async function consumeServerRequestBudget(
       p_request_limit: limit,
       p_window_seconds: windowSeconds,
     }),
-    signal: signal
-      ? AbortSignal.any([signal, AbortSignal.timeout(8000)])
-      : AbortSignal.timeout(8000),
+    signal: transportSignal,
     cache: "no-store",
   });
   requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking budget storage rejected the request.");
-  const allowed = (await response.json()) === true;
+  const allowed =
+    (signal
+      ? await readPrivateServiceJson(response, 1024, transportSignal)
+      : await response.json()) === true;
   requireSpeakingSignal(signal);
   return allowed;
 }
@@ -181,7 +189,9 @@ export async function hasSpeakingAgeAttestation(userId: string, signal?: AbortSi
   );
   requireSpeakingResponse(response, signal);
   if (!response.ok) throw new Error("Speaking consent storage rejected the request.");
-  const rows = (await response.json()) as Array<{ attested_at?: unknown }>;
+  const rows = (
+    signal ? await readPrivateServiceJson(response, 16 * 1024, signal) : await response.json()
+  ) as Array<{ attested_at?: unknown }>;
   requireSpeakingSignal(signal);
   const timestamp = rows[0]?.attested_at;
   return typeof timestamp === "string" && Number.isFinite(Date.parse(timestamp));

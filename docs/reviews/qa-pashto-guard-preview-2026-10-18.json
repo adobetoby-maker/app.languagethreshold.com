@@ -1,0 +1,93 @@
+{
+  "testedAt": "2026-10-18T04:58:49.779304+00:00",
+  "applicationCommit": "611e18f9e4cd6a3cc2db2c731d11a3a3f6311bf7",
+  "preview": "https://language-threshold-ei81uaqs1-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ei81uaqs1-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_9GxmqYRzmkvD3YqqkZE4By5MdPUe",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ei81uaqs1-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "611e18f9e4cd6a3cc2db2c731d11a3a3f6311bf7",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-pashto-private-preview-2026-10-18.json",
+  "local": {
+    "tests": 1255,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.86,
+    "privateMarkers": 96,
+    "sourceFiles": 1402,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Strict same-origin guard precedes body reading, durable counters and provider; missing/cross-origin callers receive private 403 responses",
+    "Bounded 4096-byte reader rejects advertised or actual streamed oversize before JSON validation/budget; existing 400-character Pashto schema remains",
+    "Separate speech purpose uses existing durable hashed stage/IP/global counter RPC at 30/IP-minute, 300/IP-hour and 600/global-hour; no schema, role or policy migration",
+    "Only canonical platform IP is accepted; client forwarding fallbacks cannot select fresh budgets; missing trusted IP or unavailable/invalid budget store returns private 503",
+    "Minute/hour/global exhaustion returns private 429 with Retry-After; cancellation after budget checks prevents subsequent provider call",
+    "Speech and content capacity are independent; existing learning purpose budgets remain unchanged",
+    "Five hosted denial-only Pashto checks pass alongside exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups"
+  ],
+  "controlledEvidence": [
+    "tests/pashto-tts-private.test.mjs",
+    "tests/learning-generation-security.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "85ec972",
+    "source": "src/routes/api.tts.ts",
+    "missingOrigin": {
+      "oldStatus": 200,
+      "expectedStatus": 403
+    },
+    "exhaustedBudget": {
+      "oldStatus": 200,
+      "expectedStatus": 429
+    },
+    "currentPass": true,
+    "limit": "Actual old route with synthetic provider and budget store, no real provider call."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-pashto-guard-preview-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "All budget/provider values in controlled tests are synthetic. Hosted checks intentionally send no admissible generation body and do not consume the speech budget. No real provider/native/audio/microphone/billing/consent/browser action occurred.",
+    "No new sign-in gate. Strict Origin is a browser-entry boundary, not caller authentication; server clients can supply Origin. Shared connections share the IP allowance. Request-volume limits are not a financial/provider spending cap.",
+    "Uses the existing SQL RPC without schema/role/policy changes. Hosted durable exhaustion and successful provider delivery are not exercised.",
+    "Original client cancellation is rechecked after budget lookup, but already accepted counter operations can consume capacity. No provider timeout/stream deadline, billing rollback, historical-cache purge or exactly-once guarantee is established.",
+    "Previous private POST/no-store/blob cleanup behavior is retained; real browser/native/guest/SDK expiry/process restart/physical-device acceptance remains open.",
+    "Broader endpoint/helper/cache/device audit, uncertain writes/concurrency/legacy certificate reconciliation and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

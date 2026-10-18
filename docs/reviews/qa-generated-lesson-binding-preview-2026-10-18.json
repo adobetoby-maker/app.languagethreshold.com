@@ -88,11 +88,23 @@
     "Shared-definition completeness, calibration, qualified reviewers, real consented pilots, owner retention and all59-module gates remain open."
   ],
   "privateBankScan": {
-    "testedAt": "2026-10-18T16:45:03.926Z",
-    "sourceCommit": "7fb59fb",
+    "testedAt": "2026-10-18T16:48:05.755Z",
+    "sourceCommit": "16abc61",
     "checkedPrivateMarkers": 96,
-    "checkedSourceFiles": 1729,
+    "checkedSourceFiles": 1730,
     "checkedStaticFiles": 209,
     "privateContentHits": 0
+  },
+  "ciFixtureCorrection": {
+    "failedWorkflow": 39146484098,
+    "failedTests": 1,
+    "passedTests": 1687,
+    "reason": "Historical git object unavailable in clean CI checkout; no runtime assertion failure.",
+    "correction": "Retained exact historical source bytes in a hash-checked fixture, with original src/lib resolveDir. No runtime source/build/deployment change.",
+    "fixture": "tests/fixtures/lesson-review-650da6a.ts.txt",
+    "fixtureSha256": "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
+    "finalLocalTestsPassed": 1688,
+    "finalLocalTestsFailed": 0,
+    "failedLogSha256": "40297655290edd9c35d8c236dc03e92495f77d3a7df439a454e49c6f8dff4a57"
   }
 }

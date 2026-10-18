@@ -4,7 +4,7 @@ import { mkdtempSync, cpSync, readFileSync, writeFileSync, rmSync } from "node:f
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { resolve } from "node:path";
-import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { build } from "esbuild";
 import { verifyLessonReviewContent } from "../scripts/verify-lesson-review-content.mjs";
 import { loadModule } from "./helpers/bundle.mjs";
@@ -29,9 +29,12 @@ const material = (root) => readGeneratedReviewMaterial("roofing", "Spanish", "En
 test("historical shared-only constructor ignores a real generated verb change; current identity includes it", async () => {
   const dir = mkdtempSync(resolve("node_modules/.cache/generated-review-baseline-"));
   try {
-    const source = execFileSync("git", ["show", "650da6a:src/lib/lesson-review.ts"], {
-      encoding: "utf8",
-    });
+    // Exact git-show bytes retained so a clean/shallow checkout needs no historical objects.
+    const source = readFileSync("tests/fixtures/lesson-review-650da6a.ts.txt", "utf8");
+    assert.equal(
+      createHash("sha256").update(source).digest("hex"),
+      "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
+    );
     await build({
       stdin: { contents: source, resolveDir: resolve("src/lib"), loader: "ts" },
       outfile: join(dir, "old.mjs"),

@@ -2,7 +2,7 @@
   "testedAt": "2026-10-18T16:43:11.440Z",
   "applicationCommit": "7fb59fbc810e9343addcb9a9aed176e344e10535",
   "historicalSource": "650da6a:src/lib/lesson-review.ts",
-  "historicalProof": "Actual historical constructor produced equal fingerprints after a generated verb/source change and omitted generatedMaterial; current constructor changes identity. Test uses git-show source with original resolveDir.",
+  "historicalProof": "Exact historical source bytes from git-show retained in hash-checked fixture. Historical constructor leaves generated changes out of identity; current constructor binds them. Final fixture does not require historical Git objects.",
   "checks": {
     "fullNode22Tests": 1688,
     "failed": 0,
@@ -27,7 +27,8 @@
     "scripts/vercel-adapter.mjs": "ecd6e7d76b5cffc609bbe0cf1aaa018b9297dc32998047fa06e0ec2fc57a1bd4",
     "scripts/verify-vercel-artifact.mjs": "85f9918000ccd9f657499d07e775c29b4c8ffd3aac0e64b7c960e63a632a4e01",
     "scripts/verify-lesson-review-content.mjs": "0b50bb8f61d19817868c468c7fe663467884deb2730bbd9712cc3a9bbda857b2",
-    "tests/lesson-generated-review.test.mjs": "0c13eea64ad59de0716b73c1e85145726b22068bf03e219082ff7d457d50116f"
+    "tests/lesson-generated-review.test.mjs": "bb1a0acfc9d4269a8a0ec96ce680b4d8105af3269885a453626c5c1fe3d21bb0",
+    "tests/fixtures/lesson-review-650da6a.ts.txt": "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c"
   },
   "tracks": [
     {
@@ -627,5 +628,17 @@
     "Readiness structural completeness remains based on shared lesson definitions; generated fallback presence never relaxes it.",
     "SSR reviewer rendering and controlled fixtures do not establish browser/phone/accessibility/device/offline/human acceptance.",
     "No real model/provider/billing/learner evidence/exam submission action."
-  ]
+  ],
+  "ciFixtureCorrection": {
+    "failedWorkflow": 39146484098,
+    "failedTests": 1,
+    "passedTests": 1687,
+    "reason": "Historical git object unavailable in clean CI checkout; no runtime assertion failure.",
+    "correction": "Retained exact historical source bytes in a hash-checked fixture, with original src/lib resolveDir. No runtime source/build/deployment change.",
+    "fixture": "tests/fixtures/lesson-review-650da6a.ts.txt",
+    "fixtureSha256": "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
+    "finalLocalTestsPassed": 1688,
+    "finalLocalTestsFailed": 0,
+    "failedLogSha256": "40297655290edd9c35d8c236dc03e92495f77d3a7df439a454e49c6f8dff4a57"
+  }
 }

@@ -1,4 +1,10 @@
 import { WordCardCacheProvider } from "./word-card-cache";
+import { ProfileRecoveryContext } from "./profile-recovery-context";
+import {
+  recoverLegacyProfile,
+  type LegacyProfilePatch,
+  type ProfileRecoveryKind,
+} from "@/lib/legacy-profile-recovery";
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
 import type { AppTab } from "@/lib/app-navigation";
 import { useAuth } from "./auth-state";
@@ -216,6 +222,7 @@ export interface ClearedChallenge {
 }
 
 export type AppAction =
+  | { type: "RECOVER_PROFILE_CATEGORY"; payload: LegacyProfilePatch }
   | { type: "HYDRATE"; payload: Partial<AppState> }
   | { type: "SET_LANGUAGE"; payload: Language }
   | { type: "SET_NATIVE_LANGUAGE"; payload: NativeLanguage }
@@ -415,6 +422,16 @@ function withPracticeStreak(state: AppState, practiceStreak: PracticeStreakData)
 
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
+    case "RECOVER_PROFILE_CATEGORY": {
+      const next = { ...state, ...action.payload };
+      return {
+        ...next,
+        userVocab: deriveUserVocab(next.vocabByLanguage, next.selectedLanguage),
+        vocabLang: next.selectedLanguage,
+        tier: tierForXp(next.xp),
+        pendingLevelUp: null,
+      };
+    }
     case "HYDRATE": {
       const hydrated = { ...state, ...action.payload };
       const vocabByLanguage = includeLegacyVocab(
@@ -1104,7 +1121,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 }
 
 function AccountAppProvider({ children, actor }: { children: ReactNode; actor: string | null }) {
-  const { isCurrentUser } = useAuth();
+  const { isCurrentUser, canUseReader } = useAuth();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -1279,10 +1296,38 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
     () => ({ state, dispatch, pingActivity, profileReadyUserId }),
     [state, pingActivity, profileReadyUserId],
   );
+  const recoveryReady =
+    !!actor &&
+    userId === actor &&
+    profileReadyUserId === actor &&
+    state.hydrated &&
+    canUseReader(actor!);
+  const recoverProfile = useCallback(
+    (kind: ProfileRecoveryKind, confirmed: boolean, language?: Language) => {
+      if (!actor || !recoveryReady || !canUseReader(actor))
+        throw Error("Reconnect and finish restoring your current profile before recovery.");
+      const snapshot: Record<string, unknown> = { __v: SCHEMA_VERSION };
+      for (const key of PERSIST_KEYS) snapshot[key] = state[key];
+      recoverLegacyProfile({
+        storage: window.localStorage,
+        actor,
+        kind,
+        current: state,
+        snapshot,
+        confirmed,
+        chosenLanguage: language,
+        isCurrent: () => canUseReader(actor),
+        apply: (patch) => dispatch({ type: "RECOVER_PROFILE_CATEGORY", payload: patch }),
+      });
+    },
+    [actor, recoveryReady, canUseReader, state],
+  );
 
   return (
     <AppContext.Provider value={value}>
-      <WordCardCacheProvider>{children}</WordCardCacheProvider>
+      <ProfileRecoveryContext.Provider value={{ ready: recoveryReady, recover: recoverProfile }}>
+        <WordCardCacheProvider>{children}</WordCardCacheProvider>
+      </ProfileRecoveryContext.Provider>
     </AppContext.Provider>
   );
 }

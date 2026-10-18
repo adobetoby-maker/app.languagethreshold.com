@@ -1,0 +1,45 @@
+{
+  "testedAt": "2026-10-18T06:56:03.370Z",
+  "applicationCommit": "6353986e0673929c10260006d751d0656144118d",
+  "preview": "https://language-threshold-coz099qm0-adobetoby-5572s-projects.vercel.app",
+  "checks": [
+    {
+      "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "foreign-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "malformed",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "invalid-schema",
+      "status": 400,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-valid-json",
+      "status": 413,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    }
+  ],
+  "limits": [
+    "Inadmissible POST input only, before durable counters/auth/subscription/preferences/delivery. No allowed settings read/write, permission prompt, service worker, push send, scheduler or real provider operation. Local tests inspect CDN headers consumed by Vercel."
+  ]
+}

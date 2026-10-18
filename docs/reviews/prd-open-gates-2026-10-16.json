@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "cdd22f5",
+  "application": "e527595",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-4bcl9mne8-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-hfk98w7cr-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-admission-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "cdd22f5ddb9a2b352075577a5978fc7d365d61d1",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-admission-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "e527595a62df1061e1ac18c93fbc62f52943360c",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -780,5 +780,14 @@
     "readAdmissionDeadlineMs": 15000,
     "consentWriteWithinAdmissionDeadline": false,
     "actualConsentWriteOrModelVerified": false
+  },
+  "latestLocalSpeakingCanonicalIpFollowup": {
+    "application": "e527595",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-speaking-ip-preview-2026-10-18.json",
+    "canonicalIpv4OrIpv6Only": true,
+    "callerForwardingFallbackAllowed": false,
+    "fixedLoopbackDevelopmentBucket": true,
+    "actualVercelHeaderOverwriteVerified": false
   }
 }

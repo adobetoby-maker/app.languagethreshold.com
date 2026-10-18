@@ -33,7 +33,7 @@ function privateHeaders(response) {
   assert.equal(response.headers.get("vercel-cdn-cache-control"), "no-store");
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
 }
-async function fixture(run) {
+async function fixture(run, { realSecurity = false } = {}) {
   const dir = mkdtempSync(resolve("node_modules/.cache/speaking-admission-"));
   const saved = {
     set: setTimeout,
@@ -43,10 +43,18 @@ async function fixture(run) {
     error: console.error,
     key: process.env.ANTHROPIC_API_KEY,
   };
+  const environmentKeys = [
+    "SUPABASE_URL",
+    "SUPABASE_PUBLISHABLE_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "NODE_ENV",
+  ];
+  const environment = Object.fromEntries(environmentKeys.map((key) => [key, process.env[key]]));
   const c = {
     timers: new Map(),
     operations: new Set(),
     requests: [],
+    serviceRequests: [],
     shutdown: new AbortController(),
     gates: [],
     models: [],
@@ -121,7 +129,10 @@ async function fixture(run) {
                 filter:
                   /^(@tanstack\/react-router|@anthropic-ai\/sdk|\.\.\/lib\/(speaking-security|sentry))$/,
               },
-              (a) => ({ path: a.path, namespace: "fixture" }),
+              (a) =>
+                realSecurity && a.path.includes("speaking-security")
+                  ? undefined
+                  : { path: a.path, namespace: "fixture" },
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `const c=globalThis.__speakingAdmissionFixture;export const createFileRoute=()=>x=>x;export default class Anthropic {messages={create:async(args)=>{c.models.push(args);return c.provider(args)}}} export const initSentry=()=>{};export const Sentry={captureException:e=>c.sentry.push(String(e))};export const isStrictSameOrigin=r=>r.headers.get('Origin')===new URL(r.url).origin;export const isSpeakingMissionLanguageEnabled=l=>l!=='Japanese';export const enforceSpeakingPreAuthRateLimit=async(...a)=>{c.gates.push(['ip',...a]);return c.ip(...a)};export const authenticateSpeakingRequest=async(...a)=>{c.gates.push(['auth',...a]);return c.auth(...a)};export const enforceSpeakingRateLimit=async(...a)=>{c.gates.push(['user',...a]);return c.budget(...a)};export const hasSpeakingAgeAttestation=async(...a)=>{c.gates.push(['age',...a]);return c.age(...a)};export const setSpeakingAgeAttestation=async(...a)=>{c.writes.push(a);return c.write(...a)};`,
@@ -141,9 +152,22 @@ async function fixture(run) {
       if (c.timers.has(timer)) c.timers.delete(timer);
       else saved.clear(timer);
     };
-    globalThis.fetch = () => {
-      throw new Error("Unexpected real transport");
+    globalThis.fetch = async (url, opts) => {
+      if (!realSecurity || new URL(url).hostname !== "speaking-store.invalid")
+        throw new Error("Unexpected real transport");
+      c.serviceRequests.push({ url: String(url), opts });
+      return String(url).includes("/auth/")
+        ? Response.json({ id: "synthetic-a" })
+        : String(url).includes("/rpc/")
+          ? Response.json(true)
+          : Response.json([{ attested_at: "2026-08-13T12:00:00.000Z" }]);
     };
+    if (realSecurity) {
+      process.env.SUPABASE_URL = "https://speaking-store.invalid";
+      process.env.SUPABASE_PUBLISHABLE_KEY = "synthetic-public";
+      process.env.SUPABASE_SERVICE_ROLE_KEY = "synthetic-service";
+      process.env.NODE_ENV = "production";
+    }
     console.log = (...args) => c.logs.push(args.map(String).join(" "));
     console.error = console.log;
     process.env.ANTHROPIC_API_KEY = "synthetic-provider-key";
@@ -178,6 +202,10 @@ async function fixture(run) {
     console.error = saved.error;
     if (saved.key === undefined) delete process.env.ANTHROPIC_API_KEY;
     else process.env.ANTHROPIC_API_KEY = saved.key;
+    for (const key of environmentKeys) {
+      if (environment[key] === undefined) delete process.env[key];
+      else process.env[key] = environment[key];
+    }
     delete globalThis.__speakingAdmissionFixture;
     rmSync(dir, { recursive: true, force: true });
   }
@@ -449,3 +477,50 @@ test("speaking and consent reject oversized valid JSON with ignored padding befo
       assert.equal(c.gates.length, 0);
     }
   }));
+
+test("actual speaking and consent guards refuse fallback IP buckets before auth/write/model and admit canonical IP normally", () =>
+  fixture(
+    async (h, c) => {
+      for (const headers of [
+        { "x-forwarded-for": "192.0.2.37" },
+        { "x-real-ip": "192.0.2.38" },
+        { "x-vercel-forwarded-for": "synthetic-selected-bucket", "x-forwarded-for": "192.0.2.39" },
+      ]) {
+        for (const [route, path, value] of [
+          ["speak", "speak", body],
+          ["consent", "speaking-consent", { attested: true }],
+        ]) {
+          const req = request(path, value);
+          for (const [key, value] of Object.entries(headers)) req.headers.set(key, value);
+          const denied = await h[route].POST(req);
+          assert.equal(denied.status, 503);
+          privateHeaders(denied);
+        }
+        const deniedRead = await h.consent.GET(
+          new Request("https://fixture.invalid/api/speaking-consent", { headers }),
+        );
+        assert.equal(deniedRead.status, 503);
+        privateHeaders(deniedRead);
+      }
+      assert.equal(c.serviceRequests.length, 0);
+      assert.equal(c.models.length, 0);
+      assert.equal(c.writes.length, 0);
+      const current = request();
+      current.headers.set("x-vercel-forwarded-for", "192.0.2.37");
+      current.headers.set("x-forwarded-for", "192.0.2.99");
+      current.headers.set("Authorization", "Bearer synthetic-token");
+      const response = await h.speak.POST(current);
+      assert.equal(response.status, 200);
+      privateHeaders(response);
+      await response.json();
+      assert.equal(c.serviceRequests.length, 3);
+      assert.ok(c.serviceRequests[1].url.includes("/auth/"));
+      assert.equal(c.models.length, 1);
+      assert.ok(
+        c.serviceRequests.every(
+          (r) => r.opts.cache === "no-store" && r.opts.signal && !r.opts.signal.aborted,
+        ),
+      );
+    },
+    { realSecurity: true },
+  ));

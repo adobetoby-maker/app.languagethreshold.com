@@ -1,3 +1,4 @@
+import { isIP } from "node:net";
 import { readPrivateServiceJson } from "./private-service-json.ts";
 
 export interface SpeakingPrincipal {
@@ -91,12 +92,14 @@ export async function authenticateSpeakingRequest(
 }
 
 function trustedClientIp(request: Request) {
-  const forwarded =
-    request.headers.get("x-vercel-forwarded-for") ||
-    request.headers.get("x-forwarded-for") ||
-    request.headers.get("x-real-ip");
-  const first = forwarded?.split(",")[0]?.trim();
-  return first && first.length <= 128 ? first : null;
+  // Vercel supplies this canonical header. Caller forwarding fallbacks cannot select buckets.
+  const first = request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim();
+  if (first && isIP(first)) return first;
+  const host = new URL(request.url).hostname;
+  return process.env.NODE_ENV === "development" &&
+    ["localhost", "127.0.0.1", "[::1]"].includes(host)
+    ? "local-development"
+    : null;
 }
 
 async function speakingBucketHash(namespace: string, value: string) {

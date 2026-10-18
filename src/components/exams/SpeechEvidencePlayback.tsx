@@ -27,7 +27,7 @@ function OwnedSpeechEvidencePlayback({
   onChanged,
   onReviewReady,
 }: Props) {
-  const { capture, cancel } = usePracticeLifecycle(evidenceId);
+  const { actor, capture, cancel } = usePracticeLifecycle(evidenceId);
   const pending = useRef<AbortController | null>(null);
   const readyCallback = useRef(onReviewReady);
   readyCallback.current = onReviewReady;
@@ -43,6 +43,7 @@ function OwnedSpeechEvidencePlayback({
   const run = async (action: "speech_reviewed" | "speech_withdraw") => {
     const lease = capture();
     if (
+      !actor ||
       !lease.isCurrent() ||
       pending.current ||
       available === false ||
@@ -71,6 +72,7 @@ function OwnedSpeechEvidencePlayback({
           requestId: crypto.randomUUID(),
         },
         controller.signal,
+        { userId: actor, isCurrent: current },
       );
       if (!current()) return;
       if (action === "speech_reviewed") {

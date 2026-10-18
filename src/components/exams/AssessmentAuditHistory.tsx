@@ -66,7 +66,10 @@ function OwnedAssessmentAuditHistory({ enrollmentId, onOpenAttempt }: Props) {
     setExportError("");
     setExportNotice("");
     try {
-      const result = await examHistoryExport(enrollmentId, controller.signal);
+      const result = await examHistoryExport(enrollmentId, controller.signal, {
+        userId: actor,
+        isCurrent: current,
+      });
       if (!current()) return;
       const url = URL.createObjectURL(result.blob);
       let timer: ReturnType<typeof setTimeout> | null = null;

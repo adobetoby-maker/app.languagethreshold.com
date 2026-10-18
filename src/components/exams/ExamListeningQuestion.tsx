@@ -17,7 +17,7 @@ export function ExamListeningQuestion({
   answer?: AssessmentAnswer;
   onAnswer: (answer: AssessmentAnswer) => void;
 }) {
-  const { key, capture } = usePracticeLifecycle(JSON.stringify([attemptId, item.id]));
+  const { actor, key, capture } = usePracticeLifecycle(JSON.stringify([attemptId, item.id]));
   const [playback, setPlayback] = useState({
     key,
     playing: false,
@@ -35,7 +35,7 @@ export function ExamListeningQuestion({
   const pending = useRef<AbortController | null>(null);
   const play = async () => {
     const lease = capture();
-    if (!lease.isCurrent() || pending.current) return;
+    if (!actor || !lease.isCurrent() || pending.current) return;
     const controller = new AbortController();
     pending.current = controller;
     setPlayback({ key, playing: true, heard, error: "" });
@@ -74,6 +74,7 @@ export function ExamListeningQuestion({
       const audio = await examAudioRequest(
         `/api/exams?action=listening&attempt=${encodeURIComponent(attemptId)}&item=${encodeURIComponent(item.id)}`,
         controller.signal,
+        { userId: actor, isCurrent: current },
       );
       if (!current()) return;
       if (audio.mode === "private_clip") {

@@ -15,7 +15,7 @@ export function PrivateExamAudio({
   label?: string;
   onEnded?: () => void;
 }) {
-  const { key, capture } = usePracticeLifecycle(path);
+  const { actor, key, capture } = usePracticeLifecycle(path);
   const [state, setState] = useState({ key, playing: false, error: "" });
   const { playing, error } = state.key === key ? state : { playing: false, error: "" };
   const playback = useRef<Playback | null>(null);
@@ -26,7 +26,7 @@ export function PrivateExamAudio({
   };
   const play = async () => {
     const lease = capture();
-    if (!lease.isCurrent() || playback.current) return;
+    if (!actor || !lease.isCurrent() || playback.current) return;
     let audio: HTMLAudioElement | undefined, url: string | undefined;
     let release = () => {};
     const current: Playback = {
@@ -59,7 +59,10 @@ export function PrivateExamAudio({
       return true;
     };
     try {
-      const input = await examAudioRequest(path, current.abort.signal);
+      const input = await examAudioRequest(path, current.abort.signal, {
+        userId: actor,
+        isCurrent,
+      });
       if (!isCurrent()) return;
       if (input.mode !== "private_clip")
         throw new Error("This review requires a versioned audio clip.");

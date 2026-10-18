@@ -12,10 +12,13 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(action) {
+async function fixture(action, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/exam-listening-"));
   const old = Object.fromEntries(
-    ["Audio", "URL", "window"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+    ["fetch", "Audio", "URL", "window"].map((k) => [
+      k,
+      Object.getOwnPropertyDescriptor(globalThis, k),
+    ]),
   );
   try {
     const out = join(dir, "component.mjs");
@@ -37,19 +40,23 @@ async function fixture(action) {
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|@\/state\/(auth|speech)-state|@\/lib\/(assessments\/client|voices|tts))$/,
+                  /^(fixture|react|@\/state\/(auth|speech)-state|@\/lib\/(assessments\/client|voices|tts)|@\/integrations\/supabase\/client)$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
+ import {examAudioRequest as realAudio,examHistoryExport as realExport,uploadExamSpeech as realUpload,examRequest as realAction,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
  export const useCallback=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;};
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examAudioRequest=(url,signal)=>new Promise(resolve=>c.requests.push({url,signal,resolve}));
+ export const examAudioRequest=(url,signal,owner)=>c.realClient?realAudio(url,signal,owner):new Promise(resolve=>c.requests.push({url,signal,owner,resolve}));
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},getVoicesForLocale=()=>[{voiceURI:'device-voice'}];
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.tts.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  `,
@@ -62,6 +69,9 @@ async function fixture(action) {
       audios = [],
       revoked = [];
     let cancels = 0;
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { speechSynthesis: { cancel: () => cancels++ } };
     globalThis.URL = {
       createObjectURL: () => `blob:qa-${audios.length}`,
@@ -225,3 +235,25 @@ test("actual exam QA listening forces device-only playback and requires current 
     assert.equal(choice(tree).props.disabled, false, "saved answer heard flag is preserved");
     unmount();
   }));
+
+test("learner listening binds actual SDK credentials before creating audio or accepting an answer", () =>
+  fixture(async ({ c, render, play, choice, audios }) => {
+    play(render());
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(audios.length, 0);
+    assert.equal(choice(render()).props.disabled, true);
+    play(render());
+    c.sessions.shift()({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    c.fetches[0].resolve({
+      ok: true,
+      headers: new Headers({ "Content-Type": "audio/webm" }),
+      blob: async () => new Blob(["synthetic clip"]),
+    });
+    await tick();
+    assert.equal(choice(render()).props.disabled, true);
+    audios[0].onended();
+    assert.equal(choice(render()).props.disabled, false);
+  }, true));

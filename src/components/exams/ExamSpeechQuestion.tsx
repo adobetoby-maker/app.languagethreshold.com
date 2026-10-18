@@ -78,7 +78,10 @@ function OwnedExamSpeechQuestion({
   useEffect(() => {
     mounted.current = true;
     const abort = new AbortController();
-    void examRequest<Policy>(policyPath, abort.signal)
+    void examRequest<Policy>(policyPath, abort.signal, {
+      userId,
+      isCurrent: () => mounted.current && isCurrentUser(userId),
+    })
       .then((p) => {
         if (mounted.current && !abort.signal.aborted && isCurrentUser(userId)) setPolicy(p);
       })
@@ -129,7 +132,10 @@ function OwnedExamSpeechQuestion({
     setRequesting(true);
     let stream: MediaStream | null = null;
     try {
-      const current = await examRequest<Policy>(policyPath, abort.signal);
+      const current = await examRequest<Policy>(policyPath, abort.signal, {
+        userId,
+        isCurrent: currentStart,
+      });
       if (!currentStart()) return;
       if (!current.enabled || current.version !== policy.version) {
         setPolicy(current);
@@ -293,6 +299,7 @@ function OwnedExamSpeechQuestion({
         },
         next.blob,
         abort.signal,
+        { userId, isCurrent: currentUpload },
       );
       if (!currentUpload()) return;
       await reload();
@@ -339,7 +346,10 @@ function OwnedExamSpeechQuestion({
           "Local take discarded. Any synced recording stays attached; withdraw that copy separately if you want it removed.",
         );
       } else {
-        const latestPolicy = await examRequest<Policy>(policyPath, abort.signal);
+        const latestPolicy = await examRequest<Policy>(policyPath, abort.signal, {
+          userId,
+          isCurrent: current,
+        });
         if (!current()) return;
         setPolicy(latestPolicy);
         setConsent(false);

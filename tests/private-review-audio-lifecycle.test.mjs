@@ -12,10 +12,13 @@ function nodes(n, out = []) {
   }
   return out;
 }
-async function fixture(action) {
+async function fixture(action, realClient = false) {
   const dir = mkdtempSync(resolve("node_modules/.cache/exam-listening-"));
   const old = Object.fromEntries(
-    ["Audio", "URL", "window"].map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]),
+    ["fetch", "Audio", "URL", "window"].map((k) => [
+      k,
+      Object.getOwnPropertyDescriptor(globalThis, k),
+    ]),
   );
   try {
     const out = join(dir, "component.mjs");
@@ -37,21 +40,25 @@ async function fixture(action) {
             b.onResolve(
               {
                 filter:
-                  /^(fixture|react|@\/state\/(auth|speech)-state|@\/lib\/(assessments\/client|voices|tts))$/,
+                  /^(fixture|react|@\/state\/(auth|speech)-state|@\/lib\/(assessments\/client|voices|tts)|@\/integrations\/supabase\/client)$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+              resolveDir: process.cwd(),
               contents: `
- export const c={slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
+ import {examAudioRequest as realAudio,examHistoryExport as realExport,uploadExamSpeech as realUpload,examRequest as realAction,ExamRequestError} from "./src/lib/assessments/client.ts";
+ export {ExamRequestError};
+ export const supabase={auth:{getSession:()=>new Promise(resolve=>c.sessions.push(resolve))}};
+ export const c={sessions:[],fetches:[],slots:[],cursor:0,effects:[],actor:'a',requests:[],actions:[],tts:[],answers:[],writes:0};const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export const useRef=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];};
  export const useState=initial=>{const i=c.cursor++;if(!(i in c.slots))c.slots[i]=typeof initial==='function'?initial():initial;return [c.slots[i],v=>{c.writes++;c.slots[i]=typeof v==='function'?v(c.slots[i]):v;}];};
  export const useCallback=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;};
  export const useEffect=(fn,deps)=>{const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});};
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const examAudioRequest=(url,signal)=>new Promise((resolve,reject)=>c.requests.push({url,signal,resolve,reject}));
- export class ExamRequestError extends Error {constructor(message,status){super(message);this.status=status;}} c.RequestError=ExamRequestError;
- export const examRequest=(body,signal)=>new Promise((resolve,reject)=>c.actions.push({body,signal,resolve,reject}));
+ export const examAudioRequest=(url,signal,owner)=>c.realClient?realAudio(url,signal,owner):new Promise((resolve,reject)=>c.requests.push({url,signal,owner,resolve,reject}));
+ c.RequestError=ExamRequestError;
+ export const examRequest=(body,signal,owner)=>c.realActions?realAction(body,signal,owner):new Promise((resolve,reject)=>c.actions.push({body,signal,owner,resolve,reject}));
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}]},getVoicesForLocale=()=>[{voiceURI:'device-voice'}];
  export const speakRemote=(text,locale,opts)=>new Promise(resolve=>{c.tts.push({text,locale,opts,resolve});opts.signal.addEventListener('abort',resolve,{once:true});});
  `,
@@ -64,6 +71,9 @@ async function fixture(action) {
       audios = [],
       revoked = [];
     let cancels = 0;
+    c.realClient = realClient;
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => c.fetches.push({ url, opts, resolve }));
     globalThis.window = { speechSynthesis: { cancel: () => cancels++ } };
     globalThis.URL = {
       createObjectURL: () => `blob:qa-${audios.length}`,
@@ -311,3 +321,50 @@ test("private clip authorization failures and unavailable evidence do not grant 
     assert.equal(ready.includes(true), false);
   });
 });
+
+test("review playback rejects SDK mismatch and suppresses departed credential delivery", () =>
+  fixture(async ({ c, render, click, audios }) => {
+    click(render());
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(audios.length, 0);
+    assert.deepEqual(c.answers, ["lost"]);
+    click(render());
+    const credential = c.sessions.shift();
+    c.actor = "b";
+    credential({ data: { session: { user: { id: "a" }, access_token: "synthetic-a" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(audios.length, 0);
+    assert.deepEqual(c.answers, ["lost"]);
+  }, true));
+
+test("review acknowledgement and withdrawal bind their actual SDK actor", () =>
+  fixture(async ({ c, speech, ready }) => {
+    c.realActions = true;
+    let tree = speech();
+    nodes(tree)
+      .find((n) => typeof n.type === "function" && n.props.path)
+      .props.onEnded();
+    tree = speech();
+    nodes(tree)
+      .find((n) => n.type === "input")
+      .props.onChange();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(ready.includes(true), false);
+    tree = speech("withdraw-only", true);
+    nodes(tree)
+      .find((n) => n.type === "button")
+      .props.onClick();
+    tree = speech("withdraw-only", true);
+    nodes(tree)
+      .find((n) => n.type === "button" && n.props.children === "Confirm withdrawal")
+      .props.onClick();
+    c.sessions.shift()({ data: { session: { user: { id: "b" }, access_token: "synthetic-b" } } });
+    await tick();
+    assert.equal(c.fetches.length, 0);
+    assert.equal(ready.includes("changed"), false);
+  }, true));

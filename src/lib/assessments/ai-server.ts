@@ -33,7 +33,7 @@ export async function proposeWritingReview(
       throw new AssessmentAccessError("Assessment request cancelled.", 499);
   };
   current();
-  const context = await attemptAccess(db, actor, attemptId, false, "routing");
+  const context = await attemptAccess(db, actor, attemptId, false, "routing", request);
   const { attempt, checkpoint, enrollment } = context;
   if (enrollment.user_id !== actor || !attempt.submitted_at)
     throw new AssessmentAccessError("Submitted learner assessment access required.");

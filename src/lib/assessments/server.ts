@@ -105,12 +105,22 @@ export async function selectedSummaries(
   }
   return result.summaries;
 }
-export async function enrollmentAccess(db: TeamDb, actor: string, id: string, manage = false) {
-  const { data: enrollment, error } = await db
-    .from("assessment_enrollments")
-    .select("*")
-    .eq("id", id)
-    .maybeSingle();
+function requireCurrentAccessRequest(request?: Request) {
+  if (request?.signal.aborted)
+    throw new AssessmentAccessError("Assessment request cancelled.", 499);
+}
+export async function enrollmentAccess(
+  db: TeamDb,
+  actor: string,
+  id: string,
+  manage = false,
+  request?: Request,
+) {
+  requireCurrentAccessRequest(request);
+  let query = db.from("assessment_enrollments").select("*").eq("id", id);
+  if (request) query = query.abortSignal(request.signal).retry(false);
+  const { data: enrollment, error } = await query.maybeSingle();
+  requireCurrentAccessRequest(request);
   if (error) throw new AssessmentAccessError("Assessment storage is not ready.", 503);
   if (!enrollment) throw new AssessmentAccessError("Assessment enrollment not found.", 404);
   if (enrollment.scope === "personal") {
@@ -118,6 +128,7 @@ export async function enrollmentAccess(db: TeamDb, actor: string, id: string, ma
       throw new AssessmentAccessError("Personal assessment access required.");
   } else {
     const role = await memberRole(db, enrollment.organization_id, actor);
+    requireCurrentAccessRequest(request);
     const admin = role && ["owner", "admin"].includes(role.role);
     if (!role || (!admin && (manage || enrollment.user_id !== actor)))
       throw new AssessmentAccessError("Team assessment access required.");
@@ -131,44 +142,59 @@ export async function attemptAccess(
   id: string,
   review = false,
   runtime: "fixed" | "routing" = "fixed",
+  request?: Request,
 ) {
-  const { data: attempt, error } = await db
-    .from("assessment_attempts")
-    .select("*")
-    .eq("id", id)
-    .maybeSingle();
+  requireCurrentAccessRequest(request);
+  let attemptQuery = db.from("assessment_attempts").select("*").eq("id", id);
+  if (request) attemptQuery = attemptQuery.abortSignal(request.signal).retry(false);
+  const { data: attempt, error } = await attemptQuery.maybeSingle();
+  requireCurrentAccessRequest(request);
   if (error) throw new AssessmentAccessError("Assessment storage is not ready.", 503);
   if (!attempt) throw new AssessmentAccessError("Assessment attempt not found.", 404);
-  const { data: checkpoint } = await db
+  let checkpointQuery = db
     .from("assessment_checkpoints")
     .select("*")
-    .eq("id", attempt.checkpoint_id)
-    .single();
+    .eq("id", attempt.checkpoint_id);
+  if (request) checkpointQuery = checkpointQuery.abortSignal(request.signal).retry(false);
+  const { data: checkpoint, error: checkpointError } = await checkpointQuery.maybeSingle();
+  requireCurrentAccessRequest(request);
+  if (checkpointError)
+    throw new AssessmentAccessError("Assessment checkpoint could not be loaded.", 503);
   if (!checkpoint) throw new AssessmentAccessError("Assessment checkpoint not found.", 404);
   try {
-    const enrollment = await enrollmentAccess(db, actor, checkpoint.enrollment_id, review);
+    const enrollment = await enrollmentAccess(db, actor, checkpoint.enrollment_id, review, request);
+    requireCurrentAccessRequest(request);
     if (review && enrollment.user_id === actor)
       throw new AssessmentAccessError("A different reviewer must review your assessment.");
     if (runtime === "fixed") requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   } catch (error) {
     if (!(error instanceof AssessmentAccessError) || error.status !== 403 || !review) throw error;
+    requireCurrentAccessRequest(request);
     // Explicitly shared personal attempt only; no access to other attempts/profile/history.
-    const { data: request } = await db
+    const { data: reviewRequest } = await db
       .from("assessment_review_requests")
       .select("id")
       .eq("attempt_id", id)
       .eq("reviewer_id", actor)
       .eq("status", "claimed")
       .maybeSingle();
+    requireCurrentAccessRequest(request);
     const { data: enrollment } = await db
       .from("assessment_enrollments")
       .select("*")
       .eq("id", checkpoint.enrollment_id)
       .single();
-    if (!request || !enrollment || enrollment.scope !== "personal" || enrollment.user_id === actor)
+    requireCurrentAccessRequest(request);
+    if (
+      !reviewRequest ||
+      !enrollment ||
+      enrollment.scope !== "personal" ||
+      enrollment.user_id === actor
+    )
       throw error;
     if (!(await evidenceReviewerStatus(db, actor, enrollment))) throw error;
+    requireCurrentAccessRequest(request);
     if (runtime === "fixed") requireFixedAssessmentRuntime(attempt.form_snapshot?.definition);
     return { attempt, checkpoint, enrollment };
   }

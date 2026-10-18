@@ -1,0 +1,2151 @@
+{
+  "auditedAt": "2026-10-18T11:58:52.016Z",
+  "sourceCommit": "e76c4ac35b37056ba3946c478b9a25cc8a0b5b3d",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "scan": {
+    "files": 64,
+    "directRpc": 11,
+    "typedAssessmentErrors": 207,
+    "dynamicAssessmentErrors": 3,
+    "consoleSites": 9,
+    "directBrowserStorageSites": 0,
+    "conditionalMessageAssignments": 3
+  },
+  "dynamicAssessmentErrors": [
+    {
+      "path": "src/lib/assessments/prepared-start-server.ts",
+      "kind": "typedAssessmentError",
+      "line": 25,
+      "literal": false,
+      "expression": "error.message",
+      "status": "409"
+    },
+    {
+      "path": "src/lib/assessments/server.ts",
+      "kind": "typedAssessmentError",
+      "line": 71,
+      "literal": false,
+      "expression": "guidance.message",
+      "status": "guidance.status"
+    },
+    {
+      "path": "src/lib/assessments/server.ts",
+      "kind": "typedAssessmentError",
+      "line": 799,
+      "literal": false,
+      "expression": "result.misconfigured\n        ? \"Assessment request controls are unavailable.\"\n        : \"Please wait a minute before trying again.\"",
+      "status": "result.misconfigured ? 503 : 429"
+    }
+  ],
+  "directRpc": [
+    {
+      "path": "src/lib/assessments/cleanup-run.ts",
+      "kind": "directRpc",
+      "line": 9,
+      "receiver": "db",
+      "name": "\"assessment_begin_cleanup_run\""
+    },
+    {
+      "path": "src/lib/assessments/cleanup-run.ts",
+      "kind": "directRpc",
+      "line": 40,
+      "receiver": "db",
+      "name": "\"assessment_finish_cleanup_run\""
+    },
+    {
+      "path": "src/lib/assessments/cleanup-run.ts",
+      "kind": "directRpc",
+      "line": 52,
+      "receiver": "db",
+      "name": "\"assessment_finish_cleanup_run\""
+    },
+    {
+      "path": "src/lib/assessments/server.ts",
+      "kind": "directRpc",
+      "line": 67,
+      "receiver": "db",
+      "name": "name"
+    },
+    {
+      "path": "src/lib/assessments/speech-cleanup.ts",
+      "kind": "directRpc",
+      "line": 22,
+      "receiver": "db",
+      "name": "\"assessment_claim_speech_cleanup\""
+    },
+    {
+      "path": "src/lib/assessments/speech-cleanup.ts",
+      "kind": "directRpc",
+      "line": 32,
+      "receiver": "db",
+      "name": "\"assessment_finish_speech_cleanup\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "directRpc",
+      "line": 157,
+      "receiver": "db",
+      "name": "\"team_usage_summary\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "directRpc",
+      "line": 162,
+      "receiver": "db",
+      "name": "\"team_usage_summary\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "directRpc",
+      "line": 322,
+      "receiver": "db",
+      "name": "\"team_create_organization\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "directRpc",
+      "line": 332,
+      "receiver": "db",
+      "name": "\"team_accept_invitation\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "directRpc",
+      "line": 356,
+      "receiver": "db",
+      "name": "\"team_reserve_invitation\""
+    }
+  ],
+  "consoleSites": [
+    {
+      "path": "scripts/cleanup-assessment-speech.mjs",
+      "kind": "console",
+      "line": 11,
+      "method": "log"
+    },
+    {
+      "path": "scripts/cleanup-assessment-speech.mjs",
+      "kind": "console",
+      "line": 58,
+      "method": "log"
+    },
+    {
+      "path": "scripts/cleanup-assessment-speech.mjs",
+      "kind": "console",
+      "line": 61,
+      "method": "error"
+    },
+    {
+      "path": "scripts/import-assessment-audio.mjs",
+      "kind": "console",
+      "line": 76,
+      "method": "log"
+    },
+    {
+      "path": "scripts/import-assessment-draft.mjs",
+      "kind": "console",
+      "line": 118,
+      "method": "log"
+    },
+    {
+      "path": "scripts/qa/audit-assessment-rpc-guidance.mjs",
+      "kind": "console",
+      "line": 30,
+      "method": "log"
+    },
+    {
+      "path": "scripts/qa/audit-assessment-rpc-guidance.mjs",
+      "kind": "console",
+      "line": 113,
+      "method": "log"
+    },
+    {
+      "path": "scripts/qa/verify-assessment-audio-storage.mjs",
+      "kind": "console",
+      "line": 104,
+      "method": "log"
+    },
+    {
+      "path": "scripts/qa/verify-assessment-speech-storage.mjs",
+      "kind": "console",
+      "line": 107,
+      "method": "log"
+    }
+  ],
+  "messageAssignments": [
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "messageAssignment",
+      "line": 384,
+      "destination": "warning",
+      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "messageAssignment",
+      "line": 439,
+      "destination": "warning",
+      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "kind": "messageAssignment",
+      "line": 521,
+      "destination": "warning",
+      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+    }
+  ],
+  "inventory": [
+    {
+      "path": "scripts/cleanup-assessment-speech.mjs",
+      "sha256": "738af668ef3fe9801cf285421c42d70e019ed36902eb96e7cf2db2e574616d86",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 11,
+          "method": "log"
+        },
+        {
+          "kind": "console",
+          "line": 58,
+          "method": "log"
+        },
+        {
+          "kind": "console",
+          "line": 61,
+          "method": "error"
+        }
+      ]
+    },
+    {
+      "path": "scripts/import-assessment-audio.mjs",
+      "sha256": "13559657e848c904fcfd866dc9b58a397e9e4c9fd3acf9bfb9ce87e96b59aa10",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 76,
+          "method": "log"
+        }
+      ]
+    },
+    {
+      "path": "scripts/import-assessment-draft.mjs",
+      "sha256": "de513757269fb5c5a4ac533e8622ad3d90fb666a3f81cd258b3f920792f96c05",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 118,
+          "method": "log"
+        }
+      ]
+    },
+    {
+      "path": "scripts/qa/audit-assessment-rpc-guidance.mjs",
+      "sha256": "703bffb3713e05e88fb15d54d4e48821e5c511109cf17b759c53588083ac18bc",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 30,
+          "method": "log"
+        },
+        {
+          "kind": "console",
+          "line": 113,
+          "method": "log"
+        }
+      ]
+    },
+    {
+      "path": "scripts/qa/verify-assessment-audio-storage.mjs",
+      "sha256": "9ed6ae404d26daa87069c6bd562ea609c46cf388e22d640ddd75c3c88d122564",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 104,
+          "method": "log"
+        }
+      ]
+    },
+    {
+      "path": "scripts/qa/verify-assessment-speech-storage.mjs",
+      "sha256": "85aa564f1bf97897be3371988e080ab782939c9f0257057085296c504ffec6a2",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 107,
+          "method": "log"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/ai-proposal.ts",
+      "sha256": "705970ced9e8baf43984932b8dcad073b81e0228f7b0f35d887b5d4462e1715f",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/ai-server.ts",
+      "sha256": "d8aca2e9af92ea6f0a40808cf90269178dc51d01171daefe1c0988d02e531450",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 31,
+          "literal": true,
+          "expression": "\"Submitted learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 36,
+          "literal": true,
+          "expression": "\"AI-supported review needs a calibrated form or the explicit QA pilot.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 48,
+          "literal": true,
+          "expression": "\"This response is unavailable.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 51,
+          "literal": true,
+          "expression": "\"Response access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 53,
+          "literal": true,
+          "expression": "\"AI proposals are available for typed writing with a frozen rubric. Missing, spoken and uncertain handwriting inputs need human review.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 59,
+          "literal": true,
+          "expression": "\"AI review is unavailable. Human review remains available.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 69,
+          "literal": true,
+          "expression": "\"Review history is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 82,
+          "literal": true,
+          "expression": "\"AI review allowance is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 94,
+          "literal": true,
+          "expression": "\"AI review allowance is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 96,
+          "literal": true,
+          "expression": "\"Today's AI writing review allowance is used. Human review remains available.\"",
+          "status": "429"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 230,
+          "literal": true,
+          "expression": "\"AI review did not finish reliably. No final score was assigned and it will not retry automatically. Request human review.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/audio-server.ts",
+      "sha256": "93ffa52af3dd51828bf12f0fd01e86b2efa9015e260bbbed03bda8facdd8df57",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 27,
+          "literal": true,
+          "expression": "\"Active learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 31,
+          "literal": true,
+          "expression": "\"Listening audio is unavailable outside the selected assessment path.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 36,
+          "literal": true,
+          "expression": "\"Listening audio is unavailable for this item.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 47,
+          "literal": true,
+          "expression": "\"Active learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 51,
+          "literal": true,
+          "expression": "\"Reviewed assessment audio has not been published for this form.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 65,
+          "literal": true,
+          "expression": "\"The reviewed audio reference is invalid.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 68,
+          "literal": true,
+          "expression": "\"Protected listening audio is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 73,
+          "literal": true,
+          "expression": "\"The reviewed listening clip is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 79,
+          "literal": true,
+          "expression": "\"The listening clip does not match the reviewed version.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/audio.ts",
+      "sha256": "c588c72553d9e083ae6e098dfc8d787d3ecf5f354a5b8d8aecf29bb333103296",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/audit.ts",
+      "sha256": "a86c8922a8f1eb43177d4e61147a08cb2afc14d0b9269ddcaad92824c0465fcf",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/checkpoint-guidance.ts",
+      "sha256": "841721c16d8083e35c08d4e0d6ca5fd39983753e0a7ee75e2e2b9c8e8ff99df0",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/cleanup-run.ts",
+      "sha256": "44f3bcf9f89f0e29a53168963cf6e2e7e383273b6c0d755502cb375126431dc3",
+      "sites": [
+        {
+          "kind": "directRpc",
+          "line": 9,
+          "receiver": "db",
+          "name": "\"assessment_begin_cleanup_run\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 40,
+          "receiver": "db",
+          "name": "\"assessment_finish_cleanup_run\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 52,
+          "receiver": "db",
+          "name": "\"assessment_finish_cleanup_run\""
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/cleanup-schedule-server.ts",
+      "sha256": "d87c677a67ab5d5ddff3939077649ef2f2824c3c5ffc2e6255231cf7933058de",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/cleanup-status-fetch.ts",
+      "sha256": "bfcb891672cc27e913be175af2f8ad791defc1b032b1f46bd54914bd5c8d6ce6",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/client.ts",
+      "sha256": "cd47afc7c061aaef84ece46daa2f767618d02061efa16d9dabc9fffe54738c5c",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/content-server.ts",
+      "sha256": "2de34c2262557ebdb06f47063d6e8c48cc46c933c32e9a5ae8b36a2d8afe3140",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 29,
+          "literal": true,
+          "expression": "\"Content permissions could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 57,
+          "literal": true,
+          "expression": "\"Owner permissions could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 59,
+          "literal": true,
+          "expression": "\"A registered platform owner role is required to manage reviewer access.\"",
+          "status": "403"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/core.ts",
+      "sha256": "a449669870109f99dedb4379b1a81858c7e6643ffb41d355e840909cf69c1be3",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/device-store.ts",
+      "sha256": "e9b3866c1a9fe7f20c03ddda7407210ea04f3c5f63cc7abbd955817eddb8bccc",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/drafts.ts",
+      "sha256": "ba0b5dcc9ee9e70bcb5b19788a869f284dcc16f7df70e4b42369f1d00147e825",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/errors.ts",
+      "sha256": "8654910c4b0c1bab5ed225418eb439a307d654195313bdcee7f89de486670b49",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/export.ts",
+      "sha256": "74caa42b8ad8fb4a8c53a0cfd6d6501e95ffccf185fa2a445ac6f0499afe18c3",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/form.ts",
+      "sha256": "595f11d8ebaa997b6b4b67d111362a19c493b83b1c13f68effe0f5a4a43b7014",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/goals.ts",
+      "sha256": "906e4525640583da1114d5bf53d9fb48879961960614fa3a8f73874e0d9a50fc",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/history-export-server.ts",
+      "sha256": "4278a68a7a9a0dbdd10f7ec60cf3b696561113ff200f5071d05a27cbadc5bb3f",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 43,
+          "literal": true,
+          "expression": "\"Complete plan history could not be exported. No partial file was created.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 50,
+          "literal": true,
+          "expression": "\"History changed while exporting. Refresh and retry; no partial file was created.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 61,
+          "literal": true,
+          "expression": "\"This plan exceeds the 10,000-event export limit. No partial file was created.\"",
+          "status": "413"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 81,
+          "literal": true,
+          "expression": "\"Assignment history could not be exported. No partial file was created.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/ink.ts",
+      "sha256": "43258032c91084670b76e1a7a26bf593872cc5af80232cb3a8bac05dac3027d9",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/lesson-binding.ts",
+      "sha256": "dcd8f5d99032e1670e29769168376ee42868f11773d3d1f4fe1d1dd74dd73e14",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 27,
+          "literal": true,
+          "expression": "\"Frozen lesson material could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 39,
+          "literal": true,
+          "expression": "\"Frozen lesson material failed its integrity check.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 49,
+          "literal": true,
+          "expression": "\"Lesson release changed.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 57,
+          "literal": true,
+          "expression": "\"Lesson release could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 58,
+          "literal": true,
+          "expression": "\"Lesson release was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 71,
+          "literal": true,
+          "expression": "\"Lesson content has changed or has not been frozen for this release. A current reviewed release is required.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 82,
+          "literal": true,
+          "expression": "\"This module needs complete, reviewed lesson material before an official exam can start.\"",
+          "status": "409"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/offline.ts",
+      "sha256": "08381fe7be97d58b10d75368ea0bb831fb55c47dd65ccfee5c809e46e02bef0d",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/plan-timing.ts",
+      "sha256": "3f598eee873f398eac0281b40e5dfcbb76c2f7f8ada92f7700d6d6b2cd8d8d3c",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/plans-server.ts",
+      "sha256": "28ba53bee72a419c884f29f36ef941052f542ac81b3dc463671238f4b36454be",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 25,
+          "literal": true,
+          "expression": "\"Open the primary module to manage its supporting work.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 65,
+          "literal": true,
+          "expression": "\"The assessment plan could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 89,
+          "literal": true,
+          "expression": "\"Assessment evidence could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 115,
+          "literal": true,
+          "expression": "\"Original assessment sources could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 123,
+          "literal": true,
+          "expression": "\"Source assessment belongs to another plan.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 139,
+          "literal": true,
+          "expression": "\"Learner goals could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 161,
+          "literal": true,
+          "expression": "\"Supporting checks could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 180,
+          "literal": true,
+          "expression": "\"Supporting unit descriptions could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 309,
+          "literal": true,
+          "expression": "\"Daily assessment guidance could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 311,
+          "literal": true,
+          "expression": "\"This learning plan is unavailable for this account and language track.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 328,
+          "literal": true,
+          "expression": "\"The plan pause history could not be loaded in full.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 355,
+          "literal": true,
+          "expression": "\"Daily guidance is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 364,
+          "literal": true,
+          "expression": "\"Supporting checks could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 414,
+          "literal": true,
+          "expression": "\"Supporting lesson context could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 456,
+          "literal": true,
+          "expression": "\"Learning access could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 465,
+          "literal": true,
+          "expression": "\"Learning access could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 475,
+          "literal": true,
+          "expression": "\"Learning access could not be checked.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/plans.ts",
+      "sha256": "5691312c7c82c15aef69fe4f01fe0a0df61616f2f602fc77a7c5876944f37a0d",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/preparation.ts",
+      "sha256": "bb1575c16da3a538df7fe72e079a3b854e4962fbec6d104fede289c24e5923e5",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/prepared-start-server.ts",
+      "sha256": "2e73feef2f9bc12325130e7c659700220a7376fc3c69e4f1e5a43b0dfad322a4",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 25,
+          "literal": false,
+          "expression": "error.message",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 44,
+          "literal": true,
+          "expression": "\"Assessment start could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 53,
+          "literal": true,
+          "expression": "\"Assessment start could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 66,
+          "literal": true,
+          "expression": "\"Saved adaptive assessment is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 95,
+          "literal": true,
+          "expression": "\"Adaptive routing is not enabled for this form yet.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 108,
+          "literal": true,
+          "expression": "\"Prepared assessment source unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 120,
+          "literal": true,
+          "expression": "\"The exam form changed. Reopen the start details.\"",
+          "status": "409"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/release-readiness.ts",
+      "sha256": "3c7fee0b24a5c96fa70f9789dff2766d82d27980ce22877dd1f0aff224879f00",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/reporting.ts",
+      "sha256": "e5f76006c693e5c31da646474a3aff8d0be8ee261b410c99fc811ade6017848e",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/reports-server.ts",
+      "sha256": "cae669e3d69add05a9fcf7fc5cd006677e3eb3c25c9e44799cbe03d230166733",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 20,
+          "literal": true,
+          "expression": "\"Checkpoint history could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 21,
+          "literal": true,
+          "expression": "\"Checkpoint was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 34,
+          "literal": true,
+          "expression": "\"Attempt history could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 46,
+          "literal": true,
+          "expression": "\"The original baseline could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 79,
+          "literal": true,
+          "expression": "\"Provide the complete history cursor.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 90,
+          "literal": true,
+          "expression": "\"Plan history could not be loaded.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/routing-client.ts",
+      "sha256": "814e6e73260a53d06f068f36660dbd86dedf63dfa45aa65172413304ec215c63",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/routing-contract.ts",
+      "sha256": "f4f9189acd3f829ba7ee87942a9092f80729fb3699a690695a370f953cfe9a76",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/routing-path-server.ts",
+      "sha256": "32593edaaee6de9e113a2c4bfa1075a531ae46b1001f20d225fff4d425aa113a",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 21,
+          "literal": true,
+          "expression": "\"Selected score evidence could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 88,
+          "literal": true,
+          "expression": "\"Saved responses do not match the selected assessment path.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 96,
+          "literal": true,
+          "expression": "\"Submitted selected responses are incomplete.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 112,
+          "literal": true,
+          "expression": "\"Selected assessment path is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 130,
+          "literal": true,
+          "expression": "\"Selected assessment path is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 143,
+          "literal": true,
+          "expression": "\"Continue from the saved core before submitting this assessment.\"",
+          "status": "409"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/routing-server.ts",
+      "sha256": "0b95fb96bb5be5cc773f0174df3d872ff129a01aa3bb82f8119ceda418effb18",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 41,
+          "literal": true,
+          "expression": "\"Saved assessment routing is unavailable. Refresh to retry.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 113,
+          "literal": true,
+          "expression": "\"Learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 116,
+          "literal": true,
+          "expression": "\"This assessment has no routing step.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 129,
+          "literal": true,
+          "expression": "\"Route request key reused with different payload.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 137,
+          "literal": true,
+          "expression": "\"Active learner assessment required.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 139,
+          "literal": true,
+          "expression": "\"Assessment revision conflict. Refresh your saved answers.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 170,
+          "literal": true,
+          "expression": "\"Save every core response or mark it unavailable before continuing.\"",
+          "status": "409"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/routing.ts",
+      "sha256": "a03f9d0455f293fe5cddbc2ac5d9afa8c44a9c0253667f8b447512e6d5e0d670",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/rpc-errors.ts",
+      "sha256": "7f29f9aa77b543a52bf8cce7d86e6653ee7ec64673f8c7bd867dc605e356f020",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/runtime-server.ts",
+      "sha256": "6b8d6d2b50f5908d2767ac28370bc55a8f35927f2b83c3d45706f20ed1fb7129",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 72,
+          "literal": true,
+          "expression": "\"Adaptive form readiness is unavailable.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/scope.ts",
+      "sha256": "56d5205248005fc9fa8c9a56cf6569d395d5fd46830760a9d5b8d7daf714aeb8",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/server.ts",
+      "sha256": "11a5fb8af31930c29100c3f2d1d69dbe8a31f9f05fcad05c406a8937223c4d8b",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 41,
+          "literal": true,
+          "expression": "\"Adaptive routing is not enabled for this form yet.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 56,
+          "literal": true,
+          "expression": "\"Supporting check readiness could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "directRpc",
+          "line": 67,
+          "receiver": "db",
+          "name": "name"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 71,
+          "literal": false,
+          "expression": "guidance.message",
+          "status": "guidance.status"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 74,
+          "literal": true,
+          "expression": "\"This assessment already exists. Refresh to resume it.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 75,
+          "literal": true,
+          "expression": "\"Assessment storage is unavailable. Your saved work has not been replaced.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 90,
+          "literal": true,
+          "expression": "\"Assessment report limit exceeded.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 114,
+          "literal": true,
+          "expression": "\"Assessment storage is not ready.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 115,
+          "literal": true,
+          "expression": "\"Assessment enrollment not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 118,
+          "literal": true,
+          "expression": "\"Personal assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 123,
+          "literal": true,
+          "expression": "\"Team assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 140,
+          "literal": true,
+          "expression": "\"Assessment storage is not ready.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 141,
+          "literal": true,
+          "expression": "\"Assessment attempt not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 147,
+          "literal": true,
+          "expression": "\"Assessment checkpoint not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 151,
+          "literal": true,
+          "expression": "\"A different reviewer must review your assessment.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 200,
+          "literal": true,
+          "expression": "\"This module does not support that language pair.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 211,
+          "literal": true,
+          "expression": "\"Assessment releases could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 235,
+          "literal": true,
+          "expression": "\"Assessment storage is not ready.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 276,
+          "literal": true,
+          "expression": "\"Assessment readiness could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 283,
+          "literal": true,
+          "expression": "\"Lesson readiness could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 368,
+          "literal": true,
+          "expression": "\"Curriculum readiness could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 378,
+          "literal": true,
+          "expression": "\"Exam readiness could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 390,
+          "literal": true,
+          "expression": "\"Lesson readiness could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 482,
+          "literal": true,
+          "expression": "\"This attempt is outside the selected team view.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 491,
+          "literal": true,
+          "expression": "\"Saved responses could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 504,
+          "literal": true,
+          "expression": "\"Speech evidence status could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 531,
+          "literal": true,
+          "expression": "\"Saved scores do not match selected responses.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 566,
+          "literal": true,
+          "expression": "\"Review history could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 576,
+          "literal": true,
+          "expression": "\"Assessment exposure history could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 596,
+          "literal": true,
+          "expression": "\"Review status could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 612,
+          "literal": true,
+          "expression": "\"This attempt is outside the selected team view.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 712,
+          "literal": true,
+          "expression": "\"Submit this assessment first.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 721,
+          "literal": true,
+          "expression": "\"Submitted responses could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 732,
+          "literal": true,
+          "expression": "\"Submitted recording status could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 744,
+          "literal": true,
+          "expression": "\"Recording consent policy could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 750,
+          "literal": true,
+          "expression": "\"Frozen assessment item is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 761,
+          "literal": true,
+          "expression": "\"Submitted answer cannot be scored against its frozen item.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 799,
+          "literal": false,
+          "expression": "result.misconfigured\n        ? \"Assessment request controls are unavailable.\"\n        : \"Please wait a minute before trying again.\"",
+          "status": "result.misconfigured ? 503 : 429"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/speech-cleanup-server.ts",
+      "sha256": "666bb59fef5c2bbcff162802d0b541930def27dda3c0755c22e78ebf607fee88",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/speech-cleanup.ts",
+      "sha256": "b1d4b853a547af16748695689a869f9d70d9940a2aaa9b8699562daee106b4d2",
+      "sites": [
+        {
+          "kind": "directRpc",
+          "line": 22,
+          "receiver": "db",
+          "name": "\"assessment_claim_speech_cleanup\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 32,
+          "receiver": "db",
+          "name": "\"assessment_finish_speech_cleanup\""
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/speech-device.ts",
+      "sha256": "e6acf27146a22d01b64ee3922a0f9836337737cd682e016de49bdd5504070f60",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/speech-server.ts",
+      "sha256": "83afc39959425f27904a72d826e29371b78b25d83b07147835783de22bd9e7d6",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 38,
+          "literal": true,
+          "expression": "\"Speech policy is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 56,
+          "literal": true,
+          "expression": "\"Recording exceeds 4 MiB.\"",
+          "status": "413"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 58,
+          "literal": true,
+          "expression": "\"A recording is required.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 68,
+          "literal": true,
+          "expression": "\"Recording exceeds 4 MiB.\"",
+          "status": "413"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 75,
+          "literal": true,
+          "expression": "\"Recording is empty or incomplete.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 91,
+          "literal": true,
+          "expression": "\"Protected speech storage is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 106,
+          "literal": true,
+          "expression": "\"Active learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 110,
+          "literal": true,
+          "expression": "\"Selected frozen speaking item required.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 113,
+          "literal": true,
+          "expression": "\"Speech collection policy is not enabled.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 115,
+          "literal": true,
+          "expression": "\"Recording format does not match.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 119,
+          "literal": true,
+          "expression": "\"Recording format is incomplete or unsupported.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 145,
+          "literal": true,
+          "expression": "\"Recording upload failed. Keep this page open to retry.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 159,
+          "literal": true,
+          "expression": "\"Recording verification failed. No answer was attached.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 172,
+          "literal": true,
+          "expression": "\"Speech evidence is unavailable.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 181,
+          "literal": true,
+          "expression": "\"Submit this assessment before review.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 185,
+          "literal": true,
+          "expression": "\"Selected frozen speaking evidence required.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 197,
+          "literal": true,
+          "expression": "\"This recording is not the submitted response.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 207,
+          "literal": true,
+          "expression": "\"Protected recording verification failed.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 215,
+          "literal": true,
+          "expression": "\"Speech evidence is unavailable.\"",
+          "status": "404"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/speech.ts",
+      "sha256": "cf3ca28b46db1ecd264b8d9743dc60ff65f4a093b0e0eca27584eb57dbf5cd16",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/summary-path-server.ts",
+      "sha256": "2232f674f65e3c6fedede29b01f8ff7e89581e831e4a1d24134562f03b9c5c56",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 9,
+          "literal": true,
+          "expression": "\"Selected assessment report could not be checked.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/support-check-readiness.ts",
+      "sha256": "39b35c74056e07f2c578ec3b14b3d11baac9f85b5e49b43e05a4236f54bcd090",
+      "sites": []
+    },
+    {
+      "path": "src/lib/assessments/team-insights-server.ts",
+      "sha256": "a92ca0e689ef12bf2cb1c772c7e2fe67fec7a9d001e77c3171d4385980e96a2a",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 30,
+          "literal": true,
+          "expression": "\"Team insight admin access required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 40,
+          "literal": true,
+          "expression": "\"This module does not support that language pair.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 51,
+          "literal": true,
+          "expression": "\"Team insight content could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 60,
+          "literal": true,
+          "expression": "\"Team insight lesson review could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 74,
+          "literal": true,
+          "expression": "\"Team insight exam version could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 95,
+          "literal": true,
+          "expression": "\"Reviewed team insight mappings could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 114,
+          "literal": true,
+          "expression": "\"Reviewed fixed-core insight mappings could not be checked.\"",
+          "status": "503"
+        }
+      ]
+    },
+    {
+      "path": "src/lib/assessments/team-insights.ts",
+      "sha256": "464674fc71894b526123d6eb4b450acf61db9114ea786cab05389bd764452052",
+      "sites": []
+    },
+    {
+      "path": "src/routes/api.exam-cleanup.ts",
+      "sha256": "408ad116ec5411b42f20fc7e0f32f64b77abd7d3bb62d84d943a14800cf8bce8",
+      "sites": []
+    },
+    {
+      "path": "src/routes/api.exam-content.ts",
+      "sha256": "6620eb23fd2b980da996f7669aa5332f32a534749bebe549a0479553d46e0e0a",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 68,
+          "literal": true,
+          "expression": "\"Assigned content reviewer or platform owner access required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 85,
+          "literal": true,
+          "expression": "\"Lesson release could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 86,
+          "literal": true,
+          "expression": "\"Lesson release was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 88,
+          "literal": true,
+          "expression": "\"Assigned content reviewer access required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 95,
+          "literal": true,
+          "expression": "\"Current lesson curriculum is not available.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 124,
+          "literal": true,
+          "expression": "\"Private content could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 126,
+          "literal": true,
+          "expression": "\"Assessment form was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 133,
+          "literal": true,
+          "expression": "\"Content permissions could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 135,
+          "literal": true,
+          "expression": "\"Assigned content reviewer access required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 143,
+          "literal": true,
+          "expression": "\"A versioned listening clip is not attached to this item.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 188,
+          "literal": true,
+          "expression": "\"Private releases could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 200,
+          "literal": true,
+          "expression": "\"Private form catalog could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 216,
+          "literal": true,
+          "expression": "\"Same-origin content review required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 222,
+          "literal": true,
+          "expression": "\"Content review is too large.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 227,
+          "literal": true,
+          "expression": "\"Invalid content review.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 238,
+          "literal": true,
+          "expression": "\"Lesson release could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 240,
+          "literal": true,
+          "expression": "\"Lesson release was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 247,
+          "literal": true,
+          "expression": "\"Lesson content conflict; refresh before freezing material.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 271,
+          "literal": true,
+          "expression": "\"Content form could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 272,
+          "literal": true,
+          "expression": "\"Content form was not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 279,
+          "literal": true,
+          "expression": "\"Content permissions could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 281,
+          "literal": true,
+          "expression": "\"Assigned content reviewer access required.\"",
+          "status": "403"
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.exam-plans.ts",
+      "sha256": "e2f24183cf35363ea1597f6fc0e84713d2aef6a93e56bd02f4484e96544dbd19",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 152,
+          "literal": true,
+          "expression": "\"Module not found.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 199,
+          "literal": true,
+          "expression": "\"Unknown plan view.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 215,
+          "literal": true,
+          "expression": "\"Same-origin plan request required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 220,
+          "literal": true,
+          "expression": "\"Plan request is too large.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 225,
+          "literal": true,
+          "expression": "\"Invalid plan request.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 253,
+          "literal": true,
+          "expression": "\"Support approval access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 260,
+          "literal": true,
+          "expression": "\"Learning access is required before adding supporting work.\"",
+          "status": "403"
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.exam-reviewers.ts",
+      "sha256": "12ca1379b781960365fa62e8e5d04613da2707d5f8322e84686c69c645b188dc",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 91,
+          "literal": true,
+          "expression": "\"Reviewer administration could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 108,
+          "literal": true,
+          "expression": "\"Same-origin reviewer request required.\"",
+          "status": "403"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 115,
+          "literal": true,
+          "expression": "\"Reviewer request is too large.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 120,
+          "literal": true,
+          "expression": "\"Invalid reviewer request.\"",
+          "status": "400"
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.exams.ts",
+      "sha256": "5bee1741b7e92a76835bddfca8b0d2f26458f99ace9a978f936e7f9c1144661e",
+      "sites": [
+        {
+          "kind": "typedAssessmentError",
+          "line": 249,
+          "literal": true,
+          "expression": "\"Reviewer status could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 319,
+          "literal": true,
+          "expression": "\"Unknown assessment view.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 336,
+          "literal": true,
+          "expression": "\"Team learners could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 345,
+          "literal": true,
+          "expression": "\"Team permissions could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 393,
+          "literal": true,
+          "expression": "\"Cross-origin assessment request rejected.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 401,
+          "literal": true,
+          "expression": "\"Assessment request is too large.\"",
+          "status": "413"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 406,
+          "literal": true,
+          "expression": "\"Assessment request is too large.\"",
+          "status": "413"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 431,
+          "literal": true,
+          "expression": "\"Personal assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 441,
+          "literal": true,
+          "expression": "\"Assessment plan could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 453,
+          "literal": true,
+          "expression": "\"Enrollment request key reused with different details.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 460,
+          "literal": true,
+          "expression": "\"Current module access is required to add an exam plan.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 487,
+          "literal": true,
+          "expression": "\"Assessment checkpoint unavailable.\"",
+          "status": "404"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 490,
+          "literal": true,
+          "expression": "\"Only the learner may start this exam.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 492,
+          "literal": true,
+          "expression": "\"Current module access is required to start an exam. Your saved responses remain available.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 519,
+          "literal": true,
+          "expression": "\"Reviewed supporting checks are unavailable.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 529,
+          "literal": true,
+          "expression": "\"Assessment forms are unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 531,
+          "literal": true,
+          "expression": "\"Assessment form selection is unavailable.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 547,
+          "literal": true,
+          "expression": "\"Adaptive routing is not enabled for this form yet.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 552,
+          "literal": true,
+          "expression": "\"This module exam is awaiting curriculum review.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 559,
+          "literal": true,
+          "expression": "\"Reopen the exam start details before starting this form.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 569,
+          "literal": true,
+          "expression": "\"This exam needs reviewed, versioned listening clips before it can start.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 586,
+          "literal": true,
+          "expression": "\"The exam form changed. Go back to Exams and reopen the start details.\"",
+          "status": "409"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 596,
+          "literal": true,
+          "expression": "\"Saved study coverage could not be loaded.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 641,
+          "literal": true,
+          "expression": "\"Learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 646,
+          "literal": true,
+          "expression": "\"Response item is not in the selected assessment path.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 680,
+          "literal": true,
+          "expression": "\"Adaptive routing is not enabled for this form yet.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 685,
+          "literal": true,
+          "expression": "\"Learner assessment access required.\"",
+          "status": "403(default)"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 692,
+          "literal": true,
+          "expression": "\"Saved responses could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 716,
+          "literal": true,
+          "expression": "\"Adjust supporting work from the primary plan’s support controls.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 752,
+          "literal": true,
+          "expression": "\"Submit this assessment first.\"",
+          "status": "400"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 761,
+          "literal": true,
+          "expression": "\"Review response could not be checked.\"",
+          "status": "503"
+        },
+        {
+          "kind": "typedAssessmentError",
+          "line": 763,
+          "literal": true,
+          "expression": "\"Response access required.\"",
+          "status": "403(default)"
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "sha256": "1feae1ff062d2b1b5565b99d18bc23a7945a38355a87cacbcf4f756d1cd12e8f",
+      "sites": [
+        {
+          "kind": "directRpc",
+          "line": 157,
+          "receiver": "db",
+          "name": "\"team_usage_summary\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 162,
+          "receiver": "db",
+          "name": "\"team_usage_summary\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 322,
+          "receiver": "db",
+          "name": "\"team_create_organization\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 332,
+          "receiver": "db",
+          "name": "\"team_accept_invitation\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 356,
+          "receiver": "db",
+          "name": "\"team_reserve_invitation\""
+        },
+        {
+          "kind": "messageAssignment",
+          "line": 384,
+          "destination": "warning",
+          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+        },
+        {
+          "kind": "messageAssignment",
+          "line": 439,
+          "destination": "warning",
+          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+        },
+        {
+          "kind": "messageAssignment",
+          "line": 521,
+          "destination": "warning",
+          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+        }
+      ]
+    },
+    {
+      "path": "src/routes/exam-content.tsx",
+      "sha256": "199aca982c2b9a2721b8c2db576ffe84521eba03905e73fc5426518a868a99c1",
+      "sites": []
+    },
+    {
+      "path": "src/routes/exam-reviewers.tsx",
+      "sha256": "7a4afb5ff27c6d4e93db6713c5ebce62b689db6e4e9bdbe94cb766df34e2a621",
+      "sites": []
+    },
+    {
+      "path": "src/routes/owner.tsx",
+      "sha256": "fe119591fbf0ca95ec0e7c248039baf905917e6c3e3da2f846a98538e5cf97e4",
+      "sites": []
+    },
+    {
+      "path": "src/routes/team.tsx",
+      "sha256": "7571c5869e32679a888c118d19a9da598140046dac1e7457acdc812bccc833f6",
+      "sites": []
+    }
+  ],
+  "manualReview": {
+    "typedDynamicMessages": [
+      "prepared-start-server.ts rethrows only the exact typed prepared-source-change text as409",
+      "server.ts guidance.message comes from the exact fixed RPC registry; registry tests are recorded separately",
+      "server.ts request controls choose between two fixed strings/statuses, not backend diagnostics"
+    ],
+    "rpcScope": "Six assessment-library sites: shared wrapper plus five worker sites. Worker resolved errors use fixed local errors/counts; rejected RPCs and subsequent SDK behavior remain separate. Five team RPC sites occur because api.team imports assessment helpers; scoped outer errors do not cover successful warning responses.",
+    "consoleScope": "Nine direct calls are in operator/import/QA scripts: fixed cleanup failure guidance/help, aggregate run/draft/storage reports, audio asset metadata and RPC audit output. No CLI/import/worker was executed. Implicit SDK logs, thrown exceptions and private file destinations remain separate.",
+    "priorityFinding": {
+      "path": "src/routes/api.team.ts",
+      "operations": [
+        "invite",
+        "resend",
+        "assign"
+      ],
+      "mechanism": "Three conditional cause.message assignments feed warning in200 JSON; invite/resend also persist last_email_error, and GET returns invitation rows including that historical field.",
+      "reachableFailureKinds": "sendTeamEmail nonOK HTTP currently throws a fixed status message and missing config is typed; rejected fetch or SDK update may throw arbitrary Error.message inside the same try. This is a source finding, not evidence that production exposed actual private data.",
+      "next": "Use fixed contextual email-warning messages for new responses/writes; normalize previously stored invitation diagnostics in GET without rewriting historical records. Verify actual route with synthetic rejected sends/updates and stored diagnostics; preserve manual fallback links and successful assignment/invitation semantics."
+    }
+  },
+  "limits": [
+    "Syntax inventory of assessment library files plus route/script files with direct assessment-path imports. No transitive graph, symbol resolution, shadowing analysis, namespace constructors, computed calls, destructured methods, reexports or appwide coverage.",
+    "Dynamic typed messages need manual provenance review; literal syntax alone does not prove safety or correct status/authorization. Direct RPC includes trusted wrapper and unrelated team operations in selected files.",
+    "Console/browserStorage counts are direct syntax facts only; not absence of SDK logging, implicit HTTP caches, service workers, indirect persistence or private serialization. No runtime/database/browser/provider/cleanup invocation; no schema/policy/schedule changes."
+  ]
+}

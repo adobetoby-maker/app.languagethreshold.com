@@ -1,0 +1,44 @@
+{
+  "recordedAt": "2026-10-18T12:09:04.242071+00:00",
+  "baseCommit": "45956da2f71f2c3b0063f19dd90d381d3b9bb526",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "userAuthorizedMainPush": true,
+  "mainPushVerified": true,
+  "pr37": "MERGED",
+  "failedMainWorkflow": {
+    "id": 39125558416,
+    "url": "https://github.com/adobetoby-maker/app.languagethreshold.com/actions/runs/39125558416",
+    "tests": 1450,
+    "pass": 1445,
+    "fail": 5,
+    "cause": "Consent lifecycle fixture called mkdtemp without creating node_modules/.cache; clean CI checkout lacks parent. Build/production deploy skipped."
+  },
+  "isolatedFixture": {
+    "sourceSnapshot": "git archive45956da; dependency symlinks exclude.cache",
+    "before": {
+      "fail": 5,
+      "error": "ENOENT"
+    },
+    "after": {
+      "pass": 5,
+      "fail": 0
+    },
+    "fix": "mkdirSync(cache,{recursive:true}) before mkdtemp; fixture-only change",
+    "limits": "macOS Node26 isolated source snapshot, not Linux Node22 acceptance; CI rerun required"
+  },
+  "fullLocal": {
+    "tests": 1450,
+    "pass": 1450,
+    "fail": 0
+  },
+  "coordination": {
+    "session": "Languagethreshold.com model upgrades",
+    "message": 124,
+    "acknowledgedMainCheckpoint": true,
+    "newerThanFrozenNotes": true,
+    "claudeWork": "feature/lesson-content remains uncommitted while generation runs; six overlapping files need later deliberate reconciliation",
+    "codexOwns": "consent test cache repair, then team success-warning diagnostics",
+    "newGenerationJobsStartedByCodex": false
+  },
+  "gates": "Official review/calibration/pilot/recording/retention/schedule/device gates remain open. Main push is not production deployment success; no policy/schema changes."
+}

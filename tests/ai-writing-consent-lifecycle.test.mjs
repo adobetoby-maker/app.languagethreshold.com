@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { build } from "esbuild";
-import { mkdtempSync, rmSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
 const tick = () => new Promise((r) => setImmediate(r));
 function nodes(n, out = []) {
@@ -13,6 +13,7 @@ function nodes(n, out = []) {
   return out;
 }
 async function fixture(run, realClient = false) {
+  mkdirSync(resolve("node_modules/.cache"), { recursive: true });
   const dir = mkdtempSync(resolve("node_modules/.cache/private-report-"));
   const old = Object.getOwnPropertyDescriptor(globalThis, "window");
   const originalFetch = globalThis.fetch;

@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### User-authorized main push, Claude coordination and clean-CI fixture repair — October 18
+
+Toby explicitly requested “push to main communicate with the claude session”. Codex fast-forward pushed 45956da to main (previous9f90996), verified remote SHA, and PR37 is MERGED. The prior no-main/frozen-Claude checkpoint is historical. Native existing Claude session “Languagethreshold.com model upgrades” received Message122 and acknowledged; its current feature/lesson-content generation is active/uncommitted, newer than earlier freeze notes. Claude identified overlap in AppGuide, LessonReader, LessonPracticeKit, lesson-words, sw.js and vercel-adapter; it will preserve its files and reconcile after generation. Codex has not touched that worktree or started generation. Message124 updates it about the following CI failure and Codex ownership of its repair, then email diagnostic fixes.
+
+Main workflow39125558416 failed before build/deploy:1450tests/1445pass/5fail. All five failures are consent lifecycle fixture ENOENT because node_modules/.cache is absent in fresh checkout. Historical fixture reproduced five actual ENOENT failures in isolated git-archive snapshot with dependencies symlinked excluding.cache. Recursive mkdir before mkdtemp makes those same five pass; full local1450/1450 pass. A first local result assertion assumed TAP under Node26's terminal reporter; explicitly selected TAP and reran before counting evidence. Fixture only; app runtime remains691072f. No existing cache removed, no ignored credentials copied, no real consent/provider request. LinuxNode22 CI rerun/deploy still required. Evidence qa-main-ci-cache-repair-2026-10-18.json.
+
+NEXT: finish authorized main CI repair and verify workflow/deployment status, then team invite/resend/assign success-warning and historical stored diagnostic normalization. Earlier Preview is verified691072f, not proof current main reached production. Official human/content/calibration/equivalence/pilot/device/retention/schedule gates remain open; no recording/policy/schema/scheduler approvals inferred. Full goal remains active.
+
+
 ### Assessment private-boundary inventory identifies success-warning diagnostics — October 18
 
 Audit-only follow-up at evidence source e76c4ac; deployed application remains 691072f/READY Preview https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app. New TypeScript AST inventory covers 64 assessment-library and directly importing route/script files: 207 typed assessment error constructors (three nonliteral expressions), 11 direct RPC calls, nine console calls and three conditional Error.message assignments. The three typed dynamic cases were manually traced to exact typed prepared-source text, the fixed RPC registry and two fixed rate-limit messages. Six library RPC sites comprise the shared wrapper and five cleanup worker calls; five additional team RPCs enter this scope through api.team. Nine direct console sites are operator/import/QA help, fixed cleanup errors or report/asset metadata; those commands were not executed.

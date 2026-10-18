@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Generated runtime content inventoried separately from reviewed lesson definitions — October 18
+
+Tooling/documentation follow-up on application59f7044/evidencede31981; no runtime source or deployment change. The readiness audit now reports public generated files separately on exact instruction-language pairs, with runtime-parser identity, current curriculum numbers, source bytes/hashes and field counts. It never adds overlapping layers or infers release approval from a file flag. Fresh audit:59modules/7076compatibletracks/59generatedfiles/1510lessons,1480wordlists/1480passages/1510verbsets/5744847bytes; all59reviewed:false, all current lesson numbers present on their file pair.42modules30lessons,16modules15,1module10;17shortmodules still260lessons short. Compact evidence module-generated-content-coverage-2026-10-18.json; full7076-track output retained locally /tmp/lt-module-readiness-2026-10-18.json.
+
+Backlog now distinguishes new draft material from the older90sharedwordlists/passages/settings. Source review found lessonReviewSnapshot/getLessonDefinition and lessonReleaseReadiness still cover shared definitions, without the generated verb/fallback layer. This inventory does not fix that review-binding gap. NEXT concrete integration: include effective generated runtime materials and source precedence in frozen review identity, with changed-material invalidation and matching reviewer display, before claiming complete runtime-content review. Do not turn generated presence into human approval or relax official release gates.
+
+Validation:90existingcontentgroups and23sharedcoverage/review/bindinggroups pass; audit exact-pair/nonreviewed/missingnumber/260gap assertions pass, audit-script ESLint0, diffcheckclean, private-bank scan96markers/1722source/209static/0hits. No TS/runtime changes, build/deployment/browser/provider/learner/policy/schedule action. Previous de31981 exactLinuxCI39144848618 succeeded with1679tests/typecheck/build/artifact and production skipped. Preview remains59f7044/rirutqv4z; main/live814b304 and companiond4ad837 are last verified baselines, not re-inspected this documentation turn. All human/device/expiry/recovery/calibration/reviewer/realconsentedpilot/retention/scheduler/59module gates remain open. No repeated retention question; full goal active.
+
+
 
 ### Public cache writes remain part of service-worker event lifetime — October 18
 

@@ -8,6 +8,14 @@ Initial language track: English instructions → Spanish target, except English-
 
 Content owner role: curriculum lead. Required sign-offs: fluent-language reviewer, domain reviewer, QA, and product owner. Specific people are not yet assigned; that remains a release dependency. Codex owns shared-engine implementation, not human review approval.
 
+## October 18 runtime content update
+
+The merged public generated-content layer now contains 59 files for 1,510 existing lessons: 1,480 word lists, 1,480 passages and 1,510 verb sets. Roofing's 30 word lists and passages remain in the inline definitions. These source layers overlap; their lesson counts must not be added. All 59 files retain `reviewed:false`. Forty-two modules have 30 lessons, sixteen have 15 and Sport Fishing has 10, leaving the same 260-lesson expansion gap. Other compatible language pairs are not covered by these files. The [current generated-content inventory](reviews/module-generated-content-coverage-2026-10-18.json) records each exact pair, source hash, field counts and missing lessons.
+
+The rows below retain their original baseline and release requirements. Generated words/passages/verbs now provide draft material for review across the initial tracks; they do not close the reviewed-content, six-mode, level, exam or real-pilot gaps. `scripts/audit-module-readiness.mjs` now reports this layer separately from shared definition coverage. It uses the runtime parser and counts only current curriculum lesson numbers on the exact instruction-language pair. The existing 90 content test groups also pass; neither check establishes human approval.
+
+The earlier 90-word-list/passage/settings totals below describe shared lesson definitions only. Frozen lesson-review snapshots and the release completeness inspector still use that layer and do not include generated verb sets or fallback content. Before claiming a complete review of runtime materials, bind the generated layer and its precedence into the review snapshot and verify that changed generated material invalidates the review. Existing official-release gates remain in place; no release was verified by this inventory update.
+
 | Batch | Module | Baseline lessons | Initial gaps | State |
 | --- | --- | --- | --- | --- |
 | 0: Reference | Roofing Foreman (`roofing`) | 30 | Level/activities/passages review; Three exams; Real personal/team/device pilot; Draft Spanish/English text/app download persists after reopen; actual cold offline reload, audio and device acceptance remain open | Gaps identified |

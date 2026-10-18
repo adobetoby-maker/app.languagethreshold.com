@@ -1,11 +1,19 @@
 {
-  "testedAt": "2026-10-18T09:26:19.817Z",
-  "applicationCommit": "2f9f9ee0a6241c2d1c305ef3c935df13aaceadb7",
-  "preview": "https://language-threshold-dp350ku95-adobetoby-5572s-projects.vercel.app",
+  "testedAt": "2026-10-18T09:36:14.237Z",
+  "applicationCommit": "807117688c92192abab5dde70fbc80871c065641",
+  "preview": "https://language-threshold-mcw6sbte7-adobetoby-5572s-projects.vercel.app",
   "checks": [
     {
       "route": "team-activity",
       "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-activity",
+      "name": "missing-auth",
       "status": 403,
       "privateNoStore": true,
       "nosniff": true,
@@ -46,6 +54,14 @@
     {
       "route": "team-assessment",
       "name": "missing-origin",
+      "status": 403,
+      "privateNoStore": true,
+      "nosniff": true,
+      "noTextEcho": true
+    },
+    {
+      "route": "team-assessment",
+      "name": "missing-auth",
       "status": 403,
       "privateNoStore": true,
       "nosniff": true,
@@ -85,6 +101,6 @@
     }
   ],
   "limits": [
-    "Invalid origin/JSON/schema/size only, without Authorization and before new team input admission. These cannot authorize team writes even on historical routes. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel."
+    "Invalid origin/JSON/schema/size plus valid-schema missing-auth denials, all without Authorization. These cannot authorize team writes even on historical routes; valid schemas stop at missing-bearer authentication before database operations. No team activity/test start/submit/certificate, payment, invitation, role or browser action. Local tests inspect CDN headers consumed by Vercel."
   ]
 }

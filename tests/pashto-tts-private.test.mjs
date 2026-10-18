@@ -118,9 +118,14 @@ test("Pashto route streams private audio with text only in provider body and for
       language_code: "ps",
     });
     assert.equal(calls[0].opts.cache, "no-store");
-    assert.equal(calls[0].opts.signal, req.signal);
+    assert.notEqual(calls[0].opts.signal, req.signal);
+    assert.equal(calls[0].opts.signal.aborted, false);
     controller.abort();
-    assert.equal(calls[0].opts.signal.aborted, true);
+    assert.equal(
+      calls[0].opts.signal.aborted,
+      false,
+      "completed audio removes incoming abort listener",
+    );
     const aborted = await handlers.POST({
       request: request({ text: "x", lang: "ps" }, controller.signal),
     });
@@ -216,4 +221,42 @@ test("Pashto durable minute/hour/global denials and unavailable storage never co
     });
     assert.equal(response.status, 499);
     assert.equal(calls.length, 0);
+  }));
+
+test("Pashto header deadline returns a private generic gateway timeout", () =>
+  fixture(async (handlers, calls, c) => {
+    const originalSet = globalThis.setTimeout,
+      originalClear = globalThis.clearTimeout;
+    let expire;
+    const token = { unref() {} };
+    globalThis.setTimeout = (fn, ms, ...args) => {
+      if (ms !== 45_000) return originalSet(fn, ms, ...args);
+      expire = fn;
+      return token;
+    };
+    globalThis.clearTimeout = (timer) => {
+      if (timer !== token) originalClear(timer);
+    };
+    const incoming = new AbortController();
+    let pending;
+    try {
+      c.provider = () => new Promise(() => {});
+      pending = handlers.POST({
+        request: request({ text: "Synthetic timeout", lang: "ps" }, incoming.signal),
+      });
+      for (let i = 0; i < 100 && calls.length === 0; i++)
+        await new Promise((resolve) => originalSet(resolve, 1));
+      assert.equal(calls.length, 1);
+      assert.equal(typeof expire, "function");
+      expire();
+      const response = await pending;
+      assert.equal(response.status, 504);
+      privateResponse(response);
+      assert.doesNotMatch(await response.text(), /Synthetic timeout|synthetic-key/);
+    } finally {
+      incoming.abort();
+      await pending?.catch(() => {});
+      globalThis.setTimeout = originalSet;
+      globalThis.clearTimeout = originalClear;
+    }
   }));

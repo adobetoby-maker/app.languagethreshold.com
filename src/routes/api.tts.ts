@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { isStrictSameOrigin } from "../lib/speaking-security";
 import { checkLearningGenerationBudget } from "../lib/learning-generation-security";
+import { remoteSpeechAudio, RemoteSpeechProviderError } from "../lib/remote-speech-provider";
 
 const BodySchema = z.object({
   text: z.string().min(1).max(400),
@@ -86,32 +87,19 @@ export const Route = createFileRoute("/api/tts")({
           );
         if (request.signal.aborted) return json("TTS cancelled", 499);
         try {
-          const res = await fetch(
-            "https://api.elevenlabs.io/v1/text-to-speech/XrExE9yKIg1WjnnlVkGX?output_format=mp3_44100_64",
-            {
-              method: "POST",
-              cache: "no-store",
-              signal: request.signal,
-              headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
-              body: JSON.stringify({
-                text: parsed.data.text,
-                model_id: "eleven_v3",
-                language_code: parsed.data.lang,
-              }),
-            },
-          );
-          if (!res.ok) {
-            await res.body?.cancel();
-            return json("TTS generation failed", 502);
-          }
-          return new Response(res.body, {
+          const audio = await remoteSpeechAudio(parsed.data.text, apiKey, request.signal);
+          return new Response(audio, {
             headers: { ...privateHeaders, "Content-Type": "audio/mpeg" },
           });
-        } catch {
+        } catch (error) {
           // Provider bodies and thrown errors may contain learner text or credentials.
           return json(
             request.signal.aborted ? "TTS cancelled" : "TTS error",
-            request.signal.aborted ? 499 : 500,
+            request.signal.aborted
+              ? 499
+              : error instanceof RemoteSpeechProviderError
+                ? error.status
+                : 500,
           );
         }
       },

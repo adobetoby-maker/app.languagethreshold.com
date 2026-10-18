@@ -2,7 +2,8 @@ import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import Anthropic from "@anthropic-ai/sdk";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { initSentry, Sentry } from "../lib/sentry";
+import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
+import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
 import {
   findSpeakingMission,
   getSpeakingModules,
@@ -25,7 +26,6 @@ import {
   criticalSpeakingObjectivesAddressed,
   validSpeakingObjectiveIds,
 } from "../lib/speaking-mission-progress";
-initSentry();
 
 const MessageSchema = z.object({
   role: z.enum(["user", "assistant"]),
@@ -180,12 +180,23 @@ function missionSystemPrompt(
 // Wraps an Anthropic stream in a ReadableStream emitting OpenAI-compatible SSE
 // so existing client parsers (choices[0].delta.content) work without changes.
 
+// Apply privacy headers to every handled success/denial, including streamed responses.
+function privateSpeakingHandler(handler: (args: { request: Request }) => Promise<Response>) {
+  return async (args: { request: Request }) => {
+    const response = await handler(args);
+    response.headers.set("Cache-Control", "private, no-store, no-transform");
+    response.headers.set("CDN-Cache-Control", "no-store");
+    response.headers.set("Vercel-CDN-Cache-Control", "no-store");
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    return response;
+  };
+}
+
 export const Route = createFileRoute("/api/speak")({
   server: {
     handlers: {
-      POST: async ({ request }) => {
+      POST: privateSpeakingHandler(async ({ request }) => {
         const requestStartedAt = Date.now();
-        const requestId = request.headers.get("x-vercel-id");
         if (!isStrictSameOrigin(request)) {
           return new Response(JSON.stringify({ error: "Cross-origin request rejected." }), {
             status: 403,
@@ -193,58 +204,105 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
-        const ipBudget = await enforceSpeakingPreAuthRateLimit(request).catch(() => ({
-          allowed: false,
-          misconfigured: true,
-        }));
-        if (!ipBudget.allowed) {
-          return new Response(
-            JSON.stringify({
-              error: ipBudget.misconfigured
-                ? "Speaking controls are unavailable."
-                : "Too many speaking requests. Please wait a minute and try again.",
-            }),
-            {
-              status: ipBudget.misconfigured ? 503 : 429,
-              headers: { "Content-Type": "application/json", "Retry-After": "60" },
-            },
-          );
-        }
-
-        const principal = await authenticateSpeakingRequest(request).catch(() => null);
-        if (!principal) {
-          return new Response(JSON.stringify({ error: "Sign in to use AI speaking practice." }), {
-            status: 401,
+        let payload: z.infer<typeof BodySchema>;
+        try {
+          // Forty 2000-character turns plus optional context fit within this UTF-8 envelope.
+          payload = BodySchema.parse(await readPrivateJson(request, 384 * 1024));
+        } catch (error) {
+          const status = error instanceof PrivateJsonRequestError ? error.status : 400;
+          return new Response(JSON.stringify({ error: "Invalid speaking request." }), {
+            status,
             headers: { "Content-Type": "application/json" },
           });
         }
-        const budget = await enforceSpeakingRateLimit(principal.userId).catch(() => ({
-          allowed: false,
-          misconfigured: true,
-        }));
-        if (!budget.allowed) {
-          return new Response(
-            JSON.stringify({
-              error: budget.misconfigured
-                ? "Speaking controls are unavailable."
-                : "Too many speaking requests. Please wait a minute and try again.",
-            }),
-            {
-              status: budget.misconfigured ? 503 : 429,
-              headers: { "Content-Type": "application/json", "Retry-After": "60" },
-            },
-          );
-        }
 
-        let payload: z.infer<typeof BodySchema>;
+        let admission: Response | null;
         try {
-          payload = BodySchema.parse(await request.json());
-        } catch (e) {
-          return new Response(
-            JSON.stringify({ error: e instanceof Error ? e.message : "Invalid input" }),
-            { status: 400, headers: { "Content-Type": "application/json" } },
-          );
+          admission = await withSpeechPreflight(request, async (signal) => {
+            const ipBudget = await enforceSpeakingPreAuthRateLimit(request, signal).catch(() => ({
+              allowed: false,
+              misconfigured: true,
+            }));
+            signal.throwIfAborted();
+            if (!ipBudget.allowed) {
+              return new Response(
+                JSON.stringify({
+                  error: ipBudget.misconfigured
+                    ? "Speaking controls are unavailable."
+                    : "Too many speaking requests. Please wait a minute and try again.",
+                }),
+                {
+                  status: ipBudget.misconfigured ? 503 : 429,
+                  headers: { "Content-Type": "application/json", "Retry-After": "60" },
+                },
+              );
+            }
+
+            const principal = await authenticateSpeakingRequest(request, signal).catch(() => null);
+            signal.throwIfAborted();
+            if (!principal) {
+              return new Response(
+                JSON.stringify({ error: "Sign in to use AI speaking practice." }),
+                {
+                  status: 401,
+                  headers: { "Content-Type": "application/json" },
+                },
+              );
+            }
+            const budget = await enforceSpeakingRateLimit(principal.userId, "ai", 12, signal).catch(
+              () => ({
+                allowed: false,
+                misconfigured: true,
+              }),
+            );
+            signal.throwIfAborted();
+            if (!budget.allowed) {
+              return new Response(
+                JSON.stringify({
+                  error: budget.misconfigured
+                    ? "Speaking controls are unavailable."
+                    : "Too many speaking requests. Please wait a minute and try again.",
+                }),
+                {
+                  status: budget.misconfigured ? 503 : 429,
+                  headers: { "Content-Type": "application/json", "Retry-After": "60" },
+                },
+              );
+            }
+
+            if (payload.mode === "mission") {
+              const ageAttested = await hasSpeakingAgeAttestation(principal.userId, signal).catch(
+                () => null,
+              );
+              signal.throwIfAborted();
+              if (ageAttested === null) {
+                return new Response(
+                  JSON.stringify({ error: "Speaking consent storage is unavailable." }),
+                  {
+                    status: 503,
+                    headers: { "Content-Type": "application/json" },
+                  },
+                );
+              }
+              if (!ageAttested) {
+                return new Response(
+                  JSON.stringify({
+                    error: "Add the account age self-attestation before starting a mission.",
+                  }),
+                  { status: 403, headers: { "Content-Type": "application/json" } },
+                );
+              }
+            }
+            return null;
+          });
+        } catch (error) {
+          const status = error instanceof SpeechPreflightError ? error.status : 503;
+          return new Response(JSON.stringify({ error: "Speaking controls are unavailable." }), {
+            status,
+            headers: { "Content-Type": "application/json" },
+          });
         }
+        if (admission) return admission;
 
         const KEY = process.env.ANTHROPIC_API_KEY;
         if (!KEY) {
@@ -268,24 +326,6 @@ export const Route = createFileRoute("/api/speak")({
 
         // ----- MISSION MODE: immutable scenario roleplay for the main-app UX preview -----
         if (payload.mode === "mission") {
-          const ageAttested = await hasSpeakingAgeAttestation(principal.userId).catch(() => null);
-          if (ageAttested === null) {
-            return new Response(
-              JSON.stringify({ error: "Speaking consent storage is unavailable." }),
-              {
-                status: 503,
-                headers: { "Content-Type": "application/json" },
-              },
-            );
-          }
-          if (!ageAttested) {
-            return new Response(
-              JSON.stringify({
-                error: "Add the account age self-attestation before starting a mission.",
-              }),
-              { status: 403, headers: { "Content-Type": "application/json" } },
-            );
-          }
           const mission = payload.scenarioVersionId
             ? findSpeakingMission(payload.scenarioVersionId)
             : null;
@@ -465,7 +505,6 @@ export const Route = createFileRoute("/api/speak")({
                 route: "/api/speak",
                 mode: "mission",
                 status: 200,
-                requestId,
                 aiMs,
                 totalMs,
               }),
@@ -479,7 +518,6 @@ export const Route = createFileRoute("/api/speak")({
               },
             });
           } catch (error) {
-            Sentry.captureException(error);
             console.error(
               JSON.stringify({
                 level: "error",
@@ -487,9 +525,8 @@ export const Route = createFileRoute("/api/speak")({
                 route: "/api/speak",
                 mode: "mission",
                 status: 502,
-                requestId,
                 totalMs: Date.now() - requestStartedAt,
-                errorType: error instanceof Error ? error.name : "UnknownError",
+                errorType: "UpstreamError",
               }),
             );
             return new Response(
@@ -657,14 +694,13 @@ export const Route = createFileRoute("/api/speak")({
             },
           });
         } catch (e) {
-          Sentry.captureException(e);
-          console.error("Speak stream error:", e);
+          console.error("Speaking provider request failed.");
           return new Response(JSON.stringify({ error: "AI request failed." }), {
             status: 500,
             headers: { "Content-Type": "application/json" },
           });
         }
-      },
+      }),
     },
   },
 });

@@ -1,0 +1,90 @@
+{
+  "testedAt": "2026-10-18T05:32:41.793445+00:00",
+  "applicationCommit": "5d0e43bbfc1d42749ad90534bccd96a5f9bf4bd0",
+  "preview": "https://language-threshold-8aagmhlnh-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-8aagmhlnh-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_AD4BW9fdb7e1f2B6wzkgX3bUaCo8",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-8aagmhlnh-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "5d0e43bbfc1d42749ad90534bccd96a5f9bf4bd0",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-google-speech-preview-2026-10-18.json",
+  "local": {
+    "tests": 1277,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.87,
+    "privateMarkers": 96,
+    "sourceFiles": 1416,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Google and Pashto strict origin checks precede a shared private JSON reader with a 10-second owned input-read deadline and incoming cancellation",
+    "Google input is bounded to 16 KiB and Pashto retains 4 KiB, enforcing advertised and actual cumulative bytes before parsing; UTF-8 and JSON failures return fixed private errors",
+    "Timeout or abort rejects stalled input without awaiting an underlying cancellation promise; owned reader locks/timers/listeners are released and malformed data is never logged or echoed",
+    "Google byte/time/schema validation now precedes IP/auth/user/consent counters; invalid input consumes no mocked guard operation, and existing gates remain for valid input",
+    "Pashto invalid/stalled/aborted input returns before durable counter or provider transport; original text/lang contract and private cache headers remain",
+    "Seven new actual helper/route groups cover chunked UTF-8/exact byte boundary, advertised/streamed overflow, stalled cancellation, input deadline, incoming/already-aborted input, malformed/invalid encoding and both route admission paths",
+    "Six hosted Google and six Pashto denial checks pass alongside exact 21 Exams/12 focused-entry/3 public-pack/7 scoped-read/14 generation-entry groups"
+  ],
+  "controlledEvidence": [
+    "tests/private-json-request.test.mjs",
+    "tests/google-speech-provider-route.test.mjs",
+    "tests/pashto-tts-private.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "707b480",
+    "source": "src/routes/api.mission-tts.ts",
+    "case": "Valid synthesis JSON padded beyond 16 KiB",
+    "oldStatus": 200,
+    "expectedStatus": 413,
+    "currentPass": true,
+    "limit": "Actual previous route with synthetic provider and controlled guard outcomes. No real provider request."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-speech-input-preview-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json"
+  ],
+  "limits": [
+    "Input/source/deadline/stream cancellation and guard/provider results in controlled tests are synthetic. Hosted checks send inadmissible input only, with no positive speech/catalog/provider/native/browser/microphone/consent/billing action.",
+    "Hosted HTTP checks verify rejection responses and private headers. Slow upload timing, platform adapter request buffering/disconnect behavior and durable counter deltas are not independently exercised.",
+    "Ten seconds bounds application body reading only; auth/consent/budget preflight and public catalog admission remain separate work. Provider-phase deadlines from prior checkpoints are retained. This is not a total end-to-end request deadline.",
+    "Google invalid-input ordering intentionally changes: body/schema validation now occurs before its IP request counter. Valid inputs retain the previous IP/auth/consent/user gates and exact synthesis contract.",
+    "Helper is applied only to these two speech routes; broader request readers, helper/endpoint/cache/diagnostic/device inventory remain incomplete. Cancellation cannot undo accepted server/provider/counter work.",
+    "No schema/role/policy/speechcollection/retention/schedule changes. Current A/guest/B/restore, genuine SDK expiry/process restart/offline/physical-device/provider acceptance, uncertain writes/concurrency/legacy certificate reconciliation and all human/content/calibration/equivalence/reviewer/pilot/catalog/retention/deletion/scheduler/platform gates remain open. No main push, production promotion or accepted hostname advance."
+  ]
+}

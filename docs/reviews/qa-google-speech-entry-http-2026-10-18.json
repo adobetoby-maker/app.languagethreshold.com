@@ -1,7 +1,7 @@
 {
-  "testedAt": "2026-10-18T05:22:42.622Z",
-  "applicationCommit": "78741e4f6848327344bf0c9693abe18cdd3e2441",
-  "preview": "https://language-threshold-nsr0v6bsy-adobetoby-5572s-projects.vercel.app",
+  "testedAt": "2026-10-18T05:32:03.067Z",
+  "applicationCommit": "5d0e43bbfc1d42749ad90534bccd96a5f9bf4bd0",
+  "preview": "https://language-threshold-8aagmhlnh-adobetoby-5572s-projects.vercel.app",
   "checks": [
     {
       "name": "missing-origin-denied",
@@ -17,6 +17,24 @@
     },
     {
       "name": "unsupported-catalog-language-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "malformed-body-denied",
+      "status": 400,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-body-denied",
+      "status": 413,
+      "noStore": true,
+      "noTextEcho": true
+    },
+    {
+      "name": "oversized-text-denied",
       "status": 400,
       "noStore": true,
       "noTextEcho": true

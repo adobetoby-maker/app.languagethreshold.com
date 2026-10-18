@@ -1,0 +1,52 @@
+{
+  "testedAt": "2026-10-18T17:38:41.649374+00:00",
+  "baselineCommit": "b7eeebbf94594fbc4b54aeee3621583f11da30dc",
+  "baselineReducerSha256": "becf0710a0fae80798974312aebebaf6a6dda1ab67e96d4da6e518df2ec3f32b",
+  "baselineProof": {
+    "actualRecoveryEngineAndProductionReducerExecuted": true,
+    "recoveredCustomTextsAdded": 7,
+    "staleCloudCustomTextsAdded": 2,
+    "beforeFixMergedCustomTextsAdded": 2,
+    "beforeFixMergedLettersWritten": 2,
+    "expectedMergedTotals": 7,
+    "focusedBaselineFailed": true,
+    "logSha256": "a82cc9a8623caf9dda8362568c170dd39a023d47315145b6dd17106eabb546cc"
+  },
+  "sourceHashes": {
+    "src/state/app-state.tsx": "4484143369346be1f88ffd3cd2572433ab3a19ddeadac705d7135861b1a8e523",
+    "tests/profile-recovery-cloud-merge.test.mjs": "193e1d176c1945ea99bb37a3082a56167199b8595e0be38f853a224817e9d8f0"
+  },
+  "validation": {
+    "newCloudMergeGroups": 3,
+    "focusedWithExistingVocabTests": 17,
+    "fullNode22Tests": 1717,
+    "failed": 0,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 5,
+    "productionAuditVulnerabilities": 0,
+    "guardedBuild": true,
+    "artifactMiB": 20.05
+  },
+  "checks": [
+    "Explicitly recovered totals survive stale remote profile, repeated merge is idempotent and overlapping counters are not added.",
+    "Higher cloud totals still win; partial profiles preserve current device totals. Actual reducer input remains unchanged.",
+    "Only customTextsAdded and lettersWritten join the existing max-counter merge; account identity, device ownership and persistence contracts are unchanged."
+  ],
+  "limits": [
+    "Controlled recovery/production reducer regression, not a normal hosted recovery or confirmed cloud round-trip.",
+    "Unknown historical counter resets without metadata are not inferred; max semantics are the existing practice-total policy.",
+    "No browser/provider/account writes/schema/role/policy/speech/schedule/production action; full goal and human/device/content/release gates remain open."
+  ],
+  "logHashes": {
+    "focused": "73647f2493b6d0f01326d7f0c88b870d6b63f73d4f7723671f45dd7c19b13f06",
+    "tests": "a839095071c2c5db51e43ccb660b9160f6f9922d0ff374c859714f25112a204c",
+    "type-final": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lint": "c532a9e4a6aaf1754bbb379f4ecc3400d0bb7cd1978d286ce793c8b00b02b0f2",
+    "audit": "6d8c5c8f3d7684adb070417bd608d01ae90aa3dc26a65af03ffda4955f38d9a3",
+    "build": "21f293d6fd5afb739719b733b0733c76002f87b716ead5661eae63c2f0b23f47",
+    "target": "0991ba8aa0cdd191eff0996408c04ced5547031a1a871e5f3b64a4959b2859eb",
+    "artifact": "1ddc98628949bb238334211268a3dd1ea82d92f70b017d4560e5184a2e260c96"
+  },
+  "applicationCommit": "086bde037b03fdddfb688defdf0acc002d6f4bec"
+}

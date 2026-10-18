@@ -2,6 +2,8 @@
 
 October 18 recovery follow-up: runtime `c6304fb` now supports explicit owned main-profile recovery for personal notes, vocabulary, max-only practice totals and bare module archives. Current records and known resets win; originals remain; unlabeled vocabulary needs a language choice; existing normal profile cloud sync is disclosed. 22 focused groups/1,714 full tests pass. Populated hosted UI, cloud reconciliation, current account-switch/device acceptance and all content/release gates remain open. See `qa-profile-recovery-local-2026-10-18.json` and the learner acceptance index.
 
+Cloud-merge follow-up `086bde0`: custom-text and letter totals now follow the same max-only reconciliation as other practice counters, preserving recovered/offline progress when a stale remote profile returns. Actual baseline regression and three new groups pass; 1,717 total tests. Normal hosted cloud reconciliation remains unproved.
+
 Proposed order, October 15, 2026. This covers all 59 modules in the audited catalog; it is not a rollout-date commitment. Roofing goes first. Subsequent order favors content reuse and must be revised using real learner demand and available domain/language reviewers. Demonstration assignments and certificate fixtures are not demand evidence.
 
 Every row requires 30 coherent lessons; reviewed words, phrases and contextual usage; all six learning modes driven by explicit lesson settings; entrance/day 45/day 90 exams; personal and team verification; accurate offline labels; and owner-reviewed pilot acceptance. A generated deck or completed code change does not close a row.

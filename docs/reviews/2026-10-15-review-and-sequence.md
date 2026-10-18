@@ -4,6 +4,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Cloud replay preserves custom-text and letter activity — October 18
+
+Runtime `086bde0` fixes a specific loss after profile recovery/offline practice: MERGE_REMOTE previously spread a stale remote customTextsAdded/lettersWritten over current totals, while other practice counters already used max. The actual recovery engine and production reducer reproduced both recovered totals falling from 7 to 2 on the b7eeebb baseline. Both fields now use the higher local/remote total, never a sum. Repeated stale replay is idempotent, higher remote values still win, partial remote profiles retain local values and inputs remain unchanged. No ownership, entitlement, proficiency, streak or official assessment contract changes. Unknown historical resets are not inferred.
+
+Three new regression groups pass (17 focused with existing vocab reconciliation), all 1,717 Node 22 tests/typecheck/lint zero errors and five existing mixed-export warnings/production audit zero findings/guarded 20.05 MiB artifact. Baseline failure/source/log hashes and final evidence: qa-profile-counter-merge-local-2026-10-18.json. Prior final recovery/test-fixture head b7eeebb completed clean Linux CI 39150151592 successfully with 1,714 tests; production deployment skipped and Vercel succeeded. That older CI is closed, not pending.
+
+Exact runtime 086bde037b03fdddfb688defdf0acc002d6f4bec Preview https://language-threshold-co2rucaht-adobetoby-5572s-projects.vercel.app, dpl_3Xi4bfbTGA3HX92ZsuwVxzABth5J is independently READY, target null, correct project/team and no aliases. All 18 hosted groups and 61 exact static requests pass. Read-only QA still personal revision 12/in_progress/unsubmitted and team B two opened/zero mastered. Combined qa-profile-counter-merge-preview-2026-10-18.json; private-bank scan: 96 markers, 1,752 source files, 209 static files, zero hits. Main/live 814b304 and companion d4ad837 aliases unchanged; PR38 draft/unmerged, no production promotion. No real profile cloud writes or browser recovery acceptance are claimed by the controlled cloud replay tests.
+
+NEXT: final evidence-head CI, populated normal recovery/account-switch/cloud-reconciliation and device acceptance, and original genuine Reader expiry/physical Safari/audio/offline/reviewer/content/calibration/real consented pilot/retention/scheduler/59 module gates. No schema/role/policy/speech/schedule/provider/browser actions; no repeated retention question. Full goal active.
+
+
 ### Explicit account-owned main-profile recovery — October 18
 
 Runtime `c6304fb` (initial implementation `0a5d572`) closes the actual main-profile import gap. The account-menu dialog now offers four separately validated categories from the highest present lt.app.v2/v1/app source: personal profile notes, profile vocabulary, max-only practice activity totals, and bare known module archives. Current matching note IDs/word values/module records and explicit empty vocabulary revisions win. Missing notes are deliberately added; no historical deletion tombstones are invented. Unlabeled words require an explicit language choice. Module archives remain unlabeled until the existing learning-guide pair claim; enrollment-linked records are excluded. No purchases, assignments, streaks, CEFR/proficiency declarations, official exam results or settings are imported.

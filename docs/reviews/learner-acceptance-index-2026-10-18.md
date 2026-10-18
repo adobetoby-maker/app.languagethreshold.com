@@ -1,6 +1,6 @@
 # Learner implementation and acceptance index
 
-Updated October 18 against branch `codex/admin-exams`, runtime `c6304fb`. The original bounded index audit was against `cbde3eb`; its JSON report remains historical. This index separates implemented behavior, historical acceptance and work still required. It does not grant release approval or replace the chronological review ledger.
+Updated October 18 against branch `codex/admin-exams`, runtime `086bde0`. The original bounded index audit was against `cbde3eb`; its JSON report remains historical. This index separates implemented behavior, historical acceptance and work still required. It does not grant release approval or replace the chronological review ledger.
 
 | Area | Implemented and recorded evidence | Remaining work |
 | --- | --- | --- |
@@ -17,6 +17,8 @@ Updated October 18 against branch `codex/admin-exams`, runtime `c6304fb`. The or
 The historical Reader recovery, Reader layout and exam-expiry commits are ancestors of the checked branch. Ancestry establishes inclusion of their changes, not acceptance of every later edit.
 
 ## Main-profile recovery boundary
+
+Follow-up `086bde0` preserves custom-text and letter activity totals when reconnecting with an older cloud profile. The actual recovery/reducer regression reproduced both totals falling from 7 to 2; max-only merge keeps 7, repeated replay does not add overlap, and higher remote totals still win. Three new groups bring the suite to 1,717 tests. [Counter merge evidence](qa-profile-counter-merge-local-2026-10-18.json) is controlled source evidence, not a confirmed normal-browser cloud round trip.
 
 `legacy-profile-recovery.ts` imports only a validated allowlist from the highest present `lt.app.v2`, `lt.app.v1` or `lt.app` source. The account must finish its current profile restore and explicitly confirm ownership. Personal notes merge by ID with current values retained. Vocabulary preserves known language labels, requires a language choice for unlabeled words, retains current translations/mastery and explicit empty revisions, and increments revisions for additions. Activity counters use max, never a sum; streaks are excluded. Bare module history stays an owned archive until the existing learning-guide language-pair confirmation; enrollment-linked records are not transferred. Purchases, assignments, proficiency declarations, settings and exam results are excluded.
 

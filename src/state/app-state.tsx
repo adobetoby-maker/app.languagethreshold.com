@@ -9,7 +9,7 @@ import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
 import type { AppTab } from "@/lib/app-navigation";
 import { useAuth } from "./auth-state";
 import {
-  readProfileSnapshot,
+  inspectProfileSnapshot,
   saveProfileSnapshot,
   hasUnassignedProfileSnapshot,
 } from "@/lib/profile-device-snapshot";
@@ -1127,9 +1127,23 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const stored = readProfileSnapshot<object>(window.localStorage, actor);
+    let storage: Storage | null = null;
+    try {
+      storage = window.localStorage;
+    } catch {
+      /* Storage can be denied by the browser. */
+    }
+    const snapshot = inspectProfileSnapshot<object>(storage, actor);
+    const stored = snapshot.status === "ready" ? snapshot.data : null;
     const parsed = stored ? migrate(stored) : null;
-    if (!parsed && hasUnassignedProfileSnapshot(window.localStorage))
+    if (snapshot.status === "unreadable")
+      toast("Saved progress on this browser could not be read", {
+        id: "profile-device-unreadable",
+        description:
+          "Existing device saves remain untouched. New changes may not persist on this browser. Reconnect while signed in to restore your account’s online progress.",
+        duration: 15000,
+      });
+    else if (!parsed && hasUnassignedProfileSnapshot(storage))
       toast("Progress from an older app version is still on this device", {
         id: "account-progress-migration",
         description:

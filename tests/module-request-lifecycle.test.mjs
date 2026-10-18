@@ -306,11 +306,12 @@ test("read failure clears both private lists and refuses checkout; reload supers
   }));
 test("Preview blocks checkout synchronously before hostname effect rerender; URL flags do not claim payment", () =>
   fixture(async (f) => {
-    window.location.hostname = "synthetic.vercel.app";
     window.location.search = "?checkout=cancel";
     await loaded(f);
-    fill(f);
-    submit(f.render());
+    const beforeHostnameChange = fill(f);
+    assert.equal(button(beforeHostnameChange, "Submit request").props.disabled, false);
+    window.location.hostname = "synthetic.vercel.app";
+    submit(beforeHostnameChange);
     await tick();
     assert.equal(f.c.requests.length, 2);
     assert.match(

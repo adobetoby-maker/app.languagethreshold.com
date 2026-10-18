@@ -60,6 +60,10 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
         const latest = await examRequest<ExamAttemptView>(
           `/api/exams?action=attempt&attempt=${attempt.id}`,
           abort.signal,
+          {
+            userId,
+            isCurrent: () => active() && version === readVersion.current && !signal?.aborted,
+          },
         );
         if (!active() || abort.signal.aborted || signal?.aborted)
           throw new Error("Your session changed.");
@@ -88,6 +92,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
       attempt.form.version,
       attempt.form.rubricVersion,
       attempt.enrollment.id,
+      userId,
     ],
   );
   const initial = useRef<ExamDeviceDraft | null>(null);
@@ -193,6 +198,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
               requestId: flight.requestId,
             },
             abort.signal,
+            { userId, isCurrent: () => active() && controller.current === abort },
           );
           if (!active() || abort.signal.aborted || controller.current !== abort) return false;
           const next = acknowledgeFlight(current.current, result.revision);
@@ -257,7 +263,17 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
       saving.current = work;
       return work;
     },
-    [active, attempt.id, attempt.submittedAt, conflict, key, readServerCopy, storage, update],
+    [
+      active,
+      attempt.id,
+      attempt.submittedAt,
+      conflict,
+      key,
+      readServerCopy,
+      storage,
+      update,
+      userId,
+    ],
   );
   useEffect(() => {
     mounted.current = true;
@@ -377,6 +393,10 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     if (continuing.current) return continuing.current;
     const abort = new AbortController();
     continuationAbort.current = abort;
+    const owner = {
+      userId,
+      isCurrent: () => active() && continuationAbort.current === abort,
+    };
     const cancel = () => abort.abort();
     signal?.addEventListener("abort", cancel, { once: true });
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -398,12 +418,17 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
         requestId: () => crypto.randomUUID(),
         select: (flight) => {
           timer = setTimeout(() => abort.abort(), 30000);
-          return examRequest({ action: "route", attemptId: attempt.id, ...flight }, abort.signal);
+          return examRequest(
+            { action: "route", attemptId: attempt.id, ...flight },
+            abort.signal,
+            owner,
+          );
         },
         read: () =>
           examRequest<ExamAttemptView>(
             `/api/exams?action=attempt&attempt=${attempt.id}`,
             abort.signal,
+            owner,
           ),
         conflict: (latest) => {
           remote.current = latest;

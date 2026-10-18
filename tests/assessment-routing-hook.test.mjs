@@ -23,11 +23,18 @@ try {
         name: "controlled-hook-host",
         setup(b) {
           b.onResolve(
-            { filter: /^(react|test-controls|@\/state\/auth-state|@\/lib\/assessments\/client)$/ },
+            {
+              filter:
+                /^(react|test-controls|@\/state\/auth-state|@\/lib\/assessments\/client|@\/integrations\/supabase\/client)$/,
+            },
             () => ({ path: "fixture", namespace: "fixture" }),
           );
           b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+            resolveDir: process.cwd(),
             contents: `
+        import {examRequest as realRequest,ExamRequestError} from "./src/lib/assessments/client.ts";
+        export {ExamRequestError};
+        export const supabase={auth:{getSession:()=>new Promise(resolve=>controls.sessions.push(resolve))}};
         export const controls={slots:[],cursor:0,effects:[],actor:'owner-a',request:null,begin(){this.cursor=0;this.effects=[];},commit(){for(const fn of this.effects.splice(0))fn();},unmount(){for(const slot of this.slots)slot?.cleanup?.();this.slots=[];this.effects=[];}};
         const changed=(a,b)=>!a||!b||a.length!==b.length||a.some((v,i)=>v!==b[i]);
         export function useState(initial){const i=controls.cursor++;if(!(i in controls.slots))controls.slots[i]=typeof initial==='function'?initial():initial;return [controls.slots[i],value=>{controls.slots[i]=typeof value==='function'?value(controls.slots[i]):value;}];}
@@ -36,8 +43,7 @@ try {
         export function useEffect(fn,deps){const i=controls.cursor++,old=controls.slots[i];if(!old||changed(old.deps,deps))controls.effects.push(()=>{old?.cleanup?.();controls.slots[i]={deps,cleanup:fn()};});}
         const isCurrentUser=id=>id===controls.actor;
         export const useAuth=()=>({user:controls.actor?{id:controls.actor}:null,isCurrentUser});
-        export class ExamRequestError extends Error{constructor(message,status){super(message);this.status=status;}}
-        export const examRequest=(body,signal)=>controls.request(body,signal);
+        export const examRequest=(body,signal,owner)=>controls.realClient?realRequest(body,signal,owner):controls.request(body,signal,owner);
       `,
           }));
         },
@@ -85,7 +91,14 @@ function attempt(selected = false) {
     ],
   };
 }
-async function fixture(run) {
+async function fixture(run, realClient = false) {
+  const fetchBefore = globalThis.fetch;
+  m.controls.realClient = realClient;
+  m.controls.sessions = [];
+  m.controls.fetches = [];
+  if (realClient)
+    globalThis.fetch = (url, opts) =>
+      new Promise((resolve) => m.controls.fetches.push({ url, opts, resolve }));
   const windowBefore = Object.getOwnPropertyDescriptor(globalThis, "window"),
     navigatorBefore = Object.getOwnPropertyDescriptor(globalThis, "navigator");
   const values = new Map(),
@@ -127,8 +140,8 @@ async function fixture(run) {
     },
   });
   m.controls.actor = "owner-a";
-  m.controls.request = async (body, signal) => {
-    calls.push({ body: structuredClone(body), signal });
+  m.controls.request = async (body, signal, owner) => {
+    calls.push({ body: structuredClone(body), signal, owner });
     return f.request(body, signal);
   };
   const serverAnswers = new Map();
@@ -162,6 +175,8 @@ async function fixture(run) {
   try {
     await run(f);
   } finally {
+    globalThis.fetch = fetchBefore;
+    m.controls.realClient = false;
     m.controls.unmount();
     for (const actor of ["owner-a", "owner-b"]) m.clearExamDraftsForUser(storage, actor);
     if (windowBefore) Object.defineProperty(globalThis, "window", windowBefore);
@@ -577,3 +592,103 @@ test("owned server-copy reads reject wrong attempt, enrollment and frozen form b
       assert.equal(f.storage.getItem(f.key), bytes);
     }
   }));
+
+const session = (id = "owner-a") => ({
+  data: { session: { user: { id }, access_token: `synthetic-${id}` } },
+});
+const jsonReply = (body) => ({ ok: true, status: 200, json: async () => body });
+test("draft save rejects mismatched SDK credentials and retries the exact persisted flight", () =>
+  fixture(async (f) => {
+    let hook = f.render();
+    hook.edit("core-a", { inputMethod: "typed", text: "Keep original pending bytes" });
+    hook = f.render();
+    const save = hook.sync();
+    const flight = structuredClone(m.readExamDraft(f.storage, f.key).flight);
+    m.controls.sessions.shift()(session("owner-b"));
+    await tick();
+    assert.equal(m.controls.fetches.length, 0);
+    assert.equal(await save, false);
+    assert.deepEqual(m.readExamDraft(f.storage, f.key).flight, flight);
+    assert.equal(f.render().pendingCount, 1);
+    const retry = f.render().sync();
+    m.controls.sessions.shift()(session());
+    await tick();
+    const request = m.controls.fetches[0];
+    assert.deepEqual(JSON.parse(request.opts.body), {
+      action: "save",
+      attemptId: "local-attempt",
+      revision: flight.revision,
+      updates: flight.updates,
+      requestId: flight.requestId,
+    });
+    request.resolve(jsonReply({ revision: 5, syncedAt: "synthetic-time" }));
+    assert.equal(await retry, true);
+    assert.equal(f.render().pendingCount, 0);
+  }, true));
+
+test("route selection and its read retain the original SDK owner and durable retry", () =>
+  fixture(async (f) => {
+    const first = f.render().continueRouting();
+    const denied = assert.rejects(first, { status: 403 });
+    await tick();
+    const receipt = structuredClone(m.readExamDraft(f.storage, f.key).routeFlight);
+    m.controls.sessions.shift()(session("owner-b"));
+    await tick();
+    assert.equal(m.controls.fetches.length, 0);
+    m.controls.sessions.shift()(session("owner-b"));
+    await denied;
+    assert.equal(m.controls.fetches.length, 0);
+    assert.deepEqual(m.readExamDraft(f.storage, f.key).routeFlight, receipt);
+    const retry = f.render().continueRouting();
+    await tick();
+    m.controls.sessions.shift()(session());
+    await tick();
+    assert.deepEqual(JSON.parse(m.controls.fetches[0].opts.body), {
+      action: "route",
+      attemptId: "local-attempt",
+      ...receipt,
+    });
+    m.controls.fetches[0].resolve(jsonReply({ revision: 6 }));
+    await tick();
+    m.controls.sessions.shift()(session());
+    await tick();
+    m.controls.fetches[1].resolve(jsonReply(attempt(true)));
+    assert.equal((await retry).routing.state, "selected");
+    assert.equal(m.readExamDraft(f.storage, f.key).routeFlight, undefined);
+  }, true));
+
+test("conflict and upload-refresh reads reject SDK mismatch without adopting replacement data", () =>
+  fixture(async (f) => {
+    const hook = f.render();
+    for (const read of [() => hook.resolve(false), () => hook.reloadAfterExternal()]) {
+      const before = f.storage.getItem(f.key);
+      const work = read();
+      const denied = assert.rejects(work, { status: 403 });
+      await tick();
+      m.controls.sessions.shift()(session("owner-b"));
+      await tick();
+      assert.equal(m.controls.fetches.length, 0);
+      await denied;
+      assert.equal(f.storage.getItem(f.key), before);
+      assert.equal(f.render().revision(), 4);
+    }
+  }, true));
+
+test("superseded server-copy credentials cannot start an old read", () =>
+  fixture(async (f) => {
+    const hook = f.render();
+    const old = hook.resolve(false),
+      rejected = assert.rejects(old, { name: "AbortError" });
+    const current = hook.reloadAfterExternal();
+    await tick();
+    const sessions = m.controls.sessions.splice(0);
+    assert.equal(sessions.length, 2);
+    sessions[0](session());
+    await rejected;
+    assert.equal(m.controls.fetches.length, 0);
+    sessions[1](session());
+    await tick();
+    m.controls.fetches[0].resolve(jsonReply({ ...attempt(), revision: 8 }));
+    assert.equal((await current).revision, 8);
+    assert.equal(f.render().revision(), 8);
+  }, true));

@@ -87,6 +87,7 @@ export function useExamRunnerActions(options: Options) {
       await examRequest(
         { action: "submit", attemptId: attempt.id, revision, requestId: retry.current.requestId },
         signal,
+        { userId: actor!, isCurrent: current },
       );
       if (!current()) return;
       draft.clearSubmitted();

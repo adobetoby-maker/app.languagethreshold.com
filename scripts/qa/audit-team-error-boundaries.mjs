@@ -154,7 +154,7 @@ if (process.argv.includes("--self-test")) {
     routes,
     findings: [
       "Historical legacy teamError has been replaced by a scoped compatibility alias. No direct route callers remain. The compatibility teamError export now aliases scopedTeamError; eight routes use twelve direct scoped calls.",
-      "Legacy surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
+      "Scoped surfaces include certificate metadata, entitlement, billing, company/invitations, custom module requests and platform administration. Request JSON and throw records are structural locations, not confirmation of authorization/input limits or actual error reachability.",
       "Scoped callbacks expose typed fixed guidance and fixed schema/syntax failures, suppressing unexpected backend text. This direct-import inventory does not prove all workflow behavior, diagnostics, alternate response paths or side-effect reconciliation.",
     ],
     limits: [

@@ -1,3 +1,4 @@
+import { readPrivateJson, PrivateJsonRequestError } from "@/lib/private-json-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
@@ -29,6 +30,20 @@ const scope = z
   })
   .strict();
 function fail(error: unknown) {
+  if (error instanceof PrivateJsonRequestError)
+    return json(
+      {
+        error:
+          error.status === 413
+            ? "Reviewer request is too large."
+            : error.status === 408
+              ? "The reviewer upload took too long. Please try again."
+              : error.status === 499
+                ? "Assessment request cancelled."
+                : "Invalid reviewer request.",
+      },
+      error.status,
+    );
   if (error instanceof TeamOperationError && error.status === 499)
     return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
@@ -104,22 +119,17 @@ export const Route = createFileRoute("/api/exam-reviewers")({
       },
       POST: async ({ request }) => {
         try {
-          if (!isStrictSameOrigin(request))
+          if (!isStrictSameOrigin(request)) {
+            void request.body?.cancel().catch(() => {});
             throw new AssessmentAccessError("Same-origin reviewer request required.", 403);
+          }
+          // Covers the schema's full escaped-Unicode reason; bytes and wait are bounded before SDK work.
+          const data = scope.parse(await readPrivateJson(request, 16 * 1024));
+          if (request.signal.aborted) throw new PrivateJsonRequestError(499);
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
           await assessmentBudget(user.id, "reviewer_admin_write");
-          const raw = await request.text();
-          if (raw.length > 12000)
-            throw new AssessmentAccessError("Reviewer request is too large.", 400);
-          let body: unknown;
-          try {
-            body = JSON.parse(raw);
-          } catch {
-            throw new AssessmentAccessError("Invalid reviewer request.", 400);
-          }
-          const data = scope.parse(body);
           return json(
             await rpc(db, "assessment_manage_reviewer", {
               p_actor: user.id,

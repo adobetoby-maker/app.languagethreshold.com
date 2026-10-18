@@ -23,7 +23,24 @@ for (const [route, error] of [
       redirect: "error",
       signal: AbortSignal.timeout(15000),
       ...(method === "POST"
-        ? { headers: { Origin: base, "Content-Type": "application/json" }, body: "{}" }
+        ? {
+            headers: { Origin: base, "Content-Type": "application/json" },
+            body:
+              route === "exam-reviewers"
+                ? JSON.stringify({
+                    userId: "22222222-2222-4222-8222-222222222222",
+                    moduleId: "roofing",
+                    target: "Spanish",
+                    native: "English",
+                    kind: "response",
+                    active: true,
+                    expectedRevision: 0,
+                    reason: "Synthetic missing bearer denial only",
+                    requestId: "33333333-3333-4333-8333-333333333333",
+                    confirmScope: true,
+                  })
+                : "{}",
+          }
         : {}),
     });
     assert.equal(response.status, 403);
@@ -50,7 +67,7 @@ writeFileSync(
       preview: base,
       checks,
       limits: [
-        "Eight missing-bearer GET/POST requests only. POST bodies are empty objects with exact Origin; no Authorization/session/credentials, valid mutation input, allowed start/save/submit/review/role/content change or provider action.",
+        "Eight missing-bearer GET/POST requests only. POST bodies use exact Origin and empty objects, except reviewer administration supplies a synthetic schema-valid scope to reach the unchanged missing-bearer gate. No Authorization/session/credentials, allowed start/save/submit/review/role/content change or provider action.",
         "Asserts final no-store/nosniff and exact established denial bodies, not CDN header visibility or current expiry/reauth/browser behavior. Unexpected backend failures are covered by local controlled actual-handler tests; no hosted outage manufactured.",
         "No main/production/accepted-hostname/schema/grant/role/policy/schedule action. Full goal and human/device/session gates remain open.",
       ],

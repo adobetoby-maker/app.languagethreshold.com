@@ -1,0 +1,43 @@
+{
+  "testedAt": "2026-10-18T13:53:53.508572+00:00",
+  "historicalBaseline": "33ec57511d110cebc6f9b1074c67afb8f2c7bac5",
+  "historicalRouteHash": "12ca1379b781960365fa62e8e5d04613da2707d5f8322e84686c69c645b188dc",
+  "historicalActualAssertionFailure": {
+    "test": "invalid reviewer input and origin stop before Auth, registered-owner lookup and quota",
+    "observedSyntheticCalls": [
+      "/auth/v1/user",
+      "/rest/v1/platform_admin_roles",
+      "/rest/v1/platform_admin_roles",
+      "/rest/v1/rpc/consume_speaking_request"
+    ],
+    "expectedCalls": [],
+    "failedAtActualCallOrderingAssertion": true
+  },
+  "actualSdkGroups": 6,
+  "existingAssessmentAuthGroups": 12,
+  "fullNode22Tests": 1504,
+  "requestMaxBytes": 16384,
+  "inputDeadlineMs": 10000,
+  "checks": {
+    "beforeAuthOwnerAndBudget": true,
+    "streamByteLimitAndAdvertisedLength": true,
+    "stalledReaderDeadlineAndNonwaitingCancellation": true,
+    "alreadyAndPendingAbort499": true,
+    "strictUtf8JsonAndSchema": true,
+    "fullEscaped2000CharacterReasonAccepted": true,
+    "registeredOwnerAndBearerStillRequired": true,
+    "unchangedMutationRpcParametersAndSingleDispatch": true,
+    "privateHeadersNoBodyEcho": true
+  },
+  "sourceHashes": {
+    "src/routes/api.exam-reviewers.ts": "2eb7a8c0679fe9edcc899fcfa57407f39676d6bd083c6b0cc8effbeb98c9412b",
+    "tests/reviewer-admin-input.test.mjs": "54cdaff048a43a834a05707ae727237728f8ebf6ea2a6064920fef36ae95ba78",
+    "tests/assessment-auth-errors.test.mjs": "168260424b1ff9c703dc6a9fab1b52908748e45cf1579a5fa0320fc36d7463f8"
+  },
+  "limits": [
+    "Installed SDK and actual production handler with synthetic HTTP/Auth/owner/quota/mutation acknowledgements only. No real owner access, grant, revoke, qualification, reviewer decision, business write or quota mutation. Historical assertion proves unnecessary prevalidation work; not actual sensitive-data leakage or authorization bypass.",
+    "Input phase only:16KiB UTF8 bytes replaces the postbuffer12000 JavaScript-character check; oversized input now413 and timeout408. A2000-character escaped Unicode reason formerly over12000wire characters now fits the full bounded schema. Full schema validated before SDK and fixed guidance preserves owner/Auth/confirmation policy.",
+    "GET administration still has three private list reads with query row caps201/601/50, no selected transport response/deadline bounds. Later budget/mutation RPC and uncertain write outcome semantics remain separate; no aggregate endpoint, durable-outcome or physical network cancellation claim.",
+    "Existing Auth tests and hosted missing-bearer checker now supply schema-valid synthetic reviewer input to reach unchanged Auth, rather than empty invalid object. Real private JSON reader runs in Auth fixtures; preaborted POST correctly creates no client. No assertion removed or auth gate weakened."
+  ]
+}

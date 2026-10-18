@@ -13,7 +13,12 @@ import {
   type GoogleTtsGender,
   type GoogleTtsVoice,
 } from "../data/mission-tts";
-import { initSentry, Sentry } from "../lib/sentry";
+import {
+  withGoogleSpeechProvider,
+  GoogleSpeechProviderError,
+  MAX_GOOGLE_SPEECH_AUDIO_BYTES,
+  type GoogleSpeechProvider,
+} from "../lib/google-speech-provider";
 import {
   authenticateSpeakingRequest,
   enforceSpeakingPreAuthRateLimit,
@@ -21,8 +26,6 @@ import {
   hasSpeakingAgeAttestation,
   isStrictSameOrigin,
 } from "../lib/speaking-security";
-
-initSentry();
 
 const RequestSchema = z.object({
   text: z.string().trim().min(1).max(1200),
@@ -52,19 +55,17 @@ function isGoogleGender(value: unknown): value is GoogleTtsGender {
   return ["FEMALE", "MALE", "NEUTRAL", "SSML_VOICE_GENDER_UNSPECIFIED"].includes(String(value));
 }
 
-async function listGoogleVoices(apiKey: string, locale: string): Promise<GoogleTtsVoice[]> {
+async function listGoogleVoices(
+  locale: string,
+  provider: GoogleSpeechProvider,
+): Promise<GoogleTtsVoice[]> {
   const family = languageFamily(locale);
   const cached = voiceCache.get(family);
   if (cached && cached.expiresAt > Date.now()) return cached.voices;
 
   const url = new URL("https://texttospeech.googleapis.com/v1/voices");
   url.searchParams.set("languageCode", family);
-  const response = await fetch(url, { headers: { "x-goog-api-key": apiKey } });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Google Cloud TTS voices ${response.status}: ${detail.slice(0, 300)}`);
-  }
-  const payload = (await response.json()) as {
+  const payload = (await provider.json(url, undefined, 2 * 1024 * 1024)) as {
     voices?: Array<{
       name?: unknown;
       languageCodes?: unknown;
@@ -99,7 +100,7 @@ async function listGoogleVoices(apiKey: string, locale: string): Promise<GoogleT
   return voices;
 }
 
-async function capabilities(locale: string) {
+async function capabilities(locale: string, signal: AbortSignal) {
   const ready = providerReady();
   if (!ready) {
     return {
@@ -111,7 +112,9 @@ async function capabilities(locale: string) {
     };
   }
   const apiKey = process.env.GOOGLE_CLOUD_TTS_API_KEY as string;
-  const voices = googleVoicesForLocale(await listGoogleVoices(apiKey, locale), locale);
+  const voices = await withGoogleSpeechProvider(apiKey, signal, async (provider) =>
+    googleVoicesForLocale(await listGoogleVoices(locale, provider), locale),
+  );
   return {
     provider: "google-cloud-tts" as const,
     ready: voices.length > 0,
@@ -130,10 +133,9 @@ export const Route = createFileRoute("/api/mission-tts")({
           return json({ error: "Unsupported voice language." }, 400);
         }
         try {
-          return json(await capabilities(locale));
-        } catch (error) {
-          Sentry.captureException(error);
-          console.error("Google TTS voice catalog request failed:", error);
+          return json(await capabilities(locale, request.signal));
+        } catch {
+          console.error("Google TTS voice catalog request failed.");
           return json({
             provider: "google-cloud-tts",
             ready: false,
@@ -145,7 +147,7 @@ export const Route = createFileRoute("/api/mission-tts")({
       },
       POST: async ({ request }) => {
         const requestStartedAt = Date.now();
-        const requestId = request.headers.get("x-vercel-id");
+
         if (!isStrictSameOrigin(request)) {
           return json({ error: "Cross-origin request rejected." }, 403);
         }
@@ -198,83 +200,78 @@ export const Route = createFileRoute("/api/mission-tts")({
 
         const apiKey = process.env.GOOGLE_CLOUD_TTS_API_KEY as string;
         try {
-          const voices = googleVoicesForLocale(
-            await listGoogleVoices(apiKey, parsed.data.languageCode),
-            parsed.data.languageCode,
-          );
-          const voice = voices.find((candidate) => candidate.name === parsed.data.voiceName);
-          if (!voice) return json({ error: "That Google voice is unavailable." }, 400);
+          return await withGoogleSpeechProvider(apiKey, request.signal, async (provider) => {
+            const voices = googleVoicesForLocale(
+              await listGoogleVoices(parsed.data.languageCode, provider),
+              parsed.data.languageCode,
+            );
+            const voice = voices.find((candidate) => candidate.name === parsed.data.voiceName);
+            if (!voice) return json({ error: "That Google voice is unavailable." }, 400);
 
-          const renderedRate = googleVoiceSupportsSpeakingRate(voice.name)
-            ? parsed.data.speakingRate
-            : 1;
-          const providerStartedAt = Date.now();
-          const upstream = await fetch("https://texttospeech.googleapis.com/v1/text:synthesize", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-goog-api-key": apiKey,
-            },
-            body: JSON.stringify({
-              input: { text: parsed.data.text },
-              voice: { languageCode: parsed.data.languageCode, name: voice.name },
-              audioConfig: {
-                audioEncoding: "MP3",
-                speakingRate: renderedRate,
+            const renderedRate = googleVoiceSupportsSpeakingRate(voice.name)
+              ? parsed.data.speakingRate
+              : 1;
+            const providerStartedAt = Date.now();
+            const payload = (await provider.json(
+              "https://texttospeech.googleapis.com/v1/text:synthesize",
+              {
+                input: { text: parsed.data.text },
+                voice: { languageCode: parsed.data.languageCode, name: voice.name },
+                audioConfig: { audioEncoding: "MP3", speakingRate: renderedRate },
               },
-            }),
-          });
-          if (!upstream.ok) {
-            const detail = await upstream.text();
-            throw new Error(`Google Cloud TTS ${upstream.status}: ${detail.slice(0, 300)}`);
-          }
-
-          const payload = (await upstream.json()) as { audioContent?: string };
-          if (!payload.audioContent) throw new Error("Google Cloud TTS returned no audio.");
-          const binary = atob(payload.audioContent);
-          const audio = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-          const providerMs = Date.now() - providerStartedAt;
-          const totalMs = Date.now() - requestStartedAt;
-          console.log(
-            JSON.stringify({
-              level: "info",
-              message: "Mission voice ready",
-              route: "/api/mission-tts",
+            )) as { audioContent?: unknown };
+            if (
+              typeof payload.audioContent !== "string" ||
+              !payload.audioContent ||
+              payload.audioContent.length > 4 * Math.ceil(MAX_GOOGLE_SPEECH_AUDIO_BYTES / 3)
+            )
+              throw new Error("Invalid Google voice audio");
+            const binary = atob(payload.audioContent);
+            if (!binary.length || binary.length > MAX_GOOGLE_SPEECH_AUDIO_BYTES)
+              throw new Error("Invalid Google voice audio");
+            const audio = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+            const providerMs = Date.now() - providerStartedAt;
+            const totalMs = Date.now() - requestStartedAt;
+            console.log(
+              JSON.stringify({
+                level: "info",
+                message: "Mission voice ready",
+                route: "/api/mission-tts",
+                status: 200,
+                provider: "google-cloud-tts",
+                providerMs,
+                totalMs,
+              }),
+            );
+            return new Response(audio, {
               status: 200,
-              requestId,
-              provider: "google-cloud-tts",
-              providerMs,
-              totalMs,
-            }),
-          );
-          return new Response(audio, {
-            status: 200,
-            headers: {
-              "Content-Type": "audio/mpeg",
-              "Cache-Control": "no-store",
-              "X-TTS-Provider": "google-cloud-tts",
-              "X-TTS-Voice": voice.name,
-              "X-TTS-Characters": String(Array.from(parsed.data.text).length),
-              "X-TTS-Tier": voice.tier,
-              "X-TTS-Rate": String(parsed.data.speakingRate),
-              "X-TTS-Rendered-Rate": String(renderedRate),
-              "Server-Timing": `google-tts;dur=${providerMs}, total;dur=${totalMs}`,
-            },
+              headers: {
+                "Content-Type": "audio/mpeg",
+                "Cache-Control": "no-store",
+                "X-TTS-Provider": "google-cloud-tts",
+                "X-TTS-Voice": voice.name,
+                "X-TTS-Characters": String(Array.from(parsed.data.text).length),
+                "X-TTS-Tier": voice.tier,
+                "X-TTS-Rate": String(parsed.data.speakingRate),
+                "X-TTS-Rendered-Rate": String(renderedRate),
+                "Server-Timing": `google-tts;dur=${providerMs}, total;dur=${totalMs}`,
+              },
+            });
           });
         } catch (error) {
-          Sentry.captureException(error);
+          const status = error instanceof GoogleSpeechProviderError ? error.status : 502;
           console.error(
             JSON.stringify({
               level: "error",
               message: "Google TTS request failed",
               route: "/api/mission-tts",
-              status: 502,
-              requestId,
+              status,
               totalMs: Date.now() - requestStartedAt,
-              errorType: error instanceof Error ? error.name : "UnknownError",
+              errorType:
+                status === 504 ? "Timeout" : status === 499 ? "Cancelled" : "UpstreamError",
             }),
           );
-          return json({ error: "Google voice generation failed." }, 502);
+          return json({ error: "Google voice generation failed." }, status);
         }
       },
     },

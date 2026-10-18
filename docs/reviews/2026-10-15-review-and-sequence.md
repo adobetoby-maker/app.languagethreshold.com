@@ -4,6 +4,17 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Cleanup status bounds response bytes and fields — October 18
+
+Application 691072f adds strict UTF-8/JSON, 4096-byte owner-role and 32768-byte history limits for exact configured-project status GETs. Role cardinality and selected history fields/counts/dates/status invariants mirror local immutable SQL. Unexpected data returns fixed 503; unrelated SDK reads/writes retain input/init identity. Selected owner/history builders use phase abortSignal and retry(false). Actual installed SDK initially retried rejected GET503s (8 history calls instead of 2); final tests assert exactly 1 Auth/1 owner/2 history reads, no retry header or SDK console errors. Historical actual handler returned 200 with an injected unknown private response field; new factory rejects it. This is controlled unexpected data, not evidence of actual production leakage.
+
+All 1450 tests/type-check pass; lint 0 errors/45 existing warnings; audit 0 vulnerabilities; artifact 19.94 MiB passes guards; private-bank 96 markers/1551 source/149 static/0 hits. Four response groups plus six status ownership and nine existing cron/schedule groups pass, including exact byte boundaries, malformed/schema/invariant/cardinality failures, preabort/stalled/late response disposal and actual SDK/default handler. Cron execution tail remains byte-identical; no execution/policy/retention/schedule change.
+
+Development Preview https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app, deployment dpl_HpWWx1CtYQnm4zm7j6J5XLRdyBbT, independently READY/target null/exact 691072f77d35f304b39524ae5e77523b65b7592c/project/team/alias[]. Seventeen hosted checker groups pass, including 21 authenticated Exams and three safe cleanup denials. QA personal revision 12/in_progress/unsubmitted and team B 2 opened/0 mastered retained. Accepted companion d4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT and live 9f90996/dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj unchanged. Combined evidence: qa-cleanup-response-preview-2026-10-18.json. Adaptive false deploy pin retained; absent metadata env is not false readback proof.
+
+NEXT: broader direct-RPC/typed-error/private/cache/diagnostics/device audit. Selected status validation is not appwide schema/provenance proof, actual owner acceptance, aggregate deadline or physical network cancellation. Actual expiry/current A/guest/B/restore/browser/native/device/process-restart and human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform gates remain open. Pending questions not repeated; no main/production/accepted-hostname/schema/grant/role/policy/schedule action. Full goal remains active.
+
+
 ### Cleanup status owns authentication and owner/history reads — October 18
 
 Application 320ba29 moves status view to request-bound Auth adapter/shared wait, preserving genuine owner denial at 403 while returning fixed unavailable 503 or cancelled 499. Pre-aborted status constructs no SDK. After auth, owner permission plus history reads own an eight-second phase and receive cooperative fetch abort. Late permission cannot start history reads; late history cannot return private results. Cron execution tail is byte-identical to 9e0757f (hash recorded); execution/policy/retention/schedule unchanged.

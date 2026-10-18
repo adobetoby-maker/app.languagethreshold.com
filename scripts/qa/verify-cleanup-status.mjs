@@ -16,19 +16,25 @@ const output = execFileSync(
     "--test",
     "tests/cleanup-status-ownership.test.mjs",
     "tests/assessment-cleanup-schedule.test.mjs",
+    "tests/cleanup-status-fetch.test.mjs",
   ],
   { encoding: "utf8" },
 );
-assert.match(output, /tests 15\b/);
-assert.match(output, /pass 15\b/);
+assert.match(output, /tests 19\b/);
+assert.match(output, /pass 19\b/);
 assert.match(output, /fail 0\b/);
 const report = {
   testedAt: new Date().toISOString(),
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
   runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
-  testGroups: { newStatus: 6, existingCronSchedule: 9 },
+  testGroups: { newStatus: 6, existingCronSchedule: 9, responseBounds: 4 },
   checks: {
     ownerDenial403AndUnavailable503Separated: true,
+    ownerReadMaxBytes: 4096,
+    historyReadMaxBytes: 32768,
+    strictSqlProjectionAndCardinality: true,
+    selectedQueryRetriesDisabled: true,
+    invalidDataMakesSingleOwnerOrTwoHistoryRequests: true,
     cancellation499Fixed: true,
     preabortConstructsZeroSdk: true,
     authDepartureStartsZeroOwnerHistory: true,
@@ -53,7 +59,7 @@ const report = {
   limits: [
     "Status auth uses shared15second wait/selected Auth adapter; owner plus history phase owns8seconds and cooperative abort. Existing boundedCleanupFetch still creates native8second per-fetch timeouts. Manual phase timers/listeners clear; native timeout internals are not cancellation-resource proof. No single aggregate status deadline or physical network cancellation proof.",
     "Controlled actual-handler tests and actual SDK/production-factory tests use synthetic credentials/URLs/Responses and restore globals/env/loggers. No actual owner login, database/history read, storage deletion, cron invocation, role/retention approval or scheduler activation.",
-    "Status response shape/projection is unchanged; history row/byte/schema bounds, direct SDK/RPC/private phases and broader diagnostic/cache/device inventory remain separate. Source-tail equality is local source proof, not platform schedule/execution acceptance.",
+    "Valid status response projection is unchanged; selected default status transport now validates owner/history response bytes/schema and disables retries on those builders. Other SDK/RPC/private paths and broader diagnostics/cache/device inventory remain separate. Source-tail equality is local source proof, not platform schedule/execution acceptance.",
     "Original helper remains exported for compatibility; no original direct named calls remain in current AST inventory. This does not prove all indirect auth/caller paths are owned.",
     "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Full goal and human/content/reviewer/retention/device/session gates remain open.",
   ],

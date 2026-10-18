@@ -1,9 +1,9 @@
 {
-  "auditedAt": "2026-10-18T11:40:29.186Z",
-  "sourceCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
-  "runtimeApplicationCommit": "320ba2974039c3d66ee758e308cd889a3862cdfe",
+  "auditedAt": "2026-10-18T11:51:27.827Z",
+  "sourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
   "scan": {
-    "typescriptSourceFiles": 622,
+    "typescriptSourceFiles": 623,
     "legacyFiles": 0,
     "legacyDirectCalls": 0,
     "scopedFiles": 8,
@@ -97,7 +97,7 @@
       {
         "file": "src/lib/assessments/cleanup-schedule-server.ts",
         "helper": "authenticatedAssessmentUser",
-        "line": 123,
+        "line": 126,
         "handler": null,
         "catchVariable": null
       },
@@ -170,12 +170,12 @@
   "helperDeclarations": [
     {
       "name": "scopedTeamError",
-      "line": 147
+      "line": 145
     }
   ],
   "legacyCompatibilityAlias": {
     "target": "scopedTeamError",
-    "line": 158
+    "line": 156
   },
   "routes": [
     {

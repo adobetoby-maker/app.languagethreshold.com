@@ -12,6 +12,7 @@ import {
   readSpeechTake,
 } from "@/lib/assessments/speech-device";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
+import { useExamRunnerActions } from "@/hooks/use-exam-runner-actions";
 import { useExamMutation } from "@/hooks/use-exam-mutation";
 import { useExamAttemptOpen, useExamPreparation } from "@/hooks/use-exam-entry";
 import { usePrivatePagedReport } from "@/hooks/use-private-paged-report";
@@ -1198,15 +1199,7 @@ function ExamsAreaContent({
   );
 }
 
-function ExamRunner({
-  attempt,
-  fromDevice,
-  checkingServer,
-  onCheckServer,
-  onBack,
-  onSubmitted,
-  onContinued,
-}: {
+type ExamRunnerProps = {
   attempt: ExamAttemptView;
   fromDevice: boolean;
   checkingServer: boolean;
@@ -1214,7 +1207,33 @@ function ExamRunner({
   onBack: () => void;
   onSubmitted: () => void;
   onContinued: (attempt: ExamAttemptView) => void;
-}) {
+};
+function ExamRunner(props: ExamRunnerProps) {
+  const { user } = useAuth();
+  if (!user) return null;
+  return (
+    <OwnedExamRunner
+      key={JSON.stringify([
+        user.id,
+        props.attempt.id,
+        props.attempt.form.id,
+        props.attempt.isLearner,
+        props.fromDevice,
+        props.attempt.routing?.state,
+      ])}
+      {...props}
+    />
+  );
+}
+function OwnedExamRunner({
+  attempt,
+  fromDevice,
+  checkingServer,
+  onCheckServer,
+  onBack,
+  onSubmitted,
+  onContinued,
+}: ExamRunnerProps) {
   const { user } = useAuth();
   const [speechWorking, setSpeechWorking] = useState(false);
   const unsavedSpeech = useSyncExternalStore(
@@ -1235,41 +1254,31 @@ function ExamRunner({
     runnerTop.current?.scrollIntoView({ block: "start" });
     questionTitle.current?.focus({ preventScroll: true });
   }, [draft.index]);
-  const [submitting, setSubmitting] = useState(false),
-    [confirm, setConfirm] = useState(false),
-    [error, setError] = useState("");
+  const [confirm, setConfirm] = useState(false);
   const coreStep = attempt.routing?.state === "core";
-  const continueRouting = async () => {
-    setSubmitting(true);
-    setError("");
-    try {
-      if (
-        unsavedSpeech ||
-        (user && hasUnconfirmedExamInk(browserExamStorage(), user.id, attempt.id))
-      )
+  const actions = useExamRunnerActions({
+    attempt,
+    fromDevice,
+    blocked: speechWorking || checkingServer,
+    confirmed: confirm,
+    draft,
+    checkInputs: () => {
+      if (user && unsavedSpeechCount(user.id, attempt.id))
         throw new Error(
-          "Upload or discard recordings and confirm handwritten transcripts before continuing.",
+          "Upload or explicitly discard your unsaved recordings before continuing or submitting.",
         );
-      const latest = await draft.continueRouting();
-      onContinued(latest);
-    } catch (err) {
-      setError(
-        err instanceof Error && err.name !== "AbortError"
-          ? err.message
-          : "Connection could not be confirmed. Connect and retry the saved continuation.",
-      );
-    } finally {
-      setSubmitting(false);
-    }
-  };
-  const resolveConflict = async (keepDevice: boolean) => {
-    try {
-      const latest = await draft.resolve(keepDevice);
-      if (latest && latest.routing?.state !== attempt.routing?.state) onContinued(latest);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "The server copy could not be checked.");
-    }
-  };
+      if (user && hasUnconfirmedExamInk(browserExamStorage(), user.id, attempt.id))
+        throw new Error(
+          "A handwritten response has no confirmed transcript. Return to that question and confirm its transcript before continuing or submitting.",
+        );
+    },
+    onSubmitted,
+    onContinued,
+  });
+  const submitting = actions.busy,
+    error = actions.error;
+  const { continueRouting, resolveConflict, submit } = actions;
+  const editable = () => actions.currentView() && !actions.isPending() && !speechWorking;
   const unanswered = attempt.form.items.filter((question) => {
     const answer = draft.answers[question.id];
     return (
@@ -1282,41 +1291,20 @@ function ExamRunner({
         !answer.mediaEvidenceId)
     );
   }).length;
-  const submit = async () => {
-    setSubmitting(true);
-    setError("");
-    try {
-      if (user && unsavedSpeechCount(user.id, attempt.id))
-        throw new Error("Upload or explicitly discard your unsaved recordings before submitting.");
-      if (user && hasUnconfirmedExamInk(browserExamStorage(), user.id, attempt.id)) {
-        setError(
-          "A handwritten response has no confirmed transcript. Return to that question and confirm its transcript before submitting.",
-        );
-        return;
-      }
-      if (!(await draft.flush())) {
-        setError("Sync your device answers and resolve any conflict before submitting.");
-        return;
-      }
-      await examRequest({
-        action: "submit",
-        attemptId: attempt.id,
-        revision: draft.revision(),
-        requestId: crypto.randomUUID(),
-      });
-      draft.clearSubmitted();
-      onSubmitted();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Submission could not finish.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
   return (
     <section ref={runnerTop} className="space-y-4 scroll-mt-4">
       <div className={card}>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <button className={button} onClick={onBack} disabled={submitting || speechWorking}>
+          <button
+            className={button}
+            onClick={() => {
+              if (editable()) {
+                actions.cancel();
+                onBack();
+              }
+            }}
+            disabled={submitting || speechWorking}
+          >
             Back to Exams
           </button>
           <p className="text-sm" role="status">
@@ -1339,7 +1327,9 @@ function ExamRunner({
             </p>
             <button
               className={button}
-              onClick={onCheckServer}
+              onClick={() => {
+                if (editable()) onCheckServer();
+              }}
               disabled={
                 checkingServer ||
                 submitting ||
@@ -1408,10 +1398,14 @@ function ExamRunner({
       {coreStep && draft.routePending && (
         <div className={card} role="status">
           <p>
-            Continuation needs confirmation. Core edits are paused until the saved server choice is recovered.
+            Continuation needs confirmation. Core edits are paused until the saved server choice is
+            recovered.
           </p>
-          <button className={button + " mt-3"} disabled={submitting || speechWorking}
-            onClick={() => void continueRouting()}>
+          <button
+            className={button + " mt-3"}
+            disabled={submitting || speechWorking}
+            onClick={() => void continueRouting()}
+          >
             {submitting ? "Recovering follow-up questions…" : "Connect and retry continuation"}
           </button>
         </div>
@@ -1440,12 +1434,14 @@ function ExamRunner({
           <div className="flex flex-wrap gap-3">
             <button
               className={button}
+              disabled={submitting || speechWorking}
               onClick={() => void resolveConflict(true)}
             >
               Keep my changed device answers
             </button>
             <button
               className={button}
+              disabled={submitting || speechWorking}
               onClick={() => void resolveConflict(false)}
             >
               Use the server copy
@@ -1595,16 +1591,22 @@ function ExamRunner({
             Next question
           </button>
         ) : coreStep ? (
-          <button className={primary}
-            disabled={submitting || speechWorking || unsavedSpeech > 0 || draft.status === "conflict"}
-            onClick={() => void continueRouting()}>
+          <button
+            className={primary}
+            disabled={
+              submitting || speechWorking || unsavedSpeech > 0 || draft.status === "conflict"
+            }
+            onClick={() => void continueRouting()}
+          >
             {submitting ? "Loading follow-up questions…" : "Continue to follow-up questions"}
           </button>
         ) : (
           <button
             className={primary}
             disabled={submitting || speechWorking}
-            onClick={() => setConfirm(true)}
+            onClick={() => {
+              if (editable()) setConfirm(true);
+            }}
           >
             Review submission
           </button>
@@ -1632,7 +1634,9 @@ function ExamRunner({
             </button>
             <button
               className={button}
-              onClick={() => setConfirm(false)}
+              onClick={() => {
+                if (editable()) setConfirm(false);
+              }}
               disabled={submitting || speechWorking}
             >
               Keep working

@@ -258,13 +258,17 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     }
     return false;
   };
-  const resolve = async (keepDevice: boolean) => {
+  const resolve = async (keepDevice: boolean, signal?: AbortSignal) => {
+    if (!mounted.current || !isCurrentUser(userId) || signal?.aborted)
+      throw new Error("Your session changed.");
     if (current.current.routeFlight)
       throw new Error("Recover the saved continuation before changing core answers.");
     const latest = await examRequest<ExamAttemptView>(
       `/api/exams?action=attempt&attempt=${attempt.id}`,
+      signal,
     );
-    if (!mounted.current || !isCurrentUser(userId)) throw new Error("Your session changed.");
+    if (!mounted.current || !isCurrentUser(userId) || signal?.aborted)
+      throw new Error("Your session changed.");
     remote.current = latest;
     if (latest.submittedAt) {
       setConflict(latest);
@@ -295,10 +299,14 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     saveOfflineExam(storage, userId, latest);
     return latest;
   };
-  const continueRouting = (): Promise<ExamAttemptView> => {
+  const continueRouting = (signal?: AbortSignal): Promise<ExamAttemptView> => {
+    if (!mounted.current || !isCurrentUser(userId) || signal?.aborted)
+      return Promise.reject(new Error("Your session changed."));
     if (continuing.current) return continuing.current;
     const abort = new AbortController();
     continuationAbort.current = abort;
+    const cancel = () => abort.abort();
+    signal?.addEventListener("abort", cancel, { once: true });
     let timer: ReturnType<typeof setTimeout> | undefined;
     const work = (async () => {
       const latest = await continueExamRouting({
@@ -308,7 +316,12 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
           update(next, "synced");
         },
         flush,
-        isCurrent: () => mounted.current && isCurrentUser(userId),
+        isCurrent: () => {
+          if (!mounted.current || !isCurrentUser(userId)) return false;
+          if (abort.signal.aborted)
+            throw new DOMException("Exam continuation cancelled.", "AbortError");
+          return true;
+        },
         online: () => typeof navigator !== "undefined" && navigator.onLine !== false,
         requestId: () => crypto.randomUUID(),
         select: (flight) => {
@@ -327,6 +340,8 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
           setStatus("conflict");
         },
       });
+      if (!mounted.current || !isCurrentUser(userId) || abort.signal.aborted)
+        throw new Error("Your session changed.");
       remote.current = latest;
       saveOfflineExam(storage, userId, latest);
       return latest;
@@ -334,6 +349,7 @@ export function useExamDraft(attempt: ExamAttemptView, fromDevice = false) {
     continuing.current = work;
     void work
       .finally(() => {
+        signal?.removeEventListener("abort", cancel);
         if (timer) clearTimeout(timer);
         if (continuationAbort.current === abort) continuationAbort.current = null;
         if (continuing.current === work) continuing.current = null;

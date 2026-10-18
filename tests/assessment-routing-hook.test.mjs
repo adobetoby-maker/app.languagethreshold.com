@@ -400,3 +400,38 @@ test("actual hook's bounded continuation abort retains the original retry and lo
       globalThis.setTimeout = originalTimeout;
     }
   }));
+
+test("actual hook forwards runner conflict cancellation and refuses a late server copy", () =>
+  fixture(async (f) => {
+    const read = deferred(),
+      controller = new AbortController();
+    f.request = () => read.promise;
+    const hook = f.render(),
+      before = f.storage.getItem(f.key);
+    const work = hook.resolve(false, controller.signal);
+    assert.equal(f.calls[0].signal, controller.signal);
+    controller.abort();
+    read.resolve(attempt(true));
+    await assert.rejects(work, /session changed/);
+    assert.equal(f.storage.getItem(f.key), before);
+    const count = f.calls.length;
+    await assert.rejects(hook.resolve(false, controller.signal), /session changed/);
+    assert.equal(f.calls.length, count);
+  }));
+test("actual hook links runner cancellation to continuation transport and keeps uncertain retry identity", () =>
+  fixture(async (f) => {
+    const route = deferred(),
+      controller = new AbortController();
+    f.request = () => route.promise;
+    const hook = f.render(),
+      work = hook.continueRouting(controller.signal);
+    await tick();
+    const saved = m.readExamDraft(f.storage, f.key).routeFlight;
+    controller.abort();
+    assert.equal(f.calls[0].signal.aborted, true);
+    route.resolve({ revision: 6 });
+    await assert.rejects(work, { name: "AbortError" });
+    assert.equal(f.calls.length, 1);
+    assert.deepEqual(m.readExamDraft(f.storage, f.key).routeFlight, saved);
+    assert.equal(m.readOfflineExams(f.storage, "owner-a")[0].routing.state, "core");
+  }));

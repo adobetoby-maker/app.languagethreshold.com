@@ -413,15 +413,34 @@ for (const [name, data] of routes)
       assert.equal(counters, 0);
       for (const abort of [false, true]) {
         const seen = [];
+        let signalDispatched;
+        const dispatched = new Promise((resolve) => {
+          signalDispatched = resolve;
+        });
         globalThis.fetch = (_, init) =>
           new Promise((resolve) => {
             seen.push(init);
             late.push(resolve);
+            signalDispatched();
           });
         const c = new AbortController();
         controllers.push(c);
         const p = invoke(request(name, data, {}, c.signal));
-        for (let i = 0; i < 100 && !seen.length; i++) await tick();
+        // Body delivery may require I/O; a count of immediate turns is not a dispatch deadline.
+        let dispatchTimer;
+        try {
+          await Promise.race([
+            dispatched,
+            new Promise((_, reject) => {
+              dispatchTimer = original.set(
+                () => reject(new Error("Admission fetch did not dispatch")),
+                5000,
+              );
+            }),
+          ]);
+        } finally {
+          original.clear(dispatchTimer);
+        }
         assert.equal(seen.length, 1);
         if (abort) c.abort();
         else expire(15000);

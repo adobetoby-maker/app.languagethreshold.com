@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Main CI follow-up removes dispatch timing assumption — October 18
+
+User-authorized main now includes cache-fixture repair2e6bef5. Linux workflow39126100696 confirms all five original consent failures resolved; it instead fails one of1450 tests at conversation-routes.test.mjs:425 (module-field-prep). The fixture expected admission dispatch after100setImmediate turns, but observed0. It now waits for the controlled fetch's dispatch event with a five-second failure deadline using the original timer, which is cleared; exact request count, abort-signal, provider-call, timeout and cleanup assertions remain. No runtime route changes. Targeted14pass, full1450pass under local Node26 and separately Node22. A fresh LinuxCI run remains required; no failure/retry is called a pass.
+
+Independent Vercel metadata shows the separate Git integration deployed45956da despite first workflow failure, then2e6bef5 READY production at dpl_Epoy4skqxkaN4jzw7iMH9i1YwcDq with app.languagethreshold.com alias/exactproject/team/commit verified. Accepted Exams companion remains d4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT. GitHub production step was skipped in failed runs; that does not mean the separate Git integration left live unchanged. No manual production CLI deployment or companion advance. Evidence updated qa-main-ci-cache-repair-2026-10-18.json. Claude Message124 received the CI repair ownership update; its generation remains separate.
+
+NEXT: verify CI and resulting live commit, perform readonly live smoke checks, then fixed team success-warning messages and historical diagnostic serialization. Human/content/calibration/pilot/device/retention/scheduler and full59-module gates stay open. Full goal active.
+
+
 ### User-authorized main push, Claude coordination and clean-CI fixture repair — October 18
 
 Toby explicitly requested “push to main communicate with the claude session”. Codex fast-forward pushed 45956da to main (previous9f90996), verified remote SHA, and PR37 is MERGED. The prior no-main/frozen-Claude checkpoint is historical. Native existing Claude session “Languagethreshold.com model upgrades” received Message122 and acknowledged; its current feature/lesson-content generation is active/uncommitted, newer than earlier freeze notes. Claude identified overlap in AppGuide, LessonReader, LessonPracticeKit, lesson-words, sw.js and vercel-adapter; it will preserve its files and reconcile after generation. Codex has not touched that worktree or started generation. Message124 updates it about the following CI failure and Codex ownership of its repair, then email diagnostic fixes.

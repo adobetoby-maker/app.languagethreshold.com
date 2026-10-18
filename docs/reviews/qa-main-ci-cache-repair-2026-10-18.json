@@ -40,5 +40,43 @@
     "codexOwns": "consent test cache repair, then team success-warning diagnostics",
     "newGenerationJobsStartedByCodex": false
   },
-  "gates": "Official review/calibration/pilot/recording/retention/schedule/device gates remain open. Main push is not production deployment success; no policy/schema changes."
+  "gates": "Official review/calibration/pilot/recording/retention/schedule/device gates remain open. Main push is not production deployment success; no policy/schema changes.",
+  "cacheRepairCommit": "2e6bef522bb571925945cfdfc03e37413e0cd4c0",
+  "secondMainWorkflow": {
+    "id": 39126100696,
+    "result": "failure",
+    "tests": 1450,
+    "pass": 1449,
+    "fail": 1,
+    "cacheFailuresResolved": true,
+    "failure": "module-field-prep conversation fixture expects admission fetch after100setImmediate turns; CI observed0dispatches at assertion"
+  },
+  "dispatchRepair": {
+    "file": "tests/conversation-routes.test.mjs",
+    "change": "Wait on explicit synthetic fetch dispatch event with5second original-timer failure deadline; clear timer; preserve all exact-count/signal/counter/cancellation assertions",
+    "targetedPass": 14,
+    "fullNode26Pass": 1450,
+    "fullNode22Pass": 1450,
+    "runtimeChanged": false,
+    "linuxCIRerunRequired": true
+  },
+  "liveAfterGitIntegration": {
+    "checkedAt": "2026-10-18T12:10:38.655Z",
+    "id": "dpl_Epoy4skqxkaN4jzw7iMH9i1YwcDq",
+    "readyState": "READY",
+    "target": "production",
+    "url": "language-threshold-46v4yxtmo-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "2e6bef522bb571925945cfdfc03e37413e0cd4c0",
+    "alias": [
+      "app.languagethreshold.com",
+      "language-threshold-app.vercel.app",
+      "language-lens-elite.worker-bee.app",
+      "language-threshold-app-adobetoby-5572s-projects.vercel.app",
+      "language-threshold-app-git-main-adobetoby-5572s-projects.vercel.app"
+    ],
+    "liveDeploymentId": "dpl_Epoy4skqxkaN4jzw7iMH9i1YwcDq",
+    "companionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT"
+  }
 }

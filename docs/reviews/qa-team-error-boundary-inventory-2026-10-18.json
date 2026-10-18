@@ -1,7 +1,7 @@
 {
-  "auditedAt": "2026-10-18T11:17:28.361Z",
-  "sourceCommit": "88078ea27aa07996a638eb14d124a913879e3421",
-  "runtimeApplicationCommit": "88078ea27aa07996a638eb14d124a913879e3421",
+  "auditedAt": "2026-10-18T11:26:40.948Z",
+  "sourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "runtimeApplicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
   "scan": {
     "typescriptSourceFiles": 622,
     "legacyFiles": 0,
@@ -10,7 +10,8 @@
     "scopedDirectCalls": 12,
     "namespaceCalls": 0,
     "boundedAuthDirectCalls": 11,
-    "originalAuthDirectCalls": 10
+    "originalAuthDirectCalls": 1,
+    "assessmentAuthDirectCalls": 9
   },
   "authenticationCalls": {
     "bounded": [
@@ -92,6 +93,71 @@
         "catchVariable": null
       }
     ],
+    "assessment": [
+      {
+        "file": "src/routes/api.exam-content.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 65,
+        "handler": "GET",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exam-content.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 218,
+        "handler": "POST",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exam-plans.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 146,
+        "handler": "GET",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exam-plans.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 217,
+        "handler": "POST",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exam-reviewers.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 47,
+        "handler": "GET",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exam-reviewers.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 110,
+        "handler": "POST",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exams.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 226,
+        "handler": "GET",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exams.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 396,
+        "handler": "POST",
+        "catchVariable": null
+      },
+      {
+        "file": "src/routes/api.exams.ts",
+        "helper": "authenticatedAssessmentUser",
+        "line": 403,
+        "handler": "POST",
+        "catchVariable": null
+      }
+    ],
     "original": [
       {
         "file": "src/lib/assessments/cleanup-schedule-server.ts",
@@ -99,81 +165,18 @@
         "line": 67,
         "handler": null,
         "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-content.ts",
-        "helper": "authenticatedUser",
-        "line": 58,
-        "handler": "GET",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-content.ts",
-        "helper": "authenticatedUser",
-        "line": 211,
-        "handler": "POST",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-plans.ts",
-        "helper": "authenticatedUser",
-        "line": 139,
-        "handler": "GET",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-plans.ts",
-        "helper": "authenticatedUser",
-        "line": 210,
-        "handler": "POST",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-reviewers.ts",
-        "helper": "authenticatedUser",
-        "line": 40,
-        "handler": "GET",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exam-reviewers.ts",
-        "helper": "authenticatedUser",
-        "line": 103,
-        "handler": "POST",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exams.ts",
-        "helper": "authenticatedUser",
-        "line": 224,
-        "handler": "GET",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exams.ts",
-        "helper": "authenticatedUser",
-        "line": 394,
-        "handler": "POST",
-        "catchVariable": null
-      },
-      {
-        "file": "src/routes/api.exams.ts",
-        "helper": "authenticatedUser",
-        "line": 401,
-        "handler": "POST",
-        "catchVariable": null
       }
     ]
   },
   "helperDeclarations": [
     {
       "name": "scopedTeamError",
-      "line": 137
+      "line": 147
     }
   ],
   "legacyCompatibilityAlias": {
     "target": "scopedTeamError",
-    "line": 148
+    "line": 158
   },
   "routes": [
     {

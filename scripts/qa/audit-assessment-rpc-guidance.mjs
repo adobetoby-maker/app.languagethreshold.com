@@ -103,7 +103,7 @@ if (process.argv.includes("--self-test")) {
       "Regex candidate extraction from all local migration files containing assessment_. All342 observed RAISE EXCEPTION sites fit fixed literal syntax; this is not a full SQL lexer/parser, live catalog verification or runtime reachability proof. Comments/embedded text, retired definitions and non-assessment functions in these files can be included.",
       "Registry is an explicit union of227 safe fixed strings, including historical definitions; runtime accepts only exact strings. Audit fails on new/unrecognized guidance or differently written/dynamic RAISE candidates; it does not auto-add messages. This preserves the old status selection for these known strings, not human linguistic/content approval.",
       "Actual rpc helper tests use controlled DB results and synthetic private markers, no actual database/provider/credential/browser/role/review/consent/qualification operation. Promise rejection, direct db.rpc callers, other typed errors and later private phases remain separate.",
-      "No immutable migration/schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Original ten auth callers and broader endpoint/cache/device/release gates remain open.",
+      "No immutable migration/schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Original cleanup auth caller and broader endpoint/cache/device/release gates remain open.",
     ],
   };
   writeFileSync(

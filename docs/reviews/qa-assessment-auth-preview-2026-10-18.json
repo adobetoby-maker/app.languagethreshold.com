@@ -1,0 +1,103 @@
+{
+  "testedAt": "2026-10-18T11:28:49.979040+00:00",
+  "applicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "preview": "https://language-threshold-pw93cmnh2-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-pw93cmnh2-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_ZpAKnRm37eMs26ZPJBQntdQXHsxv",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-pw93cmnh2-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_U8nV8s2Xg8WusJ8YXPtADdXXKQjj",
+      "capabilityValue": null
+    }
+  ],
+  "previousCombinedEvidence": "docs/reviews/qa-rpc-guidance-preview-2026-10-18.json",
+  "local": {
+    "tests": 1440,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 45,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.93,
+    "privateMarkers": 96,
+    "sourceFiles": 1540,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Nine auth branches in four assessment APIs now use authenticatedAssessmentUser and request-bound Auth adapter factories; eleven earlier team branches remain covered. Only cleanup status retains original helper",
+    "Shared owned wait preserves team behavior and adds fixed assessment499 cancellation guidance; retryable service failure uses each route fixed503 while credential denial retains established403",
+    "Five new groups: four actual route/real-helper groups exercise27 preabort/deadline/disconnect cases across nine branches including speech_upload, and one actual installed-SDK group exercises assessment success/401/503/abort/preabort",
+    "Late controlled SDK success cannot resume private work after wait expiry/disconnect; owned timers/listeners released. Source inventory pins20adapted factory calls across11files,11team/9assessment/1original cleanup auth calls",
+    "Sixteen hosted checker groups pass with current authenticated QA assessment/team reads, exact missing-bearer guidance and unchanged personalrevision12/teamB2opened0mastered"
+  ],
+  "controlledEvidence": [
+    "tests/assessment-auth-errors.test.mjs",
+    "tests/team-auth-fetch.test.mjs",
+    "tests/team-auth-wait.test.mjs"
+  ],
+  "baselineComparison": {
+    "commit": "88078ea",
+    "source": "src/routes/api.exams.ts",
+    "case": "Already-aborted assessment request through actual historical route/controlled dependencies",
+    "oldStatus": 503,
+    "expectedStatus": 499,
+    "expectedAssertionFailedOnBaseline": true,
+    "limit": "Actual route assertion, controlled boundaries; not actual SDK/network expiry."
+  },
+  "diagnostics": [
+    "Existing review/support fixtures now explicitly alias their controlled auth as authenticatedAssessmentUser; their separate behavior tests remain controlled. Actual bounded helper and installed SDK receive new coverage separately."
+  ],
+  "evidence": [
+    "docs/reviews/qa-exams-assessment-auth-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-errors-local-2026-10-18.json",
+    "docs/reviews/qa-team-auth-transport-sdk-2026-10-18.json",
+    "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
+    "docs/reviews/qa-assessment-rpc-guidance-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "limits": [
+    "Caller wait and selected Auth transport each own their phase; no aggregate request deadline or physical network cancellation proof. Non-Auth SDK requests pass through unchanged; later body reads, budgets, private reads/writes/providers and unknown outcomes remain separate.",
+    "Four actual-route fixtures run real bounded helper with controlled SDK DB results; separate SDK group uses real production factory/adapter and installed SDK with synthetic credentials/Responses. Two earlier review/support fixtures explicitly retain controlled auth aliases for their own scope; they are not new auth-ownership proof.",
+    "Original cleanup status helper/catch-all403 remains unchanged and needs separate owner/read-path review. No cleanup execution, retention approval, cron scheduling, speech policy or collection activation.",
+    "Tests/HTTP checks do not manufacture actual expiry/reauth, browser/device/account-switch, allowed review/start/submit/role/content/consent/provider/purchase/mail/certificate acceptance. No browser/network-configuration actions.",
+    "All human/content/calibration/reviewer/pilot/retention/deletion/scheduler/platform/device/session/process-restart gates, broader cache/diagnostics/private phases and catalog grant/migration parity remain open. Adaptive false deploy pin retained; absent metadata env is not false readback proof. No main/production/accepted-hostname/schema/grant/role/policy/schedule action."
+  ]
+}

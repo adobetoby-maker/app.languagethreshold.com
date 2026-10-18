@@ -6,17 +6,20 @@ import { createHash } from "node:crypto";
 const output = execFileSync(process.execPath, ["--test", "tests/assessment-auth-errors.test.mjs"], {
   encoding: "utf8",
 });
-assert.match(output, /tests 8\b/);
-assert.match(output, /pass 8\b/);
+assert.match(output, /tests 12\b/);
+assert.match(output, /pass 12\b/);
 assert.match(output, /fail 0\b/);
 const report = {
   testedAt: new Date().toISOString(),
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
   runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
-  testGroups: 8,
-  controlledHandlerCases: { unexpectedErrors: 80, typedErrors: 24 },
+  testGroups: 12,
+  controlledHandlerCases: { unexpectedErrors: 80, typedErrors: 24, boundedAuthCases: 27 },
   checks: {
     actualRouteGetAndPostCatches: true,
+    preabortDeadlineDisconnectAndLateSdkStopsPrivateWork: true,
+    requestBoundFactoryArgumentMatched: true,
+    includesExamsSpeechUploadBranch: true,
     typedAuthDenialPreserved: true,
     typedAssessmentGuidanceAndStatusPreserved: true,
     configuration503KeepsRouteSpecificFixedFallback: true,
@@ -31,10 +34,10 @@ const report = {
     return { path, sha256: createHash("sha256").update(readFileSync(path)).digest("hex") };
   }),
   limits: [
-    "Only four assessment API catch boundaries change: untyped errors no longer acquire auth classification from matching text. Known TeamOperationError 403 and AssessmentAccessError handling are preserved; fixed route-specific 503 fallback remains.",
+    "Four assessment API catches preserve known403 guidance and fixed503 fallback, and now return fixed499 for cancelled assessment requests. Bounded auth is applied in nine branches; body/private/business phases remain separate.",
     "Tests bundle actual production route code/schema/catch/JSON helper with controlled client/auth/private dependencies and actual error classes. They are not allowed workflow, actual SDK, network, expiry, browser, reviewer, consent or business acceptance.",
-    "Ten original auth helper callers still use their previous transport/classification/wait behavior, including cleanup status catch-all 403. Their separate migration remains open. Eleven team factories retain the previously verified adapter.",
-    "AssessmentAccessError still accepts intentional messages/statuses, including server rpc P0001 mapping. This change does not prove every typed error or database diagnostic is safe; RPC error allowlisting and broader diagnostics remain review items.",
+    "Nine assessment calls now use real bounded helper with controlled SDK results. Twenty factories install Auth transport; one original cleanup caller retains previous auth behavior/catch-all403. Separate actual-SDK transport tests cover the adapter.",
+    "AssessmentAccessError keeps intentional statuses/messages. Shared assessment rpc already restricts P0001 to227exact fixed strings; direct RPC, other typed-error provenance and broader diagnostics remain separate review items.",
     "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Human/content/reviewer/calibration/pilot/retention/device/session/process-restart gates remain open.",
   ],
 };
@@ -43,5 +46,10 @@ writeFileSync(
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(
-  JSON.stringify({ testGroups: 8, unexpectedErrorCases: 80, typedErrorCases: 24, allPassed: true }),
+  JSON.stringify({
+    testGroups: 12,
+    unexpectedErrorCases: 80,
+    typedErrorCases: 24,
+    allPassed: true,
+  }),
 );

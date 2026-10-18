@@ -7,8 +7,8 @@ import { createHash } from "node:crypto";
 const output = execFileSync(process.execPath, ["--test", "tests/team-auth-fetch.test.mjs"], {
   encoding: "utf8",
 });
-assert.match(output, /tests 8\b/);
-assert.match(output, /pass 8\b/);
+assert.match(output, /tests 9\b/);
+assert.match(output, /pass 9\b/);
 assert.match(output, /fail 0\b/);
 const versions = Object.fromEntries(
   ["auth-js", "supabase-js"].map((name) => [
@@ -26,6 +26,10 @@ const factoryWiring = [
   "team-activity",
   "team-assessment",
   "team-entitlement",
+  "exams",
+  "exam-plans",
+  "exam-content",
+  "exam-reviewers",
 ].map((name) => {
   const path = `src/routes/api.${name}.ts`,
     text = readFileSync(path, "utf8");
@@ -50,13 +54,13 @@ const factoryWiring = [
   assert.ok(calls.length > 0);
   return { path, requestBoundFactoryCallLines: calls };
 });
-assert.equal(factoryWiring.flatMap((x) => x.requestBoundFactoryCallLines).length, 11);
+assert.equal(factoryWiring.flatMap((x) => x.requestBoundFactoryCallLines).length, 20);
 const report = {
   testedAt: new Date().toISOString(),
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
   runtimeApplicationCommit: process.env.LT_QA_STAGE_COMMIT ?? null,
   versions,
-  testGroups: 8,
+  testGroups: 9,
   factoryWiring,
   checks: {
     actualProductionFactoryAndInstalledSdk: true,
@@ -90,7 +94,7 @@ const report = {
   })),
   limits: [
     "Synthetic credentials/URLs/user/Responses and controlled timers; no actual network, credentials, database, provider, browser, expiry or business action. Global fetch rejection guard and logger capture restored in finally.",
-    "Adapter only installed by eleven factory calls in seven team routes. Ten original auth helper callers and all clients constructed without authRequest remain separate; historical raw-SDK probe still describes those unadapted paths.",
+    "Adapter installed by twenty factory calls in eleven team/assessment routes. One original cleanup auth helper caller and all clients constructed without authRequest remain separate; historical raw-SDK probe still describes those unadapted paths.",
     "Caller wait and transport timers each start in their own phase; no single aggregate request deadline. Supplied signal is cooperatively honored by real fetch; ignored synthetic transport is raced and late response disposed, not proof of physical network cancellation.",
     "Only Auth GET exact project endpoint is selected. Other SDK requests pass through, including writes after request abort; later private/business phases and unknown outcomes need separate review.",
     "No main push, production promotion, accepted-hostname advance, schema/grant/role/policy/schedule changes; full goal/human/device/reviewer/retention gates remain open.",
@@ -102,7 +106,7 @@ writeFileSync(
 );
 console.log(
   JSON.stringify({
-    testGroups: 8,
+    testGroups: 9,
     factoryWiring,
     versions,
     sdkConsoleErrorCalls: 0,

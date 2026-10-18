@@ -2,9 +2,9 @@
   "auditedAt": "2026-10-17T22:27:07.306394+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "88078ea",
+  "application": "9e0757f",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-8yxw23eps-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-pw93cmnh2-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-rpc-guidance-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-assessment-auth-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "88078ea27aa07996a638eb14d124a913879e3421",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-rpc-guidance-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-assessment-auth-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -958,15 +958,16 @@
     "actualTeamWrite": false
   },
   "latestTeamErrorBoundaryInventory": {
-    "sourceCommit": "88078ea27aa07996a638eb14d124a913879e3421",
-    "runtimeApplicationCommit": "88078ea27aa07996a638eb14d124a913879e3421",
+    "sourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+    "runtimeApplicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
     "evidence": "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     "typescriptSourceFiles": 622,
     "legacyDirectCalls": 0,
     "scopedDirectCalls": 12,
     "boundedAuthDirectCalls": 11,
-    "originalAuthDirectCalls": 10,
-    "status": "bounded-direct-call-inventory-broader-workflow-privacy-gates-open"
+    "originalAuthDirectCalls": 1,
+    "status": "bounded-direct-call-inventory-broader-workflow-privacy-gates-open",
+    "assessmentAuthDirectCalls": 9
   },
   "latestLocalTeamReadErrorsFollowup": {
     "application": "de17167",
@@ -1070,5 +1071,21 @@
     "hostedFunctionParityProved": false,
     "immutableSqlChanged": false,
     "directRpcAndOtherTypedErrorsStillNeedReview": true
+  },
+  "latestAssessmentAuthOwnershipFollowup": {
+    "application": "9e0757f",
+    "deployed": true,
+    "evidence": "docs/reviews/qa-assessment-auth-preview-2026-10-18.json",
+    "assessmentCalls": 9,
+    "teamCalls": 11,
+    "adaptedFactories": 20,
+    "routeFiles": 11,
+    "originalCleanupCalls": 1,
+    "newActualRouteGroups": 4,
+    "ownedWaitBranchCases": 27,
+    "newInstalledSdkGroup": 1,
+    "cancelledStatus": 499,
+    "aggregateDeadline": false,
+    "cleanupExecutionChanged": false
   }
 }

@@ -1,14 +1,18 @@
 {
-  "testedAt": "2026-10-18T11:17:26.949Z",
-  "sourceCommit": "88078ea27aa07996a638eb14d124a913879e3421",
-  "runtimeApplicationCommit": "88078ea27aa07996a638eb14d124a913879e3421",
-  "testGroups": 8,
+  "testedAt": "2026-10-18T11:29:19.012Z",
+  "sourceCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "runtimeApplicationCommit": "9e0757f339ca86ce77aef1a84871881ca584703a",
+  "testGroups": 12,
   "controlledHandlerCases": {
     "unexpectedErrors": 80,
-    "typedErrors": 24
+    "typedErrors": 24,
+    "boundedAuthCases": 27
   },
   "checks": {
     "actualRouteGetAndPostCatches": true,
+    "preabortDeadlineDisconnectAndLateSdkStopsPrivateWork": true,
+    "requestBoundFactoryArgumentMatched": true,
+    "includesExamsSpeechUploadBranch": true,
     "typedAuthDenialPreserved": true,
     "typedAssessmentGuidanceAndStatusPreserved": true,
     "configuration503KeepsRouteSpecificFixedFallback": true,
@@ -21,26 +25,26 @@
   "sources": [
     {
       "path": "src/routes/api.exams.ts",
-      "sha256": "26f7fa7cdd8d24463d4841080f766ea21183a01eaeb75e2a6065e43146cae502"
+      "sha256": "5bee1741b7e92a76835bddfca8b0d2f26458f99ace9a978f936e7f9c1144661e"
     },
     {
       "path": "src/routes/api.exam-plans.ts",
-      "sha256": "6cd6f1f02cf52bf0e186d9bf6ce692dd18033cf99c0893af4d340a59269f30fd"
+      "sha256": "e2f24183cf35363ea1597f6fc0e84713d2aef6a93e56bd02f4484e96544dbd19"
     },
     {
       "path": "src/routes/api.exam-content.ts",
-      "sha256": "2d4caf1df3f1e69070cd2c42abf8a0a87fd432dabae312316fd6ac20a3917c87"
+      "sha256": "6620eb23fd2b980da996f7669aa5332f32a534749bebe549a0479553d46e0e0a"
     },
     {
       "path": "src/routes/api.exam-reviewers.ts",
-      "sha256": "5365e66f41c20fcbf068b7b451e5517ce2b442ffd9d3b49f128ec46a89e2bbbb"
+      "sha256": "12ca1379b781960365fa62e8e5d04613da2707d5f8322e84686c69c645b188dc"
     }
   ],
   "limits": [
-    "Only four assessment API catch boundaries change: untyped errors no longer acquire auth classification from matching text. Known TeamOperationError 403 and AssessmentAccessError handling are preserved; fixed route-specific 503 fallback remains.",
+    "Four assessment API catches preserve known403 guidance and fixed503 fallback, and now return fixed499 for cancelled assessment requests. Bounded auth is applied in nine branches; body/private/business phases remain separate.",
     "Tests bundle actual production route code/schema/catch/JSON helper with controlled client/auth/private dependencies and actual error classes. They are not allowed workflow, actual SDK, network, expiry, browser, reviewer, consent or business acceptance.",
-    "Ten original auth helper callers still use their previous transport/classification/wait behavior, including cleanup status catch-all 403. Their separate migration remains open. Eleven team factories retain the previously verified adapter.",
-    "AssessmentAccessError still accepts intentional messages/statuses, including server rpc P0001 mapping. This change does not prove every typed error or database diagnostic is safe; RPC error allowlisting and broader diagnostics remain review items.",
+    "Nine assessment calls now use real bounded helper with controlled SDK results. Twenty factories install Auth transport; one original cleanup caller retains previous auth behavior/catch-all403. Separate actual-SDK transport tests cover the adapter.",
+    "AssessmentAccessError keeps intentional statuses/messages. Shared assessment rpc already restricts P0001 to227exact fixed strings; direct RPC, other typed-error provenance and broader diagnostics remain separate review items.",
     "No schema/grant/role/policy/schedule changes, main push, production promotion or accepted-hostname advance. Human/content/reviewer/calibration/pilot/retention/device/session/process-restart gates remain open."
   ]
 }

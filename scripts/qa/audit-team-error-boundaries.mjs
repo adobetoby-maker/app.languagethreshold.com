@@ -43,7 +43,11 @@ function inventory(file, text) {
     if (ts.isCallExpression(node)) {
       if (ts.isIdentifier(node.expression)) {
         const imported = imports.get(node.expression.text);
-        if (["authenticatedTeamUser", "authenticatedUser"].includes(imported))
+        if (
+          ["authenticatedTeamUser", "authenticatedAssessmentUser", "authenticatedUser"].includes(
+            imported,
+          )
+        )
           authCalls.push({ helper: imported, line: line(node), ...context(node) });
         if (functions.includes(imported))
           calls.push({
@@ -105,11 +109,11 @@ if (process.argv.includes("--self-test")) {
   assert.equal(item.throws[0].literalMessage, true);
   const auth = inventory(
     "auth.ts",
-    `import {authenticatedTeamUser as owned,authenticatedUser as prior} from '@/lib/team-server';owned(x,y);prior(x,y);`,
+    `import {authenticatedTeamUser as owned,authenticatedUser as prior,authenticatedAssessmentUser as exams} from '@/lib/team-server';owned(x,y);prior(x,y);exams(x,y);`,
   );
   assert.deepEqual(
     auth.authCalls.map((x) => x.helper),
-    ["authenticatedTeamUser", "authenticatedUser"],
+    ["authenticatedTeamUser", "authenticatedUser", "authenticatedAssessmentUser"],
   );
   const unrelated = inventory(
     "unrelated.ts",
@@ -137,6 +141,11 @@ if (process.argv.includes("--self-test")) {
     bounded: analyzed.flatMap((row) =>
       row.authCalls
         .filter((call) => call.helper === "authenticatedTeamUser")
+        .map((call) => ({ file: row.file, ...call })),
+    ),
+    assessment: analyzed.flatMap((row) =>
+      row.authCalls
+        .filter((call) => call.helper === "authenticatedAssessmentUser")
         .map((call) => ({ file: row.file, ...call })),
     ),
     original: analyzed.flatMap((row) =>
@@ -176,6 +185,7 @@ if (process.argv.includes("--self-test")) {
       namespaceCalls: routes.flatMap((x) => x.namespaceReferences).length,
       boundedAuthDirectCalls: authenticationCalls.bounded.length,
       originalAuthDirectCalls: authenticationCalls.original.length,
+      assessmentAuthDirectCalls: authenticationCalls.assessment.length,
     },
     authenticationCalls,
     helperDeclarations,
@@ -201,6 +211,8 @@ if (process.argv.includes("--self-test")) {
   assert.equal(report.scan.scopedDirectCalls, 12);
   assert.equal(report.scan.namespaceCalls, 0);
   assert.equal(report.scan.boundedAuthDirectCalls, 11);
+  assert.equal(report.scan.assessmentAuthDirectCalls, 9);
+  assert.equal(report.scan.originalAuthDirectCalls, 1);
   writeFileSync(
     "docs/reviews/qa-team-error-boundary-inventory-2026-10-18.json",
     JSON.stringify(report, null, 2) + "\n",

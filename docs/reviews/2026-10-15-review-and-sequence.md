@@ -5,6 +5,19 @@ Date: October 15, 2026. Codex review, requested by Toby.
 ## Current checkpoint — October 18
 
 
+### Assessment branch reconciled with current lesson-content main — October 18
+
+Application40c358a merges currentmain814b304 into assessmentevidencee61b860 without conflicts. Preserves Claude lesson-content source/static/service-worker/adapter changes and existing assessment/account ownership fixes, including writing-feedback acknowledgement latch. No additional generation/model/provider jobs or edits to Claude worktree/processes. Previous final evidencee61b860 passed cleanLinuxCI39141370565, production skipped/VercelchecksSUCCESS.
+
+Combined1658Node22tests pass, including90imported lesson-content groups; typecheck/changed-filelint/productionaudit0/guardedartifact20.01MiB pass.59generatedfiles and index validators pass against existing curricula:1510lessons,42moduleswith30,16with15,1with10,5744847filebytes. All59retainreviewed:false.17shortmodules still260lessons below59x30. Runtime passage/word/verb integration and structural validation do not establish fluent/domain/curriculum approval, calibrated exams, allsixmodes/usagelevel or release parity. Controlled unit/transport tests are not browser acceptance. Existing Playwright content test seeds legacy localStorage and was not used as authorized account/learner acceptance. Local report qa-main-lesson-integration-local-2026-10-18.json.
+
+Exact Preview https://language-threshold-c1y368f7o-adobetoby-5572s-projects.vercel.app, dpl_BYFSLC9kP7FxJN46E2dCXbEzRNuG, independently READY/targetnull/exact40c358ad7da9b6249d7f8325f01a78379a37d60a/project/team/alias[]. All18hosted checker groups pass. All59publiccontentfiles plus index served200/applicationJSON/publiccache with exact source byte hashes(60read-onlyrequests). QA activepersonalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained read-only. Combined qa-main-lesson-integration-preview-2026-10-18.json; static detail qa-main-lesson-content-static-preview-2026-10-18.json. Final private-bank scan96markers/1705source/209static/0hits.
+
+Main/live814b304/dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF and acceptedcompaniond4ad837/dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT remain external production baselines. This follow-up does not pushmain/promote, rewrite histories or activate policies/speech/schedule/cleanup. PR38remainsdraft/unmerged. Combined source test/build/HTTP verification is not browser/phone/offline/physicaldevice or human review acceptance.
+
+NEXT: final exact-headCI, original learner/browser/device/expiry/content acceptance and remaining private/cache/aggregate/uncertainmutation phases. Human/fluent/domain/curriculum/clip/calibration/reviewer/realconsentedpilot/retention/scheduler/59module gates and9developmentauditfindings/legacyPrisma remainopen. No repeated retention question. Full goal active.
+
+
 ### Writing-feedback form pauses after uncertain acknowledgement — October 18
 
 Application2bc6f8d prevents another AI POST from the same mounted answer form after a valid acknowledgement, lost reply,5xx or malformed success. A synchronous ref also blocks retained callbacks. Check saved status invokes existing read-only parent refresh while pending/paused; an absent-job refresh keeps the latch, a positive saved-job status replaces controls. Known pre-provider400/401/403/404/409/413/429 denials allow explicit retry. New account/response views start unchecked. This is a mounted-view safeguard, not durable cross-remount storage or a new server replay guarantee; existing durable grading claim remains the provider replay boundary.

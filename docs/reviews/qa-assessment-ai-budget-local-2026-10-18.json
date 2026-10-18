@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-10-18T14:44:44.916325+00:00",
+  "historicalSourceCommit": "0a62c7dcdc210ef4153675bf10f322f570180048",
+  "historicalActualAssertionFailure": {
+    "settledBeforeLateHeaders": false,
+    "mockClaimsAfterAbort": 1,
+    "mockProviderCallsAfterAbort": 1,
+    "outcome": "needs_review",
+    "actualAssertNotBundleSetupFailure": true,
+    "testCommand": "LT_AI_BUDGET_BASELINE=0a62c7d npx --yes node@22 --test --test-name-pattern=\"internal AI quota settles\" tests/assessment-ai-budget.test.mjs",
+    "logSha256": "ae552b7dbc4c9ffe8ad3b616ace49019ef5af43d8dcc11d1ffb10fee619baca4"
+  },
+  "newSyntheticAiBudgetGroups": 8,
+  "fullNode22Tests": 1536,
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "67b268ec7b284d02e8745320fdd3d4e842fb20cd981d0bd7f5b4526b8f1872a9",
+    "src/routes/api.exams.ts": "68b28fc7410b1d5e893fa64efc7c67f4c515f89db9b1471524f46233d35cb00c",
+    "tests/assessment-ai-budget.test.mjs": "98c4cb622a19bb17da15ee0132e5b1593021eb962b7af62e5ec25fd42d6e1d72"
+  },
+  "checks": {
+    "internalQuotaRequestOwned": true,
+    "actualHttpRoutePassesRequestToSecondQuota": true,
+    "lateHeadersDisposeWithoutClaim": true,
+    "headerAndBodyDeadline": true,
+    "strictUtf8Json1024Bytes": true,
+    "fixed503AndFalse429": true,
+    "lateEnrollmentAllowancePreclaimFences": true,
+    "preabortNoPrivateReads": true,
+    "finalHumanScoreAndClaimRefusalRetained": true,
+    "normalAndOptionalLegacyCallerRetained": true,
+    "alreadyDispatchedClaimBookkeepingUnchanged": true
+  },
+  "limits": [
+    "Actual AI source and HTTP route, real assessmentBudget/shared raw quota transport; attempt access, selected path, private DB and Anthropic boundary are synthetic stubs. Existing routing tests separately cover selected rubric/access rules. No real consent/calibration/reviewer/pilot, model call, provider billing, score or grading claim.",
+    "Only internal quota phase adopts Request/8second/1024byte bounds; hashing/limit3/window60/denial semantics unchanged. Preclaim current checks guard later enrollment/allowance handoffs, but those reads are not bounded here. No aggregate endpoint deadline, atomic physical dispatch or permission freshness claim.",
+    "Once grading claim dispatches, existing claim/consent/provider/score/audit/finish behavior remains; cancellation is not rollback. Provider wait and response caps, postclaim uncertainty and durable finalization need separate work. No automatic retry/refund/replay or provider nondelivery inference.",
+    "Test fixture repairs: constructing multiple Request objects from a consumed source was replaced with fresh URL Requests; HTTP fixture added existing required consentVersion; diagnostic response read now clones before consuming. Failed logs retained separately; final focused/full checks pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Human/device/session/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open. Full dependency audit9findings(5high/4moderate) and legacy Prisma remain."
+  ]
+}

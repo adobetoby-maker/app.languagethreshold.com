@@ -24,7 +24,13 @@ export async function proposeWritingReview(
   actor: string,
   attemptId: string,
   responseId: string,
+  request?: Request,
 ) {
+  const current = () => {
+    if (request?.signal.aborted)
+      throw new AssessmentAccessError("Assessment request cancelled.", 499);
+  };
+  current();
   const context = await attemptAccess(db, actor, attemptId, false, "routing");
   const { attempt, checkpoint, enrollment } = context;
   if (enrollment.user_id !== actor || !attempt.submitted_at)
@@ -72,12 +78,14 @@ export async function proposeWritingReview(
       state: "already_reviewed",
       message: "A human has already reviewed this response. AI cannot replace that decision.",
     };
-  await assessmentBudget(actor, "ai_proposal");
+  await assessmentBudget(actor, "ai_proposal", request);
+  current();
   const { data: ownEnrollments, error: enError } = await db
     .from("assessment_enrollments")
     .select("id")
     .eq("user_id", actor)
     .limit(1000);
+  current();
   if (enError || (ownEnrollments?.length ?? 0) >= 1000)
     throw new AssessmentAccessError("AI review allowance is unavailable.", 503);
   // The durable provider claim is the primary cost boundary; a user's rolling allowance is an additional guard.
@@ -90,6 +98,7 @@ export async function proposeWritingReview(
     )
     .eq("action", "ai.requested")
     .gte("created_at", new Date(Date.now() - 86400000).toISOString());
+  current();
   if (allowance.error || allowance.count === null)
     throw new AssessmentAccessError("AI review allowance is unavailable.", 503);
   if (allowance.count >= 30)
@@ -97,6 +106,8 @@ export async function proposeWritingReview(
       "Today's AI writing review allowance is used. Human review remains available.",
       429,
     );
+  // After claim dispatch, retain durable lease/outcome bookkeeping; departure is not rollback.
+  current();
   const lease = randomUUID(),
     claimed = await rpc<boolean>(db, "assessment_claim_grading", {
       p_actor: actor,

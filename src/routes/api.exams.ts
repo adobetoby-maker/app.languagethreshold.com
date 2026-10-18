@@ -434,7 +434,9 @@ export const Route = createFileRoute("/api/exams")({
             return json({ withdrawn: true });
           }
           if (body.action === "ai_writing")
-            return json(await proposeWritingReview(db, user.id, body.attemptId, body.responseId));
+            return json(
+              await proposeWritingReview(db, user.id, body.attemptId, body.responseId, request),
+            );
           if (body.action === "enroll") {
             if (body.orgId) await requireTeamAdmin(db, body.orgId, user.id);
             else if (body.learnerId && body.learnerId !== user.id)

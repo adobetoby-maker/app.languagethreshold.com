@@ -119,7 +119,7 @@ test("an enabled authenticated empty invocation records actual run start and fin
   );
   assert.equal(r.status, 200);
   assert.equal((await r.json()).selected, 0);
-  assert.equal(r.headers.get("cache-control"), "no-store");
+  assert.equal(r.headers.get("cache-control"), "private, no-store");
   assert.deepEqual(
     f.calls.filter((c) => c[0] !== "storage").map((c) => c[0]),
     [

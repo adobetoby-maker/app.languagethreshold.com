@@ -119,7 +119,7 @@ test("exact accepted lesson-session replay acknowledges without writes, activity
       const result = await invoke();
       assert.equal(result.status, 200);
       assert.deepEqual(result.body, { recorded: 1, sessions: {} });
-      assert.equal(result.headers.get("Cache-Control"), "no-store");
+      assert.equal(result.headers.get("Cache-Control"), "private, no-store");
     }
     assert.equal(c.writes.length, 0);
     assert.equal(c.certificates, 0);

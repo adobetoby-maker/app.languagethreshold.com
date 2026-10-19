@@ -4,6 +4,13 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Reader expiry/offline follow-up preparation — October 18
+
+Final evidence head1ea2a0c passed clean Linux CI39153093360 with all1,726tests/typecheck/lint/production audit/build/artifact; production skipped and Vercel succeeded. Runtime remains77ce283 on the same Preview/isolated QA alias. User explicitly requested completing Reader expiry/offline and an iPhone checklist; no main merge authorized.
+
+Current focused Reader/auth/offline suite41/41 and real hosted library RLS/idempotency/recovery11/11 pass; synthetic API rows cleaned. Existing private QA book loaded through normal UI. One new labeled disposable QA book was created for the forthcoming offline deletion queue; original QA book remains. No refresh sessions revoked and no offline deletion queued yet. Chrome switched to unrelated user browsing while the throttling menu was being opened; native actions stopped, window availability question pending. Last verified QA network mode No throttling; Offline was not confirmed. QA DevTools opened; must restore/close after actual trial. No completed browser expiry/offline acceptance claimed. Details: qa-reader-expiry-offline-preparation-2026-10-18.json; current API report qa-reader-library-api-2026-10-18.json; short requested iPhone checklist iphone-merge-checklist-2026-10-18.md. Private trial metadata reader-expiry-20261018.json0600 is fixture-created, not awaiting elapsed expiry. Resume it rather than duplicating the fixture. All original content/device/human gates remain; automation stays paused.
+
+
 ### Ordinary profile saves preserve rejected envelopes; populated recovery accepted — October 18
 
 Runtime `4d43206` makes ordinary profile persistence refuse an existing unreadable/foreign/unsupported/oversized envelope instead of overwriting it with startup defaults or a cloud replay. Missing and unreadable saves are distinct; every write rechecks the slot. Blocked storage no longer crashes startup and a warning explains that new changes may not persist. Valid owned saves still work. Six adapter and three actual provider lifecycle groups cover the baseline overwrite regression, repeated autosave, unchanged bytes, blocked getter and valid restore. All 1,726 Node 22 tests/typecheck/lint zero errors/five existing warnings/production audit zero/build pass. Envelope validation is not full inner-state validation or an atomic cross-tab guarantee.

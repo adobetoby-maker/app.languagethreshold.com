@@ -65,7 +65,7 @@ const server = createServer(async (req, res) => {
   if (url.pathname === "/api/owner-customers") {
     if (req.method === "GET")
       return json({
-        ready: false,
+        ready: process.argv.includes("--email-ready"),
         unsubscribed: false,
         referral,
         referralCount: 0,
@@ -74,6 +74,19 @@ const server = createServer(async (req, res) => {
     let raw = "";
     for await (const part of req) raw += part;
     const body = JSON.parse(raw);
+    if (body.action === "send") {
+      if (body.recipient !== users[0].email || body.permissionConfirmed !== true) {
+        res.statusCode = 400;
+        return json({ error: "Reviewed recipient missing or changed" });
+      }
+      const message = customerMessages.find((m) => m.id === body.id);
+      if (!message || message.status !== "draft") {
+        res.statusCode = 409;
+        return json({ error: "Already attempted" });
+      }
+      message.status = "accepted";
+      return json({ notice: "Synthetic provider accepted. No real email sent." });
+    }
     if (body.action === "draft")
       customerMessages.unshift({
         id: body.id,

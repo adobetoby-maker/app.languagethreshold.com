@@ -162,7 +162,12 @@ export function OwnerCustomerTools({ userId, email }: { userId: string; email: s
                     className={button}
                     disabled={r.busy || !permission || !r.data?.ready || r.data?.unsubscribed}
                     onClick={() =>
-                      void act({ action: "send", id: m.id, permissionConfirmed: true })
+                      void act({
+                        action: "send",
+                        id: m.id,
+                        permissionConfirmed: true,
+                        recipient: email,
+                      })
                     }
                   >
                     Send this email to {email}

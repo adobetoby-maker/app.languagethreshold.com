@@ -1,0 +1,39 @@
+{
+  "source": "customer-email-referrals",
+  "automatedTests": 1769,
+  "typecheck": "pass",
+  "lintErrors": 0,
+  "productionAuditVulnerabilities": 0,
+  "migration": "20261019052951",
+  "databaseChecks": {
+    "localTransactionRolledBack": true,
+    "hostedRlsAllFourTables": true,
+    "authenticatedMessageRead": false,
+    "anonReferralRpcExecute": false,
+    "newCustomerSecurityWarnings": 0
+  },
+  "browser": {
+    "isolatedSyntheticOnly": true,
+    "draftSaveAndReload": true,
+    "referralIssuance": true,
+    "phoneViewport": [
+      390,
+      844
+    ],
+    "phoneDocumentWidth": 375,
+    "horizontalOverflow": false,
+    "signoutHidesPrivateData": true,
+    "simulatedSendRequiresPermission": true,
+    "reviewedRecipientVerified": true,
+    "simulatedAcceptedRemovesResendButton": true,
+    "viewportRestored": true
+  },
+  "realCustomerMessagesSent": 0,
+  "automaticReferralRewards": false,
+  "pending": [
+    "Resend sending credential approval/configuration",
+    "Business mailing address",
+    "Referral reward terms if rewards desired"
+  ],
+  "productionRelease": "pending"
+}

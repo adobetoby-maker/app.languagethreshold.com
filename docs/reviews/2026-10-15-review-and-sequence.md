@@ -4,6 +4,12 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Customer tools merged and production accepted — October 18
+
+PR43 is merged as291c2f0. All1,769tests/typecheck/lint pass; workflow39205532678 succeeded and the correct app alias points to READY productiondpl_7V2cEkjQBQMGHvrCQ2FCoPRLnqcX at that exact functional source. Live normal owner-session read verifies the selected owner's customer composer, referral issuance control, correctly gated email configuration and0alerts; no real draft/referral/message was created. Live guest owner/referral APIs and cross-origin unsubscribe return403/private-no-store. Earlier Preview78e2d79 also renders referral and opt-out pages with missing-link handling. Evidence is qa-customer-tools-2026-10-18.json.
+
+Customer drafting and referral tracking are live. Direct sending still needs explicit Resend credential approval/configuration and the business mailing address; the questions are pending and no approval/address is inferred. Referral reward terms remain unchosen and rewards off. No real customer email/coupon/reward/charge created. Simulated browser sending verified the exact reviewed recipient, permission checkbox, accepted status and missing resend control. Account email changes now block sending until refreshed/reviewed. These features do not complete unfinished lesson/Reader/device/content/human assessment gates; the roofing automation remains paused.
+
 ### Customer email composer and referral attribution — October 18
 
 New customer tools extend each selected owner account with saved plain-text drafts, individually reviewed send attempts, recipient opt-outs, referral-link issuance/disablement and confirmed new-registration counts. Email sending fails closed without the existing verified Resend sender/key and business postal footer; credential approval and postal-address questions remain pending. No real customer email, campaign or reward has been sent/created. Referral rewards remain off; counts are registrations, not purchases. New confirmed accounts explicitly claim one referral within seven days; self/existing/unconfirmed/duplicate claims are excluded. Auth return preserves only the valid referral code.

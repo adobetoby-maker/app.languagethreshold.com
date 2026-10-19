@@ -4,6 +4,8 @@ import { Sparkles, Lock, CheckCircle } from "lucide-react";
 import { useSubscription } from "@/state/subscription-state";
 import { useAuth } from "@/state/auth-state";
 import { useApp, type TabKey } from "@/state/app-state";
+import { AuthModal } from "@/components/auth/AuthModal";
+import { foundationAccess } from "@/lib/core30-plan";
 
 // Tabs that are always free — no subscription required
 const FREE_TABS = new Set<TabKey>(["missionary"]);
@@ -14,6 +16,31 @@ const MODULE_FREE_TABS: Record<string, Set<TabKey>> = {
 };
 
 const PAYWALL_SEEN_KEY = "lt.paywallSeen";
+
+/** Shown to a signed-out learner on a Foundation tab: an account is free, the paid trial is not. */
+function FoundationSignInPrompt() {
+  const [authOpen, setAuthOpen] = useState(false);
+  return (
+    <div
+      data-testid="foundation-signin-prompt"
+      className="mx-auto my-10 max-w-sm rounded-2xl border border-gold/25 bg-gold/[0.05] px-6 py-8 text-center"
+    >
+      <h2 className="text-xl font-bold text-foreground mb-2">Free with a free account</h2>
+      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+        The Roofing Foundation is free. Create a free account or sign in to start Lesson 1.
+      </p>
+      <button
+        type="button"
+        data-testid="foundation-signin-open"
+        onClick={() => setAuthOpen(true)}
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-gold px-5 py-3 text-sm font-bold text-background transition-opacity hover:opacity-90"
+      >
+        Create a free account or sign in
+      </button>
+      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+    </div>
+  );
+}
 
 interface Props {
   currentTab: TabKey;
@@ -43,6 +70,15 @@ export function SubscriptionGate({ currentTab, children }: Props) {
   // Free tabs bypass the gate entirely
   if (FREE_TABS.has(currentTab)) return <>{children}</>;
   if (moduleFree?.has(currentTab)) return <>{children}</>;
+
+  // Foundation lessons are free with an account (see foundationAccess); a guest gets a sign-in
+  // prompt, not the paid trial. Auth loading is waited out the same way as on the paid path.
+  const foundation = foundationAccess(activeModuleId, currentTab, {
+    loading: authLoading,
+    signedIn: !!user,
+  });
+  if (foundation === "free") return <>{children}</>;
+  if (foundation === "sign-in") return <FoundationSignInPrompt />;
 
   // Wait for both auth + subscription to resolve
   if (authLoading || subLoading) return <>{children}</>;

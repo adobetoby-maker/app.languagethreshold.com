@@ -33,7 +33,7 @@ export default defineConfig({
     },
     {
       name: "desktop",
-      testMatch: /(ai-features|auth-modal|core30|core30-plan|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz)\.spec\.ts/,
+      testMatch: /(ai-features|auth-modal|core30|core30-plan|foundation|lesson-content|lesson-write|dictionary-roofing|cognate-bridge|grammar-quiz)\.spec\.ts/,
       dependencies: ["setup"],
       use: { viewport: { width: 1440, height: 900 }, storageState: STATE },
     },

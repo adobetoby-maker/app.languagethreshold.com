@@ -7,7 +7,7 @@ import { CalendarCheck, CheckCircle2, ChevronRight, RefreshCw } from "lucide-rea
 import { useApp } from "@/state/app-state";
 import { cn } from "@/lib/utils";
 import {
-  CORE30_PLAN_DAYS,
+  core30PaceFor,
   masteredLessons,
   planCalendar,
   planToday,
@@ -38,7 +38,7 @@ export function Core30PlanCard({
   totalLessons,
   onOpenLesson,
   onStartReview,
-  reviewEveryDays = 4,
+  reviewEveryDays,
   assessedTiming,
   managedPlanUrl,
 }: {
@@ -52,6 +52,11 @@ export function Core30PlanCard({
   managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
+  // Foundation modules run a shorter plan; every other module keeps 3 days / 4 days / 90 days.
+  const pace = core30PaceFor(moduleId);
+  const reviewDays = reviewEveryDays ?? pace.reviewEveryDays;
+  const lessonCadence =
+    pace.newLessonEveryDays === 1 ? "every day" : `every ${pace.newLessonEveryDays} days`;
   const context = {
     targetLanguage: state.selectedLanguage,
     instructionLanguage: state.nativeLanguage,
@@ -71,14 +76,14 @@ export function Core30PlanCard({
     paused && assessedTiming.pausedOn
       ? assessedTiming.pausedOn
       : (planLocalDay(assessedTiming?.timezone) ?? toDateKey(new Date()));
-  const plan = planToday(log, totalLessons, today, reviewEveryDays);
+  const plan = planToday(log, totalLessons, today, reviewDays, pace);
   const [draftDate, setDraftDate] = useState(today);
   const [changingDate, setChangingDate] = useState(false);
 
   const masteredSet = useMemo(() => new Set(masteredLessons(log)), [log]);
   const calendar = useMemo(
-    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons, reviewEveryDays) : []),
-    [plan.startDate, totalLessons, reviewEveryDays],
+    () => (plan.startDate ? planCalendar(plan.startDate, totalLessons, reviewDays, pace) : []),
+    [plan.startDate, totalLessons, reviewDays, pace],
   );
   const lastReviewKey = log?.lastReviewAt
     ? toDateKey(new Date(Date.parse(log.lastReviewAt)))
@@ -103,13 +108,13 @@ export function Core30PlanCard({
           <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.6} />
           <div className="min-w-0 flex-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
-              90-day plan
+              {pace.planDays}-day plan
             </p>
             <h2 className="mt-1 text-base font-semibold text-white">
-              Learn all {totalLessons} lessons in 90 days
+              Learn all {totalLessons} lessons in {pace.planDays} days
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              One new lesson every 3 days. Every {reviewEveryDays} days you review every lesson you
+              One new lesson {lessonCadence}. Every {reviewDays} days you review every lesson you
               have mastered so far. You mark each lesson mastered yourself; the app records the
               steps you open.
             </p>
@@ -132,7 +137,7 @@ export function Core30PlanCard({
                 className="min-h-11 rounded-xl px-5 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-40"
                 style={GOLD_BUTTON}
               >
-                Start my 90-day plan
+                Start my {pace.planDays}-day plan
               </button>
             </div>
           </div>
@@ -144,9 +149,9 @@ export function Core30PlanCard({
   const dayLabel =
     plan.dayNumber < 1
       ? `Starts ${formatPlanDate(plan.startDate)}`
-      : plan.dayNumber <= CORE30_PLAN_DAYS
-        ? `Day ${plan.dayNumber} of ${CORE30_PLAN_DAYS}`
-        : `Day ${plan.dayNumber} · past the ${CORE30_PLAN_DAYS}-day window`;
+      : plan.dayNumber <= pace.planDays
+        ? `Day ${plan.dayNumber} of ${pace.planDays}`
+        : `Day ${plan.dayNumber} · past the ${pace.planDays}-day window`;
   const statusLabel = paused
     ? "Paused · practice is available"
     : plan.status === "ahead"
@@ -287,7 +292,7 @@ export function Core30PlanCard({
       <details className="group mt-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-xs text-white/60 select-none hover:text-white">
           <ChevronRight className="h-3.5 w-3.5 transition-transform group-open:rotate-90" />
-          Plan calendar · {totalLessons} lessons, reviews every {reviewEveryDays} days
+          Plan calendar · {totalLessons} lessons, reviews every {reviewDays} days
         </summary>
         <ol className="mt-2 grid grid-cols-3 gap-1.5 sm:grid-cols-5">
           {calendar.map((entry) => {

@@ -82,6 +82,7 @@ import {
   type LessonPosition,
 } from "@/lib/lesson-drafts";
 import {
+  isFoundationModule,
   masteredLessons,
   openedWayCount,
   wayVisitAt,
@@ -89,6 +90,98 @@ import {
   toDateKey,
   type Core30Way,
 } from "@/lib/core30-plan";
+
+// A trade's free Foundation sits in front of its Core 30 (module foundation-<trade>, see
+// src/data/modules.ts). Add a row here when another trade gets one.
+const FOUNDATION_PATHS: Record<
+  string,
+  { foundationId: string; tradeLabel: string; nextBlurb: string }
+> = {
+  roofing: {
+    foundationId: "foundation-roofing",
+    tradeLabel: "Roofing",
+    nextBlurb: "30 lessons that take you from the Foundation to running a crew in Spanish.",
+  },
+};
+
+/** Switch the active module, land on its Core 30 page and keep refresh/share on that module. */
+function useOpenCore30Of() {
+  const { state, dispatch } = useApp();
+  return (moduleId: string) => {
+    dispatch({ type: "SET_ACTIVE_MODULE", payload: moduleId });
+    dispatch({ type: "SET_TAB", payload: "core30" });
+    const next = lessonLocation(
+      window.location.href,
+      { moduleId, target: state.selectedLanguage, native: state.nativeLanguage },
+      null,
+    );
+    if (next) window.history.replaceState(window.history.state, "", next);
+    scrollLessonPageToTop();
+  };
+}
+
+/** On a trade's Core 30 page: points a beginner to the free Foundation until it is mastered. */
+function FoundationEntryCard({ moduleId }: { moduleId: string }) {
+  const { state } = useApp();
+  const openCore30Of = useOpenCore30Of();
+  const path = FOUNDATION_PATHS[moduleId];
+  const foundation = path ? getCurriculum(path.foundationId) : null;
+  if (!path || !foundation) return null;
+  const foundationLog =
+    state.core30Log[
+      core30ScopeKey(path.foundationId, {
+        targetLanguage: state.selectedLanguage,
+        instructionLanguage: state.nativeLanguage,
+      })
+    ];
+  if (masteredLessons(foundationLog).length >= foundation.lessons.length) return null;
+  return (
+    <div
+      data-testid="foundation-entry-card"
+      className="mb-5 flex flex-col gap-3 rounded-2xl sm:flex-row sm:items-center sm:justify-between border border-gold/25 bg-gold/[0.05] p-4"
+    >
+      <p className="min-w-0 flex-1 text-sm text-white/80">
+        New to Spanish? Start with the free {path.tradeLabel} Foundation — {foundation.lessons.length}{" "}
+        short lessons, about two weeks, before Lesson 1.
+      </p>
+      <button
+        type="button"
+        data-testid="foundation-entry-open"
+        onClick={() => openCore30Of(path.foundationId)}
+        className="min-h-11 w-full shrink-0 rounded-xl px-5 text-sm font-semibold transition-opacity hover:opacity-90 sm:w-auto"
+        style={{ background: "linear-gradient(135deg, #C9A84C 0%, #E8C878 100%)", color: "#0B0B0F" }}
+      >
+        Open the Foundation
+      </button>
+    </div>
+  );
+}
+
+/** On a Foundation's Core 30 page: the way on to the trade's own Core 30. */
+function FoundationNextCard({ moduleId }: { moduleId: string }) {
+  const openCore30Of = useOpenCore30Of();
+  const trade = Object.entries(FOUNDATION_PATHS).find(([, p]) => p.foundationId === moduleId);
+  if (!trade) return null;
+  const [tradeModuleId, path] = trade;
+  return (
+    <div
+      data-testid="foundation-next-card"
+      className="mb-5 flex flex-col gap-3 rounded-2xl sm:flex-row sm:items-center sm:justify-between border border-white/[0.07] bg-card/40 p-4"
+    >
+      <p className="min-w-0 flex-1 text-sm text-white/80">
+        Next: {path.tradeLabel} Core 30 — {path.nextBlurb}
+      </p>
+      <button
+        type="button"
+        data-testid="foundation-next-open"
+        onClick={() => openCore30Of(tradeModuleId)}
+        className="min-h-11 w-full shrink-0 rounded-xl border border-gold/40 bg-gold/10 px-5 text-sm font-semibold text-gold hover:bg-gold/20 sm:w-auto"
+      >
+        Go to {path.tradeLabel}
+      </button>
+    </div>
+  );
+}
 
 const DailyLessonPlan = lazy(() =>
   import("@/components/exams/DailyLessonPlan").then((module) => ({
@@ -2127,18 +2220,21 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-          <a
-            className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
-            href={examsLocation({
-              moduleId,
-              target: state.selectedLanguage,
-              native: state.nativeLanguage,
-              returnPlanId: activeAssessmentPlan,
-              orgId: approvedPlanTiming?.organizationId,
-            })}
-          >
-            Entrance, day 45 and day 90 exams
-          </a>
+          {/* A Foundation has no entrance or day 45/90 exams; they belong to the Core 30. */}
+          {!isFoundationModule(moduleId) && (
+            <a
+              className="mr-4 mt-2 inline-flex min-h-11 items-center text-sm text-gold underline"
+              href={examsLocation({
+                moduleId,
+                target: state.selectedLanguage,
+                native: state.nativeLanguage,
+                returnPlanId: activeAssessmentPlan,
+                orgId: approvedPlanTiming?.organizationId,
+              })}
+            >
+              Entrance, day 45 and day 90 exams
+            </a>
+          )}
           {!howOpen && (
             <button
               type="button"
@@ -2163,6 +2259,9 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 
       {!howOpen && (
         <>
+          {/* A beginner's way in, above the lesson and the plan */}
+          {!reviewOpen && !runnerActive && <FoundationEntryCard moduleId={moduleId} />}
+
           {/* Celebration banner */}
           {justCompleted && (
             <div className="mb-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center animate-in fade-in duration-300">
@@ -2358,7 +2457,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           )}
 
           {/* Planning and progress follow the lesson actions on every screen size. */}
-          {/* 90-day plan: start date, today's lesson, review cadence */}
+          {/* Plan: start date, today's lesson, review cadence (90 days; a Foundation runs 14) */}
           {!reviewOpen && !runnerActive && approvedPlanTiming === null && (
             <p role="status" className="my-4 text-sm">
               This plan’s schedule is not available. Your lesson list remains available.
@@ -2389,6 +2488,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               }}
             />
           )}
+
+          {!reviewOpen && !runnerActive && <FoundationNextCard moduleId={moduleId} />}
 
           {!runnerActive && <LegacyCore30History moduleId={moduleId} context={progressContext} />}
 

@@ -219,6 +219,8 @@ function buildPlan(): Pair[] {
   const pairs: Pair[] = [];
   for (const module of MODULES) {
     if (wantModule.length > 0 && !wantModule.includes(module.id.toLowerCase())) continue;
+    // A Foundation's passages and verbs are hand-authored in public/lesson-content; never regenerate.
+    if (module.id.startsWith("foundation-")) continue;
     const curriculum = getCurriculum(module.id);
     if (!curriculum) continue;
     for (const language of TARGETS) {

@@ -707,9 +707,13 @@ for (const { dir, name } of generated) {
         words: content.words !== undefined,
         verbs: true,
       };
-      // A verbs-only lesson (roofing) must really have its passage and words authored elsewhere.
+      // A lesson without its own passage or words (roofing; a Foundation's words) must really have
+      // them authored elsewhere.
       if (!parts.passage || !parts.words) {
-        assert.equal(moduleId, "roofing", "only roofing may omit its passage and words");
+        assert.ok(
+          moduleId === "roofing" || moduleId.startsWith("foundation-"),
+          "only roofing and Foundations may omit their passage or words",
+        );
       }
       const errors = validateLessonContent(content, {
         language,

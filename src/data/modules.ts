@@ -3,6 +3,7 @@
 
 import type { Language, NativeLanguage } from "@/state/app-state";
 import { TRAVEL_ZONE_MODULES } from "./travel-zone.ts";
+import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts";
 
 export interface AppModule {
   id: string;
@@ -152,6 +153,31 @@ export const MODULES: AppModule[] = [
       "shingle", "underlayment", "flashing", "drip edge", "valley", "roof deck",
       "ridge cap", "harness", "roof anchor", "tear-off", "nailing strip", "gutter",
     ],
+  },
+  // Free Foundation in front of the Roofing Core 30. Another trade gets one by adding a
+  // foundation-<module> entry here and in CURRICULA; the gate, plan pace and offline/content
+  // build all key off the "foundation-" id prefix.
+  {
+    id: FOUNDATION_ROOFING_MODULE_ID,
+    name: "Roofing Foundation",
+    emoji: "🏠",
+    category: "Trades",
+    blurb:
+      "Ten short, free beginner lessons: sounds, numbers, ser and estar, questions and polite requests, taught with roofing words before Roofing Lesson 1.",
+    priceCents: 0,
+    languages: ["Spanish"],
+    aiPersona:
+      "You are a patient roofing crew member speaking simple, slow A1 Spanish to a true beginner. Use short sentences and common roofing words. Offer English help only when the learner is stuck, then return to Spanish right away.",
+    userRole: "Beginner roofer learning Spanish",
+    challengePrompts: [
+      "Greet the crew, say your name, and ask how to say a tool in Spanish.",
+      "Tell the crew lead what time you start and how many bundles you need.",
+      "Describe the roof to a crew member: wet, slippery or safe.",
+      "Ask a new crew lead where the ladder is, who the boss is, and when you start.",
+      "Report a small accident on the roof and ask for help.",
+    ],
+    // English headwords of terms taught in the ten lessons (tests/foundation-curriculum.test.mjs).
+    vocabFocus: ["roof", "tile", "nail", "hammer", "ladder", "harness", "bundle", "wet", "tarp", "crew"],
   },
   {
     id: "emergency-medicine",

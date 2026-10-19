@@ -20,6 +20,10 @@ import {
 } from "./curriculum-helpers.ts";
 import { TRAVEL_ZONE_CURRICULA, TRAVEL_ZONE_READING_PATTERNS } from "./travel-zone.ts";
 import { ROOFING_LESSONS } from "./roofing-curriculum.ts";
+import {
+  FOUNDATION_ROOFING_LESSONS,
+  FOUNDATION_ROOFING_MODULE_ID,
+} from "./foundation-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
@@ -2916,6 +2920,13 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     threshold:
       "By Lesson 30, you can brief a roofing crew, direct tear-off and installation, raise a fall or weather concern, and close out the day in Spanish while verifying job-specific product instructions.",
     lessons: ROOFING_LESSONS,
+  },
+  [FOUNDATION_ROOFING_MODULE_ID]: {
+    moduleId: FOUNDATION_ROOFING_MODULE_ID,
+    headline: "The Roofing Foundation",
+    threshold:
+      "By Lesson 10, you can greet the crew, count and measure, describe the roof as safe or wet, ask the questions you need, and start Roofing Lesson 1.",
+    lessons: FOUNDATION_ROOFING_LESSONS,
   },
   soccer: {
     moduleId: "soccer",

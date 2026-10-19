@@ -1,0 +1,37 @@
+{
+  "sourceCommit": "6f8606d19efba9034863ea4f552a83c146732214",
+  "authorization": "User approved creating a sending-only Resend credential and storing it in app server environment.",
+  "credential": {
+    "name": "Language Threshold customer email 2026-10-19",
+    "permission": "Sending access",
+    "domain": "languagethreshold.com",
+    "domainVerifiedInProviderUi": true,
+    "existingKeysPreserved": true,
+    "destination": "RESEND_API_KEY",
+    "targets": [
+      "production"
+    ],
+    "type": "sensitive",
+    "secretPrintedOrCommitted": false
+  },
+  "deployment": {
+    "id": "dpl_CqTUDgm61wqFuaYkcDdGHBFkrVSA",
+    "state": "READY",
+    "target": "production",
+    "project": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "sameApplicationSource": true
+  },
+  "liveOwnerRead": {
+    "usersLoaded": true,
+    "missingEmailConfigurationWarning": false,
+    "alerts": 0,
+    "customerMessagesSent": 0
+  },
+  "referralPreference": "Discount for both people; amounts/duration/qualifying event not yet chosen.",
+  "pending": [
+    "Actual business postal address (answer either did not supply an address)",
+    "Discount terms for both people",
+    "Actual provider/customer email acceptance test after setup is complete"
+  ],
+  "proofImage": "/Users/drive/git-backups/language-threshold-email-secret-2026-10-19.jpg"
+}

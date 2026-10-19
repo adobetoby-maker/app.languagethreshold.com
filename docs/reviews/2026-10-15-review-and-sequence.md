@@ -2,7 +2,13 @@
 
 Date: October 15, 2026. Codex review, requested by Toby.
 
-## Current checkpoint — October 18
+## Current checkpoint — October 19
+
+### Approved Resend credential installed — October 19
+
+Toby explicitly approved creating the sending-only credential and storing it in the app server environment. Normal Google sign-in to the existing Resend account confirmed languagethreshold.com is verified. A new sending-access key restricted to that domain was created and saved directly in Vercel as a sensitive production-only RESEND_API_KEY on the verified app project; existing keys and other businesses/domains were untouched. The one-time secret was not printed, placed in Git/argv, or written to a local file; temporary browser memory was cleared. Redeployment of the unchanged application source6f8606d is READY/production atdpl_CqTUDgm61wqFuaYkcDdGHBFkrVSA. Normal live owner reload recognizes email configuration with0alerts. This is configuration/readiness proof, not provider acceptance or inbox delivery; no customer email was sent.
+
+Customer promotional sending remains gated because the answer “either” did not give an actual mailing address. The exact business address/PO box question is pending. Toby chose discounts for both people; amount, duration and qualifying event remain unchosen, with a clarification pending. No automatic referral rewards/coupons have been enabled or issued. Earlier “credential approval pending” checkpoints are historical and superseded by this explicit approval/configuration. Evidence qa-customer-email-configuration-2026-10-19.json. The existing sender setting is retained; actual sending will be verified after the remaining setup. Prior lesson/Reader/device/content/human gates and paused automation are unchanged.
 
 ### Customer tools merged and production accepted — October 18
 

@@ -3,7 +3,12 @@ import { z } from "zod";
 import { createFileRoute } from "@tanstack/react-router";
 import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
 import { ownerDiscountAction } from "@/lib/owner-discounts";
-import { ownerStripe, discountView, manageOwnerDiscount } from "@/lib/owner-discounts-server";
+import {
+  ownerStripe,
+  discountView,
+  manageOwnerDiscount,
+  ownerDiscountFailure,
+} from "@/lib/owner-discounts-server";
 import {
   authenticatedTeamUser,
   requirePlatformOwner,
@@ -43,7 +48,7 @@ export const Route = createFileRoute("/api/owner-discounts")({
             nextCursor: list.data.at(-1)?.id ?? null,
           });
         } catch (error) {
-          return scopedTeamError(error);
+          return scopedTeamError(ownerDiscountFailure(error));
         }
       },
       POST: async ({ request }) => {
@@ -66,7 +71,7 @@ export const Route = createFileRoute("/api/owner-discounts")({
           });
           return json(result);
         } catch (error) {
-          return scopedTeamError(error);
+          return scopedTeamError(ownerDiscountFailure(error));
         }
       },
     },

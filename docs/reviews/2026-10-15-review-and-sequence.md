@@ -4,6 +4,13 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Owner invitation cancellation follow-up — October 18
+
+PR40 merged as fbb71c2 after green head418c165 CI39200826768. Its user-management/discount controls are now on main, including the independently merged Foundation work; no Foundation lesson or paywall change is reverted. Production workflow39201047085 is running at this checkpoint. Direct app email remains unconfigured, with the explicit credential-creation question pending and no approval assumed.
+
+A final phase review adds a current-request recheck after password-link status persistence and immediately before email dispatch. PostgREST can resolve an aborted update as an error result rather than throw; the earlier guard before that update did not cover request departure during it. A real SDK/controller fixture aborts at that boundary and confirms zero email calls, without contacting a provider. All1,758 integrated-main tests/typecheck/lint0 pass. This follow-up does not enable email, create credentials, send invitations, alter access, or change billing. Original user-management/hosted/phone evidence remains below; no additional device acceptance is claimed.
+
+
 ### Owner account and discount controls — October 18
 
 Toby requested self-service user details/usage, tester creation, password invitations, complimentary access and discounts. Application827a591 adds a paged searchable Auth projection and per-user site-wide30-day practice breakdown, excluding raw profiles/conversations/credentials. New owner-verified APIs keep directory/grants/operations server-only; support and learner accounts are denied. Complimentary grants reuse one isolated learner seat, with an explicit end date and reason, without changing existing paid subscriptions. Tester creation never chooses a password or silently overwrites an existing account. Password-link generation verifies the exact selected recipient and canonical app return; recipient cooldown and private in-memory copy/email-draft fallback handle unavailable direct email. Persisted invitation status distinguishes provider acceptance from unconfirmed delivery. No password link enters audit or storage.

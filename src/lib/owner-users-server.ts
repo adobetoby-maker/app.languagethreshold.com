@@ -129,6 +129,7 @@ export async function manageOwnerUser(
     .from("platform_owner_operations")
     .update({ status: "link_created" })
     .eq("id", body.requestId);
+  requireCurrentTeamRequest(db);
   if (body.delivery === "email") {
     try {
       await sendTeamEmail(

@@ -17,7 +17,12 @@ test("customer message validation rejects header injection, oversized body, and 
   ])
     assert.equal(customerAction.safeParse(v).success, false);
   assert.equal(
-    customerAction.safeParse({ action: "send", id, permissionConfirmed: true }).success,
+    customerAction.safeParse({
+      action: "send",
+      id,
+      permissionConfirmed: true,
+      recipient: "fixture@example.invalid",
+    }).success,
     true,
   );
 });
@@ -136,7 +141,7 @@ test("send checks sender configuration, confirmed recipient, suppression, and op
       manageCustomer(
         fixture().db,
         actor,
-        { action: "send", id, permissionConfirmed: true },
+        { action: "send", id, permissionConfirmed: true, recipient: "fixture@example.invalid" },
         signal,
       ),
       /requires/,
@@ -155,7 +160,7 @@ test("send checks sender configuration, confirmed recipient, suppression, and op
         manageCustomer(
           fixture(options).db,
           actor,
-          { action: "send", id, permissionConfirmed: true },
+          { action: "send", id, permissionConfirmed: true, recipient: "fixture@example.invalid" },
           signal,
         ),
         pattern,
@@ -190,7 +195,7 @@ test("accepted status is distinct from delivery; timeout is unconfirmed and neve
         await manageCustomer(
           accepted.db,
           actor,
-          { action: "send", id, permissionConfirmed: true },
+          { action: "send", id, permissionConfirmed: true, recipient: "fixture@example.invalid" },
           signal,
         )
       ).notice,
@@ -207,7 +212,7 @@ test("accepted status is distinct from delivery; timeout is unconfirmed and neve
         await manageCustomer(
           unknown.db,
           actor,
-          { action: "send", id, permissionConfirmed: true },
+          { action: "send", id, permissionConfirmed: true, recipient: "fixture@example.invalid" },
           signal,
         )
       ).notice,
@@ -218,5 +223,27 @@ test("accepted status is distinct from delivery; timeout is unconfirmed and neve
   } finally {
     process.env = previous;
     globalThis.fetch = original;
+  }
+});
+
+test("changed recipient cannot receive a message reviewed for an older email", async () => {
+  const previous = { ...process.env };
+  Object.assign(process.env, {
+    RESEND_API_KEY: "fixture-only",
+    TEAM_FROM_EMAIL: "fixture@example.invalid",
+    CUSTOMER_EMAIL_POSTAL_ADDRESS: "Fixture postal",
+  });
+  try {
+    await assert.rejects(
+      manageCustomer(
+        fixture().db,
+        actor,
+        { action: "send", id, permissionConfirmed: true, recipient: "old@example.invalid" },
+        signal,
+      ),
+      /recipient email changed/,
+    );
+  } finally {
+    process.env = previous;
   }
 });

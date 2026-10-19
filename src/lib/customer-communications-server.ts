@@ -63,6 +63,10 @@ export async function manageCustomer(
     (account.data.user.banned_until && Date.parse(account.data.user.banned_until) > Date.now())
   )
     throw new TeamOperationError("A confirmed, active recipient account is required.");
+  if (account.data.user.email.toLowerCase() !== body.recipient.toLowerCase())
+    throw new TeamOperationError(
+      "The recipient email changed. Refresh and review the customer before sending.",
+    );
   const pref = await db
     .from("customer_email_preferences")
     .upsert({ user_id: m.user_id }, { onConflict: "user_id", ignoreDuplicates: true });

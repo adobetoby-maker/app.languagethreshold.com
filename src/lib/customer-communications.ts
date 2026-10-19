@@ -16,6 +16,7 @@ export const customerAction = z.discriminatedUnion("action", [
     action: z.literal("send"),
     id: z.string().uuid(),
     permissionConfirmed: z.literal(true),
+    recipient: z.string().trim().email().max(254),
   }),
   z.object({ action: z.literal("referral"), userId: z.string().uuid() }),
   z.object({ action: z.literal("disable_referral"), userId: z.string().uuid() }),

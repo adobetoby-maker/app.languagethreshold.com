@@ -4,6 +4,12 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Customer email composer and referral attribution — October 18
+
+New customer tools extend each selected owner account with saved plain-text drafts, individually reviewed send attempts, recipient opt-outs, referral-link issuance/disablement and confirmed new-registration counts. Email sending fails closed without the existing verified Resend sender/key and business postal footer; credential approval and postal-address questions remain pending. No real customer email, campaign or reward has been sent/created. Referral rewards remain off; counts are registrations, not purchases. New confirmed accounts explicitly claim one referral within seven days; self/existing/unconfirmed/duplicate claims are excluded. Auth return preserves only the valid referral code.
+
+Migration20261019052951_customer_communications_referrals applied; four tables have RLS and no browser grants, both invoker functions deny public/browser execute. Advisors add only four expected informational no-policy notices for closed service tables, no customer-related WARN. Local transaction SQL verifies claims/deduplication/cooldown/suppression/browser denial and rolls back. Provider transport mocks verify sender readiness, opt-out/confirmation checks, fixed one-attempt handling, acceptance versus unknown outcome, private footer and no draft sends. Owner API tests cover guest/support/user-metadata denial and same-origin writes. Local synthetic desktop/390px UI verifies draft save/reload, referral issuance, unconfigured-send disabled, no horizontal overflow and sign-out clearing; temporary viewport restored and fixture tab closed. This is not real delivery or physical iPhone acceptance. Production release pending at this checkpoint; prior learning/Reader/content gates remain unchanged.
+
 ### Owner dashboard released and live owner reads accepted — October 18
 
 PR40/41/42 are merged. Functional main source744032d is deployed READY/production on the correct app project at dpl_65WV8qfEo9in7FgPTuRx45xkSBNn; production workflow39203450978 succeeded. All1,761 integrated tests/typecheck/lint pass. Normal existing owner-session browser reload confirms14registered accounts, exact named-tester search, account details/recorded usage/existing team access, disabled unconfigured direct email, and the now-loaded discount form with0alerts. No real account/grant/invitation/coupon/billing mutation was made in that browser acceptance. No temporary browser viewport or network override remains.

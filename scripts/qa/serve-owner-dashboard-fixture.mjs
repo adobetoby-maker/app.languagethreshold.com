@@ -53,6 +53,8 @@ const users = [
   },
 ];
 let discounts = [];
+let customerMessages = [],
+  referral = null;
 const server = createServer(async (req, res) => {
   res.setHeader("Cache-Control", "no-store");
   const url = new URL(req.url, "http://localhost");
@@ -60,6 +62,36 @@ const server = createServer(async (req, res) => {
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(v));
   };
+  if (url.pathname === "/api/owner-customers") {
+    if (req.method === "GET")
+      return json({
+        ready: false,
+        unsubscribed: false,
+        referral,
+        referralCount: 0,
+        messages: customerMessages,
+      });
+    let raw = "";
+    for await (const part of req) raw += part;
+    const body = JSON.parse(raw);
+    if (body.action === "draft")
+      customerMessages.unshift({
+        id: body.id,
+        subject: body.subject,
+        body: body.body,
+        status: "draft",
+        created_at: new Date().toISOString(),
+      });
+    if (body.action === "referral")
+      referral = { code: "20000000-0000-4000-8000-000000000001", active: true };
+    if (body.action === "disable_referral") referral.active = false;
+    return json({
+      notice:
+        body.action === "draft"
+          ? "Draft saved. No email sent."
+          : "Referral tracking updated. Automatic rewards are off.",
+    });
+  }
   if (url.pathname === "/api/owner-users") {
     if (req.method === "GET") {
       if (url.searchParams.has("userId"))

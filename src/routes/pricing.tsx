@@ -1,4 +1,4 @@
-import { INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
+import { INDIVIDUAL_PRICES, INDIVIDUAL_PAYMENT_LINKS } from "@/lib/individual-pricing";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
@@ -25,10 +25,10 @@ const ANNUAL_PRICE_ID = INDIVIDUAL_PRICES.annual;
 const FAMILY_PRICE_ID = INDIVIDUAL_PRICES.family;
 
 // Fallback Payment Links — live Stripe links created 2026-05-26
-const MONTHLY_PAYMENT_LINK = "https://buy.stripe.com/14A9AVemfg0l1zH8aqbfO08";
-const ANNUAL_PAYMENT_LINK = "https://buy.stripe.com/bJe7sN2Dx29v0vD76mbfO09";
-const FAMILY_PAYMENT_LINK = "https://buy.stripe.com/bJecN791V29v4LT76mbfO0a";
-const JUNIOR_ANNUAL_LINK = "https://buy.stripe.com/bJe8wRgun8xT6U1eyObfO0d";
+const MONTHLY_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.monthly;
+const ANNUAL_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.annual;
+const FAMILY_PAYMENT_LINK = INDIVIDUAL_PAYMENT_LINKS.family;
+const JUNIOR_ANNUAL_LINK = INDIVIDUAL_PAYMENT_LINKS.junior;
 
 async function startCheckout(
   priceId: string | undefined,

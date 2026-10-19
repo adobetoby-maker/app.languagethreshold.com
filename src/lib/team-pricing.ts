@@ -24,3 +24,6 @@ export function teamPeriodCents(seats: number, term: TeamTerm) {
   const volumeSeats = Math.max(0, seats - TEAM_VOLUME_SEATS);
   return baseCents + standardSeats * standardSeatCents + volumeSeats * volumeSeatCents;
 }
+
+/** Shared catalog identity for team checkout and scoped owner discounts. */
+export const teamPriceLookupKey = (term: TeamTerm) => `language-threshold-team-${term}-v3`;

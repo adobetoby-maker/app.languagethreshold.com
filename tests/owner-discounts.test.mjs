@@ -22,6 +22,37 @@ function fixture() {
   let promotions = [];
   const calls = [];
   const stripe = {
+    prices: {
+      retrieve: async (id) => ({ active: true, product: "prod_" + id.replace(/\W|_/g, "") }),
+      list: async ({ lookup_keys }) => ({
+        data: [
+          {
+            id: "price_team",
+            active: true,
+            product: "prod_" + lookup_keys[0].replace(/\W|_/g, ""),
+          },
+        ],
+      }),
+      create: async () => {
+        throw Error("Unexpected catalog creation");
+      },
+    },
+    paymentLinks: {
+      list: async () => ({
+        data: [
+          {
+            id: "plink_junior",
+            active: true,
+            url: "https://buy.stripe.com/bJe8wRgun8xT6U1eyObfO0d",
+          },
+        ],
+        has_more: false,
+      }),
+      listLineItems: async () => ({
+        data: [{ price: { active: true, product: "prod_junior" } }],
+        has_more: false,
+      }),
+    },
     coupons: {
       retrieve: async (id) => {
         if (coupon) return coupon;
@@ -159,4 +190,24 @@ test("owner discount credentials are isolated from the existing billing key", as
       old[i] === undefined ? delete process.env[k] : (process.env[k] = old[i]),
     );
   }
+});
+
+test("coupons are restricted to app plan products and fail closed when the app catalog cannot be verified", async () => {
+  const f = fixture();
+  await manageOwnerDiscount(f.stripe, "owner", input());
+  const scoped = f.calls.find((c) => c[0] === "coupon")[1].applies_to.products;
+  assert.equal(scoped.length, 7);
+  assert.ok(scoped.includes("prod_junior"));
+  assert.ok(scoped.some((p) => p.includes("teammonthly")));
+  assert.equal(scoped.includes("prod_unrelatedBusiness"), false);
+  const bad = fixture();
+  bad.stripe.paymentLinks.list = async () => ({
+    data: [{ id: "plink_other", active: true, url: "https://buy.stripe.com/unrelated" }],
+    has_more: false,
+  });
+  await assert.rejects(manageOwnerDiscount(bad.stripe, "owner", input()), /No discount was issued/);
+  assert.equal(
+    bad.calls.some((c) => c[0] === "coupon"),
+    false,
+  );
 });

@@ -19,6 +19,7 @@ import {
   TEAM_VOLUME_SEATS,
   teamPeriodCents,
   teamPriceTiers,
+  teamPriceLookupKey,
   type TeamTerm,
 } from "@/lib/team-pricing";
 
@@ -43,7 +44,7 @@ const bodySchema = z.discriminatedUnion("action", [
 ]);
 
 async function teamStripePrice(stripe: Stripe, term: TeamTerm) {
-  const lookupKey = `language-threshold-team-${term}-v3`;
+  const lookupKey = teamPriceLookupKey(term);
   const existing = await stripe.prices.list({ lookup_keys: [lookupKey], limit: 1 });
   if (existing.data[0]) return existing.data[0];
   const { baseCents, standardSeatCents, volumeSeatCents } = teamPriceTiers(term);

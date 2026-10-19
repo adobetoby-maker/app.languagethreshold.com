@@ -1,3 +1,4 @@
+import { ownerDiscountProducts } from "./owner-discount-products";
 import Stripe from "stripe";
 import { createHash } from "node:crypto";
 import { checkDiscount, type OwnerDiscountAction, type OwnerDiscount } from "./owner-discounts";
@@ -62,6 +63,7 @@ export async function manageOwnerDiscount(
       {
         id: couponId,
         name: body.code,
+        applies_to: { products: await ownerDiscountProducts(stripe) },
         duration: body.duration,
         ...(body.kind === "percent"
           ? { percent_off: body.value }

@@ -57,9 +57,10 @@ export function OwnerDiscounts() {
         Discount codes
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        Customers enter these codes at new individual or team subscription checkout. Creating a code
-        does not charge anyone or change existing invoices. Codes can be used by anyone you share
-        them with, up to the redemption limit. Amounts are USD.
+        Codes apply to Language Threshold plan products. Customers enter them at new individual or
+        team subscription checkout. Creating a code does not charge anyone or change existing
+        invoices. Codes can be used by anyone you share them with, up to the redemption limit.
+        Amounts are USD.
       </p>
       {(error || resource.error) && (
         <p role="alert" className="mt-3 text-red-700 dark:text-red-300">

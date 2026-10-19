@@ -2567,7 +2567,7 @@ export function Core30Tab() {
         />
       ) : (
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
-          <h1 className="font-display text-2xl font-semibold tracking-tight">Core 30</h1>
+          <h1 className="font-display text-2xl font-semibold tracking-tight">Core 60</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Each module has a 30-lesson path built for your field. Choose a module to start yours.
           </p>

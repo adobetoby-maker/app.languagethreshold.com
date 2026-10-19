@@ -186,7 +186,7 @@ export function Core30Review({
             color: "#0B0B0F",
           }}
         >
-          Back to Core 30
+          Back to Core 60
         </button>
       </div>
     );

@@ -105,7 +105,7 @@ async function gotoCore30Tab(page: Page, isMobile: boolean) {
     await item.scrollIntoViewIfNeeded();
     await item.tap();
   } else {
-    await page.getByRole("button", { name: "Core 30", exact: true }).first().click();
+    await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
   }
   await expect(page.getByTestId("core30-plan-card")).toBeVisible();
 }
@@ -408,7 +408,7 @@ test.describe("Core 30 plan: Roofing", () => {
     expect(afterReview!.lessons["2"].needsPractice).toBe(true);
     expect(afterReview!.lessons["1"].needsPractice).toBeFalsy();
 
-    await page.getByRole("button", { name: "Back to Core 30" }).click();
+    await page.getByRole("button", { name: "Back to Core 60" }).click();
     await expect(card.getByText(/Needs practice: Lesson 2/)).toBeVisible();
     await expect(card.getByText("Today", { exact: true })).toHaveCount(0);
 

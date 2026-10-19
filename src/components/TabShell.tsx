@@ -65,7 +65,7 @@ export function TabShell() {
   const tool = TOOL_CATALOG[state.currentTab];
   // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.
   const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
-  const purposeName = foundation ? "Foundation" : tool.name;
+  const purposeName = foundation ? "Core 60 · Foundation" : tool.name;
   const purposeText = foundation
     ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`
     : tool.purpose;

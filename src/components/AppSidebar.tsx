@@ -237,7 +237,7 @@ const TAB_ITEMS: {
   },
   // ── Play ─────────────────────────────────────────────────────────────────────
   { key: "games", label: "Games Hub", short: "Games", group: "Play", Icon: Gamepad2 },
-  { key: "core30", label: "Core 30", short: "Core 30", group: "Play", Icon: ListChecks },
+  { key: "core30", label: "Core 60", short: "Core 60", group: "Play", Icon: ListChecks },
 ];
 
 const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", "Play"];
@@ -245,15 +245,16 @@ const TAB_GROUP_ORDER = ["Orientation", "Module", "Core Lessons", "Vocabulary", 
 const VISITED_KEY = "lt.visitedTabs.session";
 const TAB_XP = 5;
 
-// Tabs that have their own slot in the bottom bar. Any other current tab (Core 30,
+// Tabs that have their own slot in the bottom bar. Any other current tab (Dashboard,
 // Story, Dictionary...) lives behind More on a phone, so More is what lights up then.
+// Core 60 (the core30 tab: Foundation, Core 30, Master 20) took Dashboard's slot.
 const BAR_TABS: { key: TabKey; Icon: React.ElementType; label: string }[] = [
   { key: "reader", Icon: BookOpen, label: "Reader" },
   { key: "flashcards", Icon: Layers, label: "Cards" },
   { key: "grammar", Icon: GraduationCap, label: "Grammar" },
   { key: "games", Icon: Gamepad2, label: "Games" },
   { key: "speak", Icon: Mic2, label: "Speak" },
-  { key: "dashboard", Icon: BarChart3, label: "Dashboard" },
+  { key: "core30", Icon: ListChecks, label: "Core 60" },
 ];
 
 function openAddWord() {

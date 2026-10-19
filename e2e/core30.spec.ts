@@ -24,7 +24,7 @@ async function openWithModule(page: Page, moduleId: string | null) {
     await page.reload();
     await expect(
       page
-        .getByRole("button", { name: /App Guide|Core 30/ })
+        .getByRole("button", { name: /App Guide|Core 60/ })
         .or(page.getByText("More", { exact: true }))
         .filter({ visible: true })
         .first(),
@@ -60,8 +60,8 @@ test.describe("desktop navigation", () => {
 
   test("Core 30 opens from the top bar and starts a lesson", async ({ page }) => {
     await openWithModule(page, "orthopedics");
-    await page.getByRole("button", { name: "Core 30", exact: true }).first().click();
-    await expect(page.getByText(/Core 30/).first()).toBeVisible();
+    await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
+    await expect(page.getByText(/Core 60/).first()).toBeVisible();
     await expect.poll(() => currentTab(page)).toBe("core30");
     await expect(page.getByText(/lessons complete/i)).toBeVisible();
     await page.getByRole("button", { name: /Start Lesson 1/ }).click();

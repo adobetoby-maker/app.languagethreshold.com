@@ -193,8 +193,8 @@ export const TOOL_CATALOG: Record<TabKey, ToolMetadata> = {
   },
   core30: {
     key: "core30",
-    name: "Core 30",
-    purpose: "Teach and learn with the 30-lesson path built for your module.",
+    name: "Core 60",
+    purpose: "Your module, step by step: the free Foundation, then Core 30, then Master 20 (coming soon).",
     stage: "Grow",
     accent: "progress",
   },

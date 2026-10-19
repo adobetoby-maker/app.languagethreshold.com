@@ -1,6 +1,7 @@
 import { planLocalDay } from "./assessments/plan-timing.ts";
 // Team-page helpers for the Core 30 log: server-side extraction and client-side summary text.
 import {
+  core30PaceFor,
   summarizeCore30,
   toDateKey,
   CORE30_WAYS,
@@ -167,7 +168,7 @@ export function describeCore30(
   totalLessons: number,
   today: string = toDateKey(new Date()),
 ): Core30Display {
-  const s = summarizeCore30(core30?.[userId]?.[moduleId], totalLessons, today);
+  const s = summarizeCore30(core30?.[userId]?.[moduleId], totalLessons, today, core30PaceFor(moduleId));
   return {
     mastered: s.mastered,
     total: s.totalLessons,

@@ -133,3 +133,30 @@ test("Stripe setup errors use fixed owner guidance without raw diagnostics", asy
     assert.doesNotMatch(e.message, /PRIVATE_KEY_FRAGMENT/);
   }
 });
+
+test("owner discount credentials are isolated from the existing billing key", async () => {
+  const { ownerStripe } = await loadModule("src/lib/owner-discounts-server.ts", {
+    external: ["stripe"],
+  });
+  const keys = ["STRIPE_OWNER_SECRET_KEY", "STRIPE_SECRET_KEY"];
+  const old = keys.map((k) => process.env[k]),
+    oldFetch = globalThis.fetch;
+  const headers = [];
+  try {
+    process.env.STRIPE_OWNER_SECRET_KEY = "sk_test_fixture_owner";
+    process.env.STRIPE_SECRET_KEY = "sk_test_fixture_billing";
+    globalThis.fetch = async (url, init) => {
+      headers.push(new Headers(init.headers).get("authorization"));
+      return Response.json({ object: "list", data: [], has_more: false, url: "/v1/coupons" });
+    };
+    await ownerStripe().coupons.list();
+    delete process.env.STRIPE_OWNER_SECRET_KEY;
+    await ownerStripe().coupons.list();
+    assert.deepEqual(headers, ["Bearer sk_test_fixture_owner", "Bearer sk_test_fixture_billing"]);
+  } finally {
+    globalThis.fetch = oldFetch;
+    keys.forEach((k, i) =>
+      old[i] === undefined ? delete process.env[k] : (process.env[k] = old[i]),
+    );
+  }
+});

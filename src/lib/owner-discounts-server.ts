@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { checkDiscount, type OwnerDiscountAction, type OwnerDiscount } from "./owner-discounts";
 import { TeamOperationError } from "./team-server";
 export function ownerStripe() {
-  const key = process.env.STRIPE_SECRET_KEY;
+  const key = process.env.STRIPE_OWNER_SECRET_KEY || process.env.STRIPE_SECRET_KEY;
   if (!key) throw new TeamOperationError("Stripe discounts are not configured.", 503);
   return new Stripe(key, {
     apiVersion: "2026-04-22.dahlia",

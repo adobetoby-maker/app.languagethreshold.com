@@ -26,7 +26,7 @@ export const Route = createFileRoute("/api/owner-discounts")({
           const db = teamAdminClient(ownerServiceFetch(request.signal), request),
             actor = await authenticatedTeamUser(request, db);
           await requirePlatformOwner(db, actor);
-          if (!process.env.STRIPE_SECRET_KEY)
+          if (!process.env.STRIPE_OWNER_SECRET_KEY && !process.env.STRIPE_SECRET_KEY)
             return json({ ready: false, discounts: [], hasMore: false });
           const after = z
             .string()

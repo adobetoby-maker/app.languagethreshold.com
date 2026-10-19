@@ -12,6 +12,7 @@ async function fixture(run) {
     "SUPABASE_SERVICE_ROLE_KEY",
     "PLATFORM_OWNER_EMAIL",
     "STRIPE_SECRET_KEY",
+    "STRIPE_OWNER_SECRET_KEY",
   ];
   const saved = keys.map((k) => process.env[k]);
   try {
@@ -46,6 +47,7 @@ async function fixture(run) {
     process.env.SUPABASE_SERVICE_ROLE_KEY = "fake-service";
     delete process.env.PLATFORM_OWNER_EMAIL;
     delete process.env.STRIPE_SECRET_KEY;
+    delete process.env.STRIPE_OWNER_SECRET_KEY;
     const c = { role: "learner", calls: [], fail: false };
     globalThis.fetch = async (input, init) => {
       const url = new URL(String(input));

@@ -37,6 +37,8 @@ import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
+import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
+import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
 import { Route as ApiPushRouteImport } from './routes/api.push'
 import { Route as ApiPushCronRouteImport } from './routes/api.push-cron'
@@ -194,6 +196,16 @@ const ApiModuleRequestRoute = ApiModuleRequestRouteImport.update({
   path: '/api/module-request',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
+  id: '/api/owner-discounts',
+  path: '/api/owner-discounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerUsersRoute = ApiOwnerUsersRouteImport.update({
+  id: '/api/owner-users',
+  path: '/api/owner-users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPlatformRoute = ApiPlatformRouteImport.update({
   id: '/api/platform',
   path: '/api/platform',
@@ -304,6 +316,8 @@ export interface FileRoutesByFullPath {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -350,6 +364,8 @@ export interface FileRoutesByTo {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -397,6 +413,8 @@ export interface FileRoutesById {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
+  '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
   '/api/push': typeof ApiPushRoute
   '/api/push-cron': typeof ApiPushCronRoute
@@ -445,6 +463,8 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-discounts'
+    | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -491,6 +511,8 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-discounts'
+    | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -537,6 +559,8 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-discounts'
+    | '/api/owner-users'
     | '/api/platform'
     | '/api/push'
     | '/api/push-cron'
@@ -584,6 +608,8 @@ export interface RootRouteChildren {
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
+  ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
+  ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
   ApiPushRoute: typeof ApiPushRoute
   ApiPushCronRoute: typeof ApiPushCronRoute
@@ -800,6 +826,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiModuleRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/owner-discounts': {
+      id: '/api/owner-discounts'
+      path: '/api/owner-discounts'
+      fullPath: '/api/owner-discounts'
+      preLoaderRoute: typeof ApiOwnerDiscountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-users': {
+      id: '/api/owner-users'
+      path: '/api/owner-users'
+      fullPath: '/api/owner-users'
+      preLoaderRoute: typeof ApiOwnerUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/platform': {
       id: '/api/platform'
       path: '/api/platform'
@@ -944,6 +984,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiModuleRequestRoute: ApiModuleRequestRoute,
+  ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
+  ApiOwnerUsersRoute: ApiOwnerUsersRoute,
   ApiPlatformRoute: ApiPlatformRoute,
   ApiPushRoute: ApiPushRoute,
   ApiPushCronRoute: ApiPushCronRoute,

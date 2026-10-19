@@ -19,7 +19,7 @@ const outRoot = path.join(repoRoot, "node_modules", ".cache", "lle-tests");
  *
  * Output lands inside the repo so bare imports (`react`, `zod`) still resolve.
  */
-export async function loadModule(entry, { stubs = [] } = {}) {
+export async function loadModule(entry, { stubs = [], external = [] } = {}) {
   mkdirSync(outRoot, { recursive: true });
   // Test files run in parallel and can bundle the same source with different stubs.
   // A shared output can be truncated/replaced between build completion and import.
@@ -50,7 +50,7 @@ export async function loadModule(entry, { stubs = [] } = {}) {
       platform: "node",
       target: "node22",
       logLevel: "silent",
-      external: ["react", "react-dom", "zod"],
+      external: ["react", "react-dom", "zod", ...external],
       plugins: [
         {
           name: "stub-unrelated-imports",

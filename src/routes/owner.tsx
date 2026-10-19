@@ -6,6 +6,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { ownedTeamRequest } from "@/lib/team-client";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { assessmentCsv } from "@/lib/assessments/export";
+import { OwnerAccounts } from "@/components/owner/OwnerAccounts";
+import { OwnerDiscounts } from "@/components/owner/OwnerDiscounts";
 import { teamSeatMetrics } from "@/lib/team-seat-metrics";
 
 export const Route = createFileRoute("/owner")({
@@ -364,6 +366,8 @@ function OwnedOwnerDashboard() {
         ) : (
           data && (
             <div className="space-y-6">
+              <OwnerAccounts />
+              <OwnerDiscounts />
               {error && (
                 <p
                   role="alert"

@@ -14,6 +14,7 @@ const RETURN_PATHS = new Set([
   "/team",
   "/owner",
   "/account",
+  "/account/password",
   "/exam-content",
   "/exam-reviewers",
 ]);

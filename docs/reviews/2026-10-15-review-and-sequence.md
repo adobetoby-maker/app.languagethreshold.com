@@ -4,6 +4,13 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Authorized main release and password-setup follow-up — October 18
+
+Toby explicitly authorized merging the verified snapshot so Claude can inspect it before more Core lessons. PR38 merged as6d95130; production CI39195696511 succeeded, and the app alias points to READY production dpl_EhZ4WBeHuYrGCJCs7ww3AoBH5d4q at that exact commit/project. The old no-merge holds below are historical; unfinished Reader expiry/offline/iPhone/content/human checks remain unfinished, not accepted by this release. CLAUDE.md now links the current Core handoff. One explicitly requested read-only Claude CLI orientation acknowledged architecture, draft inventory and remaining gates; no generation/edits were performed.
+
+Toby then authorized a named real tester's one-year free account and password-creation email, with a10-day testing follow-up if email works. Code inspection found no password-entry completion screen. The new /account/password route isolates AuthProvider, validates matching12–128-character passwords and checks the current server-verified identity before the existing SDK update. Expired links can request another link; forgot-password now points here. Existing /account privacy boundaries cover it. Real disposable QA invite verification, actual helper password update and email/password sign-in pass; QA user removed, no test email sent. All1,730tests/typecheck/lint0/productionaudit0/20.06MiB artifact pass. Evidence qa-account-password-local-2026-10-18.json. No schema/policy/role migration or gate activation. The actual tester's identity, secret links and delivery/access receipts remain private, outside Git. App Resend configuration is absent; connected Gmail is a separate available delivery path. Password setup deployment and real delivery are the next actions, not claimed completed here.
+
+
 ### Reader expiry/offline follow-up preparation — October 18
 
 Final evidence head1ea2a0c passed clean Linux CI39153093360 with all1,726tests/typecheck/lint/production audit/build/artifact; production skipped and Vercel succeeded. Runtime remains77ce283 on the same Preview/isolated QA alias. User explicitly requested completing Reader expiry/offline and an iPhone checklist; no main merge authorized.

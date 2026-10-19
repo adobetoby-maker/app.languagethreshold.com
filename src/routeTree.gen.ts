@@ -21,6 +21,7 @@ import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as AccountPasswordRouteImport } from './routes/account_.password'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
@@ -111,6 +112,11 @@ const PricingRoute = PricingRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountPasswordRoute = AccountPasswordRouteImport.update({
+  id: '/account_/password',
+  path: '/account/password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
@@ -282,6 +288,7 @@ export interface FileRoutesByFullPath {
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRoute
+  '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -327,6 +334,7 @@ export interface FileRoutesByTo {
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRoute
+  '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -373,6 +381,7 @@ export interface FileRoutesById {
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
   '/team': typeof TeamRoute
+  '/account_/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -420,6 +429,7 @@ export interface FileRouteTypes {
     | '/owner'
     | '/pricing'
     | '/team'
+    | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -465,6 +475,7 @@ export interface FileRouteTypes {
     | '/owner'
     | '/pricing'
     | '/team'
+    | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -510,6 +521,7 @@ export interface FileRouteTypes {
     | '/owner'
     | '/pricing'
     | '/team'
+    | '/account_/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -556,6 +568,7 @@ export interface RootRouteChildren {
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
   TeamRoute: typeof TeamRoute
+  AccountPasswordRoute: typeof AccountPasswordRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
@@ -673,6 +686,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account_/password': {
+      id: '/account_/password'
+      path: '/account/password'
+      fullPath: '/account/password'
+      preLoaderRoute: typeof AccountPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/cancel-subscription': {
@@ -908,6 +928,7 @@ const rootRouteChildren: RootRouteChildren = {
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
   TeamRoute: TeamRoute,
+  AccountPasswordRoute: AccountPasswordRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,

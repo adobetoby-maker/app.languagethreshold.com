@@ -117,3 +117,19 @@ test("disabling an owned code changes future redemption only, never a subscripti
   await manageOwnerDiscount(f.stripe, "owner", { action: "disable", promotionId: "promo_test" });
   assert.deepEqual(f.calls.at(-1), ["update", "promo_test", { active: false }]);
 });
+
+test("Stripe setup errors use fixed owner guidance without raw diagnostics", async () => {
+  const { ownerDiscountFailure } = await loadModule("src/lib/owner-discounts-server.ts", {
+    external: ["stripe"],
+  });
+  for (const type of [
+    "StripeAuthenticationError",
+    "StripePermissionError",
+    "StripeConnectionError",
+    "StripeInvalidRequestError",
+  ]) {
+    const e = ownerDiscountFailure({ type, message: "PRIVATE_KEY_FRAGMENT" });
+    assert.equal(e.status, 503);
+    assert.doesNotMatch(e.message, /PRIVATE_KEY_FRAGMENT/);
+  }
+});

@@ -22,6 +22,37 @@ function fixture() {
   let promotions = [];
   const calls = [];
   const stripe = {
+    prices: {
+      retrieve: async (id) => ({ active: true, product: "prod_" + id.replace(/\W|_/g, "") }),
+      list: async ({ lookup_keys }) => ({
+        data: [
+          {
+            id: "price_team",
+            active: true,
+            product: "prod_" + lookup_keys[0].replace(/\W|_/g, ""),
+          },
+        ],
+      }),
+      create: async () => {
+        throw Error("Unexpected catalog creation");
+      },
+    },
+    paymentLinks: {
+      list: async () => ({
+        data: [
+          {
+            id: "plink_junior",
+            active: true,
+            url: "https://buy.stripe.com/bJe8wRgun8xT6U1eyObfO0d",
+          },
+        ],
+        has_more: false,
+      }),
+      listLineItems: async () => ({
+        data: [{ price: { active: true, product: "prod_junior" } }],
+        has_more: false,
+      }),
+    },
     coupons: {
       retrieve: async (id) => {
         if (coupon) return coupon;
@@ -132,4 +163,51 @@ test("Stripe setup errors use fixed owner guidance without raw diagnostics", asy
     assert.equal(e.status, 503);
     assert.doesNotMatch(e.message, /PRIVATE_KEY_FRAGMENT/);
   }
+});
+
+test("owner discount credentials are isolated from the existing billing key", async () => {
+  const { ownerStripe } = await loadModule("src/lib/owner-discounts-server.ts", {
+    external: ["stripe"],
+  });
+  const keys = ["STRIPE_OWNER_SECRET_KEY", "STRIPE_SECRET_KEY"];
+  const old = keys.map((k) => process.env[k]),
+    oldFetch = globalThis.fetch;
+  const headers = [];
+  try {
+    process.env.STRIPE_OWNER_SECRET_KEY = "sk_test_fixture_owner";
+    process.env.STRIPE_SECRET_KEY = "sk_test_fixture_billing";
+    globalThis.fetch = async (url, init) => {
+      headers.push(new Headers(init.headers).get("authorization"));
+      return Response.json({ object: "list", data: [], has_more: false, url: "/v1/coupons" });
+    };
+    await ownerStripe().coupons.list();
+    delete process.env.STRIPE_OWNER_SECRET_KEY;
+    await ownerStripe().coupons.list();
+    assert.deepEqual(headers, ["Bearer sk_test_fixture_owner", "Bearer sk_test_fixture_billing"]);
+  } finally {
+    globalThis.fetch = oldFetch;
+    keys.forEach((k, i) =>
+      old[i] === undefined ? delete process.env[k] : (process.env[k] = old[i]),
+    );
+  }
+});
+
+test("coupons are restricted to app plan products and fail closed when the app catalog cannot be verified", async () => {
+  const f = fixture();
+  await manageOwnerDiscount(f.stripe, "owner", input());
+  const scoped = f.calls.find((c) => c[0] === "coupon")[1].applies_to.products;
+  assert.equal(scoped.length, 7);
+  assert.ok(scoped.includes("prod_junior"));
+  assert.ok(scoped.some((p) => p.includes("teammonthly")));
+  assert.equal(scoped.includes("prod_unrelatedBusiness"), false);
+  const bad = fixture();
+  bad.stripe.paymentLinks.list = async () => ({
+    data: [{ id: "plink_other", active: true, url: "https://buy.stripe.com/unrelated" }],
+    has_more: false,
+  });
+  await assert.rejects(manageOwnerDiscount(bad.stripe, "owner", input()), /No discount was issued/);
+  assert.equal(
+    bad.calls.some((c) => c[0] === "coupon"),
+    false,
+  );
 });

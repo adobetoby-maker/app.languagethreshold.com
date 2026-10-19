@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Live owner acceptance and isolated discount credentials — October 18
+
+PR41 merged as0c23e9d after green CI39201694016; its production alias is READY at dpl_HFW1FF2CuZ4rCL4npsUrimEL4qfF. Normal existing owner-session browser reload now verifies the live14-account directory, exact named-tester search, account details/usage/team access and correctly disabled direct-email control. This was read-only: no real account, grant, invitation, coupon or billing mutation occurred in the browser.
+
+The live discount read exposed StripePermissionError: the production billing key lacks coupon/promotion-code permissions. Fetch transport alone did not resolve that permission boundary. The follow-up adds a production-only STRIPE_OWNER_SECRET_KEY setting for owner discount operations, preserving the existing STRIPE_SECRET_KEY used for billing. The existing working app credential was verified against the same four app payment links and promotion-code reads, then stored as a sensitive production variable via CLI stdin, never argv/output/Git. A read-only catalog check found other businesses in this Stripe account, so new coupons now include applies_to.products for exactly the current individual/Junior/team app plan products. Seven app product IDs are confirmed by real read-only SDK calls; unrelated products are excluded. Missing or inactive catalog entries fail closed before issuing a coupon. Coupon creation never creates or changes prices; team checkout and the discount resolver share the same lookup-key function. All1,761 integrated tests/typecheck/lint pass. No Stripe key was created or rotated; no shared Preview credential was added. A dedicated-key/fallback regression verifies isolated selection. New-key provisioning should prefer coupon/promotion-only restricted permissions.
+
+This credential-selection follow-up still needs its CI/main release and normal live owner reread at this checkpoint. Original owner/migration/hosted/responsive evidence remains below. Direct Resend email remains unconfigured and the explicit credential-creation question has no assumed answer. Copy/private-link and email-client drafts remain available.
+
+
 ### Owner invitation cancellation follow-up — October 18
 
 PR40 merged as fbb71c2 after green head418c165 CI39200826768. Its user-management/discount controls are now on main, including the independently merged Foundation work; no Foundation lesson or paywall change is reverted. Production workflow39201047085 is running at this checkpoint. Direct app email remains unconfigured, with the explicit credential-creation question pending and no approval assumed.

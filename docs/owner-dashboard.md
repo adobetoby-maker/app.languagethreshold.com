@@ -24,6 +24,10 @@ Select an account and set **Free through** plus a reason. This sets an explicit 
 
 ## Discount codes
 
+The production owner API uses `STRIPE_OWNER_SECRET_KEY` when set, falling back to `STRIPE_SECRET_KEY`. The owner key needs coupon/promotion-code read/write, plan catalog read, and catalog read permissions; keep it server-only and out of shared Preview environments. This lets a restricted billing key remain unchanged. Prefer a key restricted to those discount operations when provisioning a new credential.
+
+Coupons are restricted to the app’s current individual, Junior and team plan products, including when the Stripe account contains other businesses. A code cannot discount those unrelated products. New plan products added later require a newly issued code. All current plan catalog entries must be verified; a missing entry prevents coupon issuance. Creating a coupon never creates or changes prices.
+
 Create a percentage or USD discount, choose **First invoice only** or **Every renewal**, set a redemption limit and a code expiry within one year, then review the confirmation before creating it. Share the code with customers to enter at subscription checkout. Codes are bearer offers: anyone who has the code may redeem it up to the specified limit.
 
 The code's expiry stops new redemptions. A recurring discount already redeemed remains attached to the subscription. **Disable future redemptions** prevents new use without changing existing discounted subscriptions or invoices. This dashboard manages its own tagged codes; use Stripe to manage codes created elsewhere. Retrying an unchanged creation request reuses its coupon and code instead of creating duplicates.

@@ -160,6 +160,8 @@ export const Route = createFileRoute("/api/team-billing")({
               );
             const price = await teamStripePrice(stripe, body.term);
             const checkout: Stripe.Checkout.SessionCreateParams = {
+              allow_promotion_codes: true,
+              integration_identifier: `lt-team-${randomUUID().replaceAll("-", "").slice(0, 8)}`,
               mode: "subscription",
               branding_settings: { display_name: "Language Threshold" },
               ...(entitlement.stripe_customer_id

@@ -9,13 +9,17 @@ export async function readPrivateServiceJson(
   response: Response,
   maxBytes: number,
   signal: AbortSignal,
+  allowEmpty = false,
 ): Promise<unknown> {
   const fail = () => new PrivateServiceJsonError();
   if (signal.aborted || Number(response.headers.get("content-length")) > maxBytes) {
     void response.body?.cancel().catch(() => {});
     throw fail();
   }
-  if (!response.body) throw fail();
+  if (!response.body) {
+    if (allowEmpty) return null;
+    throw fail();
+  }
   let reader: ReadableStreamDefaultReader<Uint8Array>;
   try {
     reader = response.body.getReader();
@@ -69,6 +73,7 @@ export async function readPrivateServiceJson(
       if (bytes > maxBytes) throw fail();
       chunks.push(item.value);
     }
+    if (bytes === 0 && allowEmpty) return null;
     const data = new Uint8Array(bytes);
     let offset = 0;
     for (const chunk of chunks) {

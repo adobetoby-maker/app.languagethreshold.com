@@ -1,4 +1,6 @@
+import { INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { CheckCircle, Sparkles, ChevronRight, Users } from "lucide-react";
 import { useAuth } from "@/state/auth-state";
@@ -18,9 +20,9 @@ export const Route = createFileRoute("/pricing")({
   }),
 });
 
-const MONTHLY_PRICE_ID = import.meta.env.VITE_STRIPE_PRICE_MONTHLY as string | undefined;
-const ANNUAL_PRICE_ID = import.meta.env.VITE_STRIPE_PRICE_ANNUAL as string | undefined;
-const FAMILY_PRICE_ID = import.meta.env.VITE_STRIPE_PRICE_FAMILY as string | undefined;
+const MONTHLY_PRICE_ID = INDIVIDUAL_PRICES.monthly;
+const ANNUAL_PRICE_ID = INDIVIDUAL_PRICES.annual;
+const FAMILY_PRICE_ID = INDIVIDUAL_PRICES.family;
 
 // Fallback Payment Links — live Stripe links created 2026-05-26
 const MONTHLY_PAYMENT_LINK = "https://buy.stripe.com/14A9AVemfg0l1zH8aqbfO08";
@@ -38,9 +40,17 @@ async function startCheckout(
     window.location.href = fallbackLink;
     return;
   }
+  const { data: auth } = await supabase.auth.getSession();
+  if (!auth.session || auth.session.user.id !== userId) {
+    window.location.href = "/?redirect=pricing";
+    return;
+  }
   const res = await fetch("/api/create-checkout", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${auth.session.access_token}`,
+    },
     body: JSON.stringify({ priceId, userId, userEmail }),
   });
   if (!res.ok) {
@@ -378,9 +388,9 @@ export default function PricingPage() {
               <p className="text-sm text-muted-foreground">
                 Teams start at five learner seats for $99/month. Seats 6–10 add $12/month each;
                 seats 11 and up add $10/month each. Ten seats cost $159/month; 15 seats cost
-                $209/month, $627 for three months, or $2,090 for one year. Every
-                learner can use every published module. Company admins can assign a focus, invite
-                employees, and review practice and certificates.
+                $209/month, $627 for three months, or $2,090 for one year. Every learner can use
+                every published module. Company admins can assign a focus, invite employees, and
+                review practice and certificates.
               </p>
               <Link
                 to="/team"

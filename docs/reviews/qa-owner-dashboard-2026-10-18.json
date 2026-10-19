@@ -1,0 +1,80 @@
+{
+  "testedAt": "2026-10-19T04:42:23.612688+00:00",
+  "applicationCommit": "827a5912b4a3eab32f2f832c4338a841afeb85ec",
+  "local": {
+    "testsPassed": 1748,
+    "typecheck": "pass",
+    "lintErrors": 0,
+    "lintWarnings": 1,
+    "warning": "Generated route file ignore warning",
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 20.12,
+    "privateBankMarkers": 96,
+    "privateSourceStaticHits": 0
+  },
+  "database": {
+    "migration": "20261019042926_owner_user_management",
+    "appliedToLinkedProject": true,
+    "localSql": "Passed in named local QA database; full rollback",
+    "hostedDisposableGroups": 8,
+    "realInviteVerification": true,
+    "freeAccessAndExpiry": true,
+    "anonAndLearnerDirectoryDenied": true,
+    "qaAccountAndGrantRemoved": true,
+    "newSecurityWarnings": 0,
+    "newInformationalAdvisories": "Two intentionally service-only RLS tables have no browser policies/grants"
+  },
+  "browser": {
+    "fixture": "Explicit localhost synthetic owner UI, no hosted account/email/billing mutations",
+    "checks": [
+      "Create tester",
+      "Search directory",
+      "Open account details",
+      "Grant date preserved across UTC midnight",
+      "Create private password link",
+      "Email draft targets selected fictional account",
+      "Save complimentary access",
+      "Confirm and create percentage discount form",
+      "Signout hides private controls"
+    ],
+    "responsiveWidths": [390, 1440],
+    "documentWidths": [375, 1425],
+    "viewportRestored": true,
+    "nativeChromeOwnerTabChanged": false,
+    "physicalIphoneAcceptance": false
+  },
+  "stripe": {
+    "readApiAndPromotionExpansionVerified": true,
+    "knownIndividualPaymentLinksPromotionEntryEnabled": 4,
+    "chargesCreated": 0,
+    "subscriptionsChanged": 0,
+    "liveQaCouponsCreated": 0,
+    "newCouponAndPromotionWrites": "Controlled production-helper tests; no live coupon creation/redemption acceptance"
+  },
+  "email": {
+    "directAppConfigurationPresent": false,
+    "sendControlDisabledWhenUnconfigured": true,
+    "manualPrivateLinkAndMailtoFallback": true,
+    "ownerCredentialCreationAuthorization": "Requested; no answer assumed",
+    "realDeliveryTested": false
+  },
+  "preview": {
+    "id": "dpl_Hd17bPHy1mZXyAk5kue6JadQ28mf",
+    "url": "https://language-threshold-iouqy26ed-adobetoby-5572s-projects.vercel.app",
+    "state": "READY",
+    "target": null,
+    "githubCommitSha": "827a5912b4a3eab32f2f832c4338a841afeb85ec"
+  },
+  "prebuiltPreview": {
+    "id": "dpl_ErD9bE4iRqrhNtUrWsu7CtKLh51X",
+    "url": "https://language-threshold-qlkxjw0rd-adobetoby-5572s-projects.vercel.app",
+    "state": "READY",
+    "target": null,
+    "gitMetadata": "Absent; source linked by local build/deploy chain only",
+    "httpOwnerShell": 200,
+    "httpUnauthenticatedUserApi": 403,
+    "httpUnauthenticatedDiscountApi": 403,
+    "privateNoStore": true
+  },
+  "production": "Unchanged at this checkpoint; PR40 review/CI pending"
+}

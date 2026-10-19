@@ -1,7 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Core 30 is a first-class tab: top navigation next to App Guide, and the left
-// sidebar under Games. It teaches the module's 30-lesson path.
+// Core 60 (tab key core30) is a first-class tab: top navigation next to App Guide, the left
+// sidebar under Games, and the phone's bottom bar. It holds the module's path: the free
+// Foundation, Core 30 and Master 20.
 
 async function openWithModule(page: Page, moduleId: string | null) {
   const savedModule = () =>
@@ -41,24 +42,24 @@ const currentTab = (page: Page) =>
 test.describe("desktop navigation", () => {
   test.skip(({ isMobile }) => isMobile, "desktop-only layout checks");
 
-  test("top bar has Core 30 right after App Guide", async ({ page }) => {
+  test("top bar has Core 60 right after App Guide", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     const labels = await page.locator("nav button").allInnerTexts();
     const guide = labels.findIndex((t) => /app guide/i.test(t));
     expect(guide).toBeGreaterThan(-1);
-    expect(labels[guide + 1]).toMatch(/core 30/i);
+    expect(labels[guide + 1]).toMatch(/core 60/i);
   });
 
-  test("left sidebar has Core 30 right under Games", async ({ page }) => {
+  test("left sidebar has Core 60 right under Games", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     const rail = page.locator("aside").first();
     const labels = (await rail.getByRole("button").allInnerTexts()).map((t) => t.trim());
     const games = labels.findIndex((t) => /^games$/i.test(t));
     expect(games).toBeGreaterThan(-1);
-    expect(labels[games + 1]).toMatch(/core 30/i);
+    expect(labels[games + 1]).toMatch(/core 60/i);
   });
 
-  test("Core 30 opens from the top bar and starts a lesson", async ({ page }) => {
+  test("Core 60 opens from the top bar and starts a lesson", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     await page.getByRole("button", { name: "Core 60", exact: true }).first().click();
     await expect(page.getByText(/Core 60/).first()).toBeVisible();
@@ -71,19 +72,19 @@ test.describe("desktop navigation", () => {
     await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
   });
 
-  test("Core 30 opens from the sidebar", async ({ page }) => {
+  test("Core 60 opens from the sidebar", async ({ page }) => {
     await openWithModule(page, "orthopedics");
     await page
       .locator("aside")
       .first()
-      .getByRole("button", { name: /core 30/i })
+      .getByRole("button", { name: /core 60/i })
       .click();
     await expect.poll(() => currentTab(page)).toBe("core30");
     await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
   });
 });
 
-test("Core 30 without a module points to Modules", async ({ page, isMobile }) => {
+test("Core 60 without a module points to Modules", async ({ page, isMobile }) => {
   await openWithModule(page, null);
   await page.evaluate(() => {
     const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
@@ -97,14 +98,10 @@ test("Core 30 without a module points to Modules", async ({ page, isMobile }) =>
   expect(isMobile !== undefined).toBe(true);
 });
 
-test("phone: Core 30 is in the More menu and opens", async ({ page, isMobile }) => {
+test("phone: Core 60 is in the bottom bar and opens", async ({ page, isMobile }) => {
   test.skip(!isMobile, "phone-only");
   await openWithModule(page, "orthopedics");
-  await page.getByText("More", { exact: true }).filter({ visible: true }).last().tap();
-  const sheet = page.getByRole("dialog").filter({ hasText: "All Tabs" });
-  const item = sheet.getByRole("button", { name: /core 30/i }).first();
-  await item.scrollIntoViewIfNeeded();
-  await item.tap();
+  await page.getByText("Core 60", { exact: true }).filter({ visible: true }).last().tap();
   await expect.poll(() => currentTab(page)).toBe("core30");
   await expect(page.getByRole("button", { name: /Start Lesson 1/ })).toBeVisible();
 });

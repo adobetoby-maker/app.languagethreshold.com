@@ -64,7 +64,7 @@ test.describe("phone layout", () => {
 
   test("bottom navigation is visible and reachable by tap", async ({ page }) => {
     await openApp(page);
-    const nav = ["Cards", "Grammar", "Games", "Speak", "Dashboard", "Tutor"];
+    const nav = ["Cards", "Grammar", "Games", "Speak", "Core 60", "Tutor"];
     for (const label of nav) {
       await expect(
         page.getByText(label, { exact: true }).filter({ visible: true }).last(),

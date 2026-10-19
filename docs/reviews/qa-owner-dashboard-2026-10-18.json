@@ -76,5 +76,41 @@
     "httpUnauthenticatedDiscountApi": 403,
     "privateNoStore": true
   },
-  "production": "Unchanged at this checkpoint; PR40 review/CI pending"
+  "production": "Released and verified; see finalRelease. Earlier checkpoints are chronological evidence.",
+  "finalRelease": {
+    "verifiedAt": "2026-10-19T05:19:09.434635+00:00",
+    "applicationCommit": "744032d348885ca4784f24bbec15a075fea4d57b",
+    "deploymentId": "dpl_65WV8qfEo9in7FgPTuRx45xkSBNn",
+    "target": "production",
+    "readyState": "READY",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "productionWorkflow": 39203450978,
+    "productionWorkflowConclusion": "success",
+    "integratedTestsPassed": 1761,
+    "liveOwnerReadOnly": {
+      "normalExistingSession": true,
+      "directoryAccounts": 14,
+      "exactTesterSearch": true,
+      "accountDetailsUsageAndExistingAccess": true,
+      "discountFormLoaded": true,
+      "visibleAlerts": 0,
+      "noRealBrowserMutations": true
+    },
+    "discounts": {
+      "dedicatedProductionCredentialConfigured": true,
+      "existingBillingKeyUnchanged": true,
+      "newStripeKeyCreated": false,
+      "planProductsVerifiedReadOnly": 7,
+      "couponProductRestrictionTested": true,
+      "couponCreationChangesPrices": false,
+      "liveQaCouponsCreated": 0,
+      "liveCouponRedemptionTested": false
+    },
+    "email": {
+      "directSendingConfigured": false,
+      "directSendButtonDisabled": true,
+      "manualLinkAndEmailDraftAvailable": true,
+      "credentialCreationDecision": "Pending explicit owner confirmation; no approval assumed"
+    }
+  }
 }

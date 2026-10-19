@@ -4,6 +4,15 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 18
 
+### Owner dashboard released and live owner reads accepted — October 18
+
+PR40/41/42 are merged. Functional main source744032d is deployed READY/production on the correct app project at dpl_65WV8qfEo9in7FgPTuRx45xkSBNn; production workflow39203450978 succeeded. All1,761 integrated tests/typecheck/lint pass. Normal existing owner-session browser reload confirms14registered accounts, exact named-tester search, account details/recorded usage/existing team access, disabled unconfigured direct email, and the now-loaded discount form with0alerts. No real account/grant/invitation/coupon/billing mutation was made in that browser acceptance. No temporary browser viewport or network override remains.
+
+The production billing key remains unchanged. Owner discount operations use the separately configured sensitive production-only credential, reusing the verified existing app key without creating/rotating a Stripe key or exposing it to shared Preview deployments. Seven current app plan products are verified by read-only SDK calls; new coupons restrict applies_to.products to those individual/Junior/team products, excluding this account's other businesses. Missing/inactive catalog fails closed; coupon creation never creates/changes prices. Four app payment links accept promotion entry. No live QA coupon/charge/subscription was created and no live redemption is claimed.
+
+The remaining owner-dashboard setup is direct Resend sending: the explicit credential-creation question is pending, with no approval inferred. Private password links and operator email-client drafts work; direct Send remains correctly disabled. The guide is docs/owner-dashboard.md and final evidence is qa-owner-dashboard-2026-10-18.json.finalRelease. Prior release-pending statements below are historical checkpoints, not new next actions. Existing Reader/device/content/human assessment gates and paused roofing automation remain unchanged; this does not complete the full learning/Exams PRD.
+
+
 ### Live owner acceptance and isolated discount credentials — October 18
 
 PR41 merged as0c23e9d after green CI39201694016; its production alias is READY at dpl_HFW1FF2CuZ4rCL4npsUrimEL4qfF. Normal existing owner-session browser reload now verifies the live14-account directory, exact named-tester search, account details/usage/team access and correctly disabled direct-email control. This was read-only: no real account, grant, invitation, coupon or billing mutation occurred in the browser.

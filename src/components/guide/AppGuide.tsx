@@ -1336,7 +1336,7 @@ function OwnedLessonRunner({
         <div className="flex items-start justify-between gap-3 mb-1">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-              Lesson {lesson.n} · {totalMin} min
+              {isFoundationModule(moduleId) ? "Foundation · " : ""}Lesson {lesson.n} · {totalMin} min
             </p>
             <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
           </div>
@@ -2235,7 +2235,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               Entrance, day 45 and day 90 exams
             </a>
           )}
-          {!howOpen && (
+          {/* How Core 30 works describes the 30-lesson, 90-day course, not a Foundation. */}
+          {!howOpen && !isFoundationModule(moduleId) && (
             <button
               type="button"
               data-testid="core30-how-link"
@@ -2305,7 +2306,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70 mb-1">
-                    {practiceLesson ? "Practice again" : "Next Up"} · Lesson {currentLesson.n}
+                    {practiceLesson ? "Practice again" : "Next Up"} ·{" "}
+                    {isFoundationModule(moduleId) ? "Foundation " : ""}Lesson {currentLesson.n}
                   </p>
                   <h3 className="text-xl font-semibold text-white">{currentLesson.title}</h3>
                 </div>
@@ -2452,6 +2454,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 lessonWay={initialWay}
                 activePlanId={activeAssessmentPlan}
                 onPlanTiming={setApprovedPlanTiming}
+                showExamsPrompt={!isFoundationModule(moduleId)}
               />
             </Suspense>
           )}

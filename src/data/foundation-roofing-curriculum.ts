@@ -30,7 +30,7 @@ const units: Unit[] = [
     focus: "the five vowels, ch, j, ll, rr and the written accent",
     words: [
       t("el techo", "the roof", "ch as in 'church'"),
-      t("la teja", "the tile", "j is a breathy h"),
+      t("la teja", "the shingle (also roof tile)", "j is a breathy h"),
       t("el clavo", "the nail", "a and o stay short and pure"),
       t("el martillo", "the hammer", "ll sounds like the y in 'yes'"),
       t("la escalera", "the ladder", "single r is a quick tap"),
@@ -176,7 +176,7 @@ const units: Unit[] = [
       t("menos", "less"),
       t("otro", "another, other", "never 'un otro'"),
       t("todavía", "still, yet"),
-      t("poco", "a little"),
+      t("un poco", "a little"),
       p("No entiendo.", "I don't understand."),
       p("Todavía no.", "Not yet."),
       p("Nadie sube sin arnés.", "Nobody goes up without a harness."),

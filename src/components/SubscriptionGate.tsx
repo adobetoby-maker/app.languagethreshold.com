@@ -6,6 +6,18 @@ import { useAuth } from "@/state/auth-state";
 import { useApp, type TabKey } from "@/state/app-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { foundationAccess } from "@/lib/core30-plan";
+import { lessonLocation } from "@/lib/learning-link";
+import { MODULES } from "@/data/modules";
+import { getCurriculum } from "@/data/curriculum";
+
+/** The free Foundation in front of a module (foundation-<module>), when one exists. */
+function foundationFor(moduleId: string) {
+  return MODULES.find((m) => m.id === `foundation-${moduleId}`) ?? null;
+}
+
+function moduleName(moduleId: string): string {
+  return MODULES.find((m) => m.id === moduleId)?.name ?? "Foundation";
+}
 
 // Tabs that are always free — no subscription required
 const FREE_TABS = new Set<TabKey>(["missionary"]);
@@ -18,16 +30,20 @@ const MODULE_FREE_TABS: Record<string, Set<TabKey>> = {
 const PAYWALL_SEEN_KEY = "lt.paywallSeen";
 
 /** Shown to a signed-out learner on a Foundation tab: an account is free, the paid trial is not. */
-function FoundationSignInPrompt() {
+function FoundationSignInPrompt({ moduleId }: { moduleId: string }) {
   const [authOpen, setAuthOpen] = useState(false);
+  const lessons = getCurriculum(moduleId)?.lessons ?? [];
   return (
     <div
       data-testid="foundation-signin-prompt"
       className="mx-auto my-10 max-w-sm rounded-2xl border border-gold/25 bg-gold/[0.05] px-6 py-8 text-center"
     >
+      <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
+        {moduleName(moduleId)}
+      </p>
       <h2 className="text-xl font-bold text-foreground mb-2">Free with a free account</h2>
       <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        The Roofing Foundation is free. Create a free account or sign in to start Lesson 1.
+        The {moduleName(moduleId)} is free. Create a free account or sign in to start Lesson 1.
       </p>
       <button
         type="button"
@@ -37,6 +53,23 @@ function FoundationSignInPrompt() {
       >
         Create a free account or sign in
       </button>
+      {lessons.length > 0 && (
+        <div className="mt-6 text-left">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
+            {lessons.length} short lessons · about two weeks
+          </p>
+          <ol className="mt-2 space-y-1 text-sm text-muted-foreground">
+            {lessons.map((lesson) => (
+              <li key={lesson.n} className="flex gap-2">
+                <span className="w-5 shrink-0 text-right font-mono text-xs leading-5 text-gold/70">
+                  {lesson.n}
+                </span>
+                <span>{lesson.title}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
       <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
     </div>
   );
@@ -50,7 +83,7 @@ interface Props {
 export function SubscriptionGate({ currentTab, children }: Props) {
   const { isActive, loading: subLoading } = useSubscription();
   const { user, loading: authLoading } = useAuth();
-  const { state } = useApp();
+  const { state, dispatch } = useApp();
 
   const [paywallSeen, setPaywallSeen] = useState(false);
 
@@ -78,13 +111,28 @@ export function SubscriptionGate({ currentTab, children }: Props) {
     signedIn: !!user,
   });
   if (foundation === "free") return <>{children}</>;
-  if (foundation === "sign-in") return <FoundationSignInPrompt />;
+  if (foundation === "sign-in") return <FoundationSignInPrompt moduleId={activeModuleId} />;
 
   // Wait for both auth + subscription to resolve
   if (authLoading || subLoading) return <>{children}</>;
 
   // Subscribed or trialing — full access
   if (isActive) return <>{children}</>;
+
+  // A module with a free Foundation offers it from the paywall: the Foundation's entry card on
+  // the Core 30 page sits under this overlay and cannot be clicked here.
+  const foundationOffer = foundationFor(activeModuleId);
+  function openFoundation() {
+    if (!foundationOffer) return;
+    dispatch({ type: "SET_ACTIVE_MODULE", payload: foundationOffer.id });
+    dispatch({ type: "SET_TAB", payload: "core30" });
+    const next = lessonLocation(
+      window.location.href,
+      { moduleId: foundationOffer.id, target: state.selectedLanguage, native: state.nativeLanguage },
+      null,
+    );
+    if (next) window.history.replaceState(window.history.state, "", next);
+  }
 
   // Mark that paywall has been seen (for Fix #3 — suppress full overlay on repeat visits)
   function onFreeDismiss() {
@@ -201,6 +249,17 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                 <Sparkles className="h-4 w-4" />
                 Start Free Trial — 7 days free
               </Link>
+
+              {foundationOffer && (
+                <button
+                  type="button"
+                  data-testid="paywall-foundation-open"
+                  onClick={openFoundation}
+                  className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gold/40 px-5 py-2.5 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                >
+                  New to Spanish? Start the free {foundationOffer.name} →
+                </button>
+              )}
 
               {!user && (
                 <p className="mt-3 text-xs text-muted-foreground">

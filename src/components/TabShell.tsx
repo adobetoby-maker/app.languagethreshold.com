@@ -3,6 +3,14 @@ import { GraduationCap, Loader2, RefreshCw, X } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
+import { isFoundationModule } from "@/lib/core30-plan";
+import { MODULES } from "@/data/modules";
+
+/** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
+function foundationTrade(moduleId: string | null | undefined): string {
+  const base = (moduleId ?? "").replace(/^foundation-/, "");
+  return MODULES.find((m) => m.id === base)?.name ?? "Core 30";
+}
 
 function TabFallback() {
   return (
@@ -55,6 +63,12 @@ export function TabShell() {
   const { state } = useApp();
   const Component = TAB_COMPONENTS[state.currentTab];
   const tool = TOOL_CATALOG[state.currentTab];
+  // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.
+  const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
+  const purposeName = foundation ? "Foundation" : tool.name;
+  const purposeText = foundation
+    ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`
+    : tool.purpose;
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 
   useEffect(() => {
@@ -88,9 +102,9 @@ export function TabShell() {
               >
                 <span className="tool-purpose-dot h-2.5 w-2.5 shrink-0 rounded-full" aria-hidden />
                 <p className="min-w-0 flex-1 text-xs leading-relaxed text-muted-foreground">
-                  <span className="font-semibold text-foreground">{tool.name}</span>
+                  <span className="font-semibold text-foreground">{purposeName}</span>
                   <span aria-hidden> — </span>
-                  {tool.purpose}
+                  {purposeText}
                 </p>
                 <button
                   type="button"

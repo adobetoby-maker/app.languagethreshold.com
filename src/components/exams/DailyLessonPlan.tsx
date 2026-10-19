@@ -80,6 +80,7 @@ function DailyLessonPlanContent({
   lessonWay,
   activePlanId,
   onPlanTiming,
+  showExamsPrompt = true,
 }: {
   moduleId: string;
   target: Language;
@@ -87,6 +88,8 @@ function DailyLessonPlanContent({
   lessonNumber?: number;
   lessonWay?: string;
   activePlanId?: string;
+  /** False for a module without entrance/day 45/day 90 exams (a Foundation). */
+  showExamsPrompt?: boolean;
   onPlanTiming?: (timing: AssessedPlanTiming | null) => void;
 }) {
   const { user, isCurrentUser } = useAuth();
@@ -288,6 +291,7 @@ function DailyLessonPlanContent({
           Assessment guidance could not be loaded. Your lesson is still available.
         </p>
       ) : null;
+    if (!showExamsPrompt) return null;
     return (
       <aside className="my-4 rounded-xl border border-border p-4 text-sm">
         <p>Assess this module at entrance, day 45 and day 90. Personal results stay private.</p>

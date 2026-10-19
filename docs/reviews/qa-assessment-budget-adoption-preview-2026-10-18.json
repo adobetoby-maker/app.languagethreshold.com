@@ -1,0 +1,96 @@
+{
+  "testedAt": "2026-10-18T14:33:49.689034+00:00",
+  "applicationCommit": "0a62c7dcdc210ef4153675bf10f322f570180048",
+  "preview": "https://language-threshold-cx3s3pa9i-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-cx3s3pa9i-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_qhAu4w42B4ntDKS2Epeuve4KhqHt",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-cx3s3pa9i-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "0a62c7dcdc210ef4153675bf10f322f570180048",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-budget-adoption-local-2026-10-18.json",
+  "local": {
+    "newActualRouteBudgetGroups": 8,
+    "newlyAdoptedHttpQuotaCallsites": 14,
+    "totalAdoptedHttpQuotaCallsites": 16,
+    "fullNode22Tests": 1528,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-budget-adoption-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "ownedQuotaPhaseMs": 8000,
+  "quotaBodyMaxBytes": 1024,
+  "checks": {
+    "all14CallsiteAbortMatrix": true,
+    "allThreeApiGetPostDeadlineMatrix": true,
+    "quotaJsonUtf8WireBudgetAndSingleCall": true,
+    "false429AndFixed503Retained": true,
+    "normalQueuePlanRevisionContentViewRetained": true,
+    "historyExportSecondQuotaOwned": true,
+    "independentApiRequests": true,
+    "alreadyDispatchedAcknowledgementsUnchanged": true,
+    "existingBearerUnassignedContentAndNonquotaAttemptGatesRetained": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaActiveAttemptAndTeamProgressRetained": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/routes/api.exams.ts": "a37309ad91767b08cd4dd78c4251ac89b6ba6fdaca28abda0f6a4a59a67d1d90",
+    "src/routes/api.exam-plans.ts": "c7c11d5ddae0f58542212c379ebf4125fdea0ee5357ff67e346c2e0bf3e1956e",
+    "src/routes/api.exam-content.ts": "1064b319c640e2c6595dab18ba203745eb470f31e05296cdb339d11169a93535",
+    "tests/assessment-budget-adoption.test.mjs": "7815afa284d37d6021ec5f6db84abaa7f669cb4dabd92f9454bed71919474e28"
+  },
+  "limits": [
+    "Historical baseline reproduces one concrete review-queue case only: late quota allowed a mock queue RPC after request departure, and the existing later registry guard returned499. No real queue, role, quota, owner, reviewer, media, goal or business mutation. Other old branches are not claimed individually reproduced.",
+    "New actual handler/installed SDK matrix covers14callsite branches across exams/plans/content, including second history-export quota and speech-upload admission before upload. Normal synthetic acknowledgements/plan revision are mock HTTP, not real learner progress/reviewer listening consent/qualification.",
+    "Only quota phase adoption/handoff guards change. Shared hashing/limits/window/enforcer, budget helper and existing Request-owned reviewer callsites unchanged. Internal AI proposal budget has no Request and stays separate. Bodies, later private read/provider waits, permission freshness, RPC uncertainty/deadlines, full endpoint lifetime and physical dispatch/cancellation remain separate.",
+    "Quota POSTs may consume counters after departure. No refund/replay/rollback inference; already-dispatched acknowledgements/outcomes and requestID/revision rules unchanged. Positive service returns true; existing nontrue429 behavior remains.",
+    "Current full1528test log retained under its own filename and passed. Prior turn earlier failed-log evidence gap remains historical and is not assigned a root cause by this success. No schema/policy/schedule/cleanup/browser/production action.",
+    "Fourteen direct callsites in three HTTP routes now pass Request and check request departure immediately afterward. Combined with two prior reviewer calls, all16direct assessmentBudget HTTP callsites found in these four routes are adopted. This count is not proof of app-wide private I/O coverage; internal AI-proposal quota remains without Request and other shared budget families are separate.",
+    "All18hosted groups use dedicated QA read/rejected mutations/anonymous denials. No actual owner/reviewer permission/approval/qualification, queue/plan/goal update, speech upload/withdrawal/acknowledgement, provider/model/email/audio/payment, exam submit, cleanup/schema/policy/schedule or production action. Positive mutation acknowledgements are local synthetic HTTP only.",
+    "Main64f2172 and accepted companiond4ad837 unchanged; draftPR38 remains unmerged. Prior full dependency audit9findings(5high/4moderate), legacy Prisma and human/device/session/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open. Full goal active."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T14:33:51.081Z",
+    "sourceCommit": "0a62c7d",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1613,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

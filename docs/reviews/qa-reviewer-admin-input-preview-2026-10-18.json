@@ -1,0 +1,94 @@
+{
+  "testedAt": "2026-10-18T13:55:38.686940+00:00",
+  "applicationCommit": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+  "preview": "https://language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3Cej8seET5AvKUZpdFRR7BH5Hv2B",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ib9ze4ehw-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-reviewer-admin-input-local-2026-10-18.json",
+  "local": {
+    "newActualSdkGroups": 6,
+    "existingAuthGroups": 12,
+    "fullNode22Tests": 1504,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.96
+  },
+  "hostedCheckerGroups": 18,
+  "newAnonymousInputChecks": 6,
+  "hostedReports": [
+    "qa-exams-reviewer-admin-input-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "requestMaxBytes": 16384,
+  "inputDeadlineMs": 10000,
+  "checks": {
+    "beforeAuthOwnerAndBudget": true,
+    "streamByteLimitAndAdvertisedLength": true,
+    "stalledReaderDeadlineAndNonwaitingCancellation": true,
+    "alreadyAndPendingAbort499": true,
+    "strictUtf8JsonAndSchema": true,
+    "fullEscaped2000CharacterReasonAccepted": true,
+    "registeredOwnerAndBearerStillRequired": true,
+    "unchangedMutationRpcParametersAndSingleDispatch": true,
+    "privateHeadersNoBodyEcho": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "hostedMissingBearerStillDenied": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/routes/api.exam-reviewers.ts": "2eb7a8c0679fe9edcc899fcfa57407f39676d6bd083c6b0cc8effbeb98c9412b",
+    "tests/reviewer-admin-input.test.mjs": "54cdaff048a43a834a05707ae727237728f8ebf6ea2a6064920fef36ae95ba78",
+    "tests/assessment-auth-errors.test.mjs": "168260424b1ff9c703dc6a9fab1b52908748e45cf1579a5fa0320fc36d7463f8"
+  },
+  "limits": [
+    "Installed SDK and actual production handler with synthetic HTTP/Auth/owner/quota/mutation acknowledgements only. No real owner access, grant, revoke, qualification, reviewer decision, business write or quota mutation. Historical assertion proves unnecessary prevalidation work; not actual sensitive-data leakage or authorization bypass.",
+    "Input phase only:16KiB UTF8 bytes replaces the postbuffer12000 JavaScript-character check; oversized input now413 and timeout408. A2000-character escaped Unicode reason formerly over12000wire characters now fits the full bounded schema. Full schema validated before SDK and fixed guidance preserves owner/Auth/confirmation policy.",
+    "GET administration still has three private list reads with query row caps201/601/50, no selected transport response/deadline bounds. Later budget/mutation RPC and uncertain write outcome semantics remain separate; no aggregate endpoint, durable-outcome or physical network cancellation claim.",
+    "Existing Auth tests and hosted missing-bearer checker now supply schema-valid synthetic reviewer input to reach unchanged Auth, rather than empty invalid object. Real private JSON reader runs in Auth fixtures; preaborted POST correctly creates no client. No assertion removed or auth gate weakened.",
+    "All hosted requests are dedicated QA read/rejected mutation or anonymous denials. No actual owner/reviewer mutation, permission grant/revocation, approval, provider/model/email/speech/payment, exam submit, policy/schedule/cleanup, schema or production promotion. Main64f2172 and accepted companiond4ad837 remain unchanged.",
+    "The six hosted input cases prove ordinary denial statuses/private headers/fixed guidance/no echo; they do not prove stream abort/deadline behavior behind the hosted proxy. Those paths are controlled actual local handler/SDK tests. Browser/physical device/session expiry/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open; full goal active.",
+    "Prior full dependency audit still9findings(5high/4moderate); legacy Prisma schema validation remains open. DraftPR38 remains unmerged."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T13:55:39.919Z",
+    "sourceCommit": "c972dc6",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1597,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

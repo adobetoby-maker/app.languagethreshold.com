@@ -1,4 +1,5 @@
 import "@tanstack/react-start/server-only";
+import { withSelectedRouteRead } from "./selected-route-read";
 import type { TeamDb } from "@/lib/team-server";
 import type { attemptAccess } from "./server";
 import { AssessmentAccessError } from "./errors";
@@ -100,17 +101,32 @@ export function requireSelectedResponses(
  * Reads the immutable decision, not its private original answer/audit snapshot.
  * Flat historical forms preserve their original item order and need no route query.
  */
-export async function selectedAttemptPath(db: TeamDb, context: Context, requireRoute = false) {
+export async function selectedAttemptPath(
+  db: TeamDb,
+  context: Context,
+  requireRoute = false,
+  request?: Request,
+) {
+  const current = () => {
+    if (request?.signal.aborted)
+      throw new AssessmentAccessError("Assessment request cancelled.", 499);
+  };
+  current();
   if (!hasAdaptiveRouting(context.attempt.form_snapshot?.definition))
     return resolveSelectedAttemptPath(context, null, requireRoute);
-  const result = await db
-    .from("assessment_attempt_routes")
-    .select("attempt_id,source_revision,decision_revision,decision")
-    .eq("attempt_id", context.attempt.id)
-    .maybeSingle();
-  if (result.error)
-    throw new AssessmentAccessError("Selected assessment path is unavailable.", 503);
-  return resolveSelectedAttemptPath(context, result.data, requireRoute);
+  return withSelectedRouteRead(db, request, context.attempt.id, async (reads) => {
+    let query = reads
+      .from("assessment_attempt_routes")
+      .select("attempt_id,source_revision,decision_revision,decision")
+      .eq("attempt_id", context.attempt.id)
+      .maybeSingle();
+    if (request) query = query.retry(false);
+    const result = await query;
+    current();
+    if (result.error)
+      throw new AssessmentAccessError("Selected assessment path is unavailable.", 503);
+    return resolveSelectedAttemptPath(context, result.data, requireRoute);
+  });
 }
 
 /** Batched report callers supply only a service-read immutable row after authorization. */

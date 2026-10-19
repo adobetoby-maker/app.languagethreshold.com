@@ -1,0 +1,644 @@
+{
+  "testedAt": "2026-10-18T16:43:11.440Z",
+  "applicationCommit": "7fb59fbc810e9343addcb9a9aed176e344e10535",
+  "historicalSource": "650da6a:src/lib/lesson-review.ts",
+  "historicalProof": "Exact historical source bytes from git-show retained in hash-checked fixture. Historical constructor leaves generated changes out of identity; current constructor binds them. Final fixture does not require historical Git objects.",
+  "checks": {
+    "fullNode22Tests": 1688,
+    "failed": 0,
+    "typecheck": true,
+    "changedFileLint": true,
+    "productionAuditFindings": 0,
+    "guardedBuild": true,
+    "artifact": true,
+    "packagedStaticAndSourceJsonEqual": 60,
+    "allGeneratedTracksBound": 59,
+    "allCurrentCurriculumLessons": 1510,
+    "allFileReviewedFlagsFalse": true,
+    "allSnapshotsWithinSqlByteLimit": true
+  },
+  "sourceHashes": {
+    "src/lib/lesson-review.ts": "ea717a31d1c6e91bb3fabe800a48356f703ebd594591e1913b641436d44adab4",
+    "src/lib/lesson-review-server.ts": "66d844cb8fe5195985627d55a5493bd31a54f1eeea028b4d90452ce7ee38a5a7",
+    "src/lib/assessments/release-readiness.ts": "64fc8c02318ba11b3bb65b2dba409f9018123dab60857f236b387cd4312a167e",
+    "src/lib/assessments/lesson-binding.ts": "1c70764b0abc1a5bb8699fc84ba9bb589084ab08bceb34540c8891cf0cfe3b09",
+    "src/routes/api.exam-content.ts": "c142b8ec0e8a6e3652ede47f86f8de4147a14a36f7f49381a2743dc8d8013fea",
+    "src/components/exams/LessonReviewSnapshotView.tsx": "e6c0aedcc006e3be2e4932d9b1d967158cb6f436a3c13d2f8ce0bc88b371639d",
+    "scripts/vercel-adapter.mjs": "ecd6e7d76b5cffc609bbe0cf1aaa018b9297dc32998047fa06e0ec2fc57a1bd4",
+    "scripts/verify-vercel-artifact.mjs": "85f9918000ccd9f657499d07e775c29b4c8ffd3aac0e64b7c960e63a632a4e01",
+    "scripts/verify-lesson-review-content.mjs": "0b50bb8f61d19817868c468c7fe663467884deb2730bbd9712cc3a9bbda857b2",
+    "tests/lesson-generated-review.test.mjs": "bb1a0acfc9d4269a8a0ec96ce680b4d8105af3269885a453626c5c1fe3d21bb0",
+    "tests/fixtures/lesson-review-650da6a.ts.txt": "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c"
+  },
+  "tracks": [
+    {
+      "moduleId": "fmg",
+      "target": "English",
+      "native": "Spanish",
+      "lessons": 30,
+      "verbs": 142,
+      "snapshotBytes": 222912,
+      "fingerprint": "2e474760fddcb146470f8ba8f84e91a993df669487b54f2c56a59b170a8b3a7a",
+      "sourceSha256": "a2810637277f9f1bbb9da1116ab84104e8e3e87122f6a7908f2a7186b1e90aee"
+    },
+    {
+      "moduleId": "or-evs",
+      "target": "English",
+      "native": "Spanish",
+      "lessons": 30,
+      "verbs": 147,
+      "snapshotBytes": 200511,
+      "fingerprint": "602c00b3c1ba43f54fcb5abafe7e073af8e40c517a42a8274e2a4ef5c64a5a85",
+      "sourceSha256": "75b848147860130f2fa0a420655988284db4709d759b9699adc73729d5fc901a"
+    },
+    {
+      "moduleId": "american-football",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 137,
+      "snapshotBytes": 194916,
+      "fingerprint": "4455f30354b0a4c2a1d7fd43948246e6a7b505e5392115db91f5236c6d23042f",
+      "sourceSha256": "879b0983b3798289dd97d2e43f505f3728308bb145e9b5114e6c8e958bdadc77"
+    },
+    {
+      "moduleId": "auto-mechanic",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 136,
+      "snapshotBytes": 199378,
+      "fingerprint": "c76ff56303e5e48afdd4129fefa92cd45c4e094e63c626d8ce3422c26ff75cf8",
+      "sourceSha256": "2f33ebd59d79f07983c7c8e6ee799b41bf64ca334391511366b9dcdf9f1b5bf2"
+    },
+    {
+      "moduleId": "baseball",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 131,
+      "snapshotBytes": 189660,
+      "fingerprint": "e3114a22547662784fa99fb634acbccfe19c0a34ea1fe2e806c97baec11057f4",
+      "sourceSha256": "c8e5ae193a5ffa6a2bdabc122d64d963f7053b43f115a229359e3117fed7428e"
+    },
+    {
+      "moduleId": "bowling",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 133,
+      "snapshotBytes": 193377,
+      "fingerprint": "810f18813418a334349d0ee4af75aa66be5fc60c43e56ada93804215c71c4ea2",
+      "sourceSha256": "efe932173bf0d1dea6e761b6e1e851de259243f530fb1954b7cc809bb671cbb0"
+    },
+    {
+      "moduleId": "cardiology",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 144,
+      "snapshotBytes": 214523,
+      "fingerprint": "2e392a0d297039d0a1351a1692c7cffedb378148913e87420390d7876fb3cd69",
+      "sourceSha256": "d8710cef1e4d4db9733c575bdfd83e0ee5779a9b59bc9ae995bf54ab5f38c9f3"
+    },
+    {
+      "moduleId": "catholic-ministry",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 141,
+      "snapshotBytes": 210052,
+      "fingerprint": "b7a213962fe2a78b162d77f3434b1e53216f8cec6a84eff585ff72439167e1bf",
+      "sourceSha256": "fd2179a2ec192302c04433ad293a6edae11f6c954bc4556c114723c2198ea445"
+    },
+    {
+      "moduleId": "construction-foreman",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 137,
+      "snapshotBytes": 198122,
+      "fingerprint": "6c4a1da9952cdd32010c9175588b2c6f0efe5a276f6536bfcef77a9572d944f7",
+      "sourceSha256": "e578fbee0aadbeb2940c0b14fb05877eb1749f856b4f84c2b5adb8384e6eef5e"
+    },
+    {
+      "moduleId": "construction-safety",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 143,
+      "snapshotBytes": 200550,
+      "fingerprint": "0ea3c8c019afbc022341517e82332207b8372904a6696d79448a5c1598a4728a",
+      "sourceSha256": "717ebf14f611804832ce46505565a2ac09a2c9ff93d5850be9649d5c9b387540"
+    },
+    {
+      "moduleId": "dairy-farmer",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 139,
+      "snapshotBytes": 200018,
+      "fingerprint": "12c2d55a52ce5ad10b6f647b02f2b74ab1c7928353457dd1787317484497c4d1",
+      "sourceSha256": "28d8ab2b278fb7880b7d0bd1daf1f540790faf3f92e23a66813429f0d7ec6544"
+    },
+    {
+      "moduleId": "drywall",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 139,
+      "snapshotBytes": 195668,
+      "fingerprint": "3cc4dd2b715a30667ff3849d25aba4e4d8bcc4267ede4bac3c910e51d3e06a8e",
+      "sourceSha256": "f3251d357ab9a76818c606bd595dbb1d105df4bb956b9f85d2eb0ded28e6bfc8"
+    },
+    {
+      "moduleId": "electrician",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 207821,
+      "fingerprint": "47e5dbc4b4a5b3e2945249689789480563cd9eb6bf8dfeebeb1faa9674d25c00",
+      "sourceSha256": "80d81373004dc29eb38f8bff707523b8fa9194d819aef171b10e10b4e2f2e363"
+    },
+    {
+      "moduleId": "emergency-medicine",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 203264,
+      "fingerprint": "5e190d440b635dc0a0de1d5604f56ecceaff773e27c18eb73089e06536fda45f",
+      "sourceSha256": "0c16e60b6b363c35cd7edcccb16ea1938613a401627d9f12332c6d809b4e50c4"
+    },
+    {
+      "moduleId": "family-medicine",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 139,
+      "snapshotBytes": 208707,
+      "fingerprint": "ed7c95dd552d3bfa1fa428253c80ca1f1808c1e36701a8a1fe411c809deb3cb2",
+      "sourceSha256": "acf08baf26db010f6f3ca0491cc12bee4bddcac76ee5aeab042230a10ca03718"
+    },
+    {
+      "moduleId": "framer",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 139,
+      "snapshotBytes": 194596,
+      "fingerprint": "e6a794142de903d66072d8332363ad4fa1ddcabd16f9cb2362db056ee1c9fddb",
+      "sourceSha256": "271e4f46a8a261c4b39b0a6309de5ef58e31013588a74935828044a84083d513"
+    },
+    {
+      "moduleId": "general-surgery",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 200740,
+      "fingerprint": "59ae2957b69443d8afe9d528b49dabb7d5b84b879151e29e42999ae31a65dd59",
+      "sourceSha256": "cc05f102ece7e1ba567a2581bea379b3feb3e8050285b909028657b928cbbd33"
+    },
+    {
+      "moduleId": "hockey",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 135,
+      "snapshotBytes": 190557,
+      "fingerprint": "79db3e539cf4ccf7d24224d6f221d958774814f4aecf8e7ecc0a8b318e7d07c1",
+      "sourceSha256": "33e5a57b461a373013b12190452b01b33953280124ce7a1284239e042e92ca57"
+    },
+    {
+      "moduleId": "international-travel",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 144,
+      "snapshotBytes": 205544,
+      "fingerprint": "400dfcd5e0eb642ca0c8d053fda1684fbb4034f8d9f31192826f2a38a7129992",
+      "sourceSha256": "71c60b2638f1f4baec841ce31a1e6ea3c213b9032097a221c44c9831c5dd9712"
+    },
+    {
+      "moduleId": "k12-teacher",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 204465,
+      "fingerprint": "a27b2fa4c35b96f1fe60d914483625983b37d77ea89ea358afa4af4c95efd186",
+      "sourceSha256": "56ca280410e67604450255ccc559926133bfc2740178ae4a55bd8c94f1d30612"
+    },
+    {
+      "moduleId": "lacrosse",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 132,
+      "snapshotBytes": 186127,
+      "fingerprint": "029b0a6e16ef4ab33a2e9b12c32f21a355e9312d2d67c1b9f4aab321acb06247",
+      "sourceSha256": "bbd645f2952f4b447b83b3b0be35a9fc66520f4f2cf4820d4481d2d460056ae9"
+    },
+    {
+      "moduleId": "landscaper",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 211127,
+      "fingerprint": "a7295bf3939e0625e0257db5c2bd77b8b9d682033bb0d105916a4f8ffb900170",
+      "sourceSha256": "473685f05072974a071ead29e84f562393142b3706e177a82eab8da28ddbe92b"
+    },
+    {
+      "moduleId": "lds-missionary",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 142,
+      "snapshotBytes": 200089,
+      "fingerprint": "aa8fd79f6491889554d09edc2366d11dbf38976db9eb3562aea547969967365e",
+      "sourceSha256": "4d7d759f32f5f85007efe23c1201b35449dbfdb98dbc96cbb0e9423d79532974"
+    },
+    {
+      "moduleId": "legal-immigration",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 143,
+      "snapshotBytes": 214120,
+      "fingerprint": "1a4a281bb32621b67c1ccf836c298f2c7cb9abd62a031a7f3a6d8674abe8cb0a",
+      "sourceSha256": "ca4370eb4673ccca3c49a269c4f86dbfd750a5d1c8e305aead2ea42f3829ce7c"
+    },
+    {
+      "moduleId": "meatpacking-butcher",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 141,
+      "snapshotBytes": 203951,
+      "fingerprint": "a5ee39ac3e04d58b22d57fd472e59c0364a524657cfe8f46262b9a0ac0199cc4",
+      "sourceSha256": "55673a0b0d1632828680ea2ee0bbba8b54c378dff0155b8fa0e125546e03896d"
+    },
+    {
+      "moduleId": "medical-receptionist",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 144,
+      "snapshotBytes": 208781,
+      "fingerprint": "5e9a8989f406e9d94e266097e3b55e051a0f8fd274fe29c2d2c0f67ed981bb8b",
+      "sourceSha256": "e723e20c34182a5af920ef81165540064de7f77fc2d2d429e2dba71663d581f7"
+    },
+    {
+      "moduleId": "nursing",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 200066,
+      "fingerprint": "df569a77ba39b186c732f0b52207ee0b35398a55afd03e80f68406c41437a301",
+      "sourceSha256": "8c43b3e59505b719172d912bc85a0ec223e8ca6a2e4e3ff189b21d043e51ac78"
+    },
+    {
+      "moduleId": "ob-gyn",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 138,
+      "snapshotBytes": 207900,
+      "fingerprint": "8ef0e8df3b6907db28e2e8df3fb6635fcbc458bb81ebeb472289c1bfd65b79e1",
+      "sourceSha256": "b77c52021b71fee1798d189fb2ce0d87d4f22ec580f9a84cec04a91ccce0cae3"
+    },
+    {
+      "moduleId": "orthopedics",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 139,
+      "snapshotBytes": 200782,
+      "fingerprint": "2331a2778d2fa15d1939964130ea746375ca1c50543fd1e9ef7e2292c16c844f",
+      "sourceSha256": "e6672c3074385ddcc822fcb54a1225c03a0b89343ea32eb25ba910324e520339"
+    },
+    {
+      "moduleId": "pain-management",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 143,
+      "snapshotBytes": 207938,
+      "fingerprint": "23a449acf5028fe3d62b6f2cad0ecf4e8f2d81d66316c23c6eacf9ee4cf0b5ea",
+      "sourceSha256": "878de401cef9957458a52a0faf794a3fa3630ab971779b58a31087e212d1863b"
+    },
+    {
+      "moduleId": "physical-therapy",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 143,
+      "snapshotBytes": 205749,
+      "fingerprint": "96402dd213a9e82633596b1557181575d8d6399ab818ccfbdee99d0385349b6a",
+      "sourceSha256": "9f614a1e33ae44c70b30b1d41b8505b96f46a3166cde6245c393af1ddfaf6975"
+    },
+    {
+      "moduleId": "plumber",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 142,
+      "snapshotBytes": 197559,
+      "fingerprint": "a9ab175a713a9c63448d2e4e5d58c662bdbfdd620cafe3bac69467330b1c485a",
+      "sourceSha256": "31bdcdb8df9fed0b4fe9a02dda96eda6445c7ad177d3e14551fcf1643ce8acc8"
+    },
+    {
+      "moduleId": "ranch-cowboy",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 137,
+      "snapshotBytes": 195766,
+      "fingerprint": "4e7bee1eba53d5a0e36936123c79d975d874c94305e5497b94d974e606f0994e",
+      "sourceSha256": "ff0abe7f87f352d24d4c385bab715c8629d0634b4b8a5d8dbcf3c734afac1c6a"
+    },
+    {
+      "moduleId": "restaurant-hospitality",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 136,
+      "snapshotBytes": 203587,
+      "fingerprint": "008631db4107055d2bff0d8af7fbc385ac465fab1d29ce0e2940dcf41b08632a",
+      "sourceSha256": "5553adc547ce48ea86615871a36595a7dead17a285031cd44c076f9ae457320b"
+    },
+    {
+      "moduleId": "rock-climbing",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 141,
+      "snapshotBytes": 201956,
+      "fingerprint": "9b84bd0b098220052e1eda02b14282daf8756b3094f03e5b484482aa7baab073",
+      "sourceSha256": "031d5decd580685d42e5dd968a7980c14d421c418011728a3ae23ceaeb66ad22"
+    },
+    {
+      "moduleId": "roofing",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 150,
+      "snapshotBytes": 199396,
+      "fingerprint": "0a9eb497794bda8ab14b6f3f5938ed8f611cb7d745965ae6124c3d64985fecbf",
+      "sourceSha256": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+    },
+    {
+      "moduleId": "rugby",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 132,
+      "snapshotBytes": 185666,
+      "fingerprint": "fe71f7f0a6644f7253f673fb12d6118ad63d23e0e08879044415b5493afafed0",
+      "sourceSha256": "9803532d339f3924f4dcd94cf79c11063ca1f2a59877ba7e14694eb67b7201c0"
+    },
+    {
+      "moduleId": "soccer",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 140,
+      "snapshotBytes": 197303,
+      "fingerprint": "150892ce0a82fb29aa7a6f280356220a390a297daa5f94e72f39f999718222de",
+      "sourceSha256": "70b03f160db81f149428057463df78a3aefe97dd8a7bed1867396682fbee9db6"
+    },
+    {
+      "moduleId": "social-work",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 138,
+      "snapshotBytes": 210607,
+      "fingerprint": "61e373a0d44557fe2f6ab69d57a839a792069a8151bd601231dd67bcf8154dc1",
+      "sourceSha256": "c5a3c70353df15dd9fc4bff7909fffd3ec6c39521a818f2d0558d372a40535b8"
+    },
+    {
+      "moduleId": "sport-fishing",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 10,
+      "verbs": 45,
+      "snapshotBytes": 66906,
+      "fingerprint": "c9ba95e32e5b1b755fa3e5ac1c5d4a0a764adb5ea2d213eaf8d71e88c569e753",
+      "sourceSha256": "2afcf5baa37d09905130e5dd54b26242636e7333f580472614194ebaa049521e"
+    },
+    {
+      "moduleId": "sports-hobbies",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 142,
+      "snapshotBytes": 200929,
+      "fingerprint": "fcf1910e3cf7fefa92c4110fae69543348cfcdf43cd3b99e6e3d6b67f33799c7",
+      "sourceSha256": "759f3be58ce46ac8f06b56def45b13b6cf2c15919af0b30d942e7ccff6904a9b"
+    },
+    {
+      "moduleId": "tennis",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 134,
+      "snapshotBytes": 191412,
+      "fingerprint": "7f7ed8559d1d9994a20da6a08e596520f27957501bcaf84be15e9976eff93e92",
+      "sourceSha256": "4312c1b653335e98922ca9c0c06d762d80b73048e908cf8d85ef27cc9d3436c7"
+    },
+    {
+      "moduleId": "travel-airport-luggage",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 74,
+      "snapshotBytes": 103876,
+      "fingerprint": "c5332d46ea8da7815d8dfc0148f52cca0b9c27618dfa2ca4c8a0c5e44108106b",
+      "sourceSha256": "5dc3f391ff8747690c73b2fec601677c12d9a932ac05f1057c8afaa0a4bba107"
+    },
+    {
+      "moduleId": "travel-breakfast",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 71,
+      "snapshotBytes": 103150,
+      "fingerprint": "c0a410284f50369323e16ad0a4a0e3c1d94fb3542f66d5b944a831eeff7df73c",
+      "sourceSha256": "6333a8fdb5d4853618ee70a0ceff80aa930cc62f7c4bd5ab4c836eee4d061483"
+    },
+    {
+      "moduleId": "travel-daily-life-services",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 75,
+      "snapshotBytes": 105163,
+      "fingerprint": "00bae0d37bf46849337964286205488bb49fc7db48729f903e2a02d7f8a89b02",
+      "sourceSha256": "a14e6137ab0c4e79e97209fac646d54ce7eb6a5f40fa8fd20f670819a083cc02"
+    },
+    {
+      "moduleId": "travel-dinner",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 72,
+      "snapshotBytes": 103384,
+      "fingerprint": "57d87ce1c3ed204ec27ac09ccbd5242b3554e25ed74afc884ee4a93aacd0a55b",
+      "sourceSha256": "60d0a894f8a5f94d019b6d753e265c7cb8423565bdd608c91e18e5da4f9ca80c"
+    },
+    {
+      "moduleId": "travel-guides-attractions",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 70,
+      "snapshotBytes": 102702,
+      "fingerprint": "bd060c691ddedcae6ec653ba3ef5d66406d742e09cf98d04dbd4a7be149c3f37",
+      "sourceSha256": "8fb8d066bf37bbb4f3b010f011ac2213fb6dcdc82066fe175dc0cd44b5ff4a99"
+    },
+    {
+      "moduleId": "travel-hotels-lodging",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 72,
+      "snapshotBytes": 103139,
+      "fingerprint": "508f36620c8cb3265d23e194015f0f1c94867fa9738a7f31bc8fea7456dc5633",
+      "sourceSha256": "1cc36cc20dbeb0dd2fb2cefe5d5511f2befeb6c0b9c8273cb4c38b53aeb61c3b"
+    },
+    {
+      "moduleId": "travel-lunch",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 74,
+      "snapshotBytes": 103518,
+      "fingerprint": "bcff2facc9d6ca7e029a63409e6ea6bd7a4849b06b6ed3ab7663a8d027505d06",
+      "sourceSha256": "94dd45733979a47367a26aba63514e4f9400761851f4079b4bcd276ac73cbc2d"
+    },
+    {
+      "moduleId": "travel-markets-souvenirs",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 70,
+      "snapshotBytes": 99174,
+      "fingerprint": "33fc11d0bdfa0ba8517cab2e74a01dd7c49bae954160a2da01da5ecd7cd1f08d",
+      "sourceSha256": "3c5ac2121bed3053e9402a4118b7b2a7e333fc1b213db7d74ef2fead68244682"
+    },
+    {
+      "moduleId": "travel-pharmacy-health",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 71,
+      "snapshotBytes": 105432,
+      "fingerprint": "7a9e20e6716e0d61335d1db9074dbc84fed9fcad86fc73b13e688754cf7183ea",
+      "sourceSha256": "7bf723452ec2fcd7075494b0af4a343d6eed49f3ba6d6f729651348c38ab14e0"
+    },
+    {
+      "moduleId": "travel-problems-services",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 72,
+      "snapshotBytes": 105793,
+      "fingerprint": "19a5cfa029f69899fcd47eea514b8c214c5b44ab503df40dbf280f954322f3c8",
+      "sourceSha256": "fafaa2b6b1f218d3ca2f96f7d19c97b12aaa52895eb903131b263a817a639b45"
+    },
+    {
+      "moduleId": "travel-roadside-mechanics",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 72,
+      "snapshotBytes": 104190,
+      "fingerprint": "7f69322722a225a39da1130a8804e90389c4f1d792f4abf5f0e215a402057265",
+      "sourceSha256": "c7fdd3e6f80d269a6150c8df5fb50589f92fa8bac8f1819bee44a44c663c5db3"
+    },
+    {
+      "moduleId": "travel-scooter-car-rental",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 75,
+      "snapshotBytes": 104355,
+      "fingerprint": "dbbdcf2e7b7ee7bd060f84dd5acd4b9a669c55e886130a9fb2ad9b520c0cf5d9",
+      "sourceSha256": "1693af36085543d90b67ebfbba13acc9fafac5118e74cf38793d56baaf211040"
+    },
+    {
+      "moduleId": "travel-shopping-essentials",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 71,
+      "snapshotBytes": 103488,
+      "fingerprint": "95514bec7751bb6ccd499ef5a06652bd1034ef81017270a18a5240c700092ddf",
+      "sourceSha256": "9f3bfb6dff89283b80d8652b6da462c4d8096d352c6606ce11452689a2c27980"
+    },
+    {
+      "moduleId": "travel-social-dating",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 71,
+      "snapshotBytes": 103357,
+      "fingerprint": "14a91b0bdbb6defecfa217ad8fd727b55c94a27f84c4a44bd033f7deed2c41d0",
+      "sourceSha256": "65047a0eefa5f0721eb47abf265f41728908efdb9ba4e2aeedfc6be96395286c"
+    },
+    {
+      "moduleId": "travel-taxi-rideshare",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 72,
+      "snapshotBytes": 100475,
+      "fingerprint": "bb6c393617f81b23fa2a1380398d0b584ba7e631884c8f6ff41655c36c7c308d",
+      "sourceSha256": "b77326283db423809e398ee51c72cefeb51326fdf5abf42948645fcae05f2a46"
+    },
+    {
+      "moduleId": "travel-trains-transit",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 15,
+      "verbs": 74,
+      "snapshotBytes": 103290,
+      "fingerprint": "429b307c7366be76bf6756bb8405fc06b166b709c82e717a6215a568d8e5ef34",
+      "sourceSha256": "abaa3dcc66c51332d088d5992c88550add7cc2b985cbe2f45eefa8d9b6577a61"
+    },
+    {
+      "moduleId": "truck-driver",
+      "target": "Spanish",
+      "native": "English",
+      "lessons": 30,
+      "verbs": 141,
+      "snapshotBytes": 197966,
+      "fingerprint": "7e226caa162fce56962188d92793f02dbeeb6be987bece3d4bf3970a40b2a82f",
+      "sourceSha256": "8460deefebe2ae4af2fb42212576765f6d01876dd0c2a42b2e414f649ccd1b76"
+    }
+  ],
+  "limits": [
+    "No schema/role/policy/speech/schedule/cleanup or actual owner binding/reviewer approval action.",
+    "Schema1 historical snapshots remain inspectable; their fingerprints cannot match current generated-layer snapshots. New release version and qualified review still required.",
+    "Readiness structural completeness remains based on shared lesson definitions; generated fallback presence never relaxes it.",
+    "SSR reviewer rendering and controlled fixtures do not establish browser/phone/accessibility/device/offline/human acceptance.",
+    "No real model/provider/billing/learner evidence/exam submission action."
+  ],
+  "ciFixtureCorrection": {
+    "failedWorkflow": 39146484098,
+    "failedTests": 1,
+    "passedTests": 1687,
+    "reason": "Historical git object unavailable in clean CI checkout; no runtime assertion failure.",
+    "correction": "Retained exact historical source bytes in a hash-checked fixture, with original src/lib resolveDir. No runtime source/build/deployment change.",
+    "fixture": "tests/fixtures/lesson-review-650da6a.ts.txt",
+    "fixtureSha256": "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
+    "finalLocalTestsPassed": 1688,
+    "finalLocalTestsFailed": 0,
+    "failedLogSha256": "40297655290edd9c35d8c236dc03e92495f77d3a7df439a454e49c6f8dff4a57"
+  }
+}

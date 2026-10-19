@@ -1,0 +1,54 @@
+{
+  "testedAt": "2026-10-18T13:26:23.140Z",
+  "sourceCommit": "eec3f0f2909de602a829b92034baeba14e5f4275",
+  "runtimeApplicationCommit": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+  "installedSdk": "2.105.1",
+  "observations": {
+    "configuredProjectActorProjectionAndActiveFilterCorrect": true,
+    "ownerAndRegisteredOwnerFalseForFixture": true,
+    "contentGrantSignalPresent": false,
+    "explicitNoStore": false,
+    "acceptedInjectedExtraBytes": 307200,
+    "extraFixtureFieldRetainedInHelper": true,
+    "transient503Dispatches": 4,
+    "retryHeaders": [
+      null,
+      "1",
+      "2",
+      "3"
+    ],
+    "serviceErrorAlreadyHasFixed503Guidance": true,
+    "abortDuringGrantDidNotSettleWait": true,
+    "lateGrantStillAuthorizesMatchingTrack": true,
+    "actualCatalogRouteStatusAfterAbort": 200,
+    "subsequentSyntheticCalls": [
+      {
+        "path": "/rest/v1/rpc/consume_speaking_request",
+        "method": "POST",
+        "afterAbort": true,
+        "signalPresent": true
+      },
+      {
+        "path": "/rest/v1/assessment_releases",
+        "method": "GET",
+        "afterAbort": true,
+        "signalPresent": false
+      }
+    ],
+    "unexpectedNetworkCalls": 0,
+    "sdkConsoleErrorCalls": 0
+  },
+  "sourceHashes": {
+    "src/lib/team-server.ts": "e361ef6eb405ad4d2e0401830ed9cbff2fa17591ee960fa759dd9bedf99c8aa6",
+    "src/lib/assessments/content-server.ts": "b65cd1f282b40767baafa3b99446f793adbaa393ac0ec37a89b1bca41bf375a5",
+    "src/lib/assessments/server.ts": "11a5fb8af31930c29100c3f2d1d69dbe8a31f9f05fcad05c406a8937223c4d8b",
+    "src/routes/api.exam-content.ts": "6620eb23fd2b980da996f7669aa5332f32a534749bebe549a0479553d46e0e0a"
+  },
+  "limits": [
+    "Historical source and actual installed SDK with entirely synthetic Auth/project/role/grant/HTTP data. No live reviewer grant, scope/role change, human approval, private form/evidence read, release, assessment write, budget-counter update, provider/email/financial/schema/policy/schedule operation.",
+    "Actual catalog GET continued after grant wait with one mock budget RPC and one mock release read. Empty responses return no question content. In-process mock calls do not establish actual unauthorized data exposure, attacker control, tenant bypass or physical cancellation behavior.",
+    "The service-error control already returns fixed503 guidance; this is not a private diagnostic leak finding. Large/unknown fields are injected service responses and retained in the internal helper only, not evidence of public serialization.",
+    "Owner role reads are already bounded separately; their completion does not bound the later content-grant wait. This probe does not undo the owner/membership/Auth repairs. Evidence-reviewer exact-track and review-queue registry reads are separate source-audit candidates, not proved by this content-grant probe.",
+    "Defect probe requires explicit baseline; it must not become a required test preserving late authorization. No application change/deploy in this audit group. Next repair needs scoped cancellation/deadline, response budget/schema and exact-query retry control, preserving active/user/track semantics and unrelated write outcomes."
+  ]
+}

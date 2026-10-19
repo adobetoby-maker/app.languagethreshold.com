@@ -1,10 +1,10 @@
 {
-  "auditedAt": "2026-10-17T22:27:07.306394+00:00",
+  "auditedAt": "2026-10-18T14:33:49.689034+00:00",
   "prd": "docs/prd-assessments.md",
   "version": "1.2",
-  "application": "691072f",
+  "application": "0a62c7dcdc210ef4153675bf10f322f570180048",
   "outcome": "Incomplete: continue engineering and review; no production release or verified-module claim.",
-  "currentPreview": "https://language-threshold-dla7xxxu9-adobetoby-5572s-projects.vercel.app",
+  "currentPreview": "https://language-threshold-cx3s3pa9i-adobetoby-5572s-projects.vercel.app",
   "liveReadiness": {
     "verifiedReleases": 0,
     "verifiedCalibratedForms": 0,
@@ -351,7 +351,7 @@
     "source": "Direct owner instruction, October 17",
     "status": "Condition not yet met; remain staged"
   },
-  "currentCombinedPreviewEvidence": "docs/reviews/qa-cleanup-response-preview-2026-10-18.json",
+  "currentCombinedPreviewEvidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
   "routingSchemaScope": {
     "status": "Owner authorized; private database foundation applied; runtime remains gated",
     "proposal": "docs/assessments/adaptive-routing-migration-proposal.md",
@@ -381,8 +381,8 @@
     "adaptiveActivated": false
   },
   "latestLocalUtilityEvidence": "docs/reviews/qa-owned-conjugation-cache-local-2026-10-17.json",
-  "latestLocalSourceCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
-  "latestLocalPrivacyEvidence": "docs/reviews/qa-cleanup-response-preview-2026-10-18.json",
+  "latestLocalSourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "latestLocalPrivacyEvidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
   "optionalFieldPrepAnalytics": {
     "enabled": false,
     "feedbackPromptEnabled": false,
@@ -1118,17 +1118,281 @@
     "executionOrPolicyOrScheduleChanged": false
   },
   "latestAssessmentPrivateBoundaryInventory": {
-    "evidenceSourceCommit": "e76c4ac35b37056ba3946c478b9a25cc8a0b5b3d",
-    "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+    "evidenceSourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+    "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
     "evidence": "docs/reviews/qa-assessment-private-boundary-inventory-2026-10-18.json",
     "auditOnly": true,
-    "files": 64,
+    "files": 67,
     "typedErrorConstructors": 207,
     "dynamicTypedErrors": 3,
-    "directRpcSites": 11,
-    "consoleSites": 9,
-    "conditionalErrorMessageAssignments": 3,
-    "openPriority": "Team invite/resend/assign success warnings and historical invitation diagnostic serialization",
-    "fixed": false
+    "directRpcSites": 16,
+    "consoleSites": 12,
+    "conditionalErrorMessageAssignments": 0,
+    "openPriority": "Durable/uncertain email outcomes, broader private read/RPC/cache/SDK and endpoint deadlines",
+    "fixed": true
+  },
+  "latestAuthorizedMainRelease": {
+    "commit": "64f21726cedc620835f5e344b941e977898d7fe2",
+    "workflow": 39126299969,
+    "workflowSuccess": true,
+    "productionDeployment": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+    "productionReady": true,
+    "readonlySmokeChecks": 6,
+    "evidence": "docs/reviews/qa-main-ci-cache-repair-2026-10-18.json",
+    "runtimeSourceEquivalentTo": "691072f",
+    "fullGoalComplete": false,
+    "teamSuccessWarningFixStillOpen": true
+  },
+  "latestTeamSuccessWarningFollowup": {
+    "application": "5d6bf6d",
+    "deployedToPreview": true,
+    "evidence": "docs/reviews/qa-team-email-preview-2026-10-18.json",
+    "actualRouteGroups": 7,
+    "baselineActualAssertionFailures": 5,
+    "newWarningsFixed": true,
+    "historicalDiagnosticsProjectionNormalized": true,
+    "originalDatabaseRowsUntouched": true,
+    "hostedCheckerGroups": 17,
+    "productionPromoted": false,
+    "transportAndDurableOutcomeStillOpen": true
+  },
+  "latestTeamEmailTransportFollowup": {
+    "application": "68e6122",
+    "deployedToPreview": true,
+    "evidence": "docs/reviews/qa-email-transport-preview-2026-10-18.json",
+    "warningGroups": 7,
+    "transportGroups": 6,
+    "logGroups": 3,
+    "providerDeadlineMs": 15000,
+    "automaticRetry": false,
+    "fixedRuntimeLogSites": 3,
+    "hostedCheckerGroups": 17,
+    "productionPromoted": false,
+    "durableDeliveryAndAggregateEndpointDeadlinesStillOpen": true
+  },
+  "latestTeamPermissionTransportProbe": {
+    "sourceCommit": "3c51f9c4f9d840dcec98e3437d04b52c6757fcb7",
+    "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+    "auditOnly": true,
+    "evidence": "docs/reviews/qa-team-permission-transport-probe-2026-10-18.json",
+    "syntheticOnly": true,
+    "signalPresent": false,
+    "explicitNoStore": false,
+    "transient503Dispatches": 4,
+    "acceptedSyntheticNameBytes": 307200,
+    "latePermissionAllowedSyntheticUpdateAfterAbort": true,
+    "subsequentMockWrites": 1,
+    "fixed": true,
+    "next": "Bound exact membership permission read cancellation/deadline/response and disable its retries; prove late authorization cannot release work without changing unrelated write semantics.",
+    "fullGoalComplete": false,
+    "resolvedByApplication": "57e74bf9114a2876df6cba30e740b8661fc109e3"
+  },
+  "latestTeamPermissionTransportFollowup": {
+    "application": "57e74bf9114a2876df6cba30e740b8661fc109e3",
+    "deployedToPreview": true,
+    "evidence": "docs/reviews/qa-team-member-transport-preview-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1474,
+    "hostedCheckerGroups": 17,
+    "permissionPhaseMs": 8000,
+    "responseMaxBytes": 32768,
+    "latePermissionUpdateRegressionFixed": true,
+    "selectedRetriesDisabled": true,
+    "unboundClientsAndLaterPhasesSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestDependencyAudit": {
+    "application": "7a37d1a5823b8d727bed803df5804fbafd0fd540",
+    "productionDependencyVulnerabilities": 0,
+    "fullDependencyVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 4,
+      "high": 5,
+      "critical": 0,
+      "total": 9
+    },
+    "fullDependencyAuditPassed": false,
+    "packages": [
+      "@lovable.dev/vite-tanstack-config",
+      "braces",
+      "chokidar",
+      "fast-glob",
+      "lovable-tagger",
+      "micromatch",
+      "postcss-nested",
+      "postcss-selector-parser",
+      "tailwindcss"
+    ],
+    "lockfileChanged": true,
+    "next": "Review old Lovable/Tailwind build chain major upgrade compatibility separately; full audit still fails. Legacy Prisma schema validation remains an existing tooling limitation."
+  },
+  "latestDevelopmentDependencyPatchFollowup": {
+    "application": "7a37d1a5823b8d727bed803df5804fbafd0fd540",
+    "evidence": "docs/reviews/qa-dev-dependency-patches-preview-2026-10-18.json",
+    "developmentPackageRecordsChanged": 28,
+    "productionDependencyRecordsUnchanged": true,
+    "rootManifestUnchanged": true,
+    "fullNode22Tests": 1474,
+    "hostedCheckerGroups": 17,
+    "fullAuditBefore": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 13,
+      "critical": 0,
+      "total": 15
+    },
+    "fullAuditAfter": {
+      "info": 0,
+      "low": 0,
+      "moderate": 4,
+      "high": 5,
+      "critical": 0,
+      "total": 9
+    },
+    "productionAuditVulnerabilities": 0,
+    "prismaSchemaValidationExistingFailure": true,
+    "fullGoalComplete": false
+  },
+  "latestOwnerPermissionTransportProbe": {
+    "source": "561f64e",
+    "evidence": "docs/reviews/qa-owner-permission-transport-probe-2026-10-18.json",
+    "syntheticOnly": true,
+    "latePermissionReleasedMockWrites": 2,
+    "fixedByApplication": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+    "fixed": true
+  },
+  "latestOwnerPermissionTransportFollowup": {
+    "application": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+    "evidence": "docs/reviews/qa-owner-permission-transport-preview-2026-10-18.json",
+    "actualOwnerSdkGroups": 8,
+    "existingCleanupResponseAndOwnershipGroups": 10,
+    "fullNode22Tests": 1482,
+    "hostedCheckerGroups": 17,
+    "phaseMs": 8000,
+    "responseMaxBytes": 4096,
+    "selectedRetryDisabled": true,
+    "confirmedEmailFallbackPreserved": true,
+    "registeredOwnerPolicyPreserved": true,
+    "cleanupSourceUnchanged": true,
+    "fullGoalComplete": false
+  },
+  "latestContentGrantTransportProbe": {
+    "source": "eec3f0f",
+    "evidence": "docs/reviews/qa-content-grant-transport-probe-2026-10-18.json",
+    "syntheticOnly": true,
+    "postCancellationMockBudgetAndCatalogCalls": 2,
+    "fixedByApplication": "be0f47c90b638b066e54fb8b5b126980546478a4",
+    "fixed": true
+  },
+  "latestContentGrantTransportFollowup": {
+    "application": "be0f47c90b638b066e54fb8b5b126980546478a4",
+    "evidence": "docs/reviews/qa-content-grants-preview-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1490,
+    "hostedCheckerGroups": 17,
+    "phaseMs": 8000,
+    "responseMaxBytes": 131072,
+    "activeActorAndTrackSemanticsRetained": true,
+    "evidenceReviewerAndAdminListQueriesSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestEvidenceReviewerTransportFollowup": {
+    "application": "006304bf57221938323389b5d7e2a552b03564ad",
+    "evidence": "docs/reviews/qa-evidence-reviewer-preview-2026-10-18.json",
+    "historicalProbe": "docs/reviews/qa-evidence-reviewer-transport-probe-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1498,
+    "hostedCheckerGroups": 17,
+    "phaseMs": 8000,
+    "responseMaxBytes": 4096,
+    "lateRegistryCannotReleaseSavedResponsesRead": true,
+    "actualAttemptAndPersonalQueueCancellation499": true,
+    "orgQueueUnchanged": true,
+    "serviceFailureFixed503": true,
+    "earlierClaimQueueRpcAndAdminListsSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestReviewerAdminInputFollowup": {
+    "application": "c972dc6097cc675e5ba5884b2cd99263c2299934",
+    "evidence": "docs/reviews/qa-reviewer-admin-input-preview-2026-10-18.json",
+    "actualSdkGroups": 6,
+    "existingAssessmentAuthGroups": 12,
+    "fullNode22Tests": 1504,
+    "hostedCheckerGroups": 18,
+    "newAnonymousInputDenials": 6,
+    "requestMaxBytes": 16384,
+    "inputPhaseMs": 10000,
+    "bodyBeforeSdkOwnerAndBudget": true,
+    "maxEscapedReasonSupported": true,
+    "registeredOwnerAndRpcSemanticsRetained": true,
+    "privateAdminListReadsAndLaterRpcStillSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestReviewerAdminReadFollowup": {
+    "application": "1705da47ac3f4d4ca338a191f95a19899c63c6bc",
+    "evidence": "docs/reviews/qa-reviewer-admin-read-preview-2026-10-18.json",
+    "historicalProbe": "docs/reviews/qa-reviewer-admin-read-probe-2026-10-18.json",
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1512,
+    "hostedCheckerGroups": 18,
+    "sharedListPhaseMs": 8000,
+    "responseBudgets": {
+      "assessment_reviewers": {
+        "rows": 201,
+        "maxBytes": 262144
+      },
+      "assessment_content_reviewers": {
+        "rows": 601,
+        "maxBytes": 524288
+      },
+      "assessment_reviewer_admin_events": {
+        "rows": 50,
+        "maxBytes": 1048576
+      }
+    },
+    "postImplementationUnchanged": true,
+    "privateListsStopOnRequestDeparture": true,
+    "earlierBudgetAndMutationRpcStillSeparate": true,
+    "actualOwnerHostedAcceptanceNotAttempted": true,
+    "fullGoalComplete": false
+  },
+  "latestReviewerBudgetHandoffFollowup": {
+    "application": "7c1028ca9130c594b2ac5cf586a08e235eaad676",
+    "evidence": "docs/reviews/qa-reviewer-budget-preview-2026-10-18.json",
+    "historicalProbe": "docs/reviews/qa-reviewer-budget-handoff-probe-2026-10-18.json",
+    "actualBudgetAndRouteGroups": 8,
+    "fullNode22Tests": 1520,
+    "finalFullPasses": 2,
+    "earlierFullFailureDiagnosticGap": true,
+    "hostedCheckerGroups": 18,
+    "ownedQuotaPhaseMs": 8000,
+    "quotaBodyMaxBytes": 1024,
+    "adoptedCallsites": [
+      "GET/api/exam-reviewers",
+      "POST/api/exam-reviewers"
+    ],
+    "lateQuotaCannotReleasePermissionUpdate": true,
+    "alreadyDispatchedUpdateOutcomeUnchanged": true,
+    "counterConsumptionCanBeUncertain": true,
+    "otherBudgetsAndMutationRpcStillSeparate": true,
+    "fullGoalComplete": false
+  },
+  "latestAssessmentHttpBudgetAdoption": {
+    "application": "0a62c7dcdc210ef4153675bf10f322f570180048",
+    "evidence": "docs/reviews/qa-assessment-budget-adoption-preview-2026-10-18.json",
+    "newActualRouteBudgetGroups": 8,
+    "newlyAdoptedCallsites": 14,
+    "totalDirectHttpAssessmentBudgetCallsitesAdopted": 16,
+    "fullNode22Tests": 1528,
+    "hostedCheckerGroups": 18,
+    "quotaPhaseMs": 8000,
+    "quotaBodyMaxBytes": 1024,
+    "historyExportSecondBudgetOwned": true,
+    "speechUploadQuotaAdmissionOnlyNoCollection": true,
+    "laterReadsAndAlreadyDispatchedWritesSeparate": true,
+    "internalAiProposalQuotaStillUnowned": true,
+    "fullGoalComplete": false
   }
 }

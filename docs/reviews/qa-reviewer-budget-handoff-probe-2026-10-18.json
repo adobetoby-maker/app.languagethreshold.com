@@ -1,0 +1,81 @@
+{
+  "testedAt": "2026-10-18T14:14:20.420Z",
+  "sourceCommit": "cbf5a1c81882150553cc1c4213dd5a382a4912fb",
+  "sourceHashes": {
+    "src/routes/api.exam-reviewers.ts": "9a53cdc62830218ba15b31ec691979a089522c468860a84acf3fc871579a266a",
+    "src/lib/assessments/server.ts": "55fa3cbab6f0b1a3b0c845dbe650fc8ea91e8412cb8eaf7fdee50f120e0a593c"
+  },
+  "late": {
+    "status": 200,
+    "transportHadIndependentSignal": true,
+    "requestAbortReachedQuotaSignal": false,
+    "cancellationDidNotSettle": true,
+    "acceptedTrailingQuotaBytes": 0,
+    "events": [
+      {
+        "path": "/auth/v1/user",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/platform_admin_roles",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/platform_admin_roles",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/rpc/consume_speaking_request",
+        "method": "POST",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/rpc/assessment_manage_reviewer",
+        "method": "POST",
+        "afterAbort": true
+      }
+    ]
+  },
+  "large": {
+    "status": 200,
+    "transportHadIndependentSignal": true,
+    "requestAbortReachedQuotaSignal": null,
+    "cancellationDidNotSettle": null,
+    "acceptedTrailingQuotaBytes": 307200,
+    "events": [
+      {
+        "path": "/auth/v1/user",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/platform_admin_roles",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/platform_admin_roles",
+        "method": "GET",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/rpc/consume_speaking_request",
+        "method": "POST",
+        "afterAbort": false
+      },
+      {
+        "path": "/rest/v1/rpc/assessment_manage_reviewer",
+        "method": "POST",
+        "afterAbort": false
+      }
+    ]
+  },
+  "limits": [
+    "Actual historical route/assessmentBudget and installed SDK with synthetic Auth/owner/quota/mutation HTTP only. One mock reviewer update after request cancellation is observed, not an actual grant/revoke/approval/qualification, real owner/business write or quota mutation.",
+    "The raw quota fetch already supplies an independent native8second AbortSignal and no-store, and has no SDK automatic retry. Probe shows incoming request cancellation does not reach it, ignored quota headers do not settle, and late true permits the subsequent mock update.300KiB trailing whitespace is accepted by the unbounded JSON path. Not evidence that the normal quota service sends excess data or leaks private content.",
+    "Next repair should give only adopted callers an owned quota wait/body bound and stop before dispatching the permission update on departure. A quota POST may already have consumed a counter even when cancelled; do not replay or claim rollback. Once a permission update itself is dispatched its existing outcome/revision/requestID semantics must remain separate."
+  ]
+}

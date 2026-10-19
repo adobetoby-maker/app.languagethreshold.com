@@ -2,21 +2,52 @@ import { createClient, isAuthRetryableFetchError, type User } from "@supabase/su
 import { createHash, randomBytes } from "node:crypto";
 import { ZodError } from "zod";
 import { teamAuthFetch } from "./team-auth-fetch";
+import { teamMemberFetch } from "./team-member-fetch";
+import { teamOwnerFetch } from "./team-owner-fetch";
+import { evidenceReviewerFetch } from "./evidence-reviewer-fetch";
+import { teamContentGrantsFetch } from "./team-content-grants-fetch";
+
+// Request scope belongs to the client object; it is never a shared current actor.
+const clientRequests = new WeakMap<object, Request>();
 
 export function teamAdminClient(fetcher?: typeof fetch, authRequest?: Request) {
   const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new TeamOperationError("Team database is not configured.", 503);
   const transport = authRequest
-    ? teamAuthFetch(url, authRequest.signal, fetcher ?? fetch)
+    ? teamAuthFetch(
+        url,
+        authRequest.signal,
+        teamMemberFetch(
+          url,
+          authRequest.signal,
+          teamOwnerFetch(
+            url,
+            authRequest.signal,
+            teamContentGrantsFetch(
+              url,
+              authRequest.signal,
+              evidenceReviewerFetch(url, authRequest.signal, fetcher ?? fetch),
+            ),
+          ),
+        ),
+      )
     : fetcher;
-  return createClient(url, key, {
+  const db = createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
     ...(transport ? { global: { fetch: transport } } : {}),
   });
+  if (authRequest) clientRequests.set(db, authRequest);
+  return db;
 }
 
 export type TeamDb = ReturnType<typeof teamAdminClient>;
+
+/** Recheck request departure after a private SDK read has finished parsing. */
+export function requireCurrentTeamRequest(db: TeamDb) {
+  if (clientRequests.get(db)?.signal.aborted)
+    throw new TeamOperationError("Team request cancelled.", 499);
+}
 
 export async function authenticatedUser(request: Request, db: TeamDb): Promise<User> {
   return lookupAuthenticatedUser(request, db, false);
@@ -79,13 +110,21 @@ async function waitForAuthenticatedUser(
 }
 
 export async function memberRole(db: TeamDb, orgId: string, userId: string) {
+  const request = clientRequests.get(db);
+  const current = () => {
+    if (request?.signal.aborted) throw new TeamOperationError("Team request cancelled.", 499);
+  };
+  current();
   const { data, error } = await db
     .from("team_members")
     .select("role,status,display_name")
     .eq("organization_id", orgId)
     .eq("user_id", userId)
+    .retry(false)
     .maybeSingle();
-  if (error) throw error;
+  current();
+  if (error)
+    throw new TeamOperationError("Company access could not be confirmed. Please try again.", 503);
   return data?.status === "active" ? data : null;
 }
 
@@ -96,11 +135,25 @@ export async function requireTeamAdmin(db: TeamDb, orgId: string, userId: string
   return role;
 }
 
-export async function requirePlatformOwner(db: TeamDb, user: User, readSignal?: AbortSignal) {
-  const query = db.from("platform_admin_roles").select("role").eq("user_id", user.id);
-  if (readSignal) query.abortSignal(readSignal).retry(false);
+export async function readPlatformRole(db: TeamDb, userId: string, readSignal?: AbortSignal) {
+  const request = clientRequests.get(db);
+  const unavailable = () =>
+    new TeamOperationError("Owner access could not be confirmed. Please try again.", 503);
+  const current = () => {
+    if (request?.signal.aborted) throw new TeamOperationError("Owner request cancelled.", 499);
+    if (readSignal?.aborted) throw unavailable();
+  };
+  current();
+  const query = db.from("platform_admin_roles").select("role").eq("user_id", userId).retry(false);
+  if (readSignal) query.abortSignal(readSignal);
   const { data, error } = await query.maybeSingle();
-  if (error) throw error;
+  current();
+  if (error) throw unavailable();
+  return data;
+}
+
+export async function requirePlatformOwner(db: TeamDb, user: User, readSignal?: AbortSignal) {
+  const data = await readPlatformRole(db, user.id, readSignal);
   const ownerEmail = process.env.PLATFORM_OWNER_EMAIL?.trim().toLowerCase();
   if (
     data?.role !== "owner" &&
@@ -162,16 +215,56 @@ export function teamBillingReady() {
   );
 }
 
+export const TEAM_EMAIL_WAIT_MS = 15_000;
+/** One provider attempt. A timeout cannot establish whether the provider accepted the message. */
 export async function sendTeamEmail(to: string, subject: string, body: string) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.TEAM_FROM_EMAIL;
   if (!key || !from) throw new TeamOperationError("Team email is not configured.", 503);
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [to], subject, text: body }),
-  });
-  if (!response.ok) throw new Error(`Email service returned ${response.status}.`);
+  const unavailable = () =>
+    new TeamOperationError(
+      "Team email delivery could not be confirmed. Check your workspace before retrying.",
+      503,
+    );
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TEAM_EMAIL_WAIT_MS);
+  timer.unref?.();
+  let rejectAbort: (() => void) | undefined;
+  try {
+    const stopped = new Promise<never>((_, reject) => {
+      rejectAbort = () => reject(unavailable());
+      controller.signal.addEventListener("abort", rejectAbort, { once: true });
+      if (controller.signal.aborted) rejectAbort();
+    });
+    const pending = Promise.resolve().then(() => {
+      if (controller.signal.aborted) throw unavailable();
+      return fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from, to: [to], subject, text: body }),
+        signal: controller.signal,
+        cache: "no-store",
+        redirect: "error",
+      });
+    });
+    // Observe ignored transport rejection and dispose headers arriving after the deadline.
+    void pending.then(
+      (response) => {
+        if (controller.signal.aborted) void response.body?.cancel().catch(() => {});
+      },
+      () => {},
+    );
+    const response = await Promise.race([pending, stopped]);
+    if (controller.signal.aborted) throw unavailable();
+    // The existing contract needs only the HTTP outcome, never provider diagnostics or a receipt.
+    void response.body?.cancel().catch(() => {});
+    if (!response.ok) throw unavailable();
+  } catch {
+    throw unavailable();
+  } finally {
+    clearTimeout(timer);
+    if (rejectAbort) controller.signal.removeEventListener("abort", rejectAbort);
+  }
 }
 
 export async function audit(

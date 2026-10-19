@@ -12,8 +12,11 @@ const { readinessCatalog, listEnrollments } = await loadModule("src/lib/assessme
   stubs: [/^@tanstack\/react-start\/server-only$/],
 });
 
+const { currentLessonReviewSnapshot } = await loadModule("src/lib/lesson-review-server.ts", {
+  stubs: [/^@tanstack\/react-start\/server-only$/],
+});
 async function fixture() {
-  const snapshot = lessonReviewSnapshot("roofing", "Spanish", "English");
+  const snapshot = currentLessonReviewSnapshot("roofing", "Spanish", "English");
   const fingerprint = await lessonReviewFingerprint(snapshot);
   const release = {
     id: "fixture-release",
@@ -181,7 +184,7 @@ test("a claimed verified release cannot hide missing lesson source mappings", as
   const f = await fixture();
   f.rows.assessment_releases.module_id = "landscaper";
   f.rows.assessment_releases.target_language = "French";
-  const snapshot = lessonReviewSnapshot("landscaper", "French", "English");
+  const snapshot = currentLessonReviewSnapshot("landscaper", "French", "English");
   const fingerprint = await lessonReviewFingerprint(snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
   f.rows.assessment_lesson_snapshots.fingerprint = fingerprint;
@@ -215,7 +218,7 @@ test("missing source coverage blocks new official attempts and enrollment availa
   const f = await fixture();
   f.rows.assessment_releases.module_id = "landscaper";
   f.rows.assessment_releases.target_language = "French";
-  const snapshot = lessonReviewSnapshot("landscaper", "French", "English");
+  const snapshot = currentLessonReviewSnapshot("landscaper", "French", "English");
   const fingerprint = await lessonReviewFingerprint(snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
   Object.assign(f.rows.assessment_lesson_snapshots, {

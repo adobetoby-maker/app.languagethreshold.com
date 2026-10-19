@@ -1,0 +1,91 @@
+{
+  "testedAt": "2026-10-18T12:54:49.150801+00:00",
+  "applicationCommit": "57e74bf9114a2876df6cba30e740b8661fc109e3",
+  "preview": "https://language-threshold-qf1sughsd-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-qf1sughsd-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3jn3zV4bAVcQwx31SGLaboN8X5Hs",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-qf1sughsd-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "57e74bf9114a2876df6cba30e740b8661fc109e3",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "hostedCheckerGroups": 17,
+  "reports": [
+    "qa-exams-member-transport-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "local": {
+    "actualSdkGroups": 8,
+    "fullNode22Tests": 1474,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "guardedArtifactMiB": 19.95,
+    "historicalBaseline": "4cad24e",
+    "baselineActualAssertionFailure": "assert.ok(init.signal)",
+    "productionDependencyAuditVulnerabilities": 0,
+    "fullDependencyAuditVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 13,
+      "critical": 0,
+      "total": 15
+    },
+    "fullDependencyAuditPassed": false,
+    "historicalProbeExplicitBaselineReplayPassed": true
+  },
+  "checks": {
+    "latePermissionCannotReleaseOnboardingUpdate": true,
+    "preAbortedRequestDispatchesNoPermissionQuery": true,
+    "requestClientsCancelIndependently": true,
+    "selectedRetryDisabled": true,
+    "privateDiagnosticsFixed": true,
+    "lateHeadersDisposed": true,
+    "stalledBodyDeadlineAndReaderCancellation": true,
+    "strictUtf8JsonAndSelectedShape": true,
+    "unrelatedMethodsQueriesProjectsPassThrough": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "permissionPhaseMs": 8000,
+  "permissionResponseMaxBytes": 32768,
+  "sourceHashes": {
+    "src/lib/team-member-fetch.ts": "462d21285f2e89c7a5eb13dfde049f9686b36c42462e2488b9ff62b3e0db2c5d",
+    "src/lib/team-server.ts": "bbf5762a84fa4cead607fb8a2bd032c8c543c31f3c830acd1038c3087f2b452a",
+    "tests/team-member-transport.test.mjs": "353b317349f0bb6fa51bf3ca36c84d0d1d456b6bb060d21c87c127c0c92c5170"
+  },
+  "limits": [
+    "Actual SDK and production helper/route regression uses synthetic transports only; no real business write, membership mutation, email, provider, financial, exam submit, approval or cleanup invocation. Hosted groups use dedicated QA and rejected mutations/read-only checks.",
+    "Only the exact configured-project GET membership permission query is selected. Request-bound clients get the finite transport; unbound client callers do not gain request ownership. All memberRole queries disable SDK retries and return fixed service-error guidance. Later reads/writes and owner permission queries are separate phases; physical network cancellation and aggregate endpoint deadline are not proved.",
+    "SQL display_name has no length constraint: 32 KiB is an intentional response resource budget, not an asserted database invariant. Oversized legacy names may deny access with service retry guidance; no schema/data rewrite.",
+    "No browser/physical-device/real expiry/content/calibration/reviewer/pilot/retention/scheduler gate closed. Full goal remains active."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T12:55:38.349Z",
+    "sourceCommit": "57e74bf",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1570,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

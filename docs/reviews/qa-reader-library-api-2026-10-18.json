@@ -1,0 +1,20 @@
+{
+  "testedAt": "2026-10-19T03:20:06.691Z",
+  "sourceCommit": "1ea2a0c",
+  "scope": "Hosted existing dedicated QA accounts, synthetic books only, real RLS/idempotency calls; lost acknowledgement is explicit fault injection",
+  "checks": {
+    "realInsertWithInjectedLostAcknowledgementRetainsQueue": true,
+    "stableUuidRetryProducesExactlyOneOwnedRow": true,
+    "otherLearnerCannotReadText": true,
+    "otherLearnerCannotDeleteText": true,
+    "rlsRejectsCrossAccountInsert": true,
+    "staleIdentityRejectedBeforeQuery": true,
+    "olderBookExplicitlyConfirmedIntoDurableQueue": true,
+    "recoveredChaptersPersistOnceInRealOwnedCloud": true,
+    "otherLearnerCannotReadRecoveredBook": true,
+    "originalLegacyBytesUntouched": true,
+    "syntheticRowsCleaned": true
+  },
+  "runtimeCommit": "77ce28351017e6eac5ff7147f5c7c11166c63eb7",
+  "methodLimit": "Real hosted Supabase RLS/library calls with current production device/remote modules; not a browser or elapsed-expiry assertion."
+}

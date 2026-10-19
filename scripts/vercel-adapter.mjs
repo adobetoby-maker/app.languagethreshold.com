@@ -9,6 +9,8 @@ const out = ".vercel/output";
 rmSync(out, { recursive: true, force: true });
 mkdirSync(`${out}/static`, { recursive: true });
 mkdirSync(`${out}/functions/index.func`, { recursive: true });
+// Review fingerprints use exactly the public generated material packaged with this deployment.
+cpSync("public/lesson-content", `${out}/functions/index.func/lesson-content`, { recursive: true });
 
 // Static client assets → served from Vercel's CDN
 cpSync("dist/client", `${out}/static`, { recursive: true });
@@ -41,6 +43,7 @@ writeFileSync(
   `${out}/functions/index.func/entry.cjs`,
   `
 let _server = null
+process.env.LT_INTERNAL_LESSON_CONTENT_ROOT = require('node:path').join(__dirname, 'lesson-content')
 async function getServer() {
   if (!_server) _server = require('./server.cjs').default
   return _server

@@ -1,9 +1,15 @@
 import { WordCardCacheProvider } from "./word-card-cache";
+import { ProfileRecoveryContext } from "./profile-recovery-context";
+import {
+  recoverLegacyProfile,
+  type LegacyProfilePatch,
+  type ProfileRecoveryKind,
+} from "@/lib/legacy-profile-recovery";
 import { createDeferredAuthSync } from "@/lib/deferred-auth-sync";
 import type { AppTab } from "@/lib/app-navigation";
 import { useAuth } from "./auth-state";
 import {
-  readProfileSnapshot,
+  inspectProfileSnapshot,
   saveProfileSnapshot,
   hasUnassignedProfileSnapshot,
 } from "@/lib/profile-device-snapshot";
@@ -216,6 +222,7 @@ export interface ClearedChallenge {
 }
 
 export type AppAction =
+  | { type: "RECOVER_PROFILE_CATEGORY"; payload: LegacyProfilePatch }
   | { type: "HYDRATE"; payload: Partial<AppState> }
   | { type: "SET_LANGUAGE"; payload: Language }
   | { type: "SET_NATIVE_LANGUAGE"; payload: NativeLanguage }
@@ -415,6 +422,16 @@ function withPracticeStreak(state: AppState, practiceStreak: PracticeStreakData)
 
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
+    case "RECOVER_PROFILE_CATEGORY": {
+      const next = { ...state, ...action.payload };
+      return {
+        ...next,
+        userVocab: deriveUserVocab(next.vocabByLanguage, next.selectedLanguage),
+        vocabLang: next.selectedLanguage,
+        tier: tierForXp(next.xp),
+        pendingLevelUp: null,
+      };
+    }
     case "HYDRATE": {
       const hydrated = { ...state, ...action.payload };
       const vocabByLanguage = includeLegacyVocab(
@@ -934,6 +951,8 @@ export function reducer(state: AppState, action: AppAction): AppState {
           remote.conversationExchanges ?? 0,
         ),
         lessonsCompleted: Math.max(state.lessonsCompleted, remote.lessonsCompleted ?? 0),
+        customTextsAdded: Math.max(state.customTextsAdded ?? 0, remote.customTextsAdded ?? 0),
+        lettersWritten: Math.max(state.lettersWritten ?? 0, remote.lettersWritten ?? 0),
         challengesCleared: Math.max(state.challengesCleared, remote.challengesCleared ?? 0),
         lessonProgress: (() => {
           const local = state.lessonProgress ?? {};
@@ -1104,13 +1123,27 @@ export function AppProvider({ children }: { children: ReactNode }) {
 }
 
 function AccountAppProvider({ children, actor }: { children: ReactNode; actor: string | null }) {
-  const { isCurrentUser } = useAuth();
+  const { isCurrentUser, canUseReader } = useAuth();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const stored = readProfileSnapshot<object>(window.localStorage, actor);
+    let storage: Storage | null = null;
+    try {
+      storage = window.localStorage;
+    } catch {
+      /* Storage can be denied by the browser. */
+    }
+    const snapshot = inspectProfileSnapshot<object>(storage, actor);
+    const stored = snapshot.status === "ready" ? snapshot.data : null;
     const parsed = stored ? migrate(stored) : null;
-    if (!parsed && hasUnassignedProfileSnapshot(window.localStorage))
+    if (snapshot.status === "unreadable")
+      toast("Saved progress on this browser could not be read", {
+        id: "profile-device-unreadable",
+        description:
+          "Existing device saves remain untouched. New changes may not persist on this browser. Reconnect while signed in to restore your account’s online progress.",
+        duration: 15000,
+      });
+    else if (!parsed && hasUnassignedProfileSnapshot(storage))
       toast("Progress from an older app version is still on this device", {
         id: "account-progress-migration",
         description:
@@ -1279,10 +1312,38 @@ function AccountAppProvider({ children, actor }: { children: ReactNode; actor: s
     () => ({ state, dispatch, pingActivity, profileReadyUserId }),
     [state, pingActivity, profileReadyUserId],
   );
+  const recoveryReady =
+    !!actor &&
+    userId === actor &&
+    profileReadyUserId === actor &&
+    state.hydrated &&
+    canUseReader(actor!);
+  const recoverProfile = useCallback(
+    (kind: ProfileRecoveryKind, confirmed: boolean, language?: Language) => {
+      if (!actor || !recoveryReady || !canUseReader(actor))
+        throw Error("Reconnect and finish restoring your current profile before recovery.");
+      const snapshot: Record<string, unknown> = { __v: SCHEMA_VERSION };
+      for (const key of PERSIST_KEYS) snapshot[key] = state[key];
+      recoverLegacyProfile({
+        storage: window.localStorage,
+        actor,
+        kind,
+        current: state,
+        snapshot,
+        confirmed,
+        chosenLanguage: language,
+        isCurrent: () => canUseReader(actor),
+        apply: (patch) => dispatch({ type: "RECOVER_PROFILE_CATEGORY", payload: patch }),
+      });
+    },
+    [actor, recoveryReady, canUseReader, state],
+  );
 
   return (
     <AppContext.Provider value={value}>
-      <WordCardCacheProvider>{children}</WordCardCacheProvider>
+      <ProfileRecoveryContext.Provider value={{ ready: recoveryReady, recover: recoverProfile }}>
+        <WordCardCacheProvider>{children}</WordCardCacheProvider>
+      </ProfileRecoveryContext.Provider>
     </AppContext.Provider>
   );
 }

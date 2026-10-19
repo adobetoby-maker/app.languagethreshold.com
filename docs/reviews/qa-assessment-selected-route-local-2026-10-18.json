@@ -1,0 +1,64 @@
+{
+  "testedAt": "2026-10-18T15:56:20.396721+00:00",
+  "historicalSourceCommit": "3915c865415c03f321b5d3ec1084951d9980c3e9",
+  "historicalActualAssertionFailure": {
+    "testCommand": "LT_SELECTED_ROUTE_BASELINE=3915c86 npx --yes node@22 --test --test-name-pattern='selected route cancellation' tests/assessment-selected-route-read.test.mjs",
+    "log": "/tmp/lt-selected-route-baseline-proof.log",
+    "logSha256": "6cb30b764447474f081c11d074e523c598dadc73799673c6c8638d008f3bc8bf",
+    "settledBeforeLateHeaders": false,
+    "actualAssertionNotSetupFailure": true
+  },
+  "newSelectedRouteGroups": 8,
+  "fullNode22Tests": 1666,
+  "phaseMs": 8000,
+  "maxBytes": 65536,
+  "sourceHashes": {
+    "src/lib/assessments/selected-route-read.ts": "30342bcd799b6742a41f08cdf13a53745ded259ccc90d26a1b097a1f8a20a8ce",
+    "src/lib/assessments/routing-path-server.ts": "cf651e597df257c1723f9ea8a2e64e43ab74a8aa465418b9068e91bb3edcabb4",
+    "src/lib/assessments/ai-server.ts": "1304ac068d7a20035423cc9a8bf8881a122a2bffab6ffd85768959b53c60c8cb",
+    "tests/assessment-selected-route-read.test.mjs": "466045340aaf28cea191fe5fc10e295b97e1dc19338468ec294eae0d2bb9fc74"
+  },
+  "checks": {
+    "actualSdkSingleExactImmutableRouteGet": true,
+    "ignoredHeadersAndStalledBodySettle": true,
+    "lateResponseDisposal": true,
+    "fixedService503AndCancellation499": true,
+    "strictUtf8JsonProjectionIdentityCardinalityRevisions": true,
+    "exactCapAcceptedOverflowRejected": true,
+    "noSdkRetryOn429500503": true,
+    "frozenDecisionValidationRetained": true,
+    "confirmedMissing409OrCore18": true,
+    "flatNoReadAndPreabort": true,
+    "legacyNoRequestBehaviorRetained": true,
+    "independentRequestsAndListenerTimerCleanup": true,
+    "actualAiPassesRequestBeforeEvidenceAndClaim": true,
+    "noExtraAuthLookup": true
+  },
+  "validation": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.01
+  },
+  "fixtureCorrections": {
+    "initialLogs": [
+      "/tmp/lt-selected-route-focused.log",
+      "/tmp/lt-selected-route-baseline.log"
+    ],
+    "initialCause": "Synthetic form marked verified required official listening evidence; fixture now retains draft form and uses a synthetic pilot admission. No production form, approval or calibration changed.",
+    "initialLogHashes": [
+      "f6dcdf7405fb52f8923b2f9c79c87b1f4a8480abc454c2266767a4f56cf0c5f0",
+      "a4b469e0f13e3f075f003ab4cf2b0e7112b76a47ac720c68a541aaf7068711d7"
+    ],
+    "actualBaselineIsSeparateProofLog": true
+  },
+  "limits": [
+    "Actual selected-path resolver/installed Supabase SDK and actual AI caller with synthetic attemptAccess/pilot/transport. No actual provider/learner/claim/score/consent/reviewer/policy/schema/calibration/pilot action.",
+    "Only AI HTTP calls pass the new optional Request. The phase begins after existing attemptAccess. Other selectedAttemptPath callers without Request retain legacy behavior. Earlier authorization and later evidence/quota/claim/consent/score/audit/finalization/aggregate waits remain separate.",
+    "Wire cap64KiB is operational, not a SQL decision size invariant. Exact immutable projection includes decision only, no core_snapshot/request_payload or original responses. Existing frozen decision identity/revision/policy/digest/selection validation remains authoritative.",
+    "Cancellation settles selected-route lookup before late result; no inference of physical cancellation, fresh permissions, rollback/refund/nonbilling or automatic replay. Flat forms require no route network lookup.",
+    "Lesson runner source audit found existing learner/lesson/language/enrollment keys and parent completion/owned speech guards. This source review does not replace browser/device/account acceptance.",
+    "Generated59contentfiles remain reviewed:false/17shortmodules260lessons short. Full9dev dependency findings/Prisma and original human/device/expiry/recovery/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain open. DraftPR38 unmerged; no production promotion."
+  ]
+}

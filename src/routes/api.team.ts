@@ -20,6 +20,12 @@ import {
   TeamOperationError,
 } from "@/lib/team-server";
 
+// Delivery can succeed before bookkeeping fails, so an email error is an unknown outcome.
+const INVITATION_EMAIL_WARNING =
+  "Invitation saved. Email delivery could not be confirmed. Share the invitation link or check your workspace before retrying.";
+const ASSIGNMENT_EMAIL_WARNING =
+  "Assignment saved. Email delivery could not be confirmed. Check your workspace before retrying.";
+
 const id = z.string().uuid();
 const email = z.string().email().max(254);
 const bodySchema = z.discriminatedUnion("action", [
@@ -297,7 +303,14 @@ export const Route = createFileRoute("/api/team")({
             emailEnabled: Boolean(process.env.RESEND_API_KEY && process.env.TEAM_FROM_EMAIL),
             role: member.role,
             members: members.data ?? [],
-            invitations: invitations.data ?? [],
+            invitations: (invitations.data ?? []).map((invitation) => ({
+              ...invitation,
+              // Old records may contain SDK/provider diagnostics. Normalize only this projection.
+              last_email_error:
+                invitation.last_email_error == null || invitation.last_email_error === ""
+                  ? null
+                  : INVITATION_EMAIL_WARNING,
+            })),
             assignments: assignments.data ?? [],
             activity: activity.data ?? [],
             activity7: activity7.data ?? [],
@@ -380,8 +393,8 @@ export const Route = createFileRoute("/api/team")({
                   .from("team_invitations")
                   .update({ sent_at: new Date().toISOString(), last_email_error: null })
                   .eq("id", invitationId);
-              } catch (cause) {
-                warning = cause instanceof Error ? cause.message : "Email could not be sent.";
+              } catch {
+                warning = INVITATION_EMAIL_WARNING;
                 await db
                   .from("team_invitations")
                   .update({ last_email_error: warning })
@@ -435,8 +448,8 @@ export const Route = createFileRoute("/api/team")({
                   .from("team_invitations")
                   .update({ sent_at: new Date().toISOString() })
                   .eq("id", body.invitationId);
-              } catch (cause) {
-                warning = cause instanceof Error ? cause.message : "Email could not be sent.";
+              } catch {
+                warning = INVITATION_EMAIL_WARNING;
                 await db
                   .from("team_invitations")
                   .update({ last_email_error: warning })
@@ -517,8 +530,8 @@ export const Route = createFileRoute("/api/team")({
                   `${org.name} assigned ${getModule(body.moduleId)?.name}`,
                   `Hello ${target.display_name},\n\n${org.name} assigned ${getModule(body.moduleId)?.name} as a focus in Language Threshold. Your seat includes every published module.${body.requireCertificate ? " Complete the required lessons and pass the reviewed final test at 80% or higher to earn your module completion certificate." : ""}\n\nOpen your team workspace: ${new URL(request.url).origin}/team\n\nLanguage Threshold`,
                 );
-              } catch (cause) {
-                warning = cause instanceof Error ? cause.message : "Email could not be sent.";
+              } catch {
+                warning = ASSIGNMENT_EMAIL_WARNING;
               }
             }
             await audit(db, user.id, "team.assign", body.orgId, {

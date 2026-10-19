@@ -9,12 +9,25 @@ async function fixture(name, run) {
   const routePath = resolve(`src/routes/api.${name}.ts`);
   const text = readFileSync(routePath, "utf8"),
     source = ts.createSourceFile(routePath, text, ts.ScriptTarget.Latest, true);
+  const reviewerInput = JSON.stringify({
+    userId: "22222222-2222-4222-8222-222222222222",
+    moduleId: "roofing",
+    target: "Spanish",
+    native: "English",
+    kind: "response",
+    active: true,
+    expectedRevision: 0,
+    reason: "Synthetic auth boundary fixture",
+    requestId: "33333333-3333-4333-8333-333333333333",
+    confirmScope: true,
+  });
+  const postBody = name === "exam-reviewers" ? reviewerInput : "{}";
   const exports = new Map();
   for (const node of source.statements) {
     if (
       !ts.isImportDeclaration(node) ||
       !node.moduleSpecifier.text.startsWith("@/lib/") ||
-      node.moduleSpecifier.text === "@/lib/team-server"
+      ["@/lib/team-server", "@/lib/private-json-request"].includes(node.moduleSpecifier.text)
     )
       continue;
     const binding = node.importClause?.namedBindings;
@@ -82,10 +95,10 @@ async function fixture(name, run) {
           new Request(`https://fixture.invalid/api/${name}`, {
             method,
             headers: { Origin: "https://fixture.invalid", Authorization: "Bearer synthetic" },
-            ...(method === "POST" ? { body: "{}" } : {}),
+            ...(method === "POST" ? { body: postBody } : {}),
           }),
       });
-    await run({ c, call, TeamOperationError, AssessmentAccessError });
+    await run({ c, call, TeamOperationError, AssessmentAccessError, postBody });
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -149,7 +162,7 @@ for (const name of Object.keys(fallback)) {
 }
 for (const name of Object.keys(fallback)) {
   test(`actual ${name} bounded auth stops preabort/deadline/disconnect before private work`, () =>
-    fixture(name, async ({ c, call }) => {
+    fixture(name, async ({ c, call, postBody }) => {
       const savedSet = setTimeout,
         savedClear = clearTimeout,
         timers = new Map();
@@ -182,6 +195,7 @@ for (const name of Object.keys(fallback)) {
             ]) {
           for (const phase of ["preabort", "deadline", "disconnect"]) {
             c.privateCalls = 0;
+            c.authRequest = undefined;
             let sdkCalls = 0;
             const gate = new Promise((r) => (resolveUser = r));
             c.db = {
@@ -206,7 +220,7 @@ for (const name of Object.keys(fallback)) {
                 method,
                 signal: owner.signal,
                 headers: { Origin: "https://fixture.invalid", Authorization: "Bearer synthetic" },
-                ...(method === "POST" ? { body: "{}" } : {}),
+                ...(method === "POST" ? { body: postBody } : {}),
               });
             const listeners = new Set(),
               add = request.signal.addEventListener.bind(request.signal),
@@ -231,7 +245,12 @@ for (const name of Object.keys(fallback)) {
             assert.deepEqual(await result.json(), {
               error: phase === "deadline" ? fallback[name] : "Assessment request cancelled.",
             });
-            assert.equal(c.authRequest, request);
+            assert.equal(
+              c.authRequest,
+              name === "exam-reviewers" && method === "POST" && phase === "preabort"
+                ? undefined
+                : request,
+            );
             assert.equal(sdkCalls, phase === "preabort" ? 0 : 1);
             assert.equal(c.privateCalls, 0);
             assert.equal(listeners.size, 0);

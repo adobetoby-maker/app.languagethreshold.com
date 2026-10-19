@@ -1,0 +1,98 @@
+{
+  "testedAt": "2026-10-18T15:09:33.625302+00:00",
+  "applicationCommit": "d2af6496c3a66a4b6c162cd01d105b84d78759df",
+  "preview": "https://language-threshold-clwnrms21-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-clwnrms21-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_HBWGLDKtCfNpxFZ48wddfZPARhtM",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-clwnrms21-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "d2af6496c3a66a4b6c162cd01d105b84d78759df",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-ai-allowance-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97,
+    "newInstalledSdkAllowanceGroups": 8,
+    "fullNode22Tests": 1552
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-ai-allowance-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "checks": {
+    "sharedEnrollmentAndCountPhase": true,
+    "requestCancellationBeforeLateRead": true,
+    "headerAndBodyDeadline": true,
+    "strictUtf8JsonIdProjectionUniqueUuids": true,
+    "wireCapAnd1000Sentinel": true,
+    "exactCountHeaderRequiredSafeInteger": true,
+    "normalCountsDaily30DenialAndEmptySet": true,
+    "oneSdkAttemptPerGetHead": true,
+    "exactActorAndRollingEnrollmentFilters": true,
+    "independentRequestsAndListenerCleanup": true,
+    "preabortNoClaim": true,
+    "existingProviderRoutingQuotaSemantics": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaActiveAttemptAndTeamProgressRetained": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "7cda94de1d21265ea840e168c68a8e619573255b1b7de44c5c805a069b7c7cb0",
+    "src/lib/assessments/writing-allowance.ts": "4cc11ec1df8c5cccb0a01538d0bae2db65249d030474731e5b91159dc9aee6ae",
+    "tests/assessment-ai-allowance.test.mjs": "a0e7f383a66ed7a5c7b2644a9de690f5a989aa55ca068dc1cf9f6f90548d0a54",
+    "tests/assessment-ai-budget.test.mjs": "2f5d08a62c5e8b3b532bf7c1fd6aaf14f5593129c9304f2e090efab86794796b",
+    "tests/assessment-ai-provider.test.mjs": "b2528fc6c446a60451a79365be4b3a8f7c7e2417ea3058f2e556120435af799d",
+    "tests/reviewer-budget-handoff.test.mjs": "c01463eb622400642ab8e07f38a7ed57c7705dd76d5ca34e770abdfb081d41b8"
+  },
+  "limits": [
+    "Actual AI source/installed Supabase SDK and selected transport; access/path, quota, private read replies and claim refusal are synthetic. No actual learner claim/score/model/provider/billing/consent/calibration/reviewer/pilot action. Historical query eventually returned499 from the already-existing guard, with zero claims: liveness/resource finding, not a permission bypass or private leak.",
+    "Request path creates a dedicated service client without extra Auth call; exact actor enrollment id projection(max1000/64KiB) and exact rolling HEAD count only. Strict UUID/projection/unique IDs, safe nonnegative exact Content-Range count and shared8second phase. Cap operational, not a SQL data size invariant; malformed/oversized replies use fixed503,1000sentinel retained, count30uses429. Empty owned set still sends in.() count query.",
+    "No Request preserves legacy internal query behavior. Only HTTP runtime caller passes Request; fixtures now use real selected SDK transport for these queries while retaining controlled claim/provider boundaries. No schema/role/policy/schedule changes.",
+    "Earlier routing/response/human-score reads, quota, later grading claim/consent/score/audit/finalization and full endpoint lifetime remain separate. Existing mutation/lease/provider outcomes and no automatic replay/refund/rollback inference unchanged.",
+    "One prior full suite failed on an older quota fixture call-order assumption; original log retained, stopped/live identity corrected, final full1552passes. Typecheck/changed-filelint/productionaudit are clean; guarded build/artifact checks pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Original human/device/session/content/calibration/reviewer/pilot/retention/scheduler/59module gates, full9dependency audit findings(5high/4moderate) and legacy Prisma remain open.",
+    "All18hosted checker groups use dedicated QA fixture paths/rejected requests/anonymous denials. Uncalibrated AI remains denied; no positive hosted AI claim/provider call/consent/calibration. Preview capability metadata null is not environment readback proof."
+  ],
+  "phaseMs": 8000,
+  "enrollmentMaxBytes": 65536,
+  "privateBankScan": {
+    "testedAt": "2026-10-18T15:09:40.019Z",
+    "sourceCommit": "d2af649",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1627,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

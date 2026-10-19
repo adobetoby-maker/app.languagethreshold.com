@@ -1,0 +1,66 @@
+{
+  "testedAt": "2026-10-18T12:15:16.295Z",
+  "applicationCommit": "64f21726cedc620835f5e344b941e977898d7fe2",
+  "production": "https://app.languagethreshold.com",
+  "deployment": {
+    "checkedAt": "2026-10-18T12:14:51.125Z",
+    "id": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+    "readyState": "READY",
+    "target": "production",
+    "url": "language-threshold-pvzdp70bk-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "64f21726cedc620835f5e344b941e977898d7fe2",
+    "alias": [
+      "app.languagethreshold.com",
+      "language-threshold-app.vercel.app",
+      "language-lens-elite.worker-bee.app",
+      "language-threshold-app-adobetoby-5572s-projects.vercel.app"
+    ],
+    "liveDeploymentId": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+    "companionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT"
+  },
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "html": true
+    },
+    {
+      "path": "/assets/index-BNoTAweJ.js",
+      "status": 200,
+      "javascript": true
+    },
+    {
+      "path": "/api/exams",
+      "status": 403,
+      "errorOnly": true,
+      "noStore": true,
+      "nosniff": true
+    },
+    {
+      "path": "/api/exam-plans",
+      "status": 403,
+      "errorOnly": true,
+      "noStore": true,
+      "nosniff": true
+    },
+    {
+      "path": "/api/exam-cleanup?view=status",
+      "status": 403,
+      "errorOnly": true,
+      "noStore": true,
+      "nosniff": true
+    },
+    {
+      "path": "/api/exam-cleanup",
+      "status": 401,
+      "errorOnly": true,
+      "noStore": true,
+      "nosniff": true
+    }
+  ],
+  "limits": [
+    "Readonly anonymous GETs and public asset only. No credentials/operator token, authenticated owner/learner data, email/cleanup/provider invocation, consent/review/assessment mutation or device/browser acceptance. Does not establish full release readiness."
+  ]
+}

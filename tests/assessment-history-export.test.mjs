@@ -57,6 +57,7 @@ function fixture(count = 503) {
           settings.ids = values;
           return query;
         },
+        retry(enabled) { assert.equal(enabled, false); return this; },
         async maybeSingle() {
           if (table === "assessment_enrollments")
             return {

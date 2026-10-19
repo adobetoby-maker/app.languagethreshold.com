@@ -1,0 +1,59 @@
+{
+  "testedAt": "2026-10-18T17:30:48.037101+00:00",
+  "applicationCommit": "c6304fbd58f31a4681b329a0e684d4f1feed3fe3",
+  "sourceHashes": {
+    "src/lib/legacy-profile-recovery.ts": "6c78a2978607f8d044c16af6e448cc33edac2c29fe105d7568e94047fc371f7c",
+    "src/state/profile-recovery-context.tsx": "ce44ebe4cc8c99e3e6aae53cb174db61e84983235a2cf5388f9f5076249ff8ac",
+    "src/state/app-state.tsx": "becf0710a0fae80798974312aebebaf6a6dda1ab67e96d4da6e518df2ec3f32b",
+    "src/components/auth/ProfileRecoverySection.tsx": "5c310669bff589fbba271911c93868a52abc9024764265893fe30b1bed3ffa15",
+    "src/components/auth/LegacyPracticeRecovery.tsx": "9fadb72d0fcb998b9360f09ec7507855b79a72dcb192b915819ce9b045a054ed",
+    "tests/legacy-profile-recovery.test.mjs": "b73fd884539ae3ba7e8a85cf965436b68b62a25a5b95cef2c0c4760fdb79be9a",
+    "tests/profile-recovery-ui.test.mjs": "2d36763dd1c311a9c631d6f3135f31abdf07c0e146a6c9f831a944a7d0fa3315"
+  },
+  "validation": {
+    "fullNode22Tests": 1714,
+    "focusedRecoveryGroups": 22,
+    "failed": 0,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 5,
+    "lintWarningScope": "Existing mixed component/non-component exports in app-state, now included in changed-file lint.",
+    "productionAuditVulnerabilities": 0,
+    "guardedBuild": true,
+    "artifactMiB": 20.05,
+    "finalFullSuiteIncludesAll22RecoveryGroups": true,
+    "standaloneUiGroups": 4
+  },
+  "checks": [
+    "Explicit signed-in ownership confirmation and whole-profile one-account claim; foreign account sees no old source values/counts.",
+    "Highest-present legacy source priority, category validation, unsupported/corrupt/oversized source and malformed owned destination refusal. Original bytes remain intact.",
+    "Notes stable-ID merge/current wins. Missing old notes explicitly added; completed receipt prevents repeated import after later deletion.",
+    "Language-labeled vocabulary preserves labels; unlabeled list requires explicit choice. Current translation/mastery and empty revision reset win; additions bump per-language revision.",
+    "Practice counters use maximum, never addition. No streaks, entitlements, assignments, proficiency declarations, exam results or navigation/settings imported.",
+    "Only bare known module archives recover; current records/resets win, enrollment-linked records excluded. Existing subsequent explicit Core30 pair claim remains required.",
+    "Persist owned snapshot before applying UI state; quota/late identity/final receipt failure retain same-owner retry and originals. Actual reducer zero storage IO/input unchanged/deterministic.",
+    "UI requires category/ownership/language and restored current-profile readiness; failure visible; exam pages without AppProvider open learning app in separate tab. Clear browser-save/normal cloud-sync disclosure, no reload race.",
+    "Review caught bare companion-host root redirecting to Exams; corrected new-tab link to /?tab=reader. Controlled component test executes actual examsHostEntry and confirms no redirect.",
+    "UI test fixture creates its cache parent explicitly, so a clean checkout does not depend on another concurrent test creating it. Four standalone groups pass; runtime unchanged."
+  ],
+  "limits": [
+    "Controlled real-engine/reducer/component-hook tests, not a populated normal-UI browser import or current account-switch/physical-device acceptance.",
+    "No real hosted profile recovery/account writes this turn; automatic profile cloud sync is existing behavior and has no confirmed-backup guarantee here.",
+    "No cross-tab simultaneous claim/merge atomicity proof; localStorage persistence consists of guarded separate writes.",
+    "Unknown historical note deletions lack tombstones: explicit import adds missing old notes. Completed-category receipts prevent repeating the import.",
+    "Human/content/calibration/reviewer/pilot/retention/scheduler/module parity gates remain open; no schema/role/policy/speech/schedule/production changes.",
+    "Old practice activity resets without tombstones cannot be inferred; explicit activity recovery uses max as disclosed."
+  ],
+  "logHashes": {
+    "tests": "734d82b7ef8f19f51716201ea97bd968bd2834e63317bede2ce7067608555c50",
+    "type": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lint": "5666ba0d6741b0f5babb401f30932b02db190edad70d24077b5ce6777baa2eb5",
+    "audit": "6d8c5c8f3d7684adb070417bd608d01ae90aa3dc26a65af03ffda4955f38d9a3",
+    "build": "12452568ca040b023001978b2431f12a23dca3c348a6554d0bb00e939292f0cd",
+    "target": "0991ba8aa0cdd191eff0996408c04ced5547031a1a871e5f3b64a4959b2859eb",
+    "artifact": "1ddc98628949bb238334211268a3dd1ea82d92f70b017d4560e5184a2e260c96",
+    "standaloneUi": "74cd10305238045ff68061734cdb9e68400ee28bbdf4d135585cbca542b8422f"
+  },
+  "initialFocusedLogSha256": "bab25e606d7d1a34761a4fa7c110b7d9d4fd507deea9a90ff293df6b63b89176",
+  "initialFocusedApplicationCommit": "0a5d5729986ab1dd94ba27becf5fa64f0b696f90"
+}

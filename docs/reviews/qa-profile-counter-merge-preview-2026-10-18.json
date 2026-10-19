@@ -1,0 +1,91 @@
+{
+  "testedAt": "2026-10-18T17:40:50.119576+00:00",
+  "applicationCommit": "086bde037b03fdddfb688defdf0acc002d6f4bec",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-co2rucaht-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3Xi4bfbTGA3HX92ZsuwVxzABth5J",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-co2rucaht-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "086bde037b03fdddfb688defdf0acc002d6f4bec",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+      "capabilityValue": null
+    }
+  ],
+  "validation": {
+    "newCloudMergeGroups": 3,
+    "fullNode22Tests": 1717,
+    "typecheck": true,
+    "lintErrors": 0,
+    "lintWarnings": 5,
+    "productionAuditVulnerabilities": 0,
+    "artifactMiB": 20.05,
+    "hostedGroups": {
+      "exam-stage": "pass",
+      "focused-exam-entry": "pass",
+      "public-lesson-packs": "pass",
+      "exam-return-scope": "pass",
+      "learning-generation-entry": "pass",
+      "pashto-tts-private": "pass",
+      "google-speech-entry": "pass",
+      "speaking-admission-entry": "pass",
+      "push-admission-entry": "pass",
+      "conversation-admission-entry": "pass",
+      "sports-news-entry": "pass",
+      "email-capture-retired": "pass",
+      "team-input-entry": "pass",
+      "team-read-entry": "pass",
+      "team-workflow-entry": "pass",
+      "assessment-auth-entry": "pass",
+      "cleanup-status-entry": "pass",
+      "reviewer-admin-input": "pass"
+    },
+    "exactStaticRequests": 61,
+    "qaStateReadOnly": {
+      "personalRevision": 12,
+      "personalStatus": "in_progress",
+      "personalSubmitted": false,
+      "teamOpened": 2,
+      "teamMastered": 0
+    }
+  },
+  "evidence": {
+    "local": "qa-profile-counter-merge-local-2026-10-18.json",
+    "static": "qa-profile-counter-content-static-preview-2026-10-18.json",
+    "exams": "qa-exams-assessment-profile-counter-preview-2026-10-18.json"
+  },
+  "limits": [
+    "Read-only hosted admission/artifact/account-state checks. No real hosted profile recovery/cloud-write/reconnect acceptance or physical device trial.",
+    "Actual controlled recovery and production reducer reproduce stale merge data loss, verify max/no addition and preserve higher cloud totals.",
+    "No browser/provider/account writes/schema/role/policy/speech/schedule/production changes. Full goal and existing release gates remain active."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T17:40:52.340Z",
+    "sourceCommit": "086bde0",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1752,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

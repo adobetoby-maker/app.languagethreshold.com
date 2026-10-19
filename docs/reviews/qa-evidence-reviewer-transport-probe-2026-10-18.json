@@ -1,0 +1,47 @@
+{
+  "testedAt": "2026-10-18T13:39:09.876Z",
+  "sourceCommit": "52f0e3bf092df7338246eda576efd6c64066ed7f",
+  "runtimeApplicationCommit": "be0f47c90b638b066e54fb8b5b126980546478a4",
+  "installedSdk": "2.105.1",
+  "observations": {
+    "exactActorTrackActiveProjectionCorrect": true,
+    "reviewerSignalPresent": false,
+    "explicitNoStore": false,
+    "oversizedUnexpectedFixtureBytesAccepted": 307200,
+    "transient503Dispatches": 4,
+    "retryHeaders": [null, "1", "2", "3"],
+    "serviceFailureReportedAsExisting403": true,
+    "abortDuringExactReviewerReadDidNotSettle": true,
+    "lateReviewerStillReturnedContext": true,
+    "actualAttemptRoute": {
+      "status": 503,
+      "eligible": null,
+      "callsAfterAbort": [
+        {
+          "path": "/rest/v1/assessment_responses",
+          "method": "GET",
+          "afterAbort": true,
+          "signalPresent": false
+        }
+      ]
+    },
+    "actualQueueRoute": {
+      "status": 200,
+      "eligible": true,
+      "callsAfterAbort": []
+    },
+    "unexpectedNetworkCalls": 0,
+    "sdkConsoleErrorCalls": 0
+  },
+  "sourceHashes": {
+    "src/lib/team-server.ts": "8d45e86659b61d0546e1a87785428ca65b6a676b494bf4ab6cdcdbb7b2c2f489",
+    "src/lib/assessments/server.ts": "11a5fb8af31930c29100c3f2d1d69dbe8a31f9f05fcad05c406a8937223c4d8b",
+    "src/routes/api.exams.ts": "5bee1741b7e92a76835bddfca8b0d2f26458f99ace9a978f936e7f9c1144661e"
+  },
+  "limits": [
+    "Historical production source and installed SDK with synthetic project/Auth/claim/enrollment/reviewer/HTTP data only. No real evidence, grants, assignments, claim, budget-counter, form, score, certificate, role, provider, financial, schema/policy/schedule or cleanup operation.",
+    "The actual attempt GET reaches one mock saved-response query after request departure; that mock deliberately returns400 to stop serialization. No private response or question is returned. Queue mock has no requests and late registry returns eligible=true after cancellation; queue RPC happens before registry wait and is not demonstrated prevented or bounded here.",
+    "These are request-lifecycle/resource/service-guidance findings, not evidence of tenant authorization bypass, attacker control or real data leakage. Normal exact user/track/active and claimed personal-request checks are present. The transient503 path denies access but misreports it as403.",
+    "This historical defect probe must not become a required test preserving late authorization. No application change/deployment in the probe. Next repair should bound both exact-track and limit-one eligibility reads, disable their retries, preserve org-specific queue and personal-sharing/self-review rules, and keep broader private reads/RPCs/admin lists separate."
+  ]
+}

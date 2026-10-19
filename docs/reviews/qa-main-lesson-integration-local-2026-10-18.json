@@ -1,0 +1,63 @@
+{
+  "testedAt": "2026-10-18T15:42:55.536479+00:00",
+  "applicationCommit": "40c358ad7da9b6249d7f8325f01a78379a37d60a",
+  "parents": [
+    "e61b86079d8e9657efcfe8046e318b109405a724",
+    "814b30484ea7f0e0c47ace75116f337ec5eed833"
+  ],
+  "checks": {
+    "mergeWithoutConflicts": true,
+    "combinedNode22SuitePasses": true,
+    "typecheckPasses": true,
+    "changedFileLintPasses": true,
+    "productionAuditZero": true,
+    "all59GeneratedFileValidatorsPass": true,
+    "existingAssessmentAndOwnershipTestsRetained": true
+  },
+  "fullNode22Tests": 1658,
+  "additionalLessonContentTestGroups": 90,
+  "contentInventory": {
+    "files": 59,
+    "lessons": 1510,
+    "filesWith30Lessons": 42,
+    "filesWith15Lessons": 16,
+    "filesWith10Lessons": 1,
+    "reviewedFiles": 0,
+    "totalBytes": 5744847,
+    "gapTo59Times30": 260
+  },
+  "sourceHashes": {
+    "src/components/core30/LessonPracticeKit.tsx": "97973df6cfb45f0220a2028815cd57bb61db6f79bd695329c300c0f1f925cd50",
+    "src/components/core30/LessonReader.tsx": "3273f699a2d361d6fe237885ddb68f89fad58f00c7122d8fdcf214edd4e91087",
+    "src/components/core30/VerbPractice.tsx": "bc8929c7b811798604a9e363a734612f9dfa1930542db4876383f01e18a35e02",
+    "src/components/guide/AppGuide.tsx": "8f6b8c96b6ef8cceb8bedd9143f55a49f3f4daaefa10583ed57859cfdd0d8caa",
+    "src/lib/lesson-content.ts": "4b9453b292ff3eeb6175de24d1029c0aa6997872493fad755063bbc96e8dcaa6",
+    "src/lib/lesson-content-core.ts": "ba15b39204c759890d31e934865108861fffaa9dfe10cac354c3f517e3bc8573",
+    "src/lib/lesson-words.ts": "098d0026670eed57a706a7357599b9c682cc39d9fe6224bc59508b6b1cfe3e42",
+    "public/sw.js": "d04ac1a1e5907d785ad3fa5e7398e964f6597e8093b3a54d85bc11427221c151",
+    "scripts/vercel-adapter.mjs": "fe8f7959b67d0e7b4f3875c7c38b264c3dea3e62dddadb7fc874e9b0501a449f",
+    "tests/lesson-content.test.mjs": "3b5b0a566c92796b50f619b80e380b523cae828051f1b9e054802dd6791b45ab",
+    "public/lesson-content/index.json": "1efc1e45decc4a07aac6277ebdcd58683a464a9ac2b8b9e8361c0f41b73aa5af",
+    "src/components/exams/AIWritingProposal.tsx": "5b409469904a86f4a11d535d11c34d479420c73a6434846b09e8410972952d54"
+  },
+  "logs": {
+    "lt-main-integration-full.log": "edd6a9bf278116f5cd275ad2682ab6a832d01a40f5dbc9e02eefaafd82982205",
+    "lt-main-integration-type.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lt-main-integration-lint.log": "1b2a6d01f106f075ee67b9f58eab66a014e6d90023d9730d0c4cca948a1c5a9b",
+    "lt-main-integration-audit.log": "efbd9a32e34512efe1488e3107be66e3d1919babda2fba4db5784e0119041f60"
+  },
+  "limits": [
+    "Merge preserves external main lesson-content changes and assessment source; no independent rewrite or generation/provider job. Existing59file validators establish structure/completeness against current curricula, not fluent/domain/curriculum approval or equivalence.",
+    "All59publiccontentfiles retain reviewed:false.17shortmodules are260lessons below59x30 requirement. Generated passage/word/verb availability does not prove all modes, proficiency, usage levels, entrance45/90exams or reviewed release parity.",
+    "No browser actions, storage/session injection, physicaldevice/audio/mic, expiry/reauth, offline process restart or positive hosted learner recovery acceptance. Existing content browser test uses localStorage seeding and was not run as acceptance.",
+    "Draft PR38 remains unmerged. Main814b304/live and accepted companion unchanged by this follow-up. No production promotion, real owner/reviewer/business/assessment/consent/claim/score/provider mutation or policy/schedule/cleanup activation.",
+    "Full9development dependency findings and legacy Prisma remain; original human/device/content/calibration/reviewer/pilot/retention/scheduler gates open."
+  ],
+  "validation": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.01
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "probedAt": "2026-10-18T12:46:23.267Z",
+  "sourceCommit": "3c51f9c4f9d840dcec98e3437d04b52c6757fcb7",
+  "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "versions": {
+    "supabase-js": "2.105.1",
+    "postgrest-js": "2.105.1"
+  },
+  "observations": {
+    "configuredProjectAndActorOrganizationFiltersCorrect": true,
+    "permissionTransportSignalPresent": false,
+    "explicitNoStorePresent": false,
+    "acceptedNameBytes": 307200,
+    "unexpectedFixtureFieldReturnedByHelper": true,
+    "transient503Dispatches": 4,
+    "retryHeaders": [
+      null,
+      "1",
+      "2",
+      "3"
+    ],
+    "backendDiagnosticReachedHelper": true,
+    "abortDuringPermissionDidNotSettleWait": true,
+    "latePermissionStillReturnedAdmin": true,
+    "actualRouteAfterPermissionAbort": {
+      "status": 200,
+      "subsequentSyntheticWrites": [
+        {
+          "path": "/rest/v1/team_organizations",
+          "method": "PATCH",
+          "afterAbort": true,
+          "signalPresent": false
+        }
+      ]
+    },
+    "unexpectedNetworkCalls": 0,
+    "sdkConsoleErrorCalls": 0
+  },
+  "sources": [
+    {
+      "path": "src/lib/team-server.ts",
+      "sha256": "f1abe9de3048cd04aa9bc0d96d87f523a9ab88108b6b17a9e36e83dfe3ce3ce8"
+    },
+    {
+      "path": "src/lib/team-auth-fetch.ts",
+      "sha256": "ecd106676f49d031b78d6adf1e5d7fdbf2e45864e7da19577442eb941a0fe97b"
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "sha256": "5b344608e84a9915805e3ee76495bba942ae491c42915d5d0019ea7f350cfab5"
+    },
+    {
+      "path": "node_modules/@supabase/postgrest-js/src/PostgrestBuilder.ts",
+      "sha256": "2ce38ea1551e3fa2bfa49c1311e21191797b10b0ea0f7660da3b825bb37fe3ec"
+    },
+    {
+      "path": "node_modules/@supabase/postgrest-js/src/types/common/common.ts",
+      "sha256": "b83315a6e0b6bd4887cff0807114d3afa437ce4ef7614a92297c095e3e80691b"
+    }
+  ],
+  "limits": [
+    "Observes current actual production factory/helper and actual route with installed SDK, synthetic project/credentials/transports only. No real network, membership/role read, user/team write, email, financial, consent, exam, certificate or private data access.",
+    "Oversized/unknown response fields are deliberately injected unexpected service data, not evidence of actual database leakage or attacker control. Raw helper error is not a public API exposure claim; scoped route catches protect resolved backend failures separately.",
+    "Late PATCH is captured in-process mock HTTP requests; no real database changed. This demonstrates a request-departure gap during permission lookup, not a tenant authorization bypass or proof every later phase behaves identically.",
+    "This is a probe of a remaining defect, not a required test that should keep passing after repair. No application changes/deployment/role/schema/policy/schedule action; membership deadline/response budget/cancellation and exact selected-query retry control require follow-up."
+  ]
+}

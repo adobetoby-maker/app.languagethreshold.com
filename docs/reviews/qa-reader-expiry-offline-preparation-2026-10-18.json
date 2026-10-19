@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-10-18",
+  "runtimeCommit": "77ce28351017e6eac5ff7147f5c7c11166c63eb7",
+  "target": "https://lt-main-recovery-qa-20261018.vercel.app",
+  "status": "awaiting-browser-availability",
+  "completed": {
+    "focusedReaderAuthOfflineTests": 41,
+    "focusedFailures": 0,
+    "hostedLibraryRlsChecks": 11,
+    "hostedLibraryRlsAllPassed": true,
+    "existingOwnedBookLoadedInNormalReader": true,
+    "disposableSyntheticFixtureCreated": true
+  },
+  "pending": [
+    "Actual Offline reload/reopen and cached private paragraph rendering",
+    "Pending Reader queue retained across genuinely elapsed token expiry",
+    "Normal reauthentication and confirmed cloud reconciliation",
+    "Restore network controls and close QA DevTools after trial"
+  ],
+  "browserInterruption": "Chrome switched to an unrelated user tab while opening the throttling control. Native actions stopped; user availability question pending. Last verified QA mode was No throttling. No Offline selection was confirmed.",
+  "noRefreshRevocationOrQueuedBrowserDeletionYet": true,
+  "credentialsOrTokensSaved": false,
+  "iphoneChecklist": "iphone-merge-checklist-2026-10-18.md",
+  "limits": [
+    "41 controlled tests and 11 real RLS checks are not completed browser expiry/offline acceptance.",
+    "No physical iPhone/Safari/audio acceptance or production merge."
+  ]
+}

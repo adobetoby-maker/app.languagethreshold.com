@@ -216,4 +216,5 @@ select json_build_object('baselineResponseGuard',md5(pg_get_functiondef('assessm
 \ir assessment-adaptive-runtime-cases.sql
 \endif
 \endif
+\ir assessment-flat-resume.sql
 rollback;

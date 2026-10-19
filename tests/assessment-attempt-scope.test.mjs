@@ -40,6 +40,7 @@ function fixture(scope, organizationId, owner = 'learner') {
       if (table === 'assessment_responses') throw responseRead;
       const query = {
         select() { return query; }, eq() { return query; },
+        retry(enabled) { assert.equal(enabled, false); return this; },
         maybeSingle: async () => ({ data: rows[table], error: null }),
         single: async () => ({ data: rows[table], error: null }),
       };

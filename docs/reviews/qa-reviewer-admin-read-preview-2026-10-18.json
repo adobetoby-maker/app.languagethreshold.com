@@ -1,0 +1,104 @@
+{
+  "testedAt": "2026-10-18T14:08:34.527692+00:00",
+  "applicationCommit": "1705da47ac3f4d4ca338a191f95a19899c63c6bc",
+  "preview": "https://language-threshold-fi6q0w3mg-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-fi6q0w3mg-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_9F3aww9Dkc2CKC4D6ygpaDWWbpwA",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-fi6q0w3mg-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "1705da47ac3f4d4ca338a191f95a19899c63c6bc",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "historicalProbe": "qa-reviewer-admin-read-probe-2026-10-18.json",
+  "local": {
+    "newActualSdkGroups": 8,
+    "fullNode22Tests": 1512,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.96
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-reviewer-admin-read-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "sharedListPhaseMs": 8000,
+  "listLimits": {
+    "assessment_reviewers": {
+      "rows": 201,
+      "maxBytes": 262144
+    },
+    "assessment_content_reviewers": {
+      "rows": 601,
+      "maxBytes": 524288
+    },
+    "assessment_reviewer_admin_events": {
+      "rows": 50,
+      "maxBytes": 1048576
+    }
+  },
+  "checks": {
+    "exactModuleOptionalAccountProjectionOrderAndLimitsRetained": true,
+    "normalGrantsEventsAndSentinelTruncationRetained": true,
+    "selectedReadsNoRetryAndNoStore": true,
+    "strictProjectionActorModuleCardinalityAndUtf8Json": true,
+    "sharedHeaderAndBodyPhaseDeadline": true,
+    "lateBodiesDisposedWithoutWaiting": true,
+    "actualRegisteredOwnerRouteReturns499OnListDeparture": true,
+    "independentRequestsAndListenerCleanup": true,
+    "sqlUnicodeReasonAndLegacyEventKindsRetained": true,
+    "unrelatedQueriesAndMutationsIdentityPassThrough": true,
+    "reviewerPostImplementationByteIdentical": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/reviewer-admin-read.ts": "78b898ea72b733f1c85ef3e5276d34e3658bb55e4e4d68afe49b8352be4d883c",
+    "src/routes/api.exam-reviewers.ts": "9a53cdc62830218ba15b31ec691979a089522c468860a84acf3fc871579a266a",
+    "tests/reviewer-admin-read.test.mjs": "9e22a29157a287f0e9eaf29b71e54b27cdb337b6069d0fdfa893912a45823706"
+  },
+  "limits": [
+    "Historical f6818b9 actual handler/installed SDK probe used synthetic Auth/owner/budget/list HTTP responses only. Each list lacked signal/no-store, four transient503 attempts per list(total12), accepted/serialized300KiB unexpected fixture field, and late empty lists returned200 after request departure. Not actual private data leakage, tenant bypass, owner/reviewer role/grant/approval or real quota/business operation.",
+    "Only the three exact configured-project GET projections/filter/order/limit shapes are bounded within a dedicated parallel list phase. A fresh service client has request-local transport/phase and no extra Auth call; owner/Auth/budget already succeeded on the route. Earlier Auth/owner/budget and later mutation RPC remain separate; this is not an aggregate endpoint deadline, proof of physical network cancellation, durable outcome or revocation-race repair.",
+    "Existing row limits201/601/50, displayed grant slices200/600, limited sentinel and eventLimit50 remain.256KiB/512KiB/1MiB are intentional wire resource budgets, not guarantees that every manually created SQL text value fits; oversized legacy data returns fixed503 rather than partial results. Strict projection/types, matching module/optional target and bounded cardinality apply. SQL event.kind is unconstrained text, retained; reason codepoint length mirrors SQL trim/3..2000, including4000UTF16-unit astral fixtures. No schema edit.",
+    "All focused positives use synthetic owner/list/HTTP data. Hosted checks use dedicated QA/rejected mutations/anonymous denials/read-only checks, not an actual owner registry acceptance. No real role/reviewer grant/revoke/approval/qualification, owner/business/provider/model/email/speech/payment, exam submit, cleanup/schema/policy/schedule or production action. Browser/physical device/session expiry/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open; full goal active.",
+    "Prior full dependency audit still9findings(5high/4moderate), and legacy Prisma schema validation remains open. Main64f2172 and accepted companiond4ad837 unchanged. DraftPR38 remains unmerged."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T14:08:35.790Z",
+    "sourceCommit": "1705da4",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1603,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

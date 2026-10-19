@@ -1,3 +1,4 @@
+import { OwnerCustomerTools } from "./OwnerCustomerTools";
 import { ownerDateInput } from "@/lib/owner-users";
 import { useState } from "react";
 import type { OwnerDirectory, OwnerUser, OwnerUserResult, OwnerUsage } from "@/lib/owner-users";
@@ -523,6 +524,7 @@ function UserDetails({
           </>
         )
       )}
+      <OwnerCustomerTools key={account.id} userId={account.id} email={account.email} />
     </div>
   );
 }

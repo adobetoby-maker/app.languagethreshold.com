@@ -13,6 +13,7 @@ import { Route as Char91indexChar93RouteImport } from './routes/[index]'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as EmailPreferencesRouteImport } from './routes/email-preferences'
 import { Route as ExamContentRouteImport } from './routes/exam-content'
 import { Route as ExamReviewersRouteImport } from './routes/exam-reviewers'
 import { Route as ExamsRouteImport } from './routes/exams'
@@ -20,12 +21,15 @@ import { Route as FamilySetupRouteImport } from './routes/family-setup'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ReferRouteImport } from './routes/refer'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
 import { Route as ApiCreateCheckoutRouteImport } from './routes/api.create-checkout'
+import { Route as ApiCustomerReferralRouteImport } from './routes/api.customer-referral'
+import { Route as ApiCustomerUnsubscribeRouteImport } from './routes/api.customer-unsubscribe'
 import { Route as ApiDiscussionRouteImport } from './routes/api.discussion'
 import { Route as ApiExamCleanupRouteImport } from './routes/api.exam-cleanup'
 import { Route as ApiExamContentRouteImport } from './routes/api.exam-content'
@@ -37,6 +41,7 @@ import { Route as ApiFieldPrepRouteImport } from './routes/api.field-prep'
 import { Route as ApiMissionTtsRouteImport } from './routes/api.mission-tts'
 import { Route as ApiModuleFieldPrepRouteImport } from './routes/api.module-field-prep'
 import { Route as ApiModuleRequestRouteImport } from './routes/api.module-request'
+import { Route as ApiOwnerCustomersRouteImport } from './routes/api.owner-customers'
 import { Route as ApiOwnerDiscountsRouteImport } from './routes/api.owner-discounts'
 import { Route as ApiOwnerUsersRouteImport } from './routes/api.owner-users'
 import { Route as ApiPlatformRouteImport } from './routes/api.platform'
@@ -76,6 +81,11 @@ const CertificateRoute = CertificateRouteImport.update({
   path: '/certificate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailPreferencesRoute = EmailPreferencesRouteImport.update({
+  id: '/email-preferences',
+  path: '/email-preferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExamContentRoute = ExamContentRouteImport.update({
   id: '/exam-content',
   path: '/exam-content',
@@ -111,6 +121,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferRoute = ReferRouteImport.update({
+  id: '/refer',
+  path: '/refer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
@@ -139,6 +154,16 @@ const ApiCertificateRoute = ApiCertificateRouteImport.update({
 const ApiCreateCheckoutRoute = ApiCreateCheckoutRouteImport.update({
   id: '/api/create-checkout',
   path: '/api/create-checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCustomerReferralRoute = ApiCustomerReferralRouteImport.update({
+  id: '/api/customer-referral',
+  path: '/api/customer-referral',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCustomerUnsubscribeRoute = ApiCustomerUnsubscribeRouteImport.update({
+  id: '/api/customer-unsubscribe',
+  path: '/api/customer-unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDiscussionRoute = ApiDiscussionRouteImport.update({
@@ -194,6 +219,11 @@ const ApiModuleFieldPrepRoute = ApiModuleFieldPrepRouteImport.update({
 const ApiModuleRequestRoute = ApiModuleRequestRouteImport.update({
   id: '/api/module-request',
   path: '/api/module-request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOwnerCustomersRoute = ApiOwnerCustomersRouteImport.update({
+  id: '/api/owner-customers',
+  path: '/api/owner-customers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiOwnerDiscountsRoute = ApiOwnerDiscountsRouteImport.update({
@@ -291,6 +321,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/email-preferences': typeof EmailPreferencesRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -299,12 +330,15 @@ export interface FileRoutesByFullPath {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
   '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/customer-referral': typeof ApiCustomerReferralRoute
+  '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
@@ -316,6 +350,7 @@ export interface FileRoutesByFullPath {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -339,6 +374,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/email-preferences': typeof EmailPreferencesRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -347,12 +383,15 @@ export interface FileRoutesByTo {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
   '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/customer-referral': typeof ApiCustomerReferralRoute
+  '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
@@ -364,6 +403,7 @@ export interface FileRoutesByTo {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -388,6 +428,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/certificate': typeof CertificateRoute
+  '/email-preferences': typeof EmailPreferencesRoute
   '/exam-content': typeof ExamContentRoute
   '/exam-reviewers': typeof ExamReviewersRoute
   '/exams': typeof ExamsRoute
@@ -396,12 +437,15 @@ export interface FileRoutesById {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
   '/account_/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
   '/api/create-checkout': typeof ApiCreateCheckoutRoute
+  '/api/customer-referral': typeof ApiCustomerReferralRoute
+  '/api/customer-unsubscribe': typeof ApiCustomerUnsubscribeRoute
   '/api/discussion': typeof ApiDiscussionRoute
   '/api/exam-cleanup': typeof ApiExamCleanupRoute
   '/api/exam-content': typeof ApiExamContentRoute
@@ -413,6 +457,7 @@ export interface FileRoutesById {
   '/api/mission-tts': typeof ApiMissionTtsRoute
   '/api/module-field-prep': typeof ApiModuleFieldPrepRoute
   '/api/module-request': typeof ApiModuleRequestRoute
+  '/api/owner-customers': typeof ApiOwnerCustomersRoute
   '/api/owner-discounts': typeof ApiOwnerDiscountsRoute
   '/api/owner-users': typeof ApiOwnerUsersRoute
   '/api/platform': typeof ApiPlatformRoute
@@ -438,6 +483,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/email-preferences'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -446,12 +492,15 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/refer'
     | '/team'
     | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/customer-referral'
+    | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/exam-cleanup'
     | '/api/exam-content'
@@ -463,6 +512,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-users'
     | '/api/platform'
@@ -486,6 +536,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/email-preferences'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -494,12 +545,15 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/refer'
     | '/team'
     | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/customer-referral'
+    | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/exam-cleanup'
     | '/api/exam-content'
@@ -511,6 +565,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-users'
     | '/api/platform'
@@ -534,6 +589,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/certificate'
+    | '/email-preferences'
     | '/exam-content'
     | '/exam-reviewers'
     | '/exams'
@@ -542,12 +598,15 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/refer'
     | '/team'
     | '/account_/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
     | '/api/create-checkout'
+    | '/api/customer-referral'
+    | '/api/customer-unsubscribe'
     | '/api/discussion'
     | '/api/exam-cleanup'
     | '/api/exam-content'
@@ -559,6 +618,7 @@ export interface FileRouteTypes {
     | '/api/mission-tts'
     | '/api/module-field-prep'
     | '/api/module-request'
+    | '/api/owner-customers'
     | '/api/owner-discounts'
     | '/api/owner-users'
     | '/api/platform'
@@ -583,6 +643,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
   CertificateRoute: typeof CertificateRoute
+  EmailPreferencesRoute: typeof EmailPreferencesRoute
   ExamContentRoute: typeof ExamContentRoute
   ExamReviewersRoute: typeof ExamReviewersRoute
   ExamsRoute: typeof ExamsRoute
@@ -591,12 +652,15 @@ export interface RootRouteChildren {
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
+  ReferRoute: typeof ReferRoute
   TeamRoute: typeof TeamRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
   ApiCreateCheckoutRoute: typeof ApiCreateCheckoutRoute
+  ApiCustomerReferralRoute: typeof ApiCustomerReferralRoute
+  ApiCustomerUnsubscribeRoute: typeof ApiCustomerUnsubscribeRoute
   ApiDiscussionRoute: typeof ApiDiscussionRoute
   ApiExamCleanupRoute: typeof ApiExamCleanupRoute
   ApiExamContentRoute: typeof ApiExamContentRoute
@@ -608,6 +672,7 @@ export interface RootRouteChildren {
   ApiMissionTtsRoute: typeof ApiMissionTtsRoute
   ApiModuleFieldPrepRoute: typeof ApiModuleFieldPrepRoute
   ApiModuleRequestRoute: typeof ApiModuleRequestRoute
+  ApiOwnerCustomersRoute: typeof ApiOwnerCustomersRoute
   ApiOwnerDiscountsRoute: typeof ApiOwnerDiscountsRoute
   ApiOwnerUsersRoute: typeof ApiOwnerUsersRoute
   ApiPlatformRoute: typeof ApiPlatformRoute
@@ -656,6 +721,13 @@ declare module '@tanstack/react-router' {
       path: '/certificate'
       fullPath: '/certificate'
       preLoaderRoute: typeof CertificateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email-preferences': {
+      id: '/email-preferences'
+      path: '/email-preferences'
+      fullPath: '/email-preferences'
+      preLoaderRoute: typeof EmailPreferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exam-content': {
@@ -707,6 +779,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/refer': {
+      id: '/refer'
+      path: '/refer'
+      fullPath: '/refer'
+      preLoaderRoute: typeof ReferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team': {
       id: '/team'
       path: '/team'
@@ -747,6 +826,20 @@ declare module '@tanstack/react-router' {
       path: '/api/create-checkout'
       fullPath: '/api/create-checkout'
       preLoaderRoute: typeof ApiCreateCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/customer-referral': {
+      id: '/api/customer-referral'
+      path: '/api/customer-referral'
+      fullPath: '/api/customer-referral'
+      preLoaderRoute: typeof ApiCustomerReferralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/customer-unsubscribe': {
+      id: '/api/customer-unsubscribe'
+      path: '/api/customer-unsubscribe'
+      fullPath: '/api/customer-unsubscribe'
+      preLoaderRoute: typeof ApiCustomerUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/discussion': {
@@ -824,6 +917,13 @@ declare module '@tanstack/react-router' {
       path: '/api/module-request'
       fullPath: '/api/module-request'
       preLoaderRoute: typeof ApiModuleRequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/owner-customers': {
+      id: '/api/owner-customers'
+      path: '/api/owner-customers'
+      fullPath: '/api/owner-customers'
+      preLoaderRoute: typeof ApiOwnerCustomersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/owner-discounts': {
@@ -959,6 +1059,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
   CertificateRoute: CertificateRoute,
+  EmailPreferencesRoute: EmailPreferencesRoute,
   ExamContentRoute: ExamContentRoute,
   ExamReviewersRoute: ExamReviewersRoute,
   ExamsRoute: ExamsRoute,
@@ -967,12 +1068,15 @@ const rootRouteChildren: RootRouteChildren = {
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
+  ReferRoute: ReferRoute,
   TeamRoute: TeamRoute,
   AccountPasswordRoute: AccountPasswordRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,
   ApiCreateCheckoutRoute: ApiCreateCheckoutRoute,
+  ApiCustomerReferralRoute: ApiCustomerReferralRoute,
+  ApiCustomerUnsubscribeRoute: ApiCustomerUnsubscribeRoute,
   ApiDiscussionRoute: ApiDiscussionRoute,
   ApiExamCleanupRoute: ApiExamCleanupRoute,
   ApiExamContentRoute: ApiExamContentRoute,
@@ -984,6 +1088,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiMissionTtsRoute: ApiMissionTtsRoute,
   ApiModuleFieldPrepRoute: ApiModuleFieldPrepRoute,
   ApiModuleRequestRoute: ApiModuleRequestRoute,
+  ApiOwnerCustomersRoute: ApiOwnerCustomersRoute,
   ApiOwnerDiscountsRoute: ApiOwnerDiscountsRoute,
   ApiOwnerUsersRoute: ApiOwnerUsersRoute,
   ApiPlatformRoute: ApiPlatformRoute,

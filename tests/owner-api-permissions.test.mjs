@@ -18,7 +18,7 @@ async function fixture(run) {
   try {
     await build({
       stdin: {
-        contents: `export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';`,
+        contents: `export {Route as users} from '@/routes/api.owner-users';export {Route as discounts} from '@/routes/api.owner-discounts';export {Route as checkout} from '@/routes/api.create-checkout';export {Route as customers} from '@/routes/api.owner-customers';export {Route as referral} from '@/routes/api.customer-referral';export {Route as unsubscribe} from '@/routes/api.customer-unsubscribe';`,
         resolveDir: process.cwd(),
       },
       outfile: join(dir, "api.mjs"),
@@ -93,7 +93,7 @@ async function fixture(run) {
 }
 test("owner APIs deny guests, support and user-editable role claims before any directory or billing call", () =>
   fixture(async (api, c, req) => {
-    for (const route of [api.users, api.discounts]) {
+    for (const route of [api.users, api.discounts, api.customers]) {
       c.calls = [];
       let r = await route.server.handlers.GET({
         request: req("/api/owner-users", undefined, false),
@@ -150,4 +150,38 @@ test("cross-origin writes are rejected before auth; forged checkout account cann
     });
     assert.equal(checkout.status, 403);
     assert.equal(c.calls.filter((p) => p !== "/auth/v1/user").length, 0);
+  }));
+
+test("customer writes require owner authorization; public referral/preferences reject cross-origin writes before service access", () =>
+  fixture(async (api, c, req) => {
+    const customer = { action: "draft", id: uid, userId: uid, subject: "Offer", body: "Hi" };
+    for (const role of ["learner", "support"]) {
+      c.role = role;
+      c.calls = [];
+      const denied = await api.customers.server.handlers.POST({
+        request: req("/api/owner-customers", customer),
+      });
+      assert.equal(denied.status, 403);
+      assert.equal(
+        c.calls.some((p) => p.includes("customer_")),
+        false,
+      );
+    }
+    c.calls = [];
+    for (const [route, path, body] of [
+      [api.customers, "owner-customers", customer],
+      [api.referral, "customer-referral", { code: uid }],
+      [api.unsubscribe, "customer-unsubscribe", { token: uid }],
+    ]) {
+      const denied = await route.server.handlers.POST({
+        request: req("/api/" + path, body, false, "https://evil.invalid"),
+      });
+      assert.equal(denied.status, 403);
+    }
+    assert.equal(c.calls.length, 0);
+    const guest = await api.referral.server.handlers.POST({
+      request: req("/api/customer-referral", { code: uid }, false),
+    });
+    assert.equal(guest.status, 403);
+    assert.equal(c.calls.length, 0);
   }));

@@ -1,3 +1,5 @@
+import { readReviewerAdministration } from "@/lib/assessments/reviewer-admin-read";
+import { readPrivateJson, PrivateJsonRequestError } from "@/lib/private-json-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
@@ -29,6 +31,20 @@ const scope = z
   })
   .strict();
 function fail(error: unknown) {
+  if (error instanceof PrivateJsonRequestError)
+    return json(
+      {
+        error:
+          error.status === 413
+            ? "Reviewer request is too large."
+            : error.status === 408
+              ? "The reviewer upload took too long. Please try again."
+              : error.status === 499
+                ? "Assessment request cancelled."
+                : "Invalid reviewer request.",
+      },
+      error.status,
+    );
   if (error instanceof TeamOperationError && error.status === 499)
     return json({ error: "Assessment request cancelled." }, 499);
   if (error instanceof AssessmentAccessError) return json({ error: error.message }, error.status);
@@ -46,7 +62,7 @@ export const Route = createFileRoute("/api/exam-reviewers")({
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
-          await assessmentBudget(user.id, "reviewer_admin_read");
+          await assessmentBudget(user.id, "reviewer_admin_read", request);
           const query = new URL(request.url).searchParams;
           const module = z
             .string()
@@ -56,70 +72,26 @@ export const Route = createFileRoute("/api/exam-reviewers")({
           const targetAccount = query.get("user")
             ? z.string().uuid().parse(query.get("user"))
             : null;
-          const [response, content, events] = await Promise.all([
-            db
-              .from("assessment_reviewers")
-              .select(
-                "user_id,module_id,target_language,instruction_language,active,revision,created_at,updated_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { user_id: targetAccount } : {})
-              .order("user_id")
-              .limit(201),
-            db
-              .from("assessment_content_reviewers")
-              .select(
-                "user_id,module_id,target_language,instruction_language,kind,active,revision,created_at,updated_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { user_id: targetAccount } : {})
-              .order("user_id")
-              .order("kind")
-              .limit(601),
-            db
-              .from("assessment_reviewer_admin_events")
-              .select(
-                "id,actor_id,target_id,module_id,target_language,instruction_language,kind,active,revision,reason,created_at",
-              )
-              .eq("module_id", module)
-              .match(targetAccount ? { target_id: targetAccount } : {})
-              .order("created_at", { ascending: false })
-              .order("id", { ascending: false })
-              .limit(50),
-          ]);
-          if (response.error || content.error || events.error)
-            throw new AssessmentAccessError("Reviewer administration could not be loaded.", 503);
-          return json({
-            grants: [
-              ...(response.data ?? []).slice(0, 200).map((row) => ({ ...row, kind: "response" })),
-              ...(content.data ?? []).slice(0, 600),
-            ],
-            limited: (response.data?.length ?? 0) > 200 || (content.data?.length ?? 0) > 600,
-            events: events.data ?? [],
-            eventLimit: 50,
-          });
+          return json(await readReviewerAdministration(request, module, targetAccount));
         } catch (error) {
           return fail(error);
         }
       },
       POST: async ({ request }) => {
         try {
-          if (!isStrictSameOrigin(request))
+          if (!isStrictSameOrigin(request)) {
+            void request.body?.cancel().catch(() => {});
             throw new AssessmentAccessError("Same-origin reviewer request required.", 403);
+          }
+          // Covers the schema's full escaped-Unicode reason; bytes and wait are bounded before SDK work.
+          const data = scope.parse(await readPrivateJson(request, 16 * 1024));
+          if (request.signal.aborted) throw new PrivateJsonRequestError(499);
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
           await requireRegisteredAssessmentOwner(db, user);
-          await assessmentBudget(user.id, "reviewer_admin_write");
-          const raw = await request.text();
-          if (raw.length > 12000)
-            throw new AssessmentAccessError("Reviewer request is too large.", 400);
-          let body: unknown;
-          try {
-            body = JSON.parse(raw);
-          } catch {
-            throw new AssessmentAccessError("Invalid reviewer request.", 400);
-          }
-          const data = scope.parse(body);
+          await assessmentBudget(user.id, "reviewer_admin_write", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           return json(
             await rpc(db, "assessment_manage_reviewer", {
               p_actor: user.id,

@@ -147,14 +147,14 @@ function Row({
   const color = RANK_COLOR[tier];
   return (
     <div
-      className={`flex items-center gap-3 rounded-2xl border px-3 py-2.5 transition-colors ${
+      className={`flex items-center gap-2 rounded-2xl border px-2 py-2.5 transition-colors sm:gap-3 sm:px-3 ${
         isMe
           ? "border-gold bg-gold/10 shadow-[0_0_24px_-8px_rgba(201,168,76,0.7)]"
           : "border-white/10 bg-white/[0.03]"
       }`}
     >
-      <div className="w-8 text-center font-display italic text-lg text-white/80">{rank}</div>
-      <RankBadge tier={tier} badge={RANK_BADGE[tier]} size="sm" />
+      <div className="w-5 shrink-0 text-center font-display italic text-lg text-white/80 sm:w-8">{rank}</div>
+      <RankBadge tier={tier} badge={RANK_BADGE[tier]} size="sm" className="shrink-0" />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           {isMe && <span className="text-gold">⭐</span>}
@@ -166,13 +166,13 @@ function Row({
             {name}
           </span>
         </div>
-        <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/55 sm:tracking-[0.2em]">
           <span style={{ color }}>{tier}</span>
           <span>·</span>
           <span>{flag}</span>
-          <span>{language}</span>
+          <span className="min-w-0 break-words">{language}</span>
           <span>·</span>
-          <span>
+          <span className="whitespace-nowrap">
             {wins}W / {losses}L
           </span>
         </div>
@@ -187,7 +187,7 @@ function Row({
           />
         </div>
       </div>
-      <div className="font-mono text-xs font-medium text-white/85">
+      <div className="shrink-0 whitespace-nowrap font-mono text-xs font-medium text-white/85">
         {points}
         <span className="ml-1 text-[9px] uppercase tracking-[0.2em] text-white/45">pts</span>
       </div>

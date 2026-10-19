@@ -124,8 +124,8 @@ export const Route = createFileRoute("/api/stripe-webhook")({
                         `New custom module request: ${item.title}`,
                         `A $20 custom module request was paid.\n\nTitle: ${item.title}\nAudience: ${item.audience}\nSituations: ${item.situations}\nVocabulary: ${item.vocabulary || "None provided"}\n\nReview in the owner dashboard: ${new URL(request.url).origin}/owner`,
                       );
-                    } catch (mailError) {
-                      console.error("Custom module owner email failed:", mailError);
+                    } catch {
+                      console.error("Custom module owner email delivery could not be confirmed.");
                     }
                   }
                 }
@@ -300,8 +300,8 @@ export const Route = createFileRoute("/api/stripe-webhook")({
               break;
             }
           }
-        } catch (err) {
-          console.error("Webhook handler error:", err);
+        } catch {
+          console.error("Webhook processing could not be confirmed.");
           return new Response("Webhook processing failed", { status: 500 });
         }
 

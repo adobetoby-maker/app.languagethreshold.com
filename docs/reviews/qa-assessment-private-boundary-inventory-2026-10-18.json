@@ -1,15 +1,15 @@
 {
-  "auditedAt": "2026-10-18T11:58:52.016Z",
-  "sourceCommit": "e76c4ac35b37056ba3946c478b9a25cc8a0b5b3d",
-  "runtimeApplicationCommit": "691072f77d35f304b39524ae5e77523b65b7592c",
+  "auditedAt": "2026-10-18T12:33:34.049Z",
+  "sourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
   "scan": {
-    "files": 64,
-    "directRpc": 11,
+    "files": 67,
+    "directRpc": 16,
     "typedAssessmentErrors": 207,
     "dynamicAssessmentErrors": 3,
-    "consoleSites": 9,
+    "consoleSites": 12,
     "directBrowserStorageSites": 0,
-    "conditionalMessageAssignments": 3
+    "conditionalMessageAssignments": 0
   },
   "dynamicAssessmentErrors": [
     {
@@ -81,37 +81,72 @@
       "name": "\"assessment_finish_speech_cleanup\""
     },
     {
+      "path": "src/routes/api.platform.ts",
+      "kind": "directRpc",
+      "line": 77,
+      "receiver": "db",
+      "name": "\"platform_account_counts\""
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "kind": "directRpc",
+      "line": 78,
+      "receiver": "db",
+      "name": "\"platform_financial_summary\""
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "kind": "directRpc",
+      "line": 79,
+      "receiver": "db",
+      "name": "\"platform_financial_categories\""
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "kind": "directRpc",
+      "line": 80,
+      "receiver": "db",
+      "name": "\"platform_site_usage_summary\""
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "kind": "directRpc",
+      "line": 92,
+      "receiver": "db",
+      "name": "\"platform_usage_summary\""
+    },
+    {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 157,
+      "line": 163,
       "receiver": "db",
       "name": "\"team_usage_summary\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 162,
+      "line": 168,
       "receiver": "db",
       "name": "\"team_usage_summary\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 322,
+      "line": 335,
       "receiver": "db",
       "name": "\"team_create_organization\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 332,
+      "line": 345,
       "receiver": "db",
       "name": "\"team_accept_invitation\""
     },
     {
       "path": "src/routes/api.team.ts",
       "kind": "directRpc",
-      "line": 356,
+      "line": 369,
       "receiver": "db",
       "name": "\"team_reserve_invitation\""
     }
@@ -121,80 +156,100 @@
       "path": "scripts/cleanup-assessment-speech.mjs",
       "kind": "console",
       "line": 11,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": "npm run assessment:speech-cleanup [-- --execute]\nDefault: read-only policy/queue summary. --execute: at most 10 batches of 25, approved enabled policies only. Nonzero exit means failure or remaining backlog; inspect and run again. No policy is enabled by this command."
     },
     {
       "path": "scripts/cleanup-assessment-speech.mjs",
       "kind": "console",
       "line": 58,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/cleanup-assessment-speech.mjs",
       "kind": "console",
       "line": 61,
-      "method": "error"
+      "method": "error",
+      "argumentCount": 1,
+      "fixedText": "Speech cleanup could not finish. No policy was enabled. Check operator access, private storage and the cleanup queue; retry after resolving the failure."
     },
     {
       "path": "scripts/import-assessment-audio.mjs",
       "kind": "console",
       "line": 76,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/import-assessment-draft.mjs",
       "kind": "console",
       "line": 118,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/qa/audit-assessment-rpc-guidance.mjs",
       "kind": "console",
       "line": 30,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/qa/audit-assessment-rpc-guidance.mjs",
       "kind": "console",
       "line": 113,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/qa/verify-assessment-audio-storage.mjs",
       "kind": "console",
       "line": 104,
-      "method": "log"
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
       "path": "scripts/qa/verify-assessment-speech-storage.mjs",
       "kind": "console",
       "line": 107,
-      "method": "log"
-    }
-  ],
-  "messageAssignments": [
-    {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 384,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+      "method": "log",
+      "argumentCount": 1,
+      "fixedText": null
     },
     {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 439,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+      "path": "src/routes/api.platform.ts",
+      "kind": "console",
+      "line": 296,
+      "method": "error",
+      "argumentCount": 1,
+      "fixedText": "Custom module status email delivery could not be confirmed."
     },
     {
-      "path": "src/routes/api.team.ts",
-      "kind": "messageAssignment",
-      "line": 521,
-      "destination": "warning",
-      "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
+      "path": "src/routes/api.stripe-webhook.ts",
+      "kind": "console",
+      "line": 128,
+      "method": "error",
+      "argumentCount": 1,
+      "fixedText": "Custom module owner email delivery could not be confirmed."
+    },
+    {
+      "path": "src/routes/api.stripe-webhook.ts",
+      "kind": "console",
+      "line": 304,
+      "method": "error",
+      "argumentCount": 1,
+      "fixedText": "Webhook processing could not be confirmed."
     }
   ],
+  "messageAssignments": [],
   "inventory": [
     {
       "path": "scripts/cleanup-assessment-speech.mjs",
@@ -203,17 +258,23 @@
         {
           "kind": "console",
           "line": 11,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": "npm run assessment:speech-cleanup [-- --execute]\nDefault: read-only policy/queue summary. --execute: at most 10 batches of 25, approved enabled policies only. Nonzero exit means failure or remaining backlog; inspect and run again. No policy is enabled by this command."
         },
         {
           "kind": "console",
           "line": 58,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         },
         {
           "kind": "console",
           "line": 61,
-          "method": "error"
+          "method": "error",
+          "argumentCount": 1,
+          "fixedText": "Speech cleanup could not finish. No policy was enabled. Check operator access, private storage and the cleanup queue; retry after resolving the failure."
         }
       ]
     },
@@ -224,7 +285,9 @@
         {
           "kind": "console",
           "line": 76,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         }
       ]
     },
@@ -235,7 +298,9 @@
         {
           "kind": "console",
           "line": 118,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         }
       ]
     },
@@ -246,12 +311,16 @@
         {
           "kind": "console",
           "line": 30,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         },
         {
           "kind": "console",
           "line": 113,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         }
       ]
     },
@@ -262,7 +331,9 @@
         {
           "kind": "console",
           "line": 104,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         }
       ]
     },
@@ -273,7 +344,9 @@
         {
           "kind": "console",
           "line": 107,
-          "method": "log"
+          "method": "log",
+          "argumentCount": 1,
+          "fixedText": null
         }
       ]
     },
@@ -1565,6 +1638,11 @@
       "sites": []
     },
     {
+      "path": "src/lib/team-server.ts",
+      "sha256": "f1abe9de3048cd04aa9bc0d96d87f523a9ab88108b6b17a9e36e83dfe3ce3ce8",
+      "sites": []
+    },
+    {
       "path": "src/routes/api.exam-cleanup.ts",
       "sha256": "408ad116ec5411b42f20fc7e0f32f64b77abd7d3bb62d84d943a14800cf8bce8",
       "sites": []
@@ -2049,56 +2127,101 @@
       ]
     },
     {
-      "path": "src/routes/api.team.ts",
-      "sha256": "1feae1ff062d2b1b5565b99d18bc23a7945a38355a87cacbcf4f756d1cd12e8f",
+      "path": "src/routes/api.platform.ts",
+      "sha256": "e2c8662b542bb86d9bbe7356620931e656db2fd5e44d883423f0f02bcfd47f75",
       "sites": [
         {
           "kind": "directRpc",
-          "line": 157,
+          "line": 77,
+          "receiver": "db",
+          "name": "\"platform_account_counts\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 78,
+          "receiver": "db",
+          "name": "\"platform_financial_summary\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 79,
+          "receiver": "db",
+          "name": "\"platform_financial_categories\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 80,
+          "receiver": "db",
+          "name": "\"platform_site_usage_summary\""
+        },
+        {
+          "kind": "directRpc",
+          "line": 92,
+          "receiver": "db",
+          "name": "\"platform_usage_summary\""
+        },
+        {
+          "kind": "console",
+          "line": 296,
+          "method": "error",
+          "argumentCount": 1,
+          "fixedText": "Custom module status email delivery could not be confirmed."
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.stripe-webhook.ts",
+      "sha256": "e58cdf3d2d759c28e813f0d036cd6abb1ebe3232417113ae8d02c47095052ef2",
+      "sites": [
+        {
+          "kind": "console",
+          "line": 128,
+          "method": "error",
+          "argumentCount": 1,
+          "fixedText": "Custom module owner email delivery could not be confirmed."
+        },
+        {
+          "kind": "console",
+          "line": 304,
+          "method": "error",
+          "argumentCount": 1,
+          "fixedText": "Webhook processing could not be confirmed."
+        }
+      ]
+    },
+    {
+      "path": "src/routes/api.team.ts",
+      "sha256": "5b344608e84a9915805e3ee76495bba942ae491c42915d5d0019ea7f350cfab5",
+      "sites": [
+        {
+          "kind": "directRpc",
+          "line": 163,
           "receiver": "db",
           "name": "\"team_usage_summary\""
         },
         {
           "kind": "directRpc",
-          "line": 162,
+          "line": 168,
           "receiver": "db",
           "name": "\"team_usage_summary\""
         },
         {
           "kind": "directRpc",
-          "line": 322,
+          "line": 335,
           "receiver": "db",
           "name": "\"team_create_organization\""
         },
         {
           "kind": "directRpc",
-          "line": 332,
+          "line": 345,
           "receiver": "db",
           "name": "\"team_accept_invitation\""
         },
         {
           "kind": "directRpc",
-          "line": 356,
+          "line": 369,
           "receiver": "db",
           "name": "\"team_reserve_invitation\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 384,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 439,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
-        },
-        {
-          "kind": "messageAssignment",
-          "line": 521,
-          "destination": "warning",
-          "expression": "cause instanceof Error ? cause.message : \"Email could not be sent.\""
         }
       ]
     },
@@ -2129,8 +2252,8 @@
       "server.ts guidance.message comes from the exact fixed RPC registry; registry tests are recorded separately",
       "server.ts request controls choose between two fixed strings/statuses, not backend diagnostics"
     ],
-    "rpcScope": "Six assessment-library sites: shared wrapper plus five worker sites. Worker resolved errors use fixed local errors/counts; rejected RPCs and subsequent SDK behavior remain separate. Five team RPC sites occur because api.team imports assessment helpers; scoped outer errors do not cover successful warning responses.",
-    "consoleScope": "Nine direct calls are in operator/import/QA scripts: fixed cleanup failure guidance/help, aggregate run/draft/storage reports, audio asset metadata and RPC audit output. No CLI/import/worker was executed. Implicit SDK logs, thrown exceptions and private file destinations remain separate.",
+    "rpcScope": "Six assessment-library sites: shared wrapper plus five worker sites. Worker resolved errors use fixed local errors/counts; rejected RPCs and subsequent SDK behavior remain separate. Five team RPC sites and five platform RPC sites are included by the expanded email-caller scope; scoped outer errors do not cover successful warning responses.",
+    "consoleScope": "Nine direct calls are in operator/import/QA scripts; three additional runtime logs in owner/webhook paths now use one fixed literal argument. Existing script sites cover fixed cleanup failure guidance/help, aggregate run/draft/storage reports, audio asset metadata and RPC audit output. No CLI/import/worker was executed. Implicit SDK logs, thrown exceptions and private file destinations remain separate.",
     "priorityFinding": {
       "path": "src/routes/api.team.ts",
       "operations": [
@@ -2138,13 +2261,13 @@
         "resend",
         "assign"
       ],
-      "mechanism": "Three conditional cause.message assignments feed warning in200 JSON; invite/resend also persist last_email_error, and GET returns invitation rows including that historical field.",
-      "reachableFailureKinds": "sendTeamEmail nonOK HTTP currently throws a fixed status message and missing config is typed; rejected fetch or SDK update may throw arbitrary Error.message inside the same try. This is a source finding, not evidence that production exposed actual private data.",
-      "next": "Use fixed contextual email-warning messages for new responses/writes; normalize previously stored invitation diagnostics in GET without rewriting historical records. Verify actual route with synthetic rejected sends/updates and stored diagnostics; preserve manual fallback links and successful assignment/invitation semantics."
+      "mechanism": "Historical64f2172 had three cause.message assignments in200 warnings, two persisted diagnostics and GET historical-field serialization. Current route uses fixed contextual warnings and normalizes that GET field.",
+      "reachableFailureKinds": "Historical sendTeamEmail rejections could carry raw Error.message; current helper returns fixed503 and bounds one provider header wait, while route warnings still protect subsequent SDK bookkeeping errors. This is controlled/source evidence, not proof of actual production disclosure.",
+      "followupEvidence": "Seven warning-route, six actual-transport and three owner/webhook-log groups; separate report qa-team-email-warnings-local-2026-10-18.json. Source locations/zero assignments alone are not runtime proof; actual mail/SDK/durable delivery remain separate."
     }
   },
   "limits": [
-    "Syntax inventory of assessment library files plus route/script files with direct assessment-path imports. No transitive graph, symbol resolution, shadowing analysis, namespace constructors, computed calls, destructured methods, reexports or appwide coverage.",
+    "Syntax inventory of assessment library files, direct assessment-path importing route/scripts, shared team-server and explicit owner/webhook email callers. No transitive graph, symbol resolution, shadowing analysis, namespace constructors, computed calls, destructured methods, reexports or appwide coverage.",
     "Dynamic typed messages need manual provenance review; literal syntax alone does not prove safety or correct status/authorization. Direct RPC includes trusted wrapper and unrelated team operations in selected files.",
     "Console/browserStorage counts are direct syntax facts only; not absence of SDK logging, implicit HTTP caches, service workers, indirect persistence or private serialization. No runtime/database/browser/provider/cleanup invocation; no schema/policy/schedule changes."
   ]

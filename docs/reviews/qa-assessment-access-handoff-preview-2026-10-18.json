@@ -1,0 +1,113 @@
+{
+  "testedAt": "2026-10-18T16:09:56.482371+00:00",
+  "applicationCommit": "75199a8fee5cb46d2d2011e1c0b117a64757a288",
+  "preview": "https://language-threshold-ougej6oy8-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ougej6oy8-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_9WoUe3b3E3VEwxwqQqFiacXpF6K5",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ougej6oy8-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "75199a8fee5cb46d2d2011e1c0b117a64757a288",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-access-handoff-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.01,
+    "fullNode22Tests": 1674,
+    "newAccessHandoffGroups": 8
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 60,
+  "hostedReports": [
+    "qa-exams-assessment-access-handoff-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-access-handoff-content-static-preview-2026-10-18.json"
+  ],
+  "checks": {
+    "checkpointService503ConfirmedAbsence404": true,
+    "allThreePrimaryQueriesReceiveRequestSignal": true,
+    "preabortNoRead": true,
+    "ignoredLateResultsCannotReleaseNextLookup": true,
+    "actualAiRequestHandoffBeforeRouteEvidence": true,
+    "oneSdkAttemptForExplicitRequest429500503": true,
+    "personalIsolationAndTeamMembershipRetained": true,
+    "ownReviewStillDenied": true,
+    "confirmedMissingAllThree404": true,
+    "duplicateRows503": true,
+    "independentRequestsKeepPeerContext": true,
+    "noRequestLegacyRetryAndPermissionBehavior": true,
+    "hostedGroupsPass": true,
+    "all59ContentFilesAndIndexMatchSource": true,
+    "qaActiveAttemptAndTeamProgressRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "contentInventory": {
+    "files": 59,
+    "lessons": 1510,
+    "filesWith30Lessons": 42,
+    "filesWith15Lessons": 16,
+    "filesWith10Lessons": 1,
+    "reviewedFiles": 0,
+    "totalBytes": 5744847,
+    "gapTo59Times30": 260
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "sourceHashes": {
+    "src/lib/assessments/server.ts": "2e7a935cf3870055f29ad2bdca17bddf6a77d5f4229d82639517e341d3d80e83",
+    "src/lib/assessments/ai-server.ts": "66a0c6c861efd8805b887a3018fffe0050e2e8332dcdc421e8b76c5ea78f736c",
+    "tests/assessment-access-handoff.test.mjs": "e6f6c419b804118d118c40c40946ef5fa3fa1591554102764d35615bcf75b0ec"
+  },
+  "limits": [
+    "Actual authorization source/installed Supabase SDK plus actual AI caller with synthetic records/fetch. No real learner/owner/team/reviewer/pilot/consent/provider/claim/score/policy/schema mutations.",
+    "AI alone passes the new explicit Request through attemptAccess/enrollmentAccess. The three primary attempt/checkpoint/enrollment GETs receive its signal and retry(false); checks between awaits reject late results before next private phase. Already ignored pending transport can still wait until late reply; no new time limit or byte/shape/projection caps. Existing team membership transport keeps its separate limits.",
+    "Checkpoint now uses maybeSingle and checks service error before absence for all callers: backend error503, confirmed empty404. Other no-Request callers retain their existing retry and permission behavior; shared reviewer authorization rules remain.",
+    "No aggregate endpoint deadline, atomic permission freshness, physical cancellation or rollback/refund/nonbilling/replay inference. Later mutations/claim/consent/score/audit/finalization remain separate.",
+    "Focused first fixture used an unexpected missing table in own-review fallback, causing SDK retries before the original denial. Fixture explicitly supplies empty review-request rows now; no production review rule changed. Historical explicit404-vs503 proof uses a separate retained log.",
+    "DraftPR38 remains unmerged/main814b304/companiond4ad837 unchanged by follow-up. Generated59files reviewed:false/17shortmodules260lessons short. Full9devdependency/Prisma and original browser/device/expiry/recovery/content/calibration/reviewer/pilot/retention/scheduler gates remain open.",
+    "Hosted18groups use dedicatedQAfixture/denial/anonymous paths; no positive hostedAI/provider/consent/calibration/claim. Static60requests are not browser/serviceworker/offline/device proof. Capability metadata null is not environment readback proof."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T16:09:59.497Z",
+    "sourceCommit": "75199a8",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1716,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

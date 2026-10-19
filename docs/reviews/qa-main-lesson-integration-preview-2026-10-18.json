@@ -1,0 +1,116 @@
+{
+  "testedAt": "2026-10-18T15:44:28.317890+00:00",
+  "applicationCommit": "40c358ad7da9b6249d7f8325f01a78379a37d60a",
+  "preview": "https://language-threshold-c1y368f7o-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-c1y368f7o-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_BYFSLC9kP7FxJN46E2dCXbEzRNuG",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-c1y368f7o-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "40c358ad7da9b6249d7f8325f01a78379a37d60a",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-main-lesson-integration-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 20.01,
+    "fullNode22Tests": 1658,
+    "additionalLessonContentGroups": 90
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 60,
+  "hostedReports": [
+    "qa-exams-assessment-main-integration-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-main-lesson-content-static-preview-2026-10-18.json"
+  ],
+  "checks": {
+    "mergeWithoutConflicts": true,
+    "combinedNode22SuitePasses": true,
+    "typecheckPasses": true,
+    "changedFileLintPasses": true,
+    "productionAuditZero": true,
+    "all59GeneratedFileValidatorsPass": true,
+    "existingAssessmentAndOwnershipTestsRetained": true,
+    "hostedGroupsPass": true,
+    "all59ContentFilesAndIndexMatchMergedSource": true,
+    "qaActiveAttemptAndTeamProgressRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "contentInventory": {
+    "files": 59,
+    "lessons": 1510,
+    "filesWith30Lessons": 42,
+    "filesWith15Lessons": 16,
+    "filesWith10Lessons": 1,
+    "reviewedFiles": 0,
+    "totalBytes": 5744847,
+    "gapTo59Times30": 260
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "sourceHashes": {
+    "src/components/core30/LessonPracticeKit.tsx": "97973df6cfb45f0220a2028815cd57bb61db6f79bd695329c300c0f1f925cd50",
+    "src/components/core30/LessonReader.tsx": "3273f699a2d361d6fe237885ddb68f89fad58f00c7122d8fdcf214edd4e91087",
+    "src/components/core30/VerbPractice.tsx": "bc8929c7b811798604a9e363a734612f9dfa1930542db4876383f01e18a35e02",
+    "src/components/guide/AppGuide.tsx": "8f6b8c96b6ef8cceb8bedd9143f55a49f3f4daaefa10583ed57859cfdd0d8caa",
+    "src/lib/lesson-content.ts": "4b9453b292ff3eeb6175de24d1029c0aa6997872493fad755063bbc96e8dcaa6",
+    "src/lib/lesson-content-core.ts": "ba15b39204c759890d31e934865108861fffaa9dfe10cac354c3f517e3bc8573",
+    "src/lib/lesson-words.ts": "098d0026670eed57a706a7357599b9c682cc39d9fe6224bc59508b6b1cfe3e42",
+    "public/sw.js": "d04ac1a1e5907d785ad3fa5e7398e964f6597e8093b3a54d85bc11427221c151",
+    "scripts/vercel-adapter.mjs": "fe8f7959b67d0e7b4f3875c7c38b264c3dea3e62dddadb7fc874e9b0501a449f",
+    "tests/lesson-content.test.mjs": "3b5b0a566c92796b50f619b80e380b523cae828051f1b9e054802dd6791b45ab",
+    "public/lesson-content/index.json": "1efc1e45decc4a07aac6277ebdcd58683a464a9ac2b8b9e8361c0f41b73aa5af",
+    "src/components/exams/AIWritingProposal.tsx": "5b409469904a86f4a11d535d11c34d479420c73a6434846b09e8410972952d54"
+  },
+  "limits": [
+    "Merge preserves external main lesson-content changes and assessment source; no independent rewrite or generation/provider job. Existing59file validators establish structure/completeness against current curricula, not fluent/domain/curriculum approval or equivalence.",
+    "All59publiccontentfiles retain reviewed:false.17shortmodules are260lessons below59x30 requirement. Generated passage/word/verb availability does not prove all modes, proficiency, usage levels, entrance45/90exams or reviewed release parity.",
+    "No browser actions, storage/session injection, physicaldevice/audio/mic, expiry/reauth, offline process restart or positive hosted learner recovery acceptance. Existing content browser test uses localStorage seeding and was not run as acceptance.",
+    "Draft PR38 remains unmerged. Main814b304/live and accepted companion unchanged by this follow-up. No production promotion, real owner/reviewer/business/assessment/consent/claim/score/provider mutation or policy/schedule/cleanup activation.",
+    "Full9development dependency findings and legacy Prisma remain; original human/device/content/calibration/reviewer/pilot/retention/scheduler gates open.",
+    "Read-only HTTP checks use dedicated QA fixtures/denials and public static hashes. No new positive AI provider/consent/claim/calibration. Static60requests are not service-worker/offline/browser proof."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T15:44:31.158Z",
+    "sourceCommit": "40c358a",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1705,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

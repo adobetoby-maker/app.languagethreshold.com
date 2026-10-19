@@ -1,0 +1,84 @@
+{
+  "testedAt": "2026-10-18T13:32:18.215597+00:00",
+  "applicationCommit": "be0f47c90b638b066e54fb8b5b126980546478a4",
+  "preview": "https://language-threshold-3dk2rfhnc-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-3dk2rfhnc-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_6gWbA5Y8jpxD3uoznVJ4bU82J3BD",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-3dk2rfhnc-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "be0f47c90b638b066e54fb8b5b126980546478a4",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "local": {
+    "newActualSdkGroups": 8,
+    "pairedExistingOwnerGroups": 8,
+    "fullNode22Tests": 1490,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.95
+  },
+  "hostedCheckerGroups": 17,
+  "hostedReports": [
+    "qa-exams-content-grants-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "phaseMs": 8000,
+  "responseMaxBytes": 131072,
+  "checks": {
+    "actualCatalogStopsBeforeBudgetAndPrivateReadAfterGrantCancellation": true,
+    "actorActiveAndProjectionFiltersRetained": true,
+    "trackScopeComparisonRetained": true,
+    "selectedRetryDisabled": true,
+    "serviceGuidanceStillFixed503": true,
+    "strictGrantArrayShapeAndWireBudget": true,
+    "ignoredAbortAndLateBodyDisposal": true,
+    "stalledBodyDeadline": true,
+    "unrelatedAdminQueriesAndWritesPassThrough": true,
+    "concurrentClientsIndependent": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaPersonalRevision12UnsubmittedAndTeamB2Opened0MasteredRetained": true
+  },
+  "sourceHashes": {
+    "src/lib/team-content-grants-fetch.ts": "d6c482ab8796d9227d4fdadd944c1623c97891f2dca9f7343120e2461c6ea9e8",
+    "src/lib/team-server.ts": "8d45e86659b61d0546e1a87785428ca65b6a676b494bf4ab6cdcdbb7b2c2f489",
+    "src/lib/assessments/content-server.ts": "a2794503819d601bee78e55bf758cfb43ffaa5730e541c8562ab08084ec8e922",
+    "tests/content-grant-transport.test.mjs": "87f373b930ba691adf70b83f89ab0f37c85e3acd09bb740da02734de4e4dc5e7"
+  },
+  "limits": [
+    "Historical actual-SDK content grant probe showed cancellation after the owner reads completed could release one mock budget RPC and one mock private catalog read. First attempt cancelled while the parallel owner read was still active and correctly returned499; successful probe waits one event-loop turn for completed role reads and observes the distinct grant phase. No role/owner repair regression is claimed.",
+    "All focused positives use synthetic Auth/role/grant/HTTP data. Hosted tests use dedicated QA/rejected mutations or read-only checks. No real reviewer assignment/grant, human approval, private question/evidence read, provider/email/financial, assessment submit, schema/policy/schedule or cleanup operation.",
+    "Only exact configured-project active-user content grant projection is selected. Request-bound clients get transport bounds; unbound DB callers do not gain request scope. The128KiB limit is an intentional resource budget, not a SQL row/text-size invariant; very large legitimate grant sets can receive existing service guidance rather than partial authorization.",
+    "Evidence-reviewer exact-track checks, review-queue eligibility, reviewer-administration lists, later private queries and aggregate endpoint deadlines remain separate. Physical network cancellation, current browser/expiry/device/content/calibration/pilot/retention/scheduler/59module gates remain unproved.",
+    "Full dependency audit remains9findings(5high/4moderate) in prior lockfile evidence; pre-existing Prisma validation limitation remains. Full goal active."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T13:32:58.499Z",
+    "sourceCommit": "be0f47c",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1584,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

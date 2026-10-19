@@ -1,5 +1,11 @@
 # Module upgrade backlog
 
+October 18 acceptance: `4d43206` fixes ordinary persistence overwriting rejected profile envelopes (1,726 tests); normal populated vocabulary/note recovery, A→guest→B→A isolation and fresh-origin vocabulary cloud restore now pass. `77ce283` fixes the mobile leaderboard overlap found in responsive acceptance. Phone lesson/navigation passed; physical Safari/audio and full curriculum/human release gates remain open. See reviews/qa-profile-preservation-browser-mobile-2026-10-18.json. Earlier unproved statements below are historical.
+
+October 18 recovery follow-up: runtime `c6304fb` now supports explicit owned main-profile recovery for personal notes, vocabulary, max-only practice totals and bare module archives. Current records and known resets win; originals remain; unlabeled vocabulary needs a language choice; existing normal profile cloud sync is disclosed. 22 focused groups/1,714 full tests pass. Populated hosted UI, cloud reconciliation, current account-switch/device acceptance and all content/release gates remain open. See `qa-profile-recovery-local-2026-10-18.json` and the learner acceptance index.
+
+Cloud-merge follow-up `086bde0`: custom-text and letter totals now follow the same max-only reconciliation as other practice counters, preserving recovered/offline progress when a stale remote profile returns. Actual baseline regression and three new groups pass; 1,717 total tests. Normal hosted cloud reconciliation remains unproved.
+
 Proposed order, October 15, 2026. This covers all 59 modules in the audited catalog; it is not a rollout-date commitment. Roofing goes first. Subsequent order favors content reuse and must be revised using real learner demand and available domain/language reviewers. Demonstration assignments and certificate fixtures are not demand evidence.
 
 Every row requires 30 coherent lessons; reviewed words, phrases and contextual usage; all six learning modes driven by explicit lesson settings; entrance/day 45/day 90 exams; personal and team verification; accurate offline labels; and owner-reviewed pilot acceptance. A generated deck or completed code change does not close a row.
@@ -7,6 +13,14 @@ Every row requires 30 coherent lessons; reviewed words, phrases and contextual u
 Initial language track: English instructions → Spanish target, except English-for-work modules, which begin with Spanish instructions → English. Other compatible language pairs remain in the readiness inventory and need their own reviewed content and release records. They are not implicitly verified by this first track.
 
 Content owner role: curriculum lead. Required sign-offs: fluent-language reviewer, domain reviewer, QA, and product owner. Specific people are not yet assigned; that remains a release dependency. Codex owns shared-engine implementation, not human review approval.
+
+## October 18 runtime content update
+
+The merged public generated-content layer now contains 59 files for 1,510 existing lessons: 1,480 word lists, 1,480 passages and 1,510 verb sets. Roofing's 30 word lists and passages remain in the inline definitions. These source layers overlap; their lesson counts must not be added. All 59 files retain `reviewed:false`. Forty-two modules have 30 lessons, sixteen have 15 and Sport Fishing has 10, leaving the same 260-lesson expansion gap. Other compatible language pairs are not covered by these files. The [current generated-content inventory](reviews/module-generated-content-coverage-2026-10-18.json) records each exact pair, source hash, field counts and missing lessons.
+
+The rows below retain their original baseline and release requirements. Generated words/passages/verbs now provide draft material for review across the initial tracks; they do not close the reviewed-content, six-mode, level, exam or real-pilot gaps. `scripts/audit-module-readiness.mjs` now reports this layer separately from shared definition coverage. It uses the runtime parser and counts only current curriculum lesson numbers on the exact instruction-language pair. The existing 90 content test groups also pass; neither check establishes human approval.
+
+The earlier 90-word-list/passage/settings totals below describe shared lesson definitions only. Application `7fb59fb` now includes generated verbs and effective fallback words/passages in frozen review snapshots, with source precedence and exact packaged-file hashes. Changing generated material invalidates a previous binding; historical shared-only snapshots remain readable but cannot match the new material identity. Reviewer display and source packaging are covered by controlled tests, with browser and qualified-reviewer acceptance still open. The release completeness inspector continues to require complete shared definitions and human review; generated presence does not relax that gate. No release was verified by this integration.
 
 | Batch | Module | Baseline lessons | Initial gaps | State |
 | --- | --- | --- | --- | --- |

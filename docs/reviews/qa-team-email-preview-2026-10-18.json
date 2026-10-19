@@ -1,0 +1,99 @@
+{
+  "testedAt": "2026-10-18T12:21:59.784720+00:00",
+  "applicationCommit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+  "preview": "https://language-threshold-gshjot6us-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-gshjot6us-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_3zxCJmoJZ2p1pD2zhj4PKYXaG6ks",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-gshjot6us-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "5d6bf6d505bde684f2517f982b27cae5b9a6df36",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "aliases": [
+    {
+      "path": "/v4/aliases/exams.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "exams.languagethreshold.com",
+      "deploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+      "capabilityValue": null
+    },
+    {
+      "path": "/v4/aliases/app.languagethreshold.com",
+      "target": null,
+      "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+      "commit": null,
+      "alias": "app.languagethreshold.com",
+      "deploymentId": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+      "capabilityValue": null
+    }
+  ],
+  "local": {
+    "tests": 1457,
+    "runtime": "Node22",
+    "typecheck": true,
+    "lintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "auditVulnerabilities": 0,
+    "artifactMiB": 19.94,
+    "privateMarkers": 96,
+    "sourceFiles": 1560,
+    "staticFiles": 149,
+    "privateContentHits": 0
+  },
+  "checks": [
+    "Fixed contextual invitation/assignment warnings replace arbitrary Error.message in200 responses; invitation writes use the same fixed text",
+    "GET invitation diagnostic projection normalizes old and malformed nonempty values; original stored rows are not rewritten",
+    "Seven actual-route controlled groups retain successful/manual link semantics, saved assignment, exact mail count, authorization denials and private headers; historical64f2172 fails five actual assertions",
+    "Seventeen exact hosted checker groups pass; QA personalrevision12/in_progress/unsubmitted and teamB2opened0mastered retained",
+    "Source inventory64files/207typedErrors/3dynamic/11RPC/9console and0conditionalMessageAssignments; syntax coverage is not appwide trust proof"
+  ],
+  "baselineComparison": {
+    "commit": "64f2172",
+    "source": "src/routes/api.team.ts",
+    "groups": 7,
+    "pass": 2,
+    "fail": 5,
+    "actualAssertionFailures": true,
+    "cases": [
+      "invite raw warning",
+      "resend raw warning",
+      "assignment raw warning",
+      "post-send SDK bookkeeping raw warning",
+      "GET historical/malformed diagnostic projection"
+    ],
+    "limit": "Synthetic controlled route failures and rows; no actual production disclosure or mail delivery claim."
+  },
+  "evidence": [
+    "docs/reviews/qa-exams-team-email-preview-2026-10-18.json",
+    "docs/reviews/qa-focused-exam-entry-http-2026-10-16.json",
+    "docs/reviews/qa-exam-return-scope-2026-10-16.json",
+    "docs/reviews/qa-learning-generation-entry-2026-10-16.json",
+    "docs/reviews/qa-pashto-tts-private-http-2026-10-18.json",
+    "docs/reviews/qa-google-speech-entry-http-2026-10-18.json",
+    "docs/reviews/qa-speaking-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-push-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-conversation-admission-entry-http-2026-10-18.json",
+    "docs/reviews/qa-sports-news-entry-http-2026-10-18.json",
+    "docs/reviews/qa-email-capture-retired-http-2026-10-18.json",
+    "docs/reviews/qa-team-input-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-read-entry-http-2026-10-18.json",
+    "docs/reviews/qa-team-workflow-entry-http-2026-10-18.json",
+    "docs/reviews/qa-assessment-auth-entry-http-2026-10-18.json",
+    "docs/reviews/qa-cleanup-status-entry-http-2026-10-18.json",
+    "docs/reviews/qa-public-lesson-packs-2026-10-16.json",
+    "docs/reviews/qa-team-email-warnings-local-2026-10-18.json",
+    "docs/reviews/qa-assessment-private-boundary-inventory-2026-10-18.json"
+  ],
+  "limits": [
+    "Positive email warning/write/GET serialization cases are actual-route controlled seams. Hosted groups are readonly QA/denial regressions; no actual business invitation, assignment, email/provider/cleanup/consent/reviewer action or real stored diagnostics modified.",
+    "Email send transport/header wait and durable outcome/idempotency remain separate; uncertain delivery is not failed delivery and no automatic resend is added. Other SDK logging/cache/private/RPC paths and device/browser acceptance remain open.",
+    "Main64f2172/dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR and accepted companiond4ad837 unchanged by this follow-up. No production/main/companion/schema/policy/schedule action. Human content/calibration/equivalence/pilot/retention/device/59module gates remain open."
+  ]
+}

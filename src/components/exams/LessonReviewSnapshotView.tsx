@@ -61,6 +61,23 @@ export function LessonReviewSnapshotView({ data }: { data: LessonReviewPayload }
           </summary>
           <p>Release content version: {data.releaseContentVersion}</p>
           <p>App source version: {snapshot.sourceVersion}</p>
+          {snapshot.generatedMaterial ? (
+            <p className="break-all">
+              Generated draft source:{" "}
+              {snapshot.generatedMaterial.sourcePath ?? "No file for this pair"}
+              {snapshot.generatedMaterial.sourceSha256 && (
+                <> · SHA-256: {snapshot.generatedMaterial.sourceSha256}</>
+              )}
+              . File review flag:{" "}
+              {snapshot.generatedMaterial.fileReviewedFlag === true ? "set" : "not set"}; this does
+              not approve the release.
+            </p>
+          ) : (
+            <p>
+              Historical shared-definition snapshot; generated fallback materials and verbs were not
+              bound.
+            </p>
+          )}
           <p className="break-all">
             Current material fingerprint: <code>{data.fingerprint}</code>
           </p>
@@ -74,14 +91,20 @@ export function LessonReviewSnapshotView({ data }: { data: LessonReviewPayload }
       {snapshot.lessons.map((lesson) => (
         <details key={lesson.id} className="rounded-xl border border-border p-4">
           <summary className="min-h-11 cursor-pointer font-semibold">
-            Lesson {lesson.lessonNumber}: {lesson.title} · {lesson.words.length} shared draft
-            words/phrases
+            Lesson {lesson.lessonNumber}: {lesson.title} · {lesson.words.length} draft words/phrases
           </summary>
           <div className="mt-4 space-y-4 text-sm">
             <p>
               <strong>Objective:</strong> {lesson.objective}
             </p>
             <p>Suggested time: {lesson.expectedMinutes} minutes</p>
+            {lesson.materialSources && (
+              <p>
+                Material sources: words {lesson.materialSources.words}; reading{" "}
+                {lesson.materialSources.reading}; verbs {lesson.materialSources.verbs}. Shared
+                lesson words and passages take precedence over generated alternatives.
+              </p>
+            )}
             <p>
               <strong>Required learning modes:</strong>{" "}
               {lesson.modes.map((way) => ways[way]).join(" · ")}
@@ -119,6 +142,33 @@ export function LessonReviewSnapshotView({ data }: { data: LessonReviewPayload }
                 </p>
               )}
             </section>
+            {lesson.verbs && (
+              <section className="space-y-3">
+                <h4 className="font-semibold">Lesson verbs and examples</h4>
+                {lesson.verbs.length ? (
+                  lesson.verbs.map((verb, index) => (
+                    <div key={index} className="rounded-lg border border-border p-3">
+                      <p>
+                        <strong>{verb.infinitive}</strong> · {verb.native}
+                      </p>
+                      <dl className="mt-2 grid grid-cols-2 gap-2">
+                        {Object.entries(verb.forms).map(([pronoun, form]) => (
+                          <div key={pronoun}>
+                            <dt>{pronoun}</dt>
+                            <dd>{form}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                      <p className="mt-2">{verb.example.target}</p>
+                      <p>{verb.example.native}</p>
+                      {verb.note && <p>{verb.note}</p>}
+                    </div>
+                  ))
+                ) : (
+                  <p>No generated verbs are mapped for this lesson and language pair.</p>
+                )}
+              </section>
+            )}
             <section>
               <h4 className="font-semibold">Contextual reading</h4>
               {lesson.reading ? (

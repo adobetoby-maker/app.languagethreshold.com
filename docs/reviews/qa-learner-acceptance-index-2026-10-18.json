@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-18T17:08:42.913813+00:00",
+  "sourceCommit": "cbde3ebc255a3a408796572970571955b7b79af8",
+  "scope": "Bounded source/evidence audit only; no new runtime, deployment or browser acceptance.",
+  "index": "learner-acceptance-index-2026-10-18.md",
+  "sourceHashes": {
+    "src/lib/profile-device-snapshot.ts": "56bd189c425436978dffc7d6bc54e945e55b5ac116e740eb9f6bf01ccf3623b8",
+    "src/state/app-state.tsx": "6ec9305d1b102bf1bc2f694426a28975381fa10d531ff37d7d2c2b707c581069",
+    "src/components/auth/LegacyPracticeRecovery.tsx": "a3f4873290575e2e25152ca707ac6a2911743e6de84498e5e305d048dfd6e22a",
+    "src/lib/legacy-practice-recovery.ts": "ffcbf3a653b30d6ee5e732ac5f66901516f5fb7538a9e45a9e0db56ba23ebb39",
+    "src/lib/legacy-library.ts": "782cd7a0f5c1dde5ba9ad9c732f75ba4f34c53a12926b7c962590db9f5f98a3f",
+    "src/lib/library-device.ts": "a83e2e62ee0ddabef081771c088b6d35fb0572a26946f5a884dbe5a92ab1e165",
+    "src/state/library-state.tsx": "c1e9765eb53639742c64a3a566c1813efe442ab6dcde71d2d10adc112aad3722",
+    "src/components/reader/ParallelReader.tsx": "f2bd45a40780cfcb5d3ec7fe9fb333b73b2a8a38152a3508a4069136f9c1ea08",
+    "src/state/auth-state.tsx": "9026c9b3e2f1ae00b08845970a995982ca1566304b2e172cf14b778cfe1d83ec"
+  },
+  "evidenceHashes": {
+    "qa-reader-library-api-2026-10-16.json": "4783940377361ba47a48d7ce8d9eea7e252765c327e221c799a570302beb3c66",
+    "qa-reader-first-preview-2026-10-16.json": "4d0211f793339ca84d239a1fd7cf120ae957cde3f1741a21fd0a13e9694bdd1b",
+    "qa-exam-session-expiry-2026-10-16.json": "a031a554db1e99d8d8833776360f2b3642e6849470b62e631665279a329f2127",
+    "qa-generated-lesson-binding-preview-2026-10-18.json": "14287252196c97d4a9b21cc3594cd942428f5153fd2fb0a3163aa97f2e567c64",
+    "qa-flat-start-resume-preview-2026-10-18.json": "46848f5a3f83ddd766256d6630aa63e386a87ac66b5167ea7e1a203ea9518145"
+  },
+  "historicalCommitsIncluded": {
+    "67e9931": true,
+    "4423632": true,
+    "18ff794": true
+  },
+  "findings": [
+    "Reader-book recovery and Reader guide placement are implemented; historical acceptance remains distinct from current acceptance.",
+    "The actual exam expiry/re-auth trial completed; its tab is not pending. Reader expiry is a separate flow.",
+    "Unassigned main-profile keys are detected and preserved; the practice recovery registry has no profile category/import.",
+    "Broad profile migration/MERGE_REMOTE and existing browser-only recovery copy are unsuitable for a direct unvalidated main-profile import."
+  ],
+  "validation": {
+    "diffCheck": true,
+    "sourceOnly": true,
+    "noNewTestRequiredForDocumentation": true,
+    "previousExactHeadCi": 39147680007,
+    "previousTests": 1692
+  },
+  "limits": [
+    "No app-wide cache/privacy claim or new test/render/API/database/provider work.",
+    "Historical reports are linked with their original source identity and limits, not relabeled as current proof.",
+    "Full goal remains active; human/device/content/release gates unchanged."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T17:08:44.537Z",
+    "sourceCommit": "cbde3eb",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1738,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

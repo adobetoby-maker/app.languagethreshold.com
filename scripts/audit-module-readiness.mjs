@@ -1,6 +1,7 @@
 /** Read-only structural inventory. It does not call AI, mutate learner data or approve content. */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { loadModule } from "../tests/helpers/bundle.mjs";
 const [
   { MODULES, moduleSupportsLearningPair },
@@ -9,6 +10,7 @@ const [
   { getAvailableModuleLessons },
   { LANGUAGES, NATIVE_LANGUAGES },
   { lessonSourceCoverage },
+  { parseLessonContent, lessonContentPath, contentNativeLanguage },
 ] = await Promise.all([
   loadModule("src/data/modules.ts"),
   loadModule("src/data/curriculum.ts"),
@@ -16,7 +18,51 @@ const [
   loadModule("src/data/module-starters.ts"),
   loadModule("src/state/app-state.tsx", { stubs: [/^sonner$/, /supabase\/client$/] }),
   loadModule("src/lib/lesson-source-coverage.ts"),
+  loadModule("src/lib/lesson-content-core.ts"),
 ]);
+// This public runtime layer is separate from frozen lesson definitions and release records.
+const contentFiles = new Map();
+function generatedContent(moduleId, target, native, lessons) {
+  if (native !== contentNativeLanguage(target)) return null;
+  const path = `public${lessonContentPath(moduleId, target)}`;
+  if (!contentFiles.has(path)) {
+    if (!existsSync(path)) contentFiles.set(path, null);
+    else {
+      const bytes = readFileSync(path);
+      const file = parseLessonContent(JSON.parse(bytes.toString("utf8")), {
+        moduleId,
+        language: target,
+      });
+      if (!file || file.nativeLanguage !== native)
+        throw new Error(`Unusable generated lesson-content identity: ${path}`);
+      contentFiles.set(path, {
+        file,
+        path,
+        bytes: bytes.length,
+        sha256: createHash("sha256").update(bytes).digest("hex"),
+      });
+    }
+  }
+  const entry = contentFiles.get(path);
+  if (!entry) return null;
+  const present = lessons.filter((lesson) => entry.file.lessons[String(lesson.n)]);
+  const count = (predicate) =>
+    present.filter((lesson) => predicate(entry.file.lessons[String(lesson.n)])).length;
+  return {
+    path: entry.path,
+    bytes: entry.bytes,
+    sha256: entry.sha256,
+    fileReviewedFlag: entry.file.reviewed,
+    lessons: present.length,
+    wordLists: count((lesson) => !!lesson.words?.length),
+    passages: count((lesson) => !!lesson.passage),
+    verbSets: count((lesson) => !!lesson.verbs.length),
+    missingLessonNumbers: lessons
+      .filter((lesson) => !entry.file.lessons[String(lesson.n)])
+      .map((lesson) => lesson.n),
+    releaseApproval: "not-inferred",
+  };
+}
 const codes = {
   Spanish: "es",
   French: "fr",
@@ -99,6 +145,7 @@ const modules = MODULES.map((module) => {
         lessonSpecificPassages: sourceCoverage.lessonsWithPassages,
         lessonsWithToolkitSettings: sourceCoverage.lessonsWithTeachingSettings,
         sharedDefinitionsStructurallyComplete: sourceCoverage.structurallyComplete,
+        generatedContent: generatedContent(module.id, target, native, lessons),
         reviewState: "unverified",
         exams: { entrance: "unverified", day45: "unverified", day90: "unverified" },
       });
@@ -117,7 +164,7 @@ const modules = MODULES.map((module) => {
   };
 });
 const report = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
   generatedAt: new Date().toISOString(),
   scope:
@@ -126,6 +173,7 @@ const report = {
     "No learner data or paid generation accessed.",
     "Practice and media runtime behavior require separate verification.",
     "Exams and reviewer approvals require explicit release records; this structural audit never infers them.",
+    "Generated content counts use the runtime parser and current curriculum numbers; they are separate from shared definitions and do not establish quality, human review, offline readiness or release approval.",
   ],
   modules,
 };
@@ -137,6 +185,11 @@ console.log(
       modules: modules.length,
       lessons: modules.reduce((n, m) => n + m.lessonCount, 0),
       compatibleTracks: modules.reduce((n, m) => n + m.tracks.length, 0),
+      generatedContentFiles: modules.flatMap((m) => m.tracks).filter((t) => t.generatedContent)
+        .length,
+      generatedContentLessons: modules
+        .flatMap((m) => m.tracks)
+        .reduce((n, t) => n + (t.generatedContent?.lessons ?? 0), 0),
       modulesBelow30: modules.filter((m) => m.lessonCount < 30).map((m) => m.id),
       lessonsWithoutExplicitRecallStep: modules.reduce(
         (n, m) => n + m.lessonsWithoutExplicitRecallStep.length,

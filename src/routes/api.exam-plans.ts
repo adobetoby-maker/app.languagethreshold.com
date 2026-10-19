@@ -144,7 +144,9 @@ export const Route = createFileRoute("/api/exam-plans")({
         try {
           const db = teamAdminClient(undefined, request),
             user = await authenticatedAssessmentUser(request, db);
-          await assessmentBudget(user.id, "plan_read");
+          await assessmentBudget(user.id, "plan_read", request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           const query = new URL(request.url).searchParams,
             action = query.get("action") ?? "plan";
           if (action === "daily") {
@@ -170,7 +172,9 @@ export const Route = createFileRoute("/api/exam-plans")({
           if (action === "history_export") {
             const enrollmentId = id.parse(query.get("enrollment"));
             await enrollmentAccess(db, user.id, enrollmentId);
-            await assessmentBudget(user.id, "history_export");
+            await assessmentBudget(user.id, "history_export", request);
+            if (request.signal.aborted)
+              throw new AssessmentAccessError("Assessment request cancelled.", 499);
             const exported = await assessmentHistoryCsv(db, user.id, enrollmentId, request.signal);
             return new Response(exported.csv, {
               headers: {
@@ -225,7 +229,9 @@ export const Route = createFileRoute("/api/exam-plans")({
             throw new AssessmentAccessError("Invalid plan request.", 400);
           }
           const body = command.parse(parsed);
-          await assessmentBudget(user.id, `plan_${body.action}`);
+          await assessmentBudget(user.id, `plan_${body.action}`, request);
+          if (request.signal.aborted)
+            throw new AssessmentAccessError("Assessment request cancelled.", 499);
           if (body.action === "save_goals")
             return json({
               revision: await rpc(db, "assessment_save_goals", {

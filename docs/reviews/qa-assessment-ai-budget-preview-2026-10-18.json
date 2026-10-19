@@ -1,0 +1,93 @@
+{
+  "testedAt": "2026-10-18T14:47:04.438043+00:00",
+  "applicationCommit": "bca1bf0feef91feba6ddba7bab36e19c2be82b11",
+  "preview": "https://language-threshold-p9xcgbx0a-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-p9xcgbx0a-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_Gvn2LgNJbWX7qSoRtMFPjqhx9mGP",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-p9xcgbx0a-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "bca1bf0feef91feba6ddba7bab36e19c2be82b11",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-ai-budget-local-2026-10-18.json",
+  "local": {
+    "newSyntheticAiBudgetGroups": 8,
+    "fullNode22Tests": 1536,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-ai-budget-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "ownedQuotaPhaseMs": 8000,
+  "quotaBodyMaxBytes": 1024,
+  "checks": {
+    "internalQuotaRequestOwned": true,
+    "actualHttpRoutePassesRequestToSecondQuota": true,
+    "lateHeadersDisposeWithoutClaim": true,
+    "headerAndBodyDeadline": true,
+    "strictUtf8Json1024Bytes": true,
+    "fixed503AndFalse429": true,
+    "lateEnrollmentAllowancePreclaimFences": true,
+    "preabortNoPrivateReads": true,
+    "finalHumanScoreAndClaimRefusalRetained": true,
+    "normalAndOptionalLegacyCallerRetained": true,
+    "alreadyDispatchedClaimBookkeepingUnchanged": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaActiveAttemptAndTeamProgressRetained": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "67b268ec7b284d02e8745320fdd3d4e842fb20cd981d0bd7f5b4526b8f1872a9",
+    "src/routes/api.exams.ts": "68b28fc7410b1d5e893fa64efc7c67f4c515f89db9b1471524f46233d35cb00c",
+    "tests/assessment-ai-budget.test.mjs": "98c4cb622a19bb17da15ee0132e5b1593021eb962b7af62e5ec25fd42d6e1d72"
+  },
+  "limits": [
+    "Actual AI source and HTTP route, real assessmentBudget/shared raw quota transport; attempt access, selected path, private DB and Anthropic boundary are synthetic stubs. Existing routing tests separately cover selected rubric/access rules. No real consent/calibration/reviewer/pilot, model call, provider billing, score or grading claim.",
+    "Only internal quota phase adopts Request/8second/1024byte bounds; hashing/limit3/window60/denial semantics unchanged. Preclaim current checks guard later enrollment/allowance handoffs, but those reads are not bounded here. No aggregate endpoint deadline, atomic physical dispatch or permission freshness claim.",
+    "Once grading claim dispatches, existing claim/consent/provider/score/audit/finish behavior remains; cancellation is not rollback. Provider wait and response caps, postclaim uncertainty and durable finalization need separate work. No automatic retry/refund/replay or provider nondelivery inference.",
+    "Test fixture repairs: constructing multiple Request objects from a consumed source was replaced with fresh URL Requests; HTTP fixture added existing required consentVersion; diagnostic response read now clones before consuming. Failed logs retained separately; final focused/full checks pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Human/device/session/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open. Full dependency audit9findings(5high/4moderate) and legacy Prisma remain.",
+    "All18hosted checkers use dedicated QA reads/rejected requests/anonymous denials; uncalibrated AI remains denied. No positive hosted model request/consent/calibration. Metadata capability null is not environment readback proof."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T14:47:10.665Z",
+    "sourceCommit": "bca1bf0",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1617,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

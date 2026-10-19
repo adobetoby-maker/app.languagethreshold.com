@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/state/auth-state";
+import { ProfileRecoverySection } from "./ProfileRecoverySection";
 import {
   Dialog,
   DialogContent,
@@ -65,7 +66,7 @@ export function LegacyPracticeRecovery({
   }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="max-h-[85dvh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Recover older saves</DialogTitle>
           <DialogDescription>
@@ -104,8 +105,8 @@ export function LegacyPracticeRecovery({
             </fieldset>
             <p className="text-sm text-muted-foreground">
               Your current saves take priority when the same item appears twice. Recovery keeps the
-              originals and reloads this page. These saves remain on this browser; this does not
-              create a cloud backup.
+              originals and reloads this page. These practice-category saves remain on this browser;
+              this does not create a cloud backup.
             </p>
             <label className="flex items-start gap-3 text-sm">
               <input
@@ -149,6 +150,7 @@ export function LegacyPracticeRecovery({
             {error}
           </p>
         )}
+        <ProfileRecoverySection open={open} />
         <button className="rounded-lg border px-4 py-3 text-sm" onClick={() => onOpenChange(false)}>
           Leave saves untouched
         </button>

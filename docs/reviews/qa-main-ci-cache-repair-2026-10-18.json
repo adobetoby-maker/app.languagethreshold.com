@@ -58,7 +58,8 @@
     "fullNode26Pass": 1450,
     "fullNode22Pass": 1450,
     "runtimeChanged": false,
-    "linuxCIRerunRequired": true
+    "linuxCIRerunRequired": false,
+    "linuxCIPassed": true
   },
   "liveAfterGitIntegration": {
     "checkedAt": "2026-10-18T12:10:38.655Z",
@@ -78,5 +79,32 @@
     ],
     "liveDeploymentId": "dpl_Epoy4skqxkaN4jzw7iMH9i1YwcDq",
     "companionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT"
-  }
+  },
+  "finalMainCommit": "64f21726cedc620835f5e344b941e977898d7fe2",
+  "finalWorkflow": {
+    "id": 39126299969,
+    "url": "https://github.com/adobetoby-maker/app.languagethreshold.com/actions/runs/39126299969",
+    "conclusion": "success",
+    "allStepsPassed": true
+  },
+  "finalProduction": {
+    "checkedAt": "2026-10-18T12:14:51.125Z",
+    "id": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+    "readyState": "READY",
+    "target": "production",
+    "url": "language-threshold-pvzdp70bk-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "64f21726cedc620835f5e344b941e977898d7fe2",
+    "alias": [
+      "app.languagethreshold.com",
+      "language-threshold-app.vercel.app",
+      "language-lens-elite.worker-bee.app",
+      "language-threshold-app-adobetoby-5572s-projects.vercel.app"
+    ],
+    "liveDeploymentId": "dpl_4ZnncnzydMSw13Sf7KhCKCBhKHeR",
+    "companionDeploymentId": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT"
+  },
+  "finalReadonlySmoke": "docs/reviews/qa-main-readonly-smoke-2026-10-18.json",
+  "runtimeSourceComparison": "git diff691072f..64f2172 empty for src/public/package manifests/project identity/vercel-adapter"
 }

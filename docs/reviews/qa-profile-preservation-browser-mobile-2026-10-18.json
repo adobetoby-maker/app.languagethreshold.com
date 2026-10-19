@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-18",
+  "profileFixCommit": "4d43206762f04b224e1106fc82ac9efe68e8ff19",
+  "finalRuntimeCommit": "77ce28351017e6eac5ff7147f5c7c11166c63eb7",
+  "preview": "https://language-threshold-26sg4nw71-adobetoby-5572s-projects.vercel.app",
+  "deployment": "dpl_DwU18RmgJfAJrPCKNR1GKGHsNhJQ",
+  "qaAlias": "https://lt-main-recovery-qa-20261018.vercel.app",
+  "local": {
+    "tests": 1726,
+    "newAdapterGroups": 6,
+    "newProviderGroups": 3,
+    "typecheck": true,
+    "lintErrors": 0,
+    "existingLintWarnings": 5,
+    "productionAuditFindings": 0,
+    "artifactMiB": 20.05,
+    "layoutOnlyFollowupTypeLintBuildArtifact": true
+  },
+  "browserMethod": "Normal UI on dedicated QA accounts only. Real older b14959f Preview wrote old saves via UI on a new QA alias; alias subsequently points to current runtime. No storage/session injection or browser token transfer.",
+  "checks": {
+    "legacyGuestNoteReload": true,
+    "noAutomaticGuestAssignment": true,
+    "explicitProfileVocabularyRecoveryDesktop": true,
+    "explicitAnnotationRecoveryPhone": true,
+    "accountAToGuestToBToAIsolation": true,
+    "anotherAccountCannotClaimOldProfile": true,
+    "originalAccountRecoveredNoteAfterReload": true,
+    "recoveredVocabularyVisibleInCards": true,
+    "freshUniquePreviewNormalSignInCloudRestoreVisibleInCards": true,
+    "phoneMoreAccountSignInOutRecovery": true,
+    "phoneDashboardReaderCardsGamesExamsNavigation": true,
+    "phoneExamsPlanReturnPreservesModulePairPlan": true,
+    "phoneSeeTypeRefreshNextPreviousExit": true,
+    "lessonMasteryRemainsZero": true,
+    "phoneSimulationLabels": true,
+    "desktopSimulationLabels": true,
+    "phoneLeaderboardOverlapFoundAndFixed": true,
+    "finalPhoneLeaderboardClientEqualsScrollWidth": 278,
+    "finalDesktopLeaderboardClientEqualsScrollWidth": 447,
+    "viewportResetTo2258": true,
+    "hostedGroups": 18,
+    "exactStaticRequests": 61
+  },
+  "cloudProof": {
+    "testedAt": "2026-10-18T18:03:29.437Z",
+    "checks": [
+      {
+        "actor": "A",
+        "matchingRecoveredVocabulary": 1
+      },
+      {
+        "actor": "B",
+        "matchingRecoveredVocabulary": 0
+      }
+    ],
+    "method": "Read-only own profiles query after normal browser recovery; no profile writes or browser token transfer."
+  },
+  "screenshots": [
+    {
+      "path": "/Users/drive/git-backups/lt-profile-recovery-desktop-2026-10-18.png",
+      "sha256": "f976669546c027a79d90e34d1e56a31fe88ad3cafe5a3098bb1ee5757de0e920"
+    },
+    {
+      "path": "/Users/drive/git-backups/lt-profile-recovery-phone-2026-10-18.png",
+      "sha256": "3d2dbe4c117c825827b617b28a9b5fc00432da80108c09ae599d28bc38c72e4d"
+    },
+    {
+      "path": "/Users/drive/git-backups/lt-simulated-leaderboard-phone-fixed-2026-10-18.png",
+      "sha256": "3e3e691b1a0c2bdd356ae145974ab155e9fb510e2aafa079f68ff98284fcf32c"
+    }
+  ],
+  "limitations": [
+    "Responsive Chrome 390x844 is not physical iPhone/Safari/audio acceptance.",
+    "Recovery acceptance covers main-profile vocabulary and annotation note; it does not prove every category or every shared-device provider.",
+    "One stale phone DOM menu click opened the neighboring reset prompt; Cancel was used, never confirmed. Native fresh AX controls verified later account steps.",
+    "Malformed-profile preservation is verified with actual provider lifecycle tests, not browser storage injection. Validation covers the envelope, not all inner AppState fields or atomic cross-tab claims.",
+    "No official attempt started/submitted, mastery claimed, role/schema/policy/speech/scheduler changed, or production promoted. Existing practice UI may award ordinary QA navigation XP.",
+    "Reader queued expiry, physical offline/audio, qualified content/reviewer/calibration/pilot and remaining full rollout gates stay open."
+  ]
+}

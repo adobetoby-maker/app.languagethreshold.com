@@ -1,0 +1,100 @@
+{
+  "testedAt": "2026-10-18T14:21:32.622231+00:00",
+  "applicationCommit": "7c1028ca9130c594b2ac5cf586a08e235eaad676",
+  "preview": "https://language-threshold-apv7sz25b-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-apv7sz25b-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_8FWAaYepjCWyg9RXfFemJfm8ZRa7",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-apv7sz25b-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "7c1028ca9130c594b2ac5cf586a08e235eaad676",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "historicalProbe": "qa-reviewer-budget-handoff-probe-2026-10-18.json",
+  "local": {
+    "newActualBudgetAndRouteGroups": 8,
+    "fullNode22Tests": 1520,
+    "finalFullPasses": 2,
+    "earlierFullExit1DiagnosticNotRetained": true,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-reviewer-budget-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "adoptedRequestBudgetCallsites": [
+    "GET/api/exam-reviewers",
+    "POST/api/exam-reviewers"
+  ],
+  "ownedBudgetPhaseMs": 8000,
+  "quotaBodyMaxBytes": 1024,
+  "checks": {
+    "sameHashNamespaceLimitsWindowAndSingleQuotaDispatch": true,
+    "legacyUnownedSuccessDenialGuidanceRetained": true,
+    "adoptedQuotaHeadersAndBodyWaitOwned": true,
+    "requestAbortReachesQuotaSignal": true,
+    "lateHeadersAndStalledBodyDisposed": true,
+    "actualReviewerGetPost499BeforeLateQuotaResponse": true,
+    "lateQuotaCannotReleaseListOrPermissionUpdate": true,
+    "postQuotaAndPreUpdateRequestFences": true,
+    "normalPermitRetainsExactMutationParameters": true,
+    "alreadyDispatchedPermissionUpdateOutcomeUnchanged": true,
+    "noAutomaticQuotaReplayOrRollbackClaim": true,
+    "concurrentBudgetWaitsIndependent": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "sourceHashes": {
+    "src/lib/assessments/budget.ts": "006a1e179d8e9eb4ea41068882e6cc0cadb185c3687f8e49661dcb66a5ef3083",
+    "src/lib/assessments/server.ts": "e8fb34ff8d842c47352803df04bdbfc66e8bf261cbf80e819e351f3167a4f5f4",
+    "src/routes/api.exam-reviewers.ts": "1f74881d794904d656dcacf1e1953da91ec2fd463f258a837ae7ef579c3b727d",
+    "tests/reviewer-budget-handoff.test.mjs": "b6b63d7d9444ad27b5c05db84cd630b03a801ef3bdd342655091a13b3ac6effd"
+  },
+  "limits": [
+    "Historical cbf5a1c actual route/assessmentBudget/SDK probe used synthetic Auth/owner/quota/mutation HTTP only. Quota had an independent native8second signal/no-store, but incoming cancellation did not reach it; ignored headers kept the request pending. Late true caused one mock permission update after request departure and200.300KiB trailing quota JSON whitespace was accepted internally. Not real owner/reviewer grant/revoke/qualification/approval, quota mutation or private leakage.",
+    "assessmentBudget is extracted/re-exported with optional Request. Only the two reviewer-administration callers adopt request ownership; other callers keep their previous behavior. Owned8second phase includes hashing/header/body/permit and handoff guards; forwards phase signal to unchanged shared enforcer, activating its existing1024byte strictUTF8/JSON path. Limits/hash/window and existing true-versus-nontrue/429 semantics remain. This does not add a strict boolean schema: valid nontrue JSON continues to deny429, malformed JSON/service failure503.",
+    "A quota POST can consume a counter even when the owned wait cancels or times out. No refund/replay/rollback or no-consumption claim. Stop before dispatching a permission update after quota departure; an update already dispatched keeps existing SDK acknowledgement/error/requestID/revision semantics, with no abort or automatic replay added. Physical dispatch/cancellation guarantees, durable uncertain outcomes, mutation RPC deadlines, other budget callers and aggregate endpoints remain separate.",
+    "One earlier full-suite invocation exited1; its log path was reused before inspecting diagnostics, so its cause is not established. This avoidable evidence gap was disclosed. Two final Node22 full suites passed1520tests; clean LinuxCI remains required and is reported separately in PR checks.",
+    "All focused positives use synthetic HTTP/Auth/owner/quota/mutation data. Hosted checks use dedicated QA/rejected mutations/anonymous denials/read-only checks; no actual owner registry/grant/update acceptance. No real roles/permissions/reviewer approval/qualification, provider/model/email/speech/payment, exam submit, cleanup/schema/policy/schedule or production action. Main64f2172 and companiond4ad837 unchanged; draftPR38 unmerged.",
+    "Prior full dependency audit still9findings(5high/4moderate), legacy Prisma validation and human/device/session/content/calibration/qualified reviewer/real pilot/retention/scheduler/59module gates remain open. Full goal active."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T14:21:34.102Z",
+    "sourceCommit": "7c1028c",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1609,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "testedAt": "2026-10-18T15:37:32.065580+00:00",
+  "applicationCommit": "2bc6f8d4217e6a39ad409f1dce87e49b9163b4d6",
+  "preview": "https://language-threshold-1riwu80tn-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-1riwu80tn-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_ASpZNZptgaJMLouusRTuumZtmNfr",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-1riwu80tn-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "2bc6f8d4217e6a39ad409f1dce87e49b9163b4d6",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-assessment-ai-writing-ui-local-2026-10-18.json",
+  "local": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.98,
+    "changedFileLintWarnings": 0,
+    "newUiRegressionGroups": 8,
+    "focusedGroups": 13,
+    "fullNode22Tests": 1568
+  },
+  "hostedCheckerGroups": 18,
+  "hostedReports": [
+    "qa-exams-assessment-ai-writing-ui-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json"
+  ],
+  "checks": {
+    "acknowledgedAndUncertainOutcomesLatchMountedForm": true,
+    "retainedCallbacksCannotResubmit": true,
+    "lostReplyAnd5xxPause": true,
+    "malformedSuccessPauses": true,
+    "threeKnownAcknowledgementsAccepted": true,
+    "sevenPreProviderDenialsAllowExplicitRetry": true,
+    "pendingAndPausedStatusChecksReadOnly": true,
+    "AbsentJobRefreshDoesNotUnlock": true,
+    "positiveSavedJobReplacesForm": true,
+    "newAccountAndResponseUnchecked": true,
+    "lateActorAndJobCallbacksRejected": true,
+    "realClientLostReplyDoesNotSendAgain": true,
+    "qaActiveAttemptAndTeamProgressRetained": true,
+    "externalMainAdvancementRecorded": true,
+    "companionAliasUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "sourceHashes": {
+    "src/components/exams/AIWritingProposal.tsx": "5b409469904a86f4a11d535d11c34d479420c73a6434846b09e8410972952d54",
+    "tests/ai-writing-consent-lifecycle.test.mjs": "1f961fdfe193a73b37a73a26b39a494aeec26c5c8fbbb26033aae2aeaf7df7f6",
+    "tests/assessment-budget-adoption.test.mjs": "4b156c1bafb065984a57b1d412884d3cfee93250f2205b614442a12591eb8864"
+  },
+  "limits": [
+    "Actual component and lifecycle hooks run in a controlled hook harness; one lost-reply group uses actual assessment client with synthetic Auth/fetch. No real provider, claim, score, consent, billing, reviewer or learner mutation.",
+    "The pause lasts for this mounted answer view. No new durable browser storage or cross-remount/process-restart guarantee. Existing server durable claim remains the provider replay boundary.",
+    "Check saved status invokes parent refresh only; no new AI POST or consent. Known pre-provider 400/401/403/404/409/413/429 errors retain explicit retry. 5xx/lost reply/malformed success cannot unlock the mounted form.",
+    "No browser/phone/assistive technology acceptance or endpoint-wide deadline proof. Existing postclaim waits/uncertain outcomes remain separate.",
+    "Draft PR38 unmerged. External main advanced to814b304 during hosted verification; companion unchanged. Combined-main validation remains open. Original human/device/expiry/content/calibration/reviewer/pilot/retention/scheduler/59module gates and9development dependency findings remain open.",
+    "All18hosted checker groups use dedicated QA fixture paths/rejected requests/anonymous denials. No positive hosted AI claim/provider/consent/calibration. Capability metadata null is not environment readback proof.",
+    "External main lesson-content commits were observed on production during verification. This Preview does not include them; combined branch/release reconciliation and content acceptance remain outstanding."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T15:37:33.427Z",
+    "sourceCommit": "2bc6f8d",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1635,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

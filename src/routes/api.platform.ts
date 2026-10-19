@@ -292,8 +292,8 @@ export const Route = createFileRoute("/api/platform")({
                     `Custom module request update: ${item.title}`,
                     `Your custom module request is now ${body.status}.\n\n${body.ownerNote || "Sign in to view your request."}\n\nView your request: ${new URL(request.url).origin}/module-request\n\nLanguage Threshold`,
                   );
-                } catch (mailError) {
-                  console.error("Custom module status email failed:", mailError);
+                } catch {
+                  console.error("Custom module status email delivery could not be confirmed.");
                 }
               }
             }

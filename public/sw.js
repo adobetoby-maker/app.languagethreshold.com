@@ -1,6 +1,6 @@
 // Language Threshold — Service Worker
 // Cache version: bump this string on every deploy to invalidate old caches.
-const CACHE = "lt-v17";
+const CACHE = "lt-v18";
 if (typeof importScripts === "function") importScripts("/offline-lessons-worker.js");
 
 function privateDocument(url) {
@@ -34,6 +34,19 @@ function cacheableResponse(response) {
     !/(?:^|,)\s*(?:no-store|private)(?:\s*(?:=|,|$))/i.test(
       response.headers.get("Cache-Control") ?? "",
     )
+  );
+}
+
+// Delivery stays independent of optional storage, while the event owns the whole write.
+function storePublicResponse(event, request, response, cache) {
+  const copy = response.clone();
+  event.waitUntil(
+    Promise.resolve()
+      .then(() => cache ?? caches.open(CACHE))
+      .then((store) => store.put(request, copy))
+      .catch(() => {
+        // A full or blocked cache must not discard a usable network response.
+      }),
   );
 }
 
@@ -131,7 +144,7 @@ self.addEventListener("fetch", (event) => {
         cache.match(request).then((cached) => {
           const refresh = fetch(request)
             .then((response) => {
-              if (cacheableResponse(response)) cache.put(request, response.clone());
+              if (cacheableResponse(response)) storePublicResponse(event, request, response, cache);
               return response;
             })
             .catch(() => undefined);
@@ -153,8 +166,7 @@ self.addEventListener("fetch", (event) => {
         if (cacheableResponse(cached)) return cached;
         return fetch(request).then((response) => {
           if (cacheableResponse(response)) {
-            const clone = response.clone();
-            caches.open(CACHE).then((cache) => cache.put(request, clone));
+            storePublicResponse(event, request, response);
           }
           return response;
         });
@@ -169,8 +181,7 @@ self.addEventListener("fetch", (event) => {
       fetch(request)
         .then((response) => {
           if (!privateContext(url) && cacheableResponse(response)) {
-            const clone = response.clone();
-            caches.open(CACHE).then((cache) => cache.put(request, clone));
+            storePublicResponse(event, request, response);
           }
           return response;
         })

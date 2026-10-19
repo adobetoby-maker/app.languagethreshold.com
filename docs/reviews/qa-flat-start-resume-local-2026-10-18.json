@@ -1,0 +1,65 @@
+{
+  "testedAt": "2026-10-18T16:59:59.208192+00:00",
+  "applicationCommit": "8d3cd59a1e54fa4c2fab18a2d0903892ba176438",
+  "historicalSource": "7295a03:src/routes/api.exams.ts",
+  "historicalSourceSha256": "68b28fc7410b1d5e893fa64efc7c67f4c515f89db9b1471524f46233d35cb00c",
+  "baselineCommand": "LT_FLAT_RESUME_BASELINE=7295a03 npx --yes node@22 --test --test-name-pattern='saved flat start recovers' tests/assessment-support-start.test.mjs",
+  "baselineProof": {
+    "sourceHandlerExecuted": true,
+    "supportRetryReturned": 400,
+    "staleFullModuleBindingReturned": 409,
+    "expectedRecoveredStatus": 200,
+    "actualAssertions": true,
+    "logSha256": "06b8f10f1bb94283951dc763f749a9ae0acf560f7c32dae07eabf2f6464503ee"
+  },
+  "sourceHashes": {
+    "src/lib/assessments/flat-start-resume.ts": "4049d3a3976f65624877b028d49f47b07c9b2841a076c98819f0259d973d012f",
+    "src/routes/api.exams.ts": "acd378f09110e5c90a14be538411715fd820e57d595b2e9f5fa70f9aa77f8e3b",
+    "tests/assessment-support-start.test.mjs": "2796507dc341272ad2390a12405019085016af5a6c7b7e3f70dac979af68aaf8",
+    "tests/sql/assessment-engine.sql": "a7921d108762ee7b2155cd5ead3b4353b528c43cd5b3bf676325bf09d2ba0348",
+    "tests/sql/assessment-flat-resume.sql": "b03aa5a7e07d36df56d9176bdefcb6772d2019d36cee38a5ccebe49182affb19"
+  },
+  "validation": {
+    "fullNode22Tests": 1692,
+    "failed": 0,
+    "focusedActualStartGroups": 14,
+    "newRouteRecoveryGroups": 4,
+    "typecheck": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionAuditVulnerabilities": 0,
+    "guardedBuild": true,
+    "artifactMiB": 20.03,
+    "installedSdkMockTransport": {
+      "installedSdkMockTransport": true,
+      "reads": 1,
+      "rpcs": 1,
+      "nullFormPresentInRpcJson": true,
+      "realNetwork": false
+    },
+    "sqlLocalDatabase": "lt_exams_qa_20261015_codex",
+    "sqlSuitePassed": true,
+    "sqlRollback": true,
+    "retainedQaTables": 0
+  },
+  "sqlChecks": [
+    "Same-key and other-request open recovery preserve original frozen form and do not add start events.",
+    "Same-key result survives pause; other-request open recovery repeats active/scheduled requirement.",
+    "Foreign actor denied by existing public RPC wrapper.",
+    "NULL form after saved attempt disappears cannot select or create a form/replacement/event."
+  ],
+  "fixtureCorrection": {
+    "firstSqlRunFailed": true,
+    "reason": "Synthetic paused enrollment omitted required paused_on; corrected fixture sets/clears paused_on. No runtime/SQL policy change.",
+    "firstFailureLogSha256": "7927ff8271753af8729cf1396c96df96cce8197d01106208cce2c10a45528490",
+    "finalSqlLogSha256": "faf0dca113d902026369e2ae1a30cdda67c0ad00b49c3a3cb756894513fd0cf2"
+  },
+  "limits": [
+    "Ownership and current module access remain ahead of recovery. Existing SQL authorization, exposure and pause ordering are authoritative.",
+    "NULL-form RPC is existing-attempt recovery only; no new form/study coverage is admitted. Adaptive/preparation/new-start paths retain current checks.",
+    "Additional full-module regression is verification-only; runtime Preview source remains this application commit.",
+    "No migration, hosted schema/data/policy/role or actual exam-start/submit/owner/reviewer/provider action.",
+    "Controlled route/readAttempt serialization and installedSDK mock plus local rolled-back SQL do not establish positive hosted retry/browser/device acceptance.",
+    "Existing lookup/RPC waits are not given a new aggregate deadline, atomic network cancellation or replay/refund guarantee."
+  ]
+}

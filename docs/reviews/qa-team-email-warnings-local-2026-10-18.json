@@ -1,0 +1,61 @@
+{
+  "testedAt": "2026-10-18T12:33:33.441Z",
+  "sourceCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "runtimeApplicationCommit": "68e6122fa2a7be458db3452bfe8f328bd93a6b8b",
+  "testGroups": {
+    "warnings": 7,
+    "transport": 6,
+    "logs": 3
+  },
+  "checks": {
+    "inviteResendAssignmentWarningsFixed": true,
+    "savedOperationAndManualFallbackRetained": true,
+    "postSendBookkeepingRejectionDoesNotResend": true,
+    "successfulEmailAndManualDeliveryRetainNullWarning": true,
+    "historicalAndMalformedDiagnosticsNormalizedWithoutWrites": true,
+    "missingAuthAndNonadminDeniedBeforeMutations": true,
+    "privateNoStoreHeadersPreserved": true,
+    "fixedProviderPostNoRedirectOrRetry": true,
+    "headerDeadlineMs": 15000,
+    "ignoredAbortLateHeadersAndRejectionsObserved": true,
+    "unusedResponseBodyDisposedWithoutWaitingForCancel": true,
+    "timerAndAbortListenerReleased": true,
+    "providerErrorsNeverReadOrRetainedAsCauses": true,
+    "ownerAndWebhookEmailLogsFixed": true,
+    "webhookUnexpectedErrorLogFixedAndSignatureGuardRetained": true
+  },
+  "sources": [
+    {
+      "path": "src/routes/api.team.ts",
+      "sha256": "5b344608e84a9915805e3ee76495bba942ae491c42915d5d0019ea7f350cfab5"
+    },
+    {
+      "path": "src/lib/team-server.ts",
+      "sha256": "f1abe9de3048cd04aa9bc0d96d87f523a9ab88108b6b17a9e36e83dfe3ce3ce8"
+    },
+    {
+      "path": "src/routes/api.platform.ts",
+      "sha256": "e2c8662b542bb86d9bbe7356620931e656db2fd5e44d883423f0f02bcfd47f75"
+    },
+    {
+      "path": "src/routes/api.stripe-webhook.ts",
+      "sha256": "e58cdf3d2d759c28e813f0d036cd6abb1ebe3232417113ae8d02c47095052ef2"
+    },
+    {
+      "path": "tests/team-email-warnings.test.mjs",
+      "sha256": "076d56d99ef2206c7b69fea7ade0120e0c00134ceade76aa673192b30e429bab"
+    },
+    {
+      "path": "tests/team-email-transport.test.mjs",
+      "sha256": "c33d77c30e26844651e11f76860a6444083177e0b68869d10ddbc7f292b95467"
+    },
+    {
+      "path": "tests/team-email-logs.test.mjs",
+      "sha256": "2801353cc470f98ae10d5e540124a51f5b0b4e10c43f1eb87efe07448353096e"
+    }
+  ],
+  "limits": [
+    "Actual helper transport uses synthetic env and controlled fetch; actual routes use controlled auth/database/email/Stripe seams. No actual SDK/provider/mail delivery, real webhook/payment/signature acceptance, historical database rewrite, user/team assignment, invitation or browser acceptance.",
+    "Provider header deadline is independent of earlier auth/input/database phases; no aggregate request deadline, physical network cancellation or durable email outcome/idempotency proof. HTTP2xx retains prior accepted-request behavior, not delivery proof. No automatic resend. Hosted denial/readonly checks cannot prove real delivery or financial processing."
+  ]
+}

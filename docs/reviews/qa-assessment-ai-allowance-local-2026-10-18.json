@@ -1,0 +1,62 @@
+{
+  "testedAt": "2026-10-18T15:06:57.001173+00:00",
+  "historicalSourceCommit": "18e8b4d89dcbbc1866c9167027bf2483d3342399",
+  "historicalActualAssertionFailure": {
+    "settledBeforeLateHeaders": false,
+    "selectedSignalPresent": false,
+    "mockClaims": 0,
+    "lateOutcome": 499,
+    "actualAssertionNotSetupFailure": true,
+    "testCommand": "LT_AI_ALLOWANCE_BASELINE=18e8b4d npx --yes node@22 --test --test-name-pattern=\"owned allowance wait\" tests/assessment-ai-allowance.test.mjs",
+    "logSha256": "34e35af990cbbf90bcb515be35e4175ac11cdf4cd83529b092609ef8a0c0a7b6"
+  },
+  "newInstalledSdkAllowanceGroups": 8,
+  "fullNode22Tests": 1552,
+  "phaseMs": 8000,
+  "enrollmentMaxBytes": 65536,
+  "sourceHashes": {
+    "src/lib/assessments/ai-server.ts": "7cda94de1d21265ea840e168c68a8e619573255b1b7de44c5c805a069b7c7cb0",
+    "src/lib/assessments/writing-allowance.ts": "4cc11ec1df8c5cccb0a01538d0bae2db65249d030474731e5b91159dc9aee6ae",
+    "tests/assessment-ai-allowance.test.mjs": "a0e7f383a66ed7a5c7b2644a9de690f5a989aa55ca068dc1cf9f6f90548d0a54",
+    "tests/assessment-ai-budget.test.mjs": "2f5d08a62c5e8b3b532bf7c1fd6aaf14f5593129c9304f2e090efab86794796b",
+    "tests/assessment-ai-provider.test.mjs": "b2528fc6c446a60451a79365be4b3a8f7c7e2417ea3058f2e556120435af799d",
+    "tests/reviewer-budget-handoff.test.mjs": "c01463eb622400642ab8e07f38a7ed57c7705dd76d5ca34e770abdfb081d41b8"
+  },
+  "checks": {
+    "sharedEnrollmentAndCountPhase": true,
+    "requestCancellationBeforeLateRead": true,
+    "headerAndBodyDeadline": true,
+    "strictUtf8JsonIdProjectionUniqueUuids": true,
+    "wireCapAnd1000Sentinel": true,
+    "exactCountHeaderRequiredSafeInteger": true,
+    "normalCountsDaily30DenialAndEmptySet": true,
+    "oneSdkAttemptPerGetHead": true,
+    "exactActorAndRollingEnrollmentFilters": true,
+    "independentRequestsAndListenerCleanup": true,
+    "preabortNoClaim": true,
+    "existingProviderRoutingQuotaSemantics": true
+  },
+  "retainedFullFailure": {
+    "logSha256": "c2654ece07ba028cf878594513cd7ebcf7efedb77df045566ba20c27397b1de1",
+    "test": "reviewer-budget-handoff: preaborted and independent request budget waits cannot share cancellation or dispatch after departure",
+    "assertion": "releases[0].signal.aborted expected true, observed false",
+    "repair": "Identify the stopped/live signals after observing cancellation, rather than assuming asynchronous bucket hashing completes in caller order. Both requests must still have separate signals and peer success. No production quota code changed.",
+    "finalFullLog": "/tmp/lt-ai-allowance-full-final.log",
+    "finalAll1552Pass": true
+  },
+  "limits": [
+    "Actual AI source/installed Supabase SDK and selected transport; access/path, quota, private read replies and claim refusal are synthetic. No actual learner claim/score/model/provider/billing/consent/calibration/reviewer/pilot action. Historical query eventually returned499 from the already-existing guard, with zero claims: liveness/resource finding, not a permission bypass or private leak.",
+    "Request path creates a dedicated service client without extra Auth call; exact actor enrollment id projection(max1000/64KiB) and exact rolling HEAD count only. Strict UUID/projection/unique IDs, safe nonnegative exact Content-Range count and shared8second phase. Cap operational, not a SQL data size invariant; malformed/oversized replies use fixed503,1000sentinel retained, count30uses429. Empty owned set still sends in.() count query.",
+    "No Request preserves legacy internal query behavior. Only HTTP runtime caller passes Request; fixtures now use real selected SDK transport for these queries while retaining controlled claim/provider boundaries. No schema/role/policy/schedule changes.",
+    "Earlier routing/response/human-score reads, quota, later grading claim/consent/score/audit/finalization and full endpoint lifetime remain separate. Existing mutation/lease/provider outcomes and no automatic replay/refund/rollback inference unchanged.",
+    "One prior full suite failed on an older quota fixture call-order assumption; original log retained, stopped/live identity corrected, final full1552passes. Typecheck/changed-filelint/productionaudit are clean; guarded build/artifact checks pass.",
+    "Main and accepted companion unchanged; draftPR38 unmerged. Original human/device/session/content/calibration/reviewer/pilot/retention/scheduler/59module gates, full9dependency audit findings(5high/4moderate) and legacy Prisma remain open."
+  ],
+  "validation": {
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.97
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "testedAt": "2026-10-18T14:02:25.247Z",
+  "sourceCommit": "f6818b9ec394fbc972a49886de7b97ee08104b32",
+  "routeHash": "2eb7a8c0679fe9edcc899fcfa57407f39676d6bd083c6b0cc8effbeb98c9412b",
+  "normal": {
+    "status": 200,
+    "events": [
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      }
+    ],
+    "cancellationDidNotSettle": false,
+    "acceptedUnexpectedBytes": 307200
+  },
+  "failure": {
+    "status": 503,
+    "events": [
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "1",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": "1",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "1",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "2",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": "2",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "2",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "3",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": "3",
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": "3",
+        "afterAbort": false
+      }
+    ],
+    "cancellationDidNotSettle": false,
+    "acceptedUnexpectedBytes": 0
+  },
+  "late": {
+    "status": 200,
+    "events": [
+      {
+        "table": "assessment_content_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewer_admin_events",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      },
+      {
+        "table": "assessment_reviewers",
+        "signal": false,
+        "noStore": false,
+        "retry": null,
+        "afterAbort": false
+      }
+    ],
+    "cancellationDidNotSettle": true,
+    "acceptedUnexpectedBytes": 0
+  },
+  "limits": [
+    "Actual historical route and installed SDK with synthetic Auth/owner/budget/list HTTP data only. No actual owner/private registry, role/reviewer permission/approval/qualification, quota mutation or other real business operation. The300KiB unexpected fixture field is serialized, not evidence of an actual data leak or tenant bypass.",
+    "Three normal list reads have row caps but no selected signal/no-store or body bound; transient503 yields four attempts per list, and all late empty lists return200 after request departure. Earlier Auth/owner bounds already work; probe isolates the list phase. No claim of whole-endpoint deadline, RPC repair, or physical cancellation."
+  ]
+}

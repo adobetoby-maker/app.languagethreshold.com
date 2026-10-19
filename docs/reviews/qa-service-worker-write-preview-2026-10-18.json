@@ -1,0 +1,146 @@
+{
+  "testedAt": "2026-10-18T16:23:47.913261+00:00",
+  "applicationCommit": "59f7044caea6755fed23891e446a74b9486d4da6",
+  "preview": "https://language-threshold-rirutqv4z-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-rirutqv4z-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_FQtvZ5as4K2BzgPMz5PLfWkpdRi7",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-rirutqv4z-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "59f7044caea6755fed23891e446a74b9486d4da6",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "localEvidence": "qa-service-worker-write-local-2026-10-18.json",
+  "local": {
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "typescriptSourcesChanged": false,
+    "previousExactHeadTypecheckWorkflow": 39143796268,
+    "guardedArtifactMiB": 20.01,
+    "fullNode22Tests": 1679,
+    "newWorkerLifetimeGroups": 5,
+    "focusedWorkerGroups": 23
+  },
+  "hostedCheckerGroups": 18,
+  "additionalStaticRequests": 61,
+  "hostedReports": [
+    "qa-exams-assessment-sw-write-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json",
+    "qa-reviewer-admin-input-http-2026-10-18.json",
+    "qa-sw-write-content-static-preview-2026-10-18.json"
+  ],
+  "checks": {
+    "cachedLessonRefreshTracksPendingWrite": true,
+    "uncachedContentAndDeckDeliveryIndependentOfWrite": true,
+    "assetAndPublicNavigationTrackOpenAndPut": true,
+    "slowOpenDoesNotBlockResponse": true,
+    "quotaAndWriteOpenFailuresContained": true,
+    "privateResponsesAndExcludedRequestsNotCached": true,
+    "oldGeneralCachePurgedAndCompletedPacksRetained": true,
+    "hostedGroupsPass": true,
+    "all59ContentFilesAndIndexMatchSource": true,
+    "workerScriptSourceHashVersionAndMediaVerified": true,
+    "qaActiveAttemptAndTeamProgressRetained": true,
+    "mainAndCompanionAliasesUnchanged": true
+  },
+  "qaState": {
+    "personalRevision": 12,
+    "personalStatus": "in_progress",
+    "personalSubmitted": false,
+    "teamOpened": 2,
+    "teamMastered": 0
+  },
+  "contentInventory": {
+    "files": 59,
+    "lessons": 1510,
+    "filesWith30Lessons": 42,
+    "filesWith15Lessons": 16,
+    "filesWith10Lessons": 1,
+    "reviewedFiles": 0,
+    "totalBytes": 5744847,
+    "gapTo59Times30": 260
+  },
+  "productionObserved": {
+    "main": "814b30484ea7f0e0c47ace75116f337ec5eed833",
+    "appDeployment": "dpl_6T61WrLdMnrVzRLkYVu6s1ktF8RF",
+    "companionDeployment": "dpl_4o1wjE6JZ9japyi58Vz2Zq39LBxT",
+    "changedByThisTurn": false
+  },
+  "sourceHashes": {
+    "public/sw.js": "c7f83218dc38357c63711b3de143240705768dff899dd3391d510a28df375a90",
+    "tests/service-worker-write-lifetime.test.mjs": "9c8394cd099eafb33bd2bf5b44b29c7c9b4376f7e4e05ae9775f435786ea9d8c",
+    "tests/service-worker-privacy.test.mjs": "04498ad48849e0a70c5442ef46a32fc8e850f6864a85072efe6a3d4306d1d921"
+  },
+  "sourceCacheAudit": {
+    "reviewedFileHashes": {
+      "src/lib/word-card-cache.ts": "d6481a306f95bb895498485ef3f209b66467ba5499d2bf01830b35c2a155757e",
+      "src/state/word-card-cache.tsx": "33f24f539e0d33771d77fe1ecbc00e8fbc3b0aaaaf49f6282993c471b1f6c06b",
+      "src/state/app-state.tsx": "6ec9305d1b102bf1bc2f694426a28975381fa10d531ff37d7d2c2b707c581069",
+      "src/fns/word-lookup.functions.ts": "f26fe7ffaaed9a4856ee80c7e9d2b151e81802c639bd9c632740312cfd6e294f",
+      "src/lib/game-generation-cache.ts": "f634bd049030dc757129077b548978b5e9b413d437d003d720db8b18f3a2f21b",
+      "src/lib/lesson-content.ts": "4b9453b292ff3eeb6175de24d1029c0aa6997872493fad755063bbc96e8dcaa6",
+      "src/lib/lesson-words.ts": "098d0026670eed57a706a7357599b9c682cc39d9fe6224bc59508b6b1cfe3e42",
+      "src/lib/lesson-words-core.ts": "4966bbc63635fc37239d2f06588432a1a82a002ca42268c5c875d1f1f0829d50",
+      "src/fns/lesson-words.functions.ts": "643a21f212f5dcedf9d5e7311af23fc0121560a6af7a0361d1e171569a4f7387",
+      "src/lib/mission-tts.ts": "e88d5d47ad43598247c87825734388c5a85b29a29adcfc31d35ae2d931f15e4f",
+      "src/lib/assessments/device-store.ts": "e9b3866c1a9fe7f20c03ddda7407210ea04f3c5f63cc7abbd955817eddb8bccc",
+      "src/lib/assessments/offline.ts": "08381fe7be97d58b10d75368ea0bb831fb55c47dd65ccfee5c809e46e02bef0d",
+      "src/lib/assessments/speech-device.ts": "e6acf27146a22d01b64ee3922a0f9836337737cd682e016de49bdd5504070f60",
+      "src/state/auth-state.tsx": "9026c9b3e2f1ae00b08845970a995982ca1566304b2e172cf14b778cfe1d83ec",
+      "src/lib/learning-guidance.ts": "95899dc9fb6e660a0b277cd096780c33cb8a9bd8e470279ae5bd2315ecdeb867",
+      "src/lib/app-update.ts": "95c60cbd9dd98304d2ed3280db31884d1aae24a73a3a629f48737745479c1aff",
+      "public/sw.js": "c7f83218dc38357c63711b3de143240705768dff899dd3391d510a28df375a90"
+    },
+    "observations": [
+      "Client WordCard cache factory is inside account-keyed app subtree and cleared on unmount. Server dictionary only shares exact public lesson sentences/words under validated lesson/language references.",
+      "Public game-generation caches exclude userWords/avoid/arbitrary topics. Static lesson content/decks and generated lesson lists use public module/curriculum inputs rather than private learner evidence.",
+      "Exam device snapshots/guidance use owner keys; speech takes are owner/attempt/item keyed and identity loss stops capture. Auth source retains owned drafts on unexpected identity loss and discards only after explicit successful signout.",
+      "Device-wide UI preferences/training hint counters remain shared. Search matches and this bounded manual review are not an app-wide privacy or browser account-isolation proof."
+    ]
+  },
+  "specificationSources": [
+    {
+      "url": "https://w3c.github.io/ServiceWorker/#wait-until-method",
+      "finding": "An active extendable event accepts lifetime promises through waitUntil."
+    },
+    {
+      "url": "https://w3c.github.io/ServiceWorker/#fetch-event-respondwith",
+      "finding": "respondWith adds its promise to event lifetime; each new write is attached before that response or existing refresh promise settles."
+    }
+  ],
+  "limits": [
+    "Actual public/sw.js executed in Node VM with controlled Cache/fetch/event lifetime promises. This proves registration/settlement behavior, not physical browser termination, completed downloads, service-worker installation, device quota/durability or offline/phone acceptance.",
+    "One event-owned promise covers cache open and put while delivery stays independent. Storage failure is contained and does not assert successful offline saving. User agents may impose lifetime/storage limits.",
+    "General cache version18 upgrade purges prior general versions; completed named lesson packs remain. No new API/private route/Authorization/cross-origin response cache policy, no account data/schema/policy/speech/schedule/cleanup mutation.",
+    "No browser/DevTools/network override or real provider/learner/reviewer/business writes. Generated59files remainreviewed:false/17shortmodules260lessons short; human/device/expiry/recovery/content/calibration/reviewer/pilot/retention/scheduler/59module gates and9devdependency/Prisma remain. DraftPR38 unmerged; no production promotion.",
+    "Hosted18groups use dedicatedQAfixture/denial/anonymous paths; no positive hostedAI/provider/consent/calibration/claim. Static61requests prove served bytes/media, not browser worker installation/lifecycle/offline/device acceptance. Capability metadata null is not environment readback proof."
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T16:23:49.607Z",
+    "sourceCommit": "59f7044",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1721,
+    "checkedStaticFiles": 209,
+    "privateContentHits": 0
+  }
+}

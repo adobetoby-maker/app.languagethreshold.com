@@ -31,6 +31,8 @@ See `~/.claude/categories/language-learning-app.md` for shared patterns.
 
 ## Before Touching
 
+Before adding Core lessons, read `docs/reviews/2026-10-18-claude-core-handoff.md` and the latest checkpoint in `docs/reviews/2026-10-15-review-and-sequence.md`. They supersede the old October16 takeover snapshot for current implementation and acceptance status.
+
 Read `src/components/tab-registry.ts` (TabKey exhaustiveness map — ADR-0011) and `src/state/app-state.tsx` (XP tier system — separate from rank tier in match-state.tsx).
 
 ---

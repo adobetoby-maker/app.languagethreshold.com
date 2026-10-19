@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-10-18T13:18:24.027863+00:00",
+  "applicationCommit": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+  "preview": "https://language-threshold-ehibif8fm-adobetoby-5572s-projects.vercel.app",
+  "deployment": {
+    "path": "/v13/deployments/language-threshold-ehibif8fm-adobetoby-5572s-projects.vercel.app",
+    "id": "dpl_DRkijVhLKL4Au3Mh6UcKJ41Prsdz",
+    "readyState": "READY",
+    "target": null,
+    "url": "language-threshold-ehibif8fm-adobetoby-5572s-projects.vercel.app",
+    "projectId": "prj_at1LY9ncmWfGUecndikWrEUccuqo",
+    "teamId": "team_WPMJl6w7aYPU9xP3sr8Xx3uN",
+    "commit": "77696cb987caf3c6ae9ca82407f8f138ef8dcc47",
+    "alias": [],
+    "capabilityValue": null
+  },
+  "local": {
+    "ownerActualSdkGroups": 8,
+    "existingCleanupResponseAndOwnershipGroups": 10,
+    "fullNode22Tests": 1482,
+    "typecheckClean": true,
+    "changedFileLintErrors": 0,
+    "changedFileLintWarnings": 0,
+    "productionDependencyAuditVulnerabilities": 0,
+    "guardedArtifactMiB": 19.95,
+    "historicalProbeSource": "561f64e",
+    "historicalProbeActualMockWritesAfterAbort": 2
+  },
+  "ownerReadPhaseMs": 8000,
+  "ownerResponseMaxBytes": 4096,
+  "checks": {
+    "actualPlatformUpdateAndAuditBlockedAfterDeparture": true,
+    "allSelectedRoleQueriesUseSharedGuardAndDisableRetry": true,
+    "repeatedContentAndRegisteredOwnerChecksBounded": true,
+    "confirmedEmailFallbackRetained": true,
+    "registeredOwnerStillRequiresExplicitRole": true,
+    "failedServiceCannotBecomeEmailFallbackGrant": true,
+    "enclosingPhaseAbortRespected": true,
+    "strictRoleShapeAndWireBudget": true,
+    "lateBodiesDisposed": true,
+    "unrelatedReadWriteTransportIdentityRetained": true,
+    "concurrentClientsIndependent": true,
+    "cleanupServerSourceUnchanged": true,
+    "mainAndCompanionAliasesUnchanged": true,
+    "qaPersonalRevision12UnsubmittedAndTeamB2Opened0MasteredRetained": true
+  },
+  "sourceHashes": {
+    "src/lib/team-owner-fetch.ts": "f3ed635d21916bd7c07165696c233770f0c79b385f08dc9d789f89122f8cfa32",
+    "src/lib/team-server.ts": "e361ef6eb405ad4d2e0401830ed9cbff2fa17591ee960fa759dd9bedf99c8aa6",
+    "src/lib/assessments/content-server.ts": "b65cd1f282b40767baafa3b99446f793adbaa393ac0ec37a89b1bca41bf375a5",
+    "src/lib/assessments/cleanup-schedule-server.ts": "d87c677a67ab5d5ddff3939077649ef2f2824c3c5ffc2e6255231cf7933058de",
+    "tests/team-owner-transport.test.mjs": "b06d902fdad571c8d2ea13be71b8a5bc5e2d8f59799aea5f51fd05a51cbf8356"
+  },
+  "limits": [
+    "Actual SDK/production helper/content/platform route groups use synthetic project/credentials/role/Auth/HTTP data only. No real owner mutation, reviewer/content approval, financial entry, certificate change, user/team/provider/email/assessment/cleanup/schema/policy/schedule action.",
+    "Selected configured-project GET role projection/user filter only. Request-bound clients get transport bounds; unbound clients do not gain request ownership. Repeated role reads have separate phases; reviewer-grant and later business queries and aggregate endpoint deadlines remain separate. No physical network cancellation claim.",
+    "Existing cleanup-status aggregate owner/history deadline and response projection control remain; explicit phase signal is respected by the new inner adapter. Cleanup execution code unchanged and not invoked.",
+    "Full dependency audit remains9findings(5high/4moderate) in the previously recorded lockfile audit; no dependency changes this group. Existing Prisma schema validation limitation remains. Actual owner browser/expiry/device/content/calibration/reviewer/pilot/retention/scheduler/59module gates remain open."
+  ],
+  "hostedCheckerGroups": 17,
+  "hostedReports": [
+    "qa-exams-owner-transport-preview-2026-10-18.json",
+    "qa-focused-exam-entry-http-2026-10-16.json",
+    "qa-exam-return-scope-2026-10-16.json",
+    "qa-learning-generation-entry-2026-10-16.json",
+    "qa-pashto-tts-private-http-2026-10-18.json",
+    "qa-google-speech-entry-http-2026-10-18.json",
+    "qa-speaking-admission-entry-http-2026-10-18.json",
+    "qa-push-admission-entry-http-2026-10-18.json",
+    "qa-conversation-admission-entry-http-2026-10-18.json",
+    "qa-sports-news-entry-http-2026-10-18.json",
+    "qa-email-capture-retired-http-2026-10-18.json",
+    "qa-team-input-entry-http-2026-10-18.json",
+    "qa-team-read-entry-http-2026-10-18.json",
+    "qa-team-workflow-entry-http-2026-10-18.json",
+    "qa-assessment-auth-entry-http-2026-10-18.json",
+    "qa-cleanup-status-entry-http-2026-10-18.json",
+    "qa-public-lesson-packs-2026-10-16.json"
+  ],
+  "privateBankScan": {
+    "testedAt": "2026-10-18T13:19:08.408Z",
+    "sourceCommit": "77696cb",
+    "checkedPrivateMarkers": 96,
+    "checkedSourceFiles": 1578,
+    "checkedStaticFiles": 149,
+    "privateContentHits": 0
+  }
+}

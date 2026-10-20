@@ -196,6 +196,30 @@ export function AuthModal({
                 {mode === "forgot" && "Send reset link"}
               </Button>
 
+              {(mode === "signin" || mode === "signup") && (
+                <p className="text-center text-[11px] leading-relaxed text-muted-foreground">
+                  By continuing, you agree to the{" "}
+                  <a
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    Terms of Service
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener"
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
+                    Privacy Policy
+                  </a>
+                  .
+                </p>
+              )}
+
               <div className="flex flex-col gap-1.5">
                 {mode === "signin" && (
                   <>

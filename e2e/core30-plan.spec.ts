@@ -134,6 +134,18 @@ async function openLesson1(page: Page) {
 // that has no library seed, so it shows none.
 const READER_MODULE = "lds-missionary";
 const READER_LESSON = "6";
+const READER_LESSON_TITLE = "The Plan of Salvation — Pre-mortal Life";
+
+/** The lesson opened is specifically Lesson 6 on See it, not just any lesson or the overview. */
+async function expectReaderLessonOpen(page: Page) {
+  await expect(page.getByText("✕ Exit")).toBeVisible();
+  await expect(page.getByText(`Lesson ${READER_LESSON} ·`)).toBeVisible();
+  await expect(page.getByRole("heading", { name: READER_LESSON_TITLE })).toBeVisible();
+  await expect(page.getByTestId("lesson-nav-see")).toHaveAttribute("aria-current", "step");
+  await expect(page.getByTestId("lesson-reader")).toBeVisible();
+  expect(new URL(page.url()).searchParams.get("lesson")).toBe(READER_LESSON);
+  expect(new URL(page.url()).searchParams.get("tab")).toBe("core30");
+}
 
 /** Opens LDS Missionary Lesson 6 on See it, the way a shared lesson link does. */
 async function openReaderLesson(page: Page) {
@@ -235,11 +247,27 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(pill).toContainText(`Back to Lesson ${READER_LESSON}`);
     await pill.click();
     await expect.poll(() => currentTabOf(page)).toBe("core30");
-    // The lesson reopens by itself, on See it.
-    await expect(page.getByText("✕ Exit")).toBeVisible();
-    await expect(page.getByTestId("lesson-nav-see")).toHaveAttribute("aria-current", "step");
-    await expect(page.getByTestId("lesson-reader")).toBeVisible();
+    // The lesson reopens by itself, on See it, and it is Lesson 6 (not another lesson).
+    await expectReaderLessonOpen(page);
     await expect(page.getByTestId("core30-step-opened")).toHaveCount(1);
+  });
+
+  test("2b-live. choosing another text in the full Reader returns to the lesson", async ({
+    page,
+  }) => {
+    await openReaderLesson(page);
+    await page.getByTestId("lesson-open-full-reader").click();
+    await expect.poll(() => currentTabOf(page)).toBe("reader");
+    await expect(page.getByTestId("lesson-return-pill")).toBeVisible();
+    // The address still names the Reader; moving to a different text is the live auto-return.
+    expect(new URL(page.url()).searchParams.get("tab")).toBe("reader");
+    const next = page.getByRole("button", { name: "Next reading" });
+    await expect(next).toBeEnabled();
+    await next.click();
+    await expect.poll(() => currentTabOf(page)).toBe("core30");
+    // It lands back in Lesson 6 on See it, not on the Core 60 overview.
+    await expectReaderLessonOpen(page);
+    await expect(page.getByTestId("core30-plan-card")).toHaveCount(0);
   });
 
   test("2c. a stale Reader trip does not pull a later Reader visit back to Core 30", async ({

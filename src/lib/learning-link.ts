@@ -120,3 +120,32 @@ export function canRestoreLessonReturn(
     tab: "core30",
   }).every(([key, value]) => !params.has(key) || params.get(key) === value);
 }
+
+/**
+ * Where the address must point so a Core 30 return marker is accepted: the lesson and way the
+ * learner left, on the marker's own module and the learner's current language pair.
+ */
+export function lessonReturnLocation(
+  current: string,
+  marker: { moduleId: string; lesson: number; section: string },
+  languages: { target: string; native: string },
+) {
+  return lessonLocation(
+    current,
+    { moduleId: marker.moduleId, target: languages.target, native: languages.native },
+    { lesson: marker.lesson, way: marker.section },
+  );
+}
+
+/**
+ * Point the browser address at the lesson a return marker names, before switching to the Core 30
+ * tab. While it still says another tab (Speak or Reader), canRestoreLessonReturn refuses the
+ * marker as a stale link and the learner lands on the overview. No history entry is added.
+ */
+export function pointAddressAtLessonReturn(
+  marker: { moduleId: string; lesson: number; section: string },
+  languages: { target: string; native: string },
+) {
+  const next = lessonReturnLocation(window.location.href, marker, languages);
+  if (next) window.history.replaceState(window.history.state, "", next);
+}

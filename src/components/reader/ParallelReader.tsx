@@ -35,6 +35,7 @@ import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 import { browserReturnStorage, readLessonReturn } from "@/lib/lesson-return";
+import { pointAddressAtLessonReturn } from "@/lib/learning-link";
 import { moduleReaderSelection, readerSelectionScope } from "@/lib/reader-selection";
 
 type TextSize = "S" | "M" | "L";
@@ -136,6 +137,8 @@ export function ParallelReader() {
     return marker?.section === "see" ? (marker.ref ?? null) : null;
   });
   const lessonPassageSeen = useRef(false);
+  const pairRef = useRef(state);
+  pairRef.current = state;
   useEffect(() => {
     if (!lessonPassageId) return;
     if (lib.selectedId === lessonPassageId) {
@@ -145,7 +148,13 @@ export function ParallelReader() {
       // Only while the trip is still live: a marker the app already dropped (the learner went
       // elsewhere and came back to this Reader) must not pull them to Core 30.
       const live = readLessonReturn(browserReturnStorage(), Date.now());
-      if (live?.section === "see") dispatch({ type: "SET_TAB", payload: "core30" });
+      if (live?.section === "see") {
+        // The URL still names the Reader, so point it at the lesson first (as the pill does)
+        // or the return marker is refused as a stale link and Core 30 opens on its overview.
+        const { selectedLanguage: target, nativeLanguage: native } = pairRef.current;
+        pointAddressAtLessonReturn(live, { target, native });
+        dispatch({ type: "SET_TAB", payload: "core30" });
+      }
     }
   }, [lessonPassageId, lib.selectedId, dispatch]);
 

@@ -12,7 +12,10 @@ import { build } from "esbuild";
 import { loadModule } from "./helpers/bundle.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const STAGES = ["foundation-electrician", "master-electrician", "foundation-nursing", "master-nursing"];
+// Only the shipped (Opus) stages are listed in the manifest: the Sonnet pilot Masters are not.
+const STAGES = ["foundation-electrician", "foundation-nursing"];
+// Every stage file on disk, listed or not: the loader map offers them all, the registry asks for the listed.
+const FILES = [...STAGES, "master-electrician", "master-nursing"];
 const readStage = (id) =>
   JSON.parse(readFileSync(path.join(repoRoot, "src/data/core60/es", `${id}.json`), "utf8"));
 const SERVER_ONLY = /^@tanstack\/react-start\/server-only$/;
@@ -23,7 +26,7 @@ function coldLoaders(failures = {}) {
   const calls = {};
   const left = { ...failures };
   const loaders = {};
-  for (const id of STAGES) {
+  for (const id of FILES) {
     loaders[`./core60/es/${id}.json`] = async () => {
       calls[id] = (calls[id] ?? 0) + 1;
       await Promise.resolve();
@@ -63,7 +66,7 @@ test("cold instance: a stage lesson does not resolve until its reader loads the 
 });
 
 test("/api/tutor: a Foundation or Master lesson parses on a cold instance", async () => {
-  for (const moduleId of ["foundation-electrician", "master-nursing"]) {
+  for (const moduleId of ["foundation-electrician", "foundation-nursing"]) {
     const calls = coldLoaders();
     const { parseTutorRequest } = await loadModule("src/routes/api.tutor.ts", {
       stubs: [/^@anthropic-ai\/sdk$/, /^@tanstack\/react-router$/, /lib\/sentry$/],
@@ -121,7 +124,7 @@ test("a stage module's lesson review snapshot and release readiness load the sta
   });
   const readiness = await lessonReleaseReadiness(
     {
-      module_id: "master-electrician",
+      module_id: "foundation-electrician",
       target_language: "Spanish",
       instruction_language: "English",
       status: "draft",
@@ -129,9 +132,9 @@ test("a stage module's lesson review snapshot and release readiness load the sta
     },
     null,
   );
-  // Master has 20 lessons: 10 of the 30 a full release needs are missing, not all 30.
-  assert.equal(readiness.coverage.missingLessonNumbers.length, 10);
-  assert.equal(readiness.coverage.lessonsWithWords, 20);
+  // Foundation has 10 lessons: 20 of the 30 a full release needs are missing, not all 30.
+  assert.equal(readiness.coverage.missingLessonNumbers.length, 20);
+  assert.equal(readiness.coverage.lessonsWithWords, 10);
 });
 
 test("Speak catalog counts are the same before and after the stage chunks load", async () => {
@@ -146,13 +149,13 @@ test("Speak catalog counts are the same before and after the stage chunks load",
   const listedCold = rawListed("electrician");
   assert.deepEqual(calls, {}, "counting loads nothing");
 
-  // Half loaded: only one trade's Master.
-  await m.ensureStageForModule("master-electrician");
+  // Half loaded: only one trade's Foundation.
+  await m.ensureStageForModule("foundation-electrician");
   assert.equal(count("electrician"), cold.electrician, "a partly loaded base keeps its count");
 
   await m.ensureStagesForModules(STAGES);
   for (const id of bases) assert.equal(count(id), cold[id], `${id}: count after load`);
-  // The test is not vacuous: before loading, the listed missions alone were 30 short.
+  // The test is not vacuous: before loading, the listed missions alone were 10 short per trade.
   const loaded = m.getSpeakingMissions("Spanish");
   const listedWarm = loaded.filter((mission) => mission.moduleId === "electrician").length;
   assert.equal(listedWarm, listedCold, "the base module's own missions did not change");
@@ -160,7 +163,7 @@ test("Speak catalog counts are the same before and after the stage chunks load",
     const stageLessonMissions = loaded.filter(
       (mission) => /_lesson_\d+_es_v1$/.test(mission.id) && mission.moduleId.endsWith(`-${id}`),
     ).length;
-    assert.equal(stageLessonMissions, 30, `${id}: 10 Foundation + 20 Master lesson missions`);
+    assert.equal(stageLessonMissions, 10, `${id}: 10 Foundation lesson missions (Master is not listed)`);
   }
   // Stage modules are Spanish only: other languages never get a pending count.
   assert.equal(count("electrician", "Italian"), m.getSpeakingMissions("Italian").filter(
@@ -168,22 +171,122 @@ test("Speak catalog counts are the same before and after the stage chunks load",
 });
 
 test("a stage that failed to load still counts in its card; the retry changes nothing", async () => {
-  const calls = coldLoaders({ "master-nursing": 1 });
+  const calls = coldLoaders({ "foundation-nursing": 1 });
   const m = await entry();
   const count = () => m.speakingCatalogMissionCount(m.getSpeakingMissions("Spanish"), "nursing", "Spanish");
   const before = count();
-  await m.ensureStagesForModules(["foundation-nursing", "master-nursing"]);
-  assert.equal(m.stageCurriculumStatus("master-nursing"), "unavailable");
-  assert.equal(count(), before, "10 loaded + 20 still pending = the cold total");
+  await m.ensureStagesForModules(["foundation-nursing"]);
+  assert.equal(m.stageCurriculumStatus("foundation-nursing"), "unavailable");
+  assert.equal(count(), before, "the failed Foundation still counts as pending: the cold total");
   const realNow = Date.now;
   Date.now = () => realNow() + 5_000;
   try {
-    await m.ensureStageForModule("master-nursing");
+    await m.ensureStageForModule("foundation-nursing");
   } finally {
     Date.now = realNow;
   }
-  assert.equal(calls["master-nursing"], 2);
+  assert.equal(calls["foundation-nursing"], 2);
   assert.equal(count(), before);
+});
+
+test("/api/tutor: a stage whose chunk failed to load is 503 try-again, not a reopen-the-lesson 400", async () => {
+  const calls = coldLoaders({ "foundation-electrician": 1 });
+  const { parseTutorRequest } = await loadModule("src/routes/api.tutor.ts", {
+    stubs: [/^@anthropic-ai\/sdk$/, /^@tanstack\/react-router$/, /lib\/sentry$/],
+    define,
+  });
+  const body = (moduleId) => ({
+    messages: [{ role: "user", content: "Help me with this lesson" }],
+    context: { language: "Spanish", nativeLanguage: "English", level: "A1", lesson: reference(moduleId, 2) },
+  });
+  const unavailable = { message: /temporarily unavailable/, status: 503 };
+  await assert.rejects(parseTutorRequest(body("foundation-electrician")), unavailable);
+  // Inside the backoff window the stage is not fetched again, and it is still 503 (not a 400).
+  await assert.rejects(parseTutorRequest(body("foundation-electrician")), unavailable);
+  assert.equal(calls["foundation-electrician"], 1, "backoff: one fetch");
+  // A lesson of a stage that loaded fine, or a stage that was never listed, is unaffected.
+  const ok = await parseTutorRequest(body("foundation-nursing"));
+  assert.equal(ok.context.lesson.moduleId, "foundation-nursing");
+  await assert.rejects(parseTutorRequest(body("master-electrician")), {
+    message: "Reopen the lesson in your selected language before using Tutor.",
+    status: 400,
+  });
+  // After the backoff the retry succeeds and the same request parses.
+  const realNow = Date.now;
+  Date.now = () => realNow() + 5_000;
+  try {
+    const parsed = await parseTutorRequest(body("foundation-electrician"));
+    assert.equal(parsed.context.lesson.moduleId, "foundation-electrician");
+  } finally {
+    Date.now = realNow;
+  }
+  assert.equal(calls["foundation-electrician"], 2);
+});
+
+// ─── readinessCatalog is the same on a cold and a loaded instance ────────────
+
+/** A db that returns the given release rows and nothing else. */
+function releaseDb(moduleIds) {
+  const releases = moduleIds.map((module_id) => ({
+    id: `release-${module_id}`,
+    module_id,
+    target_language: "Spanish",
+    instruction_language: "English",
+    status: "draft",
+    lesson_manifest: null,
+    review_records: [],
+    verified_at: null,
+    created_at: "2026-10-20T00:00:00Z",
+  }));
+  const query = (table) => {
+    const q = {
+      select: () => q,
+      is: () => q,
+      eq: () => q,
+      in: () => q,
+      order: () => q,
+      then: (resolve, reject) =>
+        Promise.resolve({ data: table === "assessment_releases" ? releases : [], error: null }).then(
+          resolve,
+          reject,
+        ),
+    };
+    return q;
+  };
+  return { from: query, rpc: async () => ({ data: [], error: null }) };
+}
+
+test("readinessCatalog lists a stage module only through its release row, loaded or not", async () => {
+  const ids = (catalog) => catalog.map((track) => track.moduleId);
+  const isDataStage = (id) => STAGES.includes(id);
+
+  // No release row for any stage: cold and loaded instances list the same modules, no stage among them.
+  coldLoaders();
+  const withoutRow = await entry();
+  const cold = ids(await withoutRow.readinessCatalog(releaseDb(["roofing"]), "Spanish", "English"));
+  await withoutRow.ensureStagesForModules(STAGES);
+  assert.ok(withoutRow.getCurriculum("foundation-electrician"), "the stage is loaded now");
+  const loaded = ids(await withoutRow.readinessCatalog(releaseDb(["roofing"]), "Spanish", "English"));
+  assert.deepEqual(loaded, cold, "loading a stage elsewhere does not add it to the list");
+  assert.ok(cold.includes("roofing") && cold.includes("electrician"), "Core 30 modules are listed");
+  assert.deepEqual(cold.filter(isDataStage), [], "a stage without a release row is not listed");
+
+  // With a release row the stage is listed, on a cold instance (the catalog loads it) and a loaded one.
+  coldLoaders();
+  const withRow = await entry();
+  const rows = ["roofing", "foundation-electrician"];
+  const coldRow = ids(await withRow.readinessCatalog(releaseDb(rows), "Spanish", "English"));
+  assert.deepEqual(coldRow.filter(isDataStage), ["foundation-electrician"]);
+  coldLoaders();
+  const warmRow = await entry();
+  await warmRow.ensureStagesForModules(STAGES);
+  const loadedRow = ids(await warmRow.readinessCatalog(releaseDb(rows), "Spanish", "English"));
+  assert.deepEqual(loadedRow, coldRow, "cold and loaded instances return the same list");
+  assert.deepEqual(
+    coldRow.filter((id) => !isDataStage(id)),
+    cold,
+    "the release row adds only its own stage",
+  );
 });
 
 // ─── src/start.ts never reads a request body ────────────────────────────────

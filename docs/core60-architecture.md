@@ -135,9 +135,21 @@ stage file its own lazily imported chunk (content-hashed, cached offline by the 
   | `lookupWord` (`word-lookup.functions.ts`), `generateLessonWords`, `generateModuleDeck` | the payload's module id |
   | exam content / lesson binding / release readiness (`loadCurrentLessonReviewSnapshot`, `lessonReleaseReadiness`) | the release record's `module_id` |
   | `/api/exams` start (`studied` lessons), `seedDraftTrack`, team insights | the enrollment's / requested module id |
-  | `readinessCatalog`, `readSupportingChecks` | the module ids of the release / enrollment rows listed (never every stage; stage modules without a release row are not listed, they have no exams) |
+  | `readinessCatalog`, `readSupportingChecks` | the module ids of the release / enrollment rows listed (never every stage). `readinessCatalog` lists a data-driven stage module only when it has a release row, whether or not its chunk is loaded on this instance, so every instance returns the same list (`tests/core60-server-readers.test.mjs`) |
   | `/api/team` (lesson counts), `/api/team-activity` (`lesson_start`) | the track modules / `body.moduleId` |
   | push routes | nothing: the reminder context is built in the browser and carries no curriculum read |
+
+  When the load of a listed stage fails (or is inside the backoff), `/api/tutor`, `generateLessonWords`
+  and `/api/team-activity` (`lesson_start`) answer 503 "This lesson is temporarily unavailable. Try
+  again in a moment." (`stageLoadFailed(moduleId)` in `core60-stages.ts`, checked right after the
+  `ensure...` call) instead of a user error ("Reopen the lesson", "Unknown lesson"). A stage with no
+  usable file, or a module that is not a listed stage, is not transient and keeps its old answer.
+  Tests: `tests/core60-server-readers.test.mjs`, `tests/core60-stage-unavailable.test.mjs`.
+
+  Only Opus-generated stages are listed in `src/data/core60/manifest.ts`. `master-electrician` and
+  `master-nursing` (the Sonnet pilot, known Spanish errors) are deliberately unlisted: their files stay
+  on disk, `npm run validate:core60` warns that they are not listed (expected), and both trades show
+  Master as "Coming soon" until Opus regenerates them and the `master` entry is added back.
 
   A new server file that calls `getCurriculum`, `getLessonDefinition`, `resolveTutorLesson` or
   `findSpeakingMission` must call one of the `ensure...` loaders in the same file:

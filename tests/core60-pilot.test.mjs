@@ -1,6 +1,7 @@
 // Built by TAC — 2026-10-20
 // The shipped Core 60 pilot stages (electrician, nursing) really load and really expose their Say
-// it missions. The counts are hard-coded on purpose: the catalog-wide tests compute their
+// it missions. Only the Opus-generated Foundations ship: the Sonnet pilot Masters are not listed
+// in the manifest (Master shows "Coming soon") until Opus regenerates them. The counts are hard-coded on purpose: the catalog-wide tests compute their
 // expectations from CORE60_MANIFEST and getCurriculum, so a stage that silently failed to load
 // (0 lessons) would move both sides of those assertions together and hide behind them.
 import assert from "node:assert/strict";
@@ -15,7 +16,19 @@ const LESSONS = { foundation: 10, master: 20 };
 const CHALLENGES = { foundation: [4, 5], master: [4, 6] };
 
 for (const base of PILOT) {
-  for (const stage of ["foundation", "master"]) {
+  test(`master-${base}: not listed, so the Sonnet pilot Master does not ship`, () => {
+    const entry = CORE60_MANIFEST.find((e) => e.base === base);
+    assert.ok(entry?.foundation, `foundation-${base} stays listed`);
+    assert.equal(entry.master, undefined, `master-${base} is not in the manifest`);
+    assert.equal(getModule(`master-${base}`), null);
+    assert.equal(getCurriculum(`master-${base}`), null);
+    assert.equal(
+      getSpeakingMissions("Spanish").filter((mission) => mission.moduleId === `master-${base}`).length,
+      0,
+      "no Master Say it missions",
+    );
+  });
+  for (const stage of ["foundation"]) {
     const id = `${stage}-${base}`;
     test(`${id}: loads ${LESSONS[stage]} lessons and exposes one Say it mission per lesson plus its own challenges`, () => {
       const entry = CORE60_MANIFEST.find((e) => e.base === base);

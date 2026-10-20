@@ -10,7 +10,7 @@ import {
   TutorLessonReferenceSchema,
 } from "@/lib/lesson-tutor-context";
 import { modulePracticeVersion } from "@/data/module-teaching";
-import { ensureStageForModule } from "@/data/core60-stages";
+import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -263,6 +263,19 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
     : modulePrompt;
 }
 
+/**
+ * A listed Core 60 stage whose chunk failed to load: the lesson is fine, the server could not read
+ * it just now. Answered 503 (try again), not as a 400 asking the learner to reopen the lesson.
+ * ConversationRequestError types its status as 400 | 409 and lives outside this change, so the
+ * status is set here after construction.
+ */
+class StageUnavailableError extends ConversationRequestError {
+  constructor() {
+    super("This lesson is temporarily unavailable. Try again in a moment.");
+    (this as { status: number }).status = 503;
+  }
+}
+
 // Exported for tests/core60-server-readers.test.mjs (a cold-instance Core 60 lesson must parse).
 export async function parseTutorRequest(input: unknown) {
   const body = BodySchema.parse(input),
@@ -271,6 +284,7 @@ export async function parseTutorRequest(input: unknown) {
     // A Core 60 Foundation/Master lesson resolves from a lazily loaded stage chunk: load that one
     // stage before anything reads it (a cold instance has none), here and not in a middleware.
     await ensureStageForModule(reference.moduleId);
+    if (stageLoadFailed(reference.moduleId)) throw new StageUnavailableError();
     if (
       reference.contentVersion !==
       modulePracticeVersion(

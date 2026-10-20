@@ -21,7 +21,7 @@ import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
 import type { Language, NativeLanguage } from "@/data/languages";
 import { getCurriculum } from "@/data/curriculum";
-import { ensureStageForModule, ensureStagesForModules } from "@/data/core60-stages";
+import { dataStageOf, ensureStageForModule, ensureStagesForModules } from "@/data/core60-stages";
 import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
@@ -411,7 +411,12 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
     throw new AssessmentAccessError("Lesson readiness could not be checked.", 503);
   return Promise.all(
     MODULES.filter(
-      (module) => getCurriculum(module.id) && moduleSupportsLearningPair(module, target, native),
+      (module) =>
+        getCurriculum(module.id) &&
+        moduleSupportsLearningPair(module, target, native) &&
+        // A data-driven stage is listed only through its release row, never because its chunk
+        // happens to be loaded on this instance (that would differ between instances).
+        (!dataStageOf(module.id) || (releases ?? []).some((row) => row.module_id === module.id)),
     ).map(async (module) => {
       const curriculum = getCurriculum(module.id)!;
       const release =

@@ -687,7 +687,13 @@ for (const { dir, name } of generated) {
   const moduleId = name.replace(/\.json$/, "");
   const language = LANGUAGE_BY_DIR[dir];
 
-  test(`lesson-content ${dir}/${moduleId}: covers every lesson and passes the validator`, () => {
+  // A Core 60 stage file whose stage is not in src/data/core60/manifest.ts has no curriculum to
+  // cover (the Sonnet pilot Masters of electrician and nursing: kept on disk, not shipped).
+  const unlisted = /^(foundation|master)-/.test(moduleId) && !getCurriculum(moduleId);
+  test(
+    `lesson-content ${dir}/${moduleId}: covers every lesson and passes the validator`,
+    { skip: unlisted ? "stage not listed in the Core 60 manifest (not shipped)" : false },
+    () => {
     assert.ok(language, `unknown language directory ${dir}`);
     const raw = JSON.parse(readFileSync(join(CONTENT_DIR, dir, name), "utf8"));
     const file = parseLessonContent(raw, { moduleId, language });
@@ -727,7 +733,8 @@ for (const { dir, name } of generated) {
       assert.deepEqual(errors, [], `lesson ${lesson.n} (${lesson.title}) has no validator errors`);
       assert.ok(content.verbs.length >= contentLimitsFor(moduleId).minVerbs);
     }
-  });
+    },
+  );
 }
 
 // ─── Master 20 limits profile ────────────────────────────────────────────────

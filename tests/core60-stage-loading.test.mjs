@@ -60,42 +60,44 @@ async function freshRegistry(failures = {}) {
 
 test("the server loads only the stage a request needs, once, and caches it", async () => {
   const { registry, calls } = await freshRegistry();
-  assert.equal(registry.stageCurriculumStatus("master-electrician"), "loading");
+  assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "loading");
   const [a, b] = await Promise.all([
-    registry.ensureStageCurriculum("master-electrician"),
-    registry.ensureStageCurriculum("master-electrician"),
+    registry.ensureStageCurriculum("foundation-electrician"),
+    registry.ensureStageCurriculum("foundation-electrician"),
   ]);
   assert.equal(a, b, "concurrent requests share one load");
-  assert.equal(a.lessons.length, 20);
-  assert.deepEqual(calls, { "master-electrician": 1 }, "no other stage was loaded");
-  assert.equal(registry.stageCurriculum("master-electrician"), a);
-  await registry.ensureStageCurriculum("master-electrician");
-  assert.equal(calls["master-electrician"], 1, "cached");
-  assert.equal(registry.stageCurriculumStatus("master-electrician"), "ready");
+  assert.equal(a.lessons.length, 10);
+  assert.deepEqual(calls, { "foundation-electrician": 1 }, "no other stage was loaded");
+  assert.equal(registry.stageCurriculum("foundation-electrician"), a);
+  await registry.ensureStageCurriculum("foundation-electrician");
+  assert.equal(calls["foundation-electrician"], 1, "cached");
+  assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "ready");
   assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "loading", "untouched stages stay unloaded");
   // Not a data-driven stage: nothing to load.
   assert.equal(await registry.ensureStageCurriculum("roofing"), null);
-  assert.deepEqual(Object.keys(calls), ["master-electrician"]);
+  assert.deepEqual(Object.keys(calls), ["foundation-electrician"]);
 });
 
 test("a stage that fails once is retried by a later request after the backoff, not left failed", async () => {
-  const { registry, calls } = await freshRegistry({ "master-electrician": 1 });
+  const { registry, calls } = await freshRegistry({ "foundation-electrician": 1 });
   let clock = 1_000;
   const now = () => clock;
-  assert.equal(await registry.ensureStageCurriculum("master-electrician", { now }), null);
-  assert.equal(calls["master-electrician"], 1);
-  assert.equal(registry.stageCurriculumStatus("master-electrician"), "unavailable");
+  assert.equal(await registry.ensureStageCurriculum("foundation-electrician", { now }), null);
+  assert.equal(calls["foundation-electrician"], 1);
+  assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "unavailable");
+  assert.equal(registry.stageLoadFailed("foundation-electrician"), true, "a failed chunk is transient");
   // Inside the backoff window another request does not hit the failing chunk again...
   clock += registry.STAGE_RETRY_BACKOFF_MS - 1;
-  assert.equal(await registry.ensureStageCurriculum("master-electrician", { now }), null);
-  assert.equal(calls["master-electrician"], 1, "backoff: no second attempt yet");
+  assert.equal(await registry.ensureStageCurriculum("foundation-electrician", { now }), null);
+  assert.equal(calls["foundation-electrician"], 1, "backoff: no second attempt yet");
   // ...and once it has passed, the next request retries and the stage is there for good.
   clock += 1;
-  const curriculum = await registry.ensureStageCurriculum("master-electrician", { now });
-  assert.equal(calls["master-electrician"], 2);
-  assert.equal(curriculum.lessons.length, 20);
-  assert.equal(registry.stageCurriculumStatus("master-electrician"), "ready");
-  assert.equal(registry.stageCurriculum("master-electrician"), curriculum);
+  const curriculum = await registry.ensureStageCurriculum("foundation-electrician", { now });
+  assert.equal(calls["foundation-electrician"], 2);
+  assert.equal(curriculum.lessons.length, 10);
+  assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "ready");
+  assert.equal(registry.stageLoadFailed("foundation-electrician"), false, "loaded: no longer failed");
+  assert.equal(registry.stageCurriculum("foundation-electrician"), curriculum);
 });
 
 test("the client Retry loads a failed stage at once, with no backoff", async () => {
@@ -120,14 +122,14 @@ test("the client Retry loads a failed stage at once, with no backoff", async () 
 });
 
 test("loading several modules' stages is not remembered when one fails", async () => {
-  const { registry, calls } = await freshRegistry({ "master-nursing": 1 });
-  const ids = ["foundation-nursing", "master-nursing", "master-electrician", "electrician"];
+  const { registry, calls } = await freshRegistry({ "foundation-nursing": 1 });
+  const ids = ["foundation-nursing", "foundation-nursing", "electrician", "master-nursing"];
   await registry.ensureStagesForModules(ids);
-  assert.equal(registry.stageCurriculumStatus("master-nursing"), "unavailable");
-  assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "ready");
+  assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "unavailable");
+  assert.equal(registry.stageLoadFailed("foundation-nursing"), true);
   assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "loading", "ids not named are not loaded");
   await registry.ensureStagesForModules(ids);
-  assert.equal(calls["master-nursing"], 1, "still inside the backoff window");
+  assert.equal(calls["foundation-nursing"], 1, "still inside the backoff window");
   const realNow = Date.now;
   Date.now = () => realNow() + registry.STAGE_RETRY_BACKOFF_MS + 1;
   try {
@@ -135,21 +137,29 @@ test("loading several modules' stages is not remembered when one fails", async (
   } finally {
     Date.now = realNow;
   }
-  assert.equal(calls["master-nursing"], 2, "the next request retried the failed stage");
-  assert.equal(registry.stageCurriculumStatus("master-nursing"), "ready");
+  assert.equal(calls["foundation-nursing"], 2, "the next request retried the failed stage");
+  assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "ready");
   assert.deepEqual(
     calls,
-    { "foundation-nursing": 1, "master-nursing": 2, "master-electrician": 1 },
-    "duplicates and the Core 30 id loaded nothing extra",
+    { "foundation-nursing": 2 },
+    "duplicates, the Core 30 id and the unlisted Sonnet master loaded nothing extra",
   );
+});
+
+test("a stage that is not listed, or has no usable file, is never reported as a transient failure", async () => {
+  const { registry } = await freshRegistry();
+  for (const id of ["master-electrician", "master-nursing", "electrician", "master-roofing", "", null, undefined])
+    assert.equal(registry.stageLoadFailed(id), false, String(id));
+  // Listed and still loading (nothing has failed): false too.
+  assert.equal(registry.stageLoadFailed("foundation-electrician"), false);
 });
 
 test("a scenario id names the stage to load; other scenarios name none", async () => {
   const { registry } = await freshRegistry();
   const { stageModuleIdOfScenario } = registry;
   assert.equal(
-    stageModuleIdOfScenario("scenario_version_master-electrician_lesson_3_es_v1"),
-    "master-electrician",
+    stageModuleIdOfScenario("scenario_version_foundation-electrician_lesson_3_es_v1"),
+    "foundation-electrician",
   );
   assert.equal(
     stageModuleIdOfScenario("scenario_version_foundation-nursing_challenge_2_es_v1"),
@@ -159,6 +169,8 @@ test("a scenario id names the stage to load; other scenarios name none", async (
   for (const id of [
     "scenario_version_electrician_lesson_3_es_v1",
     "scenario_version_master-roofing_lesson_3_es_v1",
+    // The Sonnet pilot Masters are not shipped, so they are not listed stages.
+    "scenario_version_master-electrician_lesson_3_es_v1",
     "scenario_version_construction_safety_briefing_es_v1",
     "scenario_version_core-speaking_verb_1_es_v1",
     "scenario_version_master-nursing_lesson_x_es_v1",
@@ -191,8 +203,9 @@ test("the registry has no request-scanning API left", async () => {
 
 test("a base module knows its listed stage modules (the Speak catalog loads them when it opens)", async () => {
   const { registry } = await freshRegistry();
-  assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician", "master-electrician"]);
-  assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing", "master-nursing"]);
+  // Master is not listed for electrician or nursing (Sonnet pilot, not shipped): Foundation only.
+  assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician"]);
+  assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing"]);
   // Roofing's stages are hand-written (not data-driven), and unlisted trades have none.
   assert.deepEqual(registry.stageModulesOfBase("roofing"), []);
   assert.deepEqual(registry.stageModulesOfBase("plumber"), []);
@@ -200,17 +213,17 @@ test("a base module knows its listed stage modules (the Speak catalog loads them
 
 test("Retry loads in the page when it can, and reloads the page when the browser keeps the failure", async () => {
   // The chunk comes back on the second try: loaded in place, no reload.
-  const transient = await freshRegistry({ "master-electrician": 1 });
-  assert.equal(await transient.registry.loadStageCurriculum("master-electrician"), null);
+  const transient = await freshRegistry({ "foundation-electrician": 1 });
+  assert.equal(await transient.registry.loadStageCurriculum("foundation-electrician"), null);
   let reloads = 0;
-  assert.equal(await transient.registry.retryStageOrReload("master-electrician", () => (reloads += 1)), true);
+  assert.equal(await transient.registry.retryStageOrReload("foundation-electrician", () => (reloads += 1)), true);
   assert.equal(reloads, 0);
-  assert.equal(transient.registry.stageCurriculumStatus("master-electrician"), "ready");
+  assert.equal(transient.registry.stageCurriculumStatus("foundation-electrician"), "ready");
 
   // A browser caches a failed dynamic import for the whole document: every in-page retry fails.
-  const cached = await freshRegistry({ "master-nursing": 99 });
-  assert.equal(await cached.registry.loadStageCurriculum("master-nursing"), null);
-  assert.equal(await cached.registry.retryStageOrReload("master-nursing", () => (reloads += 1)), false);
+  const cached = await freshRegistry({ "foundation-nursing": 99 });
+  assert.equal(await cached.registry.loadStageCurriculum("foundation-nursing"), null);
+  assert.equal(await cached.registry.retryStageOrReload("foundation-nursing", () => (reloads += 1)), false);
   assert.equal(reloads, 1, "the page is reloaded to fetch the chunk again");
-  assert.equal(cached.registry.stageCurriculumStatus("master-nursing"), "unavailable");
+  assert.equal(cached.registry.stageCurriculumStatus("foundation-nursing"), "unavailable");
 });

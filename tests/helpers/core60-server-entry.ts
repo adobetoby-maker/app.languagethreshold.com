@@ -17,3 +17,5 @@ export {
   speakingCatalogMissionCount,
 } from "../../src/data/speaking-missions.ts";
 export { loadCurrentLessonReviewSnapshot } from "../../src/lib/lesson-review-server.ts";
+export { readinessCatalog } from "../../src/lib/assessments/server.ts";
+export { stageLoadFailed } from "../../src/data/core60-stages.ts";

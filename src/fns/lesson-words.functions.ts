@@ -1,6 +1,6 @@
 // Built by TAC — 2026-10-15
 import Anthropic from "@anthropic-ai/sdk";
-import { ensureStageForModule } from "@/data/core60-stages";
+import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getCurriculum } from "@/data/curriculum";
@@ -88,6 +88,12 @@ export const generateLessonWords = createServerFn({ method: "POST" })
     // The lesson is looked up here, never taken from the client, so a caller cannot make the
     // model write about arbitrary text.
     await ensureStageForModule(module.id);
+    if (stageLoadFailed(module.id)) {
+      // A listed stage whose chunk failed to load: not an unknown lesson, try again shortly.
+      setResponseStatus(503);
+      setResponseHeader("Retry-After", "2");
+      return { words: null, error: "This lesson is temporarily unavailable. Try again in a moment." };
+    }
     const lesson = getCurriculum(module.id)?.lessons.find((item) => item.n === data.lessonNumber);
     if (!lesson) return { words: null, error: "Unknown lesson" };
     const request = buildLessonWordsRequest({

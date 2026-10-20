@@ -350,6 +350,19 @@ export function ensureStageForModule(
   return ensureStageCurriculum(moduleId, options);
 }
 
+/**
+ * True when `moduleId` is a listed data-driven stage whose chunk failed to load (or is waiting out
+ * STAGE_RETRY_BACKOFF_MS after a failure). Call it after `await ensureStageForModule(id)`: the
+ * server readers then answer "temporarily unavailable, try again" (503) instead of reporting the
+ * learner's lesson as unknown. A stage with no usable file, or a module that is not a stage, is
+ * not transient: false.
+ */
+export function stageLoadFailed(moduleId: string | null | undefined): boolean {
+  return Boolean(
+    moduleId && dataStageOf(moduleId) && !curricula.has(moduleId) && failed.has(moduleId),
+  );
+}
+
 /** ensureStageForModule for every module id a record set names (each distinct stage loads once). */
 export async function ensureStagesForModules(
   moduleIds: Iterable<string | null | undefined>,

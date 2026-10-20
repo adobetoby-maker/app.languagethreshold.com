@@ -123,7 +123,7 @@ test("the client Retry loads a failed stage at once, with no backoff", async () 
 
 test("loading several modules' stages is not remembered when one fails", async () => {
   const { registry, calls } = await freshRegistry({ "foundation-nursing": 1 });
-  const ids = ["foundation-nursing", "foundation-nursing", "electrician", "master-nursing"];
+  const ids = ["foundation-nursing", "foundation-nursing", "electrician", "master-plumber"];
   await registry.ensureStagesForModules(ids);
   assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "unavailable");
   assert.equal(registry.stageLoadFailed("foundation-nursing"), true);
@@ -142,13 +142,13 @@ test("loading several modules' stages is not remembered when one fails", async (
   assert.deepEqual(
     calls,
     { "foundation-nursing": 2 },
-    "duplicates, the Core 30 id and the unlisted Sonnet master loaded nothing extra",
+    "duplicates, the Core 30 id and an unlisted stage loaded nothing extra",
   );
 });
 
 test("a stage that is not listed, or has no usable file, is never reported as a transient failure", async () => {
   const { registry } = await freshRegistry();
-  for (const id of ["master-electrician", "master-nursing", "electrician", "master-roofing", "", null, undefined])
+  for (const id of ["master-plumber", "foundation-plumber", "electrician", "master-roofing", "", null, undefined])
     assert.equal(registry.stageLoadFailed(id), false, String(id));
   // Listed and still loading (nothing has failed): false too.
   assert.equal(registry.stageLoadFailed("foundation-electrician"), false);
@@ -165,12 +165,15 @@ test("a scenario id names the stage to load; other scenarios name none", async (
     stageModuleIdOfScenario("scenario_version_foundation-nursing_challenge_2_es_v1"),
     "foundation-nursing",
   );
+  assert.equal(
+    stageModuleIdOfScenario("scenario_version_master-electrician_lesson_3_es_v1"),
+    "master-electrician",
+  );
   // Core 30, roofing's hand-written stages, curated, core and malformed ids.
   for (const id of [
     "scenario_version_electrician_lesson_3_es_v1",
     "scenario_version_master-roofing_lesson_3_es_v1",
-    // The Sonnet pilot Masters are not shipped, so they are not listed stages.
-    "scenario_version_master-electrician_lesson_3_es_v1",
+    "scenario_version_master-plumber_lesson_3_es_v1",
     "scenario_version_construction_safety_briefing_es_v1",
     "scenario_version_core-speaking_verb_1_es_v1",
     "scenario_version_master-nursing_lesson_x_es_v1",
@@ -203,9 +206,8 @@ test("the registry has no request-scanning API left", async () => {
 
 test("a base module knows its listed stage modules (the Speak catalog loads them when it opens)", async () => {
   const { registry } = await freshRegistry();
-  // Master is not listed for electrician or nursing (Sonnet pilot, not shipped): Foundation only.
-  assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician"]);
-  assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing"]);
+  assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician", "master-electrician"]);
+  assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing", "master-nursing"]);
   // Roofing's stages are hand-written (not data-driven), and unlisted trades have none.
   assert.deepEqual(registry.stageModulesOfBase("roofing"), []);
   assert.deepEqual(registry.stageModulesOfBase("plumber"), []);

@@ -351,14 +351,13 @@ const CORE30_WITHOUT_PATH_TEXT =
   "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.";
 
 // ─── Pilot: the generated Electrician stages (src/data/core60/es) ───────────────
-// Written by scripts/build-core60.mts and listed in src/data/core60/manifest.ts. Only the Opus
-// Foundation ships: the Sonnet pilot Master is not listed, so the Electrician Core 30 page shows
-// Foundation open, Core 30 current and Master 20 as "Coming soon".
+// Written by scripts/build-core60.mts and listed in src/data/core60/manifest.ts. Both Opus stages
+// ship, so the Electrician Core 30 page shows Foundation and Master 20 open, Core 30 current.
 
-const ELECTRICIAN_STAGES = ["foundation-electrician", "electrician"];
+const ELECTRICIAN_STAGES = ["foundation-electrician", "electrician", "master-electrician"];
 
 test.describe("Generated Electrician Core 60 (pilot)", () => {
-  test("the Electrician page shows Foundation open, Core 30 current and Master 20 coming soon", async ({
+  test("the Electrician page shows Foundation open, Core 30 current and Master 20 open", async ({
     page,
   }) => {
     await openStage(page, "electrician", {}, "core60-path", ELECTRICIAN_STAGES);
@@ -372,24 +371,25 @@ test.describe("Generated Electrician Core 60 (pilot)", () => {
     await expect(foundation).toContainText("Open");
     await expect(foundation).not.toContainText("Coming soon");
     const master = page.getByTestId("core60-step-master");
-    await expect(master).toContainText("Coming soon");
-    await expect(master).not.toContainText("Open");
-    await expect(master).toHaveAttribute("aria-disabled", "true");
-    await expect(master).toHaveJSProperty("tagName", "DIV");
+    await expect(master).toHaveJSProperty("tagName", "BUTTON");
+    await expect(master).toContainText("Open");
+    await expect(master).not.toContainText("Coming soon");
     await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
     await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Electrician · Step 2 of 3");
     await expect(page.getByText(CORE30_WITHOUT_PATH_TEXT)).toHaveCount(0);
   });
 
-  test("the Electrician banner says the Foundation is ready and Master 20 is coming soon", async ({
-    page,
-  }) => {
+  test("the Electrician banner no longer says any stage is coming soon", async ({ page }) => {
     await openStage(page, "electrician", {}, "tool-purpose", ELECTRICIAN_STAGES);
     const banner = page.getByTestId("tool-purpose");
-    await expect(banner).toContainText(
-      "The free Foundation is ready too; Master 20 is coming soon.",
-    );
-    await expect(banner).not.toContainText("The free Foundation and Master 20 are coming soon");
+    await expect(banner).toBeVisible();
+    await expect(banner).not.toContainText("coming soon");
+  });
+
+  test("the Master 20 step opens the Electrician Master", async ({ page }) => {
+    await openStage(page, "electrician", {}, "core60-path", ELECTRICIAN_STAGES);
+    await page.getByTestId("core60-step-master").click();
+    await expect(page).toHaveURL(/module=master-electrician/);
   });
 
   test("the Foundation step opens the Electrician Foundation, free with an account", async ({ page }) => {

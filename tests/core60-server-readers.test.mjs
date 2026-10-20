@@ -12,10 +12,12 @@ import { build } from "esbuild";
 import { loadModule } from "./helpers/bundle.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-// Only the shipped (Opus) stages are listed in the manifest: the Sonnet pilot Masters are not.
-const STAGES = ["foundation-electrician", "foundation-nursing"];
-// Every stage file on disk, listed or not: the loader map offers them all, the registry asks for the listed.
-const FILES = [...STAGES, "master-electrician", "master-nursing"];
+// The shipped (Opus) stages listed in the manifest.
+const STAGES = ["foundation-electrician", "foundation-nursing", "master-electrician", "master-nursing"];
+// Every stage file on disk: the loader map offers them all, the registry asks for the listed.
+const FILES = [...STAGES];
+// A stage id that is in no manifest and has no file.
+const UNLISTED = "master-plumbing";
 const readStage = (id) =>
   JSON.parse(readFileSync(path.join(repoRoot, "src/data/core60/es", `${id}.json`), "utf8"));
 const SERVER_ONLY = /^@tanstack\/react-start\/server-only$/;
@@ -155,7 +157,7 @@ test("Speak catalog counts are the same before and after the stage chunks load",
 
   await m.ensureStagesForModules(STAGES);
   for (const id of bases) assert.equal(count(id), cold[id], `${id}: count after load`);
-  // The test is not vacuous: before loading, the listed missions alone were 10 short per trade.
+  // The test is not vacuous: before loading, the listed missions alone were 30 short per trade.
   const loaded = m.getSpeakingMissions("Spanish");
   const listedWarm = loaded.filter((mission) => mission.moduleId === "electrician").length;
   assert.equal(listedWarm, listedCold, "the base module's own missions did not change");
@@ -163,7 +165,7 @@ test("Speak catalog counts are the same before and after the stage chunks load",
     const stageLessonMissions = loaded.filter(
       (mission) => /_lesson_\d+_es_v1$/.test(mission.id) && mission.moduleId.endsWith(`-${id}`),
     ).length;
-    assert.equal(stageLessonMissions, 10, `${id}: 10 Foundation lesson missions (Master is not listed)`);
+    assert.equal(stageLessonMissions, 30, `${id}: 10 Foundation + 20 Master lesson missions`);
   }
   // Stage modules are Spanish only: other languages never get a pending count.
   assert.equal(count("electrician", "Italian"), m.getSpeakingMissions("Italian").filter(
@@ -207,7 +209,7 @@ test("/api/tutor: a stage whose chunk failed to load is 503 try-again, not a reo
   // A lesson of a stage that loaded fine, or a stage that was never listed, is unaffected.
   const ok = await parseTutorRequest(body("foundation-nursing"));
   assert.equal(ok.context.lesson.moduleId, "foundation-nursing");
-  await assert.rejects(parseTutorRequest(body("master-electrician")), {
+  await assert.rejects(parseTutorRequest(body(UNLISTED)), {
     message: "Reopen the lesson in your selected language before using Tutor.",
     status: 400,
   });

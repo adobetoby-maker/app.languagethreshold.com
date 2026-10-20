@@ -29,6 +29,8 @@ npm run build      # production build
 npm run preview    # local preview
 npm run deploy     # gated production deploy to the linked Vercel project
 npx tsc --noEmit   # type check
+npm run smoke:e2e  # run before every push to main: key Playwright specs on a free port (>=3450); exit code = test results only
+npm run smoke:e2e -- --phone | --prod   # add iphone-pwa project | run core60-path + foundation against app.languagethreshold.com
 ```
 
 ## Deployment

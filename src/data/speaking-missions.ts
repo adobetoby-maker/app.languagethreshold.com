@@ -12,6 +12,7 @@ import {
   type CoreVerb,
   type DailyLivingTopic,
 } from "./core-speaking.ts";
+import { isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
@@ -51,7 +52,7 @@ export interface SpeakingMission {
   moduleEmoji: string;
   learnerRole: string;
   partnerRole: string;
-  level: "A1" | "A2";
+  level: "A1" | "A2" | "B1";
   quickMinutes: number;
   targetMinutes: number;
   language: SpeakingMissionLanguage;
@@ -66,6 +67,11 @@ export interface SpeakingMission {
   openingLine: string;
   safetyRules: string[];
   riskClass?: SpeakingMissionRisk;
+  /**
+   * Master missions only: the partner introduces ONE realistic, unannounced complication partway
+   * through (api.speak.ts adds the instruction). The learner-facing text never mentions it.
+   */
+  surpriseComplication?: boolean;
 }
 
 // Immutable UX-preview projection of the scenarios approved in
@@ -1116,7 +1122,7 @@ function missionFromChallenge(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole: partnerRoleFor(module, language),
-    level: "A2",
+    level: isMasterModule(module.id) ? "B1" : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
@@ -1142,10 +1148,13 @@ function missionFromChallenge(
     openingLine: openingLineForModule(module, language, specialty),
     safetyRules: safetyRulesForModule(module, specialty, riskClass),
     riskClass,
+    ...(isMasterModule(module.id) ? { surpriseComplication: true } : {}),
   };
 }
 
 const LESSON_MISSION_VOCABULARY_CAP = 12;
+// A Master lesson carries 13-14 terms and 6-8 phrases; its mission drills every term and phrases too.
+const MASTER_MISSION_VOCABULARY_CAP = 20;
 
 // A lesson that carries its own word list drills those exact words in its mission: terms first,
 // then phrases, capped at 12. Spanish missions show the Spanish forms; every other language keeps
@@ -1161,6 +1170,9 @@ function lessonMissionVocabulary(
     ...words.filter((word) => word.kind === "term"),
     ...words.filter((word) => word.kind !== "term"),
   ];
+  const cap = isMasterModule(module.id)
+    ? MASTER_MISSION_VOCABULARY_CAP
+    : LESSON_MISSION_VOCABULARY_CAP;
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
@@ -1169,7 +1181,7 @@ function lessonMissionVocabulary(
     if (!form || seen.has(key)) continue;
     seen.add(key);
     out.push(form);
-    if (out.length >= LESSON_MISSION_VOCABULARY_CAP) break;
+    if (out.length >= cap) break;
   }
   return out.length > 0 ? out : module.vocabFocus.slice(0, 8);
 }
@@ -1205,7 +1217,7 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole: partnerRoleFor(module, language),
-    level: "A2",
+    level: isMasterModule(module.id) ? "B1" : "A2",
     quickMinutes: 7,
     targetMinutes: 12,
     language,
@@ -1234,6 +1246,7 @@ function missionFromLesson(
     openingLine: openingLineForModule(module, language, specialty),
     safetyRules: safetyRulesForModule(module, specialty, riskClass),
     riskClass,
+    ...(isMasterModule(module.id) ? { surpriseComplication: true } : {}),
   };
 }
 

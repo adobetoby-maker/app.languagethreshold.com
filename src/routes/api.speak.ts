@@ -117,7 +117,7 @@ function chatSystemPrompt(
   return base;
 }
 
-function missionSystemPrompt(
+export function missionSystemPrompt(
   mission: SpeakingMission,
   feedbackLanguage: string,
   nativeLanguage: string,
@@ -151,7 +151,14 @@ function missionSystemPrompt(
     `The learner's native coaching language is ${nativeLanguage}; the target language is ${mission.language}.`,
     `Specialty: ${mission.moduleName} (${mission.specialty}).`,
     destination ? destinationPromptContext(destination) : "",
-    `Speak natural ${mission.language} (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
+    mission.surpriseComplication
+      ? `Speak natural ${mission.language} (${mission.locale}) at ${mission.level}-B2 level, in two to four sentences per turn at a normal speaking pace.`
+      : `Speak natural ${mission.language} (${mission.locale}) at ${mission.level} level in one or two short sentences.`,
+    ...(mission.surpriseComplication
+      ? [
+          `Surprise complication: partway through the conversation, once the learner has started the task, introduce exactly ONE realistic complication the learner was not told about (for example hidden damage, a homeowner objection, a missing material, a safety issue, or a schedule change). Never announce it in advance or hint that it is coming; raise it as a natural part of the situation, then expect the learner to handle it in ${mission.language}. Ask them to clarify if their answer is vague. Do not add a second complication.`,
+        ]
+      : []),
     `Mission: ${mission.summary}`,
     mission.lessonTeaching
       ? `Lesson practice context: ${mission.lessonTeaching.speaking.context} Teaching support: ${mission.lessonTeaching.stage === "supported" ? "Ask one concrete question at a time; offer a short sentence starter when needed." : mission.lessonTeaching.stage === "connected" ? "Ask for a short connected instruction or clarification; let the learner try before offering a model." : "Ask the learner to connect the work plan, a changed condition and a next step. Offer a model only when help is requested."}`

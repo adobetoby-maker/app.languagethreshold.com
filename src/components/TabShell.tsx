@@ -4,6 +4,7 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
+import { core60PathOf } from "@/lib/core60-path";
 import { MODULES } from "@/data/modules";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
@@ -67,12 +68,21 @@ export function TabShell() {
   const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
   // ...and a Master (twenty advanced lessons after the Core 30).
   const master = state.currentTab === "core30" && isMasterModule(state.activeModuleId ?? "");
+  // ...and a Core 30 module whose trade has no Foundation and Master yet (only roofing does).
+  const core30WithoutPath =
+    state.currentTab === "core30" &&
+    !foundation &&
+    !master &&
+    Boolean(state.activeModuleId) &&
+    !core60PathOf(state.activeModuleId);
   const purposeName = foundation ? "Core 60 · Foundation" : master ? "Core 60 · Master" : tool.name;
   const purposeText = foundation
     ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`
     : master
       ? "Twenty lessons for the day that doesn't go as planned."
-      : tool.purpose;
+      : core30WithoutPath
+        ? "Your module's Core 30 — the free Foundation and Master 20 are coming soon."
+        : tool.purpose;
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 
   useEffect(() => {

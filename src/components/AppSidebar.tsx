@@ -958,6 +958,15 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
               );
             })}
           </div>
+          <p className="mt-6 text-center text-[11px] text-muted-foreground">
+            <a href="/terms" className="underline underline-offset-2 hover:text-foreground">
+              Terms of Service
+            </a>
+            <span aria-hidden> · </span>
+            <a href="/privacy" className="underline underline-offset-2 hover:text-foreground">
+              Privacy Policy
+            </a>
+          </p>
         </SheetContent>
       </Sheet>
 

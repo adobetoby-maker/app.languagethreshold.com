@@ -21,8 +21,10 @@ import { Route as FamilySetupRouteImport } from './routes/family-setup'
 import { Route as ModuleRequestRouteImport } from './routes/module-request'
 import { Route as OwnerRouteImport } from './routes/owner'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferRouteImport } from './routes/refer'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
@@ -121,6 +123,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReferRoute = ReferRouteImport.update({
   id: '/refer',
   path: '/refer',
@@ -129,6 +136,11 @@ const ReferRoute = ReferRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountPasswordRoute = AccountPasswordRouteImport.update({
@@ -330,8 +342,10 @@ export interface FileRoutesByFullPath {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
@@ -383,8 +397,10 @@ export interface FileRoutesByTo {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
@@ -437,8 +453,10 @@ export interface FileRoutesById {
   '/module-request': typeof ModuleRequestRoute
   '/owner': typeof OwnerRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/refer': typeof ReferRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
   '/account_/password': typeof AccountPasswordRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
@@ -492,8 +510,10 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/privacy'
     | '/refer'
     | '/team'
+    | '/terms'
     | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
@@ -545,8 +565,10 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/privacy'
     | '/refer'
     | '/team'
+    | '/terms'
     | '/account/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
@@ -598,8 +620,10 @@ export interface FileRouteTypes {
     | '/module-request'
     | '/owner'
     | '/pricing'
+    | '/privacy'
     | '/refer'
     | '/team'
+    | '/terms'
     | '/account_/password'
     | '/api/cancel-subscription'
     | '/api/capture-email'
@@ -652,8 +676,10 @@ export interface RootRouteChildren {
   ModuleRequestRoute: typeof ModuleRequestRoute
   OwnerRoute: typeof OwnerRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   ReferRoute: typeof ReferRoute
   TeamRoute: typeof TeamRoute
+  TermsRoute: typeof TermsRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
@@ -779,6 +805,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/refer': {
       id: '/refer'
       path: '/refer'
@@ -791,6 +824,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account_/password': {
@@ -1068,8 +1108,10 @@ const rootRouteChildren: RootRouteChildren = {
   ModuleRequestRoute: ModuleRequestRoute,
   OwnerRoute: OwnerRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   ReferRoute: ReferRoute,
   TeamRoute: TeamRoute,
+  TermsRoute: TermsRoute,
   AccountPasswordRoute: AccountPasswordRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,

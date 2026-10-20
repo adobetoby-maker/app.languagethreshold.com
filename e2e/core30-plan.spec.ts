@@ -12,7 +12,10 @@ const LESSON_1_WORDS = ROOFING_LESSON_WORDS[1];
 const LESSON_1_TERMS = LESSON_1_WORDS.filter((w) => w.kind === "term");
 
 interface LessonLog {
+  /** Legacy step indices ("0", "1", "2") and the namespaced "way:<id>" keys. */
   visits: Record<string, string>;
+  /** First time each way of learning (see, recall, ...) was shown. */
+  wayVisits?: Record<string, string>;
   masteredAt?: string;
   needsPractice?: boolean;
   reviews?: { at: string; ok: boolean }[];
@@ -34,11 +37,11 @@ function isoDaysAgo(days: number): string {
   return new Date(Date.now() - days * 86_400_000).toISOString();
 }
 
-const readLog = async (page: Page): Promise<ModuleLog | undefined> =>
-  (((await readAppState(page)).core30Log ?? {}) as Record<string, ModuleLog>)[core30Key(MODULE)];
+const readLog = async (page: Page, moduleId: string = MODULE): Promise<ModuleLog | undefined> =>
+  (((await readAppState(page)).core30Log ?? {}) as Record<string, ModuleLog>)[core30Key(moduleId)];
 
-const visitKeys = async (page: Page, lesson: string) =>
-  Object.keys((await readLog(page))?.lessons[lesson]?.visits ?? {});
+const visitKeys = async (page: Page, lesson: string, moduleId: string = MODULE) =>
+  Object.keys((await readLog(page, moduleId))?.lessons[lesson]?.visits ?? {});
 
 /**
  * Opens the app on the Core 30 tab of the Roofing module with `log` as the saved plan record
@@ -124,6 +127,25 @@ async function openLesson1(page: Page) {
   await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
 }
 
+// Roofing Lesson 1 reads an authored passage inline, which has no Reader counterpart, so its See
+// it section offers no full-Reader link (LessonReader.tsx: fullReaderId is null for an authored
+// passage). The link still shows when the lesson maps to a library passage: LDS Missionary
+// Lesson 6 (seed-es-faith-door-greeting) does in Spanish. Rock Climbing Lesson 3 maps to an id
+// that has no library seed, so it shows none.
+const READER_MODULE = "lds-missionary";
+const READER_LESSON = "6";
+
+/** Opens LDS Missionary Lesson 6 on See it, the way a shared lesson link does. */
+async function openReaderLesson(page: Page) {
+  await openCore30(page, undefined, READER_MODULE);
+  await page.goto(
+    appUrl({ tab: "core30", module: READER_MODULE }) + `&lesson=${READER_LESSON}&way=see`,
+  );
+  await expect(page.getByText("✕ Exit")).toBeVisible();
+  await expect(page.getByTestId("lesson-nav-see")).toHaveAttribute("aria-current", "step");
+  await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+}
+
 type Section = "see" | "recall" | "hear" | "type" | "say" | "write";
 
 /** Opens one of the six ways of learning from the lesson's section nav. */
@@ -167,13 +189,22 @@ test.describe("Core 30 plan: Roofing", () => {
   }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
-    // No Opened mark yet: seeing the section is not the same as using it.
-    await expect(page.getByTestId("core30-step-opened")).toHaveCount(0);
+    // Showing a way of learning records it: See it is marked opened as soon as it is on screen
+    // (AppGuide.tsx CORE30_WAY_OPENED effect), and only that way, not the others.
+    const opened = page.getByTestId("core30-step-opened");
+    await expect(opened).toHaveCount(1);
+    await expect(opened).toContainText("Opened");
+    await expect.poll(() => visitKeys(page, "1")).toContain("way:see");
+    expect(await visitKeys(page, "1")).not.toContain("way:recall");
+    // The step record ("0" = reading) is the learner's own use of the passage, so it is still empty.
+    expect(await visitKeys(page, "1")).not.toContain("0");
     const reader = page.getByTestId("lesson-reader");
     await expect(reader).toBeVisible({ timeout: 60_000 });
     await expect(reader).toContainText("Primer día en el techo");
     await expect(reader).toContainText("Hoy es el primer día en la obra nueva.");
     expect(await reader.locator("[data-sentence-index]").count()).toBeGreaterThanOrEqual(8);
+    // An authored inline passage has no full-Reader counterpart, so no link leaves the lesson.
+    await expect(page.getByTestId("lesson-open-full-reader")).toHaveCount(0);
     // The passage is the lesson's Spanish text, tapped in place.
     const word = reader.locator(".lt-word", { hasText: /^techo$/ }).first();
     await expect(word).toBeVisible();
@@ -181,28 +212,27 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByRole("dialog", { name: /Word details for/ })).toBeVisible();
     // Still on the Core 30 tab: no jump to the Reader.
     expect(await currentTabOf(page)).toBe("core30");
-    await expect.poll(() => visitKeys(page, "1")).toEqual(["0"]);
+    // Tapping a word is use of the passage: now the reading step is recorded too.
+    await expect.poll(() => visitKeys(page, "1")).toContain("0");
     await page.keyboard.press("Escape");
     await expect(page.getByRole("dialog", { name: /Word details for/ })).toHaveCount(0);
-    const opened = page.getByTestId("core30-step-opened");
     await expect(opened).toHaveCount(1);
-    await expect(opened).toContainText("Opened");
     const log = await readLog(page);
     expect(Date.parse(log!.lessons["1"].visits["0"])).not.toBeNaN();
+    expect(Date.parse(log!.lessons["1"].wayVisits!.see)).not.toBeNaN();
   });
 
   test("2b. Open in full Reader goes there and the Back to Lesson pill returns", async ({
     page,
   }) => {
-    await openCore30(page, STARTED_TODAY);
-    await openLesson1(page);
-    await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+    await openReaderLesson(page);
     await page.getByTestId("lesson-open-full-reader").click();
     await expect.poll(() => currentTabOf(page)).toBe("reader");
-    await expect.poll(() => visitKeys(page, "1")).toEqual(["0"]);
+    // Leaving for the Reader records the reading step (AppGuide.tsx openFullReader).
+    await expect.poll(() => visitKeys(page, READER_LESSON, READER_MODULE)).toContain("0");
     const pill = page.getByTestId("lesson-return-pill");
     await expect(pill).toBeVisible();
-    await expect(pill).toContainText("Back to Lesson 1");
+    await expect(pill).toContainText(`Back to Lesson ${READER_LESSON}`);
     await pill.click();
     await expect.poll(() => currentTabOf(page)).toBe("core30");
     // The lesson reopens by itself, on See it.
@@ -216,9 +246,7 @@ test.describe("Core 30 plan: Roofing", () => {
     page,
     isMobile,
   }) => {
-    await openCore30(page, STARTED_TODAY);
-    await openLesson1(page);
-    await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+    await openReaderLesson(page);
     await page.getByTestId("lesson-open-full-reader").click();
     await expect.poll(() => currentTabOf(page)).toBe("reader");
     await expect(page.getByTestId("lesson-return-pill")).toBeVisible();
@@ -234,7 +262,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await gotoTab(page, isMobile, /^\s*reader\s*$/i);
     await expect.poll(() => currentTabOf(page)).toBe("reader");
     await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
-    const next = page.getByRole("button", { name: "Next lesson" });
+    const next = page.getByRole("button", { name: "Next reading" });
     await expect(next).toBeEnabled();
     await next.click();
     await page.waitForTimeout(1000);
@@ -243,15 +271,13 @@ test.describe("Core 30 plan: Roofing", () => {
   });
 
   test("2d. opening Core 30 any way spends a leftover return marker", async ({ page }) => {
-    await openCore30(page, STARTED_TODAY);
-    await openLesson1(page);
-    await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+    await openReaderLesson(page);
     await page.getByTestId("lesson-open-full-reader").click();
     await expect.poll(() => currentTabOf(page)).toBe("reader");
     expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).not.toBeNull();
     // A plain reload lands on the Core 30 tab again (as the App Guide would): the marker is spent.
     await seedAppState(page, { currentTab: "core30" });
-    await page.goto(appUrl({ tab: "core30", module: MODULE }));
+    await page.goto(appUrl({ tab: "core30", module: READER_MODULE }));
     await expect(page.getByTestId("core30-plan-card").or(page.getByText("✕ Exit"))).toBeVisible();
     await expect
       .poll(() => page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo")))
@@ -411,43 +437,52 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("core30-mastered-status")).toContainText("Mastered on");
   });
 
-  test("6. Say it opens the lesson mission on the Speak tab and Back to Lesson returns", async ({
+  test("6. Say it opens the lesson mission inline on Core 30, with no trip to the Speak tab", async ({
+    page,
+  }) => {
+    await openCore30(page, STARTED_TODAY);
+    await openLesson1(page);
+    await goSection(page, "say");
+    const urlBefore = page.url();
+    await page.getByTestId("lesson-say-go").click();
+    // The practice panel opens inside the Say it section (LessonSpeakingPractice.tsx), not on Speak.
+    const panel = page.getByTestId("lesson-speaking-practice");
+    const mission = panel.getByRole("heading", { name: /^Lesson 1:/ });
+    await expect(mission).toBeVisible({ timeout: 60_000 });
+    await expect(mission).toContainText("Name the Roof System");
+    await expect(panel.getByRole("button", { name: "Close practice" })).toBeVisible();
+    await expect(page.getByTestId("lesson-say-go")).toHaveCount(0);
+    expect(await currentTabOf(page)).toBe("core30");
+    expect(page.url()).toBe(urlBefore);
+    await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(page.getByTestId("lesson-nav-say")).toHaveAttribute("aria-current", "step");
+    // Opening the practice records the Speak step (index 2) and the Say it way.
+    await expect.poll(() => visitKeys(page, "1")).toContain("2");
+    expect(await visitKeys(page, "1")).toContain("way:say");
+    // No Reader/Speak round trip exists any more, so there is no return marker or pill.
+    expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).toBeNull();
+    await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
+  });
+
+  test("6b. Close practice ends the mission and leaves the lesson open on Say it", async ({
     page,
   }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     await goSection(page, "say");
     await page.getByTestId("lesson-say-go").click();
-    await expect.poll(() => currentTabOf(page)).toBe("speak");
-    // The lesson's own mission is selected on the Speak tab.
-    const mission = page.getByRole("heading", { name: /^Lesson 1:/ });
-    await expect(mission).toBeVisible({ timeout: 60_000 });
-    await expect(mission).toContainText("Name the Roof System");
-    await expect.poll(() => visitKeys(page, "1")).toContain("2");
-    const pill = page.getByTestId("lesson-return-pill");
-    await expect(pill).toBeVisible();
-    await expect(pill).toContainText("Back to Lesson 1");
-    await pill.click();
-    await expect.poll(() => currentTabOf(page)).toBe("core30");
-    await expect(page.getByText("✕ Exit")).toBeVisible();
-    await expect(page.getByTestId("lesson-nav-say")).toHaveAttribute("aria-current", "step");
-    await expect(page.getByTestId("lesson-section-say")).toBeVisible();
-    // The marker was used up: the lesson cleared it when it reopened.
-    expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).toBeNull();
-  });
-
-  test("6b. leaving the lesson mission returns to Say it by itself", async ({ page }) => {
-    await openCore30(page, STARTED_TODAY);
-    await openLesson1(page);
-    await goSection(page, "say");
-    await page.getByTestId("lesson-say-go").click();
-    await expect(page.getByRole("heading", { name: /^Lesson 1:/ })).toBeVisible({
+    const panel = page.getByTestId("lesson-speaking-practice");
+    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toBeVisible({
       timeout: 60_000,
     });
-    // Backing out of the mission (its setup screen has an All missions button) ends the trip.
-    await page.getByRole("button", { name: /All missions/ }).click();
-    await expect.poll(() => currentTabOf(page)).toBe("core30");
+    // The embedded mission has no All missions list; Close practice is the way back to the lesson.
+    await expect(page.getByRole("button", { name: /All missions/ })).toHaveCount(0);
+    await panel.getByRole("button", { name: "Close practice" }).click();
+    await expect(panel.getByRole("heading", { name: /^Lesson 1:/ })).toHaveCount(0);
+    await expect(page.getByTestId("lesson-say-go")).toBeVisible();
+    expect(await currentTabOf(page)).toBe("core30");
     await expect(page.getByTestId("lesson-nav-say")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("lesson-section-say")).toBeVisible();
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
   });
@@ -455,10 +490,23 @@ test.describe("Core 30 plan: Roofing", () => {
   test("7. Recall it stays on Core 30 with Cards open and Match one tap away", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
-    const urlBefore = page.url();
+    const locationOf = () => {
+      const url = new URL(page.url());
+      return {
+        path: url.pathname,
+        tab: url.searchParams.get("tab"),
+        module: url.searchParams.get("module"),
+        lesson: url.searchParams.get("lesson"),
+        way: url.searchParams.get("way"),
+      };
+    };
+    await expect.poll(() => locationOf().way).toBe("see");
     await goSection(page, "recall");
-    // Same tab and URL, no jump to the generic Word Match tab.
-    expect(page.url()).toBe(urlBefore);
+    // Same tab and page, no jump to the generic Word Match tab: the link only follows the way
+    // (lessonLocation writes lesson=1&way=recall).
+    await expect
+      .poll(locationOf)
+      .toEqual({ path: "/", tab: "core30", module: MODULE, lesson: "1", way: "recall" });
     expect(await currentTabOf(page)).toBe("core30");
     await expect(page.getByTestId("lesson-practice-section")).toBeVisible();
     await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute(
@@ -475,8 +523,10 @@ test.describe("Core 30 plan: Roofing", () => {
     await goSection(page, "hear");
     await expect(page.getByTestId("lesson-nav-hear")).toHaveAttribute("aria-current", "step");
     await expect(page.getByText("Listen, then pick the English meaning.")).toBeVisible();
+    await expect.poll(() => locationOf().way).toBe("hear");
     await goSection(page, "type");
     await expect(page.getByText("Type this in Spanish")).toBeVisible();
+    await expect.poll(() => locationOf().way).toBe("type");
     // Inside a lesson there is no second six-way tab row or "ways to practice" counter, and
     // only Recall keeps a small Study / Cards / Match switch.
     await expect(page.getByText(/ways to practice/)).toHaveCount(0);
@@ -581,6 +631,10 @@ test.describe("Core 30 plan: Roofing", () => {
 
 // ─── A lesson with no authored words: the list comes from the server function ────────────
 // The server function is stubbed with page.route, so these tests need no API key or network.
+// Authored words exist only for Spanish with English instructions (pickAuthoredWords) and
+// authored lesson content only for one native language per target (contentNativeLanguage), so
+// the generated path is reached with a French target: Orthopedics in French has neither, and
+// the lesson-decks stub below answers 404, leaving the server function (lesson-words.ts).
 
 /** Builds the seroval-encoded body TanStack Start returns for a server function result. */
 function serverFnBody(result: {
@@ -621,15 +675,16 @@ function serverFnBody(result: {
   });
 }
 
+// `es` is the word-list field for the target-language text, whatever the target language is.
 const STUB_WORDS = [
   ...Array.from({ length: 8 }, (_, i) => ({
     en: `stub term ${i + 1}`,
-    es: `término simulado ${i + 1}`,
+    es: `terme simulé ${i + 1}`,
     kind: "term",
   })),
   ...Array.from({ length: 4 }, (_, i) => ({
     en: `stub phrase ${i + 1}`,
-    es: `frase simulada ${i + 1}`,
+    es: `phrase simulée ${i + 1}`,
     kind: "phrase",
   })),
 ];
@@ -656,17 +711,17 @@ async function stubLessonWords(
 }
 
 async function openOrthopedicsLesson1(page: Page) {
-  await openCore30(page, undefined, "orthopedics");
+  await openCore30(page, undefined, "orthopedics", "French");
   await page.getByRole("button", { name: /Start Lesson 1/ }).click();
   await expect(page.getByText("✕ Exit")).toBeVisible();
   await goSection(page, "recall");
 }
 
-test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored list)", () => {
+test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no authored list)", () => {
   // The service worker would answer deck requests itself, past page.route.
   test.use({ serviceWorkers: "block" });
   test("8. the practice kit shows the generated words and Match plays them", async ({ page }) => {
-    const requests = await stubLessonWords(page, () => ({ words: STUB_WORDS, lang: "Spanish" }));
+    const requests = await stubLessonWords(page, () => ({ words: STUB_WORDS, lang: "French" }));
     await openOrthopedicsLesson1(page);
 
     await expect(
@@ -676,8 +731,8 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored li
     // Recall opens on Cards; the Study list is one tap away.
     await kit.getByTestId("practice-mode-study").click();
     const panel = kit.getByRole("tabpanel");
-    await expect(panel.locator('li p[lang="es"]')).toHaveCount(STUB_WORDS.length);
-    expect((await panel.locator('li p[lang="es"]').allInnerTexts()).sort()).toEqual(
+    await expect(panel.locator('li p[lang="fr"]')).toHaveCount(STUB_WORDS.length);
+    expect((await panel.locator('li p[lang="fr"]').allInnerTexts()).sort()).toEqual(
       STUB_WORDS.map((w) => w.es).sort(),
     );
     expect(requests).toHaveLength(1);
@@ -699,7 +754,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored li
           matched: (el as HTMLElement).dataset.matched === "true",
         })),
       );
-      const es = view.find((t) => !t.matched && t.lang === "es" && enOf.has(t.text));
+      const es = view.find((t) => !t.matched && t.lang === "fr" && enOf.has(t.text));
       expect(es, `an open tile for ${term.es}`).toBeTruthy();
       const partner = view.find(
         (t) => !t.matched && t.lang === "en" && t.text === enOf.get(es!.text),
@@ -712,9 +767,8 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored li
     await expect(kit.getByText(new RegExp(`All ${terms.length} terms matched`))).toBeVisible();
 
     // A second visit (page reload, lesson reopened) reads the cached list: no new request.
+    // The page link follows the lesson (?lesson=1&way=recall), so a reload reopens Lesson 1.
     await page.reload();
-    await expect(page.getByTestId("core30-plan-card")).toBeVisible();
-    await page.getByRole("button", { name: /Start Lesson 1/ }).click();
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await goSection(page, "recall");
     await expect(
@@ -725,7 +779,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics, no authored li
 
   test("9. a failed word list shows Retry, and Retry builds the kit", async ({ page }) => {
     const requests = await stubLessonWords(page, (n) =>
-      n === 1 ? { error: "Word list failed" } : { words: STUB_WORDS, lang: "Spanish" },
+      n === 1 ? { error: "Word list failed" } : { words: STUB_WORDS, lang: "French" },
     );
     await openOrthopedicsLesson1(page);
     await expect(page.getByText("Couldn't build the word list")).toBeVisible();

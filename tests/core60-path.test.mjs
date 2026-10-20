@@ -8,6 +8,7 @@ import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "../src/data/ma
 import {
   CORE30_WITHOUT_PATH_TEXT,
   CORE60_PATHS,
+  core60PathsFromManifest,
   core60Eyebrow,
   core60PathOf,
   core60StageName,
@@ -20,6 +21,7 @@ import { getSpeakingMissions, getSpeakingModules } from "../src/data/speaking-mi
 import { foundationAccess } from "../src/lib/core30-plan.ts";
 
 test("roofing has one Core 60 path of three stages in order", () => {
+  // CORE60_PATHS is the hand-written path config; data-driven trades come from the manifest.
   assert.deepEqual(Object.keys(CORE60_PATHS), ["roofing"]);
   for (const id of ["foundation-roofing", "roofing", "master-roofing"]) {
     const path = core60PathOf(id);
@@ -37,7 +39,8 @@ test("roofing has one Core 60 path of three stages in order", () => {
   assert.equal(core60PathOf("foundation-roofing").current, "foundation");
   assert.equal(core60PathOf("roofing").current, "core");
   assert.equal(core60PathOf("master-roofing").current, "master");
-  for (const id of ["plumber", "framer", "", null, undefined, "foundation-plumber"]) {
+  // Ids that are no module (and no stage of one) never have a path, however many trades are listed.
+  for (const id of ["no-such-trade", "", null, undefined, "foundation-no-such-trade", "master-no-such-trade"]) {
     assert.equal(core60PathOf(id), null, String(id));
   }
 });
@@ -80,16 +83,24 @@ test("the eyebrow names the trade and the step of each Roofing stage page", () =
   assert.equal(core60Eyebrow(core60PathOf("foundation-roofing")), "Core 60 · Roofing · Step 1 of 3");
   assert.equal(core60Eyebrow(core60PathOf("roofing")), "Core 60 · Roofing · Step 2 of 3");
   assert.equal(core60Eyebrow(core60PathOf("master-roofing")), "Core 60 · Roofing · Step 3 of 3");
-  // A trade that is not in the Core 60 manifest has no path.
-  const unlisted = MODULES.find(
-    (m) =>
-      getCurriculum(m.id) &&
-      !/^(foundation|master)-/.test(m.id) &&
-      m.id !== "roofing" &&
-      !CORE60_MANIFEST.some((entry) => entry.base === m.id),
-  );
-  assert.ok(unlisted, "some trade is still without a Core 60 path");
-  assert.equal(core60PathOf(unlisted.id), null);
+});
+
+test("a trade has a path exactly when it is roofing or listed in the manifest (valid for any manifest)", () => {
+  const listed = new Set(CORE60_MANIFEST.map((entry) => entry.base));
+  for (const module of MODULES) {
+    if (!getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)) continue;
+    const path = core60PathOf(module.id);
+    if (module.id === "roofing" || listed.has(module.id)) {
+      assert.ok(path, `${module.id} is listed, so it has a path`);
+      assert.equal(path.tradeModuleId, module.id);
+    } else {
+      assert.equal(path, null, `${module.id} is not listed, so it has no path`);
+    }
+  }
+  // And an empty manifest leaves only the hand-written roofing path.
+  const none = { ...CORE60_PATHS, ...core60PathsFromManifest([]) };
+  assert.equal(core60PathOf("electrician", none), null);
+  assert.ok(core60PathOf("roofing", none));
 });
 
 test("Foundation and Master lessons carry the stage on their buttons; the Core 30 keeps its labels", () => {

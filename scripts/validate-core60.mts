@@ -9,7 +9,8 @@
 //   node scripts/validate-core60.mts --strict   # also fail when a stage has no lesson-content file
 //
 // Passages and verbs of a stage live in public/lesson-content/<langCode>/<id>.json like every
-// other module; without --strict a missing one is a warning (the lesson page falls back).
+// other module; without --strict a missing one is a warning (the lesson page falls back). A stage
+// file that the manifest does not list is a warning too: it is not shipped.
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -103,9 +104,11 @@ if (files.length > 0) {
       }
     }
   }
+  // An unlisted stage file is not shipped (the manifest is the registration, written last by the
+  // generator): a stage taken down, or a publish that stopped before its manifest line. A warning.
   for (const relative of stageFilesUnder(STAGE_ROOT)) {
     if (!listed.has(relative))
-      report(relative, ["stage file is not listed in src/data/core60/manifest.ts"]);
+      warn(relative, "stage file is not listed in src/data/core60/manifest.ts (not shipped)");
   }
 }
 

@@ -6,98 +6,104 @@
   "language": "Spanish",
   "nativeLanguage": "English",
   "headline": "The Electrician Foundation",
-  "threshold": "By Lesson 10, you can greet customers, give numbers and times, describe jobs, ask questions and make polite requests in Spanish, and start Electrician Lesson 1.",
+  "threshold": "By Lesson 10, you can greet people on the job, use numbers, time and measurements, describe tools and conditions, ask questions, make polite requests and ask for help in Spanish, and start Electrician Lesson 1.",
   "reviewed": false,
-  "model": "claude-sonnet-5-5",
-  "generatedAt": "2026-10-20T06:49:44.887Z",
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-20T12:42:26.680Z",
   "lessons": [
     {
       "n": 1,
       "title": "Sounds and Greetings",
-      "objective": "Pronounce Spanish vowels and key sounds and greet a customer at the door.",
-      "focus": "The five vowels, ch, j, ll, rr, the written accent, and everyday greetings",
+      "objective": "Say job words with clear Spanish sounds and greet coworkers and customers on an electrical job.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent in job words; greetings",
       "words": [
         {
-          "en": "the wire",
-          "es": "el cable",
+          "en": "the house",
+          "es": "la casa",
           "kind": "term",
-          "note": "Vowels are short and clean: a = 'ah', e = 'eh'."
+          "note": "Spanish a is always 'ah'; keep every vowel short and clear."
         },
         {
-          "en": "the plug",
-          "es": "el enchufe",
+          "en": "the vest",
+          "es": "el chaleco",
           "kind": "term",
-          "note": "ch sounds like English 'church'."
+          "note": "ch sounds like English 'ch' in 'church'."
         },
         {
           "en": "the box",
           "es": "la caja",
           "kind": "term",
-          "note": "j is a strong breathy h, like 'ha'."
+          "note": "j sounds like a strong English h: CA-ha."
         },
         {
           "en": "the wrench",
           "es": "la llave",
           "kind": "term",
-          "note": "ll sounds like English y. It also means 'key'."
+          "note": "ll sounds like y in 'yes'. It also means key."
         },
         {
-          "en": "the current",
-          "es": "la corriente",
+          "en": "the screw",
+          "es": "el tornillo",
           "kind": "term",
-          "note": "rr is a rolled r. Tap your tongue twice."
+          "note": "ll again: tor-NEE-yo."
         },
         {
-          "en": "the connection",
-          "es": "la conexión",
+          "en": "the tool",
+          "es": "la herramienta",
           "kind": "term",
-          "note": "The accent mark means stress the last syllable: con-ex-IÓN."
+          "note": "h is silent; rr is a rolled, trilled r."
         },
         {
-          "en": "the light",
-          "es": "la luz",
+          "en": "the basement",
+          "es": "el sótano",
           "kind": "term",
-          "note": "u sounds like 'oo'."
+          "note": "The written accent marks the stressed syllable: SÓ-ta-no."
         },
         {
-          "en": "the job",
-          "es": "el trabajo",
+          "en": "the light bulb",
+          "es": "el foco",
           "kind": "term",
-          "note": "j again: tra-BA-jo."
+          "note": "Mexican and US Spanish word for light bulb."
         },
         {
-          "en": "the customer",
-          "es": "el cliente",
+          "en": "the electrician",
+          "es": "el electricista",
           "kind": "term",
-          "note": "i sounds like 'ee'."
+          "note": "Same word for a woman: la electricista."
         },
         {
-          "en": "the lady",
-          "es": "la señora",
+          "en": "the helper",
+          "es": "el ayudante",
           "kind": "term",
-          "note": "ñ sounds like 'ny' in 'canyon'."
+          "note": "Same word for a woman: la ayudante."
         },
         {
-          "en": "Good morning, I'm the electrician.",
-          "es": "Buenos días, soy el electricista.",
-          "kind": "phrase",
-          "note": "Use buenos días until noon."
-        },
-        {
-          "en": "Good afternoon, sir.",
-          "es": "Buenas tardes, señor.",
+          "en": "Good morning, my name is Carlos.",
+          "es": "Buenos días, me llamo Carlos.",
           "kind": "phrase"
         },
         {
           "en": "Nice to meet you.",
           "es": "Mucho gusto.",
-          "kind": "phrase"
+          "kind": "phrase",
+          "note": "Say it when you meet someone for the first time."
         },
         {
-          "en": "Fine, thank you. And you?",
-          "es": "Bien, gracias. ¿Y usted?",
+          "en": "I'm an electrician.",
+          "es": "Soy electricista.",
           "kind": "phrase",
-          "note": "Usted is formal. Use it with customers."
+          "note": "Spanish drops the word for 'a' before a job: literally 'I am electrician'."
+        },
+        {
+          "en": "Good afternoon, ma'am.",
+          "es": "Buenas tardes, señora.",
+          "kind": "phrase",
+          "note": "Use this greeting from noon until dark."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
         },
         {
           "en": "See you tomorrow.",
@@ -105,24 +111,19 @@
           "kind": "phrase"
         }
       ],
-      "speaking": "Greet a customer at the door, say you are the electrician, say it is nice to meet them, and ask how they are."
+      "speaking": "Greet a coworker, say your name and that you are an electrician, and ask how to say a tool in Spanish."
     },
     {
       "n": 2,
       "title": "Numbers, Time and Measurements",
-      "objective": "Say numbers, clock times and the units of electrical work, like feet, volts and amps.",
-      "focus": "Numbers 0 to 1,000, clock time, and work units: feet, inches, volts, amps, gauge",
+      "objective": "Count to 1,000, tell the start time, and give lengths in feet and inches for wire and materials.",
+      "focus": "Numbers 0 to 1,000, clock time, and feet, inches, rolls and packs on the job",
       "words": [
         {
-          "en": "the meter",
-          "es": "el metro",
-          "kind": "term"
-        },
-        {
-          "en": "the foot",
+          "en": "the foot (unit)",
           "es": "el pie",
           "kind": "term",
-          "note": "Plural: los pies. Common for wire length in the US."
+          "note": "The plural is pies: 10 pies means 10 feet."
         },
         {
           "en": "the inch",
@@ -130,31 +131,8 @@
           "kind": "term"
         },
         {
-          "en": "the volt",
-          "es": "el voltio",
-          "kind": "term",
-          "note": "Many workers also say el volt."
-        },
-        {
-          "en": "the amp",
-          "es": "el amperio",
-          "kind": "term",
-          "note": "Many workers also say el amp."
-        },
-        {
-          "en": "the gauge",
-          "es": "el calibre",
-          "kind": "term",
-          "note": "Wire size, like calibre 12."
-        },
-        {
-          "en": "the hour",
-          "es": "la hora",
-          "kind": "term"
-        },
-        {
-          "en": "the minute",
-          "es": "el minuto",
+          "en": "the tape measure",
+          "es": "la cinta métrica",
           "kind": "term"
         },
         {
@@ -163,66 +141,71 @@
           "kind": "term"
         },
         {
-          "en": "the half",
-          "es": "la mitad",
+          "en": "the pack",
+          "es": "el paquete",
           "kind": "term"
         },
         {
-          "en": "the dozen",
-          "es": "la docena",
+          "en": "the hour; the time",
+          "es": "la hora",
+          "kind": "term",
+          "note": "Use 'es la' for 1 o'clock and 'son las' for all other hours."
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
           "kind": "term"
         },
         {
-          "en": "It's 100 feet of wire, according to the plan.",
-          "es": "Son 100 pies de cable, según el plano.",
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "It's 7 in the morning.",
+          "es": "Son las 7 de la mañana.",
           "kind": "phrase"
         },
         {
-          "en": "I arrive at 8:30.",
-          "es": "Llego a las 8:30.",
-          "kind": "phrase"
-        },
-        {
-          "en": "The power outage is from 9:00 to 11:00.",
-          "es": "El corte de luz es de 9:00 a 11:00.",
-          "kind": "phrase"
-        },
-        {
-          "en": "The label says 20 amps.",
-          "es": "La etiqueta dice 20 amperios.",
+          "en": "We arrive at half past 8.",
+          "es": "Llegamos a las 8 y media.",
           "kind": "phrase",
-          "note": "Read the number from the label. Never guess it."
+          "note": "Add 'y media' for half past and 'y cuarto' for quarter past."
         },
         {
-          "en": "The roll has 250 feet, according to the label.",
-          "es": "El rollo tiene 250 pies, según la etiqueta.",
+          "en": "It measures 10 feet and 6 inches.",
+          "es": "Mide 10 pies y 6 pulgadas.",
           "kind": "phrase"
         },
         {
-          "en": "It's 3:15.",
-          "es": "Son las 3:15.",
-          "kind": "phrase",
-          "note": "Use son las for most hours, but es la 1:00 for one o'clock."
+          "en": "The roll has 250 feet.",
+          "es": "El rollo tiene 250 pies.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 2 packs of screws.",
+          "es": "Son 2 paquetes de tornillos.",
+          "kind": "phrase"
         }
       ],
-      "speaking": "Tell a tenant when the power will be off: say the start time, the end time, and how many hours it lasts."
+      "speaking": "Tell your helper what time you arrive, how many feet are on a roll of wire, and how many packs of screws you have."
     },
     {
       "n": 3,
       "title": "Ser and Estar",
-      "objective": "Say what things are and where they are, and whether they are safe, using ser and estar.",
-      "focus": "ser for what something is, estar for its condition or location",
+      "objective": "Say what things are and describe their condition or location, like a live wire or a loose screw.",
+      "focus": "ser for what something is, estar for its condition or location, like a live wire",
       "words": [
-        {
-          "en": "the panel",
-          "es": "el panel",
-          "kind": "term"
-        },
-        {
-          "en": "the switch",
-          "es": "el interruptor",
-          "kind": "term"
-        },
         {
           "en": "safe",
           "es": "seguro",
@@ -234,19 +217,25 @@
           "kind": "term"
         },
         {
-          "en": "off",
-          "es": "apagado",
+          "en": "ready",
+          "es": "listo",
           "kind": "term"
         },
         {
-          "en": "on",
-          "es": "prendido",
+          "en": "off",
+          "es": "apagado",
           "kind": "term",
-          "note": "Mexican / US usage for a circuit or light that is on."
+          "note": "The ending matches the noun: use the -a ending with a feminine word."
         },
         {
-          "en": "damaged",
-          "es": "dañado",
+          "en": "live (energized)",
+          "es": "energizado",
+          "kind": "term",
+          "note": "For a live wire say energizado or con corriente, not prendido."
+        },
+        {
+          "en": "broken",
+          "es": "roto",
           "kind": "term"
         },
         {
@@ -255,86 +244,72 @@
           "kind": "term"
         },
         {
-          "en": "wet",
-          "es": "mojado",
+          "en": "new",
+          "es": "nuevo",
           "kind": "term"
         },
         {
-          "en": "hot",
-          "es": "caliente",
+          "en": "old",
+          "es": "viejo",
           "kind": "term"
         },
         {
-          "en": "The panel is in the garage.",
-          "es": "El panel está en el garaje.",
-          "kind": "phrase",
-          "note": "estar: location."
+          "en": "the owner",
+          "es": "el dueño",
+          "kind": "term",
+          "note": "For a woman: la dueña."
         },
         {
-          "en": "The wire is damaged.",
-          "es": "El cable está dañado.",
+          "en": "The wire is live.",
+          "es": "El cable está energizado.",
           "kind": "phrase",
-          "note": "estar: a condition that can change."
+          "note": "estar: a condition that can change. Always test before you touch."
         },
         {
-          "en": "Is the switch off?",
-          "es": "¿Está apagado el interruptor?",
+          "en": "The light is off.",
+          "es": "La luz está apagada.",
           "kind": "phrase"
         },
         {
-          "en": "The floor is wet; it isn't safe.",
-          "es": "El piso está mojado; no es seguro.",
+          "en": "The screw is loose.",
+          "es": "El tornillo está flojo.",
           "kind": "phrase"
         },
         {
-          "en": "I'm the electrician.",
-          "es": "Soy el electricista.",
+          "en": "The house is old.",
+          "es": "La casa es vieja.",
           "kind": "phrase",
-          "note": "ser: who or what someone is."
+          "note": "ser: what something is like."
         },
         {
-          "en": "It's dangerous to touch it if it's on.",
-          "es": "Es peligroso tocarlo si está prendido.",
-          "kind": "phrase"
+          "en": "The owner is in the kitchen.",
+          "es": "El dueño está en la cocina.",
+          "kind": "phrase",
+          "note": "estar for location."
         }
       ],
-      "speaking": "Tell an apprentice where the panel is, say whether the switch is off or on, and warn that a wet floor or damaged wire is not safe."
+      "speaking": "Tell a coworker whether the wire is live or off, whether a screw is loose, and where the owner is."
     },
     {
       "n": 4,
       "title": "Have, There Is, Need and Want",
-      "objective": "Say what you have, what there is, what you need and want, and what has to be done.",
-      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "objective": "Say what tools you have, need and want, what is in the truck, and what you have to do safely.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive for tools and safety steps",
       "words": [
         {
-          "en": "the screwdriver",
-          "es": "el destornillador",
-          "kind": "term"
-        },
-        {
           "en": "the pliers",
-          "es": "los alicates",
+          "es": "las pinzas",
+          "kind": "term"
+        },
+        {
+          "en": "the screwdriver",
+          "es": "el desarmador",
           "kind": "term",
-          "note": "Always plural in Spanish."
-        },
-        {
-          "en": "the electrical tape",
-          "es": "la cinta aislante",
-          "kind": "term"
-        },
-        {
-          "en": "the gloves",
-          "es": "los guantes",
-          "kind": "term"
+          "note": "Mexican word; you will also hear destornillador."
         },
         {
           "en": "the ladder",
           "es": "la escalera",
-          "kind": "term"
-        },
-        {
-          "en": "the flashlight",
-          "es": "la linterna",
           "kind": "term"
         },
         {
@@ -343,8 +318,13 @@
           "kind": "term"
         },
         {
-          "en": "the multimeter",
-          "es": "el multímetro",
+          "en": "the electrical tape",
+          "es": "la cinta de aislar",
+          "kind": "term"
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
           "kind": "term"
         },
         {
@@ -353,172 +333,63 @@
           "kind": "term"
         },
         {
-          "en": "the breaker",
-          "es": "el breaker",
+          "en": "the hard hat",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the flashlight",
+          "es": "la linterna",
+          "kind": "term"
+        },
+        {
+          "en": "the voltage tester",
+          "es": "el probador de voltaje",
           "kind": "term",
-          "note": "Standard job usage in the US."
+          "note": "Many crews also just say the tester."
         },
         {
-          "en": "the truck",
-          "es": "la troca",
-          "kind": "term",
-          "note": "US Spanish for pickup or work truck."
-        },
-        {
-          "en": "I have a ladder in the truck.",
-          "es": "Tengo una escalera en la troca.",
+          "en": "I need the screwdriver.",
+          "es": "Necesito el desarmador.",
           "kind": "phrase"
         },
         {
-          "en": "There's a problem in the panel.",
-          "es": "Hay un problema en el panel.",
+          "en": "Do you have a flashlight?",
+          "es": "¿Tienes una linterna?",
           "kind": "phrase",
-          "note": "hay means 'there is' and 'there are'."
+          "note": "Informal form, used between coworkers."
         },
         {
-          "en": "I need the gloves.",
-          "es": "Necesito los guantes.",
-          "kind": "phrase"
-        },
-        {
-          "en": "I want to see the panel.",
-          "es": "Quiero ver el panel.",
-          "kind": "phrase"
-        },
-        {
-          "en": "The breaker has to be turned off first.",
-          "es": "Hay que apagar el breaker primero.",
+          "en": "There's a ladder in the truck.",
+          "es": "Hay una escalera en la troca.",
           "kind": "phrase",
-          "note": "hay que + infinitive: 'it is necessary to'."
+          "note": "troca is the common US Spanish word for pickup truck."
         },
         {
-          "en": "I don't have the multimeter.",
-          "es": "No tengo el multímetro.",
+          "en": "I want to start in the kitchen.",
+          "es": "Quiero empezar en la cocina.",
           "kind": "phrase"
+        },
+        {
+          "en": "You have to wear safety glasses.",
+          "es": "Hay que usar lentes de seguridad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to test the wire before touching it.",
+          "es": "Hay que probar el cable antes de tocarlo.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone must do."
         }
       ],
-      "speaking": "Tell an apprentice which tools you have, which you need, and one thing that has to be done before you start work."
+      "speaking": "Ask a coworker for the tools you need, say what is in the truck, and say what you have to do before touching a wire."
     },
     {
       "n": 5,
       "title": "Go, Do and Can",
-      "objective": "Say where you are going, what you are going to do, and what you can do.",
-      "focus": "ir, ir a + infinitive for plans, hacer, poder",
+      "objective": "Say where you are going, what you are going to do, and what you can do in the customer's house.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder around the house and the truck",
       "words": [
-        {
-          "en": "the job site",
-          "es": "la obra",
-          "kind": "term"
-        },
-        {
-          "en": "the house",
-          "es": "la casa",
-          "kind": "term"
-        },
-        {
-          "en": "the office",
-          "es": "la oficina",
-          "kind": "term"
-        },
-        {
-          "en": "the basement",
-          "es": "el sótano",
-          "kind": "term"
-        },
-        {
-          "en": "the attic",
-          "es": "el ático",
-          "kind": "term"
-        },
-        {
-          "en": "the hardware store",
-          "es": "la ferretería",
-          "kind": "term",
-          "note": "Also used for the supply store."
-        },
-        {
-          "en": "the inspection",
-          "es": "la inspección",
-          "kind": "term"
-        },
-        {
-          "en": "the permit",
-          "es": "el permiso",
-          "kind": "term"
-        },
-        {
-          "en": "the repair",
-          "es": "la reparación",
-          "kind": "term"
-        },
-        {
-          "en": "the test",
-          "es": "la prueba",
-          "kind": "term"
-        },
-        {
-          "en": "I'm going to the hardware store.",
-          "es": "Voy a la ferretería.",
-          "kind": "phrase",
-          "note": "ir: voy, vas, va, vamos, van."
-        },
-        {
-          "en": "We're going to the job site at 7:00.",
-          "es": "Vamos a la obra a las 7:00.",
-          "kind": "phrase"
-        },
-        {
-          "en": "I'm going to do the test.",
-          "es": "Voy a hacer la prueba.",
-          "kind": "phrase",
-          "note": "ir a + infinitive: a plan."
-        },
-        {
-          "en": "Tomorrow we're going to ask for the permit.",
-          "es": "Mañana vamos a pedir el permiso.",
-          "kind": "phrase"
-        },
-        {
-          "en": "I can arrive at 8:00.",
-          "es": "Puedo llegar a las 8:00.",
-          "kind": "phrase",
-          "note": "poder: puedo, puedes, puede, podemos, pueden."
-        },
-        {
-          "en": "I can't enter the attic without a ladder.",
-          "es": "No puedo entrar al ático sin escalera.",
-          "kind": "phrase"
-        }
-      ],
-      "speaking": "Tell a coworker where you are going this morning, what you are going to do there, and what time you can arrive."
-    },
-    {
-      "n": 6,
-      "title": "Present Tense",
-      "objective": "Use regular -ar, -er and -ir verbs to say what you and others do in a room.",
-      "focus": "Present tense of regular -ar, -er and -ir verbs: yo, tú, usted, nosotros, ellos",
-      "words": [
-        {
-          "en": "the wall",
-          "es": "la pared",
-          "kind": "term"
-        },
-        {
-          "en": "the ceiling, the roof",
-          "es": "el techo",
-          "kind": "term",
-          "note": "Techo means both the ceiling and the roof."
-        },
-        {
-          "en": "the floor",
-          "es": "el piso",
-          "kind": "term"
-        },
-        {
-          "en": "the room",
-          "es": "el cuarto",
-          "kind": "term"
-        },
         {
           "en": "the kitchen",
           "es": "la cocina",
@@ -530,193 +401,296 @@
           "kind": "term"
         },
         {
-          "en": "the living room",
-          "es": "la sala",
+          "en": "the garage",
+          "es": "la cochera",
+          "kind": "term",
+          "note": "Common Mexican word; you will also hear garaje."
+        },
+        {
+          "en": "the attic",
+          "es": "el ático",
           "kind": "term"
         },
         {
-          "en": "the light switch",
-          "es": "el apagador",
-          "kind": "term",
-          "note": "Mexican usage for a wall light switch."
+          "en": "the wall",
+          "es": "la pared",
+          "kind": "term"
         },
         {
-          "en": "the light bulb",
-          "es": "el foco",
+          "en": "the ceiling",
+          "es": "el techo",
           "kind": "term",
-          "note": "Mexican usage."
+          "note": "Inside it is the ceiling; outside it is the roof."
+        },
+        {
+          "en": "the bedroom",
+          "es": "la recámara",
+          "kind": "term",
+          "note": "Mexican word for bedroom."
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the store",
+          "es": "la tienda",
+          "kind": "term",
+          "note": "On the job, often the electrical supply store."
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the truck.",
+          "es": "Voy a la troca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to change the bathroom light bulb.",
+          "es": "Voy a cambiar el foco del baño.",
+          "kind": "phrase",
+          "note": "ir a + infinitive talks about plans."
+        },
+        {
+          "en": "Tomorrow we do the work in the garage.",
+          "es": "Mañana hacemos el trabajo de la cochera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I go into the attic?",
+          "es": "¿Puedo entrar al ático?",
+          "kind": "phrase",
+          "note": "The words a and el join to make al."
+        },
+        {
+          "en": "I can come back tomorrow.",
+          "es": "Puedo regresar mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to the store at 10.",
+          "es": "Vamos a la tienda a las 10.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the homeowner where you are going, what you are going to do today, and ask if you can go into the attic."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe everyday work tasks in the present tense for yourself, a coworker, a customer and the crew.",
+      "focus": "Present tense -ar, -er, -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the wire",
+          "es": "el cable",
+          "kind": "term"
         },
         {
           "en": "the outlet",
           "es": "el contacto",
           "kind": "term",
-          "note": "Mexican usage. Also: el enchufe."
+          "note": "Mexican and US word; you will also hear enchufe."
         },
         {
-          "en": "I work in the kitchen today.",
-          "es": "Yo trabajo en la cocina hoy.",
-          "kind": "phrase",
-          "note": "-ar: trabajo, trabajas, trabaja, trabajamos, trabajan."
+          "en": "the light switch",
+          "es": "el apagador",
+          "kind": "term",
+          "note": "Mexican word; you will also hear interruptor."
         },
         {
-          "en": "You connect the outlet.",
-          "es": "Tú conectas el contacto.",
-          "kind": "phrase",
-          "note": "Informal tú: use it between coworkers."
+          "en": "the light; the power",
+          "es": "la luz",
+          "kind": "term"
         },
         {
-          "en": "You live on the second floor.",
-          "es": "Usted vive en el segundo piso.",
-          "kind": "phrase",
-          "note": "Formal usted, for a customer."
+          "en": "the fan",
+          "es": "el ventilador",
+          "kind": "term"
         },
         {
-          "en": "We change the bathroom light bulb.",
-          "es": "Nosotros cambiamos el foco del baño.",
-          "kind": "phrase",
-          "note": "-er: cambio, cambias, cambia, cambiamos, cambian... (cambiar is -ar)."
+          "en": "the lamp; the light fixture",
+          "es": "la lámpara",
+          "kind": "term"
         },
         {
-          "en": "They open the living room wall.",
-          "es": "Ellos abren la pared de la sala.",
-          "kind": "phrase",
-          "note": "-ir: abro, abres, abre, abrimos, abren."
+          "en": "the doorbell",
+          "es": "el timbre",
+          "kind": "term"
         },
         {
-          "en": "We climb up to the roof carefully.",
-          "es": "Nosotros subimos al techo con cuidado.",
+          "en": "the plan (drawing)",
+          "es": "el plano",
+          "kind": "term"
+        },
+        {
+          "en": "the apprentice",
+          "es": "el aprendiz",
+          "kind": "term",
+          "note": "Same word for a woman: la aprendiz."
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "For a woman: la clienta."
+        },
+        {
+          "en": "We work at the customer's house.",
+          "es": "Trabajamos en la casa de la clienta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I check the plan and you cut the wire.",
+          "es": "Yo reviso el plano y tú cortas el cable.",
           "kind": "phrase",
-          "note": "-ir: subimos."
+          "note": "Regular -ar verbs: the I form ends in -o, the informal you form in -as."
+        },
+        {
+          "en": "Do you live here?",
+          "es": "¿Usted vive aquí?",
+          "kind": "phrase",
+          "note": "Polite form for a customer; this is a regular -ir verb."
+        },
+        {
+          "en": "They install the fan today.",
+          "es": "Ellos instalan el ventilador hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The apprentice learns fast.",
+          "es": "El aprendiz aprende rápido.",
+          "kind": "phrase",
+          "note": "Regular -er verb: the he or she form ends in -e."
         }
       ],
-      "speaking": "Describe to a customer what you do and what your crew does in one room, using yo, nosotros and ellos with three different verbs."
+      "speaking": "Tell your helper who does what today: you check the plan, they cut the wire, and the crew installs the fan."
     },
     {
       "n": 7,
       "title": "Questions",
-      "objective": "Ask a customer basic questions about an electrical problem.",
-      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "objective": "Ask basic questions about where things are, who is in charge, when you start and how long a wire is.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
       "words": [
         {
-          "en": "what",
+          "en": "what?",
           "es": "¿qué?",
-          "kind": "term"
+          "kind": "term",
+          "note": "Question words always carry a written accent."
         },
         {
-          "en": "who",
+          "en": "who?",
           "es": "¿quién?",
           "kind": "term"
         },
         {
-          "en": "where",
+          "en": "where?",
           "es": "¿dónde?",
           "kind": "term"
         },
         {
-          "en": "when",
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "It changes to match the noun: -os for masculine plural, -as for feminine plural."
+        },
+        {
+          "en": "when?",
           "es": "¿cuándo?",
           "kind": "term"
         },
         {
-          "en": "how much",
-          "es": "¿cuánto?",
-          "kind": "term"
-        },
-        {
-          "en": "how",
+          "en": "how?",
           "es": "¿cómo?",
           "kind": "term"
         },
         {
-          "en": "why",
+          "en": "why?",
           "es": "¿por qué?",
           "kind": "term",
-          "note": "Two words, with an accent on qué."
+          "note": "Two words in a question; written as one word it means because."
         },
         {
-          "en": "which",
+          "en": "which? what?",
           "es": "¿cuál?",
-          "kind": "term"
-        },
-        {
-          "en": "the problem",
-          "es": "el problema",
           "kind": "term",
-          "note": "Masculine, even though it ends in -a."
+          "note": "Use it to ask for names, addresses and choices."
         },
         {
-          "en": "the noise",
-          "es": "el ruido",
-          "kind": "term"
+          "en": "the boss",
+          "es": "el jefe",
+          "kind": "term",
+          "note": "For a woman: la jefa."
         },
         {
-          "en": "the cause",
-          "es": "la causa",
-          "kind": "term"
-        },
-        {
-          "en": "Where is the panel?",
-          "es": "¿Dónde está el panel?",
+          "en": "Where are the pliers?",
+          "es": "¿Dónde están las pinzas?",
           "kind": "phrase"
         },
         {
-          "en": "When did the power go out?",
-          "es": "¿Cuándo se fue la luz?",
+          "en": "Who is the boss?",
+          "es": "¿Quién es el jefe?",
           "kind": "phrase"
         },
         {
-          "en": "How much does the permit cost?",
-          "es": "¿Cuánto cuesta el permiso?",
+          "en": "When do we start?",
+          "es": "¿Cuándo empezamos?",
           "kind": "phrase"
         },
         {
-          "en": "Why is the panel making noise?",
-          "es": "¿Por qué hace ruido el panel?",
+          "en": "How long is the wire?",
+          "es": "¿Cuánto mide el cable?",
           "kind": "phrase"
         },
         {
-          "en": "Who opened the box?",
-          "es": "¿Quién abrió la caja?",
+          "en": "Why is there no power?",
+          "es": "¿Por qué no hay luz?",
           "kind": "phrase"
         },
         {
-          "en": "Which is the problem? / What is the problem?",
-          "es": "¿Cuál es el problema?",
-          "kind": "phrase",
-          "note": "Use cuál before es to ask 'what is'."
+          "en": "What's the address of the house?",
+          "es": "¿Cuál es la dirección de la casa?",
+          "kind": "phrase"
         }
       ],
-      "speaking": "Ask a homeowner three questions about the problem: where it is, when it started, and what noise they hear."
+      "speaking": "Ask a new coworker where the pliers are, who the boss is, when you start and what the address of the house is."
     },
     {
       "n": 8,
       "title": "No, Never and How Much",
-      "objective": "Say no, never, nobody, nothing, not yet, more, less and another about a job.",
-      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "objective": "Say no, never, nobody, nothing and not yet, and ask for more, less or another on the job.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
       "words": [
-        {
-          "en": "no / not",
-          "es": "no",
-          "kind": "term"
-        },
         {
           "en": "never",
           "es": "nunca",
-          "kind": "term"
+          "kind": "term",
+          "note": "Put it before the verb, and you don't need another negative word."
         },
         {
           "en": "nobody",
           "es": "nadie",
-          "kind": "term"
+          "kind": "term",
+          "note": "Alone before the verb; if it comes after the verb, also put no before the verb."
         },
         {
           "en": "nothing",
           "es": "nada",
-          "kind": "term"
+          "kind": "term",
+          "note": "When it comes after the verb, also put no before the verb."
         },
         {
           "en": "not yet",
           "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "already",
+          "es": "ya",
           "kind": "term"
         },
         {
@@ -733,68 +707,69 @@
           "en": "another",
           "es": "otro",
           "kind": "term",
-          "note": "Feminine: otra."
+          "note": "Never put the word for 'a' in front of it; it already means another."
         },
         {
-          "en": "too much",
-          "es": "demasiado",
-          "kind": "term"
+          "en": "the problem",
+          "es": "el problema",
+          "kind": "term",
+          "note": "Ends in -a but is masculine."
         },
         {
-          "en": "the extension cord",
-          "es": "la extensión",
-          "kind": "term"
+          "en": "the inspector",
+          "es": "el inspector",
+          "kind": "term",
+          "note": "For a woman: la inspectora."
         },
         {
-          "en": "the overload",
-          "es": "la sobrecarga",
-          "kind": "term"
-        },
-        {
-          "en": "I never work with live wires.",
-          "es": "Nunca trabajo con cables prendidos.",
-          "kind": "phrase",
-          "note": "Safety rule: test and turn off before you touch."
-        },
-        {
-          "en": "There is nobody in the basement.",
-          "es": "No hay nadie en el sótano.",
-          "kind": "phrase",
-          "note": "Spanish uses a double negative: no hay nadie."
-        },
-        {
-          "en": "I haven't finished the job yet.",
-          "es": "Todavía no termino el trabajo.",
+          "en": "I never work without gloves.",
+          "es": "Nunca trabajo sin guantes.",
           "kind": "phrase"
         },
         {
-          "en": "I need more wire and another breaker.",
-          "es": "Necesito más cable y otro breaker.",
+          "en": "Nobody is in the attic.",
+          "es": "Nadie está en el ático.",
           "kind": "phrase"
         },
         {
-          "en": "I want to use fewer extension cords.",
-          "es": "Quiero usar menos extensiones.",
+          "en": "The inspector hasn't arrived yet.",
+          "es": "Todavía no llega el inspector.",
           "kind": "phrase"
         },
         {
-          "en": "There is nothing wrong in the panel.",
-          "es": "No hay nada malo en el panel.",
+          "en": "I need another roll of wire.",
+          "es": "Necesito otro rollo de cable.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need more screws.",
+          "es": "Necesitamos más tornillos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't see anything without the flashlight.",
+          "es": "No veo nada sin la linterna.",
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell a coworker what you never do, what you have not finished yet, and what you need more or less of."
+      "speaking": "Tell the crew lead that the inspector hasn't arrived yet, nobody is in the attic, and you need another roll of wire."
     },
     {
       "n": 9,
       "title": "Polite Requests and Commands",
-      "objective": "Make polite requests and give simple commands to customers and your crew.",
-      "focus": "¿Puede…? and usted commands for everyday verbs; ustedes commands to a crew",
+      "objective": "Politely ask a homeowner or coworker to do something and give simple, safe instructions.",
+      "focus": "¿Puede…? requests and usted commands, plus ustedes commands to a crew",
       "words": [
         {
           "en": "please",
           "es": "por favor",
           "kind": "term"
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Say it to pass by someone or to enter a room."
         },
         {
           "en": "carefully",
@@ -817,18 +792,8 @@
           "kind": "term"
         },
         {
-          "en": "first",
-          "es": "primero",
-          "kind": "term"
-        },
-        {
-          "en": "then / after",
-          "es": "después",
-          "kind": "term"
-        },
-        {
-          "en": "one moment",
-          "es": "un momento",
+          "en": "now",
+          "es": "ahora",
           "kind": "term"
         },
         {
@@ -837,105 +802,88 @@
           "kind": "term"
         },
         {
-          "en": "outside",
-          "es": "afuera",
+          "en": "the dog",
+          "es": "el perro",
           "kind": "term"
         },
         {
-          "en": "Can you show me where the panel is?",
-          "es": "¿Puede mostrarme dónde está el panel?",
-          "kind": "phrase",
-          "note": "Polite and formal. Use with a customer."
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term"
         },
         {
-          "en": "Can you open the door, please?",
-          "es": "¿Puede abrir la puerta, por favor?",
+          "en": "Can you move the car out of the garage?",
+          "es": "¿Puede sacar el carro de la cochera?",
+          "kind": "phrase",
+          "note": "Can you + infinitive: a polite request to one person."
+        },
+        {
+          "en": "Can you open the basement door?",
+          "es": "¿Puede abrir la puerta del sótano?",
           "kind": "phrase"
         },
         {
-          "en": "Please wait outside.",
-          "es": "Espere afuera, por favor.",
+          "en": "Hand me the pliers, please.",
+          "es": "Páseme las pinzas, por favor.",
           "kind": "phrase",
-          "note": "usted command to one person."
+          "note": "Polite command to one person; the ending -me means 'to me'."
         },
         {
-          "en": "Turn off the breaker first.",
-          "es": "Apague el breaker primero.",
+          "en": "Please don't touch the wires.",
+          "es": "No toque los cables, por favor.",
           "kind": "phrase",
-          "note": "usted command: -ar verbs end in -e."
+          "note": "Negative polite command to one person."
         },
         {
-          "en": "Check the label carefully.",
-          "es": "Revisen la etiqueta con cuidado.",
-          "kind": "phrase",
-          "note": "ustedes command to a crew: end in -en."
+          "en": "Please wait here.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
         },
         {
           "en": "Bring the ladder, please.",
           "es": "Traigan la escalera, por favor.",
           "kind": "phrase",
-          "note": "ustedes command to a crew."
+          "note": "Plural command, for the whole crew."
         }
       ],
-      "speaking": "Politely ask a homeowner to show you the panel and wait outside, then tell your crew to bring the ladder and check the label."
+      "speaking": "Politely ask the homeowner to open the door, move the car and not touch the wires, then ask your crew to bring the ladder."
     },
     {
       "n": 10,
       "title": "Words You Already Know and Getting Help",
-      "objective": "Spot Spanish words you already know and ask for help when you do not understand.",
+      "objective": "Recognize Spanish words you already know and ask for help when you don't understand.",
       "focus": "Cognates ending in -ción, -dad, -ente and survival phrases for getting help",
       "words": [
         {
           "en": "the installation",
           "es": "la instalación",
           "kind": "term",
-          "note": "-ción matches English -tion."
+          "note": "Words ending in -ción are like English -tion and are feminine."
         },
         {
-          "en": "the protection",
-          "es": "la protección",
+          "en": "the connection",
+          "es": "la conexión",
           "kind": "term"
         },
         {
-          "en": "the information",
-          "es": "la información",
+          "en": "the inspection",
+          "es": "la inspección",
           "kind": "term"
         },
         {
-          "en": "the electricity",
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term"
+        },
+        {
+          "en": "electricity",
           "es": "la electricidad",
           "kind": "term",
-          "note": "-dad matches English -ty."
+          "note": "Words ending in -dad are like English -ty and are feminine."
         },
         {
-          "en": "the safety",
+          "en": "safety",
           "es": "la seguridad",
-          "kind": "term"
-        },
-        {
-          "en": "the capacity",
-          "es": "la capacidad",
-          "kind": "term"
-        },
-        {
-          "en": "the quantity",
-          "es": "la cantidad",
-          "kind": "term"
-        },
-        {
-          "en": "important",
-          "es": "importante",
-          "kind": "term",
-          "note": "-ente matches English -ent."
-        },
-        {
-          "en": "urgent",
-          "es": "urgente",
-          "kind": "term"
-        },
-        {
-          "en": "the accident",
-          "es": "el accidente",
           "kind": "term"
         },
         {
@@ -944,37 +892,54 @@
           "kind": "term"
         },
         {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the current",
+          "es": "la corriente",
+          "kind": "term",
+          "note": "A wire with current is live, the same as energized."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
           "en": "I don't understand.",
           "es": "No entiendo.",
           "kind": "phrase"
         },
         {
-          "en": "I speak a little Spanish.",
-          "es": "Hablo poco español.",
-          "kind": "phrase"
-        },
-        {
-          "en": "Slower, please.",
+          "en": "More slowly, please.",
           "es": "Más despacio, por favor.",
           "kind": "phrase"
         },
         {
-          "en": "How do you say \"conduit\" in Spanish?",
-          "es": "¿Cómo se dice \"conduit\" en español?",
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase",
+          "note": "Polite form, for someone you don't know well."
+        },
+        {
+          "en": "I need help.",
+          "es": "Necesito ayuda.",
           "kind": "phrase"
         },
         {
-          "en": "I need help, it's urgent.",
-          "es": "Necesito ayuda, es urgente.",
+          "en": "It's an emergency, call 911.",
+          "es": "Es una emergencia, llame al 911.",
           "kind": "phrase"
         },
         {
-          "en": "Safety is very important.",
-          "es": "La seguridad es muy importante.",
+          "en": "There's a problem with the connection.",
+          "es": "Hay un problema con la conexión.",
           "kind": "phrase"
         }
       ],
-      "speaking": "Tell a coworker you speak a little Spanish, ask them to speak slowly, and use two cognates to say that safety is important."
+      "speaking": "Tell a coworker you don't understand, ask them to speak more slowly, and say there is a problem and you need help."
     }
   ]
 }

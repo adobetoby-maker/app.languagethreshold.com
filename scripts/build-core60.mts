@@ -14,9 +14,24 @@
 //           titles not from the Core 30, missions that never reveal the complication, ...).
 //   step 2  one call per lesson for the passage and verbs, validated with validateLessonContent
 //           (contentLimitsFor the stage), every term's head word in the passage, attributed specs.
-//   A failing reply is retried with its error list (up to 4 attempts per call).
-//   When every lesson passes, the stage is published in one go: src/data/core60/<lang>/<id>.json,
-//   public/lesson-content/<lang>/<id>.json, its index.json entry and its manifest line.
+//   A failing reply is retried with its error list (up to 4 attempts per call). A Master whose
+//   stage-wide check fails after all five blocks redoes the offending block(s) once; if it still
+//   fails, those blocks are cleared from the progress file so --resume writes them again.
+//   When every lesson passes, the stage is published in one go, in crash-safe order:
+//   public/lesson-content/<lang>/<id>.json, src/data/core60/<lang>/<id>.json, index.json, and the
+//   manifest line LAST (with the stage's own blurb, userRole and challengePrompts).
+//
+// Providers (--provider):
+//   cli (default)  the logged-in Claude Code CLI, `claude -p`, billed to the owner's Claude
+//                  subscription (Keychain OAuth). Each call: --output-format json, --json-schema
+//                  (the tool's schema), --tools "" (no tools), --system-prompt (replaces Claude
+//                  Code's own), --safe-mode (no CLAUDE.md, hooks, skills, plugins, MCP),
+//                  --strict-mcp-config, --no-session-persistence, --disable-slash-commands, run
+//                  from an empty temp directory with every ANTHROPIC_* / CLAUDE_CODE_* variable
+//                  removed from the child's environment (so it can never bill an API key).
+//                  Usage limits, rate limits and overloads pause every call and retry with
+//                  exponential backoff (30 s doubling, max 15 min per wait). Default model Opus.
+//   api            the Anthropic API with ANTHROPIC_API_KEY (tool calls). Default model Sonnet.
 //
 // Pairs: Spanish target / English native for every module with Spanish Core 30 content; English
 // target / Spanish native for the English-for-work modules (learnDirection "en-target"), the same
@@ -25,8 +40,11 @@
 // Flags:
 //   --module <id,...|all>      modules to write (required unless --dry-run)
 //   --stage foundation|master  one stage only (default both)
-//   --model sonnet|opus|<id>   default claude-sonnet-5-5; opus = claude-opus-5-5
-//   --concurrency N            parallel API calls (default 6)
+//   --provider cli|api         default cli (subscription); api bills ANTHROPIC_API_KEY
+//   --model sonnet|opus|<id>   default claude-opus-5-5 (cli) / claude-sonnet-5-5 (api)
+//   --concurrency N            parallel calls (default 2 for cli, 6 for api)
+//   --claude-bin <path>        the CLI (default ~/.local/bin/claude, else "claude" on PATH)
+//   --rate-limit-wait-hours N  give up (resumable) after waiting this long on limits (default 8)
 //   --resume                   continue a stage that has saved progress
 //   --force                    start the selected stages over (also re-writes published stages)
 //   --tag <name>               write progress under .core60-progress/<name>/ and never publish
@@ -36,18 +54,21 @@
 //                              (default: ./.dev.vars, then ~/language-lens-elite/.dev.vars)
 //   --timeout-ms N             per-call timeout (default 600000)
 //
-// The key is read from the environment (or the env file, into this process only) and is never
-// printed or logged. Progress (gitignored, resumable): .core60-progress/
+// api: the key is read from the environment (or the env file, into this process only) and is never
+// printed or logged. cli: no key is read or passed. Progress (gitignored, resumable, one entry per
+// call with its tokens and the CLI's notional cost): .core60-progress/
 
+import { spawn } from "node:child_process";
 import {
   existsSync,
   mkdirSync,
+  mkdtempSync,
   readFileSync,
   renameSync,
   statSync,
   writeFileSync,
 } from "node:fs";
-import { homedir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
@@ -74,14 +95,22 @@ import {
 import {
   BLOCK_TOOL,
   CONTENT_TOOL,
-  CORE60_DEFAULT_MODEL,
+  CORE60_DEFAULT_PROVIDER,
   CORE60_MODEL_PRICES,
+  CORE60_PROVIDER_DEFAULT_MODEL,
   FOUNDATION_TOOL,
   MASTER_BLOCKS,
   OUTLINE_TOOL,
   assembleStageFile,
   blockErrors,
   blockFromReply,
+  blocksToRedo,
+  catalogErrors,
+  catalogManifestStage,
+  cliInputTokens,
+  cliJsonSchema,
+  cliPrompt,
+  cliSystemPrompt,
   core60PairFor,
   costUsd,
   estimateCost,
@@ -92,15 +121,19 @@ import {
   masterOutlineRequest,
   outlineErrors,
   outlineFromReply,
+  parseCliOutput,
   resolveModel,
   stageContentErrors,
   stageContentRequest,
   stageFileErrors,
   toolInput,
   type ApiRequest,
+  type CliCallUsage,
   type ContentBlockLike,
+  type Core60Provider,
   type Core60Pair,
   type MasterOutline,
+  type StageCatalog,
   type StageContext,
 } from "../src/lib/core60-generator-core.ts";
 
@@ -129,8 +162,17 @@ const WANT_MODULES = MODULE_ARG && MODULE_ARG !== "all" ? MODULE_ARG.split(",").
 const STAGE_ARG = flag("stage");
 const STAGES: Core60StageKind[] =
   STAGE_ARG === "foundation" || STAGE_ARG === "master" ? [STAGE_ARG] : ["foundation", "master"];
-const MODEL = resolveModel(flag("model"));
-const CONCURRENCY = intFlag("concurrency", 6);
+const PROVIDER_ARG = flag("provider");
+const PROVIDER: Core60Provider = PROVIDER_ARG === "api" || PROVIDER_ARG === "cli" ? PROVIDER_ARG : CORE60_DEFAULT_PROVIDER;
+if (PROVIDER_ARG !== undefined && PROVIDER_ARG !== PROVIDER) {
+  console.error('--provider must be "cli" or "api"');
+  process.exit(2);
+}
+const MODEL = resolveModel(flag("model"), PROVIDER);
+const CONCURRENCY = intFlag("concurrency", PROVIDER === "cli" ? 2 : 6);
+const CLAUDE_BIN =
+  flag("claude-bin") || (existsSync(join(homedir(), ".local", "bin", "claude")) ? join(homedir(), ".local", "bin", "claude") : "claude");
+const RATE_LIMIT_WAIT_MS = intFlag("rate-limit-wait-hours", 8) * 3_600_000;
 const TIMEOUT_MS = intFlag("timeout-ms", 600_000);
 const DRY_RUN = has("dry-run");
 const FORCE = has("force");
@@ -175,6 +217,25 @@ interface Usage {
 }
 const emptyUsage = (): Usage => ({ calls: 0, inputTokens: 0, outputTokens: 0, validationRetries: 0 });
 
+/** One call as the progress log keeps it (tokens; for the cli provider also its notional cost). */
+interface CallLog {
+  kind: string;
+  attempt: number;
+  provider: Core60Provider;
+  at: string;
+  ok: boolean;
+  inputTokens: number;
+  outputTokens: number;
+  cacheCreationInputTokens?: number;
+  cacheReadInputTokens?: number;
+  /** cli: the CLI's total_cost_usd (list-price notional; not billed on a subscription). */
+  costUsd?: number | null;
+  durationMs?: number | null;
+  numTurns?: number | null;
+  model?: string | null;
+  error?: string;
+}
+
 interface Progress {
   module: string;
   base: string;
@@ -183,12 +244,15 @@ interface Progress {
   nativeLanguage: string;
   model: string;
   startedAt: string;
-  foundation?: { threshold: string; lessons: Core60StageLesson[] };
+  foundation?: { threshold: string; catalog?: StageCatalog; lessons: Core60StageLesson[] };
   outline?: MasterOutline;
-  blocks?: Record<string, Core60StageLesson[]>;
-  content: Record<string, LessonContentLesson>;
+  blocks?: Record<string, Core60StageLesson[] | undefined>;
+  content: Record<string, LessonContentLesson | undefined>;
   usage: Record<string, Usage>;
+  calls?: CallLog[];
   failures: string[];
+  /** Set when the stage was published from this progress (a --force rewrite resumes until then). */
+  publishedAt?: string;
 }
 
 interface StagePlan {
@@ -295,10 +359,14 @@ class FatalError extends Error {}
 let client: Anthropic | null = null;
 let active = 0;
 const waiting: (() => void)[] = [];
+/** A usage / rate limit pauses every call until this time (epoch ms). */
+let pausedUntil = 0;
+const sleep = (ms: number) => new Promise<void>((resolveSleep) => setTimeout(resolveSleep, ms));
 async function slot<T>(run: () => Promise<T>): Promise<T> {
   if (active >= CONCURRENCY) await new Promise<void>((resolveSlot) => waiting.push(resolveSlot));
   active++;
   try {
+    while (Date.now() < pausedUntil) await sleep(pausedUntil - Date.now());
     return await run();
   } finally {
     active--;
@@ -307,6 +375,11 @@ async function slot<T>(run: () => Promise<T>): Promise<T> {
 }
 
 const runUsage = new Map<string, Usage>();
+let runNotionalUsd = 0;
+function logCall(progress: Progress, entry: Omit<CallLog, "at" | "provider">) {
+  (progress.calls ??= []).push({ at: new Date().toISOString(), provider: PROVIDER, ...entry });
+  if (typeof entry.costUsd === "number") runNotionalUsd += entry.costUsd;
+}
 function addUsage(progress: Progress, kind: string, input: number, output: number, retry: boolean) {
   const bump = (entry: Usage) => {
     entry.calls += 1;
@@ -330,6 +403,7 @@ async function validatedCall<T>(
   toolName: string,
   check: (input: Record<string, unknown>) => { value: T; errors: string[] },
 ): Promise<T> {
+  if (PROVIDER === "cli") return validatedCliCall(progress, kind, body, toolName, check);
   const messages = [...body.messages] as { role: "user" | "assistant"; content: unknown }[];
   let last = "no attempt";
   for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
@@ -351,6 +425,14 @@ async function validatedCall<T>(
       }
     });
     addUsage(progress, kind, message.usage.input_tokens ?? 0, message.usage.output_tokens ?? 0, attempt > 0);
+    logCall(progress, {
+      kind,
+      attempt,
+      ok: true,
+      inputTokens: message.usage.input_tokens ?? 0,
+      outputTokens: message.usage.output_tokens ?? 0,
+      model: MODEL,
+    });
     const content = message.content as unknown as ContentBlockLike[];
     const input = toolInput(content, toolName);
     let errors: string[];
@@ -387,6 +469,159 @@ async function validatedCall<T>(
   throw new Error(`${kind} failed validation after ${MAX_ATTEMPTS} attempts: ${last}`);
 }
 
+// ─── cli provider: `claude -p` on the owner's subscription ──────────────────
+
+let cliCwd: string | null = null;
+
+/**
+ * The child's environment: this process's, minus every ANTHROPIC_* variable (an API key, auth
+ * token or base URL would make the CLI bill the API instead of the subscription) and every
+ * Claude Code session variable (CLAUDECODE, CLAUDE_CODE_*, ...) inherited from a parent session.
+ */
+function cliEnv(): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = {};
+  for (const [key, value] of Object.entries(process.env)) {
+    if (/^(ANTHROPIC_|CLAUDE_CODE_|CLAUDE_AGENT_SDK_|CLAUDE_PREVIEW_)|^(CLAUDECODE|CLAUDE_PID|CLAUDE_EFFORT)$/.test(key)) continue;
+    env[key] = value;
+  }
+  return env;
+}
+
+function runCli(args: string[], input: string): Promise<{ stdout: string; stderr: string; code: number | null; timedOut: boolean }> {
+  cliCwd ??= mkdtempSync(join(tmpdir(), "core60-cli-"));
+  return new Promise((resolveRun) => {
+    const child = spawn(CLAUDE_BIN, args, { cwd: cliCwd!, env: cliEnv(), stdio: ["pipe", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    let timedOut = false;
+    const timer = setTimeout(() => {
+      timedOut = true;
+      child.kill("SIGTERM");
+      setTimeout(() => child.kill("SIGKILL"), 10_000).unref();
+    }, TIMEOUT_MS);
+    child.stdout.on("data", (chunk) => (stdout += chunk));
+    child.stderr.on("data", (chunk) => (stderr += chunk));
+    child.on("error", (error) => {
+      clearTimeout(timer);
+      resolveRun({ stdout, stderr: `${stderr}\n${error.message}`, code: null, timedOut });
+    });
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      resolveRun({ stdout, stderr, code, timedOut });
+    });
+    child.stdin.end(input);
+  });
+}
+
+const MAX_WAIT_MS = 15 * 60_000;
+
+/**
+ * One CLI call, retried through limits and transient failures: a usage / rate limit or overload
+ * pauses every call (until the CLI's reset time when it gives one, else 30 s doubling, at most
+ * 15 min per wait) for up to --rate-limit-wait-hours in total; a broken login stops the run;
+ * anything else is retried 3 times. Every call is logged with the CLI's usage and notional cost.
+ */
+async function callCli(
+  progress: Progress,
+  kind: string,
+  attempt: number,
+  system: string,
+  schema: string,
+  prompt: string,
+  effort: string | undefined,
+): Promise<Record<string, unknown> | null> {
+  const args = [
+    "-p",
+    "--output-format", "json",
+    "--model", MODEL,
+    "--tools", "",
+    "--system-prompt", system,
+    "--json-schema", schema,
+    ...(effort ? ["--effort", effort] : []),
+    "--safe-mode",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--disable-slash-commands",
+  ];
+  let backoff = 30_000;
+  let waited = 0;
+  let failures = 0;
+  for (;;) {
+    const run = await slot(() => runCli(args, prompt));
+    const outcome = run.timedOut
+      ? { ...parseCliOutput("", "", run.code), error: `timed out after ${TIMEOUT_MS} ms`, kind: "other" as const, ok: false }
+      : parseCliOutput(run.stdout, run.stderr, run.code);
+    const usage: CliCallUsage = outcome.usage;
+    logCall(progress, {
+      kind,
+      attempt,
+      ok: outcome.ok,
+      inputTokens: cliInputTokens(usage),
+      outputTokens: usage.outputTokens,
+      cacheCreationInputTokens: usage.cacheCreationInputTokens,
+      cacheReadInputTokens: usage.cacheReadInputTokens,
+      costUsd: usage.costUsd,
+      durationMs: usage.durationMs,
+      numTurns: usage.numTurns,
+      model: usage.model,
+      ...(outcome.ok ? {} : { error: outcome.error.slice(0, 300) }),
+    });
+    if (outcome.ok) {
+      addUsage(progress, kind, cliInputTokens(usage), usage.outputTokens, attempt > 0);
+      return outcome.value;
+    }
+    if (outcome.kind === "auth") {
+      throw new FatalError(`the Claude CLI login was refused (${outcome.error.slice(0, 160)}); run \`claude\` and /login, then --resume`);
+    }
+    if (outcome.kind === "rate_limit") {
+      const untilReset = outcome.resetAt ? outcome.resetAt - Date.now() + 30_000 : 0;
+      const wait = Math.min(MAX_WAIT_MS, Math.max(untilReset, backoff));
+      backoff = Math.min(MAX_WAIT_MS, backoff * 2);
+      waited += wait;
+      if (waited > RATE_LIMIT_WAIT_MS) {
+        throw new FatalError(`still limited after waiting ${Math.round(waited / 60_000)} min (${outcome.error.slice(0, 160)}); rerun with --resume later`);
+      }
+      pausedUntil = Math.max(pausedUntil, Date.now() + wait);
+      console.log(`  ${kind}: limited (${outcome.error.slice(0, 120)}); pausing all calls ${Math.round(wait / 1000)} s`);
+      continue;
+    }
+    failures += 1;
+    if (failures > 3) throw new Error(`${kind}: the Claude CLI failed ${failures} times: ${outcome.error.slice(0, 300)}`);
+    console.log(`  ${kind}: CLI error (${outcome.error.slice(0, 120)}); retry ${failures} of 3`);
+    await sleep(15_000 * 2 ** (failures - 1));
+  }
+}
+
+/** validatedCall for the cli provider: stateless calls, each retry carries the rejected answer and its errors. */
+async function validatedCliCall<T>(
+  progress: Progress,
+  kind: string,
+  body: ApiRequest,
+  toolName: string,
+  check: (input: Record<string, unknown>) => { value: T; errors: string[] },
+): Promise<T> {
+  const tool = body.tools.find((t) => t.name === toolName) ?? body.tools[0];
+  const system = cliSystemPrompt(body.system, toolName);
+  const schema = JSON.stringify(cliJsonSchema(tool.input_schema));
+  let retry: { reply: unknown; errors: string[] } | undefined;
+  let last = "no attempt";
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+    const input = await callCli(progress, kind, attempt, system, schema, cliPrompt(body, retry), body.output_config?.effort);
+    let errors: string[];
+    if (!input) {
+      errors = ["Your reply was not one complete JSON object matching the schema. Return the complete content as that object."];
+    } else {
+      const checked = check(input);
+      errors = checked.errors;
+      if (errors.length === 0) return checked.value;
+    }
+    last = errors.slice(0, 6).join(" | ");
+    console.log(`  ${progress.module} ${kind}: attempt ${attempt + 1} rejected (${errors.length} error(s): ${errors.slice(0, 2).join(" | ").slice(0, 200)})`);
+    retry = { reply: input ?? "(no JSON object)", errors };
+  }
+  throw new Error(`${kind} failed validation after ${MAX_ATTEMPTS} attempts: ${last}`);
+}
+
 // ─── Steps ───────────────────────────────────────────────────────────────────
 
 function saveProgress(plan: StagePlan) {
@@ -406,7 +641,7 @@ async function stepCurriculum(plan: StagePlan): Promise<Core60StageFile> {
         (input) => {
           const value = foundationFromReply(input, ctx);
           const file = assembleStageFile(ctx, value.threshold, value.lessons, provenance(progress));
-          return { value, errors: stageFileErrors(file, ctx) };
+          return { value, errors: [...stageFileErrors(file, ctx), ...catalogErrors(value.catalog, ctx)] };
         },
       );
       saveProgress(plan);
@@ -430,28 +665,57 @@ async function stepCurriculum(plan: StagePlan): Promise<Core60StageFile> {
   }
   const outline = progress.outline;
   progress.blocks ??= {};
-  for (const block of MASTER_BLOCKS) {
-    if (progress.blocks[block.block]) continue;
-    const earlier = MASTER_BLOCKS.filter((b) => b.block < block.block).flatMap((b) => progress.blocks![b.block] ?? []);
-    progress.blocks[block.block] = await validatedCall(
+  const writeBlock = async (block: (typeof MASTER_BLOCKS)[number], others: Core60StageLesson[], kind: string) => {
+    progress.blocks![block.block] = await validatedCall(
       progress,
-      "masterBlock",
-      masterBlockRequest(ctx, MODEL, outline, block, earlier),
+      kind,
+      masterBlockRequest(ctx, MODEL, outline, block, others),
       BLOCK_TOOL,
       (input) => {
         const value = blockFromReply(input, outline, block);
-        return { value, errors: blockErrors(value, earlier, ctx, outline.threshold) };
+        return { value, errors: blockErrors(value, others, ctx, outline.threshold) };
       },
     );
     saveProgress(plan);
-    console.log(`  ${plan.moduleId}: block ${block.block} written`);
+    console.log(`  ${plan.moduleId}: block ${block.block} written${kind === "masterBlock" ? "" : " (redo)"}`);
+  };
+  for (const block of MASTER_BLOCKS) {
+    if (progress.blocks[block.block]) continue;
+    const earlier = MASTER_BLOCKS.filter((b) => b.block < block.block).flatMap((b) => progress.blocks![b.block] ?? []);
+    await writeBlock(block, earlier, "masterBlock");
   }
-  const lessons = stageLessons(progress, "master")!;
-  const file = assembleStageFile(ctx, outline.threshold, lessons, provenance(progress));
-  const errors = stageFileErrors(file, ctx);
+  const assemble = () => assembleStageFile(ctx, outline.threshold, stageLessons(progress, "master")!, provenance(progress));
+  // Clears blocks (and any content written for their lessons) so they are written again.
+  const clearBlocks = (blocks: readonly string[]) => {
+    for (const b of blocks) {
+      delete progress.blocks![b];
+      for (const n of MASTER_BLOCKS.find((spec) => spec.block === b)!.lessons) delete progress.content[String(n)];
+    }
+    saveProgress(plan);
+  };
+  let file = assemble();
+  let errors = stageFileErrors(file, ctx);
   if (errors.length > 0) {
-    // Cross-block problems the per-block checks could not see: redo the last block once.
-    throw new Error(`stage file failed validation: ${errors.slice(0, 6).join(" | ")}`);
+    // Cross-block problems the per-block checks could not see: redo the offending block(s) once,
+    // each checked against every other block.
+    const redo = blocksToRedo(errors);
+    console.log(`  ${plan.moduleId}: stage-wide check failed (${errors.slice(0, 3).join(" | ")}); redoing block(s) ${redo.join(", ")}`);
+    clearBlocks(redo);
+    for (const b of redo) {
+      const block = MASTER_BLOCKS.find((spec) => spec.block === b)!;
+      const others = MASTER_BLOCKS.filter((spec) => spec.block !== b).flatMap((spec) => progress.blocks![spec.block] ?? []);
+      await writeBlock(block, others, "masterBlockRedo");
+    }
+    file = assemble();
+    errors = stageFileErrors(file, ctx);
+    if (errors.length > 0) {
+      // Never keep a bad block cached: --resume writes the offending blocks again instead of looping.
+      const again = blocksToRedo(errors);
+      clearBlocks(again);
+      throw new Error(
+        `stage file failed validation after the redo (block(s) ${again.join(", ")} cleared; --resume writes them again): ${errors.slice(0, 6).join(" | ")}`,
+      );
+    }
   }
   return file;
 }
@@ -548,13 +812,18 @@ function upsertIndex(language: string, module: string, lessons: number, bytes: n
   writeAtomic(file, pyJson(index));
 }
 
+/**
+ * Publishes a complete stage. Order (crash-safe): the lesson content, the stage file, index.json,
+ * and the manifest LAST, so a crash never leaves the manifest pointing at a missing file (an
+ * unlisted stage file is only a validate:core60 warning). The manifest entry gets the stage's own
+ * catalog text (blurb, userRole, challengePrompts).
+ */
 function publish(plan: StagePlan, file: Core60StageFile) {
   const { ctx } = plan;
   const progress = plan.progress!;
-  writeAtomic(plan.stageFile, `${JSON.stringify(file, null, 2)}\n`);
   const lessons: Record<string, LessonContentLesson> = {};
   for (const lesson of file.lessons) {
-    const content = progress.content[String(lesson.n)];
+    const content = progress.content[String(lesson.n)]!;
     lessons[String(lesson.n)] = { passage: content.passage, verbs: cleanLessonVerbs(content.verbs, ctx.pair.language) };
   }
   const content: LessonContentFile = {
@@ -568,14 +837,18 @@ function publish(plan: StagePlan, file: Core60StageFile) {
     lessons,
   };
   writeAtomic(plan.contentFile, JSON.stringify(content));
+  writeAtomic(plan.stageFile, `${JSON.stringify(file, null, 2)}\n`);
   upsertIndex(ctx.pair.language, plan.moduleId, file.lessons.length, statSync(plan.contentFile).size);
   let entry = manifest.find((e) => e.base === ctx.module.id);
   if (!entry) {
     entry = { base: ctx.module.id, language: ctx.pair.language };
     manifest.push(entry);
   }
-  entry[ctx.stage] = entry[ctx.stage] ?? {};
+  const catalog = ctx.stage === "foundation" ? progress.foundation?.catalog : progress.outline?.catalog;
+  entry[ctx.stage] = catalog ? catalogManifestStage(catalog) : (entry[ctx.stage] ?? {});
   writeManifest();
+  progress.publishedAt = new Date().toISOString();
+  saveProgress(plan);
 }
 
 // ─── Run ─────────────────────────────────────────────────────────────────────
@@ -607,14 +880,17 @@ function dryRun(plans: StagePlan[], skipped: Skipped[]) {
   let output = 0;
   let calls = 0;
   let lessons = 0;
-  console.log(`Plan: ${rows.length} stage(s) to write, model for this run ${MODEL}, concurrency ${CONCURRENCY}`);
+  console.log(
+    `Plan: ${rows.length} stage(s) to write, provider ${PROVIDER}, model for this run ${MODEL}, concurrency ${CONCURRENCY}` +
+      (PROVIDER === "cli" ? " (billed to the Claude subscription: dollar figures are notional list prices)" : ""),
+  );
   for (const plan of rows) {
     const total = plan.ctx.stage === "foundation" ? 10 : 20;
     const done = Object.keys(plan.progress?.content ?? {}).length;
     const curriculumDone = stageLessons(plan.progress, plan.ctx.stage) !== null;
     const est = estimateStage(plan.ctx.stage, total - done, curriculumDone);
-    const s = estimateCost("claude-sonnet-5-5", est)!;
     const o = estimateCost("claude-opus-5-5", est)!;
+    const s = estimateCost("claude-sonnet-5-5", est)!;
     sonnet += s;
     opus += o;
     input += est.inputTokens;
@@ -622,14 +898,14 @@ function dryRun(plans: StagePlan[], skipped: Skipped[]) {
     calls += est.calls;
     lessons += total - done;
     console.log(
-      `  ${languageTag(plan.ctx.pair.language)}/${plan.moduleId.padEnd(36)} core ${String(plan.ctx.core30.titles.length).padStart(2)} | ${String(total - done).padStart(2)} lessons  calls ~${String(est.calls).padStart(2)}  in ~${fmt(est.inputTokens).padStart(7)}  out ~${fmt(est.outputTokens).padStart(7)}  sonnet ${usd(s).padStart(7)}  opus ${usd(o).padStart(7)}`,
+      `  ${languageTag(plan.ctx.pair.language)}/${plan.moduleId.padEnd(36)} core ${String(plan.ctx.core30.titles.length).padStart(2)} | ${String(total - done).padStart(2)} lessons  calls ~${String(est.calls).padStart(2)}  in ~${fmt(est.inputTokens).padStart(7)}  out ~${fmt(est.outputTokens).padStart(7)}  opus ${usd(o).padStart(7)}  sonnet ${usd(s).padStart(7)}`,
     );
   }
   for (const skip of skipped) console.log(`  skipped ${skip.module}: ${skip.reason}`);
   console.log(
-    `Total: ${rows.length} stages, ${lessons} lessons, ~${fmt(calls)} calls (retries included), input ~${fmt(input)} / output ~${fmt(output)} tokens\n` +
-      `  claude-sonnet-5-5 ($${CORE60_MODEL_PRICES["claude-sonnet-5-5"].input}/$${CORE60_MODEL_PRICES["claude-sonnet-5-5"].output} per MTok): ${usd(sonnet)}\n` +
-      `  claude-opus-5-5   ($${CORE60_MODEL_PRICES["claude-opus-5-5"].input}/$${CORE60_MODEL_PRICES["claude-opus-5-5"].output} per MTok): ${usd(opus)}\n` +
+    `Total: ${rows.length} stages, ${lessons} lessons, ~${fmt(calls)} calls (retries included), input ~${fmt(input)} / output ~${fmt(output)} tokens (Sonnet-measured)\n` +
+      `  claude-opus-5-5   ($${CORE60_MODEL_PRICES["claude-opus-5-5"].input}/$${CORE60_MODEL_PRICES["claude-opus-5-5"].output} per MTok, the default build model): ${usd(opus)}\n` +
+      `  claude-sonnet-5-5 ($${CORE60_MODEL_PRICES["claude-sonnet-5-5"].input}/$${CORE60_MODEL_PRICES["claude-sonnet-5-5"].output} per MTok, --model sonnet): ${usd(sonnet)}\n` +
       `  (Token figures are Sonnet's, measured on the pilot; Opus is priced at 0.61x the input and 1.0x the output tokens, as measured on master-electrician.)`,
   );
 }
@@ -644,22 +920,29 @@ async function main() {
     dryRun(plans, skipped);
     return;
   }
-  const todo = plans.filter((plan) => !plan.published || FORCE);
-  for (const plan of plans.filter((p) => p.published && !FORCE)) console.log(`skip ${plan.moduleId}: already published`);
+  // A published stage is redone with --force; a --force rewrite that stopped part way (saved
+  // progress, not yet published from it) continues with --resume.
+  const resuming = (plan: StagePlan) => RESUME && plan.progress !== null && !plan.progress.publishedAt;
+  const todo = plans.filter((plan) => !plan.published || FORCE || resuming(plan));
+  for (const plan of plans.filter((p) => !todo.includes(p))) console.log(`skip ${plan.moduleId}: already published`);
   for (const plan of todo) {
     if (plan.progress && !RESUME) {
       console.error(`${plan.moduleId} has saved progress (${plan.progressFile}); pass --resume to continue it or --force to start over.`);
       process.exit(2);
     }
   }
-  const key = loadKey();
-  if (!key) {
-    console.error("ANTHROPIC_API_KEY is not set (environment or env file).");
-    process.exit(1);
+  if (PROVIDER === "api") {
+    const key = loadKey();
+    if (!key) {
+      console.error("ANTHROPIC_API_KEY is not set (environment or env file).");
+      process.exit(1);
+    }
+    client = new Anthropic({ apiKey: key, maxRetries: 6, timeout: TIMEOUT_MS });
   }
-  client = new Anthropic({ apiKey: key, maxRetries: 6, timeout: TIMEOUT_MS });
   const startedAt = Date.now();
-  console.log(`Writing ${todo.length} stage(s) with ${MODEL}, concurrency ${CONCURRENCY}${TAG ? `, tag ${TAG} (no publish)` : ""}`);
+  console.log(
+    `Writing ${todo.length} stage(s) with ${MODEL} via ${PROVIDER === "cli" ? `the Claude CLI (${CLAUDE_BIN}, subscription)` : "the Anthropic API"}, concurrency ${CONCURRENCY}${TAG ? `, tag ${TAG} (no publish)` : ""}`,
+  );
 
   const results: { plan: StagePlan; ok: boolean; failures: string[] }[] = [];
   let fatal: string | null = null;
@@ -722,13 +1005,18 @@ async function main() {
   }
   const total = [...runUsage.values()].reduce((s, u) => ({ ...s, inputTokens: s.inputTokens + u.inputTokens, outputTokens: s.outputTokens + u.outputTokens }), emptyUsage());
   console.log(
-    `Total this run: in ${fmt(total.inputTokens)} out ${fmt(total.outputTokens)} = ${usd(costUsd(MODEL, total.inputTokens, total.outputTokens))} (${MODEL}) in ${Math.round((Date.now() - startedAt) / 1000)}s`,
+    `Total this run: in ${fmt(total.inputTokens)} out ${fmt(total.outputTokens)} = ${usd(costUsd(MODEL, total.inputTokens, total.outputTokens))} at list price (${MODEL})` +
+      (PROVIDER === "cli" ? `, CLI-reported notional ${usd(runNotionalUsd)} (subscription: not billed)` : "") +
+      ` in ${Math.round((Date.now() - startedAt) / 1000)}s`,
   );
   writeAtomic(
     join(PROGRESS_DIR, `report-${new Date().toISOString().replace(/[:.]/g, "-")}.json`),
     JSON.stringify(
       {
+        provider: PROVIDER,
         model: MODEL,
+        wallSeconds: Math.round((Date.now() - startedAt) / 1000),
+        notionalUsd: PROVIDER === "cli" ? runNotionalUsd : null,
         stages: results.map(({ plan, ok, failures }) => ({
           module: plan.moduleId,
           ok,
@@ -749,7 +1037,7 @@ async function main() {
   }
 }
 
-if (MODEL !== CORE60_DEFAULT_MODEL && !CORE60_MODEL_PRICES[MODEL]) {
+if (MODEL !== CORE60_PROVIDER_DEFAULT_MODEL[PROVIDER] && !CORE60_MODEL_PRICES[MODEL]) {
   console.warn(`Model ${MODEL} has no list price here; costs will show as unpriced.`);
 }
 await main();

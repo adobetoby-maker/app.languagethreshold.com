@@ -114,13 +114,18 @@ of each stage file is its own chunk, loaded only when opened):
 
 ## How the generator (T4) writes a trade
 
-1. Write `src/data/core60/<langCode>/foundation-<base>.json` and/or `master-<base>.json` in the
+1. Write the passages and verbs to `public/lesson-content/<langCode>/<stage>-<base>.json` (same
+   format as every Core 30 module; Master content uses `MASTER_CONTENT_LIMITS` via
+   `contentLimitsFor`).
+2. Write `src/data/core60/<langCode>/foundation-<base>.json` and/or `master-<base>.json` in the
    format above; run `validateStageFile(file, { moduleId, stage, language })` before writing and
-   feed any errors back into a retry.
-2. Write the passages and verbs to `public/lesson-content/<langCode>/<stage>-<base>.json` and add
-   them to `public/lesson-content/index.json` (same format as every Core 30 module; Master content
-   uses `MASTER_CONTENT_LIMITS` via `contentLimitsFor`).
-3. Add or extend the trade's entry in `src/data/core60/manifest.ts` (keep it sorted by `base`).
+   feed any errors back into a retry. Then add the content file to `public/lesson-content/index.json`.
+3. LAST, add or extend the trade's entry in `src/data/core60/manifest.ts` (keep it sorted by
+   `base`), with the stage's own `blurb`, `userRole` and `challengePrompts` (Foundation 4-5 A1
+   challenges, Master 4-6 B1-B2): without them a stage inherits the Core 30's six challenges and the
+   Speak tab shows them three times. The manifest is the registration, so writing it last means a
+   crash never leaves the manifest pointing at a missing file; a stage file the manifest does not
+   list yet is only a `validate:core60` warning.
 4. Run `npm run validate:core60 -- --strict` (manifest ↔ files, every file, lesson content present),
    then `npm test`. Adding a manifest entry must keep the whole suite green: the tests that count
    catalog modules and Say it missions (`tests/speaking-missions.test.mjs`), the fixture tests
@@ -131,20 +136,54 @@ of each stage file is its own chunk, loaded only when opened):
 The generator is `scripts/build-core60.mts` (prompts and checks in
 `src/lib/core60-generator-core.ts`): `node scripts/build-core60.mts --module <id,...>` writes steps
 1 to 3 for each stage and publishes a stage only when its curriculum and all of its passages pass;
-`--dry-run` prints the token and dollar estimate for every remaining module. Its extra checks on top
-of `validateStageFile`: terms and phrases unique across the stage, Master titles that do not repeat
-the Core 30, the fixed block / lesson-type arc (Lesson 20 the Capstone), Say it briefs that never
-reveal the complication, and, per passage, every term's head word as a whole word plus attributed
-doses and specifications. The format has no safety field: the Master outline's per-lesson
-`safetySensitive` flag stays in the generator's progress file and run report.
+`--dry-run` prints the token and dollar estimate for every remaining module (Opus first, then
+Sonnet). Its extra checks on top of `validateStageFile`: terms and phrases unique across the stage,
+Master titles that do not repeat the Core 30, the fixed block / lesson-type arc (Lesson 20 the
+Capstone), Say it briefs and Master challenges that never reveal the complication, the stage's
+catalog text (blurb, role, challenges not copied from the Core 30), and, per passage, every term's
+head word as a whole word, no sentence that only lists lesson terms (one list of exactly three is
+allowed per passage; a second, or four or more, is rejected), and every dose or specification
+attributed in the SAME sentence by a whole word (según la orden / la etiqueta / el protocolo /
+el fabricante / el código local, per the order ...). `validateStageFile` and
+`validateLessonContent` (so the generator, `validate:core60` and the content tests) reject
+invisible characters: soft hyphen U+00AD, zero-width U+200B-U+200D, word joiner U+2060, U+FEFF,
+control characters, and a non-breaking space inside a word. A Master whose stage-wide check fails
+after all five blocks redoes the offending blocks once (each checked against every other block);
+if it still fails, those blocks are cleared from the progress file so `--resume` writes them again
+instead of looping on a cached bad block. The format has no safety field: the Master outline's
+per-lesson `safetySensitive` flag stays in the generator's progress file and run report.
+
+### Providers: the default build is Opus on the Claude subscription
+
+`--provider cli` (the default) runs every call (Foundation and Master curricula, passages and
+verbs) through the logged-in Claude Code CLI, `claude -p`, billed to the owner's Claude
+subscription through its Keychain OAuth login; `--model` defaults to `claude-opus-5-5` there
+(owner decision, 2026-10-20), and `--model sonnet` is an override. `--provider api` is the
+Anthropic API with `ANTHROPIC_API_KEY` (tool calls, default Sonnet).
+
+Each cli call: `--output-format json` (the reply is `.structured_output`, else the JSON in
+`.result`), `--json-schema` = the API tool's input schema without `minItems` / `maxItems` (counts
+are left to the generator's checks, which give precise retry messages), `--tools ""` (no tools),
+`--system-prompt` (the same system prompt as the API call, replacing Claude Code's own; only the
+"call the tool" sentence changes), `--effort high`, `--safe-mode` (no CLAUDE.md, hooks, skills,
+plugins or MCP servers), `--strict-mcp-config`, `--no-session-persistence`,
+`--disable-slash-commands`, the user prompt on stdin, from an empty temp directory, with every
+`ANTHROPIC_*`, `CLAUDECODE` and `CLAUDE_CODE_*` variable removed from the child's environment (so
+the CLI can never bill an API key; its init event reports `apiKeySource: "none"`). A retry is a
+fresh call carrying the rejected answer and its errors. Default concurrency 2. A usage limit, rate
+limit or overload pauses every call and retries (until the CLI's reset time when it gives one, else
+30 s doubling, at most 15 min per wait, up to `--rate-limit-wait-hours`, default 8); a refused
+login stops the run (resumable). Every call is logged in the progress file (`calls`) with its
+tokens (uncached, cache writes, cache reads, output), turns, duration and the CLI's notional
+list-price cost, which a subscription does not bill.
 
 To add a module by hand, follow the same three steps. To take a stage down, remove its manifest
-key (the file can stay; the validator flags it as unlisted).
+key (the file can stay; the validator warns that it is unlisted, and it is not shipped).
 
 ## Validator
 
 ```bash
-npm run validate:core60                      # shipped manifest + every listed file; unlisted files fail
+npm run validate:core60                      # shipped manifest + every listed file; unlisted files warn
 npm run validate:core60 -- --strict          # also require public/lesson-content for each stage
 npm run validate:core60 -- --file <path>     # one file (the generator's pre-write check)
 npm run validate:core60 -- --fixture         # tests/fixtures/core60

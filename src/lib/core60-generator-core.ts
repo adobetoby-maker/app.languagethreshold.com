@@ -17,6 +17,7 @@ import {
   MODEL_FORM_KEYS,
   contentLimitsFor,
   foldText,
+  invisibleCharErrors,
   stemOf,
   validateLessonContent,
   wordsOf,
@@ -27,6 +28,7 @@ import { cleanLessonWords } from "./lesson-words-core.ts";
 import {
   CORE60_STAGE_FILE_VERSION,
   stageModuleId,
+  type Core60ManifestStage,
   type Core60StageFile,
   type Core60StageKind,
   type Core60StageLesson,
@@ -51,8 +53,20 @@ export const CORE60_MODEL_PRICES: Record<string, { input: number; output: number
   "claude-opus-5-5": { input: 4, output: 20 },
 };
 
-export function resolveModel(raw: string | undefined): string {
-  if (!raw) return CORE60_DEFAULT_MODEL;
+/**
+ * Where the calls go. "cli": the logged-in Claude Code CLI (`claude -p`), billed to the owner's
+ * Claude subscription (OAuth), never to an API key; "api": the Anthropic API with ANTHROPIC_API_KEY.
+ */
+export type Core60Provider = "api" | "cli";
+export const CORE60_DEFAULT_PROVIDER: Core60Provider = "cli";
+/** Default model per provider. Owner decision 2026-10-20: build with Opus on the subscription. */
+export const CORE60_PROVIDER_DEFAULT_MODEL: Record<Core60Provider, string> = {
+  cli: "claude-opus-5-5",
+  api: CORE60_DEFAULT_MODEL,
+};
+
+export function resolveModel(raw: string | undefined, provider: Core60Provider = "api"): string {
+  if (!raw) return CORE60_PROVIDER_DEFAULT_MODEL[provider];
   const value = raw.trim().toLowerCase();
   return CORE60_MODEL_ALIASES[value] ?? value;
 }
@@ -272,6 +286,8 @@ function registerRules(ctx: StageContext): string {
       "Spanish register: Mexican / US Spanish as working people in the United States actually say it on this job, including a common loanword only when it is standard job usage (breaker, troca).",
       "A lead speaking to a crew uses the plural ustedes command (revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted, or tú between coworkers when the lesson calls for it. Mark formal / informal in a word's note when it matters.",
       "Write ¿ and ¡ properly. Never coin a word-for-word phrase: use the term people in this work really say; if unsure, pick a different, safer term.",
+      "Grammar that native reviewers check: agreement for people (a woman is la electricista, la clienta, la enfermera; a man el electricista); the personal a before a person or people as the direct object (cubrir a mis pacientes, llamar al supervisor); a negative after antes de / sin (antes de tocar nada); measurements with de (el pulso es de 72); and no English calques (say what people say, not a translated slogan).",
+      "Units: never mix metric and imperial in one sentence; US jobs measure in feet, inches and pounds (10 pies y 6 pulgadas), medicine in mg and mL. Electrical: a live wire is energizado or con corriente (not prendido); you measure el voltaje.",
     ].join(" ");
   }
   return [
@@ -290,7 +306,7 @@ function safetyRules(ctx: StageContext): string {
         ? "per the provider's order, per hospital protocol, the label says, per policy"
         : "per the manufacturer, per the plans, per local code, the label says";
   return [
-    "Safety: never present a specific dose, setting, code section, rating or specification as a universal fact. When a number of that kind appears, a speaker attributes it in the same sentence or the one before (" +
+    "Safety: never present a specific dose, setting, code section, rating or specification as a universal fact. When a number of that kind appears, the SAME sentence names its source (" +
       examples +
       ").",
     MEDICAL(ctx)
@@ -359,6 +375,136 @@ function moduleBrief(ctx: StageContext) {
     targetLanguage: ctx.pair.language,
     nativeLanguage: ctx.pair.nativeLanguage,
   };
+}
+
+// ─── Stage catalog text (manifest overrides) ─────────────────────────────────
+
+/**
+ * A stage's own catalog text, written into its manifest entry (src/data/core60/manifest.ts) so the
+ * stage does not inherit the Core 30's blurb, role and challenges: the Speak tab would otherwise show
+ * the trade's six Core 30 challenges three times (Foundation, Core 30, Master).
+ */
+export interface StageCatalog {
+  blurb: string;
+  userRole: string;
+  /** Say it challenges: Foundation 4-5 at A1, Master 4-6 at B1-B2. */
+  challengePrompts: string[];
+}
+
+export const CATALOG_LIMITS: Record<Core60StageKind, { minChallenges: number; maxChallenges: number; maxBlurb: number; maxChallenge: number }> = {
+  foundation: { minChallenges: 4, maxChallenges: 5, maxBlurb: 220, maxChallenge: 150 },
+  master: { minChallenges: 4, maxChallenges: 6, maxBlurb: 260, maxChallenge: 170 },
+};
+const MAX_USER_ROLE = 70;
+
+/** Roofing's hand-written stage catalog text (src/data/modules.ts), the reference for the prompt. */
+const ROOFING_CATALOG = {
+  foundation: {
+    blurb: "Ten short, free beginner lessons: sounds, numbers, ser and estar, questions and polite requests, taught with roofing words before Roofing Lesson 1.",
+    userRole: "Beginner roofer learning Spanish",
+    challengePrompts: [
+      "Greet the crew, say your name, and ask how to say a tool in Spanish.",
+      "Tell the crew lead what time you start and how many bundles you need.",
+      "Describe the roof to a crew member: wet, slippery or safe.",
+      "Ask a new crew lead where the ladder is, who the boss is, and when you start.",
+      "Report a small accident on the roof and ask for help.",
+    ],
+  },
+  master: {
+    blurb: "Twenty advanced lessons for the day that doesn't go as planned: train a new roofer, explain a change order, walk an inspector across the roof, report a near-miss, and write the day's report in Spanish.",
+    userRole: "Roofing foreman leading a crew in Spanish",
+    challengePrompts: [
+      "Train a new roofer on a task and have them teach it back to you in Spanish.",
+      "Explain a change order for hidden rotten decking to a worried homeowner and answer their objection.",
+      "Walk an inspector across the roof and answer their questions about flashing and ventilation.",
+      "Report a near-miss fall to the crew lead and agree on what changes tomorrow.",
+      "Dictate the day's report: work done, materials used, problems, and tomorrow's plan.",
+    ],
+  },
+} as const;
+
+function catalogRules(ctx: StageContext): string {
+  const limits = CATALOG_LIMITS[ctx.stage];
+  const lang = ctx.pair.language;
+  if (ctx.stage === "foundation") {
+    return `Also write catalog: this Foundation's own catalog card and Say it menu, in English.
+- blurb: one sentence (at most ${limits.maxBlurb} characters) starting "Ten short, free beginner lessons" that names what the ten lessons teach with this work's words and ends "before ${ctx.module.name} Lesson 1."
+- userRole: at most ${MAX_USER_ROLE} characters, a beginner in this work learning ${lang} (for example "Beginner roofer learning ${lang}").
+- challengePrompts: ${limits.minChallenges} to ${limits.maxChallenges} A1 Say it challenges, each ONE English sentence (at most ${limits.maxChallenge} characters) starting with a verb: a short, simple spoken task with someone at this work that a true beginner can do with the Foundation's words (greet and introduce yourself, numbers and time, say what you need, ask where something is, ask for help). Not the Core 30's challenges (given in the request as scenarios), all different.
+Reference (Roofing, for the format and level only; do not copy it): ${JSON.stringify(ROOFING_CATALOG.foundation)}`;
+  }
+  return `Also write catalog: this Master's own catalog card and Say it menu, in English.
+- blurb: one sentence (at most ${limits.maxBlurb} characters) starting "Twenty advanced lessons for the day that doesn't go as planned:" listing four or five things the learner does in ${lang}, specific to this work.
+- userRole: at most ${MAX_USER_ROLE} characters: the lead role in this work, in ${lang} (for example "Roofing foreman leading a crew in ${lang}", "Charge nurse leading a shift in ${lang}").
+- challengePrompts: ${limits.minChallenges} to ${limits.maxChallenges} B1 to B2 Say it challenges, each ONE English sentence (at most ${limits.maxChallenge} characters) starting with a verb, drawn from the Master's blocks (teach and teach back, explain a problem or change to the client or patient, an inspector or auditor, a near miss or incident, the day's report). Not the Core 30's challenges (given in the request as scenarios), all different. Never use the words complication, surprise, twist or unannounced.
+Reference (Roofing, for the format and level only; do not copy it): ${JSON.stringify(ROOFING_CATALOG.master)}`;
+}
+
+function catalogSchema(ctx: StageContext) {
+  return {
+    type: "object",
+    properties: {
+      blurb: { type: "string" },
+      userRole: { type: "string" },
+      challengePrompts: {
+        type: "array",
+        minItems: CATALOG_LIMITS[ctx.stage].minChallenges,
+        maxItems: CATALOG_LIMITS[ctx.stage].maxChallenges,
+        items: { type: "string" },
+      },
+    },
+    required: ["blurb", "userRole", "challengePrompts"],
+    additionalProperties: false,
+  };
+}
+
+/** The catalog object of a reply (missing fields come back empty, for the checks to report). */
+export function catalogFromReply(raw: unknown): StageCatalog {
+  const item = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
+  return {
+    blurb: str(item.blurb),
+    userRole: str(item.userRole),
+    challengePrompts: Array.isArray(item.challengePrompts) ? item.challengePrompts.map(str).filter(Boolean) : [],
+  };
+}
+
+/** Rules for a stage's catalog text (blurb, role, challenges). */
+export function catalogErrors(catalog: StageCatalog | undefined, ctx: StageContext): string[] {
+  if (!catalog) return ["catalog is missing (blurb, userRole, challengePrompts)"];
+  const limits = CATALOG_LIMITS[ctx.stage];
+  const errors: string[] = [];
+  const start = ctx.stage === "foundation" ? "Ten short, free beginner lessons" : "Twenty advanced lessons for the day that doesn't go as planned:";
+  if (!catalog.blurb) errors.push("catalog.blurb is missing");
+  else {
+    if (!catalog.blurb.startsWith(start)) errors.push(`catalog.blurb must start "${start}"`);
+    if (catalog.blurb.length > limits.maxBlurb) errors.push(`catalog.blurb is longer than ${limits.maxBlurb} characters`);
+  }
+  if (!catalog.userRole) errors.push("catalog.userRole is missing");
+  else if (catalog.userRole.length > MAX_USER_ROLE) errors.push(`catalog.userRole is longer than ${MAX_USER_ROLE} characters`);
+  const prompts = catalog.challengePrompts;
+  if (prompts.length < limits.minChallenges || prompts.length > limits.maxChallenges)
+    errors.push(`catalog has ${prompts.length} challengePrompts; it needs ${limits.minChallenges} to ${limits.maxChallenges}`);
+  const base = new Set(ctx.module.challengePrompts.map((p) => foldText(p)));
+  const seen = new Set<string>();
+  prompts.forEach((prompt, i) => {
+    const at = `catalog challenge ${i + 1} ("${prompt}")`;
+    if (prompt.length > limits.maxChallenge) errors.push(`${at}: longer than ${limits.maxChallenge} characters`);
+    if (!/^[A-Z][a-z]+/.test(prompt) || !ENDS.test(prompt)) errors.push(`${at}: one English sentence starting with a verb`);
+    const key = foldText(prompt);
+    if (base.has(key)) errors.push(`${at}: copies a Core 30 challenge; write one for this stage`);
+    if (seen.has(key)) errors.push(`${at}: appears twice`);
+    seen.add(key);
+    if (ctx.stage === "master" && BANNED_REVEAL.test(prompt))
+      errors.push(`${at}: must not mention a complication, surprise or twist (the AI springs it unannounced)`);
+  });
+  errors.push(...invisibleCharErrors("catalog", catalog));
+  return errors;
+}
+
+/** The manifest stage overrides for a catalog (written by the generator's publish step). */
+export function catalogManifestStage(catalog: StageCatalog | undefined): Core60ManifestStage {
+  if (!catalog) return {};
+  return { blurb: catalog.blurb, userRole: catalog.userRole, challengePrompts: [...catalog.challengePrompts] };
 }
 
 // ─── Tool schemas ────────────────────────────────────────────────────────────
@@ -433,6 +579,8 @@ For each lesson write:
 - speaking: the Say it mission brief, one English sentence (at most 200 characters) starting with a verb, for a short spoken task with someone at work, using this lesson's words and grammar.
 Also write threshold: one English sentence starting "By Lesson 10, you can" naming what the learner can do, ending with "and start ${ctx.module.name} Lesson 1."
 
+${catalogRules(ctx)}
+
 ${wordRules(ctx, limits)}
 
 ${registerRules(ctx)}
@@ -465,9 +613,10 @@ Here is a reference lesson from another trade (Roofing F3), for the format and l
       type: "object",
       properties: {
         threshold: { type: "string" },
+        catalog: catalogSchema(ctx),
         lessons: { type: "array", minItems: 10, maxItems: 10, items: lessonSchema },
       },
-      required: ["threshold", "lessons"],
+      required: ["threshold", "catalog", "lessons"],
       additionalProperties: false,
     },
   });
@@ -489,6 +638,8 @@ export interface MasterOutlineLesson {
 
 export interface MasterOutline {
   threshold: string;
+  /** Absent in progress files written before the catalog existed (the pilot's). */
+  catalog?: StageCatalog;
   lessons: MasterOutlineLesson[];
 }
 
@@ -506,6 +657,8 @@ For each lesson:
 - scene: one English sentence for the lesson writers (never shown to the learner): who speaks with whom, where, and the problem or twist in it.
 - safetySensitive: true when the lesson involves injury risk, an emergency, a dose, an electrical or chemical hazard, a code or specification, or legal / privacy duties.
 Also write threshold: one English sentence starting "By Lesson 20, you can" listing four or five things the learner can do in ${ctx.pair.language}.
+
+${catalogRules(ctx)}
 
 Build on the Core 30: go beyond its situations (do not repeat a Core 30 lesson's scenario), and make each lesson a situation that a working ${ctx.module.userRole} really meets. ${safetyRules(ctx)}
 
@@ -544,9 +697,10 @@ Reference: the Roofing Master 20 titles (another trade; for the arc and specific
       type: "object",
       properties: {
         threshold: { type: "string" },
+        catalog: catalogSchema(ctx),
         lessons: { type: "array", minItems: 20, maxItems: 20, items: lessonSchema },
       },
-      required: ["threshold", "lessons"],
+      required: ["threshold", "catalog", "lessons"],
       additionalProperties: false,
     },
   });
@@ -641,7 +795,7 @@ export function stageContentRequest(
 Level: ${level}
 
 PASSAGE: ${limits.minSentences} to ${limits.maxSentences} sentences forming ONE coherent, realistic scene of THIS lesson (its title, objective${master ? ", grammar focus and scene" : " and focus"}), with named people, a place and a purpose. A short title (2 to 6 words) in ${ctx.pair.language}. Every ${ctx.pair.language} sentence has exactly one ${ctx.pair.nativeLanguage} sentence at the same position: translate sentence by sentence, never merge or split. Each sentence ends with . ? or ! . No quotation marks and no dialogue dashes anywhere: a speaker's line is written "Name: sentence." (one sentence per line) or reported with a colon. Numbers are digits, identical on both sides; never convert units.
-VOCABULARY IN THE PASSAGE: use EVERY term of the lesson's word list, written as in the list with the same head noun (plural or gender agreement is fine, the article may change), and at least ${Math.max(limits.minPhrasesUsed, master ? 3 : 2)} of its phrases word for word. Check this before you answer.
+VOCABULARY IN THE PASSAGE: use EVERY term of the lesson's word list, written as in the list with the same head noun (plural or gender agreement is fine, the article may change), and at least ${Math.max(limits.minPhrasesUsed, master ? 3 : 2)} of its phrases word for word. Spread the terms over the scene: each term sits in a sentence that says something about it (what someone does with it, where it is, why it matters). Never pack three or more terms into a bare list ("Marta revisa la protección, la capacidad y la cantidad." is rejected). Check this before you answer.
 
 VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (${spanish ? "the Spanish infinitive, e.g. revisar, or reflexive lavarse" : 'the bare English verb, e.g. "check", no "to"'}), "native" (the meaning in ${ctx.pair.nativeLanguage}${spanish ? ', like "to check"' : ', e.g. "revisar"'}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; the bare verb form with no pronoun${spanish ? ', except the reflexive pronoun for reflexive verbs ("me lavo"). All five forms differ: tú ends in -s, nosotros in -mos, ellos/ustedes in -n. Mark stem changes in the note' : '; the he/she form takes the -s ("checks")'}), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}).
 
@@ -712,6 +866,161 @@ ${safetyRules(ctx)}${extra.safetySensitive ? " This lesson is safety-sensitive: 
   });
 }
 
+// ─── The cli provider (claude -p on the owner's subscription) ────────────────
+
+/**
+ * The CLI has no custom tools: the reply comes back as structured output (`--json-schema`). The
+ * system prompt keeps every rule; only the delivery sentence changes.
+ */
+export function cliSystemPrompt(system: string, toolName: string): string {
+  return system.replaceAll(
+    `by calling the ${toolName} tool, once`,
+    "as ONE JSON object that matches the given JSON schema (your structured output), once",
+  );
+}
+
+/**
+ * The tool's input schema for `--json-schema`, without minItems / maxItems: an out-of-range count
+ * then reaches the generator's own checks (precise retry messages) instead of failing inside the CLI.
+ */
+export function cliJsonSchema(schema: unknown): unknown {
+  if (Array.isArray(schema)) return schema.map(cliJsonSchema);
+  if (!schema || typeof schema !== "object") return schema;
+  const out: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(schema as Record<string, unknown>)) {
+    if (key === "minItems" || key === "maxItems") continue;
+    out[key] = cliJsonSchema(value);
+  }
+  return out;
+}
+
+/**
+ * The prompt (stdin) for one CLI call: the same user content as the API call; a retry adds the
+ * rejected answer and the exact errors (a fresh, stateless call: no session is kept).
+ */
+export function cliPrompt(request: ApiRequest, retry?: { reply: unknown; errors: readonly string[] }): string {
+  const first = request.messages[0]?.content;
+  const base = typeof first === "string" ? first : JSON.stringify(first);
+  if (!retry) return base;
+  return `${base}
+
+YOUR PREVIOUS ANSWER (rejected):
+${JSON.stringify(retry.reply)}
+
+Fix these problems and return the COMPLETE result again (everything, not only the fixed parts):
+- ${retry.errors.slice(0, 40).join("\n- ")}`;
+}
+
+/** What one CLI call reported (the progress log keeps one per call). */
+export interface CliCallUsage {
+  inputTokens: number;
+  cacheCreationInputTokens: number;
+  cacheReadInputTokens: number;
+  outputTokens: number;
+  /** The CLI's notional list-price cost; on a subscription it is not billed. */
+  costUsd: number | null;
+  numTurns: number | null;
+  durationMs: number | null;
+  model: string | null;
+}
+
+export type CliFailureKind = "rate_limit" | "auth" | "other";
+
+export interface CliOutcome {
+  ok: boolean;
+  /** The structured reply (when ok). */
+  value: Record<string, unknown> | null;
+  usage: CliCallUsage;
+  /** The CLI's error text (when not ok). */
+  error: string;
+  kind: CliFailureKind | null;
+  /** Epoch ms when a usage limit resets, when the CLI said so. */
+  resetAt: number | null;
+}
+
+const num = (value: unknown): number => (typeof value === "number" && Number.isFinite(value) ? value : 0);
+const numOrNull = (value: unknown): number | null => (typeof value === "number" && Number.isFinite(value) ? value : null);
+
+/** The JSON object inside a text reply (a ```json fence or the outermost braces), or null. */
+export function jsonObjectInText(text: string): Record<string, unknown> | null {
+  const fenced = /```(?:json)?\s*([\s\S]*?)```/.exec(text);
+  const candidates = [text, fenced?.[1] ?? "", text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1)];
+  for (const candidate of candidates) {
+    try {
+      const value = JSON.parse(candidate.trim());
+      if (value && typeof value === "object" && !Array.isArray(value)) return value as Record<string, unknown>;
+    } catch {
+      // try the next candidate
+    }
+  }
+  return null;
+}
+
+const RATE_LIMIT = /usage limit|rate[ _-]?limit|hit your limit|limit reached|limit will reset|resets? (?:at )?\d|overloaded|too many requests|\b429\b|\b529\b|capacity|temporarily unavailable/i;
+const AUTH = /invalid api key|please run \/login|not logged in|log ?in again|oauth token (?:has )?expired|authentication[_ ]error|unauthori[sz]ed|\b401\b|permission[_ ]error|\b403\b/i;
+
+/** Rate limit (wait and retry), auth (stop: the login is broken) or anything else. */
+export function classifyCliFailure(text: string, status: number | null = null): CliFailureKind {
+  if (status === 429 || status === 529 || RATE_LIMIT.test(text)) return "rate_limit";
+  if (status === 401 || status === 403 || AUTH.test(text)) return "auth";
+  return "other";
+}
+
+/** "Claude AI usage limit reached|1760000000" carries the reset time (epoch seconds). */
+export function cliResetAt(text: string): number | null {
+  const match = /\|\s*(\d{10})\b/.exec(text);
+  return match ? Number(match[1]) * 1000 : null;
+}
+
+/** Parses `claude -p --output-format json` stdout (and stderr) into an outcome. */
+export function parseCliOutput(stdout: string, stderr = "", exitCode: number | null = 0): CliOutcome {
+  let data: Record<string, unknown> | null = null;
+  try {
+    const parsed = JSON.parse(stdout.trim().split(/\n(?=\{)/).pop() ?? "");
+    if (parsed && typeof parsed === "object") data = parsed as Record<string, unknown>;
+  } catch {
+    data = null;
+  }
+  const usageRaw = (data?.usage ?? {}) as Record<string, unknown>;
+  const models = Object.keys((data?.modelUsage ?? {}) as Record<string, unknown>);
+  const usage: CliCallUsage = {
+    inputTokens: num(usageRaw.input_tokens),
+    cacheCreationInputTokens: num(usageRaw.cache_creation_input_tokens),
+    cacheReadInputTokens: num(usageRaw.cache_read_input_tokens),
+    outputTokens: num(usageRaw.output_tokens),
+    costUsd: numOrNull(data?.total_cost_usd),
+    numTurns: numOrNull(data?.num_turns),
+    durationMs: numOrNull(data?.duration_ms),
+    model: models[0] ?? null,
+  };
+  const fail = (error: string, status: number | null = null): CliOutcome => ({
+    ok: false,
+    value: null,
+    usage,
+    error: error.slice(0, 500),
+    kind: classifyCliFailure(error, status),
+    resetAt: cliResetAt(error),
+  });
+  if (!data) return fail(`${stderr || stdout || `claude exited with code ${exitCode}`}`.trim());
+  const status = numOrNull(data.api_error_status);
+  const resultText = typeof data.result === "string" ? data.result : "";
+  if (data.is_error === true || (data.subtype && data.subtype !== "success")) {
+    return fail(`${String(data.subtype ?? "error")}: ${resultText || stderr}`.trim(), status);
+  }
+  const structured = data.structured_output;
+  const value =
+    structured && typeof structured === "object" && !Array.isArray(structured)
+      ? (structured as Record<string, unknown>)
+      : jsonObjectInText(resultText);
+  // Some CLI versions report a usage limit as a short, "successful" text result.
+  if (!value && resultText.length < 400 && classifyCliFailure(resultText) === "rate_limit") return fail(resultText, status);
+  return { ok: true, value, usage, error: value ? "" : "the reply held no JSON object", kind: null, resetAt: null };
+}
+
+/** Total prompt tokens of a CLI call (uncached + cache writes + cache reads), for the run report. */
+export const cliInputTokens = (usage: CliCallUsage) =>
+  usage.inputTokens + usage.cacheCreationInputTokens + usage.cacheReadInputTokens;
+
 // ─── Parsing replies ─────────────────────────────────────────────────────────
 
 export interface ContentBlockLike {
@@ -749,7 +1058,7 @@ function wordsOfLesson(raw: Record<string, unknown>): LessonWord[] {
 export function foundationFromReply(
   input: Record<string, unknown>,
   ctx: StageContext,
-): { threshold: string; lessons: Core60StageLesson[] } {
+): { threshold: string; catalog: StageCatalog; lessons: Core60StageLesson[] } {
   const units = FOUNDATION_UNITS[ctx.pair.language];
   const raw = Array.isArray(input.lessons) ? (input.lessons as Record<string, unknown>[]) : [];
   const lessons = units.map((unit, i): Core60StageLesson => {
@@ -763,7 +1072,7 @@ export function foundationFromReply(
       speaking: str(item.speaking),
     };
   });
-  return { threshold: str(input.threshold), lessons };
+  return { threshold: str(input.threshold), catalog: catalogFromReply(input.catalog), lessons };
 }
 
 export function outlineFromReply(input: Record<string, unknown>): MasterOutline {
@@ -781,7 +1090,7 @@ export function outlineFromReply(input: Record<string, unknown>): MasterOutline 
       safetySensitive: item.safetySensitive === true,
     }))
     .sort((a, b) => a.n - b.n);
-  return { threshold: str(input.threshold), lessons };
+  return { threshold: str(input.threshold), catalog: catalogFromReply(input.catalog), lessons };
 }
 
 export function blockFromReply(
@@ -1002,7 +1311,7 @@ export function outlineErrors(outline: MasterOutline, ctx: StageContext): string
     lessonType: lesson.lessonType,
     block: lesson.block,
   }));
-  return [...errors, ...stageGeneratorErrors(asLessons, ctx)];
+  return [...errors, ...catalogErrors(outline.catalog, ctx), ...stageGeneratorErrors(asLessons, ctx)];
 }
 
 /** Every rule a stage curriculum must pass before step 2: the T3 validator plus the generator's checks. */
@@ -1015,7 +1324,10 @@ export function stageFileErrors(file: Core60StageFile, ctx: StageContext): strin
 
 /**
  * Validation of one Master block: the T3 per-lesson rules (on a padded 20-lesson file) for this
- * block's lessons, and the stage-wide checks over every lesson written so far.
+ * block's lessons, and the stage-wide checks over the block and `others`. `others` are the lessons
+ * written before it (the normal, forward order) or, when a block is redone after the stage-wide
+ * check failed, every other block: a clash with a LATER lesson (reported on that later lesson) is
+ * then turned around so it names this block's lesson.
  */
 export function blockErrors(
   lessons: readonly Core60StageLesson[],
@@ -1035,11 +1347,37 @@ export function blockErrors(
       return match ? numbers.has(Number(match[1])) : true;
     },
   );
-  const upTo = Math.max(...lessons.map((lesson) => lesson.n));
-  return [...t3, ...stageGeneratorErrors(all, ctx, upTo).filter((error) => numbers.has(lessonOf(error)))];
+  const upTo = Math.max(...all.map((lesson) => lesson.n));
+  const stage = stageGeneratorErrors(all, ctx, upTo).flatMap((error) => {
+    if (numbers.has(lessonOf(error))) return [error];
+    const ref = referencedLesson(error);
+    return ref !== null && numbers.has(ref)
+      ? [`lesson ${ref}: clashes with a later lesson (${error}); change lesson ${ref}, the later lesson stays`]
+      : [];
+  });
+  return [...t3, ...stage];
 }
 
 const lessonOf = (error: string) => Number(/^lesson (\d+)/.exec(error)?.[1] ?? 0);
+const referencedLesson = (error: string): number | null => {
+  const match = /(?:already a (?:term|phrase) of|same (?:title|grammar focus) as) lesson (\d+)/.exec(error);
+  return match ? Number(match[1]) : null;
+};
+
+/**
+ * The Master blocks to redo when the stage-wide check fails after every block was written: the
+ * blocks of the lessons the errors name (a clash is reported on the later lesson, so that block is
+ * redone); the last block when no error names a lesson.
+ */
+export function blocksToRedo(errors: readonly string[]): MasterBlock[] {
+  const blocks = new Set<MasterBlock>();
+  for (const error of errors) {
+    const n = lessonOf(error);
+    if (n >= 1 && n <= 20) blocks.add(masterBlockOf(n).block);
+  }
+  if (blocks.size === 0) blocks.add("E");
+  return MASTER_BLOCKS.map((b) => b.block).filter((b) => blocks.has(b));
+}
 
 function PLACEHOLDER_MASTER_LESSON(n: number): Core60StageLesson {
   const spec = masterBlockOf(n);
@@ -1108,25 +1446,94 @@ const DOSE_UNITS = /\b\d+(?:[.,]\d+)?\s?(?:mg|mcg|µg|ml|mililitros?|miligramos?
 const SPEC_UNITS = /\b\d+(?:[.,]\d+)?\s?(?:voltios|volts?|amperios|amps?|amperes?|awg|psi|ohmios|ohms?|kw|kilovatios|vatios|watts?)\b|\b(?:calibre|gauge)\s?\d+\b|\bNEC\b|\b(?:artículo|article|sección|section)\s?\d+/i;
 // "120V", "20 A": single-letter units only in capitals and never "a. m." / "p. m.".
 const LETTER_UNITS = /\b\d+\s?[VA]\b(?!\.)/;
-const ATTRIBUTION = /según|segun|dice|dicen|indica|marca|pide|orden|ordenó|receta|prescri|protocolo|política|politica|fabricante|etiqueta|plano|código local|codigo local|inspector|hoja|medidor|probador|mide|lee|leo|placa|instruccion|the order|ordered|prescrib|label|manufacturer|protocol|policy|plans?\b|per\b|according|reads|shows|measures|meter|local code|inspector|spec sheet|says|tester/i;
+// Attribution words, matched as whole words only ("per" is not "super", "lee" is not "leer"):
+// a source (the order, the label, the protocol, the manufacturer, local code, the plans, a meter
+// reading) named in the SAME sentence as the dose or specification.
+const ATTRIBUTION_WORDS = [
+  // Spanish
+  "según", "segun", "de acuerdo con", "conforme a", "dice", "dicen", "indica", "indican", "marca", "marcan",
+  "pide", "piden", "exige", "requiere", "orden", "órdenes", "ordenó", "ordena", "receta", "recetó",
+  "prescrito", "prescrita", "prescripción", "prescribió", "protocolo", "política", "politica", "fabricante",
+  "etiqueta", "plano", "planos", "código local", "codigo local", "código eléctrico", "inspector", "inspectora",
+  "hoja técnica", "hoja de datos", "medidor", "probador", "multímetro", "mide", "miden", "medimos", "medí",
+  "lee", "leo", "leemos", "placa", "instrucciones", "especificaciones",
+  // English
+  "according to", "per", "the order", "orders", "ordered", "prescribed", "prescription", "label",
+  "manufacturer", "manufacturer's", "protocol", "policy", "plans", "local code", "inspector", "spec sheet",
+  "data sheet", "nameplate", "meter", "tester", "reads", "shows", "measures", "measured", "says", "instructions",
+];
+const ATTRIBUTION = new RegExp(
+  `(?<![\\p{L}\\p{N}'])(?:${ATTRIBUTION_WORDS.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`,
+  "iu",
+);
 
 /**
  * Sentences that state a dose or an electrical / code specification with no attribution in the
- * same sentence or the one before. Each entry is an error message for the retry.
+ * SAME sentence (a whole attribution word: según la orden / la etiqueta / el protocolo /
+ * el fabricante / el código local, per the order …). Each entry is an error message for the retry.
  */
 export function unattributedSpecs(sentences: readonly string[], ctx: StageContext): string[] {
   const out: string[] = [];
-  sentences.forEach((sentence, i) => {
+  sentences.forEach((sentence) => {
     const hit = DOSE_UNITS.test(sentence) || SPEC_UNITS.test(sentence) || LETTER_UNITS.test(sentence);
     if (!hit) return;
-    const context = `${sentences[i - 1] ?? ""} ${sentence}`;
-    if (!ATTRIBUTION.test(context))
+    if (!ATTRIBUTION.test(sentence))
       out.push(
         `"${sentence}" states a dose or specification as a universal fact; attribute it (${
           ctx.pair.language === "Spanish" ? "según la orden / el protocolo / el fabricante / el plano" : "per the order / protocol / manufacturer / plans"
         })`,
       );
   });
+  return out;
+}
+
+const SERIES_SPLIT = /\s*[,;:]\s*|\s+(?:y|e|o|u|ni|and|or|nor)\s+/i;
+/** At most this many words of a sentence outside a run of 3+ listed terms (subject + verb). */
+const BARE_SERIES_MAX_OTHER = 3;
+
+/**
+ * Word-stuffed sentences: a sentence that only lists lesson terms (three or more in a row,
+ * separated by commas or "y / o / and / or", with at most BARE_SERIES_MAX_OTHER other words:
+ * "Marta revisa la protección, la capacidad y la cantidad."). One such list of exactly three terms
+ * is allowed per passage, since people do name three things at once (Roofing F: "Necesito el arnés,
+ * la cuerda y el martillo."); a second one, or a bare list of four or more terms, is an error. Each
+ * entry is an error message for the retry. Using every term is still required; the terms belong in
+ * different, natural sentences.
+ */
+export function bareTermSeries(
+  sentences: readonly string[],
+  words: readonly LessonWord[],
+  language: string,
+): string[] {
+  const terms = words.filter((word) => word.kind === "term");
+  const out: string[] = [];
+  let allowed = 1;
+  for (const sentence of sentences) {
+    const total = wordsOf(sentence).length;
+    const segments = sentence.replace(/[.?!…¿¡]+/g, " ").trim().split(SERIES_SPLIT).map(wordsOf);
+    let run = 0;
+    let runTermWords = 0;
+    let best = { run: 0, termWords: 0 };
+    for (const segment of segments) {
+      const term = terms.find((t) => segment.length <= wordsOf(t.es).length + 3 && termHeadUsed(t.es, segment, language));
+      if (term && segment.length > 0) {
+        run += 1;
+        runTermWords += Math.min(segment.length, wordsOf(term.es).length);
+        if (run > best.run || (run === best.run && runTermWords > best.termWords)) best = { run, termWords: runTermWords };
+      } else {
+        run = 0;
+        runTermWords = 0;
+      }
+    }
+    if (best.run < 3 || total - best.termWords > BARE_SERIES_MAX_OTHER) continue;
+    if (best.run === 3 && allowed > 0) {
+      allowed -= 1;
+      continue;
+    }
+    out.push(
+      `"${sentence}" only lists ${best.run} lesson terms; give each term its own natural sentence (what is done with it, where, why) instead of a bare list`,
+    );
+  }
   return out;
 }
 
@@ -1158,6 +1565,7 @@ export function stageContentErrors(
       `these terms do not appear in the passage (their head word must appear as a whole word): ${missing.join(", ")}. Use every term`,
     );
   errors.push(...unattributedSpecs(content.passage.target, ctx));
+  errors.push(...bareTermSeries(content.passage.target, lesson.words, ctx.pair.language));
   for (const verb of content.verbs) {
     for (const issue of unattributedSpecs([verb.example.target], ctx)) errors.push(`${verb.infinitive} example: ${issue}`);
   }

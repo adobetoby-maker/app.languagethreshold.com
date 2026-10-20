@@ -239,6 +239,42 @@ export const phraseMatches = (targetPhrase: string, passageWords: string[]): boo
 
 const digitsOf = (text: string): string[] => text.match(/\d+/g) ?? [];
 
+// ─── Invisible characters ────────────────────────────────────────────────────
+
+// Characters a reader cannot see that break matching, speech and typed answers: the soft hyphen,
+// zero-width space / joiners, the word joiner, the byte-order mark, C0 / C1 control characters
+// (tabs and newlines included: content strings are single lines), and a non-breaking space glued
+// between two letters (inside a word).
+// eslint-disable-next-line no-control-regex -- matching control characters is the point
+const INVISIBLE_CHARS = /[\u00AD\u200B-\u200D\u2060\uFEFF\u0000-\u001F\u007F-\u009F]|(?<=\p{L})[\u00A0\u202F\u2007](?=\p{L})/u;
+
+/** A description of the first invisible character in `text`, or null when there is none. */
+export function invisibleCharIssue(text: string): string | null {
+  const match = INVISIBLE_CHARS.exec(text);
+  if (!match) return null;
+  const code = match[0].codePointAt(0)!.toString(16).toUpperCase().padStart(4, "0");
+  const at = match.index;
+  const around = text.slice(Math.max(0, at - 12), at + 12).replace(INVISIBLE_CHARS, "\u2423");
+  return `invisible character U+${code} in "${around}" (retype the word without it)`;
+}
+
+/** Error messages for every string in `value` (deep) that holds an invisible character. */
+export function invisibleCharErrors(label: string, value: unknown): string[] {
+  const out: string[] = [];
+  const walk = (node: unknown, path: string) => {
+    if (typeof node === "string") {
+      const issue = invisibleCharIssue(node);
+      if (issue) out.push(`${path}: ${issue}`);
+    } else if (Array.isArray(node)) {
+      node.forEach((item, i) => walk(item, `${path}[${i}]`));
+    } else if (node && typeof node === "object") {
+      for (const [key, item] of Object.entries(node)) walk(item, `${path}.${key}`);
+    }
+  };
+  walk(value, label);
+  return out;
+}
+
 // ─── Cleaning untrusted data (model output, fetched files) ───────────────────
 
 const asString = (value: unknown): string =>
@@ -567,6 +603,9 @@ export function validateLessonContent(
   if (ctx.parts.words) validateWords(content.words, ctx, errors);
   if (ctx.parts.passage) validatePassage(content.passage, words ?? [], ctx, errors);
   if (ctx.parts.verbs) validateVerbs(content.verbs, ctx, errors);
+  if (ctx.parts.passage && content.passage) errors.push(...invisibleCharErrors("passage", content.passage));
+  if (ctx.parts.words && content.words) errors.push(...invisibleCharErrors("words", content.words));
+  if (ctx.parts.verbs && content.verbs) errors.push(...invisibleCharErrors("verbs", content.verbs));
   return errors;
 }
 

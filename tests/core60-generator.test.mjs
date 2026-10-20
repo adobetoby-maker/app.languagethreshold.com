@@ -12,11 +12,21 @@ import { FOUNDATION_ROOFING_FOCUS } from "../src/data/foundation-roofing-curricu
 import {
   BLOCK_TOOL,
   CONTENT_TOOL,
+  FOUNDATION_TOOL,
+  OUTLINE_TOOL,
   FOUNDATION_UNITS,
   MASTER_BLOCKS,
   MASTER_GRAMMAR_SPINE,
+  bareTermSeries,
   blockErrors,
   blockFromReply,
+  blocksToRedo,
+  catalogErrors,
+  catalogManifestStage,
+  classifyCliFailure,
+  cliJsonSchema,
+  cliPrompt,
+  cliSystemPrompt,
   core60PairFor,
   costUsd,
   estimateCost,
@@ -26,6 +36,8 @@ import {
   masterBlockRequest,
   masterOutlineRequest,
   outlineErrors,
+  outlineFromReply,
+  parseCliOutput,
   resolveModel,
   stageContentErrors,
   stageContentRequest,
@@ -35,7 +47,8 @@ import {
   termHeadUsed,
   unattributedSpecs,
 } from "../src/lib/core60-generator-core.ts";
-import { wordsOf } from "../src/lib/lesson-content-core.ts";
+import { invisibleCharIssue, validateLessonContent, wordsOf } from "../src/lib/lesson-content-core.ts";
+import { validateStageFile } from "../src/lib/core60-validate.ts";
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
@@ -150,8 +163,15 @@ test("word checks: inverted marks, digits, note language and attributed doses", 
   assert.match(text, /note must be written in English/);
   assert.match(text, /states a dose or specification as a universal fact/);
   assert.deepEqual(unattributedSpecs(["Según la orden del médico, le doy 5 mg ahora."], ctx("foundation")), []);
-  assert.deepEqual(unattributedSpecs(["La orden dice esto.", "Le doy 5 mg ahora."], ctx("foundation")), []);
+  // The source must be named in the SAME sentence, as a whole word.
+  assert.equal(unattributedSpecs(["La orden dice esto.", "Le doy 5 mg ahora."], ctx("foundation")).length, 1);
+  assert.deepEqual(unattributedSpecs(["Según la etiqueta, la dosis es 250 miligramos dos veces al día."], ctx("foundation")), []);
+  assert.deepEqual(unattributedSpecs(["Per the label, give 5 mg now."], ctx("foundation")), []);
   assert.equal(unattributedSpecs(["Un circuito de cocina necesita 20 amperios."], ctx("foundation")).length, 1);
+  // "per" inside "super", "lee" inside "leer" and "orden" inside "ordenado" are not attributions.
+  assert.equal(unattributedSpecs(["El super necesita 20 amperios."], ctx("foundation")).length, 1);
+  assert.equal(unattributedSpecs(["Hay que leer: el cable es calibre 12."], ctx("foundation")).length, 1);
+  assert.equal(unattributedSpecs(["Todo está ordenado y el cable es calibre 12."], ctx("foundation")).length, 1);
 });
 
 test("head words: Spanish leads, English ends; a term missing from the passage is reported", () => {
@@ -183,6 +203,11 @@ test("a Master block is checked against the lessons written before it", () => {
       scene: "scene",
       safetySensitive: false,
     })),
+  };
+  outline.catalog = {
+    blurb: getModule("master-roofing").blurb,
+    userRole: getModule("master-roofing").userRole,
+    challengePrompts: getModule("master-roofing").challengePrompts.slice(0, 6),
   };
   assert.deepEqual(outlineErrors(outline, ctx("master")), []);
   const blockB = MASTER_BLOCKS[1];
@@ -244,4 +269,160 @@ test("pairs, models and prices", () => {
   assert.ok(Math.abs(estimateCost("claude-sonnet-5-5", master) - 2.4) < 0.1);
   assert.ok(Math.abs(estimateCost("claude-opus-5-5", master) - 4.4) < 0.1);
   assert.ok(estimateStage("master", 20, true).inputTokens < master.inputTokens);
+});
+
+// ─── T4b: catalog text, invisible characters, word stuffing, block redo, the cli provider ─────
+
+const roofingCatalog = (stage) => {
+  const m = getModule(`${stage}-roofing`);
+  return { blurb: m.blurb, userRole: m.userRole, challengePrompts: m.challengePrompts.slice(0, stage === "foundation" ? 5 : 6) };
+};
+
+test("stage catalog: requested in step 1, parsed, checked and written as manifest overrides", () => {
+  const f = foundationCurriculumRequest(ctx("foundation"), "claude-opus-5-5");
+  const fSchema = f.tools[0].input_schema;
+  assert.ok(fSchema.required.includes("catalog"));
+  assert.deepEqual([fSchema.properties.catalog.properties.challengePrompts.minItems, fSchema.properties.catalog.properties.challengePrompts.maxItems], [4, 5]);
+  assert.match(f.system, /challengePrompts: 4 to 5 A1 Say it challenges/);
+  const o = masterOutlineRequest(ctx("master"), "claude-opus-5-5");
+  const oSchema = o.tools[0].input_schema;
+  assert.ok(oSchema.required.includes("catalog"));
+  assert.deepEqual([oSchema.properties.catalog.properties.challengePrompts.minItems, oSchema.properties.catalog.properties.challengePrompts.maxItems], [4, 6]);
+  // Roofing's hand-written stage catalog passes.
+  assert.deepEqual(catalogErrors(roofingCatalog("foundation"), ctx("foundation")), []);
+  assert.deepEqual(catalogErrors(roofingCatalog("master"), ctx("master")), []);
+  const parsed = foundationFromReply({ threshold: "x", catalog: roofingCatalog("foundation"), lessons: [] }, ctx("foundation"));
+  assert.deepEqual(parsed.catalog, roofingCatalog("foundation"));
+  assert.deepEqual(outlineFromReply({ threshold: "x", lessons: [] }).catalog, { blurb: "", userRole: "", challengePrompts: [] });
+  // Copying the Core 30 challenges (the D1 bug), too few, a revealed twist, a wrong blurb.
+  const copied = { ...roofingCatalog("master"), challengePrompts: [...roofing.challengePrompts.slice(0, 4)] };
+  assert.match(catalogErrors(copied, ctx("master")).join("\n"), /copies a Core 30 challenge/);
+  const bad = { blurb: "Lessons.", userRole: "x".repeat(80), challengePrompts: ["Handle the surprise complication on site.", "ask"] };
+  const text = catalogErrors(bad, ctx("master")).join("\n");
+  assert.match(text, /blurb must start "Twenty advanced lessons/);
+  assert.match(text, /userRole is longer than/);
+  assert.match(text, /2 challengePrompts; it needs 4 to 6/);
+  assert.match(text, /must not mention a complication/);
+  assert.match(text, /one English sentence starting with a verb/);
+  assert.deepEqual(catalogManifestStage(roofingCatalog("foundation")), roofingCatalog("foundation"));
+  assert.deepEqual(catalogManifestStage(undefined), {});
+});
+
+test("invisible characters are rejected in stage files and lesson content", () => {
+  assert.equal(invisibleCharIssue("Pínchate el dedo."), null);
+  assert.equal(invisibleCharIssue("10 pies"), null, "a normal space");
+  assert.equal(invisibleCharIssue("10\u00A0pies"), null, "a non-breaking space between a number and a unit is fine");
+  for (const bad of ["Píncha\u00ADte", "pa\u200Bnel", "ca\u200Cble", "ca\u200Dble", "\uFEFFHola", "la\u00A0caja", "uno\tdos", "fin\u0007"]) {
+    assert.match(invisibleCharIssue(bad) ?? "", /invisible character U\+/, JSON.stringify(bad));
+  }
+  const file = roofingStageFile("master");
+  const broken = clone(file);
+  broken.lessons[6].words[0].es = "la cu\u00ADbierta";
+  assert.ok(validateStageFile(broken).some((e) => /^lesson 7\.words\[0\]\.es: invisible character U\+00AD/.test(e)));
+  assert.deepEqual(validateStageFile(file), []);
+  const content = clone(roofingContent("foundation")["1"]);
+  content.passage.target[0] = content.passage.target[0].replace(" ", "\u200B ");
+  const errors = validateLessonContent(content, {
+    language: "Spanish",
+    nativeLanguage: "English",
+    parts: { passage: true, words: false, verbs: true },
+    words: roofingStageFile("foundation").lessons[0].words,
+  });
+  assert.ok(errors.some((e) => /^passage\.target\[0\]: invisible character U\+200B/.test(e)), errors.join("\n"));
+});
+
+test("word stuffing: a bare list of lesson terms is rejected; terms spread over sentences pass", () => {
+  const words = ["la protección", "la capacidad", "la cantidad", "el breaker"].map((es) => ({ es, en: es, kind: "term" }));
+  const stuffed = "Marta revisa la protección, la capacidad y la cantidad.";
+  // One list of exactly three terms per passage is allowed (people do name three things at once).
+  assert.deepEqual(bareTermSeries([stuffed], words, "Spanish"), []);
+  assert.equal(bareTermSeries([stuffed, "Luis anota la capacidad, la cantidad y el breaker."], words, "Spanish").length, 1);
+  assert.equal(bareTermSeries(["Revisa la protección, la capacidad, la cantidad y el breaker."], words, "Spanish").length, 1);
+  assert.deepEqual(
+    bareTermSeries(
+      [
+        "Marta revisa la protección del panel antes de abrir la caja.",
+        "Luis calcula la capacidad del circuito con el cliente en la cocina.",
+        "Hoy pedimos la cantidad exacta de cable y un breaker nuevo para el garaje.",
+      ],
+      words,
+      "Spanish",
+    ),
+    [],
+  );
+  const c = stageContentRequest(ctx("foundation"), "claude-opus-5-5", roofingStageFile("foundation").lessons[0], {});
+  assert.match(c.system, /Never pack three or more terms into a bare list/);
+});
+
+test("a failing stage-wide check redoes the named blocks; a redone block is checked against later blocks", () => {
+  assert.deepEqual(blocksToRedo(["lesson 14 (x): term \"y\" is already a term of lesson 3; use a different term"]), ["D"]);
+  assert.deepEqual(blocksToRedo(["lesson 2: a", "lesson 19: b"]), ["A", "E"]);
+  assert.deepEqual(blocksToRedo(["threshold must start \"By Lesson 20, you can \""]), ["E"]);
+  const file = roofingStageFile("master");
+  const blockB = file.lessons.slice(4, 8);
+  const others = [...file.lessons.slice(0, 4), ...file.lessons.slice(8)];
+  assert.deepEqual(blockErrors(blockB, others, ctx("master"), file.threshold), []);
+  // Redoing block B with a term that a LATER lesson (9) already uses: reported on lesson 5.
+  const redo = clone(blockB);
+  redo[0].words[0] = { ...file.lessons[8].words.find((w) => w.kind === "term") };
+  const text = blockErrors(redo, others, ctx("master"), file.threshold).join("\n");
+  assert.match(text, /^lesson 5: clashes with a later lesson \(lesson 9 .*\); change lesson 5/m);
+});
+
+test("cli provider: same prompt content, structured output instead of a tool, counts left to our checks", () => {
+  assert.equal(resolveModel(undefined, "cli"), "claude-opus-5-5", "the subscription build defaults to Opus");
+  assert.equal(resolveModel("sonnet", "cli"), "claude-sonnet-5-5");
+  assert.equal(resolveModel(undefined, "api"), "claude-sonnet-5-5");
+  const file = roofingStageFile("master");
+  const outline = { threshold: file.threshold, lessons: file.lessons.map((l) => ({ n: l.n, title: l.title, objective: l.objective, grammarFocus: l.grammar.focus, lessonType: l.lessonType, block: l.block, scene: "s", safetySensitive: false })) };
+  const requests = [
+    [foundationCurriculumRequest(ctx("foundation"), "m"), FOUNDATION_TOOL],
+    [masterOutlineRequest(ctx("master"), "m"), OUTLINE_TOOL],
+    [masterBlockRequest(ctx("master"), "m", outline, MASTER_BLOCKS[0], []), BLOCK_TOOL],
+    [stageContentRequest(ctx("master"), "m", file.lessons[0], { scene: "s" }), CONTENT_TOOL],
+  ];
+  for (const [request, tool] of requests) {
+    const system = cliSystemPrompt(request.system, tool);
+    assert.ok(!system.includes(tool), `${tool}: the tool is not named`);
+    assert.match(system, /ONE JSON object that matches the given JSON schema/);
+    assert.equal(system.length - request.system.length < 120, true, "only the delivery sentence changes");
+    const schema = JSON.stringify(cliJsonSchema(request.tools[0].input_schema));
+    assert.ok(!/minItems|maxItems/.test(schema));
+    assert.ok(schema.includes('"required"'));
+    assert.equal(cliPrompt(request), request.messages[0].content);
+  }
+  const retry = cliPrompt(requests[0][0], { reply: { lessons: [] }, errors: ["lesson 1: 3 terms, needs 8-12"] });
+  assert.match(retry, /YOUR PREVIOUS ANSWER \(rejected\):\n\{"lessons":\[\]\}/);
+  assert.match(retry, /- lesson 1: 3 terms, needs 8-12$/);
+});
+
+test("cli provider: parses the CLI's JSON result, its usage, and classifies limits and login failures", () => {
+  const ok = parseCliOutput(
+    JSON.stringify({
+      type: "result",
+      subtype: "success",
+      is_error: false,
+      result: "{}",
+      structured_output: { lessons: [1] },
+      total_cost_usd: 0.42,
+      num_turns: 2,
+      duration_ms: 61000,
+      usage: { input_tokens: 10, cache_creation_input_tokens: 5000, cache_read_input_tokens: 300, output_tokens: 9000 },
+      modelUsage: { "claude-opus-5-5": {} },
+    }),
+  );
+  assert.equal(ok.ok, true);
+  assert.deepEqual(ok.value, { lessons: [1] });
+  assert.deepEqual(ok.usage, { inputTokens: 10, cacheCreationInputTokens: 5000, cacheReadInputTokens: 300, outputTokens: 9000, costUsd: 0.42, numTurns: 2, durationMs: 61000, model: "claude-opus-5-5" });
+  const fenced = parseCliOutput(JSON.stringify({ subtype: "success", is_error: false, result: "Here:\n```json\n{\"a\": 1}\n```" }));
+  assert.deepEqual(fenced.value, { a: 1 });
+  const limit = parseCliOutput(JSON.stringify({ subtype: "success", is_error: true, result: "Claude AI usage limit reached|1760000000" }));
+  assert.equal(limit.kind, "rate_limit");
+  assert.equal(limit.resetAt, 1_760_000_000_000);
+  assert.equal(parseCliOutput(JSON.stringify({ subtype: "success", is_error: false, result: "You've hit your limit · resets 4pm" })).kind, "rate_limit");
+  assert.equal(parseCliOutput(JSON.stringify({ subtype: "error_during_execution", is_error: true, api_error_status: 529, result: "Overloaded" })).kind, "rate_limit");
+  assert.equal(parseCliOutput("", "Invalid API key · Please run /login", 1).kind, "auth");
+  assert.equal(parseCliOutput("", "spawn claude ENOENT", null).kind, "other");
+  assert.equal(classifyCliFailure("API Error: 429 rate_limit_error"), "rate_limit");
+  assert.equal(classifyCliFailure("OAuth token has expired"), "auth");
 });

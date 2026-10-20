@@ -6,7 +6,7 @@
 
 import type { LessonWord } from "../data/curriculum.ts";
 import type { AppModule } from "../data/modules.ts";
-import { contentLimitsFor } from "./lesson-content-core.ts";
+import { contentLimitsFor, invisibleCharErrors } from "./lesson-content-core.ts";
 import {
   CORE60_BLOCKS,
   CORE60_LESSON_TYPES,
@@ -92,6 +92,7 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
   for (const key of ["model", "generatedAt"] as const) {
     if (file[key] !== undefined && !text(file[key])) errors.push(`${key} must be a string`);
   }
+  for (const key of ["headline", "threshold"] as const) errors.push(...invisibleCharErrors(key, file[key]));
   const moduleId = typeof file.module === "string" ? file.module : `${stage}-`;
   const lessons = file.lessons;
   if (!Array.isArray(lessons)) {
@@ -108,6 +109,7 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
       return;
     }
     const lesson = raw as Record<string, unknown>;
+    errors.push(...invisibleCharErrors(where, lesson));
     if (lesson.n !== index + 1) errors.push(`${where}: n must be ${index + 1}`);
     if (!text(lesson.title)) errors.push(`${where}: title is missing`);
     else if (lesson.title.length > limits.maxTitleLength)
@@ -174,6 +176,7 @@ export function validateManifest(
     else if (base.languages && !base.languages.includes(entry.language as never))
       errors.push(`${where}: ${base.name} is not offered in ${entry.language}`);
     for (const stage of ["foundation", "master"] as const) {
+      if (entry[stage]) errors.push(...invisibleCharErrors(`${where} ${stage}`, entry[stage]));
       if (entry[stage] && ids.has(stageModuleId(stage, entry.base)))
         errors.push(`${where}: ${stageModuleId(stage, entry.base)} is already a hand-written module`);
     }

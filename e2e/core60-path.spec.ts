@@ -41,6 +41,7 @@ async function openStage(
   moduleId: string,
   core30Log: Record<string, unknown>,
   ready: string,
+  purchasedModules: string[] = [FOUNDATION, "roofing", MASTER],
 ) {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
@@ -50,7 +51,7 @@ async function openStage(
     await seedAppState(page, {
       onboardingComplete: true,
       activeModuleId: moduleId,
-      purchasedModules: [FOUNDATION, "roofing", MASTER],
+      purchasedModules,
       selectedLanguage: "Spanish",
       nativeLanguage: "English",
       currentTab: "core30",
@@ -220,13 +221,13 @@ test.describe("Core 30 page of a module without a Core 60 path", () => {
     for (let attempt = 0; attempt < 3; attempt++) {
       await seedAppState(page, {
         onboardingComplete: true,
-        activeModuleId: "electrician",
-        purchasedModules: ["electrician"],
+        activeModuleId: "plumber",
+        purchasedModules: ["plumber"],
         selectedLanguage: "Spanish",
         nativeLanguage: "English",
         currentTab: "core30",
       });
-      await page.goto(appUrl({ tab: "core30", module: "electrician" }));
+      await page.goto(appUrl({ tab: "core30", module: "plumber" }));
       const banner = page.getByRole("region", { name: /purpose/i }).first();
       await banner.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
       if (await banner.isVisible()) break;
@@ -342,5 +343,56 @@ test.describe("Data-driven Core 60 stage (fixture trade)", () => {
     await expect(foundation).toHaveAttribute("aria-disabled", "true");
     await expect(foundation).toHaveJSProperty("tagName", "DIV");
     await expect(page.getByTestId("core60-step-core")).toHaveJSProperty("tagName", "BUTTON");
+  });
+});
+
+// ─── Pilot: the generated Electrician stages (src/data/core60/es) ───────────────
+// Written by scripts/build-core60.mts and listed in src/data/core60/manifest.ts: the Electrician
+// Core 30 page shows all three stages as open steps, and a Master lesson opens with its grammar box.
+
+// The coming-soon banner text of src/lib/core60-path.ts (CORE30_WITHOUT_PATH_TEXT).
+const CORE30_WITHOUT_PATH_TEXT =
+  "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.";
+const ELECTRICIAN_STAGES = ["foundation-electrician", "electrician", "master-electrician"];
+const electricianMaster = JSON.parse(
+  readFileSync(resolve("src/data/core60/es/master-electrician.json"), "utf8"),
+) as { headline: string; lessons: { title: string; grammar: { focus: string; examples: { es: string; en: string }[] } }[] };
+
+test.describe("Generated Electrician Core 60 (pilot)", () => {
+  test("the Electrician page shows Foundation, Core 30 and Master 20, all three open", async ({ page }) => {
+    await openStage(page, "electrician", {}, "core60-path", ELECTRICIAN_STAGES);
+    const steps = page.getByTestId("core60-path").locator("li");
+    await expect(steps).toHaveCount(3);
+    await expect(steps.nth(0)).toContainText("Foundation · 10 lessons · free");
+    await expect(steps.nth(1)).toContainText("Core 30 · 30 lessons");
+    await expect(steps.nth(2)).toContainText("Master 20 · 20 lessons");
+    await expect(page.getByTestId("core60-path")).not.toContainText("Coming soon");
+    for (const stage of ["foundation", "master"]) {
+      await expect(page.getByTestId(`core60-step-${stage}`)).toHaveJSProperty("tagName", "BUTTON");
+      await expect(page.getByTestId(`core60-step-${stage}`)).toContainText("Open");
+    }
+    await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Electrician · Step 2 of 3");
+    await expect(page.getByText(CORE30_WITHOUT_PATH_TEXT)).toHaveCount(0);
+  });
+
+  test("Master Lesson 1 opens with its generated grammar focus", async ({ page }) => {
+    await openStage(page, "master-electrician", {}, "core30-plan-card", ELECTRICIAN_STAGES);
+    await expect(page.getByTestId("core60-stage-loading")).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: electricianMaster.headline })).toBeVisible();
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Electrician · Step 3 of 3");
+    await page.getByTestId("core30-start-plan").click();
+    await expect(page.getByTestId("core30-plan-card")).toContainText("Day 1 of 70");
+    await page.getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ }).first().click();
+    await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
+    const lesson = electricianMaster.lessons[0];
+    const grammar = page.getByTestId("lesson-grammar-focus");
+    await expect(grammar).toBeVisible();
+    await expect(grammar).toContainText("Grammar focus");
+    await expect(grammar).toContainText(lesson.grammar.focus);
+    for (const example of lesson.grammar.examples) {
+      await expect(grammar).toContainText(example.es);
+      await expect(grammar).toContainText(example.en);
+    }
   });
 });

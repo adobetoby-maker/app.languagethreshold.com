@@ -9,4 +9,7 @@
 
 import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
-export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [];
+export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
+  { base: "electrician", language: "Spanish", foundation: {}, master: {} },
+  { base: "nursing", language: "Spanish", foundation: {}, master: {} },
+];

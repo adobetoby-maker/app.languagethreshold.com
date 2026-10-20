@@ -30,6 +30,38 @@ import {
   TRAVEL_ZONE_MODULES,
 } from "../src/data/travel-zone.ts";
 import { MODULES } from "../src/data/modules.ts";
+import { getCurriculum } from "../src/data/curriculum.ts";
+import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
+
+// Data-driven Core 60 stages (src/data/core60/manifest.ts) each add one module in their entry's
+// language, its challenges (the base module's) and one Say it mission per lesson. Computed from the
+// manifest, so publishing a trade with scripts/build-core60.mts keeps these counts right.
+function generatedStageCounts(language) {
+  const out = { modules: 0, challenges: 0, lessons: 0 };
+  for (const entry of CORE60_MANIFEST) {
+    if (entry.language !== language) continue;
+    for (const stage of ["foundation", "master"]) {
+      if (!entry[stage]) continue;
+      const id = `${stage}-${entry.base}`;
+      out.modules += 1;
+      out.challenges += MODULES.find((m) => m.id === id)?.challengePrompts.length ?? 0;
+      out.lessons += getCurriculum(id)?.lessons.length ?? 0;
+    }
+  }
+  return out;
+}
+const withGenerated = (language, counts) => {
+  const gen = generatedStageCounts(language);
+  return {
+    ...counts,
+    modules: counts.modules + gen.modules,
+    challenges: counts.challenges + gen.challenges,
+    lessons: counts.lessons + gen.lessons,
+    total: counts.total + gen.challenges + gen.lessons,
+  };
+};
+/** Foundation and Master stage modules (roofing's hand-written ones and generated ones). */
+const isStageModule = (moduleId) => /^(foundation|master)-/.test(moduleId);
 
 const SPEAKING_MISSIONS = getAllSpeakingMissions();
 
@@ -127,18 +159,18 @@ test("speaking preview covers every authored topic in every speaking language", 
   // module, six challenges, and one Say it mission per Master lesson (20 once its content lands).
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
-    Spanish: {
+    Spanish: withGenerated("Spanish", {
       modules: 60,
       challenges: 378,
       lessons: 1460 + master,
       curated: 6,
       core: 141,
       total: 1979 + 6 + master,
-    },
+    }),
     Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
     Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
     Chinese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1911 },
-    English: { modules: 58, challenges: 364, lessons: 1470, curated: 0, core: 141, total: 1975 },
+    English: withGenerated("English", { modules: 58, challenges: 364, lessons: 1470, curated: 0, core: 141, total: 1975 }),
   };
 
   assert.deepEqual(
@@ -181,9 +213,13 @@ test("speaking preview covers every authored topic in every speaking language", 
     }
   }
 
-  assert.equal(SPEAKING_MISSIONS.length, 9678 + 6 + master);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, 9678 + 6 + master);
-  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, 9678 + 6 + master);
+  const generated = ["Spanish", "English"]
+    .map(generatedStageCounts)
+    .reduce((sum, gen) => sum + gen.challenges + gen.lessons, 0);
+  const allMissions = 9678 + 6 + master + generated;
+  assert.equal(SPEAKING_MISSIONS.length, allMissions);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
+  assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, allMissions);
   assert.ok(
     !SPEAKING_MISSIONS.some(
       (mission) => mission.language !== "English" && ["or-evs", "fmg"].includes(mission.moduleId),
@@ -258,8 +294,10 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
     const languageMissions = getSpeakingMissions(language);
     const travelMissions = languageMissions.filter((mission) => mission.specialty === "Travel");
     assert.equal(travelMissions.length, 404, `${language} Travel mission count`);
+    // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
+    // their own, so they do not count toward a zone's size here.
     const nonTravelCounts = Object.groupBy(
-      languageMissions.filter((mission) => mission.specialty !== "Travel"),
+      languageMissions.filter((mission) => mission.specialty !== "Travel" && !isStageModule(mission.moduleId)),
       (mission) => mission.specialty,
     );
     assert.ok(

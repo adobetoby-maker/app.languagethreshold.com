@@ -74,7 +74,9 @@ test("artifact guard rejects different, absent and extra packaged review files",
       staticRoot = join(root, "static");
     cpSync(source, packaged, { recursive: true });
     cpSync(source, staticRoot, { recursive: true });
-    assert.equal(verifyLessonReviewContent(source, packaged, staticRoot), 62);
+    // Every content file the index lists, plus index.json itself (grows as Core 60 stages ship).
+    const listed = JSON.parse(readFileSync(join(source, "index.json"), "utf8")).files.length;
+    assert.equal(verifyLessonReviewContent(source, packaged, staticRoot), listed + 1);
     const path = join(packaged, "es/roofing.json"),
       bytes = readFileSync(path);
     writeFileSync(path, "changed");

@@ -1,0 +1,2762 @@
+{
+  "version": 1,
+  "module": "master-electrician",
+  "baseModule": "electrician",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Electrician Master 20",
+  "threshold": "By Lesson 20, you can teach an apprentice the test-before-you-touch order, explain a hidden problem and a change order to a client, say no to an unsafe request, report an incident or near miss in writing and aloud, and run a full day after a basement flood in Spanish.",
+  "reviewed": false,
+  "model": "claude-sonnet-5-5",
+  "generatedAt": "2026-10-20T06:55:29.405Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Why We Test Before We Touch: Teaching the Order",
+      "objective": "Teach a new apprentice the verification order at a panel and explain the reason for each step.",
+      "words": [
+        {
+          "en": "the lockout padlock",
+          "es": "el candado de bloqueo",
+          "kind": "term"
+        },
+        {
+          "en": "the breaker handle",
+          "es": "la palanca del breaker",
+          "kind": "term"
+        },
+        {
+          "en": "the test probes",
+          "es": "las puntas de prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the energized conductor",
+          "es": "el conductor energizado",
+          "kind": "term"
+        },
+        {
+          "en": "the line side",
+          "es": "el lado de línea",
+          "kind": "term"
+        },
+        {
+          "en": "the load side",
+          "es": "el lado de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the arc flash",
+          "es": "el arco eléctrico",
+          "kind": "term"
+        },
+        {
+          "en": "the safety glasses",
+          "es": "los lentes de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the step",
+          "es": "el paso",
+          "kind": "term"
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "the verification",
+          "es": "la verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the terminal screw",
+          "es": "el tornillo de la terminal",
+          "kind": "term"
+        },
+        {
+          "en": "the reading",
+          "es": "la lectura",
+          "kind": "term",
+          "note": "The number the meter shows."
+        },
+        {
+          "en": "First we turn off the breaker and put the lock on it.",
+          "es": "Primero apagamos el breaker y le ponemos el candado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then we measure with the meter to confirm there is no voltage.",
+          "es": "Luego medimos con el multímetro para confirmar que no hay voltaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We test the meter on a live source before trusting it.",
+          "es": "Probamos el medidor en una fuente viva antes de confiar en él.",
+          "kind": "phrase",
+          "note": "Informal, coworker to coworker."
+        },
+        {
+          "en": "A breaker that is off guarantees nothing, so we measure again.",
+          "es": "Un breaker apagado no garantiza nada, por eso medimos otra vez.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't put your hand in until I tell you.",
+          "es": "No metas la mano hasta que yo te diga.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Did you understand why we do each step?",
+          "es": "¿Entendiste por qué hacemos cada paso?",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "It's normal to be nervous; that's why we go slowly and together.",
+          "es": "Es normal tener nervios; por eso vamos despacio y juntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please confirm the reading yourself before continuing.",
+          "es": "Por favor, confirme usted la lectura antes de continuar.",
+          "kind": "phrase",
+          "note": "Formal (usted), e.g. to an inspector."
+        }
+      ],
+      "speaking": "You are the journeyman at an open panel, and the AI is a nervous new apprentice: teach the order (lockout, meter test, test again) and explain the reason for each step using primero, luego, porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero apagamos el circuito; luego lo medimos.",
+            "en": "First we turn off the circuit; then we measure it."
+          },
+          {
+            "es": "Medimos otra vez porque el breaker puede estar mal etiquetado.",
+            "en": "We measure again because the breaker may be labeled wrong."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "How a Breaker Protects the Wire, Not the Appliance",
+      "objective": "Explain in plain Spanish what a breaker protects and what usually happens when it trips.",
+      "words": [
+        {
+          "en": "the household appliance",
+          "es": "el electrodoméstico",
+          "kind": "term"
+        },
+        {
+          "en": "the short circuit",
+          "es": "el cortocircuito",
+          "kind": "term"
+        },
+        {
+          "en": "the overheating",
+          "es": "el sobrecalentamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the fire",
+          "es": "el incendio",
+          "kind": "term"
+        },
+        {
+          "en": "the fault",
+          "es": "la falla",
+          "kind": "term"
+        },
+        {
+          "en": "the limit",
+          "es": "el límite",
+          "kind": "term"
+        },
+        {
+          "en": "the thin wire",
+          "es": "el cable delgado",
+          "kind": "term"
+        },
+        {
+          "en": "the microwave",
+          "es": "el microondas",
+          "kind": "term"
+        },
+        {
+          "en": "the toaster",
+          "es": "la tostadora",
+          "kind": "term"
+        },
+        {
+          "en": "the cause",
+          "es": "la causa",
+          "kind": "term"
+        },
+        {
+          "en": "the smoke",
+          "es": "el humo",
+          "kind": "term"
+        },
+        {
+          "en": "the wear",
+          "es": "el desgaste",
+          "kind": "term"
+        },
+        {
+          "en": "the overload",
+          "es": "la sobrecarga",
+          "kind": "term"
+        },
+        {
+          "en": "the nuisance",
+          "es": "la molestia",
+          "kind": "term",
+          "note": "Used here for nuisance tripping."
+        },
+        {
+          "en": "If there is an overload, the breaker trips to protect the wire.",
+          "es": "Si hay sobrecarga, el breaker se dispara para proteger el cable.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It trips because the wire can't handle more current.",
+          "es": "Se dispara porque el cable no aguanta más corriente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The breaker protects the wire, not the appliance.",
+          "es": "El breaker protege el cable, no el aparato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you put in a bigger breaker, the wire overheats.",
+          "es": "Si usted pone un breaker más grande, el cable se sobrecalienta.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "That is not done; it can cause a fire.",
+          "es": "Eso no se hace; puede causar un incendio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The breaker is chosen according to the wire and the local code.",
+          "es": "El breaker se escoge según el cable y el código local.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which appliances are used at the same time on this circuit?",
+          "es": "¿Qué aparatos se usan al mismo tiempo en este circuito?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it trips often, call us to check the circuit.",
+          "es": "Si se dispara seguido, llámenos para revisar el circuito.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the electrician at a kitchen table, and the AI is a homeowner's adult son asking about the tripping: explain what a breaker protects and what usually happens when it trips, using se dispara and si + present.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se dispara, si hay sobrecarga...)",
+        "examples": [
+          {
+            "es": "Si hay sobrecarga, el breaker se dispara.",
+            "en": "If there is an overload, the breaker trips."
+          },
+          {
+            "es": "Se dispara para que el cable no se caliente demasiado.",
+            "en": "It trips so the wire doesn't get too hot."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Read the Panel Directory Before You Swap a Breaker",
+      "objective": "Direct an apprentice to check the panel label and directory, and to confirm each step before swapping a breaker.",
+      "words": [
+        {
+          "en": "the panel directory",
+          "es": "el directorio del panel",
+          "kind": "term",
+          "note": "The list of what each breaker feeds."
+        },
+        {
+          "en": "the panel door",
+          "es": "la puerta del panel",
+          "kind": "term"
+        },
+        {
+          "en": "the handwriting",
+          "es": "la letra a mano",
+          "kind": "term"
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term"
+        },
+        {
+          "en": "the part number",
+          "es": "el número de parte",
+          "kind": "term"
+        },
+        {
+          "en": "the model",
+          "es": "el modelo",
+          "kind": "term"
+        },
+        {
+          "en": "the double-pole breaker",
+          "es": "el breaker doble",
+          "kind": "term"
+        },
+        {
+          "en": "the position",
+          "es": "la posición",
+          "kind": "term"
+        },
+        {
+          "en": "the slot",
+          "es": "el espacio",
+          "kind": "term"
+        },
+        {
+          "en": "the brand",
+          "es": "la marca",
+          "kind": "term"
+        },
+        {
+          "en": "the unidentified circuit",
+          "es": "el circuito sin identificar",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement part",
+          "es": "el repuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the marker",
+          "es": "el marcador",
+          "kind": "term"
+        },
+        {
+          "en": "Check it again before removing the breaker.",
+          "es": "Revísalo otra vez antes de quitar el breaker.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Don't touch it yet; first read the label.",
+          "es": "No lo toques todavía; primero lee la etiqueta.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Read it aloud so we can verify it together.",
+          "es": "Léelo en voz alta para que lo verifiquemos juntos.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "Tell me if the directory doesn't match the label.",
+          "es": "Dímelo si el directorio no coincide con la etiqueta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't swap it until you confirm which circuit it is.",
+          "es": "No lo cambies hasta confirmar cuál circuito es.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the label on the door, this breaker is 20 amps.",
+          "es": "Según la etiqueta de la puerta, este breaker es de 20 amperios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Show it to me before turning anything off.",
+          "es": "Muéstramelo antes de apagar nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please verify it with us.",
+          "es": "Compruébelo con nosotros, por favor.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the electrician in a basement, and the AI is your apprentice about to replace a breaker: direct them to check the panel label and directory, using commands with pronouns like revísalo, no lo toques and léelo en voz alta.",
+      "grammar": {
+        "focus": "Commands with object pronouns (revísalo, no lo toques, léelo en voz alta)",
+        "examples": [
+          {
+            "es": "Léelo en voz alta, por favor.",
+            "en": "Read it aloud, please."
+          },
+          {
+            "es": "No lo toques hasta confirmar el circuito.",
+            "en": "Don't touch it until you confirm the circuit."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Smart Dimmer Instructions: Read the Maker's Load Limits",
+      "objective": "Read a manufacturer instruction sheet aloud and explain its limits and steps to an apprentice.",
+      "words": [
+        {
+          "en": "the smart dimmer",
+          "es": "el atenuador inteligente",
+          "kind": "term"
+        },
+        {
+          "en": "the instruction sheet",
+          "es": "la hoja de instrucciones",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer",
+          "es": "el fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the minimum load",
+          "es": "la carga mínima",
+          "kind": "term"
+        },
+        {
+          "en": "the maximum load",
+          "es": "la carga máxima",
+          "kind": "term"
+        },
+        {
+          "en": "the light fixture",
+          "es": "la luminaria",
+          "kind": "term"
+        },
+        {
+          "en": "the dimmable bulbs",
+          "es": "los focos regulables",
+          "kind": "term"
+        },
+        {
+          "en": "the compatibility",
+          "es": "la compatibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the warning",
+          "es": "la advertencia",
+          "kind": "term"
+        },
+        {
+          "en": "the wiring diagram",
+          "es": "el diagrama de conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the app",
+          "es": "la aplicación",
+          "kind": "term"
+        },
+        {
+          "en": "the Wi-Fi",
+          "es": "el wifi",
+          "kind": "term"
+        },
+        {
+          "en": "the wall box",
+          "es": "la caja de pared",
+          "kind": "term"
+        },
+        {
+          "en": "the warranty",
+          "es": "la garantía",
+          "kind": "term"
+        },
+        {
+          "en": "the load wire",
+          "es": "el cable de carga",
+          "kind": "term"
+        },
+        {
+          "en": "Before installing it, we have to read the whole instruction sheet.",
+          "es": "Antes de instalarlo, hay que leer toda la hoja de instrucciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the sheet, the maximum with LED is 150 watts.",
+          "es": "Según la hoja, el máximo con LED es 150 vatios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After turning off the breaker, we have to test that there is no voltage.",
+          "es": "Después de apagar el breaker, hay que probar que no hay voltaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to confirm that the bulbs are dimmable.",
+          "es": "Hay que confirmar que los focos son regulables.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before buying another one, let's check the compatibility list.",
+          "es": "Antes de comprar otro, vamos a revisar la lista de compatibilidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This fixture doesn't appear on the manufacturer's sheet.",
+          "es": "Esta luminaria no aparece en la hoja del fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before connecting the load wire, read the warning.",
+          "es": "Antes de conectar el cable de carga, lee la advertencia.",
+          "kind": "phrase",
+          "note": "Informal (tú), to the apprentice."
+        },
+        {
+          "en": "Ma'am, according to the sheet, that fixture isn't compatible with this dimmer.",
+          "es": "Señora, según la hoja, esa luminaria no es compatible con este atenuador.",
+          "kind": "phrase",
+          "note": "Formal (usted), to the homeowner."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is your apprentice in a living room: read the smart dimmer's Spanish instruction sheet aloud and explain its load limits and steps, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que",
+        "examples": [
+          {
+            "es": "Antes de instalar el atenuador, hay que apagar el breaker.",
+            "en": "Before installing the dimmer, we have to turn off the breaker."
+          },
+          {
+            "es": "Después de leer la hoja, confirmamos la carga máxima.",
+            "en": "After reading the sheet, we confirm the maximum load."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Aluminum Wiring Behind the Wall: Change Order",
+      "objective": "Tell a homeowner what you found, what you did, and propose a repair with a change order.",
+      "words": [
+        {
+          "en": "aluminum",
+          "es": "el aluminio",
+          "kind": "term"
+        },
+        {
+          "en": "copper",
+          "es": "el cobre",
+          "kind": "term"
+        },
+        {
+          "en": "aluminum wiring",
+          "es": "el cableado de aluminio",
+          "kind": "term"
+        },
+        {
+          "en": "the change order",
+          "es": "la orden de cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the scope of work",
+          "es": "el alcance del trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the finding",
+          "es": "el hallazgo",
+          "kind": "term"
+        },
+        {
+          "en": "the splice",
+          "es": "el empalme",
+          "kind": "term"
+        },
+        {
+          "en": "the compatible connector",
+          "es": "el conector compatible",
+          "kind": "term",
+          "note": "Compatible with both metals, per the connector maker."
+        },
+        {
+          "en": "the anti-oxidant paste",
+          "es": "la pasta antioxidante",
+          "kind": "term"
+        },
+        {
+          "en": "the oxidation / corrosion",
+          "es": "la oxidación",
+          "kind": "term"
+        },
+        {
+          "en": "the insulation (on the wire)",
+          "es": "el aislante",
+          "kind": "term"
+        },
+        {
+          "en": "the partial repair",
+          "es": "la reparación parcial",
+          "kind": "term"
+        },
+        {
+          "en": "the additional cost",
+          "es": "el costo adicional",
+          "kind": "term"
+        },
+        {
+          "en": "the approval",
+          "es": "la aprobación",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "When I opened the wall, I found aluminum wiring.",
+          "es": "Al abrir la pared, encontré cableado de aluminio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The insulation was brittle and the connections were loose.",
+          "es": "El aislante estaba quebradizo y las conexiones estaban flojas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I turned off the circuit and measured before touching anything.",
+          "es": "Apagué el circuito y medí antes de tocar algo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would propose repairing the connections with compatible connectors.",
+          "es": "Yo propondría reparar las conexiones con conectores compatibles.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This changes the scope and the price; let me explain why.",
+          "es": "Esto cambia el alcance y el precio; le explico por qué.",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "I understand your concern; we won't continue without your approval.",
+          "es": "Entiendo su preocupación; no seguiremos sin su aprobación.",
+          "kind": "phrase",
+          "note": "Formal; calming tone for a worried owner."
+        },
+        {
+          "en": "I would recommend an inspection after the repair.",
+          "es": "Le recomendaría una inspección después de la reparación.",
+          "kind": "phrase",
+          "note": "Formal; conditional softens advice."
+        },
+        {
+          "en": "I'll send you the change order in writing with the additional cost.",
+          "es": "Le mando por escrito la orden de cambio con el costo adicional.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is a worried homeowner: explain what you found behind the wall, what you did, and propose a repair with a change order, using encontré, estaba and yo propondría.",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (encontré, estaba, yo propondría)",
+        "examples": [
+          {
+            "es": "Cuando abrí la pared, el cableado estaba oxidado.",
+            "en": "When I opened the wall, the wiring was corroded."
+          },
+          {
+            "es": "Yo propondría reparar las conexiones primero.",
+            "en": "I would propose repairing the connections first."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Backordered Breaker: Substitution at the Supply House",
+      "objective": "Discuss a backordered breaker with a supply-house clerk and agree on a compatible substitute, checking the label.",
+      "words": [
+        {
+          "en": "the counter",
+          "es": "el mostrador",
+          "kind": "term"
+        },
+        {
+          "en": "the salesperson / clerk",
+          "es": "el vendedor",
+          "kind": "term"
+        },
+        {
+          "en": "the backorder",
+          "es": "el pedido pendiente",
+          "kind": "term",
+          "note": "Some counters say 'está en backorder'."
+        },
+        {
+          "en": "the special order",
+          "es": "el pedido especial",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery date",
+          "es": "la fecha de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the substitute",
+          "es": "el sustituto",
+          "kind": "term"
+        },
+        {
+          "en": "the inventory / stock",
+          "es": "el inventario",
+          "kind": "term"
+        },
+        {
+          "en": "the compatible model",
+          "es": "el modelo compatible",
+          "kind": "term"
+        },
+        {
+          "en": "the panel label",
+          "es": "la etiqueta del panel",
+          "kind": "term"
+        },
+        {
+          "en": "the supplier",
+          "es": "el proveedor",
+          "kind": "term"
+        },
+        {
+          "en": "the branch location",
+          "es": "la sucursal",
+          "kind": "term"
+        },
+        {
+          "en": "the price difference",
+          "es": "la diferencia de precio",
+          "kind": "term"
+        },
+        {
+          "en": "the return",
+          "es": "la devolución",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "When will the breaker I ordered arrive?",
+          "es": "¿Cuándo llegará el breaker que pedí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How long will the backorder take?",
+          "es": "¿Cuánto va a tardar el pedido pendiente?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there another branch with that model in stock?",
+          "es": "¿Hay otra sucursal con ese modelo en inventario?",
+          "kind": "phrase"
+        },
+        {
+          "en": "That model costs more than the original, right?",
+          "es": "Ese modelo es más caro que el original, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is this one just as compatible with my panel?",
+          "es": "¿Este es igual de compatible con mi panel?",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the panel label, only certain models work.",
+          "es": "Según la etiqueta del panel, solo sirven ciertos modelos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let me read the label before deciding.",
+          "es": "Déjeme leer la etiqueta antes de decidir.",
+          "kind": "phrase",
+          "note": "Formal (usted command)."
+        },
+        {
+          "en": "I'm going to check the manufacturer's list before buying it.",
+          "es": "Voy a revisar la lista del fabricante antes de comprarlo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is a supply-house clerk: ask when the backordered breaker will arrive, compare the alternatives, and check the panel label before agreeing, using llegará, va a tardar and más caro que.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (llegará, va a tardar, es más caro que, igual de compatible)",
+        "examples": [
+          {
+            "es": "El breaker llegará el viernes, pero va a tardar más si hay retraso.",
+            "en": "The breaker will arrive Friday, but it will take longer if there is a delay."
+          },
+          {
+            "es": "Según la etiqueta, este modelo es igual de compatible con el panel.",
+            "en": "According to the label, this model is just as compatible with the panel."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Utility Crew Arrives While the Service Is Open",
+      "objective": "Narrate what happened on site and give readings and times clearly to a utility crew under pressure.",
+      "words": [
+        {
+          "en": "the utility lineman",
+          "es": "el liniero",
+          "kind": "term",
+          "note": "Also heard: 'el lineman'."
+        },
+        {
+          "en": "the supervisor",
+          "es": "el supervisor",
+          "kind": "term"
+        },
+        {
+          "en": "the utility truck",
+          "es": "el camión de la compañía",
+          "kind": "term"
+        },
+        {
+          "en": "the work order",
+          "es": "la orden de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the meter socket",
+          "es": "la base del medidor",
+          "kind": "term"
+        },
+        {
+          "en": "the meter seal",
+          "es": "el sello del medidor",
+          "kind": "term"
+        },
+        {
+          "en": "the main disconnect",
+          "es": "el desconectador principal",
+          "kind": "term"
+        },
+        {
+          "en": "the disconnection",
+          "es": "la desconexión",
+          "kind": "term"
+        },
+        {
+          "en": "the reconnection",
+          "es": "la reconexión",
+          "kind": "term"
+        },
+        {
+          "en": "the connection point",
+          "es": "el punto de conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the clamp meter",
+          "es": "la pinza amperimétrica",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the log",
+          "es": "la bitácora",
+          "kind": "term"
+        },
+        {
+          "en": "the work area",
+          "es": "la zona de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "I turned off the main breaker at 10:15.",
+          "es": "Desconecté el breaker principal a las 10:15.",
+          "kind": "phrase",
+          "note": "Say: a las diez y cuarto."
+        },
+        {
+          "en": "I put on my lock and tag at 10:20.",
+          "es": "Puse mi candado y mi etiqueta a las 10:20.",
+          "kind": "phrase",
+          "note": "Say: a las diez y veinte."
+        },
+        {
+          "en": "I measured again at 10:30 and there was no voltage.",
+          "es": "Medí otra vez a las 10:30 y no había voltaje.",
+          "kind": "phrase",
+          "note": "Say: diez y media."
+        },
+        {
+          "en": "The meter read 0 volts on the load side.",
+          "es": "El medidor marcó 0 voltios en el lado de carga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "No one touched the meter seal since I arrived.",
+          "es": "Nadie tocó el sello del medidor desde que llegué.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please don't reconnect until I remove my lock.",
+          "es": "Por favor, no reconecten hasta que yo quite mi candado.",
+          "kind": "phrase",
+          "note": "Plural command to a crew."
+        },
+        {
+          "en": "I don't have that reading; I'd rather measure again than guess.",
+          "es": "No tengo esa lectura; prefiero medir otra vez que adivinar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you show me your work order, please?",
+          "es": "¿Me puede mostrar su orden de trabajo, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the electrician on site, and the AI is a utility crew lead who just arrived: report in the preterite what you disconnected, at what times, and what the meter read, without guessing.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (a las diez y cuarto, el medidor marcó...)",
+        "examples": [
+          {
+            "es": "Llegué a las 9:00 y desconecté el servicio a las 9:10.",
+            "en": "I arrived at 9:00 and disconnected the service at 9:10."
+          },
+          {
+            "es": "El medidor marcó 0 voltios cuando medí.",
+            "en": "The meter read 0 volts when I measured."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No to Bypassing a Tripping Breaker",
+      "objective": "Refuse a landlord's request to bypass a tripping breaker, explain the risk, and offer a safe alternative.",
+      "words": [
+        {
+          "en": "the tenant",
+          "es": "el inquilino",
+          "kind": "term"
+        },
+        {
+          "en": "the building owner / landlord",
+          "es": "el dueño del edificio",
+          "kind": "term"
+        },
+        {
+          "en": "the complaint",
+          "es": "la queja",
+          "kind": "term"
+        },
+        {
+          "en": "the temporary fix",
+          "es": "la solución temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the responsibility / liability",
+          "es": "la responsabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance",
+          "es": "el seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the root cause",
+          "es": "la causa raíz",
+          "kind": "term"
+        },
+        {
+          "en": "the full inspection",
+          "es": "la revisión completa",
+          "kind": "term"
+        },
+        {
+          "en": "the diagnostic visit",
+          "es": "la visita de diagnóstico",
+          "kind": "term"
+        },
+        {
+          "en": "the written report",
+          "es": "el informe escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the alternative",
+          "es": "la alternativa",
+          "kind": "term"
+        },
+        {
+          "en": "the damage",
+          "es": "el daño",
+          "kind": "term"
+        },
+        {
+          "en": "the injury",
+          "es": "la lesión",
+          "kind": "term"
+        },
+        {
+          "en": "the overheated wire",
+          "es": "el cable recalentado",
+          "kind": "term"
+        },
+        {
+          "en": "Please don't bypass it; it can cause a fire.",
+          "es": "No lo puentee, por favor; puede causar un incendio.",
+          "kind": "phrase",
+          "note": "Formal (negative usted command)."
+        },
+        {
+          "en": "I don't recommend that you replace the breaker with a bigger one.",
+          "es": "No recomiendo que cambie el breaker por uno más grande.",
+          "kind": "phrase",
+          "note": "Formal; subjunctive after no recomiendo que."
+        },
+        {
+          "en": "I understand the pressure, but I can't make that change.",
+          "es": "Entiendo la presión, pero no puedo hacer ese cambio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It trips because something in the circuit isn't right.",
+          "es": "Se dispara porque algo en el circuito no está bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I propose a visit to find the root cause.",
+          "es": "Le propongo una visita para encontrar la causa raíz.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Don't plug more appliances into that circuit in the meantime.",
+          "es": "No conecten más aparatos en ese circuito mientras tanto.",
+          "kind": "phrase",
+          "note": "Plural command, passed on to the tenants."
+        },
+        {
+          "en": "We can check the circuit tomorrow first thing.",
+          "es": "Podemos revisar el circuito mañana a primera hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll give you a report so the tenant can see it.",
+          "es": "Le doy un informe para que el inquilino lo vea.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is a landlord whose tenant keeps complaining about a tripping breaker: decline any unsafe fix, explain the risk, and offer an inspection, using no lo puentee and no recomiendo que.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no lo puentee, no recomiendo que cambie...)",
+        "examples": [
+          {
+            "es": "No lo puentee; es peligroso.",
+            "en": "Don't bypass it; it's dangerous."
+          },
+          {
+            "es": "No recomiendo que cambie el breaker sin revisar el cable.",
+            "en": "I don't recommend that you change the breaker without checking the wire."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for an Apprentice Who Rushes Terminations",
+      "objective": "Give respectful, specific feedback to an apprentice and state what you want them to do differently.",
+      "words": [
+        {
+          "en": "the strip gauge",
+          "es": "la guía de pelado",
+          "kind": "term",
+          "note": "The strip-length marking on the device or its instructions."
+        },
+        {
+          "en": "the wire stripper",
+          "es": "el pelacables",
+          "kind": "term"
+        },
+        {
+          "en": "the tightening torque",
+          "es": "el torque",
+          "kind": "term",
+          "note": "Often said this way on US jobs; the label gives the value."
+        },
+        {
+          "en": "the screwdriver",
+          "es": "el destornillador",
+          "kind": "term"
+        },
+        {
+          "en": "the bare copper",
+          "es": "el cobre desnudo",
+          "kind": "term"
+        },
+        {
+          "en": "the wire nut",
+          "es": "la tuerca para cables",
+          "kind": "term"
+        },
+        {
+          "en": "the stray strand",
+          "es": "el hilo suelto",
+          "kind": "term"
+        },
+        {
+          "en": "the device",
+          "es": "el dispositivo",
+          "kind": "term"
+        },
+        {
+          "en": "the rush",
+          "es": "la prisa",
+          "kind": "term"
+        },
+        {
+          "en": "the habit",
+          "es": "la costumbre",
+          "kind": "term"
+        },
+        {
+          "en": "the correction",
+          "es": "la corrección",
+          "kind": "term"
+        },
+        {
+          "en": "the mistake",
+          "es": "el error",
+          "kind": "term"
+        },
+        {
+          "en": "the patience",
+          "es": "la paciencia",
+          "kind": "term"
+        },
+        {
+          "en": "the quality of the work",
+          "es": "la calidad del trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "I want you to check every connection against the device instructions.",
+          "es": "Quiero que revises cada conexión con las instrucciones del dispositivo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend that you take your time on each terminal.",
+          "es": "Te recomiendo que te tomes el tiempo en cada terminal.",
+          "kind": "phrase",
+          "note": "Informal (tú), between coworker and apprentice."
+        },
+        {
+          "en": "You did good work today, but I want you not to rush.",
+          "es": "Hoy hiciste buen trabajo, pero quiero que no te apures.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need you to strip the wire using the device's guide.",
+          "es": "Necesito que peles el cable con la guía del dispositivo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tighten it to the torque the manufacturer specifies.",
+          "es": "Apriétalo con el torque que indique el fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I ask that you tell me if anything isn't clear.",
+          "es": "Te pido que me avises si algo no queda claro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather you ask than guess.",
+          "es": "Prefiero que preguntes a que adivines.",
+          "kind": "phrase"
+        },
+        {
+          "en": "When you finish, I want you to show me each connection.",
+          "es": "Cuando termines, quiero que me enseñes cada conexión.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the electrician giving private feedback at the truck, and the AI is your apprentice: praise something specific, name the skipped check, and say what you want next using quiero que… and te recomiendo que…",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que revises, te recomiendo que...)",
+        "examples": [
+          {
+            "es": "Quiero que revises las instrucciones antes de conectar.",
+            "en": "I want you to check the instructions before connecting."
+          },
+          {
+            "es": "Te recomiendo que uses el pelacables con la guía.",
+            "en": "I recommend that you use the wire stripper with the guide."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Who Left the Panel Open? Settling a Crew Dispute",
+      "objective": "Hear two crew members' versions, report what each said, and settle the conflict with a clear agreement.",
+      "words": [
+        {
+          "en": "the panel cover",
+          "es": "la cubierta del panel",
+          "kind": "term"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the version (of events)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the oversight",
+          "es": "el descuido",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the occupied house",
+          "es": "la casa ocupada",
+          "kind": "term"
+        },
+        {
+          "en": "the shift handoff",
+          "es": "el cambio de turno",
+          "kind": "term"
+        },
+        {
+          "en": "the end-of-day checklist",
+          "es": "la lista de cierre",
+          "kind": "term"
+        },
+        {
+          "en": "the caution tape",
+          "es": "la cinta de precaución",
+          "kind": "term"
+        },
+        {
+          "en": "the coworker",
+          "es": "el compañero",
+          "kind": "term"
+        },
+        {
+          "en": "the notice",
+          "es": "el aviso",
+          "kind": "term"
+        },
+        {
+          "en": "the conflict",
+          "es": "el conflicto",
+          "kind": "term"
+        },
+        {
+          "en": "Carlos, what did you tell Luis before you left?",
+          "es": "Carlos, ¿qué le dijiste a Luis antes de irte?",
+          "kind": "phrase",
+          "note": "Informal (tú), to one crew member."
+        },
+        {
+          "en": "Luis, what were you doing when the shift ended?",
+          "es": "Luis, ¿qué estabas haciendo cuando terminó el turno?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Carlos said he thought you were going to close the panel.",
+          "es": "Carlos dijo que creía que tú ibas a cerrar el panel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luis, you were saying you had already put the tools away.",
+          "es": "Luis, tú decías que ya habías guardado las herramientas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The homeowner said she saw the panel open in the morning.",
+          "es": "La señora dijo que vio el panel abierto en la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I heard both of you; now I'll repeat what I understood.",
+          "es": "Escuché a los dos; ahora les repito lo que entendí.",
+          "kind": "phrase",
+          "note": "Plural ustedes (les), speaking to both."
+        },
+        {
+          "en": "I'm not looking for someone to blame; I want it not to happen again.",
+          "es": "No busco culpables; busco que no vuelva a pasar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From today, the last one out checks the cover and signs.",
+          "es": "Desde hoy, el último en salir revisa la cubierta y firma.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead electrician mediating in the van, and the AI plays the two crew members blaming each other: hear each version, report what each said with dijo que / decía que and estaba, then set a clear agreement.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (dijo que, estaba, decía que)",
+        "examples": [
+          {
+            "es": "Luis dijo que ya estaba oscuro al salir.",
+            "en": "Luis said it was already dark when he left."
+          },
+          {
+            "es": "Carlos decía que la cubierta estaba puesta.",
+            "en": "Carlos was saying the cover was on."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping the Crew Steady in a Hot Attic Week",
+      "objective": "Encourage a tired crew, make clear commitments about breaks and schedule, and ask how they feel.",
+      "words": [
+        {
+          "en": "the breaks",
+          "es": "las pausas",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule (hours)",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the heat stroke",
+          "es": "el golpe de calor",
+          "kind": "term"
+        },
+        {
+          "en": "the heat exhaustion",
+          "es": "el agotamiento por calor",
+          "kind": "term"
+        },
+        {
+          "en": "the shade",
+          "es": "la sombra",
+          "kind": "term"
+        },
+        {
+          "en": "the fan",
+          "es": "el ventilador",
+          "kind": "term"
+        },
+        {
+          "en": "the cooler",
+          "es": "la hielera",
+          "kind": "term"
+        },
+        {
+          "en": "the cold water",
+          "es": "el agua fría",
+          "kind": "term"
+        },
+        {
+          "en": "the start time",
+          "es": "la hora de entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the end time",
+          "es": "la hora de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "the spirits / morale",
+          "es": "el ánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the effort",
+          "es": "el esfuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the attic",
+          "es": "el ático",
+          "kind": "term"
+        },
+        {
+          "en": "We'll take breaks in the shade and drink water often.",
+          "es": "Haremos pausas en la sombra y tomaremos agua cada rato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we'll start at 6 and leave before the worst heat.",
+          "es": "Mañana entraremos a las 6 y saldremos antes del calor fuerte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll always have cold water and ice in the truck.",
+          "es": "Siempre tendremos agua fría y hielo en la troca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If someone feels unwell, they'll stop and tell me.",
+          "es": "Si alguien se siente mal, parará y me avisará.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll talk to the client to adjust the schedule.",
+          "es": "Yo hablaré con el cliente para ajustar el cronograma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I know you're tired, and I thank you for the effort.",
+          "es": "Sé que están cansados, y les agradezco el esfuerzo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you really feel today?",
+          "es": "¿Cómo se sienten hoy de verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "No one will work alone in the attic this week.",
+          "es": "Nadie trabajará solo en el ático esta semana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead during a hot week, and the AI is a tired, discouraged crew member: encourage them, promise new hours, water and rest breaks with the future (haremos, entraremos), and ask how they feel.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (haremos pausas, lo vamos a lograr)",
+        "examples": [
+          {
+            "es": "Mañana empezaremos a las 6.",
+            "en": "Tomorrow we'll start at 6."
+          },
+          {
+            "es": "Lo vamos a lograr juntos.",
+            "en": "We're going to make it together."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Faulty GFCI, Four Listeners: Switching Register",
+      "objective": "Explain the same faulty-GFCI problem to a homeowner, an apprentice, a property manager, and an inspector.",
+      "words": [
+        {
+          "en": "the faulty GFCI",
+          "es": "el GFCI defectuoso",
+          "kind": "term"
+        },
+        {
+          "en": "the moisture",
+          "es": "la humedad",
+          "kind": "term"
+        },
+        {
+          "en": "the shock hazard",
+          "es": "el peligro de descarga",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement",
+          "es": "el reemplazo",
+          "kind": "term"
+        },
+        {
+          "en": "the monthly test",
+          "es": "la prueba mensual",
+          "kind": "term"
+        },
+        {
+          "en": "the property manager",
+          "es": "el administrador",
+          "kind": "term"
+        },
+        {
+          "en": "the code compliance",
+          "es": "el cumplimiento del código",
+          "kind": "term"
+        },
+        {
+          "en": "the re-inspection",
+          "es": "la reinspección",
+          "kind": "term"
+        },
+        {
+          "en": "the summary",
+          "es": "el resumen",
+          "kind": "term"
+        },
+        {
+          "en": "the service life",
+          "es": "la vida útil",
+          "kind": "term"
+        },
+        {
+          "en": "the availability",
+          "es": "la disponibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the urgency",
+          "es": "la urgencia",
+          "kind": "term"
+        },
+        {
+          "en": "the defect",
+          "es": "el desperfecto",
+          "kind": "term"
+        },
+        {
+          "en": "Ma'am, I'd like to explain why this outlet keeps tripping.",
+          "es": "Señora, quisiera explicarle por qué se dispara este tomacorriente.",
+          "kind": "phrase",
+          "note": "Formal (usted), elderly homeowner."
+        },
+        {
+          "en": "If you'll allow me, I'll show you the test button.",
+          "es": "Si me permite, le muestro el botón de prueba.",
+          "kind": "phrase",
+          "note": "Formal; polite and slow-paced."
+        },
+        {
+          "en": "I ask that you not use this outlet until we replace it.",
+          "es": "Te pido que no uses este tomacorriente hasta que lo cambiemos.",
+          "kind": "phrase",
+          "note": "Informal (tú), to the apprentice."
+        },
+        {
+          "en": "Look, the GFCI doesn't respond to the reset button.",
+          "es": "Mira, el GFCI no responde al botón de reposición.",
+          "kind": "phrase",
+          "note": "Informal (tú), to the apprentice."
+        },
+        {
+          "en": "I'd like to ask your authorization to replace it today.",
+          "es": "Quisiera pedirle autorización para cambiarlo hoy mismo.",
+          "kind": "phrase",
+          "note": "Formal; to the busy property manager."
+        },
+        {
+          "en": "In short: it's faulty and I recommend replacing it today.",
+          "es": "En resumen: está defectuoso y recomiendo cambiarlo hoy.",
+          "kind": "phrase",
+          "note": "Short and direct for a busy listener."
+        },
+        {
+          "en": "Inspector, could you check the replacement when you have availability?",
+          "es": "Inspector, ¿podría revisar el reemplazo cuando tenga disponibilidad?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        },
+        {
+          "en": "Could you hand me the tester and write down the reading?",
+          "es": "¿Podrías pasarme el probador y anotar la lectura?",
+          "kind": "phrase",
+          "note": "Informal (tú), softened request to the apprentice."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI plays four listeners in turn: homeowner, apprentice, property manager, inspector. Explain the same faulty GFCI to each, switching usted/tú and using quisiera, ¿podría…? and te pido que.",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿podría...?, te pido que)",
+        "examples": [
+          {
+            "es": "Quisiera pedirle que firme aquí, por favor.",
+            "en": "I would like to ask you to sign here, please."
+          },
+          {
+            "es": "¿Podría esperar un momento, señora?",
+            "en": "Could you wait a moment, ma'am?"
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Shock Incident: What Happened, Minute by Minute",
+      "objective": "Tell a safety officer what happened during a shock incident in order, with times and who was involved.",
+      "words": [
+        {
+          "en": "the electric shock",
+          "es": "el choque eléctrico",
+          "kind": "term"
+        },
+        {
+          "en": "the extension cord",
+          "es": "la extensión",
+          "kind": "term",
+          "note": "Usual word on site for an extension cord."
+        },
+        {
+          "en": "the bare wire",
+          "es": "el cable pelado",
+          "kind": "term"
+        },
+        {
+          "en": "the paramedics",
+          "es": "los paramédicos",
+          "kind": "term"
+        },
+        {
+          "en": "the safety officer",
+          "es": "el oficial de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el informe del incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term"
+        },
+        {
+          "en": "the tingling",
+          "es": "el hormigueo",
+          "kind": "term"
+        },
+        {
+          "en": "the burn",
+          "es": "la quemadura",
+          "kind": "term"
+        },
+        {
+          "en": "the dizziness",
+          "es": "el mareo",
+          "kind": "term"
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the first aid",
+          "es": "los primeros auxilios",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency room",
+          "es": "la sala de emergencias",
+          "kind": "term"
+        },
+        {
+          "en": "the drill",
+          "es": "el taladro",
+          "kind": "term"
+        },
+        {
+          "en": "the statement",
+          "es": "la declaración",
+          "kind": "term"
+        },
+        {
+          "en": "At nine we were cutting conduit in the garage.",
+          "es": "A las nueve cortábamos conduit en el garaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Suddenly, Luis yelled and dropped the drill.",
+          "es": "De repente, Luis gritó y soltó el taladro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While Pedro called 911, I cut the power.",
+          "es": "Mientras Pedro llamaba al 911, yo corté la corriente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody touched Luis until I cut the power.",
+          "es": "Nadie tocó a Luis hasta que corté la corriente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After a few minutes, the paramedics arrived.",
+          "es": "Después de unos minutos, llegaron los paramédicos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luis said he felt tingling in his left hand.",
+          "es": "Luis dijo que sentía hormigueo en la mano izquierda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It was nine ten when it all happened.",
+          "es": "Eran las nueve y diez cuando pasó todo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This is what I saw; I can't say what he felt.",
+          "es": "Esto es lo que vi; no puedo decir qué sintió él.",
+          "kind": "phrase",
+          "note": "Formal-neutral; keeps facts separate from guesses."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is the company safety officer: give a calm account of the shock incident in order, using past tenses and time markers like a las nueve, de repente, mientras and después de unos minutos.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las nueve, de repente, después de unos minutos, mientras)",
+        "examples": [
+          {
+            "es": "A las nueve, Luis usaba el taladro; de repente, soltó la extensión.",
+            "en": "At nine, Luis was using the drill; suddenly, he dropped the extension cord."
+          },
+          {
+            "es": "Mientras esperábamos la ambulancia, yo le hablaba para mantenerlo tranquilo.",
+            "en": "While we waited for the ambulance, I talked to him to keep him calm."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: The Unlabeled Circuit That Was Live",
+      "objective": "Talk through a near miss without blame, saying what almost happened and what would change next time.",
+      "words": [
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the safety meeting",
+          "es": "la reunión de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the lesson learned",
+          "es": "la lección aprendida",
+          "kind": "term"
+        },
+        {
+          "en": "the unlabeled circuit",
+          "es": "el circuito sin etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the conductor",
+          "es": "el conductor",
+          "kind": "term"
+        },
+        {
+          "en": "the live wire",
+          "es": "el cable vivo",
+          "kind": "term"
+        },
+        {
+          "en": "the assumption",
+          "es": "la suposición",
+          "kind": "term"
+        },
+        {
+          "en": "the shop",
+          "es": "el taller",
+          "kind": "term"
+        },
+        {
+          "en": "the non-contact detector",
+          "es": "el detector sin contacto",
+          "kind": "term"
+        },
+        {
+          "en": "the habit",
+          "es": "el hábito",
+          "kind": "term"
+        },
+        {
+          "en": "the improvement",
+          "es": "la mejora",
+          "kind": "term"
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term"
+        },
+        {
+          "en": "the near-miss report",
+          "es": "el reporte de casi accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the safety pause",
+          "es": "la pausa de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "We almost touched a live wire on that circuit.",
+          "es": "Por poco tocamos un cable vivo en ese circuito.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You almost touched it, but you stopped in time; well done.",
+          "es": "Casi lo tocas, pero te detuviste a tiempo; bien hecho.",
+          "kind": "phrase",
+          "note": "Informal (tú), to the apprentice."
+        },
+        {
+          "en": "If we had tested the circuit, we would have known sooner.",
+          "es": "Si hubiéramos probado el circuito, lo habríamos sabido antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It could have been a serious accident.",
+          "es": "Podría haber sido un accidente grave.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's not your fault; nobody knew it was live.",
+          "es": "No es culpa tuya; nadie sabía que estaba vivo.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "If the circuit had had a label, we would have asked sooner.",
+          "es": "Si el circuito hubiera tenido etiqueta, habríamos preguntado antes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Next time, we test everything, even if it has a label.",
+          "es": "La próxima vez, probamos todo, aunque tenga etiqueta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What could we change so it doesn't happen again?",
+          "es": "¿Qué podríamos cambiar para que no vuelva a pasar?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead electrician, and the AI is your apprentice at the morning shop debrief: talk through the near miss without blame, using casi, por poco, podría haber and si hubiéramos... to say what almost happened and what changes.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (si hubiéramos probado..., por poco nos...)",
+        "examples": [
+          {
+            "es": "Por poco toco el conductor sin probarlo.",
+            "en": "I almost touched the conductor without testing it."
+          },
+          {
+            "es": "Si hubiéramos medido primero, nos habríamos ahorrado el susto.",
+            "en": "If we had measured first, we would have saved ourselves the scare."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Storm Call: Downed Service Mast, Stop Work",
+      "objective": "Give short, clear commands to stop work, keep people back, and tell a dispatcher what you see.",
+      "words": [
+        {
+          "en": "the service mast",
+          "es": "el mástil de la acometida",
+          "kind": "term"
+        },
+        {
+          "en": "the downed wire",
+          "es": "el cable caído",
+          "kind": "term"
+        },
+        {
+          "en": "the dispatcher",
+          "es": "el despachador",
+          "kind": "term",
+          "note": "'El operador' is also heard on 911 calls."
+        },
+        {
+          "en": "the storm",
+          "es": "la tormenta",
+          "kind": "term"
+        },
+        {
+          "en": "the neighbor",
+          "es": "el vecino",
+          "kind": "term"
+        },
+        {
+          "en": "the fallen tree",
+          "es": "el árbol caído",
+          "kind": "term"
+        },
+        {
+          "en": "the puddle",
+          "es": "el charco",
+          "kind": "term"
+        },
+        {
+          "en": "the safe distance",
+          "es": "la distancia segura",
+          "kind": "term"
+        },
+        {
+          "en": "the utility pole",
+          "es": "el poste",
+          "kind": "term"
+        },
+        {
+          "en": "the firefighters",
+          "es": "los bomberos",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the perimeter",
+          "es": "el perímetro",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "911",
+          "es": "el 911",
+          "kind": "term"
+        },
+        {
+          "en": "Stop! Drop everything and move away from the house.",
+          "es": "¡Alto! Dejen todo y aléjense de la casa.",
+          "kind": "phrase",
+          "note": "Plural command to the crew."
+        },
+        {
+          "en": "Don't touch anything; that wire may be energized.",
+          "es": "No toquen nada; ese cable puede estar energizado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sir, please don't come closer; it's very dangerous.",
+          "es": "Señor, por favor no se acerque; es muy peligroso.",
+          "kind": "phrase",
+          "note": "Formal (usted), to a neighbor."
+        },
+        {
+          "en": "If anyone comes closer, tell me right away.",
+          "es": "Si alguien se acerca, avísenme de inmediato.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you come closer, you can get shocked.",
+          "es": "Si se acerca más, puede recibir una descarga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This is an electrician; there's a downed wire at 412 Cedro Street.",
+          "es": "Habla un electricista; hay un cable caído en Calle Cedro 412.",
+          "kind": "phrase",
+          "note": "For the dispatcher."
+        },
+        {
+          "en": "I need you to notify the power company and the firefighters.",
+          "es": "Necesito que avisen a la compañía eléctrica y a los bomberos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The mast is loose and the wire is touching the wet grass.",
+          "es": "El mástil está suelto y el cable toca el pasto mojado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the electrician at a storm-damaged house, and the AI is the emergency dispatcher on the phone: say what you see and where you are, and keep your crew back with short commands like aléjense and no toquen.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si se acerca, no toquen, aléjense)",
+        "examples": [
+          {
+            "es": "Si el vecino se acerca, le pediré que retroceda.",
+            "en": "If the neighbor comes closer, I'll ask him to back up."
+          },
+          {
+            "es": "No toquen el cable; aléjense ahora.",
+            "en": "Don't touch the wire; move away now."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Auditor Reviews Your Lockout Records",
+      "objective": "Answer a safety auditor formally and explain how lockout and testing procedures are carried out and recorded.",
+      "words": [
+        {
+          "en": "the auditor",
+          "es": "el auditor",
+          "kind": "term"
+        },
+        {
+          "en": "the audit",
+          "es": "la auditoría",
+          "kind": "term"
+        },
+        {
+          "en": "the lockout record",
+          "es": "el registro de bloqueo",
+          "kind": "term"
+        },
+        {
+          "en": "the training record",
+          "es": "el registro de capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the signature sheet",
+          "es": "la hoja de firmas",
+          "kind": "term"
+        },
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the file",
+          "es": "el expediente",
+          "kind": "term"
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective action",
+          "es": "la acción correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the company policy",
+          "es": "la política de la empresa",
+          "kind": "term"
+        },
+        {
+          "en": "the omission",
+          "es": "la omisión",
+          "kind": "term"
+        },
+        {
+          "en": "the certificate",
+          "es": "el certificado",
+          "kind": "term"
+        },
+        {
+          "en": "the person in charge",
+          "es": "el responsable",
+          "kind": "term"
+        },
+        {
+          "en": "the binder",
+          "es": "la carpeta",
+          "kind": "term"
+        },
+        {
+          "en": "Each lockout is recorded on the form before starting.",
+          "es": "Cada bloqueo se registra en el formulario antes de empezar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The absence of voltage is verified with the meter and noted.",
+          "es": "La ausencia de voltaje se verifica con el medidor y se anota.",
+          "kind": "phrase"
+        },
+        {
+          "en": "No lock is removed without its owner's authorization.",
+          "es": "Ningún candado se quita sin la autorización de su dueño.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Records are kept in the office and in the truck.",
+          "es": "Los registros se guardan en la oficina y en el camión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm glad to show you the training records, sir.",
+          "es": "Con gusto le muestro los registros de capacitación, señor.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "A signature is missing on this sheet; it was my mistake.",
+          "es": "Falta una firma en esta hoja; fue un error mío.",
+          "kind": "phrase",
+          "note": "Honest and direct; formal enough for an auditor."
+        },
+        {
+          "en": "The signature will be added with today's date.",
+          "es": "La firma se agregará con la fecha de hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like me to explain how this panel is locked out?",
+          "es": "¿Desea que le explique cómo se bloquea este panel?",
+          "kind": "phrase",
+          "note": "Formal (usted)."
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is a third-party safety auditor: answer formally with usted and explain how lockout and testing are done and recorded, using passive se (se bloquea, se verifica, se registra).",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se registra, se verifica, se bloquea)",
+        "examples": [
+          {
+            "es": "El panel se bloquea antes de abrirlo.",
+            "en": "The panel is locked out before it is opened."
+          },
+          {
+            "es": "Los registros se revisan en la oficina.",
+            "en": "The records are reviewed in the office."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Daily Report and Photo Log for a Panel Replacement",
+      "objective": "Write a clear daily report with a photo log that records what was done, found, tested, and left open.",
+      "words": [
+        {
+          "en": "the daily report",
+          "es": "el informe diario",
+          "kind": "term"
+        },
+        {
+          "en": "the photo log",
+          "es": "el registro fotográfico",
+          "kind": "term"
+        },
+        {
+          "en": "the permit number",
+          "es": "el número de permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the inspector's request",
+          "es": "la solicitud del inspector",
+          "kind": "term"
+        },
+        {
+          "en": "the hidden defect",
+          "es": "el defecto oculto",
+          "kind": "term"
+        },
+        {
+          "en": "the corrosion",
+          "es": "la corrosión",
+          "kind": "term"
+        },
+        {
+          "en": "the insulation test",
+          "es": "la prueba de aislamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the open work item",
+          "es": "el trabajo pendiente",
+          "kind": "term"
+        },
+        {
+          "en": "the installed material",
+          "es": "el material instalado",
+          "kind": "term"
+        },
+        {
+          "en": "the remarks",
+          "es": "las observaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the test result",
+          "es": "el resultado de la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the photo caption",
+          "es": "la descripción de la foto",
+          "kind": "term"
+        },
+        {
+          "en": "the new panel",
+          "es": "el panel nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the final status",
+          "es": "el estado final",
+          "kind": "term"
+        },
+        {
+          "en": "First, the existing panel was de-energized and locked out.",
+          "es": "En primer lugar, se desenergizó y se bloqueó el panel existente.",
+          "kind": "phrase",
+          "note": "Written register: impersonal se"
+        },
+        {
+          "en": "Afterwards, it was measured that there was no voltage on the bus bars.",
+          "es": "Posteriormente, se midió que no había voltaje en las barras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There was corrosion in the box; therefore, the work was expanded.",
+          "es": "Hubo corrosión en la caja; por lo tanto, se amplió el trabajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, the insulation test remained open until tomorrow.",
+          "es": "No obstante, la prueba de aislamiento quedó pendiente hasta mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The inspector requested a photo of the new panel's label.",
+          "es": "El inspector solicitó una foto de la etiqueta del panel nuevo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I attach the photos with date, time and a caption for each.",
+          "es": "Adjunto las fotos con fecha, hora y descripción de cada una.",
+          "kind": "phrase",
+          "note": "Formal, written"
+        },
+        {
+          "en": "The results are recorded in the attached table.",
+          "es": "Los resultados constan en la tabla adjunta.",
+          "kind": "phrase",
+          "note": "Formal, written"
+        },
+        {
+          "en": "Open for tomorrow: label the circuits and request the reinspection.",
+          "es": "Pendiente para mañana: rotular los circuitos y pedir la reinspección.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the electrician writing the end-of-day report on a panel replacement, and the AI is the office manager: dictate what you did, found, tested and left open, using en primer lugar, posteriormente, por lo tanto and no obstante.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, posteriormente, por lo tanto, no obstante)",
+        "examples": [
+          {
+            "es": "En primer lugar, se desconectó el servicio; posteriormente, se retiró el panel.",
+            "en": "First, the service was disconnected; afterwards, the panel was removed."
+          },
+          {
+            "es": "Había corrosión; no obstante, las conexiones nuevas pasaron la prueba.",
+            "en": "There was corrosion; however, the new connections passed the test."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Texts and Calls: Moving a Tenant's Outage Window",
+      "objective": "Write texts and make a short call to move a planned outage window politely and confirm the new time.",
+      "words": [
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the planned shutdown",
+          "es": "el corte programado",
+          "kind": "term"
+        },
+        {
+          "en": "the refrigerated stock",
+          "es": "la mercancía refrigerada",
+          "kind": "term"
+        },
+        {
+          "en": "the cold chain",
+          "es": "la cadena de frío",
+          "kind": "term"
+        },
+        {
+          "en": "the portable generator",
+          "es": "el generador portátil",
+          "kind": "term"
+        },
+        {
+          "en": "the delayed part",
+          "es": "la pieza retrasada",
+          "kind": "term"
+        },
+        {
+          "en": "the new schedule",
+          "es": "el horario nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the advance notice",
+          "es": "el aviso previo",
+          "kind": "term"
+        },
+        {
+          "en": "the store closing",
+          "es": "el cierre del local",
+          "kind": "term"
+        },
+        {
+          "en": "the email",
+          "es": "el correo electrónico",
+          "kind": "term"
+        },
+        {
+          "en": "the start time",
+          "es": "la hora de inicio",
+          "kind": "term"
+        },
+        {
+          "en": "the contact number",
+          "es": "el número de contacto",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, this is Marco, the building's electrician.",
+          "es": "Buenas tardes, le habla Marco, el electricista del edificio.",
+          "kind": "phrase",
+          "note": "Formal phone opening"
+        },
+        {
+          "en": "I'm writing to confirm the new time of the power shutdown.",
+          "es": "Le escribo para confirmar el nuevo horario del corte de luz.",
+          "kind": "phrase",
+          "note": "Formal text"
+        },
+        {
+          "en": "Could we move the shutdown to Saturday at 7 a.m.?",
+          "es": "¿Podríamos mover el corte al sábado a las 7 de la mañana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm sorry for the change; according to the supplier, the part arrives Thursday.",
+          "es": "Lamento el cambio; según el proveedor, la pieza llega el jueves.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you tell me if that time works for your business?",
+          "es": "¿Me podría decir si ese horario le funciona para su negocio?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "I'm leaving you a message; please call me back.",
+          "es": "Le dejo un mensaje; por favor, devuélvame la llamada.",
+          "kind": "phrase",
+          "note": "Formal voicemail"
+        },
+        {
+          "en": "I would recommend moving the stock to another cooler during the shutdown.",
+          "es": "Le recomendaría pasar la mercancía a otra cámara durante el corte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hi, could you confirm the Saturday time for me?",
+          "es": "Hola, ¿podrías confirmarme el horario del sábado?",
+          "kind": "phrase",
+          "note": "Informal text"
+        }
+      ],
+      "speaking": "You are the electrician, and the AI is the owner of a small shop with refrigerated stock: call to move the planned shutdown, using ¿podríamos...? and le escribo para confirmar, then confirm the new time politely.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podríamos...?, le escribo para confirmar)",
+        "examples": [
+          {
+            "es": "¿Podríamos cambiar la hora del corte?",
+            "en": "Could we change the time of the shutdown?"
+          },
+          {
+            "es": "Le escribo para confirmar el nuevo horario.",
+            "en": "I'm writing to confirm the new schedule."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Final Walkthrough and Warranty Limits",
+      "objective": "Walk a homeowner through finished work, explain what the warranty covers, and give the conditions kindly.",
+      "words": [
+        {
+          "en": "the final walkthrough",
+          "es": "el recorrido final",
+          "kind": "term"
+        },
+        {
+          "en": "the permit closeout",
+          "es": "el cierre del permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the inspector's sign-off",
+          "es": "el visto bueno del inspector",
+          "kind": "term"
+        },
+        {
+          "en": "the coverage",
+          "es": "la cobertura",
+          "kind": "term"
+        },
+        {
+          "en": "the exclusion",
+          "es": "la exclusión",
+          "kind": "term"
+        },
+        {
+          "en": "the warranty period",
+          "es": "el periodo de garantía",
+          "kind": "term"
+        },
+        {
+          "en": "the installation defects",
+          "es": "los defectos de instalación",
+          "kind": "term"
+        },
+        {
+          "en": "the misuse",
+          "es": "el uso indebido",
+          "kind": "term"
+        },
+        {
+          "en": "the modification",
+          "es": "la modificación",
+          "kind": "term"
+        },
+        {
+          "en": "the new work",
+          "es": "el trabajo nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the proof of work",
+          "es": "el comprobante",
+          "kind": "term"
+        },
+        {
+          "en": "the labor",
+          "es": "la mano de obra",
+          "kind": "term"
+        },
+        {
+          "en": "the normal wear",
+          "es": "el desgaste normal",
+          "kind": "term"
+        },
+        {
+          "en": "the condition",
+          "es": "la condición",
+          "kind": "term"
+        },
+        {
+          "en": "It covers my labor, as long as nobody modifies the installation.",
+          "es": "Cubre mi mano de obra, siempre que nadie modifique la instalación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It doesn't cover appliances, unless the fault comes from my installation.",
+          "es": "No cubre aparatos, a menos que la falla sea de mi instalación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In case you see smoke, get out and call 911.",
+          "es": "En caso de que vea humo, salga y llame al 911.",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "Promising coverage for everything wouldn't be honest of me.",
+          "es": "Prometer cobertura para todo no sería honesto de mi parte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would come check it at no cost if it were an installation defect.",
+          "es": "Vendría a revisarlo sin costo si fuera un defecto de instalación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The permit closes when the inspector gives the sign-off.",
+          "es": "El permiso se cierra cuando el inspector dé su visto bueno.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm leaving you the paperwork and phone number to call me when you need it.",
+          "es": "Le dejo el comprobante y el teléfono para llamarme cuando lo necesite.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand you want peace of mind; I'll explain what I cover and what I don't.",
+          "es": "Entiendo que quiere tranquilidad; le explico qué cubro y qué no.",
+          "kind": "phrase",
+          "note": "Formal, kind"
+        }
+      ],
+      "speaking": "You are the electrician at the finished job, and the AI is a homeowner who wants a promise of coverage for anything electrical: walk through the work, explain permit closeout and warranty limits kindly, using siempre que, a menos que and en caso de que.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (siempre que, a menos que, en caso de que)",
+        "examples": [
+          {
+            "es": "Cubro la instalación, siempre que nadie la modifique.",
+            "en": "I cover the installation, as long as nobody modifies it."
+          },
+          {
+            "es": "En caso de que se dispare el breaker, llámeme.",
+            "en": "In case the breaker trips, call me."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Full Day After a Basement Flood",
+      "objective": "Lead a hard day of flood-damaged panel repair, from safe entry to final walkthrough, entirely in Spanish.",
+      "words": [
+        {
+          "en": "the flood",
+          "es": "la inundación",
+          "kind": "term"
+        },
+        {
+          "en": "the basement",
+          "es": "el sótano",
+          "kind": "term"
+        },
+        {
+          "en": "the standing water",
+          "es": "el agua estancada",
+          "kind": "term"
+        },
+        {
+          "en": "the waterline",
+          "es": "la marca de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the mold",
+          "es": "el moho",
+          "kind": "term"
+        },
+        {
+          "en": "the sump pump",
+          "es": "la bomba de sumidero",
+          "kind": "term"
+        },
+        {
+          "en": "the dehumidifier",
+          "es": "el deshumidificador",
+          "kind": "term"
+        },
+        {
+          "en": "the submerged components",
+          "es": "los componentes sumergidos",
+          "kind": "term"
+        },
+        {
+          "en": "the out-of-stock part",
+          "es": "la pieza agotada",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance company",
+          "es": "la aseguradora",
+          "kind": "term"
+        },
+        {
+          "en": "the safety talk",
+          "es": "la charla de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the fatigue",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the safe entry",
+          "es": "la entrada segura",
+          "kind": "term"
+        },
+        {
+          "en": "the drying",
+          "es": "el secado",
+          "kind": "term"
+        },
+        {
+          "en": "Don't enter the water until we verify there's no power.",
+          "es": "No entren al agua hasta que verifiquemos que no hay corriente.",
+          "kind": "phrase",
+          "note": "Plural command to the crew"
+        },
+        {
+          "en": "I want you to explain how you verify before touching anything.",
+          "es": "Quiero que me expliques cómo verificas antes de tocar algo.",
+          "kind": "phrase",
+          "note": "Informal, to the apprentice"
+        },
+        {
+          "en": "I noted in the report that the water had reached the bus bars.",
+          "es": "Anoté en el informe que el agua había llegado hasta las barras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the part is still out of stock, what approved alternative do you recommend?",
+          "es": "Si la pieza sigue agotada, ¿qué alternativa aprobada me recomienda?",
+          "kind": "phrase",
+          "note": "Formal, supply house"
+        },
+        {
+          "en": "Inspector, I'll explain what we found and how we'll correct it.",
+          "es": "Inspector, le explico lo que encontramos y cómo vamos a corregirlo.",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "We almost touched a wet conductor; we stopped and measured again.",
+          "es": "Casi tocamos un conductor mojado; paramos y volvimos a medir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let's take a break; if you're tired, it's easier to make mistakes.",
+          "es": "Hagamos una pausa; si están cansados, es más fácil cometer errores.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ma'am, if the inspector approves, we can reconnect the power tomorrow.",
+          "es": "Señora, si el inspector aprueba, podremos reconectar la luz mañana.",
+          "kind": "phrase",
+          "note": "Formal, to the homeowner"
+        }
+      ],
+      "speaking": "You are the lead electrician after a basement flood, and the AI is your apprentice, the inspector and the homeowner in turn: lead safe entry, teach verification, report, and close out using commands, connectors, past tenses, subjunctive and usted.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (connectors, commands, preterite/imperfect, subjunctive, formal register)",
+        "examples": [
+          {
+            "es": "Quiero que verifiques el circuito antes de que lo toquemos.",
+            "en": "I want you to verify the circuit before we touch it."
+          },
+          {
+            "es": "Mientras medíamos, vimos que el agua había subido.",
+            "en": "While we were measuring, we saw that the water had risen."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

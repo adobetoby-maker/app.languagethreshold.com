@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { getCurriculum } from "../src/data/curriculum.ts";
-import { getModule } from "../src/data/modules.ts";
+import { MODULES, getModule } from "../src/data/modules.ts";
+import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import { FOUNDATION_ROOFING_LESSONS } from "../src/data/foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "../src/data/master-roofing-curriculum.ts";
 import {
@@ -79,7 +80,16 @@ test("the eyebrow names the trade and the step of each Roofing stage page", () =
   assert.equal(core60Eyebrow(core60PathOf("foundation-roofing")), "Core 60 · Roofing · Step 1 of 3");
   assert.equal(core60Eyebrow(core60PathOf("roofing")), "Core 60 · Roofing · Step 2 of 3");
   assert.equal(core60Eyebrow(core60PathOf("master-roofing")), "Core 60 · Roofing · Step 3 of 3");
-  assert.equal(core60PathOf("electrician"), null);
+  // A trade that is not in the Core 60 manifest has no path.
+  const unlisted = MODULES.find(
+    (m) =>
+      getCurriculum(m.id) &&
+      !/^(foundation|master)-/.test(m.id) &&
+      m.id !== "roofing" &&
+      !CORE60_MANIFEST.some((entry) => entry.base === m.id),
+  );
+  assert.ok(unlisted, "some trade is still without a Core 60 path");
+  assert.equal(core60PathOf(unlisted.id), null);
 });
 
 test("Foundation and Master lessons carry the stage on their buttons; the Core 30 keeps its labels", () => {

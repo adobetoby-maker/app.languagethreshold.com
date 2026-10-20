@@ -122,7 +122,21 @@ of each stage file is its own chunk, loaded only when opened):
    uses `MASTER_CONTENT_LIMITS` via `contentLimitsFor`).
 3. Add or extend the trade's entry in `src/data/core60/manifest.ts` (keep it sorted by `base`).
 4. Run `npm run validate:core60 -- --strict` (manifest ↔ files, every file, lesson content present),
-   then `npm test`.
+   then `npm test`. Adding a manifest entry must keep the whole suite green: the tests that count
+   catalog modules and Say it missions (`tests/speaking-missions.test.mjs`), the fixture tests
+   (`tests/core60-fixture.test.mjs`, which validate the fixture manifest only) and the path tests
+   (`tests/core60-path.test.mjs`) compute their expectations from `CORE60_MANIFEST`, so they move
+   with it; a test that hard-codes today's catalog is a bug to fix, not a reason to skip a trade.
+
+The generator is `scripts/build-core60.mts` (prompts and checks in
+`src/lib/core60-generator-core.ts`): `node scripts/build-core60.mts --module <id,...>` writes steps
+1 to 3 for each stage and publishes a stage only when its curriculum and all of its passages pass;
+`--dry-run` prints the token and dollar estimate for every remaining module. Its extra checks on top
+of `validateStageFile`: terms and phrases unique across the stage, Master titles that do not repeat
+the Core 30, the fixed block / lesson-type arc (Lesson 20 the Capstone), Say it briefs that never
+reveal the complication, and, per passage, every term's head word as a whole word plus attributed
+doses and specifications. The format has no safety field: the Master outline's per-lesson
+`safetySensitive` flag stays in the generator's progress file and run report.
 
 To add a module by hand, follow the same three steps. To take a stage down, remove its manifest
 key (the file can stay; the validator flags it as unlisted).

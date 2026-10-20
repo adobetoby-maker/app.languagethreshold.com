@@ -23,6 +23,10 @@ const { findSpeakingMission, getSpeakingMissions, getSpeakingModules } = await i
   "../src/data/speaking-missions.ts"
 );
 const { validateManifest, validateStageFile } = await import("../src/lib/core60-validate.ts");
+// The shipped manifest grows as the generator publishes trades; the fixture adds its two on top.
+const { CORE60_MANIFEST } = await import("../src/data/core60/manifest.ts");
+const FIXTURE_BASES = new Set(["test", "test-partial"]);
+const fixtureManifest = () => core60Manifest().filter((entry) => FIXTURE_BASES.has(entry.base));
 
 const fixtureFile = (name) =>
   JSON.parse(readFileSync(new URL(`./fixtures/core60/es/${name}.json`, import.meta.url), "utf8"));
@@ -40,7 +44,8 @@ test("fixture stages register as modules right after their base", () => {
   assert.equal(getModule("master-test").name, "Test Trade Master");
   assert.equal(getModule("master-test").priceCents, getModule("test").priceCents);
   assert.match(getModule("master-test").aiPersona, /ONE realistic complication/);
-  assert.equal(core60Manifest().length, 2);
+  assert.equal(core60Manifest().length, CORE60_MANIFEST.length + 2);
+  assert.deepEqual(fixtureManifest().map((entry) => entry.base), ["test", "test-partial"]);
   assert.equal(core60FixtureModules().length, 2);
   // Roofing's hand-written row is untouched; fixture trades come from the manifest.
   assert.deepEqual(Object.keys(CORE60_PATHS), ["roofing"]);
@@ -55,7 +60,7 @@ test("fixture stage files pass the validator, and the fixture manifest is well f
     assert.deepEqual(validateStageFile(fixtureFile(name), { moduleId: name, stage, language: "Spanish" }), [], name);
   }
   // The synthetic bases have no Core 30 curriculum of their own, so that check is waived here.
-  assert.deepEqual(validateManifest(core60Manifest(), core60FixtureModules(), () => true), []);
+  assert.deepEqual(validateManifest(fixtureManifest(), core60FixtureModules(), () => true), []);
 });
 
 test("getCurriculum reads a stage file synchronously under Node", async () => {

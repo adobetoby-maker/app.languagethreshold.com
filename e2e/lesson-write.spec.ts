@@ -1,5 +1,6 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
+import { appUrl, core30Key, readAppState, seedAppState } from "./app-state.ts";
 
 // Click tests for the "Write it" (handwriting) mode of the Core 30 practice kit, and the
 // answer feedback shared with Type mode, on Roofing lesson 1 (Spanish). The handwriting reader
@@ -27,32 +28,28 @@ async function openCore30(page: Page) {
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
-  const seeded = () =>
-    page.evaluate(
-      ({ id, date }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        return (
-          state.activeModuleId === id &&
-          state.currentTab === "core30" &&
-          state.core30Log?.[id]?.startDate === date
-        );
-      },
-      { id: MODULE, date: startDate },
+  const seeded = async () => {
+    const state = await readAppState(page);
+    const log = state.core30Log as Record<string, { startDate?: string }> | undefined;
+    return (
+      state.activeModuleId === MODULE &&
+      state.currentTab === "core30" &&
+      log?.[core30Key(MODULE)]?.startDate === startDate
     );
+  };
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate(
-      ({ id, date }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        state.activeModuleId = id;
-        state.selectedLanguage = "Spanish";
-        state.currentTab = "core30";
-        state.lessonProgress = { ...(state.lessonProgress ?? {}), [id]: 0 };
-        state.core30Log = { [id]: { startDate: date, lessons: {} } };
-        localStorage.setItem("lt.app.v2", JSON.stringify(state));
+    const previous = await readAppState(page);
+    await seedAppState(page, {
+      activeModuleId: MODULE,
+      selectedLanguage: "Spanish",
+      currentTab: "core30",
+      lessonProgress: {
+        ...((previous.lessonProgress as object | undefined) ?? {}),
+        [core30Key(MODULE)]: 0,
       },
-      { id: MODULE, date: startDate },
-    );
-    await page.reload();
+      core30Log: { [core30Key(MODULE)]: { startDate, lessons: {} } },
+    });
+    await page.goto(appUrl({ tab: "core30", module: MODULE }));
     await page
       .getByTestId("core30-plan-card")
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })

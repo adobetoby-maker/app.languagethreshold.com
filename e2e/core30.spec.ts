@@ -1,14 +1,12 @@
 import { expect, test, type Page } from "@playwright/test";
+import { appUrl, currentTab, readAppState, seedAppState } from "./app-state.ts";
 
 // Core 60 (tab key core30) is a first-class tab: top navigation next to App Guide, the left
 // sidebar under Games, and the phone's bottom bar. It holds the module's path: the free
 // Foundation, Core 30 and Master 20.
 
 async function openWithModule(page: Page, moduleId: string | null) {
-  const savedModule = () =>
-    page.evaluate(
-      () => JSON.parse(localStorage.getItem("lt.app.v2") || "{}").activeModuleId ?? null,
-    );
+  const savedModule = async () => (await readAppState(page)).activeModuleId ?? null;
   await page.goto("/");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
@@ -16,13 +14,8 @@ async function openWithModule(page: Page, moduleId: string | null) {
   // On a cold dev server the app can finish loading after the seed is written and
   // drop it, so seed again (up to three times) until the module sticks.
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate((id) => {
-      const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-      state.activeModuleId = id;
-      state.currentTab = "guide";
-      localStorage.setItem("lt.app.v2", JSON.stringify(state));
-    }, moduleId);
-    await page.reload();
+    await seedAppState(page, { activeModuleId: moduleId, currentTab: "guide" });
+    await page.goto(appUrl({ tab: "guide", module: moduleId }));
     await expect(
       page
         .getByRole("button", { name: /App Guide|Core 60/ })
@@ -35,9 +28,6 @@ async function openWithModule(page: Page, moduleId: string | null) {
   }
   expect(await savedModule()).toBe(moduleId);
 }
-
-const currentTab = (page: Page) =>
-  page.evaluate(() => JSON.parse(localStorage.getItem("lt.app.v2") || "{}").currentTab);
 
 test.describe("desktop navigation", () => {
   test.skip(({ isMobile }) => isMobile, "desktop-only layout checks");
@@ -86,12 +76,8 @@ test.describe("desktop navigation", () => {
 
 test("Core 60 without a module points to Modules", async ({ page, isMobile }) => {
   await openWithModule(page, null);
-  await page.evaluate(() => {
-    const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-    state.currentTab = "core30";
-    localStorage.setItem("lt.app.v2", JSON.stringify(state));
-  });
-  await page.reload();
+  await seedAppState(page, { currentTab: "core30" });
+  await page.goto(appUrl({ tab: "core30" }));
   await expect(page.getByText(/Choose a module to start yours/i)).toBeVisible({ timeout: 60_000 });
   await page.getByRole("button", { name: "Choose a module" }).click();
   await expect.poll(() => currentTab(page)).toBe("modules");

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { appUrl, seedAppState } from "./app-state.ts";
 
 // The Cognate Bridge must follow the language being learned (it used to show
 // only Italian) and offer working patterns for every language.
@@ -25,17 +26,12 @@ async function openCognates(page: Page, language: string, native = "English") {
   // On a cold dev server the app can finish loading after the seed is written and
   // drop it, so seed again (up to three times) until the screen shows.
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate(
-      ([lang, nat]) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        state.selectedLanguage = lang;
-        state.nativeLanguage = nat;
-        state.currentTab = "cognates";
-        localStorage.setItem("lt.app.v2", JSON.stringify(state));
-      },
-      [language, native],
-    );
-    await page.reload();
+    await seedAppState(page, {
+      selectedLanguage: language,
+      nativeLanguage: native,
+      currentTab: "cognates",
+    });
+    await page.goto(appUrl({ tab: "cognates", target: language, native }));
     if (await heading.isVisible({ timeout: 20_000 }).catch(() => false)) return;
   }
   await expect(heading).toBeVisible();

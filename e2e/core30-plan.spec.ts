@@ -1,10 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
+import { appUrl, core30Key, currentTab, readAppState, seedAppState } from "./app-state.ts";
 
 // Click tests for the Core 30 learning plan on the Roofing module (Spanish):
 // the 90-day plan card, lesson steps, the practice kit, mastery and the review session.
-// The app's record lives in localStorage "lt.app.v2" -> state.core30Log.roofing, which the
-// tests read back to check that what the learner sees is what the app stored.
+// The app's record lives in its saved profile (see app-state.ts) -> state.core30Log.roofing, which
+// the tests read back to check that what the learner sees is what the app stored.
 
 const MODULE = "roofing";
 const LESSON_1_WORDS = ROOFING_LESSON_WORDS[1];
@@ -33,11 +34,8 @@ function isoDaysAgo(days: number): string {
   return new Date(Date.now() - days * 86_400_000).toISOString();
 }
 
-const readLog = (page: Page): Promise<ModuleLog | undefined> =>
-  page.evaluate((id) => {
-    const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-    return state.core30Log?.[id];
-  }, MODULE);
+const readLog = async (page: Page): Promise<ModuleLog | undefined> =>
+  (((await readAppState(page)).core30Log ?? {}) as Record<string, ModuleLog>)[core30Key(MODULE)];
 
 const visitKeys = async (page: Page, lesson: string) =>
   Object.keys((await readLog(page))?.lessons[lesson]?.visits ?? {});
@@ -57,33 +55,30 @@ async function openCore30(
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
-  const seeded = () =>
-    page.evaluate(
-      ({ id, startDate }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        const saved = state.core30Log?.[id];
-        return (
-          state.activeModuleId === id &&
-          state.currentTab === "core30" &&
-          (startDate ? saved?.startDate === startDate : !saved?.startDate)
-        );
-      },
-      { id: moduleId, startDate: log?.startDate ?? null },
+  const seeded = async () => {
+    const state = await readAppState(page);
+    const saved = (state.core30Log as Record<string, ModuleLog> | undefined)?.[
+      core30Key(moduleId, language)
+    ];
+    return (
+      state.activeModuleId === moduleId &&
+      state.currentTab === "core30" &&
+      (log?.startDate ? saved?.startDate === log.startDate : !saved?.startDate)
     );
+  };
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate(
-      ({ id, seed, lang }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        state.activeModuleId = id;
-        state.selectedLanguage = lang;
-        state.currentTab = "core30";
-        state.lessonProgress = { ...(state.lessonProgress ?? {}), [id]: 0 };
-        state.core30Log = seed ? { [id]: seed } : {};
-        localStorage.setItem("lt.app.v2", JSON.stringify(state));
+    const previous = await readAppState(page);
+    await seedAppState(page, {
+      activeModuleId: moduleId,
+      selectedLanguage: language,
+      currentTab: "core30",
+      lessonProgress: {
+        ...((previous.lessonProgress as object | undefined) ?? {}),
+        [core30Key(moduleId, language)]: 0,
       },
-      { id: moduleId, seed: log ?? null, lang: language },
-    );
-    await page.reload();
+      core30Log: log ? { [core30Key(moduleId, language)]: log } : {},
+    });
+    await page.goto(appUrl({ tab: "core30", module: moduleId, target: language }));
     // A dropped seed leaves the app on its default tab, so only wait a short while before retrying.
     await page
       .getByTestId("core30-plan-card")
@@ -137,8 +132,7 @@ async function goSection(page: Page, section: Section) {
   await expect(page.getByTestId(`lesson-nav-${section}`)).toHaveAttribute("aria-current", "step");
 }
 
-const currentTabOf = (page: Page) =>
-  page.evaluate(() => JSON.parse(localStorage.getItem("lt.app.v2") || "{}").currentTab);
+const currentTabOf = (page: Page) => currentTab(page);
 
 /** Opens the lesson's practice kit (Recall it) and waits for its heading. */
 async function openRecall(page: Page, wordCount?: number) {
@@ -256,12 +250,8 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect.poll(() => currentTabOf(page)).toBe("reader");
     expect(await page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo"))).not.toBeNull();
     // A plain reload lands on the Core 30 tab again (as the App Guide would): the marker is spent.
-    await page.evaluate(() => {
-      const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-      state.currentTab = "core30";
-      localStorage.setItem("lt.app.v2", JSON.stringify(state));
-    });
-    await page.reload();
+    await seedAppState(page, { currentTab: "core30" });
+    await page.goto(appUrl({ tab: "core30", module: MODULE }));
     await expect(page.getByTestId("core30-plan-card").or(page.getByText("✕ Exit"))).toBeVisible();
     await expect
       .poll(() => page.evaluate(() => sessionStorage.getItem("lt.core30.returnTo")))
@@ -380,7 +370,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await card.getByRole("button", { name: /Start today.s review/ }).click();
 
     const review = page.getByTestId("core30-review");
-    await expect(review.getByText("Review · 2 mastered lessons")).toBeVisible();
+    await expect(review.getByText("Review · 2 lessons previously marked mastered")).toBeVisible();
     await expect(review.getByRole("heading", { name: /^Lesson 1 —/ })).toBeVisible();
     await expect(review.getByRole("heading", { name: /^Lesson 2 —/ })).toBeVisible();
 
@@ -579,12 +569,8 @@ test.describe("Core 30 plan: Roofing", () => {
 
   test("7d. the App Guide card opens Core 30 on How it works", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
-    await page.evaluate(() => {
-      const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-      state.currentTab = "guide";
-      localStorage.setItem("lt.app.v2", JSON.stringify(state));
-    });
-    await page.reload();
+    await seedAppState(page, { currentTab: "guide" });
+    await page.goto(appUrl({ tab: "guide", module: MODULE }));
     const card = page.getByTestId("guide-core30-how");
     await card.scrollIntoViewIfNeeded();
     await card.click();

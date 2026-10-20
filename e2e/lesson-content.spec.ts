@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { core30Key, readAppState, seedAppState } from "./app-state.ts";
 
 // Authored lesson content on the Landscaper module (Spanish): lesson 1's passage in See it, and
 // the verb drill under Type it. The expected text is read from the same generated file the app
@@ -41,31 +42,27 @@ async function openModuleCore30(page: Page) {
     timeout: 60_000,
   });
   const startDate = dateKey(0);
-  const seeded = () =>
-    page.evaluate(
-      ({ id, date }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        return (
-          state.activeModuleId === id &&
-          state.currentTab === "core30" &&
-          state.core30Log?.[id]?.startDate === date
-        );
-      },
-      { id: MODULE, date: startDate },
+  const seeded = async () => {
+    const state = await readAppState(page);
+    const log = state.core30Log as Record<string, { startDate?: string }> | undefined;
+    return (
+      state.activeModuleId === MODULE &&
+      state.currentTab === "core30" &&
+      log?.[core30Key(MODULE)]?.startDate === startDate
     );
+  };
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate(
-      ({ id, date }) => {
-        const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-        state.activeModuleId = id;
-        state.selectedLanguage = "Spanish";
-        state.currentTab = "core30";
-        state.lessonProgress = { ...(state.lessonProgress ?? {}), [id]: 0 };
-        state.core30Log = { [id]: { startDate: date, lessons: {} } };
-        localStorage.setItem("lt.app.v2", JSON.stringify(state));
+    const previous = await readAppState(page);
+    await seedAppState(page, {
+      activeModuleId: MODULE,
+      selectedLanguage: "Spanish",
+      currentTab: "core30",
+      lessonProgress: {
+        ...((previous.lessonProgress as object | undefined) ?? {}),
+        [core30Key(MODULE)]: 0,
       },
-      { id: MODULE, date: startDate },
-    );
+      core30Log: { [core30Key(MODULE)]: { startDate, lessons: {} } },
+    });
     // Name the module in the address: the app routes a bare Core 30 link to its default module.
     await page.goto(`/?tab=core30&module=${MODULE}&target=Spanish&native=English`);
     await page
@@ -80,7 +77,10 @@ async function openModuleCore30(page: Page) {
 }
 
 async function openLesson1(page: Page) {
-  await page.getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ }).first().click();
+  await page
+    .getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ })
+    .first()
+    .click();
   await expect(page.getByText("✕ Exit")).toBeVisible();
   await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
 }

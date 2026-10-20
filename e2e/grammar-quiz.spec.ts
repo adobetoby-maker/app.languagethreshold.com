@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { appUrl, seedAppState } from "./app-state.ts";
 
 // These tests identify server functions by the name encoded in the dev-server URL.
 // Production builds use hashed ids, so they only run against a local dev server.
@@ -115,12 +116,8 @@ async function openQuiz(page: Page, initialReply: QuizReply) {
   // On a cold dev server the app can finish loading after the seed is written and drop it,
   // so seed again (up to three times) until the Grammar tab is showing.
   for (let attempt = 0; attempt < 3; attempt++) {
-    await page.evaluate(() => {
-      const state = JSON.parse(localStorage.getItem("lt.app.v2") || "{}");
-      state.currentTab = "grammar";
-      localStorage.setItem("lt.app.v2", JSON.stringify(state));
-    });
-    await page.reload();
+    await seedAppState(page, { currentTab: "grammar" });
+    await page.goto(appUrl({ tab: "grammar" }));
     if (await lesson.isVisible({ timeout: 20_000 }).catch(() => false)) break;
   }
   await expect(lesson).toBeVisible({ timeout: 20_000 });

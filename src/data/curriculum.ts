@@ -42,6 +42,18 @@ export interface Lesson {
   readingTemplate?: string; // seed-{lang}-xxx resolved at runtime
   steps: LessonStep[];
   words?: LessonWord[];
+  /** Master 20 only: the lesson's single grammar focus, shown with two contrast examples. */
+  grammar?: LessonGrammar;
+  /** Master 20 only: the kind of lesson (teach-back, case, people, document, capstone). */
+  lessonType?: "Teach-back" | "Case" | "People" | "Document" | "Capstone";
+  /** Master 20 only: the Master block this lesson belongs to (A–E). */
+  block?: "A" | "B" | "C" | "D" | "E";
+}
+
+export interface LessonGrammar {
+  focus: string;
+  /** Two short contrast examples, target language with its translation. */
+  examples: { es: string; en: string }[];
 }
 
 export interface ModuleCurriculum {

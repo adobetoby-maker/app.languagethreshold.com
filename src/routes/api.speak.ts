@@ -7,9 +7,10 @@ import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflig
 import {
   findSpeakingMission,
   getSpeakingModules,
+  speakingCatalogModuleId,
   type SpeakingMission,
 } from "../data/speaking-missions";
-import { preloadStageCurricula } from "../data/core60-stages";
+import { ensureStageCurriculum, stageModuleIdOfScenario } from "../data/core60-stages";
 import {
   destinationPromptContext,
   getTravelDestination,
@@ -341,8 +342,13 @@ export const Route = createFileRoute("/api/speak")({
 
         // ----- MISSION MODE: immutable scenario roleplay for the main-app UX preview -----
         if (payload.mode === "mission") {
-          // Lesson missions of a Core 60 stage exist once its curriculum chunk has loaded.
-          if (payload.scenarioVersionId) await preloadStageCurricula();
+          // Lesson missions of a Core 60 stage exist once that stage's curriculum chunk has
+          // loaded: load only the requested scenario's stage (cached; a failed load is retried by
+          // the next request).
+          const scenarioStage = payload.scenarioVersionId
+            ? stageModuleIdOfScenario(payload.scenarioVersionId)
+            : null;
+          if (scenarioStage) await ensureStageCurriculum(scenarioStage);
           const mission = payload.scenarioVersionId
             ? findSpeakingMission(payload.scenarioVersionId)
             : null;
@@ -363,7 +369,7 @@ export const Route = createFileRoute("/api/speak")({
           }
           if (
             !getSpeakingModules(mission.language, nativeLanguage).some(
-              (module) => module.id === mission.moduleId,
+              (module) => module.id === speakingCatalogModuleId(mission.moduleId),
             )
           ) {
             return new Response(

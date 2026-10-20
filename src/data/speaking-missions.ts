@@ -13,7 +13,7 @@ import {
   type CoreVerb,
   type DailyLivingTopic,
 } from "./core-speaking.ts";
-import { isMasterModule } from "../lib/core30-plan.ts";
+import { isFoundationModule, isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
@@ -1439,20 +1439,49 @@ function getSpecialtySpeakingModules(
   );
 }
 
+/**
+ * The module a Say it mission is listed under in the Speak tab catalog: the base module for a
+ * Foundation or Master stage mission ("foundation-electrician" → "electrician"), the mission's own
+ * module for every other mission. The mission itself keeps its stage module id, which lesson
+ * practice and /api/speak key off.
+ */
+export function speakingCatalogModuleId(moduleId: string): string {
+  return isFoundationModule(moduleId) || isMasterModule(moduleId)
+    ? moduleId.replace(/^(foundation|master)-/, "")
+    : moduleId;
+}
+
+/** "Foundation" / "Master" for a stage mission's module, null for every other mission. */
+export function speakingStageName(moduleId: string): "Foundation" | "Master" | null {
+  return isFoundationModule(moduleId) ? "Foundation" : isMasterModule(moduleId) ? "Master" : null;
+}
+
+/** A mission's title in the catalog: stage missions are prefixed "Foundation · " / "Master · ". */
+export function speakingCatalogTitle(mission: Pick<SpeakingMission, "moduleId" | "title">): string {
+  const stage = speakingStageName(mission.moduleId);
+  return stage ? `${stage} · ${mission.title}` : mission.title;
+}
+
+/**
+ * The module cards of the Speak tab catalog. A trade's Foundation and Master are not cards of
+ * their own: their missions are listed under the base module (speakingCatalogModuleId).
+ */
 export function getSpeakingModules(
   language: SpeakingMissionLanguage,
   nativeLanguage?: NativeLanguage,
 ): SpeakingModuleDefinition[] {
   return [
     CORE_SPEAKING_MODULE,
-    ...getSpecialtySpeakingModules(language, nativeLanguage).map((module) => ({
-      id: module.id,
-      name: module.name,
-      emoji: module.emoji,
-      category: module.category,
-      blurb: projectTextForLanguage(module.blurb, language),
-      userRole: projectTextForLanguage(module.userRole, language),
-    })),
+    ...getSpecialtySpeakingModules(language, nativeLanguage)
+      .filter((module) => speakingStageName(module.id) === null)
+      .map((module) => ({
+        id: module.id,
+        name: module.name,
+        emoji: module.emoji,
+        category: module.category,
+        blurb: projectTextForLanguage(module.blurb, language),
+        userRole: projectTextForLanguage(module.userRole, language),
+      })),
   ];
 }
 

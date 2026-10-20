@@ -23,6 +23,9 @@ import {
   getSpeakingMissions,
   getSpeakingModules,
   SPEAKING_LANGUAGES,
+  speakingCatalogModuleId,
+  speakingCatalogTitle,
+  speakingStageName,
 } from "../src/data/speaking-missions.ts";
 import {
   TRAVEL_ZONE_CURRICULA,
@@ -33,17 +36,18 @@ import { MODULES } from "../src/data/modules.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 
-// Data-driven Core 60 stages (src/data/core60/manifest.ts) each add one module in their entry's
-// language, its challenges (the base module's) and one Say it mission per lesson. Computed from the
+// Data-driven Core 60 stages (src/data/core60/manifest.ts) each add, in their entry's language,
+// their challenges (the stage's own catalog overrides) and one Say it mission per lesson. A stage is
+// not a module card of its own in the Speak tab catalog: its missions are listed under the base
+// module (speakingCatalogModuleId), so a stage adds no module. Computed from the
 // manifest, so publishing a trade with scripts/build-core60.mts keeps these counts right.
 function generatedStageCounts(language) {
-  const out = { modules: 0, challenges: 0, lessons: 0 };
+  const out = { challenges: 0, lessons: 0 };
   for (const entry of CORE60_MANIFEST) {
     if (entry.language !== language) continue;
     for (const stage of ["foundation", "master"]) {
       if (!entry[stage]) continue;
       const id = `${stage}-${entry.base}`;
-      out.modules += 1;
       out.challenges += MODULES.find((m) => m.id === id)?.challengePrompts.length ?? 0;
       out.lessons += getCurriculum(id)?.lessons.length ?? 0;
     }
@@ -54,7 +58,7 @@ const withGenerated = (language, counts) => {
   const gen = generatedStageCounts(language);
   return {
     ...counts,
-    modules: counts.modules + gen.modules,
+    modules: counts.modules,
     challenges: counts.challenges + gen.challenges,
     lessons: counts.lessons + gen.lessons,
     total: counts.total + gen.challenges + gen.lessons,
@@ -155,12 +159,13 @@ test("core speaking covers essential verbs, grammar patterns, and daily living",
 test("speaking preview covers every authored topic in every speaking language", () => {
   // Keep each language's expected total aligned with its authored modules.
   // Roofing adds one Spanish module, six challenges, and 30 lessons. The Roofing Foundation adds
-  // one Spanish module, five challenges, and 10 lessons. The Roofing Master adds one Spanish
-  // module, six challenges, and one Say it mission per Master lesson (20 once its content lands).
+  // five challenges and 10 lessons, the Roofing Master six challenges and one Say it mission per
+  // Master lesson (20 once its content lands); neither is a module card of its own (they are listed
+  // under Roofing), so the module counts are the base modules only.
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
-      modules: 60,
+      modules: 58,
       challenges: 378,
       lessons: 1460 + master,
       curated: 6,
@@ -209,6 +214,19 @@ test("speaking preview covers every authored topic in every speaking language", 
       assert.ok(
         lessons.some((mission) => mission.moduleId === module.id),
         `${language}/${module.id} lessons`,
+      );
+    }
+
+    // A Foundation or Master is never a module card: its missions are listed under the base module.
+    assert.ok(
+      !modules.some((module) => isStageModule(module.id)),
+      `${language} lists no stage module card`,
+    );
+    const cardIds = new Set(modules.map((module) => module.id));
+    for (const mission of missions.filter((mission) => isStageModule(mission.moduleId))) {
+      assert.ok(
+        cardIds.has(speakingCatalogModuleId(mission.moduleId)),
+        `${language}/${mission.id} is listed under its base module`,
       );
     }
   }
@@ -475,5 +493,52 @@ test("mission TTS accepts only the published ear-training speeds", () => {
   for (const speed of MISSION_TTS_SPEEDS) assert.equal(isMissionTtsSpeed(speed), true);
   for (const unsupported of [0.25, 0.7, 0.9, 2]) {
     assert.equal(isMissionTtsSpeed(unsupported), false);
+  }
+});
+
+test("Foundation and Master missions are catalogued under their base module, labelled by stage", () => {
+  assert.equal(speakingCatalogModuleId("foundation-roofing"), "roofing");
+  assert.equal(speakingCatalogModuleId("master-electrician"), "electrician");
+  assert.equal(speakingCatalogModuleId("roofing"), "roofing");
+  assert.equal(speakingCatalogModuleId("core-speaking"), "core-speaking");
+  assert.equal(speakingStageName("foundation-roofing"), "Foundation");
+  assert.equal(speakingStageName("master-electrician"), "Master");
+  assert.equal(speakingStageName("electrician"), null);
+
+  const modules = getSpeakingModules("Spanish").map((module) => module.id);
+  assert.ok(modules.includes("roofing"));
+  assert.ok(!modules.includes("foundation-roofing") && !modules.includes("master-roofing"));
+
+  const missions = getSpeakingMissions("Spanish");
+  // The mission itself keeps its stage module id (lesson practice and /api/speak key off it)...
+  const foundationLesson = missions.find((m) => m.id.includes("foundation-roofing_lesson_1_"));
+  assert.ok(foundationLesson);
+  assert.equal(foundationLesson.moduleId, "foundation-roofing");
+  // ...and the catalog lists it under Roofing with its stage in front of the title.
+  assert.equal(speakingCatalogModuleId(foundationLesson.moduleId), "roofing");
+  assert.equal(speakingCatalogTitle(foundationLesson), `Foundation · ${foundationLesson.title}`);
+  const masterChallenge = missions.find(
+    (m) => m.moduleId === "master-roofing" && m.id.includes("_challenge_1_"),
+  );
+  assert.ok(masterChallenge);
+  assert.equal(speakingCatalogTitle(masterChallenge), `Master · ${masterChallenge.title}`);
+  // A Core 30 mission's title is not changed.
+  const core30 = missions.find((m) => m.moduleId === "roofing" && m.id.includes("_lesson_1_"));
+  assert.equal(speakingCatalogTitle(core30), core30.title);
+
+  // Every manifest stage is listed under its base module, in the entry's language only.
+  for (const entry of CORE60_MANIFEST) {
+    for (const stage of ["foundation", "master"]) {
+      if (!entry[stage]) continue;
+      const underBase = missions.filter(
+        (m) => speakingCatalogModuleId(m.moduleId) === entry.base && m.moduleId === `${stage}-${entry.base}`,
+      );
+      const inLanguage = entry.language === "Spanish";
+      assert.equal(underBase.length > 0, inLanguage, `${stage}-${entry.base} Spanish missions`);
+      assert.equal(
+        getSpeakingMissions("Italian").filter((m) => m.moduleId === `${stage}-${entry.base}`).length,
+        0,
+      );
+    }
   }
 });

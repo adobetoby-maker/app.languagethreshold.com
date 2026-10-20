@@ -13,7 +13,14 @@ const { MODULES, getModule } = await import("../src/data/modules.ts");
 const { getCurriculum } = await import("../src/data/curriculum.ts");
 const { core60Manifest, core60FixtureModules, stageCurriculumStatus, loadStageCurriculum } =
   await import("../src/data/core60-stages.ts");
-const { core60PathOf, core60PathComplete, core60Eyebrow, CORE60_PATHS } = await import(
+const {
+  core60PathOf,
+  core60PathComplete,
+  core60Eyebrow,
+  core30PathBannerText,
+  CORE30_MASTER_ONLY_TEXT,
+  CORE60_PATHS,
+} = await import(
   "../src/lib/core60-path.ts"
 );
 const { core30PaceFor, CORE30_FOUNDATION_PACE, CORE30_MASTER_PACE } = await import(
@@ -97,7 +104,10 @@ test("the fixture trade's path: three stages, Foundation Coming soon where it is
       ["master", "master-test-partial", true],
     ],
   );
-  assert.equal(core60PathComplete("test-partial"), false, "the banner keeps the coming-soon text");
+  assert.equal(core60PathComplete("test-partial"), false);
+  // The banner says the Master is ready (not that both stages are coming soon).
+  assert.equal(core30PathBannerText("test-partial"), CORE30_MASTER_ONLY_TEXT);
+  assert.equal(core30PathBannerText("test"), null);
   assert.equal(core60PathOf("foundation-test-partial"), null);
 });
 
@@ -120,6 +130,8 @@ test("every fixture lesson has its own Say it mission, Master missions with the 
       assert.equal(findSpeakingMission(id)?.id, id);
     }
   }
-  assert.ok(getSpeakingModules("Spanish").some((m) => m.id === "master-test"));
-  assert.ok(!getSpeakingModules("Italian").some((m) => m.id === "master-test"));
+  // Stage missions are listed under the base module, not as a module card of their own.
+  assert.ok(!getSpeakingModules("Spanish").some((m) => m.id === "master-test"));
+  assert.ok(getSpeakingModules("Spanish").some((m) => m.id === "test"));
+  assert.equal(getSpeakingMissions("Italian").filter((m) => m.moduleId === "master-test").length, 0);
 });

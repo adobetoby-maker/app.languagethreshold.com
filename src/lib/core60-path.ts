@@ -182,3 +182,28 @@ export function core60Eyebrow(path: Core60Path): string {
 /** The page banner for a Core 30 module whose trade does not have both its Foundation and Master yet. */
 export const CORE30_WITHOUT_PATH_TEXT =
   "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.";
+
+export const CORE30_FOUNDATION_ONLY_TEXT =
+  "Core 30 is ready for this module. The free Foundation is ready too; Master 20 is coming soon.";
+export const CORE30_MASTER_ONLY_TEXT =
+  "Core 30 is ready for this module. Master 20 is ready; the free Foundation is coming soon.";
+
+/**
+ * The banner text for a Core 30 module page that is not the whole Core 60 yet, or null when all
+ * three stages exist (the page keeps the Core 30 purpose text). It names what is live: no stage
+ * yet, only the Foundation, or only the Master 20.
+ */
+export function core30PathBannerText(
+  moduleId: string | null | undefined,
+  paths: Record<string, Core60PathConfig> = core60Paths(),
+): string | null {
+  if (!moduleId) return null;
+  const path = core60PathOf(moduleId, paths);
+  if (!path) return CORE30_WITHOUT_PATH_TEXT;
+  const foundation = path.steps.find((step) => step.stage === "foundation")?.available ?? false;
+  const master = path.steps.find((step) => step.stage === "master")?.available ?? false;
+  if (foundation && master) return null;
+  if (foundation) return CORE30_FOUNDATION_ONLY_TEXT;
+  if (master) return CORE30_MASTER_ONLY_TEXT;
+  return CORE30_WITHOUT_PATH_TEXT;
+}

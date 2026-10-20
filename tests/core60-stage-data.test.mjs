@@ -19,6 +19,7 @@ import {
   stageFileRelativePath,
   withDerivedStageModules,
 } from "../src/lib/core60-stage-core.ts";
+import { LANGUAGES } from "../src/data/languages.ts";
 import { validateManifest, validateStageFile } from "../src/lib/core60-validate.ts";
 import {
   CORE60_PATHS,
@@ -253,6 +254,40 @@ test("the manifest validator catches unknown bases, missing stages and hand-writ
   assert.ok(errors.includes('manifest entry "electrician": lists no stage'));
   assert.ok(errors.includes('manifest entry "roofing": master-roofing is already a hand-written module'));
   assert.ok(errors.includes('manifest entry "electrician": listed twice'));
+});
+
+test("the manifest validator rejects a language the app does not support", () => {
+  const hasCurriculum = (id) => Boolean(CURRICULA[id]);
+  // Electrician lists no languages of its own, so only the app's language list can reject these.
+  assert.equal(getModule("electrician").languages, undefined);
+  for (const language of ["Klingon", "spanish", "Es", "Swedish"]) {
+    const errors = validateManifest(
+      [{ base: "electrician", language, foundation: {} }],
+      HANDWRITTEN_MODULES,
+      hasCurriculum,
+    );
+    assert.ok(
+      errors.some((e) => e.includes(`"${language}" is not a language the app supports`)),
+      `"${language}" is rejected: ${errors.join(" | ")}`,
+    );
+  }
+  assert.ok(
+    validateManifest([{ base: "electrician", language: "", foundation: {} }], HANDWRITTEN_MODULES, hasCurriculum)
+      .length > 0,
+  );
+  // Every language in the app's list passes when the base does not restrict languages.
+  for (const language of LANGUAGES) {
+    assert.deepEqual(
+      validateManifest([{ base: "electrician", language, foundation: {} }], HANDWRITTEN_MODULES, hasCurriculum),
+      [],
+      language,
+    );
+  }
+  // A base that lists its languages still rejects the others.
+  assert.ok(
+    validateManifest([{ base: "roofing", language: "French", foundation: {} }], HANDWRITTEN_MODULES, hasCurriculum)
+      .some((e) => /not offered in French/.test(e)),
+  );
 });
 
 test("a manifest trade gets a path; a stage not listed yet is Coming soon, not a page", () => {

@@ -6,8 +6,11 @@ import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import { FOUNDATION_ROOFING_LESSONS } from "../src/data/foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "../src/data/master-roofing-curriculum.ts";
 import {
+  CORE30_FOUNDATION_ONLY_TEXT,
+  CORE30_MASTER_ONLY_TEXT,
   CORE30_WITHOUT_PATH_TEXT,
   CORE60_PATHS,
+  core30PathBannerText,
   core60PathsFromManifest,
   core60Eyebrow,
   core60PathOf,
@@ -120,6 +123,28 @@ test("the banner for a Core 30 without a path says the Core 30 is ready", () => 
   );
 });
 
+test("the Core 30 banner names what is live on the trade's path", () => {
+  const paths = core60PathsFromManifest([
+    { base: "electrician", language: "Spanish", foundation: {}, master: {} },
+    { base: "plumber", language: "Spanish", foundation: {} },
+    { base: "drywall", language: "Spanish", master: {} },
+  ]);
+  // Both stages exist: no banner (the page keeps its purpose text).
+  assert.equal(core30PathBannerText("electrician", paths), null);
+  assert.equal(core30PathBannerText("roofing"), null);
+  // One live stage: say which, so the banner never contradicts the path card.
+  assert.equal(core30PathBannerText("plumber", paths), CORE30_FOUNDATION_ONLY_TEXT);
+  assert.match(CORE30_FOUNDATION_ONLY_TEXT, /Foundation is ready/);
+  assert.match(CORE30_FOUNDATION_ONLY_TEXT, /Master 20 is coming soon/);
+  assert.equal(core30PathBannerText("drywall", paths), CORE30_MASTER_ONLY_TEXT);
+  assert.match(CORE30_MASTER_ONLY_TEXT, /Master 20 is ready/);
+  assert.match(CORE30_MASTER_ONLY_TEXT, /Foundation is coming soon/);
+  // No stage listed (not on a path) and no module: the coming-soon text, or nothing.
+  assert.equal(core30PathBannerText("framer", paths), CORE30_WITHOUT_PATH_TEXT);
+  assert.equal(core30PathBannerText(null, paths), null);
+  assert.equal(core30PathBannerText("", paths), null);
+});
+
 test("Roofing Master is registered like the Core 30: Spanish, paid tabs, same price", () => {
   assert.equal(MASTER_ROOFING_MODULE_ID, "master-roofing");
   const master = getModule("master-roofing");
@@ -153,8 +178,10 @@ test(
       assert.ok(mission, `Say it mission for lesson ${lesson.n}`);
       assert.ok(mission.id.includes(`master-roofing_lesson_${lesson.n}_`));
     }
-    assert.ok(getSpeakingModules("Spanish").some((m) => m.id === "master-roofing"));
-    assert.ok(!getSpeakingModules("Italian").some((m) => m.id === "master-roofing"));
+    // Listed under Roofing (not a module card of its own), in Spanish only.
+    assert.ok(!getSpeakingModules("Spanish").some((m) => m.id === "master-roofing"));
+    assert.ok(getSpeakingModules("Spanish").some((m) => m.id === "roofing"));
+    assert.equal(getSpeakingMissions("Italian").filter((m) => m.moduleId === "master-roofing").length, 0);
   },
 );
 

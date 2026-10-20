@@ -396,3 +396,47 @@ test.describe("Generated Electrician Core 60 (pilot)", () => {
     }
   });
 });
+
+// ─── A stage chunk that fails to load, and the banner for a half-built path ─────────────────────
+
+test.describe("Core 60 stage load failure", () => {
+  test("a stage chunk that fails once shows a clear error, and Retry loads it", async ({ page }) => {
+    // Abort the Master Electrician chunk the first time it is requested only.
+    let aborted = 0;
+    let requests = 0;
+    await page.route(/\/core60\/es\/master-electrician\.json/, async (route) => {
+      requests += 1;
+      if (aborted === 0) {
+        aborted += 1;
+        await route.abort("failed");
+        return;
+      }
+      await route.continue();
+    });
+    await openStage(page, "master-electrician", {}, "core60-stage-error", ELECTRICIAN_STAGES);
+    expect(aborted).toBe(1);
+    // The error names the problem and offers Retry; it is not the generic "Choose a module" card.
+    const error = page.getByTestId("core60-stage-error");
+    await expect(error).toContainText("Couldn't load this stage. Check your connection and try again.");
+    await expect(page.getByText("Each module has a 30-lesson path")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Choose a module" })).toHaveCount(0);
+    await expect(page.getByTestId("core60-stage-loading")).toHaveCount(0);
+    await expect(page.getByTestId("core30-plan-card")).toHaveCount(0);
+
+    await page.getByTestId("core60-stage-retry").click();
+    await expect(page.getByTestId("core30-plan-card")).toBeVisible();
+    await expect(page.getByRole("heading", { name: electricianMaster.headline })).toBeVisible();
+    await expect(page.getByTestId("core60-stage-error")).toHaveCount(0);
+    expect(requests).toBeGreaterThanOrEqual(2);
+  });
+});
+
+test.describe("Core 30 banner on a path with one live stage", () => {
+  test("names the stage that is ready instead of saying both are coming soon", async ({ page }) => {
+    // "test-partial" lists a Master only; its Foundation is Coming soon (fixture trade).
+    await openFixtureStage(page, "test-partial", {}, "tool-purpose");
+    const banner = page.getByTestId("tool-purpose");
+    await expect(banner).toContainText("Master 20 is ready; the free Foundation is coming soon.");
+    await expect(banner).not.toContainText("The free Foundation and Master 20 are coming soon");
+  });
+});

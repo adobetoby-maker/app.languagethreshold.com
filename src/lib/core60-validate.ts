@@ -6,7 +6,9 @@
 
 import type { LessonWord } from "../data/curriculum.ts";
 import type { AppModule } from "../data/modules.ts";
+import { LANGUAGES } from "../data/languages.ts";
 import { contentLimitsFor, invisibleCharErrors } from "./lesson-content-core.ts";
+import { languageTag } from "./lesson-words-core.ts";
 import {
   CORE60_BLOCKS,
   CORE60_LESSON_TYPES,
@@ -150,7 +152,8 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
 
 /**
  * Manifest rules: each base is a known Core 30 module listed once, with at least one stage, a
- * target language the base supports, and no stage id that is already a hand-written module.
+ * target language that is in the app's language list (and offered by the base when it lists its
+ * languages), and no stage id that is already a hand-written module.
  */
 export function validateManifest(
   manifest: readonly Core60ManifestEntry[],
@@ -173,6 +176,10 @@ export function validateManifest(
     if (!hasCurriculum(entry.base)) errors.push(`${where}: the base module has no Core 30 curriculum`);
     if (!entry.foundation && !entry.master) errors.push(`${where}: lists no stage`);
     if (!text(entry.language)) errors.push(`${where}: language is missing`);
+    else if (!(LANGUAGES as readonly string[]).includes(entry.language) || languageTag(entry.language) === "und")
+      errors.push(
+        `${where}: "${entry.language}" is not a language the app supports (${LANGUAGES.join(", ")})`,
+      );
     else if (base.languages && !base.languages.includes(entry.language as never))
       errors.push(`${where}: ${base.name} is not offered in ${entry.language}`);
     for (const stage of ["foundation", "master"] as const) {

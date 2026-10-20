@@ -7,7 +7,11 @@ import {
   FOUNDATION_ROOFING_MODULE_ID,
 } from "../src/data/foundation-roofing-curriculum.ts";
 import { MODULES, getModule } from "../src/data/modules.ts";
-import { getSpeakingMissions, getSpeakingModules } from "../src/data/speaking-missions.ts";
+import {
+  getSpeakingMissions,
+  getSpeakingModules,
+  speakingCatalogModuleId,
+} from "../src/data/speaking-missions.ts";
 
 const ID = "foundation-roofing";
 
@@ -63,7 +67,9 @@ test("Roofing Foundation: every lesson has its own Say it mission, in Spanish on
     assert.equal(mission.language, "Spanish");
     assert.ok(mission.id.includes(`${ID}_lesson_${lesson.n}_`));
   }
-  assert.ok(getSpeakingModules("Spanish").some((m) => m.id === ID));
-  assert.ok(!getSpeakingModules("Italian").some((m) => m.id === ID));
+  // Listed under Roofing, not as a module card of its own; Spanish only.
+  assert.ok(!getSpeakingModules("Spanish").some((m) => m.id === ID));
+  assert.equal(speakingCatalogModuleId(ID), "roofing");
+  assert.ok(getSpeakingModules("Spanish").some((m) => m.id === speakingCatalogModuleId(ID)));
   assert.equal(getSpeakingMissions("Italian").filter((m) => m.moduleId === ID).length, 0);
 });

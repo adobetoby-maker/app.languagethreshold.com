@@ -65,6 +65,7 @@ import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
+import { retryStageOrReload } from "@/data/core60-stages";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
@@ -2656,6 +2657,28 @@ export function Core30Tab() {
         >
           <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
           Loading lessons…
+        </section>
+      ) : stageStatus === "unavailable" ? (
+        <section
+          role="alert"
+          data-testid="core60-stage-error"
+          className="rounded-2xl border border-gold/30 bg-gold/5 p-6"
+        >
+          <h1 className="font-display text-2xl font-semibold tracking-tight">Core 60</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Couldn&apos;t load this stage. Check your connection and try again.
+          </p>
+          <button
+            type="button"
+            data-testid="core60-stage-retry"
+            onClick={() => {
+              if (state.activeModuleId)
+                void retryStageOrReload(state.activeModuleId, () => window.location.reload());
+            }}
+            className="mt-4 min-h-11 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold hover:bg-gold/20"
+          >
+            Retry
+          </button>
         </section>
       ) : hasCore30 ? (
         <Core30Section

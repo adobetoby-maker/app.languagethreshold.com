@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useStageCurriculaVersion } from "@/hooks/use-stage-curriculum";
+import { loadStageCurriculum, stageModulesOfBase } from "@/data/core60-stages";
 import {
   Check,
   ChevronLeft,
@@ -24,6 +25,9 @@ import type { CoreSpeakingSection } from "@/data/core-speaking";
 import {
   getSpeakingMissions,
   getSpeakingModules,
+  speakingCatalogModuleId,
+  speakingCatalogTitle,
+  speakingStageName,
   SPEAKING_LANGUAGES,
   type SpeakingMission,
   type SpeakingMissionLanguage,
@@ -137,6 +141,12 @@ function specialtyStyle(specialty: SpeakingMission["specialty"]) {
     "English for Work": { color: "#77c7b7" },
   };
   return { label: specialty, ...styles[specialty] };
+}
+
+/** Catalog order within a base module: its own missions, then its Foundation's, then its Master's. */
+function stageRank(moduleId: string): number {
+  const stage = speakingStageName(moduleId);
+  return stage === "Foundation" ? 1 : stage === "Master" ? 2 : 0;
 }
 
 function missionTurnId() {
@@ -302,7 +312,10 @@ export function SpeakingMissionsPreview({
   const languageMissions = useMemo(() => {
     if (!allLanguageMissions) return [];
     const availableModuleIds = new Set(languageModules.map((module) => module.id));
-    return allLanguageMissions.filter((mission) => availableModuleIds.has(mission.moduleId));
+    // A Foundation or Master mission is available with its base module (it is listed under it).
+    return allLanguageMissions.filter((mission) =>
+      availableModuleIds.has(speakingCatalogModuleId(mission.moduleId)),
+    );
   }, [languageModules, allLanguageMissions]);
   const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
@@ -375,16 +388,33 @@ export function SpeakingMissionsPreview({
           `${module.name} ${module.category} ${module.blurb}`.toLocaleLowerCase().includes(query) ||
           languageMissions.some(
             (mission) =>
-              mission.moduleId === module.id &&
-              `${mission.title} ${mission.summary} ${mission.vocabulary.join(" ")}`
+              speakingCatalogModuleId(mission.moduleId) === module.id &&
+              `${speakingCatalogTitle(mission)} ${mission.summary} ${mission.vocabulary.join(" ")}`
                 .toLocaleLowerCase()
                 .includes(query),
           )),
     );
   }, [catalogCategory, catalogSearch, languageMissions, languageModules]);
   const catalogModule = languageModules.find((module) => module.id === catalogModuleId) ?? null;
+  // Opening a module loads the lessons of its Foundation and Master (their chunks are lazy), so
+  // their Say it missions are listed under it with the module's own.
+  const openedCatalogModuleId = catalogModule?.id ?? null;
+  useEffect(() => {
+    if (openedCatalogModuleId)
+      for (const stageId of stageModulesOfBase(openedCatalogModuleId))
+        void loadStageCurriculum(stageId);
+  }, [openedCatalogModuleId]);
+  // The base module's own missions, then its Foundation's, then its Master's (the order of
+  // languageMissions already; the stage name keeps it stable if that ever changes).
   const catalogMissions = catalogModule
-    ? languageMissions.filter((mission) => mission.moduleId === catalogModule.id)
+    ? languageMissions
+        .filter((mission) => speakingCatalogModuleId(mission.moduleId) === catalogModule.id)
+        .map((mission, index) => ({ mission, index }))
+        .sort(
+          (a, b) =>
+            stageRank(a.mission.moduleId) - stageRank(b.mission.moduleId) || a.index - b.index,
+        )
+        .map(({ mission }) => mission)
     : [];
   const visibleCatalogMissions =
     catalogModule?.id === "core-speaking"
@@ -1365,7 +1395,16 @@ export function SpeakingMissionsPreview({
                         {mission.level} · {mission.quickMinutes}–{mission.targetMinutes} min
                       </span>
                     </div>
-                    <h3 className="mt-3 font-serif text-xl text-foreground">{mission.title}</h3>
+                    <h3
+                      className="mt-3 font-serif text-xl text-foreground"
+                      data-testid={
+                        speakingStageName(mission.moduleId)
+                          ? "speak-catalog-stage-mission"
+                          : undefined
+                      }
+                    >
+                      {speakingCatalogTitle(mission)}
+                    </h3>
                     <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
                       Woman + man partner versions
                     </p>
@@ -1407,7 +1446,7 @@ export function SpeakingMissionsPreview({
             <div className="grid gap-3 sm:grid-cols-2">
               {filteredCatalogModules.map((module) => {
                 const missionCount = languageMissions.filter(
-                  (mission) => mission.moduleId === module.id,
+                  (mission) => speakingCatalogModuleId(mission.moduleId) === module.id,
                 ).length;
                 const specialty = specialtyStyle(module.category);
                 return (

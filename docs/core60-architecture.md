@@ -85,7 +85,13 @@ registration there is:
   prefixes, so derived modules get the 14-day / 70-day plans, the free-with-account Foundation, the
   "Master Lesson N" labels, no entrance/day 45/day 90 exams, and the grammar box.
 - **Say it**: `getSpeakingMissions` builds one mission per lesson from `getCurriculum()`, with
-  `surpriseComplication` and B1 level for Master lessons.
+  `surpriseComplication` and B1 level for Master lessons. The mission keeps its stage module id
+  (`foundation-<base>`), which lesson practice (`embeddedMissionPrefix`) and `/api/speak` key off.
+- **Speak tab catalog**: a stage is not a module card there. `getSpeakingModules` lists base modules
+  only, and the catalog groups a stage's missions (lessons and its catalog-override challenges)
+  under the base module (`speakingCatalogModuleId`), after the base's own, labelled by stage
+  ("Foundation · …", "Master · …": `speakingCatalogTitle`). Roofing's hand-written stages follow
+  the same rule. The module cards' mission counts include the stage missions.
 
 ## Loading (bundle impact)
 
@@ -97,9 +103,26 @@ stage file its own lazily imported chunk (content-hashed, cached offline by the 
 - Client: `useStageCurriculum(moduleId)` (`src/hooks/use-stage-curriculum.ts`) starts the load and
   re-renders on arrival. TabShell calls it for the active module (any tab); the Core 60 tab shows
   `core60-stage-loading` and mounts the lesson page and runner only once the curriculum is in.
-  The Say it catalog re-reads missions when a stage settles.
-- Server: a request middleware in `src/start.ts` awaits `preloadStageCurricula()` once per
-  instance, and `/api/speak` awaits it before `findSpeakingMission`, so server code stays sync.
+  The Say it catalog re-reads missions when a stage settles. A chunk that fails to load (offline,
+  a dropped connection) is not remembered as final: the Core 60 tab shows `core60-stage-error`
+  ("Couldn't load this stage. Check your connection and try again.") with a `core60-stage-retry`
+  button, which calls `retryStageOrReload`: it tries the import again in the page (status back to
+  "loading") and, when that fails again, reloads the page. The reload matters: a browser keeps a
+  failed dynamic import in the document's module map, so a second `import()` of the same chunk URL
+  fails without even making a request; only a fresh page fetches it again (found by the e2e test
+  that aborts the chunk once, `e2e/core60-path.spec.ts`, "Core 60 stage load failure").
+- Server: nothing is preloaded for every request. A request waits only for the stages it reads
+  (`stageLoadPlan` in `src/data/core60-stages.ts`, applied by the middleware in `src/start.ts`):
+  `/api/speak` loads just the stage of the requested scenario id (`stageModuleIdOfScenario`, then
+  `ensureStageCurriculum`) before `findSpeakingMission`; a server function (lesson words, deck,
+  lesson review, ...) loads the stage ids named in its payload; the exam, team and push routes,
+  which read module ids from the database, load every listed stage; every other request (pages,
+  assets, auth, tutor) waits for nothing. A loaded stage is cached for the life of the instance. A
+  failed load is never cached: the next request retries it once `STAGE_RETRY_BACKOFF_MS` (2 s) has
+  passed, so one bad fetch cannot leave Say it on a 400 until the instance recycles. When you add
+  a server route that reads `getCurriculum()` for a module id, load the stage first
+  (`await ensureStageCurriculum(id)`), or add its path to `ALL_STAGES_ROUTE` if the ids come from
+  the database. Tests: `tests/core60-stage-loading.test.mjs`.
 - Plain Node (tests, scripts, the generator): no bundler, so the registry reads the JSON from disk
   on first use; `getCurriculum("master-x")` works without await.
 
@@ -177,8 +200,24 @@ login stops the run (resumable). Every call is logged in the progress file (`cal
 tokens (uncached, cache writes, cache reads, output), turns, duration and the CLI's notional
 list-price cost, which a subscription does not bill.
 
-To add a module by hand, follow the same three steps. To take a stage down, remove its manifest
-key (the file can stay; the validator warns that it is unlisted, and it is not shipped).
+To add a module by hand, follow the same three steps.
+
+### Taking a stage down
+
+Remove that stage's key (`foundation` and/or `master`) from the trade's manifest entry, and the
+whole entry when no stage is left. That is the take-down: the stage's catalog module, its path step
+(back to "Coming soon"), its Say it missions and its page all go. Do it in this order and check:
+
+1. Edit `src/data/core60/manifest.ts`; `npm run validate:core60 -- --strict` still passes (an
+   unlisted file only warns "unlisted").
+2. The JSON file under `src/data/core60/<langCode>/` can stay (re-listing it is the way back), but
+   it still builds: `import.meta.glob("./core60/*/*.json")` makes a chunk for every file in the
+   folder whether or not the manifest lists it, so an unlisted stage ships as an unreferenced chunk
+   (nothing loads it) and still costs build output. Delete the file to remove the chunk.
+3. Learners who already have progress or a purchase for that stage keep it in their saved profile;
+   the module simply stops being offered. The `public/lesson-content/<langCode>/<stage>-<base>.json`
+   content file and its `index.json` line can stay; they are plain static files.
+4. `npm test` (the catalog and mission counts follow the manifest) and a build.
 
 ## Validator
 
@@ -188,6 +227,10 @@ npm run validate:core60 -- --strict          # also require public/lesson-conten
 npm run validate:core60 -- --file <path>     # one file (the generator's pre-write check)
 npm run validate:core60 -- --fixture         # tests/fixtures/core60
 ```
+
+`validateManifest` also checks each entry's `language`: it must be in the app's language list
+(`LANGUAGES`, `src/data/languages.ts`, with a known content-folder tag) and, when the base module
+lists its own `languages`, one of those. A base without a list is not a free pass.
 
 ## Fixture
 

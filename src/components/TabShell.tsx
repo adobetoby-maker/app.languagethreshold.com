@@ -4,7 +4,7 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
-import { CORE30_WITHOUT_PATH_TEXT, core60PathComplete } from "@/lib/core60-path";
+import { core30PathBannerText } from "@/lib/core60-path";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { MODULES } from "@/data/modules";
 
@@ -72,20 +72,16 @@ export function TabShell() {
   // ...and a Master (twenty advanced lessons after the Core 30).
   const master = state.currentTab === "core30" && isMasterModule(state.activeModuleId ?? "");
   // ...and a Core 30 module whose trade does not have both its Foundation and Master yet.
-  const core30WithoutPath =
-    state.currentTab === "core30" &&
-    !foundation &&
-    !master &&
-    Boolean(state.activeModuleId) &&
-    !core60PathComplete(state.activeModuleId);
+  const core30PathBanner =
+    state.currentTab === "core30" && !foundation && !master
+      ? core30PathBannerText(state.activeModuleId)
+      : null;
   const purposeName = foundation ? "Core 60 · Foundation" : master ? "Core 60 · Master" : tool.name;
   const purposeText = foundation
     ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`
     : master
       ? "Twenty lessons for the day that doesn't go as planned."
-      : core30WithoutPath
-        ? CORE30_WITHOUT_PATH_TEXT
-        : tool.purpose;
+      : (core30PathBanner ?? tool.purpose);
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 
   useEffect(() => {
@@ -114,6 +110,7 @@ export function TabShell() {
             {purposeTab === state.currentTab && (
               <section
                 data-activity={tool.accent}
+                data-testid="tool-purpose"
                 className="tool-purpose mb-4 flex items-center gap-3 rounded-xl border bg-card/45 py-1.5 pl-4 pr-1.5"
                 aria-label={`${tool.name} purpose`}
               >

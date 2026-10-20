@@ -148,7 +148,9 @@ export function ParallelReader() {
       // Only while the trip is still live: a marker the app already dropped (the learner went
       // elsewhere and came back to this Reader) must not pull them to Core 30.
       const live = readLessonReturn(browserReturnStorage(), Date.now());
-      if (live?.section === "see") {
+      // Same guard as the pill: a marker for another module (the learner switched modules
+      // while reading) must not pull them to that lesson.
+      if (live?.section === "see" && live.moduleId === pairRef.current.activeModuleId) {
         // The URL still names the Reader, so point it at the lesson first (as the pill does)
         // or the return marker is refused as a stale link and Core 30 opens on its overview.
         const { selectedLanguage: target, nativeLanguage: native } = pairRef.current;

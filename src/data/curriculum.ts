@@ -26,6 +26,7 @@ import {
 } from "./foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
+import { stageCurriculum } from "./core60-stages.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
@@ -2976,8 +2977,12 @@ import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
 Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 
+/**
+ * A module's curriculum. Data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the
+ * stage registry: null until their chunk has loaded (see useStageCurriculum), immediate under Node.
+ */
 export function getCurriculum(moduleId: string): ModuleCurriculum | null {
-  return CURRICULA[moduleId] ?? null;
+  return CURRICULA[moduleId] ?? stageCurriculum(moduleId);
 }
 
 export function getCurrentLesson(

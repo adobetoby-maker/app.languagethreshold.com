@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useStageCurriculaVersion } from "@/hooks/use-stage-curriculum";
 import {
   Check,
   ChevronLeft,
@@ -294,13 +295,15 @@ export function SpeakingMissionsPreview({
     () => (missionLanguage ? getSpeakingModules(missionLanguage, appState.nativeLanguage) : []),
     [appState.nativeLanguage, missionLanguage],
   );
+  // A Core 60 stage's lesson missions appear once its curriculum chunk has loaded: the hook
+  // re-renders then, and getSpeakingMissions (cached per language) returns the rebuilt list.
+  useStageCurriculaVersion();
+  const allLanguageMissions = missionLanguage ? getSpeakingMissions(missionLanguage) : null;
   const languageMissions = useMemo(() => {
-    if (!missionLanguage) return [];
+    if (!allLanguageMissions) return [];
     const availableModuleIds = new Set(languageModules.map((module) => module.id));
-    return getSpeakingMissions(missionLanguage).filter((mission) =>
-      availableModuleIds.has(mission.moduleId),
-    );
-  }, [languageModules, missionLanguage]);
+    return allLanguageMissions.filter((mission) => availableModuleIds.has(mission.moduleId));
+  }, [languageModules, allLanguageMissions]);
   const missionLocale = activeTravelDestination?.ttsLocale ?? accent ?? selectedMission?.locale;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const {

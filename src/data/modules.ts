@@ -5,6 +5,8 @@ import type { Language, NativeLanguage } from "@/state/app-state";
 import { TRAVEL_ZONE_MODULES } from "./travel-zone.ts";
 import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
+import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
+import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
 
 export interface AppModule {
   id: string;
@@ -73,7 +75,8 @@ export function moduleSupportsLearningPair(
   );
 }
 
-export const MODULES: AppModule[] = [
+// The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
+const CATALOG: AppModule[] = [
   {
     id: "lds-missionary",
     name: "LDS Missionary",
@@ -1521,6 +1524,20 @@ export const MODULES: AppModule[] = [
     languages: ["Spanish"],
   },
 ];
+
+/** The hand-written entries only (the Core 60 validator checks stage ids against these). */
+export const HANDWRITTEN_MODULES: readonly AppModule[] = CATALOG;
+
+/**
+ * Every module. Foundation and Master stages listed in src/data/core60/manifest.ts are derived
+ * from their trade's entry (name, price, persona: see deriveStageModule) and follow it directly;
+ * hand-written stages (roofing's) stay as written above. With the shipped manifest empty this is
+ * exactly CATALOG.
+ */
+export const MODULES: AppModule[] = withDerivedStageModules(
+  [...CATALOG, ...core60FixtureModules()],
+  core60Manifest(),
+);
 
 export function getModule(id: string | null | undefined): AppModule | null {
   if (!id) return null;

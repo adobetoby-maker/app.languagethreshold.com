@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "audit:prod": "npm audit --omit=dev --audit-level=high",
     "rosetta:check": "node scripts/rosetta-check.mjs",
+    "validate:core60": "node scripts/validate-core60.mts",
     "format": "prettier --write .",
     "verify:deploy-target": "node scripts/verify-deploy-target.mjs",
     "verify:vercel-artifact": "node scripts/verify-vercel-artifact.mjs",

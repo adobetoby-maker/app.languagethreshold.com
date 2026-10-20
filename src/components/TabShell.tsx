@@ -4,7 +4,8 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
-import { CORE30_WITHOUT_PATH_TEXT, core60PathOf } from "@/lib/core60-path";
+import { CORE30_WITHOUT_PATH_TEXT, core60PathComplete } from "@/lib/core60-path";
+import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { MODULES } from "@/data/modules";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
@@ -62,19 +63,21 @@ class TabErrorBoundary extends Component<{ children: ReactNode; tabKey: string }
 
 export function TabShell() {
   const { state } = useApp();
+  // Starts loading a data-driven Core 60 stage's curriculum from any tab (Core 60, Say it, Reader).
+  useStageCurriculum(state.activeModuleId);
   const Component = TAB_COMPONENTS[state.currentTab];
   const tool = TOOL_CATALOG[state.currentTab];
   // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.
   const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
   // ...and a Master (twenty advanced lessons after the Core 30).
   const master = state.currentTab === "core30" && isMasterModule(state.activeModuleId ?? "");
-  // ...and a Core 30 module whose trade has no Foundation and Master yet (only roofing does).
+  // ...and a Core 30 module whose trade does not have both its Foundation and Master yet.
   const core30WithoutPath =
     state.currentTab === "core30" &&
     !foundation &&
     !master &&
     Boolean(state.activeModuleId) &&
-    !core60PathOf(state.activeModuleId);
+    !core60PathComplete(state.activeModuleId);
   const purposeName = foundation ? "Core 60 · Foundation" : master ? "Core 60 · Master" : tool.name;
   const purposeText = foundation
     ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`

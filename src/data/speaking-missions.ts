@@ -1,6 +1,7 @@
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
-import { CURRICULA, type Lesson } from "./curriculum.ts";
+import { getCurriculum, type Lesson } from "./curriculum.ts";
+import { stageCurriculaVersion } from "./core60-stages.ts";
 import {
   CORE_SPEAKING_MODULE,
   CORE_GRAMMAR_EXTENSIONS,
@@ -1473,6 +1474,9 @@ export function getCoreGrammarPatterns(language: SpeakingMissionLanguage): CoreG
 
 const missionCache = new Map<SpeakingMissionLanguage, SpeakingMission[]>();
 const missionIndexCache = new Map<SpeakingMissionLanguage, Map<string, SpeakingMission>>();
+// The stage-registry version the caches were built at: a Core 60 stage curriculum that loads
+// later (its own chunk) adds that stage's lesson missions on the next lookup.
+let missionCacheStageVersion = -1;
 
 function buildSpeakingMissions(language: SpeakingMissionLanguage) {
   const definition = SPEAKING_LANGUAGES.find((entry) => entry.language === language);
@@ -1511,7 +1515,8 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
         challengeIndex,
       ),
     );
-    const curriculum = CURRICULA[module.id];
+    // getCurriculum includes data-driven Core 60 stages once their curriculum has loaded.
+    const curriculum = getCurriculum(module.id);
     const lessonMissions = (curriculum?.lessons ?? []).map((lesson) =>
       missionFromLesson(module, module.category, language, code, locale, lesson),
     );
@@ -1527,9 +1532,21 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
 // Build only the selected language. The six reviewed Spanish missions remain
 // first-class curated choices without constructing every language projection at startup.
 export function getSpeakingMissions(language: SpeakingMissionLanguage) {
+  if (missionCacheStageVersion !== stageCurriculaVersion()) {
+    missionCache.clear();
+    missionIndexCache.clear();
+  }
   const cached = missionCache.get(language);
   if (cached) return cached;
+  const versionBefore = stageCurriculaVersion();
   const missions = buildSpeakingMissions(language);
+  // Under Node a stage file is read on first use, inside the build: other languages' lists may
+  // predate it.
+  if (stageCurriculaVersion() !== versionBefore) {
+    missionCache.clear();
+    missionIndexCache.clear();
+  }
+  missionCacheStageVersion = stageCurriculaVersion();
   missionCache.set(language, missions);
   missionIndexCache.set(language, new Map(missions.map((mission) => [mission.id, mission])));
   return missions;

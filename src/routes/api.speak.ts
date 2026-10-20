@@ -9,6 +9,7 @@ import {
   getSpeakingModules,
   type SpeakingMission,
 } from "../data/speaking-missions";
+import { preloadStageCurricula } from "../data/core60-stages";
 import {
   destinationPromptContext,
   getTravelDestination,
@@ -340,6 +341,8 @@ export const Route = createFileRoute("/api/speak")({
 
         // ----- MISSION MODE: immutable scenario roleplay for the main-app UX preview -----
         if (payload.mode === "mission") {
+          // Lesson missions of a Core 60 stage exist once its curriculum chunk has loaded.
+          if (payload.scenarioVersionId) await preloadStageCurricula();
           const mission = payload.scenarioVersionId
             ? findSpeakingMission(payload.scenarioVersionId)
             : null;

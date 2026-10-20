@@ -51,6 +51,7 @@ import {
   PenLine,
   Star,
   Map,
+  Loader2,
 } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import {
@@ -63,6 +64,7 @@ import { useAuth } from "@/state/auth-state";
 import { useLibrary } from "@/state/library-state";
 import { cn } from "@/lib/utils";
 import { getCurriculum, getCurrentLesson, type Lesson } from "@/data/curriculum";
+import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
 import { AppTour } from "@/components/onboarding/AppTour";
 import { getTourScript } from "@/data/tour-scripts";
 import { LessonPracticeKit, type PracticeMode } from "@/components/core30/LessonPracticeKit";
@@ -170,6 +172,7 @@ function Core60PathCard({
       <ol className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-3">
         {path.steps.map((step, index) => {
           const isCurrent = step.stage === path.current;
+          const comingSoon = !step.available;
           const showNudge = nudge && step.stage === "foundation";
           const body = (
             <>
@@ -189,10 +192,15 @@ function Core60PathCard({
                   New to Spanish? Start here.
                 </span>
               )}
-              {!isCurrent && (
+              {!isCurrent && !comingSoon && (
                 <span className="mt-auto inline-flex items-center gap-1 pt-2 text-xs font-semibold text-gold">
                   Open
                   <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden="true" />
+                </span>
+              )}
+              {comingSoon && (
+                <span className="mt-auto inline-flex items-center pt-2 text-xs font-semibold text-white/50">
+                  Coming soon
                 </span>
               )}
             </>
@@ -200,7 +208,15 @@ function Core60PathCard({
           const base = "flex h-full min-h-11 w-full flex-col rounded-xl border p-3 text-left";
           return (
             <li key={step.stage} className="h-full min-w-0">
-              {isCurrent ? (
+              {comingSoon ? (
+                <div
+                  data-testid={`core60-step-${step.stage}`}
+                  aria-disabled="true"
+                  className={cn(base, "border-dashed border-white/10 bg-card/20")}
+                >
+                  {body}
+                </div>
+              ) : isCurrent ? (
                 <div
                   data-testid={`core60-step-${step.stage}`}
                   aria-current="step"
@@ -1725,6 +1741,8 @@ export function AppGuide() {
   const [tourOpen, setTourOpen] = useState(false);
 
   const moduleId = state.activeModuleId ?? "";
+  // A data-driven Core 60 stage's curriculum is its own chunk; re-render once it has loaded.
+  useStageCurriculum(moduleId);
   const curriculum = getCurriculum(moduleId);
 
   const flow = getFlow(state.activeModuleId);
@@ -2624,10 +2642,22 @@ export function Core30Tab() {
   useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
   const { user } = useAuth();
+  // A data-driven Core 60 stage (Foundation / Master) loads its curriculum on open: the lesson
+  // page and runner mount once it is here, so their first render already has every lesson.
+  const stageStatus = useStageCurriculum(state.activeModuleId);
   const hasCore30 = Boolean(getCurriculum(state.activeModuleId ?? ""));
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
-      {hasCore30 ? (
+      {stageStatus === "loading" ? (
+        <section
+          data-testid="core60-stage-loading"
+          aria-busy="true"
+          className="flex min-h-[30vh] items-center justify-center gap-2 text-sm text-muted-foreground"
+        >
+          <Loader2 className="h-5 w-5 animate-spin" aria-hidden />
+          Loading lessons…
+        </section>
+      ) : hasCore30 ? (
         <Core30Section
           key={`${user?.id ?? "guest"}:${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
           restoreView

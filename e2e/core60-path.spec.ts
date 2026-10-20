@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { expect, test, type Page } from "@playwright/test";
 import { MASTER_ROOFING_LESSONS } from "../src/data/master-roofing-curriculum";
 import { appUrl, core30Key, seedAppState } from "./app-state";
@@ -237,5 +239,108 @@ test.describe("Core 30 page of a module without a Core 60 path", () => {
     // No path card and no eyebrow on a trade without a Core 60 path.
     await expect(page.getByTestId("core60-path")).toHaveCount(0);
     await expect(page.getByTestId("core60-eyebrow")).toHaveCount(0);
+  });
+});
+
+// ─── Data-driven stages (src/data/core60) ──────────────────────────────────────
+// The synthetic fixture trades in tests/fixtures/core60 ("test": Foundation + Master;
+// "test-partial": Master only) are injected into the page before the app loads
+// (window.__CORE60_FIXTURE__, read only by a dev build: src/data/core60-stages.ts), so the
+// generated-stage path is exercised end to end without shipping fixture data.
+
+function core60Fixture() {
+  const dir = resolve("tests/fixtures/core60");
+  const read = (file: string) => JSON.parse(readFileSync(resolve(dir, file), "utf8"));
+  const fixture = read("fixture.json");
+  const files: Record<string, unknown> = {};
+  for (const id of ["foundation-test", "master-test", "master-test-partial"]) {
+    files[id] = read(`es/${id}.json`);
+  }
+  return { ...fixture, files };
+}
+
+async function openFixtureStage(
+  page: Page,
+  moduleId: string,
+  core30Log: Record<string, unknown>,
+  ready: string,
+) {
+  await page.addInitScript((fixture) => {
+    (window as unknown as { __CORE60_FIXTURE__: unknown }).__CORE60_FIXTURE__ = fixture;
+  }, core60Fixture());
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+    timeout: 60_000,
+  });
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await seedAppState(page, {
+      onboardingComplete: true,
+      activeModuleId: moduleId,
+      purchasedModules: ["test", "foundation-test", "master-test", "test-partial", "master-test-partial"],
+      selectedLanguage: "Spanish",
+      nativeLanguage: "English",
+      currentTab: "core30",
+      core30Log,
+    });
+    await page.goto(appUrl({ tab: "core30", module: moduleId }));
+    await page
+      .getByTestId(ready)
+      .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
+      .catch(() => undefined);
+    if (await page.getByTestId(ready).isVisible()) return;
+  }
+  await expect(page.getByTestId(ready)).toBeVisible();
+}
+
+test.describe("Data-driven Core 60 stage (fixture trade)", () => {
+  test("a generated Master loads on open and renders through the path, plan and lesson runner", async ({
+    page,
+  }) => {
+    await openFixtureStage(page, "master-test", {}, "core30-plan-card");
+    await expect(page.getByTestId("core60-stage-loading")).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "The Test Trade Master 20" })).toBeVisible();
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Test Trade · Step 3 of 3");
+    const steps = page.getByTestId("core60-path").locator("li");
+    await expect(steps).toHaveCount(3);
+    await expect(steps.nth(0)).toContainText("Foundation · 10 lessons · free");
+    await expect(steps.nth(2)).toContainText("Master 20 · 20 lessons");
+    await expect(page.getByTestId("core60-step-master")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("core60-step-foundation")).toHaveJSProperty("tagName", "BUTTON");
+    await expect(page.getByTestId("core60-step-foundation")).toContainText("Open");
+    await expect(page.getByText("Entrance, day 45 and day 90 exams")).toHaveCount(0);
+
+    const card = page.getByTestId("core30-plan-card");
+    await expect(card).toContainText("Learn all 20 lessons in 70 days");
+    await page.getByTestId("core30-start-plan").click();
+    await expect(card).toContainText("Day 1 of 70");
+    await page.getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ }).first().click();
+    await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
+    await expect(page.getByTestId("lesson-nav-top").getByRole("button", { name: "Master 2" })).toBeVisible();
+    const grammar = page.getByTestId("lesson-grammar-focus");
+    await expect(grammar).toContainText("Fixture grammar focus 1");
+    await expect(grammar).toContainText("Ejemplo uno 1.");
+    await expect(grammar).toContainText("Example two 1.");
+  });
+
+  test("the Foundation step opens the generated Foundation, free with an account", async ({ page }) => {
+    await openFixtureStage(page, "master-test", {}, "core60-path");
+    await page.getByTestId("core60-step-foundation").click();
+    await expect(page).toHaveURL(/module=foundation-test/);
+    // A guest gets the free-account prompt (never the paid trial), named after the derived module.
+    const prompt = page.getByTestId("foundation-signin-prompt");
+    await expect(prompt).toContainText("Free with a free account");
+    await expect(prompt).toContainText("The Test Trade Foundation is free.");
+    await expect(page.getByText("Start Free Trial")).toHaveCount(0);
+  });
+
+  test("a stage that is not listed yet shows Coming soon and cannot be opened", async ({ page }) => {
+    await openFixtureStage(page, "master-test-partial", {}, "core60-path");
+    await expect(page.getByRole("heading", { name: "The Partial Trade Master 20" })).toBeVisible();
+    const foundation = page.getByTestId("core60-step-foundation");
+    await expect(foundation).toContainText("Coming soon");
+    await expect(foundation).not.toContainText("Open");
+    await expect(foundation).toHaveAttribute("aria-disabled", "true");
+    await expect(foundation).toHaveJSProperty("tagName", "DIV");
+    await expect(page.getByTestId("core60-step-core")).toHaveJSProperty("tagName", "BUTTON");
   });
 });

@@ -1,0 +1,60 @@
+{
+  "note": "Core 60 test fixture: synthetic modules and stage files, loaded only with CORE60_FIXTURE=1 (node tests) or injected into the dev-server page by e2e/core60-path.spec.ts (window.__CORE60_FIXTURE__). Marker: core60-fixture-not-shipped",
+  "modules": [
+    {
+      "id": "test",
+      "name": "Test Trade",
+      "emoji": "🧪",
+      "category": "Trades",
+      "blurb": "Synthetic trade for Core 60 tests (fixture only, never shipped).",
+      "priceCents": 999,
+      "languages": [
+        "Spanish"
+      ],
+      "aiPersona": "You are a crew member on a synthetic test job.",
+      "userRole": "Test crew lead",
+      "challengePrompts": [
+        "Fixture challenge one.",
+        "Fixture challenge two."
+      ],
+      "vocabFocus": [
+        "fixture",
+        "test"
+      ]
+    },
+    {
+      "id": "test-partial",
+      "name": "Partial Trade",
+      "emoji": "🧪",
+      "category": "Trades",
+      "blurb": "Synthetic trade for Core 60 tests (fixture only, never shipped).",
+      "priceCents": 999,
+      "languages": [
+        "Spanish"
+      ],
+      "aiPersona": "You are a crew member on a synthetic test job.",
+      "userRole": "Test crew lead",
+      "challengePrompts": [
+        "Fixture challenge one.",
+        "Fixture challenge two."
+      ],
+      "vocabFocus": [
+        "fixture",
+        "test"
+      ]
+    }
+  ],
+  "manifest": [
+    {
+      "base": "test",
+      "language": "Spanish",
+      "foundation": {},
+      "master": {}
+    },
+    {
+      "base": "test-partial",
+      "language": "Spanish",
+      "master": {}
+    }
+  ]
+}

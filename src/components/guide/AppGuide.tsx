@@ -2,8 +2,11 @@ import { examsLocation } from "@/lib/exam-navigation";
 import { offlineLessonPackId } from "@/lib/offline-lesson-tracks";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
+  core60Eyebrow,
   core60PathOf,
   core60StageName,
+  stageLessonLabel,
+  stageLessonShort,
   hasCore30Checkpoints,
   showFoundationNudge,
 } from "@/lib/core60-path";
@@ -112,6 +115,20 @@ function useOpenCore30Of() {
   };
 }
 
+/** "Core 60 · Roofing · Step 2 of 3", above the heading of a stage page of a trade that has a path. */
+function StageEyebrow({ moduleId }: { moduleId: string }) {
+  const path = core60PathOf(moduleId);
+  if (!path) return null;
+  return (
+    <p
+      data-testid="core60-eyebrow"
+      className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70"
+    >
+      {core60Eyebrow(path)}
+    </p>
+  );
+}
+
 /**
  * The Core 60 path, at the top of each stage page of a trade that has one (see
  * src/lib/core60-path.ts): Foundation, Core 30, Master 20, each with its mastered count. The
@@ -150,7 +167,7 @@ function Core60PathCard({
       <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
         Core 60 path · {path.tradeLabel}
       </p>
-      <ol className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+      <ol className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-3">
         {path.steps.map((step, index) => {
           const isCurrent = step.stage === path.current;
           const showNudge = nudge && step.stage === "foundation";
@@ -172,11 +189,17 @@ function Core60PathCard({
                   New to Spanish? Start here.
                 </span>
               )}
+              {!isCurrent && (
+                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-xs font-semibold text-gold">
+                  Open
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden="true" />
+                </span>
+              )}
             </>
           );
-          const base = "block min-h-11 w-full rounded-xl border p-3 text-left";
+          const base = "flex h-full min-h-11 w-full flex-col rounded-xl border p-3 text-left";
           return (
-            <li key={step.stage} className="min-w-0">
+            <li key={step.stage} className="h-full min-w-0">
               {isCurrent ? (
                 <div
                   data-testid={`core60-step-${step.stage}`}
@@ -1312,7 +1335,7 @@ function OwnedLessonRunner({
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
         <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-        Lesson {Math.max(lesson.n - 1, 1)}
+        {stageLessonShort(moduleId, Math.max(lesson.n - 1, 1))}
       </button>
       <button
         type="button"
@@ -1320,7 +1343,7 @@ function OwnedLessonRunner({
         disabled={lesson.n >= totalLessons}
         className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-white/10 px-3 text-xs font-semibold text-white/70 transition-colors hover:border-white/25 hover:text-white disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-white/10 disabled:hover:text-white/70"
       >
-        Lesson {Math.min(lesson.n + 1, totalLessons)}
+        {stageLessonShort(moduleId, Math.min(lesson.n + 1, totalLessons))}
         <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
       </button>
     </div>
@@ -2259,6 +2282,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       {/* Curriculum header (an open lesson takes the whole page) */}
       {!runnerActive && (
         <div className="mb-4">
+          <StageEyebrow moduleId={moduleId} />
           <h1 className="font-display text-2xl font-semibold tracking-tight">
             {curriculum.headline}
           </h1>
@@ -2384,7 +2408,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                       }
                 }
               >
-                {practiceLesson ? "Practice" : "Start"} Lesson {currentLesson.n}
+                {practiceLesson ? "Practice" : "Start"} {stageLessonLabel(moduleId, currentLesson.n)}
                 <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </button>
 
@@ -2412,8 +2436,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
               className="mt-4 min-h-11 w-full rounded-xl border border-gold/30 px-4 py-3 text-left text-sm text-gold"
               onClick={() => openLessonFromPlan(savedPosition.lesson, savedPosition.way)}
             >
-              {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"} Lesson{" "}
-              {savedPosition.lesson} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
+              {masteredSet.has(savedPosition.lesson) ? "Review" : "Resume"}{" "}
+              {stageLessonLabel(moduleId, savedPosition.lesson)} · {SECTIONS.find((s) => s.id === savedPosition.way)?.label}
             </button>
           )}
           {!reviewOpen && !runnerActive && (

@@ -147,8 +147,15 @@ test.describe("Roofing Foundation: signed in", () => {
     const pathBox = await path.boundingBox();
     const nextUp = await page.getByText(/Next Up · Foundation Lesson 1/).boundingBox();
     expect(pathBox!.y).toBeLessThan(nextUp!.y);
-    await page.getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ }).first().click();
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Roofing · Step 1 of 3");
+    await page
+      .getByRole("button", { name: /Today: Foundation Lesson 1|Start Foundation Lesson 1/ })
+      .first()
+      .click();
     await expect(page.getByText("✕ Exit")).toBeVisible();
+    await expect(
+      page.getByTestId("lesson-nav-top").getByRole("button", { name: "Foundation 2" }),
+    ).toBeVisible();
     await expect(page.getByTestId("lesson-section-nav")).toBeVisible();
     await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
     await expect(page.getByTestId("lesson-reader")).toContainText("First Day on the Roof");

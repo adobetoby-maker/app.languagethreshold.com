@@ -70,7 +70,7 @@ test("Master missions are B1 with the complication flag; their prompt carries th
   }
 });
 
-test("Master lesson missions drill every term and at least three phrases", async () => {
+test("Master lesson missions drill every term and every phrase", async () => {
   const m = await load();
   const { MASTER_ROOFING_LESSONS } = await import("../src/data/master-roofing-curriculum.ts");
   const missions = m
@@ -80,11 +80,10 @@ test("Master lesson missions drill every term and at least three phrases", async
   assert.equal(missions.length, MASTER_ROOFING_LESSONS.length);
   for (const lesson of MASTER_ROOFING_LESSONS) {
     const mission = missions.find((x) => x.id.includes(`_lesson_${lesson.n}_`));
-    const terms = lesson.words.filter((w) => w.kind === "term").length;
-    const phrases = lesson.words.filter((w) => w.kind === "phrase");
-    assert.ok(mission.vocabulary.length >= terms + 3, `lesson ${lesson.n}: ${mission.vocabulary.length}`);
-    const included = phrases.filter((w) => mission.vocabulary.includes(w.es)).length;
-    assert.ok(included >= 3, `lesson ${lesson.n}: ${included} phrases in mission vocabulary`);
+    assert.ok(lesson.words.length <= 24, `lesson ${lesson.n}: ${lesson.words.length} words`);
+    const missing = lesson.words.filter((w) => !mission.vocabulary.includes(w.es)).map((w) => w.es);
+    assert.deepEqual(missing, [], `lesson ${lesson.n}: not in mission vocabulary`);
+    assert.equal(mission.vocabulary.length, lesson.words.length, `lesson ${lesson.n}`);
   }
 });
 

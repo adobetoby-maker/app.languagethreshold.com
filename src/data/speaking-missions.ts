@@ -1153,11 +1153,12 @@ function missionFromChallenge(
 }
 
 const LESSON_MISSION_VOCABULARY_CAP = 12;
-// A Master lesson carries 13-14 terms and 6-8 phrases; its mission drills every term and phrases too.
-const MASTER_MISSION_VOCABULARY_CAP = 20;
+// A Master lesson carries up to 16 terms and 8 phrases (24 words); its mission drills every one,
+// so the cap must stay at or above that ceiling.
+const MASTER_MISSION_VOCABULARY_CAP = 24;
 
 // A lesson that carries its own word list drills those exact words in its mission: terms first,
-// then phrases, capped at 12. Spanish missions show the Spanish forms; every other language keeps
+// then phrases, capped at 12 (24 for a Master lesson). Spanish missions show the Spanish forms; every other language keeps
 // the English headwords that module.vocabFocus already uses (lesson words only exist as en/es).
 function lessonMissionVocabulary(
   module: AppModule,

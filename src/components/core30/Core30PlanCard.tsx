@@ -13,6 +13,7 @@ import {
   planToday,
   toDateKey,
 } from "@/lib/core30-plan";
+import { stageLessonLabel } from "@/lib/core60-path";
 
 const DATE_FMT: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
 
@@ -248,8 +249,8 @@ export function Core30PlanCard({
                   : "text-[#0B0B0F]",
               )}
             >
-              {plan.reviewDue && plan.previouslyMasteredCount > 0 ? "Then" : "Today"}: Lesson{" "}
-              {plan.nextLesson.n}
+              {plan.reviewDue && plan.previouslyMasteredCount > 0 ? "Then" : "Today"}:{" "}
+              {stageLessonLabel(moduleId, plan.nextLesson.n)}
             </span>
             <span
               className={cn(

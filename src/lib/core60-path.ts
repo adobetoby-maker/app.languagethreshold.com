@@ -99,3 +99,27 @@ export function hasCore30Checkpoints(moduleId: string | null | undefined): boole
 export function showFoundationNudge(path: Core60Path, foundationMastered: number): boolean {
   return path.current === "core" && foundationMastered < (path.steps[0]?.lessons ?? 0);
 }
+
+/**
+ * A lesson's name on a button: "Master Lesson 3" / "Foundation Lesson 3", and plain "Lesson 3" for
+ * a Core 30 module (its labels do not change).
+ */
+export function stageLessonLabel(moduleId: string | null | undefined, n: number): string {
+  const stage = core60StageName(moduleId);
+  return stage ? `${stage} Lesson ${n}` : `Lesson ${n}`;
+}
+
+/** The short form for the lesson runner's previous / next buttons: "Master 3", "Foundation 3", "Lesson 3". */
+export function stageLessonShort(moduleId: string | null | undefined, n: number): string {
+  return core60StageName(moduleId) ? `${core60StageName(moduleId)} ${n}` : `Lesson ${n}`;
+}
+
+/** The eyebrow above a stage page's heading: "Core 60 · Roofing · Step 2 of 3". Null off the path. */
+export function core60Eyebrow(path: Core60Path): string {
+  const step = path.steps.findIndex((s) => s.stage === path.current) + 1;
+  return `Core 60 · ${path.tradeLabel} · Step ${step} of ${path.steps.length}`;
+}
+
+/** The page banner for a Core 30 module whose trade has no Foundation and Master yet. */
+export const CORE30_WITHOUT_PATH_TEXT =
+  "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.";

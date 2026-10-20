@@ -93,6 +93,32 @@ test.describe("Core 60 path", () => {
     await expect(page.getByTestId("core60-step-master")).toHaveJSProperty("tagName", "BUTTON");
     await expect(page.getByTestId("core60-step-foundation")).not.toHaveAttribute("aria-current");
 
+    // The eyebrow names the trade and the step above the stage heading.
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Roofing · Step 2 of 3");
+
+    // The two other steps say "Open"; the current one does not.
+    await expect(page.getByTestId("core60-step-foundation")).toContainText("Open");
+    await expect(page.getByTestId("core60-step-master")).toContainText("Open");
+    await expect(page.getByTestId("core60-step-core")).not.toContainText("Open");
+
+    // Side by side (sm and up) the three steps are the same height; stacked they simply stack.
+    const rects = await steps.evaluateAll((items) => items.map((item) => {
+        const box = item.getBoundingClientRect();
+        return { top: box.top, height: box.height };
+      }),
+    );
+    if (rects[0].top === rects[1].top) {
+      expect(Math.abs(rects[0].height - rects[1].height)).toBeLessThanOrEqual(1);
+      expect(Math.abs(rects[1].height - rects[2].height)).toBeLessThanOrEqual(1);
+      const buttonHeights = await page
+        .locator('[data-testid^="core60-step-"]:not([data-testid$="-count"])')
+        .evaluateAll((items) => items.map((item) => item.getBoundingClientRect().height));
+      expect(Math.abs(buttonHeights[0] - buttonHeights[1])).toBeLessThanOrEqual(1);
+      expect(Math.abs(buttonHeights[1] - buttonHeights[2])).toBeLessThanOrEqual(1);
+    } else {
+      expect(rects[1].top).toBeGreaterThan(rects[0].top);
+    }
+
     // Above the plan card, and nothing spills sideways at any width.
     const pathBox = await path.boundingBox();
     const planBox = await page.getByTestId("core30-plan-card").boundingBox();
@@ -110,6 +136,7 @@ test.describe("Core 60 path", () => {
     await page.getByTestId("core60-step-master").click();
     await expect(page).toHaveURL(/module=master-roofing/);
     await expect(page.getByRole("heading", { name: "The Roofing Master 20" })).toBeVisible();
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Roofing · Step 3 of 3");
     await expect(page.getByText(/^By Lesson 20, you can train a new roofer/)).toBeVisible();
     await expect(page.getByTestId("core60-step-master")).toHaveAttribute("aria-current", "step");
     await expect(page.getByTestId("core60-step-core")).toHaveJSProperty("tagName", "BUTTON");
@@ -151,9 +178,13 @@ test.describe("Roofing Master 20 lessons", () => {
     await expect(card).toContainText("Day 1 of 70");
     await expect(page.getByText(/Next Up · Master Lesson 1/)).toBeVisible();
 
-    await page.getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ }).first().click();
+    await page.getByRole("button", { name: /Today: Master Lesson 1|Start Master Lesson 1/ }).first().click();
     await expect(page.getByText("✕ Exit")).toBeVisible();
     await expect(page.getByText(/Master · Lesson 1 · /)).toBeVisible();
+    // The runner's previous / next buttons carry the stage: "Master 2", not a bare "Lesson 2".
+    const nav = page.getByTestId("lesson-nav-top");
+    await expect(nav.getByRole("button", { name: "Master 2" })).toBeVisible();
+    await expect(nav.getByRole("button", { name: /^Lesson / })).toHaveCount(0);
     if (MASTER_ROOFING_LESSONS[0].grammar) {
       const grammar = page.getByTestId("lesson-grammar-focus");
       await expect(grammar).toBeVisible();
@@ -173,5 +204,38 @@ test.describe("Grammar focus box", () => {
     await page.getByRole("button", { name: /Today: Lesson 1|Start Lesson 1/ }).first().click();
     await expect(page.getByTestId("lesson-section-see")).toBeVisible();
     await expect(page.getByTestId("lesson-grammar-focus")).toHaveCount(0);
+  });
+});
+
+test.describe("Core 30 page of a module without a Core 60 path", () => {
+  test("the banner says the Core 30 is ready and the Foundation and Master 20 are coming soon", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
+      timeout: 60_000,
+    });
+    for (let attempt = 0; attempt < 3; attempt++) {
+      await seedAppState(page, {
+        onboardingComplete: true,
+        activeModuleId: "electrician",
+        purchasedModules: ["electrician"],
+        selectedLanguage: "Spanish",
+        nativeLanguage: "English",
+        currentTab: "core30",
+      });
+      await page.goto(appUrl({ tab: "core30", module: "electrician" }));
+      const banner = page.getByRole("region", { name: /purpose/i }).first();
+      await banner.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
+      if (await banner.isVisible()) break;
+    }
+    const banner = page.getByRole("region", { name: /purpose/i }).first();
+    await expect(banner).toContainText(
+      "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.",
+    );
+    await expect(banner).not.toContainText("Your module's Core 30");
+    // No path card and no eyebrow on a trade without a Core 60 path.
+    await expect(page.getByTestId("core60-path")).toHaveCount(0);
+    await expect(page.getByTestId("core60-eyebrow")).toHaveCount(0);
   });
 });

@@ -5,11 +5,15 @@ import { getModule } from "../src/data/modules.ts";
 import { FOUNDATION_ROOFING_LESSONS } from "../src/data/foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "../src/data/master-roofing-curriculum.ts";
 import {
+  CORE30_WITHOUT_PATH_TEXT,
   CORE60_PATHS,
+  core60Eyebrow,
   core60PathOf,
   core60StageName,
   hasCore30Checkpoints,
   showFoundationNudge,
+  stageLessonLabel,
+  stageLessonShort,
 } from "../src/lib/core60-path.ts";
 import { getSpeakingMissions, getSpeakingModules } from "../src/data/speaking-missions.ts";
 import { foundationAccess } from "../src/lib/core30-plan.ts";
@@ -69,6 +73,30 @@ test("stage names, labels and checkpoints", () => {
   assert.equal(hasCore30Checkpoints("roofing"), true);
   assert.equal(hasCore30Checkpoints("foundation-roofing"), false);
   assert.equal(hasCore30Checkpoints("master-roofing"), false);
+});
+
+test("the eyebrow names the trade and the step of each Roofing stage page", () => {
+  assert.equal(core60Eyebrow(core60PathOf("foundation-roofing")), "Core 60 · Roofing · Step 1 of 3");
+  assert.equal(core60Eyebrow(core60PathOf("roofing")), "Core 60 · Roofing · Step 2 of 3");
+  assert.equal(core60Eyebrow(core60PathOf("master-roofing")), "Core 60 · Roofing · Step 3 of 3");
+  assert.equal(core60PathOf("electrician"), null);
+});
+
+test("Foundation and Master lessons carry the stage on their buttons; the Core 30 keeps its labels", () => {
+  assert.equal(stageLessonLabel("master-roofing", 1), "Master Lesson 1");
+  assert.equal(stageLessonLabel("foundation-roofing", 4), "Foundation Lesson 4");
+  assert.equal(stageLessonLabel("roofing", 7), "Lesson 7");
+  assert.equal(stageLessonLabel("electrician", 7), "Lesson 7");
+  assert.equal(stageLessonShort("master-roofing", 2), "Master 2");
+  assert.equal(stageLessonShort("foundation-roofing", 3), "Foundation 3");
+  assert.equal(stageLessonShort("roofing", 2), "Lesson 2");
+});
+
+test("the banner for a Core 30 without a path says the Core 30 is ready", () => {
+  assert.equal(
+    CORE30_WITHOUT_PATH_TEXT,
+    "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.",
+  );
 });
 
 test("Roofing Master is registered like the Core 30: Spanish, paid tabs, same price", () => {

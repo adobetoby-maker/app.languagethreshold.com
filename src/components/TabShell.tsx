@@ -4,7 +4,7 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
-import { core60PathOf } from "@/lib/core60-path";
+import { CORE30_WITHOUT_PATH_TEXT, core60PathOf } from "@/lib/core60-path";
 import { MODULES } from "@/data/modules";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
@@ -81,7 +81,7 @@ export function TabShell() {
     : master
       ? "Twenty lessons for the day that doesn't go as planned."
       : core30WithoutPath
-        ? "Your module's Core 30 — the free Foundation and Master 20 are coming soon."
+        ? CORE30_WITHOUT_PATH_TEXT
         : tool.purpose;
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 

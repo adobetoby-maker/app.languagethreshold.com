@@ -4,6 +4,10 @@ Date: October 15, 2026. Codex review, requested by Toby.
 
 ## Current checkpoint — October 19
 
+### Customer composer and complete mailing footer verified — October 19
+
+Toby supplied the missing ZIP code. The complete provided mailing address was saved as a sensitive production-only CUSTOMER_EMAIL_POSTAL_ADDRESS on the verified app project. Redeployed current source e59bb8e without reverting the concurrent Core 60 changes; deployment https://language-threshold-l6vvyy577-adobetoby-5572s-projects.vercel.app is Ready / Production / Current. The normal owner UI no longer reports missing email configuration. One individually reviewed synthetic draft went only to the operator inbox. Gmail independently confirms INBOX message1a156b7962d582bb at2026-10-20T00:30:34Z from teams@languagethreshold.com, with the completed postal footer and unsubscribe link present. Private link/token and street address were not copied into public evidence. This supersedes earlier missing-ZIP/footer gates. No customer campaign, discount or referral reward was activated. Existing learning/content/device/reviewer/pilot gates and paused roofing automation remain unchanged.
+
 ### App and SMTP email reached operator inbox — October 19
 
 Normal production owner UI sent one password invitation to the operator's own account. Gmail independently confirms the message from teams@languagethreshold.com in INBOX (message1a156a886f3d480a). After Toby completed normal Supabase browser sign-in and explicitly approved a separate sending-only domain-restricted key, custom SMTP was saved at smtp.resend.com:465 with sender noreply@languagethreshold.com. The Supabase user panel sent one recovery email to the same operator; Gmail independently confirms INBOX message1a156aa75842aa14. No password link was opened or password changed. Credentials stayed in one-time browser memory and server secret fields, never output/files/Git; temporary variables cleared. Saved SMTP screenshot language-threshold-smtp-connected-2026-10-19.jpg is outside Git. This supersedes earlier lack-of-delivery and SMTP-sign-in checkpoints. Evidence qa-email-inbox-delivery-2026-10-19.json.

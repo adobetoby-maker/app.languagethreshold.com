@@ -29,6 +29,24 @@
         "IMPORTANT",
         "CATEGORY_UPDATES"
       ]
+    },
+    "customerComposerInboxDelivery": {
+      "verified": true,
+      "trigger": "Production owner dashboard, selected own account, reviewed individual draft",
+      "gmailMessageId": "1a156b7962d582bb",
+      "receivedAtUtc": "2026-10-20T00:30:34+00:00",
+      "subject": "Language Threshold customer email setup test",
+      "from": "teams@languagethreshold.com",
+      "labels": [
+        "INBOX",
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_UPDATES"
+      ],
+      "postalFooterPresent": true,
+      "unsubscribePresent": true,
+      "productionSource": "e59bb8e045ef684ee93aebaed520e5faa6867216",
+      "deploymentUrl": "https://language-threshold-l6vvyy577-adobetoby-5572s-projects.vercel.app"
     }
   },
   "orthoPep": {
@@ -68,6 +86,6 @@
     "No private password links, tokens, credentials or medical content retained in this evidence",
     "No customer emails replayed and no live orders submitted",
     "Existing OrthoPep managed order/invoice/auth transport was preserved; direct Resend endpoint and Language Threshold API plus SMTP paths were verified separately",
-    "Promotional footer still awaits ZIP code"
+    "Postal footer configured after the operator supplied ZIP; only one synthetic composer message to the operator inbox was sent, no customer campaign or referral reward activated"
   ]
 }

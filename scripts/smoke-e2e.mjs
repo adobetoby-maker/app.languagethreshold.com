@@ -102,10 +102,9 @@ const port = prod ? null : await findFreePort();
 const projects = ["--project=setup", "--project=desktop", ...(phone ? ["--project=iphone-pwa"] : [])];
 const specs = prod ? PROD_SPECS : LOCAL_SPECS;
 const playwrightArgs = ["playwright", "test", ...specs, ...projects, "--reporter=line"];
-// Local runs go through the helper that injects the public Supabase env; prod runs the deployed build, which needs none.
-const [cmd, cmdArgs] = prod
-  ? ["npx", playwrightArgs]
-  : ["node", ["scripts/with-supabase-public-env.mjs", "npx", ...playwrightArgs]];
+// Both go through the helper that injects the public Supabase env: the specs' setup and
+// signed-in fixtures read it even when the app under test is the deployed build.
+const [cmd, cmdArgs] = ["node", ["scripts/with-supabase-public-env.mjs", "npx", ...playwrightArgs]];
 
 const env = { ...process.env };
 if (prod) {

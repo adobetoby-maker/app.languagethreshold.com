@@ -2,7 +2,8 @@
 // How the Core 60 stage registry (src/data/core60-stages.ts) loads stage chunks on demand:
 //   - server: only the stage a request needs, cached, a failed load retried after a short backoff;
 //   - client: a failed chunk is "unavailable" and the Retry button loads it again at once;
-//   - which requests wait for which stages (src/start.ts middleware, /api/speak).
+//   - which code waits for which stages: only the reader that needs one calls ensureStageForModule
+//     (there is no middleware and no request-body scan; see tests/core60-server-readers.test.mjs).
 // The bundled-chunk path (import.meta.glob) only exists under a bundler, so the registry is built
 // with esbuild here and `import.meta.glob` is replaced by a loader map the tests control.
 import assert from "node:assert/strict";
@@ -118,24 +119,29 @@ test("the client Retry loads a failed stage at once, with no backoff", async () 
   assert.equal(calls["foundation-electrician"], 2);
 });
 
-test("preloading every stage is not remembered when one fails", async () => {
+test("loading several modules' stages is not remembered when one fails", async () => {
   const { registry, calls } = await freshRegistry({ "master-nursing": 1 });
-  await registry.preloadStageCurricula();
+  const ids = ["foundation-nursing", "master-nursing", "master-electrician", "electrician"];
+  await registry.ensureStagesForModules(ids);
   assert.equal(registry.stageCurriculumStatus("master-nursing"), "unavailable");
   assert.equal(registry.stageCurriculumStatus("foundation-nursing"), "ready");
-  await registry.applyStageLoadPlan({ kind: "all" });
+  assert.equal(registry.stageCurriculumStatus("foundation-electrician"), "loading", "ids not named are not loaded");
+  await registry.ensureStagesForModules(ids);
   assert.equal(calls["master-nursing"], 1, "still inside the backoff window");
   const realNow = Date.now;
   Date.now = () => realNow() + registry.STAGE_RETRY_BACKOFF_MS + 1;
   try {
-    await registry.applyStageLoadPlan({ kind: "all" });
+    await registry.ensureStagesForModules(ids);
   } finally {
     Date.now = realNow;
   }
-  assert.equal(calls["master-nursing"], 2, "the next preload retried the failed stage");
+  assert.equal(calls["master-nursing"], 2, "the next request retried the failed stage");
   assert.equal(registry.stageCurriculumStatus("master-nursing"), "ready");
-  for (const id of Object.keys(calls)) assert.ok(calls[id] <= 2, id);
-  assert.equal(calls["master-electrician"], 1);
+  assert.deepEqual(
+    calls,
+    { "foundation-nursing": 1, "master-nursing": 2, "master-electrician": 1 },
+    "duplicates and the Core 30 id loaded nothing extra",
+  );
 });
 
 test("a scenario id names the stage to load; other scenarios name none", async () => {
@@ -164,40 +170,23 @@ test("a scenario id names the stage to load; other scenarios name none", async (
   }
 });
 
-test("which requests wait for stages: only the ones that read them", async () => {
-  const { registry } = await freshRegistry();
-  const { stageLoadPlan, stageModuleIdsIn } = registry;
-  // Pages, assets, auth, the tutor and /api/speak (it loads its own stage) never wait.
-  for (const pathname of ["/", "/api/tutor", "/api/speak", "/api/discussion", "/assets/index-abc.js", "/api/auth/callback"]) {
-    assert.deepEqual(stageLoadPlan(pathname, "router"), { kind: "none" }, pathname);
-    assert.deepEqual(stageLoadPlan(pathname, "serverFn", "no stage here"), { kind: "none" }, pathname);
+test("ensureStageForModule loads exactly the named stage and ignores every other id", async () => {
+  const { registry, calls } = await freshRegistry();
+  // Core 30 modules, roofing's hand-written stages, unlisted trades and arbitrary strings: no load.
+  for (const id of ["electrician", "master-roofing", "foundation-plumber", "../../etc/passwd", "", null, undefined]) {
+    assert.equal(await registry.ensureStageForModule(id), null, String(id));
   }
-  // Routes that read curricula by module ids kept in the database wait for every stage.
-  for (const pathname of ["/api/exams", "/api/exam-plans", "/api/exam-content", "/api/team", "/api/team-activity", "/api/push-cron"]) {
-    assert.deepEqual(stageLoadPlan(pathname, "router"), { kind: "all" }, pathname);
-  }
-  // A server function waits for the stages its payload names, and only those.
-  const payload = JSON.stringify({ data: { moduleId: "master-electrician", lessonNumber: 2 } });
-  assert.deepEqual(stageLoadPlan("/_serverFn/abc", "serverFn", payload), {
-    kind: "ids",
-    ids: ["master-electrician"],
-  });
-  assert.deepEqual(
-    stageModuleIdsIn("x foundation-nursing y master-nursing z foundation-electrician").sort(),
-    ["foundation-electrician", "foundation-nursing", "master-nursing"],
-  );
-  assert.deepEqual(stageModuleIdsIn("electrician and nursing, master-roofing"), []);
-  assert.deepEqual(stageLoadPlan("/_serverFn/abc", "serverFn", "moduleId: electrician"), { kind: "none" });
-  // A router/page request carrying a stage id in its URL does not load anything.
-  assert.deepEqual(stageLoadPlan("/", "router", "module=master-electrician"), { kind: "none" });
+  assert.deepEqual(calls, {});
+  const curriculum = await registry.ensureStageForModule("foundation-nursing");
+  assert.equal(curriculum.lessons.length, 10);
+  assert.deepEqual(calls, { "foundation-nursing": 1 });
+  assert.equal(registry.stageCurriculum("foundation-nursing"), curriculum);
 });
 
-test("a plan loads exactly the stages it names", async () => {
-  const { registry, calls } = await freshRegistry();
-  await registry.applyStageLoadPlan({ kind: "none" });
-  assert.deepEqual(calls, {});
-  await registry.applyStageLoadPlan({ kind: "ids", ids: ["foundation-nursing"] });
-  assert.deepEqual(calls, { "foundation-nursing": 1 });
+test("the registry has no request-scanning API left", async () => {
+  const { registry } = await freshRegistry();
+  for (const name of ["stageLoadPlan", "applyStageLoadPlan", "stageModuleIdsIn", "preloadStageCurricula"])
+    assert.equal(registry[name], undefined, name);
 });
 
 test("a base module knows its listed stage modules (the Speak catalog loads them when it opens)", async () => {

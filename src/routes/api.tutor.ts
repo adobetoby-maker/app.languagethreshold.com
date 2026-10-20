@@ -10,6 +10,7 @@ import {
   TutorLessonReferenceSchema,
 } from "@/lib/lesson-tutor-context";
 import { modulePracticeVersion } from "@/data/module-teaching";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -262,10 +263,14 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
     : modulePrompt;
 }
 
-function parseTutorRequest(input: unknown) {
+// Exported for tests/core60-server-readers.test.mjs (a cold-instance Core 60 lesson must parse).
+export async function parseTutorRequest(input: unknown) {
   const body = BodySchema.parse(input),
     reference = body.context.lesson;
   if (reference) {
+    // A Core 60 Foundation/Master lesson resolves from a lazily loaded stage chunk: load that one
+    // stage before anything reads it (a cold instance has none), here and not in a middleware.
+    await ensureStageForModule(reference.moduleId);
     if (
       reference.contentVersion !==
       modulePracticeVersion(

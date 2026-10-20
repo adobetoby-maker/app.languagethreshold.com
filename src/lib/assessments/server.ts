@@ -21,6 +21,7 @@ import "@tanstack/react-start/server-only";
 import { createHash } from "node:crypto";
 import type { Language, NativeLanguage } from "@/data/languages";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStageForModule, ensureStagesForModules } from "@/data/core60-stages";
 import { getModule, moduleSupportsLearningPair, MODULES } from "@/data/modules";
 import { memberRole, type TeamDb } from "@/lib/team-server";
 import { ROOFING_PRACTICE_VERSION } from "@/lib/lesson-definition";
@@ -205,6 +206,7 @@ export async function seedDraftTrack(
   target: Language,
   native: NativeLanguage,
 ) {
+  await ensureStageForModule(moduleId);
   const module = getModule(moduleId),
     curriculum = getCurriculum(moduleId);
   if (
@@ -393,6 +395,8 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
         .in("release_id", ids)
     : { data: [], error: null };
   if (formError) throw new AssessmentAccessError("Exam readiness could not be loaded.", 503);
+  // Only the stage modules this listing has a release record for are loaded (never every stage).
+  await ensureStagesForModules((releases ?? []).map((row) => row.module_id));
   const adaptiveReady = await adaptiveReadyForms(db, releases ?? []);
   const boundIds = (releases ?? [])
     .filter((release) => typeof release.lesson_manifest?.lessonSnapshotFingerprint === "string")

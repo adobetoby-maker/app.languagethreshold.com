@@ -1,5 +1,6 @@
 import "@tanstack/react-start/server-only";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
 import type { Language, NativeLanguage } from "@/data/languages";
 import { memberRole, type TeamDb } from "@/lib/team-server";
@@ -28,6 +29,7 @@ export async function teamAssessmentInsights(
   const role = await memberRole(db, org, actor);
   if (!role || !["owner", "admin"].includes(role.role))
     throw new AssessmentAccessError("Team insight admin access required.", 403);
+  await ensureStageForModule(moduleId);
   const module = getModule(moduleId),
     curriculum = getCurriculum(moduleId);
   if (

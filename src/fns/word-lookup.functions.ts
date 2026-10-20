@@ -10,6 +10,7 @@ import {
 } from "@/lib/lesson-tutor-context";
 import { usageReceipt, cacheReceipt } from "@/lib/usage-cost";
 import Anthropic from "@anthropic-ai/sdk";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
@@ -109,6 +110,8 @@ export const lookupWord = createServerFn({ method: "POST" })
       if (!KEY) return { card: null, error: "AI is not configured" };
 
       const native = data.nativeLanguage ?? "English";
+      // A Core 60 stage lesson resolves from a lazily loaded stage chunk: load it first.
+      await ensureStageForModule(data.lesson?.moduleId);
       if (
         data.lesson &&
         (!resolveTutorLesson(data.lesson) ||

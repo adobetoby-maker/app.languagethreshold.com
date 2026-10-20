@@ -29,13 +29,13 @@ function errorResponse(error: string, status: number, retryAfter?: number) {
 /** Origin and byte bounds precede parsing; malformed requests never spend a model budget. */
 export async function prepareConversationRequest<T>(
   request: Request,
-  schema: { parse(value: unknown): T },
+  schema: { parse(value: unknown): T | Promise<T> },
 ): Promise<{ data: T; response?: never } | { response: Response; data?: never }> {
   if (!isStrictSameOrigin(request))
     return { response: errorResponse("Open the app to use AI conversation.", 403) };
   let data: T;
   try {
-    data = schema.parse(await readPrivateJson(request, MAX_CONVERSATION_BODY_BYTES));
+    data = await schema.parse(await readPrivateJson(request, MAX_CONVERSATION_BODY_BYTES));
   } catch (cause) {
     return {
       response:

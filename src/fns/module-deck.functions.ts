@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getCurriculum } from "@/data/curriculum";
@@ -82,6 +83,7 @@ export const generateModuleDeck = createServerFn({ method: "POST" })
       if (!moduleSupportsLearningPair(module, data.language, nativeLanguage)) {
         return { pairs: null, error: "This language is not available for this module" };
       }
+      await ensureStageForModule(module.id);
       const curriculum = getCurriculum(module.id);
       const request = {
         model: "claude-haiku-5-5",

@@ -1,6 +1,7 @@
-import { currentLessonReviewSnapshot } from "@/lib/lesson-review-server";
+import { loadCurrentLessonReviewSnapshot } from "@/lib/lesson-review-server";
 import { hasAdaptiveRouting } from "./routing-contract";
 import { lessonReviewFingerprint, type LessonReviewSnapshot } from "@/lib/lesson-review";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { lessonSourceCoverage } from "@/lib/lesson-source-coverage";
 
 export interface LessonReleaseRecord {
@@ -23,6 +24,7 @@ export async function lessonReleaseReadiness(
   release: LessonReleaseRecord,
   binding: FrozenLessonRecord | null | undefined,
 ) {
+  await ensureStageForModule(release.module_id);
   const coverage = lessonSourceCoverage(
     release.module_id,
     release.target_language,
@@ -32,7 +34,7 @@ export async function lessonReleaseReadiness(
   if (binding && binding.fingerprint === release.lesson_manifest?.lessonSnapshotFingerprint) {
     try {
       const frozen = JSON.parse(binding.snapshot_text) as LessonReviewSnapshot;
-      const source = currentLessonReviewSnapshot(
+      const source = await loadCurrentLessonReviewSnapshot(
         release.module_id,
         release.target_language,
         release.instruction_language,

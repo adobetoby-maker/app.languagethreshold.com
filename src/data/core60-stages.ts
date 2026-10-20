@@ -2,8 +2,8 @@
 // Registry and loader for data-driven Core 60 stages (Foundation / Master modules listed in
 // src/data/core60/manifest.ts). Their curricula are NOT in the main bundle: each stage file
 // (src/data/core60/<langCode>/<id>.json) is its own lazily imported chunk, loaded when a learner
-// opens that stage (client) or when a server request needs it (ensureStageCurriculum, called by
-// /api/speak for the requested scenario's stage and by the src/start.ts middleware).
+// opens that stage (client) or when server code is about to read it: every server reader of a
+// curriculum calls ensureStageForModule(moduleId) first (no middleware, no request-body scan).
 // getCurriculum() stays synchronous: it answers from this registry, so a stage reads as "no
 // curriculum" until its chunk has loaded; the Core 60 page waits on useStageCurriculum meanwhile.
 // Under plain Node (tests, generator and validator scripts) there is no bundler: files are read
@@ -16,6 +16,7 @@ import { CORE60_MANIFEST } from "./core60/manifest.ts";
 import {
   findStageEntry,
   parseStageFile,
+  CORE60_STAGE_LESSONS,
   stageCurriculumFromFile,
   stageFileRelativePath,
   type Core60ManifestEntry,
@@ -333,53 +334,46 @@ export function stageModulesOfBase(baseModuleId: string): string[] {
   return listedStageIds().filter((id) => dataStageOf(id)?.entry.base === baseModuleId);
 }
 
-/** The listed stage module ids that appear in a piece of text (a server function's payload). */
-export function stageModuleIdsIn(text: string): string[] {
-  if (!text.includes("foundation-") && !text.includes("master-")) return [];
-  return listedStageIds().filter((id) => text.includes(id));
+/**
+ * Server side, the one call every curriculum reader makes first: `await ensureStageForModule(id)`
+ * before getCurriculum / getLessonDefinition / resolveTutorLesson / findSpeakingMission read that
+ * module. A module that is not a listed data-driven stage (Core 30, roofing's hand-written stages,
+ * an unknown string) resolves null at once without loading anything; a stage loads only its own
+ * chunk, once, and a failed load is retried by a later call after STAGE_RETRY_BACKOFF_MS.
+ * Never throws and never reads a request.
+ */
+export function ensureStageForModule(
+  moduleId: string | null | undefined,
+  options: LoadOptions = {},
+): Promise<ModuleCurriculum | null> {
+  if (!moduleId || !dataStageOf(moduleId)) return Promise.resolve(null);
+  return ensureStageCurriculum(moduleId, options);
 }
 
-let preloadedAll = false;
-
-/**
- * Loads every listed stage (server routes that read curricula by module ids kept in the database,
- * not in the request). Not memoized after a failure: the next call retries the stages that failed.
- */
-export async function preloadStageCurricula(): Promise<void> {
-  if (preloadedAll) return;
-  await Promise.all(listedStageIds().map((id) => ensureStageCurriculum(id)));
-  preloadedAll = listedStageIds().every((id) => curricula.has(id));
+/** ensureStageForModule for every module id a record set names (each distinct stage loads once). */
+export async function ensureStagesForModules(
+  moduleIds: Iterable<string | null | undefined>,
+): Promise<void> {
+  await Promise.all([...new Set(moduleIds)].map((id) => ensureStageForModule(id)));
 }
 
-/** Which stages a server request waits for before its handler runs. */
-export type StageLoadPlan = { kind: "none" } | { kind: "all" } | { kind: "ids"; ids: string[] };
-
-// Routes whose handlers resolve curricula from module ids stored in the database (enrollments,
-// team tracks, reminders), not from the request, so they need every stage.
-const ALL_STAGES_ROUTE = /^\/api\/(exams|exam-[a-z-]+|team|team-[a-z-]+|push-[a-z-]+)(\/|$)/;
-
 /**
- * What a request must wait for. /api/speak loads its own scenario's stage; a server function loads
- * the stages named in its payload; the DB-driven routes above load all of them; every other
- * request (pages, assets, auth, tutor, ...) waits for nothing.
+ * How many Say it lesson missions a base module's Foundation and Master will add once their
+ * curricula load, for the stages that have not loaded yet. The Speak catalog adds this to the
+ * missions it can already build, so a module card shows the same count before and after its
+ * stage chunks arrive. The per-stage lesson count is CORE60_STAGE_LESSONS, which the stage
+ * validator enforces for every stage file, so it cannot drift from the files.
  */
-export function stageLoadPlan(
-  pathname: string,
-  handlerType: string,
-  payloadText?: string,
-): StageLoadPlan {
-  if (ALL_STAGES_ROUTE.test(pathname)) return { kind: "all" };
-  if (handlerType === "serverFn" && payloadText) {
-    const ids = stageModuleIdsIn(payloadText);
-    if (ids.length) return { kind: "ids", ids };
+export function pendingStageLessonMissionCount(baseModuleId: string, language: string): number {
+  let pending = 0;
+  for (const id of stageModulesOfBase(baseModuleId)) {
+    const found = dataStageOf(id);
+    if (!found || found.entry.language !== language) continue;
+    const status = stageCurriculumStatus(id);
+    if (status === "loading" || (status === "unavailable" && failed.has(id)))
+      pending += CORE60_STAGE_LESSONS[found.stage];
   }
-  return { kind: "none" };
-}
-
-/** Runs a plan: resolves once its stages have loaded or failed (never throws). */
-export async function applyStageLoadPlan(plan: StageLoadPlan): Promise<void> {
-  if (plan.kind === "all") await preloadStageCurricula();
-  else if (plan.kind === "ids") await Promise.all(plan.ids.map((id) => ensureStageCurriculum(id)));
+  return pending;
 }
 
 /** Registers a curriculum directly (tests and tools). */

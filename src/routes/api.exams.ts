@@ -44,6 +44,7 @@ import { isStrictSameOrigin } from "@/lib/speaking-security";
 import { extractCore30Log } from "@/lib/team-core30";
 import { core30ScopeKey } from "@/lib/core30-scope";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { lessonObjectiveId } from "@/lib/learning-identity";
 import { isDateKey, validateTimezone } from "@/lib/assessments/core";
 import {
@@ -623,6 +624,7 @@ export const Route = createFileRoute("/api/exams")({
               enrollmentId: enrollment.id,
             });
             const log = extractCore30Log(profile?.data, [progressKey])[progressKey];
+            await ensureStageForModule(enrollment.module_id);
             const studied = (getCurriculum(enrollment.module_id)?.lessons ?? [])
               .filter((lesson) => {
                 const entry = log?.lessons[String(lesson.n)];

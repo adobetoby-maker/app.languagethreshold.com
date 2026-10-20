@@ -1,7 +1,7 @@
 import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
 import { getCurriculum, type Lesson } from "./curriculum.ts";
-import { stageCurriculaVersion } from "./core60-stages.ts";
+import { pendingStageLessonMissionCount, stageCurriculaVersion } from "./core60-stages.ts";
 import {
   CORE_SPEAKING_MODULE,
   CORE_GRAMMAR_EXTENSIONS,
@@ -1449,6 +1449,23 @@ export function speakingCatalogModuleId(moduleId: string): string {
   return isFoundationModule(moduleId) || isMasterModule(moduleId)
     ? moduleId.replace(/^(foundation|master)-/, "")
     : moduleId;
+}
+
+/**
+ * How many missions a Speak catalog module card shows: the missions listed under it plus the Say it
+ * lesson missions of its Foundation and Master that have not loaded yet (a stage's lessons only
+ * become missions once its chunk arrives). The count is the same before and after the chunks load,
+ * so opening a card never changes it.
+ */
+export function speakingCatalogMissionCount(
+  missions: readonly Pick<SpeakingMission, "moduleId">[],
+  catalogModuleId: string,
+  language: SpeakingMissionLanguage,
+): number {
+  return (
+    missions.filter((mission) => speakingCatalogModuleId(mission.moduleId) === catalogModuleId)
+      .length + pendingStageLessonMissionCount(catalogModuleId, language)
+  );
 }
 
 /** "Foundation" / "Master" for a stage mission's module, null for every other mission. */

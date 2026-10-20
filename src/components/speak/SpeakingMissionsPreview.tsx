@@ -25,6 +25,7 @@ import type { CoreSpeakingSection } from "@/data/core-speaking";
 import {
   getSpeakingMissions,
   getSpeakingModules,
+  speakingCatalogMissionCount,
   speakingCatalogModuleId,
   speakingCatalogTitle,
   speakingStageName,
@@ -1345,7 +1346,10 @@ export function SpeakingMissionsPreview({
                 {catalogModule.blurb}
               </p>
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">
-                {catalogMissions.length} speaking missions
+                {catalogModule.id === "core-speaking" || !missionLanguage
+                  ? catalogMissions.length
+                  : speakingCatalogMissionCount(languageMissions, catalogModule.id, missionLanguage)}{" "}
+                speaking missions
               </p>
             </div>
             {catalogModule.id === "core-speaking" && (
@@ -1445,9 +1449,9 @@ export function SpeakingMissionsPreview({
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {filteredCatalogModules.map((module) => {
-                const missionCount = languageMissions.filter(
-                  (mission) => speakingCatalogModuleId(mission.moduleId) === module.id,
-                ).length;
+                const missionCount = missionLanguage
+                  ? speakingCatalogMissionCount(languageMissions, module.id, missionLanguage)
+                  : 0;
                 const specialty = specialtyStyle(module.category);
                 return (
                   <button

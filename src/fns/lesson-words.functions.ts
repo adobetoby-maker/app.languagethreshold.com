@@ -1,5 +1,6 @@
 // Built by TAC — 2026-10-15
 import Anthropic from "@anthropic-ai/sdk";
+import { ensureStageForModule } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getCurriculum } from "@/data/curriculum";
@@ -86,6 +87,7 @@ export const generateLessonWords = createServerFn({ method: "POST" })
     }
     // The lesson is looked up here, never taken from the client, so a caller cannot make the
     // model write about arbitrary text.
+    await ensureStageForModule(module.id);
     const lesson = getCurriculum(module.id)?.lessons.find((item) => item.n === data.lessonNumber);
     if (!lesson) return { words: null, error: "Unknown lesson" };
     const request = buildLessonWordsRequest({

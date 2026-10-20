@@ -2,6 +2,7 @@ import { hasAdaptiveRouting } from "./routing-contract";
 import "@tanstack/react-start/server-only";
 import type { TeamDb } from "@/lib/team-server";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStagesForModules } from "@/data/core60-stages";
 import { lessonObjectiveId } from "@/lib/learning-identity";
 import { officialFormAvailable } from "./release-readiness";
 
@@ -32,6 +33,8 @@ export async function readSupportingChecks(
   const available = new Map<string, SupportingCheckAvailability>();
   if (!units.length) return available;
   if (units.length > 50) throw new Error("Supporting check page exceeds its bound.");
+  // The units' modules (at most 50 rows) are the only stages this page can read.
+  await ensureStagesForModules(units.map((e) => e.module_id));
   const capIds = [
     ...new Set(
       units

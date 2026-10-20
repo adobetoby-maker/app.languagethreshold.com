@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prepareTeamJson, MAX_TEAM_ACTIVITY_BYTES } from "@/lib/team-request";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStageForModule } from "@/data/core60-stages";
 import {
   authenticatedTeamUser,
   json,
@@ -120,6 +121,7 @@ export const Route = createFileRoute("/api/team-activity")({
               );
               if (insertError) throw insertError;
             } else if (body.action === "lesson_start") {
+              await ensureStageForModule(body.moduleId);
               const curriculum = getCurriculum(body.moduleId);
               if (!curriculum?.lessons.some((lesson) => lesson.n === body.lessonNumber))
                 throw new TeamOperationError("Unknown lesson.");

@@ -1,4 +1,4 @@
-import { currentLessonReviewSnapshot } from "@/lib/lesson-review-server";
+import { loadCurrentLessonReviewSnapshot } from "@/lib/lesson-review-server";
 import "@tanstack/react-start/server-only";
 import type { TeamDb } from "@/lib/team-server";
 import { lessonReviewFingerprint, type LessonReviewSnapshot } from "@/lib/lesson-review";
@@ -54,7 +54,7 @@ export async function requireCurrentLessonBinding(
   if (release.error) throw new AssessmentAccessError("Lesson release could not be checked.", 503);
   if (!release.data) throw new AssessmentAccessError("Lesson release was not found.", 404);
   const bound = await boundLessonSnapshot(db, releaseId);
-  const current = currentLessonReviewSnapshot(
+  const current = await loadCurrentLessonReviewSnapshot(
     release.data.module_id,
     release.data.target_language,
     release.data.instruction_language,

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getModule } from "@/data/modules";
 import { studyPlanStart } from "@/lib/assessments/plan-timing";
 import { getCurriculum } from "@/data/curriculum";
+import { ensureStagesForModules } from "@/data/core60-stages";
 import { describeCore30Tracks, type Core30TrackDisplay, extractCore30Log } from "@/lib/team-core30";
 import {
   audit,
@@ -260,6 +261,9 @@ export const Route = createFileRoute("/api/team")({
                 };
               }),
             );
+            // Lesson counts come from the curricula of the tracks in this record set: load those
+            // stage modules (not every stage) before the loop reads them.
+            await ensureStagesForModules(timedTracks.map((track) => track.module_id));
             for (const profile of profiles ?? []) {
               if (!memberUserIds.includes(profile.id)) continue;
               // A team assignment grants visibility into that module only. Other personal

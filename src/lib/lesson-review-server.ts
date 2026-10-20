@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { getCurriculum } from "../data/curriculum.ts";
+import { ensureStageForModule } from "../data/core60-stages.ts";
 import {
   contentNativeLanguage,
   lessonContentPath,
@@ -50,4 +51,17 @@ export function currentLessonReviewSnapshot(moduleId: string, target: string, na
     native,
     readGeneratedReviewMaterial(moduleId, target, native),
   );
+}
+
+/**
+ * currentLessonReviewSnapshot for server code: loads the module's Core 60 stage first (a cold
+ * instance has no stage curricula), so a stage module is not reported as "Unknown lesson module".
+ */
+export async function loadCurrentLessonReviewSnapshot(
+  moduleId: string,
+  target: string,
+  native: string,
+) {
+  await ensureStageForModule(moduleId);
+  return currentLessonReviewSnapshot(moduleId, target, native);
 }

@@ -91,7 +91,14 @@ registration there is:
   only, and the catalog groups a stage's missions (lessons and its catalog-override challenges)
   under the base module (`speakingCatalogModuleId`), after the base's own, labelled by stage
   ("Foundation · …", "Master · …": `speakingCatalogTitle`). Roofing's hand-written stages follow
-  the same rule. The module cards' mission counts include the stage missions.
+  the same rule. The module cards' mission counts include the stage missions, and the count is the
+  same before and after a stage chunk loads: a stage's lesson missions only exist once its
+  curriculum has loaded, so `speakingCatalogMissionCount` adds the lessons of the stages that have
+  not loaded yet (`pendingStageLessonMissionCount`), taken from `CORE60_STAGE_LESSONS` (10 / 20),
+  which the stage validator enforces for every stage file, so it cannot drift from the files.
+  Search is load-on-open: a stage lesson's title is only searchable in the catalog after the base
+  module has been opened (its stage chunks load then); the stage's challenge missions and the
+  module's name and blurb are searchable from the start.
 
 ## Loading (bundle impact)
 
@@ -111,18 +118,33 @@ stage file its own lazily imported chunk (content-hashed, cached offline by the 
   failed dynamic import in the document's module map, so a second `import()` of the same chunk URL
   fails without even making a request; only a fresh page fetches it again (found by the e2e test
   that aborts the chunk once, `e2e/core60-path.spec.ts`, "Core 60 stage load failure").
-- Server: nothing is preloaded for every request. A request waits only for the stages it reads
-  (`stageLoadPlan` in `src/data/core60-stages.ts`, applied by the middleware in `src/start.ts`):
-  `/api/speak` loads just the stage of the requested scenario id (`stageModuleIdOfScenario`, then
-  `ensureStageCurriculum`) before `findSpeakingMission`; a server function (lesson words, deck,
-  lesson review, ...) loads the stage ids named in its payload; the exam, team and push routes,
-  which read module ids from the database, load every listed stage; every other request (pages,
-  assets, auth, tutor) waits for nothing. A loaded stage is cached for the life of the instance. A
-  failed load is never cached: the next request retries it once `STAGE_RETRY_BACKOFF_MS` (2 s) has
-  passed, so one bad fetch cannot leave Say it on a 400 until the instance recycles. When you add
-  a server route that reads `getCurriculum()` for a module id, load the stage first
-  (`await ensureStageCurriculum(id)`), or add its path to `ALL_STAGES_ROUTE` if the ids come from
-  the database. Tests: `tests/core60-stage-loading.test.mjs`.
+- Server: nothing is preloaded and no middleware loads stages. `src/start.ts` never reads a request
+  body or looks at a stage (an earlier version scanned server-function bodies for stage ids; a
+  chunked body with no Content-Length was read into memory unbounded, and every request paid a
+  copy). Instead **every server code path that reads a curriculum loads its own stage first** with
+  `await ensureStageForModule(moduleId)` (`ensureStagesForModules(ids)` for a record set). A module
+  that is not a listed data-driven stage resolves at once without loading; a stage loads only its
+  own chunk, once, cached for the life of the instance. A failed load is never cached: the next
+  call retries it once `STAGE_RETRY_BACKOFF_MS` (2 s) has passed, so one bad fetch cannot leave a
+  route on a 400 until the instance recycles. The readers and how each loads:
+
+  | Reader | Loads |
+  |---|---|
+  | `/api/tutor` (`parseTutorRequest`, async) | the request's `context.lesson.moduleId` |
+  | `/api/speak` | the stage of the requested scenario id (`stageModuleIdOfScenario`) |
+  | `lookupWord` (`word-lookup.functions.ts`), `generateLessonWords`, `generateModuleDeck` | the payload's module id |
+  | exam content / lesson binding / release readiness (`loadCurrentLessonReviewSnapshot`, `lessonReleaseReadiness`) | the release record's `module_id` |
+  | `/api/exams` start (`studied` lessons), `seedDraftTrack`, team insights | the enrollment's / requested module id |
+  | `readinessCatalog`, `readSupportingChecks` | the module ids of the release / enrollment rows listed (never every stage; stage modules without a release row are not listed, they have no exams) |
+  | `/api/team` (lesson counts), `/api/team-activity` (`lesson_start`) | the track modules / `body.moduleId` |
+  | push routes | nothing: the reminder context is built in the browser and carries no curriculum read |
+
+  A new server file that calls `getCurriculum`, `getLessonDefinition`, `resolveTutorLesson` or
+  `findSpeakingMission` must call one of the `ensure...` loaders in the same file:
+  `tests/core60-server-readers.test.mjs` scans every API route, server function and server-only
+  library and fails otherwise. The same file proves a cold registry resolves a Foundation lesson
+  for the tutor, that `src/start.ts` touches no body (a guarded request and a length-less
+  streaming request), and that Speak counts do not move when chunks load.
 - Plain Node (tests, scripts, the generator): no bundler, so the registry reads the JSON from disk
   on first use; `getCurriculum("master-x")` works without await.
 

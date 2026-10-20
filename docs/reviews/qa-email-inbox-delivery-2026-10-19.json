@@ -1,0 +1,73 @@
+{
+  "dateLocal": "2026-10-19",
+  "timezone": "America/Denver",
+  "recipient": "operator own Gmail inbox",
+  "languageThreshold": {
+    "trigger": "Production owner dashboard, own account, Send password invitation",
+    "from": "teams@languagethreshold.com",
+    "subject": "Create your Language Threshold password",
+    "receivedAtUtc": "2026-10-20T00:14:07+00:00",
+    "gmailMessageId": "1a156a886f3d480a",
+    "labels": [
+      "INBOX",
+      "UNREAD",
+      "IMPORTANT",
+      "CATEGORY_UPDATES"
+    ],
+    "resendApiInboxDelivery": "verified",
+    "supabaseSmtp": "Configured and saved via normal authenticated dashboard; smtp.resend.com:465 with TLS, sending-only key restricted to languagethreshold.com, sender noreply@languagethreshold.com",
+    "passwordChanged": false,
+    "smtpInboxDelivery": {
+      "verified": true,
+      "trigger": "Supabase Users, owner account, Send password recovery",
+      "gmailMessageId": "1a156aa75842aa14",
+      "receivedAtUtc": "2026-10-20T00:16:13+00:00",
+      "subject": "Reset your password",
+      "labels": [
+        "INBOX",
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_UPDATES"
+      ]
+    }
+  },
+  "orthoPep": {
+    "trigger": "Lovable Emails, Password reset, Send test",
+    "from": "noreply@orthopep.com",
+    "subject": "[Test] Reset your password",
+    "receivedAtUtc": "2026-10-19T12:25:39+00:00",
+    "gmailMessageId": "1a1541fe7b75f179",
+    "labels": [
+      "INBOX",
+      "UNREAD",
+      "IMPORTANT",
+      "CATEGORY_UPDATES"
+    ],
+    "existingManagedEmailInboxDelivery": "verified",
+    "resendDomain": "orthopep.com verified, DKIM and both sending CNAME records verified",
+    "resendServerConnection": "Approved sending-only orthopep.com key stored as RESEND_API_KEY; saved sender deployed successfully from main f1c2d67 via explicitly authorized deployment-only Lovable agent",
+    "supabaseConnectorAccess": "Lovable-managed project not accessible through separate Supabase connector",
+    "deploymentSourceFingerprint": "30d03bd800a4d2fb51383cb978fb1dea08d5664c780c8696c935ed33e61def73",
+    "resendInboxDelivery": {
+      "verified": true,
+      "httpStatus": 200,
+      "gmailMessageId": "1a156adfe1c122f9",
+      "receivedAtUtc": "2026-10-20T00:20:05+00:00",
+      "subject": "Consultation Request from EMAIL DELIVERY TEST \u2014 no consultation requested",
+      "from": "noreply@orthopep.com",
+      "labels": [
+        "INBOX",
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_PERSONAL"
+      ]
+    },
+    "managedEmailUnchanged": true
+  },
+  "limits": [
+    "No private password links, tokens, credentials or medical content retained in this evidence",
+    "No customer emails replayed and no live orders submitted",
+    "Existing OrthoPep managed order/invoice/auth transport was preserved; direct Resend endpoint and Language Threshold API plus SMTP paths were verified separately",
+    "Promotional footer still awaits ZIP code"
+  ]
+}

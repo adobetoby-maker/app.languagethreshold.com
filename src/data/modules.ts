@@ -4,6 +4,7 @@
 import type { Language, NativeLanguage } from "@/state/app-state";
 import { TRAVEL_ZONE_MODULES } from "./travel-zone.ts";
 import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts";
+import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 
 export interface AppModule {
   id: string;
@@ -178,6 +179,33 @@ export const MODULES: AppModule[] = [
     ],
     // English headwords of terms taught in the ten lessons (tests/foundation-curriculum.test.mjs).
     vocabFocus: ["roof", "tile", "nail", "hammer", "ladder", "harness", "bundle", "wet", "tarp", "crew"],
+  },
+  // Roofing Master 20: the third stage of the roofing Core 60, after the Foundation and the
+  // Core 30. Sold and gated exactly like the Core 30 (paid tabs; the pilot runs free).
+  {
+    id: MASTER_ROOFING_MODULE_ID,
+    name: "Roofing Master",
+    emoji: "🏠",
+    category: "Trades",
+    blurb:
+      "Twenty advanced lessons for the day that doesn't go as planned: train a new roofer, explain a change order, walk an inspector across the roof, report a near-miss, and write the day's report in Spanish.",
+    priceCents: 999,
+    languages: ["Spanish"],
+    aiPersona:
+      "You are a roofing crew member, homeowner, insurance adjuster, or inspector speaking natural B1-B2 Spanish with a roofing foreman. In every mission, introduce ONE realistic complication partway through that the learner was not told about (for example a hidden rotten section of deck, a homeowner objection to the change order, a missing material, or a safety issue) and expect the learner to handle it in Spanish. Stay in character, keep a normal speaking pace, and ask the learner to clarify when their Spanish is vague. Treat nail counts, overlaps, and other dimensions as job-specific: confirm the product instructions and site plan rather than assuming a universal specification.",
+    userRole: "Roofing foreman leading a crew in Spanish",
+    challengePrompts: [
+      "Train a new roofer on a task and have them teach it back to you in Spanish.",
+      "Explain a change order for hidden rotten decking to a worried homeowner and answer their objection.",
+      "Walk an inspector across the roof and answer their questions about flashing and ventilation.",
+      "Tell the adjuster what you found, what the storm damaged, and what still needs documenting.",
+      "Report a near-miss fall to the crew lead and agree on what changes tomorrow.",
+      "Dictate the day's report: work done, materials used, problems, and tomorrow's plan.",
+    ],
+    vocabFocus: [
+      "change order", "rotten decking", "inspector", "adjuster", "near-miss", "teach back",
+      "warranty", "estimate", "permit", "daily report", "ventilation", "punch list",
+    ],
   },
   {
     id: "emergency-medicine",

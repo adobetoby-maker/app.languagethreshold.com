@@ -119,6 +119,8 @@ export function describeCore30Tracks(
       track.status === "paused" && track.paused_on
         ? track.paused_on
         : (planLocalDay(track.timezone) ?? toDateKey(new Date())),
+      // The log is filed under the scope key; the pace (Foundation, Master) follows the module id.
+      track.module_id,
     );
     return {
       enrollmentId: track.id,
@@ -167,8 +169,15 @@ export function describeCore30(
   moduleId: string,
   totalLessons: number,
   today: string = toDateKey(new Date()),
+  /** Module id that picks the plan pace, when `moduleId` is a scope key rather than a module id. */
+  paceModuleId: string = moduleId,
 ): Core30Display {
-  const s = summarizeCore30(core30?.[userId]?.[moduleId], totalLessons, today, core30PaceFor(moduleId));
+  const s = summarizeCore30(
+    core30?.[userId]?.[moduleId],
+    totalLessons,
+    today,
+    core30PaceFor(paceModuleId),
+  );
   return {
     mastered: s.mastered,
     total: s.totalLessons,

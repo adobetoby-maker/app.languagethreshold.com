@@ -86,6 +86,48 @@ export const CONTENT_LIMITS = {
   maxNoteLength: 160,
 } as const;
 
+/** The numeric limits a lesson's content is validated against (a profile per kind of module). */
+export interface ContentLimits {
+  minSentences: number;
+  maxSentences: number;
+  maxSentenceLength: number;
+  maxTitleLength: number;
+  minTerms: number;
+  maxTerms: number;
+  minPhrases: number;
+  maxPhrases: number;
+  minTermsUsed: number;
+  minPhrasesUsed: number;
+  minVerbs: number;
+  maxVerbs: number;
+  maxNoteLength: number;
+}
+
+/**
+ * Master 20 lessons (module id "master-<trade>") are longer and denser than the Core 30:
+ * 12-18 sentences, 12-16 terms, 6-8 phrases and exactly five verbs.
+ */
+export const MASTER_CONTENT_LIMITS: ContentLimits = {
+  minSentences: 12,
+  maxSentences: 18,
+  maxSentenceLength: 260,
+  maxTitleLength: 70,
+  minTerms: 12,
+  maxTerms: 16,
+  minPhrases: 6,
+  maxPhrases: 8,
+  minTermsUsed: 8,
+  minPhrasesUsed: 2,
+  minVerbs: 5,
+  maxVerbs: 5,
+  maxNoteLength: 160,
+};
+
+/** The limits profile for a module id: Master for "master-*", the Core 30 limits for the rest. */
+export function contentLimitsFor(moduleId: string | null | undefined): ContentLimits {
+  return moduleId?.startsWith("master-") ? MASTER_CONTENT_LIMITS : CONTENT_LIMITS;
+}
+
 // ─── Verb forms ──────────────────────────────────────────────────────────────
 
 const SPANISH_FORM_KEYS = ["yo", "tú", "él_ella_usted", "nosotros", "ellos_ustedes"] as const;
@@ -282,6 +324,8 @@ export interface ValidateContext {
   parts: ContentParts;
   /** The lesson's words when they are authored elsewhere, so the passage can be checked against them. */
   words?: readonly LessonWord[];
+  /** Limits profile (contentLimitsFor(moduleId)); the Core 30 limits when absent. */
+  limits?: ContentLimits;
 }
 
 const QUOTES_OR_DASH = /^\s*[—–]|["“”«»]/;
@@ -304,12 +348,13 @@ function validatePassage(
   ctx: ValidateContext,
   errors: string[],
 ) {
+  const limits = ctx.limits ?? CONTENT_LIMITS;
   if (!passage) {
     errors.push("passage is missing");
     return;
   }
-  if (!passage.title.trim() || passage.title.length > CONTENT_LIMITS.maxTitleLength) {
-    errors.push(`passage title must be 1-${CONTENT_LIMITS.maxTitleLength} characters`);
+  if (!passage.title.trim() || passage.title.length > limits.maxTitleLength) {
+    errors.push(`passage title must be 1-${limits.maxTitleLength} characters`);
   }
   const count = passage.target.length;
   if (count !== passage.native.length) {
@@ -318,9 +363,9 @@ function validatePassage(
     );
     return;
   }
-  if (count < CONTENT_LIMITS.minSentences || count > CONTENT_LIMITS.maxSentences) {
+  if (count < limits.minSentences || count > limits.maxSentences) {
     errors.push(
-      `passage has ${count} sentences; it must have ${CONTENT_LIMITS.minSentences} to ${CONTENT_LIMITS.maxSentences}`,
+      `passage has ${count} sentences; it must have ${limits.minSentences} to ${limits.maxSentences}`,
     );
   }
   for (const [i, target] of passage.target.entries()) {
@@ -341,7 +386,7 @@ function validatePassage(
         `${label} uses quotation marks or a dialogue dash; report speech with a colon instead: ${target}`,
       );
     }
-    if (target.length > CONTENT_LIMITS.maxSentenceLength || native.length > CONTENT_LIMITS.maxSentenceLength) {
+    if (target.length > limits.maxSentenceLength || native.length > limits.maxSentenceLength) {
       errors.push(`${label} is too long; split it into two sentences`);
     }
     for (const [side, text] of [
@@ -366,14 +411,14 @@ function validatePassage(
   const phrases = words.filter((w) => w.kind === "phrase");
   const usedTerms = terms.filter((term) => termMatches(term.es, passageWords));
   const usedPhrases = phrases.filter((phrase) => phraseMatches(phrase.es, passageWords));
-  if (usedTerms.length < CONTENT_LIMITS.minTermsUsed) {
+  if (usedTerms.length < limits.minTermsUsed) {
     errors.push(
-      `passage uses only ${usedTerms.length} of the lesson's terms (needs ${CONTENT_LIMITS.minTermsUsed}); used: ${
+      `passage uses only ${usedTerms.length} of the lesson's terms (needs ${limits.minTermsUsed}); used: ${
         usedTerms.map((t) => t.es).join(", ") || "none"
       }. Work more of the lesson's own terms into the passage, written as they appear in the word list`,
     );
   }
-  if (usedPhrases.length < CONTENT_LIMITS.minPhrasesUsed) {
+  if (usedPhrases.length < limits.minPhrasesUsed) {
     errors.push(
       "passage uses none of the lesson's phrases; include at least one lesson phrase (or most of its words, in order) in a sentence",
     );
@@ -381,20 +426,21 @@ function validatePassage(
 }
 
 function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateContext, errors: string[]) {
+  const limits = ctx.limits ?? CONTENT_LIMITS;
   if (!words) {
     errors.push("words are missing");
     return;
   }
   const terms = words.filter((w) => w.kind === "term");
   const phrases = words.filter((w) => w.kind === "phrase");
-  if (terms.length < CONTENT_LIMITS.minTerms || terms.length > CONTENT_LIMITS.maxTerms) {
+  if (terms.length < limits.minTerms || terms.length > limits.maxTerms) {
     errors.push(
-      `${terms.length} terms; there must be ${CONTENT_LIMITS.minTerms} to ${CONTENT_LIMITS.maxTerms} (distinct, at most 4 words each, no duplicates)`,
+      `${terms.length} terms; there must be ${limits.minTerms} to ${limits.maxTerms} (distinct, at most 4 words each, no duplicates)`,
     );
   }
-  if (phrases.length < CONTENT_LIMITS.minPhrases || phrases.length > CONTENT_LIMITS.maxPhrases) {
+  if (phrases.length < limits.minPhrases || phrases.length > limits.maxPhrases) {
     errors.push(
-      `${phrases.length} phrases; there must be ${CONTENT_LIMITS.minPhrases} to ${CONTENT_LIMITS.maxPhrases} (distinct, at most 12 words each, no duplicates)`,
+      `${phrases.length} phrases; there must be ${limits.minPhrases} to ${limits.maxPhrases} (distinct, at most 12 words each, no duplicates)`,
     );
   }
   const seenNative = new Set<string>();
@@ -415,6 +461,7 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
 }
 
 function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateContext, errors: string[]) {
+  const limits = ctx.limits ?? CONTENT_LIMITS;
   const keys = verbFormKeys(ctx.language);
   if (!keys) {
     errors.push(`verbs are not supported for ${ctx.language}`);
@@ -424,8 +471,8 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     errors.push("verbs are missing");
     return;
   }
-  if (verbs.length < CONTENT_LIMITS.minVerbs || verbs.length > CONTENT_LIMITS.maxVerbs) {
-    errors.push(`${verbs.length} verbs; there must be ${CONTENT_LIMITS.minVerbs} to ${CONTENT_LIMITS.maxVerbs}`);
+  if (verbs.length < limits.minVerbs || verbs.length > limits.maxVerbs) {
+    errors.push(`${verbs.length} verbs; ${limits.minVerbs === limits.maxVerbs ? `there must be exactly ${limits.minVerbs}` : `there must be ${limits.minVerbs} to ${limits.maxVerbs}`}`);
   }
   const seen = new Set<string>();
   const spanish = ctx.language === "Spanish";

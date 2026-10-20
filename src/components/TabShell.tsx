@@ -3,7 +3,7 @@ import { GraduationCap, Loader2, RefreshCw, X } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
 import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
-import { isFoundationModule } from "@/lib/core30-plan";
+import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
 import { MODULES } from "@/data/modules";
 
 /** "Roofing Foreman" for foundation-roofing: the course the Foundation leads into. */
@@ -65,10 +65,14 @@ export function TabShell() {
   const tool = TOOL_CATALOG[state.currentTab];
   // The Core 30 tab also hosts a Foundation (ten beginner lessons), which is not a 30-lesson path.
   const foundation = state.currentTab === "core30" && isFoundationModule(state.activeModuleId ?? "");
-  const purposeName = foundation ? "Core 60 · Foundation" : tool.name;
+  // ...and a Master (twenty advanced lessons after the Core 30).
+  const master = state.currentTab === "core30" && isMasterModule(state.activeModuleId ?? "");
+  const purposeName = foundation ? "Core 60 · Foundation" : master ? "Core 60 · Master" : tool.name;
   const purposeText = foundation
     ? `Ten short beginner lessons to get you ready for ${foundationTrade(state.activeModuleId)} Lesson 1.`
-    : tool.purpose;
+    : master
+      ? "Twenty lessons for the day that doesn't go as planned."
+      : tool.purpose;
   const [purposeTab, setPurposeTab] = useState<TabKey | null>(null);
 
   useEffect(() => {

@@ -194,7 +194,7 @@ export const TOOL_CATALOG: Record<TabKey, ToolMetadata> = {
   core30: {
     key: "core30",
     name: "Core 60",
-    purpose: "Your module, step by step: the free Foundation, then Core 30, then Master 20 (coming soon).",
+    purpose: "Your module, step by step: the free Foundation, then Core 30, then Master 20.",
     stage: "Grow",
     accent: "progress",
   },

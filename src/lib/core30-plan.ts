@@ -1,5 +1,6 @@
 // Core 30 plan: one new lesson every 3 days, a review of all mastered lessons every 4 days,
-// over 90 days. A Foundation module (id "foundation-<module>") runs faster: see core30PaceFor.
+// over 90 days. A Foundation module (id "foundation-<module>") runs faster and a Master module
+// (id "master-<module>") a little faster than the Core 30: see core30PaceFor.
 // Pure scheduling logic. Callers pass `today` ("YYYY-MM-DD", local); nothing here reads the clock.
 
 export interface Core30Review {
@@ -67,6 +68,17 @@ export const CORE30_FOUNDATION_PACE: Core30Pace = {
   planDays: 14,
 };
 
+/** Masters are twenty dense lessons: one every three and a half days, a review every 4 days, 70 days. */
+export const CORE30_MASTER_PACE: Core30Pace = {
+  newLessonEveryDays: 3.5,
+  reviewEveryDays: 4,
+  planDays: 70,
+};
+
+export function isMasterModule(moduleId: string | null | undefined): boolean {
+  return Boolean(moduleId?.startsWith("master-"));
+}
+
 export function isFoundationModule(moduleId: string | null | undefined): boolean {
   return Boolean(moduleId?.startsWith("foundation-"));
 }
@@ -88,7 +100,9 @@ export function foundationAccess(
 }
 
 export function core30PaceFor(moduleId: string | null | undefined): Core30Pace {
-  return isFoundationModule(moduleId) ? CORE30_FOUNDATION_PACE : CORE30_DEFAULT_PACE;
+  if (isFoundationModule(moduleId)) return CORE30_FOUNDATION_PACE;
+  if (isMasterModule(moduleId)) return CORE30_MASTER_PACE;
+  return CORE30_DEFAULT_PACE;
 }
 
 const DAY_MS = 86_400_000;
@@ -122,12 +136,17 @@ export function daysBetween(fromKey: string, toKey: string): number {
   return Math.round((parseKey(toKey) - parseKey(fromKey)) / DAY_MS);
 }
 
+/** Days after the start date that lesson n is due: floor((n - 1) * interval), so 3.5 gives 0, 3, 7, 10... */
+export function lessonDueOffset(lessonNumber: number, pace: Core30Pace = CORE30_DEFAULT_PACE): number {
+  return Math.floor((lessonNumber - 1) * pace.newLessonEveryDays);
+}
+
 export function lessonDueDate(
   startDate: string,
   lessonNumber: number,
   pace: Core30Pace = CORE30_DEFAULT_PACE,
 ): string {
-  return addDays(startDate, pace.newLessonEveryDays * (lessonNumber - 1));
+  return addDays(startDate, lessonDueOffset(lessonNumber, pace));
 }
 
 /** start+4, +8, ... while < start+planDays (90 by default). */
@@ -225,10 +244,12 @@ export function planToday(
 
   const rawDay = daysBetween(startDate, today) + 1;
   const dayNumber = rawDay < 1 ? 0 : rawDay;
-  const expectedMastered =
-    dayNumber < 1
-      ? 0
-      : Math.min(totalLessons, Math.floor((dayNumber - 1) / pace.newLessonEveryDays) + 1);
+  let expectedMastered = 0;
+  if (dayNumber >= 1) {
+    while (expectedMastered < totalLessons && lessonDueOffset(expectedMastered + 1, pace) <= dayNumber - 1) {
+      expectedMastered++;
+    }
+  }
   const masteredCount = mastered.length;
   const masteredSet = new Set(mastered);
   let nextLesson: Core30Today["nextLesson"] = null;
@@ -289,7 +310,7 @@ export interface Core30CalendarDay {
 /**
  * One entry per plan day that has a new lesson or a review. `day` is 1-based:
  * day 1 is the start date, so by default lesson n lands on day 3*(n-1)+1 and the first review
- * on day 5.
+ * on day 5. A fractional interval floors: the Master 20 puts lesson n on day floor(3.5*(n-1))+1.
  */
 export function planCalendar(
   startDate: string,
@@ -298,17 +319,14 @@ export function planCalendar(
   pace: Core30Pace = CORE30_DEFAULT_PACE,
 ): Core30CalendarDay[] {
   const interval = reviewInterval(reviewEveryDays);
-  const lessonEvery = pace.newLessonEveryDays;
-  const lastLessonDay = totalLessons > 0 ? lessonEvery * (totalLessons - 1) + 1 : 0;
+  const lessonAtOffset = new Map<number, number>();
+  for (let n = 1; n <= totalLessons; n++) lessonAtOffset.set(lessonDueOffset(n, pace), n);
+  const lastLessonDay = totalLessons > 0 ? lessonDueOffset(totalLessons, pace) + 1 : 0;
   const lastDay = Math.max(pace.planDays, lastLessonDay);
   const out: Core30CalendarDay[] = [];
   for (let day = 1; day <= lastDay; day++) {
     const offset = day - 1;
-    let newLesson: number | undefined;
-    if (offset % lessonEvery === 0) {
-      const n = offset / lessonEvery + 1;
-      if (n <= totalLessons) newLesson = n;
-    }
+    const newLesson = lessonAtOffset.get(offset);
     const review = offset >= interval && offset < pace.planDays && offset % interval === 0;
     if (newLesson === undefined && !review) continue;
     const entry: Core30CalendarDay = { date: addDays(startDate, offset), day, review };

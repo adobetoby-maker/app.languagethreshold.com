@@ -5,6 +5,8 @@ import test from "node:test";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import {
   CONTENT_LIMITS,
+  MASTER_CONTENT_LIMITS,
+  contentLimitsFor,
   LESSON_CONTENT_VERSION,
   cleanLessonVerbs,
   cleanPassage,
@@ -711,8 +713,8 @@ for (const { dir, name } of generated) {
       // them authored elsewhere.
       if (!parts.passage || !parts.words) {
         assert.ok(
-          moduleId === "roofing" || moduleId.startsWith("foundation-"),
-          "only roofing and Foundations may omit their passage or words",
+          moduleId === "roofing" || moduleId.startsWith("foundation-") || moduleId.startsWith("master-"),
+          "only roofing, Foundations and Masters may omit their passage or words",
         );
       }
       const errors = validateLessonContent(content, {
@@ -720,9 +722,148 @@ for (const { dir, name } of generated) {
         nativeLanguage: file.nativeLanguage,
         parts,
         words: lesson.words,
+        limits: contentLimitsFor(moduleId),
       });
       assert.deepEqual(errors, [], `lesson ${lesson.n} (${lesson.title}) has no validator errors`);
-      assert.ok(content.verbs.length >= CONTENT_LIMITS.minVerbs);
+      assert.ok(content.verbs.length >= contentLimitsFor(moduleId).minVerbs);
     }
   });
 }
+
+// ─── Master 20 limits profile ────────────────────────────────────────────────
+
+const MASTER_TERMS = [
+  ["techo", "roof"], ["tejas", "shingles"], ["clavo", "nail"], ["martillo", "hammer"],
+  ["escalera", "ladder"], ["arnés", "harness"], ["cubierta", "deck"], ["gotero", "drip edge"],
+  ["valle", "valley"], ["cumbrera", "ridge cap"], ["canalón", "gutter"], ["lona", "tarp"],
+  ["cuadrilla", "crew"], ["inspector", "inspector"],
+].map(([es, en]) => term(es, en));
+const MASTER_PHRASES = [
+  ["Paren el trabajo ahora.", "Stop the work now."],
+  ["Expliquen el cambio al dueño.", "Explain the change to the owner."],
+  ["¿Qué encontró el inspector?", "What did the inspector find?"],
+  ["Anoten todo en el reporte.", "Write everything in the report."],
+  ["Revisen los arneses otra vez.", "Check the harnesses again."],
+  ["Mañana empezamos más temprano.", "Tomorrow we start earlier."],
+  ["Díganme si falta material.", "Tell me if material is missing."],
+].map(([es, en]) => phrase(es, en));
+
+const MASTER_PASSAGE_TARGET = [
+  "Hoy la cuadrilla llega temprano al techo de la casa Vega.",
+  "Primero revisamos los arneses y la escalera.",
+  "Paren el trabajo ahora, dice la jefa de cuadrilla.",
+  "Debajo de las tejas, la cubierta está podrida.",
+  "El dueño pregunta cuánto cuesta el cambio.",
+  "Expliquen el cambio al dueño con calma.",
+  "Mostramos las fotos del clavo oxidado y del gotero.",
+  "El dueño dice que quiere hablar con su esposa.",
+  "Mientras tanto cubrimos el valle con una lona.",
+  "Llega el inspector y mira la cumbrera y el canalón.",
+  "¿Qué encontró el inspector?",
+  "Anoten todo en el reporte.",
+  "El martillo y las tejas nuevas llegan por la tarde.",
+  "Terminamos la parte segura del techo antes de la lluvia.",
+  "Mañana empezamos más temprano.",
+];
+const MASTER_PASSAGE_NATIVE = [
+  "Today the crew arrives early at the Vega house roof.",
+  "First we check the harnesses and the ladder.",
+  "Stop the work now, says the crew lead.",
+  "Under the shingles, the deck is rotten.",
+  "The owner asks how much the change costs.",
+  "Explain the change to the owner calmly.",
+  "We show the photos of the rusty nail and the drip edge.",
+  "The owner says he wants to talk to his wife.",
+  "Meanwhile we cover the valley with a tarp.",
+  "The inspector arrives and looks at the ridge cap and the gutter.",
+  "What did the inspector find?",
+  "Write everything in the report.",
+  "The hammer and the new shingles arrive in the afternoon.",
+  "We finish the safe part of the roof before the rain.",
+  "Tomorrow we start earlier.",
+];
+const MASTER_VERBS = [
+  VERB("cortar", "to cut", ["corto", "cortas", "corta", "cortamos", "cortan"], ["Cortamos la teja.", "We cut the shingle."]),
+  VERB("revisar", "to check", ["reviso", "revisas", "revisa", "revisamos", "revisan"], ["Revisamos los arneses.", "We check the harnesses."]),
+  VERB("cubrir", "to cover", ["cubro", "cubres", "cubre", "cubrimos", "cubren"], ["Cubrimos el valle.", "We cover the valley."]),
+  VERB("explicar", "to explain", ["explico", "explicas", "explica", "explicamos", "explican"], ["Explicamos el cambio.", "We explain the change."]),
+  VERB("anotar", "to write down", ["anoto", "anotas", "anota", "anotamos", "anotan"], ["Anotamos todo.", "We write everything down."]),
+];
+const MASTER_GOOD = {
+  passage: { title: "Un techo con sorpresas", target: MASTER_PASSAGE_TARGET, native: MASTER_PASSAGE_NATIVE },
+  words: [...MASTER_TERMS, ...MASTER_PHRASES],
+  verbs: MASTER_VERBS,
+};
+const MASTER_CTX = { ...CTX, limits: contentLimitsFor("master-roofing") };
+
+test("limits profile: master-* ids get the Master limits, everything else keeps the Core 30 limits", () => {
+  assert.equal(contentLimitsFor("master-roofing"), MASTER_CONTENT_LIMITS);
+  assert.equal(contentLimitsFor("roofing"), CONTENT_LIMITS);
+  assert.equal(contentLimitsFor("foundation-roofing"), CONTENT_LIMITS);
+  assert.equal(contentLimitsFor(undefined), CONTENT_LIMITS);
+  assert.deepEqual(
+    {
+      s: [MASTER_CONTENT_LIMITS.minSentences, MASTER_CONTENT_LIMITS.maxSentences, MASTER_CONTENT_LIMITS.maxSentenceLength],
+      t: [MASTER_CONTENT_LIMITS.minTerms, MASTER_CONTENT_LIMITS.maxTerms],
+      p: [MASTER_CONTENT_LIMITS.minPhrases, MASTER_CONTENT_LIMITS.maxPhrases],
+      used: [MASTER_CONTENT_LIMITS.minTermsUsed, MASTER_CONTENT_LIMITS.minPhrasesUsed],
+      v: [MASTER_CONTENT_LIMITS.minVerbs, MASTER_CONTENT_LIMITS.maxVerbs],
+    },
+    { s: [12, 18, 260], t: [12, 16], p: [6, 8], used: [8, 2], v: [5, 5] },
+  );
+});
+
+test("Master profile: 15 sentences, 14 terms, 7 phrases and 5 verbs pass", () => {
+  assert.deepEqual(errorsOf(MASTER_GOOD, MASTER_CTX), []);
+});
+
+test("Master profile: a Core 30 sized lesson fails (8 sentences, 3 verbs)", () => {
+  const small = clone(MASTER_GOOD);
+  small.passage.target = small.passage.target.slice(0, 8);
+  small.passage.native = small.passage.native.slice(0, 8);
+  small.verbs = small.verbs.slice(0, 3);
+  const text = errorsOf(small, MASTER_CTX).join("\n");
+  assert.match(text, /8 sentences; it must have 12 to 18/);
+  assert.match(text, /3 verbs; there must be exactly 5/);
+});
+
+test("Master profile: too few or too many terms, phrases and verbs fail", () => {
+  const fewTerms = clone(MASTER_GOOD);
+  fewTerms.words = fewTerms.words.filter((w) => w.kind !== "term").concat(MASTER_TERMS.slice(0, 11));
+  assert.match(errorsOf(fewTerms, MASTER_CTX).join("\n"), /11 terms; there must be 12 to 16/);
+  const fewPhrases = clone(MASTER_GOOD);
+  fewPhrases.words = fewPhrases.words.filter((w) => w.kind !== "phrase").concat(MASTER_PHRASES.slice(0, 5));
+  assert.match(errorsOf(fewPhrases, MASTER_CTX).join("\n"), /5 phrases; there must be 6 to 8/);
+  const sixVerbs = clone(MASTER_GOOD);
+  sixVerbs.verbs = [...sixVerbs.verbs, VERB("usar", "to use", ["uso", "usas", "usa", "usamos", "usan"], ["Usamos clavos.", "We use nails."])];
+  assert.match(errorsOf(sixVerbs, MASTER_CTX).join("\n"), /6 verbs; there must be exactly 5/);
+});
+
+test("Master profile: the passage must use at least 8 terms and 2 phrases", () => {
+  const thin = clone(MASTER_GOOD);
+  thin.passage.target = thin.passage.target.map((_, i) => `Frase número ${i} sin vocabulario del tema.`);
+  thin.passage.native = thin.passage.native.map((_, i) => `Sentence number ${i} without topic vocabulary.`);
+  // Digits must match across both sides, which they do here.
+  const text = errorsOf(thin, MASTER_CTX).join("\n");
+  assert.match(text, /passage uses only \d+ of the lesson's terms \(needs 8\)/);
+  assert.match(text, /passage uses none of the lesson's phrases/);
+});
+
+test("Core 30 limits are unchanged: a Master lesson fails them, a Core lesson fails the Master ones", () => {
+  // 15 sentences, 14 terms and 5 verbs are over the Core 30 maximums.
+  const core = errorsOf(MASTER_GOOD).join("\n");
+  assert.match(core, /15 sentences; it must have 5 to 9/);
+  assert.match(core, /14 terms; there must be 8 to 12/);
+  assert.match(core, /7 phrases; there must be 4 to 6/);
+  assert.doesNotMatch(core, /verbs;/, "five verbs is within the Core 30 range");
+  assert.deepEqual(errorsOf(GOOD), []);
+  assert.ok(errorsOf(GOOD, MASTER_CTX).length > 0);
+  assert.deepEqual(
+    { ...CONTENT_LIMITS },
+    {
+      minSentences: 5, maxSentences: 9, maxSentenceLength: 260, maxTitleLength: 70,
+      minTerms: 8, maxTerms: 12, minPhrases: 4, maxPhrases: 6, minTermsUsed: 5,
+      minPhrasesUsed: 1, minVerbs: 3, maxVerbs: 5, maxNoteLength: 160,
+    },
+  );
+});

@@ -24,6 +24,7 @@ import {
   FOUNDATION_ROOFING_LESSONS,
   FOUNDATION_ROOFING_MODULE_ID,
 } from "./foundation-roofing-curriculum.ts";
+import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
@@ -2939,6 +2940,13 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
     threshold:
       "By Lesson 10, you can greet the crew, count and measure, describe the roof as safe or wet, ask the questions you need, and start Roofing Lesson 1.",
     lessons: FOUNDATION_ROOFING_LESSONS,
+  },
+  [MASTER_ROOFING_MODULE_ID]: {
+    moduleId: MASTER_ROOFING_MODULE_ID,
+    headline: "The Roofing Master 20",
+    threshold:
+      "By Lesson 20, you can train a new roofer, explain a change order to a homeowner, walk an inspector or adjuster across a roof, report a fall or near-miss, and write the day's report in Spanish.",
+    lessons: MASTER_ROOFING_LESSONS,
   },
   soccer: {
     moduleId: "soccer",

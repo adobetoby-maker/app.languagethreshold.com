@@ -52,11 +52,17 @@ export function Core30PlanCard({
   managedPlanUrl?: string;
 }) {
   const { state, dispatch } = useApp();
-  // Foundation modules run a shorter plan; every other module keeps 3 days / 4 days / 90 days.
+  // Foundation and Master modules run their own plan; every other module keeps 3 days / 4 days / 90 days.
   const pace = core30PaceFor(moduleId);
   const reviewDays = reviewEveryDays ?? pace.reviewEveryDays;
-  const lessonCadence =
-    pace.newLessonEveryDays === 1 ? "every day" : `every ${pace.newLessonEveryDays} days`;
+  // "One new lesson every 3 days." A fractional pace (3.5 = twice a week) reads as a weekly rate.
+  const cadenceLine = Number.isInteger(pace.newLessonEveryDays)
+    ? `One new lesson ${
+        pace.newLessonEveryDays === 1 ? "every day" : `every ${pace.newLessonEveryDays} days`
+      }.`
+    : `${["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven"][
+        Math.round(7 / pace.newLessonEveryDays)
+      ]} new lessons a week.`;
   const context = {
     targetLanguage: state.selectedLanguage,
     instructionLanguage: state.nativeLanguage,
@@ -114,7 +120,7 @@ export function Core30PlanCard({
               Learn all {totalLessons} lessons in {pace.planDays} days
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-white/60">
-              One new lesson {lessonCadence}. Every {reviewDays} days you review every lesson you
+              {cadenceLine} Every {reviewDays} days you review every lesson you
               have mastered so far. You mark each lesson mastered yourself; the app records the
               steps you open.
             </p>

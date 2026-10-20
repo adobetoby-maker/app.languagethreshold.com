@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { pointAddressAtLessonReturn } from "@/lib/learning-link";
 import {
   browserReturnStorage,
   readLessonReturn,
@@ -22,7 +23,15 @@ export function LessonReturnPill({ kind }: { kind: LessonReturnSection }) {
       <button
         type="button"
         data-testid="lesson-return-pill"
-        onClick={() => dispatch({ type: "SET_TAB", payload: "core30" })}
+        onClick={() => {
+          // The URL still names this tab, which would make the Core 30 runner ignore the
+          // marker as a stale link. Point it at the lesson first, as a plan entry does.
+          pointAddressAtLessonReturn(marker, {
+            target: state.selectedLanguage,
+            native: state.nativeLanguage,
+          });
+          dispatch({ type: "SET_TAB", payload: "core30" });
+        }}
         className="inline-flex min-h-11 items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
       >
         <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

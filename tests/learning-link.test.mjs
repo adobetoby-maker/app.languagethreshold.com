@@ -120,3 +120,52 @@ test("a normal app launch without an explicit conflicting route may restore its 
   assert.equal(canRestoreLessonReturn("/", track), true);
   assert.equal(lessonOverviewLocation("/", track), null);
 });
+
+test("the Back to Lesson pill points a Reader address at its lesson so the return is accepted", () => {
+  const reader = "/?module=roofing&target=Spanish&native=English&tab=reader&plan=existing-plan";
+  // On the Reader address the return marker is refused as a stale link ...
+  assert.equal(canRestoreLessonReturn(reader, track), false);
+  // ... so the pill rewrites the address to the lesson and way it left, which is accepted.
+  const back = lessonLocation(reader, track, { lesson: 6, way: "see" });
+  const params = new URL(back, "https://lesson.invalid").searchParams;
+  assert.equal(params.get("tab"), "core30");
+  assert.equal(params.get("lesson"), "6");
+  assert.equal(params.get("way"), "see");
+  assert.equal(canRestoreLessonReturn(back, track), true);
+});
+
+test("the Reader auto-return and the pill share one address rewrite for the marker's lesson", async () => {
+  const { lessonReturnLocation } = await import("../src/lib/learning-link.ts");
+  const reader = "/?module=lds-missionary&target=Spanish&native=English&tab=reader";
+  const marker = { moduleId: "lds-missionary", lesson: 6, section: "see" };
+  const back = lessonReturnLocation(reader, marker, { target: "Spanish", native: "English" });
+  const params = new URL(back, "https://lesson.invalid").searchParams;
+  assert.equal(params.get("tab"), "core30");
+  assert.equal(params.get("lesson"), "6");
+  assert.equal(params.get("way"), "see");
+  assert.equal(
+    canRestoreLessonReturn(back, {
+      moduleId: "lds-missionary",
+      target: "Spanish",
+      native: "English",
+    }),
+    true,
+  );
+  // A stale link for another module is still refused, and a bad marker yields no rewrite.
+  assert.equal(
+    canRestoreLessonReturn(reader, {
+      moduleId: "lds-missionary",
+      target: "Spanish",
+      native: "English",
+    }),
+    false,
+  );
+  assert.equal(
+    lessonReturnLocation(
+      reader,
+      { ...marker, lesson: 0 },
+      { target: "Spanish", native: "English" },
+    ),
+    null,
+  );
+});

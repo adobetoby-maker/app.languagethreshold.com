@@ -43,6 +43,14 @@ const SELF_TALK = [
   "Let me check: u to ue (juego, juegas).",
   "Stem change e to ie…no: e to i (digo, dices).",
   "¿Cambio de raíz e a ie? No: e a i (pido, pides).",
+  "Stem change e to ie. No: e to i (pido, pides).",
+  "Stem change e to ie — no, e to i (pido, pides).",
+  "Stem change e to ie, no wait: e to i (pido, pides).",
+  "Stem change e to ie or rather e to i (pido, pides).",
+  "Correction: the stem change is e to i (pido, pides).",
+  "Oops, the stem change is e to i (pido, pides).",
+  "Es regular. Espera, en realidad cambia e a i (pido, pides).",
+  "Stem change e to ie? no, it is e to i (pido, pides).",
 ];
 
 const CLEAN = [
@@ -63,6 +71,15 @@ const CLEAN = [
   "The command Avísame means let me know (tú form + me).",
   "Read back the name and the value, then wait for the caller to say correcto.",
   "The window where finished plates wait for servers.",
+  "Use 'Lo siento... no hay' to say you have none left.",
+  "Answer ¿Tiene alergias? No, ninguna.",
+  "¿Puede ayudarme? No se usa con amigos.",
+  "En realidad means in fact, actually.",
+  "Déjame: let me, informal.",
+  "Espera … command: wait, then listen.",
+  "Actually is a false friend of actualmente…",
+  "Let me know is avíseme.",
+  "Don't add 'a' here; it isn't needed. No wait time applies.",
 ];
 
 test("selfTalkIssue flags the known self-correction strings", () => {
@@ -208,7 +225,7 @@ test("the Core 60 stage prompts (Foundation words, Master block) carry the note 
 // ─── Every shipped content file passes the new note rule ─────────────────────
 
 function* contentFiles() {
-  for (const dir of ["public/lesson-content/es", "src/data/core60/es"]) {
+  for (const dir of ["public/lesson-content/es", "public/lesson-content/en", "src/data/core60/es"]) {
     for (const name of readdirSync(dir).filter((f) => f.endsWith(".json"))) yield join(dir, name);
   }
 }

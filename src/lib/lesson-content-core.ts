@@ -375,31 +375,49 @@ function markerCount(text: string, pattern: RegExp): number {
   return (text.match(pattern) ?? []).length;
 }
 // A note states the final rule only. These patterns catch the model thinking out loud inside a
-// note ("Stem change e to ie? No: e to i"). The question-mark and ellipsis forms need the "no"
-// right after them. The deliberation words only count where a thought opens (start of the note
-// or right after sentence punctuation) and outside quoted text, so notes that describe a
-// meaning stay clean: "Esperar means to wait", "means let me pay", "what you actually found",
-// "No 'for' needed", "Creo que (I think)".
-const SELF_TALK_PUNCTUATION: readonly RegExp[] = [/\?\s*No\b/i, /(?:\.\.\.|…)\s*no\b/i];
-const THOUGHT_START = String.raw`(?:^\s*|[.!?…;:,—–-]\s*)`;
+// note ("Stem change e to ie? No: e to i"). Everything is tested outside quoted text, and a note
+// may still gloss a word ("En realidad means in fact, actually", "Déjame: let me, informal",
+// "Let me know is avíseme"), so:
+//  - a self-correction needs the shape "? No:" / "... no:" / ". No:" / "— no," (a colon, or a dash
+//    and comma), or "? No," / "... no," followed by a rule-like correction ("e to i", "it is");
+//    a Spanish answer such as "¿Tiene alergias? No, ninguna." is not one;
+//  - deliberation words only count where a thought opens (start of the note or right after
+//    . ! ? … ; , or a dash; a colon introduces a gloss) and never after "means" or as the subject
+//    of a gloss ("Actually is a false friend").
+const RULE_LIKE = String.raw`(?:[a-zñ]{1,2}\s+(?:to|a)\s+[a-zñ]{1,2}\b|it\s+is\b|it's\b|it\s+has\b|actually\b|should\b|must\b)`;
+const THOUGHT_START = String.raw`(?:^\s*|[.!?…;,—–-]\s*)`;
+const SELF_TALK_PUNCTUATION: readonly RegExp[] = [
+  /(?:\?|\.\.\.|…|\.)\s*no\s*:/i,
+  /[—–]\s*no\s*[,:]/i,
+  new RegExp(String.raw`(?:\?|\.\.\.|…|\.)\s*no\s*,\s*${RULE_LIKE}`, "i"),
+  /\bno,?\s+wait\b(?!\s+(?:time|for|until)\b)/i,
+];
 const SELF_TALK_WORDS: readonly RegExp[] = [
   new RegExp(String.raw`${THOUGHT_START}wait\s*(?:[,—–]|\.\.\.|…|-\s)`, "i"),
-  new RegExp(String.raw`${THOUGHT_START}actually\b`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}actually\b(?!\s+(?:is|are|means)\b)`, "i"),
   /\bhmm+\b/i,
-  new RegExp(String.raw`${THOUGHT_START}let me\b`, "i"),
+  /\boops\b/i,
+  /\bor rather\b/i,
+  new RegExp(String.raw`${THOUGHT_START}correction\s*:`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}let me\b(?!\s+(?:know|is|means)\b)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}espera\s*,\s*en realidad\b`, "i"),
 ];
-const QUOTED_TEXT = /"[^"]*"|“[^”]*”|'[^']*'|‘[^’]*’/g;
+// Quoted text; a single quote only counts at a word edge, so "don't" never opens a quote.
+const QUOTED_TEXT =
+  /"[^"]*"|“[^”]*”|(?<![\p{L}\p{N}])'[^']*'(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])‘[^’]*’(?![\p{L}\p{N}])/gu;
+const MEANS_GLOSS = /\bmeans\b[^.!?;]*/gi;
 
 /** The matching self-talk fragment when a verb or word note thinks out loud, else null. */
 export function selfTalkIssue(note: string): string | null {
-  for (const pattern of SELF_TALK_PUNCTUATION) {
-    const hit = note.match(pattern);
-    if (hit) return hit[0];
-  }
   const unquoted = note.replace(QUOTED_TEXT, " ");
-  for (const pattern of SELF_TALK_WORDS) {
+  for (const pattern of SELF_TALK_PUNCTUATION) {
     const hit = unquoted.match(pattern);
-    if (hit) return hit[0];
+    if (hit) return hit[0].trim();
+  }
+  const withoutGloss = unquoted.replace(MEANS_GLOSS, " ");
+  for (const pattern of SELF_TALK_WORDS) {
+    const hit = withoutGloss.match(pattern);
+    if (hit) return hit[0].trim();
   }
   return null;
 }

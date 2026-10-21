@@ -1,0 +1,942 @@
+{
+  "version": 1,
+  "module": "foundation-legal-immigration",
+  "baseModule": "legal-immigration",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Legal & Immigration Foundation",
+  "threshold": "By Lesson 10, you can greet a client, take their name, date of birth and phone number, ask simple intake questions, ask for documents politely, get help when you don't understand, and start Legal & Immigration Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.030Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a client, say your name and role, and pronounce basic intake words clearly.",
+      "focus": "Five pure vowels, ch, j, ll, rr, the written accent, and formal greetings",
+      "words": [
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the last name",
+          "es": "el apellido",
+          "kind": "term",
+          "note": "ll sounds like English y: a-pe-YI-do."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term",
+          "note": "The accent marks the stressed syllable: te-LÉ-fo-no."
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term",
+          "note": "cc sounds like k + s; stress falls on the accented ó."
+        },
+        {
+          "en": "the mail / the email",
+          "es": "el correo",
+          "kind": "term",
+          "note": "rr is a strong rolled r; one r between vowels is a quick tap."
+        },
+        {
+          "en": "the children",
+          "es": "los hijos",
+          "kind": "term",
+          "note": "j sounds like a strong English h; the h in hijos is silent."
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term",
+          "note": "Keep each vowel short and pure: o-fi-ci-na."
+        },
+        {
+          "en": "good morning",
+          "es": "buenos días",
+          "kind": "term"
+        },
+        {
+          "en": "good evening / good night",
+          "es": "buenas noches",
+          "kind": "term",
+          "note": "ch sounds like ch in church."
+        },
+        {
+          "en": "nice to meet you",
+          "es": "mucho gusto",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, my name is Laura and I'm a paralegal.",
+          "es": "Buenos días, me llamo Laura y soy paralegal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, sir.",
+          "es": "Mucho gusto, señor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is your name?",
+          "es": "¿Cómo se llama usted?",
+          "kind": "phrase",
+          "note": "Formal usted: use it with every client."
+        },
+        {
+          "en": "Welcome to the office, ma'am.",
+          "es": "Bienvenida a la oficina, señora.",
+          "kind": "phrase",
+          "note": "Say bienvenido to a man."
+        },
+        {
+          "en": "See you later, see you at the appointment.",
+          "es": "Hasta luego, nos vemos en la cita.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a new client at the front desk, say your name and role, ask their name, and say goodbye until the appointment."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say dates, clock times, case numbers and fees, and count pages and copies with a client.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, dates, and counting pages, copies and dollars",
+      "words": [
+        {
+          "en": "the date",
+          "es": "la fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the time / the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the month",
+          "es": "el mes",
+          "kind": "term"
+        },
+        {
+          "en": "the year",
+          "es": "el año",
+          "kind": "term",
+          "note": "Always write the ñ: año is year, ano is a body part."
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term",
+          "note": "Spanish gives the day first, then the month, then the year."
+        },
+        {
+          "en": "the case number",
+          "es": "el número de caso",
+          "kind": "term"
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "the page",
+          "es": "la página",
+          "kind": "term"
+        },
+        {
+          "en": "the dollar",
+          "es": "el dólar",
+          "kind": "term",
+          "note": "Plural: los dólares."
+        },
+        {
+          "en": "The appointment is on Tuesday at 10:30.",
+          "es": "La cita es el martes a las 10:30.",
+          "kind": "phrase",
+          "note": "Use a las for clock times; for 1:00 say a la una."
+        },
+        {
+          "en": "It's 9:15.",
+          "es": "Son las 9:15.",
+          "kind": "phrase",
+          "note": "You can also say son las nueve y cuarto."
+        },
+        {
+          "en": "Is your date of birth May 5, 1990?",
+          "es": "¿Su fecha de nacimiento es el 5 de mayo de 1990?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your case number ends in 482.",
+          "es": "Su número de caso termina en 482.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The consultation costs 75 dollars.",
+          "es": "La consulta cuesta 75 dólares.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a client for their date of birth, then tell them the time of their next appointment and how many pages they will sign."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Use ser and estar to say who you are, where the office is, and how a client or a form is.",
+      "focus": "ser for identity and importance, estar for location, feelings and readiness",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "Use estar: está listo. Lista for a feminine noun."
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "married",
+          "es": "casado",
+          "kind": "term",
+          "note": "Mostly used with estar; casada for a woman."
+        },
+        {
+          "en": "single",
+          "es": "soltero",
+          "kind": "term",
+          "note": "Soltera for a woman."
+        },
+        {
+          "en": "worried",
+          "es": "preocupado",
+          "kind": "term",
+          "note": "Use estar: está preocupada for a woman."
+        },
+        {
+          "en": "important",
+          "es": "importante",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the lawyer",
+          "es": "el abogado",
+          "kind": "term",
+          "note": "For a woman: la abogada."
+        },
+        {
+          "en": "the interpreter",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "Same word for a woman: la intérprete."
+        },
+        {
+          "en": "I'm your lawyer.",
+          "es": "Soy su abogada.",
+          "kind": "phrase",
+          "note": "ser for who you are; a man says soy su abogado."
+        },
+        {
+          "en": "The office is on the second floor.",
+          "es": "La oficina está en el segundo piso.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "Are you married?",
+          "es": "¿Está usted casada?",
+          "kind": "phrase",
+          "note": "Ask a man: ¿Está usted casado?"
+        },
+        {
+          "en": "This document is very important.",
+          "es": "Este documento es muy importante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The form is ready to sign.",
+          "es": "El formulario está listo para firmar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The interpreter is here.",
+          "es": "El intérprete está aquí.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a client who you are, where the office is, and that the interpreter is here, then ask if they are married or single."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Ask what documents a client has, say what you need, and say what has to be done.",
+      "focus": "tener, hay, necesitar, querer, and hay que + infinitive for what must be done",
+      "words": [
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the driver's license",
+          "es": "la licencia de manejo",
+          "kind": "term"
+        },
+        {
+          "en": "the birth certificate",
+          "es": "el acta de nacimiento",
+          "kind": "term",
+          "note": "Acta is feminine but takes el because it starts with a stressed a; plural las actas."
+        },
+        {
+          "en": "the marriage certificate",
+          "es": "el acta de matrimonio",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the letter",
+          "es": "la carta",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term",
+          "note": "Short for la fotografía, so it is feminine."
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have your passport?",
+          "es": "¿Tiene su pasaporte?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a problem with the date.",
+          "es": "Hay un problema con la fecha.",
+          "kind": "phrase",
+          "note": "hay means there is or there are."
+        },
+        {
+          "en": "I need a copy of your birth certificate.",
+          "es": "Necesito una copia de su acta de nacimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want an interpreter?",
+          "es": "¿Quiere un intérprete?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The form has to be signed here.",
+          "es": "Hay que firmar el formulario aquí.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something must be done, no specific person."
+        }
+      ],
+      "speaking": "Ask a client if they have their passport and ID, say which certificate you need a copy of, and ask if they want an interpreter."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where a client will go, what you are going to do, and ask if they can come.",
+      "focus": "ir and ir a + infinitive for plans, hacer for what someone does, poder for can",
+      "words": [
+        {
+          "en": "the court",
+          "es": "la corte",
+          "kind": "term"
+        },
+        {
+          "en": "the judge (man)",
+          "es": "el juez",
+          "kind": "term"
+        },
+        {
+          "en": "the judge (woman)",
+          "es": "la jueza",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term"
+        },
+        {
+          "en": "the consulate",
+          "es": "el consulado",
+          "kind": "term"
+        },
+        {
+          "en": "the interview",
+          "es": "la entrevista",
+          "kind": "term"
+        },
+        {
+          "en": "the fingerprints",
+          "es": "las huellas digitales",
+          "kind": "term"
+        },
+        {
+          "en": "Tomorrow I'm going to call the court.",
+          "es": "Mañana voy a llamar a la corte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to prepare everything together.",
+          "es": "Vamos a preparar todo juntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you come on Monday at 2?",
+          "es": "¿Puede venir el lunes a las 2?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You are going to speak with the judge.",
+          "es": "Usted va a hablar con la jueza.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you do at your job?",
+          "es": "¿Qué hace usted en su trabajo?",
+          "kind": "phrase",
+          "note": "hacer: hago, hace, hacemos, hacen."
+        }
+      ],
+      "speaking": "Tell a client what you are going to do tomorrow, ask if they can come on Monday, and tell them where the waiting room is."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Ask a client simple present-tense questions about home, work, family and language.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: hablo, vive, leemos, estudian, llamas",
+      "words": [
+        {
+          "en": "the job / the work",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the employer / the boss",
+          "es": "el patrón",
+          "kind": "term",
+          "note": "Common in Mexican and US Spanish; feminine: la patrona."
+        },
+        {
+          "en": "the house / home",
+          "es": "la casa",
+          "kind": "term"
+        },
+        {
+          "en": "the language",
+          "es": "el idioma",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el idioma."
+        },
+        {
+          "en": "English",
+          "es": "el inglés",
+          "kind": "term"
+        },
+        {
+          "en": "Spanish",
+          "es": "el español",
+          "kind": "term"
+        },
+        {
+          "en": "the school",
+          "es": "la escuela",
+          "kind": "term"
+        },
+        {
+          "en": "the husband",
+          "es": "el esposo",
+          "kind": "term"
+        },
+        {
+          "en": "the wife",
+          "es": "la esposa",
+          "kind": "term"
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Yo hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live with your family?",
+          "es": "¿Usted vive con su familia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do your children go to school here?",
+          "es": "¿Sus hijos estudian aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We read every page with you.",
+          "es": "Nosotros leemos cada página con usted.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you calling the client today?",
+          "es": "¿Tú llamas a la clienta hoy?",
+          "kind": "phrase",
+          "note": "tú with a coworker; use a before a person as the object."
+        },
+        {
+          "en": "Do you understand English?",
+          "es": "¿Usted comprende inglés?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a client who they live with, whether they work, and which language they understand, then say you speak a little Spanish."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask basic intake questions about origin, address, arrival, household and children.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising ¿…?",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "Plural: ¿quiénes? for more than one person."
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "where from?",
+          "es": "¿de dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuánto tiempo, cuántos hijos, cuántas veces."
+        },
+        {
+          "en": "how many?",
+          "es": "¿cuántos?",
+          "kind": "term"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for why; porque, one word, means because."
+        },
+        {
+          "en": "which? / what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿Cuál es…? for name, address and phone number."
+        },
+        {
+          "en": "Where are you from?",
+          "es": "¿De dónde es usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When did you arrive in the United States?",
+          "es": "¿Cuándo llegó a Estados Unidos?",
+          "kind": "phrase",
+          "note": "llegó is past tense; learn it as a set question."
+        },
+        {
+          "en": "What is your current address?",
+          "es": "¿Cuál es su dirección actual?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who lives with you?",
+          "es": "¿Quién vive con usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many children do you have?",
+          "es": "¿Cuántos hijos tiene?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How can we help you today?",
+          "es": "¿Cómo podemos ayudarle hoy?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a client where they are from, what their current address is, who lives with them and how many children they have."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what a client does not have to do, what is still pending, and ask for more or another copy.",
+      "focus": "Negatives no, nunca, nadie, nada, todavía no, and más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Keep no before the verb: no firmo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less / fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another / other",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it: otra copia, not una otra copia."
+        },
+        {
+          "en": "the fine / the ticket",
+          "es": "la multa",
+          "kind": "term"
+        },
+        {
+          "en": "the arrest",
+          "es": "el arresto",
+          "kind": "term"
+        },
+        {
+          "en": "the answer / the response",
+          "es": "la respuesta",
+          "kind": "term"
+        },
+        {
+          "en": "You don't have to sign anything today.",
+          "es": "Usted no tiene que firmar nada hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We don't have an answer yet.",
+          "es": "Todavía no tenemos una respuesta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need another copy, please.",
+          "es": "Necesitamos otra copia, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Never ignore a letter from the court.",
+          "es": "Nunca ignore una carta de la corte.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nothing wrong with asking.",
+          "es": "No hay nada de malo en preguntar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need more time?",
+          "es": "¿Necesita más tiempo?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a client there is no answer yet, that they don't have to sign anything today, and ask if they need more time."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a client politely to sit, wait, sign, write and bring papers using ¿Puede…? and usted commands.",
+      "focus": "¿Puede + infinitive? and usted commands: firme, tome, escriba, traiga, espere, ponga",
+      "words": [
+        {
+          "en": "the pen",
+          "es": "la pluma",
+          "kind": "term",
+          "note": "Mexican and US Spanish; many countries say el bolígrafo."
+        },
+        {
+          "en": "the envelope",
+          "es": "el sobre",
+          "kind": "term"
+        },
+        {
+          "en": "the folder",
+          "es": "la carpeta",
+          "kind": "term"
+        },
+        {
+          "en": "the sheet of paper",
+          "es": "la hoja",
+          "kind": "term"
+        },
+        {
+          "en": "the original",
+          "es": "el original",
+          "kind": "term"
+        },
+        {
+          "en": "the chair",
+          "es": "la silla",
+          "kind": "term"
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the service window",
+          "es": "la ventanilla",
+          "kind": "term"
+        },
+        {
+          "en": "the desk",
+          "es": "el escritorio",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Have a seat, please.",
+          "es": "Tome asiento, por favor.",
+          "kind": "phrase",
+          "note": "Formal usted command from tomar."
+        },
+        {
+          "en": "Write your name on this line.",
+          "es": "Escriba su nombre en esta línea.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bring the originals to the next appointment.",
+          "es": "Traiga los originales a la próxima cita.",
+          "kind": "phrase",
+          "note": "Irregular command from traer: traiga."
+        },
+        {
+          "en": "Wait here a moment, please.",
+          "es": "Espere aquí un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put the papers in this envelope.",
+          "es": "Ponga los papeles en este sobre.",
+          "kind": "phrase",
+          "note": "Irregular command from poner: ponga."
+        }
+      ],
+      "speaking": "Ask a client to sit down, write their name on the line, sign the form, and bring the originals to the next appointment."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize legal cognates and ask a client to repeat, slow down or wait for an interpreter.",
+      "focus": "Cognates ending in -ción, -dad, -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the situation",
+          "es": "la situación",
+          "kind": "term"
+        },
+        {
+          "en": "the nationality",
+          "es": "la nacionalidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the identity",
+          "es": "la identidad",
+          "kind": "term"
+        },
+        {
+          "en": "the opportunity",
+          "es": "la oportunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the resident",
+          "es": "el residente",
+          "kind": "term",
+          "note": "For a woman: la residente."
+        },
+        {
+          "en": "the agent / the officer",
+          "es": "el agente",
+          "kind": "term",
+          "note": "For a woman: la agente."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the document",
+          "es": "el documento",
+          "kind": "term"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't understand, can you explain it to me again?",
+          "es": "No entiendo, ¿me lo puede explicar otra vez?",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, I'm going to call the interpreter.",
+          "es": "Un momento, voy a llamar al intérprete.",
+          "kind": "phrase",
+          "note": "a + el = al before a person as the object."
+        },
+        {
+          "en": "How do you say 'hearing' in Spanish?",
+          "es": "¿Cómo se dice 'hearing' en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, my Spanish is basic.",
+          "es": "Perdón, mi español es básico.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a client your Spanish is basic, ask them to repeat more slowly, and say you are going to call the interpreter."
+    }
+  ]
+}

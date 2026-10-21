@@ -1,0 +1,954 @@
+{
+  "version": 1,
+  "module": "foundation-international-travel",
+  "baseModule": "international-travel",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The International Travel Foundation",
+  "threshold": "By Lesson 10, you can greet people, say prices and times, describe your room, ask questions and make polite requests while traveling, and start International Travel Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say travel words clearly and greet hotel staff, drivers and locals politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings by time of day",
+      "words": [
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term",
+          "note": "The h is silent: o-TEL."
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term",
+          "note": "Say every vowel: a-e-ro-PUER-to."
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term",
+          "note": "ll sounds like English y: YA-ve."
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term",
+          "note": "ll again: KA-ye."
+        },
+        {
+          "en": "the luggage",
+          "es": "el equipaje",
+          "kind": "term",
+          "note": "j sounds like a strong English h: e-ki-PA-he."
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "rr is a rolled r. In Mexico people say el carro."
+        },
+        {
+          "en": "the plane",
+          "es": "el avión",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: a-vi-ÓN."
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term",
+          "note": "Stress the accented syllable: au-to-BÚS."
+        },
+        {
+          "en": "the suitcase",
+          "es": "la maleta",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, ma'am.",
+          "es": "Buenos días, señora.",
+          "kind": "phrase",
+          "note": "Buenos días until noon, buenas tardes until dark, buenas noches after."
+        },
+        {
+          "en": "Good afternoon, my name is Ana.",
+          "es": "Buenas tardes, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with hotel staff, drivers and strangers."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a hotel clerk, say your name, and ask how to say something from your bag in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Understand and say prices in pesos, clock times, minutes, kilos and kilometers.",
+      "focus": "Numbers 0 to 1,000, clock time with son las, and pesos, kilos, kilometers and minutes",
+      "words": [
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term",
+          "note": "Mexico and Latin America say boleto for bus, plane and museum tickets."
+        },
+        {
+          "en": "the bill",
+          "es": "la cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the tip",
+          "es": "la propina",
+          "kind": "term"
+        },
+        {
+          "en": "the change",
+          "es": "el cambio",
+          "kind": "term",
+          "note": "Also means currency exchange."
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican money. El peso also means the weight."
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the kilometer",
+          "es": "el kilómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term"
+        },
+        {
+          "en": "What time is it?",
+          "es": "¿Qué hora es?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's half past 3.",
+          "es": "Son las 3 y media.",
+          "kind": "phrase",
+          "note": "Use son las for hours; for one o'clock say es la 1."
+        },
+        {
+          "en": "It's 250 pesos.",
+          "es": "Son 250 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The bill, please.",
+          "es": "La cuenta, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The suitcase weighs 20 kilos.",
+          "es": "La maleta pesa 20 kilos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The taxi takes 15 minutes.",
+          "es": "El taxi tarda 15 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a café server for the bill, read the price in pesos aloud, and tell a friend what time it is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are and describe a room, a place or a price as clean, closed, near or expensive.",
+      "focus": "ser for what something is, estar for a condition or location (room, shop, museum)",
+      "words": [
+        {
+          "en": "the room",
+          "es": "la habitación",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "expensive",
+          "es": "caro",
+          "kind": "term"
+        },
+        {
+          "en": "cheap",
+          "es": "barato",
+          "kind": "term"
+        },
+        {
+          "en": "I'm a tourist from the United States.",
+          "es": "Soy turista de Estados Unidos.",
+          "kind": "phrase",
+          "note": "ser: who or what you are. No un or una before a role."
+        },
+        {
+          "en": "The room is dirty.",
+          "es": "La habitación está sucia.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change. The adjective matches: sucia for la habitación."
+        },
+        {
+          "en": "The museum is near.",
+          "es": "El museo está cerca.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "The pharmacy is closed.",
+          "es": "La farmacia está cerrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's very expensive.",
+          "es": "Es muy caro.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the front desk clerk whether your room is clean or dirty, and ask a local if the pharmacy is open and near."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want at a hotel or restaurant, and ask if there is an ATM.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexico says reservación; Spain says reserva."
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "the bed",
+          "es": "la cama",
+          "kind": "term"
+        },
+        {
+          "en": "the map",
+          "es": "el mapa",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el mapa."
+        },
+        {
+          "en": "the credit card",
+          "es": "la tarjeta de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the ATM",
+          "es": "el cajero automático",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine word that takes el: el agua fría."
+        },
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term"
+        },
+        {
+          "en": "I have a reservation.",
+          "es": "Tengo una reservación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there an ATM nearby?",
+          "es": "¿Hay un cajero automático cerca?",
+          "kind": "phrase",
+          "note": "hay means there is or there are."
+        },
+        {
+          "en": "I need a towel, please.",
+          "es": "Necesito una toalla, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want a table for 2, please.",
+          "es": "Quiero una mesa para 2, por favor.",
+          "kind": "phrase",
+          "note": "Quisiera sounds softer and more polite than quiero."
+        },
+        {
+          "en": "You have to pay in cash.",
+          "es": "Hay que pagar en efectivo.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone must do."
+        },
+        {
+          "en": "Do you have a map?",
+          "es": "¿Tiene un mapa?",
+          "kind": "phrase",
+          "note": "Formal usted form of tener."
+        }
+      ],
+      "speaking": "Tell the hotel clerk you have a reservation, say what you need for the room, and ask if there is an ATM nearby."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going today, what you are going to do tomorrow and what you can do.",
+      "focus": "ir, ir a + infinitive for plans, hacer (also for weather), poder",
+      "words": [
+        {
+          "en": "the museum",
+          "es": "el museo",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "the town square",
+          "es": "la plaza",
+          "kind": "term"
+        },
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term"
+        },
+        {
+          "en": "the park",
+          "es": "el parque",
+          "kind": "term"
+        },
+        {
+          "en": "the restaurant",
+          "es": "el restaurante",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "La mañana means the morning."
+        },
+        {
+          "en": "I'm going to the museum.",
+          "es": "Voy al museo.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "Tomorrow we're going to go to the beach.",
+          "es": "Mañana vamos a ir a la playa.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for plans."
+        },
+        {
+          "en": "I'm going to take a taxi downtown.",
+          "es": "Voy a tomar un taxi al centro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's very hot today.",
+          "es": "Hoy hace mucho calor.",
+          "kind": "phrase",
+          "note": "Use hacer for weather: hace frío, hace calor."
+        }
+      ],
+      "speaking": "Tell another traveler where you are going today and what you are going to do tomorrow, and ask a vendor if you can pay by card."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you eat, speak and do at a restaurant using everyday present-tense verbs.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "breakfast",
+          "es": "el desayuno",
+          "kind": "term"
+        },
+        {
+          "en": "the midday meal",
+          "es": "la comida",
+          "kind": "term",
+          "note": "In Mexico, la comida is the main meal, often around 2 to 4 p.m. It also means food."
+        },
+        {
+          "en": "dinner",
+          "es": "la cena",
+          "kind": "term"
+        },
+        {
+          "en": "the menu",
+          "es": "el menú",
+          "kind": "term"
+        },
+        {
+          "en": "the waiter",
+          "es": "el mesero",
+          "kind": "term",
+          "note": "A woman is la mesera."
+        },
+        {
+          "en": "the chicken",
+          "es": "el pollo",
+          "kind": "term"
+        },
+        {
+          "en": "the meat",
+          "es": "la carne",
+          "kind": "term"
+        },
+        {
+          "en": "the fish",
+          "es": "el pescado",
+          "kind": "term",
+          "note": "El pescado is fish as food; el pez is a live fish."
+        },
+        {
+          "en": "the beans",
+          "es": "los frijoles",
+          "kind": "term"
+        },
+        {
+          "en": "the soda",
+          "es": "el refresco",
+          "kind": "term"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase",
+          "note": "-ar verb, yo form: hablo."
+        },
+        {
+          "en": "Do you eat meat?",
+          "es": "¿Tú comes carne?",
+          "kind": "phrase",
+          "note": "Informal tú, for a friend or fellow traveler."
+        },
+        {
+          "en": "Do you sell tickets here?",
+          "es": "¿Usted vende boletos aquí?",
+          "kind": "phrase",
+          "note": "-er verb, usted form: vende."
+        },
+        {
+          "en": "We live in Chicago.",
+          "es": "Nosotros vivimos en Chicago.",
+          "kind": "phrase",
+          "note": "-ir verb, nosotros form: vivimos."
+        },
+        {
+          "en": "They arrive at 8.",
+          "es": "Ellos llegan a las 8.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a server what you eat and drink, and ask a travel friend if they eat meat and where they live."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask where, when, how much and which at the airport, bus stop or ticket window.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿Cuántos? / ¿cuántas? means how many."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "Alone, ¿cómo? also means pardon?"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for why; porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the exit",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "the bus stop",
+          "es": "la parada de autobús",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the bus stop?",
+          "es": "¿Dónde está la parada de autobús?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the ticket?",
+          "es": "¿Cuánto cuesta el boleto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time does the plane leave?",
+          "es": "¿A qué hora sale el avión?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one is my gate?",
+          "es": "¿Cuál es mi puerta?",
+          "kind": "phrase",
+          "note": "At the airport, la puerta is the gate."
+        },
+        {
+          "en": "When does the bus arrive?",
+          "es": "¿Cuándo llega el autobús?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why is it closed?",
+          "es": "¿Por qué está cerrado?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask an airport worker which gate is yours, what time the plane leaves, and where the bus stop is."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what you don't have yet, what is missing, and ask for more, less or another one.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before otro: otra toalla, not una otra toalla."
+        },
+        {
+          "en": "spicy",
+          "es": "picante",
+          "kind": "term"
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term"
+        },
+        {
+          "en": "the blanket",
+          "es": "la cobija",
+          "kind": "term",
+          "note": "Mexican word; Spain says la manta."
+        },
+        {
+          "en": "the toilet paper",
+          "es": "el papel de baño",
+          "kind": "term"
+        },
+        {
+          "en": "Less spicy, please.",
+          "es": "Menos picante, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody answers at the front desk.",
+          "es": "Nadie contesta en la recepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything, thanks.",
+          "es": "No necesito nada, gracias.",
+          "kind": "phrase",
+          "note": "Spanish keeps both negatives: no ... nada."
+        },
+        {
+          "en": "We don't have the key yet.",
+          "es": "Todavía no tenemos la llave.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have another blanket?",
+          "es": "¿Tiene otra cobija?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never drink tap water.",
+          "es": "Nunca tomo agua de la llave.",
+          "kind": "phrase",
+          "note": "In Mexico, la llave also means the faucet, and tomar means to drink."
+        }
+      ],
+      "speaking": "Tell the front desk that you don't have the key yet, that nobody answers the phone, and ask for another blanket."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a driver or hotel worker to do something and give simple directions.",
+      "focus": "¿Puede...? requests and usted commands: pare, siga, dé vuelta",
+      "words": [
+        {
+          "en": "the taxi driver",
+          "es": "el taxista",
+          "kind": "term",
+          "note": "A woman is la taxista."
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term",
+          "note": "Also means direction."
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "the right",
+          "es": "la derecha",
+          "kind": "term"
+        },
+        {
+          "en": "the left",
+          "es": "la izquierda",
+          "kind": "term"
+        },
+        {
+          "en": "straight ahead",
+          "es": "derecho",
+          "kind": "term",
+          "note": "Different from la derecha (the right)."
+        },
+        {
+          "en": "the traffic light",
+          "es": "el semáforo",
+          "kind": "term"
+        },
+        {
+          "en": "the block",
+          "es": "la cuadra",
+          "kind": "term",
+          "note": "Latin American word for a city block."
+        },
+        {
+          "en": "the window",
+          "es": "la ventana",
+          "kind": "term"
+        },
+        {
+          "en": "the air conditioning",
+          "es": "el aire acondicionado",
+          "kind": "term"
+        },
+        {
+          "en": "Can you take me to this address?",
+          "es": "¿Puede llevarme a esta dirección?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Turn right at the traffic light.",
+          "es": "Dé vuelta a la derecha en el semáforo.",
+          "kind": "phrase",
+          "note": "Usted command; dé vuelta is how Mexicans say turn."
+        },
+        {
+          "en": "Go straight 2 blocks.",
+          "es": "Siga derecho 2 cuadras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Stop here, please.",
+          "es": "Pare aquí, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of parar."
+        },
+        {
+          "en": "Can you close the window?",
+          "es": "¿Puede cerrar la ventana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me with the suitcase?",
+          "es": "¿Me puede ayudar con la maleta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Give a taxi driver polite directions: ask them to take you to an address, turn right, go straight and stop here."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words that look like English and use survival phrases to get help.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the station",
+          "es": "la estación",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the city",
+          "es": "la ciudad",
+          "kind": "term",
+          "note": "-dad words are feminine and often match English -ty."
+        },
+        {
+          "en": "the nationality",
+          "es": "la nacionalidad",
+          "kind": "term"
+        },
+        {
+          "en": "security",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent: os-pi-TAL."
+        },
+        {
+          "en": "the police",
+          "es": "la policía",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla usted inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Help me, please!",
+          "es": "¡Ayúdeme, por favor!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call the police, please.",
+          "es": "Llame a la policía, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I lost my passport.",
+          "es": "Perdí mi pasaporte.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a police officer you lost your passport, say you don't understand, and ask them to speak more slowly."
+    }
+  ]
+}

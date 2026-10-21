@@ -1,0 +1,873 @@
+{
+  "version": 1,
+  "module": "foundation-rugby",
+  "baseModule": "rugby",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Rugby Foundation",
+  "threshold": "By Lesson 10, you can greet your team, give numbers, times and scores, describe players and the pitch, ask simple questions, make polite requests, get help, and start Rugby Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say Spanish sounds clearly and greet your coach and teammates at rugby practice.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the team",
+          "es": "el equipo",
+          "kind": "term",
+          "note": "Vowels are short and pure: e-KEE-po; the u after q is silent."
+        },
+        {
+          "en": "the ball",
+          "es": "el balón",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: ba-LÓN."
+        },
+        {
+          "en": "the pitch",
+          "es": "la cancha",
+          "kind": "term",
+          "note": "ch sounds like English 'church'."
+        },
+        {
+          "en": "the player",
+          "es": "el jugador",
+          "kind": "term",
+          "note": "j is a strong h sound; a woman is la jugadora."
+        },
+        {
+          "en": "the referee",
+          "es": "el árbitro",
+          "kind": "term",
+          "note": "The accent puts the stress on the first syllable: ÁR-bi-tro."
+        },
+        {
+          "en": "the knee",
+          "es": "la rodilla",
+          "kind": "term",
+          "note": "ll sounds like English y: ro-DEE-ya."
+        },
+        {
+          "en": "the run",
+          "es": "la carrera",
+          "kind": "term",
+          "note": "rr is a strong rolled r: ca-RRE-ra."
+        },
+        {
+          "en": "the coach",
+          "es": "el entrenador",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap; a woman is la entrenadora."
+        },
+        {
+          "en": "the jersey",
+          "es": "la camiseta",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, team!",
+          "es": "¡Buenos días, equipo!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hi, my name is Ana.",
+          "es": "Hola, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, coach.",
+          "es": "Mucho gusto, entrenador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How's it going, teammate?",
+          "es": "¿Qué tal, compañero?",
+          "kind": "phrase",
+          "note": "Informal, between teammates; say compañera to a woman."
+        },
+        {
+          "en": "See you at practice!",
+          "es": "¡Nos vemos en el entrenamiento!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a teammate at practice, say your name, and say the Spanish words for the ball, the pitch and the team."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give your jersey number, practice times, the score, minutes left and simple rugby quantities.",
+      "focus": "Numbers 0 to 1,000, clock time, minutes, points, meters and pounds in rugby",
+      "words": [
+        {
+          "en": "the number",
+          "es": "el número",
+          "kind": "term"
+        },
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term",
+          "note": "Use la hora for clock time: ¿Qué hora es?"
+        },
+        {
+          "en": "the clock",
+          "es": "el reloj",
+          "kind": "term"
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the points",
+          "es": "los puntos",
+          "kind": "term"
+        },
+        {
+          "en": "the score",
+          "es": "el marcador",
+          "kind": "term"
+        },
+        {
+          "en": "halftime",
+          "es": "el medio tiempo",
+          "kind": "term",
+          "note": "Common in Mexico and the US; you will also hear el descanso."
+        },
+        {
+          "en": "the meters",
+          "es": "los metros",
+          "kind": "term",
+          "note": "Rugby pitch distances are marked in meters, even in the US."
+        },
+        {
+          "en": "the pounds",
+          "es": "las libras",
+          "kind": "term",
+          "note": "In the US, body weight and gym weights are in pounds."
+        },
+        {
+          "en": "the water bottle",
+          "es": "la botella de agua",
+          "kind": "term"
+        },
+        {
+          "en": "I wear number 10.",
+          "es": "Llevo el número 10.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Practice is at 6:30.",
+          "es": "El entrenamiento es a las 6:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 10 minutes left.",
+          "es": "Faltan 10 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're winning 21 to 14.",
+          "es": "Vamos ganando 21 a 14.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I weigh 220 pounds.",
+          "es": "Peso 220 libras.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the coach your jersey number, what time practice starts, the score, and how many minutes are left."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who someone is on the team and describe how players and the pitch are right now.",
+      "focus": "ser for who or what someone is, estar for a condition or location",
+      "words": [
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "A woman says cansada."
+        },
+        {
+          "en": "injured",
+          "es": "lesionado",
+          "kind": "term",
+          "note": "Use estar: an injury is a condition. A woman says lesionada."
+        },
+        {
+          "en": "strong",
+          "es": "fuerte",
+          "kind": "term"
+        },
+        {
+          "en": "fast",
+          "es": "rápido",
+          "kind": "term"
+        },
+        {
+          "en": "muddy",
+          "es": "enlodado",
+          "kind": "term"
+        },
+        {
+          "en": "happy",
+          "es": "contento",
+          "kind": "term"
+        },
+        {
+          "en": "the captain",
+          "es": "el capitán",
+          "kind": "term",
+          "note": "A woman is la capitana."
+        },
+        {
+          "en": "the locker room",
+          "es": "el vestidor",
+          "kind": "term",
+          "note": "Common in Mexico and the US."
+        },
+        {
+          "en": "the teammate",
+          "es": "el compañero",
+          "kind": "term",
+          "note": "A woman is la compañera."
+        },
+        {
+          "en": "I'm the captain.",
+          "es": "Soy el capitán.",
+          "kind": "phrase",
+          "note": "ser: who someone is."
+        },
+        {
+          "en": "I'm tired.",
+          "es": "Estoy cansado.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change. A woman says cansada."
+        },
+        {
+          "en": "The pitch is muddy.",
+          "es": "La cancha está enlodada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "She is very fast.",
+          "es": "Ella es muy rápida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you injured?",
+          "es": "¿Estás lesionado?",
+          "kind": "phrase",
+          "note": "Informal, to a teammate."
+        },
+        {
+          "en": "The locker room is over there.",
+          "es": "El vestidor está allá.",
+          "kind": "phrase",
+          "note": "estar: location."
+        }
+      ],
+      "speaking": "Tell a teammate who the captain is, whether you are tired or injured, and where the locker room is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what gear you have, what you need and want, and what everyone has to do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the mouthguard",
+          "es": "el protector bucal",
+          "kind": "term"
+        },
+        {
+          "en": "the cleats",
+          "es": "los tachones",
+          "kind": "term",
+          "note": "Mexico and the US; in Spain people say los tacos."
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el: el agua fría."
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the tape",
+          "es": "la cinta",
+          "kind": "term"
+        },
+        {
+          "en": "the first-aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the cones",
+          "es": "los conos",
+          "kind": "term"
+        },
+        {
+          "en": "the whistle",
+          "es": "el silbato",
+          "kind": "term"
+        },
+        {
+          "en": "the headgear",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have tape?",
+          "es": "¿Tienes cinta?",
+          "kind": "phrase",
+          "note": "Informal, to a teammate."
+        },
+        {
+          "en": "Is there water in the locker room?",
+          "es": "¿Hay agua en el vestidor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need ice for my knee.",
+          "es": "Necesito hielo para la rodilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to play today.",
+          "es": "Quiero jugar hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to wear a mouthguard.",
+          "es": "Hay que usar protector bucal.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone must do."
+        }
+      ],
+      "speaking": "Tell the coach what gear you have and what you need, and ask if there is water and ice."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what the team is going to do, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the gym",
+          "es": "el gimnasio",
+          "kind": "term"
+        },
+        {
+          "en": "the warm-up",
+          "es": "el calentamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the practice",
+          "es": "el entrenamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the match",
+          "es": "el partido",
+          "kind": "term"
+        },
+        {
+          "en": "the weights",
+          "es": "las pesas",
+          "kind": "term",
+          "note": "hacer pesas means to lift weights."
+        },
+        {
+          "en": "the stretches",
+          "es": "los estiramientos",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "Also means morning: por la mañana."
+        },
+        {
+          "en": "I'm going to the gym today.",
+          "es": "Voy al gimnasio hoy.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "We're going to do the warm-up.",
+          "es": "Vamos a hacer el calentamiento.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "I do stretches after the match.",
+          "es": "Hago estiramientos después del partido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you play tomorrow?",
+          "es": "¿Puedes jugar mañana?",
+          "kind": "phrase",
+          "note": "Informal; to a coach say ¿Puede jugar?"
+        },
+        {
+          "en": "We're going to the match by bus.",
+          "es": "Vamos en autobús al partido.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a teammate where you are going today and what the team is going to do, and ask if they can play tomorrow."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about your weekly training routine and what the team does with simple present-tense verbs.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "Saturday",
+          "es": "el sábado",
+          "kind": "term",
+          "note": "los sábados means on Saturdays, every week."
+        },
+        {
+          "en": "the weekend",
+          "es": "el fin de semana",
+          "kind": "term"
+        },
+        {
+          "en": "the season",
+          "es": "la temporada",
+          "kind": "term"
+        },
+        {
+          "en": "the club",
+          "es": "el club",
+          "kind": "term"
+        },
+        {
+          "en": "the fan",
+          "es": "el aficionado",
+          "kind": "term",
+          "note": "A woman is la aficionada."
+        },
+        {
+          "en": "the leg",
+          "es": "la pierna",
+          "kind": "term"
+        },
+        {
+          "en": "the arm",
+          "es": "el brazo",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "always",
+          "es": "siempre",
+          "kind": "term"
+        },
+        {
+          "en": "I train on Tuesdays and Thursdays.",
+          "es": "Entreno los martes y los jueves.",
+          "kind": "phrase",
+          "note": "-ar verb, yo form ends in -o."
+        },
+        {
+          "en": "Will you run with me?",
+          "es": "¿Corres conmigo?",
+          "kind": "phrase",
+          "note": "-er verb, tú form ends in -es; informal."
+        },
+        {
+          "en": "Do you live near the club?",
+          "es": "¿Usted vive cerca del club?",
+          "kind": "phrase",
+          "note": "-ir verb, usted form ends in -e; formal."
+        },
+        {
+          "en": "We eat together after the match.",
+          "es": "Comemos juntos después del partido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They pass the ball very fast.",
+          "es": "Ellos pasan el balón muy rápido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I always get to practice early.",
+          "es": "Siempre llego temprano al entrenamiento.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a new teammate which days you train, where you live, and what the team does after a match."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask simple questions about places, people, times and gear at the rugby club.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿Cuántos? for how many: ¿Cuántos balones?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "Also a polite 'pardon?' when you didn't hear."
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for why; porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál before es to ask which one: ¿Cuál es tu número?"
+        },
+        {
+          "en": "Where is the locker room?",
+          "es": "¿Dónde está el vestidor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the referee?",
+          "es": "¿Quién es el árbitro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When is the next match?",
+          "es": "¿Cuándo es el próximo partido?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much time is left?",
+          "es": "¿Cuánto tiempo falta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one is my jersey?",
+          "es": "¿Cuál es mi camiseta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why did the game stop?",
+          "es": "¿Por qué paró el juego?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the team manager where the locker room is, who the referee is, and when the next match is."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody, not yet, and ask for more, less or another at practice.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Use with no before the verb: No veo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it; with a feminine noun say otra botella."
+        },
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term"
+        },
+        {
+          "en": "the ankle",
+          "es": "el tobillo",
+          "kind": "term"
+        },
+        {
+          "en": "I don't see the referee.",
+          "es": "No veo al árbitro.",
+          "kind": "phrase",
+          "note": "Personal a before a person: al árbitro."
+        },
+        {
+          "en": "I never play without a mouthguard.",
+          "es": "Nunca juego sin protector bucal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody in the locker room.",
+          "es": "No hay nadie en el vestidor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not ready yet.",
+          "es": "Todavía no estoy listo.",
+          "kind": "phrase",
+          "note": "A woman says lista."
+        },
+        {
+          "en": "I need another water bottle.",
+          "es": "Necesito otra botella de agua.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Faster, team!",
+          "es": "¡Más rápido, equipo!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the coach you are not ready yet, that nobody is in the locker room, and that you need another water bottle."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and give simple usted commands to staff at the club.",
+      "focus": "¿Puede…? requests and usted commands with everyday verbs",
+      "words": [
+        {
+          "en": "the ball bag",
+          "es": "la bolsa de balones",
+          "kind": "term"
+        },
+        {
+          "en": "the bench",
+          "es": "el banco",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "the physio",
+          "es": "el fisioterapeuta",
+          "kind": "term",
+          "note": "A woman is la fisioterapeuta; many people just say el fisio or la fisio."
+        },
+        {
+          "en": "the stretcher",
+          "es": "la camilla",
+          "kind": "term"
+        },
+        {
+          "en": "the doctor",
+          "es": "el doctor",
+          "kind": "term",
+          "note": "A woman is la doctora."
+        },
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term"
+        },
+        {
+          "en": "thank you",
+          "es": "gracias",
+          "kind": "term"
+        },
+        {
+          "en": "you're welcome",
+          "es": "de nada",
+          "kind": "term"
+        },
+        {
+          "en": "Can you open the locker room, please?",
+          "es": "¿Puede abrir el vestidor, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive is a polite usted request."
+        },
+        {
+          "en": "Can you call the physio?",
+          "es": "¿Puede llamar al fisioterapeuta?",
+          "kind": "phrase",
+          "note": "Personal a before a person: al fisioterapeuta."
+        },
+        {
+          "en": "Bring the ball bag, please.",
+          "es": "Traiga la bolsa de balones, por favor.",
+          "kind": "phrase",
+          "note": "Usted command to one person."
+        },
+        {
+          "en": "Wait here, please.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sit on the bench, please.",
+          "es": "Siéntese en el banco, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask the team manager to open the locker room, bring the ball bag and call the physio."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize rugby cognates and use survival phrases to get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases",
+      "words": [
+        {
+          "en": "the communication",
+          "es": "la comunicación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the concentration",
+          "es": "la concentración",
+          "kind": "term"
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the intensity",
+          "es": "la intensidad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "the opponent",
+          "es": "el oponente",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"tackle\" in Spanish?",
+          "es": "¿Cómo se dice \"tackle\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call an ambulance!",
+          "es": "¡Llamen a una ambulancia!",
+          "kind": "phrase",
+          "note": "Ustedes command to everyone nearby."
+        }
+      ],
+      "speaking": "Tell a teammate you don't understand, ask them to repeat it slowly, and ask how to say a rugby word in Spanish."
+    }
+  ]
+}

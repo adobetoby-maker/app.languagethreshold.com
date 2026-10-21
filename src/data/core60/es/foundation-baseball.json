@@ -1,0 +1,887 @@
+{
+  "version": 1,
+  "module": "foundation-baseball",
+  "baseModule": "baseball",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Baseball / Béisbol Foundation",
+  "threshold": "By Lesson 10, you can greet your team, give numbers and times, describe players and the field, ask simple questions and make polite requests in baseball Spanish, and start Baseball / Béisbol Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce basic baseball words clearly and greet coaches, teammates and fans.",
+      "focus": "The five pure vowels, ch, j, ll, rr and the written accent; everyday greetings",
+      "words": [
+        {
+          "en": "the bat",
+          "es": "el bate",
+          "kind": "term",
+          "note": "Spanish vowels are short and pure: BA-te, never 'bayt'."
+        },
+        {
+          "en": "the ball",
+          "es": "la pelota",
+          "kind": "term",
+          "note": "Say every vowel clearly: pe-LO-ta."
+        },
+        {
+          "en": "the player",
+          "es": "el jugador",
+          "kind": "term",
+          "note": "j sounds like a strong English h: hoo-ga-DOR. A woman is la jugadora."
+        },
+        {
+          "en": "the catcher",
+          "es": "el cátcher",
+          "kind": "term",
+          "note": "Common loanword; ch as in 'church', stress on CÁ."
+        },
+        {
+          "en": "the shin guards",
+          "es": "las espinilleras",
+          "kind": "term",
+          "note": "ll sounds like English y in Mexico: es-pi-ni-YE-ras."
+        },
+        {
+          "en": "the run",
+          "es": "la carrera",
+          "kind": "term",
+          "note": "rr is a rolled r; a single r between vowels is a quick tap."
+        },
+        {
+          "en": "the umpire",
+          "es": "el árbitro",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: ÁR-bi-tro."
+        },
+        {
+          "en": "the team",
+          "es": "el equipo",
+          "kind": "term",
+          "note": "qu sounds like k; the u is silent: e-KI-po."
+        },
+        {
+          "en": "the glove",
+          "es": "el guante",
+          "kind": "term",
+          "note": "gu before a sounds like gw: GWAN-te."
+        },
+        {
+          "en": "Good morning, team!",
+          "es": "¡Buenos días, equipo!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hi, my name is Daniel.",
+          "es": "Hola, me llamo Daniel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, I'm the new catcher.",
+          "es": "Mucho gusto, soy el nuevo cátcher.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you, coach?",
+          "es": "¿Cómo está usted, coach?",
+          "kind": "phrase",
+          "note": "Usted is formal, for coaches and older people; 'coach' is common in US and Mexican baseball."
+        },
+        {
+          "en": "See you tomorrow at practice!",
+          "es": "¡Hasta mañana en el entrenamiento!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a teammate in the dugout, say your name and position, and name three pieces of gear out loud with clear vowels."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, practice times, distances, bat weights and the score in baseball.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and feet, ounces and miles per hour in baseball",
+      "words": [
+        {
+          "en": "the number",
+          "es": "el número",
+          "kind": "term"
+        },
+        {
+          "en": "the scoreboard",
+          "es": "el marcador",
+          "kind": "term",
+          "note": "Also means the score: ¿Cómo está el marcador?"
+        },
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the feet",
+          "es": "los pies",
+          "kind": "term",
+          "note": "The unit of distance on a US field."
+        },
+        {
+          "en": "the ounces",
+          "es": "las onzas",
+          "kind": "term"
+        },
+        {
+          "en": "the miles per hour",
+          "es": "las millas por hora",
+          "kind": "term"
+        },
+        {
+          "en": "the game",
+          "es": "el juego",
+          "kind": "term"
+        },
+        {
+          "en": "the practice",
+          "es": "la práctica",
+          "kind": "term"
+        },
+        {
+          "en": "the bucket of balls",
+          "es": "la cubeta de pelotas",
+          "kind": "term",
+          "note": "Cubeta is Mexican usage for bucket."
+        },
+        {
+          "en": "the dozen",
+          "es": "la docena",
+          "kind": "term"
+        },
+        {
+          "en": "Practice is at 4:30.",
+          "es": "La práctica es a las 4:30.",
+          "kind": "phrase",
+          "note": "Use a las before a clock time: a las 7, a las 4:30."
+        },
+        {
+          "en": "My number is 27.",
+          "es": "Mi número es el 27.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 90 feet between the bases.",
+          "es": "Entre las bases hay 90 pies.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My bat weighs 32 ounces.",
+          "es": "Mi bate pesa 32 onzas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need 2 buckets of balls.",
+          "es": "Necesito 2 cubetas de pelotas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're winning 3 to 2.",
+          "es": "Vamos ganando 3 a 2.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a teammate your jersey number, what time practice starts and how many buckets of balls you need."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe players and the field: who someone is, how they feel and where they are.",
+      "focus": "ser for what someone or something is, estar for condition or location on the field",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "A woman says lista."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term"
+        },
+        {
+          "en": "hurt",
+          "es": "lastimado",
+          "kind": "term",
+          "note": "Use with estar: Estoy lastimado."
+        },
+        {
+          "en": "fast",
+          "es": "rápido",
+          "kind": "term"
+        },
+        {
+          "en": "slow",
+          "es": "lento",
+          "kind": "term"
+        },
+        {
+          "en": "wet",
+          "es": "mojado",
+          "kind": "term"
+        },
+        {
+          "en": "nervous",
+          "es": "nervioso",
+          "kind": "term"
+        },
+        {
+          "en": "left-handed",
+          "es": "zurdo",
+          "kind": "term",
+          "note": "A woman is zurda."
+        },
+        {
+          "en": "right-handed",
+          "es": "derecho",
+          "kind": "term",
+          "note": "In baseball, derecho means right-handed; a woman is derecha."
+        },
+        {
+          "en": "the field",
+          "es": "el campo",
+          "kind": "term"
+        },
+        {
+          "en": "I'm left-handed.",
+          "es": "Soy zurdo.",
+          "kind": "phrase",
+          "note": "ser: a trait that does not change."
+        },
+        {
+          "en": "The field is wet.",
+          "es": "El campo está mojado.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Are you ready to play?",
+          "es": "¿Estás listo para jugar?",
+          "kind": "phrase",
+          "note": "Informal tú, between teammates."
+        },
+        {
+          "en": "My arm is tired.",
+          "es": "Mi brazo está cansado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The coach is in the dugout.",
+          "es": "El coach está en la cueva.",
+          "kind": "phrase",
+          "note": "La cueva is the usual word for the dugout in Mexican baseball."
+        },
+        {
+          "en": "He is very fast.",
+          "es": "Él es muy rápido.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a teammate whether you are ready, tired or hurt, say if the field is wet, and say where the coach is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what gear you have, need and want, and what everyone has to wear.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with baseball gear",
+      "words": [
+        {
+          "en": "the helmet",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the cap",
+          "es": "la gorra",
+          "kind": "term"
+        },
+        {
+          "en": "the catcher's mask",
+          "es": "la careta",
+          "kind": "term"
+        },
+        {
+          "en": "the catcher's mitt",
+          "es": "la mascota",
+          "kind": "term",
+          "note": "In Mexican baseball, la mascota is the catcher's mitt."
+        },
+        {
+          "en": "the batting gloves",
+          "es": "los guantes de bateo",
+          "kind": "term"
+        },
+        {
+          "en": "the water bottle",
+          "es": "la botella de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the bench",
+          "es": "la banca",
+          "kind": "term"
+        },
+        {
+          "en": "I have my helmet and my glove.",
+          "es": "Tengo mi casco y mi guante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there water on the bench?",
+          "es": "¿Hay agua en la banca?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need a towel, please.",
+          "es": "Necesito una toalla, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to bat first.",
+          "es": "Quiero batear primero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to wear a helmet in the batter's box.",
+          "es": "Hay que usar casco en la caja de bateo.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: a rule for everyone."
+        }
+      ],
+      "speaking": "Tell the coach what gear you have, ask if there is water and ice on the bench, and say what you need before you bat."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do and what you can do at practice.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder around the ballpark",
+      "words": [
+        {
+          "en": "first base",
+          "es": "la primera base",
+          "kind": "term"
+        },
+        {
+          "en": "second base",
+          "es": "la segunda base",
+          "kind": "term"
+        },
+        {
+          "en": "third base",
+          "es": "la tercera base",
+          "kind": "term"
+        },
+        {
+          "en": "home plate",
+          "es": "el home",
+          "kind": "term",
+          "note": "Loanword used across Mexican and US baseball."
+        },
+        {
+          "en": "the locker room",
+          "es": "el vestidor",
+          "kind": "term"
+        },
+        {
+          "en": "the stadium",
+          "es": "el estadio",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el camión",
+          "kind": "term",
+          "note": "In Mexico, el camión is a bus."
+        },
+        {
+          "en": "the batting cage",
+          "es": "la jaula de bateo",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the batting cage.",
+          "es": "Voy a la jaula de bateo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to practice at 3.",
+          "es": "Vamos a practicar a las 3.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you play third today?",
+          "es": "¿Puedes jugar en tercera hoy?",
+          "kind": "phrase",
+          "note": "Informal tú, between teammates."
+        },
+        {
+          "en": "I do stretches before the game.",
+          "es": "Hago estiramientos antes del juego.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to run to second.",
+          "es": "Voy a correr a segunda.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a teammate where you are going before practice, what you are going to do there, and ask if they can play third base today."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you and your teammates do every day using regular present-tense verbs.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the arm",
+          "es": "el brazo",
+          "kind": "term"
+        },
+        {
+          "en": "the hand",
+          "es": "la mano",
+          "kind": "term",
+          "note": "Feminine even though it ends in -o."
+        },
+        {
+          "en": "the shoulder",
+          "es": "el hombro",
+          "kind": "term",
+          "note": "The h is always silent: OM-bro."
+        },
+        {
+          "en": "the elbow",
+          "es": "el codo",
+          "kind": "term"
+        },
+        {
+          "en": "the knee",
+          "es": "la rodilla",
+          "kind": "term"
+        },
+        {
+          "en": "the back",
+          "es": "la espalda",
+          "kind": "term"
+        },
+        {
+          "en": "the teammate",
+          "es": "el compañero de equipo",
+          "kind": "term",
+          "note": "For a woman: la compañera de equipo."
+        },
+        {
+          "en": "the fan",
+          "es": "el aficionado",
+          "kind": "term",
+          "note": "For a woman: la aficionada."
+        },
+        {
+          "en": "the manager",
+          "es": "el mánager",
+          "kind": "term",
+          "note": "Common loanword in Mexican baseball."
+        },
+        {
+          "en": "I throw with my right hand.",
+          "es": "Yo lanzo con la mano derecha.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you bat righty or lefty?",
+          "es": "¿Bateas derecho o zurdo?",
+          "kind": "phrase",
+          "note": "Informal tú, between teammates."
+        },
+        {
+          "en": "We run before practice.",
+          "es": "Nosotros corremos antes de la práctica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The fans clap a lot.",
+          "es": "Los aficionados aplauden mucho.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live near the stadium?",
+          "es": "¿Usted vive cerca del estadio?",
+          "kind": "phrase",
+          "note": "Formal usted, for the manager or an older fan."
+        }
+      ],
+      "speaking": "Tell a new teammate how you throw and bat, what the team does before practice, and ask how they bat."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask basic questions about gear, players, times and the game.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "Plural: ¿quiénes? for more than one person."
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees: ¿cuántos jugadores?, ¿cuántas pelotas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for 'why'; porque, one word, means 'because'."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "at what time?",
+          "es": "¿a qué hora?",
+          "kind": "term"
+        },
+        {
+          "en": "Where is my bat?",
+          "es": "¿Dónde está mi bate?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who bats first?",
+          "es": "¿Quién batea primero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When is the next game?",
+          "es": "¿Cuándo es el próximo juego?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's your position?",
+          "es": "¿Cuál es tu posición?",
+          "kind": "phrase",
+          "note": "Use cuál, not qué, before es."
+        },
+        {
+          "en": "How's the game going?",
+          "es": "¿Cómo va el juego?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the ticket?",
+          "es": "¿Cuánto cuesta el boleto?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a teammate where your bat is, who bats first, when the next game is and what their position is."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody and not yet, and ask for more, less or another one.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro in dugout talk",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "already",
+          "es": "ya",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it: otra pelota, not una otra pelota."
+        },
+        {
+          "en": "neither",
+          "es": "tampoco",
+          "kind": "term"
+        },
+        {
+          "en": "I never throw without warming up well.",
+          "es": "Nunca lanzo sin calentar bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody on first.",
+          "es": "No hay nadie en primera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The manager isn't here yet.",
+          "es": "Todavía no llega el mánager.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another ball, please.",
+          "es": "Necesito otra pelota, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't see anything with this sun.",
+          "es": "No veo nada con este sol.",
+          "kind": "phrase",
+          "note": "Spanish uses double negatives: no ... nada."
+        },
+        {
+          "en": "There are fewer people at the stadium today.",
+          "es": "Hoy hay menos gente en el estadio.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a teammate you never throw without warming up, say if the manager is here yet, and ask for another ball."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and give simple usted commands to fans, staff and the grounds crew.",
+      "focus": "¿Puede…? requests and usted commands (pase, siéntese, espere, traiga) at the ballpark",
+      "words": [
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term",
+          "note": "Boleto is the Mexican and US word."
+        },
+        {
+          "en": "the row",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term",
+          "note": "Feminine: la foto, short for la fotografía."
+        },
+        {
+          "en": "the autograph",
+          "es": "el autógrafo",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the rake",
+          "es": "el rastrillo",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign my ball, please?",
+          "es": "¿Puede firmar mi pelota, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you take a photo of me?",
+          "es": "¿Me puede tomar una foto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Go through gate 3, please.",
+          "es": "Pase por la puerta 3, por favor.",
+          "kind": "phrase",
+          "note": "Usted command, polite with one person."
+        },
+        {
+          "en": "Sit in row 12, please.",
+          "es": "Siéntese en la fila 12, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait here a moment, please.",
+          "es": "Espere aquí un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bring the rake, please.",
+          "es": "Traiga el rastrillo, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask a player to sign your ball and take a photo, then tell a fan which gate and row to go to."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize baseball cognates and use survival phrases to ask for help and repeat in Spanish.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for the ballpark",
+      "words": [
+        {
+          "en": "the position",
+          "es": "la posición",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the decision",
+          "es": "la decisión",
+          "kind": "term"
+        },
+        {
+          "en": "the excitement",
+          "es": "la emoción",
+          "kind": "term",
+          "note": "Means excitement or thrill, not only emotion."
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the opportunity",
+          "es": "la oportunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the skill",
+          "es": "la habilidad",
+          "kind": "term"
+        },
+        {
+          "en": "excellent",
+          "es": "excelente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "the agent",
+          "es": "el agente",
+          "kind": "term",
+          "note": "A woman is la agente."
+        },
+        {
+          "en": "I don't understand, can you repeat, please?",
+          "es": "No entiendo, ¿puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coach you speak a little Spanish, ask them to repeat more slowly, and ask how to say a piece of gear in Spanish."
+    }
+  ]
+}

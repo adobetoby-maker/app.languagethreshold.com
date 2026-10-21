@@ -1,0 +1,923 @@
+{
+  "version": 1,
+  "module": "foundation-auto-mechanic",
+  "baseModule": "auto-mechanic",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Auto Mechanic Foundation",
+  "threshold": "By Lesson 10, you can greet customers, give times and shop quantities, describe a car's condition, ask simple questions and make polite requests at the shop, and start Auto Mechanic Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet customers and coworkers and pronounce key shop words like carro, llanta and llave.",
+      "focus": "The five vowels, ch, j, ll, rr, the written accent, and greetings",
+      "words": [
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "rr is a strong trill: CA-rro. A single r between vowels is a quick tap."
+        },
+        {
+          "en": "the tire",
+          "es": "la llanta",
+          "kind": "term",
+          "note": "ll sounds like English y: YAN-ta."
+        },
+        {
+          "en": "the wrench",
+          "es": "la llave",
+          "kind": "term",
+          "note": "Also means key. ll sounds like y: YA-ve."
+        },
+        {
+          "en": "the jack",
+          "es": "el gato",
+          "kind": "term",
+          "note": "Short, pure vowels: GA-to. Also means cat."
+        },
+        {
+          "en": "the chassis",
+          "es": "el chasis",
+          "kind": "term",
+          "note": "ch sounds like English ch in church."
+        },
+        {
+          "en": "the trunk",
+          "es": "la cajuela",
+          "kind": "term",
+          "note": "j sounds like a strong English h: ca-HUE-la. Common Mexican word."
+        },
+        {
+          "en": "the oil",
+          "es": "el aceite",
+          "kind": "term",
+          "note": "Say every vowel: a-SEI-te."
+        },
+        {
+          "en": "the battery",
+          "es": "la batería",
+          "kind": "term",
+          "note": "The written accent marks the stress: ba-te-RÍ-a."
+        },
+        {
+          "en": "the shop",
+          "es": "el taller",
+          "kind": "term",
+          "note": "Stress falls on the last syllable: ta-YER."
+        },
+        {
+          "en": "the mechanic",
+          "es": "el mecánico",
+          "kind": "term",
+          "note": "A woman is la mecánica."
+        },
+        {
+          "en": "Good morning, my name is Carlos.",
+          "es": "Buenos días, me llamo Carlos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, I'm the mechanic.",
+          "es": "Mucho gusto, soy el mecánico.",
+          "kind": "phrase",
+          "note": "A woman says: soy la mecánica."
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal usted: use it with customers."
+        },
+        {
+          "en": "Welcome to the shop.",
+          "es": "Bienvenido al taller.",
+          "kind": "phrase",
+          "note": "To a woman: bienvenida."
+        },
+        {
+          "en": "See you tomorrow, guys.",
+          "es": "Hasta mañana, compañeros.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a customer at the counter, say your name and that you are the mechanic, and welcome them to the shop."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say times, counts and shop quantities like quarts, PSI and socket sizes.",
+      "focus": "Numbers 0 to 1,000, clock time (a las 8:30), and shop units: quarts, gallons, PSI, inches",
+      "words": [
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "half an hour",
+          "es": "media hora",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the mileage",
+          "es": "el millaje",
+          "kind": "term",
+          "note": "Common US shop word; read it from the odometer."
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the quart of oil",
+          "es": "el cuarto de aceite",
+          "kind": "term",
+          "note": "In the US, oil is sold by the quart."
+        },
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term",
+          "note": "For tire pressure, libras means PSI."
+        },
+        {
+          "en": "the inch",
+          "es": "la pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "the socket",
+          "es": "el dado",
+          "kind": "term",
+          "note": "Say the system: de 10 milímetros or de media pulgada."
+        },
+        {
+          "en": "the nut",
+          "es": "la tuerca",
+          "kind": "term"
+        },
+        {
+          "en": "the bolt",
+          "es": "el tornillo",
+          "kind": "term"
+        },
+        {
+          "en": "The appointment is at 8:30.",
+          "es": "La cita es a las 8:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the manual, it takes 5 quarts of oil.",
+          "es": "Según el manual, lleva 5 cuartos de aceite.",
+          "kind": "phrase",
+          "note": "Oil capacity varies by vehicle; always check the manual."
+        },
+        {
+          "en": "The door sticker says 35 PSI.",
+          "es": "La etiqueta de la puerta dice 35 libras.",
+          "kind": "phrase",
+          "note": "Tire pressure varies by vehicle; read the door label."
+        },
+        {
+          "en": "I need a 10-millimeter socket.",
+          "es": "Necesito un dado de 10 milímetros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The tire is missing 2 lug nuts.",
+          "es": "Faltan 2 tuercas en la llanta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll be back in half an hour.",
+          "es": "Regreso en media hora.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker the appointment time, how many quarts the manual lists, and the PSI on the door sticker."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what a car or part is and describe its condition or location with ser and estar.",
+      "focus": "ser for what something is, estar for its condition or location",
+      "words": [
+        {
+          "en": "low",
+          "es": "bajo",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "empty",
+          "es": "vacío",
+          "kind": "term"
+        },
+        {
+          "en": "broken",
+          "es": "roto",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term"
+        },
+        {
+          "en": "worn",
+          "es": "gastado",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the lift",
+          "es": "el elevador",
+          "kind": "term",
+          "note": "Some shops also say la rampa."
+        },
+        {
+          "en": "the hood",
+          "es": "el cofre",
+          "kind": "term",
+          "note": "Mexican usage; other regions say el capó."
+        },
+        {
+          "en": "The oil is low.",
+          "es": "El aceite está bajo.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The tire is worn.",
+          "es": "La llanta está gastada.",
+          "kind": "phrase",
+          "note": "The adjective matches: la llanta gastada, el tornillo gastado."
+        },
+        {
+          "en": "The car is on the lift.",
+          "es": "El carro está en el elevador.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "The battery is new.",
+          "es": "La batería es nueva.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's a Ford truck.",
+          "es": "Es una troca Ford.",
+          "kind": "phrase",
+          "note": "ser: what something is. Troca is common US and Mexican usage."
+        },
+        {
+          "en": "The bolt is loose.",
+          "es": "El tornillo está flojo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe a car on the lift to a coworker: say what it is and whether the oil is low or a tire is worn."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want, what there is, and what you must do in the shop.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the pliers",
+          "es": "las pinzas",
+          "kind": "term"
+        },
+        {
+          "en": "the screwdriver",
+          "es": "el desarmador",
+          "kind": "term",
+          "note": "Mexican usage; other regions say el destornillador."
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the safety glasses",
+          "es": "los lentes de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the part",
+          "es": "la refacción",
+          "kind": "term",
+          "note": "Mexican usage; many US shops also say la parte."
+        },
+        {
+          "en": "the rag",
+          "es": "el trapo",
+          "kind": "term"
+        },
+        {
+          "en": "the bulb",
+          "es": "el foco",
+          "kind": "term"
+        },
+        {
+          "en": "the noise",
+          "es": "el ruido",
+          "kind": "term"
+        },
+        {
+          "en": "the gas",
+          "es": "la gasolina",
+          "kind": "term"
+        },
+        {
+          "en": "the lug wrench",
+          "es": "la llave de cruz",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have the car keys?",
+          "es": "¿Tiene usted las llaves del carro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a noise in the front tire.",
+          "es": "Hay un ruido en la llanta delantera.",
+          "kind": "phrase",
+          "note": "hay: there is / there are."
+        },
+        {
+          "en": "I need the screwdriver, please.",
+          "es": "Necesito el desarmador, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The customer wants an oil change.",
+          "es": "La clienta quiere un cambio de aceite.",
+          "kind": "phrase",
+          "note": "A woman is la clienta; a man is el cliente."
+        },
+        {
+          "en": "You have to wear safety glasses.",
+          "es": "Hay que usar lentes de seguridad.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone must do."
+        }
+      ],
+      "speaking": "Tell a coworker what tools you need, what the customer wants, and what everyone has to wear in the shop."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you're going to do, and what you can do in the shop.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the parts store",
+          "es": "la tienda de refacciones",
+          "kind": "term"
+        },
+        {
+          "en": "the toolbox",
+          "es": "la caja de herramientas",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "the impact gun",
+          "es": "la pistola de impacto",
+          "kind": "term"
+        },
+        {
+          "en": "lunch",
+          "es": "el almuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "right now",
+          "es": "ahorita",
+          "kind": "term",
+          "note": "Mexican usage; can mean now or in a little while."
+        },
+        {
+          "en": "I'm going to the parts store.",
+          "es": "Voy a la tienda de refacciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to check the brakes today.",
+          "es": "Voy a revisar los frenos hoy.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "Can I move your car to the parking lot?",
+          "es": "¿Puedo mover su carro al estacionamiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll do the job tomorrow.",
+          "es": "Mañana hacemos el trabajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "She's going to wait in the waiting room.",
+          "es": "Ella va a esperar en la sala de espera.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the shop foreman where you are going, what you are going to do today, and what you can do tomorrow."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe everyday shop tasks in the present tense with yo, tú, usted, nosotros and ellos.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the belt",
+          "es": "la banda",
+          "kind": "term",
+          "note": "Common shop word for an engine belt."
+        },
+        {
+          "en": "the cap",
+          "es": "el tapón",
+          "kind": "term"
+        },
+        {
+          "en": "the steering wheel",
+          "es": "el volante",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the mirror",
+          "es": "el espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the windshield",
+          "es": "el parabrisas",
+          "kind": "term"
+        },
+        {
+          "en": "the window",
+          "es": "la ventana",
+          "kind": "term"
+        },
+        {
+          "en": "the license plates",
+          "es": "las placas",
+          "kind": "term"
+        },
+        {
+          "en": "I'm changing the belt today.",
+          "es": "Yo cambio la banda hoy.",
+          "kind": "phrase",
+          "note": "-ar verbs: cambio, cambias, cambia, cambiamos, cambian."
+        },
+        {
+          "en": "I write the mileage on the receipt.",
+          "es": "Yo escribo el millaje en el recibo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you check the hoses?",
+          "es": "¿Tú revisas las mangueras?",
+          "kind": "phrase",
+          "note": "tú: informal, between coworkers."
+        },
+        {
+          "en": "You pick up your car at 5.",
+          "es": "Usted recoge su carro a las 5.",
+          "kind": "phrase",
+          "note": "usted: formal, for customers."
+        },
+        {
+          "en": "We open at 7.",
+          "es": "Nosotros abrimos a las 7.",
+          "kind": "phrase",
+          "note": "-ir verbs: abro, abres, abre, abrimos, abren."
+        },
+        {
+          "en": "They sell used tires.",
+          "es": "Ellos venden llantas usadas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker what you do each day in the shop, and ask what they check on a car."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask customers and coworkers simple questions about a car, its owner, cost and timing.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "It matches the noun: ¿cuántos carros?, ¿cuántas llantas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in questions; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? for 'what is' a name or number."
+        },
+        {
+          "en": "the dashboard light",
+          "es": "la luz del tablero",
+          "kind": "term"
+        },
+        {
+          "en": "What problem does your car have?",
+          "es": "¿Qué problema tiene su carro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where are the keys?",
+          "es": "¿Dónde están las llaves?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the noise start?",
+          "es": "¿Cuándo empieza el ruido?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much does the oil change cost?",
+          "es": "¿Cuánto cuesta el cambio de aceite?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the owner of the car?",
+          "es": "¿Quién es el dueño del carro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is your phone number?",
+          "es": "¿Cuál es su número de teléfono?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a customer what problem the car has, when the noise starts, who the owner is, and their phone number."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody, nothing and not yet, and compare with more, less and another.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "After a verb, keep no: No veo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never use un before otro: otro trapo."
+        },
+        {
+          "en": "again",
+          "es": "otra vez",
+          "kind": "term"
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the leak",
+          "es": "la fuga",
+          "kind": "term"
+        },
+        {
+          "en": "Your car isn't ready yet.",
+          "es": "Su carro todavía no está listo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody in the office.",
+          "es": "No hay nadie en la oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never work under the car without jack stands.",
+          "es": "Nunca trabajo debajo del carro sin soportes.",
+          "kind": "phrase",
+          "note": "Some shops call jack stands las torres."
+        },
+        {
+          "en": "I don't see anything under the car.",
+          "es": "No veo nada debajo del carro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another rag.",
+          "es": "Necesito otro trapo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This tire costs less.",
+          "es": "Esta llanta cuesta menos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a customer their car isn't ready yet, that you see no leak under it, and that another tire costs less."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and give simple usted commands to customers at the shop.",
+      "focus": "¿Puede…? requests and usted commands for everyday shop verbs",
+      "words": [
+        {
+          "en": "the parking brake",
+          "es": "el freno de mano",
+          "kind": "term"
+        },
+        {
+          "en": "the engine",
+          "es": "el motor",
+          "kind": "term"
+        },
+        {
+          "en": "the gear shift",
+          "es": "la palanca de cambios",
+          "kind": "term"
+        },
+        {
+          "en": "the brake pedal",
+          "es": "el pedal del freno",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the counter",
+          "es": "el mostrador",
+          "kind": "term"
+        },
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the lights",
+          "es": "las luces",
+          "kind": "term"
+        },
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term"
+        },
+        {
+          "en": "Can you turn off the engine, please?",
+          "es": "¿Puede apagar el motor, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is a polite request to one person."
+        },
+        {
+          "en": "Put on the parking brake, please.",
+          "es": "Ponga el freno de mano, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: poner becomes ponga."
+        },
+        {
+          "en": "Press the brake pedal.",
+          "es": "Pise el pedal del freno.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sign here, please.",
+          "es": "Firme aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me your name?",
+          "es": "¿Me puede dar su nombre?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please come to the counter.",
+          "es": "Pase al mostrador, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a customer politely to turn off the engine, put on the parking brake, and sign at the counter."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize shop cognates and use survival phrases to get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases",
+      "words": [
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term",
+          "note": "-ción words are feminine: la inspección."
+        },
+        {
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term"
+        },
+        {
+          "en": "the pressure",
+          "es": "la presión",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the radiator",
+          "es": "el radiador",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you repeat?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say 'lug nut' in Spanish?",
+          "es": "¿Cómo se dice 'lug nut' en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help with the repair.",
+          "es": "Necesito ayuda con la reparación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker you speak a little Spanish, ask them to repeat more slowly, and ask how to say a part in Spanish."
+    }
+  ]
+}

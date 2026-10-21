@@ -1,0 +1,913 @@
+{
+  "version": 1,
+  "module": "foundation-pain-management",
+  "baseModule": "pain-management",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Pain Management Foundation",
+  "threshold": "By Lesson 10, you can greet patients, rate pain from 0 to 10, ask where and when it hurts, give polite instructions and ask for help, and start Pain Management Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a patient, say your name and the clinic, and say body parts where pain is clear.",
+      "focus": "The five pure vowels, ch, j, ll, rr and the written accent in greetings and body words",
+      "words": [
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term",
+          "note": "Stress the last syllable: do-LOR."
+        },
+        {
+          "en": "the back",
+          "es": "la espalda",
+          "kind": "term",
+          "note": "Short, pure vowels: es-PAL-da."
+        },
+        {
+          "en": "the knee",
+          "es": "la rodilla",
+          "kind": "term",
+          "note": "ll sounds like y (ro-DI-ya); a first r is trilled."
+        },
+        {
+          "en": "the neck",
+          "es": "el cuello",
+          "kind": "term",
+          "note": "ll sounds like y: CUE-yo."
+        },
+        {
+          "en": "the chest",
+          "es": "el pecho",
+          "kind": "term",
+          "note": "ch sounds like ch in church."
+        },
+        {
+          "en": "the belly",
+          "es": "la barriga",
+          "kind": "term",
+          "note": "rr is a strong trill. Patients use this everyday word often."
+        },
+        {
+          "en": "the injection",
+          "es": "la inyección",
+          "kind": "term",
+          "note": "The accent marks the stress: in-yec-CIÓN."
+        },
+        {
+          "en": "the shoulder",
+          "es": "el hombro",
+          "kind": "term",
+          "note": "The h is always silent: OM-bro."
+        },
+        {
+          "en": "the clinic",
+          "es": "la clínica",
+          "kind": "term",
+          "note": "The accent puts the stress on CLÍ."
+        },
+        {
+          "en": "the syringe",
+          "es": "la jeringa",
+          "kind": "term",
+          "note": "j sounds like a strong English h: he-RIN-ga."
+        },
+        {
+          "en": "Good morning, how are you?",
+          "es": "Buenos días, ¿cómo está usted?",
+          "kind": "phrase",
+          "note": "Use usted with patients."
+        },
+        {
+          "en": "Nice to meet you, my name is Sam.",
+          "es": "Mucho gusto, me llamo Sam.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm from the pain clinic.",
+          "es": "Soy de la clínica del dolor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, welcome to the clinic.",
+          "es": "Buenas tardes, bienvenido a la clínica.",
+          "kind": "phrase",
+          "note": "Say bienvenida to a woman."
+        },
+        {
+          "en": "See you later, take good care.",
+          "es": "Hasta luego, cuídese mucho.",
+          "kind": "phrase",
+          "note": "Cuídese is the polite usted form."
+        }
+      ],
+      "speaking": "Greet a patient in the waiting room, say your name and that you are from the pain clinic, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Use numbers, the clock and the 0 to 10 pain scale to rate pain and set appointments.",
+      "focus": "Numbers 0 to 1,000, clock time, the 0 to 10 pain scale, days, weeks, pounds and blood pressure",
+      "words": [
+        {
+          "en": "the scale",
+          "es": "la escala",
+          "kind": "term",
+          "note": "In the clinic: la escala del dolor, the pain scale."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the time / the hour",
+          "es": "la hora",
+          "kind": "term",
+          "note": "¿A qué hora? means at what time."
+        },
+        {
+          "en": "the days",
+          "es": "los días",
+          "kind": "term"
+        },
+        {
+          "en": "the weeks",
+          "es": "las semanas",
+          "kind": "term"
+        },
+        {
+          "en": "the months",
+          "es": "los meses",
+          "kind": "term"
+        },
+        {
+          "en": "the pills",
+          "es": "las pastillas",
+          "kind": "term"
+        },
+        {
+          "en": "the pounds",
+          "es": "las libras",
+          "kind": "term",
+          "note": "US clinics weigh in pounds."
+        },
+        {
+          "en": "the weight",
+          "es": "el peso",
+          "kind": "term"
+        },
+        {
+          "en": "the blood pressure",
+          "es": "la presión arterial",
+          "kind": "term",
+          "note": "In the clinic, la presión alone usually means blood pressure."
+        },
+        {
+          "en": "From 0 to 10, how much does it hurt?",
+          "es": "Del 0 al 10, ¿cuánto le duele?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your appointment is at 9 in the morning.",
+          "es": "Su cita es a las 9 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 2 in the afternoon.",
+          "es": "Son las 2 de la tarde.",
+          "kind": "phrase",
+          "note": "Use son las for 2 o'clock and later; es la for 1."
+        },
+        {
+          "en": "Your weight is 150 pounds.",
+          "es": "Su peso es de 150 libras.",
+          "kind": "phrase",
+          "note": "Measurements take de: es de 150 libras."
+        },
+        {
+          "en": "The blood pressure is 120 over 80.",
+          "es": "La presión es de 120 sobre 80.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient to rate their pain from 0 to 10, then tell them the day and time of their next appointment."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe pain, how a patient feels and where things are with ser and estar.",
+      "focus": "ser for what pain or a person is; estar for how a patient feels now or where something is",
+      "words": [
+        {
+          "en": "severe / strong",
+          "es": "fuerte",
+          "kind": "term",
+          "note": "Of pain, fuerte means severe: un dolor muy fuerte."
+        },
+        {
+          "en": "mild",
+          "es": "leve",
+          "kind": "term"
+        },
+        {
+          "en": "constant",
+          "es": "constante",
+          "kind": "term"
+        },
+        {
+          "en": "sharp",
+          "es": "agudo",
+          "kind": "term",
+          "note": "In medicine agudo also means acute."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "Cansada for a woman."
+        },
+        {
+          "en": "nervous",
+          "es": "nervioso",
+          "kind": "term",
+          "note": "Nerviosa for a woman."
+        },
+        {
+          "en": "swollen",
+          "es": "hinchado",
+          "kind": "term",
+          "note": "Many patients also say inflamado."
+        },
+        {
+          "en": "calm",
+          "es": "tranquilo",
+          "kind": "term",
+          "note": "Tranquila for a woman."
+        },
+        {
+          "en": "the head",
+          "es": "la cabeza",
+          "kind": "term"
+        },
+        {
+          "en": "the patient (woman)",
+          "es": "la paciente",
+          "kind": "term",
+          "note": "El paciente for a man."
+        },
+        {
+          "en": "It's a sharp pain.",
+          "es": "Es un dolor agudo.",
+          "kind": "phrase",
+          "note": "ser: what kind of pain it is."
+        },
+        {
+          "en": "The knee is swollen.",
+          "es": "La rodilla está hinchada.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Are you nervous today?",
+          "es": "¿Está nervioso hoy?",
+          "kind": "phrase",
+          "note": "Ask a woman: ¿Está nerviosa hoy?"
+        },
+        {
+          "en": "I'm your anesthesia provider.",
+          "es": "Soy su anestesista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The clinic is on the second floor.",
+          "es": "La clínica está en el segundo piso.",
+          "kind": "phrase",
+          "note": "estar for location."
+        }
+      ],
+      "speaking": "Tell a patient who you are, then ask if they are nervous or tired and whether the pain is mild or severe."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what a patient has, what there is in the clinic, and what you need or must do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the prescription",
+          "es": "la receta",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "the X-ray",
+          "es": "la radiografía",
+          "kind": "term"
+        },
+        {
+          "en": "the MRI",
+          "es": "la resonancia magnética",
+          "kind": "term",
+          "note": "Patients often just say la resonancia."
+        },
+        {
+          "en": "the health insurance",
+          "es": "el seguro médico",
+          "kind": "term"
+        },
+        {
+          "en": "the urine sample",
+          "es": "la muestra de orina",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the heat",
+          "es": "el calor",
+          "kind": "term"
+        },
+        {
+          "en": "the medicine",
+          "es": "la medicina",
+          "kind": "term"
+        },
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have pain now?",
+          "es": "¿Tiene dolor ahora?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need a urine sample.",
+          "es": "Necesitamos una muestra de orina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want ice for your knee?",
+          "es": "¿Quiere hielo para la rodilla?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There is a pharmacy on the first floor.",
+          "es": "Hay una farmacia en el primer piso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This form needs to be signed.",
+          "es": "Hay que firmar este formulario.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: something must be done."
+        }
+      ],
+      "speaking": "Tell a patient what you need today, such as a urine sample or their insurance card, and ask if they want ice or heat."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell a patient what you are going to do, where to go and what they can do.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the physical therapy",
+          "es": "la terapia física",
+          "kind": "term"
+        },
+        {
+          "en": "the exercises",
+          "es": "los ejercicios",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the exam table / the stretcher",
+          "es": "la camilla",
+          "kind": "term"
+        },
+        {
+          "en": "the work / the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the bed",
+          "es": "la cama",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "La mañana with the article means the morning."
+        },
+        {
+          "en": "next week",
+          "es": "la próxima semana",
+          "kind": "term"
+        },
+        {
+          "en": "We are going to do the procedure tomorrow.",
+          "es": "Vamos a hacer el procedimiento mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you walk without pain?",
+          "es": "¿Puede caminar sin dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you going to physical therapy this week?",
+          "es": "¿Va a ir a terapia física esta semana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to check your back.",
+          "es": "Voy a revisar su espalda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You can go home after the procedure.",
+          "es": "Usted puede ir a casa después del procedimiento.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain to a patient what you are going to do today, and ask if they can walk and do their exercises at home."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Ask a patient about daily habits and talk with coworkers in the present tense.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the sleep",
+          "es": "el sueño",
+          "kind": "term"
+        },
+        {
+          "en": "the food / the meal",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun, but el agua because it starts with a stressed a."
+        },
+        {
+          "en": "the alcohol",
+          "es": "el alcohol",
+          "kind": "term"
+        },
+        {
+          "en": "the cigarette",
+          "es": "el cigarro",
+          "kind": "term"
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "the primary care doctor",
+          "es": "el médico familiar",
+          "kind": "term",
+          "note": "La médica familiar for a woman."
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you smoke?",
+          "es": "¿Fuma usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you drink alcohol?",
+          "es": "¿Toma alcohol?",
+          "kind": "phrase",
+          "note": "Tomar is the everyday verb for drinking alcohol."
+        },
+        {
+          "en": "Do you live alone?",
+          "es": "¿Vive usted sola?",
+          "kind": "phrase",
+          "note": "Ask a man: ¿Vive usted solo?"
+        },
+        {
+          "en": "Do your children live with you?",
+          "es": "¿Sus hijos viven con usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you working tomorrow at the clinic?",
+          "es": "¿Trabajas mañana en la clínica?",
+          "kind": "phrase",
+          "note": "tú: informal, for a coworker. Use usted with patients."
+        }
+      ],
+      "speaking": "Ask a patient about daily habits: whether they smoke, drink alcohol, work, and live alone, using usted."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a patient simple questions about where, when and how it hurts.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué and cuál, with ¿ and the accent",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿Cuántos? for how many: ¿cuántos días?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the side",
+          "es": "el lado",
+          "kind": "term"
+        },
+        {
+          "en": "the leg",
+          "es": "la pierna",
+          "kind": "term"
+        },
+        {
+          "en": "Where does it hurt?",
+          "es": "¿Dónde le duele?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When did the pain start?",
+          "es": "¿Cuándo empezó el dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is the pain like?",
+          "es": "¿Cómo es el dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What medicines do you take now?",
+          "es": "¿Qué medicinas toma ahora?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is your primary care doctor?",
+          "es": "¿Quién es su médico familiar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which leg hurts more?",
+          "es": "¿Cuál pierna le duele más?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient where it hurts, when the pain started, what it is like and which medicines they take now."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Ask if pain is more or less, check what is missing, and use no, never and nobody.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro; double negatives in Spanish",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish keeps no before the verb: no siento nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Otra before a feminine noun. Never say un otro."
+        },
+        {
+          "en": "better",
+          "es": "mejor",
+          "kind": "term"
+        },
+        {
+          "en": "worse",
+          "es": "peor",
+          "kind": "term"
+        },
+        {
+          "en": "also",
+          "es": "también",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have more or less pain today?",
+          "es": "¿Tiene más o menos dolor hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We don't have the results yet.",
+          "es": "Todavía no tenemos los resultados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Does nobody else prescribe you pain medicine?",
+          "es": "¿Nadie más le receta medicinas para el dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You don't feel anything in your foot?",
+          "es": "¿No siente nada en el pie?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't share your medicines with anyone.",
+          "es": "No comparta sus medicinas con nadie.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need another pillow?",
+          "es": "¿Necesita otra almohada?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient if the pain is better or worse today, and check that nobody else prescribes them pain medicine."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a patient to change, move, sign and stay still for an exam or procedure.",
+      "focus": "¿Puede…? + infinitive and usted commands, including -se verbs (acuéstese, siéntese)",
+      "words": [
+        {
+          "en": "the gown",
+          "es": "la bata",
+          "kind": "term"
+        },
+        {
+          "en": "the shoes",
+          "es": "los zapatos",
+          "kind": "term"
+        },
+        {
+          "en": "the arm",
+          "es": "el brazo",
+          "kind": "term"
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the pen",
+          "es": "la pluma",
+          "kind": "term",
+          "note": "Mexican and US Spanish; some patients say el bolígrafo."
+        },
+        {
+          "en": "face down",
+          "es": "boca abajo",
+          "kind": "term"
+        },
+        {
+          "en": "face up",
+          "es": "boca arriba",
+          "kind": "term"
+        },
+        {
+          "en": "the finger",
+          "es": "el dedo",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "Can you put on the gown, please?",
+          "es": "¿Puede ponerse la bata, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lie face down, please.",
+          "es": "Acuéstese boca abajo, por favor.",
+          "kind": "phrase",
+          "note": "Usted command with -se attached: acuéstese, siéntese."
+        },
+        {
+          "en": "Take a deep breath.",
+          "es": "Respire profundo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Point with your finger to where it hurts.",
+          "es": "Señale con el dedo dónde le duele.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't move, please.",
+          "es": "No se mueva, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask a patient to put on the gown, lie face down, point to where it hurts and stay still for the exam."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize clinic cognates and ask for help or an interpreter when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the inflammation",
+          "es": "la inflamación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the anxiety",
+          "es": "la ansiedad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the depression",
+          "es": "la depresión",
+          "kind": "term"
+        },
+        {
+          "en": "the activity",
+          "es": "la actividad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "frequent",
+          "es": "frecuente",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the interpreter",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "La intérprete for a woman."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "Sorry, I don't understand.",
+          "es": "Perdón, no entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetirlo, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to call an interpreter.",
+          "es": "Voy a llamar a un intérprete.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamar a un intérprete."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient you don't understand, ask them to speak more slowly, and offer to call an interpreter."
+    }
+  ]
+}

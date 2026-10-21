@@ -1,0 +1,945 @@
+{
+  "version": 1,
+  "module": "foundation-k12-teacher",
+  "baseModule": "k12-teacher",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The K–12 Classroom Foundation",
+  "threshold": "By Lesson 10, you can greet students and parents, give times, pages and grades, describe how a student is, ask and answer simple school questions, make polite requests, and ask for help when you don't understand, and start K–12 Classroom Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.837Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say classroom words clearly and greet students and parents at school.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent in classroom words; greetings",
+      "words": [
+        {
+          "en": "the school",
+          "es": "la escuela",
+          "kind": "term",
+          "note": "Say every vowel clearly: es-cu-e-la. Spanish vowels stay short and pure."
+        },
+        {
+          "en": "the teacher",
+          "es": "la maestra",
+          "kind": "term",
+          "note": "For a man: el maestro. Students also say \"maestra\" to call the teacher."
+        },
+        {
+          "en": "the classroom",
+          "es": "el salón",
+          "kind": "term",
+          "note": "The accent marks the stressed syllable: sa-LÓN."
+        },
+        {
+          "en": "the pencil",
+          "es": "el lápiz",
+          "kind": "term",
+          "note": "Stress LÁ. The z sounds like English s in Mexico."
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term",
+          "note": "ch sounds like the ch in \"church.\""
+        },
+        {
+          "en": "the sheet of paper",
+          "es": "la hoja",
+          "kind": "term",
+          "note": "The h is silent; j sounds like a strong English h: O-ha."
+        },
+        {
+          "en": "the chair",
+          "es": "la silla",
+          "kind": "term",
+          "note": "ll sounds like English y: SI-ya."
+        },
+        {
+          "en": "the eraser",
+          "es": "el borrador",
+          "kind": "term",
+          "note": "rr is a strong rolled r; the single r at the end is a light tap."
+        },
+        {
+          "en": "the board",
+          "es": "el pizarrón",
+          "kind": "term",
+          "note": "Common in Mexico for the whiteboard or chalkboard. Stress the last syllable: rrÓN."
+        },
+        {
+          "en": "good morning",
+          "es": "buenos días",
+          "kind": "term"
+        },
+        {
+          "en": "good afternoon",
+          "es": "buenas tardes",
+          "kind": "term",
+          "note": "Use from about noon until dark."
+        },
+        {
+          "en": "Good morning, class.",
+          "es": "Buenos días, clase.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm Ms. Torres, the teacher.",
+          "es": "Soy la maestra Torres.",
+          "kind": "phrase",
+          "note": "A male teacher says: Soy el maestro Torres."
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase",
+          "note": "To a man: Mucho gusto, señor."
+        },
+        {
+          "en": "Welcome to the classroom.",
+          "es": "Bienvenidos al salón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow, kids.",
+          "es": "Hasta mañana, niños.",
+          "kind": "phrase",
+          "note": "Niños covers a mixed group of boys and girls."
+        }
+      ],
+      "speaking": "Greet a parent at the classroom door, say your name and that you are the teacher, and point to the backpack, chair and board."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give class times, page numbers, minutes and test scores to students and parents.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and school quantities: pages, minutes, points, grades",
+      "words": [
+        {
+          "en": "the page",
+          "es": "la página",
+          "kind": "term"
+        },
+        {
+          "en": "the time / the hour",
+          "es": "la hora",
+          "kind": "term",
+          "note": "¿A qué hora? means \"at what time?\""
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the grade level",
+          "es": "el grado",
+          "kind": "term",
+          "note": "El grado is the year in school (tercer grado). A score is la calificación."
+        },
+        {
+          "en": "the grade / the score",
+          "es": "la calificación",
+          "kind": "term"
+        },
+        {
+          "en": "the points",
+          "es": "los puntos",
+          "kind": "term"
+        },
+        {
+          "en": "the test",
+          "es": "el examen",
+          "kind": "term"
+        },
+        {
+          "en": "recess",
+          "es": "el recreo",
+          "kind": "term"
+        },
+        {
+          "en": "lunch",
+          "es": "el almuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "Class starts at 8:15.",
+          "es": "La clase empieza a las 8:15.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Recess is at 10:30.",
+          "es": "El recreo es a las 10:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Open your books to page 45.",
+          "es": "Abran el libro en la página 45.",
+          "kind": "phrase",
+          "note": "Abran is the command to the whole class (ustedes)."
+        },
+        {
+          "en": "You have 20 minutes.",
+          "es": "Tienen 20 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your daughter got 92 on the test.",
+          "es": "Su hija sacó 92 en el examen.",
+          "kind": "phrase",
+          "note": "Sacar is the everyday verb for getting a score."
+        },
+        {
+          "en": "It's 3:00.",
+          "es": "Son las 3:00.",
+          "kind": "phrase",
+          "note": "Use es la for 1:00: Es la 1:00."
+        }
+      ],
+      "speaking": "Tell a parent what time class starts, when recess and lunch are, and what score their child got on the test."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe who a student is and how they feel today, and say where someone is at school.",
+      "focus": "ser for who or what someone is, estar for feelings, conditions and location",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "estar listo = ready; ser listo = clever. Use lista for a girl."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term"
+        },
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term"
+        },
+        {
+          "en": "happy",
+          "es": "contento",
+          "kind": "term"
+        },
+        {
+          "en": "sad",
+          "es": "triste",
+          "kind": "term"
+        },
+        {
+          "en": "nervous",
+          "es": "nervioso",
+          "kind": "term"
+        },
+        {
+          "en": "calm",
+          "es": "tranquilo",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the nurse's office",
+          "es": "la enfermería",
+          "kind": "term"
+        },
+        {
+          "en": "the principal",
+          "es": "el director",
+          "kind": "term",
+          "note": "For a woman: la directora."
+        },
+        {
+          "en": "I'm the third-grade teacher.",
+          "es": "Soy la maestra de tercer grado.",
+          "kind": "phrase",
+          "note": "ser: who you are. A man says: Soy el maestro."
+        },
+        {
+          "en": "Your daughter is in the nurse's office.",
+          "es": "Su hija está en la enfermería.",
+          "kind": "phrase",
+          "note": "estar: where someone is."
+        },
+        {
+          "en": "He's a new student.",
+          "es": "Es un alumno nuevo.",
+          "kind": "phrase",
+          "note": "For a girl: Es una alumna nueva."
+        },
+        {
+          "en": "Are you ready?",
+          "es": "¿Estás listo?",
+          "kind": "phrase",
+          "note": "Informal tú, to a boy. To a girl: ¿Estás lista?"
+        },
+        {
+          "en": "The principal is in the office.",
+          "es": "La directora está en la oficina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your son is a very good student.",
+          "es": "Su hijo es muy buen estudiante.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a parent that you are their child's teacher, that the child is a good student, and how the child is today: tired, sick or happy."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what students have and need, ask what they want, and say what has to be done.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with school supplies",
+      "words": [
+        {
+          "en": "the homework",
+          "es": "la tarea",
+          "kind": "term"
+        },
+        {
+          "en": "the notebook",
+          "es": "el cuaderno",
+          "kind": "term"
+        },
+        {
+          "en": "the folder",
+          "es": "la carpeta",
+          "kind": "term"
+        },
+        {
+          "en": "the book",
+          "es": "el libro",
+          "kind": "term"
+        },
+        {
+          "en": "the scissors",
+          "es": "las tijeras",
+          "kind": "term"
+        },
+        {
+          "en": "the glue",
+          "es": "el pegamento",
+          "kind": "term"
+        },
+        {
+          "en": "the colored pencils",
+          "es": "los colores",
+          "kind": "term",
+          "note": "Mexico: los colores. Crayons are las crayolas."
+        },
+        {
+          "en": "the ruler",
+          "es": "la regla",
+          "kind": "term"
+        },
+        {
+          "en": "the calculator",
+          "es": "la calculadora",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have your homework?",
+          "es": "¿Tienes tu tarea?",
+          "kind": "phrase",
+          "note": "Informal tú, to one student."
+        },
+        {
+          "en": "You have to bring the notebook tomorrow.",
+          "es": "Hay que traer el cuaderno mañana.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        },
+        {
+          "en": "We need scissors and glue.",
+          "es": "Necesitamos tijeras y pegamento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a meeting on Thursday.",
+          "es": "Hay una junta el jueves.",
+          "kind": "phrase",
+          "note": "In Mexico a school meeting is una junta."
+        },
+        {
+          "en": "Do you want help?",
+          "es": "¿Quieres ayuda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your son needs a red folder.",
+          "es": "Su hijo necesita una carpeta roja.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a student if they have their homework and notebook, and tell a parent what supplies the class needs this week."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell students where the class is going, what you will do next, and what they can do.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder around the school building",
+      "words": [
+        {
+          "en": "the library",
+          "es": "la biblioteca",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the cafeteria",
+          "es": "la cafetería",
+          "kind": "term"
+        },
+        {
+          "en": "the playground / the schoolyard",
+          "es": "el patio",
+          "kind": "term"
+        },
+        {
+          "en": "the gym",
+          "es": "el gimnasio",
+          "kind": "term"
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the line",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term",
+          "note": "Many Mexican families also say el camión."
+        },
+        {
+          "en": "home / the house",
+          "es": "la casa",
+          "kind": "term",
+          "note": "Say en casa for at home and a casa for going home."
+        },
+        {
+          "en": "We're going to the library.",
+          "es": "Vamos a la biblioteca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I go to the restroom?",
+          "es": "¿Puedo ir al baño?",
+          "kind": "phrase",
+          "note": "Students ask this all day. al = a + el."
+        },
+        {
+          "en": "Tomorrow we're going to take a test.",
+          "es": "Mañana vamos a hacer un examen.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "Line up, please.",
+          "es": "Hagan una fila, por favor.",
+          "kind": "phrase",
+          "note": "Hagan is the command to the whole class (ustedes)."
+        },
+        {
+          "en": "The bus is going to arrive at 3:10.",
+          "es": "El autobús va a llegar a las 3:10.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your class to line up, say where you are all going next, and answer a student who asks to go to the restroom."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe what you and your students do in class each day and each week.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "reading",
+          "es": "la lectura",
+          "kind": "term"
+        },
+        {
+          "en": "math",
+          "es": "las matemáticas",
+          "kind": "term"
+        },
+        {
+          "en": "science",
+          "es": "las ciencias",
+          "kind": "term"
+        },
+        {
+          "en": "English (class)",
+          "es": "el inglés",
+          "kind": "term"
+        },
+        {
+          "en": "the story",
+          "es": "el cuento",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the desk",
+          "es": "el escritorio",
+          "kind": "term"
+        },
+        {
+          "en": "the group",
+          "es": "el grupo",
+          "kind": "term",
+          "note": "In Mexico el grupo also means a class section, like 3.° A."
+        },
+        {
+          "en": "Monday",
+          "es": "el lunes",
+          "kind": "term",
+          "note": "Los lunes means every Monday."
+        },
+        {
+          "en": "Friday",
+          "es": "el viernes",
+          "kind": "term"
+        },
+        {
+          "en": "We read a story every day.",
+          "es": "Leemos un cuento todos los días.",
+          "kind": "phrase",
+          "note": "-er verb, nosotros: leemos."
+        },
+        {
+          "en": "You write very well, Daniel.",
+          "es": "Escribes muy bien, Daniel.",
+          "kind": "phrase",
+          "note": "-ir verb, tú: escribes."
+        },
+        {
+          "en": "The students work in groups.",
+          "es": "Los alumnos trabajan en grupos.",
+          "kind": "phrase",
+          "note": "-ar verb, ellos: trabajan."
+        },
+        {
+          "en": "I speak English and a little Spanish.",
+          "es": "Hablo inglés y un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You get an email every Friday.",
+          "es": "Usted recibe un correo cada viernes.",
+          "kind": "phrase",
+          "note": "Formal usted, to a parent."
+        },
+        {
+          "en": "We eat at 11:45.",
+          "es": "Comemos a las 11:45.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Explain your class schedule to a parent: what the students read, write and study each day, and when they eat lunch."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask students and parents simple questions about names, places, times and reasons.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué and cuál with rising questions",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "For more than one person: ¿quiénes?"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how many?",
+          "es": "¿cuántos?",
+          "kind": "term",
+          "note": "Use cuántas with feminine nouns: ¿cuántas páginas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in a question; the answer porque (because) is one word."
+        },
+        {
+          "en": "which? / what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál before es to ask which one: ¿Cuál es tu salón?"
+        },
+        {
+          "en": "the word",
+          "es": "la palabra",
+          "kind": "term"
+        },
+        {
+          "en": "What's your name?",
+          "es": "¿Cómo te llamas?",
+          "kind": "phrase",
+          "note": "Informal tú, to a student."
+        },
+        {
+          "en": "What does this word mean?",
+          "es": "¿Qué significa esta palabra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is absent today?",
+          "es": "¿Quién falta hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is your backpack?",
+          "es": "¿Dónde está tu mochila?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why are you sad?",
+          "es": "¿Por qué estás triste?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When can you come to the school?",
+          "es": "¿Cuándo puede venir a la escuela?",
+          "kind": "phrase",
+          "note": "Formal usted, to a parent."
+        }
+      ],
+      "speaking": "Ask a new student their name, where their backpack is, and how many pages they read, then ask a parent when they can come in."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what a student has not done yet, what never happens, and ask for more or less.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro with absences and homework",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "always",
+          "es": "siempre",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: No tengo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another / other",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro. Use otra with feminine nouns: otra hoja."
+        },
+        {
+          "en": "the absence",
+          "es": "la falta",
+          "kind": "term"
+        },
+        {
+          "en": "the tardy",
+          "es": "el retardo",
+          "kind": "term",
+          "note": "Common in Mexican schools for a late arrival."
+        },
+        {
+          "en": "Your son hasn't turned in the homework yet.",
+          "es": "Su hijo todavía no entrega la tarea.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your daughter is never late.",
+          "es": "Su hija nunca llega tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody leaves the room without permission.",
+          "es": "Nadie sale del salón sin permiso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You need to read more at home.",
+          "es": "Necesitas leer más en casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want another sheet of paper?",
+          "es": "¿Quieres otra hoja?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Less noise, please.",
+          "es": "Menos ruido, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a parent their child has not turned in the homework yet, has no tardies, and needs to read more at home."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a parent to sign, call, check or send something for school.",
+      "focus": "¿Puede…? + infinitive and usted commands (llame, revise, mande, escriba) with parents",
+      "words": [
+        {
+          "en": "the parents",
+          "es": "los padres",
+          "kind": "term",
+          "note": "Los padres means mother and father. Schools also say los padres de familia."
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the report card",
+          "es": "la boleta",
+          "kind": "term",
+          "note": "Full form in Mexico: la boleta de calificaciones."
+        },
+        {
+          "en": "the permission slip",
+          "es": "el permiso",
+          "kind": "term",
+          "note": "Also la hoja de permiso."
+        },
+        {
+          "en": "the meeting",
+          "es": "la junta",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the note / the message",
+          "es": "el recado",
+          "kind": "term"
+        },
+        {
+          "en": "the email",
+          "es": "el correo",
+          "kind": "term",
+          "note": "Short for el correo electrónico."
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign the report card, please?",
+          "es": "¿Puede firmar la boleta, por favor?",
+          "kind": "phrase",
+          "note": "Formal usted: polite with every parent."
+        },
+        {
+          "en": "Can you come to a meeting on Tuesday?",
+          "es": "¿Puede venir a una junta el martes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please call the school tomorrow.",
+          "es": "Llame a la escuela mañana, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of llamar."
+        },
+        {
+          "en": "Check the backpack every night.",
+          "es": "Revise la mochila cada noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Send a note if your daughter is absent.",
+          "es": "Mande un recado si su hija falta.",
+          "kind": "phrase",
+          "note": "Mandar is the everyday Mexican verb for send."
+        },
+        {
+          "en": "Write your phone number here.",
+          "es": "Escriba su número de teléfono aquí.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a parent to sign the report card and the permission slip, write their phone number, and come to a meeting next week."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize school cognates and ask for help or an interpreter when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "education",
+          "es": "la educación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the evaluation",
+          "es": "la evaluación",
+          "kind": "term"
+        },
+        {
+          "en": "the activity",
+          "es": "la actividad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term"
+        },
+        {
+          "en": "safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the student",
+          "es": "el estudiante",
+          "kind": "term",
+          "note": "For a girl: la estudiante. The word stays the same."
+        },
+        {
+          "en": "absent",
+          "es": "ausente",
+          "kind": "term"
+        },
+        {
+          "en": "present / here",
+          "es": "presente",
+          "kind": "term",
+          "note": "Students answer \"¡Presente!\" when you take attendance."
+        },
+        {
+          "en": "the interpreter",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "For a woman: la intérprete."
+        },
+        {
+          "en": "I don't understand, can you repeat that?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"grade\" in Spanish?",
+          "es": "¿Cómo se dice \"grade\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm learning Spanish.",
+          "es": "Estoy aprendiendo español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need an interpreter.",
+          "es": "Necesitamos un intérprete.",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, please.",
+          "es": "Un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a parent you are learning Spanish, ask them to speak more slowly or repeat, and offer an interpreter for the meeting."
+    }
+  ]
+}

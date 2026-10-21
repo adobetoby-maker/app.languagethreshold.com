@@ -1,0 +1,903 @@
+{
+  "version": 1,
+  "module": "foundation-travel-markets-souvenirs",
+  "baseModule": "travel-markets-souvenirs",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Markets & Souvenirs Foundation",
+  "threshold": "By Lesson 10, you can greet vendors, count pesos and kilos, describe goods, ask simple questions, say what you need, make polite requests, ask for help, and start Markets & Souvenirs Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a market vendor politely and say common market words with clear Spanish sounds.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings at a market stall",
+      "words": [
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term",
+          "note": "Vowels are short and pure: a as in father, e as in met, o as in more."
+        },
+        {
+          "en": "the chili pepper",
+          "es": "el chile",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the pitcher",
+          "es": "la jarra",
+          "kind": "term",
+          "note": "j sounds like a strong English h; rr is a rolled, trilled r."
+        },
+        {
+          "en": "the clay",
+          "es": "el barro",
+          "kind": "term",
+          "note": "Trill the rr: pero means but, perro means dog."
+        },
+        {
+          "en": "the tortilla",
+          "es": "la tortilla",
+          "kind": "term",
+          "note": "In Mexico ll sounds like the y in yes: tor-TI-ya."
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: ja-BÓN."
+        },
+        {
+          "en": "the ceramics",
+          "es": "la cerámica",
+          "kind": "term",
+          "note": "Stress the syllable with the accent: ce-RÁ-mi-ca."
+        },
+        {
+          "en": "the handicraft",
+          "es": "la artesanía",
+          "kind": "term",
+          "note": "The accent on í splits the vowels: ar-te-sa-NÍ-a."
+        },
+        {
+          "en": "the stall",
+          "es": "el puesto",
+          "kind": "term",
+          "note": "u and e glide together: PWES-to."
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning!",
+          "es": "¡Buenos días!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, ma'am.",
+          "es": "Buenas tardes, señora.",
+          "kind": "phrase",
+          "note": "Use señor for a man. Buenas tardes is used from noon until dark."
+        },
+        {
+          "en": "Nice to meet you, my name is Ana.",
+          "es": "Mucho gusto, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with vendors and people you don't know."
+        },
+        {
+          "en": "Very well, thanks, see you later.",
+          "es": "Muy bien, gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a vendor at the market, say your name, and say three market words with clear vowels and a trilled rr."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Understand prices, opening times and market quantities like kilos, grams and pieces.",
+      "focus": "Numbers 0 to 1,000, clock time, and market quantities: kilos, grams, pieces and pesos",
+      "words": [
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican currency; prices use the $ sign for pesos too."
+        },
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term"
+        },
+        {
+          "en": "the quarter kilo",
+          "es": "el cuarto de kilo",
+          "kind": "term"
+        },
+        {
+          "en": "the gram",
+          "es": "el gramo",
+          "kind": "term"
+        },
+        {
+          "en": "the piece",
+          "es": "la pieza",
+          "kind": "term",
+          "note": "Vendors count single items by la pieza: 3 piezas means 3 items."
+        },
+        {
+          "en": "the dozen",
+          "es": "la docena",
+          "kind": "term"
+        },
+        {
+          "en": "the meter",
+          "es": "el metro",
+          "kind": "term",
+          "note": "Fabric and ribbon are sold by the meter."
+        },
+        {
+          "en": "the scale",
+          "es": "la báscula",
+          "kind": "term",
+          "note": "The scale at the stall where food is weighed."
+        },
+        {
+          "en": "the change",
+          "es": "el cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "That's 85 pesos.",
+          "es": "Son 85 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Half a kilo of cheese, please.",
+          "es": "Medio kilo de queso, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time does the market open?",
+          "es": "¿A qué hora abre el mercado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It opens at 7 and closes at 6.",
+          "es": "Abre a las 7 y cierra a las 6.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 250 grams of coffee.",
+          "es": "Son 250 gramos de café.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a vendor what time the market opens, then order half a kilo of cheese and repeat the price you hear."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe market goods and stalls: what they are made of and their condition.",
+      "focus": "ser for what something is or is made of, estar for its condition or location",
+      "words": [
+        {
+          "en": "fresh",
+          "es": "fresco",
+          "kind": "term"
+        },
+        {
+          "en": "ripe",
+          "es": "maduro",
+          "kind": "term"
+        },
+        {
+          "en": "expensive",
+          "es": "caro",
+          "kind": "term"
+        },
+        {
+          "en": "cheap",
+          "es": "barato",
+          "kind": "term"
+        },
+        {
+          "en": "fragile",
+          "es": "frágil",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "handmade",
+          "es": "hecho a mano",
+          "kind": "term",
+          "note": "Agrees with the item: una blusa hecha a mano."
+        },
+        {
+          "en": "the artisan",
+          "es": "el artesano",
+          "kind": "term",
+          "note": "For a woman: la artesana."
+        },
+        {
+          "en": "This mango is ripe.",
+          "es": "Este mango está maduro.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The artisan is from Oaxaca.",
+          "es": "El artesano es de Oaxaca.",
+          "kind": "phrase",
+          "note": "ser: origin and identity."
+        },
+        {
+          "en": "The stall is closed.",
+          "es": "El puesto está cerrado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's fragile, careful.",
+          "es": "Es frágil, cuidado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm at the crafts market.",
+          "es": "Estoy en el mercado de artesanías.",
+          "kind": "phrase",
+          "note": "estar: location."
+        }
+      ],
+      "speaking": "Describe two items at a stall to a vendor: say if the fruit is ripe or fresh and if the pitcher is fragile."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you want and need at a market and ask if a vendor has it.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive for buying food and gifts",
+      "words": [
+        {
+          "en": "the cheese",
+          "es": "el queso",
+          "kind": "term"
+        },
+        {
+          "en": "the bread",
+          "es": "el pan",
+          "kind": "term"
+        },
+        {
+          "en": "the fruit",
+          "es": "la fruta",
+          "kind": "term"
+        },
+        {
+          "en": "the avocado",
+          "es": "el aguacate",
+          "kind": "term"
+        },
+        {
+          "en": "the honey",
+          "es": "la miel",
+          "kind": "term"
+        },
+        {
+          "en": "the coffee",
+          "es": "el café",
+          "kind": "term"
+        },
+        {
+          "en": "the gift",
+          "es": "el regalo",
+          "kind": "term"
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have Oaxaca cheese?",
+          "es": "¿Tiene queso Oaxaca?",
+          "kind": "phrase",
+          "note": "A stringy white cheese; vendors say queso Oaxaca."
+        },
+        {
+          "en": "Are there ripe avocados?",
+          "es": "¿Hay aguacates maduros?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need a box for the gift.",
+          "es": "Necesito una caja para el regalo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want half a kilo of coffee.",
+          "es": "Quiero medio kilo de café.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to pay in cash.",
+          "es": "Hay que pagar en efectivo.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done, no specific person."
+        },
+        {
+          "en": "Do you have change for 500?",
+          "es": "¿Tiene cambio de 500?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a vendor what you want and need for a gift, ask if they have it, and ask if you have to pay in cash."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about market plans, ask what an artisan makes, and ask what you can do.",
+      "focus": "ir, ir a + infinitive for plans, hacer for making crafts, poder for asking permission",
+      "words": [
+        {
+          "en": "the open-air market",
+          "es": "el tianguis",
+          "kind": "term",
+          "note": "Mexican word for a street market, often held on a set day each week."
+        },
+        {
+          "en": "the workshop",
+          "es": "el taller",
+          "kind": "term"
+        },
+        {
+          "en": "the square",
+          "es": "la plaza",
+          "kind": "term"
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term"
+        },
+        {
+          "en": "the shop",
+          "es": "la tienda",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "later",
+          "es": "después",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the street market on Sunday.",
+          "es": "Voy al tianguis el domingo.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "I'm going to buy a gift.",
+          "es": "Voy a comprar un regalo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you make the shawls?",
+          "es": "¿Usted hace los rebozos?",
+          "kind": "phrase",
+          "note": "A rebozo is a traditional Mexican shawl."
+        },
+        {
+          "en": "Can I see the workshop?",
+          "es": "¿Puedo ver el taller?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to come back tomorrow.",
+          "es": "Voy a regresar mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell an artisan what you are going to buy, ask if you can see the workshop, and say when you are going to come back."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you buy and where you live, and ask what a vendor sells.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs: compro, vende, vivimos, bordan",
+      "words": [
+        {
+          "en": "the vendor",
+          "es": "la vendedora",
+          "kind": "term",
+          "note": "For a man: el vendedor."
+        },
+        {
+          "en": "the plate",
+          "es": "el plato",
+          "kind": "term"
+        },
+        {
+          "en": "the cup",
+          "es": "la taza",
+          "kind": "term"
+        },
+        {
+          "en": "the necklace",
+          "es": "el collar",
+          "kind": "term"
+        },
+        {
+          "en": "the bracelet",
+          "es": "la pulsera",
+          "kind": "term"
+        },
+        {
+          "en": "the embroidery",
+          "es": "el bordado",
+          "kind": "term"
+        },
+        {
+          "en": "silver",
+          "es": "la plata",
+          "kind": "term"
+        },
+        {
+          "en": "wood",
+          "es": "la madera",
+          "kind": "term"
+        },
+        {
+          "en": "wool",
+          "es": "la lana",
+          "kind": "term"
+        },
+        {
+          "en": "the hat",
+          "es": "el sombrero",
+          "kind": "term"
+        },
+        {
+          "en": "I'm buying 2 plates.",
+          "es": "Compro 2 platos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you sell silver bracelets?",
+          "es": "¿Usted vende pulseras de plata?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We live in Chicago.",
+          "es": "Nosotros vivimos en Chicago.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They embroider the blouses by hand.",
+          "es": "Ellos bordan las blusas a mano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you buying the necklace, or am I?",
+          "es": "¿Tú compras el collar o yo?",
+          "kind": "phrase",
+          "note": "Informal tú: use it with a travel companion, not with the vendor."
+        }
+      ],
+      "speaking": "Tell a vendor where you live and what you are buying, then ask what they sell, using the present tense."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a vendor simple questions about price, maker, place, time and choice.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál at a market stall",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿cuántos? for how many: ¿Cuántos quiere?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Written as two words in questions; porque (one word) means because."
+        },
+        {
+          "en": "which one?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "how much per unit?",
+          "es": "¿a cómo?",
+          "kind": "term",
+          "note": "Common in Mexican markets for prices by weight or piece."
+        },
+        {
+          "en": "How much is this necklace?",
+          "es": "¿Cuánto cuesta este collar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is a kilo of strawberries?",
+          "es": "¿A cómo está el kilo de fresas?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who made this pitcher?",
+          "es": "¿Quién hizo esta jarra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is the restroom?",
+          "es": "¿Dónde está el baño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one do you recommend?",
+          "es": "¿Cuál me recomienda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the stall close?",
+          "es": "¿Cuándo cierra el puesto?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a vendor three questions: how much an item costs, who made it, and when the stall closes."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Politely say no, not yet, more, less or another one when buying at a market.",
+      "focus": "no, nunca, nadie, nada, todavía no, and más, menos, otro for amounts and choices",
+      "words": [
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before otro: otro color, not un otro color."
+        },
+        {
+          "en": "the discount",
+          "es": "el descuento",
+          "kind": "term"
+        },
+        {
+          "en": "the small taste",
+          "es": "la probadita",
+          "kind": "term",
+          "note": "Informal Mexican word for a tasting sample."
+        },
+        {
+          "en": "No, thanks, I'm just looking.",
+          "es": "No, gracias, solo estoy viendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Not yet, I'm going to think about it.",
+          "es": "Todavía no, voy a pensarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A little more, please.",
+          "es": "Un poco más, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want another color.",
+          "es": "Quiero otro color.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything else, thanks.",
+          "es": "No necesito nada más, gracias.",
+          "kind": "phrase",
+          "note": "Spanish uses a double negative: no ... nada."
+        },
+        {
+          "en": "Can you give it to me for less?",
+          "es": "¿Me lo deja en menos?",
+          "kind": "phrase",
+          "note": "A polite, common way to ask for a lower price in Mexico."
+        }
+      ],
+      "speaking": "Politely turn down an offer, say you don't need anything else yet, and ask a vendor for a little more or less."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a vendor politely to wrap, write, ship or hand you things.",
+      "focus": "¿Puede…? and ¿Me puede…? requests and usted commands: envuelva, escriba, póngalo",
+      "words": [
+        {
+          "en": "the paper",
+          "es": "el papel",
+          "kind": "term"
+        },
+        {
+          "en": "the tape",
+          "es": "la cinta",
+          "kind": "term"
+        },
+        {
+          "en": "the bubble wrap",
+          "es": "el plástico de burbujas",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the size",
+          "es": "la talla",
+          "kind": "term",
+          "note": "For clothing sizes: ¿Qué talla es?"
+        },
+        {
+          "en": "the color",
+          "es": "el color",
+          "kind": "term"
+        },
+        {
+          "en": "the shipment",
+          "es": "el envío",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "Can you wrap it well, please?",
+          "es": "¿Puede envolverlo bien, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a receipt?",
+          "es": "¿Me puede dar un recibo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Write the price here, please.",
+          "es": "Escriba el precio aquí, por favor.",
+          "kind": "phrase",
+          "note": "usted command: polite with por favor."
+        },
+        {
+          "en": "Please speak more slowly.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you ship it to the United States?",
+          "es": "¿Puede mandarlo a Estados Unidos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put it in a box, please.",
+          "es": "Póngalo en una caja, por favor.",
+          "kind": "phrase",
+          "note": "The pronoun lo attaches to the command: pónga + lo."
+        }
+      ],
+      "speaking": "Ask a vendor politely to wrap your purchase, put it in a box, and give you a receipt."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "the tradition",
+          "es": "la tradición",
+          "kind": "term"
+        },
+        {
+          "en": "the decoration",
+          "es": "la decoración",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the quality",
+          "es": "la calidad",
+          "kind": "term",
+          "note": "-dad words match English -ty and are feminine: la calidad."
+        },
+        {
+          "en": "the variety",
+          "es": "la variedad",
+          "kind": "term"
+        },
+        {
+          "en": "the specialty",
+          "es": "la especialidad",
+          "kind": "term"
+        },
+        {
+          "en": "the ingredient",
+          "es": "el ingrediente",
+          "kind": "term"
+        },
+        {
+          "en": "excellent",
+          "es": "excelente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, can you repeat?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's excellent quality.",
+          "es": "Es de excelente calidad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is the specialty of the region?",
+          "es": "¿Cuál es la especialidad de la región?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a vendor you don't understand, ask how to say an item in Spanish, and use two cognates to praise its quality."
+    }
+  ]
+}

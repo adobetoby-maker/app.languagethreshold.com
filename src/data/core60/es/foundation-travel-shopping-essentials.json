@@ -1,0 +1,949 @@
+{
+  "version": 1,
+  "module": "foundation-travel-shopping-essentials",
+  "baseModule": "travel-shopping-essentials",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Shopping & Essentials Foundation",
+  "threshold": "By Lesson 10, you can greet a clerk, give your size and prices in numbers, say how clothes fit, ask questions and make polite requests in a store, and start Shopping & Essentials Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say Spanish vowels and key sounds in shopping words and greet a store clerk politely.",
+      "focus": "The five pure vowels, ch, j, ll, rr, the written accent, and polite greetings",
+      "words": [
+        {
+          "en": "the store",
+          "es": "la tienda",
+          "kind": "term",
+          "note": "ie glides together: TYEN-da."
+        },
+        {
+          "en": "the size",
+          "es": "la talla",
+          "kind": "term",
+          "note": "ll sounds like English y in most of Mexico: TA-ya."
+        },
+        {
+          "en": "the socks",
+          "es": "los calcetines",
+          "kind": "term",
+          "note": "c before e or i sounds like s in Latin America."
+        },
+        {
+          "en": "the jacket",
+          "es": "la chamarra",
+          "kind": "term",
+          "note": "ch as in church; rr is a strong trill. Mexican word for jacket."
+        },
+        {
+          "en": "the cashier (woman)",
+          "es": "la cajera",
+          "kind": "term",
+          "note": "j sounds like a strong English h. A man is el cajero."
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term",
+          "note": "Say every vowel: to-A-ya."
+        },
+        {
+          "en": "the fitting room",
+          "es": "el probador",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap, like dd in ladder."
+        },
+        {
+          "en": "the charger",
+          "es": "el cargador",
+          "kind": "term",
+          "note": "g before a is hard, as in go."
+        },
+        {
+          "en": "the shirt",
+          "es": "la camisa",
+          "kind": "term",
+          "note": "Spanish vowels are short and pure; they never glide like English."
+        },
+        {
+          "en": "the shampoo",
+          "es": "el champú",
+          "kind": "term",
+          "note": "The written accent marks the stress: cham-PÚ."
+        },
+        {
+          "en": "the suitcase",
+          "es": "la maleta",
+          "kind": "term",
+          "note": "Without an accent, stress the second-to-last syllable: ma-LE-ta."
+        },
+        {
+          "en": "Good morning, ma'am.",
+          "es": "Buenos días, señora.",
+          "kind": "phrase",
+          "note": "Use buenos días until about noon, then buenas tardes."
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está?",
+          "kind": "phrase",
+          "note": "Está is the polite usted form, right for clerks."
+        },
+        {
+          "en": "Very well, thanks, and you?",
+          "es": "Muy bien, gracias, ¿y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, my name is Sam.",
+          "es": "Mucho gusto, me llamo Sam.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say charger in Spanish?",
+          "es": "¿Cómo se dice charger en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thanks, see you later.",
+          "es": "Gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a store clerk, say your name, and ask how to say one item from your suitcase in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say prices in pesos, clothing and shoe sizes, quantities and store hours.",
+      "focus": "Numbers 0 to 1,000, clock time, sizes, pairs and prices in pesos",
+      "words": [
+        {
+          "en": "the number, the shoe size",
+          "es": "el número",
+          "kind": "term",
+          "note": "For shoes, ask for el número, not la talla."
+        },
+        {
+          "en": "the pair",
+          "es": "el par",
+          "kind": "term"
+        },
+        {
+          "en": "the piece, the item",
+          "es": "la pieza",
+          "kind": "term",
+          "note": "Mexican stores often count items as piezas."
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican money; peso also means weight."
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the hour, the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the centimeter",
+          "es": "el centímetro",
+          "kind": "term"
+        },
+        {
+          "en": "small",
+          "es": "chica",
+          "kind": "term",
+          "note": "Agrees with la talla: talla chica."
+        },
+        {
+          "en": "medium",
+          "es": "mediana",
+          "kind": "term"
+        },
+        {
+          "en": "large",
+          "es": "grande",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "3 pairs of socks, please.",
+          "es": "3 pares de calcetines, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it 250 pesos?",
+          "es": "¿Son 250 pesos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I wear a size 26 shoe.",
+          "es": "Calzo del 26.",
+          "kind": "phrase",
+          "note": "Mexican shoe sizes go by centimeters; ask the clerk to measure your foot."
+        },
+        {
+          "en": "I wear a medium.",
+          "es": "Uso talla mediana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The store closes at 9 at night.",
+          "es": "La tienda cierra a las 9 de la noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it 1,000 pesos in total?",
+          "es": "¿Son 1,000 pesos en total?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a clerk your clothing size, your shoe number and how many pairs of socks you want, then confirm the price in pesos."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe clothes, prices and places in a store with the two verbs for 'to be'.",
+      "focus": "ser for what something is or is made of, estar for how it fits now or where it is",
+      "words": [
+        {
+          "en": "comfortable",
+          "es": "cómodo",
+          "kind": "term"
+        },
+        {
+          "en": "expensive",
+          "es": "caro",
+          "kind": "term"
+        },
+        {
+          "en": "cheap",
+          "es": "barato",
+          "kind": "term"
+        },
+        {
+          "en": "tight",
+          "es": "apretado",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term",
+          "note": "For clothes it means loose; for people it means lazy."
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "occupied, busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the cotton",
+          "es": "el algodón",
+          "kind": "term"
+        },
+        {
+          "en": "The shirt is cotton.",
+          "es": "La camisa es de algodón.",
+          "kind": "phrase",
+          "note": "ser + de: what something is made of."
+        },
+        {
+          "en": "The fitting room is occupied.",
+          "es": "El probador está ocupado.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "It's very expensive.",
+          "es": "Es muy caro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The shoes are tight.",
+          "es": "Los zapatos están apretados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase",
+          "note": "ser: who you are."
+        },
+        {
+          "en": "The register is over there.",
+          "es": "La caja está allá.",
+          "kind": "phrase",
+          "note": "estar: where something is."
+        }
+      ],
+      "speaking": "Tell a clerk whether a shirt is cotton, whether it is tight, loose or comfortable, and whether it is cheap or expensive."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want, ask if a store has an item, and say what you have to do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the underwear",
+          "es": "la ropa interior",
+          "kind": "term"
+        },
+        {
+          "en": "the toothbrush",
+          "es": "el cepillo de dientes",
+          "kind": "term"
+        },
+        {
+          "en": "the toothpaste",
+          "es": "la pasta de dientes",
+          "kind": "term"
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the umbrella",
+          "es": "el paraguas",
+          "kind": "term",
+          "note": "Same form for one or many: los paraguas."
+        },
+        {
+          "en": "the sweatshirt",
+          "es": "la sudadera",
+          "kind": "term"
+        },
+        {
+          "en": "the luggage",
+          "es": "el equipaje",
+          "kind": "term"
+        },
+        {
+          "en": "I need underwear for 3 days.",
+          "es": "Necesito ropa interior para 3 días.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are there toothbrushes?",
+          "es": "¿Hay cepillos de dientes?",
+          "kind": "phrase",
+          "note": "hay = there is / there are, one form for both."
+        },
+        {
+          "en": "I want a sweatshirt in a small.",
+          "es": "Quiero una sudadera en talla chica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I only have a card.",
+          "es": "Solo tengo tarjeta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to pay at the register.",
+          "es": "Hay que pagar en la caja.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        },
+        {
+          "en": "Do you have a bag, please?",
+          "es": "¿Tiene bolsa, por favor?",
+          "kind": "phrase",
+          "note": "Some stores charge for bags; ask the cashier."
+        }
+      ],
+      "speaking": "Tell a clerk your luggage is missing, say what toiletries and underwear you need, and ask if they have a bag."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to buy, talk about the weather and ask if you can do something.",
+      "focus": "ir, ir a + infinitive for plans, hacer for weather, poder to ask permission",
+      "words": [
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "the mall",
+          "es": "el centro comercial",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "the shoe store",
+          "es": "la zapatería",
+          "kind": "term"
+        },
+        {
+          "en": "the department store",
+          "es": "la tienda departamental",
+          "kind": "term",
+          "note": "Common term in Mexico."
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the register, the checkout",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the cold",
+          "es": "el frío",
+          "kind": "term",
+          "note": "Weather uses hacer: hace frío."
+        },
+        {
+          "en": "the heat",
+          "es": "el calor",
+          "kind": "term",
+          "note": "hace calor = it's hot (weather)."
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "la mañana means the morning."
+        },
+        {
+          "en": "I'm going to the pharmacy.",
+          "es": "Voy a la farmacia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's going to rain tomorrow.",
+          "es": "Mañana va a llover.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's cold, I'm going to buy a jacket.",
+          "es": "Hace frío, voy a comprar una chamarra.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I try it on?",
+          "es": "¿Puedo probármelo?",
+          "kind": "phrase",
+          "note": "Use probármela for a feminine item, like la camisa."
+        },
+        {
+          "en": "We're going to the mall.",
+          "es": "Vamos al centro comercial.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        }
+      ],
+      "speaking": "Tell a clerk the weather tomorrow, say what you are going to buy for it, and ask if you can try it on and pay by card."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you and others look for, buy and use when shopping, with everyday present-tense verbs.",
+      "focus": "Present tense of -ar, -er and -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the trousers",
+          "es": "los pantalones",
+          "kind": "term"
+        },
+        {
+          "en": "the T-shirt",
+          "es": "la playera",
+          "kind": "term",
+          "note": "Mexican word; you may also hear la camiseta."
+        },
+        {
+          "en": "the shoes",
+          "es": "los zapatos",
+          "kind": "term"
+        },
+        {
+          "en": "the sneakers",
+          "es": "los tenis",
+          "kind": "term",
+          "note": "Mexican word for athletic shoes."
+        },
+        {
+          "en": "the dress",
+          "es": "el vestido",
+          "kind": "term"
+        },
+        {
+          "en": "the sweater",
+          "es": "el suéter",
+          "kind": "term"
+        },
+        {
+          "en": "the cap",
+          "es": "la gorra",
+          "kind": "term"
+        },
+        {
+          "en": "the belt",
+          "es": "el cinturón",
+          "kind": "term"
+        },
+        {
+          "en": "the sunglasses",
+          "es": "los lentes de sol",
+          "kind": "term"
+        },
+        {
+          "en": "I'm looking for comfortable sneakers.",
+          "es": "Busco unos tenis cómodos.",
+          "kind": "phrase",
+          "note": "buscar: yo busco; no word for 'for' is needed."
+        },
+        {
+          "en": "Do you sell chargers?",
+          "es": "¿Usted vende cargadores?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need socks too?",
+          "es": "¿Tú también necesitas calcetines?",
+          "kind": "phrase",
+          "note": "Informal tú: for a friend or travel partner."
+        },
+        {
+          "en": "We walk a lot on the trip.",
+          "es": "Caminamos mucho en el viaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My friends are looking for a pharmacy.",
+          "es": "Mis amigos buscan una farmacia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I live in Chicago.",
+          "es": "Vivo en Chicago.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a clerk what you are looking for, say that you and your partner walk a lot, and ask if they sell comfortable sneakers."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a clerk what, where, when, how much and which when buying clothes and toiletries.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál, with ¿ and accents",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Use cuántos for countable things: ¿cuántos pares?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "The answer word is porque, written as one word."
+        },
+        {
+          "en": "which one?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the floor (level)",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "How much is this jacket?",
+          "es": "¿Cuánto cuesta esta chamarra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where are the fitting rooms?",
+          "es": "¿Dónde están los probadores?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What size is it?",
+          "es": "¿Qué talla es?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one do you recommend?",
+          "es": "¿Cuál me recomienda?",
+          "kind": "phrase",
+          "note": "Polite usted form for a clerk."
+        },
+        {
+          "en": "What time does the pharmacy close?",
+          "es": "¿A qué hora cierra la farmacia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What floor are the shoes on?",
+          "es": "¿En qué piso están los zapatos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a clerk how much a jacket costs, what size it is, where the fitting rooms are, and which one they recommend."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no politely, ask for another color, a discount or something cheaper, and say you need nothing more.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro (never 'un otro')",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it: otro color, otra talla."
+        },
+        {
+          "en": "the color",
+          "es": "el color",
+          "kind": "term"
+        },
+        {
+          "en": "the discount",
+          "es": "el descuento",
+          "kind": "term"
+        },
+        {
+          "en": "the sale, the special offer",
+          "es": "la oferta",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have another color?",
+          "es": "¿Tiene otro color?",
+          "kind": "phrase"
+        },
+        {
+          "en": "No thanks, I'm just looking.",
+          "es": "No, gracias, nada más estoy viendo.",
+          "kind": "phrase",
+          "note": "nada más = just, only, common in Mexico."
+        },
+        {
+          "en": "I don't know my size yet.",
+          "es": "Todavía no sé mi talla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have something cheaper?",
+          "es": "¿Tiene algo más barato?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody at the register.",
+          "es": "No hay nadie en la caja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything else, thanks.",
+          "es": "No necesito nada más, gracias.",
+          "kind": "phrase",
+          "note": "Spanish keeps both negatives: no ... nada."
+        }
+      ],
+      "speaking": "Tell a clerk you're just looking, then ask for another color or something cheaper, and say you need nothing more."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a clerk to bring, show, wait or exchange, and ask for the receipt or the manager.",
+      "focus": "¿Puede…? requests and usted commands (espere, llame, enséñeme) with por favor",
+      "words": [
+        {
+          "en": "the receipt",
+          "es": "el ticket",
+          "kind": "term",
+          "note": "Most stores in Mexico say el ticket; el recibo is also understood."
+        },
+        {
+          "en": "the return",
+          "es": "la devolución",
+          "kind": "term"
+        },
+        {
+          "en": "the exchange; the change (money)",
+          "es": "el cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the refund",
+          "es": "el reembolso",
+          "kind": "term"
+        },
+        {
+          "en": "the tag, the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the stain",
+          "es": "la mancha",
+          "kind": "term"
+        },
+        {
+          "en": "the mirror",
+          "es": "el espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the manager",
+          "es": "el gerente",
+          "kind": "term",
+          "note": "A woman is la gerente."
+        },
+        {
+          "en": "Can you give me the receipt, please?",
+          "es": "¿Puede darme el ticket, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you bring me a smaller size?",
+          "es": "¿Me puede traer una talla más chica?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: polite with one person."
+        },
+        {
+          "en": "Show me that charger, please.",
+          "es": "Enséñeme ese cargador, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you exchange it for another size?",
+          "es": "¿Puede cambiarlo por otra talla?",
+          "kind": "phrase",
+          "note": "Ask about the store's return policy; it varies by store."
+        },
+        {
+          "en": "Please call the manager.",
+          "es": "Llame al gerente, por favor.",
+          "kind": "phrase",
+          "note": "Personal a before a person: al gerente."
+        }
+      ],
+      "speaking": "Ask a clerk politely to bring you a smaller size, show you a charger, and give you the receipt."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize shopping cognates and use survival phrases to get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción words are feminine, like English -tion."
+        },
+        {
+          "en": "the section, the department",
+          "es": "la sección",
+          "kind": "term"
+        },
+        {
+          "en": "the lotion",
+          "es": "la loción",
+          "kind": "term"
+        },
+        {
+          "en": "the quality",
+          "es": "la calidad",
+          "kind": "term",
+          "note": "-dad words are feminine, like English -ty."
+        },
+        {
+          "en": "the quantity",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the insect repellent",
+          "es": "el repelente",
+          "kind": "term"
+        },
+        {
+          "en": "the deodorant",
+          "es": "el desodorante",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please speak more slowly.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I lost my suitcase.",
+          "es": "Perdí mi maleta.",
+          "kind": "phrase",
+          "note": "Past tense: learn it as a set phrase for now."
+        },
+        {
+          "en": "Where is the information desk?",
+          "es": "¿Dónde está el módulo de información?",
+          "kind": "phrase",
+          "note": "Common term in Mexican malls and airports."
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a store worker you lost your suitcase, ask them to speak more slowly, and ask where the information desk is."
+    }
+  ]
+}

@@ -1,0 +1,914 @@
+{
+  "version": 1,
+  "module": "foundation-plumber",
+  "baseModule": "plumber",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Plumber Foundation",
+  "threshold": "By Lesson 10, you can greet a customer, give times and measurements, describe pipes and fixtures, ask simple questions and make polite requests on the job, and start Plumber Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce common plumbing words and greet a customer or coworker politely at the job.",
+      "focus": "The five vowels, ch, j, ll, rr, ñ and the written accent, in greetings and plumbing words",
+      "words": [
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el before the stressed a: el agua fría."
+        },
+        {
+          "en": "the faucet",
+          "es": "la llave",
+          "kind": "term",
+          "note": "ll sounds like English y: YAH-veh. In Mexico it also means wrench or key."
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term",
+          "note": "ñ sounds like ny in canyon: BAH-nyo."
+        },
+        {
+          "en": "the stream of water",
+          "es": "el chorro",
+          "kind": "term",
+          "note": "ch as in church; rr is a strong rolled r."
+        },
+        {
+          "en": "the gasket",
+          "es": "la junta",
+          "kind": "term",
+          "note": "j sounds like a strong English h: HOON-tah."
+        },
+        {
+          "en": "the piping",
+          "es": "la tubería",
+          "kind": "term",
+          "note": "The accent marks the stress: tu-be-RÍ-a."
+        },
+        {
+          "en": "the plumber",
+          "es": "el plomero",
+          "kind": "term",
+          "note": "A woman is la plomera."
+        },
+        {
+          "en": "the helper",
+          "es": "el ayudante",
+          "kind": "term",
+          "note": "A woman is la ayudante."
+        },
+        {
+          "en": "the kitchen sink",
+          "es": "el fregadero",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap, like dd in ladder."
+        },
+        {
+          "en": "the bathroom sink",
+          "es": "el lavabo",
+          "kind": "term",
+          "note": "b and v sound the same in Spanish."
+        },
+        {
+          "en": "Good morning! I'm the plumber.",
+          "es": "¡Buenos días! Soy el plomero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, my name is Ana.",
+          "es": "Mucho gusto, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use with customers and building managers."
+        },
+        {
+          "en": "Fine, thanks. And you?",
+          "es": "Bien, gracias. ¿Y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow!",
+          "es": "¡Hasta mañana!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a homeowner at the door, say your name, say you are the plumber, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, start times and pipe measurements in feet, inches and gallons on a plumbing job.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and feet, inches, gallons and pounds with de",
+      "words": [
+        {
+          "en": "the foot",
+          "es": "el pie",
+          "kind": "term",
+          "note": "Plural los pies: 10 pies de tubo."
+        },
+        {
+          "en": "the inch",
+          "es": "la pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the piece",
+          "es": "la pieza",
+          "kind": "term"
+        },
+        {
+          "en": "We start at 7:30.",
+          "es": "Empezamos a las 7:30.",
+          "kind": "phrase",
+          "note": "Use a las for the time something happens."
+        },
+        {
+          "en": "It's 3 in the afternoon.",
+          "es": "Son las 3 de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 10 feet of copper pipe.",
+          "es": "Son 10 pies de tubo de cobre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The pipe is 3/4 inch.",
+          "es": "El tubo es de 3/4 de pulgada.",
+          "kind": "phrase",
+          "note": "Say tres cuartos de pulgada."
+        },
+        {
+          "en": "The water heater is 40 gallons.",
+          "es": "El calentador es de 40 galones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll be there in 15 minutes.",
+          "es": "Llego en 15 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your helper what time you start, how many feet of pipe you need, and how big the pipe is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what a pipe is made of and describe whether valves and drains are open, closed or broken.",
+      "focus": "ser for what something is or is made of, estar for its condition or location",
+      "words": [
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term",
+          "note": "Agrees with the noun: la llave está cerrada."
+        },
+        {
+          "en": "clogged",
+          "es": "tapado",
+          "kind": "term"
+        },
+        {
+          "en": "broken",
+          "es": "roto",
+          "kind": "term"
+        },
+        {
+          "en": "dry",
+          "es": "seco",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "flojo",
+          "kind": "term"
+        },
+        {
+          "en": "the basement",
+          "es": "el sótano",
+          "kind": "term"
+        },
+        {
+          "en": "the kitchen",
+          "es": "la cocina",
+          "kind": "term"
+        },
+        {
+          "en": "The shutoff valve is closed.",
+          "es": "La llave de paso está cerrada.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The drain is clogged.",
+          "es": "El drenaje está tapado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The pipe is copper.",
+          "es": "El tubo es de cobre.",
+          "kind": "phrase",
+          "note": "ser + de for what something is made of."
+        },
+        {
+          "en": "The water heater is in the basement.",
+          "es": "El calentador está en el sótano.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "I'm a plumber.",
+          "es": "Soy plomera.",
+          "kind": "phrase",
+          "note": "ser for jobs, with no article. A man says Soy plomero."
+        }
+      ],
+      "speaking": "Describe a bathroom to your helper: say what the pipe is made of, where the valve is, and if it is open, closed or broken."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what tools you have and need, report a leak, and say what must be done first.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the leak",
+          "es": "la fuga",
+          "kind": "term"
+        },
+        {
+          "en": "the elbow fitting",
+          "es": "el codo",
+          "kind": "term"
+        },
+        {
+          "en": "the Teflon tape",
+          "es": "la cinta de teflón",
+          "kind": "term"
+        },
+        {
+          "en": "the glue",
+          "es": "el pegamento",
+          "kind": "term",
+          "note": "For PVC, people say pegamento para PVC."
+        },
+        {
+          "en": "the pipe wrench",
+          "es": "la llave Stillson",
+          "kind": "term",
+          "note": "Common job word in Mexico and the US for any pipe wrench."
+        },
+        {
+          "en": "the bucket",
+          "es": "la cubeta",
+          "kind": "term",
+          "note": "Mexico and the US; balde in other countries."
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the flashlight",
+          "es": "la linterna",
+          "kind": "term"
+        },
+        {
+          "en": "the water heater",
+          "es": "el calentador de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the pipe cutter",
+          "es": "el cortatubos",
+          "kind": "term"
+        },
+        {
+          "en": "There's a leak under the kitchen sink.",
+          "es": "Hay una fuga debajo del fregadero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need the pipe wrench.",
+          "es": "Necesito la llave Stillson.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have a bucket?",
+          "es": "¿Tiene una cubeta?",
+          "kind": "phrase",
+          "note": "Formal usted, for a customer."
+        },
+        {
+          "en": "We have to shut off the water first.",
+          "es": "Hay que cerrar el agua primero.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: it's necessary to do something."
+        },
+        {
+          "en": "The customer wants a new faucet.",
+          "es": "La clienta quiere una llave nueva.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I have the gloves in the truck.",
+          "es": "Tengo los guantes en la troca.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker what you have in the truck, what tool you need, and what you have to do first on the job."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do today, and ask if you can enter a room.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder",
+      "words": [
+        {
+          "en": "the truck",
+          "es": "la troca",
+          "kind": "term",
+          "note": "Common US Spanish loanword on job sites; camioneta is also used."
+        },
+        {
+          "en": "the store",
+          "es": "la tienda",
+          "kind": "term"
+        },
+        {
+          "en": "the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the hole",
+          "es": "el agujero",
+          "kind": "term"
+        },
+        {
+          "en": "the wall",
+          "es": "la pared",
+          "kind": "term"
+        },
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the test",
+          "es": "la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "right now",
+          "es": "ahorita",
+          "kind": "term",
+          "note": "Mexican Spanish; it can also mean in a little while."
+        },
+        {
+          "en": "I'm going to the store for elbows.",
+          "es": "Voy a la tienda por codos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to replace the pipe today.",
+          "es": "Vamos a cambiar el tubo hoy.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for plans."
+        },
+        {
+          "en": "I'm going to make a hole in the wall.",
+          "es": "Voy a hacer un agujero en la pared.",
+          "kind": "phrase"
+        },
+        {
+          "en": "May I go into the kitchen?",
+          "es": "¿Puedo pasar a la cocina?",
+          "kind": "phrase",
+          "note": "Polite way to ask a customer before entering a room."
+        },
+        {
+          "en": "I'm doing the pressure test right now.",
+          "es": "Hago la prueba de presión ahorita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My helper is going to the truck.",
+          "es": "Mi ayudante va a la troca.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your helper where you are going and what you are going to do today, and ask a customer if you can go into the kitchen."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe daily plumbing work with present tense verbs for yourself, the customer and the crew.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the toilet",
+          "es": "el inodoro",
+          "kind": "term",
+          "note": "Also called el baño or la taza in Mexico."
+        },
+        {
+          "en": "the shower",
+          "es": "la regadera",
+          "kind": "term",
+          "note": "Mexico and the US; ducha in other countries."
+        },
+        {
+          "en": "the bathtub",
+          "es": "la tina",
+          "kind": "term"
+        },
+        {
+          "en": "the tank",
+          "es": "el tanque",
+          "kind": "term"
+        },
+        {
+          "en": "the drain",
+          "es": "el desagüe",
+          "kind": "term",
+          "note": "The ü is pronounced: des-A-gweh."
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the plug",
+          "es": "el tapón",
+          "kind": "term"
+        },
+        {
+          "en": "the water meter",
+          "es": "el medidor de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "I'm checking the toilet tank.",
+          "es": "Reviso el tanque del inodoro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live here?",
+          "es": "¿Usted vive aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We work until 5.",
+          "es": "Nosotros trabajamos hasta las 5.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They sell hoses at the store.",
+          "es": "Ellos venden mangueras en la tienda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you cleaning the drain?",
+          "es": "¿Tú limpias el desagüe?",
+          "kind": "phrase",
+          "note": "Informal tú, between coworkers."
+        },
+        {
+          "en": "The shower drips.",
+          "es": "La regadera gotea.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a customer what you are checking, what drips, and until what time your crew works today."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a homeowner or supplier simple questions about leaks, valves, prices and fixtures.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué and cuál, with rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿cuántos? for how many: ¿Cuántos codos?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in a question; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the shutoff valve",
+          "es": "la llave de paso",
+          "kind": "term"
+        },
+        {
+          "en": "the owner",
+          "es": "el dueño",
+          "kind": "term",
+          "note": "A woman is la dueña."
+        },
+        {
+          "en": "Where is the shutoff valve?",
+          "es": "¿Dónde está la llave de paso?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Since when has it been dripping?",
+          "es": "¿Desde cuándo gotea?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the homeowner?",
+          "es": "¿Quién es el dueño de la casa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is this elbow?",
+          "es": "¿Cuánto cuesta este codo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's wrong with the toilet?",
+          "es": "¿Qué pasa con el inodoro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which faucet is dripping?",
+          "es": "¿Cuál llave gotea?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a homeowner where the shutoff valve is, which faucet drips, and since when it has been dripping."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is missing or not done yet, and ask for more, less or another part on the job.",
+      "focus": "no, nunca, nadie, nada, todavía no, and comparing with más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "After a verb it needs no: No toco nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: otro codo, otra llave."
+        },
+        {
+          "en": "the pressure",
+          "es": "la presión",
+          "kind": "term"
+        },
+        {
+          "en": "the smell",
+          "es": "el olor",
+          "kind": "term"
+        },
+        {
+          "en": "upstairs",
+          "es": "arriba",
+          "kind": "term"
+        },
+        {
+          "en": "There's no hot water.",
+          "es": "No hay agua caliente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody uses this bathroom.",
+          "es": "Nadie usa este baño.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's no pressure yet.",
+          "es": "Todavía no hay presión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another elbow.",
+          "es": "Necesito otro codo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We don't touch anything before shutting off the water.",
+          "es": "No tocamos nada antes de cerrar el agua.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's less pressure upstairs.",
+          "es": "Hay menos presión arriba.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker there is no hot water yet, nobody uses this bathroom, and you need another elbow."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a customer to open doors, move things and wait while you work.",
+      "focus": "¿Puede + infinitive? and usted commands for everyday verbs, with por favor",
+      "words": [
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term"
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Say it when you pass by someone or enter a room."
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the light",
+          "es": "la luz",
+          "kind": "term"
+        },
+        {
+          "en": "the cabinet",
+          "es": "el gabinete",
+          "kind": "term"
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the things",
+          "es": "las cosas",
+          "kind": "term"
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term"
+        },
+        {
+          "en": "the driveway",
+          "es": "la entrada",
+          "kind": "term",
+          "note": "Also means the entrance."
+        },
+        {
+          "en": "Can you open the door, please?",
+          "es": "¿Puede abrir la puerta, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you move your car, please?",
+          "es": "¿Puede mover su carro, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please take the things out of the cabinet.",
+          "es": "Saque las cosas del gabinete, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: sacar becomes saque."
+        },
+        {
+          "en": "Please don't use the bathroom.",
+          "es": "No use el baño, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Turn on the light, please.",
+          "es": "Prenda la luz, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait here a moment.",
+          "es": "Espere aquí un momento.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask a customer to open the door, move the car, and take the things out of the cabinet before you start."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize plumbing cognates and use survival phrases to get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term",
+          "note": "-ción words are feminine: la reparación, la instalación."
+        },
+        {
+          "en": "the installation",
+          "es": "la instalación",
+          "kind": "term"
+        },
+        {
+          "en": "the connection",
+          "es": "la conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the moisture",
+          "es": "la humedad",
+          "kind": "term",
+          "note": "-dad words are feminine."
+        },
+        {
+          "en": "the electricity",
+          "es": "la electricidad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "How do you say \"wrench\" in Spanish?",
+          "es": "¿Cómo se dice \"wrench\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't understand. Can you repeat?",
+          "es": "No entiendo. ¿Puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, I need help.",
+          "es": "Es una emergencia, necesito ayuda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's moisture in the wall.",
+          "es": "Hay humedad en la pared.",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, I'll call my supervisor.",
+          "es": "Un momento, llamo a mi supervisor.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamo a mi supervisor."
+        }
+      ],
+      "speaking": "Tell a coworker it is an emergency, say you don't understand, and ask how to say a tool in Spanish."
+    }
+  ]
+}

@@ -1,0 +1,929 @@
+{
+  "version": 1,
+  "module": "foundation-lds-missionary",
+  "baseModule": "lds-missionary",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The LDS Missionary Foundation",
+  "threshold": "By Lesson 10, you can greet people, give times and page numbers, describe things, ask simple questions and make polite requests in Spanish, and start LDS Missionary Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.024Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet people at the door or chapel and introduce yourself and your companion with clear Spanish sounds.",
+      "focus": "The five pure vowels, ch, j, ll, rr, the written accent, and greetings",
+      "words": [
+        {
+          "en": "the elder",
+          "es": "el élder",
+          "kind": "term",
+          "note": "Stress the first syllable (É-lder). Title for a male missionary."
+        },
+        {
+          "en": "the sister",
+          "es": "la hermana",
+          "kind": "term",
+          "note": "The h is silent: er-MA-na. Title for a female missionary."
+        },
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term",
+          "note": "Pure vowels: ee-GLEH-syah."
+        },
+        {
+          "en": "the chapel",
+          "es": "la capilla",
+          "kind": "term",
+          "note": "In Mexico, ll sounds like English y: ca-PEE-ya."
+        },
+        {
+          "en": "the companion",
+          "es": "el compañero",
+          "kind": "term",
+          "note": "ñ sounds like ny in canyon. For a woman: la compañera."
+        },
+        {
+          "en": "the prayer",
+          "es": "la oración",
+          "kind": "term",
+          "note": "The accent on ó means you stress the last syllable."
+        },
+        {
+          "en": "the message",
+          "es": "el mensaje",
+          "kind": "term",
+          "note": "j is a strong English h: men-SA-heh."
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "the ward",
+          "es": "el barrio",
+          "kind": "term",
+          "note": "Trill the rr. In the Church, barrio means ward."
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term",
+          "note": "ch sounds like English ch in church."
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está?",
+          "kind": "phrase",
+          "note": "Formal: use with adults you don't know."
+        },
+        {
+          "en": "I'm Elder Smith.",
+          "es": "Soy el élder Smith.",
+          "kind": "phrase",
+          "note": "Use el before the title when you introduce yourself; drop it when you address someone."
+        },
+        {
+          "en": "Nice to meet you, sister.",
+          "es": "Mucho gusto, hermana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We are missionaries from the Church of Jesus Christ.",
+          "es": "Somos misioneros de la Iglesia de Jesucristo.",
+          "kind": "phrase",
+          "note": "Two sisters say: Somos misioneras."
+        },
+        {
+          "en": "What is your name?",
+          "es": "¿Cómo se llama usted?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a ward member at the chapel door, say your name with your title, introduce your companion, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say times, days, chapters, verses and page numbers for appointments and scripture reading.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and chapters, verses, pages and minutes",
+      "words": [
+        {
+          "en": "the chapter",
+          "es": "el capítulo",
+          "kind": "term"
+        },
+        {
+          "en": "the verse",
+          "es": "el versículo",
+          "kind": "term"
+        },
+        {
+          "en": "the page",
+          "es": "la página",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "Sunday",
+          "es": "el domingo",
+          "kind": "term",
+          "note": "Days are lowercase and take el: el domingo means on Sunday."
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the pamphlet",
+          "es": "el folleto",
+          "kind": "term"
+        },
+        {
+          "en": "sacrament meeting",
+          "es": "la reunión sacramental",
+          "kind": "term"
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el día."
+        },
+        {
+          "en": "Sacrament meeting is at 10 in the morning.",
+          "es": "La reunión sacramental es a las 10 de la mañana.",
+          "kind": "phrase",
+          "note": "Use a las + hour for 'at' a time."
+        },
+        {
+          "en": "It's half past 7.",
+          "es": "Son las 7 y media.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's chapter 3, verse 16.",
+          "es": "Es el capítulo 3, versículo 16.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The appointment is on Tuesday at 6.",
+          "es": "La cita es el martes a las 6.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have 45 minutes.",
+          "es": "Tenemos 45 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's on page 125.",
+          "es": "Está en la página 125.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your companion the time of the next appointment, the day of sacrament meeting, and the chapter and page you will read."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe people, places and how you feel using ser and estar in your area.",
+      "focus": "ser for what someone or something is, estar for a condition or location",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "estar listo: to be ready. For a woman: lista."
+        },
+        {
+          "en": "busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term"
+        },
+        {
+          "en": "happy",
+          "es": "contento",
+          "kind": "term",
+          "note": "Use with estar: estoy contento."
+        },
+        {
+          "en": "important",
+          "es": "importante",
+          "kind": "term"
+        },
+        {
+          "en": "true",
+          "es": "verdadero",
+          "kind": "term"
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "the bishop",
+          "es": "el obispo",
+          "kind": "term"
+        },
+        {
+          "en": "The bishop is very kind.",
+          "es": "El obispo es muy amable.",
+          "kind": "phrase",
+          "note": "ser: what someone is like."
+        },
+        {
+          "en": "Are you busy now, sister?",
+          "es": "¿Está ocupada ahora, hermana?",
+          "kind": "phrase",
+          "note": "estar: a condition that can change. Ocupada for a woman."
+        },
+        {
+          "en": "The chapel is near here.",
+          "es": "La capilla está cerca de aquí.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "This message is important.",
+          "es": "Este mensaje es importante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're ready for the appointment.",
+          "es": "Estamos listos para la cita.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe your area to your companion: say if the chapel is near or far, if you are ready or tired, and what the bishop is like."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what there is, and what you and your companion need or want for the day.",
+      "focus": "tener, hay, necesitar, querer, and hay que + infinitive",
+      "words": [
+        {
+          "en": "the Bible",
+          "es": "la Biblia",
+          "kind": "term"
+        },
+        {
+          "en": "the Book of Mormon",
+          "es": "el Libro de Mormón",
+          "kind": "term"
+        },
+        {
+          "en": "the question",
+          "es": "la pregunta",
+          "kind": "term"
+        },
+        {
+          "en": "the bike",
+          "es": "la bicicleta",
+          "kind": "term"
+        },
+        {
+          "en": "the map",
+          "es": "el mapa",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el mapa."
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the pen",
+          "es": "la pluma",
+          "kind": "term",
+          "note": "In Mexico, a pen is la pluma."
+        },
+        {
+          "en": "the help",
+          "es": "la ayuda",
+          "kind": "term"
+        },
+        {
+          "en": "the meal",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have a few minutes?",
+          "es": "¿Tiene unos minutos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a meeting on Sunday.",
+          "es": "Hay una reunión el domingo.",
+          "kind": "phrase",
+          "note": "hay: there is / there are."
+        },
+        {
+          "en": "We need the address.",
+          "es": "Necesitamos la dirección.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like a Book of Mormon?",
+          "es": "¿Quiere un Libro de Mormón?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You need to pray every day.",
+          "es": "Hay que orar todos los días.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: a general 'one must'."
+        },
+        {
+          "en": "I have a question.",
+          "es": "Tengo una pregunta.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your companion what you have and what you need for the day: the map, the address, a Bible and a pen."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do, and ask if you can come in.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder",
+      "words": [
+        {
+          "en": "the house",
+          "es": "la casa",
+          "kind": "term"
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term"
+        },
+        {
+          "en": "the visit",
+          "es": "la visita",
+          "kind": "term"
+        },
+        {
+          "en": "service",
+          "es": "el servicio",
+          "kind": "term",
+          "note": "hacer servicio: to do service."
+        },
+        {
+          "en": "the class",
+          "es": "la clase",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term"
+        },
+        {
+          "en": "the park",
+          "es": "el parque",
+          "kind": "term"
+        },
+        {
+          "en": "We're going to the López family's house.",
+          "es": "Vamos a la casa de la familia López.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to do service tomorrow.",
+          "es": "Vamos a hacer servicio mañana.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "What do you do on Saturdays?",
+          "es": "¿Qué hace usted los sábados?",
+          "kind": "phrase"
+        },
+        {
+          "en": "May we come in?",
+          "es": "¿Podemos pasar?",
+          "kind": "phrase",
+          "note": "Polite way to ask at the door."
+        },
+        {
+          "en": "I'm going to pray for you.",
+          "es": "Voy a orar por usted.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a member where you are going this afternoon and what you are going to do tomorrow, then ask if you can come in."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you, your companion and others do every day using regular present-tense verbs.",
+      "focus": "Present tense of -ar, -er, -ir verbs: orar, leer, vivir for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the lesson",
+          "es": "la lección",
+          "kind": "term"
+        },
+        {
+          "en": "the study",
+          "es": "el estudio",
+          "kind": "term"
+        },
+        {
+          "en": "the journal",
+          "es": "el diario",
+          "kind": "term"
+        },
+        {
+          "en": "Spanish",
+          "es": "el español",
+          "kind": "term",
+          "note": "Languages are lowercase in Spanish."
+        },
+        {
+          "en": "English",
+          "es": "el inglés",
+          "kind": "term"
+        },
+        {
+          "en": "the neighbor",
+          "es": "el vecino",
+          "kind": "term",
+          "note": "For a woman: la vecina."
+        },
+        {
+          "en": "the scriptures",
+          "es": "las Escrituras",
+          "kind": "term"
+        },
+        {
+          "en": "the apartment",
+          "es": "el apartamento",
+          "kind": "term"
+        },
+        {
+          "en": "every day",
+          "es": "todos los días",
+          "kind": "term"
+        },
+        {
+          "en": "together",
+          "es": "juntos",
+          "kind": "term",
+          "note": "Two sisters say juntas."
+        },
+        {
+          "en": "We read the scriptures every day.",
+          "es": "Leemos las Escrituras todos los días.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live here?",
+          "es": "¿Vive usted aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My companion teaches and I learn.",
+          "es": "Mi compañero enseña y yo aprendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They believe in God.",
+          "es": "Ellos creen en Dios.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you write in your journal?",
+          "es": "¿Tú escribes en tu diario?",
+          "kind": "phrase",
+          "note": "Informal tú: between companions."
+        }
+      ],
+      "speaking": "Tell a new friend what you and your companion do every day: you study, read the scriptures, write in a journal and speak Spanish."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask members and new friends simple questions about places, people, times and numbers.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál, with ¿ and accents",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: ¿cuántos hijos?, ¿cuántas personas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent in questions; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? for 'what is' your name, address or number."
+        },
+        {
+          "en": "the answer",
+          "es": "la respuesta",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the chapel?",
+          "es": "¿Dónde está la capilla?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the bishop?",
+          "es": "¿Quién es el obispo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When can we come back?",
+          "es": "¿Cuándo podemos regresar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is your phone number?",
+          "es": "¿Cuál es su número de teléfono?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many children do you have?",
+          "es": "¿Cuántos hijos tiene?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How is your family?",
+          "es": "¿Cómo está su familia?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a ward member where the chapel is, who the bishop is, and when you can come back to visit."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, nobody, nothing and not yet, and compare more and less in daily missionary work.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro, with the double negative",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term",
+          "note": "After a verb, keep no: No hay nadie."
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Double negative is correct: No vendemos nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before otro: otro día, not un otro día."
+        },
+        {
+          "en": "always",
+          "es": "siempre",
+          "kind": "term"
+        },
+        {
+          "en": "also",
+          "es": "también",
+          "kind": "term"
+        },
+        {
+          "en": "not either",
+          "es": "tampoco",
+          "kind": "term"
+        },
+        {
+          "en": "Nobody is home.",
+          "es": "No hay nadie en casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We aren't selling anything.",
+          "es": "No vendemos nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We don't have an appointment yet.",
+          "es": "Todavía no tenemos una cita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll come back another day.",
+          "es": "Vamos a regresar otro día.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My companion speaks more Spanish than I do.",
+          "es": "Mi compañero habla más español que yo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your companion that nobody is home, that you don't have an appointment there yet, and that you will come back another day."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and simple usted commands during a visit in someone's home.",
+      "focus": "¿Puede + infinitive? and usted commands (lea, hable, ore, venga) with por favor",
+      "words": [
+        {
+          "en": "the hymn",
+          "es": "el himno",
+          "kind": "term"
+        },
+        {
+          "en": "the hymnbook",
+          "es": "el himnario",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "out loud",
+          "es": "en voz alta",
+          "kind": "term"
+        },
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term"
+        },
+        {
+          "en": "the living room",
+          "es": "la sala",
+          "kind": "term"
+        },
+        {
+          "en": "the TV",
+          "es": "la televisión",
+          "kind": "term",
+          "note": "Also la tele in everyday speech."
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "the light",
+          "es": "la luz",
+          "kind": "term"
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Say it when you pass by someone or leave the room."
+        },
+        {
+          "en": "Can you read this verse out loud?",
+          "es": "¿Puede leer este versículo en voz alta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you turn off the TV, please?",
+          "es": "¿Puede apagar la televisión, por favor?",
+          "kind": "phrase",
+          "note": "Polite ¿Puede...? softens a request in someone's home."
+        },
+        {
+          "en": "Please speak more slowly.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase",
+          "note": "usted command: hablar becomes hable."
+        },
+        {
+          "en": "Please pray with us.",
+          "es": "Ore con nosotros, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Come to church on Sunday.",
+          "es": "Venga a la iglesia el domingo.",
+          "kind": "phrase",
+          "note": "venir becomes venga in the usted command."
+        }
+      ],
+      "speaking": "Politely ask a host family to turn off the TV, ask one person to read a verse out loud, and invite them to pray with you."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize cognates and use survival phrases to get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and phrases for getting help",
+      "words": [
+        {
+          "en": "the truth",
+          "es": "la verdad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty or -th."
+        },
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the invitation",
+          "es": "la invitación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the religion",
+          "es": "la religión",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the opportunity",
+          "es": "la oportunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the president",
+          "es": "el presidente",
+          "kind": "term"
+        },
+        {
+          "en": "the conversation",
+          "es": "la conversación",
+          "kind": "term"
+        },
+        {
+          "en": "the happiness",
+          "es": "la felicidad",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"faith\" in Spanish?",
+          "es": "¿Cómo se dice \"faith\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm learning Spanish.",
+          "es": "Estoy aprendiendo español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need help, please.",
+          "es": "Necesitamos ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does this word mean?",
+          "es": "¿Qué significa esta palabra?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a member you are learning Spanish, say you don't understand a word, and ask them to repeat it and tell you what it means."
+    }
+  ]
+}

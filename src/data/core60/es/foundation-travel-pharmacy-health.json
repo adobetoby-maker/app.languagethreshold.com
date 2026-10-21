@@ -1,0 +1,944 @@
+{
+  "version": 1,
+  "module": "foundation-travel-pharmacy-health",
+  "baseModule": "travel-pharmacy-health",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Pharmacy & Traveler Health Foundation",
+  "threshold": "By Lesson 10, you can greet a pharmacist, say how you feel and what you need, ask about prices, times and labels, ask for help politely, and start Pharmacy & Traveler Health Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a pharmacist politely and say basic pharmacy words with clear Spanish sounds.",
+      "focus": "the five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term",
+          "note": "Stress on -ma-: far-MA-sia. In Latin America, c before i sounds like s."
+        },
+        {
+          "en": "the pharmacist",
+          "es": "el farmacéutico",
+          "kind": "term",
+          "note": "The accent marks the stress: far-ma-CÉU-ti-co. A woman is la farmacéutica."
+        },
+        {
+          "en": "the pill",
+          "es": "la pastilla",
+          "kind": "term",
+          "note": "ll sounds like English y: pas-TI-ya."
+        },
+        {
+          "en": "the syrup",
+          "es": "el jarabe",
+          "kind": "term",
+          "note": "j is a strong h sound: ha-RA-be."
+        },
+        {
+          "en": "the cold",
+          "es": "el catarro",
+          "kind": "term",
+          "note": "rr is a rolled r. Catarro is a common word for a head cold."
+        },
+        {
+          "en": "the shampoo",
+          "es": "el champú",
+          "kind": "term",
+          "note": "ch sounds like church. The accent puts the stress on -pú."
+        },
+        {
+          "en": "the clinic",
+          "es": "la clínica",
+          "kind": "term",
+          "note": "The accent marks the stress: CLÍ-ni-ca."
+        },
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term"
+        },
+        {
+          "en": "the head",
+          "es": "la cabeza",
+          "kind": "term"
+        },
+        {
+          "en": "the doctor",
+          "es": "el médico",
+          "kind": "term",
+          "note": "People also say el doctor. A woman is la médica or la doctora."
+        },
+        {
+          "en": "Good morning, sir.",
+          "es": "Buenos días, señor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, my name is Alex.",
+          "es": "Buenas tardes, me llamo Alex.",
+          "kind": "phrase",
+          "note": "Use buenas tardes from noon until dark."
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use usted with pharmacists and clinic staff."
+        },
+        {
+          "en": "Thank you very much, see you later.",
+          "es": "Muchas gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the pharmacist, say your name, ask how they are, and say three pharmacy words clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Understand prices, opening times and package quantities at a pharmacy.",
+      "focus": "numbers 0 to 1,000, clock time, pesos, and package units like boxes, capsules, mg and mL",
+      "words": [
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the bottle",
+          "es": "el frasco",
+          "kind": "term",
+          "note": "A small bottle, as for syrup or pills."
+        },
+        {
+          "en": "the capsule",
+          "es": "la cápsula",
+          "kind": "term"
+        },
+        {
+          "en": "the packet",
+          "es": "el sobre",
+          "kind": "term",
+          "note": "A small packet of powder, such as oral rehydration salts."
+        },
+        {
+          "en": "the milligram",
+          "es": "el miligramo",
+          "kind": "term",
+          "note": "Written mg on labels."
+        },
+        {
+          "en": "the milliliter",
+          "es": "el mililitro",
+          "kind": "term",
+          "note": "Written mL on labels."
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexican prices are written with the $ sign."
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term",
+          "note": "Without the article, mañana means tomorrow."
+        },
+        {
+          "en": "How much is this box?",
+          "es": "¿Cuánto cuesta esta caja?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 150 pesos.",
+          "es": "Son 150 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 3 in the afternoon.",
+          "es": "Son las 3 de la tarde.",
+          "kind": "phrase",
+          "note": "Use es la for 1 o'clock: Es la 1."
+        },
+        {
+          "en": "The label says there are 20 capsules.",
+          "es": "La etiqueta dice que hay 20 cápsulas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The label says 500 mg per capsule.",
+          "es": "La etiqueta dice 500 mg por cápsula.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The clinic opens at 8:30.",
+          "es": "La clínica abre a las 8:30.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the pharmacist how much a box costs, repeat the price in pesos, and ask what time the pharmacy closes."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are, how you feel, and whether a pharmacy is open or near.",
+      "focus": "ser for what someone or something is, estar for feelings, conditions and location",
+      "words": [
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term",
+          "note": "A woman says enferma."
+        },
+        {
+          "en": "dizzy",
+          "es": "mareado",
+          "kind": "term",
+          "note": "A woman says mareada."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "A woman says cansada."
+        },
+        {
+          "en": "allergic",
+          "es": "alérgico",
+          "kind": "term",
+          "note": "Use with ser: soy alérgico. A woman says alérgica."
+        },
+        {
+          "en": "serious",
+          "es": "grave",
+          "kind": "term"
+        },
+        {
+          "en": "better",
+          "es": "mejor",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term",
+          "note": "Use with estar. La farmacia está abierta."
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term",
+          "note": "Use with estar. La clínica está cerrada."
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "I'm a tourist from the United States.",
+          "es": "Soy turista de Estados Unidos.",
+          "kind": "phrase",
+          "note": "ser: who you are."
+        },
+        {
+          "en": "I'm allergic to penicillin.",
+          "es": "Soy alérgica a la penicilina.",
+          "kind": "phrase",
+          "note": "ser for a lasting trait. A man says alérgico."
+        },
+        {
+          "en": "I'm very dizzy.",
+          "es": "Estoy muy mareado.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change. A woman says mareada."
+        },
+        {
+          "en": "Is the pharmacy open?",
+          "es": "¿Está abierta la farmacia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The clinic is near the hotel.",
+          "es": "La clínica está cerca del hotel.",
+          "kind": "phrase",
+          "note": "estar for location. de + el becomes del."
+        }
+      ],
+      "speaking": "Tell the pharmacist you are a tourist, say how you feel today, and ask if a clinic is near or far."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say your symptoms and what you need or want to buy at a pharmacy.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the fever",
+          "es": "la fiebre",
+          "kind": "term"
+        },
+        {
+          "en": "the cough",
+          "es": "la tos",
+          "kind": "term"
+        },
+        {
+          "en": "the throat",
+          "es": "la garganta",
+          "kind": "term"
+        },
+        {
+          "en": "the stomach",
+          "es": "el estómago",
+          "kind": "term"
+        },
+        {
+          "en": "the blister",
+          "es": "la ampolla",
+          "kind": "term"
+        },
+        {
+          "en": "the bandage",
+          "es": "la curita",
+          "kind": "term",
+          "note": "Mexico. A small adhesive bandage, like a Band-Aid."
+        },
+        {
+          "en": "the sunscreen",
+          "es": "el bloqueador solar",
+          "kind": "term",
+          "note": "Common in Mexico. People also say el protector solar."
+        },
+        {
+          "en": "the sunburn",
+          "es": "la quemadura de sol",
+          "kind": "term"
+        },
+        {
+          "en": "the health insurance",
+          "es": "el seguro médico",
+          "kind": "term"
+        },
+        {
+          "en": "the tissues",
+          "es": "los pañuelos desechables",
+          "kind": "term"
+        },
+        {
+          "en": "I have a headache.",
+          "es": "Tengo dolor de cabeza.",
+          "kind": "phrase",
+          "note": "Spanish uses tener for symptoms: tengo fiebre, tengo tos."
+        },
+        {
+          "en": "Is there a pharmacy around here?",
+          "es": "¿Hay una farmacia por aquí?",
+          "kind": "phrase",
+          "note": "hay means there is or there are."
+        },
+        {
+          "en": "I need bandages for a blister.",
+          "es": "Necesito curitas para una ampolla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd like a sunscreen, please.",
+          "es": "Quiero un bloqueador solar, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to read the label first.",
+          "es": "Hay que leer la etiqueta primero.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        }
+      ],
+      "speaking": "Tell the pharmacist two symptoms you have, say what you need, and ask if there is a sunscreen."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, make plans for appointments, and ask what you can do.",
+      "focus": "ir and ir a + infinitive for plans, hacer, and poder to ask permission",
+      "words": [
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent: os-pi-TAL."
+        },
+        {
+          "en": "the dentist",
+          "es": "el dentista",
+          "kind": "term",
+          "note": "A woman is la dentista."
+        },
+        {
+          "en": "the optician's shop",
+          "es": "la óptica",
+          "kind": "term"
+        },
+        {
+          "en": "the glasses",
+          "es": "los lentes",
+          "kind": "term",
+          "note": "Mexico. In other countries people also say los anteojos."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the doctor's office",
+          "es": "el consultorio",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi",
+          "es": "el taxi",
+          "kind": "term"
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the test",
+          "es": "la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the hospital by taxi.",
+          "es": "Voy al hospital en taxi.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "Tomorrow I'm going to go to the optician's.",
+          "es": "Mañana voy a ir a la óptica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I make an appointment for today?",
+          "es": "¿Puedo hacer una cita para hoy?",
+          "kind": "phrase",
+          "note": "People say hacer una cita for making an appointment."
+        },
+        {
+          "en": "Can I wait here?",
+          "es": "¿Puedo esperar aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "This afternoon we're going to the airport.",
+          "es": "Esta tarde vamos al aeropuerto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the receptionist where you are going today, ask if you can make an appointment, and ask if you can wait there."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you take, use, eat and drink, and about your trip.",
+      "focus": "present tense of regular -ar, -er, -ir verbs for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Agua is feminine but takes el: el agua fría."
+        },
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the medicine",
+          "es": "el medicamento",
+          "kind": "term"
+        },
+        {
+          "en": "the vitamin",
+          "es": "la vitamina",
+          "kind": "term"
+        },
+        {
+          "en": "the cream",
+          "es": "la crema",
+          "kind": "term"
+        },
+        {
+          "en": "the drops",
+          "es": "las gotas",
+          "kind": "term"
+        },
+        {
+          "en": "the inhaler",
+          "es": "el inhalador",
+          "kind": "term"
+        },
+        {
+          "en": "the trip",
+          "es": "el viaje",
+          "kind": "term"
+        },
+        {
+          "en": "the breakfast",
+          "es": "el desayuno",
+          "kind": "term"
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "I take a vitamin with breakfast.",
+          "es": "Tomo una vitamina con el desayuno.",
+          "kind": "phrase",
+          "note": "tomar: to take medicine, and to drink."
+        },
+        {
+          "en": "I use an inhaler at night.",
+          "es": "Uso un inhalador en la noche.",
+          "kind": "phrase",
+          "note": "Mexico says en la noche. Spain says por la noche."
+        },
+        {
+          "en": "Are you drinking enough water?",
+          "es": "¿Tú bebes suficiente agua?",
+          "kind": "phrase",
+          "note": "Informal tú: with a travel companion or a friend."
+        },
+        {
+          "en": "We're traveling for 2 weeks.",
+          "es": "Nosotros viajamos por 2 semanas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My children use this cream.",
+          "es": "Mis hijos usan esta crema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you sell eye drops?",
+          "es": "¿Usted vende gotas para los ojos?",
+          "kind": "phrase",
+          "note": "Formal usted: with the pharmacist."
+        }
+      ],
+      "speaking": "Tell the pharmacist what medicine or vitamin you take, how long your trip is, and ask if they sell eye drops."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask where, when, who and how at a pharmacy or clinic.",
+      "focus": "question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "For things you count, use ¿cuántos? or ¿cuántas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "A plain ¿Cómo? also asks someone to repeat."
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent. Porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the opening hours",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "Where is there a 24-hour pharmacy?",
+          "es": "¿Dónde hay una farmacia de 24 horas?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the doctor's office open?",
+          "es": "¿Cuándo abre el consultorio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What are the clinic's opening hours?",
+          "es": "¿Cuál es el horario de la clínica?",
+          "kind": "phrase",
+          "note": "Use ¿cuál es? before a noun like horario or nombre."
+        },
+        {
+          "en": "What does the label say?",
+          "es": "¿Qué dice la etiqueta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who speaks English here?",
+          "es": "¿Quién habla inglés aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you use this cream?",
+          "es": "¿Cómo se usa esta crema?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a clinic receptionist when they open, who speaks English, and what the label on your medicine says."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what you don't have yet, decline extras, and ask for another option.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: No quiero nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro. Use otro or otra alone."
+        },
+        {
+          "en": "the brand",
+          "es": "la marca",
+          "kind": "term"
+        },
+        {
+          "en": "the generic",
+          "es": "el genérico",
+          "kind": "term",
+          "note": "Short for el medicamento genérico."
+        },
+        {
+          "en": "the size",
+          "es": "el tamaño",
+          "kind": "term"
+        },
+        {
+          "en": "I don't have a prescription.",
+          "es": "No tengo receta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never use this brand.",
+          "es": "Nunca uso esta marca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody at the front desk.",
+          "es": "No hay nadie en la recepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't have an appointment yet.",
+          "es": "Todavía no tengo cita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have a cheaper one?",
+          "es": "¿Tiene otro más barato?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't want anything else, thanks.",
+          "es": "No quiero nada más, gracias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the pharmacist you don't have a prescription yet, ask for another brand or size, and politely decline anything else."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask staff to repeat, explain, write or wait.",
+      "focus": "¿Puede…? for polite requests and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the invoice",
+          "es": "la factura",
+          "kind": "term",
+          "note": "In Mexico, a formal invoice. Ask for one if your insurance needs it."
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "the passport",
+          "es": "el pasaporte",
+          "kind": "term"
+        },
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term",
+          "note": "Means address, not direction."
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you speak more slowly?",
+          "es": "¿Puede hablar más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me an invoice for my insurance?",
+          "es": "¿Me puede dar una factura para el seguro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Write the address here, please.",
+          "es": "Escriba la dirección aquí, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: -ar verbs end in -e, -er/-ir verbs in -a."
+        },
+        {
+          "en": "Please explain the label to me.",
+          "es": "Explíqueme la etiqueta, por favor.",
+          "kind": "phrase",
+          "note": "me attaches to the command and adds an accent."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the pharmacist to repeat slowly, explain the label to you, and give you a receipt or invoice for your insurance."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use cognates and survival phrases to get help fast in an emergency.",
+      "focus": "cognates ending in -ción, -dad, -ente and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the infection",
+          "es": "la infección",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the allergic reaction",
+          "es": "la reacción alérgica",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the patient",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "A woman is la paciente."
+        },
+        {
+          "en": "the temperature",
+          "es": "la temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency room",
+          "es": "el área de urgencias",
+          "kind": "term",
+          "note": "Área is feminine but takes el. Signs often just say Urgencias."
+        },
+        {
+          "en": "the Red Cross",
+          "es": "la Cruz Roja",
+          "kind": "term",
+          "note": "In Mexico, the Red Cross runs many ambulances."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "It's an emergency!",
+          "es": "¡Es una emergencia!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call an ambulance, please.",
+          "es": "Llame a una ambulancia, por favor.",
+          "kind": "phrase",
+          "note": "In Mexico, the emergency number is 911."
+        },
+        {
+          "en": "My friend is having an allergic reaction.",
+          "es": "Mi amiga tiene una reacción alérgica.",
+          "kind": "phrase",
+          "note": "A male friend is mi amigo."
+        },
+        {
+          "en": "I don't speak much Spanish.",
+          "es": "No hablo mucho español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla usted inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is the emergency room?",
+          "es": "¿Dónde está el área de urgencias?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a pharmacist it is an emergency, say your friend has an allergic reaction, and ask them to call an ambulance."
+    }
+  ]
+}

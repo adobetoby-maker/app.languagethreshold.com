@@ -1,0 +1,943 @@
+{
+  "version": 1,
+  "module": "foundation-travel-social-dating",
+  "baseModule": "travel-social-dating",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Social Life, Invitations & Dating Foundation",
+  "threshold": "By Lesson 10, you can greet people, give times and numbers, say who you are, make simple plans and invitations, ask questions, say no politely and ask for help in Spanish, and start Social Life, Invitations & Dating Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce Spanish sounds and greet someone you meet at a café, bar or tour.",
+      "focus": "The five pure vowels, ch, j, ll, rr and the written accent, in greetings and café words",
+      "words": [
+        {
+          "en": "the coffee",
+          "es": "el café",
+          "kind": "term",
+          "note": "The accent mark shows the stress: ca-FÉ."
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term",
+          "note": "ch sounds like the ch in English church."
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term",
+          "note": "In Mexico ll sounds like English y: CA-ye."
+        },
+        {
+          "en": "the trip",
+          "es": "el viaje",
+          "kind": "term",
+          "note": "j is a strong breathy h: VYA-he."
+        },
+        {
+          "en": "the juice",
+          "es": "el jugo",
+          "kind": "term",
+          "note": "j sounds like a strong h: HU-go."
+        },
+        {
+          "en": "the terrace",
+          "es": "la terraza",
+          "kind": "term",
+          "note": "Roll the rr with several quick taps of the tongue."
+        },
+        {
+          "en": "the music",
+          "es": "la música",
+          "kind": "term",
+          "note": "The accent shows the stress: MÚ-si-ca."
+        },
+        {
+          "en": "the friend (male)",
+          "es": "el amigo",
+          "kind": "term",
+          "note": "Vowels are short and pure: a-MI-go."
+        },
+        {
+          "en": "the friend (female)",
+          "es": "la amiga",
+          "kind": "term"
+        },
+        {
+          "en": "Hi! How's it going?",
+          "es": "¡Hola! ¿Qué tal?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good evening.",
+          "es": "Buenas noches.",
+          "kind": "phrase",
+          "note": "Used as hello and goodbye after dark; say buenas tardes in the afternoon."
+        },
+        {
+          "en": "My name is Alex.",
+          "es": "Me llamo Alex.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's your name?",
+          "es": "¿Cómo te llamas?",
+          "kind": "phrase",
+          "note": "Informal; to an older person or stranger say ¿Cómo se llama?"
+        },
+        {
+          "en": "See you later.",
+          "es": "Hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet someone at a café, say your name, ask their name, and say goodbye."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, times, days and prices to meet up, get a table or pay.",
+      "focus": "Numbers 0 to 1,000, clock time (a las 8), and counting people, days and pesos",
+      "words": [
+        {
+          "en": "the time, the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term",
+          "note": "Masculine even though it ends in -a."
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the weekend",
+          "es": "el fin de semana",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term"
+        },
+        {
+          "en": "the person",
+          "es": "la persona",
+          "kind": "term",
+          "note": "Always feminine, for a man or a woman."
+        },
+        {
+          "en": "the phone number",
+          "es": "el número de teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the check, the bill",
+          "es": "la cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the pesos",
+          "es": "los pesos",
+          "kind": "term"
+        },
+        {
+          "en": "It's 8 at night.",
+          "es": "Son las 8 de la noche.",
+          "kind": "phrase",
+          "note": "Use es la 1 for one o'clock and son las for other hours."
+        },
+        {
+          "en": "A table for 2, please.",
+          "es": "Una mesa para 2, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you at 7.",
+          "es": "Nos vemos a las 7.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm staying 5 days.",
+          "es": "Me quedo 5 días.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 350 pesos.",
+          "es": "Son 350 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 4 of us.",
+          "es": "Somos 4 personas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a server how many people you are, and tell a new friend what time and what day to meet."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say where you're from, how you feel and where you are using ser and estar.",
+      "focus": "ser for origin and personality, estar for feelings, availability and location",
+      "words": [
+        {
+          "en": "nice, friendly",
+          "es": "simpático",
+          "kind": "term",
+          "note": "simpática for a woman."
+        },
+        {
+          "en": "happy",
+          "es": "contento",
+          "kind": "term",
+          "note": "Use with estar: estoy contento, estoy contenta."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term"
+        },
+        {
+          "en": "free, available",
+          "es": "libre",
+          "kind": "term"
+        },
+        {
+          "en": "busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "single",
+          "es": "soltero",
+          "kind": "term",
+          "note": "soltera for a woman."
+        },
+        {
+          "en": "married",
+          "es": "casado",
+          "kind": "term",
+          "note": "casada for a woman; estoy casado is common in Mexico."
+        },
+        {
+          "en": "on vacation",
+          "es": "de vacaciones",
+          "kind": "term"
+        },
+        {
+          "en": "near, nearby",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "I'm from the United States.",
+          "es": "Soy de Estados Unidos.",
+          "kind": "phrase",
+          "note": "ser for origin: where you are from does not change."
+        },
+        {
+          "en": "I'm on vacation.",
+          "es": "Estoy de vacaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you free tomorrow?",
+          "es": "¿Estás libre mañana?",
+          "kind": "phrase",
+          "note": "Informal tú; estar for availability, which can change."
+        },
+        {
+          "en": "You're very nice.",
+          "es": "Eres muy simpática.",
+          "kind": "phrase",
+          "note": "To a man say eres muy simpático."
+        },
+        {
+          "en": "My hotel is near downtown.",
+          "es": "Mi hotel está cerca del centro.",
+          "kind": "phrase",
+          "note": "estar for location; de + el becomes del."
+        },
+        {
+          "en": "I'm single.",
+          "es": "Estoy soltera.",
+          "kind": "phrase",
+          "note": "A man says estoy soltero; soy soltero is also common."
+        }
+      ],
+      "speaking": "Tell a new friend where you are from, that you are on vacation, how you feel, and where your hotel is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, want and need for coffee, dinner or a party.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive for plans and invitations",
+      "words": [
+        {
+          "en": "the dinner",
+          "es": "la cena",
+          "kind": "term"
+        },
+        {
+          "en": "the date",
+          "es": "la cita",
+          "kind": "term",
+          "note": "A romantic date; it also means an appointment."
+        },
+        {
+          "en": "the boyfriend",
+          "es": "el novio",
+          "kind": "term"
+        },
+        {
+          "en": "the girlfriend",
+          "es": "la novia",
+          "kind": "term"
+        },
+        {
+          "en": "the free time",
+          "es": "el tiempo libre",
+          "kind": "term"
+        },
+        {
+          "en": "the party",
+          "es": "la fiesta",
+          "kind": "term"
+        },
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term"
+        },
+        {
+          "en": "the concert",
+          "es": "el concierto",
+          "kind": "term"
+        },
+        {
+          "en": "the plan",
+          "es": "el plan",
+          "kind": "term"
+        },
+        {
+          "en": "the charger",
+          "es": "el cargador",
+          "kind": "term"
+        },
+        {
+          "en": "Do you want to have a coffee with me?",
+          "es": "¿Quieres tomar un café conmigo?",
+          "kind": "phrase",
+          "note": "Informal tú; tomar un café means to have a coffee."
+        },
+        {
+          "en": "Do you want to have dinner on Friday?",
+          "es": "¿Quieres cenar el viernes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I have a boyfriend.",
+          "es": "Tengo novio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a concert on Saturday.",
+          "es": "Hay un concierto el sábado.",
+          "kind": "phrase",
+          "note": "hay means there is or there are."
+        },
+        {
+          "en": "I need a charger.",
+          "es": "Necesito un cargador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to buy tickets ahead.",
+          "es": "Hay que comprar boletos antes.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        }
+      ],
+      "speaking": "Ask a new friend if they want coffee or dinner, say what is on this week, and say what you need for the plan."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you're going and what you can do tonight or tomorrow.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder",
+      "words": [
+        {
+          "en": "the bar",
+          "es": "el bar",
+          "kind": "term"
+        },
+        {
+          "en": "the movie theater",
+          "es": "el cine",
+          "kind": "term"
+        },
+        {
+          "en": "the museum",
+          "es": "el museo",
+          "kind": "term"
+        },
+        {
+          "en": "the park",
+          "es": "el parque",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "the nightclub",
+          "es": "el antro",
+          "kind": "term",
+          "note": "Common Mexican word for a club."
+        },
+        {
+          "en": "the tour",
+          "es": "el tour",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "tonight",
+          "es": "esta noche",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the market tomorrow.",
+          "es": "Voy al mercado mañana.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "Are you going to go to the beach?",
+          "es": "¿Vas a ir a la playa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What are you going to do tonight?",
+          "es": "¿Qué vas a hacer esta noche?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can go at 9.",
+          "es": "Puedo ir a las 9.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't today, but tomorrow I can.",
+          "es": "No puedo hoy, pero mañana sí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let's go to the movies.",
+          "es": "Vamos al cine.",
+          "kind": "phrase",
+          "note": "Vamos a + place means let's go."
+        }
+      ],
+      "speaking": "Tell a new friend where you are going tomorrow, ask what they are going to do tonight, and say when you can go."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about yourself and others in the present: languages, home, work and food.",
+      "focus": "Present tense -ar, -er, -ir endings for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "Spanish (the language)",
+          "es": "el español",
+          "kind": "term"
+        },
+        {
+          "en": "English (the language)",
+          "es": "el inglés",
+          "kind": "term"
+        },
+        {
+          "en": "the language",
+          "es": "el idioma",
+          "kind": "term",
+          "note": "Masculine even though it ends in -a."
+        },
+        {
+          "en": "the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the class",
+          "es": "la clase",
+          "kind": "term"
+        },
+        {
+          "en": "the neighborhood",
+          "es": "el barrio",
+          "kind": "term"
+        },
+        {
+          "en": "the country",
+          "es": "el país",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term",
+          "note": "Feminine: short for la fotografía."
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I live in Chicago.",
+          "es": "Vivo en Chicago.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you dance salsa?",
+          "es": "¿Bailas salsa?",
+          "kind": "phrase",
+          "note": "Informal tú: -ar verbs end in -as."
+        },
+        {
+          "en": "Do you live here?",
+          "es": "¿Usted vive aquí?",
+          "kind": "phrase",
+          "note": "Formal usted, for an older person or a stranger."
+        },
+        {
+          "en": "We eat at the market.",
+          "es": "Comemos en el mercado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My friends travel a lot.",
+          "es": "Mis amigos viajan mucho.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell someone at a language exchange what languages you speak, where you live and what you eat, and ask if they dance."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a new friend or local simple questions about people, places, times and prices.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué and cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Changes to cuánta, cuántos, cuántas to match the noun."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque (one word) means because."
+        },
+        {
+          "en": "which?, what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál before es: ¿Cuál es tu número?"
+        },
+        {
+          "en": "the place",
+          "es": "el lugar",
+          "kind": "term"
+        },
+        {
+          "en": "the entry fee, the ticket",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "Where are you from?",
+          "es": "¿De dónde eres?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's your favorite place?",
+          "es": "¿Cuál es tu lugar favorito?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the entry?",
+          "es": "¿Cuánto cuesta la entrada?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who's coming to the party?",
+          "es": "¿Quién viene a la fiesta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do I get downtown?",
+          "es": "¿Cómo llego al centro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you recommend?",
+          "es": "¿Qué me recomiendas?",
+          "kind": "phrase",
+          "note": "Informal tú; to a stranger say ¿Qué me recomienda?"
+        }
+      ],
+      "speaking": "Ask a local where they are from, what their favorite place is, and how much the entry costs."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no politely, set simple limits, and ask for more, less or another.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody, anyone",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing, anything",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro; use otra with feminine nouns."
+        },
+        {
+          "en": "the drink",
+          "es": "la bebida",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine but takes el: el agua fría."
+        },
+        {
+          "en": "the beer",
+          "es": "la cerveza",
+          "kind": "term"
+        },
+        {
+          "en": "No, thank you.",
+          "es": "No, gracias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never drink alcohol.",
+          "es": "Nunca bebo alcohol.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't know anyone here.",
+          "es": "No conozco a nadie aquí.",
+          "kind": "phrase",
+          "note": "The double negative is normal; use a before a person."
+        },
+        {
+          "en": "I don't have plans yet.",
+          "es": "Todavía no tengo planes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want another beer?",
+          "es": "¿Quieres otra cerveza?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't want anything else, thanks.",
+          "es": "No quiero nada más, gracias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely turn down a drink, tell a new friend you don't know anyone here yet, and say you have no plans yet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests to waiters, drivers and strangers with ¿Puede…? and usted commands.",
+      "focus": "¿Puede…? requests and usted commands (pare, espere, hable) with por favor",
+      "words": [
+        {
+          "en": "the waiter",
+          "es": "el mesero",
+          "kind": "term"
+        },
+        {
+          "en": "the waitress",
+          "es": "la mesera",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi driver",
+          "es": "el taxista",
+          "kind": "term",
+          "note": "la taxista for a woman."
+        },
+        {
+          "en": "the menu",
+          "es": "el menú",
+          "kind": "term"
+        },
+        {
+          "en": "the tip",
+          "es": "la propina",
+          "kind": "term"
+        },
+        {
+          "en": "the message",
+          "es": "el mensaje",
+          "kind": "term"
+        },
+        {
+          "en": "the cell phone",
+          "es": "el celular",
+          "kind": "term",
+          "note": "The usual word in Mexico and Latin America."
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "Can you take a photo of us, please?",
+          "es": "¿Puede tomarnos una foto, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you bring me the check, please?",
+          "es": "¿Me puede traer la cuenta, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Stop at the corner, please.",
+          "es": "Pare en la esquina, por favor.",
+          "kind": "phrase",
+          "note": "Usted command, polite with a driver."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Send me the address, please.",
+          "es": "Mándeme la dirección, por favor.",
+          "kind": "phrase",
+          "note": "Formal usted; to a friend say mándame."
+        },
+        {
+          "en": "Speak more slowly, please.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a waiter for the check, then ask a passerby to take a photo of you, using ¿Puede…? and por favor."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Spot easy cognates and use survival phrases when you don't understand or need help.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases",
+      "words": [
+        {
+          "en": "the conversation",
+          "es": "la conversación",
+          "kind": "term",
+          "note": "-ción is like English -tion, and these nouns are feminine."
+        },
+        {
+          "en": "the invitation",
+          "es": "la invitación",
+          "kind": "term"
+        },
+        {
+          "en": "the relationship",
+          "es": "la relación",
+          "kind": "term"
+        },
+        {
+          "en": "the city",
+          "es": "la ciudad",
+          "kind": "term",
+          "note": "-dad is like English -ty, and these nouns are feminine."
+        },
+        {
+          "en": "the university",
+          "es": "la universidad",
+          "kind": "term"
+        },
+        {
+          "en": "interesting",
+          "es": "interesante",
+          "kind": "term",
+          "note": "-ente is like English -ent or -ing; same form for a man or a woman."
+        },
+        {
+          "en": "smart",
+          "es": "inteligente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "the police",
+          "es": "la policía",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat that, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say date in Spanish?",
+          "es": "¿Cómo se dice date en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where's the restroom?",
+          "es": "¿Dónde está el baño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thanks for the invitation.",
+          "es": "Gracias por la invitación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Help! Call the police!",
+          "es": "¡Ayuda! ¡Llamen a la policía!",
+          "kind": "phrase",
+          "note": "Plural command, to everyone around you."
+        }
+      ],
+      "speaking": "Tell a new friend you don't understand, ask them to repeat, and ask how to say a word in Spanish."
+    }
+  ]
+}

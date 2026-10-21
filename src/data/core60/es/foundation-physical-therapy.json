@@ -1,0 +1,990 @@
+{
+  "version": 1,
+  "module": "foundation-physical-therapy",
+  "baseModule": "physical-therapy",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Physical Therapy Foundation",
+  "threshold": "By Lesson 10, you can greet patients, give numbers and times, describe pain and swelling, ask simple questions, give polite exercise instructions and ask for help, and start Physical Therapy Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a patient, say who you are, and pronounce the body parts you work with every day.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings with patients",
+      "words": [
+        {
+          "en": "the knee",
+          "es": "la rodilla",
+          "kind": "term",
+          "note": "ll sounds like English y: ro-DEE-ya; the r at the start is trilled."
+        },
+        {
+          "en": "the shoulder",
+          "es": "el hombro",
+          "kind": "term",
+          "note": "The h is always silent: OHM-bro."
+        },
+        {
+          "en": "the back",
+          "es": "la espalda",
+          "kind": "term",
+          "note": "Every vowel is short and clear: es-PAL-da."
+        },
+        {
+          "en": "the hip",
+          "es": "la cadera",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap, like the dd in ladder."
+        },
+        {
+          "en": "the ankle",
+          "es": "el tobillo",
+          "kind": "term",
+          "note": "ll like y: to-BEE-yo."
+        },
+        {
+          "en": "the neck",
+          "es": "el cuello",
+          "kind": "term",
+          "note": "ue sounds like way: KWAY-yo."
+        },
+        {
+          "en": "the chest",
+          "es": "el pecho",
+          "kind": "term",
+          "note": "ch sounds as in church."
+        },
+        {
+          "en": "the elbow",
+          "es": "el codo",
+          "kind": "term"
+        },
+        {
+          "en": "the exercise",
+          "es": "el ejercicio",
+          "kind": "term",
+          "note": "j sounds like a strong English h: eh-hehr-SEE-syo."
+        },
+        {
+          "en": "the parallel bars",
+          "es": "las barras paralelas",
+          "kind": "term",
+          "note": "rr is a strong trill; the single r in paralelas is a tap."
+        },
+        {
+          "en": "the muscle",
+          "es": "el músculo",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: MOOS-koo-lo."
+        },
+        {
+          "en": "Good morning, I'm your therapist.",
+          "es": "Buenos días, soy su terapeuta.",
+          "kind": "phrase",
+          "note": "Terapeuta is the same for a man or a woman."
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase",
+          "note": "Use señor for a man."
+        },
+        {
+          "en": "How are you today?",
+          "es": "¿Cómo está usted hoy?",
+          "kind": "phrase",
+          "note": "Formal: use usted with patients."
+        },
+        {
+          "en": "Good afternoon, come in please.",
+          "es": "Buenas tardes, pase por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you at the next appointment.",
+          "es": "Nos vemos en la próxima cita.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a patient, say your name and that you are their therapist, then point to the knee, hip and shoulder and say each word clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give appointment times, sets, repetitions, pounds and degrees to a patient.",
+      "focus": "Numbers 0 to 1,000, clock time, and sets, reps, seconds, pounds, feet and degrees",
+      "words": [
+        {
+          "en": "the repetition",
+          "es": "la repetición",
+          "kind": "term"
+        },
+        {
+          "en": "the set",
+          "es": "la serie",
+          "kind": "term",
+          "note": "3 series de 10 means 3 sets of 10."
+        },
+        {
+          "en": "the second",
+          "es": "el segundo",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the degrees",
+          "es": "los grados",
+          "kind": "term",
+          "note": "Range of motion is measured in degrees."
+        },
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term",
+          "note": "US clinics measure weights in pounds."
+        },
+        {
+          "en": "the weight",
+          "es": "la pesa",
+          "kind": "term",
+          "note": "The hand weight or dumbbell."
+        },
+        {
+          "en": "the time",
+          "es": "la vez",
+          "kind": "term",
+          "note": "Plural veces: 2 veces al día means twice a day."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the pain scale",
+          "es": "la escala de dolor",
+          "kind": "term"
+        },
+        {
+          "en": "According to your program, it's 3 sets of 10 repetitions.",
+          "es": "Según su programa, son 3 series de 10 repeticiones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your appointment is at 2:30.",
+          "es": "Su cita es a las 2:30.",
+          "kind": "phrase",
+          "note": "Use es a las for the time of an event."
+        },
+        {
+          "en": "The weight is 3 pounds.",
+          "es": "La pesa es de 3 libras.",
+          "kind": "phrase",
+          "note": "Use de with a measurement."
+        },
+        {
+          "en": "Today you bend your knee to 90 degrees.",
+          "es": "Hoy usted dobla la rodilla hasta 90 grados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today you walked 150 feet.",
+          "es": "Hoy usted caminó 150 pies.",
+          "kind": "phrase",
+          "note": "Pies means feet for distance, the same word as the body part."
+        },
+        {
+          "en": "According to the doctor's order, therapy is 3 times a week.",
+          "es": "Según la orden del médico, la terapia es 3 veces por semana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient what time their next appointment is, how many sets and repetitions are in their program, and how many pounds the weight is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe how a patient feels and where things are in the clinic with ser and estar.",
+      "focus": "ser for what someone or something is, estar for a patient's condition or a location",
+      "words": [
+        {
+          "en": "swollen",
+          "es": "hinchado",
+          "kind": "term",
+          "note": "Agrees with the noun: la rodilla está hinchada."
+        },
+        {
+          "en": "sore",
+          "es": "adolorido",
+          "kind": "term",
+          "note": "Use with estar: estoy adolorido, or adolorida for a woman."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "Say cansada to or about a woman."
+        },
+        {
+          "en": "dizzy",
+          "es": "mareado",
+          "kind": "term"
+        },
+        {
+          "en": "weak",
+          "es": "débil",
+          "kind": "term"
+        },
+        {
+          "en": "strong",
+          "es": "fuerte",
+          "kind": "term"
+        },
+        {
+          "en": "stiff",
+          "es": "rígido",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "estar listo means ready; ser listo means smart."
+        },
+        {
+          "en": "the therapy gym",
+          "es": "el gimnasio",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term"
+        },
+        {
+          "en": "I'm a physical therapist.",
+          "es": "Soy fisioterapeuta.",
+          "kind": "phrase",
+          "note": "ser for a profession; the same word for a man or a woman."
+        },
+        {
+          "en": "The knee is swollen today.",
+          "es": "La rodilla está hinchada hoy.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Are you dizzy?",
+          "es": "¿Está usted mareado?",
+          "kind": "phrase",
+          "note": "Ask ¿Está mareada? to a woman."
+        },
+        {
+          "en": "It's an easy exercise.",
+          "es": "Es un ejercicio fácil.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The gym is on the second floor.",
+          "es": "El gimnasio está en el segundo piso.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "You're stronger this week.",
+          "es": "Usted está más fuerte esta semana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient how they feel today, describe their knee as swollen, stiff or strong, and tell them where the therapy gym is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what equipment there is, what a patient needs or wants, and what has to be done.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with clinic equipment",
+      "words": [
+        {
+          "en": "the walker",
+          "es": "la andadera",
+          "kind": "term",
+          "note": "Common in Mexico; you will also hear el andador."
+        },
+        {
+          "en": "the cane",
+          "es": "el bastón",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "the crutches",
+          "es": "las muletas",
+          "kind": "term"
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "the resistance band",
+          "es": "la banda elástica",
+          "kind": "term"
+        },
+        {
+          "en": "the ball",
+          "es": "la pelota",
+          "kind": "term"
+        },
+        {
+          "en": "the hot pack",
+          "es": "la compresa caliente",
+          "kind": "term",
+          "note": "Follow your clinic's protocol for time on the skin."
+        },
+        {
+          "en": "the step",
+          "es": "el escalón",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have pain now?",
+          "es": "¿Tiene dolor ahora?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a chair here.",
+          "es": "Hay una silla aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You need the walker to walk.",
+          "es": "Necesita la andadera para caminar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want ice after the exercise?",
+          "es": "¿Quiere hielo después del ejercicio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to walk with the walker.",
+          "es": "Hay que caminar con la andadera.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: a general must, without naming who."
+        },
+        {
+          "en": "I have a resistance band for you.",
+          "es": "Tengo una banda elástica para usted.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient what equipment there is in the gym, ask if they want ice or a hot pack, and say they need the walker."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell a patient today's plan and ask what they can do at home.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder for what a patient can do",
+      "words": [
+        {
+          "en": "the house",
+          "es": "la casa",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "US and Mexico; el coche in Spain."
+        },
+        {
+          "en": "the stairs",
+          "es": "las escaleras",
+          "kind": "term"
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the kitchen",
+          "es": "la cocina",
+          "kind": "term"
+        },
+        {
+          "en": "the shower",
+          "es": "la regadera",
+          "kind": "term",
+          "note": "Mexico; la ducha in other countries."
+        },
+        {
+          "en": "the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "Without an article it means tomorrow; la mañana is the morning."
+        },
+        {
+          "en": "next week",
+          "es": "la próxima semana",
+          "kind": "term"
+        },
+        {
+          "en": "Let's go to the hallway to walk.",
+          "es": "Vamos al pasillo a caminar.",
+          "kind": "phrase",
+          "note": "a + el = al."
+        },
+        {
+          "en": "Today we're going to do exercises for the hip.",
+          "es": "Hoy vamos a hacer ejercicios para la cadera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're going to do these exercises at home.",
+          "es": "Usted va a hacer estos ejercicios en casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we're going to walk more.",
+          "es": "Mañana vamos a caminar más.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you go up the stairs?",
+          "es": "¿Puede subir las escaleras?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you get in and out of the car?",
+          "es": "¿Puede entrar y salir del carro?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient what you are going to do today, then ask if they can climb the stairs, use the shower and get into the car at home."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about a patient's daily routine and your own work with present-tense verbs.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the leg",
+          "es": "la pierna",
+          "kind": "term"
+        },
+        {
+          "en": "the arm",
+          "es": "el brazo",
+          "kind": "term"
+        },
+        {
+          "en": "the hand",
+          "es": "la mano",
+          "kind": "term",
+          "note": "Feminine even though it ends in -o."
+        },
+        {
+          "en": "the foot",
+          "es": "el pie",
+          "kind": "term"
+        },
+        {
+          "en": "the fingers",
+          "es": "los dedos",
+          "kind": "term",
+          "note": "Also toes: los dedos del pie."
+        },
+        {
+          "en": "the heel",
+          "es": "el talón",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el: el agua fría."
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "every day",
+          "es": "todos los días",
+          "kind": "term"
+        },
+        {
+          "en": "at night",
+          "es": "en la noche",
+          "kind": "term",
+          "note": "Mexico; por la noche in other countries."
+        },
+        {
+          "en": "I walk next to you.",
+          "es": "Yo camino a su lado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you working in the gym tomorrow?",
+          "es": "¿Trabajas mañana en el gimnasio?",
+          "kind": "phrase",
+          "note": "Informal tú, to a coworker."
+        },
+        {
+          "en": "Do you live alone or with your family?",
+          "es": "¿Usted vive solo o con su familia?",
+          "kind": "phrase",
+          "note": "Say sola to a woman."
+        },
+        {
+          "en": "We practice the exercise together.",
+          "es": "Nosotros practicamos el ejercicio juntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you drink enough water?",
+          "es": "¿Bebe suficiente agua?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The patients rest between exercises.",
+          "es": "Los pacientes descansan entre ejercicios.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient if they live alone and walk every day, then ask a coworker if they work in the gym tomorrow."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a patient simple questions about their pain, surgery and help at home.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál in patient questions",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuánto dolor, cuántas veces."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for why; porque (one word) means because."
+        },
+        {
+          "en": "which one?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use it for a choice between things."
+        },
+        {
+          "en": "the doctor",
+          "es": "el médico",
+          "kind": "term",
+          "note": "la médica or la doctora for a woman."
+        },
+        {
+          "en": "the surgery",
+          "es": "la cirugía",
+          "kind": "term"
+        },
+        {
+          "en": "Where does it hurt?",
+          "es": "¿Dónde le duele?",
+          "kind": "phrase"
+        },
+        {
+          "en": "From 0 to 10, how much pain do you have?",
+          "es": "Del 0 al 10, ¿cuánto dolor tiene?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When was the surgery?",
+          "es": "¿Cuándo fue la cirugía?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who helps you at home?",
+          "es": "¿Quién lo ayuda en casa?",
+          "kind": "phrase",
+          "note": "Use la instead of lo with a woman."
+        },
+        {
+          "en": "Which one hurts more, the right or the left?",
+          "es": "¿Cuál le duele más, la derecha o la izquierda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What activity is hard for you?",
+          "es": "¿Qué actividad es difícil para usted?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient where it hurts, how much pain they have from 0 to 10, when their surgery was, and who helps them at home."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Use negatives and more or less to check feeling, limits and progress with a patient.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro in therapy talk",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term",
+          "note": "Before the verb: nunca camine; after it, add no: no camine nunca."
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term",
+          "note": "After the verb, add no: no hay nadie."
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never with un: say otro ejercicio."
+        },
+        {
+          "en": "again",
+          "es": "otra vez",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "a little",
+          "es": "un poco",
+          "kind": "term"
+        },
+        {
+          "en": "the side",
+          "es": "el lado",
+          "kind": "term"
+        },
+        {
+          "en": "For now, never walk without the walker.",
+          "es": "Por ahora, nunca camine sin la andadera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there nobody at home with you?",
+          "es": "¿No hay nadie en casa con usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't you feel anything in your foot?",
+          "es": "¿No siente nada en el pie?",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to your doctor, you can't drive yet.",
+          "es": "Según su médico, todavía no puede manejar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today the knee is less swollen.",
+          "es": "Hoy la rodilla está menos hinchada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now the other side.",
+          "es": "Ahora el otro lado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient to do the exercise on the other side, ask if they feel nothing in the foot, and say their doctor says they cannot drive yet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Give a patient polite, clear instructions to move, sit, stand and breathe.",
+      "focus": "¿Puede…? requests and usted commands: siéntese, párese, doble, apriete, respire",
+      "words": [
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the wall",
+          "es": "la pared",
+          "kind": "term"
+        },
+        {
+          "en": "the mat",
+          "es": "la colchoneta",
+          "kind": "term"
+        },
+        {
+          "en": "the back of the chair",
+          "es": "el respaldo",
+          "kind": "term"
+        },
+        {
+          "en": "the edge of the bed",
+          "es": "la orilla de la cama",
+          "kind": "term"
+        },
+        {
+          "en": "face up",
+          "es": "boca arriba",
+          "kind": "term",
+          "note": "Lying on your back."
+        },
+        {
+          "en": "face down",
+          "es": "boca abajo",
+          "kind": "term",
+          "note": "Lying on your stomach."
+        },
+        {
+          "en": "the right",
+          "es": "la derecha",
+          "kind": "term"
+        },
+        {
+          "en": "the left",
+          "es": "la izquierda",
+          "kind": "term"
+        },
+        {
+          "en": "straight",
+          "es": "derecho",
+          "kind": "term",
+          "note": "Here it means straight; for the right side say la derecha."
+        },
+        {
+          "en": "Can you lie on your back, please?",
+          "es": "¿Puede acostarse boca arriba, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is softer than a command."
+        },
+        {
+          "en": "Sit on the edge of the bed.",
+          "es": "Siéntese en la orilla de la cama.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Stand up and hold the walker.",
+          "es": "Párese y agarre la andadera.",
+          "kind": "phrase",
+          "note": "Mexico: párese means stand up; levántese also works."
+        },
+        {
+          "en": "Bend your knee slowly.",
+          "es": "Doble la rodilla despacio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Squeeze my hand, please.",
+          "es": "Apriete mi mano, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Breathe normally, don't hold your breath.",
+          "es": "Respire normal, no aguante el aire.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Guide a patient from the bed to standing: ask them to sit on the edge, stand up, hold the walker and breathe normally."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize therapy cognates and use survival phrases when you don't understand a patient.",
+      "focus": "Cognates ending in -ción, -dad, -ente, and phrases for asking for help",
+      "words": [
+        {
+          "en": "the evaluation",
+          "es": "la evaluación",
+          "kind": "term",
+          "note": "-ción words are feminine: la evaluación."
+        },
+        {
+          "en": "the session",
+          "es": "la sesión",
+          "kind": "term"
+        },
+        {
+          "en": "the position",
+          "es": "la posición",
+          "kind": "term"
+        },
+        {
+          "en": "the circulation",
+          "es": "la circulación",
+          "kind": "term"
+        },
+        {
+          "en": "the activity",
+          "es": "la actividad",
+          "kind": "term",
+          "note": "-dad words are feminine: la actividad."
+        },
+        {
+          "en": "the flexibility",
+          "es": "la flexibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the physical therapy",
+          "es": "la terapia física",
+          "kind": "term"
+        },
+        {
+          "en": "the patient",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "la paciente for a woman."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term",
+          "note": "-ente adjectives are the same for a man or a woman."
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "Can you repeat, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't understand well.",
+          "es": "No entiendo bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to call an interpreter.",
+          "es": "Voy a llamar a un intérprete.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamar a."
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient you don't understand, ask them to repeat more slowly, and say you are going to call an interpreter."
+    }
+  ]
+}

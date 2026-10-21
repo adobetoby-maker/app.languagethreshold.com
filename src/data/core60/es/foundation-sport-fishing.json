@@ -1,0 +1,944 @@
+{
+  "version": 1,
+  "module": "foundation-sport-fishing",
+  "baseModule": "sport-fishing",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Sport Fishing Foundation",
+  "threshold": "By Lesson 10, you can greet your captain and mate, give times, weights and lengths, describe the sea and the catch, ask questions and make polite requests on the boat, and start Sport Fishing Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say boat and tackle words clearly and greet your captain and mate at the dock.",
+      "focus": "The five vowels, ch, j, ll, ñ, rr and the written accent in boat words; greetings",
+      "words": [
+        {
+          "en": "the panga (small open fishing boat)",
+          "es": "la panga",
+          "kind": "term",
+          "note": "Every a is a short, open 'ah': PAHN-gah."
+        },
+        {
+          "en": "the captain",
+          "es": "el capitán",
+          "kind": "term",
+          "note": "The accent puts the stress on the end: ka-pee-TAHN. A woman is la capitana."
+        },
+        {
+          "en": "the deckhand (mate)",
+          "es": "el marinero",
+          "kind": "term",
+          "note": "Single r is a quick tap, like the tt in 'butter'."
+        },
+        {
+          "en": "the fishing rod",
+          "es": "la caña",
+          "kind": "term",
+          "note": "ñ sounds like 'ny' in 'canyon': KAH-nyah."
+        },
+        {
+          "en": "the reel",
+          "es": "el carrete",
+          "kind": "term",
+          "note": "rr is a strong trilled r: ka-RRE-teh."
+        },
+        {
+          "en": "the hook",
+          "es": "el anzuelo",
+          "kind": "term",
+          "note": "In Mexico z sounds like English s."
+        },
+        {
+          "en": "the bait",
+          "es": "la carnada",
+          "kind": "term"
+        },
+        {
+          "en": "the dock",
+          "es": "el muelle",
+          "kind": "term",
+          "note": "ll sounds like English y: MWEH-yeh."
+        },
+        {
+          "en": "the life jacket",
+          "es": "el chaleco salvavidas",
+          "kind": "term",
+          "note": "ch sounds like the ch in 'church'."
+        },
+        {
+          "en": "the yellowtail",
+          "es": "el jurel",
+          "kind": "term",
+          "note": "j is a strong breathy h: hoo-REL."
+        },
+        {
+          "en": "the fish (alive, in the water)",
+          "es": "el pez",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, captain.",
+          "es": "Buenos días, capitán.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My name is Mike, nice to meet you.",
+          "es": "Me llamo Mike, mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal, for the captain or someone older. Between friends: ¿Cómo estás?"
+        },
+        {
+          "en": "Good afternoon, how's the fishing?",
+          "es": "Buenas tardes, ¿qué tal la pesca?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you later, thanks for everything.",
+          "es": "Hasta luego, gracias por todo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the captain and mate at the dock, say your name, and point to the rod, reel and hook as you say each word."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give times, trip length, fish weight and length, and distance in numbers on a fishing trip.",
+      "focus": "Numbers 0 to 1,000, clock time, and pounds, inches, feet, miles and dozens of bait",
+      "words": [
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "half an hour",
+          "es": "media hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term"
+        },
+        {
+          "en": "the foot (length)",
+          "es": "el pie",
+          "kind": "term"
+        },
+        {
+          "en": "the inch",
+          "es": "la pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "the mile",
+          "es": "la milla",
+          "kind": "term",
+          "note": "At sea, crews usually mean nautical miles."
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the dozen",
+          "es": "la docena",
+          "kind": "term",
+          "note": "Live bait is often counted by the dozen."
+        },
+        {
+          "en": "the trip",
+          "es": "el viaje",
+          "kind": "term"
+        },
+        {
+          "en": "What time is it?",
+          "es": "¿Qué hora es?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We leave at 6 in the morning.",
+          "es": "Salimos a las 6 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The trip is 8 hours.",
+          "es": "El viaje es de 8 horas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The fish weighs 35 pounds.",
+          "es": "El pez pesa 35 libras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It measures 48 inches.",
+          "es": "Mide 48 pulgadas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We are 12 miles from the dock.",
+          "es": "Estamos a 12 millas del muelle.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the mate what time you leave and how long the trip is, then tell him how many pounds and inches your fish is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe the sea, the fish and how you feel using ser and estar on the boat.",
+      "focus": "ser for what something is, estar for the sea's condition, your feelings and the boat's location",
+      "words": [
+        {
+          "en": "the sea",
+          "es": "el mar",
+          "kind": "term"
+        },
+        {
+          "en": "calm",
+          "es": "tranquilo",
+          "kind": "term"
+        },
+        {
+          "en": "choppy",
+          "es": "picado",
+          "kind": "term",
+          "note": "Crews say el mar está picado for rough, choppy water."
+        },
+        {
+          "en": "seasick",
+          "es": "mareado",
+          "kind": "term",
+          "note": "A woman says mareada."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "A woman says cansada."
+        },
+        {
+          "en": "strong",
+          "es": "fuerte",
+          "kind": "term"
+        },
+        {
+          "en": "big",
+          "es": "grande",
+          "kind": "term"
+        },
+        {
+          "en": "small",
+          "es": "chico",
+          "kind": "term",
+          "note": "Common in Mexico; pequeño is also correct."
+        },
+        {
+          "en": "beautiful",
+          "es": "bonito",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "A woman says lista."
+        },
+        {
+          "en": "The sea is choppy today.",
+          "es": "El mar está picado hoy.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "I'm seasick.",
+          "es": "Estoy mareado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's a big dorado.",
+          "es": "Es un dorado grande.",
+          "kind": "phrase",
+          "note": "ser: what something is."
+        },
+        {
+          "en": "The panga is at the dock.",
+          "es": "La panga está en el muelle.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "I'm from Texas.",
+          "es": "Soy de Texas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You are a very good captain.",
+          "es": "Usted es muy buen capitán.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the captain where you are from, describe the sea as calm or choppy, and say how you feel: ready, tired or seasick."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want on the boat, and what there is or must be done.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with gear and supplies",
+      "words": [
+        {
+          "en": "the cooler",
+          "es": "la hielera",
+          "kind": "term",
+          "note": "h is always silent: ye-LEH-rah."
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the sunscreen",
+          "es": "el bloqueador",
+          "kind": "term"
+        },
+        {
+          "en": "the sunglasses",
+          "es": "los lentes de sol",
+          "kind": "term"
+        },
+        {
+          "en": "the gas (fuel)",
+          "es": "la gasolina",
+          "kind": "term"
+        },
+        {
+          "en": "the lure",
+          "es": "el señuelo",
+          "kind": "term"
+        },
+        {
+          "en": "the sardines (bait)",
+          "es": "las sardinas",
+          "kind": "term"
+        },
+        {
+          "en": "the fishing line",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have sunscreen?",
+          "es": "¿Tiene bloqueador?",
+          "kind": "phrase",
+          "note": "Formal usted; to a friend: ¿Tienes bloqueador?"
+        },
+        {
+          "en": "There are birds over there.",
+          "es": "Hay pájaros allá.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need more ice, please.",
+          "es": "Necesito más hielo, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to fish for dorado today.",
+          "es": "Quiero pescar dorado hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to put on the life jacket.",
+          "es": "Hay que ponerse el chaleco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have live sardines.",
+          "es": "Tenemos sardinas vivas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the mate what you need and want for the day, ask if he has sunscreen, and ask if there is a bathroom on the panga."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you are going, your plans, the weather, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer for weather and tasks, poder for ability and permission",
+      "words": [
+        {
+          "en": "the island",
+          "es": "la isla",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "the marina",
+          "es": "la marina",
+          "kind": "term"
+        },
+        {
+          "en": "the wind",
+          "es": "el viento",
+          "kind": "term"
+        },
+        {
+          "en": "the wave",
+          "es": "la ola",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term"
+        },
+        {
+          "en": "the knot",
+          "es": "el nudo",
+          "kind": "term"
+        },
+        {
+          "en": "the heat",
+          "es": "el calor",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "early",
+          "es": "temprano",
+          "kind": "term"
+        },
+        {
+          "en": "Tomorrow we're going to the island.",
+          "es": "Mañana vamos a la isla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to leave early.",
+          "es": "Vamos a salir temprano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's very windy today.",
+          "es": "Hace mucho viento hoy.",
+          "kind": "phrase",
+          "note": "Weather uses hacer: hace calor, hace viento."
+        },
+        {
+          "en": "I can't tie the knot.",
+          "es": "No puedo hacer el nudo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I take a photo?",
+          "es": "¿Puedo tomar una foto?",
+          "kind": "phrase",
+          "note": "In Mexico you tomar a photo."
+        },
+        {
+          "en": "I'm going to the bathroom.",
+          "es": "Voy al baño.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        }
+      ],
+      "speaking": "Ask the captain about tomorrow's plan, say where you are going to fish and when, and ask if you can take a photo."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe what you, the crew and other anglers do on the boat using present tense verbs.",
+      "focus": "Present tense of -ar, -er, -ir verbs (pescar, lanzar, comer, subir, vivir) for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the landing net",
+          "es": "la red",
+          "kind": "term"
+        },
+        {
+          "en": "the gaff",
+          "es": "el gancho",
+          "kind": "term",
+          "note": "Common word for the gaff on Mexican boats."
+        },
+        {
+          "en": "the tuna",
+          "es": "el atún",
+          "kind": "term"
+        },
+        {
+          "en": "the snapper",
+          "es": "el pargo",
+          "kind": "term"
+        },
+        {
+          "en": "the engine",
+          "es": "el motor",
+          "kind": "term"
+        },
+        {
+          "en": "the anchor",
+          "es": "el ancla",
+          "kind": "term",
+          "note": "Feminine noun, but takes el because it starts with a stressed a."
+        },
+        {
+          "en": "the rope",
+          "es": "la cuerda",
+          "kind": "term"
+        },
+        {
+          "en": "the sun",
+          "es": "el sol",
+          "kind": "term"
+        },
+        {
+          "en": "the fisherman",
+          "es": "el pescador",
+          "kind": "term",
+          "note": "A woman is la pescadora."
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "We fish for tuna in the afternoon.",
+          "es": "Pescamos atún en la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You cast very well.",
+          "es": "Usted lanza muy bien.",
+          "kind": "phrase",
+          "note": "lanzar = to cast."
+        },
+        {
+          "en": "Do you live here?",
+          "es": "¿Tú vives aquí?",
+          "kind": "phrase",
+          "note": "Informal tú, for a young mate or a friend."
+        },
+        {
+          "en": "They bring the fish up with the gaff.",
+          "es": "Ellos suben el pez con el gancho.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I use 20-pound line.",
+          "es": "Yo uso línea de 20 libras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We eat on the beach.",
+          "es": "Comemos en la playa.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a young mate if he lives here, then say what you and your partner fish for and what the crew does with the gaff."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask the captain where, what, when, why, which and how much about the fish and the trip.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising intonation",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for the question; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the birds",
+          "es": "los pájaros",
+          "kind": "term"
+        },
+        {
+          "en": "the area (fishing spot)",
+          "es": "la zona",
+          "kind": "term"
+        },
+        {
+          "en": "Where are the fish?",
+          "es": "¿Dónde están los peces?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What fish is it?",
+          "es": "¿Qué pez es?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When do we go back to the dock?",
+          "es": "¿Cuándo regresamos al muelle?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why aren't they biting?",
+          "es": "¿Por qué no pican?",
+          "kind": "phrase",
+          "note": "picar = to bite (for fish)."
+        },
+        {
+          "en": "Which lure is better?",
+          "es": "¿Cuál señuelo es mejor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much does the dorado weigh?",
+          "es": "¿Cuánto pesa el dorado?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the captain three questions: where the fish are, why they aren't biting, and when you go back to the dock."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what isn't happening yet, never or nobody, and ask for more, less or another on the boat.",
+      "focus": "Negatives no, nunca, nadie, nada, todavía no, and más, menos, otro",
+      "words": [
+        {
+          "en": "no / not",
+          "es": "no",
+          "kind": "term"
+        },
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Agrees with the noun: otro señuelo, otra carnada. Never say 'un otro'."
+        },
+        {
+          "en": "the drag (on the reel)",
+          "es": "el freno",
+          "kind": "term"
+        },
+        {
+          "en": "the luck",
+          "es": "la suerte",
+          "kind": "term"
+        },
+        {
+          "en": "They're not biting yet.",
+          "es": "Todavía no pican.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't see anything.",
+          "es": "No veo nada.",
+          "kind": "phrase",
+          "note": "Spanish keeps the double negative: no ... nada."
+        },
+        {
+          "en": "There's nobody on the beach.",
+          "es": "No hay nadie en la playa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Less drag, please.",
+          "es": "Menos freno, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want another bait.",
+          "es": "Quiero otra carnada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never fish at night.",
+          "es": "Nunca pesco de noche.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the mate the fish aren't biting yet, ask for another bait, and ask him for more or less drag on your reel."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask the captain and mate politely for help, gear and photos with ¿Puede…? and usted commands.",
+      "focus": "¿Puede…? / ¿Me puede…? requests and usted commands (páseme, espere, ponga) with por favor",
+      "words": [
+        {
+          "en": "the bucket",
+          "es": "la cubeta",
+          "kind": "term",
+          "note": "Common in Mexico."
+        },
+        {
+          "en": "the pliers",
+          "es": "las pinzas",
+          "kind": "term"
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the towel",
+          "es": "la toalla",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "the camera",
+          "es": "la cámara",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "la radio",
+          "kind": "term"
+        },
+        {
+          "en": "the fish (caught)",
+          "es": "el pescado",
+          "kind": "term",
+          "note": "pez is the live fish; once caught or as food it is pescado."
+        },
+        {
+          "en": "the shade",
+          "es": "la sombra",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "Can you speak more slowly?",
+          "es": "¿Puede hablar más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me with the rod?",
+          "es": "¿Me puede ayudar con la caña?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Pass me the pliers, please.",
+          "es": "Páseme las pinzas, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: polite to one person."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Put the fish in the cooler, please.",
+          "es": "Ponga el pescado en la hielera, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Take a photo of us with the fish, please.",
+          "es": "Tómenos una foto con el pez, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the mate politely to help you with the rod, pass you the pliers, and take a photo of you with your fish."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Spot cognates and use survival phrases to get help or understand the crew on the water.",
+      "focus": "Cognates ending in -ción, -dad, -ente, and survival phrases for not understanding or emergencies",
+      "words": [
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexico says reservación; -ción words are feminine."
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the depth",
+          "es": "la profundidad",
+          "kind": "term"
+        },
+        {
+          "en": "the amount",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the current",
+          "es": "la corriente",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo poco español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, I don't understand.",
+          "es": "Perdón, no entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I have a reservation for tomorrow.",
+          "es": "Tengo una reservación para mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The current is strong today.",
+          "es": "La corriente está fuerte hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, I need help!",
+          "es": "¡Es una emergencia, necesito ayuda!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the captain you speak a little Spanish, ask how to say a piece of gear in Spanish, and ask about the current today."
+    }
+  ]
+}

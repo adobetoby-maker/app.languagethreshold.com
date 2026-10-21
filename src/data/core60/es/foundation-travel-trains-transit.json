@@ -1,0 +1,939 @@
+{
+  "version": 1,
+  "module": "foundation-travel-trains-transit",
+  "baseModule": "travel-trains-transit",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Trains, Buses & Transit Foundation",
+  "threshold": "By Lesson 10, you can greet transit staff, buy tickets with numbers and times, ask where a platform or bus is, say what you need, and ask for help politely, and start Trains, Buses & Transit Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce Spanish transit words clearly and greet station staff politely.",
+      "focus": "The five vowels, ch, j, ll, rr and written accents in station words; greetings",
+      "words": [
+        {
+          "en": "the train",
+          "es": "el tren",
+          "kind": "term",
+          "note": "Tap the r once, like the tt in American 'butter'."
+        },
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term",
+          "note": "Pure vowels: bo-LE-to; keep the o short, with no 'oh-oo' glide."
+        },
+        {
+          "en": "the platform",
+          "es": "el andén",
+          "kind": "term",
+          "note": "The written accent shows the stress: an-DÉN."
+        },
+        {
+          "en": "the station",
+          "es": "la estación",
+          "kind": "term",
+          "note": "Stress falls on the accented ó: es-ta-CIÓN."
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term",
+          "note": "ch sounds like English 'church'; Mexico stresses cho-FER."
+        },
+        {
+          "en": "the suitcase",
+          "es": "la maleta",
+          "kind": "term",
+          "note": "Every vowel is short and clear: ma-LE-ta."
+        },
+        {
+          "en": "the arrival",
+          "es": "la llegada",
+          "kind": "term",
+          "note": "ll sounds like the y in 'yes': ye-GA-da."
+        },
+        {
+          "en": "the departure",
+          "es": "la salida",
+          "kind": "term",
+          "note": "Also the word for 'exit' on station signs."
+        },
+        {
+          "en": "the trip",
+          "es": "el viaje",
+          "kind": "term",
+          "note": "j is a strong, breathy h: VIA-he."
+        },
+        {
+          "en": "the railway",
+          "es": "el ferrocarril",
+          "kind": "term",
+          "note": "rr is a trilled r, rolled several times."
+        },
+        {
+          "en": "Good morning, sir.",
+          "es": "Buenos días, señor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon.",
+          "es": "Buenas tardes.",
+          "kind": "phrase",
+          "note": "Use from about noon until dark; buenas noches after dark."
+        },
+        {
+          "en": "Hi, my name is Ana.",
+          "es": "Hola, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you, goodbye.",
+          "es": "Gracias, adiós.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a ticket agent with the right greeting for the time of day, say your name, and pronounce boleto, andén and estación clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say ticket counts, prices in pesos, times, stops and luggage weight.",
+      "focus": "Numbers 0 to 1,000, clock time, pesos, minutes, stops, kilos and kilometers",
+      "words": [
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the schedule",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term",
+          "note": "Ask the time with ¿Qué hora es?"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the stop",
+          "es": "la parada",
+          "kind": "term"
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term"
+        },
+        {
+          "en": "the kilogram",
+          "es": "el kilo",
+          "kind": "term",
+          "note": "Luggage limits are in kilos; check the line's posted rules."
+        },
+        {
+          "en": "the kilometer",
+          "es": "el kilómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the number",
+          "es": "el número",
+          "kind": "term"
+        },
+        {
+          "en": "the round trip",
+          "es": "el viaje redondo",
+          "kind": "term",
+          "note": "Common in Mexico; you also hear ida y vuelta."
+        },
+        {
+          "en": "The train leaves at 8:30.",
+          "es": "El tren sale a las 8:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "2 tickets to Puebla, please.",
+          "es": "2 boletos para Puebla, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My suitcase weighs 20 kilos.",
+          "es": "Mi maleta pesa 20 kilos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 3 stops left.",
+          "es": "Faltan 3 paradas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The trip is 45 minutes long.",
+          "es": "El viaje es de 45 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 10:15.",
+          "es": "Son las 10:15.",
+          "kind": "phrase",
+          "note": "Use son las for most times, but es la for 1:00."
+        }
+      ],
+      "speaking": "Tell a ticket agent how many tickets you need, the time you want to leave, and how many kilos your suitcase weighs."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what something is and describe seats, offices and buses as free, full, open or closed.",
+      "focus": "ser for what something is, estar for a seat's or office's condition or location",
+      "words": [
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the ticket office",
+          "es": "la taquilla",
+          "kind": "term"
+        },
+        {
+          "en": "free (unoccupied)",
+          "es": "libre",
+          "kind": "term",
+          "note": "Means not taken; 'free of charge' is gratis."
+        },
+        {
+          "en": "taken",
+          "es": "ocupado",
+          "kind": "term",
+          "note": "Matches the noun: el asiento ocupado, la fila ocupada."
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "on time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "Is this seat free?",
+          "es": "¿Este asiento está libre?",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The ticket office is closed.",
+          "es": "La taquilla está cerrada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase",
+          "note": "ser: who you are; turista is the same for men and women."
+        },
+        {
+          "en": "The station is close.",
+          "es": "La estación está cerca.",
+          "kind": "phrase",
+          "note": "estar also gives location."
+        },
+        {
+          "en": "It's my seat.",
+          "es": "Es mi asiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The bus is full.",
+          "es": "El autobús está lleno.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a passenger if a seat is free, say you are a tourist, and tell them whether the bus is full."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want, and ask if a station has what you need.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive at the station",
+      "words": [
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term"
+        },
+        {
+          "en": "the subway",
+          "es": "el metro",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term",
+          "note": "In the metro, the rechargeable transit card."
+        },
+        {
+          "en": "the change",
+          "es": "el cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the coins",
+          "es": "las monedas",
+          "kind": "term"
+        },
+        {
+          "en": "the map",
+          "es": "el mapa",
+          "kind": "term",
+          "note": "Masculine despite the -a ending."
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term"
+        },
+        {
+          "en": "the luggage",
+          "es": "el equipaje",
+          "kind": "term"
+        },
+        {
+          "en": "the machine",
+          "es": "la máquina",
+          "kind": "term"
+        },
+        {
+          "en": "I have a big suitcase.",
+          "es": "Tengo una maleta grande.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there a restroom on the train?",
+          "es": "¿Hay baño en el tren?",
+          "kind": "phrase",
+          "note": "hay means both 'there is' and 'there are'."
+        },
+        {
+          "en": "I need a metro card.",
+          "es": "Necesito una tarjeta del metro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want a one-way ticket.",
+          "es": "Quiero un boleto sencillo.",
+          "kind": "phrase",
+          "note": "Quisiera sounds softer and more polite at a counter."
+        },
+        {
+          "en": "You have to top up the card.",
+          "es": "Hay que recargar la tarjeta.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        },
+        {
+          "en": "Do you have to validate the ticket here?",
+          "es": "¿Hay que validar el boleto aquí?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a station worker what you have and what you need, and ask if there is a restroom and a card machine."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you plan to do, and ask if you can transfer or store luggage.",
+      "focus": "ir, ir a + infinitive for travel plans, hacer, and poder",
+      "words": [
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "the bus station",
+          "es": "la terminal de autobuses",
+          "kind": "term",
+          "note": "La terminal is feminine."
+        },
+        {
+          "en": "the transfer",
+          "es": "el transbordo",
+          "kind": "term",
+          "note": "Hacer transbordo means to change lines or vehicles."
+        },
+        {
+          "en": "the line (route)",
+          "es": "la línea",
+          "kind": "term"
+        },
+        {
+          "en": "the aisle",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the line (queue)",
+          "es": "la fila",
+          "kind": "term",
+          "note": "Hacer fila means to wait in line."
+        },
+        {
+          "en": "the destination",
+          "es": "el destino",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going downtown.",
+          "es": "Voy al centro.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "I'm going to take the metro.",
+          "es": "Voy a tomar el metro.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for a plan."
+        },
+        {
+          "en": "Can I transfer here?",
+          "es": "¿Puedo hacer transbordo aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I put my suitcase here?",
+          "es": "¿Puedo poner mi maleta aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we're going to Oaxaca by bus.",
+          "es": "Mañana vamos a Oaxaca en autobús.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to line up here.",
+          "es": "Vamos a hacer fila aquí.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a fellow passenger where you are going tomorrow, and ask a station worker if you can transfer here."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about everyday travel actions like getting on, getting off and waiting.",
+      "focus": "Regular -ar, -er, -ir present endings for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the train car",
+          "es": "el vagón",
+          "kind": "term"
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the fare",
+          "es": "el pasaje",
+          "kind": "term",
+          "note": "The money you pay to ride a bus or train."
+        },
+        {
+          "en": "the window",
+          "es": "la ventanilla",
+          "kind": "term",
+          "note": "A vehicle window or a ticket window; a window seat is asiento de ventanilla."
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the screen",
+          "es": "la pantalla",
+          "kind": "term"
+        },
+        {
+          "en": "the passenger",
+          "es": "el pasajero",
+          "kind": "term",
+          "note": "Use la pasajera for a woman."
+        },
+        {
+          "en": "the route",
+          "es": "la ruta",
+          "kind": "term"
+        },
+        {
+          "en": "the town",
+          "es": "el pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "I get off at the next stop.",
+          "es": "Bajo en la próxima parada.",
+          "kind": "phrase",
+          "note": "bajar for getting off, subir for getting on."
+        },
+        {
+          "en": "Are you getting off here?",
+          "es": "¿Usted baja aquí?",
+          "kind": "phrase",
+          "note": "Formal usted, for a stranger."
+        },
+        {
+          "en": "Do they sell tickets here?",
+          "es": "¿Aquí venden boletos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're waiting for the 7 o'clock bus.",
+          "es": "Esperamos el autobús de las 7.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We get on car 4.",
+          "es": "Subimos al vagón 4.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live in the city?",
+          "es": "¿Tú vives en la ciudad?",
+          "kind": "phrase",
+          "note": "Informal tú, for a fellow traveler your age."
+        }
+      ],
+      "speaking": "Tell a bus driver where you get off, ask if tickets are sold here, and say which bus you are waiting for."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask the key question words to find platforms, prices, times and seats.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "where to?",
+          "es": "¿adónde?",
+          "kind": "term",
+          "note": "Use with ir: ¿Adónde va este tren?"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "Alone, ¿Cómo? also means 'Sorry, what?'"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for 'why'; porque, one word, means 'because'."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "at what time?",
+          "es": "¿a qué hora?",
+          "kind": "term"
+        },
+        {
+          "en": "Where is platform 3?",
+          "es": "¿Dónde está el andén 3?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the ticket?",
+          "es": "¿Cuánto cuesta el boleto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time does the last train leave?",
+          "es": "¿A qué hora sale el último tren?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one is my seat?",
+          "es": "¿Cuál es mi asiento?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why is the train stopped?",
+          "es": "¿Por qué está parado el tren?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who sells the tickets?",
+          "es": "¿Quién vende los boletos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a station worker where your platform is, how much a ticket costs, and what time the last train leaves."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Talk about delays, strikes and empty offices with no, nobody, not yet, more and less.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never use un before it: otro autobús, not un otro."
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "the strike",
+          "es": "la huelga",
+          "kind": "term"
+        },
+        {
+          "en": "the next bus",
+          "es": "el próximo autobús",
+          "kind": "term"
+        },
+        {
+          "en": "The train hasn't arrived yet.",
+          "es": "El tren todavía no llega.",
+          "kind": "phrase",
+          "note": "Mexican Spanish uses the present here for 'hasn't arrived yet'."
+        },
+        {
+          "en": "There's nobody at the ticket office.",
+          "es": "No hay nadie en la taquilla.",
+          "kind": "phrase",
+          "note": "Keep no before nadie: the double negative is correct."
+        },
+        {
+          "en": "There are no trains today because of the strike.",
+          "es": "Hoy no hay trenes por la huelga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there another bus later?",
+          "es": "¿Hay otro autobús más tarde?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything, thanks.",
+          "es": "No necesito nada, gracias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The bus costs less and takes longer.",
+          "es": "El autobús cuesta menos y tarda más.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask an agent if the train is late, whether there is another bus later, and which option costs less."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask staff and drivers politely for help, repetition and a heads-up at your stop.",
+      "focus": "¿Puede…? requests and usted commands like repita, espere, pare",
+      "words": [
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term"
+        },
+        {
+          "en": "the ramp",
+          "es": "la rampa",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "the luggage rack",
+          "es": "el portaequipaje",
+          "kind": "term"
+        },
+        {
+          "en": "the back door",
+          "es": "la puerta de atrás",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "again",
+          "es": "otra vez",
+          "kind": "term"
+        },
+        {
+          "en": "Can you speak more slowly, please?",
+          "es": "¿Puede hablar más despacio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me with the suitcase?",
+          "es": "¿Me puede ayudar con la maleta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please repeat.",
+          "es": "Repita, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of repetir; por favor keeps it polite."
+        },
+        {
+          "en": "Will you let me know at my stop, please?",
+          "es": "¿Me avisa en mi parada, por favor?",
+          "kind": "phrase",
+          "note": "Ask the driver this so you don't miss your stop."
+        },
+        {
+          "en": "Stop at the corner, please.",
+          "es": "Pare en la esquina, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a bus driver politely to repeat, speak more slowly, and let you know when you reach your stop."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish cognates and use survival phrases when lost, confused or in trouble.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the connection",
+          "es": "la conexión",
+          "kind": "term"
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "The usual word for a booking in Mexico."
+        },
+        {
+          "en": "the cancellation",
+          "es": "la cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "security",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "accessibility",
+          "es": "la accesibilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the agent",
+          "es": "el agente",
+          "kind": "term",
+          "note": "Use la agente for a woman."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the police",
+          "es": "la policía",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase",
+          "note": "Formal usted, right for staff and strangers."
+        },
+        {
+          "en": "I missed my connection.",
+          "es": "Perdí mi conexión.",
+          "kind": "phrase",
+          "note": "Learn as a set phrase: perdí means 'I missed'."
+        },
+        {
+          "en": "I missed my stop.",
+          "es": "Me pasé de mi parada.",
+          "kind": "phrase",
+          "note": "The everyday way to say you rode past your stop."
+        },
+        {
+          "en": "Where is the information desk?",
+          "es": "¿Dónde está el módulo de información?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Help, it's an emergency!",
+          "es": "¡Ayuda, es una emergencia!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a station agent you missed your connection, ask if they speak English, and ask where the information desk is."
+    }
+  ]
+}

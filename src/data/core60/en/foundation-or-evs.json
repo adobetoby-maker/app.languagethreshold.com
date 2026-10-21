@@ -1,0 +1,932 @@
+{
+  "version": 1,
+  "module": "foundation-or-evs",
+  "baseModule": "or-evs",
+  "stage": "foundation",
+  "language": "English",
+  "nativeLanguage": "Spanish",
+  "headline": "The OR Environmental Services Foundation",
+  "threshold": "By Lesson 10, you can greet the OR team, say numbers and times, describe a room, ask simple questions, make polite requests and ask for help in English, and start OR Environmental Services Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet the OR team, say your name, and say basic cleaning words clearly.",
+      "focus": "English vowels, th, r, v and b, stress on the first syllable, and greetings",
+      "words": [
+        {
+          "en": "la sala",
+          "es": "the room",
+          "kind": "term",
+          "note": "La r inglesa no vibra: la lengua no toca el paladar."
+        },
+        {
+          "en": "los guantes",
+          "es": "the gloves",
+          "kind": "term",
+          "note": "La v: dientes de arriba sobre el labio de abajo. No suena como b."
+        },
+        {
+          "en": "la cubeta",
+          "es": "the bucket",
+          "kind": "term",
+          "note": "La b se dice con los dos labios juntos. Acento: BU-cket."
+        },
+        {
+          "en": "el piso",
+          "es": "the floor",
+          "kind": "term"
+        },
+        {
+          "en": "el enfermero, la enfermera",
+          "es": "the nurse",
+          "kind": "term",
+          "note": "La u suena como una e corta y oscura: nérs."
+        },
+        {
+          "en": "el médico",
+          "es": "the doctor",
+          "kind": "term",
+          "note": "Acento en la primera sílaba: DOC-tor."
+        },
+        {
+          "en": "el trapeador",
+          "es": "the mop",
+          "kind": "term",
+          "note": "La o suena abierta, casi como a: map."
+        },
+        {
+          "en": "la basura",
+          "es": "the trash",
+          "kind": "term"
+        },
+        {
+          "en": "el baño",
+          "es": "the bathroom",
+          "kind": "term",
+          "note": "La th: la lengua entre los dientes, con aire suave."
+        },
+        {
+          "en": "el equipo",
+          "es": "the team",
+          "kind": "term",
+          "note": "La ea suena como una i larga: tiim."
+        },
+        {
+          "en": "¡Buenos días!",
+          "es": "Good morning!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hola, soy Rosa, de EVS.",
+          "es": "Hi, I'm Rosa from EVS.",
+          "kind": "phrase",
+          "note": "EVS (Environmental Services) es el departamento de limpieza del hospital."
+        },
+        {
+          "en": "Mucho gusto.",
+          "es": "Nice to meet you.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Cómo está?",
+          "es": "How are you?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Gracias, ¡hasta luego!",
+          "es": "Thank you, see you later!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a nurse on the OR team, say your name and that you are from EVS, and say the words floor, gloves and room clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, times and supply amounts like boxes, rolls and gallons.",
+      "focus": "Numbers 0 to 1,000, clock time, and boxes, pairs, rolls and gallons of supplies",
+      "words": [
+        {
+          "en": "el minuto",
+          "es": "the minute",
+          "kind": "term"
+        },
+        {
+          "en": "la hora",
+          "es": "the hour",
+          "kind": "term",
+          "note": "La h no suena: se dice como \"our\"."
+        },
+        {
+          "en": "el turno",
+          "es": "the shift",
+          "kind": "term"
+        },
+        {
+          "en": "la caja",
+          "es": "the box",
+          "kind": "term"
+        },
+        {
+          "en": "el par",
+          "es": "the pair",
+          "kind": "term",
+          "note": "Se usa para guantes: a pair of gloves = un par de guantes."
+        },
+        {
+          "en": "el rollo",
+          "es": "the roll",
+          "kind": "term"
+        },
+        {
+          "en": "la botella",
+          "es": "the bottle",
+          "kind": "term"
+        },
+        {
+          "en": "el galón",
+          "es": "the gallon",
+          "kind": "term",
+          "note": "La cantidad de producto por galón la indica la etiqueta del fabricante."
+        },
+        {
+          "en": "el paquete",
+          "es": "the pack",
+          "kind": "term"
+        },
+        {
+          "en": "el mediodía",
+          "es": "noon",
+          "kind": "term"
+        },
+        {
+          "en": "Mi turno empieza a las 7:00.",
+          "es": "My shift starts at 7:00.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Son las 10:45.",
+          "es": "It's 10:45.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Necesito 2 cajas de guantes.",
+          "es": "I need 2 boxes of gloves.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La sala 12 tarda 30 minutos.",
+          "es": "Room 12 takes 30 minutes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Usamos 150 bolsas al día.",
+          "es": "We use 150 bags a day.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Reviso la etiqueta para saber cuánto va por galón.",
+          "es": "I check the label for how much per gallon.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the charge nurse what time your shift starts, which room you are in, and how many boxes of gloves you need."
+    },
+    {
+      "n": 3,
+      "title": "To Be",
+      "objective": "Use am, is and are to say who you are, where you are, and how a room looks.",
+      "focus": "am, is, are for who you are, a condition (wet, clean) and a location (in the hallway)",
+      "words": [
+        {
+          "en": "limpio",
+          "es": "clean",
+          "kind": "term"
+        },
+        {
+          "en": "sucio",
+          "es": "dirty",
+          "kind": "term"
+        },
+        {
+          "en": "mojado",
+          "es": "wet",
+          "kind": "term"
+        },
+        {
+          "en": "seco",
+          "es": "dry",
+          "kind": "term"
+        },
+        {
+          "en": "lleno",
+          "es": "full",
+          "kind": "term"
+        },
+        {
+          "en": "vacío",
+          "es": "empty",
+          "kind": "term"
+        },
+        {
+          "en": "ocupado",
+          "es": "busy",
+          "kind": "term"
+        },
+        {
+          "en": "el supervisor, la supervisora",
+          "es": "the supervisor",
+          "kind": "term"
+        },
+        {
+          "en": "el pasillo",
+          "es": "the hallway",
+          "kind": "term"
+        },
+        {
+          "en": "aquí",
+          "es": "here",
+          "kind": "term"
+        },
+        {
+          "en": "Soy el nuevo trabajador de EVS.",
+          "es": "I am the new EVS worker.",
+          "kind": "phrase",
+          "note": "En inglés, am / is / are sirven para ser y para estar."
+        },
+        {
+          "en": "El piso está mojado.",
+          "es": "The floor is wet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Las enfermeras están en el pasillo.",
+          "es": "The nurses are in the hallway.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La basura está llena.",
+          "es": "The trash is full.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Usted es el supervisor?",
+          "es": "Are you the supervisor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Estamos en la sala 6.",
+          "es": "We are in Room 6.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a nurse who you are, where you are, and whether the floor is clean, wet or dirty."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what there is in the room, and what you need or have to do.",
+      "focus": "have, there is / there are, need, want and have to + verb",
+      "words": [
+        {
+          "en": "el carrito",
+          "es": "the cart",
+          "kind": "term"
+        },
+        {
+          "en": "el trapo",
+          "es": "the cloth",
+          "kind": "term"
+        },
+        {
+          "en": "las toallitas",
+          "es": "the wipes",
+          "kind": "term"
+        },
+        {
+          "en": "el atomizador",
+          "es": "the spray bottle",
+          "kind": "term"
+        },
+        {
+          "en": "la mascarilla",
+          "es": "the mask",
+          "kind": "term"
+        },
+        {
+          "en": "la bata",
+          "es": "the gown",
+          "kind": "term"
+        },
+        {
+          "en": "las cubiertas de zapatos",
+          "es": "the shoe covers",
+          "kind": "term",
+          "note": "También se dicen botas desechables."
+        },
+        {
+          "en": "el gorro",
+          "es": "the hair cover",
+          "kind": "term"
+        },
+        {
+          "en": "el bote de basura",
+          "es": "the trash can",
+          "kind": "term"
+        },
+        {
+          "en": "la bolsa roja",
+          "es": "the red bag",
+          "kind": "term",
+          "note": "Bolsa para desechos con sangre; siga las reglas de su hospital."
+        },
+        {
+          "en": "Tengo mi carrito.",
+          "es": "I have my cart.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hay 3 bolsas en el pasillo.",
+          "es": "There are 3 bags in the hallway.",
+          "kind": "phrase",
+          "note": "There is para una cosa; there are para dos o más."
+        },
+        {
+          "en": "Hay una bolsa roja junto a la puerta.",
+          "es": "There is a red bag by the door.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Necesito una mascarilla nueva.",
+          "es": "I need a new mask.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Quiero ayudar al equipo.",
+          "es": "I want to help the team.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tengo que cambiarme los guantes.",
+          "es": "I have to change my gloves.",
+          "kind": "phrase",
+          "note": "have to + verbo = tener que + verbo."
+        }
+      ],
+      "speaking": "Tell a nurse what you have on your cart, what you need, and what you have to do before you go in the room."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to clean, and what you can do.",
+      "focus": "go, going to + verb for plans, do, and can / can't",
+      "words": [
+        {
+          "en": "el elevador",
+          "es": "the elevator",
+          "kind": "term"
+        },
+        {
+          "en": "la puerta",
+          "es": "the door",
+          "kind": "term"
+        },
+        {
+          "en": "la camilla",
+          "es": "the stretcher",
+          "kind": "term"
+        },
+        {
+          "en": "el cuarto sucio",
+          "es": "the soiled utility room",
+          "kind": "term",
+          "note": "Cuarto donde se dejan las cosas sucias y la basura."
+        },
+        {
+          "en": "el almacén",
+          "es": "the supply room",
+          "kind": "term"
+        },
+        {
+          "en": "la sala de descanso",
+          "es": "the break room",
+          "kind": "term"
+        },
+        {
+          "en": "la lavandería",
+          "es": "the laundry",
+          "kind": "term"
+        },
+        {
+          "en": "ahora",
+          "es": "now",
+          "kind": "term"
+        },
+        {
+          "en": "más tarde",
+          "es": "later",
+          "kind": "term"
+        },
+        {
+          "en": "después, siguiente",
+          "es": "next",
+          "kind": "term"
+        },
+        {
+          "en": "Voy al almacén.",
+          "es": "I'm going to the supply room.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Voy a limpiar la sala 3 después.",
+          "es": "I'm going to clean Room 3 next.",
+          "kind": "phrase",
+          "note": "going to + verbo = ir a + verbo, para planes."
+        },
+        {
+          "en": "Puedo hacerlo ahora.",
+          "es": "I can do it now.",
+          "kind": "phrase"
+        },
+        {
+          "en": "No puedo mover la camilla solo.",
+          "es": "I can't move the stretcher alone.",
+          "kind": "phrase",
+          "note": "can't = cannot. Pida ayuda para mover cosas pesadas."
+        },
+        {
+          "en": "Hago los pisos después de la cirugía.",
+          "es": "I do the floors after surgery.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Vamos a almorzar a las 12:30.",
+          "es": "We go to lunch at 12:30.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your supervisor where you are going, what you are going to clean next, and what you can and can't do alone."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about daily OR cleaning tasks with I, you, he, she, we and they.",
+      "focus": "Simple present for daily tasks; add -s with he and she (she cleans)",
+      "words": [
+        {
+          "en": "el cirujano, la cirujana",
+          "es": "the surgeon",
+          "kind": "term"
+        },
+        {
+          "en": "el paciente",
+          "es": "the patient",
+          "kind": "term"
+        },
+        {
+          "en": "la enfermera a cargo",
+          "es": "the charge nurse",
+          "kind": "term",
+          "note": "La enfermera que organiza las salas durante el turno."
+        },
+        {
+          "en": "el compañero de trabajo",
+          "es": "the coworker",
+          "kind": "term"
+        },
+        {
+          "en": "el horario",
+          "es": "the schedule",
+          "kind": "term"
+        },
+        {
+          "en": "las lámparas",
+          "es": "the lights",
+          "kind": "term"
+        },
+        {
+          "en": "la pared",
+          "es": "the wall",
+          "kind": "term"
+        },
+        {
+          "en": "el lavabo",
+          "es": "the sink",
+          "kind": "term"
+        },
+        {
+          "en": "todos los días",
+          "es": "every day",
+          "kind": "term"
+        },
+        {
+          "en": "siempre",
+          "es": "always",
+          "kind": "term"
+        },
+        {
+          "en": "Limpio las paredes todos los días.",
+          "es": "I clean the walls every day.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ella trabaja en la sala 8.",
+          "es": "She works in Room 8.",
+          "kind": "phrase",
+          "note": "Con he / she el verbo lleva -s: works, cleans."
+        },
+        {
+          "en": "El cirujano empieza a las 7:30.",
+          "es": "The surgeon starts at 7:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Siempre limpiamos las lámparas.",
+          "es": "We always wipe the lights.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mi compañero limpia el lavabo.",
+          "es": "My coworker cleans the sink.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ellos revisan el horario.",
+          "es": "They check the schedule.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a new coworker what you clean every day and what the charge nurse and the surgeon do."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask the OR team simple questions about rooms, times, people and supplies.",
+      "focus": "what, who, where, when, how much, how many, how, why, which; do / does questions",
+      "words": [
+        {
+          "en": "qué",
+          "es": "what",
+          "kind": "term"
+        },
+        {
+          "en": "quién",
+          "es": "who",
+          "kind": "term"
+        },
+        {
+          "en": "dónde",
+          "es": "where",
+          "kind": "term"
+        },
+        {
+          "en": "cuándo",
+          "es": "when",
+          "kind": "term"
+        },
+        {
+          "en": "cómo",
+          "es": "how",
+          "kind": "term"
+        },
+        {
+          "en": "por qué",
+          "es": "why",
+          "kind": "term"
+        },
+        {
+          "en": "cuál",
+          "es": "which",
+          "kind": "term"
+        },
+        {
+          "en": "cuántos",
+          "es": "how many",
+          "kind": "term",
+          "note": "Para cosas que se cuentan: how many bags."
+        },
+        {
+          "en": "cuánto",
+          "es": "how much",
+          "kind": "term",
+          "note": "Para cosas que no se cuentan: how much soap."
+        },
+        {
+          "en": "la cirugía",
+          "es": "the case",
+          "kind": "term",
+          "note": "En el quirófano, case es la cirugía de un paciente."
+        },
+        {
+          "en": "¿Dónde están los trapeadores limpios?",
+          "es": "Where are the clean mops?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Quién es la enfermera a cargo hoy?",
+          "es": "Who is the charge nurse today?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Cuándo empieza la siguiente cirugía?",
+          "es": "When does the next case start?",
+          "kind": "phrase",
+          "note": "Con he / she / it se pregunta con does."
+        },
+        {
+          "en": "¿Cuántas bolsas necesita?",
+          "es": "How many bags do you need?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Qué sala limpio después?",
+          "es": "Which room do I clean next?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Por qué está cerrada la puerta?",
+          "es": "Why is the door closed?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the charge nurse who is in charge today, which room you clean next, and when the next case starts."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what you don't have, what is not done yet, and ask for more or another.",
+      "focus": "don't, doesn't, never, nobody, nothing, not yet, more, less, another",
+      "words": [
+        {
+          "en": "nada",
+          "es": "nothing",
+          "kind": "term"
+        },
+        {
+          "en": "nadie",
+          "es": "nobody",
+          "kind": "term"
+        },
+        {
+          "en": "nunca",
+          "es": "never",
+          "kind": "term"
+        },
+        {
+          "en": "todavía no",
+          "es": "not yet",
+          "kind": "term"
+        },
+        {
+          "en": "más",
+          "es": "more",
+          "kind": "term"
+        },
+        {
+          "en": "menos",
+          "es": "less",
+          "kind": "term"
+        },
+        {
+          "en": "otro, otra",
+          "es": "another",
+          "kind": "term"
+        },
+        {
+          "en": "el jabón",
+          "es": "the soap",
+          "kind": "term"
+        },
+        {
+          "en": "las toallas de papel",
+          "es": "the paper towels",
+          "kind": "term"
+        },
+        {
+          "en": "el derrame",
+          "es": "the spill",
+          "kind": "term"
+        },
+        {
+          "en": "No tengo más bolsas.",
+          "es": "I don't have more bags.",
+          "kind": "phrase"
+        },
+        {
+          "en": "El piso todavía no está seco.",
+          "es": "The floor is not dry yet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nunca recojo una aguja con las manos.",
+          "es": "I never pick up a needle with my hands.",
+          "kind": "phrase",
+          "note": "Siga el procedimiento de su hospital para agujas."
+        },
+        {
+          "en": "No hay nadie en la sala 2.",
+          "es": "Nobody is in Room 2.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ella no necesita otra bata.",
+          "es": "She doesn't need another gown.",
+          "kind": "phrase",
+          "note": "Con he / she se usa doesn't, y el verbo va sin -s."
+        },
+        {
+          "en": "Necesitamos otra caja de toallitas.",
+          "es": "We need another box of wipes.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the nurse what you don't have, ask for another box of wipes, and say the floor is not dry yet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and give short, safe commands to the OR team.",
+      "focus": "Can you…? Could you…? please, and short commands (Wait. Watch out!)",
+      "words": [
+        {
+          "en": "por favor",
+          "es": "please",
+          "kind": "term"
+        },
+        {
+          "en": "disculpe",
+          "es": "excuse me",
+          "kind": "term"
+        },
+        {
+          "en": "el letrero de piso mojado",
+          "es": "the wet floor sign",
+          "kind": "term"
+        },
+        {
+          "en": "el gel antibacterial",
+          "es": "the hand sanitizer",
+          "kind": "term"
+        },
+        {
+          "en": "el interruptor",
+          "es": "the light switch",
+          "kind": "term"
+        },
+        {
+          "en": "la etiqueta",
+          "es": "the label",
+          "kind": "term"
+        },
+        {
+          "en": "la llave",
+          "es": "the key",
+          "kind": "term"
+        },
+        {
+          "en": "el teléfono",
+          "es": "the phone",
+          "kind": "term"
+        },
+        {
+          "en": "la manija",
+          "es": "the handle",
+          "kind": "term"
+        },
+        {
+          "en": "la esquina",
+          "es": "the corner",
+          "kind": "term"
+        },
+        {
+          "en": "¿Puede abrir la puerta, por favor?",
+          "es": "Can you open the door, please?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Podría detener el elevador, por favor?",
+          "es": "Could you hold the elevator, please?",
+          "kind": "phrase",
+          "note": "Could you es más cortés que can you."
+        },
+        {
+          "en": "Por favor, espere, el piso está mojado.",
+          "es": "Please wait, the floor is wet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¡Cuidado!",
+          "es": "Watch out!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ponga el letrero de piso mojado en la esquina.",
+          "es": "Put the wet floor sign in the corner.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Disculpe, ¿podría mover el carrito?",
+          "es": "Excuse me, could you move the cart?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a nurse politely to hold the door, then tell a coworker to put the wet floor sign in the corner."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use English words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -tion, -ty, -ent and survival phrases for getting help",
+      "words": [
+        {
+          "en": "el mostrador de información",
+          "es": "the information desk",
+          "kind": "term",
+          "note": "-tion en inglés suele ser -ción en español."
+        },
+        {
+          "en": "la infección",
+          "es": "the infection",
+          "kind": "term"
+        },
+        {
+          "en": "la solución",
+          "es": "the solution",
+          "kind": "term"
+        },
+        {
+          "en": "las instrucciones",
+          "es": "the instructions",
+          "kind": "term"
+        },
+        {
+          "en": "la emergencia",
+          "es": "the emergency",
+          "kind": "term"
+        },
+        {
+          "en": "el guardia de seguridad",
+          "es": "the security guard",
+          "kind": "term",
+          "note": "-ty en inglés suele ser -dad en español: security, seguridad."
+        },
+        {
+          "en": "la cantidad",
+          "es": "the quantity",
+          "kind": "term"
+        },
+        {
+          "en": "el departamento",
+          "es": "the department",
+          "kind": "term",
+          "note": "-ent en inglés suele ser -ente o -ento en español."
+        },
+        {
+          "en": "el accidente",
+          "es": "the accident",
+          "kind": "term"
+        },
+        {
+          "en": "la estación de enfermería",
+          "es": "the nurses' station",
+          "kind": "term"
+        },
+        {
+          "en": "Perdón, no entiendo.",
+          "es": "Sorry, I don't understand.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Puede repetir, por favor?",
+          "es": "Can you say that again, please?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Por favor, hable más despacio.",
+          "es": "Please speak more slowly.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Cómo se dice \"cubeta\" en inglés?",
+          "es": "How do you say \"cubeta\" in English?",
+          "kind": "phrase"
+        },
+        {
+          "en": "¡Necesito ayuda, por favor!",
+          "es": "I need help, please!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Le voy a preguntar a mi supervisor.",
+          "es": "I'll ask my supervisor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a nurse you don't understand, ask her to repeat the instructions slowly, and ask how to say a word in English."
+    }
+  ]
+}

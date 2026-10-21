@@ -1,0 +1,923 @@
+{
+  "version": 1,
+  "module": "foundation-travel-guides-attractions",
+  "baseModule": "travel-guides-attractions",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Guides, Tours & Attractions Foundation",
+  "threshold": "By Lesson 10, you can greet a guide, give numbers, times and prices, describe places, ask and answer simple tour questions, make polite requests and get help, and start Guides, Tours & Attractions Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a guide, say your name, and pronounce common tour words clearly.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the guide",
+          "es": "el guía",
+          "kind": "term",
+          "note": "For a woman guide, say la guía. Stress the í: gi-A."
+        },
+        {
+          "en": "the museum",
+          "es": "el museo",
+          "kind": "term",
+          "note": "Say every vowel clearly: mu-SE-o."
+        },
+        {
+          "en": "the street",
+          "es": "la calle",
+          "kind": "term",
+          "note": "In Mexico, ll sounds like the English y in 'yes'."
+        },
+        {
+          "en": "the ticket office",
+          "es": "la taquilla",
+          "kind": "term",
+          "note": "ll like y: ta-KI-ya."
+        },
+        {
+          "en": "the neighborhood",
+          "es": "el barrio",
+          "kind": "term",
+          "note": "rr is a strong, rolled r."
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term",
+          "note": "ch sounds like the ch in 'church'."
+        },
+        {
+          "en": "the trip",
+          "es": "el viaje",
+          "kind": "term",
+          "note": "j sounds like a strong English h: VIA-he."
+        },
+        {
+          "en": "the pyramid",
+          "es": "la pirámide",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: pi-RA-mi-de."
+        },
+        {
+          "en": "good morning",
+          "es": "buenos días",
+          "kind": "term"
+        },
+        {
+          "en": "good afternoon",
+          "es": "buenas tardes",
+          "kind": "term",
+          "note": "Use it from about noon until dark."
+        },
+        {
+          "en": "Good morning, are you the guide?",
+          "es": "Buenos días, ¿usted es el guía?",
+          "kind": "phrase",
+          "note": "Usted is the polite 'you' for people you don't know."
+        },
+        {
+          "en": "My name is Ana, nice to meet you.",
+          "es": "Me llamo Ana, mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say 'ticket' in Spanish?",
+          "es": "¿Cómo se dice 'ticket' en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good night, see you tomorrow.",
+          "es": "Buenas noches, hasta mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, I speak little Spanish.",
+          "es": "Perdón, hablo poco español.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet your tour guide, say your name, and ask how to say one tour word, like 'street' or 'backpack', in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say how many people you are, ask the tour time and price, and understand how long it lasts.",
+      "focus": "Numbers 0 to 1,000, clock time, hours, minutes, kilometers and prices in pesos",
+      "words": [
+        {
+          "en": "the ticket",
+          "es": "el boleto",
+          "kind": "term",
+          "note": "Standard word in Mexico and Latin America."
+        },
+        {
+          "en": "the hour, the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the duration",
+          "es": "la duración",
+          "kind": "term"
+        },
+        {
+          "en": "the pesos",
+          "es": "los pesos",
+          "kind": "term"
+        },
+        {
+          "en": "the kilometer",
+          "es": "el kilómetro",
+          "kind": "term"
+        },
+        {
+          "en": "the group",
+          "es": "el grupo",
+          "kind": "term"
+        },
+        {
+          "en": "the people",
+          "es": "las personas",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "There are 4 of us.",
+          "es": "Somos 4 personas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What time does the tour start?",
+          "es": "¿A qué hora empieza el tour?",
+          "kind": "phrase",
+          "note": "Use a las for clock times: a las 9, a las 11."
+        },
+        {
+          "en": "The tour lasts 3 hours.",
+          "es": "El tour dura 3 horas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "2 tickets for 11 o'clock, please.",
+          "es": "2 boletos para las 11, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is it per person?",
+          "es": "¿Cuánto es por persona?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a ticket seller how many people are in your group, ask what time the tour starts, and ask the price per person."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe places on a tour: what they are, where they are, and whether they are open or full.",
+      "focus": "ser for what a place is, estar for its condition or location",
+      "words": [
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "included",
+          "es": "incluido",
+          "kind": "term",
+          "note": "Matches the noun: el boleto incluido, la entrada incluida."
+        },
+        {
+          "en": "old, ancient",
+          "es": "antiguo",
+          "kind": "term"
+        },
+        {
+          "en": "the guided tour",
+          "es": "la visita guiada",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de encuentro",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term",
+          "note": "Also means the admission ticket."
+        },
+        {
+          "en": "The museum is closed today.",
+          "es": "El museo está cerrado hoy.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The cathedral is very old.",
+          "es": "La catedral es muy antigua.",
+          "kind": "phrase",
+          "note": "ser: what something is, a lasting trait."
+        },
+        {
+          "en": "The meeting point is in the square.",
+          "es": "El punto de encuentro está en la plaza.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "Is admission included?",
+          "es": "¿La entrada está incluida?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm a tourist, I'm on vacation.",
+          "es": "Soy turista, estoy de vacaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The tour is full.",
+          "es": "El tour está lleno.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a fellow traveler whether the museum is open or closed, where the meeting point is, and whether admission is included."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want on a tour, and ask what is there or what you must do.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Common in Mexico; reserva is also understood."
+        },
+        {
+          "en": "the map",
+          "es": "el mapa",
+          "kind": "term",
+          "note": "Masculine despite the -a: el mapa."
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine word that takes el: el agua fría."
+        },
+        {
+          "en": "the cap",
+          "es": "la gorra",
+          "kind": "term"
+        },
+        {
+          "en": "the sunscreen",
+          "es": "el bloqueador",
+          "kind": "term"
+        },
+        {
+          "en": "the discount",
+          "es": "el descuento",
+          "kind": "term"
+        },
+        {
+          "en": "the tip",
+          "es": "la propina",
+          "kind": "term"
+        },
+        {
+          "en": "the cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "I have a reservation for 2.",
+          "es": "Tengo una reservación para 2.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there a restroom here?",
+          "es": "¿Hay baño aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need a map, please.",
+          "es": "Necesito un mapa, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to pay by card.",
+          "es": "Quiero pagar con tarjeta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have to pay in cash?",
+          "es": "¿Hay que pagar en efectivo?",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something everyone has to do."
+        },
+        {
+          "en": "Is there a student discount?",
+          "es": "¿Hay descuento para estudiantes?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the guide you have a reservation, ask if there is a restroom, and say what you need for the tour, like water or a map."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you are going, your plans for a day trip, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer, poder",
+      "words": [
+        {
+          "en": "the day trip, the excursion",
+          "es": "la excursión",
+          "kind": "term"
+        },
+        {
+          "en": "the town",
+          "es": "el pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "the square",
+          "es": "la plaza",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term"
+        },
+        {
+          "en": "the van",
+          "es": "la camioneta",
+          "kind": "term"
+        },
+        {
+          "en": "the beach",
+          "es": "la playa",
+          "kind": "term"
+        },
+        {
+          "en": "the ruins",
+          "es": "las ruinas",
+          "kind": "term"
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term",
+          "note": "Short for la fotografía, so it is feminine."
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "later, afterward",
+          "es": "después",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to take the bus.",
+          "es": "Voy a tomar el autobús.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to take a day trip to the town.",
+          "es": "Vamos a hacer una excursión al pueblo.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "Can I take photos here?",
+          "es": "¿Puedo tomar fotos aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can we go by van?",
+          "es": "¿Podemos ir en camioneta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't walk much.",
+          "es": "No puedo caminar mucho.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the guide your plan for the day trip, ask if you can take photos, and say if you can or can't walk much."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you and others do on a tour using everyday present-tense verbs.",
+      "focus": "Present tense of -ar, -er, -ir verbs (caminar, comer, vivir) for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "the food stand, the stall",
+          "es": "el puesto",
+          "kind": "term"
+        },
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term"
+        },
+        {
+          "en": "the monument",
+          "es": "el monumento",
+          "kind": "term"
+        },
+        {
+          "en": "the history",
+          "es": "la historia",
+          "kind": "term"
+        },
+        {
+          "en": "the stairs",
+          "es": "las escaleras",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term",
+          "note": "The old town is often el centro histórico."
+        },
+        {
+          "en": "the temple",
+          "es": "el templo",
+          "kind": "term"
+        },
+        {
+          "en": "the park",
+          "es": "el parque",
+          "kind": "term"
+        },
+        {
+          "en": "I walk slowly.",
+          "es": "Yo camino despacio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live downtown?",
+          "es": "¿Usted vive en el centro?",
+          "kind": "phrase",
+          "note": "Usted for a guide you don't know well."
+        },
+        {
+          "en": "We eat at the market.",
+          "es": "Nosotros comemos en el mercado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They climb the stairs.",
+          "es": "Ellos suben las escaleras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you visiting the temple today?",
+          "es": "¿Visitas el templo hoy?",
+          "kind": "phrase",
+          "note": "Tú form: informal, for a fellow traveler your age."
+        },
+        {
+          "en": "I learn a lot about Mexico's history.",
+          "es": "Aprendo mucho sobre la historia de México.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask your guide if they live downtown, and tell them what you and your group do on the tour: walk, eat at the market, visit the church."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a guide simple questions about places, times, people and history.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Use ¿cuántos? or ¿cuántas? for how many."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent in questions; porque means because."
+        },
+        {
+          "en": "which?, what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? to ask for one item: the name, the schedule."
+        },
+        {
+          "en": "the schedule, the opening hours",
+          "es": "el horario",
+          "kind": "term"
+        },
+        {
+          "en": "the exit, the departure",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the ticket office?",
+          "es": "¿Dónde está la taquilla?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the artist?",
+          "es": "¿Quién es el artista?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the bus leave?",
+          "es": "¿Cuándo sale el autobús?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What are the museum's opening hours?",
+          "es": "¿Cuál es el horario del museo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why is this place famous?",
+          "es": "¿Por qué es famoso este lugar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How old is the pyramid?",
+          "es": "¿Cuántos años tiene la pirámide?",
+          "kind": "phrase",
+          "note": "Spanish asks how many years it has."
+        }
+      ],
+      "speaking": "Ask a museum worker where the exit is, what the opening hours are, and why one place in the museum is famous."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what you don't have yet, ask for another option, and ask for more or less.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less, fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: otro tour, otra visita."
+        },
+        {
+          "en": "the line",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "the free time",
+          "es": "el tiempo libre",
+          "kind": "term"
+        },
+        {
+          "en": "There's nobody at the ticket office.",
+          "es": "No hay nadie en la taquilla.",
+          "kind": "phrase",
+          "note": "Spanish uses a double negative: no hay nadie."
+        },
+        {
+          "en": "I don't have a ticket yet.",
+          "es": "Todavía no tengo boleto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything else, thanks.",
+          "es": "No necesito nada más, gracias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there another tour later?",
+          "es": "¿Hay otro tour más tarde?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I prefer a route with fewer stairs.",
+          "es": "Prefiero un recorrido con menos escaleras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never take photos with flash.",
+          "es": "Nunca tomo fotos con flash.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a ticket seller you don't have a ticket yet, ask if there is another tour later, and ask for a route with fewer stairs."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a guide or staff member politely for help with directions, photos and accessibility.",
+      "focus": "¿Puede…? and usted commands (espere, escriba) for polite requests",
+      "words": [
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term",
+          "note": "Common in Mexico; ascensor is also used."
+        },
+        {
+          "en": "the ramp",
+          "es": "la rampa",
+          "kind": "term"
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term",
+          "note": "Also means the direction."
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the audio guide",
+          "es": "la audioguía",
+          "kind": "term"
+        },
+        {
+          "en": "the shade",
+          "es": "la sombra",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi",
+          "es": "el taxi",
+          "kind": "term"
+        },
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "the bench",
+          "es": "la banca",
+          "kind": "term"
+        },
+        {
+          "en": "Can you speak more slowly, please?",
+          "es": "¿Puede hablar más despacio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat the time for me, please?",
+          "es": "¿Me puede repetir la hora, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: polite with one person."
+        },
+        {
+          "en": "Write the address here, please.",
+          "es": "Escriba la dirección aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you take a photo of us?",
+          "es": "¿Puede tomarnos una foto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you call me a taxi, please?",
+          "es": "¿Me puede llamar un taxi, por favor?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Politely ask a museum worker to speak more slowly, write down an address, and tell you if there is an elevator or a ramp."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words you already know and use survival phrases to get help on a tour.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "Words ending in -ción are feminine."
+        },
+        {
+          "en": "the station",
+          "es": "la estación",
+          "kind": "term"
+        },
+        {
+          "en": "the tradition",
+          "es": "la tradición",
+          "kind": "term"
+        },
+        {
+          "en": "the city",
+          "es": "la ciudad",
+          "kind": "term",
+          "note": "Words ending in -dad are feminine."
+        },
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the university",
+          "es": "la universidad",
+          "kind": "term"
+        },
+        {
+          "en": "excellent",
+          "es": "excelente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "interesting",
+          "es": "interesante",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand, sorry.",
+          "es": "No entiendo, perdón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm lost, can you help me?",
+          "es": "Estoy perdida, ¿me puede ayudar?",
+          "kind": "phrase",
+          "note": "A woman says perdida; a man says perdido."
+        },
+        {
+          "en": "Help, it's an emergency!",
+          "es": "¡Ayuda, es una emergencia!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you very much, the tour was excellent.",
+          "es": "Muchas gracias, el tour fue excelente.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a staff member you are lost and don't understand, ask if they speak English, then thank them for their help."
+    }
+  ]
+}

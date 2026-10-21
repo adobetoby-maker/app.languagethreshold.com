@@ -1,0 +1,935 @@
+{
+  "version": 1,
+  "module": "foundation-travel-roadside-mechanics",
+  "baseModule": "travel-roadside-mechanics",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Roadside Help & Mechanics Foundation",
+  "threshold": "By Lesson 10, you can greet a mechanic, give numbers, times and your location, say what is wrong and what you need, ask simple questions and ask for help, and start Roadside Help & Mechanics Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say basic car words clearly and greet a mechanic or tow driver politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "rr is a strong rolled r. Carro is the everyday word in Mexico."
+        },
+        {
+          "en": "the tire",
+          "es": "la llanta",
+          "kind": "term",
+          "note": "ll sounds like the English y in yes: YAN-ta."
+        },
+        {
+          "en": "the trunk",
+          "es": "la cajuela",
+          "kind": "term",
+          "note": "j sounds like a strong English h: ka-HWE-la."
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term",
+          "note": "ch sounds like the ch in church. Stress the last syllable: cho-FER."
+        },
+        {
+          "en": "the noise",
+          "es": "el ruido",
+          "kind": "term",
+          "note": "Say both vowels: RWEE-do."
+        },
+        {
+          "en": "the engine",
+          "es": "el motor",
+          "kind": "term",
+          "note": "Spanish o is short and pure, never \"oh-oo.\""
+        },
+        {
+          "en": "the battery",
+          "es": "la batería",
+          "kind": "term",
+          "note": "The accent puts the stress on í: ba-te-REE-a."
+        },
+        {
+          "en": "the mechanic",
+          "es": "el mecánico",
+          "kind": "term",
+          "note": "For a woman, say la mecánica. The accent marks the stress: me-KA-ni-ko."
+        },
+        {
+          "en": "the tow truck",
+          "es": "la grúa",
+          "kind": "term",
+          "note": "The accent puts the stress on ú: GROO-a."
+        },
+        {
+          "en": "the repair shop",
+          "es": "el taller",
+          "kind": "term",
+          "note": "ll sounds like y: ta-YER."
+        },
+        {
+          "en": "the oil",
+          "es": "el aceite",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, my name is Ana.",
+          "es": "Buenos días, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está usted?",
+          "kind": "phrase",
+          "note": "Use usted with a mechanic or agent you don't know."
+        },
+        {
+          "en": "Nice to meet you, sir.",
+          "es": "Mucho gusto, señor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"tire\" in Spanish?",
+          "es": "¿Cómo se dice \"tire\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Thank you, see you later.",
+          "es": "Gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a mechanic, say your name, and point to the car, the tire and the trunk, saying each word clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give numbers, times, prices, liters and kilometer markers to a mechanic or tow driver.",
+      "focus": "Numbers 0 to 1,000, clock time, and kilometers, liters, pesos and minutes",
+      "words": [
+        {
+          "en": "the kilometer",
+          "es": "el kilómetro",
+          "kind": "term",
+          "note": "Mexican highways have kilometer markers. Give the number to say where you are."
+        },
+        {
+          "en": "the liter",
+          "es": "el litro",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the peso",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Mexico's money. Say the number first: 500 pesos."
+        },
+        {
+          "en": "the gas",
+          "es": "la gasolina",
+          "kind": "term"
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the tank",
+          "es": "el tanque",
+          "kind": "term"
+        },
+        {
+          "en": "the license plates",
+          "es": "las placas",
+          "kind": "term",
+          "note": "Usually plural in Mexico: las placas."
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "The car is at kilometer 42.",
+          "es": "El carro está en el kilómetro 42.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's half past 3.",
+          "es": "Son las 3 y media.",
+          "kind": "phrase",
+          "note": "Use son las for most hours. For 1 o'clock, say es la 1."
+        },
+        {
+          "en": "I need 20 liters of gas.",
+          "es": "Necesito 20 litros de gasolina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 500 pesos.",
+          "es": "Son 500 pesos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My phone number is 55 1234 5678.",
+          "es": "Mi teléfono es 55 1234 5678.",
+          "kind": "phrase",
+          "note": "Say phone numbers in pairs of digits: cincuenta y cinco, doce, treinta y cuatro."
+        },
+        {
+          "en": "The tow truck arrives in 30 minutes.",
+          "es": "La grúa llega en 30 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a tow operator your kilometer marker, the time, and your phone number, then repeat the price they give you."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what your car is and describe its condition and where it is.",
+      "focus": "ser for what the car or person is, estar for its condition or location",
+      "words": [
+        {
+          "en": "hot",
+          "es": "caliente",
+          "kind": "term"
+        },
+        {
+          "en": "flat (tire)",
+          "es": "ponchado",
+          "kind": "term",
+          "note": "Mexico: la llanta está ponchada. The ending matches the noun."
+        },
+        {
+          "en": "broken down",
+          "es": "descompuesto",
+          "kind": "term",
+          "note": "Use with estar: el carro está descompuesto."
+        },
+        {
+          "en": "rented",
+          "es": "rentado",
+          "kind": "term"
+        },
+        {
+          "en": "safe",
+          "es": "seguro",
+          "kind": "term"
+        },
+        {
+          "en": "dangerous",
+          "es": "peligroso",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term"
+        },
+        {
+          "en": "far",
+          "es": "lejos",
+          "kind": "term"
+        },
+        {
+          "en": "near",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "The car is a rental.",
+          "es": "El carro es rentado.",
+          "kind": "phrase",
+          "note": "ser: what something is."
+        },
+        {
+          "en": "The tire is flat.",
+          "es": "La llanta está ponchada.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The engine is very hot.",
+          "es": "El motor está muy caliente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm on the highway, near the town.",
+          "es": "Estoy en la carretera, cerca del pueblo.",
+          "kind": "phrase",
+          "note": "estar for location. De + el becomes del."
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it dangerous to drive?",
+          "es": "¿Es peligroso manejar?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a mechanic that the car is a rental, that a tire is flat or the engine is hot, and where you are."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what there is, and what you need or want for your car.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the spare tire",
+          "es": "la llanta de refacción",
+          "kind": "term",
+          "note": "Mexico. You may also hear la refacción alone."
+        },
+        {
+          "en": "the jack",
+          "es": "el gato",
+          "kind": "term"
+        },
+        {
+          "en": "the jumper cables",
+          "es": "los cables pasacorriente",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun, but it takes el because it starts with stressed a."
+        },
+        {
+          "en": "the coolant",
+          "es": "el anticongelante",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "the tool",
+          "es": "la herramienta",
+          "kind": "term"
+        },
+        {
+          "en": "the light",
+          "es": "la luz",
+          "kind": "term"
+        },
+        {
+          "en": "the problem",
+          "es": "el problema",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el problema."
+        },
+        {
+          "en": "I have a flat tire.",
+          "es": "Tengo una llanta ponchada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a strange noise in the engine.",
+          "es": "Hay un ruido raro en el motor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need a tow truck, please.",
+          "es": "Necesito una grúa, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to talk to the mechanic.",
+          "es": "Quiero hablar con el mecánico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have a jack?",
+          "es": "¿Tiene un gato?",
+          "kind": "phrase",
+          "note": "Formal usted form, for someone you don't know."
+        },
+        {
+          "en": "We have to wait for the tow truck.",
+          "es": "Hay que esperar la grúa.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: something must be done, no specific person."
+        }
+      ],
+      "speaking": "Tell a roadside helper what problem you have, what is there, and what you need: a jack, water or the spare tire."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you plan to do, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer, poder",
+      "words": [
+        {
+          "en": "the town",
+          "es": "el pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "the gas station",
+          "es": "la gasolinera",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel",
+          "es": "el hotel",
+          "kind": "term",
+          "note": "The h is silent: o-TEL."
+        },
+        {
+          "en": "the highway",
+          "es": "la carretera",
+          "kind": "term"
+        },
+        {
+          "en": "the road",
+          "es": "el camino",
+          "kind": "term"
+        },
+        {
+          "en": "the city",
+          "es": "la ciudad",
+          "kind": "term"
+        },
+        {
+          "en": "the airport",
+          "es": "el aeropuerto",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "now",
+          "es": "ahora",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the town by taxi.",
+          "es": "Voy al pueblo en taxi.",
+          "kind": "phrase",
+          "note": "A + el becomes al."
+        },
+        {
+          "en": "The tow truck is going to take the car to the shop.",
+          "es": "La grúa va a llevar el carro al taller.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to call the rental company.",
+          "es": "Voy a llamar a la arrendadora.",
+          "kind": "phrase",
+          "note": "Mexico: la arrendadora is the rental company."
+        },
+        {
+          "en": "Can I drive the car like this?",
+          "es": "¿Puedo manejar el carro así?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The car makes a strange noise.",
+          "es": "El carro hace un ruido raro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do I do now?",
+          "es": "¿Qué hago ahora?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a tow driver where you are going today, what you are going to do next, and ask if you can drive the car."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe what the car does and what you do with simple present-tense verbs.",
+      "focus": "Present tense of regular -ar, -er and -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the brakes",
+          "es": "los frenos",
+          "kind": "term"
+        },
+        {
+          "en": "the steering wheel",
+          "es": "el volante",
+          "kind": "term"
+        },
+        {
+          "en": "the dashboard",
+          "es": "el tablero",
+          "kind": "term"
+        },
+        {
+          "en": "the smoke",
+          "es": "el humo",
+          "kind": "term",
+          "note": "The h is silent: OO-mo."
+        },
+        {
+          "en": "the radiator",
+          "es": "el radiador",
+          "kind": "term"
+        },
+        {
+          "en": "the hood",
+          "es": "el cofre",
+          "kind": "term",
+          "note": "Mexico. In other countries you may hear el capó."
+        },
+        {
+          "en": "the scooter",
+          "es": "la motoneta",
+          "kind": "term",
+          "note": "Mexico. You may also hear el scooter."
+        },
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the seat",
+          "es": "el asiento",
+          "kind": "term"
+        },
+        {
+          "en": "The car won't start.",
+          "es": "El carro no arranca.",
+          "kind": "phrase",
+          "note": "arrancar: to start an engine. Use the él/ella form for the car."
+        },
+        {
+          "en": "The brakes don't work well.",
+          "es": "Los frenos no funcionan bien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you sell tires?",
+          "es": "¿Usted vende llantas?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We wait here.",
+          "es": "Nosotros esperamos aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I open the hood.",
+          "es": "Yo abro el cofre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you hear that noise?",
+          "es": "¿Tú escuchas ese ruido?",
+          "kind": "phrase",
+          "note": "Informal tú, for a friend or travel partner."
+        }
+      ],
+      "speaking": "Tell a mechanic what the car does or doesn't do, using arranca and funcionan, and say what you and your partner do now."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a mechanic or dispatcher simple questions about where, when, what and how much.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how many?",
+          "es": "¿cuántos?",
+          "kind": "term",
+          "note": "Matches the noun: ¿cuántos días?, ¿cuántas horas?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "Alone, ¿cómo? also means \"sorry, what?\" when you didn't hear."
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent for \"why.\" Porque, one word, means \"because.\""
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the nearest repair shop?",
+          "es": "¿Dónde está el taller más cercano?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much does the tow truck cost?",
+          "es": "¿Cuánto cuesta la grúa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When will the car be ready?",
+          "es": "¿Cuándo está listo el carro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is that light on the dashboard?",
+          "es": "¿Qué es esa luz en el tablero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why does it make that noise?",
+          "es": "¿Por qué hace ese ruido?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which tire is flat?",
+          "es": "¿Cuál llanta está ponchada?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a mechanic where the shop is, when the car will be ready, and how much it costs, and repeat each answer back."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, nothing, nobody and not yet, and ask for more, less or another option.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Use with no before the verb: no sé nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it: otro carro, not un otro carro."
+        },
+        {
+          "en": "the cell signal",
+          "es": "la señal",
+          "kind": "term"
+        },
+        {
+          "en": "the cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "There's no signal here.",
+          "es": "No hay señal aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody answers the phone.",
+          "es": "Nadie contesta el teléfono.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The tow truck hasn't arrived yet.",
+          "es": "Todavía no llega la grúa.",
+          "kind": "phrase",
+          "note": "Mexican Spanish often uses the present here: todavía no llega."
+        },
+        {
+          "en": "I don't know anything about cars.",
+          "es": "No sé nada de carros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want another car, please.",
+          "es": "Quiero otro carro, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there something cheaper?",
+          "es": "¿Hay algo más barato?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a rental agent that nobody answers and the tow truck hasn't come yet, then ask for another car."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a mechanic or dispatcher politely to do something, using ¿Puede…? and usted commands.",
+      "focus": "¿Puede…? + infinitive and usted commands (espere, llame, escriba)",
+      "words": [
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the map",
+          "es": "el mapa",
+          "kind": "term",
+          "note": "Ends in -a but is masculine: el mapa."
+        },
+        {
+          "en": "the warning triangle",
+          "es": "el triángulo",
+          "kind": "term"
+        },
+        {
+          "en": "the hazard lights",
+          "es": "las intermitentes",
+          "kind": "term",
+          "note": "Mexico. Prenda las intermitentes: turn on the hazard lights."
+        },
+        {
+          "en": "the shoulder (of the road)",
+          "es": "el acotamiento",
+          "kind": "term",
+          "note": "Mexico: the edge of the highway where you stop."
+        },
+        {
+          "en": "the photo",
+          "es": "la foto",
+          "kind": "term",
+          "note": "Ends in -o but is feminine: la foto."
+        },
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "Can you speak more slowly, please?",
+          "es": "¿Puede hablar más despacio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you check the battery?",
+          "es": "¿Puede revisar la batería?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please send a tow truck to kilometer 42.",
+          "es": "Por favor, mande una grúa al kilómetro 42.",
+          "kind": "phrase",
+          "note": "Usted command: mande, from mandar."
+        },
+        {
+          "en": "Write the price here, please.",
+          "es": "Escriba el precio aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a dispatcher to speak slowly, ask them to send a tow truck to your location, and ask them to text you the price."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Use Spanish words you already know and survival phrases to get help on the road.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases",
+      "words": [
+        {
+          "en": "the repair",
+          "es": "la reparación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the authorization",
+          "es": "la autorización",
+          "kind": "term"
+        },
+        {
+          "en": "the speed",
+          "es": "la velocidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent: os-pee-TAL."
+        },
+        {
+          "en": "It's an emergency.",
+          "es": "Es una emergencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's an accident on the highway.",
+          "es": "Hay un accidente en la carretera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call the police, please.",
+          "es": "Llame a la policía, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: llame, from llamar."
+        }
+      ],
+      "speaking": "Call roadside help, say it is urgent and you need help, say you don't understand, and ask if they speak English."
+    }
+  ]
+}

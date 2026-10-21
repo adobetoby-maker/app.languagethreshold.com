@@ -1,0 +1,926 @@
+{
+  "version": 1,
+  "module": "foundation-cardiology",
+  "baseModule": "cardiology",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Cardiology Foundation",
+  "threshold": "By Lesson 10, you can greet a patient, give a pulse and blood pressure, ask simple questions about pain, give polite instructions, ask for an interpreter, and start Cardiology Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet a patient, say who you are, and pronounce basic heart and body words clearly.",
+      "focus": "The five pure vowels, ch, j, ll, rr and the written accent, plus formal greetings",
+      "words": [
+        {
+          "en": "the heart",
+          "es": "el corazón",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: co-ra-ZÓN."
+        },
+        {
+          "en": "the chest",
+          "es": "el pecho",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the arm",
+          "es": "el brazo",
+          "kind": "term",
+          "note": "Vowels are short and pure: a as in father, o as in no."
+        },
+        {
+          "en": "the daughter",
+          "es": "la hija",
+          "kind": "term",
+          "note": "h is silent; j sounds like a strong English h."
+        },
+        {
+          "en": "the cigarette",
+          "es": "el cigarro",
+          "kind": "term",
+          "note": "rr is a strong trill: tap the tongue several times."
+        },
+        {
+          "en": "the doctor",
+          "es": "el médico",
+          "kind": "term",
+          "note": "Stress MÉ-di-co. A woman is la médica."
+        },
+        {
+          "en": "the nurse (female)",
+          "es": "la enfermera",
+          "kind": "term",
+          "note": "A single r between vowels is a quick tap. A man is el enfermero."
+        },
+        {
+          "en": "the stretcher",
+          "es": "la camilla",
+          "kind": "term",
+          "note": "ll sounds like English y in most of Mexico: ca-MI-ya."
+        },
+        {
+          "en": "the patient (male)",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "A woman is la paciente. Say every vowel: pa-SYEN-te."
+        },
+        {
+          "en": "ma'am, the lady",
+          "es": "la señora",
+          "kind": "term",
+          "note": "ñ sounds like ny in canyon. Polite way to address an adult woman."
+        },
+        {
+          "en": "Good morning, I'm Dr. Ruiz.",
+          "es": "Buenos días, soy la doctora Ruiz.",
+          "kind": "phrase",
+          "note": "A male doctor says soy el doctor Ruiz."
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you today?",
+          "es": "¿Cómo está usted hoy?",
+          "kind": "phrase",
+          "note": "Usted is the respectful form for patients."
+        },
+        {
+          "en": "Good afternoon, what is your name?",
+          "es": "Buenas tardes, ¿cómo se llama?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you later, take care.",
+          "es": "Hasta luego, que le vaya bien.",
+          "kind": "phrase",
+          "note": "Common polite goodbye in Mexico."
+        }
+      ],
+      "speaking": "Greet a patient at the bedside, say your name and role, and ask how they are today."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say a patient's pulse, blood pressure, weight, room number and appointment time.",
+      "focus": "Numbers 0 to 1,000, clock time, and pulse, pressure, pounds and mg with de",
+      "words": [
+        {
+          "en": "the pulse",
+          "es": "el pulso",
+          "kind": "term"
+        },
+        {
+          "en": "the blood pressure",
+          "es": "la presión",
+          "kind": "term",
+          "note": "Short for la presión arterial."
+        },
+        {
+          "en": "the heartbeats",
+          "es": "los latidos",
+          "kind": "term"
+        },
+        {
+          "en": "the weight",
+          "es": "el peso",
+          "kind": "term"
+        },
+        {
+          "en": "the pounds",
+          "es": "las libras",
+          "kind": "term"
+        },
+        {
+          "en": "the milligram",
+          "es": "el miligramo",
+          "kind": "term",
+          "note": "Written mg on labels; say miligramos."
+        },
+        {
+          "en": "the hour, the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "Your pulse is 72 beats per minute.",
+          "es": "Su pulso es de 72 latidos por minuto.",
+          "kind": "phrase",
+          "note": "Use de before a measurement."
+        },
+        {
+          "en": "Your blood pressure is 130 over 80.",
+          "es": "Su presión es de 130 sobre 80.",
+          "kind": "phrase",
+          "note": "Sobre means over, as in 130/80."
+        },
+        {
+          "en": "Today you weigh 180 pounds.",
+          "es": "Hoy pesa 180 libras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your appointment is Tuesday at 9 in the morning.",
+          "es": "Su cita es el martes a las 9 de la mañana.",
+          "kind": "phrase",
+          "note": "Use a la for 1 o'clock and a las for other hours."
+        },
+        {
+          "en": "It's 3 in the afternoon.",
+          "es": "Son las 3 de la tarde.",
+          "kind": "phrase",
+          "note": "Add y media for half past: las 3 y media."
+        },
+        {
+          "en": "Your room is 412.",
+          "es": "Su cuarto es el 412.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient their pulse, blood pressure and weight, then give the day and time of their next appointment."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who someone is and describe how a patient feels: stable, dizzy, tired or calm.",
+      "focus": "ser for identity and role, estar for a patient's condition or location",
+      "words": [
+        {
+          "en": "stable",
+          "es": "estable",
+          "kind": "term"
+        },
+        {
+          "en": "dizzy",
+          "es": "mareado",
+          "kind": "term",
+          "note": "A woman says mareada."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "A woman says cansada."
+        },
+        {
+          "en": "nervous",
+          "es": "nervioso",
+          "kind": "term",
+          "note": "A woman says nerviosa."
+        },
+        {
+          "en": "calm",
+          "es": "tranquilo",
+          "kind": "term"
+        },
+        {
+          "en": "worried",
+          "es": "preocupado",
+          "kind": "term"
+        },
+        {
+          "en": "weak",
+          "es": "débil",
+          "kind": "term"
+        },
+        {
+          "en": "strong, severe",
+          "es": "fuerte",
+          "kind": "term",
+          "note": "Un dolor fuerte is a severe pain."
+        },
+        {
+          "en": "normal",
+          "es": "normal",
+          "kind": "term"
+        },
+        {
+          "en": "the cardiologist (male)",
+          "es": "el cardiólogo",
+          "kind": "term",
+          "note": "A woman is la cardióloga."
+        },
+        {
+          "en": "Dr. López is your cardiologist.",
+          "es": "El doctor López es su cardiólogo.",
+          "kind": "phrase",
+          "note": "ser: who someone is or their role."
+        },
+        {
+          "en": "You are stable today.",
+          "es": "Usted está estable hoy.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Are you dizzy, ma'am?",
+          "es": "¿Está mareada, señora?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your blood pressure is normal.",
+          "es": "Su presión está normal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The nurse is in the room.",
+          "es": "La enfermera está en el cuarto.",
+          "kind": "phrase",
+          "note": "estar for location."
+        }
+      ],
+      "speaking": "Introduce the patient's cardiologist and ask the patient if they are dizzy, tired or nervous."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Ask what a patient has, needs or wants, and say what must be done next.",
+      "focus": "tener, hay, necesitar, querer, and hay que + infinitive for what must be done",
+      "words": [
+        {
+          "en": "the pain",
+          "es": "el dolor",
+          "kind": "term"
+        },
+        {
+          "en": "shortness of breath",
+          "es": "la falta de aire",
+          "kind": "term"
+        },
+        {
+          "en": "the blanket",
+          "es": "la cobija",
+          "kind": "term",
+          "note": "Common in Mexico; also la manta."
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el: el agua fría."
+        },
+        {
+          "en": "the pill",
+          "es": "la pastilla",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term"
+        },
+        {
+          "en": "the prescription",
+          "es": "la receta",
+          "kind": "term"
+        },
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "the blood test",
+          "es": "el análisis de sangre",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have chest pain?",
+          "es": "¿Tiene dolor en el pecho?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need a blanket?",
+          "es": "¿Necesita una cobija?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want to call your family?",
+          "es": "¿Quiere llamar a su familia?",
+          "kind": "phrase",
+          "note": "Use a before people as the object of a verb."
+        },
+        {
+          "en": "There is a bathroom in your room.",
+          "es": "Hay un baño en su cuarto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need to do a blood test.",
+          "es": "Hay que hacer un análisis de sangre.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: something must be done."
+        },
+        {
+          "en": "I have your prescription here.",
+          "es": "Tengo su receta aquí.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient if they have chest pain, if they need a blanket, and if they want to call their family."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Tell a patient where they are going and what you will do, and ask what they can do.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder + infinitive",
+      "words": [
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the lab",
+          "es": "el laboratorio",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "home, the house",
+          "es": "la casa",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term",
+          "note": "Mexican and US usage."
+        },
+        {
+          "en": "the test",
+          "es": "la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the X-ray",
+          "es": "la radiografía",
+          "kind": "term",
+          "note": "Many people also say los rayos X."
+        },
+        {
+          "en": "exercise",
+          "es": "el ejercicio",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "We're going to the lab now.",
+          "es": "Vamos al laboratorio ahora.",
+          "kind": "phrase",
+          "note": "a + el contracts to al."
+        },
+        {
+          "en": "Tomorrow you are going to go home.",
+          "es": "Mañana va a ir a su casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We are going to do a chest X-ray on you.",
+          "es": "Le vamos a hacer una radiografía del pecho.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you walk without help?",
+          "es": "¿Puede caminar sin ayuda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you exercise?",
+          "es": "¿Usted hace ejercicio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Your family can wait in the waiting room.",
+          "es": "Su familia puede esperar en la sala de espera.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient you are going to do a chest X-ray, and ask if they can walk to the elevator."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Ask about daily habits like smoking, salt and meals using present-tense verbs.",
+      "focus": "Regular -ar, -er, -ir endings for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the food, the meal",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the salt",
+          "es": "la sal",
+          "kind": "term"
+        },
+        {
+          "en": "breakfast",
+          "es": "el desayuno",
+          "kind": "term"
+        },
+        {
+          "en": "dinner",
+          "es": "la cena",
+          "kind": "term"
+        },
+        {
+          "en": "coffee",
+          "es": "el café",
+          "kind": "term"
+        },
+        {
+          "en": "alcohol",
+          "es": "el alcohol",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term",
+          "note": "Masculine despite ending in -a."
+        },
+        {
+          "en": "the stairs",
+          "es": "las escaleras",
+          "kind": "term"
+        },
+        {
+          "en": "work, the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "Do you smoke?",
+          "es": "¿Usted fuma?",
+          "kind": "phrase",
+          "note": "fumar: fumo, fumas, fuma, fumamos, fuman."
+        },
+        {
+          "en": "Do you eat a lot of salt?",
+          "es": "¿Come mucha sal?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you live alone or with your family?",
+          "es": "¿Vive solo o con su familia?",
+          "kind": "phrase",
+          "note": "Ask a woman: ¿Vive sola?"
+        },
+        {
+          "en": "We'll talk with your daughter later.",
+          "es": "Nosotros hablamos con su hija después.",
+          "kind": "phrase",
+          "note": "The present tense often covers the near future."
+        },
+        {
+          "en": "The nurses take your blood pressure at night.",
+          "es": "Las enfermeras toman su presión en la noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you writing the note, or should I?",
+          "es": "¿Tú escribes la nota o la escribo yo?",
+          "kind": "phrase",
+          "note": "Informal tú with a coworker; use usted with patients."
+        }
+      ],
+      "speaking": "Ask a patient if they smoke, eat a lot of salt and live alone, then ask a coworker who writes the note."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask the basic questions: where it hurts, when it started, and which medicines they take.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "Plural: ¿quiénes?"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuánta, cuántos, cuántas."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "The answer porque, one word, means because."
+        },
+        {
+          "en": "which?, what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use cuál before es for names, numbers and dates."
+        },
+        {
+          "en": "the medicine",
+          "es": "la medicina",
+          "kind": "term"
+        },
+        {
+          "en": "Where does it hurt?",
+          "es": "¿Dónde le duele?",
+          "kind": "phrase",
+          "note": "doler works like gustar: me duele, le duele."
+        },
+        {
+          "en": "When did the pain start?",
+          "es": "¿Cuándo empezó el dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is the pain like?",
+          "es": "¿Cómo es el dolor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What medicines do you take?",
+          "es": "¿Qué medicinas toma?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is your date of birth?",
+          "es": "¿Cuál es su fecha de nacimiento?",
+          "kind": "phrase",
+          "note": "Ask it to verify the patient's identity."
+        },
+        {
+          "en": "Why did you come to the hospital today?",
+          "es": "¿Por qué vino hoy al hospital?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient where it hurts, when the pain started, what it is like, and what medicines they take."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody and not yet, and ask if a patient needs more or another thing.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro; double negatives",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "otra for feminine nouns; never say un otro."
+        },
+        {
+          "en": "fat",
+          "es": "la grasa",
+          "kind": "term"
+        },
+        {
+          "en": "soda",
+          "es": "el refresco",
+          "kind": "term"
+        },
+        {
+          "en": "sugar",
+          "es": "el azúcar",
+          "kind": "term"
+        },
+        {
+          "en": "Don't you have anyone at home?",
+          "es": "¿No tiene a nadie en casa?",
+          "kind": "phrase",
+          "note": "Spanish uses double negatives: no + nadie."
+        },
+        {
+          "en": "We don't have the results yet.",
+          "es": "Todavía no tenemos los resultados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Never stop taking your pills without talking to your doctor.",
+          "es": "Nunca deje de tomar sus pastillas sin hablar con su médico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need another pillow?",
+          "es": "¿Necesita otra almohada?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have more questions?",
+          "es": "¿Tiene más preguntas?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient the results are not ready yet, and ask if they need another pillow or have more questions."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a patient politely to sit, lie down, breathe deeply and put on a gown.",
+      "focus": "¿Puede + infinitive? and usted commands, with -se attached (siéntese, acuéstese)",
+      "words": [
+        {
+          "en": "the gown",
+          "es": "la bata",
+          "kind": "term"
+        },
+        {
+          "en": "the shirt",
+          "es": "la camisa",
+          "kind": "term"
+        },
+        {
+          "en": "the sleeve",
+          "es": "la manga",
+          "kind": "term"
+        },
+        {
+          "en": "the call button",
+          "es": "el timbre",
+          "kind": "term"
+        },
+        {
+          "en": "the hand",
+          "es": "la mano",
+          "kind": "term",
+          "note": "Feminine despite ending in -o."
+        },
+        {
+          "en": "the leg",
+          "es": "la pierna",
+          "kind": "term"
+        },
+        {
+          "en": "the finger",
+          "es": "el dedo",
+          "kind": "term"
+        },
+        {
+          "en": "the shoes",
+          "es": "los zapatos",
+          "kind": "term"
+        },
+        {
+          "en": "the left side",
+          "es": "el lado izquierdo",
+          "kind": "term"
+        },
+        {
+          "en": "Can you put on the gown, please?",
+          "es": "¿Puede ponerse la bata, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is a polite request."
+        },
+        {
+          "en": "Sit on the stretcher, please.",
+          "es": "Siéntese en la camilla, por favor.",
+          "kind": "phrase",
+          "note": "Usted command of sentarse; -se attaches to the end."
+        },
+        {
+          "en": "Lie down on your left side.",
+          "es": "Acuéstese del lado izquierdo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Take a deep breath, please.",
+          "es": "Respire hondo, por favor.",
+          "kind": "phrase",
+          "note": "hondo means deep."
+        },
+        {
+          "en": "Roll up your sleeve, please.",
+          "es": "Súbase la manga, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Press the call button if you need anything.",
+          "es": "Toque el timbre si necesita algo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient to put on the gown, sit on the stretcher, lie on their left side and breathe deeply."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize cognates and use survival phrases to slow down, repeat, or call an interpreter.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "circulation",
+          "es": "la circulación",
+          "kind": "term",
+          "note": "English -tion becomes -ción; these words are feminine."
+        },
+        {
+          "en": "information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "activity",
+          "es": "la actividad",
+          "kind": "term",
+          "note": "English -ty becomes -dad; these words are feminine."
+        },
+        {
+          "en": "anxiety",
+          "es": "la ansiedad",
+          "kind": "term"
+        },
+        {
+          "en": "difficulty",
+          "es": "la dificultad",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term",
+          "note": "English -ent becomes -ente."
+        },
+        {
+          "en": "frequent",
+          "es": "frecuente",
+          "kind": "term"
+        },
+        {
+          "en": "the interpreter (male)",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "A woman is la intérprete. Use a qualified interpreter for consent."
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat, please?",
+          "es": "¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, I don't understand.",
+          "es": "Perdón, no entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to call an interpreter.",
+          "es": "Voy a llamar a un intérprete.",
+          "kind": "phrase",
+          "note": "Use a before a person as the object."
+        }
+      ],
+      "speaking": "Tell a patient you speak a little Spanish, ask them to repeat more slowly, and say you will call an interpreter."
+    }
+  ]
+}

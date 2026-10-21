@@ -69,7 +69,10 @@ export function formFamilies(infinitive: string, person: Person, full: string): 
   const regular = regularPresent(base);
   if (!regular) return [];
   const r = regular[person];
-  if (form === r && base === inf) {
+  // Before -o the plain spelling is never right for -cer/-cir (zc, z), -ger/-gir (j) or -guir (g):
+  // "conoco", "venco", "dirigo", "distinguo" are not Spanish yo forms.
+  const shiftRequired = person === "yo" && (/[cg](er|ir)$/.test(base) || base.endsWith("guir"));
+  if (form === r && base === inf && !shiftRequired) {
     return [`es.present.${inf.slice(-2)}` as FamilyId];
   }
   const stem = base.slice(0, -2);
@@ -86,11 +89,24 @@ export function formFamilies(infinitive: string, person: Person, full: string): 
       if (changed !== null && form === shiftSpelling(changed, tail, base)) return [id];
     }
   }
-  // R3b: -go yo belongs to -er/-ir verbs only (tengo, salgo, caigo, oigo); -guir yo (distingo) is a spelling shift.
-  if (person === "yo" && form.endsWith("go") && !base.endsWith("ar") && !base.endsWith("guir")) {
-    return ["es.present.go-yo"];
-  }
+  if (person === "yo" && isGoYo(base, form)) return ["es.present.go-yo"];
   return [];
+}
+
+/**
+ * R3b: the -go yo shapes, exactly. An -er/-ir stem ending in n, l or s + "go" (tengo, pongo, salgo,
+ * valgo, asgo); a vowel-final stem + "igo" (caigo, traigo, oigo); hacer/satisfacer/decir and their
+ * compounds (hago, deshago, satisfago, digo, predigo). Anything else ending in -go is not -go yo.
+ */
+function isGoYo(base: string, form: string): boolean {
+  if (base.endsWith("ar") || base.endsWith("guir")) return false;
+  const stem = base.slice(0, -2);
+  if (/[nls]$/.test(stem) && form === `${stem}go`) return true;
+  if (/[aeiou]$/.test(stem) && form === `${stem}igo`) return true;
+  for (const [ending, yo] of [["hacer", "hago"], ["facer", "fago"], ["decir", "digo"]] as const) {
+    if (base.endsWith(ending) && form === base.slice(0, -ending.length) + yo) return true;
+  }
+  return false;
 }
 
 /** Fully irregular present tenses, checked form by form. Compile-time data, not a family. */

@@ -161,14 +161,30 @@ function pickGloss(natives: string[]): { gloss: string; variants: string[] } {
 const LEADING_ADVERBS = new Set(["first", "then", "now", "next", "always", "never", "just", "also", "again", "finally", "today"]);
 const COMMAND_CUES = new Set(["please", "don't", "let's"]);
 
+/** The bare head verb of every sense of these glosses: "to release, to let go" -> release, let. */
+function headVerbs(glosses: string[]): Set<string> {
+  const heads = new Set<string>();
+  for (const gloss of glosses) {
+    for (const sense of senses(gloss)) {
+      const head = sense.replace(/^to /, "").split(" ")[0]?.toLowerCase() ?? "";
+      if (head) heads.add(head);
+    }
+  }
+  return heads;
+}
+
+/** An auxiliary followed by a subject pronoun opens a question ("Do you ...", "Can you ..."), not a command. */
+const AUXILIARIES = new Set(["do", "does", "can", "could", "may", "might", "must", "shall", "should", "will", "would", "have", "has", "is", "are", "am"]);
+const PRONOUNS = new Set(["i", "you", "he", "she", "it", "we", "they"]);
+
 /**
  * R6: the English of a frame reads as a command (no subject), so the Spanish form is an imperative,
  * not a present-tense statement. Detected when the first word, after an optional vocative
- * ("Marcos, ...") and leading adverbs ("First ..."), is the verb's own head ("drink" for "to drink"),
- * "please", "don't", "let's" or "do not".
+ * ("Marcos, ...") and leading adverbs ("First ..."), is the head verb of any sense of the verb's
+ * glosses ("let" for "to release, to let go"), or "please", "don't", "let's", "do not". An
+ * auxiliary followed by a pronoun is a question and is kept.
  */
-function isCommand(native: string, gloss: string): boolean {
-  const head = primaryGloss(gloss).replace(/^to /, "").split(" ")[0]?.toLowerCase() ?? "";
+function isCommand(native: string, heads: Set<string>): boolean {
   const clean = (word: string): string =>
     word.toLowerCase().replace(/[’‘]/g, "'").replace(/[^\p{L}']/gu, "");
   let words = native.normalize("NFC").trim().split(/\s+/);
@@ -176,8 +192,10 @@ function isCommand(native: string, gloss: string): boolean {
   let at = 0;
   while (at < words.length - 1 && LEADING_ADVERBS.has(clean(words[at]!))) at++;
   const first = clean(words[at] ?? "");
-  if (first === "do" && clean(words[at + 1] ?? "") === "not") return true;
-  return first !== "" && (first === head || COMMAND_CUES.has(first));
+  const second = clean(words[at + 1] ?? "");
+  if (first === "do" && second === "not") return true;
+  if (AUXILIARIES.has(first) && PRONOUNS.has(second)) return false;
+  return first !== "" && (heads.has(first) || COMMAND_CUES.has(first));
 }
 
 /** Throws on an unknown section, person or infinitive so a stale override can never pass silently. */
@@ -454,7 +472,9 @@ function compileVerb(
   }
 
   // 5. Sentence frame from the first module (sorted) whose example has exactly one form token, is not
-  // a command (R6) and is not dropped by an override.
+  // a command (R6) and is not dropped by an override. Command heads come from every sense of the
+  // stored gloss and of every lesson gloss for this verb.
+  const heads = headVerbs([english, ...refs.map((r) => r.verb.native ?? "")]);
   const ordered = refs
     .map((ref, index) => ({ ref, index }))
     .sort((a, b) => byCodeUnit(a.ref.moduleId, b.ref.moduleId) || a.index - b.index);
@@ -463,7 +483,7 @@ function compileVerb(
     const framed = frameSentence(ref.verb.example, full);
     if (!framed) continue;
     if (ov.dropFrames.includes(framed.person)) continue;
-    if (isCommand(framed.sentence.native ?? "", english)) continue;
+    if (isCommand(framed.sentence.native ?? "", heads)) continue;
     forms.find((f) => f.person === framed.person)!.sentence = framed.sentence;
     break;
   }

@@ -288,3 +288,18 @@ test("R6: a frame whose English is a command is rejected; the next example is tr
   ] }));
   assert.equal(q.data.verbs.find((v) => v.infinitive === "vivir").forms[2].sentence.native, "Do you live here?");
 });
+
+test("R6 fix: heads of every sense count; an auxiliary + pronoun question is kept", () => {
+  const SOLTAR = ["suelto", "sueltas", "suelta", "soltamos", "sueltan"];
+  const { data } = compilePatterns(fixtureInput({
+    extraProfiles: { soltar: [SOLTAR, "to release"] },
+    extraLessons: [
+      lesson("soltar", "to release, to let go", SOLTAR, { target: "Suelta la bola en el release.", native: "Let go of the ball at the release." }),
+      // a lesson gloss that the stored gloss does not carry still names a command head
+      lesson("soltar", "to drop", SOLTAR, { target: "Suelta la cuerda.", native: "Drop the rope." }),
+      lesson("tener", "to have", ["tengo", "tienes", "tiene", "tenemos", "tienen"], { target: "¿Tiene usted dolor?", native: "Have you got pain?" }),
+    ],
+  }));
+  assert.ok(data.verbs.find((v) => v.infinitive === "soltar").forms.every((f) => f.sentence === null));
+  assert.equal(data.verbs.find((v) => v.infinitive === "tener").forms[2].sentence.native, "Have you got pain?");
+});

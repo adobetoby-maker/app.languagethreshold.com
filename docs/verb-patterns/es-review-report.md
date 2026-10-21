@@ -608,7 +608,13 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
 ```json
 {
   "dropFrames": {
+    "acomodar": [
+      "él_ella_usted"
+    ],
     "dirigir": [
+      "él_ella_usted"
+    ],
+    "soltar": [
       "él_ella_usted"
     ],
     "tender": [

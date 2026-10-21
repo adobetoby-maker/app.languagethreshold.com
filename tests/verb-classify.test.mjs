@@ -112,3 +112,24 @@ test("R1: formIssues flags untagged, unexplained and inconsistent forms", () => 
   assert.deepEqual(formIssues("estudiar", set("estudío", "estudias", "estudia", "estudiamos", "estudian")), ["yo"]);
   assert.deepEqual(formIssues("estar", set("estoy", "estas", "está", "estamos", "están")), ["tú"]);
 });
+
+test("R1 fix 1: look-alike -go and unshifted yo forms are flagged; the real ones pass", () => {
+  const regularSet = (inf, yo) => {
+    const r = regularPresent(inf);
+    return { ...r, yo };
+  };
+  const bad = [["comer", "comigo"], ["conocer", "conogo"], ["vivir", "vivgo"], ["dirigir", "dirigo"],
+    ["distinguir", "distinguo"], ["vencer", "venco"], ["conocer", "conoco"]];
+  for (const [inf, yo] of bad) assert.deepEqual(formIssues(inf, regularSet(inf, yo)), ["yo"], `${inf} ${yo}`);
+  assert.deepEqual(formIssues("corregir", set("corrigo", "corriges", "corrige", "corregimos", "corrigen")), ["yo"]);
+  const good = [["tener", set("tengo", "tienes", "tiene", "tenemos", "tienen")], ["poner", set("pongo", "pones", "pone", "ponemos", "ponen")],
+    ["salir", set("salgo", "sales", "sale", "salimos", "salen")], ["caer", set("caigo", "caes", "cae", "caemos", "caen")],
+    ["traer", set("traigo", "traes", "trae", "traemos", "traen")], ["oír", set("oigo", "oyes", "oye", "oímos", "oyen")],
+    ["hacer", set("hago", "haces", "hace", "hacemos", "hacen")], ["decir", set("digo", "dices", "dice", "decimos", "dicen")],
+    ["deshacer", set("deshago", "deshaces", "deshace", "deshacemos", "deshacen")],
+    ["dirigir", regularSet("dirigir", "dirijo")], ["distinguir", regularSet("distinguir", "distingo")], ["vencer", regularSet("vencer", "venzo")]];
+  for (const [inf, forms] of good) assert.deepEqual(formIssues(inf, forms), [], inf);
+  assert.deepEqual(formFamilies("comer", "yo", "comigo"), []);
+  assert.deepEqual(formFamilies("dirigir", "yo", "dirigo"), []);
+  assert.deepEqual(formFamilies("dirigir", "tú", "diriges"), ["es.present.ir"]);
+});

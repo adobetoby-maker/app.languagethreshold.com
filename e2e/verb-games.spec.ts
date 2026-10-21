@@ -123,13 +123,16 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
       await expect(card.locator("dd").first()).not.toHaveText("—");
     });
 
-    test("bubble pop: Practice this family opens the family unit", async ({ page }) => {
+    test("bubble pop: Practice this family opens the Bubble Pop picker on that family", async ({ page }) => {
       await startBubble(page);
       await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
       await page.getByRole("button", { name: "End round", exact: true }).click();
       await expectRecap(page, "GAME · BUBBLE POP");
       await page.getByRole("button", { name: "Practice this family" }).click();
-      await expect(page).toHaveURL(/verbs=unit&vfamily=es\.present\.go-yo/);
+      await expect(page).toHaveURL(/verbs=pick&vgame=bubble&vfamily=es\.present\.go-yo/);
+      await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
+      await expect(page.getByText("Pattern lessons are on the way")).toHaveCount(0);
+      await expect(page.getByTestId("family-es.present.go-yo")).toHaveAttribute("aria-pressed", "true");
     });
   });
 

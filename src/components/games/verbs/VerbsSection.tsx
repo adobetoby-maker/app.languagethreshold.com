@@ -273,7 +273,9 @@ export function VerbsSection() {
             setEnded(null);
             setRoundKey((k) => k + 1);
           }}
-          onPractice={(family) => go({ screen: "unit", family })}
+          // The pattern unit is not built yet (a placeholder would be a dead end), so practice opens
+          // the Bubble Pop picker on that family. Point this at { screen: "unit", family } when the unit lands.
+          onPractice={(family) => go({ screen: "pick", game: "bubble", family })}
           onBack={() => go(HOME)}
         />
       )}

@@ -77,3 +77,72 @@ export type SourceFilter =
   | { kind: "core" }
   | { kind: "module"; moduleId: string }
   | { kind: "both"; moduleId: string };
+
+// ---- Round types (Task 7) -------------------------------------------------------------------
+
+export type GameId = "bubble" | "crush";
+
+export interface RoundConfig {
+  game: GameId;
+  family: FamilyId | "mix";
+  level: 1 | 2 | 3 | 4 | null;
+  source: SourceFilter;
+  seed: number;
+  listMode: boolean;
+  reducedMotion: boolean;
+}
+
+/** Inputs only. The server replays these through the same engine; no score or outcome is logged. */
+export type RoundEvent =
+  | { t: number; kind: "pick"; frame: number; piece: number }
+  | { t: number; kind: "swap"; a: number; b: number };
+
+export interface RoundLog {
+  v: 1;
+  clientRoundId: string;
+  dataHash: string;
+  config: RoundConfig;
+  endedAt: string;
+  events: RoundEvent[];
+}
+
+export interface Completion {
+  t: number;
+  infinitive: string;
+  person: Person;
+  familyId: FamilyId;
+  form: string;
+  english: string;
+  points: number;
+}
+
+export interface Miss {
+  t: number;
+  infinitive: string;
+  person: Person;
+  familyId: FamilyId | null;
+  /** What the player chose; null for a Bubble escape (time ran out). */
+  attempted: string | null;
+  correct: string;
+  english: string;
+  reason: string;
+}
+
+export interface RoundResult {
+  score: number;
+  moves: number;
+  picks: number;
+  correct: number;
+  bestStreak: number;
+  durationMs: number;
+  completions: Completion[];
+  misses: Miss[];
+  won: boolean;
+}
+
+export type Outcome =
+  | { kind: "complete"; completion: Completion }
+  | { kind: "miss"; miss: Miss }
+  | { kind: "frame"; index: number }
+  | { kind: "invalid" }
+  | { kind: "end" };

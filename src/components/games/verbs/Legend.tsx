@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-21
-import { PIECE_COLORS } from "./PieceTile";
+import { PIECE_COLORS } from "./piece-colors";
 
 export function Legend() {
   return (

@@ -1,15 +1,8 @@
 // Built by TAC — 2026-10-21
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { PIECE_COLORS, type PieceKind } from "./piece-colors";
 
-export type PieceKind = "stem" | "ending" | "whole" | "done";
-
-/** Pinned palette. Color is never the only signal: shape and the hyphenated label carry the meaning too. */
-export const PIECE_COLORS: Record<PieceKind, string> = {
-  stem: "#c9d3e0",
-  ending: "#e6c35c",
-  whole: "#7fb2e5",
-  done: "#8fd1a8",
-};
+export type { PieceKind };
 
 /** Dark ink on every piece color (contrast above 9:1), in both themes. */
 const INK = "#0a1220";
@@ -54,7 +47,11 @@ export function PieceTile(p: {
     p.dimmed ? "opacity-40" : "",
     // Dimming is a fade in place; the transitions below never move the tile when motion is reduced.
     reduced ? "" : "transition-[opacity,filter,transform] duration-200",
-    interactive ? "cursor-pointer hover:brightness-110" : "",
+    interactive
+      ? "cursor-pointer hover:brightness-110 focus-visible:outline-none focus-visible:shadow-[inset_0_0_0_2px_#0a1220,inset_0_0_0_5px_#ffffff]"
+      : "",
+    // Inset rings (never an outer glow) so selection and focus survive the chevron clip-path.
+    p.selected ? "shadow-[inset_0_0_0_3px_#0a1220]" : "",
     interactive && !reduced ? "active:scale-95" : "",
   ]
     .filter(Boolean)
@@ -63,8 +60,6 @@ export function PieceTile(p: {
     backgroundColor: PIECE_COLORS[p.kind],
     color: INK,
     ...(shape === "chevron" ? { clipPath: CHEVRON_CLIP } : {}),
-    // Inset (never an outer glow) so the selection survives the chevron clip-path.
-    ...(p.selected ? { boxShadow: `inset 0 0 0 3px ${INK}` } : {}),
   };
   const common = {
     className,
@@ -75,7 +70,7 @@ export function PieceTile(p: {
     "data-dimmed": p.dimmed ? "true" : undefined,
     "data-testid": p.testId,
   };
-  if (!interactive) return <span {...common}>{text}</span>;
+  if (!interactive) return <span role="img" {...common}>{text}</span>;
   return (
     <button type="button" {...common} aria-pressed={p.selected ? true : false} onClick={p.onClick}>
       {text}

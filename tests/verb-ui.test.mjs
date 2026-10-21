@@ -13,8 +13,10 @@ const { GameHud } = await loadModule("src/components/games/verbs/GameHud.tsx", e
 const { ReasonBand } = await loadModule("src/components/games/verbs/ReasonBand.tsx", ext);
 const { LiveRegion } = await loadModule("src/components/games/verbs/LiveRegion.tsx", ext);
 const { Legend } = await loadModule("src/components/games/verbs/Legend.tsx", ext);
-const { CompletionFlash, createLongPress, LONG_PRESS_MS } = await loadModule("src/components/games/verbs/CompletionFlash.tsx", ext);
-const { FrameChoices, choiceForKey } = await loadModule("src/components/games/verbs/FrameChoices.tsx", ext);
+const { CompletionFlash } = await loadModule("src/components/games/verbs/CompletionFlash.tsx", ext);
+const { createLongPress, isSaveKey, LONG_PRESS_MS } = await loadModule("src/components/games/verbs/long-press.ts", ext);
+const { FrameChoices } = await loadModule("src/components/games/verbs/FrameChoices.tsx", ext);
+const { choiceForKey } = await loadModule("src/components/games/verbs/choice-keys.ts", ext);
 const { useReducedMotion } = await loadModule("src/hooks/use-reduced-motion.ts", ext);
 
 const html = (component, props) => renderToStaticMarkup(createElement(component, props));
@@ -52,6 +54,19 @@ test("piece colors are the pinned palette and state is exposed", () => {
   assert.match(tag, /aria-pressed="true"/);
   assert.match(tag, /data-dimmed="true"/);
   assert.match(tag, /cursor-pointer/);
+  assert.match(tag, /focus-visible:shadow-\[inset/);
+  assert.match(tag, /shadow-\[inset_0_0_0_3px_#0a1220\]/);
+  assert.match(tagOf(html(PieceTile, { kind: "stem", label: "ten" }), 'aria-label="stem ten"'), /role="img"/);
+});
+
+test("eyebrows use the contrast-safe gold and choices show a visible focus style", () => {
+  const hud = html(GameHud, { eyebrow: "E", score: 0, streak: 0, msLeft: 0 });
+  assert.match(hud, /text-gold-ink/);
+  assert.doesNotMatch(hud, /text-gold(?!-ink)/);
+  const choices = html(FrameChoices, { prompt: "p", english: "e", infinitive: "venir", options: [{ id: 1, label: "vengo" }], disabled: [], onPick() {} });
+  assert.match(choices, /text-gold-ink/);
+  assert.doesNotMatch(choices, /text-gold(?!-ink)/);
+  assert.match(tagOf(choices, 'data-choice="1"'), /focus-visible:outline-2/);
 });
 
 test("HUD, reason band, legend and choices", () => {
@@ -92,23 +107,63 @@ test("completion flash shows form and English, empty when idle", () => {
   const completion = { t: 1, infinitive: "venir", person: "yo", familyId: "es.present.go-yo", form: "vengo", english: "I come", points: 100 };
   assert.match(html(CompletionFlash, { completion, onSaveCard() {} }), /vengo · I come/);
   assert.doesNotMatch(html(CompletionFlash, { completion: null, onSaveCard() {} }), /·/);
+  const tag = tagOf(html(CompletionFlash, { completion, onSaveCard() {} }), 'aria-keyshortcuts="S"');
+  assert.match(tag, /role="button"/);
+  assert.match(tag, /aria-label="Save vengo, I come, to Verb Cards \(S\)"/);
 });
 
 test("long press fires after 500 ms, and cancelling stops it", (t) => {
   t.mock.timers.enable({ apis: ["setTimeout"] });
-  let fired = 0;
-  const press = createLongPress(() => fired++);
+  const saved = [];
+  const press = createLongPress((c) => saved.push(c.t));
   assert.equal(LONG_PRESS_MS, 500);
-  press.start();
+  press.start({ t: 1 });
   t.mock.timers.tick(499);
-  assert.equal(fired, 0);
+  assert.deepEqual(saved, []);
   t.mock.timers.tick(1);
-  assert.equal(fired, 1);
-  press.start();
+  assert.deepEqual(saved, [1]);
+  press.start({ t: 2 });
   t.mock.timers.tick(300);
   press.cancel();
   t.mock.timers.tick(1000);
-  assert.equal(fired, 1);
+  assert.deepEqual(saved, [1]);
+});
+
+test("long press saves the completion captured when the press started", (t) => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  const saved = [];
+  const press = createLongPress((c) => saved.push(c.form));
+  press.start({ t: 1, form: "vengo" });
+  t.mock.timers.tick(200);
+  // A newer completion arrives while the finger is still down: the old one is still the one saved.
+  t.mock.timers.tick(300);
+  assert.deepEqual(saved, ["vengo"]);
+});
+
+test("a long press plus its contextmenu event saves once; a new completion saves again", (t) => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  const saved = [];
+  const press = createLongPress((c) => saved.push(c.t));
+  press.start({ t: 7 });
+  t.mock.timers.tick(500);
+  press.save({ t: 7 });
+  press.save({ t: 7 });
+  assert.deepEqual(saved, [7]);
+  press.save({ t: 8 });
+  assert.deepEqual(saved, [7, 8]);
+});
+
+test("S saves only without modifiers and outside editable fields", () => {
+  assert.equal(isSaveKey({ key: "s", target: { tagName: "DIV" } }), true);
+  assert.equal(isSaveKey({ key: "S", target: { tagName: "BUTTON" } }), true);
+  assert.equal(isSaveKey({ key: "s", ctrlKey: true }), false);
+  assert.equal(isSaveKey({ key: "s", metaKey: true }), false);
+  assert.equal(isSaveKey({ key: "s", altKey: true }), false);
+  assert.equal(isSaveKey({ key: "s", repeat: true }), false);
+  assert.equal(isSaveKey({ key: "s", target: { tagName: "INPUT" } }), false);
+  assert.equal(isSaveKey({ key: "s", target: { tagName: "TEXTAREA" } }), false);
+  assert.equal(isSaveKey({ key: "s", target: { tagName: "DIV", isContentEditable: true } }), false);
+  assert.equal(isSaveKey({ key: "a" }), false);
 });
 
 test("choice keys 1-6 map to enabled options only", () => {

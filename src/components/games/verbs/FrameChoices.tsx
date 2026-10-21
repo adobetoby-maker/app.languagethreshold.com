@@ -1,19 +1,6 @@
 // Built by TAC — 2026-10-21
 import { useEffect, useRef } from "react";
-
-export const MAX_CHOICES = 6;
-
-/** The option a number key picks: keys 1-6 map to positions, and disabled or missing options map to null. */
-export function choiceForKey(
-  key: string,
-  options: { id: number }[],
-  disabled: number[],
-): number | null {
-  if (!/^[1-6]$/.test(key)) return null;
-  const option = options.slice(0, MAX_CHOICES)[Number(key) - 1];
-  if (!option || disabled.includes(option.id)) return null;
-  return option.id;
-}
+import { MAX_CHOICES, choiceForKey } from "./choice-keys";
 
 /** List mode: the frame as a numbered, keyboard-reachable list. Keys 1-6 pick. */
 export function FrameChoices(p: {
@@ -44,7 +31,7 @@ export function FrameChoices(p: {
   return (
     <section className="space-y-3" aria-label={`Choose the form of ${p.infinitive}`} data-testid="frame-choices">
       <div>
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold">{p.infinitive}</div>
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink">{p.infinitive}</div>
         <div className="font-display text-2xl text-foreground">{p.prompt}</div>
         <div className="text-sm text-muted-foreground">{p.english}</div>
       </div>
@@ -58,9 +45,9 @@ export function FrameChoices(p: {
                 data-choice={o.id}
                 disabled={off}
                 onClick={() => p.onPick(o.id)}
-                className="flex min-h-11 w-full items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-left font-mono text-base text-card-foreground transition-colors duration-150 enabled:cursor-pointer enabled:hover:border-gold disabled:opacity-40"
+                className="flex min-h-11 w-full items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-left font-mono text-base text-card-foreground transition-colors duration-150 enabled:cursor-pointer enabled:hover:border-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-40"
               >
-                <span className="text-xs text-gold">{i + 1}</span>
+                <span className="text-xs text-gold-ink">{i + 1}</span>
                 <span>{o.label}</span>
               </button>
             </li>

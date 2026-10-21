@@ -20,7 +20,7 @@ export function GameHud(p: {
   ].join(" · ");
   return (
     <header className="space-y-1" data-testid="game-hud">
-      <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold">{p.eyebrow}</div>
+      <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink">{p.eyebrow}</div>
       <div className="font-mono text-sm tabular-nums text-foreground">{stats}</div>
     </header>
   );

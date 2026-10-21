@@ -59,7 +59,18 @@ create policy "Group owner can add members"
 revoke all on public.family_groups from anon;
 revoke all on public.family_members from anon;
 
+-- Per-account join attempts (server-only) so codes cannot be brute-forced through the RPC.
+create table if not exists public.family_join_attempts (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  attempted_at timestamptz not null default now()
+);
+create index if not exists family_join_attempts_user_time
+  on public.family_join_attempts(user_id, attempted_at);
+alter table public.family_join_attempts enable row level security;
+revoke all on public.family_join_attempts from anon, authenticated;
+
 -- Join by code + last name. Both must match; a mismatch reveals nothing about the code.
+-- Misses return {"error":"not_found"} instead of raising so the attempt row is kept.
 create or replace function public.join_family_group(
   p_family_code text,
   p_last_name text,
@@ -81,12 +92,18 @@ begin
     raise exception 'Enter your name to join.' using errcode = '22023';
   end if;
 
+  if (select count(*) from public.family_join_attempts a
+      where a.user_id = v_uid and a.attempted_at > now() - interval '1 hour') >= 10 then
+    raise exception 'Too many join attempts. Try again later.' using errcode = '54000';
+  end if;
+  insert into public.family_join_attempts(user_id) values (v_uid);
+
   select g.* into v_group
   from public.family_groups g
   where g.family_code = upper(btrim(coalesce(p_family_code, '')))
     and lower(btrim(g.last_name)) = lower(btrim(coalesce(p_last_name, '')));
   if not found then
-    raise exception 'No family group matches that code and last name.' using errcode = 'P0002';
+    return jsonb_build_object('error', 'not_found');
   end if;
 
   if v_group.owner_user_id <> v_uid and not exists (
@@ -120,3 +137,36 @@ drop policy if exists "queue_select" on public.match_queue;
 drop policy if exists "queue_update" on public.match_queue;
 drop policy if exists "queue_delete" on public.match_queue;
 revoke all on public.match_queue from anon, authenticated;
+
+-- profiles.data billing keys: clients may update their own profile blob (progress sync), but
+-- only the service role (Stripe webhook / server routes) may set or clear billing state.
+-- Without this a signed-in user could write subscription_status='active' and pass every
+-- server-side plan check; it also stops the client progress upsert from erasing these keys.
+create or replace function public.profiles_protect_billing_keys()
+returns trigger language plpgsql set search_path = public as $$
+declare
+  v_keys text[] := array[
+    'subscription_status', 'subscription_id', 'cancel_at_period_end', 'cancel_reason',
+    'last_payment_failed', 'trial_ending_soon'
+  ];
+begin
+  -- Only browser roles are restricted; server roles (service_role, migrations) pass through.
+  if current_user not in ('anon', 'authenticated') then
+    return new;
+  end if;
+  new.data := coalesce(new.data, '{}'::jsonb) - v_keys;
+  if tg_op = 'UPDATE' then
+    new.data := new.data || coalesce(
+      (select jsonb_object_agg(e.key, e.value)
+       from jsonb_each(coalesce(old.data, '{}'::jsonb)) e
+       where e.key = any(v_keys)),
+      '{}'::jsonb);
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists trg_profiles_protect_billing_keys on public.profiles;
+create trigger trg_profiles_protect_billing_keys
+  before insert or update on public.profiles
+  for each row execute function public.profiles_protect_billing_keys();

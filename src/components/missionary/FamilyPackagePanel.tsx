@@ -40,7 +40,9 @@ function generateCode(lastName: string) {
       .toUpperCase()
       .replace(/[^A-Z]/g, "")
       .slice(0, 5) || "FAM";
-  const tail = Math.random().toString(36).slice(2, 6).toUpperCase();
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  const tail = Array.from(bytes, (b) => alphabet[b % alphabet.length]).join("");
   return `${stem}-${tail}`;
 }
 
@@ -166,13 +168,17 @@ export function FamilyPackagePanel() {
       setFeedback(
         error.message.includes("Family group is full")
           ? "This family group already has 7 members."
-          : error.message.includes("No family group matches")
-            ? "No family group matches that code and last name."
+          : error.message.includes("Too many join attempts")
+            ? "Too many attempts. Please try again in an hour."
             : "Could not join family group.",
       );
       return;
     }
-    const joined = data as { lastName?: string } | null;
+    const joined = data as { lastName?: string; error?: string } | null;
+    if (joined?.error === "not_found") {
+      setFeedback("No family group matches that code and last name.");
+      return;
+    }
     setShowJoin(false);
     setFeedback(`Welcome to the ${joined?.lastName ?? ""} family group! ✦`);
     setJoinCode("");

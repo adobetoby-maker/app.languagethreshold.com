@@ -4,6 +4,7 @@ begin;
 create schema auth;
 create table auth.users(id uuid primary key,email text);
 create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
+create table public.profiles(id uuid primary key,data jsonb not null default '{}');
 create table public.mission_pins(id uuid primary key default gen_random_uuid(),user_id uuid);
 create function public.update_updated_at_column() returns trigger language plpgsql as $$begin new.updated_at:=now();return new;end$$;
 do $$begin
@@ -16,7 +17,7 @@ grant execute on function auth.uid() to anon,authenticated,service_role;
 \ir ../../supabase/migrations/20260426223537_2d1ecd26-5416-48f5-913b-67f6712fbe9d.sql
 \ir ../../supabase/migrations/20260604000000_create_match_queue.sql
 -- Mirror Supabase's default client-role table grants before the hardening runs.
-grant all on public.family_groups,public.family_members,public.match_queue to anon,authenticated,service_role;
+grant all on public.family_groups,public.family_members,public.match_queue,public.profiles to anon,authenticated,service_role;
 \ir ../../supabase/migrations/20261021000000_family_rls_hardening.sql
 create function pg_temp.expect_error(sql_text text,expected text) returns void language plpgsql as $$begin begin execute sql_text; exception when others then if sqlerrm not like '%'||expected||'%'then raise exception 'Expected %, got %',expected,sqlerrm;end if;return;end;raise exception 'Expected error %',expected;end$$;
 grant execute on function pg_temp.expect_error(text,text) to anon,authenticated;
@@ -43,8 +44,11 @@ do $$begin
  if (select count(*) from public.family_groups)<>0 or (select count(*) from public.family_members)<>0 then raise exception 'Outsider can read family data';end if;
 end$$;
 select pg_temp.expect_error($x$insert into public.family_members(group_id,display_name) values('30000000-0000-4000-8000-000000000001','Direct')$x$,'row-level security');
-select pg_temp.expect_error($x$select public.join_family_group('SMITH-AB12','Wrong','Mom B')$x$,'No family group matches');
-select pg_temp.expect_error($x$select public.join_family_group('SMITH-0000','Smith','Mom B')$x$,'No family group matches');
+do $$begin
+ if public.join_family_group('SMITH-AB12','Wrong','Mom B')->>'error'<>'not_found' then raise exception 'Wrong last name accepted';end if;
+ if public.join_family_group('SMITH-0000','Smith','Mom B')->>'error'<>'not_found' then raise exception 'Wrong code accepted';end if;
+end$$;
+select pg_temp.expect_error($x$select * from public.family_join_attempts$x$,'permission denied');
 select pg_temp.expect_error($x$select * from public.match_queue$x$,'permission denied');
 -- Join with code + last name (case/space tolerant), idempotent, then own family is visible.
 do $$declare r jsonb;begin
@@ -55,7 +59,10 @@ do $$declare r jsonb;begin
  if (select count(*) from public.family_members)<>2 then raise exception 'Member roster wrong or duplicate join';end if;
  if exists(select 1 from public.family_members where group_id='30000000-0000-4000-8000-000000000002') then raise exception 'Foreign family visible';end if;
 end$$;
-select pg_temp.expect_error($x$select public.join_family_group('JONES-ZZ99','Smith','Mismatch')$x$,'No family group matches');
+do $$begin if public.join_family_group('JONES-ZZ99','Smith','Mismatch')->>'error'<>'not_found' then raise exception 'Cross-family code accepted';end if;end$$;
+-- Brute-force limit: B has used 5 attempts; 5 more misses hit the cap, then even a valid join is refused.
+do $$begin for i in 1..5 loop perform public.join_family_group('SMITH-'||i,'Smith','Guess');end loop;end$$;
+select pg_temp.expect_error($x$select public.join_family_group('SMITH-AB12','Smith','Mom B')$x$,'Too many join attempts');
 -- A member cannot remove others (only the owner can).
 delete from public.family_members where display_name='Elder Smith';
 reset role;
@@ -82,5 +89,25 @@ set local role authenticated;
 set local request.jwt.claim.sub='20000000-0000-4000-8000-00000000000c';
 select pg_temp.expect_error($x$select public.join_family_group('SMITH-AB12','Smith','Eighth')$x$,'Family group is full');
 reset role;
+-- Billing keys in profiles.data: clients cannot set or erase them; service_role can.
+insert into public.profiles values('20000000-0000-4000-8000-00000000000a','{"subscription_status":"active","subscription_id":"sub_fixture","xp":1}');
+set local role authenticated;
+set local request.jwt.claim.sub='20000000-0000-4000-8000-00000000000b';
+insert into public.profiles values('20000000-0000-4000-8000-00000000000b','{"subscription_status":"active","xp":5}');
+update public.profiles set data='{"subscription_status":"trialing","xp":6}' where id='20000000-0000-4000-8000-00000000000b';
+reset role;
+set local role authenticated;
+set local request.jwt.claim.sub='20000000-0000-4000-8000-00000000000a';
+update public.profiles set data='{"xp":2}' where id='20000000-0000-4000-8000-00000000000a';
+update public.profiles set data=data||'{"subscription_status":"canceled"}' where id='20000000-0000-4000-8000-00000000000a';
+reset role;
+do $$begin
+ if (select data from public.profiles where id='20000000-0000-4000-8000-00000000000b')<>'{"xp":6}'::jsonb then raise exception 'Client self-granted a subscription';end if;
+ if (select data from public.profiles where id='20000000-0000-4000-8000-00000000000a')<>'{"xp":2,"subscription_status":"active","subscription_id":"sub_fixture"}'::jsonb then raise exception 'Client sync erased or altered billing keys';end if;
+end$$;
+set local role service_role;
+update public.profiles set data=data||'{"subscription_status":"canceled"}' where id='20000000-0000-4000-8000-00000000000a';
+reset role;
+do $$begin if (select data->>'subscription_status' from public.profiles where id='20000000-0000-4000-8000-00000000000a')<>'canceled' then raise exception 'Service role cannot update billing';end if;end$$;
 rollback;
-\echo 'Family RLS: anon denied, outsider isolation, code+last-name join, owner-only writes, member cap and match_queue lockout passed (rolled back).'
+\echo 'Family RLS: anon denied, outsider isolation, code+last-name join, owner-only writes, member cap match_queue lockout and profile billing-key protection passed (rolled back).'

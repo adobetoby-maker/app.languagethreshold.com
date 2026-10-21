@@ -92,6 +92,8 @@ begin
     raise exception 'Enter your name to join.' using errcode = '22023';
   end if;
 
+  -- Serialize per account so concurrent calls cannot all pass the count check.
+  perform pg_advisory_xact_lock(hashtextextended('family_join:' || v_uid::text, 0));
   if (select count(*) from public.family_join_attempts a
       where a.user_id = v_uid and a.attempted_at > now() - interval '1 hour') >= 10 then
     raise exception 'Too many join attempts. Try again later.' using errcode = '54000';

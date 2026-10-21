@@ -320,12 +320,11 @@ test.describe("Core 30 plan: Roofing", () => {
     const kit = page.getByTestId("practice-kit");
     await expect(kit).toBeVisible();
 
-    // Recall opens on Cards; Study stays one tap away.
-    await expect(kit.getByTestId("practice-mode-flashcards")).toHaveAttribute(
+    // Recall opens on Study before the learner chooses Cards or Match.
+    await expect(kit.getByTestId("practice-mode-study")).toHaveAttribute(
       "aria-selected",
       "true",
     );
-    await kit.getByTestId("practice-mode-study").click();
 
     // Study: every lesson-1 word is listed, and the list length equals the heading count.
     const panel = kit.getByRole("tabpanel");
@@ -515,7 +514,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("lesson-return-pill")).toHaveCount(0);
   });
 
-  test("7. Recall it stays on Core 30 with Cards open and Match one tap away", async ({ page }) => {
+  test("7. Recall it opens Study and returns to Study after another mode", async ({ page }) => {
     await openCore30(page, STARTED_TODAY);
     await openLesson1(page);
     const locationOf = () => {
@@ -537,10 +536,15 @@ test.describe("Core 30 plan: Roofing", () => {
       .toEqual({ path: "/", tab: "core30", module: MODULE, lesson: "1", way: "recall" });
     expect(await currentTabOf(page)).toBe("core30");
     await expect(page.getByTestId("lesson-practice-section")).toBeVisible();
-    await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute(
+    await expect(page.getByTestId("practice-mode-study")).toHaveAttribute(
       "aria-selected",
       "true",
     );
+    await page.getByTestId("practice-mode-flashcards").click();
+    await expect(page.getByTestId("practice-mode-flashcards")).toHaveAttribute("aria-selected", "true");
+    await goSection(page, "see");
+    await goSection(page, "recall");
+    await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await page.getByTestId("practice-mode-match").click();
     await expect(page.getByTestId("match-tile").first()).toBeVisible();
     await expect(page.getByTestId("lesson-nav-recall")).toHaveAttribute("aria-current", "step");
@@ -562,6 +566,7 @@ test.describe("Core 30 plan: Roofing", () => {
     await expect(page.getByTestId("practice-recall-switch")).toHaveCount(0);
     await goSection(page, "recall");
     await expect(page.getByTestId("practice-recall-switch")).toBeVisible();
+    await expect(page.getByTestId("practice-mode-study")).toHaveAttribute("aria-selected", "true");
     await expect(page.getByTestId("practice-mode-type")).toHaveCount(0);
   });
 
@@ -756,7 +761,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
       page.getByRole("heading", { name: `Practice this lesson's words (${STUB_WORDS.length})` }),
     ).toBeVisible();
     const kit = page.getByTestId("practice-kit");
-    // Recall opens on Cards; the Study list is one tap away.
+    // Recall opens directly on the Study list.
     await kit.getByTestId("practice-mode-study").click();
     const panel = kit.getByRole("tabpanel");
     await expect(panel.locator('li p[lang="fr"]')).toHaveCount(STUB_WORDS.length);

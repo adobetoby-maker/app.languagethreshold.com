@@ -20,6 +20,7 @@ const { FrameChoices } = await loadModule("src/components/games/verbs/FrameChoic
 const { choiceForKey } = await loadModule("src/components/games/verbs/choice-keys.ts", ext);
 const { useReducedMotion } = await loadModule("src/hooks/use-reduced-motion.ts", ext);
 const { BubblePopGame } = await loadModule("src/components/games/verbs/BubblePopGame.tsx", ext);
+const { VerbCrushGame } = await loadModule("src/components/games/verbs/VerbCrushGame.tsx", ext);
 
 const html = (component, props) => renderToStaticMarkup(createElement(component, props));
 /** The opening tag that contains `marker`, so attributes can be asserted in any order. */
@@ -235,4 +236,43 @@ test("dev-only answer marker is absent outside dev builds", () => {
 test("bubble eyebrow says MIX for a mixed round", () => {
   const h = html(BubblePopGame, { data: miniData(), config: { ...bubbleCfg, family: "mix" }, onEnd() {}, onSaveCard() {} });
   assert.match(h, /GAME · BUBBLE POP · MIX/);
+});
+
+const crushCfg = { game: "crush", family: "es.present.go-yo", level: 1, source: { kind: "core" }, seed: 5, listMode: false, reducedMotion: false };
+
+test("crush screen renders 25 labelled cells and the goal", () => {
+  const h = html(VerbCrushGame, { data: miniData(), config: crushCfg, onEnd() {}, onSaveCard() {} });
+  assert.equal((h.match(/data-testid="crush-cell"/g) ?? []).length, 25);
+  assert.match(h, /GAME · VERB CRUSH · LEVEL 1/); assert.match(h, /Make 5 yo forms/);
+});
+
+test("crush cells are indexed grid cells holding shaped PieceTiles, and the HUD shows moves", () => {
+  const h = html(VerbCrushGame, { data: miniData(), config: crushCfg, onEnd() {}, onSaveCard() {} });
+  for (const i of [0, 12, 24]) assert.ok(tagOf(h, `data-index="${i}"`));
+  assert.equal((h.match(/aria-label="(stem|ending) [^",]+, row [1-5], column [1-5]"/g) ?? []).length, 25);
+  assert.equal((h.match(/role="gridcell"/g) ?? []).length, 25);
+  assert.match(h, /data-shape="rounded"/);
+  assert.match(h, /data-shape="chevron"/);
+  assert.match(h, /MOVES 20/);
+  assert.match(tagOf(h, 'data-testid="crush-goal"'), /data-made="0"/);
+  assert.match(h, /0 \/ 5/);
+  assert.equal((h.match(/data-goal-slot=/g) ?? []).length, 5);
+  assert.match(tagOf(h, 'data-testid="crush-grid"'), /role="grid"/);
+  // Roving focus: exactly one cell button is in the tab order.
+  assert.equal((h.match(/tabindex="0"/g) ?? []).length, 1);
+  assert.match(h, /data-testid="reason-band"/);
+  assert.match(h, /data-testid="live-region"/);
+  assert.match(h, /data-testid="legend"/);
+});
+
+test("crush dev-only swap hints are absent outside dev builds", () => {
+  const h = html(VerbCrushGame, { data: miniData(), config: crushCfg, onEnd() {}, onSaveCard() {} });
+  assert.doesNotMatch(h, /data-hint=/);
+});
+
+test("crush board is square and stops page scroll under swipes", () => {
+  const h = html(VerbCrushGame, { data: miniData(), config: crushCfg, onEnd() {}, onSaveCard() {} });
+  const board = tagOf(h, 'data-testid="crush-board"');
+  assert.match(board, /aspect-square/);
+  assert.match(board, /touch-action:none/);
 });

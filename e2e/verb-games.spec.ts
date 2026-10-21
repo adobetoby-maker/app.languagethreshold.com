@@ -137,6 +137,133 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
   });
 });
 
+/** Games → Verbs → Verb Crush → The "-go" family → Level 1 → Start, with a fixed dev seed. */
+async function startCrush(page: Page): Promise<void> {
+  await openVerbs(page, "&vseed=5");
+  await page.locator('[data-game="crush"]').click();
+  await page.getByTestId("family-es.present.go-yo").click();
+  await page.locator('[data-level="1"]').click();
+  await page.getByRole("button", { name: "Start round" }).click();
+  await expect(page.getByTestId("crush-game")).toBeVisible();
+  await expect(page.getByTestId("crush-cell")).toHaveCount(25);
+}
+
+/** The arrow key that moves from hint a to hint b. */
+async function hintArrow(page: Page): Promise<string> {
+  const a = Number(await page.locator('[data-hint="a"]').getAttribute("data-index"));
+  const b = Number(await page.locator('[data-hint="b"]').getAttribute("data-index"));
+  return b === a + 1 ? "ArrowRight" : b === a - 1 ? "ArrowLeft" : b > a ? "ArrowDown" : "ArrowUp";
+}
+
+test.describe("verb crush", { tag: "@dev-only" }, () => {
+  test.describe("reduced motion", () => {
+    test.beforeEach(async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
+    });
+
+    test("crush level 1: one pop shows the English", async ({ page }) => {
+      await startCrush(page);
+      await expect(page.getByTestId("game-hud")).toContainText("GAME · VERB CRUSH · LEVEL 1");
+      await expect(page.getByTestId("game-hud")).toContainText("MOVES 20");
+      await expect(page.getByTestId("crush-goal")).toContainText("Make 5 yo forms");
+      await expect(page.getByTestId("crush-goal-count")).toHaveText("0 / 5");
+      await page.locator('[data-hint="a"]').click();
+      await page.locator('[data-hint="b"]').click();
+      await expect(page.getByTestId("completion-flash")).toHaveText(/· I /);
+      await expect(page.getByTestId("live-region")).toContainText(/· I .*Goal 1 of 5/);
+      await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
+      await expect(page.locator("[data-goal-slot][data-filled]")).toHaveCount(1);
+      await expect(page.getByTestId("game-hud")).toContainText("MOVES 19");
+      await expect(page.getByTestId("game-hud")).toContainText("STREAK ×1");
+    });
+
+    test("crush trap shows the reason and costs the streak, not a move", async ({ page }) => {
+      await startCrush(page);
+      for (let n = 1; n <= 2; n++) {
+        await page.locator('[data-hint="a"]').click();
+        await page.locator('[data-hint="b"]').click();
+        await expect(page.getByTestId("crush-goal-count")).toHaveText(`${n} / 5`);
+      }
+      await expect(page.getByTestId("game-hud")).toContainText("STREAK ×2 · ");
+      // Seed 5 on the signed data: after those two pops, cells 2 and 7 make "decen" (found by replaying the engine).
+      await page.locator('[data-index="2"]').click();
+      await page.locator('[data-index="7"]').click();
+      await expect(page.getByTestId("reason-band")).toHaveAttribute("data-state", "shown");
+      await expect(page.getByTestId("reason-band")).toContainText("decen ✗ → dicen");
+      await expect(page.locator('[data-testid="crush-cell"] [data-dimmed="true"]')).toHaveCount(2);
+      await expect(page.getByTestId("game-hud")).toContainText("STREAK ×0");
+      await expect(page.getByTestId("game-hud")).toContainText("MOVES 18");
+    });
+
+    test("crush reduced motion", async ({ page }) => {
+      await startCrush(page);
+      await expect(page.getByTestId("crush-board")).toHaveAttribute("data-motion", "still");
+      await page.locator('[data-hint="a"]').click();
+      await page.locator('[data-hint="b"]').click();
+      await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
+      await expect(page.locator('[data-testid="crush-grid"] [class*="animate-"]')).toHaveCount(0);
+      // No tile is moved: nothing in the grid carries a transform.
+      const moved = await page.locator('[data-testid="crush-cell"]').evaluateAll((els) => els.filter((el) => getComputedStyle(el).transform !== "none").length);
+      expect(moved).toBe(0);
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expect(page.getByRole("heading", { name: /Round over · \d/ })).toBeVisible();
+      await expect(page.getByTestId("round-over")).toContainText("GAME · VERB CRUSH");
+      await page.getByRole("button", { name: "Play again" }).click();
+      await expect(page.getByTestId("crush-game")).toBeVisible();
+    });
+  });
+
+  test("crush keyboard: Enter picks, an arrow swaps and pops", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await startCrush(page);
+    await expect(page.getByTestId("crush-board")).toHaveAttribute("data-motion", "move");
+    const arrow = await hintArrow(page);
+    await page.locator('[data-hint="a"]').focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator('[data-hint="a"]')).toHaveAttribute("aria-selected", "true");
+    await page.keyboard.press(arrow);
+    await expect(page.getByTestId("completion-flash")).toHaveText(/· I /);
+    await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
+    // Focus stays on the board for the next move.
+    await expect(page.locator('[data-testid="crush-cell"]:focus')).toHaveCount(1);
+  });
+
+  test("crush drag swaps neighbors (mouse on desktop, touch swipe on the phone)", async ({ page, context }, info) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await startCrush(page);
+    // The board scrolls itself into view on start; read positions once it has settled.
+    await page.waitForTimeout(900);
+    const a = await page.locator('[data-hint="a"]').boundingBox();
+    const b = await page.locator('[data-hint="b"]').boundingBox();
+    if (!a || !b) throw new Error("hint cells not laid out");
+    const ax = a.x + a.width / 2;
+    const ay = a.y + a.height / 2;
+    const steps = [0.15, 0.3, 0.45, 0.6].map((f) => ({ x: ax + (b.x - a.x) * f, y: ay + (b.y - a.y) * f }));
+    if (info.project.name === "iphone-pwa") {
+      const cdp = await context.newCDPSession(page);
+      const touch = (type: string, x: number, y: number) =>
+        cdp.send("Input.dispatchTouchEvent", { type, touchPoints: type === "touchEnd" ? [] : [{ x, y }] });
+      await touch("touchStart", ax, ay);
+      for (const p of steps) await touch("touchMove", p.x, p.y);
+      await touch("touchEnd", 0, 0);
+    } else {
+      await page.mouse.move(ax, ay);
+      await page.mouse.down();
+      for (const p of steps) await page.mouse.move(p.x, p.y);
+      await page.mouse.up();
+    }
+    await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
+    await expect(page.getByTestId("completion-flash")).toHaveText(/· I /);
+  });
+
+  test("crush cells are at least 44 px", async ({ page }) => {
+    await startCrush(page);
+    const box = await page.getByTestId("crush-cell").first().boundingBox();
+    expect(box?.width ?? 0).toBeGreaterThanOrEqual(44);
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+  });
+});
+
 // Screenshots at four viewports for the visual review: VERB_SCREENS=1 npx playwright test ... --grep @screens
 const BUBBLE_PLAY = appUrl({ tab: "games" }) + "&verbs=play&vgame=bubble&vfamily=es.present.go-yo&vseed=5";
 
@@ -157,6 +284,19 @@ async function startListRound(page: Page): Promise<void> {
   await page.getByRole("switch").click();
   await page.getByTestId("family-es.present.go-yo").click();
   await page.getByRole("button", { name: "Start round" }).click();
+}
+
+const CRUSH_PLAY = appUrl({ tab: "games" }) + "&verbs=play&vgame=crush&vfamily=es.present.go-yo&vlevel=1&vseed=5";
+
+/** Mid-round: two pops by the dev hint (goal 2 / 5, flash up), then the board settles. */
+async function crushMidRound(page: Page): Promise<void> {
+  await expect(page.getByTestId("crush-game")).toBeVisible();
+  await page.waitForTimeout(600);
+  for (let n = 0; n < 2; n++) {
+    await page.locator('[data-hint="a"]').click();
+    await page.locator('[data-hint="b"]').click();
+    await page.waitForTimeout(900);
+  }
 }
 
 const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<void> }[] = [
@@ -187,6 +327,30 @@ const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<v
     },
   },
 ];
+SCREENS.push(
+  { name: "crush", path: CRUSH_PLAY, prepare: crushMidRound },
+  {
+    name: "crush-cascade",
+    path: CRUSH_PLAY,
+    prepare: async (page) => {
+      await expect(page.getByTestId("crush-game")).toBeVisible();
+      await page.waitForTimeout(600);
+      await page.locator('[data-hint="a"]').click();
+      await page.locator('[data-hint="b"]').click();
+      // Mid-pop: the burst is up and the refills are dropping in.
+      await page.waitForTimeout(260);
+    },
+  },
+  {
+    name: "crush-over",
+    path: CRUSH_PLAY,
+    prepare: async (page) => {
+      await crushMidRound(page);
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expect(page.getByTestId("round-over")).toBeVisible();
+    },
+  },
+);
 const VIEWPORTS = [
   { tag: "375", width: 375, height: 812, scale: 2 },
   { tag: "1440", width: 1440, height: 900, scale: 1 },

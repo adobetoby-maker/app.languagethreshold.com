@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-21
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, Trophy } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -10,6 +10,7 @@ import { guardVerbRoute } from "@/lib/verb-games/route-guard";
 import type { PatternData, RoundConfig } from "@/lib/verb-games/types";
 import { parseVerbRoute, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { BubblePopGame } from "./BubblePopGame";
+import { VerbCrushGame } from "./VerbCrushGame";
 import { VerbPicker } from "./VerbPicker";
 import { VerbsHome } from "./VerbsHome";
 
@@ -34,10 +35,10 @@ function randomSeed(): number {
 }
 
 /** Placeholder end screen until the recap (Task 16) replaces it. */
-function RoundOver(p: { score: number; onPlayAgain(): void; onBack(): void }) {
+function RoundOver(p: { eyebrow: string; score: number; onPlayAgain(): void; onBack(): void }) {
   return (
     <section className={`${PANEL} mx-auto max-w-3xl space-y-3`} data-testid="round-over">
-      <div className={EYEBROW}>GAME · BUBBLE POP</div>
+      <div className={EYEBROW}>{p.eyebrow}</div>
       <h2 className="font-display text-3xl font-semibold">Round over · {p.score.toLocaleString("en-US")}</h2>
       <div className="flex flex-wrap gap-2">
         <button
@@ -158,26 +159,31 @@ export function VerbsSection() {
   }, [route]);
 
   const settings = device.state.settings;
-  const roundSource = sourceFilterFor(settings, moduleId);
   const playing = route.screen === "play" ? route : null;
-  // Fixed per round: the game keeps the config it mounted with, so later settings changes never reach a live round.
-  const bubbleConfig = useMemo<RoundConfig | null>(
-    () =>
-      playing && playing.game === "bubble"
-        ? {
-            game: "bubble",
-            family: playing.family,
-            level: null,
-            source: roundSource,
-            seed: seed ?? randomSeed(),
-            listMode: settings.listMode,
-            reducedMotion,
-          }
-        : null,
-    // roundKey is a dependency on purpose: Play again draws a new seed.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [playing?.game, playing?.family, roundKey, seed, settings.listMode, reducedMotion, roundSource.kind, moduleId],
-  );
+  // A round starts only once the pattern data and the saved settings are both in, so a deep-linked
+  // round never starts on default list mode or source and then changes under the player.
+  const ready = data !== null && device.hydrated;
+  // Frozen per round: the config is built once when ready and kept until the round identity changes
+  // (game, family, level, Play again, dev seed), so later settings changes never reach a live round.
+  const roundId = playing ? `${playing.game}|${playing.family}|${String(playing.level)}|${roundKey}|${String(seed)}` : null;
+  const frozen = useRef<{ id: string; config: RoundConfig } | null>(null);
+  if (roundId === null) frozen.current = null;
+  else if (ready && playing && frozen.current?.id !== roundId) {
+    frozen.current = {
+      id: roundId,
+      config: {
+        game: playing.game,
+        family: playing.family,
+        level: playing.game === "crush" ? playing.level : null,
+        source: sourceFilterFor(settings, moduleId),
+        seed: seed ?? randomSeed(),
+        // Crush has no list screen; its board is keyboard-playable as is.
+        listMode: playing.game === "bubble" ? settings.listMode : false,
+        reducedMotion,
+      },
+    };
+  }
+  const roundConfig = ready && roundId !== null && frozen.current?.id === roundId ? frozen.current.config : null;
 
   if (!spanish) {
     return <Notice title="Verb Games are Spanish-only for now" body="Switch your target language to Spanish to practice verbs by pattern." />;
@@ -191,7 +197,7 @@ export function VerbsSection() {
       />
     );
   }
-  if (!data) return <Loading />;
+  if (!data || (route.screen === "play" && !device.hydrated)) return <Loading />;
 
   const source = sourceFilterFor(device.state.settings, moduleId);
   const view = guardVerbRoute(route, data, source);
@@ -211,11 +217,11 @@ export function VerbsSection() {
           onSettings={(settings) => device.update((s) => ({ ...s, settings }))}
         />
       )}
-      {view.screen === "play" && view.game === "bubble" && bubbleConfig && !ended && (
+      {view.screen === "play" && view.game === "bubble" && roundConfig?.game === "bubble" && !ended && (
         <BubblePopGame
           key={roundKey}
           data={data}
-          config={bubbleConfig}
+          config={roundConfig}
           onEnd={(_log, result) => {
             // Task 16 records the round and shows the recap; until then only the score is shown.
             setEnded({ score: result.score });
@@ -225,22 +231,29 @@ export function VerbsSection() {
           }}
         />
       )}
-      {view.screen === "play" && view.game === "bubble" && ended && (
+      {view.screen === "play" && view.game === "crush" && roundConfig?.game === "crush" && !ended && (
+        <VerbCrushGame
+          key={roundKey}
+          data={data}
+          config={roundConfig}
+          onEnd={(_log, result) => {
+            // Task 16 records the round and shows the recap; until then only the score is shown.
+            setEnded({ score: result.score });
+          }}
+          onSaveCard={() => {
+            // Verb Cards land in Tasks 22/23.
+          }}
+        />
+      )}
+      {view.screen === "play" && ended && (
         <RoundOver
+          eyebrow={view.game === "crush" ? "GAME · VERB CRUSH" : "GAME · BUBBLE POP"}
           score={ended.score}
           onPlayAgain={() => {
             setEnded(null);
             setRoundKey((k) => k + 1);
           }}
-          onBack={() => go({ screen: "pick", game: "bubble", family: view.family })}
-        />
-      )}
-      {view.screen === "play" && view.game !== "bubble" && (
-        <Notice
-          eyebrow="GAME · VERB CRUSH"
-          title="This round is not ready to play yet"
-          body="Pick a pattern and come back soon."
-          action={back({ screen: "pick", game: view.game, family: view.family })}
+          onBack={() => go({ screen: "pick", game: view.game, family: view.family })}
         />
       )}
       {view.screen === "unit" && (

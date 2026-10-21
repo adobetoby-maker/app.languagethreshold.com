@@ -14,7 +14,12 @@ import {
  * until its mount effect has run, so state hydrates in an effect keyed on the store object, resets
  * when the store changes, and ignores updates until hydration has finished.
  */
-export function useVerbDevice(): { state: VerbDeviceState; update(fn: (s: VerbDeviceState) => VerbDeviceState): void } {
+export function useVerbDevice(): {
+  state: VerbDeviceState;
+  /** True once this store's saved state has been read (settings are real, not defaults). */
+  hydrated: boolean;
+  update(fn: (s: VerbDeviceState) => VerbDeviceState): void;
+} {
   const store = useLearnerDeviceStore("verb-games");
   const [view, setView] = useState<{ owner: typeof store | null; box: DeviceBox }>({ owner: null, box: UNHYDRATED_DEVICE });
   const boxRef = useRef<DeviceBox>(UNHYDRATED_DEVICE);
@@ -45,6 +50,7 @@ export function useVerbDevice(): { state: VerbDeviceState; update(fn: (s: VerbDe
   }, []);
 
   // Until this store's effect has run, show empty rather than another account's state.
-  const state = view.owner === store ? view.box.state : UNHYDRATED_DEVICE.state;
-  return { state, update };
+  const mine = view.owner === store;
+  const state = mine ? view.box.state : UNHYDRATED_DEVICE.state;
+  return { state, hydrated: mine && view.box.hydrated, update };
 }

@@ -3068,20 +3068,20 @@ const FISHING_LESSONS: Lesson[] = [
   },
   {
     n: 20,
-    title: "Reading the Forecast",
+    title: "Fishing from the Shore",
     objective:
-      "Ask about wind, swell, fog, and port closures, and accept the captain's decision to go or stay in.",
+      "With no boat booked, ask local anglers where to cast from the beach or rocks, which tide and hour are best, how to reach a spot safely, and which fish come in close.",
     steps: [
       wm(
-        "Match: el pronóstico, el viento del norte, la marejada, el puerto cerrado, la capitanía de puerto, la neblina, mañana temprano, ¿salimos o no?",
+        "Match: la orilla, la playa, lanzar desde la orilla, la marea alta, la marea baja, las rocas, la carnada, ¿dónde se pesca aquí?",
         5,
       ),
       sp(
-        "The night before, ask your captain about the forecast, whether the port might close, and how he'll decide. Accept a 'no' gracefully and ask about rescheduling.",
+        "On a free afternoon, ask an angler on the beach where people cast from shore, when the tide is best, how to reach the rocks safely, and what bait works.",
         6,
       ),
       fi(
-        "Open Fishing module → Culture tab. Reread 'Agua azul vs. agua verde' and talk about how wind changes where you'll fish.",
+        "Open Fishing module → Species tab. Pick the species you could reach from shore, such as pez gallo and sierra, and say one feature of each.",
         4,
       ),
     ],

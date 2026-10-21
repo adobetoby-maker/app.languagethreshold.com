@@ -30,7 +30,13 @@ import {
   lessonContentFromResponse,
   levelFor,
 } from "../src/lib/lesson-content-prompt.ts";
-import { contentPendingFor } from "./fixtures/content-pending.mjs";
+import {
+  CONTENT_PENDING_LESSONS,
+  GENERATOR_LESSON_ARGS,
+  STALE_REGENERATE,
+  contentPendingFor,
+  staleRegenerateFor,
+} from "./fixtures/content-pending.mjs";
 
 // ─── Fixtures: a valid Spanish lesson ────────────────────────────────────────
 
@@ -743,6 +749,49 @@ for (const { dir, name } of generated) {
     },
   );
 }
+
+// ─── Stale generated content awaiting regeneration ───────────────────────────
+// tests/fixtures/content-pending.mjs: STALE_REGENERATE lessons keep shipping (and are validated
+// above like any other lesson) but were written for an older plan. Both checks pass vacuously once
+// the lists are emptied after regeneration.
+
+test("stale-regenerate lessons are planned, disjoint from pending, and still ship their content", () => {
+  for (const [moduleId, lessons] of Object.entries(STALE_REGENERATE)) {
+    const curriculum = getCurriculum(moduleId);
+    assert.ok(curriculum, `${moduleId} has a curriculum`);
+    const planned = new Set(curriculum.lessons.map((l) => l.n));
+    const pending = contentPendingFor(moduleId);
+    const files = generated.filter((g) => g.name === `${moduleId}.json`);
+    assert.ok(files.length > 0, `${moduleId} has generated content files`);
+    for (const n of lessons) {
+      assert.ok(planned.has(n), `${moduleId} lesson ${n} is a planned lesson`);
+      assert.ok(!pending.has(n), `${moduleId} lesson ${n} is stale, not pending`);
+      for (const { dir, name } of files) {
+        const raw = JSON.parse(readFileSync(join(CONTENT_DIR, dir, name), "utf8"));
+        assert.ok(String(n) in raw.lessons, `${dir}/${moduleId} still ships lesson ${n} (stale, not missing)`);
+      }
+    }
+  }
+});
+
+test("GENERATOR_LESSON_ARGS is exactly pending ∪ stale, one span ending at the last planned lesson", () => {
+  const modules = new Set([...Object.keys(CONTENT_PENDING_LESSONS), ...Object.keys(STALE_REGENERATE)]);
+  const expected = {};
+  for (const moduleId of modules) {
+    const lessons = [...new Set([...contentPendingFor(moduleId), ...staleRegenerateFor(moduleId)])].sort(
+      (a, b) => a - b,
+    );
+    if (lessons.length === 0) continue;
+    const curriculum = getCurriculum(moduleId);
+    assert.ok(curriculum, `${moduleId} has a curriculum`);
+    const first = lessons[0];
+    const last = lessons[lessons.length - 1];
+    assert.equal(last, curriculum.lessons[curriculum.lessons.length - 1].n, `${moduleId} span ends at its last lesson`);
+    assert.equal(lessons.length, last - first + 1, `${moduleId} regeneration span is contiguous`);
+    expected[moduleId] = first === last ? String(first) : `${first}-${last}`;
+  }
+  assert.deepEqual({ ...GENERATOR_LESSON_ARGS }, expected);
+});
 
 // ─── Master 20 limits profile ────────────────────────────────────────────────
 

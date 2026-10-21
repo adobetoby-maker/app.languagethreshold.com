@@ -637,9 +637,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "The register charges full price for a sale item and scans the socks twice; point it out and get the right total.",
       ),
       lesson(
-        "Return an item without a receipt",
-        "ask about card lookup, exchange, or store credit and accept policy or request a manager",
-        "You lost the receipt for a jacket that doesn't fit; ask what options exist and negotiate an exchange.",
+        "Get help at a self-checkout",
+        "weigh loose produce, clear an unexpected-item error, remove an item you no longer want, and call an attendant",
+        "The self-checkout keeps stopping while you weigh fruit and bag your shopping; call an attendant and finish the purchase.",
       ),
       lesson(
         "Learn local shopping customs",
@@ -838,9 +838,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "Ask a gym about a two-week pass, the class schedule, and what you need to bring.",
       ),
       lesson(
-        "Respond to a neighbor's complaint",
-        "apologize, explain, and agree on how to avoid the problem in future",
-        "A neighbor knocks to complain that your late return was loud; apologize, explain, and agree how to avoid it.",
+        "Get a spare key cut",
+        "ask a key-cutting shop to copy a key, learn the price and wait, and ask what to do if the copy sticks",
+        "Your host gave two travelers only one key; with the host's permission, have a copy made and ask what to do if it sticks in the lock.",
       ),
       lesson(
         "Chat through a long appointment",
@@ -1442,9 +1442,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "An inspector says your ticket wasn't validated; explain politely, ask about your options, and handle the fine.",
       ),
       lesson(
-        "Resolve a double-booked seat",
-        "compare tickets with another passenger and ask the conductor to sort it out politely",
-        "A passenger says you're in their seat but your ticket shows the same number; resolve it with the conductor.",
+        "Buy food on board",
+        "find the café car or trolley, ask what is available, prices, card payment, and closing time, and order for two",
+        "Halfway through a long ride, find the café car, ask what is still available, and buy something for yourself and a companion.",
       ),
       lesson(
         "Travel with children on transit",
@@ -1508,8 +1508,8 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
       ),
       lesson(
         "Transit threshold",
-        "plan, buy, and complete a multi-leg journey with special needs, a ticket or seat dispute, a disruption, an emergency, and a long conversation without English",
-        "Cross the region by rail and bus with a family, handling a fine, a seat mix-up, a replacement bus, and a long chat on board.",
+        "plan, buy, and complete a multi-leg journey with special needs, a fine or fare dispute, a disruption, an emergency, and a long conversation without English",
+        "Cross the region by rail and bus with a family, handling a fine, a double fare charge, a replacement bus, and a long chat on board.",
       ),
     ],
   },
@@ -1794,9 +1794,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "Your passenger uses a wheelchair; arrange a tow and onward transport that can carry both.",
       ),
       lesson(
-        "Question an extra repair",
-        "ask why each recommended repair is needed and decline what is not urgent",
-        "The mechanic also recommends new brakes and filters; ask why each is needed and decline what isn't urgent.",
+        "Return when the fault comes back",
+        "explain that the same symptom returned after a repair, ask the garage to recheck it, and confirm whether the follow-up costs anything",
+        "The noise the garage fixed yesterday is back after twenty kilometers; drive back, explain what happened, and ask them to look again.",
       ),
       lesson(
         "Dispute a bill above the estimate",
@@ -1969,9 +1969,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "You've lost your tour group in a crowded square; call the guide and agree where to rejoin.",
       ),
       lesson(
-        "Claim a refund for a closed site",
-        "explain that a paid attraction was closed and ask for a refund or alternative",
-        "The site you paid to visit is unexpectedly closed; ask the tour company for a refund or an alternative.",
+        "Handle a sold-out attraction",
+        "ask about returned tickets, later time slots, combined passes, or a similar site nearby",
+        "The monument you hoped to visit is sold out for today; ask at the ticket office about every way you might still get in or a worthwhile alternative.",
       ),
       lesson(
         "Disagree with a guide's claim",
@@ -2126,9 +2126,9 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
         "Explain at security that you carry insulin pens and a CPAP machine and ask how they'll be screened.",
       ),
       lesson(
-        "Handle an overweight bag",
-        "ask about the fee, repack, and question a scale that seems wrong",
-        "Your bag is two kilos over; ask about the fee, try repacking, and question a scale that seems wrong.",
+        "Fly with a pet",
+        "ask about carrier size, the animal's documents, cabin or hold travel, the fee, and where to collect it on arrival",
+        "You're flying with a small dog; at check-in, confirm the carrier fits, show its documents, and ask where it will travel and how you'll collect it.",
       ),
       lesson(
         "Respond to an overbooked flight",
@@ -2183,7 +2183,7 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
       lesson(
         "Airport threshold",
         "travel from check-in to arrival with special needs, a baggage or seating dispute, an overbooking or emergency, and customs, then secure a lost-luggage claim without English",
-        "Get a family through a full travel day—an overweight bag, split seating, an overbooked flight, customs, and a missing suitcase.",
+        "Get a family and their dog through a full travel day—split seating, an overbooked flight, customs, and a missing suitcase.",
       ),
     ],
   },
@@ -2477,7 +2477,7 @@ const TRAVEL_ZONE_SPECS: TravelZoneSpec[] = [
       lesson(
         "Help a friend in trouble at night",
         "get help from staff, keep your friend safe, and call for medical help if needed",
-        "Your friend can barely stand after a night out; get help from staff, keep them safe, and call for medical help if needed.",
+        "Your friend suddenly feels dizzy and unwell late at night; get help from staff, keep them safe, and call for medical help if needed.",
       ),
       lesson(
         "Spot a romance or money scam",

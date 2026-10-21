@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readdirSync, rmSync, symlinkSync, writeFileSync, readFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 import { formFamilies, formIssues } from "../src/lib/verb-games/classify.ts";
 import { compilePatterns } from "../src/lib/verb-games/compile.ts";
@@ -12,6 +14,49 @@ test("committed es.json equals a fresh compile", async () => {
   const fresh = compilePatterns(await readCompileInput(process.cwd()));
   assert.deepEqual(fresh.data, data);
   assert.equal(fresh.reportMarkdown, readFileSync("docs/verb-patterns/es-review-report.md", "utf8"));
+});
+
+test("Core 60 stage files outside the signed set never reach the compile", async () => {
+  const { readCompileInput } = await import("../scripts/build-verb-patterns.mts");
+  const real = process.cwd();
+  const baseline = await readCompileInput(real);
+  const modules = baseline.lessonFiles.map((f) => f.module);
+  // The repo has dozens of Foundation files; none of the unsigned ones is read.
+  assert.ok(readdirSync("public/lesson-content/es").some((n) => n === "foundation-plumber.json"));
+  assert.equal(modules.includes("foundation-plumber"), false);
+  assert.deepEqual(
+    modules.filter((m) => /^(foundation|master)-/.test(m)).sort(),
+    ["foundation-electrician", "foundation-nursing", "foundation-roofing", "master-electrician", "master-nursing", "master-roofing"],
+    "only the stage files already in the signed compile stay",
+  );
+
+  // A temp root with the same inputs plus new stage files: the compile input and output are unchanged.
+  const root = mkdtempSync(path.join(os.tmpdir(), "verb-compile-"));
+  try {
+    const lessonDir = path.join(root, "public/lesson-content/es");
+    mkdirSync(lessonDir, { recursive: true });
+    for (const name of readdirSync("public/lesson-content/es")) {
+      if (name.endsWith(".json")) symlinkSync(path.resolve("public/lesson-content/es", name), path.join(lessonDir, name));
+    }
+    for (const dir of ["src/data/verb-patterns", "docs/verb-patterns"]) {
+      mkdirSync(path.join(root, dir), { recursive: true });
+      for (const name of readdirSync(dir)) symlinkSync(path.resolve(dir, name), path.join(root, dir, name));
+    }
+    const newVerb = { infinitive: "zzzmirar", native: "to zzz-look", forms: { yo: "zzzmiro", tú: "zzzmiras", él_ella_usted: "zzzmira", nosotros: "zzzmiramos", ellos_ustedes: "zzzmiran" }, example: { target: "Zzzmiro.", native: "I zzz-look." } };
+    const lessons = { 1: { verbs: [newVerb] } };
+    writeFileSync(path.join(lessonDir, "foundation-zzz-new.json"), JSON.stringify({ module: "foundation-zzz-new", lessons }));
+    writeFileSync(path.join(lessonDir, "master-zzz-new.json"), JSON.stringify({ module: "master-zzz-new", lessons }));
+    // Named like a module, but its module field is a stage id: skipped too.
+    writeFileSync(path.join(lessonDir, "zzz-renamed.json"), JSON.stringify({ module: "foundation-zzz-renamed", lessons }));
+    const withStages = await readCompileInput(root);
+    assert.deepEqual(withStages.lessonFiles.map((f) => f.module), modules);
+    assert.equal(compilePatterns(withStages).data.dataHash, compilePatterns(baseline).data.dataHash);
+    // A plain module file still counts (the exclusion is not a blanket skip of new files).
+    writeFileSync(path.join(lessonDir, "zzz-module.json"), JSON.stringify({ module: "zzz-module", lessons }));
+    assert.ok((await readCompileInput(root)).lessonFiles.some((f) => f.module === "zzz-module"));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test("every verb has all five persons and every family rule holds", () => {

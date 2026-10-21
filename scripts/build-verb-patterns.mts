@@ -28,15 +28,36 @@ function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(file, "utf8")) as T;
 }
 
+// Core 60 stage files (foundation-*.json, master-*.json) are not modules: the Verb Games pools are
+// built from Core 30 module lessons. Including stage content would make every Foundation or Master
+// that ships change es.json and force a re-sign of the review report each time.
+// The six stage files below were already part of the signed compile before this rule, so they stay
+// in (dropping them changes es.json and voids the sign-off); no other stage file is read.
+const STAGE_PREFIX = /^(foundation|master)-/;
+const SIGNED_STAGE_FILES: ReadonlySet<string> = new Set([
+  "foundation-electrician.json",
+  "foundation-nursing.json",
+  "foundation-roofing.json",
+  "master-electrician.json",
+  "master-nursing.json",
+  "master-roofing.json",
+]);
+
+/** True for a Core 60 stage lesson file the compile must skip, by file name or `module` field. */
+export function isExcludedStageFile(fileName: string, moduleId?: string): boolean {
+  if (SIGNED_STAGE_FILES.has(fileName)) return false;
+  return STAGE_PREFIX.test(fileName) || (moduleId !== undefined && STAGE_PREFIX.test(moduleId));
+}
+
 export async function readCompileInput(root: string): Promise<CompileInput> {
-  const lessonFiles: LessonFile[] = readdirSync(path.join(root, LESSON_DIR))
-    .filter((name) => name.endsWith(".json"))
-    .sort()
-    .map((name) => {
-      const file = readJson<{ module?: string; lessons?: LessonFile["lessons"] }>(path.join(root, LESSON_DIR, name));
-      if (!file.module || !file.lessons) throw new Error(`${LESSON_DIR}/${name}: missing module or lessons`);
-      return { module: file.module, lessons: file.lessons };
-    });
+  const lessonFiles: LessonFile[] = [];
+  for (const name of readdirSync(path.join(root, LESSON_DIR)).filter((n) => n.endsWith(".json")).sort()) {
+    if (isExcludedStageFile(name)) continue;
+    const file = readJson<{ module?: string; lessons?: LessonFile["lessons"] }>(path.join(root, LESSON_DIR, name));
+    if (!file.module || !file.lessons) throw new Error(`${LESSON_DIR}/${name}: missing module or lessons`);
+    if (isExcludedStageFile(name, file.module)) continue;
+    lessonFiles.push({ module: file.module, lessons: file.lessons });
+  }
   const core = KNOWN_VERBS.filter((v) => v.language === "Spanish").map((v) => ({
     infinitive: v.infinitive,
     english: v.english,

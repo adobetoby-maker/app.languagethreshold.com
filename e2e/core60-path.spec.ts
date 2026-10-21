@@ -293,7 +293,7 @@ async function openFixtureStage(
   await expect(page.getByTestId(ready)).toBeVisible();
 }
 
-test.describe("Data-driven Core 60 stage (fixture trade)", () => {
+test.describe("Data-driven Core 60 stage (fixture trade)", { tag: "@dev-only" }, () => {
   test("a generated Master loads on open and renders through the path, plan and lesson runner", async ({
     page,
   }) => {
@@ -471,7 +471,7 @@ async function openStageSignedIn(page: Page, moduleId: string, ready: string) {
   await expect(page.getByTestId(ready)).toBeVisible();
 }
 
-test.describe("Core 60 stage load failure", () => {
+test.describe("Core 60 stage load failure", { tag: "@dev-only" }, () => {
   test("a stage chunk that fails once shows a clear error, and Retry loads it", async ({ page }) => {
     // Abort the Electrician Foundation chunk the first time it is requested only.
     let aborted = 0;
@@ -503,7 +503,7 @@ test.describe("Core 60 stage load failure", () => {
   });
 });
 
-test.describe("Core 30 banner on a path with one live stage", () => {
+test.describe("Core 30 banner on a path with one live stage", { tag: "@dev-only" }, () => {
   test("names the stage that is ready instead of saying both are coming soon", async ({ page }) => {
     // "test-partial" lists a Master only; its Foundation is Coming soon (fixture trade).
     await openFixtureStage(page, "test-partial", {}, "tool-purpose");

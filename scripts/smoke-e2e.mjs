@@ -2,7 +2,7 @@
 // Local pre-push smoke gate: runs the key Playwright specs against a fresh dev server.
 //   npm run smoke:e2e            desktop suite on a free local port
 //   npm run smoke:e2e -- --phone also run the iphone-pwa project
-//   npm run smoke:e2e -- --prod  core60-path + foundation against https://app.languagethreshold.com
+//   npm run smoke:e2e -- --prod  core60-path + foundation against https://app.languagethreshold.com (skips @dev-only)
 // Exit code reflects test results only (see parseSummary), not Playwright's teardown noise.
 import { spawn } from "node:child_process";
 import { createWriteStream } from "node:fs";
@@ -101,7 +101,8 @@ function parseSummary(text) {
 const port = prod ? null : await findFreePort();
 const projects = ["--project=setup", "--project=desktop", ...(phone ? ["--project=iphone-pwa"] : [])];
 const specs = prod ? PROD_SPECS : LOCAL_SPECS;
-const playwrightArgs = ["playwright", "test", ...specs, ...projects, "--reporter=line"];
+// Specs tagged @dev-only need a dev build (the fixture hook, unhashed chunk URLs): skipped on prod.
+const playwrightArgs = ["playwright", "test", ...specs, ...projects, ...(prod ? ["--grep-invert", "@dev-only"] : []), "--reporter=line"];
 // Both go through the helper that injects the public Supabase env: the specs' setup and
 // signed-in fixtures read it even when the app under test is the deployed build.
 const [cmd, cmdArgs] = ["node", ["scripts/with-supabase-public-env.mjs", "npx", ...playwrightArgs]];

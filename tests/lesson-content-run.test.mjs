@@ -414,7 +414,7 @@ test("script rejects bad --lessons input before doing anything", () => {
     [["abc"], /not a lesson number or range/],
     [["0"], /start at 1/],
     [["15-11"], /reversed range/],
-    [["16"], /has 15 lessons; 16 is beyond it/],
+    [["31"], /has 30 lessons; 31 is beyond it/],
   ];
   for (const [value, pattern] of cases) {
     const run = runScript([...base, ...value]);

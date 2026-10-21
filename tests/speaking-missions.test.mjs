@@ -161,21 +161,23 @@ test("speaking preview covers every authored topic in every speaking language", 
   // Roofing adds one Spanish module, six challenges, and 30 lessons. The Roofing Foundation adds
   // five challenges and 10 lessons, the Roofing Master six challenges and one Say it mission per
   // Master lesson (20 once its content lands); neither is a module card of its own (they are listed
-  // under Roofing), so the module counts are the base modules only.
+  // under Roofing), so the module counts are the base modules only. The sixteen travel zones (15→30)
+  // add 240 lesson plans in every language and Sport Fishing (10→30) another 20 in Spanish, its only
+  // speaking language: one Say it mission per plan, even before generated content exists for them.
   const master = MASTER_ROOFING_LESSONS.length;
   const expected = {
     Spanish: withGenerated("Spanish", {
       modules: 58,
       challenges: 378,
-      lessons: 1460 + master,
+      lessons: 1720 + master,
       curated: 6,
       core: 141,
-      total: 1979 + 6 + master,
+      total: 2239 + 6 + master,
     }),
-    Italian: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1905 },
-    Japanese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 144, total: 1908 },
-    Chinese: { modules: 56, challenges: 354, lessons: 1410, curated: 0, core: 141, total: 1911 },
-    English: withGenerated("English", { modules: 58, challenges: 364, lessons: 1470, curated: 0, core: 141, total: 1975 }),
+    Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 141, total: 2145 },
+    Japanese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 144, total: 2148 },
+    Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 141, total: 2151 },
+    English: withGenerated("English", { modules: 58, challenges: 364, lessons: 1710, curated: 0, core: 141, total: 2215 }),
   };
 
   assert.deepEqual(
@@ -234,7 +236,8 @@ test("speaking preview covers every authored topic in every speaking language", 
   const generated = ["Spanish", "English"]
     .map(generatedStageCounts)
     .reduce((sum, gen) => sum + gen.challenges + gen.lessons, 0);
-  const allMissions = 9678 + 6 + master + generated;
+  // 1,220 of these are the travel (240 × 5 languages) and Spanish Sport Fishing (20) lesson-plan expansions.
+  const allMissions = 10898 + 6 + master + generated;
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.scenarioId)).size, allMissions);
@@ -300,18 +303,29 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
   for (const module of TRAVEL_ZONE_MODULES) {
     const curriculum = TRAVEL_ZONE_CURRICULA[module.id];
     assert.ok(curriculum, `${module.id} curriculum`);
-    assert.equal(curriculum.lessons.length, 15, `${module.id} lesson count`);
+    assert.equal(curriculum.lessons.length, 30, `${module.id} lesson count`);
     assert.deepEqual(
       curriculum.lessons.map((lesson) => lesson.n),
-      Array.from({ length: 15 }, (_, index) => index + 1),
+      Array.from({ length: 30 }, (_, index) => index + 1),
       `${module.id} lesson order`,
+    );
+    // Lesson 15 is a mid-module consolidation; only Lesson 30 is the zone's threshold capstone.
+    assert.deepEqual(
+      curriculum.lessons.flatMap((lesson) => (/threshold/i.test(lesson.title) ? [lesson.n] : [])),
+      [30],
+      `${module.id} threshold is the final lesson`,
+    );
+    assert.equal(
+      new Set(curriculum.lessons.map((lesson) => lesson.title.toLowerCase())).size,
+      30,
+      `${module.id} lesson titles are distinct`,
     );
   }
 
   for (const { language } of SPEAKING_LANGUAGES) {
     const languageMissions = getSpeakingMissions(language);
     const travelMissions = languageMissions.filter((mission) => mission.specialty === "Travel");
-    assert.equal(travelMissions.length, 404, `${language} Travel mission count`);
+    assert.equal(travelMissions.length, 644, `${language} Travel mission count`);
     // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
     // their own, so they do not count toward a zone's size here.
     const nonTravelCounts = Object.groupBy(
@@ -319,12 +333,12 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
       (mission) => mission.specialty,
     );
     assert.ok(
-      Object.values(nonTravelCounts).every((missions) => (missions?.length ?? 0) < 404),
+      Object.values(nonTravelCounts).every((missions) => (missions?.length ?? 0) < 644),
       `${language} Travel is the largest speaking zone`,
     );
     for (const moduleId of TRAVEL_ZONE_MODULE_IDS) {
       const moduleMissions = travelMissions.filter((mission) => mission.moduleId === moduleId);
-      assert.equal(moduleMissions.length, 23, `${language}/${moduleId} mission count`);
+      assert.equal(moduleMissions.length, 38, `${language}/${moduleId} mission count`);
       assert.equal(
         new Set(moduleMissions.map((mission) => mission.openingLine)).size,
         1,

@@ -5,6 +5,7 @@ const { lessonSourceCoverage, summarizeLessonSourceCoverage } = await loadModule
   "src/lib/lesson-source-coverage.ts",
 );
 const { getLessonDefinition } = await loadModule("src/lib/lesson-definition.ts");
+const short = await loadModule("tests/fixtures/short-curriculum.ts");
 const definitions = Array.from({ length: 30 }, (_, index) =>
   getLessonDefinition({
     moduleId: "roofing",
@@ -40,12 +41,22 @@ test("a different language pair cannot inherit the Roofing Spanish source covera
   assert.equal(coverage.structurallyComplete, false);
 });
 test("short curricula expose the actual missing lesson numbers", () => {
-  const coverage = lessonSourceCoverage("travel-breakfast", "Spanish", "English");
+  // No shipped module is short any more; a synthetic 15-lesson curriculum keeps the gap path covered.
+  const coverage = short.lessonSourceCoverage(short.SHORT_MODULE_ID, "Spanish", "English");
   assert.deepEqual(
     coverage.missingLessonNumbers,
     Array.from({ length: 15 }, (_, i) => i + 16),
   );
   assert.equal(coverage.structurallyComplete, false);
+});
+test("expanded travel and fishing plans have all thirty lesson numbers, with content still pending", () => {
+  for (const moduleId of ["travel-breakfast", "sport-fishing"]) {
+    const coverage = lessonSourceCoverage(moduleId, "Spanish", "English");
+    assert.deepEqual(coverage.missingLessonNumbers, [], moduleId);
+    assert.deepEqual(coverage.duplicateLessonNumbers, [], moduleId);
+    // Inline word lists and passages for these modules are not authored yet.
+    assert.equal(coverage.structurallyComplete, false, moduleId);
+  }
 });
 test("duplicate numbers, insufficient words and blank translations cannot pass source completeness", () => {
   const changed = structuredClone(definitions);

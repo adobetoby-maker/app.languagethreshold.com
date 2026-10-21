@@ -7,7 +7,7 @@
 import type { LessonWord } from "../data/curriculum.ts";
 import type { AppModule } from "../data/modules.ts";
 import { LANGUAGES } from "../data/languages.ts";
-import { contentLimitsFor, invisibleCharErrors } from "./lesson-content-core.ts";
+import { contentLimitsFor, invisibleCharErrors, selfTalkIssue } from "./lesson-content-core.ts";
 import { languageTag } from "./lesson-words-core.ts";
 import {
   CORE60_BLOCKS,
@@ -47,6 +47,10 @@ function validateWords(words: unknown, moduleId: string, where: string, errors: 
       if (!text(word.note)) errors.push(`${at}: note must be a non-empty string when present`);
       else if (word.note.length > limits.maxNoteLength)
         errors.push(`${at}: note is longer than ${limits.maxNoteLength} characters`);
+      else {
+        const selfTalk = selfTalkIssue(word.note);
+        if (selfTalk) errors.push(`${at}: the note thinks out loud ("${selfTalk}"); state the final rule only`);
+      }
     }
     const key = typeof word.es === "string" ? word.es.toLocaleLowerCase() : "";
     if (key && seen.has(key)) errors.push(`${at}: "${word.es}" appears twice in this lesson`);

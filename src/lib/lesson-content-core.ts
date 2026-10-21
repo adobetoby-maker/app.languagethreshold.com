@@ -374,6 +374,54 @@ const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|form|verb|command|stem|chang
 function markerCount(text: string, pattern: RegExp): number {
   return (text.match(pattern) ?? []).length;
 }
+// A note states the final rule only. These patterns catch the model thinking out loud inside a
+// note ("Stem change e to ie? No: e to i"). Everything is tested outside quoted text, and a note
+// may still gloss a word ("En realidad means in fact, actually", "Déjame: let me, informal",
+// "Let me know is avíseme"), so:
+//  - a self-correction needs the shape "? No:" / "... no:" / ". No:" / "— no," (a colon, or a dash
+//    and comma), or "? No," / "... no," followed by a rule-like correction ("e to i", "it is");
+//    a Spanish answer such as "¿Tiene alergias? No, ninguna." is not one;
+//  - deliberation words only count where a thought opens (start of the note or right after
+//    . ! ? … ; , or a dash; a colon introduces a gloss) and never after "means" or as the subject
+//    of a gloss ("Actually is a false friend").
+const RULE_LIKE = String.raw`(?:[a-zñ]{1,2}\s+(?:to|a)\s+[a-zñ]{1,2}\b|it\s+is\b|it's\b|it\s+has\b|actually\b|should\b|must\b)`;
+const THOUGHT_START = String.raw`(?:^\s*|[.!?…;,—–-]\s*)`;
+const SELF_TALK_PUNCTUATION: readonly RegExp[] = [
+  /(?:\?|\.\.\.|…|\.)\s*no\s*:/i,
+  /[—–]\s*no\s*[,:]/i,
+  new RegExp(String.raw`(?:\?|\.\.\.|…|\.)\s*no\s*,\s*${RULE_LIKE}`, "i"),
+  /\bno,?\s+wait\b(?!\s+(?:time|for|until)\b)/i,
+];
+const SELF_TALK_WORDS: readonly RegExp[] = [
+  new RegExp(String.raw`${THOUGHT_START}wait\s*(?:[,—–]|\.\.\.|…|-\s)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}actually\b(?!\s+(?:is|are|means)\b)`, "i"),
+  /\bhmm+\b/i,
+  /\boops\b/i,
+  /\bor rather\b/i,
+  new RegExp(String.raw`${THOUGHT_START}correction\s*:`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}let me\b(?!\s+(?:know|is|means)\b)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}espera\s*,\s*en realidad\b`, "i"),
+];
+// Quoted text; a single quote only counts at a word edge, so "don't" never opens a quote.
+const QUOTED_TEXT =
+  /"[^"]*"|“[^”]*”|(?<![\p{L}\p{N}])'[^']*'(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])‘[^’]*’(?![\p{L}\p{N}])/gu;
+const MEANS_GLOSS = /\bmeans\b[^.!?;]*/gi;
+
+/** The matching self-talk fragment when a verb or word note thinks out loud, else null. */
+export function selfTalkIssue(note: string): string | null {
+  const unquoted = note.replace(QUOTED_TEXT, " ");
+  for (const pattern of SELF_TALK_PUNCTUATION) {
+    const hit = unquoted.match(pattern);
+    if (hit) return hit[0].trim();
+  }
+  const withoutGloss = unquoted.replace(MEANS_GLOSS, " ");
+  for (const pattern of SELF_TALK_WORDS) {
+    const hit = withoutGloss.match(pattern);
+    if (hit) return hit[0].trim();
+  }
+  return null;
+}
+
 const ENDS_LIKE_SENTENCE = /[.?!…]["'”’»)\]]*$/;
 const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
 const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
@@ -491,6 +539,12 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
     if (digitsOf(word.en).join(",") !== digitsOf(word.es).join(",")) {
       errors.push(`numbers differ in "${word.es}" / "${word.en}"`);
     }
+    const wordSelfTalk = word.note ? selfTalkIssue(word.note) : null;
+    if (wordSelfTalk) {
+      errors.push(
+        `"${word.es}": the note thinks out loud ("${wordSelfTalk}"); state the final rule only: ${word.note}`,
+      );
+    }
     const limit = word.kind === "term" ? 5 : 14;
     if (wordsOf(word.es).length > limit) errors.push(`"${word.es}" is too long for a ${word.kind}`);
   }
@@ -536,6 +590,12 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       const wrongLanguage = wrong >= 2 && right === 0;
       if (wrongLanguage) {
         errors.push(`${name}: the note must be written in ${ctx.nativeLanguage}: ${verb.note}`);
+      }
+      const selfTalk = selfTalkIssue(verb.note);
+      if (selfTalk) {
+        errors.push(
+          `${name}: the note thinks out loud ("${selfTalk}"); state the final rule only, with no deliberation or self-correction: ${verb.note}`,
+        );
       }
     }
     const forms = keys.map((key) => (verb.forms[key] ?? "").trim());

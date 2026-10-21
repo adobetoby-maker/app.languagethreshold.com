@@ -73,22 +73,27 @@ function lessonVerb(infinitive) {
 }
 
 /**
- * Override keys (exactly three):
+ * Override keys (exactly five):
  *   extraLessons  LessonVerb[]  appended to the roofing lesson file
  *   profileExtras { [infinitive]: { irregularType?, notes? } }  labels/notes put on that verb's profile
  *   dropProfiles  string[]      removes the profile and moves its forms into a roofing lesson entry
+ *   extraProfiles { [infinitive]: [five forms, gloss] }  adds a dictionary profile (no lesson entry)
+ *   overrides     the es-overrides.json shape, passed as input.overrides
  */
 export function fixtureInput(overrides = {}) {
-  const known = new Set(["extraLessons", "profileExtras", "dropProfiles"]);
+  const known = new Set(["extraLessons", "profileExtras", "dropProfiles", "extraProfiles", "overrides"]);
   for (const key of Object.keys(overrides)) {
     if (!known.has(key)) throw new Error(`fixtureInput: unknown override key "${key}"`);
   }
-  const { extraLessons = [], profileExtras = {}, dropProfiles = [] } = overrides;
+  const { extraLessons = [], profileExtras = {}, dropProfiles = [], extraProfiles = {} } = overrides;
 
   const profiles = {};
   for (const [infinitive, [forms, gloss]] of Object.entries(VERBS)) {
     if (dropProfiles.includes(infinitive)) continue;
     profiles[infinitive] = { ...profileOf(forms, profileExtras[infinitive]), englishParallel: gloss };
+  }
+  for (const [infinitive, [forms, gloss]] of Object.entries(extraProfiles)) {
+    profiles[infinitive] = { ...profileOf(forms), englishParallel: gloss };
   }
   const verbs = ["subir", "tener", "venir", ...dropProfiles].map(lessonVerb);
   verbs.push(...extraLessons);
@@ -99,6 +104,7 @@ export function fixtureInput(overrides = {}) {
     core: CORE.map((infinitive) => ({ infinitive, english: VERBS[infinitive][1] })),
     crushLevels: structuredClone(CRUSH_LEVELS),
     signoff: null,
+    ...(overrides.overrides ? { overrides: overrides.overrides } : {}),
   };
 }
 

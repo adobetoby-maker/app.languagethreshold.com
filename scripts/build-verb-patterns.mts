@@ -6,7 +6,8 @@
 //
 // Inputs: public/lesson-content/es/*.json (the `module` field is the moduleId), the dictionary
 // verbProfiles, the Spanish rows of KNOWN_VERBS (the "core" list), crush-levels.json and
-// docs/verb-patterns/es-review-signoff.json. The compile itself is src/lib/verb-games/compile.ts.
+// docs/verb-patterns/es-review-signoff.json and the reviewed corrections in
+// docs/verb-patterns/es-overrides.json. The compile itself is src/lib/verb-games/compile.ts.
 
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -19,6 +20,7 @@ import type { CompileInput, LessonFile } from "../src/lib/verb-games/compile.ts"
 export const DATA_PATH = "src/data/verb-patterns/es.json";
 export const REPORT_PATH = "docs/verb-patterns/es-review-report.md";
 const SIGNOFF_PATH = "docs/verb-patterns/es-review-signoff.json";
+const OVERRIDES_PATH = "docs/verb-patterns/es-overrides.json";
 const CRUSH_PATH = "src/data/verb-patterns/crush-levels.json";
 const LESSON_DIR = "public/lesson-content/es";
 
@@ -45,6 +47,7 @@ export async function readCompileInput(root: string): Promise<CompileInput> {
     core,
     crushLevels: readJson(path.join(root, CRUSH_PATH)),
     signoff: readJson(path.join(root, SIGNOFF_PATH)),
+    overrides: readJson(path.join(root, OVERRIDES_PATH)),
   };
 }
 

@@ -101,7 +101,8 @@ test("lesson forms: missing person, conflicting modules and no family are exclud
   assert.ok(has("mirar", "excluded", "missing nosotros") || has("mirar", "excluded", "missing él_ella_usted"));
   assert.ok(has("cortar", "lesson-conflict"));
   assert.ok(has("cortar", "excluded"));
-  assert.ok(has("zzzar", "excluded", "no family for yo"));
+  // R1 reason lists every failing person (was "no family for yo")
+  assert.ok(has("zzzar", "excluded", "form/tag mismatch yo: xx, tú: yy, él_ella_usted: zz, nosotros: ww, ellos_ustedes: vv"));
   for (const inf of ["mirar", "cortar", "zzzar"]) assert.equal(data.verbs.some((v) => v.infinitive === inf), false);
 });
 
@@ -115,7 +116,7 @@ test("profile wins over a disagreeing lesson and is reported", () => {
   assert.equal(tener.forms[4].full, "tienen");
 });
 
-test("gloss: most frequent lesson native, ties lexicographic, variants reported; stored English is the primary gloss", () => {
+test("gloss: most frequent lesson native, then shared first sense, then longer; stored English is the full variant", () => {
   const input = fixtureInput({ extraLessons: [
     { infinitive: "subir", native: "to go up", forms: { yo: "subo", tú: "subes", él_ella_usted: "sube", nosotros: "subimos", ellos_ustedes: "suben" }, example: { target: "Subo.", native: "I go up." } },
     { infinitive: "subir", native: "to climb, to ascend", forms: { yo: "subo", tú: "subes", él_ella_usted: "sube", nosotros: "subimos", ellos_ustedes: "suben" }, example: { target: "Subo.", native: "I climb." } },
@@ -123,7 +124,8 @@ test("gloss: most frequent lesson native, ties lexicographic, variants reported;
   const { report, data } = compilePatterns(input);
   assert.ok(report.some((r) => r.infinitive === "subir" && r.kind === "gloss-variants"));
   const subir = data.verbs.find((v) => v.infinitive === "subir");
-  assert.equal(subir.english, "to climb"); // "to climb" (1) ties "to climb, to ascend" (1) and "to go up" (1): first by code unit
+  // all three natives occur once; first sense "to climb" occurs twice, so "to climb" vs "to climb, to ascend": longer wins
+  assert.equal(subir.english, "to climb, to ascend");
   assert.equal(subir.forms[0].english, "I climb");
   // no lesson native and no core english: the dictionary englishParallel is used
   const bare = fixtureInput();
@@ -165,4 +167,124 @@ test("keys are NFC: decomposed person keys and infinitives still compile", () =>
 test("miniData is the compiled fixture", () => {
   assert.deepEqual(miniData(), compilePatterns(fixtureInput()).data);
   assert.equal(miniData().crushLevels.length, 4);
+});
+
+const lesson = (infinitive, native, f, example) => ({
+  infinitive, native,
+  forms: { yo: f[0], tú: f[1], él_ella_usted: f[2], nosotros: f[3], ellos_ustedes: f[4] },
+  example: example ?? { target: "Hay que hacerlo.", native: "It has to be done." },
+});
+const PLANCHAR = ["plancho", "planchas", "plancha", "planchamos", "planchan"];
+
+test("R1: a profile form that no family or rule explains excludes the verb", () => {
+  const wrong = ["plancho", "planchas", "plancha", "planchamos", "plancha"];
+  const { data, report } = compilePatterns(fixtureInput({
+    extraProfiles: { planchar: [wrong, "to iron"] }, extraLessons: [lesson("planchar", "to iron", wrong)] }));
+  assert.equal(data.verbs.some((v) => v.infinitive === "planchar"), false);
+  assert.ok(report.some((r) => r.infinitive === "planchar" && r.kind === "excluded" && r.detail === "form/tag mismatch ellos_ustedes: plancha"));
+});
+
+test("R1: a stem-change verb whose profile yo is the regular form is excluded", () => {
+  const wrong = ["renovo", "renuevas", "renueva", "renovamos", "renuevan"];
+  const { data, report } = compilePatterns(fixtureInput({
+    extraProfiles: { renovar: [wrong, "to renew"] }, extraLessons: [lesson("renovar", "to renew", wrong)] }));
+  assert.equal(data.verbs.some((v) => v.infinitive === "renovar"), false);
+  assert.ok(report.some((r) => r.infinitive === "renovar" && r.kind === "excluded" && r.detail === "form/tag mismatch yo: renovo"));
+});
+
+test("R2: the agreeing lesson form wins when only it passes the classifier", () => {
+  const { data, report } = compilePatterns(fixtureInput({
+    extraProfiles: {
+      planchar: [["plancho", "planchas", "plancha", "planchamos", "plancha"], "to iron"],
+      renovar: [["renovo", "renuevas", "renueva", "renovamos", "renuevan"], "to renew"],
+    },
+    extraLessons: [
+      lesson("planchar", "to iron", PLANCHAR),
+      lesson("renovar", "to renew", ["renuevo", "renuevas", "renueva", "renovamos", "renuevan"]),
+    ],
+  }));
+  const planchar = data.verbs.find((v) => v.infinitive === "planchar");
+  assert.equal(planchar.status, "verified");
+  assert.equal(planchar.forms[4].full, "planchan");
+  assert.deepEqual(planchar.forms[4].families, ["es.present.ar"]);
+  assert.equal(data.verbs.find((v) => v.infinitive === "renovar").forms[0].full, "renuevo");
+  assert.ok(report.some((r) => r.infinitive === "planchar" && r.kind === "profile-conflict"
+    && r.detail === 'ellos_ustedes profile "plancha" vs lesson "planchan"; lesson used'));
+  assert.ok(report.some((r) => r.infinitive === "renovar" && r.kind === "profile-conflict" && r.detail.endsWith("lesson used")));
+});
+
+test("R2: unresolved conflicts (neither passes, or both pass) exclude the verb", () => {
+  const { data, report } = compilePatterns(fixtureInput({
+    extraProfiles: {
+      planchar: [["plancho", "planchas", "plancha", "planchamos", "plancha"], "to iron"],
+      cortar: [["corto", "cortas", "corta", "cortamos", "cortan"], "to cut"],
+    },
+    extraLessons: [
+      lesson("planchar", "to iron", ["plancho", "planchas", "plancha", "planchamos", "planchen"]),
+      // lesson yo "corte" is not a yo form; only the profile "corto" passes, so the profile wins
+      lesson("cortar", "to cut", ["corte", "cortas", "corta", "cortamos", "cortan"]),
+    ],
+  }));
+  assert.equal(data.verbs.some((v) => v.infinitive === "planchar"), false);
+  assert.ok(report.some((r) => r.infinitive === "planchar" && r.kind === "excluded" && r.detail === "profile-conflict unresolved"));
+  assert.ok(report.some((r) => r.infinitive === "planchar" && r.kind === "profile-conflict" && r.detail.endsWith("unresolved")));
+  assert.equal(data.verbs.find((v) => v.infinitive === "cortar").forms[0].full, "corto");
+  // both sides pass but differ: a regular profile vs a consistent o → ue lesson -> unresolved
+  const both = compilePatterns(fixtureInput({
+    extraProfiles: { mondar: [["mondo", "mondas", "monda", "mondamos", "mondan"], "to peel"] },
+    extraLessons: [lesson("mondar", "to peel", ["muendo", "muendas", "muenda", "mondamos", "muendan"])],
+  }));
+  assert.equal(both.data.verbs.some((v) => v.infinitive === "mondar"), false);
+  assert.ok(both.report.some((r) => r.infinitive === "mondar" && r.kind === "excluded" && r.detail === "profile-conflict unresolved"));
+});
+
+test("R5: overrides fix gloss, per-form English, forms, exclusions and frames, and appear in the report", () => {
+  const overrides = {
+    gloss: { subir: "to go up, to climb" },
+    formEnglish: { comer: { yo: "I eat (a meal)" } },
+    exclude: { hablar: "test exclusion" },
+    dropFrames: { subir: ["él_ella_usted"] },
+    forms: { zzlatir: { tú: "zzlates" } },
+  };
+  const input = fixtureInput({ overrides, extraLessons: [lesson("zzlatir", "to beat", ["zzlato", "zzlatés", "zzlate", "zzlatimos", "zzlaten"])] });
+  const { data, report, reportMarkdown } = compilePatterns(input);
+  const subir = data.verbs.find((v) => v.infinitive === "subir");
+  assert.equal(subir.english, "to go up, to climb");
+  assert.equal(subir.forms[2].english, "he/she goes up");
+  assert.equal(subir.forms[2].sentence, null);
+  assert.equal(data.verbs.find((v) => v.infinitive === "comer").forms[0].english, "I eat (a meal)");
+  assert.equal(data.verbs.some((v) => v.infinitive === "hablar"), false);
+  assert.ok(report.some((r) => r.infinitive === "hablar" && r.kind === "excluded" && r.detail === "override: test exclusion"));
+  assert.ok(report.some((r) => r.infinitive === "zzlatir" && r.kind === "classified" && r.detail.includes("tú zzlates [es.present.ir]")));
+  assert.ok(reportMarkdown.includes("## overrides"));
+  assert.ok(reportMarkdown.includes('"test exclusion"'));
+  // the overrides are part of the signed text
+  assert.notEqual(compilePatterns({ ...input, overrides: undefined }).data.reportSha256, compilePatterns(input).data.reportSha256);
+});
+
+test("R5: overrides naming an unknown verb, person or section fail the build", () => {
+  assert.throws(() => compilePatterns(fixtureInput({ overrides: { gloss: { nadaar: "to swim" } } })), /nadaar/);
+  assert.throws(() => compilePatterns(fixtureInput({ overrides: { dropFrames: { subir: ["vosotros"] } } })), /vosotros/);
+  assert.throws(() => compilePatterns(fixtureInput({ overrides: { glosses: {} } })), /glosses/);
+});
+
+test("R6: a frame whose English is a command is rejected; the next example is tried", () => {
+  const BEBER = ["bebo", "bebes", "bebe", "bebemos", "beben"];
+  const beber = (example) => lesson("beber", "to drink", BEBER, example);
+  const extraProfiles = { beber: [BEBER, "to drink"] };
+  const { data } = compilePatterns(fixtureInput({ extraProfiles, extraLessons: [
+    beber({ target: "Bebe agua todo el día.", native: "Drink water all day." }),
+    beber({ target: "Marcos, bebe el agua.", native: "Marcos, drink the water." }),
+    beber({ target: "Primero bebe agua.", native: "First drink water." }),
+    beber({ target: "Ana bebe agua.", native: "Ana drinks water." }),
+  ] }));
+  const forms = data.verbs.find((v) => v.infinitive === "beber").forms;
+  assert.deepEqual(forms[2].sentence, { target: "Ana ___ agua.", native: "Ana drinks water." });
+  const only = compilePatterns(fixtureInput({ extraProfiles, extraLessons: [beber({ target: "Bebe agua todo el día.", native: "Drink water all day." })] }));
+  assert.ok(only.data.verbs.find((v) => v.infinitive === "beber").forms.every((f) => f.sentence === null));
+  // a question with a subject is not a command
+  const q = compilePatterns(fixtureInput({ extraLessons: [
+    lesson("vivir", "to live", ["vivo", "vives", "vive", "vivimos", "viven"], { target: "¿Vive usted aquí?", native: "Do you live here?" }),
+  ] }));
+  assert.equal(q.data.verbs.find((v) => v.infinitive === "vivir").forms[2].sentence.native, "Do you live here?");
 });

@@ -2,7 +2,7 @@
 
 Items: 584
 
-## classified (338)
+## classified (337)
 
 - abandonar: "to abandon; to give up": yo abandono [es.present.ar]; tú abandonas [es.present.ar]; él_ella_usted abandona [es.present.ar]; nosotros abandonamos [es.present.ar]; ellos_ustedes abandonan [es.present.ar]
 - abrazar: "to hug": yo abrazo [es.present.ar]; tú abrazas [es.present.ar]; él_ella_usted abraza [es.present.ar]; nosotros abrazamos [es.present.ar]; ellos_ustedes abrazan [es.present.ar]
@@ -39,7 +39,7 @@ Items: 584
 - aparecer: "to appear, to be listed": yo aparezco [] (zc); tú apareces [es.present.er]; él_ella_usted aparece [es.present.er]; nosotros aparecemos [es.present.er]; ellos_ustedes aparecen [es.present.er]
 - apelar: "to appeal": yo apelo [es.present.ar]; tú apelas [es.present.ar]; él_ella_usted apela [es.present.ar]; nosotros apelamos [es.present.ar]; ellos_ustedes apelan [es.present.ar]
 - apisonar: "to tamp down": yo apisono [es.present.ar]; tú apisonas [es.present.ar]; él_ella_usted apisona [es.present.ar]; nosotros apisonamos [es.present.ar]; ellos_ustedes apisonan [es.present.ar]
-- aplanar: "to flatten, to feather": yo aplano [es.present.ar]; tú aplanas [es.present.ar]; él_ella_usted aplana [es.present.ar]; nosotros aplanamos [es.present.ar]; ellos_ustedes aplanan [es.present.ar]
+- aplanar: "to flatten, to level": yo aplano [es.present.ar]; tú aplanas [es.present.ar]; él_ella_usted aplana [es.present.ar]; nosotros aplanamos [es.present.ar]; ellos_ustedes aplanan [es.present.ar]
 - aplicar: "to apply": yo aplico [es.present.ar]; tú aplicas [es.present.ar]; él_ella_usted aplica [es.present.ar]; nosotros aplicamos [es.present.ar]; ellos_ustedes aplican [es.present.ar]
 - apretar: "to tighten": yo aprieto [es.present.e-ie]; tú aprietas [es.present.e-ie]; él_ella_usted aprieta [es.present.e-ie]; nosotros apretamos [es.present.ar]; ellos_ustedes aprietan [es.present.e-ie]
 - apuntar: "to point (aim)": yo apunto [es.present.ar]; tú apuntas [es.present.ar]; él_ella_usted apunta [es.present.ar]; nosotros apuntamos [es.present.ar]; ellos_ustedes apuntan [es.present.ar]
@@ -65,7 +65,7 @@ Items: 584
 - calibrar: "to calibrate": yo calibro [es.present.ar]; tú calibras [es.present.ar]; él_ella_usted calibra [es.present.ar]; nosotros calibramos [es.present.ar]; ellos_ustedes calibran [es.present.ar]
 - calmar: "to calm, to relieve": yo calmo [es.present.ar]; tú calmas [es.present.ar]; él_ella_usted calma [es.present.ar]; nosotros calmamos [es.present.ar]; ellos_ustedes calman [es.present.ar]
 - cambiar: "to change": yo cambio [es.present.ar]; tú cambias [es.present.ar]; él_ella_usted cambia [es.present.ar]; nosotros cambiamos [es.present.ar]; ellos_ustedes cambian [es.present.ar]
-- cargar: "to charge": yo cargo [es.present.ar]; tú cargas [es.present.ar]; él_ella_usted carga [es.present.ar]; nosotros cargamos [es.present.ar]; ellos_ustedes cargan [es.present.ar]
+- cargar: "to load, to charge": yo cargo [es.present.ar]; tú cargas [es.present.ar]; él_ella_usted carga [es.present.ar]; nosotros cargamos [es.present.ar]; ellos_ustedes cargan [es.present.ar]
 - castrar: "to castrate": yo castro [es.present.ar]; tú castras [es.present.ar]; él_ella_usted castra [es.present.ar]; nosotros castramos [es.present.ar]; ellos_ustedes castran [es.present.ar]
 - causar: "to cause": yo causo [es.present.ar]; tú causas [es.present.ar]; él_ella_usted causa [es.present.ar]; nosotros causamos [es.present.ar]; ellos_ustedes causan [es.present.ar]
 - cavar: "to dig": yo cavo [es.present.ar]; tú cavas [es.present.ar]; él_ella_usted cava [es.present.ar]; nosotros cavamos [es.present.ar]; ellos_ustedes cavan [es.present.ar]
@@ -85,7 +85,7 @@ Items: 584
 - conectar: "to connect": yo conecto [es.present.ar]; tú conectas [es.present.ar]; él_ella_usted conecta [es.present.ar]; nosotros conectamos [es.present.ar]; ellos_ustedes conectan [es.present.ar]
 - confiar: "to trust": yo confío [] (accent); tú confías [] (accent); él_ella_usted confía [] (accent); nosotros confiamos [es.present.ar]; ellos_ustedes confían [] (accent)
 - considerar: "to consider": yo considero [es.present.ar]; tú consideras [es.present.ar]; él_ella_usted considera [es.present.ar]; nosotros consideramos [es.present.ar]; ellos_ustedes consideran [es.present.ar]
-- consultar: "to check with": yo consulto [es.present.ar]; tú consultas [es.present.ar]; él_ella_usted consulta [es.present.ar]; nosotros consultamos [es.present.ar]; ellos_ustedes consultan [es.present.ar]
+- consultar: "to consult": yo consulto [es.present.ar]; tú consultas [es.present.ar]; él_ella_usted consulta [es.present.ar]; nosotros consultamos [es.present.ar]; ellos_ustedes consultan [es.present.ar]
 - consumir: "to consume": yo consumo [es.present.ir]; tú consumes [es.present.ir]; él_ella_usted consume [es.present.ir]; nosotros consumimos [es.present.ir]; ellos_ustedes consumen [es.present.ir]
 - contactar: "to contact": yo contacto [es.present.ar]; tú contactas [es.present.ar]; él_ella_usted contacta [es.present.ar]; nosotros contactamos [es.present.ar]; ellos_ustedes contactan [es.present.ar]
 - contar: "to count": yo cuento [es.present.o-ue]; tú cuentas [es.present.o-ue]; él_ella_usted cuenta [es.present.o-ue]; nosotros contamos [es.present.ar]; ellos_ustedes cuentan [es.present.o-ue]
@@ -131,7 +131,7 @@ Items: 584
 - ejecutar: "to execute": yo ejecuto [es.present.ar]; tú ejecutas [es.present.ar]; él_ella_usted ejecuta [es.present.ar]; nosotros ejecutamos [es.present.ar]; ellos_ustedes ejecutan [es.present.ar]
 - elegir: "to choose": yo elijo [es.present.e-i]; tú eliges [es.present.e-i]; él_ella_usted elige [es.present.e-i]; nosotros elegimos [es.present.ir]; ellos_ustedes eligen [es.present.e-i]
 - elevar: "to raise": yo elevo [es.present.ar]; tú elevas [es.present.ar]; él_ella_usted eleva [es.present.ar]; nosotros elevamos [es.present.ar]; ellos_ustedes elevan [es.present.ar]
-- eliminar: "to eliminate, to pass": yo elimino [es.present.ar]; tú eliminas [es.present.ar]; él_ella_usted elimina [es.present.ar]; nosotros eliminamos [es.present.ar]; ellos_ustedes eliminan [es.present.ar]
+- eliminar: "to eliminate, to remove": yo elimino [es.present.ar]; tú eliminas [es.present.ar]; él_ella_usted elimina [es.present.ar]; nosotros eliminamos [es.present.ar]; ellos_ustedes eliminan [es.present.ar]
 - empacar: "to pack": yo empaco [es.present.ar]; tú empacas [es.present.ar]; él_ella_usted empaca [es.present.ar]; nosotros empacamos [es.present.ar]; ellos_ustedes empacan [es.present.ar]
 - empatar: "to tie": yo empato [es.present.ar]; tú empatas [es.present.ar]; él_ella_usted empata [es.present.ar]; nosotros empatamos [es.present.ar]; ellos_ustedes empatan [es.present.ar]
 - empeorar: "to get worse": yo empeoro [es.present.ar]; tú empeoras [es.present.ar]; él_ella_usted empeora [es.present.ar]; nosotros empeoramos [es.present.ar]; ellos_ustedes empeoran [es.present.ar]
@@ -167,7 +167,7 @@ Items: 584
 - faltar: "to be missing": yo falto [es.present.ar]; tú faltas [es.present.ar]; él_ella_usted falta [es.present.ar]; nosotros faltamos [es.present.ar]; ellos_ustedes faltan [es.present.ar]
 - felicitar: "to congratulate": yo felicito [es.present.ar]; tú felicitas [es.present.ar]; él_ella_usted felicita [es.present.ar]; nosotros felicitamos [es.present.ar]; ellos_ustedes felicitan [es.present.ar]
 - filtrar: "to filter": yo filtro [es.present.ar]; tú filtras [es.present.ar]; él_ella_usted filtra [es.present.ar]; nosotros filtramos [es.present.ar]; ellos_ustedes filtran [es.present.ar]
-- fingir: "to fake": yo finjo [] (g→j); tú finges [es.present.ir]; él_ella_usted finge [es.present.ir]; nosotros fingimos [es.present.ir]; ellos_ustedes fingen [es.present.ir]
+- fingir: "to pretend": yo finjo [] (g→j); tú finges [es.present.ir]; él_ella_usted finge [es.present.ir]; nosotros fingimos [es.present.ir]; ellos_ustedes fingen [es.present.ir]
 - flanquear: "to flank": yo flanqueo [es.present.ar]; tú flanqueas [es.present.ar]; él_ella_usted flanquea [es.present.ar]; nosotros flanqueamos [es.present.ar]; ellos_ustedes flanquean [es.present.ar]
 - flexionar: "to bend": yo flexiono [es.present.ar]; tú flexionas [es.present.ar]; él_ella_usted flexiona [es.present.ar]; nosotros flexionamos [es.present.ar]; ellos_ustedes flexionan [es.present.ar]
 - forzar: "to force": yo fuerzo [es.present.o-ue]; tú fuerzas [es.present.o-ue]; él_ella_usted fuerza [es.present.o-ue]; nosotros forzamos [es.present.ar]; ellos_ustedes fuerzan [es.present.o-ue]
@@ -198,7 +198,7 @@ Items: 584
 - insertar: "to insert": yo inserto [es.present.ar]; tú insertas [es.present.ar]; él_ella_usted inserta [es.present.ar]; nosotros insertamos [es.present.ar]; ellos_ustedes insertan [es.present.ar]
 - interrumpir: "to interrupt": yo interrumpo [es.present.ir]; tú interrumpes [es.present.ir]; él_ella_usted interrumpe [es.present.ir]; nosotros interrumpimos [es.present.ir]; ellos_ustedes interrumpen [es.present.ir]
 - introducir: "to put in, to feed": yo introduzco [] (zc); tú introduces [es.present.ir]; él_ella_usted introduce [es.present.ir]; nosotros introducimos [es.present.ir]; ellos_ustedes introducen [es.present.ir]
-- inventar: "to make up": yo invento [es.present.ar]; tú inventas [es.present.ar]; él_ella_usted inventa [es.present.ar]; nosotros inventamos [es.present.ar]; ellos_ustedes inventan [es.present.ar]
+- inventar: "to invent": yo invento [es.present.ar]; tú inventas [es.present.ar]; él_ella_usted inventa [es.present.ar]; nosotros inventamos [es.present.ar]; ellos_ustedes inventan [es.present.ar]
 - irradiar: "to radiate": yo irradio [es.present.ar]; tú irradias [es.present.ar]; él_ella_usted irradia [es.present.ar]; nosotros irradiamos [es.present.ar]; ellos_ustedes irradian [es.present.ar]
 - jalar: "to pull": yo jalo [es.present.ar]; tú jalas [es.present.ar]; él_ella_usted jala [es.present.ar]; nosotros jalamos [es.present.ar]; ellos_ustedes jalan [es.present.ar]
 - lamentar: "to be sorry about": yo lamento [es.present.ar]; tú lamentas [es.present.ar]; él_ella_usted lamenta [es.present.ar]; nosotros lamentamos [es.present.ar]; ellos_ustedes lamentan [es.present.ar]
@@ -206,16 +206,15 @@ Items: 584
 - levantar: "to lift": yo levanto [es.present.ar]; tú levantas [es.present.ar]; él_ella_usted levanta [es.present.ar]; nosotros levantamos [es.present.ar]; ellos_ustedes levantan [es.present.ar]
 - ligar: "to bind": yo ligo [es.present.ar]; tú ligas [es.present.ar]; él_ella_usted liga [es.present.ar]; nosotros ligamos [es.present.ar]; ellos_ustedes ligan [es.present.ar]
 - limitar: "to limit": yo limito [es.present.ar]; tú limitas [es.present.ar]; él_ella_usted limita [es.present.ar]; nosotros limitamos [es.present.ar]; ellos_ustedes limitan [es.present.ar]
-- llenar: "to fill out": yo lleno [es.present.ar]; tú llenas [es.present.ar]; él_ella_usted llena [es.present.ar]; nosotros llenamos [es.present.ar]; ellos_ustedes llenan [es.present.ar]
+- llenar: "to fill, to fill out": yo lleno [es.present.ar]; tú llenas [es.present.ar]; él_ella_usted llena [es.present.ar]; nosotros llenamos [es.present.ar]; ellos_ustedes llenan [es.present.ar]
 - luchar: "to fight": yo lucho [es.present.ar]; tú luchas [es.present.ar]; él_ella_usted lucha [es.present.ar]; nosotros luchamos [es.present.ar]; ellos_ustedes luchan [es.present.ar]
 - macerar: "to muddle": yo macero [es.present.ar]; tú maceras [es.present.ar]; él_ella_usted macera [es.present.ar]; nosotros maceramos [es.present.ar]; ellos_ustedes maceran [es.present.ar]
 - malgastar: "to waste": yo malgasto [es.present.ar]; tú malgastas [es.present.ar]; él_ella_usted malgasta [es.present.ar]; nosotros malgastamos [es.present.ar]; ellos_ustedes malgastan [es.present.ar]
-- mamar: "to nurse": yo mamo [es.present.ar]; tú mamas [es.present.ar]; él_ella_usted mama [es.present.ar]; nosotros mamamos [es.present.ar]; ellos_ustedes maman [es.present.ar]
 - mandar: "to send": yo mando [es.present.ar]; tú mandas [es.present.ar]; él_ella_usted manda [es.present.ar]; nosotros mandamos [es.present.ar]; ellos_ustedes mandan [es.present.ar]
 - mapear: "to map": yo mapeo [es.present.ar]; tú mapeas [es.present.ar]; él_ella_usted mapea [es.present.ar]; nosotros mapeamos [es.present.ar]; ellos_ustedes mapean [es.present.ar]
 - masajear: "to massage": yo masajeo [es.present.ar]; tú masajeas [es.present.ar]; él_ella_usted masajea [es.present.ar]; nosotros masajeamos [es.present.ar]; ellos_ustedes masajean [es.present.ar]
 - masticar: "to chew": yo mastico [es.present.ar]; tú masticas [es.present.ar]; él_ella_usted mastica [es.present.ar]; nosotros masticamos [es.present.ar]; ellos_ustedes mastican [es.present.ar]
-- mecer: "to cradle": yo mezo [] (irregular); tú meces [es.present.er]; él_ella_usted mece [es.present.er]; nosotros mecemos [es.present.er]; ellos_ustedes mecen [es.present.er]
+- mecer: "to rock": yo mezo [] (irregular); tú meces [es.present.er]; él_ella_usted mece [es.present.er]; nosotros mecemos [es.present.er]; ellos_ustedes mecen [es.present.er]
 - merecer: "to deserve": yo merezco [] (zc); tú mereces [es.present.er]; él_ella_usted merece [es.present.er]; nosotros merecemos [es.present.er]; ellos_ustedes merecen [es.present.er]
 - mezclar: "to mix": yo mezclo [es.present.ar]; tú mezclas [es.present.ar]; él_ella_usted mezcla [es.present.ar]; nosotros mezclamos [es.present.ar]; ellos_ustedes mezclan [es.present.ar]
 - modificar: "to modify": yo modifico [es.present.ar]; tú modificas [es.present.ar]; él_ella_usted modifica [es.present.ar]; nosotros modificamos [es.present.ar]; ellos_ustedes modifican [es.present.ar]
@@ -272,7 +271,7 @@ Items: 584
 - rebotar: "to bounce": yo reboto [es.present.ar]; tú rebotas [es.present.ar]; él_ella_usted rebota [es.present.ar]; nosotros rebotamos [es.present.ar]; ellos_ustedes rebotan [es.present.ar]
 - recargar: "to recharge": yo recargo [es.present.ar]; tú recargas [es.present.ar]; él_ella_usted recarga [es.present.ar]; nosotros recargamos [es.present.ar]; ellos_ustedes recargan [es.present.ar]
 - recoger: "to pick up": yo recojo [] (g→j); tú recoges [es.present.er]; él_ella_usted recoge [es.present.er]; nosotros recogemos [es.present.er]; ellos_ustedes recogen [es.present.er]
-- recolectar: "to pick up": yo recolecto [es.present.ar]; tú recolectas [es.present.ar]; él_ella_usted recolecta [es.present.ar]; nosotros recolectamos [es.present.ar]; ellos_ustedes recolectan [es.present.ar]
+- recolectar: "to collect, to gather": yo recolecto [es.present.ar]; tú recolectas [es.present.ar]; él_ella_usted recolecta [es.present.ar]; nosotros recolectamos [es.present.ar]; ellos_ustedes recolectan [es.present.ar]
 - reconectar: "to reconnect": yo reconecto [es.present.ar]; tú reconectas [es.present.ar]; él_ella_usted reconecta [es.present.ar]; nosotros reconectamos [es.present.ar]; ellos_ustedes reconectan [es.present.ar]
 - reconocer: "to recognize": yo reconozco [] (zc); tú reconoces [es.present.er]; él_ella_usted reconoce [es.present.er]; nosotros reconocemos [es.present.er]; ellos_ustedes reconocen [es.present.er]
 - recorrer: "to travel through, to cover (a distance)": yo recorro [es.present.er]; tú recorres [es.present.er]; él_ella_usted recorre [es.present.er]; nosotros recorremos [es.present.er]; ellos_ustedes recorren [es.present.er]
@@ -295,7 +294,7 @@ Items: 584
 - respetar: "to respect": yo respeto [es.present.ar]; tú respetas [es.present.ar]; él_ella_usted respeta [es.present.ar]; nosotros respetamos [es.present.ar]; ellos_ustedes respetan [es.present.ar]
 - respirar: "to breathe": yo respiro [es.present.ar]; tú respiras [es.present.ar]; él_ella_usted respira [es.present.ar]; nosotros respiramos [es.present.ar]; ellos_ustedes respiran [es.present.ar]
 - restar: "to subtract": yo resto [es.present.ar]; tú restas [es.present.ar]; él_ella_usted resta [es.present.ar]; nosotros restamos [es.present.ar]; ellos_ustedes restan [es.present.ar]
-- resucitar: "to be resurrected": yo resucito [es.present.ar]; tú resucitas [es.present.ar]; él_ella_usted resucita [es.present.ar]; nosotros resucitamos [es.present.ar]; ellos_ustedes resucitan [es.present.ar]
+- resucitar: "to revive, to come back to life": yo resucito [es.present.ar]; tú resucitas [es.present.ar]; él_ella_usted resucita [es.present.ar]; nosotros resucitamos [es.present.ar]; ellos_ustedes resucitan [es.present.ar]
 - retener: "to retain": yo retengo [es.present.go-yo]; tú retienes [es.present.e-ie]; él_ella_usted retiene [es.present.e-ie]; nosotros retenemos [es.present.er]; ellos_ustedes retienen [es.present.e-ie]
 - retirar: "to remove, to take off": yo retiro [es.present.ar]; tú retiras [es.present.ar]; él_ella_usted retira [es.present.ar]; nosotros retiramos [es.present.ar]; ellos_ustedes retiran [es.present.ar]
 - retomar: "to go back to, to resume": yo retomo [es.present.ar]; tú retomas [es.present.ar]; él_ella_usted retoma [es.present.ar]; nosotros retomamos [es.present.ar]; ellos_ustedes retoman [es.present.ar]
@@ -303,12 +302,12 @@ Items: 584
 - revelar: "to reveal": yo revelo [es.present.ar]; tú revelas [es.present.ar]; él_ella_usted revela [es.present.ar]; nosotros revelamos [es.present.ar]; ellos_ustedes revelan [es.present.ar]
 - rezar: "to pray": yo rezo [es.present.ar]; tú rezas [es.present.ar]; él_ella_usted reza [es.present.ar]; nosotros rezamos [es.present.ar]; ellos_ustedes rezan [es.present.ar]
 - robar: "to steal": yo robo [es.present.ar]; tú robas [es.present.ar]; él_ella_usted roba [es.present.ar]; nosotros robamos [es.present.ar]; ellos_ustedes roban [es.present.ar]
-- rodear: "to circle, to round up": yo rodeo [es.present.ar]; tú rodeas [es.present.ar]; él_ella_usted rodea [es.present.ar]; nosotros rodeamos [es.present.ar]; ellos_ustedes rodean [es.present.ar]
+- rodear: "to surround": yo rodeo [es.present.ar]; tú rodeas [es.present.ar]; él_ella_usted rodea [es.present.ar]; nosotros rodeamos [es.present.ar]; ellos_ustedes rodean [es.present.ar]
 - romper: "to break": yo rompo [es.present.er]; tú rompes [es.present.er]; él_ella_usted rompe [es.present.er]; nosotros rompemos [es.present.er]; ellos_ustedes rompen [es.present.er]
 - roncar: "to snore": yo ronco [es.present.ar]; tú roncas [es.present.ar]; él_ella_usted ronca [es.present.ar]; nosotros roncamos [es.present.ar]; ellos_ustedes roncan [es.present.ar]
 - sacar: "to take out": yo saco [es.present.ar]; tú sacas [es.present.ar]; él_ella_usted saca [es.present.ar]; nosotros sacamos [es.present.ar]; ellos_ustedes sacan [es.present.ar]
 - saludar: "to greet": yo saludo [es.present.ar]; tú saludas [es.present.ar]; él_ella_usted saluda [es.present.ar]; nosotros saludamos [es.present.ar]; ellos_ustedes saludan [es.present.ar]
-- salvar: "to save (time)": yo salvo [es.present.ar]; tú salvas [es.present.ar]; él_ella_usted salva [es.present.ar]; nosotros salvamos [es.present.ar]; ellos_ustedes salvan [es.present.ar]
+- salvar: "to save, to rescue": yo salvo [es.present.ar]; tú salvas [es.present.ar]; él_ella_usted salva [es.present.ar]; nosotros salvamos [es.present.ar]; ellos_ustedes salvan [es.present.ar]
 - seleccionar: "to select": yo selecciono [es.present.ar]; tú seleccionas [es.present.ar]; él_ella_usted selecciona [es.present.ar]; nosotros seleccionamos [es.present.ar]; ellos_ustedes seleccionan [es.present.ar]
 - sembrar: "to sow, to seed": yo siembro [es.present.e-ie]; tú siembras [es.present.e-ie]; él_ella_usted siembra [es.present.e-ie]; nosotros sembramos [es.present.ar]; ellos_ustedes siembran [es.present.e-ie]
 - señalar: "to point to": yo señalo [es.present.ar]; tú señalas [es.present.ar]; él_ella_usted señala [es.present.ar]; nosotros señalamos [es.present.ar]; ellos_ustedes señalan [es.present.ar]
@@ -318,7 +317,7 @@ Items: 584
 - soltar: "to release, to let go": yo suelto [es.present.o-ue]; tú sueltas [es.present.o-ue]; él_ella_usted suelta [es.present.o-ue]; nosotros soltamos [es.present.ar]; ellos_ustedes sueltan [es.present.o-ue]
 - sonar: "to sound": yo sueno [es.present.o-ue]; tú suenas [es.present.o-ue]; él_ella_usted suena [es.present.o-ue]; nosotros sonamos [es.present.ar]; ellos_ustedes suenan [es.present.o-ue]
 - sonreír: "to smile": yo sonrío [] (irregular); tú sonríes [] (irregular); él_ella_usted sonríe [] (irregular); nosotros sonreímos [] (irregular); ellos_ustedes sonríen [] (irregular)
-- soplar: "to blow out": yo soplo [es.present.ar]; tú soplas [es.present.ar]; él_ella_usted sopla [es.present.ar]; nosotros soplamos [es.present.ar]; ellos_ustedes soplan [es.present.ar]
+- soplar: "to blow": yo soplo [es.present.ar]; tú soplas [es.present.ar]; él_ella_usted sopla [es.present.ar]; nosotros soplamos [es.present.ar]; ellos_ustedes soplan [es.present.ar]
 - sorprender: "to surprise": yo sorprendo [es.present.er]; tú sorprendes [es.present.er]; él_ella_usted sorprende [es.present.er]; nosotros sorprendemos [es.present.er]; ellos_ustedes sorprenden [es.present.er]
 - sostener: "to hold": yo sostengo [es.present.go-yo]; tú sostienes [es.present.e-ie]; él_ella_usted sostiene [es.present.e-ie]; nosotros sostenemos [es.present.er]; ellos_ustedes sostienen [es.present.e-ie]
 - subir: "to go up": yo subo [es.present.ir]; tú subes [es.present.ir]; él_ella_usted sube [es.present.ir]; nosotros subimos [es.present.ir]; ellos_ustedes suben [es.present.ir]
@@ -343,7 +342,7 @@ Items: 584
 - volar: "to fly": yo vuelo [es.present.o-ue]; tú vuelas [es.present.o-ue]; él_ella_usted vuela [es.present.o-ue]; nosotros volamos [es.present.ar]; ellos_ustedes vuelan [es.present.o-ue]
 - votar: "to vote": yo voto [es.present.ar]; tú votas [es.present.ar]; él_ella_usted vota [es.present.ar]; nosotros votamos [es.present.ar]; ellos_ustedes votan [es.present.ar]
 
-## excluded (40)
+## excluded (41)
 
 - acostarse: reflexive-only
 - adaptarse: reflexive-only
@@ -370,6 +369,7 @@ Items: 584
 - ganchar: override: not standard (use enganchar)
 - haber: no forms
 - lastimarse: reflexive-only
+- mamar: override: register risk: vulgar slang in much of Latin America
 - marearse: reflexive-only
 - partir: no forms
 - posicionarse: reflexive-only
@@ -629,7 +629,8 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
     "blitzear": "sports anglicism",
     "clipar": "climbing jargon",
     "clipear": "climbing jargon",
-    "ganchar": "not standard (use enganchar)"
+    "ganchar": "not standard (use enganchar)",
+    "mamar": "register risk: vulgar slang in much of Latin America"
   },
   "formEnglish": {
     "encantar": {
@@ -668,19 +669,32 @@ Reviewed corrections applied by the compiler (docs/verb-patterns/es-overrides.js
   "gloss": {
     "acomodar": "to arrange, to accommodate",
     "aguantar": "to endure, to put up with",
+    "aplanar": "to flatten, to level",
     "asegurar": "to secure, to ensure",
+    "cargar": "to load, to charge",
     "colar": "to strain",
     "conocer": "to know (people, places), to meet",
+    "consultar": "to consult",
     "contraer": "to contract, to catch (an illness)",
     "cumplir": "to fulfill, to comply with",
     "declarar": "to declare, to state",
     "despedir": "to see off, to fire",
     "dudar": "to doubt",
+    "eliminar": "to eliminate, to remove",
     "felicitar": "to congratulate",
     "filtrar": "to filter",
+    "fingir": "to pretend",
     "gastar": "to spend",
+    "inventar": "to invent",
+    "llenar": "to fill, to fill out",
+    "mecer": "to rock",
     "pegar": "to stick, to hit",
+    "recolectar": "to collect, to gather",
     "recorrer": "to travel through, to cover (a distance)",
+    "resucitar": "to revive, to come back to life",
+    "rodear": "to surround",
+    "salvar": "to save, to rescue",
+    "soplar": "to blow",
     "tardar": "to take (time)",
     "tensar": "to tighten",
     "trazar": "to trace, to lay out",

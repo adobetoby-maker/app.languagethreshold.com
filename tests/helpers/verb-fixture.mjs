@@ -1,7 +1,11 @@
 // Built by TAC — 2026-10-20
 // Verb Games compile fixture: 16 verbs, module "roofing", predictable English.
 import { readFileSync } from "node:fs";
+import { createBubbleRound } from "../../src/lib/verb-games/bubble.ts";
 import { compilePatterns } from "../../src/lib/verb-games/compile.ts";
+import { createCrushRound } from "../../src/lib/verb-games/crush.ts";
+import { ROUND_MS } from "../../src/lib/verb-games/rules.ts";
+import { buildRoundLog } from "../../src/lib/verb-games/scoring.ts";
 
 const CRUSH_LEVELS = JSON.parse(
   readFileSync(new URL("../../src/data/verb-patterns/crush-levels.json", import.meta.url), "utf8"),
@@ -111,4 +115,52 @@ export function fixtureInput(overrides = {}) {
 /** The compiled fixture, sign-off absent (every fixture verb is verified). */
 export function miniData() {
   return compilePatterns(fixtureInput()).data;
+}
+
+// ---- Round replay helpers (Task 9) ---------------------------------------------------------
+
+/** A round config for a game: go-yo family on the core source (Crush at level 1). */
+export function base(game) {
+  return {
+    game,
+    family: "es.present.go-yo",
+    level: game === "crush" ? 1 : null,
+    source: { kind: "core" },
+    seed: 11,
+    listMode: false,
+    reducedMotion: false,
+  };
+}
+
+/**
+ * An honest client: Bubble picks the correct piece every `gapMs`, Crush plays `findPopSwap()`
+ * every `gapMs`, and the round ends with `end(ROUND_MS[game])` like the server's replay.
+ * Returns the engine's own log and result.
+ */
+export function playHonest(data, config, { gapMs = 900 } = {}) {
+  const limit = ROUND_MS[config.game];
+  let events;
+  let result;
+  if (config.game === "bubble") {
+    const round = createBubbleRound(data, config);
+    for (let t = gapMs; t < limit; t += gapMs) {
+      round.advance(t);
+      const view = round.view();
+      const piece = view.pieces.find((p) => p.correct);
+      round.pick(t, view.frame.index, piece.id);
+    }
+    result = round.end(limit);
+    events = round.events();
+  } else {
+    const round = createCrushRound(data, config);
+    for (let t = gapMs; t < limit; t += gapMs) {
+      round.advance(t);
+      const swap = round.findPopSwap();
+      if (!swap) break;
+      round.swap(t, swap[0], swap[1]);
+    }
+    result = round.end(limit);
+    events = round.events();
+  }
+  return { log: buildRoundLog(config, events, data), result };
 }

@@ -42,11 +42,114 @@ test("a hand-edited verbs link falls back to the home instead of failing", async
   await expect(page.getByRole("heading", { name: "Practice by pattern" })).toBeVisible();
 });
 
+/** Games → Verbs → Bubble Pop → The "-go" family → Start, with a fixed dev seed. */
+async function startBubble(page: Page): Promise<void> {
+  await openVerbs(page, "&vseed=5");
+  await page.locator('[data-game="bubble"]').click();
+  await page.getByTestId("family-es.present.go-yo").click();
+  await page.getByRole("button", { name: "Start round" }).click();
+  await expect(page.getByTestId("bubble-game")).toBeVisible();
+}
+
+test.describe("bubble pop", { tag: "@dev-only" }, () => {
+  // Ruling F32: clicking an answer runs on the still row; the rising board is covered by its own test below.
+  test.describe("still row", () => {
+    test.beforeEach(async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
+    });
+    test("bubble pop: one pop shows the English", async ({ page }) => {
+      await startBubble(page);
+      await expect(page.getByTestId("game-hud")).toContainText('GAME · BUBBLE POP · THE "-GO" FAMILY');
+      await page.locator('[data-correct="true"]').click();
+      await expect(page.getByTestId("completion-flash")).toHaveText(/· I (come|have|leave|put|say)/);
+      await expect(page.getByTestId("live-region")).toHaveText(/· I (come|have|leave|put|say)/);
+      await expect(page.getByTestId("game-hud")).toContainText("STREAK ×1");
+    });
+
+    test("bubble pop reduced motion holds bubbles still", async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await startBubble(page);
+      const bubbles = page.getByTestId("bubble");
+      await expect(bubbles.first()).toBeVisible();
+      const total = await bubbles.count();
+      expect(total).toBeGreaterThanOrEqual(4);
+      await expect(page.locator('[data-motion="still"] [data-testid="bubble"]')).toHaveCount(total);
+      await expect(page.locator('[data-motion="rise"]')).toHaveCount(0);
+      await expect(page.getByTestId("countdown")).toBeVisible();
+    });
+
+    test("bubble pop: a wrong pick dims the bubble and shows the reason, End shows the score", async ({ page }) => {
+      await startBubble(page);
+      await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
+      await expect(page.getByTestId("reason-band")).toHaveAttribute("data-state", "shown");
+      await expect(page.getByTestId("reason-band")).toContainText("✗ →");
+      await expect(page.locator('[data-dimmed="true"]')).toHaveCount(1);
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expect(page.getByRole("heading", { name: /Round over · \d/ })).toBeVisible();
+      await page.getByRole("button", { name: "Play again" }).click();
+      await expect(page.getByTestId("bubble-game")).toBeVisible();
+    });
+  });
+
+  test("bubble pop rises and a number key pops the answer", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await startBubble(page);
+    await expect(page.locator('[data-motion="rise"]')).toBeVisible();
+    const key = await page.locator('[data-correct="true"]').getAttribute("data-bubble");
+    await page.keyboard.press(String(Number(key) + 1));
+    await expect(page.getByTestId("completion-flash")).toHaveText(/· I (come|have|leave|put|say)/);
+  });
+});
+
 // Screenshots at four viewports for the visual review: VERB_SCREENS=1 npx playwright test ... --grep @screens
+const BUBBLE_PLAY = appUrl({ tab: "games" }) + "&verbs=play&vgame=bubble&vfamily=es.present.go-yo&vseed=5";
+
+/** Mid-round: one correct pick by number key (completion flash up), then one wrong pick (reason band up). */
+async function bubbleMidRound(page: Page): Promise<void> {
+  await expect(page.getByTestId("bubble-game")).toBeVisible();
+  await page.waitForTimeout(1200);
+  const key = Number(await page.locator('[data-correct="true"]').getAttribute("data-bubble"));
+  await page.keyboard.press(String(key + 1));
+  await page.waitForTimeout(400);
+  const wrong = Number(await page.locator('[data-bubble]:not([data-correct="true"])').first().getAttribute("data-bubble"));
+  await page.keyboard.press(String(wrong + 1));
+  await page.waitForTimeout(250);
+}
+
+/** From the Bubble picker: list mode on, the "-go" family, Start. */
+async function startListRound(page: Page): Promise<void> {
+  await page.getByRole("switch").click();
+  await page.getByTestId("family-es.present.go-yo").click();
+  await page.getByRole("button", { name: "Start round" }).click();
+}
+
 const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<void> }[] = [
   { name: "home", path: appUrl({ tab: "games" }) },
   { name: "picker-crush", path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=crush&vfamily=es.present.go-yo" },
   { name: "picker-bubble", path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=bubble&vfamily=mix" },
+  { name: "bubble", path: BUBBLE_PLAY, prepare: bubbleMidRound },
+  {
+    name: "bubble-list",
+    path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=bubble&vseed=5",
+    prepare: async (page) => {
+      await startListRound(page);
+      await expect(page.getByTestId("frame-choices")).toBeVisible();
+      await page.waitForTimeout(800);
+      await page.keyboard.press("1");
+      await page.waitForTimeout(300);
+      await page.keyboard.press("2");
+      await page.waitForTimeout(250);
+    },
+  },
+  {
+    name: "bubble-over",
+    path: BUBBLE_PLAY,
+    prepare: async (page) => {
+      await bubbleMidRound(page);
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expect(page.getByTestId("round-over")).toBeVisible();
+    },
+  },
 ];
 const VIEWPORTS = [
   { tag: "375", width: 375, height: 812, scale: 2 },

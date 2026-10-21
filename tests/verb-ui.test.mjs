@@ -6,6 +6,7 @@ import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { loadModule } from "./helpers/bundle.mjs";
+import { miniData } from "./helpers/verb-fixture.mjs";
 
 const ext = { external: ["react-dom/server"] };
 const { PieceTile } = await loadModule("src/components/games/verbs/PieceTile.tsx", ext);
@@ -18,6 +19,7 @@ const { createLongPress, isSaveKey, LONG_PRESS_MS } = await loadModule("src/comp
 const { FrameChoices } = await loadModule("src/components/games/verbs/FrameChoices.tsx", ext);
 const { choiceForKey } = await loadModule("src/components/games/verbs/choice-keys.ts", ext);
 const { useReducedMotion } = await loadModule("src/hooks/use-reduced-motion.ts", ext);
+const { BubblePopGame } = await loadModule("src/components/games/verbs/BubblePopGame.tsx", ext);
 
 const html = (component, props) => renderToStaticMarkup(createElement(component, props));
 /** The opening tag that contains `marker`, so attributes can be asserted in any order. */
@@ -194,4 +196,43 @@ test("choices number options and disable the ones already tried", () => {
 test("useReducedMotion returns a boolean on the server render", () => {
   const Probe = () => createElement("i", null, typeof useReducedMotion());
   assert.equal(html(Probe, {}), "<i>boolean</i>");
+});
+
+const bubbleCfg = { game: "bubble", family: "es.present.go-yo", level: null, source: { kind: "core" }, seed: 5, listMode: false, reducedMotion: false };
+
+test("bubble screen renders frame, legend and numbered pieces", () => {
+  const h = html(BubblePopGame, { data: miniData(), config: bubbleCfg, onEnd() {}, onSaveCard() {} });
+  assert.match(h, /GAME · BUBBLE POP · THE &quot;-GO&quot; FAMILY/);
+  assert.equal((h.match(/data-testid="bubble"/g) ?? []).length, 4);
+  assert.match(h, /data-testid="reason-band"/);
+});
+
+test("bubble frame reads prompt · English · infinitive and keys are numbered 1-4", () => {
+  const h = html(BubblePopGame, { data: miniData(), config: bubbleCfg, onEnd() {}, onSaveCard() {} });
+  const frame = tagOf(h, 'data-testid="bubble-frame"');
+  assert.ok(frame);
+  const text = h.match(/data-testid="bubble-frame"[^>]*>([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, "");
+  assert.match(text, /^yo ___ · I \w+ · \w+ir|^yo ___ · I \w+ · \w+er/);
+  for (const n of [1, 2, 3, 4]) assert.match(h, new RegExp(`data-key="${n}"`));
+  assert.match(h, /data-testid="legend"/);
+  assert.match(h, /data-testid="live-region"/);
+  assert.match(tagOf(h, 'data-testid="bubble-board"'), /data-motion="rise"/);
+});
+
+test("list mode renders the frame as numbered choices with a countdown, no rising board", () => {
+  const h = html(BubblePopGame, { data: miniData(), config: { ...bubbleCfg, listMode: true }, onEnd() {}, onSaveCard() {} });
+  assert.match(h, /data-testid="frame-choices"/);
+  assert.equal((h.match(/data-choice="/g) ?? []).length, 4);
+  assert.match(h, /data-testid="countdown"/);
+  assert.doesNotMatch(h, /data-motion="rise"/);
+});
+
+test("dev-only answer marker is absent outside dev builds", () => {
+  const h = html(BubblePopGame, { data: miniData(), config: bubbleCfg, onEnd() {}, onSaveCard() {} });
+  assert.doesNotMatch(h, /data-correct=/);
+});
+
+test("bubble eyebrow says MIX for a mixed round", () => {
+  const h = html(BubblePopGame, { data: miniData(), config: { ...bubbleCfg, family: "mix" }, onEnd() {}, onSaveCard() {} });
+  assert.match(h, /GAME · BUBBLE POP · MIX/);
 });

@@ -374,6 +374,36 @@ const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|form|verb|command|stem|chang
 function markerCount(text: string, pattern: RegExp): number {
   return (text.match(pattern) ?? []).length;
 }
+// A note states the final rule only. These patterns catch the model thinking out loud inside a
+// note ("Stem change e to ie? No: e to i"). The question-mark and ellipsis forms need the "no"
+// right after them. The deliberation words only count where a thought opens (start of the note
+// or right after sentence punctuation) and outside quoted text, so notes that describe a
+// meaning stay clean: "Esperar means to wait", "means let me pay", "what you actually found",
+// "No 'for' needed", "Creo que (I think)".
+const SELF_TALK_PUNCTUATION: readonly RegExp[] = [/\?\s*No\b/i, /(?:\.\.\.|…)\s*no\b/i];
+const THOUGHT_START = String.raw`(?:^\s*|[.!?…;:,—–-]\s*)`;
+const SELF_TALK_WORDS: readonly RegExp[] = [
+  new RegExp(String.raw`${THOUGHT_START}wait\s*(?:[,—–]|\.\.\.|…|-\s)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}actually\b`, "i"),
+  /\bhmm+\b/i,
+  new RegExp(String.raw`${THOUGHT_START}let me\b`, "i"),
+];
+const QUOTED_TEXT = /"[^"]*"|“[^”]*”|'[^']*'|‘[^’]*’/g;
+
+/** The matching self-talk fragment when a verb or word note thinks out loud, else null. */
+export function selfTalkIssue(note: string): string | null {
+  for (const pattern of SELF_TALK_PUNCTUATION) {
+    const hit = note.match(pattern);
+    if (hit) return hit[0];
+  }
+  const unquoted = note.replace(QUOTED_TEXT, " ");
+  for (const pattern of SELF_TALK_WORDS) {
+    const hit = unquoted.match(pattern);
+    if (hit) return hit[0];
+  }
+  return null;
+}
+
 const ENDS_LIKE_SENTENCE = /[.?!…]["'”’»)\]]*$/;
 const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
 const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
@@ -491,6 +521,12 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
     if (digitsOf(word.en).join(",") !== digitsOf(word.es).join(",")) {
       errors.push(`numbers differ in "${word.es}" / "${word.en}"`);
     }
+    const wordSelfTalk = word.note ? selfTalkIssue(word.note) : null;
+    if (wordSelfTalk) {
+      errors.push(
+        `"${word.es}": the note thinks out loud ("${wordSelfTalk}"); state the final rule only: ${word.note}`,
+      );
+    }
     const limit = word.kind === "term" ? 5 : 14;
     if (wordsOf(word.es).length > limit) errors.push(`"${word.es}" is too long for a ${word.kind}`);
   }
@@ -536,6 +572,12 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       const wrongLanguage = wrong >= 2 && right === 0;
       if (wrongLanguage) {
         errors.push(`${name}: the note must be written in ${ctx.nativeLanguage}: ${verb.note}`);
+      }
+      const selfTalk = selfTalkIssue(verb.note);
+      if (selfTalk) {
+        errors.push(
+          `${name}: the note thinks out loud ("${selfTalk}"); state the final rule only, with no deliberation or self-correction: ${verb.note}`,
+        );
       }
     }
     const forms = keys.map((key) => (verb.forms[key] ?? "").trim());

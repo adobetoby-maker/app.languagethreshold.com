@@ -117,6 +117,15 @@ test("completion flash shows form and English, empty when idle", () => {
   assert.match(tag, /aria-label="Save vengo, I come, to Verb Cards \(S\)"/);
 });
 
+test("completion flash without onSaveCard is plain text, not a dead control", () => {
+  const completion = { t: 1, infinitive: "venir", person: "yo", familyId: "es.present.go-yo", form: "vengo", english: "I come", points: 100 };
+  const out = html(CompletionFlash, { completion });
+  assert.match(out, /vengo · I come/);
+  assert.doesNotMatch(out, /role="button"/);
+  assert.doesNotMatch(out, /Save/);
+  assert.doesNotMatch(out, /tabindex|aria-keyshortcuts|title=/i);
+});
+
 test("long press fires after 500 ms, and cancelling stops it", (t) => {
   t.mock.timers.enable({ apis: ["setTimeout"] });
   const saved = [];

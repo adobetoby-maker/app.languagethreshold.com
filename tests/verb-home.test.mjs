@@ -9,7 +9,7 @@ import { loadModule } from "./helpers/bundle.mjs";
 import { miniData } from "./helpers/verb-fixture.mjs";
 import { EMPTY_VERB_DEVICE } from "../src/lib/verb-games/device.ts";
 import { guardVerbRoute } from "../src/lib/verb-games/route-guard.ts";
-import { parseVerbRoute } from "../src/lib/verb-games/verb-route.ts";
+import { parseVerbRoute, practiceScreen, verbRouteSearch } from "../src/lib/verb-games/verb-route.ts";
 
 const ext = { external: ["react-dom/server", "lucide-react"] };
 const { VerbsHome } = await loadModule("src/components/games/verbs/VerbsHome.tsx", ext);
@@ -35,7 +35,7 @@ test("home shows the ladder and both games", () => {
   assert.match(h, />VERBS</);
 });
 
-test("home marks the suggested family once and shows personal best and weekly rank", () => {
+test("home marks the suggested family once and shows personal best; weekly rank only when boards are open", () => {
   const data = miniData();
   const none = html(VerbsHome, { data, device: EMPTY_VERB_DEVICE, moduleId: null, go() {} });
   assert.equal(none.match(/data-suggested="true"/g)?.length, 1);
@@ -50,7 +50,23 @@ test("home marks the suggested family once and shows personal best and weekly ra
   });
   const h = html(VerbsHome, { data, device: played, moduleId: null, go() {} });
   assert.match(h, /2,060/);
-  assert.match(h, /#7/);
+  // Boards are closed in this slice: a rank cell that can never fill in is hidden, the closed-boards line stays.
+  assert.doesNotMatch(h, /Weekly rank|>#7</);
+  assert.match(h, /Leaderboards coming soon/);
+  const open = html(VerbsHome, { data, device: played, moduleId: null, boardsOpen: true, go() {} });
+  assert.match(open, /Weekly rank/);
+  assert.match(open, />#7</);
+});
+
+test("ladder tiles go where the recap's Practice button goes: the Bubble Pop picker on that family", () => {
+  const data = miniData();
+  const seen = [];
+  const h = html(VerbsHome, { data, device: EMPTY_VERB_DEVICE, moduleId: null, go: (s) => seen.push(s) });
+  assert.equal(h.match(/data-family="es\.[^"]+"/g)?.length, 7);
+  for (const id of [...h.matchAll(/data-family="(es\.[^"]+)"/g)].map((m) => m[1])) {
+    assert.deepEqual(practiceScreen(id), { screen: "pick", game: "bubble", family: id });
+    assert.equal(parseVerbRoute(verbRouteSearch("", practiceScreen(id))).screen, "pick");
+  }
 });
 
 test("home meters count mastered verbs", () => {

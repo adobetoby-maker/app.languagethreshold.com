@@ -504,7 +504,8 @@ export function VerbCrushGame(p: {
   data: PatternData;
   config: RoundConfig;
   onEnd(log: RoundLog, result: RoundResult): void;
-  onSaveCard(c: Completion): void;
+  /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
+  onSaveCard?(c: Completion): void;
 }) {
   // The round and its config are fixed for the life of this screen; remount for a new round.
   const [round] = useState<CrushRound>(() => createCrushRound(p.data, p.config));

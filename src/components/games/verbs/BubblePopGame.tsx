@@ -236,7 +236,8 @@ export function BubblePopGame(p: {
   data: PatternData;
   config: RoundConfig;
   onEnd(log: RoundLog, result: RoundResult): void;
-  onSaveCard(c: Completion): void;
+  /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
+  onSaveCard?(c: Completion): void;
 }) {
   // The round and its config are fixed for the life of this screen; remount for a new round.
   const [round] = useState<BubbleRound>(() => createBubbleRound(p.data, p.config));
@@ -522,7 +523,7 @@ export function BubblePopGame(p: {
           </span>
         )}
         {/* Sentence frames (after 30 s) carry long English: keep the pill inside the fixed slot, two lines at most. */}
-        <div className="min-w-0 [&>div]:h-14 [&_[role=button]]:line-clamp-2 [&_[role=button]]:rounded-2xl [&_[role=button]]:py-1.5 [&_[role=button]]:text-sm [&_[role=button]]:leading-5">
+        <div className="min-w-0 [&>div]:h-14 [&_[data-flash-pill]]:line-clamp-2 [&_[data-flash-pill]]:rounded-2xl [&_[data-flash-pill]]:py-1.5 [&_[data-flash-pill]]:text-sm [&_[data-flash-pill]]:leading-5">
           <CompletionFlash completion={flash} onSaveCard={p.onSaveCard} />
         </div>
         <div className={`absolute inset-0 ${reason ? "" : "pointer-events-none"}`}>

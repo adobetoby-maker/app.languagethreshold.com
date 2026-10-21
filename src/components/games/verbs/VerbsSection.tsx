@@ -10,7 +10,7 @@ import { loadPatternData } from "@/lib/verb-games/load-patterns";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
 import { scopeKey } from "@/lib/verb-games/rules";
 import type { PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
-import { parseVerbRoute, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
+import { parseVerbRoute, practiceScreen, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { BubblePopGame } from "./BubblePopGame";
 import { picksOf } from "./recap-groups";
 import { RoundRecap } from "./RoundRecap";
@@ -249,9 +249,7 @@ export function VerbsSection() {
           data={data}
           config={roundConfig}
           onEnd={finishRound}
-          onSaveCard={() => {
-            // Verb Cards land in Tasks 22/23.
-          }}
+          // No onSaveCard until Verb Cards land (Tasks 22/23): the flash stays plain text, not a dead control.
         />
       )}
       {view.screen === "play" && view.game === "crush" && roundConfig?.game === "crush" && !ended && (
@@ -260,9 +258,7 @@ export function VerbsSection() {
           data={data}
           config={roundConfig}
           onEnd={finishRound}
-          onSaveCard={() => {
-            // Verb Cards land in Tasks 22/23.
-          }}
+          // No onSaveCard until Verb Cards land (Tasks 22/23): the flash stays plain text, not a dead control.
         />
       )}
       {view.screen === "play" && ended && (
@@ -283,9 +279,8 @@ export function VerbsSection() {
             setEnded(null);
             setRoundKey((k) => k + 1);
           }}
-          // The pattern unit is not built yet (a placeholder would be a dead end), so practice opens
-          // the Bubble Pop picker on that family. Point this at { screen: "unit", family } when the unit lands.
-          onPractice={(family) => go({ screen: "pick", game: "bubble", family })}
+          // Shared with the home ladder tiles: see practiceScreen for the unit-page follow-up.
+          onPractice={(family) => go(practiceScreen(family))}
           onBack={() => go(HOME)}
         />
       )}

@@ -34,6 +34,19 @@ test("verbs home lists families and games", async ({ page }) => {
   await expect(page.getByText("Leaderboards coming soon")).toBeVisible();
 });
 
+test("a ladder tile opens the Bubble Pop picker on that family, never a placeholder", async ({ page }) => {
+  await openVerbs(page);
+  const tile = page.locator('[data-suggested="true"]');
+  await expect(tile).toHaveCount(1);
+  const family = await tile.getAttribute("data-family");
+  expect(family).toBeTruthy();
+  await tile.click();
+  await expect(page).toHaveURL(new RegExp(`verbs=pick&vgame=bubble&vfamily=${(family as string).replace(/\./g, "\\.")}`));
+  await expect(page.getByRole("heading", { name: "Choose your round" })).toBeVisible();
+  await expect(page.getByTestId(`family-${family}`)).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText("on the way")).toHaveCount(0);
+});
+
 test("verbs picker opens from a game card, keeps Back working and starts disabled-safe", async ({ page }) => {
   await openVerbs(page);
   await page.locator('[data-game="crush"]').click();
@@ -72,6 +85,8 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
       await expect(page.getByTestId("game-hud")).toContainText('GAME · BUBBLE POP · THE "-GO" FAMILY');
       await page.locator('[data-correct="true"]').click();
       await expect(page.getByTestId("completion-flash")).toHaveText(/· I (come|have|leave|put|say)/);
+      // Saving cards is not built yet: the flash is plain text, not a dead control.
+      await expect(page.getByTestId("completion-flash").getByRole("button")).toHaveCount(0);
       await expect(page.getByTestId("live-region")).toHaveText(/· I (come|have|leave|put|say)/);
       await expect(page.getByTestId("game-hud")).toContainText("STREAK ×1");
     });

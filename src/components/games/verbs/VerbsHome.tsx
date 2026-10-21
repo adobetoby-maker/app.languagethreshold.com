@@ -5,7 +5,7 @@ import { familyMastery, sourceFilterFor, suggestedFamily, type VerbDeviceState }
 import { poolVerbs } from "@/lib/verb-games/pool";
 import { ROUND_MS } from "@/lib/verb-games/rules";
 import type { FamilyId, GameId, PatternData, PatternFamily, VerbEntry } from "@/lib/verb-games/types";
-import type { VerbScreen } from "@/lib/verb-games/verb-route";
+import { practiceScreen, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { PieceTile } from "./PieceTile";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
@@ -74,7 +74,7 @@ function FamilyTile(p: {
       type="button"
       data-family={p.family.id}
       data-suggested={p.suggested ? "true" : undefined}
-      onClick={() => p.go({ screen: "unit", family: p.family.id })}
+      onClick={() => p.go(practiceScreen(p.family.id))}
       className={`group flex min-w-0 cursor-pointer flex-col gap-2 rounded-xl border p-3.5 text-left transition-colors duration-200 hover:bg-card/80 ${FOCUS} ${
         p.suggested ? "border-gold/70 bg-gold/[0.06] hover:border-gold" : "border-border/60 bg-background/40 hover:border-gold/50"
       } ${p.wide ? "col-span-2" : ""}`}
@@ -143,7 +143,7 @@ function Ladder(p: { eyebrow: string; families: readonly PatternFamily[]; pool: 
   );
 }
 
-function GameCard(p: { game: GameId; suggested: FamilyId; device: VerbDeviceState; go(s: VerbScreen): void }) {
+function GameCard(p: { game: GameId; suggested: FamilyId; device: VerbDeviceState; boardsOpen: boolean; go(s: VerbScreen): void }) {
   const copy = GAME_COPY[p.game];
   const best = bestScore(p.device, p.game);
   const rank = bestRank(p.device, p.game);
@@ -159,15 +159,17 @@ function GameCard(p: { game: GameId; suggested: FamilyId; device: VerbDeviceStat
         <h3 className="font-display text-2xl font-semibold leading-tight text-foreground">{copy.title}</h3>
         <p className="text-sm leading-snug text-muted-foreground">{copy.blurb}</p>
       </div>
-      <dl className="grid grid-cols-2 gap-3 border-t border-border/50 pt-3">
+      <dl className={`grid gap-3 border-t border-border/50 pt-3 ${p.boardsOpen ? "grid-cols-2" : "grid-cols-1"}`}>
         <div>
           <dt className={CAPTION}>Personal best</dt>
           <dd className="mt-0.5 font-mono text-lg tabular-nums text-foreground">{best === null ? "—" : best.toLocaleString("en-US")}</dd>
         </div>
-        <div>
-          <dt className={CAPTION}>Weekly rank</dt>
-          <dd className="mt-0.5 font-mono text-lg tabular-nums text-foreground">{rank === null ? "—" : `#${rank}`}</dd>
-        </div>
+        {p.boardsOpen && (
+          <div>
+            <dt className={CAPTION}>Weekly rank</dt>
+            <dd className="mt-0.5 font-mono text-lg tabular-nums text-foreground">{rank === null ? "—" : `#${rank}`}</dd>
+          </div>
+        )}
       </dl>
       <button
         type="button"
@@ -182,7 +184,15 @@ function GameCard(p: { game: GameId; suggested: FamilyId; device: VerbDeviceStat
   );
 }
 
-export function VerbsHome(p: { data: PatternData; device: VerbDeviceState; moduleId: string | null; go(s: VerbScreen): void }) {
+export function VerbsHome(p: {
+  data: PatternData;
+  device: VerbDeviceState;
+  moduleId: string | null;
+  /** Public boards are closed until the leaderboard server lands; the Weekly rank cell shows only when open. */
+  boardsOpen?: boolean;
+  go(s: VerbScreen): void;
+}) {
+  const boardsOpen = p.boardsOpen ?? false;
   const suggested = suggestedFamily(p.device, p.data);
   const pool = poolVerbs(p.data, sourceFilterFor(p.device.settings, p.moduleId));
   const tier1 = FAMILIES.filter((f) => f.tier === 1);
@@ -213,7 +223,7 @@ export function VerbsHome(p: { data: PatternData; device: VerbDeviceState; modul
         <h3 className={CAPTION}>Play a round</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {GAMES.map((game) => (
-            <GameCard key={game} game={game} suggested={suggested} device={p.device} go={p.go} />
+            <GameCard key={game} game={game} suggested={suggested} device={p.device} boardsOpen={boardsOpen} go={p.go} />
           ))}
         </div>
         <p className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">

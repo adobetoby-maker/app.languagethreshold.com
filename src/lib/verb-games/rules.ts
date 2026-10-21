@@ -3,7 +3,8 @@
 
 import { FAMILIES, familyById } from "./families.ts";
 import { frameSlots } from "./pool.ts";
-import type { FamilyId, GameId, PatternData, RoundConfig } from "./types.ts";
+import type { FrameSlot } from "./pool.ts";
+import type { CrushLevel, FamilyId, GameId, PatternData, RoundConfig, SourceFilter } from "./types.ts";
 
 /** Round length per game. Task 16's e2e fast-forwards `ROUND_MS[game] + 1000`. */
 export const ROUND_MS: Record<GameId, number> = { bubble: 60_000, crush: 90_000 };
@@ -120,4 +121,59 @@ export function boardScopes(game: GameId, data: PatternData): BoardScope[] {
     scopes.push({ key: scopeKey({ ...base, family: "mix", level: row.level }), label: `Level ${row.level} · All patterns` });
   }
   return scopes;
+}
+
+// ---- Verb Crush levels (Task 8) -------------------------------------------------------------
+
+/** Families a Crush level draws from: its fixed list, else the picked family (or mix). */
+function crushFamilies(data: PatternData, level: CrushLevel, family: FamilyId | "mix", source: SourceFilter): FamilyId[] {
+  if (Array.isArray(level.families)) return [...level.families];
+  return roundFamilies({ game: "crush", family, level: null, source, seed: 0, listMode: false, reducedMotion: false }, data);
+}
+
+/**
+ * The goal slots of a Crush level: forms of the source's verbs in the level's families and
+ * persons ("family" = each family's `appliesTo`). Forms the compiler could not split into
+ * stem + ending (ending "") cannot be built from tiles, so they are never goals.
+ * Shared by `levelAvailable` and the Crush engine so the two can never disagree.
+ */
+export function crushGoalSlots(
+  data: PatternData,
+  level: CrushLevel,
+  family: FamilyId | "mix",
+  source: SourceFilter,
+): FrameSlot[] {
+  return frameSlots(data, crushFamilies(data, level, family, source), level.persons, source).filter((slot) => {
+    const verb = data.verbs.find((v) => v.infinitive === slot.infinitive);
+    const form = verb?.forms.find((f) => f.person === slot.person);
+    return form !== undefined && form.ending !== "" && form.stem !== "";
+  });
+}
+
+/** Distinct goal forms a level needs before it can be offered. */
+const MIN_GOAL_FORMS = 3;
+
+/**
+ * True iff the level's persons fit the round's families (`"family"`, or every listed person is
+ * in some round family's `appliesTo`) and the level has at least 3 distinct goal forms.
+ */
+export function levelAvailable(
+  data: PatternData,
+  level: CrushLevel,
+  family: FamilyId | "mix",
+  source: SourceFilter,
+): boolean {
+  const families = crushFamilies(data, level, family, source);
+  if (families.length === 0) return false;
+  if (level.persons !== "family") {
+    const persons = level.persons;
+    const covered = persons.every((p) => families.some((id) => familyById(id).appliesTo.includes(p)));
+    if (!covered) return false;
+  }
+  const forms = new Set<string>();
+  for (const slot of crushGoalSlots(data, level, family, source)) {
+    const form = data.verbs.find((v) => v.infinitive === slot.infinitive)?.forms.find((f) => f.person === slot.person);
+    if (form) forms.add(form.full.normalize("NFC").toLowerCase());
+  }
+  return forms.size >= MIN_GOAL_FORMS;
 }

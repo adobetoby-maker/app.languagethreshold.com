@@ -108,6 +108,10 @@ import { cleanLessonWords, languageTag, pickAuthoredWords } from "../src/lib/les
 const SCRIPT_PATH = "scripts/build-lesson-content.mts";
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_ROOT = flag("out-root");
+if (OUT_ROOT === "") {
+  console.error("--out-root needs a directory (refusing to fall back to the repo root).");
+  process.exit(2);
+}
 const ROOT = OUT_ROOT ? resolve(OUT_ROOT) : REPO_ROOT;
 const PUBLIC_DIR = join(ROOT, "public", "lesson-content");
 const PROGRESS_DIR = join(ROOT, ".lesson-content-progress");
@@ -836,14 +840,15 @@ async function main() {
   if (fatal) console.error(`Stopped early: ${fatal}`);
   if (failures.length > 0) {
     const passThrough: Record<string, string> = {};
-    for (const name of ["claude-bin", "out-root"]) {
+    for (const name of ["claude-bin", "out-root", "verbs-only-for", "timeout-ms", "rate-limit-wait-hours"]) {
       const value = flag(name);
       if (value) passThrough[name] = value;
     }
     console.log(`${failures.length} failed lesson(s).`);
     if (unwritten.length > 0) {
       console.log(
-        "Public file(s) left as they were, because a lesson failed. Complete each by regenerating only the failed lessons:",
+        "Public file(s) left as they were, because a lesson failed. Complete each by regenerating only the failed lessons" +
+          " (note: a later plain run with nothing missing also publishes the lessons that succeeded here):",
       );
       for (const { pair, failed } of unwritten) {
         console.log(

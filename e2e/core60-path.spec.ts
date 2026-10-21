@@ -473,12 +473,15 @@ async function openStageSignedIn(page: Page, moduleId: string, ready: string) {
 
 test.describe("Core 60 stage load failure", { tag: "@dev-only" }, () => {
   test("a stage chunk that fails once shows a clear error, and Retry loads it", async ({ page }) => {
-    // Abort the Electrician Foundation chunk the first time it is requested only.
+    // Abort the Electrician Foundation chunk until the test presses Retry. Aborting only the first
+    // request raced openStageSignedIn: on a cold dev server it re-navigates after 15s, the second
+    // request loaded, and the error never showed.
     let aborted = 0;
     let requests = 0;
+    let release = false;
     await page.route(/\/core60\/es\/foundation-electrician\.json/, async (route) => {
       requests += 1;
-      if (aborted === 0) {
+      if (!release) {
         aborted += 1;
         await route.abort("failed");
         return;
@@ -486,7 +489,7 @@ test.describe("Core 60 stage load failure", { tag: "@dev-only" }, () => {
       await route.continue();
     });
     await openStageSignedIn(page, "foundation-electrician", "core60-stage-error");
-    expect(aborted).toBe(1);
+    expect(aborted).toBeGreaterThanOrEqual(1);
     // The error names the problem and offers Retry; it is not the generic "Choose a module" card.
     const error = page.getByTestId("core60-stage-error");
     await expect(error).toContainText("Couldn't load this stage. Check your connection and try again.");
@@ -495,6 +498,7 @@ test.describe("Core 60 stage load failure", { tag: "@dev-only" }, () => {
     await expect(page.getByTestId("core60-stage-loading")).toHaveCount(0);
     await expect(page.getByTestId("core30-plan-card")).toHaveCount(0);
 
+    release = true;
     await page.getByTestId("core60-stage-retry").click();
     await expect(page.getByTestId("core30-plan-card")).toBeVisible();
     await expect(page.getByRole("heading", { name: "The Electrician Foundation" })).toBeVisible();

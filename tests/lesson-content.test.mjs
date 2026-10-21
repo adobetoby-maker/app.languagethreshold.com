@@ -30,6 +30,7 @@ import {
   lessonContentFromResponse,
   levelFor,
 } from "../src/lib/lesson-content-prompt.ts";
+import { contentPendingFor } from "./fixtures/content-pending.mjs";
 
 // ─── Fixtures: a valid Spanish lesson ────────────────────────────────────────
 
@@ -702,7 +703,12 @@ for (const { dir, name } of generated) {
     assert.equal(typeof raw.reviewed, "boolean", "reviewed flag is present");
     const curriculum = getCurriculum(moduleId);
     assert.ok(curriculum, "module has a curriculum");
-    const wanted = curriculum.lessons.map((l) => String(l.n));
+    // Plan-only lessons (tests/fixtures/content-pending.mjs) may await their generated content;
+    // every other planned lesson must be present, and the file may not cover unplanned lessons.
+    const pending = contentPendingFor(moduleId);
+    const wanted = curriculum.lessons
+      .map((l) => String(l.n))
+      .filter((n) => !pending.has(Number(n)) || n in file.lessons);
     assert.deepEqual(
       Object.keys(file.lessons).sort((a, b) => a - b),
       wanted,
@@ -710,6 +716,7 @@ for (const { dir, name } of generated) {
     );
     for (const lesson of curriculum.lessons) {
       const content = file.lessons[String(lesson.n)];
+      if (!content && pending.has(lesson.n)) continue;
       const parts = {
         passage: content.passage !== undefined,
         words: content.words !== undefined,

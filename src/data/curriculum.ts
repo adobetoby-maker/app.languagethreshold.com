@@ -2868,20 +2868,420 @@ const FISHING_LESSONS: Lesson[] = [
   },
   {
     n: 10,
+    title: "Halfway Day — Putting It Together",
+    objective:
+      "Combine the dock greeting, strike commands, species names, reading the water, and the tip from Lessons 1–9 in one half-day trip — no English.",
+    steps: [
+      fi(
+        "Open the Fishing module. Review On the Boat, Species, and Culture for Lessons 1–9. Say each phrase aloud and mark the ones you still hesitate on.",
+        6,
+      ),
+      sp(
+        "Half-day simulation: greet the crew, confirm the plan, react to one strike, name the fish, point out birds or a color break, and thank the crew with a tip. Stay in Spanish.",
+        8,
+      ),
+      wm(
+        "Warm-down: match 15 random items from greetings, boat commands, species, and water vocabulary. Note your time — you'll beat it at Lesson 30.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 11,
+    title: "Fishing Licenses and Permits",
+    objective:
+      "Ask who needs a sport-fishing license, where and how to buy one, how long it lasts, and whether the boat carries its own permit.",
+    steps: [
+      wm(
+        "Match: el permiso de pesca, la licencia, por día, por semana, ¿quién lo necesita?, ¿dónde se compra?, el pasaporte, en línea.",
+        5,
+      ),
+      sp(
+        "Ask the charter office whether every person on board needs a license, how to buy one for three days, and whether the captain carries the boat permit. Ask them to confirm — don't assume.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → At the Dock tab. Review the price and question phrases you'll reuse at the license counter.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 12,
+    title: "Limits, Sizes, and Closed Seasons",
+    objective:
+      "Ask about daily bag limits, minimum sizes, protected species, closed seasons, and marine reserves before keeping any fish.",
+    steps: [
+      wm(
+        "Match: el límite de captura, la talla mínima, la veda, la especie protegida, la reserva marina, ¿se puede quedar?, por persona, por día.",
+        5,
+      ),
+      sp(
+        "Before keeping a dorado, ask the captain about the daily limit per person, the minimum size, and whether any species is in a closed season. Never guess a rule — ask him to confirm it.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Reread 'Suéltalo — The Release Ethic' and connect it to the limits you just asked about.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 13,
+    title: "Booking a Charter",
+    objective:
+      "Book a charter by phone: price, full or half day, departure time, what's included, deposit, and what happens if weather cancels the trip.",
+    steps: [
+      wm(
+        "Match: el viaje, el día completo, medio día, ¿qué incluye?, la carnada, el equipo, el depósito, la cancelación.",
+        5,
+      ),
+      sp(
+        "Call a charter office and book a full day for three anglers: price, departure time, what's included, the deposit, and the policy if the port closes for weather.",
+        7,
+      ),
+      fi(
+        "Open Fishing module → At the Dock tab. Say the price and time questions twice each before your call.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 14,
+    title: "Choosing a Guide",
+    objective:
+      "Interview a captain or fly guide about experience, the season's best targets, release policy, group size, and working with beginners.",
+    steps: [
+      wm(
+        "Match: el guía, la experiencia, ¿qué especie buscamos?, la temporada, la pesca con mosca, principiante, ¿cuántas personas?, la liberación.",
+        5,
+      ),
+      sp(
+        "Interview a guide before booking: their experience, the season's best target, whether they release billfish, and how they work with a beginner in your group.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Reread 'The Panga and Its Crew' and note how to address the captain and mate.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 15,
+    title: "At the Tackle Shop",
+    objective:
+      "Explain what you're targeting and ask for lures, line weight, leader, hooks, and rod or reel advice — and what it all costs.",
+    steps: [
+      wm(
+        "Match: la tienda de pesca, el señuelo, la línea, el líder, el anzuelo, las libras, la caña, ¿qué me recomienda?",
+        5,
+      ),
+      sp(
+        "Tell the tackle-shop owner what you're targeting tomorrow and ask which lures, line weight, and leader he recommends, then check the total before you pay.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Species tab. Pick three species you'll name to the shop owner and say one feature of each.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 16,
+    title: "Buying Live Bait",
+    objective:
+      "Buy live bait from a bait boat at dawn: ask what they have, the price per dozen, and how to keep it alive.",
+    steps: [
+      wm(
+        "Match: la carnada viva, la sardina, el caballito, la macarela, el calamar, la docena, el vivero, la carnada muerta.",
+        5,
+      ),
+      sp(
+        "The bait panga pulls alongside at dawn. Ask what bait they have, buy a dozen, pay, and ask the mate to load the live well.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → On the Boat tab. Review the commands you'll hear right after the bait goes in the water.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 17,
+    title: "Fishing with Kids and First-Timers",
+    objective:
+      "Arrange a trip for children, beginners, or someone with limited mobility: child life jackets, shade, shorter hours, simple rigs, and help boarding.",
+    steps: [
+      wm(
+        "Match: los niños, el chaleco para niño, la sombra, medio día, principiante, subir a la panga, ayúdeme, más despacio.",
+        5,
+      ),
+      sp(
+        "Arrange a half-day trip for your two children and a parent who has trouble climbing into a panga. Ask about child life jackets, shade, and help boarding.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → On the Boat tab. Choose the three commands a beginner most needs and practice explaining them simply.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 18,
+    title: "Trolling Offshore",
+    objective:
+      "Follow a trolling spread for billfish: speed, which lure runs where, port and starboard, and what to watch for.",
+    steps: [
+      wm(
+        "Match: pescar al curricán, la velocidad, los tangones, el señuelo, el teaser, a babor, a estribor, ¡mira atrás!",
+        5,
+      ),
+      sp(
+        "The captain sets a trolling spread for marlin. Ask about speed and which lure goes where, then call out a fish rising behind the port lure.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Species tab. Review marlín azul, marlín rayado, and pez vela and how to tell them apart.",
+        5,
+      ),
+    ],
+  },
+  {
+    n: 19,
+    title: "Bottom Fishing and Jigging",
+    objective:
+      "Follow instructions for fishing a reef: how deep to drop, when to jig, and what to do when a fish takes it near the rocks.",
+    steps: [
+      wm(
+        "Match: el fondo, el arrecife, la piedra, el jig, soltar línea, subir rápido, el pargo, ¿cuántas brazas?",
+        5,
+      ),
+      sp(
+        "Over a rocky reef, the captain tells you how deep to drop, when to jig, and to pull hard so a snapper can't reach the rocks. Follow along and ask questions.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Species tab. Review pargo, jurel, and sierra and say where each one is usually found.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 20,
+    title: "Reading the Forecast",
+    objective:
+      "Ask about wind, swell, fog, and port closures, and accept the captain's decision to go or stay in.",
+    steps: [
+      wm(
+        "Match: el pronóstico, el viento del norte, la marejada, el puerto cerrado, la capitanía de puerto, la neblina, mañana temprano, ¿salimos o no?",
+        5,
+      ),
+      sp(
+        "The night before, ask your captain about the forecast, whether the port might close, and how he'll decide. Accept a 'no' gracefully and ask about rescheduling.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Reread 'Agua azul vs. agua verde' and talk about how wind changes where you'll fish.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 21,
+    title: "Emergencies on the Water",
+    objective:
+      "Report an injury or person overboard calmly, ask for the first-aid kit or radio, and agree on returning to port.",
+    steps: [
+      wm(
+        "Match: el chaleco salvavidas, el radio, ¡hombre al agua!, el botiquín, el anzuelo clavado, la emergencia, la capitanía, regresar al puerto.",
+        5,
+      ),
+      sp(
+        "A hook is buried in your friend's hand far offshore. Tell the captain calmly, ask for the first-aid kit, and agree on whether to head back to port.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → On the Boat tab. Review '¡Cuidado con la línea!' and the other warning commands you'd shout first.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 22,
+    title: "Engine Trouble Offshore",
+    objective:
+      "Find out what's wrong when the engine dies, whether another boat can tow you, how long you'll wait, and what happens to the day's fee.",
+    steps: [
+      wm(
+        "Match: el motor, no arranca, la gasolina, la batería, remolcar, la otra panga, el radio, ¿cuánto tiempo?",
+        5,
+      ),
+      sp(
+        "The engine dies twelve miles out. Ask the captain what's wrong, whether another panga can tow you, how long the wait will be, and how the lost hours will be handled.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → At the Dock tab. Review the phrases you'd use to discuss the day once you're back at the marina.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 23,
+    title: "Speaking Up for the Release",
+    objective:
+      "Politely but firmly ask the crew to release a billfish or undersized fish in the water, and thank them for respecting your choice.",
+    steps: [
+      wm(
+        "Match: el anzuelo circular, dejarlo en el agua, una foto rápida, revivir, está muy chico, prefiero soltarlo, por favor, no lo saquemos.",
+        5,
+      ),
+      sp(
+        "The mate wants to gaff a sailfish for a photo. Politely but firmly ask to release it in the water, explain why, and thank him for respecting your choice.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Reread 'Suéltalo — The Release Ethic' and practice explaining it in your own words.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 24,
+    title: "Cleaning and Packing the Catch",
+    objective:
+      "Ask the dock fish cleaner to fillet, skin, bag, ice, freeze, or vacuum-pack your catch, and confirm the price.",
+    steps: [
+      wm(
+        "Match: limpiar, filetear, el filete, la piel, las espinas, empacar al vacío, congelar, la hielera.",
+        5,
+      ),
+      sp(
+        "Hand your dorado to the dock fish cleaner. Ask him to fillet and skin it, vacuum-pack and freeze it for your flight, and tell you the price. Confirm the airline's rules yourself.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → At the Dock tab. Review the ice, cooler, and price phrases from Lesson 8.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 25,
+    title: "Cooking the Catch",
+    objective:
+      "Ask a restaurant to cook your fish: whether they will, which preparations they recommend, and the price per person.",
+    steps: [
+      wm(
+        "Match: ¿nos lo cocinan?, a la plancha, al mojo de ajo, el ceviche, los tacos de pescado, empanizado, por persona, las tortillas.",
+        5,
+      ),
+      sp(
+        "Bring your tuna to a beachfront restaurant. Ask whether they'll cook it, which two preparations they recommend, and what they charge per person.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Species tab. Say which species you'd want as ceviche and which grilled, and why.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 26,
+    title: "Settling the Charter Bill",
+    objective:
+      "Question an unexpected fuel, bait, or extra-hour charge calmly, keep it separate from the tip, and agree on a fair total.",
+    steps: [
+      wm(
+        "Match: la cuenta, el combustible, la hora extra, no estaba incluido, el recibo, ¿me lo explica?, el total, la propina aparte.",
+        5,
+      ),
+      sp(
+        "At the dock, the captain adds a fuel surcharge you weren't told about. Ask him to explain it, refer to what was agreed, settle a fair total, and then give the tip separately.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Reread 'La propina — The Tip as Livelihood' so the fee discussion doesn't shortchange the crew.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 27,
+    title: "Tournament Registration",
+    objective:
+      "Register for a local tournament: entry fee, categories, start signal, release rules, and weigh-in time.",
+    steps: [
+      wm(
+        "Match: el torneo, la inscripción, las reglas, la categoría, la salida, el pesaje, el premio, el juez.",
+        5,
+      ),
+      sp(
+        "Register for a local tournament: ask about the entry fee, categories, the start signal, release rules for billfish, and when the weigh-in closes.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → Species tab. Identify which species belong to which tournament category.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 28,
+    title: "The Weigh-In",
+    objective:
+      "Present your fish at the scale, ask for a re-weigh when the number looks wrong, and accept the judge's final decision gracefully.",
+    steps: [
+      wm(
+        "Match: la báscula, el peso oficial, la medida, no estoy de acuerdo, ¿puede volver a pesarlo?, la foto, la decisión, felicidades.",
+        5,
+      ),
+      sp(
+        "Your fish weighs less at the official scale than on the boat's scale. Politely ask the judge to re-weigh, then accept the final decision and congratulate the winner.",
+        6,
+      ),
+      fi(
+        "Open Fishing module → At the Dock tab. Review the weighing and dock phrases you'll use at the scale.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 29,
+    title: "Stories at the Cantina",
+    objective:
+      "Hold a long conversation with local anglers about the day, past seasons, and favorite spots, with follow-up questions and no English.",
+    steps: [
+      wm(
+        "Match: ¿cómo le fue?, se me fue, el más grande, hace años, la temporada pasada, ¿dónde lo pescó?, no lo creo, ¡qué suerte!",
+        5,
+      ),
+      sp(
+        "At the cantina after a tournament, trade fishing stories with local anglers: the one that got away, the best season, and a spot they recommend. Keep it going for several turns.",
+        7,
+      ),
+      fi(
+        "Open Fishing module → Culture tab. Pick two culture notes you could bring up naturally in conversation.",
+        4,
+      ),
+    ],
+  },
+  {
+    n: 30,
     title: "The Full Day — Threshold",
     objective:
-      "String together a complete fishing day in Spanish — from dock greeting to final tip — with no English.",
+      "Run a complete fishing trip in Spanish — license and booking, gear and bait, strike commands, species, weather and safety calls, release decisions, cleaning and cooking, the bill, and the tip — with no English.",
     steps: [
       fi(
         "Open Fishing module. Review all five sub-tabs from start to finish. Say each phrase aloud. Prepare for the full simulation.",
         8,
       ),
       sp(
-        "Full fishing day simulation: dock greeting, departure, first strike, fight, species identification, release or keep decision, lunch conversation, return, dock arrival, final tip and farewell. Stay in Spanish.",
+        "Full fishing trip simulation: book the charter and license, buy bait, depart, react to a strike, name the fish, handle a weather or safety call, decide release or keep within the rules, get the catch cleaned and cooked, settle the bill, and tip the crew. Stay in Spanish.",
         10,
       ),
       wm(
-        "Final warm-down: match 20 random items from species, boat commands, and dock phrases combined. Beat your Lesson 1 score.",
+        "Final warm-down: match 20 random items from species, boat commands, rules, weather, and dock phrases combined. Beat your Lesson 10 score.",
         5,
       ),
     ],
@@ -2965,9 +3365,9 @@ export const CURRICULA: Record<string, ModuleCurriculum> = {
   },
   "sport-fishing": {
     moduleId: "sport-fishing",
-    headline: "The Angler's Core 10",
+    headline: "The Angler's Core 30",
     threshold:
-      "By Lesson 10, you can run a complete day of fishing in Spanish — dock greeting, strike commands, species identification, conservation decisions, and a proper tip and farewell to your captain and crew.",
+      "By Lesson 30, you can run a complete fishing trip in Spanish — licenses and charter booking, tackle and bait, strike commands, species identification, weather and safety calls, conservation decisions, cleaning and cooking the catch, tournaments, and a proper tip and farewell to your captain and crew.",
     lessons: FISHING_LESSONS,
   },
 };

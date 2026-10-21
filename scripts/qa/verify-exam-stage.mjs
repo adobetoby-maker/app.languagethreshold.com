@@ -250,11 +250,14 @@ assert.equal(landscaperSource.sourceCoverage.lessonsWithTeachingSettings, 30);
 assert.deepEqual(landscaperSource.sourceCoverage.missingWordLists, []);
 assert.equal(landscaperSource.sourceCoverage.structurallyComplete, true);
 assert.equal(landscaperSource.status, "upgrade_in_progress");
-const shortSource = readiness.body.tracks.find((row) => row.moduleId === "travel-breakfast");
-assert.deepEqual(
-  shortSource.sourceCoverage.missingLessonNumbers,
-  Array.from({ length: 15 }, (_, index) => index + 16),
-);
+// Every module now plans 30 lessons (the short-curriculum gap path is unit-tested with a synthetic
+// fixture in tests/lesson-source-coverage.test.mjs). The expanded travel and fishing plans must report
+// no missing lesson numbers while their word lists and passages are still pending.
+for (const moduleId of ["travel-breakfast", "sport-fishing"]) {
+  const expandedSource = readiness.body.tracks.find((row) => row.moduleId === moduleId);
+  assert.deepEqual(expandedSource.sourceCoverage.missingLessonNumbers, [], moduleId);
+  assert.equal(expandedSource.sourceCoverage.structurallyComplete, false, moduleId);
+}
 const reverseRoofing = english.body.tracks.find((row) => row.moduleId === "roofing");
 assert.equal(reverseRoofing.sourceCoverage.lessonsWithWords, 0);
 assert.equal(reverseRoofing.sourceCoverage.lessonsWithPassages, 0);

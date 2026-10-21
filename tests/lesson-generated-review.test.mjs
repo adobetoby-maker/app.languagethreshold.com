@@ -8,6 +8,7 @@ import { createHash } from "node:crypto";
 import { build } from "esbuild";
 import { verifyLessonReviewContent } from "../scripts/verify-lesson-review-content.mjs";
 import { loadModule } from "./helpers/bundle.mjs";
+import { contentPendingFor } from "./fixtures/content-pending.mjs";
 
 const { lessonReviewSnapshot, lessonReviewFingerprint, serializeLessonReviewSnapshot } =
   await loadModule("src/lib/lesson-review.ts");
@@ -120,11 +121,27 @@ test("current snapshot binds exact generated source and verbs while inline words
   assert.notEqual(roofing().lessons[0].verbs[0].forms.yo, "changed");
 });
 
-test("generated fallback words/passage/listening are visible without invented teaching or thirty lessons", () => {
+test("generated fallback words/passage/listening are visible without invented teaching or content", () => {
   const snapshot = currentLessonReviewSnapshot("travel-breakfast", "Spanish", "English");
-  assert.equal(snapshot.lessons.length, 15);
-  assert.ok(snapshot.gaps.some((g) => /requires 30/.test(g)));
+  const pending = contentPendingFor("travel-breakfast");
+  assert.equal(snapshot.lessons.length, 30);
+  assert.ok(!snapshot.gaps.some((g) => /requires 30/.test(g)));
+  assert.ok(pending.size > 0, "fixture still lists plan-only lessons for this module");
   for (const lesson of snapshot.lessons) {
+    if (pending.has(lesson.lessonNumber)) {
+      // Plan exists, content pending: nothing is borrowed or invented for it.
+      assert.deepEqual(lesson.words, []);
+      assert.equal(lesson.reading, null);
+      assert.deepEqual(lesson.verbs, []);
+      assert.deepEqual(lesson.listeningItems, []);
+      assert.deepEqual(lesson.materialSources, {
+        words: "unmapped-fallback",
+        reading: "unmapped-library-fallback",
+        verbs: "unmapped",
+      });
+      assert.equal(lesson.teaching, null);
+      continue;
+    }
     assert.ok(lesson.words.length >= 12);
     assert.ok(lesson.reading.sentences.length >= 5);
     assert.ok(lesson.verbs.length >= 3);

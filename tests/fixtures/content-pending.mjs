@@ -20,36 +20,11 @@
 // When content lands, remove its entries from both lists (empty objects are fine). Nothing else
 // needs to change: GENERATOR_LESSON_ARGS is derived from the lists and empties with them.
 
-const range = (from, to) => Array.from({ length: to - from + 1 }, (_, index) => from + index);
+// Travel 15-30 and Sport Fishing 10-30 were generated (T5c) and reviewed (T5d), so both lists are
+// now empty. Add entries here again the next time a plan lands ahead of its content.
+export const CONTENT_PENDING_LESSONS = Object.freeze({});
 
-const TRAVEL_ZONES = [
-  "travel-breakfast",
-  "travel-lunch",
-  "travel-dinner",
-  "travel-shopping-essentials",
-  "travel-daily-life-services",
-  "travel-markets-souvenirs",
-  "travel-hotels-lodging",
-  "travel-taxi-rideshare",
-  "travel-trains-transit",
-  "travel-scooter-car-rental",
-  "travel-roadside-mechanics",
-  "travel-guides-attractions",
-  "travel-airport-luggage",
-  "travel-pharmacy-health",
-  "travel-social-dating",
-  "travel-problems-services",
-];
-
-export const CONTENT_PENDING_LESSONS = Object.freeze({
-  ...Object.fromEntries(TRAVEL_ZONES.map((moduleId) => [moduleId, range(16, 30)])),
-  "sport-fishing": range(11, 30),
-});
-
-export const STALE_REGENERATE = Object.freeze({
-  ...Object.fromEntries(TRAVEL_ZONES.map((moduleId) => [moduleId, [15]])),
-  "sport-fishing": [10],
-});
+export const STALE_REGENERATE = Object.freeze({});
 
 /** Lesson numbers of `moduleId` whose plan exists but whose generated content is still pending. */
 export const contentPendingFor = (moduleId) => new Set(CONTENT_PENDING_LESSONS[moduleId] ?? []);

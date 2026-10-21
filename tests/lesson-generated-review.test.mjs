@@ -126,7 +126,6 @@ test("generated fallback words/passage/listening are visible without invented te
   const pending = contentPendingFor("travel-breakfast");
   assert.equal(snapshot.lessons.length, 30);
   assert.ok(!snapshot.gaps.some((g) => /requires 30/.test(g)));
-  assert.ok(pending.size > 0, "fixture still lists plan-only lessons for this module");
   for (const lesson of snapshot.lessons) {
     if (pending.has(lesson.lessonNumber)) {
       // Plan exists, content pending: nothing is borrowed or invented for it.

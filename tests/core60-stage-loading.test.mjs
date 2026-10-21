@@ -148,7 +148,7 @@ test("loading several modules' stages is not remembered when one fails", async (
 
 test("a stage that is not listed, or has no usable file, is never reported as a transient failure", async () => {
   const { registry } = await freshRegistry();
-  for (const id of ["master-plumber", "foundation-plumber", "electrician", "master-roofing", "", null, undefined])
+  for (const id of ["master-plumber", "foundation-roofing", "electrician", "master-roofing", "", null, undefined])
     assert.equal(registry.stageLoadFailed(id), false, String(id));
   // Listed and still loading (nothing has failed): false too.
   assert.equal(registry.stageLoadFailed("foundation-electrician"), false);
@@ -169,16 +169,21 @@ test("a scenario id names the stage to load; other scenarios name none", async (
     stageModuleIdOfScenario("scenario_version_master-electrician_lesson_3_es_v1"),
     "master-electrician",
   );
-  // Core 30, roofing's hand-written stages, curated, core and malformed ids.
+  // A Foundation that is listed names its stage too (foundation-plumber is published and listed).
+  assert.equal(
+    stageModuleIdOfScenario("scenario_version_foundation-plumber_lesson_1_es_v1"),
+    "foundation-plumber",
+  );
+  // Core 30, roofing's hand-written stages, a trade's unlisted Master, curated, core and malformed ids.
   for (const id of [
     "scenario_version_electrician_lesson_3_es_v1",
     "scenario_version_master-roofing_lesson_3_es_v1",
     "scenario_version_master-plumber_lesson_3_es_v1",
+    "scenario_version_foundation-roofing_lesson_1_es_v1",
     "scenario_version_construction_safety_briefing_es_v1",
     "scenario_version_core-speaking_verb_1_es_v1",
     "scenario_version_master-nursing_lesson_x_es_v1",
     "master-nursing_lesson_3_es_v1",
-    "scenario_version_foundation-plumber_lesson_1_es_v1",
     "",
   ]) {
     assert.equal(stageModuleIdOfScenario(id), null, id);
@@ -187,8 +192,8 @@ test("a scenario id names the stage to load; other scenarios name none", async (
 
 test("ensureStageForModule loads exactly the named stage and ignores every other id", async () => {
   const { registry, calls } = await freshRegistry();
-  // Core 30 modules, roofing's hand-written stages, unlisted trades and arbitrary strings: no load.
-  for (const id of ["electrician", "master-roofing", "foundation-plumber", "../../etc/passwd", "", null, undefined]) {
+  // Core 30 modules, roofing's hand-written stages, a trade's unlisted Master and arbitrary strings: no load.
+  for (const id of ["electrician", "master-roofing", "foundation-roofing", "master-plumber", "../../etc/passwd", "", null, undefined]) {
     assert.equal(await registry.ensureStageForModule(id), null, String(id));
   }
   assert.deepEqual(calls, {});
@@ -208,9 +213,12 @@ test("a base module knows its listed stage modules (the Speak catalog loads them
   const { registry } = await freshRegistry();
   assert.deepEqual(registry.stageModulesOfBase("electrician"), ["foundation-electrician", "master-electrician"]);
   assert.deepEqual(registry.stageModulesOfBase("nursing"), ["foundation-nursing", "master-nursing"]);
-  // Roofing's stages are hand-written (not data-driven), and unlisted trades have none.
+  // A trade with only a Foundation lists just that one (its Master is not published).
+  assert.deepEqual(registry.stageModulesOfBase("plumber"), ["foundation-plumber"]);
+  assert.deepEqual(registry.stageModulesOfBase("travel-breakfast"), ["foundation-travel-breakfast"]);
+  // Roofing's stages are hand-written (not data-driven), and a module with no stage has none.
   assert.deepEqual(registry.stageModulesOfBase("roofing"), []);
-  assert.deepEqual(registry.stageModulesOfBase("plumber"), []);
+  assert.deepEqual(registry.stageModulesOfBase("not-a-module"), []);
 });
 
 test("Retry loads in the page when it can, and reloads the page when the browser keeps the failure", async () => {

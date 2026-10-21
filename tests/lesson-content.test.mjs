@@ -280,6 +280,24 @@ test("verbs: 3-5 verbs with sound infinitives, five different forms, and a real 
   unrelatedExample.verbs[2].example.target = "El equipo trabaja hoy.";
   assert.match(errorsOf(unrelatedExample).join("\n"), /does not use any form of the verb/);
 
+  const spellingChange = clone(GOOD);
+  spellingChange.verbs[0] = VERB(
+    "tocar",
+    "to touch",
+    ["toco", "tocas", "toca", "tocamos", "tocan"],
+    ["No toquen nada antes de preguntar.", "Don't touch anything before asking."],
+  );
+  assert.deepEqual(errorsOf(spellingChange), []);
+
+  const hay = clone(GOOD);
+  hay.verbs[0] = VERB(
+    "haber",
+    "there is / there are",
+    ["he", "has", "ha", "hemos", "han"],
+    ["Hay agua fría en la sombra.", "There is cold water in the shade."],
+  );
+  assert.deepEqual(errorsOf(hay), []);
+
   const duplicateVerb = clone(GOOD);
   duplicateVerb.verbs[2] = clone(duplicateVerb.verbs[0]);
   assert.match(errorsOf(duplicateVerb).join("\n"), /duplicate verb/);

@@ -633,10 +633,25 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     const base = infWords[0] ?? "";
     const stem = base.slice(0, Math.max(2, base.length - 2));
     const formTails = forms.map((f) => wordsOf(stripReflexive(f)).pop() ?? "");
+    // Spelling changes before -e (toc- -> toqu-, lleg- -> llegu-, empez- -> empec-) keep
+    // commands and subjunctives like "toquen" recognisable; "hay" is the impersonal form of haber.
+    const stems = [stem];
+    if (spanish) {
+      if (stem.endsWith("c")) stems.push(`${stem.slice(0, -1)}qu`);
+      if (stem.endsWith("g")) stems.push(`${stem}u`);
+      if (stem.endsWith("z")) stems.push(`${stem.slice(0, -1)}c`);
+      if (stem.endsWith("gu")) stems.push(`${stem.slice(0, -1)}ü`);
+    }
+    const extraForms = spanish && base === "haber" ? ["hay"] : [];
     const usesStem = (w: string) =>
-      stem.length >= 3 ? w.startsWith(stem) : w.startsWith(stem) && w.length <= stem.length + 5;
+      stems.some((st) =>
+        st.length >= 3 ? w.startsWith(st) : w.startsWith(st) && w.length <= st.length + 5,
+      );
     const used = exampleWords.some(
-      (w) => usesStem(w) || formTails.some((tail) => tail && w === tail),
+      (w) =>
+        usesStem(w) ||
+        extraForms.includes(w) ||
+        formTails.some((tail) => tail && w === tail),
     );
     if (!used) {
       errors.push(`${name}: the example "${verb.example.target}" does not use any form of the verb`);

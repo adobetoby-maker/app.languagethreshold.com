@@ -298,6 +298,30 @@ test("verbs: 3-5 verbs with sound infinitives, five different forms, and a real 
   );
   assert.deepEqual(errorsOf(hay), []);
 
+  const variant0 = clone(GOOD);
+  variant0.verbs[0] = VERB("sentarse", "to sit down", ["me siento", "te sientas", "se sienta", "nos sentamos", "se sientan"], ["Siéntese aquí, por favor.", "Sit here, please."]);
+  assert.deepEqual(errorsOf(variant0), [], "sentarse");
+
+  const variant1 = clone(GOOD);
+  variant1.verbs[0] = VERB("pararse", "to stand up", ["me paro", "te paras", "se para", "nos paramos", "se paran"], ["Párese y agarre la andadera.", "Stand up and hold the walker."]);
+  assert.deepEqual(errorsOf(variant1), [], "pararse");
+
+  const variant2 = clone(GOOD);
+  variant2.verbs[0] = VERB("ponerse", "to put on", ["me pongo", "te pones", "se pone", "nos ponemos", "se ponen"], ["Póngase el casco, por favor.", "Put on your helmet, please."]);
+  assert.deepEqual(errorsOf(variant2), [], "ponerse");
+
+  const variant3 = clone(GOOD);
+  variant3.verbs[0] = VERB("dar", "to give", ["doy", "das", "da", "damos", "dan"], ["Den 3 vueltas a la cancha.", "Do 3 laps of the field."]);
+  assert.deepEqual(errorsOf(variant3), [], "dar");
+
+  const variant4 = clone(GOOD);
+  variant4.verbs[0] = VERB("jugar", "to play", ["juego", "juegas", "juega", "jugamos", "juegan"], ["Jueguen con intensidad.", "Play with intensity."]);
+  assert.deepEqual(errorsOf(variant4), [], "jugar");
+
+  const variant5 = clone(GOOD);
+  variant5.verbs[0] = VERB("proteger", "to protect", ["protejo", "proteges", "protege", "protegemos", "protegen"], ["Protejan los ojos.", "Protect your eyes."]);
+  assert.deepEqual(errorsOf(variant5), [], "proteger");
+
   const duplicateVerb = clone(GOOD);
   duplicateVerb.verbs[2] = clone(duplicateVerb.verbs[0]);
   assert.match(errorsOf(duplicateVerb).join("\n"), /duplicate verb/);

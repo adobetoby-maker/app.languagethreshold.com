@@ -631,21 +631,37 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     // match unrelated words. Irregular forms are caught through the five forms themselves.
     const infWords = wordsOf(name);
     const base = infWords[0] ?? "";
-    const stem = base.slice(0, Math.max(2, base.length - 2));
+    // Reflexive infinitives drop -se (sentarse -> sentar) so the stem is the verb's own.
+    const inf = spanish && /[aeií]rse$/.test(base) ? base.slice(0, -2) : base;
+    const stem = inf.slice(0, Math.max(1, inf.length - 2));
     const formTails = forms.map((f) => wordsOf(stripReflexive(f)).pop() ?? "");
-    // Spelling changes before -e (toc- -> toqu-, lleg- -> llegu-, empez- -> empec-) keep
-    // commands and subjunctives like "toquen" recognisable; "hay" is the impersonal form of haber.
-    const stems = [stem];
+    // Stem variants keep commands and subjunctives recognisable: vowel changes (sient-, jueg-),
+    // spelling changes before -e (toqu-, llegu-, empec-, protej-) and the yo-form stem (pong-).
+    const stems = new Set([stem]);
     if (spanish) {
-      if (stem.endsWith("c")) stems.push(`${stem.slice(0, -1)}qu`);
-      if (stem.endsWith("g")) stems.push(`${stem}u`);
-      if (stem.endsWith("z")) stems.push(`${stem.slice(0, -1)}c`);
-      if (stem.endsWith("gu")) stems.push(`${stem.slice(0, -1)}ü`);
+      const vowel = (st: string, from: string, to: string) => {
+        const i = st.lastIndexOf(from);
+        return i >= 0 ? st.slice(0, i) + to + st.slice(i + from.length) : st;
+      };
+      for (const v of [vowel(stem, "e", "ie"), vowel(stem, "o", "ue"), vowel(stem, "u", "ue"), vowel(stem, "e", "i")])
+        stems.add(v);
+      for (const st of [...stems]) {
+        if (st.endsWith("c")) stems.add(`${st.slice(0, -1)}qu`);
+        if (st.endsWith("g")) stems.add(`${st}u`).add(`${st.slice(0, -1)}j`);
+        if (st.endsWith("z")) stems.add(`${st.slice(0, -1)}c`);
+      }
+      const yo = formTails[0] ?? "";
+      if (yo.length >= 4 && yo.endsWith("o")) stems.add(yo.slice(0, -1));
     }
-    const extraForms = spanish && base === "haber" ? ["hay"] : [];
+    const extraForms = spanish && inf === "haber" ? ["hay"] : [];
+    const SHORT_ENDINGS = ["", "a", "an", "as", "e", "en", "es", "o", "oy", "ar", "er", "ir", "amos", "emos", "imos", "ad", "ed"];
     const usesStem = (w: string) =>
-      stems.some((st) =>
-        st.length >= 3 ? w.startsWith(st) : w.startsWith(st) && w.length <= st.length + 5,
+      [...stems].some((st) =>
+        st.length >= 3
+          ? w.startsWith(st)
+          : st.length === 2
+            ? w.startsWith(st) && w.length <= st.length + 5
+            : SHORT_ENDINGS.some((end) => w === st + end || (w.startsWith(st + end) && /^(se|me|te|nos|le|les|lo|la|los|las)$/.test(w.slice(st.length + end.length)))),
       );
     const used = exampleWords.some(
       (w) =>

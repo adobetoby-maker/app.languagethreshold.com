@@ -62,6 +62,49 @@ test("home meters count mastered verbs", () => {
   assert.match(bar, /aria-valuenow="1"/);
 });
 
+test("home tile counts use the same source pool as the picker", () => {
+  const data = miniData();
+  const goYo = "es.present.go-yo";
+  const pickerCount = (dev, moduleId) => {
+    const h = html(VerbPicker, { data, device: dev, moduleId, game: "bubble", family: goYo, go() {}, onSettings() {} });
+    return Number(h.slice(h.indexOf(`data-testid="family-${goYo}"`)).match(/(\d+) verbs?</)?.[1]);
+  };
+  const homeMax = (dev, moduleId) => {
+    const h = html(VerbsHome, { data, device: dev, moduleId, go() {} });
+    return Number(tagOf(h, `data-family-meter="${goYo}"`).match(/aria-valuemax="(\d+)"/)?.[1]);
+  };
+  const sources = [
+    ["core", null, device({})],
+    ["core with module", "roofing", device({})],
+    ["module", "roofing", device({ settings: { source: "module", listMode: false } })],
+    ["both", "roofing", device({ settings: { source: "both", listMode: false } })],
+  ];
+  const seen = new Set();
+  for (const [name, moduleId, dev] of sources) {
+    const picker = pickerCount(dev, moduleId);
+    assert.ok(Number.isInteger(picker), `${name}: picker count parsed`);
+    assert.equal(homeMax(dev, moduleId), picker, name);
+    seen.add(picker);
+  }
+  assert.ok(seen.size > 1, "module and core pools differ in the fixture");
+});
+
+test("a Core learner can fill the meter: mastered verbs count against the core pool only", () => {
+  const data = miniData();
+  const mastery = {};
+  const core = data.verbs.filter((v) => v.sources.some((s) => s.kind === "core") && v.forms.some((f) => f.families.includes("es.present.go-yo")));
+  for (const v of core) mastery[`es.present.go-yo|${v.infinitive}`] = { picks: 40, correct: 40 };
+  const bar = tagOf(html(VerbsHome, { data, device: device({ mastery }), moduleId: null, go() {} }), 'data-family-meter="es.present.go-yo"');
+  assert.equal(bar.match(/aria-valuenow="(\d+)"/)?.[1], bar.match(/aria-valuemax="(\d+)"/)?.[1]);
+});
+
+test("below sm each tile shows one example form; the rest appear from sm", () => {
+  const h = html(VerbsHome, { data: miniData(), device: EMPTY_VERB_DEVICE, moduleId: null, go() {} });
+  const tile = h.slice(h.indexOf('data-family="es.present.go-yo"'));
+  const forms = tile.slice(0, tile.indexOf("<span role=\"progressbar\""));
+  assert.equal((forms.match(/<span class="hidden sm:inline">/g) ?? []).length, 2);
+});
+
 test("family tiles and game cards navigate through go()", () => {
   const seen = [];
   const h = html(VerbsHome, { data: miniData(), device: EMPTY_VERB_DEVICE, moduleId: null, go: (s) => seen.push(s) });

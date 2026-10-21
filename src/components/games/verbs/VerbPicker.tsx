@@ -11,7 +11,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
 const CAPTION = "font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground";
-const FOCUS = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+const FOCUS = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 const GAME_TITLE: Record<GameId, string> = { bubble: "Bubble Pop", crush: "Verb Crush" };
 
 type Settings = VerbDeviceState["settings"];
@@ -24,6 +24,20 @@ function familyVerbCount(data: PatternData, source: SourceFilter, family: Family
   return family === "mix" ? pool.length : pool.filter((v) => v.forms.some((f) => f.families.includes(family))).length;
 }
 
+/** Words never break inside ("-ar" stays whole); the line can only wrap between words. */
+function NoBreak({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(" ").map((word, i) => (
+        <span key={i}>
+          {i > 0 ? " " : ""}
+          <span className="whitespace-nowrap">{word}</span>
+        </span>
+      ))}
+    </>
+  );
+}
+
 function Choice(p: { selected: boolean; onClick(): void; children: React.ReactNode; testId?: string; wide?: boolean }) {
   return (
     <button
@@ -31,12 +45,13 @@ function Choice(p: { selected: boolean; onClick(): void; children: React.ReactNo
       aria-pressed={p.selected}
       data-testid={p.testId}
       onClick={p.onClick}
-      className={`flex min-h-11 min-w-0 cursor-pointer items-center justify-between gap-2 rounded-xl border px-3.5 py-2.5 text-left transition-colors duration-200 ${FOCUS} ${
+      className={`relative flex min-h-11 min-w-0 cursor-pointer items-center rounded-xl border py-2.5 pl-3.5 pr-9 text-left transition-colors duration-200 ${FOCUS} ${
         p.selected ? "border-gold bg-gold/10" : "border-border/60 bg-background/40 hover:border-gold/50 hover:bg-card/70"
       } ${p.wide ? "col-span-2" : ""}`}
     >
       {p.children}
-      {p.selected && <Check className="h-4 w-4 shrink-0 text-gold-ink" strokeWidth={2.2} aria-hidden="true" />}
+      {/* Absolutely placed and the space always reserved (pr-9), so selecting never reflows the label. */}
+      {p.selected && <Check className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gold-ink" strokeWidth={2.2} aria-hidden="true" />}
     </button>
   );
 }
@@ -104,7 +119,9 @@ export function VerbPicker(p: {
           {FAMILIES.map((f, i) => (
             <Choice key={f.id} selected={family === f.id} onClick={() => choose(f.id)} testId={`family-${f.id}`} wide={i === FAMILIES.length - 1 && i % 2 === 0}>
               <span className="min-w-0">
-                <span className="block font-display text-base font-semibold text-foreground">{f.label}</span>
+                <span className="block font-display text-base font-semibold text-foreground">
+                  <NoBreak text={f.label} />
+                </span>
                 <span className="block font-mono text-xs text-muted-foreground">{plural(familyVerbCount(p.data, source, f.id))}</span>
               </span>
             </Choice>

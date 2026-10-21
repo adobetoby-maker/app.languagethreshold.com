@@ -1,7 +1,8 @@
 // Built by TAC — 2026-10-21
 import { ArrowRight, Trophy } from "lucide-react";
 import { FAMILIES } from "@/lib/verb-games/families";
-import { familyMastery, suggestedFamily, type VerbDeviceState } from "@/lib/verb-games/device";
+import { familyMastery, sourceFilterFor, suggestedFamily, type VerbDeviceState } from "@/lib/verb-games/device";
+import { poolVerbs } from "@/lib/verb-games/pool";
 import { ROUND_MS } from "@/lib/verb-games/rules";
 import type { FamilyId, GameId, PatternData, PatternFamily, VerbEntry } from "@/lib/verb-games/types";
 import type { VerbScreen } from "@/lib/verb-games/verb-route";
@@ -9,7 +10,7 @@ import { PieceTile } from "./PieceTile";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
 const CAPTION = "font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground";
-const FOCUS = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+const FOCUS = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground dark:focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const GAME_COPY: Record<GameId, { title: string; blurb: string; pieces: { kind: "stem" | "ending" | "whole"; label: string }[] }> = {
   bubble: {
@@ -36,9 +37,9 @@ function rankOf(verb: VerbEntry): number {
   return Math.min(...verb.sources.flatMap((s) => (s.kind === "core" ? [s.rank] : [])), Number.MAX_SAFE_INTEGER);
 }
 
-/** The yo forms of the family's most common verbs, e.g. ["tengo", "hago", "digo"]. */
-function exampleForms(data: PatternData, id: FamilyId): string[] {
-  return data.verbs
+/** The yo forms of the family's most common verbs in the pool, e.g. ["tengo", "hago", "digo"]. */
+function exampleForms(verbs: VerbEntry[], id: FamilyId): string[] {
+  return verbs
     .filter((v) => v.forms[0]?.families.includes(id))
     .sort((a, b) => rankOf(a) - rankOf(b))
     .slice(0, 3)
@@ -57,13 +58,14 @@ function bestRank(device: VerbDeviceState, game: GameId): number | null {
 
 function FamilyTile(p: {
   family: PatternFamily;
-  data: PatternData;
+  /** The verbs of the learner's chosen source: the same pool the picker counts. */
+  pool: VerbEntry[];
   device: VerbDeviceState;
   suggested: boolean;
   wide: boolean;
   go(s: VerbScreen): void;
 }) {
-  const infinitives = p.data.verbs.filter((v) => v.forms.some((f) => f.families.includes(p.family.id))).map((v) => v.infinitive);
+  const infinitives = p.pool.filter((v) => v.forms.some((f) => f.families.includes(p.family.id))).map((v) => v.infinitive);
   const mastery = familyMastery(p.device, p.family.id, infinitives);
   const total = infinitives.length;
   const pct = total === 0 ? 0 : Math.round((mastery.verbsMastered / total) * 100);
@@ -92,8 +94,8 @@ function FamilyTile(p: {
         />
       </span>
       <span className="block truncate font-mono text-xs text-muted-foreground">
-        {exampleForms(p.data, p.family.id).map((form, i) => (
-          <span key={form} className={i === 2 ? "hidden sm:inline" : undefined}>
+        {exampleForms(p.pool, p.family.id).map((form, i) => (
+          <span key={form} className={i > 0 ? "hidden sm:inline" : undefined}>
             {i > 0 && <span aria-hidden="true"> · </span>}
             {form}
           </span>
@@ -120,7 +122,7 @@ function FamilyTile(p: {
   );
 }
 
-function Ladder(p: { eyebrow: string; families: readonly PatternFamily[]; data: PatternData; device: VerbDeviceState; suggested: FamilyId; go(s: VerbScreen): void }) {
+function Ladder(p: { eyebrow: string; families: readonly PatternFamily[]; pool: VerbEntry[]; device: VerbDeviceState; suggested: FamilyId; go(s: VerbScreen): void }) {
   return (
     <div className="space-y-2.5">
       <h3 className={CAPTION}>{p.eyebrow}</h3>
@@ -129,7 +131,7 @@ function Ladder(p: { eyebrow: string; families: readonly PatternFamily[]; data: 
           <FamilyTile
             key={family.id}
             family={family}
-            data={p.data}
+            pool={p.pool}
             device={p.device}
             suggested={family.id === p.suggested}
             wide={p.families.length % 2 === 1 && i === p.families.length - 1}
@@ -182,6 +184,7 @@ function GameCard(p: { game: GameId; suggested: FamilyId; device: VerbDeviceStat
 
 export function VerbsHome(p: { data: PatternData; device: VerbDeviceState; moduleId: string | null; go(s: VerbScreen): void }) {
   const suggested = suggestedFamily(p.device, p.data);
+  const pool = poolVerbs(p.data, sourceFilterFor(p.device.settings, p.moduleId));
   const tier1 = FAMILIES.filter((f) => f.tier === 1);
   const tier2 = FAMILIES.filter((f) => f.tier === 2);
   return (
@@ -202,8 +205,8 @@ export function VerbsHome(p: { data: PatternData; device: VerbDeviceState; modul
       </header>
 
       <div className="space-y-5">
-        <Ladder eyebrow="Ladder · start here" families={tier1} data={p.data} device={p.device} suggested={suggested} go={p.go} />
-        <Ladder eyebrow="Ladder · stem changes" families={tier2} data={p.data} device={p.device} suggested={suggested} go={p.go} />
+        <Ladder eyebrow="Ladder · start here" families={tier1} pool={pool} device={p.device} suggested={suggested} go={p.go} />
+        <Ladder eyebrow="Ladder · stem changes" families={tier2} pool={pool} device={p.device} suggested={suggested} go={p.go} />
       </div>
 
       <div className="space-y-2.5">

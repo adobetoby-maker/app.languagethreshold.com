@@ -150,44 +150,31 @@ export function FamilyPackagePanel() {
   }
 
   async function joinGroup() {
-    if (!joinCode.trim() || !joinLastName.trim() || !joinName.trim()) return;
+    if (!user || !joinCode.trim() || !joinLastName.trim() || !joinName.trim()) return;
     setJoining(true);
-    const code = joinCode.trim().toUpperCase();
-    const { data: group, error: gErr } = await supabase
-      .from("family_groups")
-      .select("*")
-      .eq("family_code", code)
-      .maybeSingle();
-    if (gErr || !group) {
-      setJoining(false);
-      setFeedback("No family group found with that code.");
-      return;
-    }
-    if (
-      (group as FamilyGroup).last_name.trim().toLowerCase() !== joinLastName.trim().toLowerCase()
-    ) {
-      setJoining(false);
-      setFeedback("Last name doesn't match this family group.");
-      return;
-    }
-    const { error: mErr } = await supabase.from("family_members").insert({
-      group_id: (group as FamilyGroup).id,
-      display_name: joinName.trim().slice(0, 60),
-      relationship: joinRelationship,
-      hometown_city: joinCity.trim() || null,
-      hometown_country: joinCountry.trim() || null,
+    // Code + last name are checked server-side; groups are not readable before joining.
+    const { data, error } = await supabase.rpc("join_family_group", {
+      p_family_code: joinCode.trim().toUpperCase(),
+      p_last_name: joinLastName.trim(),
+      p_display_name: joinName.trim().slice(0, 60),
+      p_relationship: joinRelationship,
+      p_hometown_city: joinCity.trim() || null,
+      p_hometown_country: joinCountry.trim() || null,
     });
     setJoining(false);
-    if (mErr) {
+    if (error) {
       setFeedback(
-        mErr.message.includes("Family group is full")
+        error.message.includes("Family group is full")
           ? "This family group already has 7 members."
-          : "Could not join family group.",
+          : error.message.includes("No family group matches")
+            ? "No family group matches that code and last name."
+            : "Could not join family group.",
       );
       return;
     }
+    const joined = data as { lastName?: string } | null;
     setShowJoin(false);
-    setFeedback(`Welcome to the ${(group as FamilyGroup).last_name} family group! ✦`);
+    setFeedback(`Welcome to the ${joined?.lastName ?? ""} family group! ✦`);
     setJoinCode("");
     setJoinLastName("");
     setJoinName("");

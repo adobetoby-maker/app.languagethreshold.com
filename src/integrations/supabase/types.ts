@@ -76,6 +76,7 @@ export type Database = {
           id: string;
           is_missionary: boolean;
           relationship: string;
+          user_id: string | null;
         };
         Insert: {
           created_at?: string;
@@ -88,6 +89,7 @@ export type Database = {
           id?: string;
           is_missionary?: boolean;
           relationship?: string;
+          user_id?: string | null;
         };
         Update: {
           created_at?: string;
@@ -100,6 +102,7 @@ export type Database = {
           id?: string;
           is_missionary?: boolean;
           relationship?: string;
+          user_id?: string | null;
         };
         Relationships: [
           {
@@ -206,7 +209,17 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      join_family_group: {
+        Args: {
+          p_family_code: string;
+          p_last_name: string;
+          p_display_name: string;
+          p_relationship?: string;
+          p_hometown_city?: string | null;
+          p_hometown_country?: string | null;
+        };
+        Returns: Json;
+      };
     };
     Enums: {
       [_ in never]: never;

@@ -114,8 +114,8 @@ VITE_STRIPE_PRICE_FAMILY
 | `profiles` | `id` (→ auth.users), `data` JSONB | Full AppState + subscription fields stored here |
 | `mission_pins` | `user_id`, `mission_lat/lng`, `hometown_lat/lng` | Public read, authenticated write |
 | `library_books` | `user_id`, `chapters` JSONB | Cloud-synced custom uploads |
-| `family_groups` | `owner_user_id`, `family_code`, `mission_pin_id` | Public read |
-| `family_members` | `group_id`, `is_missionary` | Max 7 per group (DB trigger enforced) |
+| `family_groups` | `owner_user_id`, `family_code`, `mission_pin_id` | Owner/member read only (no anon); join via `join_family_group()` RPC |
+| `family_members` | `group_id`, `user_id`, `is_missionary` | Own-family read; owner insert/delete; max 7 per group (DB trigger) |
 
 `profiles.data` JSONB fields written by Stripe webhook:
 - `subscription_status` — active / trialing / canceled / paused

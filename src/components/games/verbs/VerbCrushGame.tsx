@@ -53,6 +53,13 @@ const TRAP_MS = 360;
 const DIM_MS = 450;
 /** A natural end (goal, moves or time) holds the board this long so the last pop is seen. */
 const END_HOLD_MS = 900;
+/**
+ * A natural end waits for the swap tween and the whole cascade of bursts (the last pass starts
+ * (steps - 1) x CASCADE_MS after the first) before handing over, and never less than END_HOLD_MS.
+ */
+function endHoldMs(steps: number): number {
+  return Math.max(END_HOLD_MS, SWAP_MS + Math.max(0, steps - 1) * CASCADE_MS + BURST_MS + 140);
+}
 /** Pointer travel (px) that turns a press into a drag swap. */
 const SWIPE_PX = 16;
 /** Engine pop points before streak and chain (crush.ts POP_POINTS); used only to read the chain step back. */
@@ -117,7 +124,7 @@ type Geometry = {
 type Burst = { key: string; label: string; step: number; x: number; y: number; delay: number };
 
 /** What one accepted swap does to the board, worked out from the tile ids the engine hands out. */
-type Plan = { bursts: Burst[]; drops: Map<number, number>; reshuffle: boolean };
+type Plan = { bursts: Burst[]; drops: Map<number, number>; reshuffle: boolean; maxStep: number };
 
 /**
  * The engine refills each popped pair with two fresh ids (stem first) in pop order, pass by pass, and
@@ -170,7 +177,7 @@ function planSwap(
     after.forEach((c, i) =>
       drops.set(c.id, base + (Math.floor(i / CRUSH_SIZE) + (i % CRUSH_SIZE)) * DROP_STAGGER_MS),
     );
-    return { bursts, drops, reshuffle };
+    return { bursts, drops, reshuffle, maxStep };
   }
 
   after.forEach((tile, i) => {
@@ -188,14 +195,14 @@ function planSwap(
       });
     drops.set(tile.id, burstDelay(pop.step) + BURST_MS / 2 + (i % CRUSH_SIZE) * DROP_STAGGER_MS);
   });
-  return { bursts, drops, reshuffle };
+  return { bursts, drops, reshuffle, maxStep };
 }
 
 /** Pops burst where the pair was: a done-green chip scales up and fades, a ring opens, four sparks fly. */
-function PopBurst(p: { burst: Burst; still: boolean }) {
+function PopBurst(p: { burst: Burst; still: boolean; track: (a: Animation | undefined) => void }) {
   const root = useRef<HTMLDivElement>(null);
   const { delay } = p.burst;
-  const still = p.still;
+  const { still, track } = p;
   useLayoutEffect(() => {
     const el = root.current;
     if (!el || typeof el.animate !== "function") return;
@@ -203,44 +210,52 @@ function PopBurst(p: { burst: Burst; still: boolean }) {
     const timing = { duration: BURST_MS, delay, easing: EASE, fill: "both" as const };
     if (still) {
       // Reduced motion: the chip fades in place; nothing scales or flies.
-      chip?.animate([{ opacity: 1 }, { opacity: 1, offset: 0.4 }, { opacity: 0 }], {
-        ...timing,
-        duration: BURST_MS + 150,
-      });
-      ring?.animate([{ opacity: 0 }, { opacity: 0 }], timing);
-      sparks.forEach((s) => s.animate([{ opacity: 0 }, { opacity: 0 }], timing));
+      track(
+        chip?.animate([{ opacity: 1 }, { opacity: 1, offset: 0.4 }, { opacity: 0 }], {
+          ...timing,
+          duration: BURST_MS + 150,
+        }),
+      );
+      track(ring?.animate([{ opacity: 0 }, { opacity: 0 }], timing));
+      sparks.forEach((s) => track(s.animate([{ opacity: 0 }, { opacity: 0 }], timing)));
       return;
     }
-    ring?.animate(
-      [
-        { transform: "translate(-50%,-50%) scale(0.5)", opacity: 0.9 },
-        { transform: "translate(-50%,-50%) scale(1.9)", opacity: 0 },
-      ],
-      timing,
+    track(
+      ring?.animate(
+        [
+          { transform: "translate(-50%,-50%) scale(0.5)", opacity: 0.9 },
+          { transform: "translate(-50%,-50%) scale(1.9)", opacity: 0 },
+        ],
+        timing,
+      ),
     );
-    chip?.animate(
-      [
-        { transform: "translate(-50%,-50%) scale(0.7)", opacity: 0 },
-        { transform: "translate(-50%,-50%) scale(1.12)", opacity: 1, offset: 0.3 },
-        { transform: "translate(-50%,-62%) scale(1.2)", opacity: 0 },
-      ],
-      { ...timing, duration: BURST_MS + 140 },
+    track(
+      chip?.animate(
+        [
+          { transform: "translate(-50%,-50%) scale(0.7)", opacity: 0 },
+          { transform: "translate(-50%,-50%) scale(1.12)", opacity: 1, offset: 0.3 },
+          { transform: "translate(-50%,-62%) scale(1.2)", opacity: 0 },
+        ],
+        { ...timing, duration: BURST_MS + 140 },
+      ),
     );
     sparks.forEach((s, i) => {
       const a = (Math.PI * 2 * i) / sparks.length + Math.PI / 4;
       const r = 40;
-      s.animate(
-        [
-          { transform: "translate(-50%,-50%) scale(1)", opacity: 1 },
-          {
-            transform: `translate(calc(-50% + ${(Math.cos(a) * r).toFixed(1)}px), calc(-50% + ${(Math.sin(a) * r).toFixed(1)}px)) scale(0.3)`,
-            opacity: 0,
-          },
-        ],
-        { ...timing, duration: BURST_MS + 40 },
+      track(
+        s.animate(
+          [
+            { transform: "translate(-50%,-50%) scale(1)", opacity: 1 },
+            {
+              transform: `translate(calc(-50% + ${(Math.cos(a) * r).toFixed(1)}px), calc(-50% + ${(Math.sin(a) * r).toFixed(1)}px)) scale(0.3)`,
+              opacity: 0,
+            },
+          ],
+          { ...timing, duration: BURST_MS + 40 },
+        ),
       );
     });
-  }, [delay, still]);
+  }, [delay, still, track]);
   return (
     <div
       ref={root}
@@ -283,8 +298,10 @@ function PopBurst(p: { burst: Burst; still: boolean }) {
 }
 
 /**
- * The 5×5 board. Its width also follows the viewport height (never under 16rem, which keeps tiles at
- * 44 px) so the HUD, the goal and the whole board fit a short phone without scrolling.
+ * The 5×5 board. Its width also follows the viewport height so the HUD, the goal and the whole board
+ * fit a short phone without scrolling, but never drops under 17.5rem (280 px): five 44 px tiles plus four
+ * gaps, the padding and the border need 258 px below sm (6 px gaps and padding) and 270 px from sm (8 px),
+ * so tiles stay at 44 px or more at both breakpoints.
  * Re-renders only when the shown cells, the pick, focus, hints or bursts change. */
 const Board = memo(function Board(p: {
   cells: CrushTile[];
@@ -297,6 +314,7 @@ const Board = memo(function Board(p: {
   boardRef: React.RefObject<HTMLDivElement | null>;
   gridRef: React.RefObject<HTMLDivElement | null>;
   tileEls: React.MutableRefObject<Map<number, HTMLDivElement>>;
+  track: (a: Animation | undefined) => void;
   onCell: (i: number) => void;
   onKey: (e: React.KeyboardEvent<HTMLDivElement>) => void;
   onPointerDown: (e: React.PointerEvent<HTMLDivElement>) => void;
@@ -310,7 +328,7 @@ const Board = memo(function Board(p: {
       ref={p.boardRef}
       data-testid="crush-board"
       data-motion={p.still ? "still" : "move"}
-      className="relative mx-auto aspect-square w-full max-w-[max(16rem,min(28rem,calc(100svh-23.5rem)))] select-none lg:max-w-[max(16rem,min(28rem,calc(100svh-22.5rem)))] overflow-hidden rounded-2xl border border-border/60 bg-card/40 p-1.5 [container-type:inline-size] sm:p-2"
+      className="relative mx-auto aspect-square w-full max-w-[max(17.5rem,min(28rem,calc(100svh-23.5rem)))] select-none lg:max-w-[max(17.5rem,min(28rem,calc(100svh-22.5rem)))] overflow-hidden rounded-2xl border border-border/60 bg-card/40 p-1.5 [container-type:inline-size] sm:p-2"
       style={{ touchAction: "none" }}
     >
       <div
@@ -376,12 +394,17 @@ const Board = memo(function Board(p: {
                     .join(" ")}
                   style={{ fontSize: fitFont(tile) }}
                 >
-                  <PieceTile
-                    kind={tile.kind}
-                    label={tile.label}
-                    selected={selected}
-                    dimmed={p.dimmed.includes(i)}
-                  />
+                  <PieceTile kind={tile.kind} label={tile.label} dimmed={p.dimmed.includes(i)} />
+                  {/* The pick is a frame over the whole cell (ink + white, readable on every piece color and
+                      both themes), so the chevron clip never cuts it into a box inside the notch. */}
+                  {selected ? (
+                    <div
+                      aria-hidden="true"
+                      data-testid="crush-pick"
+                      className="pointer-events-none absolute -inset-[3px] rounded-[10px]"
+                      style={{ boxShadow: "inset 0 0 0 3px #0a1220, inset 0 0 0 5px #ffffff" }}
+                    />
+                  ) : null}
                 </div>
               );
             })}
@@ -389,7 +412,7 @@ const Board = memo(function Board(p: {
         ))}
       </div>
       {p.bursts.map((b) => (
-        <PopBurst key={b.key} burst={b} still={p.still} />
+        <PopBurst key={b.key} burst={b} still={p.still} track={p.track} />
       ))}
     </div>
   );
@@ -424,7 +447,7 @@ function GoalSlot(p: { index: number; completion: Completion | null; still: bool
       data-filled={filled ? "true" : undefined}
       aria-label={c ? `${c.form}, ${c.english}` : `Goal ${p.index + 1}, not made yet`}
       title={c ? `${c.form} · ${c.english}` : undefined}
-      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold ${filled ? "" : "border-dashed border-border"}`}
+      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold lg:w-[calc((100%-0.75rem)/3)] ${filled ? "" : "border-dashed border-border"}`}
       style={
         c
           ? { backgroundColor: PIECE_COLORS.done, borderColor: PIECE_COLORS.done, color: "#0a1220" }
@@ -466,7 +489,7 @@ function GoalBox(p: { level: CrushLevel; goals: Completion[]; still: boolean }) 
       </div>
       <ol
         aria-label="Goal forms"
-        className="mt-2 grid grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-1.5 sm:grid-cols-[repeat(var(--cols-sm),minmax(0,1fr))] lg:grid-cols-2"
+        className="mt-2 grid grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-1.5 sm:grid-cols-[repeat(var(--cols-sm),minmax(0,1fr))] lg:flex lg:flex-wrap lg:justify-center"
         style={{ "--cols": cols, "--cols-sm": count } as React.CSSProperties}
       >
         {Array.from({ length: count }, (_, i) => (
@@ -512,6 +535,10 @@ export function VerbCrushGame(p: {
   const tRef = useRef(0);
   const endedRef = useRef(false);
   const busyRef = useRef(false);
+  /** At most one input that arrived during a swap tween; it runs once the tween settles. */
+  const queued = useRef<(() => void) | null>(null);
+  /** A natural end waiting out its hold; handed over at once if the screen unmounts first. */
+  const pendingEnd = useRef<{ log: RoundLog; result: RoundResult } | null>(null);
   const cellsRef = useRef(cells);
   cellsRef.current = cells;
   const selectedRef = useRef(selected);
@@ -566,7 +593,7 @@ export function VerbCrushGame(p: {
   }, []);
 
   const finish = useCallback(
-    (t: number, quit: boolean) => {
+    (t: number, quit: boolean, steps = 0) => {
       if (endedRef.current) return;
       endedRef.current = true;
       const at = Math.min(t, ROUND_MS.crush);
@@ -583,16 +610,26 @@ export function VerbCrushGame(p: {
       setActive(false);
       setSelected(null);
       stopRemoteTTS();
-      if (quit) onEndRef.current(log, result);
-      // A natural end holds the board briefly so the last pop and the full goal are seen.
-      else later(() => onEndRef.current(log, result), END_HOLD_MS);
+      queued.current = null;
+      if (quit) {
+        onEndRef.current(log, result);
+        return;
+      }
+      // A natural end holds the board so the last pop, its whole chain and the full goal are seen.
+      // If the screen unmounts during the hold, the unmount cleanup hands the round over instead.
+      pendingEnd.current = { log, result };
+      later(() => {
+        const pending = pendingEnd.current;
+        pendingEnd.current = null;
+        if (pending) onEndRef.current(pending.log, pending.result);
+      }, endHoldMs(steps));
     },
     [round, config, data, later],
   );
 
   /** Shows the engine's answer to a swap: flash, reason, goals, HUD, announcements and the end. */
   const report = useCallback(
-    (out: Outcome[], next: CrushView, t: number, reshuffle: boolean) => {
+    (out: Outcome[], next: CrushView, t: number, reshuffle: boolean, steps = 0) => {
       const said: string[] = [];
       const pops = out.flatMap((o) => (o.kind === "complete" ? [o.completion] : []));
       for (const c of pops) said.push(`${c.form} · ${c.english}.`);
@@ -621,7 +658,7 @@ export function VerbCrushGame(p: {
       }
       setView(next);
       setMessage(said.join(" "));
-      if (out.some((o) => o.kind === "end")) finish(t, false);
+      if (out.some((o) => o.kind === "end")) finish(t, false, steps);
     },
     [later, finish],
   );
@@ -644,20 +681,28 @@ export function VerbCrushGame(p: {
 
   const swap = useCallback(
     (a: number, b: number) => {
-      if (endedRef.current || busyRef.current || !adjacent(a, b)) return;
+      if (endedRef.current || !adjacent(a, b)) return;
+      if (busyRef.current) {
+        queued.current = () => swapRef.current(a, b);
+        return;
+      }
+      // Finish every drop, burst and shake still running and drop the old chips, so nothing from the
+      // last swap draws over tiles that are about to move.
       settle();
+      setBursts([]);
       const before = cellsRef.current;
       const streak0 = round.view().streak;
       // Task 7 note: never hand the engine a time before its own clock, or the swap is dropped.
       const at = Math.max(tRef.current, round.view().t);
       const out = round.swap(at, a, b);
-      if (out.every((o) => o.kind === "invalid")) return;
+      // A neutral swap returns no outcome at all ([]), so test for the invalid marker, not "every".
+      if (out.some((o) => o.kind === "invalid")) return;
       setSelected(null);
       const next = round.view();
       const pops = out.flatMap((o) => (o.kind === "complete" ? [o.completion] : []));
       const trapped = out.some((o) => o.kind === "miss");
       const plan = trapped ? null : planSwap(before, next.cells, pops, streak0, geo.current);
-      report(out, next, at, plan?.reshuffle ?? false);
+      report(out, next, at, plan?.reshuffle ?? false, plan?.maxStep ?? 0);
       // Focus follows the tile the player moved.
       if (!trapped && focusRef.current === a) setFocusIndex(b);
 
@@ -714,6 +759,8 @@ export function VerbCrushGame(p: {
     },
     [round, settle, report, track, later, commit],
   );
+  const swapRef = useRef(swap);
+  swapRef.current = swap;
 
   // After the shown cells change: drop the tween transforms, run the refill drops, keep focus on the board.
   useLayoutEffect(() => {
@@ -757,15 +804,26 @@ export function VerbCrushGame(p: {
         const k = Number(active.dataset.index);
         if (k !== focusRef.current) setFocusIndex(k);
       } else {
-        grid?.querySelector<HTMLElement>(`[data-index="${focusRef.current}"]`)?.focus({ preventScroll: true });
+        grid
+          ?.querySelector<HTMLElement>(`[data-index="${focusRef.current}"]`)
+          ?.focus({ preventScroll: true });
       }
     }
+    // One input that arrived during the swap tween runs now, on the board as shown.
+    const next = busyRef.current ? null : queued.current;
+    queued.current = null;
+    next?.();
   }, [cells, track]);
 
   /** Tap or Enter on cell `i`: pick, unpick, swap with the picked neighbor, or move the pick. */
   const choose = useCallback(
     (i: number) => {
       if (endedRef.current) return;
+      if (busyRef.current) {
+        // A tap during the swap tween waits for the board to settle (one input is kept).
+        queued.current = () => chooseRef.current(i);
+        return;
+      }
       setFocusIndex(i);
       const s = selectedRef.current;
       if (s === null) setSelected(i);
@@ -775,6 +833,8 @@ export function VerbCrushGame(p: {
     },
     [swap],
   );
+  const chooseRef = useRef(choose);
+  chooseRef.current = choose;
 
   const onCell = useCallback(
     (i: number) => {
@@ -966,6 +1026,9 @@ export function VerbCrushGame(p: {
       pending.clear();
       for (const a of anims) a.cancel();
       stopRemoteTTS();
+      const end = pendingEnd.current;
+      pendingEnd.current = null;
+      if (end) onEndRef.current(end.log, end.result);
     };
   }, []);
 
@@ -1019,6 +1082,7 @@ export function VerbCrushGame(p: {
           boardRef={boardRef}
           gridRef={gridRef}
           tileEls={tileEls}
+          track={track}
           onCell={onCell}
           onKey={onKey}
           onPointerDown={onPointerDown}

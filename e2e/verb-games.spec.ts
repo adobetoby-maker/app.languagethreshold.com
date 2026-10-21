@@ -361,21 +361,45 @@ test.describe("verb crush", { tag: "@dev-only" }, () => {
     });
   }
 
-  test("crush keeps one tap that lands during the swap tween", async ({ page }) => {
+  test("crush neutral swap moves the tiles and spends a move", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await startCrush(page);
+    // Seed 5: cells 21 and 22 are two endings (-go, -en); swapping them makes no word, so it is neutral.
+    await expect(page.locator('[data-index="21"]')).toHaveAttribute("aria-label", /^ending go,/);
+    await expect(page.locator('[data-index="22"]')).toHaveAttribute("aria-label", /^ending en,/);
+    await page.locator('[data-index="21"]').click();
+    await page.locator('[data-index="22"]').click();
+    await expect(page.locator('[data-index="21"]')).toHaveAttribute("aria-label", /^ending en,/);
+    await expect(page.locator('[data-index="22"]')).toHaveAttribute("aria-label", /^ending go,/);
+    await expect(page.getByTestId("game-hud")).toContainText("MOVES 19");
+    await expect(page.getByTestId("live-region")).toContainText("Swapped. 19 moves left.");
+  });
+
+  test("crush keeps one swipe that lands during the swap tween", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await startCrush(page);
     const a = Number(await page.locator('[data-hint="a"]').getAttribute("data-index"));
     const b = Number(await page.locator('[data-hint="b"]').getAttribute("data-index"));
     const far = [24, 20, 4, 0].find((i) => i !== a && i !== b && Math.abs(i - a) > 6 && Math.abs(i - b) > 6) ?? 24;
-    // Three clicks in one task: the third arrives while the 170 ms swap tween runs.
-    await page.evaluate(
-      ([x, y, z]) => {
-        for (const i of [x, y, z]) document.querySelector<HTMLElement>(`[data-testid="crush-cell"][data-index="${i}"]`)?.click();
-      },
-      [a, b, far],
-    );
-    await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
-    await expect(page.locator(`[data-testid="crush-cell"][data-index="${far}"]`)).toHaveAttribute("aria-selected", "true");
+    // Pick a, swap with b (a pop), then swipe `far` sideways 30 ms later, while the 170 ms tween runs.
+    await page.evaluate(async ([x, y, z]) => {
+      const cell = (i: number) => document.querySelector<HTMLElement>(`[data-testid="crush-cell"][data-index="${i}"]`)!;
+      const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+      cell(x).click();
+      await frame();
+      await frame();
+      cell(y).click();
+      await new Promise((r) => setTimeout(r, 30));
+      const r = cell(z).getBoundingClientRect();
+      const at = (dx: number) => ({ bubbles: true, pointerId: 7, pointerType: "touch", isPrimary: true, clientX: r.left + r.width / 2 + dx, clientY: r.top + r.height / 2 });
+      const dir = z % 5 === 0 ? 1 : -1;
+      cell(z).dispatchEvent(new PointerEvent("pointerdown", at(0)));
+      cell(z).dispatchEvent(new PointerEvent("pointermove", at(dir * 30)));
+      cell(z).dispatchEvent(new PointerEvent("pointerup", at(dir * 30)));
+    }, [a, b, far]);
+    await expect(page.getByTestId("crush-goal-count")).not.toHaveText("0 / 5");
+    // The queued swipe ran after the tween: it spent a move (neutral or pop) or reset the streak (trap).
+    await expect(page.getByTestId("game-hud")).toContainText(/MOVES 18|STREAK ×0/);
   });
 });
 

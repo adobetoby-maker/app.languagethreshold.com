@@ -91,6 +91,16 @@ test("queue: false records the best but does not queue; a repeated round id queu
   assert.equal(s.queue.length, 1);
 });
 
+test("list-mode rounds never set a best but are still queued", () => {
+  const listLog = { ...sampleLog, clientRoundId: "list", config: { ...sampleLog.config, listMode: true } };
+  let s = recordRound(EMPTY_VERB_DEVICE, listLog, { ...sampleResult, score: 999 }, { queue: true });
+  assert.deepEqual(s.bests, {});
+  assert.equal(s.queue.length, 1);
+  assert.equal(s.queue[0].clientRoundId, "list");
+  s = recordRound(s, sampleLog, sampleResult, { queue: true });
+  assert.equal(s.bests["crush|L1:go-yo"].score, 100);
+});
+
 test("suggestedFamily is the first unmastered family by tier then order", () => {
   const data = miniData();
   const first = suggestedFamily(EMPTY_VERB_DEVICE, data);

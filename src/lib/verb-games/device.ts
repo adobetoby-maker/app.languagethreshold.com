@@ -84,7 +84,11 @@ export function readVerbDevice(raw: unknown): VerbDeviceState {
   return out;
 }
 
-/** Stores the round's best for its scope (higher score, or equal score in fewer moves) and optionally queues the log. */
+/**
+ * Stores the round's best for its scope (higher score, or equal score in fewer moves) and optionally
+ * queues the log. List-mode rounds never set a best (they are never ranked) but are still queued.
+ * Mastery is recorded separately by `recordPicks`.
+ */
 export function recordRound(s: VerbDeviceState, log: RoundLog, result: RoundResult, opts: { queue: boolean }): VerbDeviceState {
   let bests = s.bests;
   let scope: string | null = null;
@@ -93,7 +97,7 @@ export function recordRound(s: VerbDeviceState, log: RoundLog, result: RoundResu
   } catch {
     scope = null; // a Crush round without a level has no board and no best
   }
-  if (scope !== null) {
+  if (scope !== null && !log.config.listMode) {
     const key = `${log.config.game}|${scope}`;
     const prev = s.bests[key];
     if (!prev || result.score > prev.score || (result.score === prev.score && result.moves < prev.moves)) {

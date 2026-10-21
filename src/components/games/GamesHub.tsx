@@ -23,6 +23,7 @@ import { useFalseFriends } from "@/state/false-friends-state";
 import { useMatch } from "@/state/match-state";
 import { useDailyChallenge, badgeLabel } from "@/state/daily-challenge-state";
 import { CrossGameAchievements } from "./CrossGameAchievements";
+import { VerbsSection } from "./verbs/VerbsSection";
 import { SoccerPositionsGame } from "./SoccerPositionsGame";
 import { BaseballPositionsGame } from "./BaseballPositionsGame";
 
@@ -250,14 +251,16 @@ export function GamesHub() {
   const dailyBadge = daily.badge();
 
   return (
-    <div className="mx-auto max-w-4xl space-y-6">
+    <div className="mx-auto max-w-4xl space-y-6 has-[[data-verbs-open]]:[&>:not(:first-child):not([data-verbs-root])]:hidden">
       <div>
         <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">⌘ Games</div>
         <h2 className="mt-1 font-display text-3xl font-semibold">Practice that competes back</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Seven games, one leaderboard story. Each game persists per-language stats.
+          Quick games and verb patterns, one leaderboard story. Each game persists per-language stats.
         </p>
       </div>
+
+      <VerbsSection />
 
       {/* ── Today's Challenge ─────────────────────────────────────────── */}
       <button

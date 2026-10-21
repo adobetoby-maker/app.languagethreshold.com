@@ -139,6 +139,17 @@ Rules for everything you write:
 - Stay consistent: the passage, words and verbs of this lesson must belong together.`;
 }
 
+/**
+ * The system prompt for the cli provider (`claude -p --json-schema`): the CLI has no custom tools,
+ * so the reply is the structured output. Only the delivery sentence changes; every rule is kept.
+ */
+export function lessonContentCliSystemPrompt(system: string): string {
+  return system.replaceAll(
+    `by calling the ${LESSON_CONTENT_TOOL_NAME} tool; always call it, once.`,
+    "as ONE JSON object that matches the given JSON schema (your structured output); always return it, once.",
+  );
+}
+
 export function lessonContentUserContent(args: ContentRequestArgs): string {
   const { module, lesson, lessonCount, previousTitle, targetLanguage, nativeLanguage, authored } =
     args;

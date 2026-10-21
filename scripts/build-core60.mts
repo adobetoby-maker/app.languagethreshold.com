@@ -58,7 +58,6 @@
 // printed or logged. cli: no key is read or passed. Progress (gitignored, resumable, one entry per
 // call with its tokens and the CLI's notional cost): .core60-progress/
 
-import { spawn } from "node:child_process";
 import {
   existsSync,
   mkdirSync,
@@ -72,6 +71,7 @@ import { homedir, tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
+import { runClaudeCli } from "../src/lib/claude-cli-runner.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
@@ -473,44 +473,9 @@ async function validatedCall<T>(
 
 let cliCwd: string | null = null;
 
-/**
- * The child's environment: this process's, minus every ANTHROPIC_* variable (an API key, auth
- * token or base URL would make the CLI bill the API instead of the subscription) and every
- * Claude Code session variable (CLAUDECODE, CLAUDE_CODE_*, ...) inherited from a parent session.
- */
-function cliEnv(): NodeJS.ProcessEnv {
-  const env: NodeJS.ProcessEnv = {};
-  for (const [key, value] of Object.entries(process.env)) {
-    if (/^(ANTHROPIC_|CLAUDE_CODE_|CLAUDE_AGENT_SDK_|CLAUDE_PREVIEW_)|^(CLAUDECODE|CLAUDE_PID|CLAUDE_EFFORT)$/.test(key)) continue;
-    env[key] = value;
-  }
-  return env;
-}
-
 function runCli(args: string[], input: string): Promise<{ stdout: string; stderr: string; code: number | null; timedOut: boolean }> {
   cliCwd ??= mkdtempSync(join(tmpdir(), "core60-cli-"));
-  return new Promise((resolveRun) => {
-    const child = spawn(CLAUDE_BIN, args, { cwd: cliCwd!, env: cliEnv(), stdio: ["pipe", "pipe", "pipe"] });
-    let stdout = "";
-    let stderr = "";
-    let timedOut = false;
-    const timer = setTimeout(() => {
-      timedOut = true;
-      child.kill("SIGTERM");
-      setTimeout(() => child.kill("SIGKILL"), 10_000).unref();
-    }, TIMEOUT_MS);
-    child.stdout.on("data", (chunk) => (stdout += chunk));
-    child.stderr.on("data", (chunk) => (stderr += chunk));
-    child.on("error", (error) => {
-      clearTimeout(timer);
-      resolveRun({ stdout, stderr: `${stderr}\n${error.message}`, code: null, timedOut });
-    });
-    child.on("close", (code) => {
-      clearTimeout(timer);
-      resolveRun({ stdout, stderr, code, timedOut });
-    });
-    child.stdin.end(input);
-  });
+  return runClaudeCli({ bin: CLAUDE_BIN, args, input, cwd: cliCwd, timeoutMs: TIMEOUT_MS });
 }
 
 const MAX_WAIT_MS = 15 * 60_000;

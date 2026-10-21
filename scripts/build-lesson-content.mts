@@ -1,11 +1,23 @@
 // Built by TAC — 2026-10-17
 // Writes the authored content of every Core 30 lesson: a lesson-specific passage, lesson
-// vocabulary + phrases, and lesson verbs with present-tense conjugations. One Anthropic call
-// per lesson (claude-sonnet-5-5), validated by the same rules the tests use
-// (src/lib/lesson-content-core.ts); a failed validation is retried with the error list.
+// vocabulary + phrases, and lesson verbs with present-tense conjugations. One model call per
+// lesson, validated by the same rules the tests use (src/lib/lesson-content-core.ts); a failed
+// validation is retried with the error list.
 //
-//   ANTHROPIC_API_KEY=... node scripts/build-lesson-content.mts [flags]
+//   node scripts/build-lesson-content.mts [flags]                      # cli: Claude subscription
+//   ANTHROPIC_API_KEY=... node scripts/build-lesson-content.mts --provider api [flags]
 //   (Node 22.18+ runs .mts directly; `npx tsx scripts/build-lesson-content.mts` works too)
+//
+// Providers (--provider), the same two as scripts/build-core60.mts:
+//   cli (default)  the logged-in Claude Code CLI, `claude -p`, billed to the owner's Claude
+//                  subscription (OAuth). Each call: --output-format json, --json-schema (the
+//                  tool's schema), --tools "" (no tools), --system-prompt (replaces Claude Code's
+//                  own), --safe-mode, --strict-mcp-config, --no-session-persistence,
+//                  --disable-slash-commands, run from an empty temp directory with every
+//                  ANTHROPIC_* / CLAUDE_CODE_* variable removed from the child's environment, so
+//                  it can never bill an API key. ANTHROPIC_API_KEY is not needed. Default model Opus.
+//                  Usage / rate limits pause every call and retry with backoff.
+//   api            the Anthropic API with ANTHROPIC_API_KEY (tool calls), claude-sonnet-5-5.
 //
 // Pairs: Spanish target / English native for every module with a curriculum that supports it,
 // and English target / Spanish native for the English-for-work modules (learnDirection
@@ -18,28 +30,50 @@
 //   --module <id,...>           only these modules
 //   --lang <name|code,...>      only these target languages (Spanish/es, English/en)
 //   --verbs-only-for <id,...>   write only verbs for these modules (roofing is detected itself)
-//   --concurrency N             parallel API calls (default 6)
+//   --lessons <list>            regenerate exactly these lesson numbers (3,7,11-15), even when valid
+//                               saved content exists; no other lesson is touched. Composes with
+//                               --module and --lang; every number must exist in each selected
+//                               module (use --module for a module with fewer lessons).
+//   --provider cli|api          default cli (subscription); api bills ANTHROPIC_API_KEY
+//   --model sonnet|opus|<id>    default claude-opus-5-5 (cli) / claude-sonnet-5-5 (api)
+//   --claude-bin <path>         the CLI (default ~/.local/bin/claude, else "claude" on PATH)
+//   --rate-limit-wait-hours N   cli: give up (resumable) after waiting this long on limits (default 8)
+//   --concurrency N             parallel calls (default 2 for cli, 6 for api)
 //   --limit N                   stop after N lessons attempted this run
-//   --dry-run                   print the plan and estimated tokens, call nothing
+//   --dry-run                   print the plan (lessons that would be called, provider, model) and
+//                               estimated tokens, call nothing
 //   --force                     ignore saved progress and existing files for the selected pairs
-//   --timeout-ms N              per-call timeout (default 120000)
+//                               (not combinable with --lessons)
+//   --timeout-ms N              per-call timeout (default 120000 api, 600000 cli)
 //
-// The key is read from the environment only and is never printed.
+// The api key is read from the environment only and is never printed; cli reads no key.
 
 import {
   existsSync,
   mkdirSync,
+  mkdtempSync,
   readdirSync,
   readFileSync,
   renameSync,
   statSync,
   writeFileSync,
 } from "node:fs";
+import { homedir, tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import type { LessonWord } from "../src/data/curriculum.ts";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
+import { runClaudeCli } from "../src/lib/claude-cli-runner.ts";
+import { cliInputTokens, cliJsonSchema, cliPrompt, parseCliOutput } from "../src/lib/core60-generator-core.ts";
+import {
+  RunFlagError,
+  checkLessonSelection,
+  formatLessonList,
+  parseLessonSelection,
+  resolveRunProvider,
+  selectLessons,
+} from "../src/lib/lesson-content-run-core.ts";
 import { ROOFING_LESSON_PASSAGES } from "../src/data/roofing-lesson-passages.ts";
 import {
   LESSON_CONTENT_VERSION,
@@ -53,7 +87,9 @@ import {
 } from "../src/lib/lesson-content-core.ts";
 import {
   LESSON_CONTENT_MODEL,
+  LESSON_CONTENT_TOOL_NAME,
   buildLessonContentRequest,
+  lessonContentCliSystemPrompt,
   lessonContentFromResponse,
   type AuthoredContext,
   type ContentBlock,
@@ -97,11 +133,33 @@ const intFlag = (name: string, fallback: number) => {
 const wantLang = list("lang");
 const wantModule = list("module");
 const verbsOnlyFor = list("verbs-only-for");
-const CONCURRENCY = intFlag("concurrency", 6);
-const LIMIT = intFlag("limit", Number.POSITIVE_INFINITY);
-const TIMEOUT_MS = intFlag("timeout-ms", 120_000);
 const DRY_RUN = has("dry-run");
 const FORCE = has("force");
+
+let RUN: ReturnType<typeof resolveRunProvider>;
+let SELECTION: number[] | null = null;
+try {
+  RUN = resolveRunProvider(flag("provider"), flag("model"));
+  if (has("lessons")) {
+    SELECTION = parseLessonSelection(flag("lessons"));
+    if (FORCE) {
+      throw new RunFlagError("--force and --lessons cannot be combined (--lessons already regenerates exactly those lessons)");
+    }
+  }
+} catch (error) {
+  if (!(error instanceof RunFlagError)) throw error;
+  console.error(error.message);
+  process.exit(2);
+}
+const PROVIDER = RUN.provider;
+const MODEL = RUN.model;
+const CONCURRENCY = intFlag("concurrency", PROVIDER === "cli" ? 2 : 6);
+const LIMIT = intFlag("limit", Number.POSITIVE_INFINITY);
+const TIMEOUT_MS = intFlag("timeout-ms", PROVIDER === "cli" ? 600_000 : 120_000);
+const CLAUDE_BIN =
+  flag("claude-bin") ||
+  (existsSync(join(homedir(), ".local", "bin", "claude")) ? join(homedir(), ".local", "bin", "claude") : "claude");
+const RATE_LIMIT_WAIT_MS = intFlag("rate-limit-wait-hours", 8) * 3_600_000;
 const MAX_HTTP_ATTEMPTS = 7;
 const MAX_VALIDATION_ATTEMPTS = 3; // first try + 2 retries
 
@@ -123,6 +181,8 @@ interface Pair {
   /** lesson number (string) -> validated content */
   done: Record<string, LessonContentLesson>;
   generatedAt: string;
+  /** The model recorded in the public file: the saved one until this run generates a lesson. */
+  model: string;
 }
 
 function matchesLang(language: string): boolean {
@@ -243,12 +303,15 @@ function buildPlan(): Pair[] {
         publicFile: join(PUBLIC_DIR, dir, `${module.id}.json`),
         done: {},
         generatedAt: new Date().toISOString(),
+        model: MODEL,
       };
+      if (SELECTION) checkLessonSelection(SELECTION, pair.lessons.length, `${languageTag(language)}/${module.id}`);
       if (!FORCE) {
-        const fromPublic = readJson(pair.publicFile) as { generatedAt?: string } | null;
+        const fromPublic = readJson(pair.publicFile) as { generatedAt?: string; model?: string } | null;
         const fromProgress = readJson(pair.progressFile) as { generatedAt?: string } | null;
         pair.done = { ...loadLessons(fromPublic, pair), ...loadLessons(fromProgress, pair) };
         pair.generatedAt = fromProgress?.generatedAt ?? fromPublic?.generatedAt ?? pair.generatedAt;
+        if (typeof fromPublic?.model === "string") pair.model = fromPublic.model;
       }
       pairs.push(pair);
     }
@@ -257,6 +320,8 @@ function buildPlan(): Pair[] {
 }
 
 const missing = (pair: Pair) => pair.lessons.filter((lesson) => !pair.done[String(lesson.n)]);
+/** What this run calls for a pair: the missing lessons, or exactly the --lessons selection. */
+const toCall = (pair: Pair) => selectLessons(pair, SELECTION);
 
 // ─── Output files ────────────────────────────────────────────────────────────
 
@@ -280,7 +345,7 @@ function writePublicFile(pair: Pair): number {
     module: pair.moduleId,
     language: pair.language,
     nativeLanguage: pair.nativeLanguage,
-    model: LESSON_CONTENT_MODEL,
+    model: pair.model,
     generatedAt: pair.generatedAt,
     reviewed: false,
     lessons,
@@ -417,9 +482,133 @@ async function callWithBackoff(key: string, body: unknown): Promise<CallResult> 
   throw new Error(lastError);
 }
 
-/** One lesson: API call, validation, and up to two retries that show the model its errors. */
+// ─── cli provider: `claude -p` on the owner's subscription ──────────────────
+
+let cliCwd: string | null = null;
+/** A usage / rate limit pauses every call until this time (epoch ms). */
+let pausedUntil = 0;
+
+const MAX_WAIT_MS = 15 * 60_000;
+const MAX_CLI_FAILURES = 3;
+
+/**
+ * One CLI call, retried through limits and transient failures: a usage / rate limit or overload
+ * pauses every call (until the CLI's reset time when it gives one, else 30 s doubling, at most
+ * 15 min per wait) for up to --rate-limit-wait-hours in total; a broken login stops the run;
+ * anything else is retried 3 times. Returns the structured reply (null when it held no object).
+ */
+async function callCli(system: string, schema: string, prompt: string): Promise<Record<string, unknown> | null> {
+  const args = [
+    "-p",
+    "--output-format", "json",
+    "--model", MODEL,
+    "--tools", "",
+    "--system-prompt", system,
+    "--json-schema", schema,
+    "--safe-mode",
+    "--strict-mcp-config",
+    "--no-session-persistence",
+    "--disable-slash-commands",
+  ];
+  let backoff = 30_000;
+  let waited = 0;
+  let failures = 0;
+  for (;;) {
+    while (Date.now() < pausedUntil) await sleep(pausedUntil - Date.now());
+    cliCwd ??= mkdtempSync(join(tmpdir(), "lesson-content-cli-"));
+    stats.calls++;
+    const run = await runClaudeCli({ bin: CLAUDE_BIN, args, input: prompt, cwd: cliCwd, timeoutMs: TIMEOUT_MS });
+    const outcome = run.timedOut
+      ? { ...parseCliOutput("", "", run.code), error: `timed out after ${TIMEOUT_MS} ms`, kind: "other" as const, ok: false }
+      : parseCliOutput(run.stdout, run.stderr, run.code);
+    stats.inputTokens += cliInputTokens(outcome.usage);
+    stats.outputTokens += outcome.usage.outputTokens;
+    if (outcome.ok) return outcome.value;
+    if (outcome.kind === "auth") {
+      throw new FatalError(`the Claude CLI login was refused (${outcome.error.slice(0, 160)}); run \`claude\` and /login, then rerun`);
+    }
+    if (outcome.kind === "rate_limit") {
+      const untilReset = outcome.resetAt ? outcome.resetAt - Date.now() + 30_000 : 0;
+      const wait = Math.min(MAX_WAIT_MS, Math.max(untilReset, backoff));
+      backoff = Math.min(MAX_WAIT_MS, backoff * 2);
+      waited += wait;
+      if (waited > RATE_LIMIT_WAIT_MS) {
+        throw new FatalError(`still limited after waiting ${Math.round(waited / 60_000)} min (${outcome.error.slice(0, 160)}); rerun later`);
+      }
+      pausedUntil = Math.max(pausedUntil, Date.now() + wait);
+      stats.httpRetries++;
+      console.log(`  limited (${outcome.error.slice(0, 120)}); pausing all calls ${Math.round(wait / 1000)} s`);
+      continue;
+    }
+    failures += 1;
+    if (failures > MAX_CLI_FAILURES) {
+      throw new Error(`the Claude CLI failed ${failures} times: ${outcome.error.slice(0, 300)}`);
+    }
+    stats.httpRetries++;
+    console.log(`  CLI error (${outcome.error.slice(0, 120)}); retry ${failures} of ${MAX_CLI_FAILURES}`);
+    await sleep(15_000 * 2 ** (failures - 1));
+  }
+}
+
+/** The content a reply holds, checked by the same rules for both providers. */
+function checkReply(
+  parsed: ReturnType<typeof lessonContentFromResponse>,
+  pair: Pair,
+  plan: LessonPlan,
+): { content?: LessonContentLesson; errors: string[] } {
+  if (!parsed) {
+    return {
+      errors: [
+        `You did not call the ${"return_lesson_content"} tool with a valid object. Call it now with the complete content.`,
+      ],
+    };
+  }
+  const content: LessonContentLesson = { verbs: parsed.verbs ?? [] };
+  if (plan.parts.passage && parsed.passage) content.passage = parsed.passage;
+  if (plan.parts.words && parsed.words) content.words = parsed.words;
+  const errors = validateLessonContent(content, {
+    language: pair.language,
+    nativeLanguage: pair.nativeLanguage,
+    parts: plan.parts,
+    words: plan.authored?.words,
+  });
+  return { content, errors };
+}
+
+/** One lesson via the CLI: stateless calls; each retry carries the rejected reply and its errors. */
+async function generateLessonCli(
+  pair: Pair,
+  plan: LessonPlan,
+  body: ReturnType<typeof buildLessonContentRequest>,
+): Promise<LessonContentLesson> {
+  const system = lessonContentCliSystemPrompt(body.system);
+  const tool = body.tools[0];
+  const schema = JSON.stringify(cliJsonSchema(tool.input_schema));
+  let retry: { reply: unknown; errors: string[] } | undefined;
+  let lastError = "no attempt";
+  for (let validation = 0; validation < MAX_VALIDATION_ATTEMPTS; validation++) {
+    if (validation > 0) stats.validationRetries++;
+    const reply = await callCli(system, schema, cliPrompt(body, retry));
+    const parsed = reply
+      ? lessonContentFromResponse(
+          [{ type: "tool_use", name: LESSON_CONTENT_TOOL_NAME, input: reply }],
+          pair.language,
+        )
+      : null;
+    const checked = checkReply(parsed, pair, plan);
+    if (checked.content && checked.errors.length === 0) return checked.content;
+    const errors = reply
+      ? checked.errors
+      : ["Your reply was not one complete JSON object matching the schema. Return the complete content as that object."];
+    lastError = `failed validation: ${errors.slice(0, 4).join(" | ")}`;
+    retry = { reply: reply ?? "(no JSON object)", errors };
+  }
+  throw new Error(lastError);
+}
+
+/** One lesson: model call, validation, and up to two retries that show the model its errors. */
 async function generateLesson(
-  key: string,
+  key: string | null,
   pair: Pair,
   plan: LessonPlan,
 ): Promise<LessonContentLesson> {
@@ -437,29 +626,16 @@ async function generateLesson(
     parts: plan.parts,
     authored: plan.authored,
   });
+  if (PROVIDER === "cli") return generateLessonCli(pair, plan, body);
   const messages: { role: "user" | "assistant"; content: unknown }[] = [...body.messages];
   let lastError = "no attempt";
   for (let validation = 0; validation < MAX_VALIDATION_ATTEMPTS; validation++) {
     if (validation > 0) stats.validationRetries++;
-    const result = await callWithBackoff(key, { ...body, messages });
+    const result = await callWithBackoff(key!, { ...body, model: MODEL, messages });
     const parsed = lessonContentFromResponse(result.content, pair.language);
-    let errors: string[];
-    if (!parsed) {
-      errors = [
-        `You did not call the ${"return_lesson_content"} tool with a valid object. Call it now with the complete content.`,
-      ];
-    } else {
-      const content: LessonContentLesson = { verbs: parsed.verbs ?? [] };
-      if (plan.parts.passage && parsed.passage) content.passage = parsed.passage;
-      if (plan.parts.words && parsed.words) content.words = parsed.words;
-      errors = validateLessonContent(content, {
-        language: pair.language,
-        nativeLanguage: pair.nativeLanguage,
-        parts: plan.parts,
-        words: plan.authored?.words,
-      });
-      if (errors.length === 0) return content;
-    }
+    const checked = checkReply(parsed, pair, plan);
+    if (checked.content && checked.errors.length === 0) return checked.content;
+    const errors = checked.errors;
     lastError = `failed validation: ${errors.slice(0, 4).join(" | ")}${
       result.stopReason === "max_tokens" ? " (hit max_tokens)" : ""
     }`;
@@ -496,23 +672,36 @@ function elapsed(startedAt: number) {
 }
 
 async function main() {
-  const pairs = buildPlan();
-  const tasks = pairs.flatMap((pair) => missing(pair).map((plan) => ({ pair, plan })));
+  let pairs: Pair[];
+  try {
+    pairs = buildPlan();
+  } catch (error) {
+    if (!(error instanceof RunFlagError)) throw error;
+    console.error(error.message);
+    process.exit(2);
+  }
+  const tasks = pairs.flatMap((pair) => toCall(pair).map((plan) => ({ pair, plan })));
   const totalLessons = pairs.reduce((sum, pair) => sum + pair.lessons.length, 0);
   const todo = Math.min(tasks.length, LIMIT);
+  const selected = SELECTION ? `, forced lessons ${formatLessonList(SELECTION)}` : "";
 
   console.log(
-    `Plan: ${pairs.length} file(s), ${totalLessons} lessons, ${totalLessons - tasks.length} already done, ` +
-      `${tasks.length} to generate (this run: ${todo}), model ${LESSON_CONTENT_MODEL}, concurrency ${CONCURRENCY}`,
+    `Plan: ${pairs.length} file(s), ${totalLessons} lessons, ` +
+      (SELECTION
+        ? `${tasks.length} to regenerate${selected}`
+        : `${totalLessons - tasks.length} already done, ${tasks.length} to generate`) +
+      ` (this run: ${todo}), provider ${PROVIDER}, model ${MODEL}, concurrency ${CONCURRENCY}`,
   );
   if (DRY_RUN) {
     const slice = tasks.slice(0, todo);
     for (const pair of pairs) {
-      const count = slice.filter((task) => task.pair === pair).length;
+      const calls = slice.filter((task) => task.pair === pair);
       const verbsOnly = pair.lessons.every((l) => !l.parts.passage && !l.parts.words);
       console.log(
         `  ${languageTag(pair.language)}/${pair.moduleId.padEnd(28)} ${String(pair.lessons.length).padStart(2)} lessons ` +
-          `(${pair.language} <- ${pair.nativeLanguage})${verbsOnly ? " VERBS ONLY" : ""}  to generate: ${count}`,
+          `(${pair.language} <- ${pair.nativeLanguage})${verbsOnly ? " VERBS ONLY" : ""}  to generate: ${calls.length}` +
+          `  lessons to call: ${formatLessonList(calls.map((task) => task.plan.n))}` +
+          `  provider ${PROVIDER}  model ${MODEL}`,
       );
     }
     const verbOnlyCalls = slice.filter((t) => !t.plan.parts.passage && !t.plan.parts.words).length;
@@ -523,30 +712,35 @@ async function main() {
       ((fullCalls + verbOnlyCalls * 0.4) * EST_SECONDS_PER_LESSON_AT_6 * 6) / CONCURRENCY,
     );
     console.log(
-      `Estimated lessons to generate: ${slice.length} (${fullCalls} full, ${verbOnlyCalls} verbs-only; one API call each plus retries)\n` +
+      `Estimated lessons to generate: ${slice.length} (${fullCalls} full, ${verbOnlyCalls} verbs-only; one model call each plus retries)\n` +
         `Estimated tokens (retries included): input ~${fmt(inputTokens)}, output ~${fmt(outputTokens)}\n` +
         `Estimated wall time at concurrency ${CONCURRENCY}: ~${Math.round(seconds / 60)} min (rate limits can add more)`,
     );
     return;
   }
 
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) {
-    console.error("ANTHROPIC_API_KEY is not set in the environment.");
-    process.exit(1);
+  // Only the api provider needs the key; the cli provider uses the subscription login.
+  let key: string | null = null;
+  if (RUN.requiresApiKey) {
+    key = process.env.ANTHROPIC_API_KEY ?? null;
+    if (!key) {
+      console.error("ANTHROPIC_API_KEY is not set in the environment.");
+      process.exit(1);
+    }
   }
 
   const startedAt = Date.now();
   const queue = tasks.slice(0, todo);
   const failures: string[] = [];
-  const remainingByPair = new Map(pairs.map((pair) => [pair, missing(pair).length]));
+  const remainingByPair = new Map(pairs.map((pair) => [pair, toCall(pair).length]));
   const bytesWritten = new Map<string, number>();
   let fatal: string | null = null;
   let lastLog = 0;
 
   // Files that need no calls (already complete) still get their public file.
+  // With --lessons, only the pairs it selects lessons from are written.
   for (const pair of pairs) {
-    if (missing(pair).length === 0) bytesWritten.set(pair.publicFile, writePublicFile(pair));
+    if (!SELECTION && missing(pair).length === 0) bytesWritten.set(pair.publicFile, writePublicFile(pair));
   }
 
   const summary = (final = false) => {
@@ -566,8 +760,9 @@ async function main() {
       if (index >= queue.length) return;
       const { pair, plan } = queue[index];
       try {
-        const content = await generateLesson(key!, pair, plan);
+        const content = await generateLesson(key, pair, plan);
         pair.done[String(plan.n)] = content;
+        pair.model = MODEL;
         saveProgress(pair);
         stats.done++;
         const left = (remainingByPair.get(pair) ?? 1) - 1;

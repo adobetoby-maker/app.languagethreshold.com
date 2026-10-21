@@ -35,8 +35,6 @@ export type SoftReason = "list-mode" | "fast-picks" | "abandoned";
 const FAST_GAP_MS = 250;
 /** This many fast gaps in one round make it unranked. */
 const FAST_GAPS_TO_FLAG = 3;
-/** A round that did not end on its own and went quiet this long before the timer is abandoned. */
-const ABANDON_GAP_MS = 15_000;
 /** Slack past the round length before an event is out of range; picks past the end are invalid anyway. */
 const AFTER_END_SLACK_MS = 1000;
 /** The fastest honest input rate: one event per 100 ms. */
@@ -47,13 +45,15 @@ const hard = (reason: HardReason): Verdict => ({ ok: false, hard: true, reason }
 /**
  * Builds the log of a finished round. `endedAt` is `now` (default: the current time) as an ISO
  * string; `dataHash` pins the pattern data the round was played on. Config and events are
- * copied, so later changes to the caller's objects never reach the log.
+ * copied, so later changes to the caller's objects never reach the log. `quitAtMs` (round-relative
+ * ms) is set only when the player leaves before the timer; it is left off the log otherwise.
  */
 export function buildRoundLog(
   config: RoundConfig,
   events: readonly RoundEvent[],
   data: PatternData,
   now: number | Date = Date.now(),
+  quitAtMs?: number,
 ): RoundLog {
   return {
     v: 1,
@@ -62,16 +62,43 @@ export function buildRoundLog(
     config: structuredClone(config),
     endedAt: new Date(now).toISOString(),
     events: events.map((e) => ({ ...e })),
+    ...(quitAtMs === undefined ? {} : { quitAtMs }),
   };
 }
 
 const FAMILY_IDS: ReadonlySet<string> = new Set(FAMILIES.map((f) => f.id));
 
-function validSource(source: unknown): source is SourceFilter {
+const MODULE_ID_PATTERN = /^[a-z0-9-]+$/;
+const MODULE_ID_MAX = 64;
+
+const MODULE_IDS = new WeakMap<PatternData, Set<string>>();
+
+/** Module ids that appear in the data's verb sources, built once per PatternData object. */
+function moduleIds(data: PatternData): Set<string> {
+  let ids = MODULE_IDS.get(data);
+  if (!ids) {
+    ids = new Set();
+    for (const verb of data.verbs) {
+      for (const source of verb.sources) if (source.kind === "module") ids.add(source.moduleId);
+    }
+    MODULE_IDS.set(data, ids);
+  }
+  return ids;
+}
+
+/** A source the data can serve: core, or a module/both whose module id really exists in the data. */
+function validSource(data: PatternData, source: unknown): source is SourceFilter {
   if (typeof source !== "object" || source === null) return false;
   const s = source as { kind?: unknown; moduleId?: unknown };
   if (s.kind === "core") return true;
-  return (s.kind === "module" || s.kind === "both") && typeof s.moduleId === "string" && s.moduleId !== "";
+  if (s.kind !== "module" && s.kind !== "both") return false;
+  const id = s.moduleId;
+  return (
+    typeof id === "string" &&
+    id.length <= MODULE_ID_MAX &&
+    MODULE_ID_PATTERN.test(id) &&
+    moduleIds(data).has(id)
+  );
 }
 
 /** True iff the config names a real game, family, level and source that the data can play. */
@@ -80,7 +107,7 @@ function validScope(data: PatternData, config: unknown): config is RoundConfig {
   const c = config as Partial<RoundConfig>;
   if (c.game !== "bubble" && c.game !== "crush") return false;
   if (c.family !== "mix" && !(typeof c.family === "string" && FAMILY_IDS.has(c.family))) return false;
-  if (!validSource(c.source)) return false;
+  if (!validSource(data, c.source)) return false;
   if (typeof c.seed !== "number" || !Number.isFinite(c.seed)) return false;
   if (typeof c.listMode !== "boolean" || typeof c.reducedMotion !== "boolean") return false;
   if (c.game === "bubble") return c.level === null;
@@ -134,6 +161,13 @@ export function scoreRound(data: PatternData, log: RoundLog): Verdict {
     if (event.t > roundMs + AFTER_END_SLACK_MS) return hard("after-end");
     prev = event.t;
   }
+  // quitAtMs is the explicit abandon signal: a finite time, never before the last accepted event.
+  const quitAtMs: unknown = log.quitAtMs;
+  if (quitAtMs !== undefined) {
+    if (typeof quitAtMs !== "number" || !Number.isFinite(quitAtMs) || quitAtMs < Math.max(0, prev)) {
+      return hard("invalid-event");
+    }
+  }
 
   let result: RoundResult;
   try {
@@ -154,8 +188,8 @@ export function scoreRound(data: PatternData, log: RoundLog): Verdict {
     if ((events[i] as RoundEvent).t - (events[i - 1] as RoundEvent).t < FAST_GAP_MS) fast++;
   }
   if (fast >= FAST_GAPS_TO_FLAG) soft.push("fast-picks");
-  // A round that did not end by itself (Crush goal or moves) and went quiet before the timer.
-  const lastT = events.length === 0 ? 0 : (events[events.length - 1] as RoundEvent).t;
-  if (result.durationMs >= roundMs && lastT < roundMs - ABANDON_GAP_MS) soft.push("abandoned");
+  // Abandoned = the player left before the timer (explicit quitAtMs). A Crush round that ended on
+  // its own (goal met or no moves left) is never abandoned.
+  if (typeof quitAtMs === "number" && quitAtMs < roundMs && result.durationMs >= roundMs) soft.push("abandoned");
   return { ok: true, result, ranked: soft.length === 0, softReasons: soft };
 }

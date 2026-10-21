@@ -104,6 +104,8 @@ export interface RoundLog {
   config: RoundConfig;
   endedAt: string;
   events: RoundEvent[];
+  /** Round-relative ms; set only when the player leaves the round before the timer. */
+  quitAtMs?: number;
 }
 
 export interface Completion {

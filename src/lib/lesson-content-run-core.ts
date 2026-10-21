@@ -36,6 +36,13 @@ export function resolveRunProvider(rawProvider: string | undefined, rawModel: st
 export class LessonSelectionError extends RunFlagError {}
 
 /**
+ * The largest lesson number --lessons accepts. No module comes near it (the longest has 30
+ * lessons); the cap is checked before a range is expanded, so "1-999999999" is rejected at once
+ * instead of filling a huge Set. The per-module check is checkLessonSelection.
+ */
+export const MAX_LESSON_NUMBER = 1000;
+
+/**
  * Parses a `--lessons` list such as "11-15" or "3,7,11-15" into sorted, unique lesson numbers.
  * Rejects an empty list, non-numeric items, numbers below 1 and reversed ranges.
  */
@@ -60,6 +67,11 @@ export function parseLessonSelection(raw: string | undefined): number[] {
     }
     if (to < from) {
       throw new LessonSelectionError(`--lessons: reversed range "${text}" (write ${to}-${from})`);
+    }
+    if (to > MAX_LESSON_NUMBER) {
+      throw new LessonSelectionError(
+        `--lessons: "${text}" is beyond any module (the highest lesson number is ${MAX_LESSON_NUMBER})`,
+      );
     }
     for (let n = from; n <= to; n++) numbers.add(n);
   }
@@ -119,4 +131,89 @@ export function formatLessonList(numbers: readonly number[]): string {
   }
   flush();
   return parts.join(",");
+}
+
+// ─── Settling a pair ─────────────────────────────────────────────────────────
+
+/** What a pair's tasks came to once every one of them has settled. */
+export interface SettledPair {
+  /** Lesson numbers whose generation failed, sorted. */
+  failed: number[];
+  /** The public file may be rewritten only when nothing failed. */
+  writePublic: boolean;
+}
+
+export interface PairSettlement {
+  /**
+   * Records one lesson's outcome. Returns null while other lessons of the pair are still running,
+   * and the final outcome exactly once, from whichever task finishes last. The outcome depends
+   * only on which lessons failed, never on the order they finished in.
+   */
+  settle(lessonNumber: number, ok: boolean): SettledPair | null;
+}
+
+/**
+ * One deterministic rule for when a pair's public file is written: only after every task for the
+ * pair has settled, and never when any of them failed (the successful new lessons stay in the
+ * progress file, and a rerun with `--lessons <failed only>` completes the pair).
+ */
+export function createPairSettlement(lessonNumbers: readonly number[]): PairSettlement {
+  const pending = new Set(lessonNumbers);
+  const failed = new Set<number>();
+  let reported = false;
+  return {
+    settle(lessonNumber, ok) {
+      if (!pending.delete(lessonNumber)) return null;
+      if (!ok) failed.add(lessonNumber);
+      if (pending.size > 0 || reported) return null;
+      reported = true;
+      const sorted = [...failed].sort((a, b) => a - b);
+      return { failed: sorted, writePublic: sorted.length === 0 };
+    },
+  };
+}
+
+const SHELL_SAFE = /^[A-Za-z0-9_@%+=:,./-]+$/;
+const shellWord = (value: string) => (SHELL_SAFE.test(value) ? value : `'${value.replace(/'/g, `'\\''`)}'`);
+
+/** A ready-to-run command that regenerates exactly the failed lessons of one file. */
+export function formatRerunCommand(options: {
+  script: string;
+  moduleId: string;
+  /** Language tag as --lang takes it ("es", "en"). */
+  lang: string;
+  failed: readonly number[];
+  provider: string;
+  model: string;
+  /** Other flags the run was given that change where it runs (--claude-bin, --out-root). */
+  passThrough?: Readonly<Record<string, string>>;
+}): string {
+  const parts = [
+    "node",
+    options.script,
+    "--module",
+    options.moduleId,
+    "--lang",
+    options.lang,
+    "--lessons",
+    formatLessonList(options.failed),
+    "--provider",
+    options.provider,
+    "--model",
+    options.model,
+  ];
+  for (const [name, value] of Object.entries(options.passThrough ?? {})) parts.push(`--${name}`, value);
+  return parts.map(shellWord).join(" ");
+}
+
+// ─── Retry wording ───────────────────────────────────────────────────────────
+
+/**
+ * The retry message for a reply that held no usable object. The api provider is told to call the
+ * tool; the cli provider has no tool, so it is told to reply with the JSON object itself.
+ */
+export function noObjectRetryMessage(provider: Core60Provider, toolName: string): string {
+  return provider === "cli"
+    ? "Your reply was not one complete JSON object that matches the schema. Reply with one JSON object that matches the schema, holding the complete content."
+    : `You did not call the ${toolName} tool with a valid object. Call it now with the complete content.`;
 }

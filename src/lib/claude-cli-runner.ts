@@ -65,6 +65,9 @@ export function runClaudeCli(options: CliRunOptions): Promise<CliRun> {
       clearTimeout(timer);
       resolveRun({ stdout, stderr, code, timedOut });
     });
+    // Intended change (not an incidental one): without this handler, a child that exits before
+    // reading its prompt makes the stdin write fail with EPIPE as an unhandled "error" event and
+    // crashes the whole run.
     child.stdin.on("error", () => {
       // the child exited before reading its prompt; "close" reports the outcome
     });

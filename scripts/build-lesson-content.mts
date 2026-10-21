@@ -45,6 +45,12 @@
 //   --force                     ignore saved progress and existing files for the selected pairs
 //                               (not combinable with --lessons)
 //   --timeout-ms N              per-call timeout (default 120000 api, 600000 cli)
+//   --out-root <dir>            (testing) read and write public/ and the progress files under this
+//                               directory instead of the repository root
+//
+// A public file is rewritten only after every task for its module+language has settled, and not at
+// all when any of them failed: the new lessons that did succeed stay in the progress file, and the
+// run prints a ready-to-run `--lessons <failed only>` command that completes the file.
 //
 // The api key is read from the environment only and is never printed; cli reads no key.
 
@@ -69,7 +75,10 @@ import { cliInputTokens, cliJsonSchema, cliPrompt, parseCliOutput } from "../src
 import {
   RunFlagError,
   checkLessonSelection,
+  createPairSettlement,
   formatLessonList,
+  formatRerunCommand,
+  noObjectRetryMessage,
   parseLessonSelection,
   resolveRunProvider,
   selectLessons,
@@ -96,7 +105,10 @@ import {
 } from "../src/lib/lesson-content-prompt.ts";
 import { cleanLessonWords, languageTag, pickAuthoredWords } from "../src/lib/lesson-words-core.ts";
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const SCRIPT_PATH = "scripts/build-lesson-content.mts";
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const OUT_ROOT = flag("out-root");
+const ROOT = OUT_ROOT ? resolve(OUT_ROOT) : REPO_ROOT;
 const PUBLIC_DIR = join(ROOT, "public", "lesson-content");
 const PROGRESS_DIR = join(ROOT, ".lesson-content-progress");
 const API_URL = "https://api.anthropic.com/v1/messages";
@@ -179,11 +191,24 @@ interface Pair {
   progressFile: string;
   publicFile: string;
   /** lesson number (string) -> validated content */
-  done: Record<string, LessonContentLesson>;
+  done: Record<string, StoredLesson>;
   generatedAt: string;
-  /** The model recorded in the public file: the saved one until this run generates a lesson. */
-  model: string;
+  /**
+   * The file-level `model` of the public file: the model of the most recent generating run. It
+   * starts as the saved one and changes only when this run generates a lesson, so a plain run
+   * that generates nothing leaves it as it was (absent when the saved file had none). A file can
+   * mix models (a --lessons rerun on another model), so each lesson also records its own.
+   */
+  model: string | undefined;
 }
+
+/**
+ * A lesson as stored in the progress and public files: the content plus the model that wrote it.
+ * The per-lesson `model` is extra to LessonContentLesson on purpose: parseLessonContent (the
+ * app's reader) rebuilds each lesson from its known fields and ignores it, and the review
+ * snapshots are built from displayed fields only, so adding it breaks no reader.
+ */
+type StoredLesson = LessonContentLesson & { model?: string };
 
 function matchesLang(language: string): boolean {
   if (wantLang.length === 0) return true;
@@ -242,8 +267,8 @@ function planLesson(
 function loadLessons(
   raw: unknown,
   pair: Pick<Pair, "moduleId" | "language" | "nativeLanguage" | "lessons">,
-): Record<string, LessonContentLesson> {
-  const out: Record<string, LessonContentLesson> = {};
+): Record<string, StoredLesson> {
+  const out: Record<string, StoredLesson> = {};
   if (!raw || typeof raw !== "object") return out;
   const file = raw as Record<string, unknown>;
   if (
@@ -261,7 +286,7 @@ function loadLessons(
     const passage = cleanPassage(saved.passage) ?? undefined;
     const words = cleanLessonWords(saved.words);
     const verbs = cleanLessonVerbs(saved.verbs, pair.language);
-    const content: LessonContentLesson = { verbs };
+    const content: StoredLesson = { verbs };
     if (plan.parts.passage && passage) content.passage = passage;
     if (plan.parts.words && words.length > 0) content.words = words;
     const errors = validateLessonContent(content, {
@@ -270,7 +295,10 @@ function loadLessons(
       parts: plan.parts,
       words: plan.authored?.words,
     });
-    if (errors.length === 0) out[String(plan.n)] = content;
+    if (errors.length === 0) {
+      if (typeof saved.model === "string" && saved.model) content.model = saved.model;
+      out[String(plan.n)] = content;
+    }
   }
   return out;
 }
@@ -303,7 +331,7 @@ function buildPlan(): Pair[] {
         publicFile: join(PUBLIC_DIR, dir, `${module.id}.json`),
         done: {},
         generatedAt: new Date().toISOString(),
-        model: MODEL,
+        model: undefined,
       };
       if (SELECTION) checkLessonSelection(SELECTION, pair.lessons.length, `${languageTag(language)}/${module.id}`);
       if (!FORCE) {
@@ -336,7 +364,7 @@ function saveProgress(pair: Pair) {
 }
 
 function writePublicFile(pair: Pair): number {
-  const lessons: Record<string, LessonContentLesson> = {};
+  const lessons: Record<string, StoredLesson> = {};
   for (const plan of [...pair.lessons].sort((a, b) => a.n - b.n)) {
     lessons[String(plan.n)] = pair.done[String(plan.n)];
   }
@@ -345,7 +373,7 @@ function writePublicFile(pair: Pair): number {
     module: pair.moduleId,
     language: pair.language,
     nativeLanguage: pair.nativeLanguage,
-    model: pair.model,
+    ...(pair.model ? { model: pair.model } : {}),
     generatedAt: pair.generatedAt,
     reviewed: false,
     lessons,
@@ -558,9 +586,7 @@ function checkReply(
 ): { content?: LessonContentLesson; errors: string[] } {
   if (!parsed) {
     return {
-      errors: [
-        `You did not call the ${"return_lesson_content"} tool with a valid object. Call it now with the complete content.`,
-      ],
+      errors: [noObjectRetryMessage(PROVIDER, LESSON_CONTENT_TOOL_NAME)],
     };
   }
   const content: LessonContentLesson = { verbs: parsed.verbs ?? [] };
@@ -597,9 +623,7 @@ async function generateLessonCli(
       : null;
     const checked = checkReply(parsed, pair, plan);
     if (checked.content && checked.errors.length === 0) return checked.content;
-    const errors = reply
-      ? checked.errors
-      : ["Your reply was not one complete JSON object matching the schema. Return the complete content as that object."];
+    const errors = reply ? checked.errors : [noObjectRetryMessage("cli", LESSON_CONTENT_TOOL_NAME)];
     lastError = `failed validation: ${errors.slice(0, 4).join(" | ")}`;
     retry = { reply: reply ?? "(no JSON object)", errors };
   }
@@ -732,7 +756,9 @@ async function main() {
   const startedAt = Date.now();
   const queue = tasks.slice(0, todo);
   const failures: string[] = [];
-  const remainingByPair = new Map(pairs.map((pair) => [pair, toCall(pair).length]));
+  const settlements = new Map(pairs.map((pair) => [pair, createPairSettlement(toCall(pair).map((l) => l.n))]));
+  /** Pairs whose public file was left alone because a lesson failed, with the failed numbers. */
+  const unwritten: { pair: Pair; failed: number[] }[] = [];
   const bytesWritten = new Map<string, number>();
   let fatal: string | null = null;
   let lastLog = 0;
@@ -759,33 +785,42 @@ async function main() {
       const index = next++;
       if (index >= queue.length) return;
       const { pair, plan } = queue[index];
+      let ok = false;
       try {
         const content = await generateLesson(key, pair, plan);
-        pair.done[String(plan.n)] = content;
+        pair.done[String(plan.n)] = { ...content, model: MODEL };
         pair.model = MODEL;
         saveProgress(pair);
         stats.done++;
-        const left = (remainingByPair.get(pair) ?? 1) - 1;
-        remainingByPair.set(pair, left);
-        if (left === 0 && missing(pair).length === 0) {
-          const bytes = writePublicFile(pair);
-          bytesWritten.set(pair.publicFile, bytes);
-          console.log(
-            `file complete: ${languageTag(pair.language)}/${pair.moduleId} (${fmt(bytes)} bytes)`,
-          );
-        }
+        ok = true;
       } catch (error) {
         if (error instanceof FatalError) {
           fatal = error.message;
           return;
         }
         stats.failed++;
-        remainingByPair.set(pair, (remainingByPair.get(pair) ?? 1) - 1);
         const message = `${languageTag(pair.language)}/${pair.moduleId} lesson ${plan.n}: ${
           error instanceof Error ? error.message : String(error)
         }`;
         failures.push(message);
         console.log(`FAILED ${message}`);
+      }
+      // One rule for both outcomes: the pair's public file is considered only once every task
+      // for the pair has settled, and is left alone when any of them failed.
+      const settled = settlements.get(pair)?.settle(plan.n, ok);
+      if (settled) {
+        const label = `${languageTag(pair.language)}/${pair.moduleId}`;
+        if (!settled.writePublic) {
+          unwritten.push({ pair, failed: settled.failed });
+          console.log(
+            `public file NOT rewritten: ${label}; lessons that failed: ${formatLessonList(settled.failed)}` +
+              " (the lessons that succeeded are kept in the progress file)",
+          );
+        } else if (missing(pair).length === 0) {
+          const bytes = writePublicFile(pair);
+          bytesWritten.set(pair.publicFile, bytes);
+          console.log(`file complete: ${label} (${fmt(bytes)} bytes)`);
+        }
       }
       if (Date.now() - lastLog > 15_000) {
         lastLog = Date.now();
@@ -800,7 +835,30 @@ async function main() {
   summary(true);
   if (fatal) console.error(`Stopped early: ${fatal}`);
   if (failures.length > 0) {
-    console.log(`${failures.length} failed lesson(s); rerun the same command to retry them.`);
+    const passThrough: Record<string, string> = {};
+    for (const name of ["claude-bin", "out-root"]) {
+      const value = flag(name);
+      if (value) passThrough[name] = value;
+    }
+    console.log(`${failures.length} failed lesson(s).`);
+    if (unwritten.length > 0) {
+      console.log(
+        "Public file(s) left as they were, because a lesson failed. Complete each by regenerating only the failed lessons:",
+      );
+      for (const { pair, failed } of unwritten) {
+        console.log(
+          `  ${formatRerunCommand({
+            script: SCRIPT_PATH,
+            moduleId: pair.moduleId,
+            lang: languageTag(pair.language),
+            failed,
+            provider: PROVIDER,
+            model: MODEL,
+            passThrough,
+          })}`,
+        );
+      }
+    }
   }
   const incomplete = pairs.filter((pair) => missing(pair).length > 0).length;
   console.log(

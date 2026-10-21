@@ -39,6 +39,10 @@ const SOURCES = ["module", "core", "both"] as const;
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const isCount = (v: unknown): v is number => typeof v === "number" && Number.isInteger(v) && v >= 0;
 const isNum = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v);
+/** Keys that would reach Object.prototype through a plain-object write (JSON.parse keeps "__proto__" as an own key). */
+const UNSAFE_KEYS = new Set(["__proto__", "constructor", "prototype"]);
+/** Own entries of a stored map, without prototype-reaching keys. */
+const safeEntries = (r: Record<string, unknown>) => Object.entries(r).filter(([k]) => !UNSAFE_KEYS.has(k));
 
 function fresh(): VerbDeviceState {
   return { v: 1, mastery: {}, bests: {}, ranks: {}, queue: [], settings: { source: "core", listMode: false }, unitSteps: {} };
@@ -49,17 +53,17 @@ export function readVerbDevice(raw: unknown): VerbDeviceState {
   const out = fresh();
   if (!isRecord(raw) || raw.v !== 1) return out;
   if (isRecord(raw.mastery)) {
-    for (const [k, m] of Object.entries(raw.mastery)) {
+    for (const [k, m] of safeEntries(raw.mastery)) {
       if (isRecord(m) && isCount(m.picks) && isCount(m.correct) && m.correct <= m.picks) out.mastery[k] = { picks: m.picks, correct: m.correct };
     }
   }
   if (isRecord(raw.bests)) {
-    for (const [k, b] of Object.entries(raw.bests)) {
+    for (const [k, b] of safeEntries(raw.bests)) {
       if (isRecord(b) && isNum(b.score) && isNum(b.moves) && typeof b.at === "string") out.bests[k] = { score: b.score, moves: b.moves, at: b.at };
     }
   }
   if (isRecord(raw.ranks)) {
-    for (const [k, r] of Object.entries(raw.ranks)) {
+    for (const [k, r] of safeEntries(raw.ranks)) {
       if (isRecord(r) && typeof r.period === "string" && (r.rank === null || isCount(r.rank))) out.ranks[k] = { period: r.period, rank: r.rank };
     }
   }

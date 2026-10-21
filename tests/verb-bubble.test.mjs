@@ -196,3 +196,20 @@ test("boardScopes: every key comes from scopeKey, no duplicates, crossover once"
   assert.ok([...bubble, ...crush].every((s) => s.label.length > 0));
   assert.throws(() => scopeKey({ ...cfg, game: "crush", level: null }));
 });
+test("pick never returns an empty outcome list (the screen's every(invalid) guard relies on it)", () => {
+  // Deterministic sweep: right, wrong, repeated, stale-frame and out-of-range picks at rising times.
+  for (const seed of [1, 2, 3, 5, 8, 13]) {
+    const r = createBubbleRound(miniData(), { ...cfg, seed });
+    let t = 0;
+    for (let i = 0; i < 400 && !r.view().ended; i++) {
+      t += 37 + (i % 7) * 151;
+      const v = r.view();
+      const ids = v.pieces.map((p) => p.id);
+      const choice = [ids[i % ids.length], v.removed[0] ?? 0, 99][i % 3];
+      const frame = i % 11 === 0 ? v.frame.index + 1 : v.frame.index;
+      const out = r.pick(t, frame, choice);
+      assert.ok(out.length > 0, `seed ${seed} step ${i}: empty outcome`);
+    }
+    assert.ok(r.pick(t + 1, r.view().frame.index, 0).length > 0, "after the end too");
+  }
+});

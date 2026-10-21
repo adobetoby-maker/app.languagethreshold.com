@@ -386,7 +386,11 @@ export function BubblePopGame(p: {
         }
       }
       const out = round.pick(at, v.frame.index, id);
-      if (out.every((o) => o.kind === "invalid")) return;
+      // Bubble's pick never returns [] (every path ends in an invalid marker, complete + frame, or a
+      // miss; tests/verb-bubble.test.mjs fuzzes this). Unlike Crush, test "every", not "some": escapes
+      // that ran before an invalid pick are real and must still reach the screen. The length check
+      // guards [].every() === true in case the engine ever changes.
+      if (out.length === 0 || out.every((o) => o.kind === "invalid")) return;
       if (!piece?.correct && !stillRef.current) {
         const i = v.pieces.findIndex((x) => x.id === id);
         const el = bobRefs.current[i]?.firstElementChild?.nextElementSibling as HTMLElement | null | undefined;

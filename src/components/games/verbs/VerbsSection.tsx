@@ -1,5 +1,5 @@
 // Built by TAC — 2026-10-21
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowLeft, Trophy } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
@@ -182,24 +182,34 @@ export function VerbsSection() {
   // Frozen per round: the config is built once when ready and kept until the round identity changes
   // (game, family, level, Play again, dev seed), so later settings changes never reach a live round.
   const roundId = playing ? `${playing.game}|${playing.family}|${String(playing.level)}|${roundKey}|${String(seed)}` : null;
-  const frozen = useRef<{ id: string; config: RoundConfig } | null>(null);
-  if (roundId === null) frozen.current = null;
-  else if (ready && playing && frozen.current?.id !== roundId) {
-    frozen.current = {
+  const [frozen, setFrozen] = useState<{ id: string; config: RoundConfig } | null>(null);
+  // Built in a layout effect (not during render, which must stay pure: the seed is random), so the
+  // game still mounts before the first paint of the play screen. Settings, module and motion are
+  // read here but are not part of the round's identity, so changing them never rebuilds a live round.
+  const playGame = playing?.game;
+  const playFamily = playing?.family;
+  const playLevel = playing?.level;
+  useLayoutEffect(() => {
+    if (roundId === null) {
+      setFrozen(null);
+      return;
+    }
+    if (!ready || playGame === undefined || playFamily === undefined || frozen?.id === roundId) return;
+    setFrozen({
       id: roundId,
       config: {
-        game: playing.game,
-        family: playing.family,
-        level: playing.game === "crush" ? playing.level : null,
+        game: playGame,
+        family: playFamily,
+        level: playGame === "crush" ? (playLevel ?? null) : null,
         source: sourceFilterFor(settings, moduleId),
         seed: seed ?? randomSeed(),
         // Crush has no list screen; its board is keyboard-playable as is.
-        listMode: playing.game === "bubble" ? settings.listMode : false,
+        listMode: playGame === "bubble" ? settings.listMode : false,
         reducedMotion,
       },
-    };
-  }
-  const roundConfig = ready && roundId !== null && frozen.current?.id === roundId ? frozen.current.config : null;
+    });
+  }, [roundId, ready, frozen, playGame, playFamily, playLevel, settings, moduleId, seed, reducedMotion]);
+  const roundConfig = ready && roundId !== null && frozen?.id === roundId ? frozen.config : null;
 
   if (!spanish) {
     return <Notice title="Verb Games are Spanish-only for now" body="Switch your target language to Spanish to practice verbs by pattern." />;

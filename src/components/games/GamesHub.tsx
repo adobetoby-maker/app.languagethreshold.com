@@ -256,7 +256,7 @@ export function GamesHub() {
         <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">⌘ Games</div>
         <h2 className="mt-1 font-display text-3xl font-semibold">Practice that competes back</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Seven games, one leaderboard story. Each game persists per-language stats.
+          Quick games and verb patterns, one leaderboard story. Each game persists per-language stats.
         </p>
       </div>
 

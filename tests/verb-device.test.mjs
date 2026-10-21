@@ -154,3 +154,26 @@ test("an honest replayed round records into the device state end to end", () => 
   assert.equal(s.queue.length, 1);
   assert.equal(s.bests["bubble|go-yo"].score, result.score);
 });
+
+test("prototype keys in stored maps are dropped, never written through", () => {
+  // JSON.parse keeps "__proto__" as an own key, which is how a tampered localStorage blob arrives.
+  const raw = JSON.parse(
+    '{"v":1,' +
+      '"mastery":{"__proto__":{"picks":3,"correct":1},"constructor":{"picks":2,"correct":2},"es.present.go-yo|tener":{"picks":4,"correct":3}},' +
+      '"bests":{"__proto__":{"score":999,"moves":1,"at":"x"},"prototype":{"score":5,"moves":1,"at":"x"},"bubble|L1:go-yo":{"score":10,"moves":2,"at":"t"}},' +
+      '"ranks":{"__proto__":{"period":"p","rank":1}}}',
+  );
+  const s = readVerbDevice(raw);
+  for (const map of [s.mastery, s.bests, s.ranks]) {
+    assert.equal(Object.getPrototypeOf(map), Object.prototype, "prototype untouched");
+    assert.equal(Object.hasOwn(map, "__proto__"), false);
+    assert.equal(Object.hasOwn(map, "constructor"), false);
+    assert.equal(Object.hasOwn(map, "prototype"), false);
+  }
+  assert.equal(s.mastery.picks, undefined, "no inherited picks from a polluted prototype");
+  assert.equal(s.bests.score, undefined, "no inherited score from a polluted prototype");
+  assert.deepEqual(Object.keys(s.mastery), ["es.present.go-yo|tener"]);
+  assert.deepEqual(Object.keys(s.bests), ["bubble|L1:go-yo"]);
+  assert.deepEqual(s.ranks, {});
+  assert.equal({}.picks, undefined, "global Object.prototype untouched");
+});

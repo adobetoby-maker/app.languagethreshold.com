@@ -21,6 +21,8 @@ const { choiceForKey } = await loadModule("src/components/games/verbs/choice-key
 const { useReducedMotion } = await loadModule("src/hooks/use-reduced-motion.ts", ext);
 const { BubblePopGame } = await loadModule("src/components/games/verbs/BubblePopGame.tsx", ext);
 const { VerbCrushGame } = await loadModule("src/components/games/verbs/VerbCrushGame.tsx", ext);
+const { RoundRecap } = await loadModule("src/components/games/verbs/RoundRecap.tsx", { external: ["react", "react-dom/server", "lucide-react"] });
+const { groupMisses, practiceFamily, cardKey, picksOf } = await loadModule("src/components/games/verbs/recap-groups.ts", ext);
 
 const html = (component, props) => renderToStaticMarkup(createElement(component, props));
 /** The opening tag that contains `marker`, so attributes can be asserted in any order. */
@@ -275,4 +277,139 @@ test("crush board is square and stops page scroll under swipes", () => {
   const board = tagOf(h, 'data-testid="crush-board"');
   assert.match(board, /aspect-square/);
   assert.match(board, /touch-action:none/);
+});
+
+// ---- Round recap (Task 16) ------------------------------------------------------------------
+
+const miss = (infinitive, person, familyId, attempted, correct, english) => ({ t: 1000, infinitive, person, familyId, attempted, correct, english, reason: "r" });
+const sampleResultWithMisses = {
+  score: 250, moves: 9, picks: 7, correct: 3, bestStreak: 4, durationMs: 61000, won: false,
+  completions: [{ t: 500, infinitive: "tener", person: "yo", familyId: "es.present.go-yo", form: "tengo", english: "I have", points: 100 }],
+  misses: [
+    miss("salir", "yo", "es.present.go-yo", "salo", "salgo", "I leave"),
+    miss("venir", "yo", "es.present.go-yo", "venco", "vengo", "I come"),
+    miss("pensar", "yo", "es.present.e-ie", "penso", "pienso", "I think"),
+    miss("hablar", "tú", null, null, "hablas", "you speak"),
+  ],
+};
+const recapProps = (over = {}) => ({
+  result: sampleResultWithMisses, best: { score: 120 }, placement: null, signedIn: false, savedKeys: [],
+  onPlayAgain() {}, onPractice() {}, onBack() {}, onSendCards() {}, ...over,
+});
+const text = (markup) => markup.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+
+test("recap groups misses by family with the correct form and English", () => {
+  const h = html(RoundRecap, recapProps());
+  assert.match(h, /The &quot;-go&quot; family[\s\S]*salo ✗ → salgo · I leave/);
+  assert.match(h, /Sign in to join the board/);
+  assert.match(h, /Send all/);
+  assert.match(h, /Practice this family/);
+  assert.match(h, /Round over/);
+});
+
+test("recap order: score, streak, best, placement, misses, then actions", () => {
+  const h = text(html(RoundRecap, recapProps({ signedIn: true, placement: { rank: 3, period: "Weekly" } })));
+  const at = (re) => h.search(re);
+  const order = [/250/, /Best streak/i, /Personal best/i, /Weekly #3/, /salo ✗/, /Send all/, /Play again/, /Practice this family/, /Back to Verbs/];
+  const idx = order.map(at);
+  assert.ok(idx.every((i) => i >= 0), `missing: ${JSON.stringify(idx)}`);
+  assert.deepEqual([...idx].sort((a, b) => a - b), idx);
+  assert.doesNotMatch(h, /Sign in to join the board/);
+});
+
+test("personal best: New best only when beaten; ties and list mode do not claim it", () => {
+  assert.match(html(RoundRecap, recapProps({ best: { score: 120 } })), /New best/);
+  assert.match(html(RoundRecap, recapProps({ best: null })), /New best/);
+  const kept = html(RoundRecap, recapProps({ best: { score: 500 } }));
+  assert.doesNotMatch(kept, /New best/);
+  assert.match(text(kept), /Personal best 500/);
+  assert.doesNotMatch(html(RoundRecap, recapProps({ best: { score: 250 } })), /New best/);
+  const list = html(RoundRecap, recapProps({ best: null, countsForBest: false }));
+  assert.doesNotMatch(list, /New best/);
+  assert.match(list, /List mode rounds do not set personal bests/);
+  assert.doesNotMatch(html(RoundRecap, recapProps({ best: null, result: { ...sampleResultWithMisses, score: 0 } })), /New best/);
+});
+
+test("placement: rank, closed boards, guest and signed-in without a rank", () => {
+  assert.match(html(RoundRecap, recapProps({ signedIn: true, placement: { rank: 12, period: "Weekly" } })), /Weekly #12/);
+  const closed = html(RoundRecap, recapProps({ boardsOpen: false }));
+  assert.match(closed, /Leaderboards coming soon/);
+  assert.doesNotMatch(closed, /Sign in to join the board/);
+  const noRank = html(RoundRecap, recapProps({ signedIn: true, placement: { rank: null, period: "Weekly" } }));
+  assert.doesNotMatch(noRank, /Sign in|#null|Weekly #|recap-placement/);
+});
+
+test("misses: unknown family goes under Other and never drives Practice this family", () => {
+  const groups = groupMisses(sampleResultWithMisses.misses);
+  assert.deepEqual(groups.map((g) => [g.label, g.familyId, g.count]), [
+    ['The "-go" family', "es.present.go-yo", 2],
+    ["e → ie", "es.present.e-ie", 1],
+    ["Other", null, 1],
+  ]);
+  assert.equal(practiceFamily(sampleResultWithMisses.misses), "es.present.go-yo");
+  assert.equal(practiceFamily([miss("hablar", "tú", null, null, "hablas", "you speak")]), null);
+  assert.equal(practiceFamily([]), null);
+  // Ties go to the family that comes first in the pattern ladder, not to the later miss.
+  assert.equal(practiceFamily([miss("pensar", "yo", "es.present.e-ie", "p", "pienso", "I think"), miss("salir", "yo", "es.present.go-yo", "s", "salgo", "I leave")]), "es.present.go-yo");
+  const h = html(RoundRecap, recapProps());
+  assert.match(h, /Other[\s\S]*no answer ✗ → hablas · you speak/);
+});
+
+test("repeat misses of one verb and person collapse to one row with a count", () => {
+  const twice = { ...sampleResultWithMisses, misses: [miss("salir", "yo", "es.present.go-yo", "salo", "salgo", "I leave"), miss("salir", "yo", "es.present.go-yo", "sale", "salgo", "I leave")] };
+  const h = html(RoundRecap, recapProps({ result: twice }));
+  assert.equal((h.match(/data-testid="recap-miss"/g) ?? []).length, 1);
+  assert.match(h, /missed ×2/);
+  assert.equal(cardKey("salir", "yo"), "salir|yo");
+});
+
+test("saved rows say Saved on this device and drop their button; Send all hides when all are saved", () => {
+  const some = html(RoundRecap, recapProps({ savedKeys: ["salir|yo"] }));
+  assert.equal((some.match(/Saved on this device/g) ?? []).length, 1);
+  assert.equal((some.match(/>Send to cards</g) ?? []).length, 3);
+  const all = html(RoundRecap, recapProps({ savedKeys: ["salir|yo", "venir|yo", "pensar|yo", "hablar|tú"] }));
+  assert.equal((all.match(/Saved on this device/g) ?? []).length, 4);
+  assert.doesNotMatch(all, /Send all|>Send to cards</);
+});
+
+test("showSend false hides every send control so the demo has no dead button", () => {
+  const h = html(RoundRecap, recapProps({ showSend: false }));
+  assert.doesNotMatch(h, /Send all|Send to cards/);
+  assert.match(h, /salo ✗ → salgo · I leave/);
+});
+
+test("a clean round says so and offers no practice", () => {
+  const h = html(RoundRecap, recapProps({ result: { ...sampleResultWithMisses, misses: [] } }));
+  assert.match(h, /No misses this round/);
+  assert.doesNotMatch(h, /Practice this family|Send all/);
+  assert.match(h, /Play again/);
+});
+
+test("recap controls are at least 44 px, show a pointer and use the ink/gold focus ring", () => {
+  const h = html(RoundRecap, recapProps());
+  const buttons = h.match(/<button[^>]*>/g) ?? [];
+  assert.ok(buttons.length >= 6);
+  for (const b of buttons) {
+    assert.match(b, /cursor-pointer/);
+    assert.match(b, /min-h-11/);
+    assert.match(b, /focus-visible:ring-foreground/);
+    assert.match(b, /dark:focus-visible:ring-gold/);
+  }
+  assert.doesNotMatch(h, /shadow-\[0|drop-shadow|blur-|animate-/);
+});
+
+test("eyebrow follows the caller and the heading is focusable for screen readers", () => {
+  const h = html(RoundRecap, recapProps({ eyebrow: "GAME · VERB CRUSH" }));
+  assert.match(h, /GAME · VERB CRUSH/);
+  assert.match(tagOf(h, 'data-testid="recap-title"'), /^<h2/);
+  assert.match(tagOf(h, 'data-testid="recap-title"'), /tabindex="-1"/);
+});
+
+test("picksOf turns a result into mastery picks: goal forms correct, answered misses wrong, escapes and unknown families skipped", () => {
+  assert.deepEqual(picksOf(sampleResultWithMisses), [
+    { familyId: "es.present.go-yo", infinitive: "tener", correct: true },
+    { familyId: "es.present.go-yo", infinitive: "salir", correct: false },
+    { familyId: "es.present.go-yo", infinitive: "venir", correct: false },
+    { familyId: "es.present.e-ie", infinitive: "pensar", correct: false },
+  ]);
 });

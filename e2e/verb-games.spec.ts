@@ -7,12 +7,22 @@ async function openVerbs(page: Page, search = ""): Promise<void> {
   await page.goto("/");
   const title = page.getByRole("heading", { name: "Practice by pattern" });
   for (let attempt = 0; attempt < 3; attempt++) {
-    await seedAppState(page, { activeModuleId: null, selectedLanguage: "Spanish", currentTab: "games" });
+    await seedAppState(page, { activeModuleId: null, selectedLanguage: "Spanish", currentTab: "games", onboardingComplete: true });
+    await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
     await page.goto(appUrl({ tab: "games" }) + search);
     await title.waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 }).catch(() => undefined);
     if (await title.isVisible()) break;
   }
   await expect(title).toBeVisible({ timeout: 60_000 });
+}
+
+/** The recap screen is up: heading, its eyebrow, the two primary actions, and focus on the heading. */
+async function expectRecap(page: Page, eyebrow: string): Promise<void> {
+  await expect(page.getByRole("heading", { name: /Round over/ })).toBeVisible();
+  await expect(page.getByTestId("round-over")).toContainText(eyebrow);
+  await expect(page.getByRole("button", { name: "Play again" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to Verbs" })).toBeVisible();
+  await expect(page.getByTestId("recap-title")).toBeFocused();
 }
 
 test("verbs home lists families and games", async ({ page }) => {
@@ -78,17 +88,60 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
       await expect(page.getByTestId("countdown")).toBeVisible();
     });
 
-    test("bubble pop: a wrong pick dims the bubble and shows the reason, End shows the score", async ({ page }) => {
+    test("bubble pop: a wrong pick dims the bubble and shows the reason, End shows the recap", async ({ page }) => {
       await startBubble(page);
+      await page.locator('[data-correct="true"]').click();
+      await expect(page.getByTestId("game-hud")).toContainText("STREAK ×1");
       await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
       await expect(page.getByTestId("reason-band")).toHaveAttribute("data-state", "shown");
       await expect(page.getByTestId("reason-band")).toContainText("✗ →");
       await expect(page.locator('[data-dimmed="true"]')).toHaveCount(1);
       await page.getByRole("button", { name: "End round", exact: true }).click();
-      await expect(page.getByRole("heading", { name: /Round over · \d/ })).toBeVisible();
+      await expectRecap(page, "GAME · BUBBLE POP");
+      await expect(page.getByTestId("recap-streak")).toHaveText("×1");
+      await expect(page.getByTestId("recap-new-best")).toBeVisible();
+      await expect(page.getByTestId("recap-misses")).toContainText('The "-go" family');
+      await expect(page.getByTestId("recap-miss").first()).toContainText(/✗ → \w+ · I /);
+      await expect(page.getByRole("button", { name: "Practice this family" })).toBeVisible();
+      // Send to Flashcards lands in Tasks 22/23: no dead button on the demo recap.
+      await expect(page.getByRole("button", { name: /Send/ })).toHaveCount(0);
       await page.getByRole("button", { name: "Play again" }).click();
       await expect(page.getByTestId("bubble-game")).toBeVisible();
     });
+
+    test("bubble pop: recap saves the personal best and Back to Verbs shows it", async ({ page }) => {
+      await startBubble(page);
+      await page.locator('[data-correct="true"]').click();
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expectRecap(page, "GAME · BUBBLE POP");
+      await expect(page.getByTestId("recap-new-best")).toBeVisible();
+      await expect(page.getByTestId("recap-misses")).toContainText("No misses this round.");
+      await expect(page.getByRole("button", { name: "Practice this family" })).toHaveCount(0);
+      await page.getByRole("button", { name: "Back to Verbs" }).click();
+      await expect(page.getByRole("heading", { name: "Practice by pattern" })).toBeVisible();
+      const card = page.locator("article", { has: page.locator('[data-game="bubble"]') });
+      await expect(card.locator("dd").first()).not.toHaveText("—");
+    });
+
+    test("bubble pop: Practice this family opens the family unit", async ({ page }) => {
+      await startBubble(page);
+      await page.locator('[data-bubble]:not([data-correct="true"])').first().click();
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expectRecap(page, "GAME · BUBBLE POP");
+      await page.getByRole("button", { name: "Practice this family" }).click();
+      await expect(page).toHaveURL(/verbs=unit&vfamily=es\.present\.go-yo/);
+    });
+  });
+
+  // Ruling F2: the round ends when ROUND_MS[game] + 1 s has passed on the page clock.
+  test("bubble pop: the round ends by itself when the timer runs out", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.clock.install();
+    await startBubble(page);
+    await page.clock.fastForward(61_000);
+    await expectRecap(page, "GAME · BUBBLE POP");
+    await page.getByRole("button", { name: "Play again" }).click();
+    await expect(page.getByTestId("bubble-game")).toBeVisible();
   });
 
   test("bubble pop list mode keeps keyboard focus on the options across frames", async ({ page }) => {
@@ -206,10 +259,37 @@ test.describe("verb crush", { tag: "@dev-only" }, () => {
       const moved = await page.locator('[data-testid="crush-cell"]').evaluateAll((els) => els.filter((el) => getComputedStyle(el).transform !== "none").length);
       expect(moved).toBe(0);
       await page.getByRole("button", { name: "End round", exact: true }).click();
-      await expect(page.getByRole("heading", { name: /Round over · \d/ })).toBeVisible();
-      await expect(page.getByTestId("round-over")).toContainText("GAME · VERB CRUSH");
+      await expectRecap(page, "GAME · VERB CRUSH");
+      await expect(page.getByTestId("recap-streak")).toHaveText("×1");
+      await expect(page.getByTestId("recap-new-best")).toBeVisible();
+      await expect(page.getByTestId("recap-misses")).toContainText("No misses this round.");
       await page.getByRole("button", { name: "Play again" }).click();
       await expect(page.getByTestId("crush-game")).toBeVisible();
+    });
+
+    test("crush recap lists a trap with the correct form and English", async ({ page }) => {
+      await startCrush(page);
+      for (let n = 1; n <= 2; n++) {
+        await page.locator('[data-hint="a"]').click();
+        await page.locator('[data-hint="b"]').click();
+        await expect(page.getByTestId("crush-goal-count")).toHaveText(`${n} / 5`);
+      }
+      await page.locator('[data-index="2"]').click();
+      await page.locator('[data-index="7"]').click();
+      await expect(page.getByTestId("reason-band")).toContainText("decen ✗ → dicen");
+      await page.getByRole("button", { name: "End round", exact: true }).click();
+      await expectRecap(page, "GAME · VERB CRUSH");
+      await expect(page.getByTestId("recap-miss")).toContainText(/decen ✗ → dicen · .+/);
+      await expect(page.getByRole("button", { name: "Practice this family" })).toBeVisible();
+      await expect(page.getByRole("button", { name: /Send/ })).toHaveCount(0);
+    });
+
+    // Ruling F2: Crush is 90 s, so the page clock goes ROUND_MS.crush + 1 s ahead (91 000).
+    test("crush: the round ends by itself when the timer runs out", async ({ page }) => {
+      await page.clock.install();
+      await startCrush(page);
+      await page.clock.fastForward(91_000);
+      await expectRecap(page, "GAME · VERB CRUSH");
     });
   });
 
@@ -262,6 +342,38 @@ test.describe("verb crush", { tag: "@dev-only" }, () => {
     expect(box?.width ?? 0).toBeGreaterThanOrEqual(44);
     expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
   });
+
+  for (const vp of [
+    { width: 375, height: 548 },
+    { width: 640, height: 548 },
+  ]) {
+    test(`crush tiles stay at least 44 px on a short screen (${vp.width}x${vp.height})`, async ({ page }) => {
+      await page.setViewportSize(vp);
+      await startCrush(page);
+      const sizes = await page
+        .getByTestId("crush-cell")
+        .evaluateAll((els) => els.map((el) => el.getBoundingClientRect()).map((r) => Math.min(r.width, r.height)));
+      expect(sizes).toHaveLength(25);
+      expect(Math.min(...sizes)).toBeGreaterThanOrEqual(44);
+    });
+  }
+
+  test("crush keeps one tap that lands during the swap tween", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await startCrush(page);
+    const a = Number(await page.locator('[data-hint="a"]').getAttribute("data-index"));
+    const b = Number(await page.locator('[data-hint="b"]').getAttribute("data-index"));
+    const far = [24, 20, 4, 0].find((i) => i !== a && i !== b && Math.abs(i - a) > 6 && Math.abs(i - b) > 6) ?? 24;
+    // Three clicks in one task: the third arrives while the 170 ms swap tween runs.
+    await page.evaluate(
+      ([x, y, z]) => {
+        for (const i of [x, y, z]) document.querySelector<HTMLElement>(`[data-testid="crush-cell"][data-index="${i}"]`)?.click();
+      },
+      [a, b, far],
+    );
+    await expect(page.getByTestId("crush-goal-count")).toHaveText("1 / 5");
+    await expect(page.locator(`[data-testid="crush-cell"][data-index="${far}"]`)).toHaveAttribute("aria-selected", "true");
+  });
 });
 
 // Screenshots at four viewports for the visual review: VERB_SCREENS=1 npx playwright test ... --grep @screens
@@ -299,6 +411,68 @@ async function crushMidRound(page: Page): Promise<void> {
   }
 }
 
+const MIX_PLAY = appUrl({ tab: "games" }) + "&verbs=play&vgame=bubble&vfamily=mix&vseed=5";
+
+/** Switches the app to the light theme for this page only. */
+async function goLight(page: Page): Promise<void> {
+  await page.evaluate(() => {
+    localStorage.setItem("lt.theme.v1", "light");
+    document.documentElement.classList.remove("dark");
+    document.documentElement.style.colorScheme = "light";
+  });
+}
+
+/** One right and one wrong pick, then End round: a recap with a miss. */
+async function bubbleRecap(page: Page): Promise<void> {
+  await bubbleMidRound(page);
+  await page.getByRole("button", { name: "End round", exact: true }).click();
+  await expect(page.getByTestId("round-over")).toBeVisible();
+}
+
+/** One right pick, then End round: a recap with no misses and a new best. */
+async function bubbleRecapClean(page: Page): Promise<void> {
+  await expect(page.getByTestId("bubble-game")).toBeVisible();
+  await page.waitForTimeout(1200);
+  const key = Number(await page.locator('[data-correct="true"]').getAttribute("data-bubble"));
+  await page.keyboard.press(String(key + 1));
+  await page.waitForTimeout(400);
+  await page.getByRole("button", { name: "End round", exact: true }).click();
+  await expect(page.getByTestId("round-over")).toBeVisible();
+}
+
+/** A mixed round: four frames, each with a wrong pick then the right one, so several families show up. */
+async function bubbleRecapMix(page: Page): Promise<void> {
+  await expect(page.getByTestId("bubble-game")).toBeVisible();
+  await page.waitForTimeout(1200);
+  for (let i = 0; i < 6; i++) {
+    const wrong = Number(await page.locator('[data-bubble]:not([data-correct="true"])').first().getAttribute("data-bubble"));
+    await page.keyboard.press(String(wrong + 1));
+    await page.waitForTimeout(200);
+    const key = Number(await page.locator('[data-correct="true"]').getAttribute("data-bubble"));
+    await page.keyboard.press(String(key + 1));
+    await page.waitForTimeout(450);
+  }
+  await page.getByRole("button", { name: "End round", exact: true }).click();
+  await expect(page.getByTestId("round-over")).toBeVisible();
+}
+
+/** Two pops, then the known trap (cells 2 and 7 on seed 5), then End round. */
+async function crushRecap(page: Page): Promise<void> {
+  await crushMidRound(page);
+  await page.locator('[data-index="2"]').click();
+  await page.locator('[data-index="7"]').click();
+  await expect(page.getByTestId("reason-band")).toHaveAttribute("data-state", "shown");
+  await page.getByRole("button", { name: "End round", exact: true }).click();
+  await expect(page.getByTestId("round-over")).toBeVisible();
+}
+
+/** Two pops, then End round: no misses. */
+async function crushRecapClean(page: Page): Promise<void> {
+  await crushMidRound(page);
+  await page.getByRole("button", { name: "End round", exact: true }).click();
+  await expect(page.getByTestId("round-over")).toBeVisible();
+}
+
 const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<void> }[] = [
   { name: "home", path: appUrl({ tab: "games" }) },
   { name: "picker-crush", path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=crush&vfamily=es.present.go-yo" },
@@ -317,15 +491,10 @@ const SCREENS: { name: string; path: string; prepare?: (page: Page) => Promise<v
       await page.waitForTimeout(250);
     },
   },
-  {
-    name: "bubble-over",
-    path: BUBBLE_PLAY,
-    prepare: async (page) => {
-      await bubbleMidRound(page);
-      await page.getByRole("button", { name: "End round", exact: true }).click();
-      await expect(page.getByTestId("round-over")).toBeVisible();
-    },
-  },
+  { name: "recap-bubble", path: BUBBLE_PLAY, prepare: bubbleRecap },
+  { name: "recap-bubble-clean", path: BUBBLE_PLAY, prepare: bubbleRecapClean },
+  { name: "recap-bubble-mix", path: MIX_PLAY, prepare: bubbleRecapMix },
+  { name: "recap-bubble-light", path: BUBBLE_PLAY, prepare: async (page) => { await goLight(page); await bubbleRecap(page); } },
 ];
 SCREENS.push(
   { name: "crush", path: CRUSH_PLAY, prepare: crushMidRound },
@@ -341,15 +510,8 @@ SCREENS.push(
       await page.waitForTimeout(260);
     },
   },
-  {
-    name: "crush-over",
-    path: CRUSH_PLAY,
-    prepare: async (page) => {
-      await crushMidRound(page);
-      await page.getByRole("button", { name: "End round", exact: true }).click();
-      await expect(page.getByTestId("round-over")).toBeVisible();
-    },
-  },
+  { name: "recap-crush", path: CRUSH_PLAY, prepare: crushRecap },
+  { name: "recap-crush-clean", path: CRUSH_PLAY, prepare: crushRecapClean },
 );
 const VIEWPORTS = [
   { tag: "375", width: 375, height: 812, scale: 2 },

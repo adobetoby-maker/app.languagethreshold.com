@@ -2,14 +2,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, Trophy } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { useAuth } from "@/state/auth-state";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useVerbDevice } from "@/hooks/use-verb-device";
-import { sourceFilterFor } from "@/lib/verb-games/device";
+import { recordPicks, recordRound, sourceFilterFor, type VerbDeviceState } from "@/lib/verb-games/device";
 import { loadPatternData } from "@/lib/verb-games/load-patterns";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
-import type { PatternData, RoundConfig } from "@/lib/verb-games/types";
+import { scopeKey } from "@/lib/verb-games/rules";
+import type { PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
 import { parseVerbRoute, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { BubblePopGame } from "./BubblePopGame";
+import { picksOf } from "./recap-groups";
+import { RoundRecap } from "./RoundRecap";
 import { VerbCrushGame } from "./VerbCrushGame";
 import { VerbPicker } from "./VerbPicker";
 import { VerbsHome } from "./VerbsHome";
@@ -34,31 +38,21 @@ function randomSeed(): number {
   return buf[0] as number;
 }
 
-/** Placeholder end screen until the recap (Task 16) replaces it. */
-function RoundOver(p: { eyebrow: string; score: number; onPlayAgain(): void; onBack(): void }) {
-  return (
-    <section className={`${PANEL} mx-auto max-w-3xl space-y-3`} data-testid="round-over">
-      <div className={EYEBROW}>{p.eyebrow}</div>
-      <h2 className="font-display text-3xl font-semibold">Round over · {p.score.toLocaleString("en-US")}</h2>
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={p.onPlayAgain}
-          className={`inline-flex min-h-11 cursor-pointer items-center rounded-full border border-gold bg-gold px-5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#0a1220] transition-colors duration-200 hover:bg-gold/90 ${FOCUS}`}
-        >
-          Play again
-        </button>
-        <button
-          type="button"
-          onClick={p.onBack}
-          className={`inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-4 font-mono text-[11px] uppercase tracking-[0.18em] text-gold-ink transition-colors duration-200 hover:bg-gold/20 ${FOCUS}`}
-        >
-          <ArrowLeft className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
-          Back
-        </button>
-      </div>
-    </section>
-  );
+/** The personal best stored for this round's scope before the round is recorded. */
+function bestBefore(s: VerbDeviceState, config: RoundConfig): { score: number } | null {
+  try {
+    const best = s.bests[`${config.game}|${scopeKey(config)}`];
+    return best ? { score: best.score } : null;
+  } catch {
+    return null; // a Crush round without a level has no board and no best
+  }
+}
+
+interface EndedRound {
+  result: RoundResult;
+  config: RoundConfig;
+  /** The personal best before this round. */
+  previousBest: { score: number } | null;
 }
 
 function Notice(p: { eyebrow?: string; title: string; body: string; action?: { label: string; onClick(): void } }) {
@@ -104,6 +98,7 @@ function Loading() {
  */
 export function VerbsSection() {
   const { state } = useApp();
+  const { user } = useAuth();
   const device = useVerbDevice();
   const [route, setRoute] = useState<VerbScreen>(HOME);
   const [seed, setSeed] = useState<number | null>(null);
@@ -114,7 +109,9 @@ export function VerbsSection() {
   const reducedMotion = useReducedMotion();
   /** Bumped by Play again so the game remounts with a fresh round. */
   const [roundKey, setRoundKey] = useState(0);
-  const [ended, setEnded] = useState<{ score: number } | null>(null);
+  const [ended, setEnded] = useState<EndedRound | null>(null);
+  /** The last round recorded, so a repeated end call never counts a round twice. */
+  const recordedRef = useRef<string | null>(null);
 
   const spanish = state.selectedLanguage === "Spanish";
   const moduleId = state.activeModuleId ?? null;
@@ -152,6 +149,25 @@ export function VerbsSection() {
     }
     setRoute(next);
   }, []);
+
+  const { update } = device;
+  /** A round ended: update bests and mastery on this device, then show the recap. */
+  const finishRound = useCallback(
+    (log: RoundLog, result: RoundResult) => {
+      if (recordedRef.current === log.clientRoundId) return;
+      recordedRef.current = log.clientRoundId;
+      const seen: { best: { score: number } | null } = { best: null };
+      update((s) => {
+        seen.best = bestBefore(s, log.config);
+        // A round that scored nothing has no best to remember; its picks still count toward mastery.
+        // Nothing reads the unsent queue until the board submits (Task 22+), so rounds are not queued yet.
+        const recorded = result.score > 0 ? recordRound(s, log, result, { queue: false }) : s;
+        return recordPicks(recorded, picksOf(result));
+      });
+      setEnded({ result, config: log.config, previousBest: seen.best });
+    },
+    [update],
+  );
 
   // Leaving or re-entering the play screen always starts clean (no stale "Round over").
   useEffect(() => {
@@ -222,10 +238,7 @@ export function VerbsSection() {
           key={roundKey}
           data={data}
           config={roundConfig}
-          onEnd={(_log, result) => {
-            // Task 16 records the round and shows the recap; until then only the score is shown.
-            setEnded({ score: result.score });
-          }}
+          onEnd={finishRound}
           onSaveCard={() => {
             // Verb Cards land in Tasks 22/23.
           }}
@@ -236,24 +249,32 @@ export function VerbsSection() {
           key={roundKey}
           data={data}
           config={roundConfig}
-          onEnd={(_log, result) => {
-            // Task 16 records the round and shows the recap; until then only the score is shown.
-            setEnded({ score: result.score });
-          }}
+          onEnd={finishRound}
           onSaveCard={() => {
             // Verb Cards land in Tasks 22/23.
           }}
         />
       )}
       {view.screen === "play" && ended && (
-        <RoundOver
+        <RoundRecap
           eyebrow={view.game === "crush" ? "GAME · VERB CRUSH" : "GAME · BUBBLE POP"}
-          score={ended.score}
+          result={ended.result}
+          best={ended.previousBest}
+          countsForBest={!ended.config.listMode}
+          // Public boards are closed until the leaderboard server lands (Task 21+).
+          placement={null}
+          boardsOpen={false}
+          signedIn={Boolean(user)}
+          savedKeys={[]}
+          // Send to Flashcards and Verb Cards land in Tasks 22/23; until then the send controls stay hidden.
+          showSend={false}
+          onSendCards={() => {}}
           onPlayAgain={() => {
             setEnded(null);
             setRoundKey((k) => k + 1);
           }}
-          onBack={() => go({ screen: "pick", game: view.game, family: view.family })}
+          onPractice={(family) => go({ screen: "unit", family })}
+          onBack={() => go(HOME)}
         />
       )}
       {view.screen === "unit" && (

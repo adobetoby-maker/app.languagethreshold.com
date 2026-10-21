@@ -30,13 +30,31 @@ const BURST_MS = 220;
 /** Fraction of a frame's lifetime spent fading in at the bottom and fading out at the top. */
 const FADE_IN = 0.04;
 const FADE_OUT = 0.12;
-/** Board padding (px) top and bottom, matching the `p-3` the cluster sits inside. */
-const PAD = 12;
+/** From this point in a frame the bubbles fade out and stop taking picks (rise and still row alike). */
+const LOCK_AT = 1 - FADE_OUT;
 
 const BTN =
   "inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border px-4 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:focus-visible:ring-gold";
 
 const clamp01 = (n: number) => (n < 0 ? 0 : n > 1 ? 1 : n);
+
+/** Fading pieces are out of play: no pointer, no focus, hidden from assistive tech. Writes only on change. */
+function setLocked(el: HTMLElement | null, locked: boolean): void {
+  if (!el || (el.getAttribute("aria-hidden") === "true") === locked) return;
+  if (locked) el.setAttribute("aria-hidden", "true");
+  else el.removeAttribute("aria-hidden");
+  el.style.pointerEvents = locked ? "none" : "";
+  el.inert = locked;
+}
+
+function CheckIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="h-5 w-5 shrink-0">
+      <circle cx="10" cy="10" r="10" fill={PIECE_COLORS.done} />
+      <path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#0a1220" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 function eyebrowFor(config: RoundConfig): string {
   const scope = config.family === "mix" ? "MIX" : familyById(config.family).label;
@@ -86,6 +104,7 @@ const RisingBoard = memo(function RisingBoard(p: {
       <div
         ref={p.clusterRef}
         key={view.frame.index}
+        data-testid="bubble-cluster"
         className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-center gap-x-3 gap-y-4 p-3 will-change-transform"
         style={{ opacity: 0 }}
       >
@@ -181,13 +200,15 @@ function PopBurst(p: { burst: Burst }) {
 }
 
 /** Reduced motion: the same bubbles held still in a row; the countdown bar shows the time left. */
-const StillRow = memo(function StillRow(p: { view: BubbleView; onPick: (id: number) => void }) {
+const StillRow = memo(function StillRow(p: {
+  view: BubbleView;
+  onPick: (id: number) => void;
+  piecesRef: React.RefObject<HTMLDivElement | null>;
+}) {
   return (
-    <div
-      data-testid="bubble-board"
-      data-motion="still"
-      className="flex min-h-[9rem] flex-wrap content-center items-center justify-center gap-3 rounded-2xl border border-border/60 bg-card/40 p-4"
-    >
+    <div data-testid="bubble-board" data-motion="still" className="flex min-h-[9rem] items-center justify-center rounded-2xl border border-border/60 bg-card/40 p-4">
+      {/* Keyed per frame so a new frame always starts unlocked and fully visible. */}
+      <div ref={p.piecesRef} key={p.view.frame.index} className="flex flex-wrap content-center items-center justify-center gap-3">
       {p.view.pieces.map((piece, i) => (
         <Bubble
           key={`${p.view.frame.index}:${piece.id}`}
@@ -198,6 +219,7 @@ const StillRow = memo(function StillRow(p: { view: BubbleView; onPick: (id: numb
           onPick={() => p.onPick(piece.id)}
         />
       ))}
+      </div>
     </div>
   );
 });
@@ -237,6 +259,9 @@ export function BubblePopGame(p: {
   const bobRefs = useRef<(HTMLDivElement | null)[]>([]);
   const barRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const stillPiecesRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const focusFrame = useRef(-1);
   const size = useRef({ board: 0, cluster: 0 });
   const timers = useRef<{ reason?: ReturnType<typeof setTimeout>; flash?: ReturnType<typeof setTimeout>; burst?: ReturnType<typeof setTimeout> }>({});
   const onEndRef = useRef(p.onEnd);
@@ -265,9 +290,19 @@ export function BubblePopGame(p: {
     const prog = progressOf(v, t);
     const bar = barRef.current;
     if (bar) bar.style.transform = `scaleX(${1 - prog})`;
-    if (stillRef.current) return;
+    const locked = prog > LOCK_AT;
+    if (stillRef.current) {
+      // Reduced motion: no movement; the row dims in place for the last part of the frame.
+      const row = stillPiecesRef.current;
+      if (row) {
+        row.style.opacity = locked ? (0.35 + 0.65 * ((1 - prog) / FADE_OUT)).toFixed(3) : "1";
+        setLocked(row, locked);
+      }
+      return;
+    }
     const cluster = clusterRef.current;
     if (!cluster) return;
+    setLocked(cluster, locked);
     const travel = Math.max(0, size.current.board - size.current.cluster);
     cluster.style.transform = `translate3d(0, ${-(travel * prog).toFixed(1)}px, 0)`;
     const fade = prog < FADE_IN ? prog / FADE_IN : prog > 1 - FADE_OUT ? (1 - prog) / FADE_OUT : 1;
@@ -335,6 +370,9 @@ export function BubblePopGame(p: {
       const v = viewRef.current;
       // Task 7 note: never hand the engine a time before its own clock, or the pick is dropped.
       const at = Math.max(tRef.current, round.view().t);
+      // Bubbles that are fading out are out of play (click and key alike). List mode has no fade and
+      // keeps taking picks until the engine's own deadline.
+      if (!config.listMode && progressOf(v, at) > LOCK_AT) return;
       let popped: Burst | null = null;
       const piece = v.pieces.find((x) => x.id === id);
       const board = boardRef.current;
@@ -356,8 +394,24 @@ export function BubblePopGame(p: {
       }
       apply(out, at, popped);
     },
-    [round, apply],
+    [round, apply, config.listMode],
   );
+
+  // List mode: a new frame replaces the options, so focus would fall to the page. Move it to the first
+  // option when it was inside the old options or already on the page; after a miss, only when the
+  // focused option was the one just disabled.
+  useLayoutEffect(() => {
+    if (!config.listMode) return;
+    const wrap = listRef.current;
+    if (!wrap) return;
+    const a = document.activeElement as HTMLElement | null;
+    const newFrame = focusFrame.current !== view.frame.index;
+    focusFrame.current = view.frame.index;
+    const onPage = !a || a === document.body;
+    const move = newFrame ? onPage || wrap.contains(a) : onPage || (wrap.contains(a) && (a as HTMLButtonElement).disabled === true);
+    if (!move) return;
+    wrap.querySelector<HTMLButtonElement>("[data-choice]:not([disabled])")?.focus({ preventScroll: true });
+  }, [config.listMode, view.frame.index, view.removed.length]);
 
   // Keys 1-6 pick on the bubble boards; list mode uses FrameChoices' own key handler.
   useEffect(() => {
@@ -402,7 +456,8 @@ export function BubblePopGame(p: {
   }, [still, view.frame.index, paint]);
 
   // Bring the whole board into view on start (the bubbles begin at its bottom edge). The section's
-  // scroll margins keep it clear of the fixed top bar and the bottom tab bar.
+  // scroll-margin-bottom uses the app's bottom budget tokens (nav + floating control + gaps + safe
+  // area), so End round lands clear of the fixed tab bar and the Tutor button.
   // Deferred past the router's scroll restoration, which runs after the URL changes to the play screen.
   useEffect(() => {
     const id = setTimeout(() => {
@@ -425,19 +480,21 @@ export function BubblePopGame(p: {
   const choices = view.pieces.map((x) => ({ id: x.id, label: x.label }));
 
   return (
-    <section ref={sectionRef} className="mx-auto w-full max-w-3xl scroll-mb-24 scroll-mt-4 space-y-3" data-testid="bubble-game" aria-label="Bubble Pop">
+    <section ref={sectionRef} className="mx-auto w-full max-w-3xl scroll-mt-4 space-y-3 [scroll-margin-bottom:calc(var(--lt-nav-height)+var(--lt-floating-control-height)+var(--lt-floating-gap)*2+env(safe-area-inset-bottom))]" data-testid="bubble-game" aria-label="Bubble Pop">
       <GameHud eyebrow={eyebrowFor(config)} score={view.score} streak={view.streak} msLeft={msLeft} />
 
       {config.listMode ? (
-        <FrameChoices
-          key={view.frame.index}
-          prompt={view.frame.prompt}
-          english={view.frame.english}
-          infinitive={view.frame.infinitive}
-          options={choices}
-          disabled={view.removed}
-          onPick={pick}
-        />
+        <div ref={listRef}>
+          <FrameChoices
+            key={view.frame.index}
+            prompt={view.frame.prompt}
+            english={view.frame.english}
+            infinitive={view.frame.infinitive}
+            options={choices}
+            disabled={view.removed}
+            onPick={pick}
+          />
+        </div>
       ) : (
         <p data-testid="bubble-frame" className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 leading-tight">
           <span className="font-display text-2xl font-semibold text-foreground sm:text-3xl">{view.frame.prompt}</span>
@@ -452,15 +509,25 @@ export function BubblePopGame(p: {
 
       {/* Feedback sits between the frame and the board, where the eyes already are (never under the fold or the phone tab bar). */}
       {/* One fixed-height slot: the flash, with the reason band laid over it during a miss. S still saves while covered. */}
-      <div className="relative flex h-14 flex-col justify-center sm:h-12">
-        <CompletionFlash completion={flash} onSaveCard={p.onSaveCard} />
+      <div className="relative flex h-14 items-center justify-center gap-2" data-testid="feedback-slot">
+        {/* The flash is the answer just given, not the current prompt: say so with a check and "LAST". */}
+        {flash && (
+          <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground" data-testid="flash-mark">
+            <span className="hidden sm:inline">Last</span>
+            <CheckIcon />
+          </span>
+        )}
+        {/* Sentence frames (after 30 s) carry long English: keep the pill inside the fixed slot, two lines at most. */}
+        <div className="min-w-0 [&>div]:h-14 [&_[role=button]]:line-clamp-2 [&_[role=button]]:rounded-2xl [&_[role=button]]:py-1.5 [&_[role=button]]:text-sm [&_[role=button]]:leading-5">
+          <CompletionFlash completion={flash} onSaveCard={p.onSaveCard} />
+        </div>
         <div className={`absolute inset-0 ${reason ? "" : "pointer-events-none"}`}>
           <ReasonBand text={reason} />
         </div>
       </div>
 
       {config.listMode ? null : still ? (
-        <StillRow view={view} onPick={pick} />
+        <StillRow view={view} onPick={pick} piecesRef={stillPiecesRef} />
       ) : (
         <RisingBoard view={view} boardRef={boardRef} clusterRef={clusterRef} bobRefs={bobRefs} onPick={pick} burst={burst} />
       )}

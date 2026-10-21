@@ -91,6 +91,42 @@ test.describe("bubble pop", { tag: "@dev-only" }, () => {
     });
   });
 
+  test("bubble pop list mode keeps keyboard focus on the options across frames", async ({ page }) => {
+    await openVerbs(page, "&vseed=5");
+    await page.locator('[data-game="bubble"]').click();
+    await page.getByRole("switch").click();
+    await page.getByTestId("family-es.present.go-yo").click();
+    await page.getByRole("button", { name: "Start round" }).click();
+    await expect(page.getByTestId("frame-choices")).toBeVisible();
+    const focusedChoice = () =>
+      page.evaluate(() => {
+        const a = document.activeElement as HTMLButtonElement | null;
+        return a?.hasAttribute("data-choice") && !a.disabled ? a.textContent : null;
+      });
+    await expect.poll(focusedChoice).not.toBeNull();
+    // Enter on whatever option holds focus: a miss disables it and focus moves on; a hit brings a new frame.
+    for (let i = 0; i < 6; i++) {
+      if ((await page.getByTestId("completion-flash").textContent())?.includes("·")) break;
+      await page.keyboard.press("Enter");
+      await expect.poll(focusedChoice).not.toBeNull();
+    }
+    await expect(page.getByTestId("completion-flash")).toHaveText(/· I /);
+    await expect(page.getByTestId("flash-mark")).toBeVisible();
+    await expect(page.getByTestId("live-region")).toContainText("Next:");
+    await expect.poll(focusedChoice).not.toBeNull();
+  });
+
+  test("bubble pop: fading bubbles stop taking picks", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await startBubble(page);
+    const fading = page.locator('[data-testid="bubble-cluster"][aria-hidden="true"]');
+    await expect(fading).toBeAttached({ timeout: 10_000 });
+    const key = await page.locator('[data-correct="true"]').getAttribute("data-bubble");
+    await page.keyboard.press(String(Number(key) + 1));
+    await expect(page.getByTestId("reason-band")).toContainText("Time's up");
+    await expect(page.getByTestId("game-hud")).toContainText("SCORE 0");
+  });
+
   test("bubble pop rises and a number key pops the answer", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await startBubble(page);

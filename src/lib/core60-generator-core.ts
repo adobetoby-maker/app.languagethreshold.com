@@ -658,6 +658,8 @@ For each lesson:
 - safetySensitive: true when the lesson involves injury risk, an emergency, a dose, an electrical or chemical hazard, a code or specification, or legal / privacy duties.
 Also write threshold: one English sentence starting "By Lesson 20, you can" listing four or five things the learner can do in ${ctx.pair.language}.
 
+Vary the cast and the settings across the twenty scenes: no single character leads more than 4 lessons; give each lesson its own named people (reuse a name only when it is deliberately the same person across lessons); never reuse a room, address or unit number for a different patient or client; and vary the workplaces.
+
 ${catalogRules(ctx)}
 
 Build on the Core 30: go beyond its situations (do not repeat a Core 30 lesson's scenario), and make each lesson a situation that a working ${ctx.module.userRole} really meets. ${safetyRules(ctx)}

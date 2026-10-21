@@ -109,7 +109,7 @@ export function Core30PlanCard({
     return (
       <div
         data-testid="core30-plan-card"
-        className="mb-5 rounded-2xl border border-gold/25 bg-gold/[0.05] p-5"
+        className="mt-4 mb-5 rounded-2xl border border-gold/25 bg-gold/[0.05] p-5"
       >
         <div className="flex items-start gap-3">
           <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-gold" strokeWidth={1.6} />
@@ -171,7 +171,7 @@ export function Core30PlanCard({
   return (
     <div
       data-testid="core30-plan-card"
-      className="mb-5 rounded-2xl border border-gold/25 bg-gold/[0.05] p-4 sm:p-5"
+      className="mt-4 mb-5 rounded-2xl border border-gold/25 bg-gold/[0.05] p-4 sm:p-5"
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">

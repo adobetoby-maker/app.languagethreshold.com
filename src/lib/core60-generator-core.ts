@@ -1154,7 +1154,7 @@ const SPANISH_ARTICLES = new Set(["el", "la", "los", "las", "un", "una", "unos",
 const ENGLISH_ARTICLES = new Set(["the", "a", "an"]);
 const BANNED_REVEAL = /complicat|surpris|unannounced|twist/i;
 const SPANISH_MARKERS = /\b(es|muy|verbo|los|las|para|del|cuando|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|significa|también|usted|decir|dice)\b/gi;
-const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you)\b/gi;
+const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you|that|takes|take|word|words|noun|nouns|verb|verbs|feminine|masculine|plural|singular|agree|agrees|adjective|adjectives|before|after|like|or|an)\b/gi;
 const count = (text: string, pattern: RegExp) => (text.match(pattern) ?? []).length;
 const digits = (text: string) => (text.match(/\d+/g) ?? []).join(",");
 const ENDS = /[.?!…]["'”’»)\]]*$/;

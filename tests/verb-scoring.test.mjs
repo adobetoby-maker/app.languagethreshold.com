@@ -24,7 +24,7 @@ test("stale data is reported, never judged", () => { // Review Focus 1
 
 test("a stale log returns before any replay, even when it is otherwise malformed", () => {
   const { log } = playHonest(miniData(), base("bubble"));
-  const junk = { ...log, dataHash: "0000000000000000", config: { ...log.config, family: "nope" }, events: "not a list" };
+  const junk = { ...log, dataHash: "0000000000000000", config: { ...log.config, family: "nope" }, events: [] };
   assert.deepEqual(scoreRound(miniData(), junk), { ok: false, stale: true });
 });
 
@@ -147,7 +147,6 @@ test("an honest round that goes idle for its last 20 seconds stays ranked", () =
   const { log } = playHonest(miniData(), base("bubble"));
   const early = scoreRound(miniData(), { ...log, events: log.events.filter((e) => e.t < 20_000) });
   assert.equal(early.ranked, true);
-  assert.equal(scoreRound(miniData(), { ...log, events: [] }).ranked, true);
 });
 
 test("quitAtMs before the timer makes the round unranked as abandoned", () => {
@@ -160,7 +159,7 @@ test("quitAtMs before the timer makes the round unranked as abandoned", () => {
   const atEnd = scoreRound(miniData(), { ...log, quitAtMs: ROUND_MS.bubble });
   assert.deepEqual(atEnd.softReasons, []);
   const quitEmpty = scoreRound(miniData(), { ...log, events: [], quitAtMs: 0 });
-  assert.deepEqual(quitEmpty.softReasons, ["abandoned"]);
+  assert.deepEqual(quitEmpty.softReasons, ["abandoned", "empty"]);
   const withList = scoreRound(miniData(), { ...log, config: { ...log.config, listMode: true }, events, quitAtMs: 30_000 });
   assert.deepEqual(withList.softReasons, ["list-mode", "abandoned"]);
 });
@@ -206,4 +205,111 @@ test("buildRoundLog builds the v1 log the server expects", () => {
   assert.ok(Math.abs(Date.parse(buildRoundLog(config, events, data).endedAt) - Date.now()) < 5_000);
   assert.equal("quitAtMs" in log, false, "quitAtMs is absent unless the player quit");
   assert.equal(buildRoundLog(config, events, data, 0, 30_000).quitAtMs, 30_000);
+});
+
+test("the envelope is checked before anything reads the log", () => {
+  const { log } = playHonest(miniData(), base("bubble"));
+  const invalid = { ok: false, hard: true, reason: "invalid-event" };
+  for (const bad of [null, undefined, 5, "log", []]) assert.deepEqual(scoreRound(miniData(), bad), invalid, String(bad));
+  assert.deepEqual(scoreRound(miniData(), { ...log, v: 2 }), invalid);
+  assert.deepEqual(scoreRound(miniData(), { ...log, v: undefined }), invalid);
+  assert.deepEqual(scoreRound(miniData(), { ...log, events: undefined }), invalid);
+  assert.deepEqual(scoreRound(miniData(), { ...log, dataHash: "0000000000000000", events: "x" }), invalid);
+  assert.deepEqual(scoreRound(miniData(), { ...log, dataHash: "0000000000000000" }), { ok: false, stale: true });
+});
+
+test("an engine exception is a replay-error carrying the message, not an unknown scope", () => {
+  const data = miniData();
+  const { log } = playHonest(data, base("bubble"));
+  for (const verb of data.verbs) for (const form of verb.forms) form.full = null; // passes scope, breaks the engine
+  const v = scoreRound(data, log);
+  assert.equal(v.ok, false);
+  assert.equal(v.hard, true);
+  assert.equal(v.reason, "replay-error");
+  assert.match(v.detail, /normalize/);
+  // A scope with no frames at all is an unknown scope, decided before the engine runs.
+  const clean = playHonest(miniData(), base("bubble")).log;
+  const noFrames = { ...clean.config, source: { kind: "module", moduleId: "roofing" }, family: "es.present.o-ue" };
+  assert.equal(scoreRound(miniData(), { ...clean, config: noFrames }).reason, "unknown-scope");
+});
+
+test("zero-score and empty rounds are stored but unranked", () => {
+  const { log } = playHonest(miniData(), base("bubble"));
+  const empty = scoreRound(miniData(), { ...log, events: [] });
+  assert.equal(empty.ok, true);
+  assert.equal(empty.result.score, 0);
+  assert.deepEqual(empty.softReasons, ["empty"]);
+  assert.equal(empty.ranked, false);
+  // One wrong pick: events exist but the replay score is 0.
+  const round = createBubbleRound(miniData(), log.config);
+  const view = round.view();
+  round.pick(500, view.frame.index, view.pieces.find((p) => !p.correct).id);
+  const wrongOnly = scoreRound(miniData(), { ...log, events: round.events() });
+  assert.equal(wrongOnly.result.score, 0);
+  assert.deepEqual(wrongOnly.softReasons, ["empty"]);
+});
+
+test("module-only rounds are unranked, core and both stay rankable", () => {
+  const data = miniData();
+  const cfg = { ...base("bubble"), seed: 3 };
+  const rank = (source) => {
+    const config = { ...cfg, source };
+    const { log } = playHonest(data, config);
+    return scoreRound(data, log);
+  };
+  const core = rank({ kind: "core" });
+  assert.equal(core.ranked, true);
+  const both = rank({ kind: "both", moduleId: "roofing" });
+  assert.equal(both.ok, true);
+  assert.deepEqual(both.softReasons, []);
+  assert.equal(both.ranked, true);
+  const module = rank({ kind: "module", moduleId: "roofing" });
+  assert.equal(module.ok, true);
+  assert.deepEqual(module.softReasons, ["module-pool"]);
+  assert.equal(module.ranked, false);
+  assert.ok(module.result.score > 0);
+});
+
+test("event times: negative, past the end but inside the slack, and Crush ordering", () => {
+  const bubble = playHonest(miniData(), base("bubble")).log;
+  assert.equal(scoreRound(miniData(), { ...bubble, events: [{ t: -5, kind: "pick", frame: 0, piece: 0 }] }).reason, "invalid-event");
+  const late = (t) => scoreRound(miniData(), { ...bubble, events: [...bubble.events, { t, kind: "pick", frame: 0, piece: 0 }] }).reason;
+  assert.equal(late(60_000), "invalid-event");
+  assert.equal(late(60_500), "invalid-event");
+  assert.equal(late(61_000), "invalid-event");
+  assert.equal(late(61_001), "after-end");
+  const crush = playHonest(miniData(), base("crush")).log;
+  const e = crush.events;
+  assert.ok(e.length >= 2);
+  assert.equal(scoreRound(miniData(), { ...crush, events: [e[1], e[0], ...e.slice(2)] }).reason, "out-of-order");
+  assert.equal(scoreRound(miniData(), { ...crush, events: [...e, { t: 99_000, kind: "swap", a: 0, b: 1 }] }).reason, "after-end");
+});
+
+test("a Crush swap of non-adjacent or off-board cells is invalid", () => {
+  const crush = playHonest(miniData(), base("crush")).log;
+  for (const [a, b] of [[0, 2], [4, 5], [0, 25], [-1, 0], [0.5, 1]]) {
+    const v = scoreRound(miniData(), { ...crush, events: [{ t: 500, kind: "swap", a, b }] });
+    assert.equal(v.reason, "invalid-event", `${a},${b}`);
+  }
+});
+
+test("Crush machine-speed swaps are not ranked", () => {
+  const fast = playHonest(miniData(), base("crush"), { gapMs: 120 });
+  assert.ok(fast.log.events.length >= 4);
+  const v = scoreRound(miniData(), fast.log);
+  assert.equal(v.ok, true);
+  assert.deepEqual(v.result, fast.result);
+  assert.deepEqual(v.softReasons, ["fast-picks"]);
+  assert.equal(v.ranked, false);
+});
+
+test("a Crush round the player quits is abandoned", () => {
+  const { log } = playHonest(miniData(), base("crush"));
+  const events = log.events.slice(0, 2);
+  const quitAtMs = events.at(-1).t + 1_000;
+  const v = scoreRound(miniData(), { ...log, events, quitAtMs });
+  assert.equal(v.ok, true);
+  assert.ok(v.result.durationMs >= ROUND_MS.crush, "the round was still running when the player left");
+  assert.deepEqual(v.softReasons, ["abandoned"]);
+  assert.equal(v.ranked, false);
 });

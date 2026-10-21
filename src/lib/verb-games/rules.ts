@@ -4,7 +4,7 @@
 import { FAMILIES, familyById } from "./families.ts";
 import { frameSlots } from "./pool.ts";
 import type { FrameSlot } from "./pool.ts";
-import type { CrushLevel, FamilyId, GameId, PatternData, RoundConfig, SourceFilter } from "./types.ts";
+import type { CrushLevel, FamilyId, GameId, PatternData, RoundConfig, SourceFilter, VerbEntry } from "./types.ts";
 
 /** Round length per game. Task 16's e2e fast-forwards `ROUND_MS[game] + 1000`. */
 export const ROUND_MS: Record<GameId, number> = { bubble: 60_000, crush: 90_000 };
@@ -125,6 +125,21 @@ export function boardScopes(game: GameId, data: PatternData): BoardScope[] {
 
 // ---- Verb Crush levels (Task 8) -------------------------------------------------------------
 
+const VERB_INDEX = new WeakMap<PatternData, Map<string, VerbEntry>>();
+
+/**
+ * Verbs by infinitive, built once per PatternData object (compiled data is never mutated after
+ * load, so the cache stays exact). Replaces linear `data.verbs.find` scans in hot paths.
+ */
+export function verbIndex(data: PatternData): Map<string, VerbEntry> {
+  let index = VERB_INDEX.get(data);
+  if (!index) {
+    index = new Map(data.verbs.map((v) => [v.infinitive, v]));
+    VERB_INDEX.set(data, index);
+  }
+  return index;
+}
+
 /** Families a Crush level draws from: its fixed list, else the picked family (or mix). */
 function crushFamilies(data: PatternData, level: CrushLevel, family: FamilyId | "mix", source: SourceFilter): FamilyId[] {
   if (Array.isArray(level.families)) return [...level.families];
@@ -143,8 +158,9 @@ export function crushGoalSlots(
   family: FamilyId | "mix",
   source: SourceFilter,
 ): FrameSlot[] {
+  const verbs = verbIndex(data);
   return frameSlots(data, crushFamilies(data, level, family, source), level.persons, source).filter((slot) => {
-    const verb = data.verbs.find((v) => v.infinitive === slot.infinitive);
+    const verb = verbs.get(slot.infinitive);
     const form = verb?.forms.find((f) => f.person === slot.person);
     return form !== undefined && form.ending !== "" && form.stem !== "";
   });
@@ -171,8 +187,9 @@ export function levelAvailable(
     if (!covered) return false;
   }
   const forms = new Set<string>();
+  const verbs = verbIndex(data);
   for (const slot of crushGoalSlots(data, level, family, source)) {
-    const form = data.verbs.find((v) => v.infinitive === slot.infinitive)?.forms.find((f) => f.person === slot.person);
+    const form = verbs.get(slot.infinitive)?.forms.find((f) => f.person === slot.person);
     if (form) forms.add(form.full.normalize("NFC").toLowerCase());
   }
   return forms.size >= MIN_GOAL_FORMS;

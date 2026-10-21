@@ -188,13 +188,18 @@ test("generation over many seeds and levels: no goal pair, a pop swap, and the m
 
 test("F14: about a third of the starting stem->ending pairs are seeded invalid words", () => {
   // Tolerance: over seeds 0-99 per level, the invalid share lies in [0.25, 0.42] (target 1/3,
-  // measured 0.29-0.35; 400 seeds converge to 0.33-0.35).
+  // measured 0.30-0.33), and boards average at least 3 starting pairs (measured about 5.0).
   const data = realData();
   const cache = new Map();
   const valid = (w) => { if (!cache.has(w)) cache.set(w, isAnyPresentForm(data, w)); return cache.get(w); };
-  for (const [family, level] of [["es.present.go-yo", 1], ["mix", 2], ["mix", 3], ["es.present.o-ue", 2]]) {
+  const levels = [
+    ["es.present.go-yo", 1], ["es.present.ar", 1], ["es.present.er", 1], ["es.present.ir", 1],
+    ["mix", 2], ["mix", 3], ["es.present.o-ue", 2], ["es.present.ar", 4],
+  ];
+  for (const [family, level] of levels) {
     let pairs = 0, invalid = 0;
-    for (let seed = 0; seed < 100; seed++) {
+    const seeds = 100;
+    for (let seed = 0; seed < seeds; seed++) {
       const cells = createCrushRound(data, { ...cfg, family, level, seed }).view().cells;
       for (const [, word] of pairsOf(cells)) {
         pairs++;
@@ -202,23 +207,50 @@ test("F14: about a third of the starting stem->ending pairs are seeded invalid w
       }
     }
     const share = invalid / pairs;
-    assert.ok(pairs >= 200, `${family} L${level}: ${pairs} pairs`);
+    assert.ok(pairs / seeds >= 3, `${family} L${level}: ${(pairs / seeds).toFixed(2)} pairs per board`);
     assert.ok(share >= 0.25 && share <= 0.42, `${family} L${level}: share ${share.toFixed(3)} of ${pairs}`);
   }
 });
 
-test("F14: seeded traps are deterministic and plausible (stem + a regular ending of its verb's class)", () => {
+test("F14: seeded traps are deterministic and plausible", () => {
+  // Own-class regular endings first (ten + o); a regular stem, whose own-class endings all make
+  // words, takes another class's ending or -go (habl + es). Never a present form of any verb.
   const data = realData();
   const c1 = { ...cfg, seed: 42 };
   assert.deepEqual(createCrushRound(data, c1).view().cells, createCrushRound(data, c1).view().cells);
   const regular = { ar: ["o", "as", "a", "amos", "an"], er: ["o", "es", "e", "emos", "en"], ir: ["o", "es", "e", "imos", "en"] };
-  for (let seed = 0; seed < 10; seed++) {
-    const cells = createCrushRound(data, { ...cfg, family: "mix", level: 2, seed }).view().cells;
-    for (const [i, word] of pairsOf(cells)) {
-      if (isAnyPresentForm(data, word)) continue;
-      const inf = norm(cells[i].infinitive).replace(/ír$/, "ir");
-      assert.ok(regular[inf.slice(-2)].includes(cells[i + 1].label), `${word} from ${cells[i].infinitive}`);
+  const every = [...new Set([...Object.values(regular).flat(), "go"])];
+  let regularTraps = 0;
+  for (const [family, level] of [["mix", 2], ["es.present.ar", 1], ["es.present.ar", 4]]) {
+    for (let seed = 0; seed < 10; seed++) {
+      const cells = createCrushRound(data, { ...cfg, family, level, seed }).view().cells;
+      for (const [i, word] of pairsOf(cells)) {
+        if (isAnyPresentForm(data, word)) continue;
+        const stem = cells[i].label;
+        const inf = norm(cells[i].infinitive).replace(/ír$/, "ir");
+        const own = regular[inf.slice(-2)].filter((e) => !isAnyPresentForm(data, stem + e));
+        if (own.length === 0) regularTraps++;
+        assert.ok((own.length > 0 ? own : every).includes(cells[i + 1].label), `${word} from ${cells[i].infinitive}`);
+      }
     }
+  }
+  assert.ok(regularTraps > 0, "regular stems get traps too");
+});
+
+test("fallback: the placed pop is the only pop and nothing pops for free", () => {
+  // attempts: 0 forces the fallback on an unseeded draw, which on the mini fixture often holds
+  // goal pairs (tengo, salgo...); every one of them must be cleared.
+  const data = miniData();
+  for (let seed = 0; seed < 40; seed++) {
+    const r = createCrushRound(data, { ...cfg, seed }, { attempts: 0 });
+    const cells = r.view().cells;
+    assert.equal(cells[0].kind, "stem");
+    assert.ok(MINI_GOALS.has(norm(cells[0].label + cells[2].label)), `seed ${seed}: goal at 0 + 2`);
+    assert.ok(!MINI_GOALS.has(norm(cells[0].label + cells[1].label)), `seed ${seed}: filler is not a goal`);
+    assert.deepEqual(pairsOf(cells).filter(([, w]) => MINI_GOALS.has(w)), [], `seed ${seed}: no free pop`);
+    const out = r.swap(100, 1, 2);
+    assert.equal(out[0].kind, "complete");
+    assert.equal(out[0].completion.points, 50);
   }
 });
 

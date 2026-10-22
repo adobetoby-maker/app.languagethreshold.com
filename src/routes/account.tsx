@@ -1,3 +1,4 @@
+import { ResetLearningData } from "@/components/auth/ResetLearningData";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -267,6 +268,8 @@ function AccountPage() {
           </div>
 
           <PwaInstallControl variant="card" />
+
+          <ResetLearningData />
 
           {/* ── Plan card ── */}
           <section className="rounded-2xl border border-border bg-card overflow-hidden mb-4">

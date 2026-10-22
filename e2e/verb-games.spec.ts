@@ -733,6 +733,8 @@ SCREENS.push(
     path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=bubble&vfamilies=es.present.ar,es.present.go-yo",
     prepare: async (page) => {
       await page.getByTestId("mode-count10").click();
+      // Let the 200 ms color transition finish before the capture.
+      await page.waitForTimeout(400);
     },
   },
   {
@@ -740,6 +742,8 @@ SCREENS.push(
     path: appUrl({ tab: "games" }) + "&verbs=pick&vgame=crush&vfamilies=es.present.ar,es.present.go-yo",
     prepare: async (page) => {
       await page.getByTestId("mode-forever").click();
+      // Let the 200 ms color transition finish before the capture.
+      await page.waitForTimeout(400);
     },
   },
   { name: "modes-bubble-forever", path: BUBBLE_PLAY + "&vmode=forever", prepare: reduce((page) => bubbleRight(page, 3)) },

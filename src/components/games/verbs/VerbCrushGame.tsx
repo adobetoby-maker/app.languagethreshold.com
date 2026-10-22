@@ -421,7 +421,7 @@ const Board = memo(function Board(p: {
 });
 
 /** One goal slot: empty dashed box, then the popped form on done green. */
-function GoalSlot(p: { index: number; completion: Completion | null; still: boolean }) {
+function GoalSlot(p: { index: number; completion: Completion | null; still: boolean; pairs?: boolean }) {
   const ref = useRef<HTMLLIElement>(null);
   const filled = p.completion !== null;
   const { still } = p;
@@ -449,7 +449,7 @@ function GoalSlot(p: { index: number; completion: Completion | null; still: bool
       data-filled={filled ? "true" : undefined}
       aria-label={c ? `${c.form}, ${c.english}` : `Goal ${p.index + 1}, not made yet`}
       title={c ? `${c.form} · ${c.english}` : undefined}
-      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold lg:w-[calc((100%-0.75rem)/3)] ${filled ? "" : "border-dashed border-border"}`}
+      className={`flex h-7 min-w-0 items-center justify-center rounded-md border px-1 font-mono text-[12px] font-semibold ${p.pairs ? "lg:w-[calc((100%-0.375rem)/2)]" : "lg:w-[calc((100%-0.75rem)/3)]"} ${filled ? "" : "border-dashed border-border"}`}
       style={
         c
           ? { backgroundColor: PIECE_COLORS.done, borderColor: PIECE_COLORS.done, color: "#0a1220" }
@@ -498,7 +498,8 @@ function GoalBox(p: { level: CrushLevel; mode: RoundMode; count: number; list: n
         style={{ "--cols": cols, "--cols-sm": count <= 8 ? count : cols } as React.CSSProperties}
       >
         {Array.from({ length: count }, (_, i) => (
-          <GoalSlot key={i} index={i} completion={p.goals[i] ?? null} still={p.still} />
+          // Desktop sidebar: three per row (5 = 3 + 2), but a list of 10 sits in even pairs (5 rows of 2).
+          <GoalSlot key={i} index={i} completion={p.goals[i] ?? null} still={p.still} pairs={count === 10} />
         ))}
       </ol>
     </div>

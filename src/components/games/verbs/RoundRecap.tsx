@@ -2,7 +2,8 @@
 import { useEffect, useRef } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import { PERSON_LABEL } from "@/lib/verb-games/families";
-import type { FamilyId, Person, RoundResult } from "@/lib/verb-games/types";
+import type { FamilyId, Person, RoundMode, RoundResult } from "@/lib/verb-games/types";
+import { countSummary, roundTime } from "./mode-labels";
 import { groupMisses, practiceFamily, type MissRow } from "./recap-groups";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
@@ -14,6 +15,7 @@ const SECONDARY = `${BUTTON} border border-gold/50 bg-gold/10 text-gold-ink hove
 const STAT = "rounded-xl border border-border/60 bg-background/40 p-3.5";
 
 const n = (v: number) => v.toLocaleString("en-US");
+
 
 /** `salo ✗ → salgo · I leave`: one text node, so the row reads the same in a screen reader and in a test. */
 const missLine = (r: MissRow) => `${r.attempted ?? "no answer"} ✗ → ${r.correct} · ${r.english}`;
@@ -41,8 +43,11 @@ export function RoundRecap(p: {
   boardsOpen?: boolean;
   /** False hides "Send to cards" and "Send all". */
   showSend?: boolean;
+  /** The round's mode (default timed): forever leads with the streak, count with words and time. */
+  mode?: RoundMode;
 }) {
   const { result } = p;
+  const mode: RoundMode = p.mode ?? { kind: "timed" };
   const titleRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     titleRef.current?.focus();
@@ -68,9 +73,19 @@ export function RoundRecap(p: {
       <header className="space-y-1">
         <div className={EYEBROW}>{p.eyebrow ?? "ROUND RECAP"}</div>
         <h2 ref={titleRef} tabIndex={-1} data-testid="recap-title" className="font-display text-3xl font-semibold focus:outline-none">
-          Round over
+          {mode.kind === "forever" ? `Streak ${n(result.bestStreak)}` : "Round over"}
           <span className="sr-only">{` · ${n(result.score)} points`}</span>
         </h2>
+        {mode.kind === "count" && (
+          <p className="font-mono text-sm tabular-nums text-foreground" data-testid="recap-summary">
+            {countSummary(result, mode.n)}
+          </p>
+        )}
+        {mode.kind === "forever" && (
+          <p className="text-sm text-muted-foreground" data-testid="recap-summary">
+            {result.misses.length > 0 ? "One miss ends a forever round." : "You ended the round."}
+          </p>
+        )}
       </header>
 
       <dl className="grid grid-cols-2 gap-3">
@@ -80,10 +95,19 @@ export function RoundRecap(p: {
             {n(result.score)}
           </dd>
         </div>
-        <div className={STAT}>
-          <dt className={EYEBROW}>Best streak</dt>
-          <dd className="mt-1 font-mono text-2xl tabular-nums" data-testid="recap-streak">{`×${result.bestStreak}`}</dd>
-        </div>
+        {mode.kind === "forever" ? (
+          <div className={STAT}>
+            <dt className={EYEBROW}>Time</dt>
+            <dd className="mt-1 font-mono text-2xl tabular-nums" data-testid="recap-time">
+              {roundTime(result.durationMs)}
+            </dd>
+          </div>
+        ) : (
+          <div className={STAT}>
+            <dt className={EYEBROW}>Best streak</dt>
+            <dd className="mt-1 font-mono text-2xl tabular-nums" data-testid="recap-streak">{`×${result.bestStreak}`}</dd>
+          </div>
+        )}
         <div className={STAT}>
           <dt className={EYEBROW}>Personal best</dt>
           <dd className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">

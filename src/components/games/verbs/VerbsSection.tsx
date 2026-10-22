@@ -8,11 +8,12 @@ import { useVerbDevice } from "@/hooks/use-verb-device";
 import { recordPicks, recordRound, sourceFilterFor, type VerbDeviceState } from "@/lib/verb-games/device";
 import { loadPatternData } from "@/lib/verb-games/load-patterns";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
-import { scopeKey } from "@/lib/verb-games/rules";
-import type { PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
+import { modeKey, modeOf, scopeKey } from "@/lib/verb-games/rules";
+import type { FamilyId, PatternData, RoundConfig, RoundLog, RoundMode, RoundResult } from "@/lib/verb-games/types";
 import { parseVerbRoute, practiceScreen, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { BubblePopGame } from "./BubblePopGame";
 import { picksOf } from "./recap-groups";
+import { recapEyebrow } from "./mode-labels";
 import { RoundRecap } from "./RoundRecap";
 import { VerbCrushGame } from "./VerbCrushGame";
 import { VerbPicker } from "./VerbPicker";
@@ -181,7 +182,11 @@ export function VerbsSection() {
   const ready = data !== null && device.hydrated;
   // Frozen per round: the config is built once when ready and kept until the round identity changes
   // (game, family, level, Play again, dev seed), so later settings changes never reach a live round.
-  const roundId = playing ? `${playing.game}|${playing.family}|${String(playing.level)}|${roundKey}|${String(seed)}` : null;
+  const playFamilies = playing?.families && playing.families.length > 1 ? playing.families.join(",") : "";
+  const playModeKey = playing?.mode ? modeKey(playing.mode) : "";
+  const roundId = playing
+    ? `${playing.game}|${playing.family}|${playFamilies}|${String(playing.level)}|${playModeKey}|${roundKey}|${String(seed)}`
+    : null;
   const [frozen, setFrozen] = useState<{ id: string; config: RoundConfig } | null>(null);
   // Built in a layout effect (not during render, which must stay pure: the seed is random), so the
   // game still mounts before the first paint of the play screen. Settings, module and motion are
@@ -189,26 +194,29 @@ export function VerbsSection() {
   const playGame = playing?.game;
   const playFamily = playing?.family;
   const playLevel = playing?.level;
+  const playMode = playing?.mode;
   useLayoutEffect(() => {
     if (roundId === null) {
       setFrozen(null);
       return;
     }
     if (!ready || playGame === undefined || playFamily === undefined || frozen?.id === roundId) return;
-    setFrozen({
-      id: roundId,
-      config: {
-        game: playGame,
-        family: playFamily,
-        level: playGame === "crush" ? (playLevel ?? null) : null,
-        source: sourceFilterFor(settings, moduleId),
-        seed: seed ?? randomSeed(),
-        // Crush has no list screen; its board is keyboard-playable as is.
-        listMode: playGame === "bubble" ? settings.listMode : false,
-        reducedMotion,
-      },
-    });
-  }, [roundId, ready, frozen, playGame, playFamily, playLevel, settings, moduleId, seed, reducedMotion]);
+    const config: RoundConfig = {
+      game: playGame,
+      family: playFamily,
+      level: playGame === "crush" ? (playLevel ?? null) : null,
+      source: sourceFilterFor(settings, moduleId),
+      seed: seed ?? randomSeed(),
+      // Crush has no list screen; its board is keyboard-playable as is.
+      listMode: playGame === "bubble" ? settings.listMode : false,
+      reducedMotion,
+    };
+    // Added only when set, so a timed single-pattern round keeps the exact config (and log) it always had.
+    if (playFamilies) config.families = playFamilies.split(",") as FamilyId[];
+    const mode: RoundMode | undefined = playModeKey ? playMode : undefined;
+    if (mode) config.mode = mode;
+    setFrozen({ id: roundId, config });
+  }, [roundId, ready, frozen, playGame, playFamily, playFamilies, playLevel, playModeKey, playMode, settings, moduleId, seed, reducedMotion]);
   const roundConfig = ready && roundId !== null && frozen?.id === roundId ? frozen.config : null;
 
   if (!spanish) {
@@ -239,6 +247,7 @@ export function VerbsSection() {
           moduleId={moduleId}
           game={view.game}
           family={view.family}
+          families={view.families}
           go={go}
           onSettings={(settings) => device.update((s) => ({ ...s, settings }))}
         />
@@ -263,7 +272,8 @@ export function VerbsSection() {
       )}
       {view.screen === "play" && ended && (
         <RoundRecap
-          eyebrow={view.game === "crush" ? "GAME · VERB CRUSH" : "GAME · BUBBLE POP"}
+          eyebrow={recapEyebrow(ended.config)}
+          mode={modeOf(ended.config)}
           result={ended.result}
           best={ended.previousBest}
           countsForBest={!ended.config.listMode}

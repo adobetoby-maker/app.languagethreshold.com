@@ -1,11 +1,21 @@
 // Built by TAC — 2026-10-21
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { FAMILIES } from "@/lib/verb-games/families";
+import { FAMILIES, familyById } from "@/lib/verb-games/families";
 import { sourceFilterFor, suggestedFamily, type VerbDeviceState } from "@/lib/verb-games/device";
 import { frameSlots, poolVerbs } from "@/lib/verb-games/pool";
-import { levelAvailable, roundFamilies } from "@/lib/verb-games/rules";
-import type { CrushLevel, FamilyId, GameId, PatternData, SourceFilter } from "@/lib/verb-games/types";
+import {
+  COUNT_SIZES,
+  ROUND_MS,
+  crushGoalSlots,
+  crushTargets,
+  levelAvailable,
+  modeKey,
+  orderFamilies,
+  roundFamilies,
+  type FamilyPick,
+} from "@/lib/verb-games/rules";
+import type { CrushLevel, FamilyId, GameId, PatternData, RoundMode, SourceFilter } from "@/lib/verb-games/types";
 import type { VerbScreen } from "@/lib/verb-games/verb-route";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
@@ -19,9 +29,102 @@ type Level = CrushLevel["level"];
 
 const plural = (n: number) => `${n} ${n === 1 ? "verb" : "verbs"}`;
 
-function familyVerbCount(data: PatternData, source: SourceFilter, family: FamilyId | "mix"): number {
+/** "5 forms · 20 moves", scaled for a count round; forever deals lists of the level's size. */
+function levelTargets(row: CrushLevel, mode: RoundMode): string {
+  const t = crushTargets(row, mode);
+  return mode.kind === "forever" ? `${t.goalCount} per list · ${t.moveBudget} moves` : `${t.goalCount} forms · ${t.moveBudget} moves`;
+}
+
+function familyVerbCount(data: PatternData, source: SourceFilter, family: FamilyId | "mix" | readonly FamilyId[]): number {
   const pool = poolVerbs(data, source);
-  return family === "mix" ? pool.length : pool.filter((v) => v.forms.some((f) => f.families.includes(family))).length;
+  if (family === "mix") return pool.length;
+  const ids: readonly FamilyId[] = typeof family === "string" ? [family] : family;
+  return pool.filter((v) => v.forms.some((f) => f.families.some((id) => ids.includes(id)))).length;
+}
+
+/** The route fields for a pick: one family as `family`, two or more as `families`. */
+function pickFields(pick: FamilyPick): { family: FamilyId | "mix"; families?: FamilyId[] } {
+  if (pick === "mix") return { family: "mix" };
+  return pick.length === 1 ? { family: pick[0] as FamilyId } : { family: "mix", families: [...pick] };
+}
+
+type ModeOption = { key: string; mode: RoundMode; label: string };
+
+/** Timed · 5 · 10 · 15 · Forever, in that order. */
+function modeOptions(game: GameId): ModeOption[] {
+  return [
+    { key: "timed", mode: { kind: "timed" }, label: `${ROUND_MS[game] / 1000} sec` },
+    ...COUNT_SIZES.map((n) => ({ key: `count${n}`, mode: { kind: "count", n } as RoundMode, label: `${n} words` })),
+    { key: "forever", mode: { kind: "forever" }, label: "Forever" },
+  ];
+}
+
+const keyOf = (mode: RoundMode) => modeKey(mode) || "timed";
+
+function modeHint(game: GameId, mode: RoundMode): string {
+  if (mode.kind === "timed") return game === "crush" ? "Make the goal forms before the clock or the moves run out." : "Score as much as you can before the clock runs out.";
+  if (mode.kind === "count") {
+    return game === "crush"
+      ? `No clock. Make ${mode.n} forms before the moves run out. Not ranked.`
+      : `No clock. The round ends after ${mode.n} correct words. Not ranked.`;
+  }
+  return game === "crush"
+    ? "No clock. Each finished goal list deals a new one and more moves. A trap ends the round. Not ranked."
+    : "No clock. Keep going until your first miss. Not ranked.";
+}
+
+/**
+ * The Mode segmented control: one radio group, one row of five equal segments at every width
+ * (a label wraps inside its segment before the row would). Arrow keys, Home and End move the choice.
+ */
+function ModeControl(p: { game: GameId; value: RoundMode; onChange(mode: RoundMode): void }) {
+  const options = modeOptions(p.game);
+  const current = keyOf(p.value);
+  const refs = useRef<(HTMLButtonElement | null)[]>([]);
+  const move = (e: React.KeyboardEvent, i: number) => {
+    const last = options.length - 1;
+    const next =
+      e.key === "ArrowRight" || e.key === "ArrowDown"
+        ? (i + 1) % options.length
+        : e.key === "ArrowLeft" || e.key === "ArrowUp"
+          ? (i + last) % options.length
+          : e.key === "Home"
+            ? 0
+            : e.key === "End"
+              ? last
+              : null;
+    if (next === null) return;
+    e.preventDefault();
+    p.onChange((options[next] as ModeOption).mode);
+    refs.current[next]?.focus();
+  };
+  return (
+    <div role="radiogroup" aria-labelledby="mode-label" data-testid="mode-control" className="grid grid-cols-5 gap-1 rounded-xl border border-border/60 bg-background/40 p-1">
+      {options.map((o, i) => {
+        const selected = o.key === current;
+        return (
+          <button
+            key={o.key}
+            ref={(el) => {
+              refs.current[i] = el;
+            }}
+            type="button"
+            role="radio"
+            aria-checked={selected}
+            tabIndex={selected ? 0 : -1}
+            data-testid={`mode-${o.key}`}
+            onClick={() => p.onChange(o.mode)}
+            onKeyDown={(e) => move(e, i)}
+            className={`flex min-h-11 min-w-0 cursor-pointer items-center justify-center rounded-lg border px-1 py-1.5 text-center text-[13px] leading-tight text-foreground transition-colors duration-200 ${FOCUS} ${
+              selected ? "border-gold bg-gold/15 font-semibold" : "border-transparent font-medium hover:bg-card/70"
+            }`}
+          >
+            {o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
 
 /** Words never break inside ("-ar" stays whole); the line can only wrap between words. */
@@ -38,15 +141,20 @@ function NoBreak({ text }: { text: string }) {
   );
 }
 
-function Choice(p: { selected: boolean; onClick(): void; children: React.ReactNode; testId?: string; wide?: boolean }) {
+function Choice(p: { selected: boolean; onClick(): void; children: React.ReactNode; testId?: string; wide?: boolean; disabled?: boolean }) {
   return (
     <button
       type="button"
       aria-pressed={p.selected}
       data-testid={p.testId}
+      disabled={p.disabled}
       onClick={p.onClick}
-      className={`relative flex min-h-11 min-w-0 cursor-pointer items-center rounded-xl border py-2.5 pl-3.5 pr-9 text-left transition-colors duration-200 ${FOCUS} ${
-        p.selected ? "border-gold bg-gold/10" : "border-border/60 bg-background/40 hover:border-gold/50 hover:bg-card/70"
+      className={`relative flex min-h-11 min-w-0 items-center rounded-xl border py-2.5 pl-3.5 pr-9 text-left transition-colors duration-200 ${FOCUS} ${
+        p.disabled
+          ? "cursor-not-allowed border-dashed border-border/50 bg-background/20"
+          : p.selected
+            ? "cursor-pointer border-gold bg-gold/10"
+            : "cursor-pointer border-border/60 bg-background/40 hover:border-gold/50 hover:bg-card/70"
       } ${p.wide ? "col-span-2" : ""}`}
     >
       {p.children}
@@ -62,6 +170,8 @@ export function VerbPicker(p: {
   moduleId: string | null;
   game: GameId;
   family: FamilyId | "mix" | null;
+  /** Two or more picked patterns (the route's `vfamilies`); then `family` is "mix". */
+  families?: FamilyId[];
   go(s: VerbScreen): void;
   onSettings(s: VerbDeviceState["settings"]): void;
 }) {
@@ -69,7 +179,12 @@ export function VerbPicker(p: {
   const [pickedLevel, setPickedLevel] = useState<Level | null>(null);
   const settings = p.device.settings;
   const source = sourceFilterFor(settings, p.moduleId);
-  const family: FamilyId | "mix" = p.family ?? suggestedFamily(p.device, p.data);
+  const multi = p.families && p.families.length > 1 ? orderFamilies(p.families) : null;
+  const single: FamilyId | "mix" = p.family ?? suggestedFamily(p.device, p.data);
+  /** The pick on screen. With no family in the route it is only the suggestion, and the first chip tap replaces it. */
+  const pick: FamilyPick = multi ?? (single === "mix" ? "mix" : [single]);
+  const suggestionOnly = multi === null && p.family === null;
+  const mode: RoundMode = settings.mode ?? { kind: "timed" };
   const sourceKind = source.kind;
 
   const coreCount = poolVerbs(p.data, { kind: "core" }).length;
@@ -77,18 +192,47 @@ export function VerbPicker(p: {
 
   const setSource = (next: Settings["source"]) => p.onSettings({ ...settings, source: next });
 
-  // Crush: levels that cannot be built for this pattern and source are listed but disabled.
-  const levels = p.data.crushLevels.map((row) => ({ row, available: levelAvailable(p.data, row, family, source) }));
+  // Crush: levels that cannot be built for this pick (its union pool) and source are listed but disabled.
+  const levels = p.data.crushLevels.map((row) => ({ row, available: levelAvailable(p.data, row, pick, source) }));
   const firstAvailable = levels.find((l) => l.available)?.row.level ?? null;
   const level: Level | null = pickedLevel !== null && levels.some((l) => l.row.level === pickedLevel && l.available) ? pickedLevel : firstAvailable;
+  const levelRow = p.game === "crush" && level !== null ? (levels.find((l) => l.row.level === level)?.row ?? null) : null;
+  /** A level with its own fixed patterns (Crossover) ignores the pick. */
+  const fixedLevel = levelRow !== null && Array.isArray(levelRow.families) ? levelRow : null;
+  // Crush: only families that have goal forms at the chosen level can be picked.
+  const familyOk = (id: FamilyId) => p.game !== "crush" || levelRow === null || fixedLevel !== null || crushGoalSlots(p.data, levelRow, id, source).length > 0;
+  const effective: FamilyPick = pick === "mix" ? "mix" : pick.filter(familyOk);
 
   const canStart =
-    p.game === "crush"
-      ? level !== null
-      : frameSlots(p.data, roundFamilies({ game: "bubble", family, level: null, source, seed: 0, listMode: false, reducedMotion: false }, p.data), "family", source).length > 0;
+    effective !== "mix" && effective.length === 0
+      ? false
+      : p.game === "crush"
+        ? levelRow !== null && levelAvailable(p.data, levelRow, effective, source)
+        : frameSlots(
+            p.data,
+            roundFamilies({ game: "bubble", ...pickFields(effective), level: null, source, seed: 0, listMode: false, reducedMotion: false }, p.data),
+            "family",
+            source,
+          ).length > 0;
 
-  const choose = (next: FamilyId | "mix") => p.go({ screen: "pick", game: p.game, family: next });
-  const start = () => p.go({ screen: "play", game: p.game, family, level: p.game === "crush" ? level : null });
+  const choose = (next: FamilyPick) => p.go({ screen: "pick", game: p.game, ...pickFields(next) });
+  /** Mix clears the families; a family clears Mix; tapping a picked family drops it (the last one goes back to Mix). */
+  const toggle = (id: FamilyId) => {
+    if (suggestionOnly || pick === "mix") return choose([id]);
+    const next = pick.includes(id) ? pick.filter((x) => x !== id) : orderFamilies([...pick, id]);
+    choose(next.length === 0 ? "mix" : next);
+  };
+  const setMode = (next: RoundMode) =>
+    p.onSettings({ source: settings.source, listMode: settings.listMode, ...(next.kind === "timed" ? {} : { mode: next }) });
+  const start = () =>
+    p.go({
+      screen: "play",
+      game: p.game,
+      ...pickFields(effective),
+      level: p.game === "crush" ? level : null,
+      ...(mode.kind === "timed" ? {} : { mode }),
+    });
+  const picked = (id: FamilyId) => pick !== "mix" && pick.includes(id);
 
   return (
     <section aria-labelledby="picker-title" data-testid="verb-picker" className="space-y-6 rounded-2xl border border-border/60 bg-card/30 p-4 sm:p-6">
@@ -108,16 +252,23 @@ export function VerbPicker(p: {
       </header>
 
       <fieldset className="space-y-2.5">
-        <legend className={`${CAPTION} mb-2.5`}>Pattern</legend>
+        <legend className={`${CAPTION} mb-2.5`}>Pattern · pick one or more</legend>
         <div className="grid grid-cols-2 gap-2">
-          <Choice selected={family === "mix"} onClick={() => choose("mix")} testId="family-mix" wide>
+          <Choice selected={pick === "mix"} onClick={() => choose("mix")} testId="family-mix" wide>
             <span className="min-w-0">
               <span className="block font-display text-base font-semibold text-foreground">Mix</span>
               <span className="block font-mono text-xs text-muted-foreground">Every pattern · {plural(familyVerbCount(p.data, source, "mix"))}</span>
             </span>
           </Choice>
           {FAMILIES.map((f, i) => (
-            <Choice key={f.id} selected={family === f.id} onClick={() => choose(f.id)} testId={`family-${f.id}`} wide={i === FAMILIES.length - 1 && i % 2 === 0}>
+            <Choice
+              key={f.id}
+              selected={picked(f.id) && familyOk(f.id)}
+              disabled={!familyOk(f.id)}
+              onClick={() => toggle(f.id)}
+              testId={`family-${f.id}`}
+              wide={i === FAMILIES.length - 1 && i % 2 === 0}
+            >
               <span className="min-w-0">
                 <span className="block font-display text-base font-semibold text-foreground">
                   <NoBreak text={f.label} />
@@ -127,6 +278,26 @@ export function VerbPicker(p: {
             </Choice>
           ))}
         </div>
+        {effective !== "mix" && effective.length > 1 && (
+          <p className="font-mono text-xs text-muted-foreground" data-testid="pick-summary">
+            {`${effective.length} patterns · ${plural(familyVerbCount(p.data, source, effective))}`}
+          </p>
+        )}
+        {fixedLevel && Array.isArray(fixedLevel.families) && (
+          <p className="text-xs leading-snug text-muted-foreground" data-testid="fixed-level-note">
+            {`Level ${fixedLevel.level} always uses ${fixedLevel.families.map((id) => familyById(id).pill).join(" and ")}.`}
+          </p>
+        )}
+      </fieldset>
+
+      <fieldset className="space-y-2.5">
+        <legend id="mode-label" className={`${CAPTION} mb-2.5`}>
+          Mode
+        </legend>
+        <ModeControl game={p.game} value={mode} onChange={setMode} />
+        <p className="text-xs leading-snug text-muted-foreground" data-testid="mode-hint">
+          {modeHint(p.game, mode)}
+        </p>
       </fieldset>
 
       <fieldset className="space-y-2.5">
@@ -173,7 +344,7 @@ export function VerbPicker(p: {
                   <span className={`block text-sm font-medium ${available ? "text-foreground" : "text-muted-foreground"}`}>{row.label}</span>
                 </span>
                 <span className="shrink-0 text-right font-mono text-xs text-muted-foreground">
-                  {available ? `${row.goalCount} forms · ${row.moveBudget} moves` : "Needs more verbs"}
+                  {available ? levelTargets(row, mode) : "Needs more verbs"}
                 </span>
               </button>
             ))}

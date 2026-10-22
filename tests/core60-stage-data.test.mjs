@@ -20,7 +20,7 @@ import {
   withDerivedStageModules,
 } from "../src/lib/core60-stage-core.ts";
 import { LANGUAGES } from "../src/data/languages.ts";
-import { validateManifest, validateStageFile } from "../src/lib/core60-validate.ts";
+import { validateManifest, validateStageFile, vosotrosForms } from "../src/lib/core60-validate.ts";
 import {
   CORE60_PATHS,
   core60PathOf,
@@ -348,4 +348,49 @@ test("the registry answers getCurriculum for a registered stage, and nothing els
   assert.equal(getCurriculum("master-registry-probe"), curriculum);
   assert.equal(getCurriculum("roofing"), CURRICULA.roofing);
   assert.equal(getCurriculum("no-such-module"), null);
+});
+
+test("vosotros: pronouns and verb forms are flagged in Spanish-target text", () => {
+  for (const [sentence, expected] of [
+    ["Vosotros cerráis el carril central.", ["Vosotros", "cerráis"]],
+    ["¿Estáis listas, vosotras?", ["Estáis", "vosotras"]],
+    ["Os digo que tenéis que esperar.", ["Os", "tenéis"]],
+    ["Marta: Os espero en la sala de video.", ["Os"]],
+    ["Ya sabéis lo que hay que hacer.", ["sabéis"]],
+    ["No quiero que habléis con el árbitro.", ["habléis"]],
+    ["¿Vivís cerca del estadio? ¿Qué decís?", ["Vivís", "decís"]],
+    ["Si sentís dolor, salís del hielo.", ["sentís", "salís"]],
+    ["Sois el mejor equipo y vais a ganar.", ["Sois", "vais"]],
+    ["¿Dijisteis que queríais jugar? Hablasteis mucho.", ["Dijisteis", "queríais", "Hablasteis"]],
+  ]) {
+    assert.deepEqual(vosotrosForms(sentence), expected, sentence);
+  }
+});
+
+test("vosotros: país, maíz, raíz, -ís nouns and names like Solís are not flagged", () => {
+  for (const sentence of [
+    "Ustedes cierran el carril central y revisen la línea azul.",
+    "Mi país tiene buen hockey; el maíz y la raíz del problema.",
+    "El entrenador Solís habla con Onís, Ortís y la señora París.",
+    "Tomamos un remís al aeropuerto con los esquís y el anís.",
+    "La cirujana pide los bisturís y dos rubís para el maniquí.",
+    "El equipo de Andréis juega con seis delanteros.",
+    "El sistema OS se actualiza; los osos y el béisbol.",
+    "Luis y Moisés juegan béisbol en Tailandia.",
+  ]) {
+    assert.deepEqual(vosotrosForms(sentence), [], sentence);
+  }
+});
+
+test("the validator flags vosotros in Spanish-target words and grammar examples, not in English-target files", () => {
+  const master = clone(roofingStageFile("master"));
+  master.lessons[2].words[0].es = "vosotros";
+  master.lessons[3].grammar.examples[1].es = "Revisáis el techo antes de subir.";
+  const errors = validateStageFile(master);
+  assert.ok(errors.some((e) => e.startsWith('lesson 3 word 1: vosotros form "vosotros"')), errors.join("\n"));
+  assert.ok(errors.some((e) => e.startsWith('lesson 4 grammar example 2: vosotros form "Revisáis"')), errors.join("\n"));
+  const english = clone(master);
+  english.language = "English";
+  english.nativeLanguage = "Spanish";
+  assert.ok(!validateStageFile(english).some((e) => e.includes("vosotros form")));
 });

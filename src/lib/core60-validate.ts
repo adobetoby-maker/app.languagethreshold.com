@@ -22,6 +22,68 @@ import {
 const text = (value: unknown): value is string =>
   typeof value === "string" && value.trim() !== "" && value === value.trim();
 
+// ─── Vosotros (Spain-only plural "you") ──────────────────────────────────────
+// Spanish-target text is neutral Latin-American Spanish: plural "you" is ustedes. These flag the
+// vosotros pronouns and verb forms. Words ending in -ís are flagged only when they are a known
+// vosotros form of an -ir verb (vivís, decís), so país, anís, esquís, bisturís and names like
+// Solís, Onís or Ortís pass; a capitalised -áis / -éis word mid-sentence is a name and passes.
+
+const VOSOTROS_WORDS = new Set(["vosotros", "vosotras", "os", "sois", "vais", "dais", "veis"]);
+const VOSOTROS_ENDINGS = /(?:áis|éis|íais|abais|asteis|isteis)$/;
+// -ir / -ír verbs whose vosotros present ends in -ís (vivir → vivís, oír → oís).
+const IR_VERBS = [
+  "abrir", "acudir", "admitir", "advertir", "añadir", "aplaudir", "asistir", "asumir", "compartir",
+  "competir", "conducir", "conseguir", "consentir", "construir", "consumir", "convenir", "convertir",
+  "corregir", "cubrir", "cumplir", "decidir", "decir", "definir", "describir", "descubrir", "despedir",
+  "destruir", "dirigir", "discutir", "distinguir", "distribuir", "divertir", "dividir", "dormir",
+  "elegir", "emitir", "escribir", "exigir", "existir", "freír", "huir", "impedir", "imprimir",
+  "incluir", "inscribir", "insistir", "interrumpir", "intervenir", "medir", "mentir", "morir", "oír",
+  "omitir", "partir", "pedir", "percibir", "permitir", "perseguir", "preferir", "prescribir",
+  "prevenir", "producir", "prohibir", "recibir", "reducir", "reír", "repartir", "repetir", "resistir",
+  "resumir", "salir", "seguir", "sentir", "servir", "sonreír", "subir", "sufrir", "transmitir",
+  "traducir", "unir", "venir", "vestir", "vivir",
+];
+const VOSOTROS_IS_FORMS = new Set(IR_VERBS.map((verb) => verb.replace(/[ií]r$/, "ís")));
+const WORD = /\p{L}+/gu;
+
+function sentenceInitial(text: string, index: number): boolean {
+  const before = text.slice(0, index).replace(/[\s¿¡"'«“(—–-]+$/u, "");
+  return before === "" || /[.!?:;…]$/.test(before);
+}
+
+/** The vosotros words in a Spanish text, in order (empty when there are none). */
+export function vosotrosForms(text: string): string[] {
+  const found: string[] = [];
+  for (const match of text.matchAll(WORD)) {
+    const word = match[0];
+    const lower = word.toLocaleLowerCase("es");
+    const capitalised = word !== lower;
+    if (VOSOTROS_WORDS.has(lower)) {
+      // "os" only as the lower-case pronoun (never an abbreviation like OS).
+      if (lower !== "os" || word === "os" || (word === "Os" && sentenceInitial(text, match.index))) found.push(word);
+      continue;
+    }
+    if (VOSOTROS_IS_FORMS.has(lower)) {
+      found.push(word);
+      continue;
+    }
+    if (lower.length > 4 && VOSOTROS_ENDINGS.test(lower)) {
+      if (capitalised && !sentenceInitial(text, match.index)) continue; // a name (Andréis)
+      found.push(word);
+    }
+  }
+  return found;
+}
+
+function vosotrosErrors(where: string, value: unknown, errors: string[]) {
+  if (typeof value !== "string") return;
+  const forms = vosotrosForms(value);
+  if (forms.length > 0)
+    errors.push(
+      `${where}: vosotros form "${forms.join('", "')}"; use neutral Latin-American Spanish (ustedes, never vosotros / os)`,
+    );
+}
+
 function validateWords(words: unknown, moduleId: string, where: string, errors: string[]) {
   if (!Array.isArray(words)) {
     errors.push(`${where}: words must be an array`);
@@ -123,6 +185,17 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
     if (!text(lesson.objective)) errors.push(`${where}: objective is missing`);
     if (!text(lesson.speaking)) errors.push(`${where}: speaking (the Say it brief) is missing`);
     validateWords(lesson.words, moduleId, where, errors);
+    if (file.language === "Spanish") {
+      if (Array.isArray(lesson.words))
+        lesson.words.forEach((word, w) =>
+          vosotrosErrors(`${where} word ${w + 1}`, (word as Partial<LessonWord> | null)?.es, errors),
+        );
+      const examples = (lesson.grammar as { examples?: unknown } | undefined)?.examples;
+      if (Array.isArray(examples))
+        examples.forEach((example, e) =>
+          vosotrosErrors(`${where} grammar example ${e + 1}`, (example as { es?: unknown } | null)?.es, errors),
+        );
+    }
     if (stage === "foundation") {
       if (!text(lesson.focus)) errors.push(`${where}: focus is missing`);
       for (const key of ["grammar", "lessonType", "block"] as const) {

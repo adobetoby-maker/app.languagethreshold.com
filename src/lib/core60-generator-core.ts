@@ -34,7 +34,7 @@ import {
   type Core60StageKind,
   type Core60StageLesson,
 } from "./core60-stage-core.ts";
-import { validateStageFile } from "./core60-validate.ts";
+import { validateStageFile, vosotrosForms } from "./core60-validate.ts";
 
 // ─── Models and prices ───────────────────────────────────────────────────────
 
@@ -281,6 +281,10 @@ export function stageHeadline(ctx: StageContext): string {
 
 // ─── Shared prompt rules ─────────────────────────────────────────────────────
 
+/** Spanish-target variety: neutral Latin-American Spanish, never vosotros (checked by vosotrosForms). */
+export const SPANISH_VARIETY_RULE =
+  'Variety: neutral Latin-American Spanish only. Plural "you" is ALWAYS ustedes (ustedes revisan, revisen, les digo): never vosotros / vosotras, never a vosotros verb form (-áis, -éis, -ís: revisáis, tenéis, vivís, sois) and never the object pronoun "os". Unless the module is a travel zone set in Spain, scenes are set in the Americas or the US and use the terms used in the Americas (el celular, not el móvil; el video, not el vídeo; la computadora, not el ordenador; manejar, not conducir a car; el carro or el auto, not el coche).';
+
 function registerRules(ctx: StageContext): string {
   if (ctx.pair.language === "Spanish") {
     return [
@@ -289,6 +293,7 @@ function registerRules(ctx: StageContext): string {
       "Write ¿ and ¡ properly. Never coin a word-for-word phrase: use the term people in this work really say; if unsure, pick a different, safer term.",
       "Grammar that native reviewers check: agreement for people (a woman is la electricista, la clienta, la enfermera; a man el electricista); the personal a before a person or people as the direct object (cubrir a mis pacientes, llamar al supervisor); a negative after antes de / sin (antes de tocar nada); measurements with de (el pulso es de 72); and no English calques (say what people say, not a translated slogan).",
       REGION_RULE,
+      SPANISH_VARIETY_RULE,
       "Units: never mix metric and imperial in one sentence; US jobs measure in feet, inches and pounds (10 pies y 6 pulgadas), medicine in mg and mL. Electrical: a live wire is energizado or con corriente (not prendido); you measure el voltaje.",
     ].join(" ");
   }
@@ -1570,6 +1575,17 @@ export function stageContentErrors(
       `these terms do not appear in the passage (their head word must appear as a whole word): ${missing.join(", ")}. Use every term`,
     );
   errors.push(...unattributedSpecs(content.passage.target, ctx));
+  if (ctx.pair.language === "Spanish") {
+    content.passage.target.forEach((sentence, i) => {
+      const forms = vosotrosForms(sentence);
+      if (forms.length > 0)
+        errors.push(`passage.target[${i}]: vosotros form "${forms.join('", "')}"; use ustedes (neutral Latin-American Spanish)`);
+    });
+    for (const verb of content.verbs) {
+      const forms = vosotrosForms([verb.example.target, ...Object.values(verb.forms ?? {})].join(" "));
+      if (forms.length > 0) errors.push(`${verb.infinitive}: vosotros form "${forms.join('", "')}"; use ustedes`);
+    }
+  }
   errors.push(...bareTermSeries(content.passage.target, lesson.words, ctx.pair.language));
   for (const verb of content.verbs) {
     for (const issue of unattributedSpecs([verb.example.target], ctx)) errors.push(`${verb.infinitive} example: ${issue}`);

@@ -212,7 +212,12 @@ test.describe("fmg Foundation (English target): lesson 1 word list", () => {
     await expect(page.getByTestId("lesson-words-error")).toHaveCount(0);
     const section = page.getByTestId("lesson-practice-section");
     await expect(section).toContainText(`Practice this lesson's words (${lessonWords.length})`);
-    await expect(page.getByTestId("flashcard").first()).toBeVisible();
+    await expect(page.getByRole("tab", { name: "Study", exact: true })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+    const studyWords = section.getByRole("tabpanel").locator('li p[lang="en"]');
+    await expect(studyWords).toHaveText(lessonWords.map((word: { es: string }) => word.es));
   });
 });
 

@@ -10,7 +10,7 @@ import { poolVerbs } from "./pool.ts";
 import type { FrameSlot } from "./pool.ts";
 import { createRng, pickIndex } from "./rng.ts";
 import type { Rng } from "./rng.ts";
-import { ROUND_MS, crushGoalSlots, onCorrect, roundFamilies, verbIndex } from "./rules.ts";
+import { crushGoalSlots, crushTargets, familyPick, modeOf, onCorrect, roundFamilies, roundLimitMs, verbIndex } from "./rules.ts";
 import { PERSONS } from "./types.ts";
 import type {
   Completion,
@@ -47,8 +47,14 @@ export interface CrushTile {
 
 export interface CrushView {
   cells: CrushTile[];
+  /** Size of one goal list: the level's count, or N in a count round. */
   goalCount: number;
+  /** Goal forms made in the whole round. */
   made: number;
+  /** Goal forms made toward the current list (forever deals a fresh list each time one fills). */
+  goalMade: number;
+  /** Goal lists completed (forever only; 0 otherwise). */
+  lists: number;
   movesLeft: number;
   score: number;
   streak: number;
@@ -67,7 +73,10 @@ export interface CrushRound {
    * `Math.max(eventT, view().t)` so a late UI event is never rejected for running backwards.
    */
   swap(t: number, a: number, b: number): Outcome[];
-  /** Moves time forward; at or after `ROUND_MS.crush` the round ends. Same `t` guard as `swap`. */
+  /**
+   * Moves time forward; at or after the round limit (`ROUND_MS.crush` when timed) the round ends.
+   * Same `t` guard as `swap`.
+   */
   advance(t: number): Outcome[];
   /**
    * Ends the round and returns the result. A round that already ended (goal, moves or time)
@@ -160,10 +169,13 @@ export function createCrushRound(
   if (config.level === null) throw new Error("Crush needs a level");
   const row = data.crushLevels.find((l) => l.level === config.level);
   if (!row) throw new Error(`Unknown Crush level: ${String(config.level)}`);
-  const goals: FrameSlot[] = crushGoalSlots(data, row, config.family, config.source);
+  const goals: FrameSlot[] = crushGoalSlots(data, row, familyPick(config), config.source);
   if (goals.length === 0) throw new Error("No goal forms for this level");
   const families = roundFamilies(config, data);
-  const roundMs = ROUND_MS.crush;
+  const mode = modeOf(config);
+  // Timed: the 90 s clock. Count and forever: no clock, only the untimed cap.
+  const roundMs = roundLimitMs(config);
+  const targets = crushTargets(row, mode);
 
   const verbByInf = verbIndex(data);
   const maxAttempts = Math.max(0, Math.floor(options?.attempts ?? MAX_ATTEMPTS));
@@ -358,7 +370,11 @@ export function createCrushRound(
 
   const deckRng = createRng(config.seed);
   let generation = 0;
-  let movesLeft = row.moveBudget;
+  let movesLeft = targets.moveBudget;
+  /** Moves spent (a trap spends none). Equals moveBudget - movesLeft unless forever topped up. */
+  let spent = 0;
+  /** Forever: goal lists completed so far. */
+  let lists = 0;
   let made = 0;
   let score = 0;
   let streak = 0;
@@ -439,8 +455,10 @@ export function createCrushRound(
     view() {
       return {
         cells: cells.map((c) => ({ ...c })),
-        goalCount: row.goalCount,
+        goalCount: targets.goalCount,
         made,
+        goalMade: mode.kind === "forever" ? made - lists * targets.goalCount : Math.min(made, targets.goalCount),
+        lists,
         movesLeft,
         score,
         streak,
@@ -481,6 +499,11 @@ export function createCrushRound(
             const miss = trapMiss(t, s);
             if (miss) {
               exchange(a, b);
+              // Forever: the first trap ends the round.
+              if (mode.kind === "forever") {
+                finish(t);
+                return [miss, { kind: "end" }];
+              }
               return [miss];
             }
           }
@@ -488,7 +511,16 @@ export function createCrushRound(
       }
 
       movesLeft--;
-      if (made >= row.goalCount) {
+      spent++;
+      if (mode.kind === "forever") {
+        // A full list deals a fresh one (same level and families) and tops the moves up.
+        const full = Math.floor(made / targets.goalCount);
+        if (full > lists) {
+          movesLeft += (full - lists) * row.moveBudget;
+          lists = full;
+        }
+      }
+      if (mode.kind !== "forever" && made >= targets.goalCount) {
         won = true;
         finish(t);
         out.push({ kind: "end" });
@@ -516,7 +548,7 @@ export function createCrushRound(
       if (!ended) finish(Number.isFinite(t) ? Math.max(now, Math.min(t, roundMs)) : now);
       return {
         score,
-        moves: row.moveBudget - movesLeft,
+        moves: spent,
         picks: swaps,
         correct: completions.length,
         bestStreak,

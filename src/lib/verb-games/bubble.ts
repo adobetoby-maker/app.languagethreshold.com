@@ -11,13 +11,14 @@ import type { FrameSlot } from "./pool.ts";
 import { createRng, shuffle } from "./rng.ts";
 import {
   CORRECT_POINTS,
-  ROUND_MS,
   SENTENCE_AFTER_MS,
   SPEED_BONUS_MAX,
   bubbleCount,
   bubbleLifetimeMs,
+  modeOf,
   onCorrect,
   roundFamilies,
+  roundLimitMs,
 } from "./rules.ts";
 import type {
   Completion,
@@ -47,6 +48,8 @@ export interface BubbleView {
   t: number;
   ended: boolean;
   lastReason: string | null;
+  /** Correct picks so far (a count round ends when this reaches its N). */
+  made: number;
 }
 
 export interface BubbleRound {
@@ -58,7 +61,10 @@ export interface BubbleRound {
    * back in the same array), so a log that leaves out the escapes replays to the same state.
    */
   pick(t: number, frame: number, piece: number): Outcome[];
-  /** Ends the round at `t` (clamped to the round length) and returns the result. */
+  /**
+   * Ends the round at `t` (clamped to the round length) and returns the result. A count or forever
+   * round that already ended on its own keeps its own end time.
+   */
   end(t: number): RoundResult;
   /** Accepted picks only, in order. Invalid picks and escapes are never logged. */
   events(): RoundEvent[];
@@ -69,7 +75,9 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
   const slots = frameSlots(data, roundFamilies(config, data), "family", config.source);
   if (slots.length === 0) throw new Error("No frames for this round");
   const pool: VerbEntry[] = poolVerbs(data, config.source);
-  const roundMs = ROUND_MS.bubble;
+  const mode = modeOf(config);
+  // Timed: the 60 s clock. Count and forever: no clock, only the untimed cap.
+  const roundMs = roundLimitMs(config);
 
   let prevSlot: FrameSlot | null = null;
   let frameCount = 0;
@@ -84,6 +92,8 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
   let now = 0;
   let ended = false;
   let lastReason: string | null = null;
+  /** Set only when a count or forever round ends on its own (never in a timed round). */
+  let naturalEnd: number | null = null;
   let picks = 0;
   const completions: Completion[] = [];
   const misses: Miss[] = [];
@@ -130,13 +140,27 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
     return { kind: "miss", miss: m };
   }
 
-  /** Escapes every frame whose deadline is before `t` (and before the round ends). */
+  function endNaturally(at: number, out: Outcome[]): void {
+    ended = true;
+    naturalEnd = at;
+    now = Math.max(now, at);
+    out.push({ kind: "end" });
+  }
+
+  /**
+   * Escapes every frame whose deadline is before `t` (and before the round ends). In a forever
+   * round the first escape is the end: it is a miss and no next frame is shown.
+   */
   function escapesUntil(t: number): Outcome[] {
     const out: Outcome[] = [];
     const limit = Math.min(t, roundMs);
     while (deadline < limit) {
       const at = deadline;
       out.push(miss(at, null, `Time's up → ${frame.answer} · ${reasonFor()}`));
+      if (mode.kind === "forever") {
+        endNaturally(at, out);
+        return out;
+      }
       show(at);
       out.push({ kind: "frame", index: frame.index });
     }
@@ -159,13 +183,14 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
         t: now,
         ended,
         lastReason,
+        made: completions.length,
       };
     },
 
     advance(t) {
       if (ended || !Number.isFinite(t) || t < now) return [];
       const out = escapesUntil(t);
-      if (t >= roundMs) {
+      if (!ended && t >= roundMs) {
         ended = true;
         out.push({ kind: "end" });
       }
@@ -175,6 +200,11 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
     pick(t, frameIndex, pieceId) {
       if (ended || !Number.isFinite(t) || t < now || t >= roundMs) return [{ kind: "invalid" }];
       const out = escapesUntil(t);
+      if (ended) {
+        // Forever: a frame escaped before this pick, so the round is already over.
+        out.push({ kind: "invalid" });
+        return out;
+      }
       const piece = Number.isInteger(pieceId) ? pieces[pieceId] : undefined;
       if (frameIndex !== frame.index || !piece || removed.includes(piece.id)) {
         out.push({ kind: "invalid" });
@@ -201,11 +231,18 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
         };
         completions.push(completion);
         out.push({ kind: "complete", completion });
+        if (mode.kind === "count" && completions.length >= mode.n) {
+          // Count: the Nth correct form ends the round; no next frame is shown.
+          endNaturally(t, out);
+          return out;
+        }
         show(t);
         out.push({ kind: "frame", index: frame.index });
       } else {
         removed.push(piece.id);
         out.push(miss(t, piece.label, `${piece.label} ✗ → ${frame.answer} · ${reasonFor()}`));
+        // Forever: the first wrong pick ends the round.
+        if (mode.kind === "forever") endNaturally(t, out);
       }
       return out;
     },
@@ -220,10 +257,10 @@ export function createBubbleRound(data: PatternData, config: RoundConfig): Bubbl
         picks,
         correct: completions.length,
         bestStreak,
-        durationMs: at,
+        durationMs: naturalEnd ?? at,
         completions: [...completions],
         misses: [...misses],
-        won: false,
+        won: mode.kind === "count" && completions.length >= mode.n,
       };
     },
 

@@ -181,9 +181,14 @@ export function VerbPicker(p: {
   const source = sourceFilterFor(settings, p.moduleId);
   const multi = p.families && p.families.length > 1 ? orderFamilies(p.families) : null;
   const single: FamilyId | "mix" = p.family ?? suggestedFamily(p.device, p.data);
-  /** The pick on screen. With no family in the route it is only the suggestion, and the first chip tap replaces it. */
+  /** The pick on screen: the route's families, else its one family (or Mix), else the suggestion. */
   const pick: FamilyPick = multi ?? (single === "mix" ? "mix" : [single]);
-  const suggestionOnly = multi === null && p.family === null;
+  /**
+   * A single preselected family (the suggestion, a ladder tile, a game card) is a default: the first
+   * chip tap on this screen replaces it, exactly as picking worked before multi-select. Later taps add
+   * and remove families.
+   */
+  const [touched, setTouched] = useState(false);
   const mode: RoundMode = settings.mode ?? { kind: "timed" };
   const sourceKind = source.kind;
 
@@ -215,10 +220,14 @@ export function VerbPicker(p: {
             source,
           ).length > 0;
 
-  const choose = (next: FamilyPick) => p.go({ screen: "pick", game: p.game, ...pickFields(next) });
+  const choose = (next: FamilyPick) => {
+    setTouched(true);
+    p.go({ screen: "pick", game: p.game, ...pickFields(next) });
+  };
   /** Mix clears the families; a family clears Mix; tapping a picked family drops it (the last one goes back to Mix). */
   const toggle = (id: FamilyId) => {
-    if (suggestionOnly || pick === "mix") return choose([id]);
+    if (!touched && pick !== "mix" && pick.length === 1) return choose([id]);
+    if (pick === "mix") return choose([id]);
     const next = pick.includes(id) ? pick.filter((x) => x !== id) : orderFamilies([...pick, id]);
     choose(next.length === 0 ? "mix" : next);
   };

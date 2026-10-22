@@ -1,0 +1,2827 @@
+{
+  "version": 1,
+  "module": "master-or-evs",
+  "baseModule": "or-evs",
+  "stage": "master",
+  "language": "English",
+  "nativeLanguage": "Spanish",
+  "headline": "The OR Environmental Services Master 20",
+  "threshold": "By Lesson 20, you can train a new tech and have them teach a turnover back to you, explain a delay or a product substitution to a circulator or surgeon, say no to an unsafe shortcut, report an incident or near miss without blame, and write the shift's cleaning log in English.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.172Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explain Top-to-Bottom, Clean-to-Dirty to a New Hire",
+      "objective": "Explain the order of an OR turnover and the reason for each step to a new tech.",
+      "words": [
+        {
+          "en": "la lámpara quirúrgica",
+          "es": "the surgical light",
+          "kind": "term"
+        },
+        {
+          "en": "el brazo articulado de techo",
+          "es": "the overhead boom",
+          "kind": "term",
+          "note": "En el quirófano se dice simplemente \"the boom\"."
+        },
+        {
+          "en": "la máquina de anestesia",
+          "es": "the anesthesia machine",
+          "kind": "term"
+        },
+        {
+          "en": "el portasueros",
+          "es": "the IV pole",
+          "kind": "term",
+          "note": "IV se pronuncia letra por letra: \"ai-vi\"."
+        },
+        {
+          "en": "la cubeta de desechos con ruedas",
+          "es": "the kick bucket",
+          "kind": "term",
+          "note": "Es la cubeta con ruedas del piso del quirófano; se mueve con el pie."
+        },
+        {
+          "en": "el banquito",
+          "es": "the step stool",
+          "kind": "term"
+        },
+        {
+          "en": "el paño de microfibra",
+          "es": "the microfiber cloth",
+          "kind": "term"
+        },
+        {
+          "en": "la secuencia de limpieza",
+          "es": "the cleaning sequence",
+          "kind": "term"
+        },
+        {
+          "en": "la contaminación cruzada",
+          "es": "the cross-contamination",
+          "kind": "term"
+        },
+        {
+          "en": "los residuos",
+          "es": "the debris",
+          "kind": "term",
+          "note": "Se pronuncia \"de-brí\"; la s final no suena."
+        },
+        {
+          "en": "el polvo",
+          "es": "the dust",
+          "kind": "term"
+        },
+        {
+          "en": "la zona del paciente",
+          "es": "the patient zone",
+          "kind": "term"
+        },
+        {
+          "en": "el perímetro",
+          "es": "the perimeter",
+          "kind": "term"
+        },
+        {
+          "en": "la manija de la puerta",
+          "es": "the door handle",
+          "kind": "term"
+        },
+        {
+          "en": "el interruptor de luz",
+          "es": "the light switch",
+          "kind": "term"
+        },
+        {
+          "en": "Primero limpiamos arriba y luego vamos bajando.",
+          "es": "First we clean up high, then we work our way down.",
+          "kind": "phrase",
+          "note": "Informal, para un compañero nuevo."
+        },
+        {
+          "en": "Trapeamos al final porque el polvo y las gotas caen desde arriba.",
+          "es": "We mop last because dust and drips fall from above.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Vamos de lo limpio a lo sucio para no propagar gérmenes.",
+          "es": "We go from clean to dirty, so we don't spread germs.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Empieza por la lámpara quirúrgica y luego sigue con el brazo articulado.",
+          "es": "Start with the surgical light, then do the boom.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "El piso espera, porque todo lo demás gotea sobre él.",
+          "es": "The floor waits, because everything else drips onto it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bueno, Devon, ahora explícame tú el orden.",
+          "es": "Okay, Devon, now explain the order back to me.",
+          "kind": "phrase",
+          "note": "Informal. \"Explain it back\" = repetir con sus palabras para confirmar."
+        },
+        {
+          "en": "Enfermera, ¿puedo capacitar a nuestro técnico nuevo en el quirófano 4 ahora?",
+          "es": "Nurse, may I train our new tech in OR 4 now?",
+          "kind": "phrase",
+          "note": "Formal: \"may I\" es la forma cortés de pedir permiso."
+        }
+      ],
+      "speaking": "You are the experienced OR tech, and the AI is Devon, a new hire who wants to mop OR 4 first: explain the top-to-bottom, clean-to-dirty order with first, then, because and so, and have Devon explain it back to you.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (first, then, because, so the dust falls on surfaces you haven't cleaned yet)",
+        "examples": [
+          {
+            "es": "First, wipe the surgical light, then move to the boom.",
+            "en": "Primero limpia la lámpara quirúrgica y luego pasa al brazo articulado."
+          },
+          {
+            "es": "We start up high, so the dust falls on surfaces we haven't cleaned yet.",
+            "en": "Empezamos arriba, así el polvo cae sobre superficies que todavía no hemos limpiado."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why the Surface Has to Stay Wet: Dwell Time",
+      "objective": "Explain why disinfectant must stay wet for the label's contact time and check that a float tech understands.",
+      "words": [
+        {
+          "en": "el tiempo de contacto",
+          "es": "the contact time",
+          "kind": "term",
+          "note": "Sinónimo de \"dwell time\"; también se oye \"wet time\"."
+        },
+        {
+          "en": "la declaración de eficacia",
+          "es": "the kill claim",
+          "kind": "term",
+          "note": "Lo que la etiqueta dice que el producto elimina y en cuánto tiempo."
+        },
+        {
+          "en": "la toallita germicida",
+          "es": "the germicidal wipe",
+          "kind": "term"
+        },
+        {
+          "en": "el patógeno",
+          "es": "the pathogen",
+          "kind": "term"
+        },
+        {
+          "en": "las bacterias",
+          "es": "the bacteria",
+          "kind": "term",
+          "note": "\"Bacteria\" ya es plural en inglés: \"the bacteria are...\"."
+        },
+        {
+          "en": "el residuo",
+          "es": "the residue",
+          "kind": "term"
+        },
+        {
+          "en": "las instrucciones de uso",
+          "es": "the instructions for use",
+          "kind": "term"
+        },
+        {
+          "en": "el técnico flotante",
+          "es": "the float tech",
+          "kind": "term",
+          "note": "Personal que cubre distintas áreas según la necesidad del día."
+        },
+        {
+          "en": "la unidad de hospitalización",
+          "es": "the inpatient unit",
+          "kind": "term"
+        },
+        {
+          "en": "el fabricante",
+          "es": "the manufacturer",
+          "kind": "term"
+        },
+        {
+          "en": "el temporizador",
+          "es": "the timer",
+          "kind": "term"
+        },
+        {
+          "en": "la toalla de papel",
+          "es": "the paper towel",
+          "kind": "term"
+        },
+        {
+          "en": "la infección del sitio quirúrgico",
+          "es": "the surgical site infection",
+          "kind": "term"
+        },
+        {
+          "en": "visiblemente húmedo",
+          "es": "visibly wet",
+          "kind": "term"
+        },
+        {
+          "en": "Espera, Kenji, no lo seques todavía.",
+          "es": "Hold on, Kenji, don't dry it off yet.",
+          "kind": "phrase",
+          "note": "Informal, entre compañeros."
+        },
+        {
+          "en": "La superficie tiene que quedar húmeda durante todo el tiempo de contacto.",
+          "es": "The surface has to stay wet for the whole contact time.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Si se seca demasiado pronto, no queda desinfectada.",
+          "es": "If it dries too early, it isn't disinfected.",
+          "kind": "phrase"
+        },
+        {
+          "en": "El tiempo de contacto está impreso en la etiqueta, aquí mismo.",
+          "es": "The contact time is printed on the label, right here.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Si se seca antes del tiempo de la etiqueta, vuelve a pasarle la toallita.",
+          "es": "If it dries before the label's time, wipe it again.",
+          "kind": "phrase",
+          "note": "Siga siempre lo que indica la etiqueta del producto que está usando."
+        },
+        {
+          "en": "Entonces, ¿qué pasa si la mesa de Mayo se seca muy rápido?",
+          "es": "So, what happens if the Mayo stand dries too fast?",
+          "kind": "phrase",
+          "note": "Pregunta para comprobar que la persona entendió."
+        },
+        {
+          "en": "Cada producto es diferente, así que siempre leemos la etiqueta primero.",
+          "es": "Every product is different, so we always read the label first.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Enfermera, la mesa de Mayo estará lista en unos minutos.",
+          "es": "Nurse, the Mayo stand will be ready in a few minutes.",
+          "kind": "phrase",
+          "note": "Formal, para el personal de enfermería."
+        }
+      ],
+      "speaking": "You are the lead OR tech, and the AI is Kenji, a float tech who dried the mayo stand right away: explain why it must stay wet for the label's contact time, using the passive (is kept wet) and if-sentences, then check that he understands.",
+      "grammar": {
+        "focus": "The passive for general rules; the zero conditional (the surface is kept wet; if it dries too early, it isn't disinfected)",
+        "examples": [
+          {
+            "es": "The Mayo stand is kept wet for the time on the label.",
+            "en": "La mesa de Mayo se mantiene húmeda durante el tiempo que indica la etiqueta."
+          },
+          {
+            "es": "If the surface dries too early, it isn't disinfected.",
+            "en": "Si la superficie se seca demasiado pronto, no queda desinfectada."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a New Tech on Canisters and Sharps Swaps",
+      "objective": "Coach a new tech step by step to close suction canisters and change a sharps container safely.",
+      "words": [
+        {
+          "en": "la línea de llenado",
+          "es": "the fill line",
+          "kind": "term"
+        },
+        {
+          "en": "el cierre temporal",
+          "es": "the temporary closure",
+          "kind": "term"
+        },
+        {
+          "en": "el cierre permanente",
+          "es": "the permanent closure",
+          "kind": "term"
+        },
+        {
+          "en": "el soporte de pared",
+          "es": "the wall bracket",
+          "kind": "term"
+        },
+        {
+          "en": "el asa",
+          "es": "the handle",
+          "kind": "term"
+        },
+        {
+          "en": "la tapa",
+          "es": "the lid",
+          "kind": "term"
+        },
+        {
+          "en": "el solidificante",
+          "es": "the solidifier",
+          "kind": "term",
+          "note": "Úselo solo si la política de su hospital lo indica."
+        },
+        {
+          "en": "la tapa del puerto",
+          "es": "the port cap",
+          "kind": "term"
+        },
+        {
+          "en": "el tubo",
+          "es": "the tubing",
+          "kind": "term",
+          "note": "\"Tubing\" es incontable: \"the tubing is...\", no \"the tubings\"."
+        },
+        {
+          "en": "la aguja",
+          "es": "the needle",
+          "kind": "term"
+        },
+        {
+          "en": "la hoja de bisturí",
+          "es": "the scalpel blade",
+          "kind": "term"
+        },
+        {
+          "en": "el pinchazo con aguja",
+          "es": "the needlestick",
+          "kind": "term"
+        },
+        {
+          "en": "el sobrellenado",
+          "es": "the overfill",
+          "kind": "term"
+        },
+        {
+          "en": "los residuos médicos regulados",
+          "es": "the regulated medical waste",
+          "kind": "term"
+        },
+        {
+          "en": "el contenedor de reemplazo",
+          "es": "the replacement container",
+          "kind": "term"
+        },
+        {
+          "en": "¡Amara, detente, no lo empujes hacia abajo!",
+          "es": "Amara, stop, don't push it down!",
+          "kind": "phrase",
+          "note": "Tono firme pero tranquilo; luego explique el porqué."
+        },
+        {
+          "en": "Ciérralo cuando llegue a la línea de llenado.",
+          "es": "Close it when it hits the fill line.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Levántalo por el asa y mantenlo lejos de tu cuerpo.",
+          "es": "Lift it by the handle and keep it away from you.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nunca metas la mano adentro.",
+          "es": "Never put your hand inside it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Primero tapa los dos puertos y luego saca el recipiente.",
+          "es": "Cap both ports first, then lift the canister out.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ciérralo bien y luego ponlo en el carrito.",
+          "es": "Lock it shut, and then set it on the cart.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bien, ahora muéstrame cómo lo harías tú.",
+          "es": "Good, now show me how you'd do it.",
+          "kind": "phrase",
+          "note": "Informal y de apoyo, para una compañera nueva."
+        },
+        {
+          "en": "Disculpe, ¿podemos cambiar el contenedor de objetos punzocortantes ahora?",
+          "es": "Excuse me, may we change the sharps container now?",
+          "kind": "phrase",
+          "note": "Formal, para el personal de enfermería del quirófano."
+        }
+      ],
+      "speaking": "You are the senior tech, and the AI is Amara, a new tech at a full sharps container in OR 6: stop her, then coach the sharps swap and the canister closing step by step with commands like close it, lift it by the handle and don't push it down.",
+      "grammar": {
+        "focus": "Commands with object pronouns (close it, lift it by the handle, don't push it down)",
+        "examples": [
+          {
+            "es": "Close it when it reaches the fill line.",
+            "en": "Ciérralo cuando llegue a la línea de llenado."
+          },
+          {
+            "es": "Don't push it down; lift it by the handle.",
+            "en": "No lo empujes hacia abajo; levántalo por el asa."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the New Disinfectant Label Before Terminal Clean",
+      "objective": "Read a new product's label and SDS aloud and explain its contact time and PPE to the night crew.",
+      "words": [
+        {
+          "en": "la palabra de advertencia",
+          "es": "the signal word",
+          "kind": "term",
+          "note": "En la etiqueta: \"Danger\" (peligro) o \"Warning\" (advertencia)."
+        },
+        {
+          "en": "la indicación de peligro",
+          "es": "the hazard statement",
+          "kind": "term"
+        },
+        {
+          "en": "el consejo de prudencia",
+          "es": "the precautionary statement",
+          "kind": "term"
+        },
+        {
+          "en": "las medidas de primeros auxilios",
+          "es": "the first-aid measures",
+          "kind": "term"
+        },
+        {
+          "en": "la estación de lavado de ojos",
+          "es": "the eyewash station",
+          "kind": "term"
+        },
+        {
+          "en": "el ingrediente activo",
+          "es": "the active ingredient",
+          "kind": "term"
+        },
+        {
+          "en": "la proporción de dilución",
+          "es": "the dilution ratio",
+          "kind": "term"
+        },
+        {
+          "en": "el producto listo para usar",
+          "es": "the ready-to-use product",
+          "kind": "term"
+        },
+        {
+          "en": "el protector facial",
+          "es": "the face shield",
+          "kind": "term"
+        },
+        {
+          "en": "la ventilación",
+          "es": "the ventilation",
+          "kind": "term"
+        },
+        {
+          "en": "la fecha de vencimiento",
+          "es": "the expiration date",
+          "kind": "term"
+        },
+        {
+          "en": "el número de registro de la EPA",
+          "es": "the EPA registration number",
+          "kind": "term",
+          "note": "EPA se dice letra por letra: \"i-pi-ei\"."
+        },
+        {
+          "en": "el pictograma",
+          "es": "the pictogram",
+          "kind": "term"
+        },
+        {
+          "en": "la capacitación en servicio",
+          "es": "the in-service",
+          "kind": "term",
+          "note": "En hospitales, una capacitación breve en el lugar de trabajo."
+        },
+        {
+          "en": "corrosivo",
+          "es": "corrosive",
+          "kind": "term"
+        },
+        {
+          "en": "Antes de abrirlo, revisa la sección de EPP en la etiqueta.",
+          "es": "Before opening it, check the PPE section on the label.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La etiqueta nueva dice que el tiempo de contacto es de 3 minutos.",
+          "es": "The new label says the contact time is 3 minutes.",
+          "kind": "phrase",
+          "note": "Ejemplo de práctica: use siempre el tiempo de la etiqueta real de su producto."
+        },
+        {
+          "en": "Después de limpiar, tienes que dejarlo húmedo durante ese tiempo.",
+          "es": "After wiping, you have to leave it wet for that time.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La hoja de datos de seguridad dice que debemos usar gafas protectoras con este.",
+          "es": "The SDS says we must wear goggles with this one.",
+          "kind": "phrase",
+          "note": "SDS se dice letra por letra: \"es-di-es\"."
+        },
+        {
+          "en": "Gloria, ¿puedes leer en voz alta la sección de primeros auxilios?",
+          "es": "Gloria, can you read the first-aid section out loud?",
+          "kind": "phrase",
+          "note": "Informal, entre compañeros del turno."
+        },
+        {
+          "en": "Si algo no está claro, paramos y le preguntamos al supervisor.",
+          "es": "If anything is unclear, we stop and ask the supervisor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Disculpe, ¿dónde está la carpeta de hojas de seguridad del producto nuevo?",
+          "es": "Excuse me, where is the SDS binder for the new product?",
+          "kind": "phrase",
+          "note": "Formal, para la enfermera a cargo."
+        }
+      ],
+      "speaking": "You are the night lead, and the AI is Gloria, a night tech: read the new disinfectant label and SDS aloud before the terminal clean of OR 12, explain its contact time and PPE using before + -ing, have to and must, and check that she understands.",
+      "grammar": {
+        "focus": "Before / after + -ing; have to and must (before opening it, you have to put on gloves; the label says you must…)",
+        "examples": [
+          {
+            "es": "Before opening the bottle, you have to put on the PPE the label lists.",
+            "en": "Antes de abrir la botella, tienes que ponerte el EPP que indica la etiqueta."
+          },
+          {
+            "es": "The label says you must keep the surface wet for the full contact time.",
+            "en": "La etiqueta dice que debes mantener la superficie húmeda durante todo el tiempo de contacto."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Blood Found Under the Table Base After Room Ready",
+      "objective": "Explain how a spot was missed, take responsibility, and propose a fast re-clean to the circulator.",
+      "words": [
+        {
+          "en": "la base de la mesa",
+          "es": "the table base",
+          "kind": "term"
+        },
+        {
+          "en": "la rueda giratoria",
+          "es": "the caster",
+          "kind": "term",
+          "note": "Caster: rueda que gira en mesas, camillas y carros."
+        },
+        {
+          "en": "la sangre seca",
+          "es": "the dried blood",
+          "kind": "term"
+        },
+        {
+          "en": "el punto ciego",
+          "es": "the blind spot",
+          "kind": "term"
+        },
+        {
+          "en": "el punto que se pasó por alto",
+          "es": "the missed spot",
+          "kind": "term"
+        },
+        {
+          "en": "la limpieza previa",
+          "es": "the pre-clean",
+          "kind": "term",
+          "note": "Se quita la suciedad visible antes de desinfectar."
+        },
+        {
+          "en": "la limpieza de nuevo",
+          "es": "the re-clean",
+          "kind": "term"
+        },
+        {
+          "en": "la linterna",
+          "es": "the flashlight",
+          "kind": "term"
+        },
+        {
+          "en": "la revisión final",
+          "es": "the final check",
+          "kind": "term"
+        },
+        {
+          "en": "la inspección visual",
+          "es": "the visual inspection",
+          "kind": "term"
+        },
+        {
+          "en": "la causa raíz",
+          "es": "the root cause",
+          "kind": "term"
+        },
+        {
+          "en": "la acción correctiva",
+          "es": "the corrective action",
+          "kind": "term"
+        },
+        {
+          "en": "el estado de la sala",
+          "es": "the room status",
+          "kind": "term"
+        },
+        {
+          "en": "la suciedad visible",
+          "es": "the gross soil",
+          "kind": "term",
+          "note": "Aquí gross no significa asqueroso: es suciedad visible a simple vista."
+        },
+        {
+          "en": "Lo siento, se me pasó ese punto, y es mi responsabilidad.",
+          "es": "I'm sorry, I missed that spot, and that's on me.",
+          "kind": "phrase",
+          "note": "Informal: That's on me = es culpa mía."
+        },
+        {
+          "en": "Estaba trapeando cuando me llamaron al quirófano 6.",
+          "es": "I was mopping when they called me to OR 6.",
+          "kind": "phrase"
+        },
+        {
+          "en": "No revisé los huecos de las ruedas con una linterna.",
+          "es": "I didn't check the caster wells with a flashlight.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Primero quitaría la sangre y luego desinfectaría toda la base.",
+          "es": "I would pre-clean the blood first, then disinfect the whole base.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sr. Saleh, asumo toda la responsabilidad por el punto que se me pasó.",
+          "es": "Mr. Saleh, I take full responsibility for the missed spot.",
+          "kind": "phrase",
+          "note": "Formal, para el jefe de enfermería."
+        },
+        {
+          "en": "Rachel, ¿puedes detener la sala mientras la vuelvo a limpiar?",
+          "es": "Rachel, can you hold the room while I re-clean it?",
+          "kind": "phrase",
+          "note": "Informal, entre compañeros."
+        },
+        {
+          "en": "De ahora en adelante, revisaré las ruedas con una linterna.",
+          "es": "From now on, I'll check the casters with a flashlight.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the EVS tech, and the AI is charge nurse Hakim Saleh: explain how you missed the blood in the caster wells using the past continuous and past simple (I was cleaning… when…), take responsibility, and propose a fast re-clean with I would…",
+      "grammar": {
+        "focus": "Past simple vs past continuous; would for the proposal (I was cleaning the base when you called me; I would re-clean it now)",
+        "examples": [
+          {
+            "es": "I was wiping the light when Rachel called room ready.",
+            "en": "Estaba limpiando la lámpara cuando Rachel dijo que la sala estaba lista."
+          },
+          {
+            "es": "I would re-clean the table base right now, before the patient comes in.",
+            "en": "Yo volvería a limpiar la base de la mesa ahora mismo, antes de que entre el paciente."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Out of Wipes: The Approved Substitute Takes Longer",
+      "objective": "Tell the circulator about an approved substitute product and how it changes the turnover time.",
+      "words": [
+        {
+          "en": "el producto sustituto",
+          "es": "the substitute product",
+          "kind": "term"
+        },
+        {
+          "en": "la escasez",
+          "es": "the shortage",
+          "kind": "term"
+        },
+        {
+          "en": "el pedido pendiente",
+          "es": "the backorder",
+          "kind": "term",
+          "note": "Backorder: el proveedor no tiene el producto y lo enviará después."
+        },
+        {
+          "en": "la aprobación",
+          "es": "the approval",
+          "kind": "term"
+        },
+        {
+          "en": "la marca habitual",
+          "es": "the usual brand",
+          "kind": "term"
+        },
+        {
+          "en": "el atomizador",
+          "es": "the spray bottle",
+          "kind": "term"
+        },
+        {
+          "en": "el envase de toallitas",
+          "es": "the wipe canister",
+          "kind": "term"
+        },
+        {
+          "en": "las existencias de reserva",
+          "es": "the backup stock",
+          "kind": "term"
+        },
+        {
+          "en": "la reposición",
+          "es": "the restock",
+          "kind": "term"
+        },
+        {
+          "en": "el retraso",
+          "es": "the delay",
+          "kind": "term"
+        },
+        {
+          "en": "la hora estimada",
+          "es": "the ETA",
+          "kind": "term",
+          "note": "Se pronuncia letra por letra: i-ti-éi."
+        },
+        {
+          "en": "la hora de inicio",
+          "es": "the start time",
+          "kind": "term"
+        },
+        {
+          "en": "el tiempo de recambio de sala",
+          "es": "the turnover time",
+          "kind": "term"
+        },
+        {
+          "en": "aprobado",
+          "es": "approved",
+          "kind": "term"
+        },
+        {
+          "en": "Se nos acabaron las toallitas de siempre.",
+          "es": "We just ran out of our usual wipes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Linda aprobó un sustituto, así que lo estamos usando ahora.",
+          "es": "Linda approved a substitute, so we're using it now.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Este producto necesita más tiempo de contacto que nuestras toallitas, según la etiqueta.",
+          "es": "This product needs more contact time than our wipes, per the label.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La sala va a estar lista más tarde de lo previsto.",
+          "es": "The room is going to be ready later than planned.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Owen, aviso: vamos a tardar unos 10 minutos más.",
+          "es": "Owen, heads-up: we're going to be about 10 minutes late.",
+          "kind": "phrase",
+          "note": "Informal: heads-up = aviso rápido."
+        },
+        {
+          "en": "Le aviso en cuanto esté lista.",
+          "es": "I'll let you know the moment it's ready.",
+          "kind": "phrase"
+        },
+        {
+          "en": "El spray es más lento que las toallitas, pero está aprobado.",
+          "es": "The spray is slower than the wipes, but it's approved.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Quiere que le avise yo a anestesia, o lo hace usted?",
+          "es": "Would you like me to update anesthesia, or will you?",
+          "kind": "phrase",
+          "note": "Formal y cortés con el enfermero circulante."
+        }
+      ],
+      "speaking": "You are the EVS tech, and the AI is circulator Owen Fitzgerald: tell him the wipes ran out and Linda approved a substitute, then give a new ready time using going to, will and comparisons (longer than, slower than, per the label).",
+      "grammar": {
+        "focus": "Will and going to; comparisons (it's going to take longer; its contact time is longer than our usual wipes, per the label)",
+        "examples": [
+          {
+            "es": "The room is going to be ready at 9:40, not 9:30.",
+            "en": "La sala va a estar lista a las 9:40, no a las 9:30."
+          },
+          {
+            "es": "This spray is slower than our usual wipes, but Linda approved it.",
+            "en": "Este spray es más lento que nuestras toallitas habituales, pero Linda lo aprobó."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Ceiling Dust from a Contractor in a Clean Room",
+      "objective": "Stop a contractor's work in a clean OR and report what happened, with times and rooms, to the charge nurse.",
+      "words": [
+        {
+          "en": "el contratista",
+          "es": "the contractor",
+          "kind": "term"
+        },
+        {
+          "en": "la placa del techo",
+          "es": "the ceiling tile",
+          "kind": "term"
+        },
+        {
+          "en": "la orden de trabajo",
+          "es": "the work order",
+          "kind": "term"
+        },
+        {
+          "en": "el permiso ICRA",
+          "es": "the ICRA permit",
+          "kind": "term",
+          "note": "ICRA: evaluación de riesgo para control de infecciones en obras."
+        },
+        {
+          "en": "la barrera contra el polvo",
+          "es": "the dust barrier",
+          "kind": "term"
+        },
+        {
+          "en": "el tapete adhesivo",
+          "es": "the sticky mat",
+          "kind": "term"
+        },
+        {
+          "en": "la aspiradora HEPA",
+          "es": "the HEPA vacuum",
+          "kind": "term"
+        },
+        {
+          "en": "la rejilla de ventilación",
+          "es": "the air vent",
+          "kind": "term"
+        },
+        {
+          "en": "el equipo de mantenimiento de instalaciones",
+          "es": "the facilities team",
+          "kind": "term"
+        },
+        {
+          "en": "el equipo de control de infecciones",
+          "es": "the infection control team",
+          "kind": "term"
+        },
+        {
+          "en": "la cronología",
+          "es": "the timeline",
+          "kind": "term"
+        },
+        {
+          "en": "la sala afectada",
+          "es": "the affected room",
+          "kind": "term"
+        },
+        {
+          "en": "la sala contigua",
+          "es": "the adjacent room",
+          "kind": "term"
+        },
+        {
+          "en": "la hoja de registro",
+          "es": "the sign-in sheet",
+          "kind": "term"
+        },
+        {
+          "en": "la hora exacta",
+          "es": "the exact time",
+          "kind": "term"
+        },
+        {
+          "en": "Señor, por favor deténgase y cierre el panel ahora mismo.",
+          "es": "Sir, please stop and close the panel right now.",
+          "kind": "phrase",
+          "note": "Formal y firme con el contratista."
+        },
+        {
+          "en": "Este quirófano está limpio, así que no se puede abrir el techo aquí.",
+          "es": "This OR is clean, so the ceiling can't be opened here.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Tiene un permiso ICRA para esta sala?",
+          "es": "Do you have an ICRA permit for this room?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Abrió la placa del techo a las 6:40, justo encima de la mesa.",
+          "es": "He opened the ceiling tile at 6:40, right above the table.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lo detuve a las 6:42 y la cerró.",
+          "es": "I stopped him at 6:42, and he closed it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Cayó polvo sobre la mesa y el mostrador del fondo en el quirófano 5.",
+          "es": "Dust fell on the table and the back counter in OR 5.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Priya, nadie entró al quirófano 5 después de que lo cerré con llave.",
+          "es": "Priya, nobody entered OR 5 after I locked it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Llamo yo a control de infecciones, o lo hace usted?",
+          "es": "Should I call infection control, or will you?",
+          "kind": "phrase",
+          "note": "Pregunta directa para la jefa de enfermería."
+        }
+      ],
+      "speaking": "You are the EVS tech, and the AI is contractor Bruno Kessler, then charge nurse Priya Nair: stop his work politely but firmly, then report what happened in the past simple with exact times and room numbers (he opened… at 6:40).",
+      "grammar": {
+        "focus": "Past simple narration; numbers under pressure (he opened the panel at 6:40; two rooms were affected)",
+        "examples": [
+          {
+            "es": "Bruno opened the panel at 6:40, and dust fell on the OR table.",
+            "en": "Bruno abrió el panel a las 6:40 y cayó polvo sobre la mesa de operaciones."
+          },
+          {
+            "es": "I called you at 6:45, three minutes after he stopped.",
+            "en": "La llamé a las 6:45, tres minutos después de que él se detuvo."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: The Surgeon Wants the Patient In Now",
+      "objective": "Politely refuse to skip the dwell time and the floor, give a real time estimate, and offer to work faster safely.",
+      "words": [
+        {
+          "en": "la superficie mojada",
+          "es": "the wet surface",
+          "kind": "term"
+        },
+        {
+          "en": "el riesgo de resbalón",
+          "es": "the slip hazard",
+          "kind": "term"
+        },
+        {
+          "en": "la camilla",
+          "es": "the gurney",
+          "kind": "term",
+          "note": "Gurney y stretcher se usan igual en el hospital."
+        },
+        {
+          "en": "las huellas de las ruedas",
+          "es": "the wheel tracks",
+          "kind": "term"
+        },
+        {
+          "en": "el tiempo de secado",
+          "es": "the drying time",
+          "kind": "term"
+        },
+        {
+          "en": "el cálculo de tiempo",
+          "es": "the time estimate",
+          "kind": "term"
+        },
+        {
+          "en": "el técnico adicional",
+          "es": "the extra tech",
+          "kind": "term"
+        },
+        {
+          "en": "la preocupación de seguridad",
+          "es": "the safety concern",
+          "kind": "term"
+        },
+        {
+          "en": "el riesgo de infección",
+          "es": "the infection risk",
+          "kind": "term"
+        },
+        {
+          "en": "el área de espera preoperatoria",
+          "es": "the holding area",
+          "kind": "term"
+        },
+        {
+          "en": "la cadena de mando",
+          "es": "the chain of command",
+          "kind": "term"
+        },
+        {
+          "en": "la presión del tiempo",
+          "es": "the time pressure",
+          "kind": "term"
+        },
+        {
+          "en": "la entrada",
+          "es": "the doorway",
+          "kind": "term"
+        },
+        {
+          "en": "con firmeza",
+          "es": "firmly",
+          "kind": "term"
+        },
+        {
+          "en": "Por favor, no traigan al paciente todavía.",
+          "es": "Please don't bring the patient in yet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dra. Foster, la entiendo, pero el piso todavía está mojado.",
+          "es": "Dr. Foster, I understand, but the floor is still wet.",
+          "kind": "phrase",
+          "note": "Formal: usa el título y el apellido con el cirujano."
+        },
+        {
+          "en": "No le recomiendo que meta la cama ahora.",
+          "es": "I don't recommend that you wheel the bed in now.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Según la etiqueta, tiene que seguir mojado 4 minutos más.",
+          "es": "Per the label, it has to stay wet 4 more minutes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Por favor, no pisen ese lado hasta que esté seco.",
+          "es": "Please don't step on that side until it's dry.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Puedo llamar a otro técnico para terminar las paredes más rápido.",
+          "es": "I can call another tech to finish the walls faster.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sam, ¿puedes dejar al paciente en el área de espera por ahora?",
+          "es": "Sam, can you keep the patient in holding for now?",
+          "kind": "phrase",
+          "note": "Informal, con el enfermero circulante."
+        },
+        {
+          "en": "Si lo necesita, por favor consulte con la enfermera a cargo.",
+          "es": "If you need to, please check with the charge nurse.",
+          "kind": "phrase",
+          "note": "Formal: ofrece la cadena de mando sin discutir."
+        }
+      ],
+      "speaking": "You are the EVS tech, and the AI is Dr. Elaine Foster: politely refuse to bring the patient in while the disinfectant is wet, using negative commands (please don't…) and I don't recommend that you…, give a real time estimate, and offer a safe way to work faster.",
+      "grammar": {
+        "focus": "Negative commands; I don't recommend that you… (please don't bring the bed in yet; I don't recommend that you roll over a wet floor)",
+        "examples": [
+          {
+            "es": "Please don't move the bed in until the floor is dry.",
+            "en": "Por favor, no metan la cama hasta que el piso esté seco."
+          },
+          {
+            "es": "I don't recommend that you start before the dwell time ends.",
+            "en": "No le recomiendo que empiece antes de que termine el tiempo de contacto."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for a Tech Who Missed the Mayo Stand",
+      "objective": "Give a coworker clear, respectful feedback about missed surfaces and agree on what to do next time.",
+      "words": [
+        {
+          "en": "la parte de abajo",
+          "es": "the underside",
+          "kind": "term"
+        },
+        {
+          "en": "el cable del bovie",
+          "es": "the bovie cord",
+          "kind": "term"
+        },
+        {
+          "en": "el estuche del bovie",
+          "es": "the bovie holster",
+          "kind": "term"
+        },
+        {
+          "en": "el pedal",
+          "es": "the foot pedal",
+          "kind": "term"
+        },
+        {
+          "en": "la sala de procedimientos",
+          "es": "the procedure room",
+          "kind": "term"
+        },
+        {
+          "en": "la queja",
+          "es": "the complaint",
+          "kind": "term"
+        },
+        {
+          "en": "la conversación en privado",
+          "es": "the private conversation",
+          "kind": "term"
+        },
+        {
+          "en": "el ejemplo concreto",
+          "es": "the specific example",
+          "kind": "term"
+        },
+        {
+          "en": "la superficie de alto contacto",
+          "es": "the high-touch surface",
+          "kind": "term"
+        },
+        {
+          "en": "el siguiente paso",
+          "es": "the next step",
+          "kind": "term"
+        },
+        {
+          "en": "el seguimiento",
+          "es": "the follow-up",
+          "kind": "term"
+        },
+        {
+          "en": "el hábito",
+          "es": "the habit",
+          "kind": "term"
+        },
+        {
+          "en": "el acuerdo",
+          "es": "the agreement",
+          "kind": "term"
+        },
+        {
+          "en": "la doble verificación",
+          "es": "the double-check",
+          "kind": "term"
+        },
+        {
+          "en": "respetuoso",
+          "es": "respectful",
+          "kind": "term"
+        },
+        {
+          "en": "Jordan, ¿tienes un minuto para hablar en privado?",
+          "es": "Jordan, do you have a minute to talk in private?",
+          "kind": "phrase",
+          "note": "Informal: con un compañero usa el nombre de pila."
+        },
+        {
+          "en": "Fatima notó que la parte de abajo de la mesa de Mayo seguía sucia.",
+          "es": "Fatima noticed the underside of the Mayo stand was still dirty.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Deberías revisar la parte de abajo cada vez que limpias la mesa.",
+          "es": "You should check the underside every time you wipe the stand.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Te sugiero seguir el cable del bovie hasta el pedal.",
+          "es": "I suggest following the bovie cord all the way to the pedal.",
+          "kind": "phrase",
+          "note": "Después de suggest va el verbo con -ing; nunca digas suggest you to."
+        },
+        {
+          "en": "Te recomiendo hacer una doble verificación antes de decir que la sala está lista.",
+          "es": "I recommend doing a double-check before you call the room ready.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Qué crees que pasó en la Sala B?",
+          "es": "What do you think happened in Room B?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mañana revisamos juntos la siguiente sala, ¿de acuerdo?",
+          "es": "Let's check the next room together tomorrow, okay?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sra. Rahman, gracias por avisarme; ya hablé con Jordan.",
+          "es": "Ms. Rahman, thank you for telling me; I've spoken with Jordan.",
+          "kind": "phrase",
+          "note": "Formal: Ms. + apellido con una enfermera; se pronuncia \"miz\"."
+        }
+      ],
+      "speaking": "You are the lead tech, and the AI is Jordan Ellis, a tech who left the mayo stand underside and the bovie cord dirty: give specific, respectful feedback with you should, I suggest + -ing and I recommend, then agree on a plan for next time.",
+      "grammar": {
+        "focus": "Should, recommend and suggest + verb (you should check the underside; I suggest wiping the bovie cord last)",
+        "examples": [
+          {
+            "es": "You should check the underside of the Mayo stand.",
+            "en": "Deberías revisar la parte de abajo de la mesa de Mayo."
+          },
+          {
+            "es": "I suggest wiping the bovie cord last.",
+            "en": "Te sugiero limpiar el cable del bovie al final."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Day and Evening Techs Argue Over a Half-Done Room",
+      "objective": "Listen to both sides of a conflict, report what each person said, and agree on a fair handoff rule.",
+      "words": [
+        {
+          "en": "el cambio de turno",
+          "es": "the shift change",
+          "kind": "term"
+        },
+        {
+          "en": "el técnico de día",
+          "es": "the day tech",
+          "kind": "term"
+        },
+        {
+          "en": "el técnico de la tarde",
+          "es": "the evening tech",
+          "kind": "term"
+        },
+        {
+          "en": "la sala a medio limpiar",
+          "es": "the half-done room",
+          "kind": "term"
+        },
+        {
+          "en": "la regla de entrega de turno",
+          "es": "the handoff rule",
+          "kind": "term"
+        },
+        {
+          "en": "la versión de los hechos",
+          "es": "the side of the story",
+          "kind": "term"
+        },
+        {
+          "en": "la culpa",
+          "es": "the blame",
+          "kind": "term"
+        },
+        {
+          "en": "el reporte verbal",
+          "es": "the verbal report",
+          "kind": "term"
+        },
+        {
+          "en": "la pizarra",
+          "es": "the whiteboard",
+          "kind": "term"
+        },
+        {
+          "en": "la superposición de turnos",
+          "es": "the shift overlap",
+          "kind": "term"
+        },
+        {
+          "en": "la regla básica",
+          "es": "the ground rule",
+          "kind": "term"
+        },
+        {
+          "en": "la nota escrita",
+          "es": "the written note",
+          "kind": "term"
+        },
+        {
+          "en": "el objetivo común",
+          "es": "the common goal",
+          "kind": "term"
+        },
+        {
+          "en": "justo",
+          "es": "fair",
+          "kind": "term"
+        },
+        {
+          "en": "Carla, Malik, hablemos de esto con calma en la sala de descanso.",
+          "es": "Carla, Malik, let's talk about this calmly in the break room.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Uno a la vez, por favor; todos van a poder hablar.",
+          "es": "One at a time, please; everyone gets a turn.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Carla dijo que había empezado la sala a las 2:30.",
+          "es": "Carla said that she had started the room at 2:30.",
+          "kind": "phrase",
+          "note": "En estilo indirecto, el pasado simple pasa a had + participio."
+        },
+        {
+          "en": "Malik dijo que estaba cubriendo otro caso en el quirófano 9.",
+          "es": "Malik said he was covering another case in OR 9.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Entonces cada uno pensó que el otro lo iba a terminar?",
+          "es": "So you both thought the other one would finish it?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Esto no se trata de culpas; se trata del próximo turno.",
+          "es": "This isn't about blame; it's about the next shift.",
+          "kind": "phrase"
+        },
+        {
+          "en": "De ahora en adelante, nadie se va sin una nota escrita de entrega.",
+          "es": "From now on, nobody leaves without a written handoff note.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Les parece justo a los dos?",
+          "es": "Does that sound fair to both of you?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead tech, and the AI plays day tech Carla Brooks and evening tech Malik Johnson: hear both sides about OR 14, report what each said with she said that she had…, use the past continuous for background, and agree on a fair handoff rule.",
+      "grammar": {
+        "focus": "Reported speech (she said that she had started the room); the past continuous for background (he was covering another case)",
+        "examples": [
+          {
+            "es": "She said that she had started the terminal clean of OR 14.",
+            "en": "Ella dijo que había empezado la limpieza terminal del quirófano 14."
+          },
+          {
+            "es": "He was covering another case when the shift ended.",
+            "en": "Él estaba cubriendo otro caso cuando terminó el turno."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keeping a Short-Staffed Crew Going All Weekend",
+      "objective": "Encourage a tired crew, make clear commitments, and share the work fairly during a long, busy shift.",
+      "words": [
+        {
+          "en": "el fin de semana festivo",
+          "es": "the holiday weekend",
+          "kind": "term"
+        },
+        {
+          "en": "el tablero de trauma",
+          "es": "the trauma board",
+          "kind": "term"
+        },
+        {
+          "en": "la falta de personal",
+          "es": "the staffing gap",
+          "kind": "term"
+        },
+        {
+          "en": "el aviso de ausencia por enfermedad",
+          "es": "the sick call",
+          "kind": "term"
+        },
+        {
+          "en": "la carga de trabajo",
+          "es": "the workload",
+          "kind": "term"
+        },
+        {
+          "en": "la rotación",
+          "es": "the rotation",
+          "kind": "term"
+        },
+        {
+          "en": "el agotamiento",
+          "es": "the burnout",
+          "kind": "term"
+        },
+        {
+          "en": "la pausa para tomar agua",
+          "es": "the water break",
+          "kind": "term"
+        },
+        {
+          "en": "la moral del equipo",
+          "es": "the morale",
+          "kind": "term",
+          "note": "Se pronuncia \"mo-RAL\"; no confundir con moral (ética)."
+        },
+        {
+          "en": "el técnico de guardia",
+          "es": "the on-call tech",
+          "kind": "term"
+        },
+        {
+          "en": "la oficina de personal",
+          "es": "the staffing office",
+          "kind": "term"
+        },
+        {
+          "en": "la lista de prioridades",
+          "es": "the priority list",
+          "kind": "term"
+        },
+        {
+          "en": "el último tramo",
+          "es": "the last stretch",
+          "kind": "term"
+        },
+        {
+          "en": "agotado",
+          "es": "exhausted",
+          "kind": "term"
+        },
+        {
+          "en": "Yo me encargo de las próximas dos salas, así descansas.",
+          "es": "I'll take the next two rooms, so you can rest.",
+          "kind": "phrase",
+          "note": "Usa I'll para comprometerte en el momento; suena seguro y claro."
+        },
+        {
+          "en": "Lo estás haciendo muy bien, y vamos a salir adelante juntos.",
+          "es": "You're doing great, and we'll get through this together.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rob, te entiendo; ha sido un día muy largo.",
+          "es": "Rob, I hear you; it's been a really long day.",
+          "kind": "phrase",
+          "note": "Informal: I hear you muestra que escuchas, sin juzgar."
+        },
+        {
+          "en": "Voy a llamar a la oficina de personal para pedir el técnico de guardia.",
+          "es": "I'll call staffing and ask for the on-call tech.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ines, ¿te encargas del quirófano 3 mientras Keisha hace el 5?",
+          "es": "Ines, will you take OR 3 while Keisha does OR 5?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Turnémonos, para que nadie haga todas las salas de trauma.",
+          "es": "Let's take turns, so nobody does all the trauma rooms.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tómate 10 minutos, toma agua y luego regresa.",
+          "es": "Take 10 minutes, grab some water, and then come back.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Si de verdad necesitas irte, yo hablo con el supervisor.",
+          "es": "If you really need to leave, I'll talk to the supervisor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead tech, and the AI plays Ines, Rob and Keisha, a tired crew two people short on a long trauma board: listen to how each feels, encourage them, make clear commitments with I'll and we'll, and share the rooms fairly.",
+      "grammar": {
+        "focus": "Will for commitments; encouragement register (I'll take the next two rooms; you're doing great, we'll get through this)",
+        "examples": [
+          {
+            "es": "I'll take the next two rooms on the trauma board.",
+            "en": "Yo me encargo de las próximas dos salas del tablero de trauma."
+          },
+          {
+            "es": "You're doing great; we'll get through this weekend.",
+            "en": "Lo estás haciendo muy bien; vamos a salir adelante este fin de semana."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Delay, Four Listeners: Surgeon to Family",
+      "objective": "Explain the same room delay to a surgeon, a nurse, a new tech and a family member in the right register.",
+      "words": [
+        {
+          "en": "el inicio tardío",
+          "es": "the late start",
+          "kind": "term"
+        },
+        {
+          "en": "la sala de espera de cirugía",
+          "es": "the surgical waiting room",
+          "kind": "term"
+        },
+        {
+          "en": "el enlace con las familias",
+          "es": "the family liaison",
+          "kind": "term"
+        },
+        {
+          "en": "la privacidad del paciente",
+          "es": "the patient privacy",
+          "kind": "term"
+        },
+        {
+          "en": "la información del paciente",
+          "es": "the patient information",
+          "kind": "term"
+        },
+        {
+          "en": "la actualización",
+          "es": "the update",
+          "kind": "term"
+        },
+        {
+          "en": "el tono formal",
+          "es": "the formal tone",
+          "kind": "term"
+        },
+        {
+          "en": "el tablero de seguimiento",
+          "es": "the tracking board",
+          "kind": "term"
+        },
+        {
+          "en": "el empleado nuevo",
+          "es": "the new hire",
+          "kind": "term"
+        },
+        {
+          "en": "el familiar",
+          "es": "the family member",
+          "kind": "term"
+        },
+        {
+          "en": "la recepción",
+          "es": "the front desk",
+          "kind": "term"
+        },
+        {
+          "en": "la disculpa",
+          "es": "the apology",
+          "kind": "term"
+        },
+        {
+          "en": "el orden de los casos",
+          "es": "the case order",
+          "kind": "term"
+        },
+        {
+          "en": "preocupado",
+          "es": "worried",
+          "kind": "term"
+        },
+        {
+          "en": "con cortesía",
+          "es": "politely",
+          "kind": "term"
+        },
+        {
+          "en": "Dr. Hahn, ¿podría darnos 5 minutos más para el quirófano 7?",
+          "es": "Dr. Hahn, could you give us 5 more minutes for OR 7?",
+          "kind": "phrase",
+          "note": "Formal: could you suaviza el pedido ante un cirujano."
+        },
+        {
+          "en": "Nadia, necesitamos 5 minutos más en el quirófano 7.",
+          "es": "Nadia, we need 5 more minutes in OR 7.",
+          "kind": "phrase",
+          "note": "Informal pero claro: con la circulante basta el nombre y el dato."
+        },
+        {
+          "en": "Leo, tranquilo, agarra el trapeador y sígueme.",
+          "es": "Leo, no worries, grab the mop and follow me.",
+          "kind": "phrase",
+          "note": "Informal: con un técnico nuevo, tono cercano y directo."
+        },
+        {
+          "en": "Señor, lo siento, pero no puedo dar información sobre pacientes.",
+          "es": "Sir, I'm sorry, but I can't share information about patients.",
+          "kind": "phrase",
+          "note": "Formal: nunca des datos del paciente; remite siempre a la enfermera."
+        },
+        {
+          "en": "¿Le molestaría esperar aquí a la enfermera?",
+          "es": "Would you mind waiting here for the nurse?",
+          "kind": "phrase",
+          "note": "Would you mind va con verbo en -ing; es muy cortés."
+        },
+        {
+          "en": "Le avisaré a la enfermera que usted está aquí.",
+          "es": "I'll let the nurse know you're here.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Quiere que lo acompañe a la sala de espera?",
+          "es": "Would you like me to walk you to the waiting room?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the EVS tech for OR 7, and the AI plays Dr. Hahn, circulator Nadia Petrova, new tech Leo Martin and a patient's husband: explain the delay to each in the right register with softeners like could you and would you mind, and kindly refer the husband to the nurse.",
+      "grammar": {
+        "focus": "Formal and informal register; softeners (could you give me five more minutes, would you mind waiting for the nurse)",
+        "examples": [
+          {
+            "es": "Dr. Hahn, could you give me 5 more minutes, please?",
+            "en": "Dr. Hahn, ¿podría darme 5 minutos más, por favor?"
+          },
+          {
+            "es": "Sir, would you mind waiting for the nurse here?",
+            "en": "Señor, ¿le molestaría esperar a la enfermera aquí?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Needlestick in the Drapes: The Incident Report",
+      "objective": "Help a coworker follow the exposure policy and tell and write what happened in order, with times.",
+      "words": [
+        {
+          "en": "la sábana quirúrgica",
+          "es": "the drape",
+          "kind": "term",
+          "note": "En el quirófano se dice 'drape' para la tela o papel que cubre al paciente."
+        },
+        {
+          "en": "la política de exposición",
+          "es": "the exposure policy",
+          "kind": "term"
+        },
+        {
+          "en": "la herida punzante",
+          "es": "the puncture wound",
+          "kind": "term"
+        },
+        {
+          "en": "la oficina de salud del personal",
+          "es": "the employee health office",
+          "kind": "term",
+          "note": "En los hospitales de EE. UU. muchas veces se dice solo 'Employee Health'."
+        },
+        {
+          "en": "el paciente fuente",
+          "es": "the source patient",
+          "kind": "term"
+        },
+        {
+          "en": "la exposición a sangre",
+          "es": "the bloodborne exposure",
+          "kind": "term"
+        },
+        {
+          "en": "el testigo",
+          "es": "the witness",
+          "kind": "term"
+        },
+        {
+          "en": "la hora de la lesión",
+          "es": "the time of injury",
+          "kind": "term"
+        },
+        {
+          "en": "la secuencia de los hechos",
+          "es": "the sequence of events",
+          "kind": "term"
+        },
+        {
+          "en": "la rotura del guante",
+          "es": "the glove tear",
+          "kind": "term"
+        },
+        {
+          "en": "el formulario del reporte",
+          "es": "the report form",
+          "kind": "term"
+        },
+        {
+          "en": "la sala de emergencias",
+          "es": "the emergency department",
+          "kind": "term",
+          "note": "También se dice 'the ER' o 'the ED'."
+        },
+        {
+          "en": "las pruebas de seguimiento",
+          "es": "the follow-up testing",
+          "kind": "term"
+        },
+        {
+          "en": "la narración de los hechos",
+          "es": "the narrative",
+          "kind": "term",
+          "note": "Es la sección del reporte donde se cuenta lo que pasó, en orden."
+        },
+        {
+          "en": "el plazo para reportar",
+          "es": "the reporting deadline",
+          "kind": "term"
+        },
+        {
+          "en": "Andre, lávalo con agua y jabón ahora mismo.",
+          "es": "Andre, wash it with soap and water right now.",
+          "kind": "phrase",
+          "note": "Informal, a un compañero."
+        },
+        {
+          "en": "Megan, a Andre lo acaba de pinchar una aguja en una sábana quirúrgica.",
+          "es": "Megan, Andre just got stuck by a needle in a drape.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A las 10:15, Andre levantó la sábana quirúrgica de la mesa de operaciones.",
+          "es": "At 10:15, Andre lifted the drape off the OR table.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Justo después, sintió que la aguja atravesaba su guante.",
+          "es": "Right after that, he felt the needle go through his glove.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Luego se lo lavó, y yo te llamé a las 10:18.",
+          "es": "Then he washed it, and I called you at 10:18.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Deja la sábana ahí y no metas la mano.",
+          "es": "Leave the drape there, and don't reach inside it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sra. Riley, ¿debe ir ahora a salud del personal, según la política?",
+          "es": "Ms. Riley, should he go to employee health now, per policy?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "¿Alguien vio la aguja antes de que él levantara la sábana?",
+          "es": "Did anyone see the needle before he lifted the drape?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the EVS lead, and the AI is charge nurse Megan Riley: report Andre's needlestick in order with times, using the past tense and markers like at 10:15, right after that and then, and say what goes in the incident report.",
+      "grammar": {
+        "focus": "Past narration with time markers (at 10:15 he lifted the drape; right after that, he washed it; then we called)",
+        "examples": [
+          {
+            "es": "At 10:15 Andre lifted the drape, and a needle stuck his hand.",
+            "en": "A las 10:15 Andre levantó la sábana quirúrgica y una aguja le pinchó la mano."
+          },
+          {
+            "es": "Right after that, he washed it, and then we called Megan.",
+            "en": "Justo después, se lo lavó, y luego llamamos a Megan."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: Two Cleaners Almost in One Bucket",
+      "objective": "Talk through a near miss without blame, say what could have happened, and agree on one change.",
+      "words": [
+        {
+          "en": "el casi accidente",
+          "es": "the near miss",
+          "kind": "term",
+          "note": "En hospitales se dice 'near miss' cuando algo casi pasa pero nadie salió herido."
+        },
+        {
+          "en": "la buena detección",
+          "es": "the good catch",
+          "kind": "term",
+          "note": "Se usa para felicitar a quien detuvo un error a tiempo: 'Good catch!'"
+        },
+        {
+          "en": "el gas tóxico",
+          "es": "the toxic gas",
+          "kind": "term"
+        },
+        {
+          "en": "los vapores",
+          "es": "the fumes",
+          "kind": "term"
+        },
+        {
+          "en": "la confusión de productos",
+          "es": "the product mix-up",
+          "kind": "term"
+        },
+        {
+          "en": "los productos incompatibles",
+          "es": "the incompatible products",
+          "kind": "term"
+        },
+        {
+          "en": "la estación dispensadora",
+          "es": "the dispensing station",
+          "kind": "term"
+        },
+        {
+          "en": "la cubeta sin etiqueta",
+          "es": "the unlabeled bucket",
+          "kind": "term"
+        },
+        {
+          "en": "el envase secundario",
+          "es": "the secondary container",
+          "kind": "term"
+        },
+        {
+          "en": "la etiqueta secundaria",
+          "es": "the secondary label",
+          "kind": "term"
+        },
+        {
+          "en": "la cultura justa",
+          "es": "the just culture",
+          "kind": "term",
+          "note": "Enfoque del hospital: se busca qué falló en el proceso, no a quién culpar."
+        },
+        {
+          "en": "el cambio de proceso",
+          "es": "the process change",
+          "kind": "term"
+        },
+        {
+          "en": "la reunión breve de seguridad",
+          "es": "the safety huddle",
+          "kind": "term"
+        },
+        {
+          "en": "el problema respiratorio",
+          "es": "the breathing problem",
+          "kind": "term"
+        },
+        {
+          "en": "la lección aprendida",
+          "es": "the lesson learned",
+          "kind": "term"
+        },
+        {
+          "en": "¡Sofía, para! Esa cubeta ya tiene un limpiador.",
+          "es": "Sofia, stop! That bucket already has a cleaner in it.",
+          "kind": "phrase",
+          "note": "Informal y urgente."
+        },
+        {
+          "en": "Ella casi vertió el segundo producto en la misma cubeta.",
+          "es": "She nearly poured the second product into the same bucket.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Podría haber producido un gas tóxico si lo hubiera vertido.",
+          "es": "It could have made a toxic gas if she had poured it.",
+          "kind": "phrase"
+        },
+        {
+          "en": "En ese cuarto tan pequeño, los vapores nos podrían haber hecho daño.",
+          "es": "In that small room, the fumes could have hurt us.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nadie está en problemas; solo queremos entender qué pasó.",
+          "es": "Nobody is in trouble; we just want to understand what happened.",
+          "kind": "phrase"
+        },
+        {
+          "en": "La cubeta no tenía etiqueta, así que casi los mezcló.",
+          "es": "The bucket wasn't labeled, so she almost mixed them.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Darnell, ¿podemos etiquetar cada cubeta antes de llenarla?",
+          "es": "Darnell, can we label every bucket before we fill it?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Gracias por detenerte, Sofía; lo detectaste a tiempo.",
+          "es": "Thanks for stopping, Sofia; that was a good catch.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the EVS lead, and the AI is supervisor Darnell Wright: talk through Sofia's near miss without blame, say what almost happened with nearly and could have + past participle, use if clauses, and agree on one change.",
+      "grammar": {
+        "focus": "Almost, nearly, could have + past participle; if clauses (she nearly mixed them; it could have made a toxic gas if…)",
+        "examples": [
+          {
+            "es": "Sofia nearly poured the second cleaner into the bucket.",
+            "en": "Sofía casi vertió el segundo limpiador en la cubeta."
+          },
+          {
+            "es": "If she had mixed them, it could have made a toxic gas.",
+            "en": "Si los hubiera mezclado, podría haber producido un gas tóxico."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Stop Work: Formalin Spill in the Substerile Room",
+      "objective": "Stop work, keep people out, and call in a chemical spill with short, clear phone commands.",
+      "words": [
+        {
+          "en": "el formol",
+          "es": "the formalin",
+          "kind": "term"
+        },
+        {
+          "en": "el recipiente de la muestra",
+          "es": "the specimen container",
+          "kind": "term"
+        },
+        {
+          "en": "el cuarto subestéril",
+          "es": "the substerile room",
+          "kind": "term"
+        },
+        {
+          "en": "el kit para derrames",
+          "es": "the spill kit",
+          "kind": "term"
+        },
+        {
+          "en": "el equipo de derrames",
+          "es": "the spill team",
+          "kind": "term"
+        },
+        {
+          "en": "el plan de derrames",
+          "es": "the spill plan",
+          "kind": "term"
+        },
+        {
+          "en": "el vapor",
+          "es": "the vapor",
+          "kind": "term"
+        },
+        {
+          "en": "el olor fuerte",
+          "es": "the strong odor",
+          "kind": "term"
+        },
+        {
+          "en": "el vidrio roto",
+          "es": "the broken glass",
+          "kind": "term"
+        },
+        {
+          "en": "la orden de detener el trabajo",
+          "es": "the stop-work order",
+          "kind": "term"
+        },
+        {
+          "en": "el letrero de no entrar",
+          "es": "the do-not-enter sign",
+          "kind": "term"
+        },
+        {
+          "en": "el respirador",
+          "es": "the respirator",
+          "kind": "term"
+        },
+        {
+          "en": "la irritación de los ojos",
+          "es": "the eye irritation",
+          "kind": "term"
+        },
+        {
+          "en": "el área del derrame",
+          "es": "the spill area",
+          "kind": "term"
+        },
+        {
+          "en": "el laboratorio de patología",
+          "es": "the pathology lab",
+          "kind": "term"
+        },
+        {
+          "en": "¡Paren el trabajo! Nadie entra al cuarto subestéril.",
+          "es": "Stop work! Nobody goes into the substerile room.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Joanne, tenemos un derrame de formol en el cuarto subestéril.",
+          "es": "Joanne, we have a formalin spill in the substerile room.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Quédate afuera, cierra la puerta y llama al equipo de derrames.",
+          "es": "Stay out, close the door, and call the spill team.",
+          "kind": "phrase",
+          "note": "Órdenes cortas por teléfono o radio: verbo primero, sin 'please' cuando es urgente."
+        },
+        {
+          "en": "Si lo hueles, saldrás del área de inmediato.",
+          "es": "If you smell it, you'll leave the area right away.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Si me necesitan, estaré justo afuera de la puerta.",
+          "es": "If they need me, I'll be right outside the door.",
+          "kind": "phrase"
+        },
+        {
+          "en": "No lo tocaré antes de que llegue el equipo de derrames.",
+          "es": "I won't touch it before the spill team arrives.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Estoy revisando la hoja de seguridad y el plan de derrames ahora.",
+          "es": "I'm checking the SDS and the spill plan now.",
+          "kind": "phrase",
+          "note": "SDS se pronuncia letra por letra: 'es-di-es'."
+        },
+        {
+          "en": "Doctor, por favor use la puerta principal; esta se queda cerrada.",
+          "es": "Doctor, please use the main door; this one stays closed.",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the EVS tech who found the spill, and the AI is charge nurse Joanne Kim on the phone: stop work, keep people out, and call in the formalin spill with short commands like stay out and close the door, plus if + present → will.",
+      "grammar": {
+        "focus": "If + present → will; short radio or phone commands (if you smell it, you'll leave; stay out, close the door, call the spill team)",
+        "examples": [
+          {
+            "es": "If you smell it, you'll leave the room and close the door.",
+            "en": "Si lo hueles, saldrás del cuarto y cerrarás la puerta."
+          },
+          {
+            "es": "Stay out, close the door, call the spill team.",
+            "en": "Quédate afuera, cierra la puerta, llama al equipo de derrames."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "A Surveyor Watches Your Terminal Clean",
+      "objective": "Answer a surveyor's questions formally and describe how each step of a terminal clean is done and checked.",
+      "words": [
+        {
+          "en": "el inspector estatal",
+          "es": "the surveyor",
+          "kind": "term",
+          "note": "En EE. UU. 'surveyor' es quien inspecciona el hospital para el estado o la acreditación."
+        },
+        {
+          "en": "la inspección",
+          "es": "the survey",
+          "kind": "term"
+        },
+        {
+          "en": "el quirófano híbrido",
+          "es": "the hybrid OR",
+          "kind": "term"
+        },
+        {
+          "en": "el equipo de imágenes",
+          "es": "the imaging equipment",
+          "kind": "term"
+        },
+        {
+          "en": "el arco en C",
+          "es": "the C-arm",
+          "kind": "term"
+        },
+        {
+          "en": "el marcador fluorescente",
+          "es": "the fluorescent marker",
+          "kind": "term"
+        },
+        {
+          "en": "la luz ultravioleta",
+          "es": "the UV light",
+          "kind": "term",
+          "note": "Se pronuncia 'iu-vi'."
+        },
+        {
+          "en": "la prueba de ATP",
+          "es": "the ATP test",
+          "kind": "term",
+          "note": "Se dice letra por letra: 'ei-ti-pi'."
+        },
+        {
+          "en": "el registro de competencias",
+          "es": "the competency record",
+          "kind": "term"
+        },
+        {
+          "en": "el procedimiento escrito",
+          "es": "the written procedure",
+          "kind": "term"
+        },
+        {
+          "en": "el cumplimiento",
+          "es": "the compliance",
+          "kind": "term"
+        },
+        {
+          "en": "la documentación",
+          "es": "the documentation",
+          "kind": "term"
+        },
+        {
+          "en": "la auditoría",
+          "es": "the audit",
+          "kind": "term"
+        },
+        {
+          "en": "la capacitación del personal",
+          "es": "the staff training",
+          "kind": "term"
+        },
+        {
+          "en": "la deficiencia",
+          "es": "the deficiency",
+          "kind": "term",
+          "note": "En una inspección, es un hallazgo de incumplimiento."
+        },
+        {
+          "en": "Buenos días, Sra. Gomez; con gusto respondo sus preguntas.",
+          "es": "Good morning, Ms. Gomez; I'm happy to answer your questions.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "El arco en C se limpia primero, de arriba hacia abajo.",
+          "es": "The C-arm is cleaned first, from top to bottom.",
+          "kind": "phrase"
+        },
+        {
+          "en": "El tiempo de contacto se verifica con un temporizador, según la etiqueta del producto.",
+          "es": "Dwell time is verified with a timer, per the product label.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Cada superficie se mantiene húmeda durante el tiempo que indica la etiqueta.",
+          "es": "Each surface is kept wet for the time the label says.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Las superficies de alto contacto se marcan y luego se revisan con luz ultravioleta.",
+          "es": "High-touch surfaces are marked and then checked with a UV light.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Cada limpieza terminal se registra en la bitácora de limpieza.",
+          "es": "Every terminal clean is recorded in the cleaning log.",
+          "kind": "phrase"
+        },
+        {
+          "en": "¿Le gustaría ver el procedimiento escrito, señora?",
+          "es": "Would you like to see the written procedure, ma'am?",
+          "kind": "phrase",
+          "note": "Formal; 'ma'am' es respetuoso en EE. UU."
+        },
+        {
+          "en": "El Sr. Toussaint le puede mostrar los registros de capacitación.",
+          "es": "Mr. Toussaint can show you the training records.",
+          "kind": "phrase",
+          "note": "Formal; útil si no sabe la respuesta."
+        }
+      ],
+      "speaking": "You are the EVS tech, and the AI is state surveyor Patricia Gomez: answer her questions formally and describe how each terminal clean step is done and checked, using the passive (is cleaned, is verified, is recorded).",
+      "grammar": {
+        "focus": "Formal register; the passive for procedures (the table is cleaned top to bottom; contact time is checked against the label)",
+        "examples": [
+          {
+            "es": "The C-arm is wiped down before the floor is mopped.",
+            "en": "El arco en C se limpia antes de trapear el piso."
+          },
+          {
+            "es": "Dwell time is verified with a timer against the label.",
+            "en": "El tiempo de contacto se verifica con un temporizador según la etiqueta."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Write the Night Shift Terminal Clean Log",
+      "objective": "Write a clear end-of-shift log of rooms cleaned, problems found, supplies short and work left for days.",
+      "words": [
+        {
+          "en": "el registro de fin de turno",
+          "es": "the end-of-shift log",
+          "kind": "term"
+        },
+        {
+          "en": "la entrada del registro",
+          "es": "the log entry",
+          "kind": "term"
+        },
+        {
+          "en": "la rueda rota",
+          "es": "the broken wheel",
+          "kind": "term"
+        },
+        {
+          "en": "la cubeta de repuesto",
+          "es": "the spare bucket",
+          "kind": "term"
+        },
+        {
+          "en": "las existencias bajas",
+          "es": "the low stock",
+          "kind": "term",
+          "note": "También se dice 'running low': 'We're running low on...'."
+        },
+        {
+          "en": "la segunda limpieza",
+          "es": "the second clean",
+          "kind": "term"
+        },
+        {
+          "en": "el trabajo pendiente",
+          "es": "the pending work",
+          "kind": "term"
+        },
+        {
+          "en": "el turno de día",
+          "es": "the day shift",
+          "kind": "term"
+        },
+        {
+          "en": "el turno de noche",
+          "es": "the night shift",
+          "kind": "term"
+        },
+        {
+          "en": "la solicitud de reparación",
+          "es": "the repair request",
+          "kind": "term"
+        },
+        {
+          "en": "la hora registrada",
+          "es": "the time stamp",
+          "kind": "term"
+        },
+        {
+          "en": "el pedido de suministros",
+          "es": "the supply order",
+          "kind": "term"
+        },
+        {
+          "en": "el número de sala",
+          "es": "the room number",
+          "kind": "term"
+        },
+        {
+          "en": "la sección de comentarios",
+          "es": "the comments section",
+          "kind": "term"
+        },
+        {
+          "en": "la etiqueta de fuera de servicio",
+          "es": "the out-of-service tag",
+          "kind": "term"
+        },
+        {
+          "en": "Las OR 16, 17 y 19 recibieron limpieza terminal y están listas.",
+          "es": "ORs 16, 17, and 19 were terminally cleaned and are room ready.",
+          "kind": "phrase",
+          "note": "Registro escrito: la voz pasiva suena objetiva en un informe."
+        },
+        {
+          "en": "Además, la cubeta rodante de la OR 17 tiene una rueda rota.",
+          "es": "In addition, the kick bucket in OR 17 has a broken wheel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sin embargo, la OR 18 todavía necesita una segunda limpieza.",
+          "es": "However, OR 18 still needs a second clean.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Como resultado, la OR 18 todavía no está lista.",
+          "es": "As a result, OR 18 is not room ready yet.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Quedan pocos contenedores de objetos punzocortantes; por lo tanto, hice un pedido.",
+          "es": "Sharps containers are running low; therefore, I put in a supply order.",
+          "kind": "phrase",
+          "note": "Por escrito, 'therefore' va después de punto y coma y lleva coma."
+        },
+        {
+          "en": "Le puse la etiqueta de fuera de servicio a la cubeta y envié una solicitud de reparación.",
+          "es": "I tagged the bucket out of service and sent a repair request.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Por favor, vea la sección de comentarios para el trabajo pendiente del turno de día.",
+          "es": "Please see the comments section for work left for day shift.",
+          "kind": "phrase",
+          "note": "Formal, para el registro escrito."
+        },
+        {
+          "en": "Hola, Yvonne, el registro está en tu escritorio; llámame si tienes preguntas.",
+          "es": "Hi Yvonne, the log's on your desk; call me with questions.",
+          "kind": "phrase",
+          "note": "Informal, para un mensaje rápido a tu supervisora."
+        }
+      ],
+      "speaking": "You are the night shift EVS lead, and the AI is supervisor Yvonne Clarke: write and read her your end-of-shift log for ORs 16 to 19, covering rooms done, supplies short and work left for days, using in addition, however, as a result and therefore.",
+      "grammar": {
+        "focus": "Written register; report connectors (in addition, however, as a result, therefore)",
+        "examples": [
+          {
+            "es": "OR 18 failed the final check; therefore, it needs a second clean.",
+            "en": "La OR 18 no pasó la revisión final; por lo tanto, necesita una segunda limpieza."
+          },
+          {
+            "es": "The kick bucket wheel broke at 1:15 a.m.; as a result, we used a spare bucket.",
+            "en": "La rueda dla cubeta rodante se rompió a la 1:15 a.m.; como resultado, usamos una cubeta de repuesto."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Texts and Calls for a 2 a.m. Emergency Add-On",
+      "objective": "Answer a call, text a clear status, and politely ask a backup tech to come in for an emergency case.",
+      "words": [
+        {
+          "en": "el caso de emergencia agregado",
+          "es": "the emergency add-on",
+          "kind": "term",
+          "note": "'Add-on' es un caso que se agrega a la agenda sin estar programado."
+        },
+        {
+          "en": "el supervisor de guardia del hospital",
+          "es": "the house supervisor",
+          "kind": "term"
+        },
+        {
+          "en": "el técnico de respaldo",
+          "es": "the backup tech",
+          "kind": "term"
+        },
+        {
+          "en": "la llamada entrante",
+          "es": "the incoming call",
+          "kind": "term"
+        },
+        {
+          "en": "la llamada perdida",
+          "es": "the missed call",
+          "kind": "term"
+        },
+        {
+          "en": "el buzón de voz",
+          "es": "the voicemail",
+          "kind": "term",
+          "note": "También es el mensaje que dejas: 'I left you a voicemail'."
+        },
+        {
+          "en": "el mensaje de texto",
+          "es": "the text message",
+          "kind": "term"
+        },
+        {
+          "en": "el mensaje de estado",
+          "es": "the status text",
+          "kind": "term"
+        },
+        {
+          "en": "el mensaje grupal",
+          "es": "the group text",
+          "kind": "term"
+        },
+        {
+          "en": "el número para devolver la llamada",
+          "es": "the callback number",
+          "kind": "term"
+        },
+        {
+          "en": "la lista de guardia",
+          "es": "the on-call list",
+          "kind": "term"
+        },
+        {
+          "en": "la hora de llegada",
+          "es": "the arrival time",
+          "kind": "term"
+        },
+        {
+          "en": "la respuesta",
+          "es": "the reply",
+          "kind": "term"
+        },
+        {
+          "en": "lo antes posible",
+          "es": "ASAP",
+          "kind": "term",
+          "note": "Se pronuncia letra por letra (A-S-A-P) o como 'ei-sap'. Es informal."
+        },
+        {
+          "en": "urgente",
+          "es": "urgent",
+          "kind": "term"
+        },
+        {
+          "en": "EVS, turno de noche, ¿en qué le puedo ayudar?",
+          "es": "EVS night shift, how can I help you?",
+          "kind": "phrase",
+          "note": "Formal: así se contesta el teléfono del departamento."
+        },
+        {
+          "en": "Entendido, Craig, la OR 11 estará lista para las 2:30.",
+          "es": "Got it, Craig, OR 11 will be room ready by 2:30.",
+          "kind": "phrase",
+          "note": "Informal y breve, típico en una llamada de noche."
+        },
+        {
+          "en": "Estoy limpiando la OR 11; te escribo cuando esté lista.",
+          "es": "Cleaning OR 11 now; I'll text you when it's ready.",
+          "kind": "phrase",
+          "note": "Estilo de mensaje de texto: se puede omitir el sujeto 'I'm'."
+        },
+        {
+          "en": "Hola, Rosa, ¿podrías venir esta noche?",
+          "es": "Hi Rosa, would you be able to come in tonight?",
+          "kind": "phrase",
+          "note": "'Would you be able to' es más cortés que 'can you'."
+        },
+        {
+          "en": "¿Podrías llegar aquí para las 3:00?",
+          "es": "Would you be able to get here by 3:00?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Perdón por llamar tan tarde; ¿te molestaría devolverme la llamada?",
+          "es": "Sorry to call so late; would you mind calling me back?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Te agradecería una respuesta rápida, aunque sea un no.",
+          "es": "I'd appreciate a quick reply, even if it's a no.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rosa, es urgente, así que por favor llámame lo antes posible.",
+          "es": "Rosa, it's urgent, so please call me back ASAP.",
+          "kind": "phrase",
+          "note": "Informal: úsalo con compañeros, no con un supervisor."
+        }
+      ],
+      "speaking": "You are the night EVS tech, and the AI is house supervisor Craig Dunn and then backup tech Rosa Bianchi: answer Craig's call, text him a clear status for OR 11, and contact Rosa to ask her to come in, using would you be able to and I'd appreciate.",
+      "grammar": {
+        "focus": "Phone and text conventions; would for politeness (would you be able to come in; I'd appreciate a quick reply)",
+        "examples": [
+          {
+            "es": "Would you be able to come in for an emergency case in OR 11?",
+            "en": "¿Podrías venir para un caso de emergencia en la OR 11?"
+          },
+          {
+            "es": "I'd appreciate a quick reply so I can update Craig.",
+            "en": "Te agradecería una respuesta rápida para poder avisarle a Craig."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Walkthrough Before a Renovated OR Reopens",
+      "objective": "Walk the OR manager through a cleaned, renovated room and state the conditions for reopening it.",
+      "words": [
+        {
+          "en": "la remodelación",
+          "es": "the renovation",
+          "kind": "term"
+        },
+        {
+          "en": "el recorrido de inspección",
+          "es": "the walkthrough",
+          "kind": "term"
+        },
+        {
+          "en": "la gerente del quirófano",
+          "es": "the OR manager",
+          "kind": "term"
+        },
+        {
+          "en": "el especialista en prevención de infecciones",
+          "es": "the infection preventionist",
+          "kind": "term"
+        },
+        {
+          "en": "la limpieza posconstrucción",
+          "es": "the post-construction clean",
+          "kind": "term"
+        },
+        {
+          "en": "el estante alto",
+          "es": "the high shelf",
+          "kind": "term"
+        },
+        {
+          "en": "la parte superior del gabinete",
+          "es": "the cabinet top",
+          "kind": "term"
+        },
+        {
+          "en": "la lámpara del techo",
+          "es": "the light fixture",
+          "kind": "term"
+        },
+        {
+          "en": "la rejilla de retorno de aire",
+          "es": "the return grille",
+          "kind": "term"
+        },
+        {
+          "en": "la presión de la sala",
+          "es": "the room pressure",
+          "kind": "term"
+        },
+        {
+          "en": "el muestreo de aire",
+          "es": "the air sampling",
+          "kind": "term"
+        },
+        {
+          "en": "el conteo de partículas",
+          "es": "the particle count",
+          "kind": "term"
+        },
+        {
+          "en": "la prueba del guante blanco",
+          "es": "the white glove test",
+          "kind": "term"
+        },
+        {
+          "en": "la lista de pendientes",
+          "es": "the punch list",
+          "kind": "term",
+          "note": "Término de construcción: lista de detalles por terminar antes de entregar."
+        },
+        {
+          "en": "la aprobación final",
+          "es": "the sign-off",
+          "kind": "term"
+        },
+        {
+          "en": "la fecha de reapertura",
+          "es": "the reopening date",
+          "kind": "term"
+        },
+        {
+          "en": "Sra. Whitfield, empecemos por la puerta y sigamos en el sentido del reloj.",
+          "es": "Ms. Whitfield, let's start at the door and work clockwise.",
+          "kind": "phrase",
+          "note": "Formal: usa Ms. y el apellido con la gerente."
+        },
+        {
+          "en": "Hicimos la limpieza posconstrucción desde el techo hacia abajo.",
+          "es": "We did the post-construction clean from the ceiling down.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Puede abrir siempre y cuando el muestreo de aire salga bien.",
+          "es": "It can open as long as the air sampling passes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A menos que ese estante esté limpio, la sala no puede reabrir.",
+          "es": "Unless that shelf is clean, the room can't reopen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Siempre y cuando lo limpiemos ahora, puede revisarlo otra vez al mediodía.",
+          "es": "As long as we clean it now, you can recheck at noon.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A menos que el Sr. Mehta dé su aprobación, no la declaro lista.",
+          "es": "Unless Mr. Mehta signs off, I won't call it room ready.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Raj, ¿quieres hacer la prueba del guante blanco otra vez?",
+          "es": "Raj, would you like to run the white glove test again?",
+          "kind": "phrase",
+          "note": "Informal: usa el nombre de pila solo si él ya te lo pidió."
+        },
+        {
+          "en": "Agreguemos las lámparas del techo a la lista de pendientes.",
+          "es": "Let's add the light fixtures to the punch list.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the EVS lead, and the AI is OR manager Diane Whitfield walking with infection preventionist Raj Mehta: walk them through renovated OR 21, describe what you cleaned, and state the conditions for reopening using as long as and unless.",
+      "grammar": {
+        "focus": "Conditionals with as long as and unless (it can open as long as the vents pass; unless the dust is gone, we clean again)",
+        "examples": [
+          {
+            "es": "The room can reopen as long as the air sampling passes.",
+            "en": "La sala puede reabrir siempre y cuando el muestreo de aire salga bien."
+          },
+          {
+            "es": "Unless the high shelf is dust-free, we clean the whole room again.",
+            "en": "A menos que el estante alto esté libre de polvo, limpiamos toda la sala otra vez."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Hard Day Running the Turnover Team",
+      "objective": "Lead a full day: train, explain delays, refuse a shortcut, handle a spill and report the shift in English.",
+      "words": [
+        {
+          "en": "el equipo de rotación de salas",
+          "es": "the turnover team",
+          "kind": "term"
+        },
+        {
+          "en": "el aprendiz",
+          "es": "the trainee",
+          "kind": "term"
+        },
+        {
+          "en": "el sistema de compañero",
+          "es": "the buddy system",
+          "kind": "term",
+          "note": "El nuevo trabaja al lado de alguien con experiencia hasta que esté listo."
+        },
+        {
+          "en": "el suministro de toallitas",
+          "es": "the wipe supply",
+          "kind": "term"
+        },
+        {
+          "en": "la toallita alternativa",
+          "es": "the alternate wipe",
+          "kind": "term"
+        },
+        {
+          "en": "el instrumentista quirúrgico",
+          "es": "the scrub tech",
+          "kind": "term"
+        },
+        {
+          "en": "el atajo",
+          "es": "the shortcut",
+          "kind": "term"
+        },
+        {
+          "en": "la norma de seguridad",
+          "es": "the safety rule",
+          "kind": "term"
+        },
+        {
+          "en": "innegociable",
+          "es": "non-negotiable",
+          "kind": "term"
+        },
+        {
+          "en": "el derrame de sangre",
+          "es": "the blood spill",
+          "kind": "term"
+        },
+        {
+          "en": "el polvo absorbente",
+          "es": "the absorbent powder",
+          "kind": "term"
+        },
+        {
+          "en": "la almohadilla absorbente",
+          "es": "the absorbent pad",
+          "kind": "term"
+        },
+        {
+          "en": "el uso de doble guante",
+          "es": "the double gloving",
+          "kind": "term"
+        },
+        {
+          "en": "el motivo del retraso",
+          "es": "the delay reason",
+          "kind": "term"
+        },
+        {
+          "en": "el informe de fin de día",
+          "es": "the end-of-day report",
+          "kind": "term"
+        },
+        {
+          "en": "Ben, mírame hacer esta, y luego lo intentas tú.",
+          "es": "Ben, watch me do this one, and then you try.",
+          "kind": "phrase",
+          "note": "Informal y de apoyo, para entrenar a un nuevo."
+        },
+        {
+          "en": "Si alguien te dice que te saltes un paso, ven a buscarme.",
+          "es": "If anyone tells you to skip a step, come get me.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Estamos usando las toallitas alternativas, que tardan más, según la etiqueta.",
+          "es": "We're using the alternate wipes, which take longer, per the label.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dr. Lane, lo siento, pero no puedo saltarme el tiempo de contacto.",
+          "es": "Dr. Lane, sorry, but I can't skip the contact time.",
+          "kind": "phrase",
+          "note": "Formal: firme y cortés; ofrece la hora real en lugar de discutir."
+        },
+        {
+          "en": "Ben, ponte guantes y gafas antes de tocar esa sangre.",
+          "es": "Ben, put on gloves and goggles before you touch that blood.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sigue las instrucciones del kit de derrames paso a paso.",
+          "es": "Follow the spill kit instructions step by step.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Olivia, las OR 22 y 23 se atrasaron; sin embargo, todas las limpiezas se completaron.",
+          "es": "Olivia, ORs 22 and 23 ran late; however, every clean was complete.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ben dijo que se sentía listo para trabajar solo.",
+          "es": "Ben said he felt ready to work on his own.",
+          "kind": "phrase",
+          "note": "Estilo indirecto: 'feels' pasa a 'felt' después de 'said'."
+        }
+      ],
+      "speaking": "You are the turnover team lead, and the AI plays new tech Ben Adler, the OR team and supervisor Olivia Tran: train Ben, run ORs 22 and 23 with the alternate wipes, keep every safety step, and report your day using commands, would, unless, past tenses and however.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Unless the surface stays wet for the label's full time, the room isn't ready.",
+            "en": "A menos que la superficie se mantenga húmeda todo el tiempo que indica la etiqueta, la sala no está lista."
+          },
+          {
+            "es": "Ben said he had never cleaned a blood spill; however, he followed every step.",
+            "en": "Ben dijo que nunca había limpiado un derrame de sangre; sin embargo, siguió cada paso."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

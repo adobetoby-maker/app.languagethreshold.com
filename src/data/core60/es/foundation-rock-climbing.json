@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "module": "foundation-rock-climbing",
+  "baseModule": "rock-climbing",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Rock Climbing Foundation",
+  "threshold": "By Lesson 10, you can greet partners, count meters and time, describe the rock and your gear, ask questions, make polite requests and get help at the crag, and start Rock Climbing Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T21:58:03.374Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say the Spanish sounds in common climbing words and greet a partner or guide politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the rock",
+          "es": "la roca",
+          "kind": "term",
+          "note": "An r at the start of a word is trilled, like rr; every vowel is short and clear."
+        },
+        {
+          "en": "the rope",
+          "es": "la cuerda",
+          "kind": "term",
+          "note": "ue sounds like English 'way'."
+        },
+        {
+          "en": "the harness",
+          "es": "el arnés",
+          "kind": "term",
+          "note": "The accent marks the stress: ar-NÉS."
+        },
+        {
+          "en": "the helmet",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the carabiner",
+          "es": "el mosquetón",
+          "kind": "term",
+          "note": "Stress on the last syllable: mos-que-TÓN. The u in que is silent."
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term",
+          "note": "ch sounds like English 'church'."
+        },
+        {
+          "en": "the rain",
+          "es": "la lluvia",
+          "kind": "term",
+          "note": "ll sounds like English y in 'yes'."
+        },
+        {
+          "en": "the hill",
+          "es": "el cerro",
+          "kind": "term",
+          "note": "rr is a rolled, trilled r."
+        },
+        {
+          "en": "the descent",
+          "es": "la bajada",
+          "kind": "term",
+          "note": "j sounds like a strong English h."
+        },
+        {
+          "en": "the wall",
+          "es": "la pared",
+          "kind": "term"
+        },
+        {
+          "en": "Hi! My name is Sam.",
+          "es": "¡Hola! Me llamo Sam.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good morning! How are you?",
+          "es": "¡Buenos días! ¿Cómo está?",
+          "kind": "phrase",
+          "note": "Formal, for a guide or someone you just met. With a partner: ¿Cómo estás?"
+        },
+        {
+          "en": "Nice to meet you, I'm a climber.",
+          "es": "Mucho gusto, soy escalador.",
+          "kind": "phrase",
+          "note": "A woman says escaladora."
+        },
+        {
+          "en": "How do you say \"rope\" in Spanish?",
+          "es": "¿Cómo se dice \"rope\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow!",
+          "es": "¡Nos vemos mañana!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a new climbing partner, say your name, and ask how to say two pieces of gear in Spanish, like the rope and the harness."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Count to 1,000, tell the time, and talk about meters of rope and route with a climbing partner.",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and meters of rope and route",
+      "words": [
+        {
+          "en": "the meter",
+          "es": "el metro",
+          "kind": "term",
+          "note": "Climbing ropes and route lengths are usually given in meters."
+        },
+        {
+          "en": "the hour; the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term",
+          "note": "de la mañana = a.m."
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term",
+          "note": "de la tarde = p.m."
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "the water bottle",
+          "es": "la botella de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the pair",
+          "es": "el par",
+          "kind": "term",
+          "note": "un par de zapatos = a pair of shoes."
+        },
+        {
+          "en": "the route",
+          "es": "la ruta",
+          "kind": "term"
+        },
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term",
+          "note": "Masculine even though it ends in -a."
+        },
+        {
+          "en": "It's 7 in the morning.",
+          "es": "Son las 7 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We start at 8.",
+          "es": "Empezamos a las 8.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The label says the rope is 60 meters.",
+          "es": "La etiqueta dice que la cuerda es de 60 metros.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the guidebook, the route is 25 meters.",
+          "es": "Según la guía, la ruta es de 25 metros.",
+          "kind": "phrase",
+          "note": "la guía here is the guidebook."
+        },
+        {
+          "en": "It's a 15-minute walk.",
+          "es": "Son 15 minutos de caminata.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The guide charges 150 dollars per day.",
+          "es": "El guía cobra 150 dólares por día.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your partner what time you start, how long the walk is, and how many meters the label says the rope is."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe the rock, the route and people at the crag using ser and estar.",
+      "focus": "ser for what the route or person is, estar for condition or location",
+      "words": [
+        {
+          "en": "solid",
+          "es": "firme",
+          "kind": "term"
+        },
+        {
+          "en": "loose",
+          "es": "suelto",
+          "kind": "term",
+          "note": "Use estar: la roca está suelta."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "A woman says cansada."
+        },
+        {
+          "en": "easy",
+          "es": "fácil",
+          "kind": "term"
+        },
+        {
+          "en": "hard; difficult",
+          "es": "difícil",
+          "kind": "term"
+        },
+        {
+          "en": "high; tall",
+          "es": "alto",
+          "kind": "term"
+        },
+        {
+          "en": "up; up top",
+          "es": "arriba",
+          "kind": "term"
+        },
+        {
+          "en": "down; below",
+          "es": "abajo",
+          "kind": "term"
+        },
+        {
+          "en": "the partner",
+          "es": "el compañero",
+          "kind": "term",
+          "note": "A woman is la compañera."
+        },
+        {
+          "en": "the instructor",
+          "es": "el instructor",
+          "kind": "term",
+          "note": "A woman is la instructora."
+        },
+        {
+          "en": "The rock is loose here.",
+          "es": "La roca está suelta aquí.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "This route is easy.",
+          "es": "Esta ruta es fácil.",
+          "kind": "phrase",
+          "note": "ser: what the route is."
+        },
+        {
+          "en": "I'm tired.",
+          "es": "Estoy cansado.",
+          "kind": "phrase",
+          "note": "A woman says Estoy cansada."
+        },
+        {
+          "en": "My partner is up top.",
+          "es": "Mi compañero está arriba.",
+          "kind": "phrase",
+          "note": "estar: location."
+        },
+        {
+          "en": "She's the instructor.",
+          "es": "Ella es la instructora.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe the route to your partner: say if it is easy or hard, if the rock is solid or loose, and where your partner is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what gear and supplies you have, need and want, and what you have to check before you climb.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el: el agua fría."
+        },
+        {
+          "en": "the first-aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the climbing shoes",
+          "es": "los zapatos de escalada",
+          "kind": "term"
+        },
+        {
+          "en": "the chalk",
+          "es": "el magnesio",
+          "kind": "term"
+        },
+        {
+          "en": "the sunscreen",
+          "es": "el bloqueador",
+          "kind": "term",
+          "note": "Common in Mexico; also el protector solar."
+        },
+        {
+          "en": "the jacket",
+          "es": "la chamarra",
+          "kind": "term",
+          "note": "Mexican Spanish."
+        },
+        {
+          "en": "the cap",
+          "es": "la gorra",
+          "kind": "term"
+        },
+        {
+          "en": "the permit",
+          "es": "el permiso",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "I have the first-aid kit in the backpack.",
+          "es": "Tengo el botiquín en la mochila.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there water on the trail?",
+          "es": "¿Hay agua en el camino?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need more chalk.",
+          "es": "Necesito más magnesio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want to climb this route.",
+          "es": "Quiero escalar esta ruta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to check the gear before climbing.",
+          "es": "Hay que revisar el equipo antes de escalar.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your partner what you have in your backpack, what you need, and that you both have to check the gear before climbing."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do, and what you can or can't do on a route.",
+      "focus": "ir, ir a + infinitive for plans, hacer, poder",
+      "words": [
+        {
+          "en": "the climbing gym",
+          "es": "el gimnasio de escalada",
+          "kind": "term"
+        },
+        {
+          "en": "the trail",
+          "es": "el sendero",
+          "kind": "term"
+        },
+        {
+          "en": "the top; the summit",
+          "es": "la cima",
+          "kind": "term"
+        },
+        {
+          "en": "the campsite",
+          "es": "el campamento",
+          "kind": "term"
+        },
+        {
+          "en": "the bathroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term",
+          "note": "Common in Mexico and the US."
+        },
+        {
+          "en": "the town",
+          "es": "el pueblo",
+          "kind": "term"
+        },
+        {
+          "en": "the weekend",
+          "es": "el fin de semana",
+          "kind": "term"
+        },
+        {
+          "en": "the base (of the wall)",
+          "es": "la base",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the climbing gym.",
+          "es": "Voy al gimnasio de escalada.",
+          "kind": "phrase",
+          "note": "a + el = al."
+        },
+        {
+          "en": "We're going to climb on Saturday.",
+          "es": "Vamos a escalar el sábado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What are you going to do today?",
+          "es": "¿Qué vas a hacer hoy?",
+          "kind": "phrase",
+          "note": "Informal tú, between partners."
+        },
+        {
+          "en": "I can't do this move.",
+          "es": "No puedo hacer este paso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to come down now.",
+          "es": "Voy a bajar ahora.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a partner your plan for the weekend: where you are going, what you are going to climb, and one move you can't do yet."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about what you and your partners do when you climb, using everyday verbs and body words.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the hands",
+          "es": "las manos",
+          "kind": "term"
+        },
+        {
+          "en": "the feet",
+          "es": "los pies",
+          "kind": "term"
+        },
+        {
+          "en": "the fingers",
+          "es": "los dedos",
+          "kind": "term"
+        },
+        {
+          "en": "the arms",
+          "es": "los brazos",
+          "kind": "term"
+        },
+        {
+          "en": "the legs",
+          "es": "las piernas",
+          "kind": "term"
+        },
+        {
+          "en": "the back",
+          "es": "la espalda",
+          "kind": "term"
+        },
+        {
+          "en": "the knee",
+          "es": "la rodilla",
+          "kind": "term"
+        },
+        {
+          "en": "the ankle",
+          "es": "el tobillo",
+          "kind": "term"
+        },
+        {
+          "en": "the hold",
+          "es": "la presa",
+          "kind": "term",
+          "note": "Also el agarre."
+        },
+        {
+          "en": "I climb on Saturdays.",
+          "es": "Escalo los sábados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you climb in the gym or on rock?",
+          "es": "¿Escalas en el gimnasio o en roca?",
+          "kind": "phrase",
+          "note": "Informal tú, between partners."
+        },
+        {
+          "en": "You learn very fast.",
+          "es": "Usted aprende muy rápido.",
+          "kind": "phrase",
+          "note": "Formal usted, for someone you just met."
+        },
+        {
+          "en": "We go up by the trail.",
+          "es": "Nosotros subimos por el sendero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They eat at the base of the wall.",
+          "es": "Ellos comen en la base de la pared.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a partner when and where they climb, then tell them what you do on a climbing day and which body parts get tired."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask simple questions about routes, people, times, places and prices at the crag.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "¿cuántos? for how many."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Written as two words in a question; porque (one word) means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the guide",
+          "es": "el guía",
+          "kind": "term",
+          "note": "A woman is la guía; la guía also means the guidebook."
+        },
+        {
+          "en": "the group",
+          "es": "el grupo",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the base of the route?",
+          "es": "¿Dónde está la base de la ruta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who goes first?",
+          "es": "¿Quién va primero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When do we start?",
+          "es": "¿Cuándo empezamos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much does a day with a guide cost?",
+          "es": "¿Cuánto cuesta un día con guía?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What is this route called?",
+          "es": "¿Cómo se llama esta ruta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one is your rope?",
+          "es": "¿Cuál es tu cuerda?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a new guide where the route starts, who goes first, when you start and how much the day costs."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody and not yet, and ask for more, less or another piece of gear.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term"
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never say un otro: just otro mosquetón."
+        },
+        {
+          "en": "neither; not either",
+          "es": "tampoco",
+          "kind": "term"
+        },
+        {
+          "en": "alone",
+          "es": "solo",
+          "kind": "term",
+          "note": "A woman says sola."
+        },
+        {
+          "en": "the knot",
+          "es": "el nudo",
+          "kind": "term"
+        },
+        {
+          "en": "I never climb without checking the knot.",
+          "es": "Nunca escalo sin revisar el nudo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody on the route.",
+          "es": "No hay nadie en la ruta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Not yet, one moment.",
+          "es": "Todavía no, un momento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another carabiner.",
+          "es": "Necesito otro mosquetón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm bringing more water and less food.",
+          "es": "Llevo más agua y menos comida.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your partner you are not ready yet, that you never climb without checking the knot, and ask for another carabiner."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a guide, instructor or gym staff politely to do something, and give simple usted commands.",
+      "focus": "¿Puede…? requests and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term"
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Use it to pass someone or to leave."
+        },
+        {
+          "en": "the keys",
+          "es": "las llaves",
+          "kind": "term"
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the locker",
+          "es": "el casillero",
+          "kind": "term"
+        },
+        {
+          "en": "the turn",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the line (queue)",
+          "es": "la fila",
+          "kind": "term"
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "again",
+          "es": "otra vez",
+          "kind": "term"
+        },
+        {
+          "en": "Can you speak more slowly, please?",
+          "es": "¿Puede hablar más despacio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Repeat, please.",
+          "es": "Repita, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: polite with one person."
+        },
+        {
+          "en": "Wait here a moment, please.",
+          "es": "Espere aquí un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Check my harness, please.",
+          "es": "Revise mi arnés, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me a locker?",
+          "es": "¿Me puede dar un casillero?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Go ahead, it's your turn.",
+          "es": "Pase usted, es su turno.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the instructor to speak more slowly and repeat, then politely ask them to check your harness before you climb."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words you already know and ask for help in an emergency at the crag.",
+      "focus": "Cognates ending in -ción, -dad, -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "the ambulance",
+          "es": "la ambulancia",
+          "kind": "term"
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term",
+          "note": "-dad often matches English -ty."
+        },
+        {
+          "en": "the difficulty",
+          "es": "la dificultad",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "-ción often matches English -tion; these nouns are feminine."
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "Mexican and US usage."
+        },
+        {
+          "en": "the experience",
+          "es": "la experiencia",
+          "kind": "term"
+        },
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "Help! It's an emergency.",
+          "es": "¡Ayuda! Es una emergencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Call 911, please.",
+          "es": "Llame al 911, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sorry, I don't understand.",
+          "es": "Perdón, no entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where is the nearest hospital?",
+          "es": "¿Dónde está el hospital más cercano?",
+          "kind": "phrase"
+        },
+        {
+          "en": "My partner had an accident.",
+          "es": "Mi compañera tuvo un accidente.",
+          "kind": "phrase",
+          "note": "For a man: Mi compañero tuvo un accidente."
+        }
+      ],
+      "speaking": "Tell another climber there is an emergency, say you speak a little Spanish, and ask them to call 911 and where the hospital is."
+    }
+  ]
+}

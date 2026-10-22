@@ -374,6 +374,54 @@ const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|form|verb|command|stem|chang
 function markerCount(text: string, pattern: RegExp): number {
   return (text.match(pattern) ?? []).length;
 }
+// A note states the final rule only. These patterns catch the model thinking out loud inside a
+// note ("Stem change e to ie? No: e to i"). Everything is tested outside quoted text, and a note
+// may still gloss a word ("En realidad means in fact, actually", "Déjame: let me, informal",
+// "Let me know is avíseme"), so:
+//  - a self-correction needs the shape "? No:" / "... no:" / ". No:" / "— no," (a colon, or a dash
+//    and comma), or "? No," / "... no," followed by a rule-like correction ("e to i", "it is");
+//    a Spanish answer such as "¿Tiene alergias? No, ninguna." is not one;
+//  - deliberation words only count where a thought opens (start of the note or right after
+//    . ! ? … ; , or a dash; a colon introduces a gloss) and never after "means" or as the subject
+//    of a gloss ("Actually is a false friend").
+const RULE_LIKE = String.raw`(?:[a-zñ]{1,2}\s+(?:to|a)\s+[a-zñ]{1,2}\b|it\s+is\b|it's\b|it\s+has\b|actually\b|should\b|must\b)`;
+const THOUGHT_START = String.raw`(?:^\s*|[.!?…;,—–-]\s*)`;
+const SELF_TALK_PUNCTUATION: readonly RegExp[] = [
+  /(?:\?|\.\.\.|…|\.)\s*no\s*:/i,
+  /[—–]\s*no\s*[,:]/i,
+  new RegExp(String.raw`(?:\?|\.\.\.|…|\.)\s*no\s*,\s*${RULE_LIKE}`, "i"),
+  /\bno,?\s+wait\b(?!\s+(?:time|for|until)\b)/i,
+];
+const SELF_TALK_WORDS: readonly RegExp[] = [
+  new RegExp(String.raw`${THOUGHT_START}wait\s*(?:[,—–]|\.\.\.|…|-\s)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}actually\b(?!\s+(?:is|are|means)\b)`, "i"),
+  /\bhmm+\b/i,
+  /\boops\b/i,
+  /\bor rather\b/i,
+  new RegExp(String.raw`${THOUGHT_START}correction\s*:`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}let me\b(?!\s+(?:know|is|means)\b)`, "i"),
+  new RegExp(String.raw`${THOUGHT_START}espera\s*,\s*en realidad\b`, "i"),
+];
+// Quoted text; a single quote only counts at a word edge, so "don't" never opens a quote.
+const QUOTED_TEXT =
+  /"[^"]*"|“[^”]*”|(?<![\p{L}\p{N}])'[^']*'(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])‘[^’]*’(?![\p{L}\p{N}])/gu;
+const MEANS_GLOSS = /\bmeans\b[^.!?;]*/gi;
+
+/** The matching self-talk fragment when a verb or word note thinks out loud, else null. */
+export function selfTalkIssue(note: string): string | null {
+  const unquoted = note.replace(QUOTED_TEXT, " ");
+  for (const pattern of SELF_TALK_PUNCTUATION) {
+    const hit = unquoted.match(pattern);
+    if (hit) return hit[0].trim();
+  }
+  const withoutGloss = unquoted.replace(MEANS_GLOSS, " ");
+  for (const pattern of SELF_TALK_WORDS) {
+    const hit = withoutGloss.match(pattern);
+    if (hit) return hit[0].trim();
+  }
+  return null;
+}
+
 const ENDS_LIKE_SENTENCE = /[.?!…]["'”’»)\]]*$/;
 const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
 const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
@@ -491,6 +539,12 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
     if (digitsOf(word.en).join(",") !== digitsOf(word.es).join(",")) {
       errors.push(`numbers differ in "${word.es}" / "${word.en}"`);
     }
+    const wordSelfTalk = word.note ? selfTalkIssue(word.note) : null;
+    if (wordSelfTalk) {
+      errors.push(
+        `"${word.es}": the note thinks out loud ("${wordSelfTalk}"); state the final rule only: ${word.note}`,
+      );
+    }
     const limit = word.kind === "term" ? 5 : 14;
     if (wordsOf(word.es).length > limit) errors.push(`"${word.es}" is too long for a ${word.kind}`);
   }
@@ -537,6 +591,12 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       if (wrongLanguage) {
         errors.push(`${name}: the note must be written in ${ctx.nativeLanguage}: ${verb.note}`);
       }
+      const selfTalk = selfTalkIssue(verb.note);
+      if (selfTalk) {
+        errors.push(
+          `${name}: the note thinks out loud ("${selfTalk}"); state the final rule only, with no deliberation or self-correction: ${verb.note}`,
+        );
+      }
     }
     const forms = keys.map((key) => (verb.forms[key] ?? "").trim());
     for (const [i, form] of forms.entries()) {
@@ -571,12 +631,43 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     // match unrelated words. Irregular forms are caught through the five forms themselves.
     const infWords = wordsOf(name);
     const base = infWords[0] ?? "";
-    const stem = base.slice(0, Math.max(2, base.length - 2));
+    // Reflexive infinitives drop -se (sentarse -> sentar) so the stem is the verb's own.
+    const inf = spanish && /[aeií]rse$/.test(base) ? base.slice(0, -2) : base;
+    const stem = inf.slice(0, Math.max(1, inf.length - 2));
     const formTails = forms.map((f) => wordsOf(stripReflexive(f)).pop() ?? "");
+    // Stem variants keep commands and subjunctives recognisable: vowel changes (sient-, jueg-),
+    // spelling changes before -e (toqu-, llegu-, empec-, protej-) and the yo-form stem (pong-).
+    const stems = new Set([stem]);
+    if (spanish) {
+      const vowel = (st: string, from: string, to: string) => {
+        const i = st.lastIndexOf(from);
+        return i >= 0 ? st.slice(0, i) + to + st.slice(i + from.length) : st;
+      };
+      for (const v of [vowel(stem, "e", "ie"), vowel(stem, "o", "ue"), vowel(stem, "u", "ue"), vowel(stem, "e", "i")])
+        stems.add(v);
+      for (const st of [...stems]) {
+        if (st.endsWith("c")) stems.add(`${st.slice(0, -1)}qu`);
+        if (st.endsWith("g")) stems.add(`${st}u`).add(`${st.slice(0, -1)}j`);
+        if (st.endsWith("z")) stems.add(`${st.slice(0, -1)}c`);
+      }
+      const yo = formTails[0] ?? "";
+      if (yo.length >= 4 && yo.endsWith("o")) stems.add(yo.slice(0, -1));
+    }
+    const extraForms = spanish && inf === "haber" ? ["hay"] : [];
+    const SHORT_ENDINGS = ["", "a", "an", "as", "e", "en", "es", "o", "oy", "ar", "er", "ir", "amos", "emos", "imos", "ad", "ed"];
     const usesStem = (w: string) =>
-      stem.length >= 3 ? w.startsWith(stem) : w.startsWith(stem) && w.length <= stem.length + 5;
+      [...stems].some((st) =>
+        st.length >= 3
+          ? w.startsWith(st)
+          : st.length === 2
+            ? w.startsWith(st) && w.length <= st.length + 5
+            : SHORT_ENDINGS.some((end) => w === st + end || (w.startsWith(st + end) && /^(se|me|te|nos|le|les|lo|la|los|las)$/.test(w.slice(st.length + end.length)))),
+      );
     const used = exampleWords.some(
-      (w) => usesStem(w) || formTails.some((tail) => tail && w === tail),
+      (w) =>
+        usesStem(w) ||
+        extraForms.includes(w) ||
+        formTails.some((tail) => tail && w === tail),
     );
     if (!used) {
       errors.push(`${name}: the example "${verb.example.target}" does not use any form of the verb`);

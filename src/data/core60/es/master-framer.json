@@ -1,0 +1,2896 @@
+{
+  "version": 1,
+  "module": "master-framer",
+  "baseModule": "framer",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Framer Master 20",
+  "threshold": "By Lesson 20, you can train a new framer and have them teach it back, explain a hidden problem or substitution to an owner or GC, refuse an unsafe request, talk through an incident or near miss without blame, and write the day's log in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.169Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Explain the Load Path to a New Framer",
+      "objective": "Explain how loads travel from roof to foundation and why each framing member matters.",
+      "words": [
+        {
+          "en": "the load path",
+          "es": "la trayectoria de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the dead load",
+          "es": "la carga muerta",
+          "kind": "term",
+          "note": "The weight of the building itself: framing, roofing, drywall."
+        },
+        {
+          "en": "the live load",
+          "es": "la carga viva",
+          "kind": "term",
+          "note": "People and furniture. It changes over time, unlike the dead load."
+        },
+        {
+          "en": "the point load",
+          "es": "la carga puntual",
+          "kind": "term"
+        },
+        {
+          "en": "the top plate",
+          "es": "la placa superior",
+          "kind": "term"
+        },
+        {
+          "en": "the bottom plate",
+          "es": "la placa inferior",
+          "kind": "term"
+        },
+        {
+          "en": "the load-bearing wall",
+          "es": "el muro de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the jack stud",
+          "es": "el montante de apoyo",
+          "kind": "term",
+          "note": "Many crews also just say el jack or el trimmer."
+        },
+        {
+          "en": "the span",
+          "es": "el claro",
+          "kind": "term",
+          "note": "Common Mexican usage for the clear width of an opening."
+        },
+        {
+          "en": "the opening",
+          "es": "la abertura",
+          "kind": "term"
+        },
+        {
+          "en": "the bearing point",
+          "es": "el punto de apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the footing",
+          "es": "la zapata",
+          "kind": "term"
+        },
+        {
+          "en": "the floor system between stories",
+          "es": "el entrepiso",
+          "kind": "term"
+        },
+        {
+          "en": "the deflection",
+          "es": "la deflexión",
+          "kind": "term"
+        },
+        {
+          "en": "the sliding door",
+          "es": "la puerta corrediza",
+          "kind": "term"
+        },
+        {
+          "en": "First the load comes down from the roof to the top plate.",
+          "es": "Primero la carga baja del techo a la placa superior.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then it goes through the studs down to the bottom plate.",
+          "es": "Luego pasa por los montantes hasta la placa inferior.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In the end, everything goes down to the footing.",
+          "es": "Al final, todo baja hasta la zapata.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This header is bigger because the span is wider.",
+          "es": "Este cabezal es más grande porque el claro es más ancho.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why a header that's too small sags over time.",
+          "es": "Por eso un cabezal muy chico se dobla con el tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Also, this load-bearing wall holds up the second floor.",
+          "es": "Además, este muro de carga sostiene el segundo piso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The header size comes from the plans; we don't guess it.",
+          "es": "El tamaño del cabezal viene en el plano; no lo adivinamos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomás, now can you explain to me where the load goes down?",
+          "es": "Tomás, ¿ahora me explicas tú por dónde baja la carga?",
+          "kind": "phrase",
+          "note": "Informal tú, coworker to new hire."
+        }
+      ],
+      "speaking": "You are the framer, and the AI is Tomás, a new hire: walk him from the rafters down to the foundation, explaining the load path with primero, luego, porque and por eso, and answer why the patio door header is bigger than the others.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero el techo, luego la placa superior, porque carga, por eso se dobla el cabezal)",
+        "examples": [
+          {
+            "es": "Primero el techo descansa en la placa superior, luego los montantes llevan el peso hacia abajo.",
+            "en": "First the roof rests on the top plate, then the studs carry the weight down."
+          },
+          {
+            "es": "La abertura del patio es más ancha, por eso el cabezal necesita más peralte.",
+            "en": "The patio opening is wider, so the header needs more depth."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why Crown Up: Teaching Joist and Sheathing Logic",
+      "objective": "Teach an apprentice why joists go crown up and subfloor seams are staggered, then have her explain it back.",
+      "words": [
+        {
+          "en": "the crown",
+          "es": "la corona",
+          "kind": "term"
+        },
+        {
+          "en": "the edge",
+          "es": "el canto",
+          "kind": "term",
+          "note": "The narrow face of the board, where you sight for the crown."
+        },
+        {
+          "en": "the bow",
+          "es": "la curvatura",
+          "kind": "term"
+        },
+        {
+          "en": "up, facing up",
+          "es": "hacia arriba",
+          "kind": "term"
+        },
+        {
+          "en": "the subfloor",
+          "es": "el subpiso",
+          "kind": "term"
+        },
+        {
+          "en": "the staggered seams",
+          "es": "las juntas escalonadas",
+          "kind": "term"
+        },
+        {
+          "en": "the floor deck",
+          "es": "la plataforma de piso",
+          "kind": "term"
+        },
+        {
+          "en": "the construction adhesive",
+          "es": "el adhesivo de construcción",
+          "kind": "term"
+        },
+        {
+          "en": "the tongue and groove",
+          "es": "el machihembrado",
+          "kind": "term"
+        },
+        {
+          "en": "the sheet",
+          "es": "la hoja",
+          "kind": "term",
+          "note": "One panel of subfloor or sheathing."
+        },
+        {
+          "en": "the squeak",
+          "es": "el rechinido",
+          "kind": "term"
+        },
+        {
+          "en": "the uneven floor",
+          "es": "el piso disparejo",
+          "kind": "term"
+        },
+        {
+          "en": "the rim joist",
+          "es": "la vigueta de borde",
+          "kind": "term",
+          "note": "Many crews just say el rim."
+        },
+        {
+          "en": "the finished floor",
+          "es": "el piso terminado",
+          "kind": "term"
+        },
+        {
+          "en": "the apprentice (female)",
+          "es": "la aprendiz",
+          "kind": "term",
+          "note": "Same form for both: la aprendiz for a woman, el aprendiz for a man."
+        },
+        {
+          "en": "The crown always goes up.",
+          "es": "La corona siempre se pone hacia arriba.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Look down the edge to find the crown.",
+          "es": "Mira a lo largo del canto para encontrar la corona.",
+          "kind": "phrase",
+          "note": "Informal tú command."
+        },
+        {
+          "en": "If you put it upside down, the floor dips in the middle.",
+          "es": "Si la pones al revés, el piso se hunde en medio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The seams don't get lined up; they get staggered.",
+          "es": "Las juntas no se alinean; se escalonan.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the seams line up, it creates a weak spot.",
+          "es": "Si las juntas quedan en línea, se forma un punto débil.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's okay, Lucía; that's why we check before nailing.",
+          "es": "No pasa nada, Lucía; por eso se revisa antes de clavar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let's flip these three joists before we keep going.",
+          "es": "Vamos a voltear estas tres viguetas antes de seguir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain to me why it's done this way.",
+          "es": "Ahora explícame tú por qué se hace así.",
+          "kind": "phrase",
+          "note": "Informal tú, for the teach-back."
+        }
+      ],
+      "speaking": "You are the lead framer, and the AI is Lucía, an apprentice: explain why joists go crown up and subfloor seams are staggered, using impersonal se and si + present, then have her teach it back to you.",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (la corona se pone arriba; si la vigueta tiene corona, se nota en el piso)",
+        "examples": [
+          {
+            "es": "Primero se busca la corona y luego se marca con una flecha.",
+            "en": "First you find the crown and then you mark it with an arrow."
+          },
+          {
+            "es": "Si las juntas se alinean, el piso se mueve y rechina.",
+            "en": "If the seams line up, the floor moves and squeaks."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Training a Helper on the Framing Nailer",
+      "objective": "Train a helper to inspect, load, use and disconnect a framing nailer safely, and check it with a teach-back.",
+      "words": [
+        {
+          "en": "the tool manual",
+          "es": "el manual de la herramienta",
+          "kind": "term"
+        },
+        {
+          "en": "the trigger",
+          "es": "el gatillo",
+          "kind": "term"
+        },
+        {
+          "en": "the sequential trigger",
+          "es": "el gatillo secuencial",
+          "kind": "term"
+        },
+        {
+          "en": "the contact firing (bump fire)",
+          "es": "el disparo por contacto",
+          "kind": "term",
+          "note": "Many crews just say bump in English."
+        },
+        {
+          "en": "the contact tip",
+          "es": "la punta de contacto",
+          "kind": "term",
+          "note": "Also called la nariz on many crews."
+        },
+        {
+          "en": "the magazine",
+          "es": "el cargador",
+          "kind": "term"
+        },
+        {
+          "en": "the nail strip",
+          "es": "la tira de clavos",
+          "kind": "term"
+        },
+        {
+          "en": "the air hose",
+          "es": "la manguera de aire",
+          "kind": "term"
+        },
+        {
+          "en": "the quick coupler",
+          "es": "el conector rápido",
+          "kind": "term"
+        },
+        {
+          "en": "the pressure regulator",
+          "es": "el regulador de presión",
+          "kind": "term"
+        },
+        {
+          "en": "the jam",
+          "es": "el atasco",
+          "kind": "term"
+        },
+        {
+          "en": "the recoil",
+          "es": "el retroceso",
+          "kind": "term"
+        },
+        {
+          "en": "the double fire",
+          "es": "el disparo doble",
+          "kind": "term"
+        },
+        {
+          "en": "the hearing protection",
+          "es": "la protección auditiva",
+          "kind": "term"
+        },
+        {
+          "en": "First read the manual with me; then you use it.",
+          "es": "Primero lee el manual conmigo; luego la usas.",
+          "kind": "phrase",
+          "note": "Informal tú, lead to helper."
+        },
+        {
+          "en": "Check it before you connect it to the hose.",
+          "es": "Revísala antes de conectarla a la manguera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Disconnect it before you load it or clear a jam.",
+          "es": "Desconéctala antes de cargarla o destrabarla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't point it at anyone, not even as a joke.",
+          "es": "No la apuntes hacia nadie, ni en broma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While you're learning, you're going to use the sequential trigger.",
+          "es": "Mientras aprendes, vas a usar el gatillo secuencial.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The pressure, set it the way the manufacturer's label says.",
+          "es": "La presión, ponla como dice la etiqueta del fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Take your finger off the trigger when you're not nailing.",
+          "es": "Quita el dedo del gatillo cuando no estés clavando.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you show me, step by step.",
+          "es": "Ahora enséñamelo tú, paso por paso.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are training the AI, Diego, a new helper, on the framing nailer: go through the manual to inspect, load, use and disconnect it with commands like revísala, desconéctala and no la apuntes hacia nadie, then have him teach the steps back.",
+      "grammar": {
+        "focus": "Commands with object pronouns (revísala, desconéctala antes de cargarla, no la apuntes hacia nadie)",
+        "examples": [
+          {
+            "es": "Conéctala solo después de revisarla.",
+            "en": "Connect it only after you check it."
+          },
+          {
+            "es": "Si se atasca, no la sacudas; desconéctala primero.",
+            "en": "If it jams, don't shake it; disconnect it first."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Hanger Sheet Before Setting the Beam",
+      "objective": "Read a joist hanger manufacturer sheet with your lead hand and explain which fasteners and steps it requires.",
+      "words": [
+        {
+          "en": "the beam hanger",
+          "es": "el colgador de viga",
+          "kind": "term"
+        },
+        {
+          "en": "the joist hanger",
+          "es": "el colgador de viguetas",
+          "kind": "term"
+        },
+        {
+          "en": "the spec sheet",
+          "es": "la ficha técnica",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer",
+          "es": "el fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the common nail",
+          "es": "el clavo común",
+          "kind": "term"
+        },
+        {
+          "en": "the hanger nails",
+          "es": "los clavos para colgador",
+          "kind": "term"
+        },
+        {
+          "en": "the diameter",
+          "es": "el diámetro",
+          "kind": "term"
+        },
+        {
+          "en": "the length",
+          "es": "la longitud",
+          "kind": "term"
+        },
+        {
+          "en": "the nail holes",
+          "es": "los agujeros de clavado",
+          "kind": "term"
+        },
+        {
+          "en": "the allowable load",
+          "es": "la carga admisible",
+          "kind": "term"
+        },
+        {
+          "en": "the load table",
+          "es": "la tabla de cargas",
+          "kind": "term"
+        },
+        {
+          "en": "the model number",
+          "es": "el número de modelo",
+          "kind": "term"
+        },
+        {
+          "en": "galvanized",
+          "es": "galvanizado",
+          "kind": "term"
+        },
+        {
+          "en": "the flange",
+          "es": "la pestaña",
+          "kind": "term"
+        },
+        {
+          "en": "the hanger seat",
+          "es": "el asiento del colgador",
+          "kind": "term"
+        },
+        {
+          "en": "Rosa, hold on; before nailing, we have to read the sheet.",
+          "es": "Rosa, espérate; antes de clavar, hay que leer la ficha.",
+          "kind": "phrase",
+          "note": "Informal tú between coworkers."
+        },
+        {
+          "en": "These common nails aren't the ones the manufacturer calls for.",
+          "es": "Estos clavos comunes no son los que pide el fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Compare the model number with the one on the plans.",
+          "es": "Compara el número de modelo con el que dice el plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many nails does the table call for on this model?",
+          "es": "¿Cuántos clavos pide la tabla para este modelo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to fill the holes the spec sheet shows.",
+          "es": "Hay que llenar los agujeros que indica la ficha técnica.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After setting the beam, we check that it sits fully in the seat.",
+          "es": "Después de colocar la viga, revisamos que quede bien asentada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the plans and the sheet don't match, we ask the supervisor.",
+          "es": "Si el plano y la ficha no coinciden, le preguntamos al supervisor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the framer, and the AI is Rosa, your lead hand: read the beam hanger manufacturer's sheet together, check it against the plans, and explain which fasteners and steps it requires, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de clavar el colgador, hay que leer la hoja del fabricante)",
+        "examples": [
+          {
+            "es": "Antes de poner el colgador, hay que revisar el número de modelo en el plano.",
+            "en": "Before installing the hanger, we have to check the model number on the plans."
+          },
+          {
+            "es": "Después de leer la tabla, hay que contar los clavos que pide el fabricante.",
+            "en": "After reading the table, we have to count the nails the manufacturer requires."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Rotted Sill Plate: Change Order With the Owner",
+      "objective": "Tell the homeowner what you found behind the wall and how it looked, then propose a change order with options.",
+      "words": [
+        {
+          "en": "the sill plate",
+          "es": "la solera",
+          "kind": "term",
+          "note": "The plate bolted to the foundation; some crews say la placa de base."
+        },
+        {
+          "en": "the rotted wood",
+          "es": "la madera podrida",
+          "kind": "term"
+        },
+        {
+          "en": "the termite damage",
+          "es": "el daño por termitas",
+          "kind": "term"
+        },
+        {
+          "en": "the moisture",
+          "es": "la humedad",
+          "kind": "term"
+        },
+        {
+          "en": "the water leak",
+          "es": "la fuga de agua",
+          "kind": "term"
+        },
+        {
+          "en": "the change order",
+          "es": "la orden de cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the estimate",
+          "es": "el presupuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the extra cost",
+          "es": "el costo adicional",
+          "kind": "term"
+        },
+        {
+          "en": "the damaged section",
+          "es": "la sección dañada",
+          "kind": "term"
+        },
+        {
+          "en": "the partial repair",
+          "es": "la reparación parcial",
+          "kind": "term"
+        },
+        {
+          "en": "the full replacement",
+          "es": "el reemplazo completo",
+          "kind": "term"
+        },
+        {
+          "en": "the pressure-treated lumber",
+          "es": "la madera tratada",
+          "kind": "term",
+          "note": "Local code says where wood touching concrete must be treated."
+        },
+        {
+          "en": "the anchor bolts",
+          "es": "los pernos de anclaje",
+          "kind": "term"
+        },
+        {
+          "en": "the exterminator",
+          "es": "el exterminador",
+          "kind": "term"
+        },
+        {
+          "en": "the move-in date",
+          "es": "la fecha de mudanza",
+          "kind": "term"
+        },
+        {
+          "en": "the written approval",
+          "es": "la autorización por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "When we opened the wall, the sill plate was rotted.",
+          "es": "Cuando abrimos la pared, la solera estaba podrida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The wood crumbled by hand and had termite damage.",
+          "es": "La madera se deshacía con la mano y tenía daño de termitas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would replace the whole damaged section, not just a piece.",
+          "es": "Yo cambiaría toda la sección dañada, no solo un pedazo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Medina, I'll prepare a change order for you with two options.",
+          "es": "Señora Medina, le preparo una orden de cambio con dos opciones.",
+          "kind": "phrase",
+          "note": "Formal: usted with the homeowner."
+        },
+        {
+          "en": "The partial repair would cost less, but it wouldn't last as long.",
+          "es": "La reparación parcial costaría menos, pero no duraría tanto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would call an exterminator before closing the wall.",
+          "es": "Yo llamaría a un exterminador antes de cerrar la pared.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is it OK if we confirm tomorrow how much this affects your move-in?",
+          "es": "¿Le parece si mañana le confirmamos cuánto afecta su mudanza?",
+          "kind": "phrase",
+          "note": "Formal: usted with the homeowner."
+        },
+        {
+          "en": "Take photos of everything before removing anything.",
+          "es": "Saquen fotos de todo antes de quitar nada.",
+          "kind": "phrase",
+          "note": "Ustedes command to the crew."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Sra. Beatriz Medina, the homeowner: describe what you found behind the kitchen wall with the preterite and imperfect (abrimos, estaba podrida), then propose a change order with options using the conditional (yo cambiaría, costaría).",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (cuando abrimos la pared, la placa estaba podrida; yo cambiaría toda la sección)",
+        "examples": [
+          {
+            "es": "Cuando quitamos la tablaroca, vimos que la madera estaba húmeda.",
+            "en": "When we removed the drywall, we saw that the wood was damp."
+          },
+          {
+            "es": "Yo cambiaría toda la solera de esa pared y usaría madera tratada.",
+            "en": "I would replace the whole sill plate on that wall and use treated lumber."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "LVL Delayed: Comparing Options With the GC",
+      "objective": "Explain a beam delivery delay, compare substitute options, and say what the engineer must approve first.",
+      "words": [
+        {
+          "en": "the LVL",
+          "es": "el LVL",
+          "kind": "term",
+          "note": "Say \"ele-ve-ele\"; laminated veneer lumber."
+        },
+        {
+          "en": "the engineered lumber",
+          "es": "la madera de ingeniería",
+          "kind": "term"
+        },
+        {
+          "en": "the built-up beam",
+          "es": "la viga compuesta",
+          "kind": "term",
+          "note": "A beam made of nailed lumber plies; the engineer must size it."
+        },
+        {
+          "en": "the substitution",
+          "es": "la sustitución",
+          "kind": "term"
+        },
+        {
+          "en": "the supplier",
+          "es": "el proveedor",
+          "kind": "term"
+        },
+        {
+          "en": "the lead time",
+          "es": "el tiempo de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated date",
+          "es": "la fecha estimada",
+          "kind": "term"
+        },
+        {
+          "en": "the structural engineer",
+          "es": "el ingeniero estructural",
+          "kind": "term"
+        },
+        {
+          "en": "the engineer's approval",
+          "es": "la aprobación del ingeniero",
+          "kind": "term"
+        },
+        {
+          "en": "the plan revision",
+          "es": "la revisión del plano",
+          "kind": "term"
+        },
+        {
+          "en": "the temporary shores",
+          "es": "los puntales",
+          "kind": "term",
+          "note": "Temporary posts; also called postes provisionales."
+        },
+        {
+          "en": "the load capacity",
+          "es": "la capacidad de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the safer option",
+          "es": "la opción más segura",
+          "kind": "term"
+        },
+        {
+          "en": "slower than",
+          "es": "más lento que",
+          "kind": "term"
+        },
+        {
+          "en": "meanwhile",
+          "es": "mientras tanto",
+          "kind": "term"
+        },
+        {
+          "en": "the go-ahead",
+          "es": "el visto bueno",
+          "kind": "term",
+          "note": "Common, informal way to say approval."
+        },
+        {
+          "en": "Ernesto says the LVL won't arrive until next week.",
+          "es": "Ernesto dice que el LVL no llega hasta la próxima semana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Vega, the built-up beam could work, but the engineer decides.",
+          "es": "Sr. Vega, la viga compuesta podría funcionar, pero el ingeniero decide.",
+          "kind": "phrase",
+          "note": "Formal: usted with the GC."
+        },
+        {
+          "en": "Waiting is slower, but it's safer than improvising.",
+          "es": "Esperar es más lento, pero es más seguro que improvisar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not going to change anything without the engineer's approval.",
+          "es": "No vamos a cambiar nada sin la aprobación del ingeniero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll email the question to the engineer today.",
+          "es": "Hoy mismo le mandaré la pregunta al ingeniero por correo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Meanwhile, we'll frame the walls that don't carry the beam.",
+          "es": "Mientras tanto, armaremos los muros que no cargan la viga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ernesto, can you send me the delivery date in writing?",
+          "es": "Ernesto, ¿me mandas la fecha de entrega por escrito?",
+          "kind": "phrase",
+          "note": "Informal: tú with a supplier you know well."
+        },
+        {
+          "en": "We'll install whatever the revised plan says, nothing else.",
+          "es": "Instalaremos lo que diga el plano revisado, nada más.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Sr. Arturo Vega, the general contractor: explain the LVL delay with the future and ir a (llegará, va a llegar), compare options with más… que, and insist the engineer approves any substitute first.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (el LVL va a llegar el lunes; esta opción es más lenta que esperar, pero más segura que improvisar)",
+        "examples": [
+          {
+            "es": "El LVL va a llegar el lunes, según Ernesto.",
+            "en": "The LVL is going to arrive on Monday, according to Ernesto."
+          },
+          {
+            "es": "Pedir la revisión es más lento que improvisar, pero mucho más seguro.",
+            "en": "Asking for the revision is slower than improvising, but much safer."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Engineer on Site: Questions About the Shear Wall",
+      "objective": "Narrate what the crew installed on a shear wall and give exact figures from the plan while being questioned.",
+      "words": [
+        {
+          "en": "the shear wall",
+          "es": "el muro de corte",
+          "kind": "term",
+          "note": "Also heard: muro de cortante."
+        },
+        {
+          "en": "the structural sheathing",
+          "es": "el revestimiento estructural",
+          "kind": "term"
+        },
+        {
+          "en": "the edge nailing",
+          "es": "el clavado de borde",
+          "kind": "term"
+        },
+        {
+          "en": "the field nailing",
+          "es": "el clavado de campo",
+          "kind": "term"
+        },
+        {
+          "en": "the nail spacing",
+          "es": "el espaciado de clavos",
+          "kind": "term"
+        },
+        {
+          "en": "the panel edge",
+          "es": "el borde del panel",
+          "kind": "term"
+        },
+        {
+          "en": "the hold-down",
+          "es": "el hold-down",
+          "kind": "term",
+          "note": "Crews use the English word; the formal term is anclaje de retención."
+        },
+        {
+          "en": "the threaded rod",
+          "es": "la varilla roscada",
+          "kind": "term"
+        },
+        {
+          "en": "the plate washer",
+          "es": "la arandela de placa",
+          "kind": "term"
+        },
+        {
+          "en": "the nut",
+          "es": "la tuerca",
+          "kind": "term"
+        },
+        {
+          "en": "the end post",
+          "es": "el poste de extremo",
+          "kind": "term"
+        },
+        {
+          "en": "the general notes",
+          "es": "las notas generales",
+          "kind": "term"
+        },
+        {
+          "en": "the structural detail",
+          "es": "el detalle estructural",
+          "kind": "term"
+        },
+        {
+          "en": "the downhill side",
+          "es": "el lado cuesta abajo",
+          "kind": "term"
+        },
+        {
+          "en": "the overdriven nail",
+          "es": "el clavo hundido",
+          "kind": "term"
+        },
+        {
+          "en": "the site visit",
+          "es": "la visita de obra",
+          "kind": "term"
+        },
+        {
+          "en": "Yesterday we nailed the panels on the downhill shear wall.",
+          "es": "Ayer clavamos los paneles del muro de corte de abajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We nailed the edges at 4 inches, as the plan calls for.",
+          "es": "Clavamos los bordes a 4 pulgadas, como pide el plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We installed the hold-downs before putting on the sheathing.",
+          "es": "Instalamos los hold-downs antes de poner el revestimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We checked the nails one by one and found none overdriven.",
+          "es": "Revisamos los clavos uno por uno y no encontramos ninguno hundido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Engineer, let me check that measurement on the plan before answering you.",
+          "es": "Ingeniera, déjeme verificar esa medida en el plano antes de contestarle.",
+          "kind": "phrase",
+          "note": "Formal: usted with the engineer."
+        },
+        {
+          "en": "We put in the hold-down that detail 7 of the plan specifies.",
+          "es": "Pusimos el hold-down que indica el detalle 7 del plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you find anything that doesn't comply, we'll fix it today.",
+          "es": "Si encuentra algo que no cumple, lo corregimos hoy mismo.",
+          "kind": "phrase",
+          "note": "Formal: usted with the engineer."
+        },
+        {
+          "en": "Bring the tape and the plans; the engineer wants to measure.",
+          "es": "Traigan la cinta y el plano; la ingeniera quiere medir.",
+          "kind": "phrase",
+          "note": "Ustedes command to the crew."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Ing. Patricia Salgado, the structural engineer: narrate what the crew installed on the downhill shear wall in the preterite (clavamos, instalamos) and answer with exact figures, always citing the plan (como pide el plano).",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (ayer clavamos los paneles; el espaciado que usamos es el que pide la nota 4 del plano)",
+        "examples": [
+          {
+            "es": "Ayer clavamos los paneles y apretamos las tuercas de los hold-downs.",
+            "en": "Yesterday we nailed the panels and tightened the hold-down nuts."
+          },
+          {
+            "es": "El espaciado que usamos en el campo es el que pide la nota 4 del plano.",
+            "en": "The spacing we used in the field is the one note 4 of the plans calls for."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Saying No: The Plumber Wants to Notch an I-Joist",
+      "objective": "Refuse a plumber's request to cut an I-joist flange, explain why, and propose an option the manufacturer allows.",
+      "words": [
+        {
+          "en": "the I-joist",
+          "es": "la vigueta en I",
+          "kind": "term",
+          "note": "Many crews just say TJI, a brand name."
+        },
+        {
+          "en": "the flange",
+          "es": "el ala",
+          "kind": "term",
+          "note": "Feminine noun: el ala, las alas."
+        },
+        {
+          "en": "the web",
+          "es": "el alma",
+          "kind": "term",
+          "note": "Feminine noun: el alma, las almas."
+        },
+        {
+          "en": "the notch",
+          "es": "la muesca",
+          "kind": "term"
+        },
+        {
+          "en": "the hole chart",
+          "es": "la tabla de perforaciones",
+          "kind": "term"
+        },
+        {
+          "en": "the drain line",
+          "es": "el tubo de desagüe",
+          "kind": "term"
+        },
+        {
+          "en": "the knockouts",
+          "es": "los agujeros precortados",
+          "kind": "term"
+        },
+        {
+          "en": "the distance to the support",
+          "es": "la distancia al apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the reinforcement",
+          "es": "el refuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the installation guide",
+          "es": "la guía de instalación",
+          "kind": "term"
+        },
+        {
+          "en": "the alternate route",
+          "es": "la ruta alterna",
+          "kind": "term"
+        },
+        {
+          "en": "the soffit",
+          "es": "el cajón",
+          "kind": "term",
+          "note": "A boxed soffit framed below the joists to hide pipes."
+        },
+        {
+          "en": "the reciprocating saw",
+          "es": "la sierra reciprocante",
+          "kind": "term",
+          "note": "Many crews call it the sawzall."
+        },
+        {
+          "en": "the engineer's reply",
+          "es": "la respuesta del ingeniero",
+          "kind": "term"
+        },
+        {
+          "en": "under no circumstances",
+          "es": "por ningún motivo",
+          "kind": "term"
+        },
+        {
+          "en": "Wait, Mr. Ríos, don't cut that joist!",
+          "es": "¡Espere, Sr. Ríos, no corte esa vigueta!",
+          "kind": "phrase",
+          "note": "Formal usted command to the plumbing sub."
+        },
+        {
+          "en": "I don't recommend cutting the flange; the joist loses strength.",
+          "es": "No recomiendo que corte el ala; la vigueta pierde fuerza.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The flange doesn't get cut; holes go in the web.",
+          "es": "El ala no se corta; los agujeros van en el alma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Look at the manufacturer's chart: it says here where holes are allowed.",
+          "es": "Mire la tabla del fabricante: aquí dice dónde se permiten agujeros.",
+          "kind": "phrase",
+          "note": "Formal: usted."
+        },
+        {
+          "en": "We can run the pipe underneath and box it in with a soffit.",
+          "es": "Podemos pasar el tubo por debajo y hacerle un cajón.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If there's no other route, I'll call the engineer right now.",
+          "es": "Si no hay otra ruta, llamo al ingeniero ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend we do anything until the engineer answers.",
+          "es": "No recomiendo que hagamos nada hasta que conteste el ingeniero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Beto, don't hand him the saw yet, please.",
+          "es": "Beto, no le pases la sierra todavía, por favor.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Sr. Gustavo Ríos, the plumbing sub: stop the flange cut with negative commands (no lo corte), explain why with no recomiendo que + subjunctive, show the manufacturer's hole chart and offer to call the engineer.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no lo cortes; no recomiendo que pase el tubo por el ala)",
+        "examples": [
+          {
+            "es": "No lo corte todavía; primero revisemos la tabla.",
+            "en": "Don't cut it yet; let's check the chart first."
+          },
+          {
+            "es": "No recomiendo que haga la muesca aquí, tan cerca del apoyo.",
+            "en": "I don't recommend that you make the notch here, so close to the support."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback to a Veteran Framer on a Racked Wall",
+      "objective": "Give respectful, specific feedback to an experienced framer and agree on how the wall will be corrected.",
+      "words": [
+        {
+          "en": "the racking (out of square)",
+          "es": "el descuadre",
+          "kind": "term"
+        },
+        {
+          "en": "out of plumb",
+          "es": "fuera de plomo",
+          "kind": "term"
+        },
+        {
+          "en": "the diagonals",
+          "es": "las diagonales",
+          "kind": "term"
+        },
+        {
+          "en": "the long level",
+          "es": "el nivel largo",
+          "kind": "term"
+        },
+        {
+          "en": "the laser level",
+          "es": "el nivel láser",
+          "kind": "term"
+        },
+        {
+          "en": "the temporary brace",
+          "es": "la riostra temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the string line",
+          "es": "el hilo",
+          "kind": "term"
+        },
+        {
+          "en": "the tolerance",
+          "es": "la tolerancia",
+          "kind": "term"
+        },
+        {
+          "en": "the suggestion",
+          "es": "la sugerencia",
+          "kind": "term"
+        },
+        {
+          "en": "the cabin",
+          "es": "la cabaña",
+          "kind": "term"
+        },
+        {
+          "en": "by eye",
+          "es": "a ojo",
+          "kind": "term"
+        },
+        {
+          "en": "together",
+          "es": "juntos",
+          "kind": "term"
+        },
+        {
+          "en": "the bubble",
+          "es": "la burbuja",
+          "kind": "term"
+        },
+        {
+          "en": "the point of view",
+          "es": "el punto de vista",
+          "kind": "term"
+        },
+        {
+          "en": "Héctor, I want us to check it together with the long level.",
+          "es": "Héctor, quiero que lo revisemos juntos con el nivel largo.",
+          "kind": "phrase",
+          "note": "Informal tú is normal between framers; the respect comes from your tone."
+        },
+        {
+          "en": "You have a good eye, but the level says it's out of plumb.",
+          "es": "Tienes buen ojo, pero el nivel dice que está fuera de plomo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you measure the diagonals before sheathing it.",
+          "es": "Te recomiendo que midas las diagonales antes de forrarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "One diagonal is longer than the other; the wall is racked.",
+          "es": "Una diagonal mide más que la otra; el muro está descuadrado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather we fix it now and not after the sheathing.",
+          "es": "Prefiero que lo corrijamos ahora y no después del revestimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you suggest to straighten it?",
+          "es": "¿Qué sugieres tú para enderezarlo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hopefully we won't have to take the whole wall apart.",
+          "es": "Ojalá que no tengamos que desarmar todo el muro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So we agree: we plumb it and brace it.",
+          "es": "Entonces quedamos así: lo aplomamos y le ponemos riostras.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead framer, and the AI is Héctor, a veteran framer who trusts his eye over the level: give respectful, specific feedback on the racked wall and agree on the fix, using quiero que…, te recomiendo que… and prefiero que….",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que lo revisemos juntos; te recomiendo que uses el nivel largo)",
+        "examples": [
+          {
+            "es": "Te recomiendo que uses el nivel largo en las dos caras.",
+            "en": "I recommend you use the long level on both faces."
+          },
+          {
+            "es": "Quiero que midamos las diagonales antes de clavar.",
+            "en": "I want us to measure the diagonals before nailing."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Who Cut the Stringers Wrong? Settling the Dispute",
+      "objective": "Hear both framers' accounts, report back what each one said, and settle on a fix without blaming anyone.",
+      "words": [
+        {
+          "en": "the stair stringer",
+          "es": "la zanca",
+          "kind": "term",
+          "note": "Plural las zancas; some US crews also say el stringer."
+        },
+        {
+          "en": "the tread",
+          "es": "la huella",
+          "kind": "term"
+        },
+        {
+          "en": "the riser height",
+          "es": "el peralte",
+          "kind": "term",
+          "note": "Some crews say la contrahuella."
+        },
+        {
+          "en": "the previous version",
+          "es": "la versión anterior",
+          "kind": "term"
+        },
+        {
+          "en": "the current version",
+          "es": "la versión vigente",
+          "kind": "term"
+        },
+        {
+          "en": "the revision date",
+          "es": "la fecha de revisión",
+          "kind": "term"
+        },
+        {
+          "en": "the design change",
+          "es": "el cambio de diseño",
+          "kind": "term"
+        },
+        {
+          "en": "the template",
+          "es": "la plantilla",
+          "kind": "term"
+        },
+        {
+          "en": "the total rise",
+          "es": "la altura total",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the facts",
+          "es": "los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the printed copy",
+          "es": "la copia impresa",
+          "kind": "term"
+        },
+        {
+          "en": "the step",
+          "es": "el escalón",
+          "kind": "term"
+        },
+        {
+          "en": "the waste",
+          "es": "el desperdicio",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "Okay, each of you tell me what happened, without interrupting.",
+          "es": "A ver, cuéntenme cada uno qué pasó, sin interrumpir.",
+          "kind": "phrase",
+          "note": "Ustedes form: you are talking to both framers."
+        },
+        {
+          "en": "Marisol, which version did you have in hand when you marked?",
+          "es": "Marisol, ¿qué versión tenías en la mano cuando marcaste?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Marisol said the plan Joaquín was using was old.",
+          "es": "Marisol dijo que el plano que usaba Joaquín estaba viejo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Joaquín said he was already cutting when the change arrived.",
+          "es": "Joaquín dijo que ya estaba cortando cuando llegó el cambio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody is to blame; the change reached the site late.",
+          "es": "Nadie tiene la culpa; el cambio llegó tarde a la obra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today we're going to throw out the old printed copies.",
+          "es": "Hoy mismo vamos a tirar las copias impresas viejas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Joaquín, will you help me cut the new stringers with the template?",
+          "es": "Joaquín, ¿me ayudas a cortar las zancas nuevas con la plantilla?",
+          "kind": "phrase"
+        },
+        {
+          "en": "From now on, we check the plan date before cutting.",
+          "es": "De ahora en adelante, revisamos la fecha del plano antes de cortar.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the lead, and the AI plays Marisol and Joaquín: hear each account, report back what each one said with dijo que… and the imperfect (estaba, tenía, usaba), and settle on a fix without blaming anyone.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Marisol dijo que el plano estaba viejo; Joaquín dijo que ya estaba cortando cuando llegó el cambio)",
+        "examples": [
+          {
+            "es": "Marisol dijo que la copia de la troca era de la versión anterior.",
+            "en": "Marisol said the copy in the truck was from the previous version."
+          },
+          {
+            "es": "Joaquín explicó que ya tenía tres zancas cortadas cuando le avisaron.",
+            "en": "Joaquín explained he already had three stringers cut when they told him."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Lifting the Crew After a Failed Inspection",
+      "objective": "Keep the crew motivated after a failed framing inspection by committing to a clear plan for the corrections.",
+      "words": [
+        {
+          "en": "the fire blocking",
+          "es": "el bloqueo contra incendios",
+          "kind": "term"
+        },
+        {
+          "en": "the reinspection",
+          "es": "la reinspección",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection report",
+          "es": "el reporte de inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the fire-rated sealant",
+          "es": "el sellador contra fuego",
+          "kind": "term"
+        },
+        {
+          "en": "the cavity",
+          "es": "la cavidad",
+          "kind": "term"
+        },
+        {
+          "en": "the penetration",
+          "es": "la penetración",
+          "kind": "term",
+          "note": "Any hole where pipes or wires pass through the framing."
+        },
+        {
+          "en": "the third floor",
+          "es": "el tercer piso",
+          "kind": "term"
+        },
+        {
+          "en": "the morale",
+          "es": "el ánimo",
+          "kind": "term"
+        },
+        {
+          "en": "the effort",
+          "es": "el esfuerzo",
+          "kind": "term"
+        },
+        {
+          "en": "the rework",
+          "es": "el retrabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the work plan",
+          "es": "el plan de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the goal",
+          "es": "la meta",
+          "kind": "term"
+        },
+        {
+          "en": "the hallway",
+          "es": "el pasillo",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting",
+          "es": "la reunión",
+          "kind": "term"
+        },
+        {
+          "en": "step by step",
+          "es": "paso a paso",
+          "kind": "term"
+        },
+        {
+          "en": "I know you're tired, and you have reason to be frustrated.",
+          "es": "Sé que están cansados, y tienen razón de estar frustrados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we'll fix the blocking on the whole third floor.",
+          "es": "Mañana corregiremos el bloqueo en todo el tercer piso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll follow the inspector's report point by point.",
+          "es": "Seguiremos el reporte del inspector punto por punto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Blocking slows fire in the cavities; that's why it matters.",
+          "es": "El bloqueo frena el fuego en las cavidades; por eso importa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll use the sealant the manufacturer's label specifies.",
+          "es": "Usaremos el sellador que indica la etiqueta del fabricante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Paola, you and I will check the hallway penetrations together.",
+          "es": "Paola, tú y yo revisaremos juntos las penetraciones del pasillo.",
+          "kind": "phrase",
+          "note": "Tú to one coworker; switch back to ustedes for the whole crew."
+        },
+        {
+          "en": "When everything is ready, we'll request the reinspection.",
+          "es": "Cuando todo esté listo, pediremos la reinspección.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to make it; you know how to do this!",
+          "es": "¡Lo vamos a lograr; ustedes saben hacerlo!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI plays Andrés and Paola, tired of redoing work: acknowledge their frustration, commit to a clear correction plan with the future (corregiremos, seguiremos, pediremos) and encourage them with lo vamos a lograr.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (mañana corregiremos el bloqueo; lo vamos a lograr, ustedes saben hacerlo)",
+        "examples": [
+          {
+            "es": "Hoy terminaremos el pasillo y mañana empezaremos con los cuartos.",
+            "en": "Today we'll finish the hallway and tomorrow we'll start on the rooms."
+          },
+          {
+            "es": "Ustedes ya saben cómo se hace; esta vez quedará perfecto.",
+            "en": "You already know how it's done; this time it will come out perfect."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Same Window Change, Told to Crew, Owner and GC",
+      "objective": "Explain one window size change to an apprentice, a homeowner and the GC, adjusting tú, usted and tone for each.",
+      "words": [
+        {
+          "en": "the rough opening",
+          "es": "el vano",
+          "kind": "term",
+          "note": "Many US crews also say el rough opening."
+        },
+        {
+          "en": "the bedroom",
+          "es": "la recámara",
+          "kind": "term",
+          "note": "Mexican usage; elsewhere el dormitorio."
+        },
+        {
+          "en": "the revised plan",
+          "es": "el plano revisado",
+          "kind": "term"
+        },
+        {
+          "en": "the sill height",
+          "es": "la altura del antepecho",
+          "kind": "term"
+        },
+        {
+          "en": "the width",
+          "es": "el ancho",
+          "kind": "term"
+        },
+        {
+          "en": "the height",
+          "es": "el alto",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the natural light",
+          "es": "la luz natural",
+          "kind": "term"
+        },
+        {
+          "en": "the general contractor",
+          "es": "el contratista general",
+          "kind": "term"
+        },
+        {
+          "en": "the dimensions",
+          "es": "las dimensiones",
+          "kind": "term"
+        },
+        {
+          "en": "the view",
+          "es": "la vista",
+          "kind": "term"
+        },
+        {
+          "en": "the exterior wall",
+          "es": "el muro exterior",
+          "kind": "term"
+        },
+        {
+          "en": "the homeowner (woman)",
+          "es": "la dueña de la casa",
+          "kind": "term"
+        },
+        {
+          "en": "hey",
+          "es": "oye",
+          "kind": "term",
+          "note": "Informal: only with a coworker like Nico."
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Polite; use it before interrupting the owner or the GC."
+        },
+        {
+          "en": "Hey, Nico, look at this: the bedroom window changed.",
+          "es": "Oye, Nico, mira esto: la ventana de la recámara cambió.",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Notice: the new rough opening is wider, and the header changes too.",
+          "es": "Fíjate: el vano nuevo es más ancho, y el cabezal también cambia.",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Nico, don't cut anything until Mr. Vega confirms it.",
+          "es": "Nico, no cortes nada hasta que el Sr. Vega lo confirme.",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Mrs. Ibarra, I'd like to explain how the framing changes with your window.",
+          "es": "Sra. Ibarra, quisiera explicarle cómo cambia el marco con su ventana.",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "Your new window will give you more natural light.",
+          "es": "Su ventana nueva le va a dar más luz natural.",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "Would you be okay signing the change before we order the window?",
+          "es": "¿Le parece si firma el cambio antes de pedir la ventana?",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "Excuse me, Mr. Vega, do you have a minute to go over the dimensions?",
+          "es": "Con permiso, Sr. Vega, ¿tiene un minuto para revisar las dimensiones?",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "Could you confirm the header on the revised plan?",
+          "es": "¿Podría usted confirmar el cabezal en el plano revisado?",
+          "kind": "phrase",
+          "note": "Formal usted; podría softens the request."
+        }
+      ],
+      "speaking": "You are the lead framer, and the AI plays apprentice Nico, homeowner Sra. Ibarra and GC Sr. Arturo Vega: explain the new header and rough opening to each, using tú with Nico (oye, mira) and usted with softeners (quisiera explicarle, ¿podría usted…?) with the others.",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera explicarle el cambio; ¿podría usted confirmarlo?; oye, Nico, mira esto)",
+        "examples": [
+          {
+            "es": "Sra. Ibarra, ¿me permite mostrarle el plano revisado?",
+            "en": "Mrs. Ibarra, may I show you the revised plan?"
+          },
+          {
+            "es": "Nico, pásame la cinta y apunta las medidas nuevas.",
+            "en": "Nico, hand me the tape and write down the new measurements."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Saw Kickback Injury: The Incident Report",
+      "objective": "Narrate a saw injury in order, with times and details, for the safety coordinator's incident report.",
+      "words": [
+        {
+          "en": "the kickback",
+          "es": "el contragolpe",
+          "kind": "term",
+          "note": "Common in Spanish saw manuals: la sierra dio un contragolpe."
+        },
+        {
+          "en": "the incident report",
+          "es": "el reporte de incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the safety coordinator (woman)",
+          "es": "la coordinadora de seguridad",
+          "kind": "term",
+          "note": "For a man: el coordinador de seguridad."
+        },
+        {
+          "en": "the saw blade",
+          "es": "el disco",
+          "kind": "term",
+          "note": "Usual Mexican jobsite word for a circular saw blade."
+        },
+        {
+          "en": "the lower blade guard",
+          "es": "la guarda inferior",
+          "kind": "term"
+        },
+        {
+          "en": "the rip cut",
+          "es": "el corte al hilo",
+          "kind": "term"
+        },
+        {
+          "en": "the knot (in the wood)",
+          "es": "el nudo",
+          "kind": "term"
+        },
+        {
+          "en": "the sawhorses",
+          "es": "los caballetes",
+          "kind": "term"
+        },
+        {
+          "en": "the cut (wound)",
+          "es": "la cortada",
+          "kind": "term",
+          "note": "Everyday Mexican word for a cut on the body."
+        },
+        {
+          "en": "direct pressure",
+          "es": "la presión directa",
+          "kind": "term"
+        },
+        {
+          "en": "the clinic",
+          "es": "la clínica",
+          "kind": "term"
+        },
+        {
+          "en": "the stitches",
+          "es": "los puntos",
+          "kind": "term",
+          "note": "Le dieron 6 puntos = he got 6 stitches."
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term",
+          "note": "For a woman: la testigo."
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "out of service",
+          "es": "fuera de servicio",
+          "kind": "term"
+        },
+        {
+          "en": "At 10:15, Iván was making a rip cut on the sawhorses.",
+          "es": "A las 10:15, Iván estaba cortando al hilo en los caballetes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "While he was cutting, the blade bound up on a knot.",
+          "es": "Mientras cortaba, el disco se trabó en un nudo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The saw kicked back and cut his left hand.",
+          "es": "La sierra dio un contragolpe y le cortó la mano izquierda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Shortly after, we put direct pressure on it with clean gauze.",
+          "es": "Poco después, le pusimos presión directa con una gasa limpia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A little later I took him to the clinic and he got 6 stitches.",
+          "es": "Al rato lo llevé a la clínica y le dieron 6 puntos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In the afternoon, we tagged the saw out of service.",
+          "es": "Por la tarde, marcamos la sierra como fuera de servicio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Paredes, Manuel was the witness; he saw everything.",
+          "es": "Sra. Paredes, Manuel fue el testigo; él lo vio todo.",
+          "kind": "phrase",
+          "note": "Formal: address the coordinator as usted."
+        },
+        {
+          "en": "Mrs. Paredes, should I repeat any of the times for the report?",
+          "es": "Sra. Paredes, ¿le repito alguna hora para el reporte?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is safety coordinator Sra. Gloria Paredes: tell her in order what happened to Iván, from the cut to the clinic, using a las 10:15, mientras cortaba, poco después, al rato and por la tarde, in formal usted.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las 10:15, mientras cortaba, poco después, al rato, por la tarde)",
+        "examples": [
+          {
+            "es": "A las 10:15, mientras Iván cortaba una tabla, la sierra dio un contragolpe.",
+            "en": "At 10:15, while Iván was cutting a board, the saw kicked back."
+          },
+          {
+            "es": "Poco después lo llevé a la clínica, y por la tarde llené el reporte.",
+            "en": "Shortly after I took him to the clinic, and in the afternoon I filled out the report."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss: The Wall Panel That Almost Tipped",
+      "objective": "Talk the crew through a near miss without blame and agree on what changes in how walls are raised and braced.",
+      "words": [
+        {
+          "en": "the near miss",
+          "es": "el casi accidente",
+          "kind": "term",
+          "note": "Safety programs also say el cuasi accidente."
+        },
+        {
+          "en": "the gust",
+          "es": "la ráfaga",
+          "kind": "term"
+        },
+        {
+          "en": "the wall panel",
+          "es": "el panel de muro",
+          "kind": "term"
+        },
+        {
+          "en": "the bracing",
+          "es": "el arriostramiento",
+          "kind": "term"
+        },
+        {
+          "en": "the stake",
+          "es": "la estaca",
+          "kind": "term"
+        },
+        {
+          "en": "the wall jack",
+          "es": "el gato para muros",
+          "kind": "term"
+        },
+        {
+          "en": "the wall raising",
+          "es": "el levantamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the fall zone",
+          "es": "la zona de caída",
+          "kind": "term"
+        },
+        {
+          "en": "the floor edge",
+          "es": "el borde del piso",
+          "kind": "term"
+        },
+        {
+          "en": "the safety talk",
+          "es": "la charla de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure",
+          "es": "el procedimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the lesson learned",
+          "es": "la lección aprendida",
+          "kind": "term"
+        },
+        {
+          "en": "almost, nearly",
+          "es": "por poco",
+          "kind": "term",
+          "note": "Takes the present for a past event: por poco le cae = it almost fell on him."
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "Felipe, the wall almost got you; it was one step away.",
+          "es": "Felipe, el muro casi te alcanza; estuvo a un paso.",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker."
+        },
+        {
+          "en": "The wall nearly fell on Felipe.",
+          "es": "Por poco le cae el muro encima a Felipe.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This could have been much worse.",
+          "es": "Esto podría haber sido mucho peor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Like Carmen says, it was nobody's fault.",
+          "es": "Como dice Carmen, no fue culpa de nadie.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If we had nailed the braces first, the wall wouldn't have moved.",
+          "es": "Si hubiéramos clavado las riostras primero, el muro no se habría movido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What else could we change so it doesn't happen again?",
+          "es": "¿Qué más podríamos cambiar para que no vuelva a pasar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Set the stakes and braces before you raise the next wall.",
+          "es": "Pongan las estacas y las riostras antes de levantar el siguiente muro.",
+          "kind": "phrase",
+          "note": "Plural ustedes command to the crew."
+        },
+        {
+          "en": "Starting today, nobody lets go of a wall until it's braced.",
+          "es": "A partir de hoy, nadie suelta un muro hasta que esté arriostrado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Carmen, a framer on your crew: talk through the near miss with Felipe without blaming anyone, using por poco, podría haber sido and si hubiéramos… no se habría…, and agree on new steps for raising and bracing walls.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco le cae encima; si hubiéramos puesto el puntal antes, no se habría movido)",
+        "examples": [
+          {
+            "es": "Por poco le cae encima; Felipe estaba a un paso del muro.",
+            "en": "It nearly fell on him; Felipe was one step from the wall."
+          },
+          {
+            "es": "Si hubiéramos puesto el puntal antes, el muro no se habría movido.",
+            "en": "If we had put the brace on sooner, the wall wouldn't have moved."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Stop Work: Wind Rising During the Truss Lift",
+      "objective": "Call a stop to a crane truss lift by radio and phone, give short clear commands, and secure the site.",
+      "words": [
+        {
+          "en": "the crane",
+          "es": "la grúa",
+          "kind": "term"
+        },
+        {
+          "en": "the crane operator",
+          "es": "el operador de grúa",
+          "kind": "term",
+          "note": "For a woman: la operadora de grúa."
+        },
+        {
+          "en": "the truss",
+          "es": "la armadura",
+          "kind": "term",
+          "note": "Some crews say la cercha; both are understood."
+        },
+        {
+          "en": "the truss bundle",
+          "es": "el paquete de armaduras",
+          "kind": "term"
+        },
+        {
+          "en": "the wind chart",
+          "es": "la tabla de vientos",
+          "kind": "term"
+        },
+        {
+          "en": "the wind limit",
+          "es": "el límite de viento",
+          "kind": "term"
+        },
+        {
+          "en": "the wind speed",
+          "es": "la velocidad del viento",
+          "kind": "term"
+        },
+        {
+          "en": "the signal person",
+          "es": "el señalero",
+          "kind": "term",
+          "note": "For a woman: la señalera."
+        },
+        {
+          "en": "the tag line",
+          "es": "la cuerda guía",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "el radio",
+          "kind": "term",
+          "note": "In Mexico the device is el radio."
+        },
+        {
+          "en": "the suspended load",
+          "es": "la carga suspendida",
+          "kind": "term"
+        },
+        {
+          "en": "the hook",
+          "es": "el gancho",
+          "kind": "term"
+        },
+        {
+          "en": "the sling",
+          "es": "la eslinga",
+          "kind": "term"
+        },
+        {
+          "en": "the lift area",
+          "es": "el área de izaje",
+          "kind": "term"
+        },
+        {
+          "en": "the work stoppage",
+          "es": "el paro de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "The limit is set by the crane's wind chart.",
+          "es": "El límite lo marca la tabla de vientos de la grúa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Valdés, if the gusts go over the limit, we'll bring the bundle down.",
+          "es": "Sr. Valdés, si las ráfagas pasan el límite, bajaremos el paquete.",
+          "kind": "phrase",
+          "note": "Formal, to the operator."
+        },
+        {
+          "en": "Stop, stop! We're stopping the lift right now.",
+          "es": "¡Alto, alto! Paramos el izaje ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lower it slowly, please, all the way to the ground.",
+          "es": "Bájela despacio, por favor, hasta el suelo.",
+          "kind": "phrase",
+          "note": "Formal usted command; bájala between coworkers."
+        },
+        {
+          "en": "Ramiro, Lalo, get down off the plate now!",
+          "es": "¡Ramiro, Lalo, bajen de la placa ya!",
+          "kind": "phrase"
+        },
+        {
+          "en": "Grab the tag lines and don't stand under the load.",
+          "es": "Agarren las cuerdas guía y no se pongan debajo de la carga.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Brace the trusses that are already set.",
+          "es": "Aseguren con riostras las armaduras que ya están puestas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you copy, Mr. Valdés?",
+          "es": "¿Me copia, Sr. Valdés?",
+          "kind": "phrase",
+          "note": "Standard radio check in Mexican Spanish."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is crane operator Sr. Rubén Valdés on the radio: agree on when to stop the truss lift using si + present → future (si sube el viento, pararemos), then give short commands like ¡alto!, bájela despacio and todos abajo.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si sube el viento, paramos; ¡alto!, bájala despacio, todos abajo)",
+        "examples": [
+          {
+            "es": "Si el viento llega al límite de la tabla, bajaremos el paquete.",
+            "en": "If the wind reaches the limit on the chart, we'll bring the bundle down."
+          },
+          {
+            "es": "¡Alto! Bájela despacio; todos abajo de la placa.",
+            "en": "Stop! Lower it slowly; everyone off the plate."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Framing Inspection: Hold-Downs and Fire Blocking",
+      "objective": "Answer a city inspector formally, explaining how hold-downs, nailing and fire blocking were done per the plans.",
+      "words": [
+        {
+          "en": "the hold-down anchor",
+          "es": "el anclaje",
+          "kind": "term",
+          "note": "Many crews just say hold-down, as written on the plans."
+        },
+        {
+          "en": "the duplex",
+          "es": "el dúplex",
+          "kind": "term"
+        },
+        {
+          "en": "the party wall",
+          "es": "el muro medianero",
+          "kind": "term"
+        },
+        {
+          "en": "the double stud",
+          "es": "el montante doble",
+          "kind": "term"
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the deviation",
+          "es": "la desviación",
+          "kind": "term"
+        },
+        {
+          "en": "the nailing pattern",
+          "es": "el patrón de clavado",
+          "kind": "term"
+        },
+        {
+          "en": "the horizontal blocking",
+          "es": "el bloqueo horizontal",
+          "kind": "term"
+        },
+        {
+          "en": "the stud bay",
+          "es": "el espacio entre montantes",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection card",
+          "es": "la tarjeta de inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the project engineer",
+          "es": "el ingeniero del proyecto",
+          "kind": "term",
+          "note": "For a woman: la ingeniera del proyecto."
+        },
+        {
+          "en": "the engineer's letter",
+          "es": "la carta del ingeniero",
+          "kind": "term"
+        },
+        {
+          "en": "the installation photos",
+          "es": "las fotos de la instalación",
+          "kind": "term"
+        },
+        {
+          "en": "per the plans",
+          "es": "conforme al plano",
+          "kind": "term",
+          "note": "Formal; on site people also say según el plano."
+        },
+        {
+          "en": "Good morning, Mr. Ortega; here are the approved plans.",
+          "es": "Buenos días, Sr. Ortega; aquí tiene el plano aprobado.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "The panels were nailed with the pattern shown on the plans.",
+          "es": "Se clavaron los paneles con el patrón que indica el plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right, this hold-down didn't end up on the stud shown on the plans.",
+          "es": "Tiene razón, este anclaje no quedó en el montante del plano.",
+          "kind": "phrase",
+          "note": "Formal: tiene, not tienes."
+        },
+        {
+          "en": "The project engineer will be consulted before that hold-down is moved.",
+          "es": "Se consultará al ingeniero del proyecto antes de mover ese anclaje.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The party-wall blocking was installed as the plans show.",
+          "es": "El bloqueo del muro medianero se colocó como indica el plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like to see the installation photos before it's covered?",
+          "es": "¿Desea ver las fotos de la instalación antes de que se cubra?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "That wall doesn't get closed until you approve it.",
+          "es": "Ese muro no se cierra hasta que usted lo apruebe.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you note the correction on the inspection card?",
+          "es": "¿Podría anotar la corrección en la tarjeta de inspección?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is city inspector Sr. Samuel Ortega: in formal usted, explain how the hold-downs, nailing and party-wall fire blocking were done per the plans, using passive se (se instalaron, se clavaron, se colocó), and answer his questions.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se instalaron los anclajes según el plano; se colocó el bloqueo como pide el inspector)",
+        "examples": [
+          {
+            "es": "Se instalaron los anclajes según el plano, menos el de esta esquina.",
+            "en": "The hold-downs were installed per the plans, except the one at this corner."
+          },
+          {
+            "es": "Se colocó el bloqueo en el muro medianero como pide el plano.",
+            "en": "The blocking was installed in the party wall as the plans call for."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Writing the Daily Log After a Short Lumber Load",
+      "objective": "Write a clear daily log with work done, materials, a delivery problem and tomorrow's plan for the project manager.",
+      "words": [
+        {
+          "en": "the daily log",
+          "es": "la bitácora de obra",
+          "kind": "term",
+          "note": "Standard Mexican construction term for the written daily site log."
+        },
+        {
+          "en": "the project manager",
+          "es": "la gerente de proyecto",
+          "kind": "term",
+          "note": "A woman is la gerente; a man is el gerente."
+        },
+        {
+          "en": "the delivery slip",
+          "es": "la remisión",
+          "kind": "term",
+          "note": "Mexican term for the paper that comes with the load."
+        },
+        {
+          "en": "the shortage",
+          "es": "el faltante",
+          "kind": "term"
+        },
+        {
+          "en": "the lumber load",
+          "es": "la carga de madera",
+          "kind": "term"
+        },
+        {
+          "en": "the crooked plates",
+          "es": "las placas torcidas",
+          "kind": "term"
+        },
+        {
+          "en": "the bundle of plates",
+          "es": "el paquete de placas",
+          "kind": "term"
+        },
+        {
+          "en": "the return",
+          "es": "la devolución",
+          "kind": "term"
+        },
+        {
+          "en": "the credit memo",
+          "es": "la nota de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "the work progress",
+          "es": "el avance de obra",
+          "kind": "term"
+        },
+        {
+          "en": "the hours worked",
+          "es": "las horas trabajadas",
+          "kind": "term"
+        },
+        {
+          "en": "the quantity ordered",
+          "es": "la cantidad pedida",
+          "kind": "term"
+        },
+        {
+          "en": "the quantity received",
+          "es": "la cantidad recibida",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow's plan",
+          "es": "el plan para mañana",
+          "kind": "term"
+        },
+        {
+          "en": "therefore",
+          "es": "por lo tanto",
+          "kind": "term",
+          "note": "Written report connector; in speech people often say por eso."
+        },
+        {
+          "en": "it should be noted that",
+          "es": "cabe señalar que",
+          "kind": "term",
+          "note": "Formal written register, typical of reports."
+        },
+        {
+          "en": "Today the wall framing for unit 3 was finished.",
+          "es": "Hoy se terminó el armado de muros de la unidad 3.",
+          "kind": "phrase"
+        },
+        {
+          "en": "However, the lumber load arrived 20 studs short.",
+          "es": "Sin embargo, la carga de madera llegó con 20 montantes de menos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In addition, a bundle of crooked plates was returned to the supplier.",
+          "es": "Además, se devolvió un paquete de placas torcidas al proveedor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, the back wall of unit 4 is still pending.",
+          "es": "Por lo tanto, el muro trasero de la unidad 4 quedó pendiente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It should be noted that the supplier promised to replace the shortage early tomorrow.",
+          "es": "Cabe señalar que el proveedor prometió reponer el faltante mañana temprano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Photos of the delivery slip and the returned plates are attached.",
+          "es": "Se adjuntan fotos de la remisión y de las placas devueltas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow, if the material arrives, we will finish the walls of unit 4.",
+          "es": "Mañana, si llega el material, terminaremos los muros de la unidad 4.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ms. Rivas, I'm sending you today's log; I remain at your service.",
+          "es": "Sra. Rivas, le envío la bitácora de hoy; quedo a sus órdenes.",
+          "kind": "phrase",
+          "note": "Formal closing; works for any speaker, man or woman."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is project manager Sra. Elena Rivas: read her your daily log with the work done, materials, the short lumber load, the returned plates and tomorrow's plan, linking it with además, sin embargo, por lo tanto and cabe señalar que.",
+      "grammar": {
+        "focus": "Written register; report connectors (además, sin embargo, por lo tanto, cabe señalar que)",
+        "examples": [
+          {
+            "es": "Además, se recibieron 30 hojas de OSB en buen estado.",
+            "en": "In addition, 30 sheets of OSB were received in good condition."
+          },
+          {
+            "es": "Sin embargo, faltaron 20 montantes; por lo tanto, se atrasó la unidad 4.",
+            "en": "However, 20 studs were missing; therefore, unit 4 fell behind."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Texts and Calls: Truss Delivery Moved Up a Day",
+      "objective": "Handle a dispatcher's call, then send clear, polite texts to the superintendent and crew about the new delivery.",
+      "words": [
+        {
+          "en": "the dispatcher",
+          "es": "la despachadora",
+          "kind": "term",
+          "note": "A woman is la despachadora; a man is el despachador."
+        },
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the truss plant",
+          "es": "la planta de armaduras",
+          "kind": "term"
+        },
+        {
+          "en": "the lot",
+          "es": "el lote",
+          "kind": "term"
+        },
+        {
+          "en": "the subdivision",
+          "es": "el fraccionamiento",
+          "kind": "term",
+          "note": "Mexican word for a housing subdivision."
+        },
+        {
+          "en": "the superintendent",
+          "es": "el superintendente",
+          "kind": "term"
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the delivery time slot",
+          "es": "el horario de entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the site access",
+          "es": "el acceso a la obra",
+          "kind": "term"
+        },
+        {
+          "en": "the unloading area",
+          "es": "el área de descarga",
+          "kind": "term"
+        },
+        {
+          "en": "the driver",
+          "es": "el chofer",
+          "kind": "term"
+        },
+        {
+          "en": "the confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the unsheathed walls",
+          "es": "los muros sin forrar",
+          "kind": "term"
+        },
+        {
+          "en": "received / got it",
+          "es": "recibido",
+          "kind": "term",
+          "note": "Short reply in texts and on the radio."
+        },
+        {
+          "en": "first thing in the morning",
+          "es": "a primera hora",
+          "kind": "term"
+        },
+        {
+          "en": "Hello? Yes, go ahead, who am I speaking with?",
+          "es": "¿Bueno? Sí, dígame, ¿con quién tengo el gusto?",
+          "kind": "phrase",
+          "note": "¿Bueno? is the Mexican way to answer the phone; formal."
+        },
+        {
+          "en": "Karina, could you confirm the delivery time for me?",
+          "es": "Karina, ¿me podría confirmar la hora de la entrega?",
+          "kind": "phrase",
+          "note": "Formal; the conditional podría softens the request."
+        },
+        {
+          "en": "The walls on Lot 22 aren't sheathed yet.",
+          "es": "Los muros del lote 22 todavía no están forrados.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you send the truck at 10 sharp, please?",
+          "es": "¿Podría mandar el camión a las 10 en punto, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I'd appreciate it if you sent me the confirmation by text.",
+          "es": "Le agradecería que me mandara la confirmación por mensaje.",
+          "kind": "phrase",
+          "note": "Le agradecería que is followed by the past subjunctive."
+        },
+        {
+          "en": "Mr. León, the truss delivery was moved up to tomorrow.",
+          "es": "Sr. León, la entrega de armaduras se adelantó para mañana.",
+          "kind": "phrase",
+          "note": "Formal text to the superintendent."
+        },
+        {
+          "en": "Team, tomorrow we start at 6 to finish sheathing.",
+          "es": "Equipo, mañana entramos a las 6 para terminar de forrar.",
+          "kind": "phrase",
+          "note": "Informal text to the crew."
+        },
+        {
+          "en": "Confirming: delivery tomorrow at 10 on Lot 22.",
+          "es": "Confirmo: entrega mañana a las 10 en el lote 22.",
+          "kind": "phrase",
+          "note": "Short text style: confirmo, then the key facts."
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Karina, the truss plant dispatcher, calling to move the Lot 22 delivery: agree on a workable time politely with ¿me podría…? and le agradecería, then dictate short texts to Sr. León and the crew using confirmo and recibido.",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿me podría confirmar la hora?, le agradecería; confirmo, recibido)",
+        "examples": [
+          {
+            "es": "¿Podría avisarle al chofer que entre por la calle trasera?",
+            "en": "Could you tell the driver to come in by the back street?"
+          },
+          {
+            "es": "Le agradecería una llamada si el camión se retrasa.",
+            "en": "I'd appreciate a call if the truck is running late."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Pre-Drywall Frame Walk With the Owners",
+      "objective": "Walk the owners through the frame, answer change requests, and set conditions for what can still change.",
+      "words": [
+        {
+          "en": "the walkthrough",
+          "es": "el recorrido",
+          "kind": "term"
+        },
+        {
+          "en": "the owners",
+          "es": "los dueños",
+          "kind": "term"
+        },
+        {
+          "en": "the TV blocking",
+          "es": "el bloqueo para la tele",
+          "kind": "term"
+        },
+        {
+          "en": "the grab bars",
+          "es": "las barras de apoyo",
+          "kind": "term"
+        },
+        {
+          "en": "the shower",
+          "es": "la regadera",
+          "kind": "term",
+          "note": "Mexican word for shower."
+        },
+        {
+          "en": "the mounting height",
+          "es": "la altura de montaje",
+          "kind": "term"
+        },
+        {
+          "en": "the electrical box",
+          "es": "la caja eléctrica",
+          "kind": "term"
+        },
+        {
+          "en": "the partition wall",
+          "es": "el muro divisorio",
+          "kind": "term",
+          "note": "A wall that carries no load, unlike el muro de carga."
+        },
+        {
+          "en": "the engineer's calculation",
+          "es": "el cálculo del ingeniero",
+          "kind": "term"
+        },
+        {
+          "en": "the condition",
+          "es": "la condición",
+          "kind": "term"
+        },
+        {
+          "en": "the last chance",
+          "es": "la última oportunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the main bathroom",
+          "es": "el baño principal",
+          "kind": "term"
+        },
+        {
+          "en": "as long as",
+          "es": "siempre que",
+          "kind": "term",
+          "note": "Takes the subjunctive when it means 'as long as' (siempre que lo apruebe)."
+        },
+        {
+          "en": "provided that",
+          "es": "con tal de que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive."
+        },
+        {
+          "en": "still / yet",
+          "es": "todavía",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. and Mrs. Castillo, this is the last moment to make changes.",
+          "es": "Señores Castillo, este es el último momento para hacer cambios.",
+          "kind": "phrase",
+          "note": "Formal; Señores covers the couple."
+        },
+        {
+          "en": "We can put in TV blocking, as long as you tell us the height.",
+          "es": "Podemos poner bloqueo para la tele, siempre que nos digan la altura.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At what height do you want the grab bars in the shower?",
+          "es": "¿A qué altura quieren las barras de apoyo en la regadera?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please mark with tape where you want each bar.",
+          "es": "Marquen con cinta dónde quieren cada barra, por favor.",
+          "kind": "phrase",
+          "note": "Ustedes command, polite to both owners."
+        },
+        {
+          "en": "That's a bearing wall; the engineer decides there.",
+          "es": "Ese muro es de carga; ahí decide el ingeniero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We could widen it, but only if the engineer designs a new header.",
+          "es": "Podríamos ensancharla, pero solo si el ingeniero diseña un cabezal nuevo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Provided you let us know today, the drywall won't be delayed.",
+          "es": "Con tal de que nos avisen hoy, no se atrasa la tablaroca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "After drywall, any change would cost more and take longer.",
+          "es": "Después de la tablaroca, cualquier cambio costaría más y tardaría más.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the framing lead, and the AI is Sr. or Sra. Castillo walking the frame before drywall: answer their requests and set clear conditions with podríamos…, siempre que and con tal de que plus subjunctive, leaving any bearing-wall change to the engineer.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (podríamos ensanchar la puerta siempre que el ingeniero lo apruebe; con tal de que nos avisen hoy)",
+        "examples": [
+          {
+            "es": "Podríamos ensanchar la puerta siempre que el ingeniero lo apruebe.",
+            "en": "We could widen the doorway as long as the engineer approves it."
+          },
+          {
+            "es": "Agregamos el bloqueo con tal de que nos avisen hoy.",
+            "en": "We'll add the blocking provided you let us know today."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: One Hard Framing Day on Lot 7",
+      "objective": "Lead a full framing day in Spanish: teach, solve problems, keep people safe, face the inspector and report.",
+      "words": [
+        {
+          "en": "the first day",
+          "es": "el primer día",
+          "kind": "term"
+        },
+        {
+          "en": "the wrong beam",
+          "es": "la viga equivocada",
+          "kind": "term"
+        },
+        {
+          "en": "the nominal size",
+          "es": "la medida nominal",
+          "kind": "term",
+          "note": "The lumber's name size; the actual size is smaller."
+        },
+        {
+          "en": "the actual size",
+          "es": "la medida real",
+          "kind": "term"
+        },
+        {
+          "en": "the specified size",
+          "es": "el tamaño especificado",
+          "kind": "term"
+        },
+        {
+          "en": "the lumberyard",
+          "es": "la maderería",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement",
+          "es": "la reposición",
+          "kind": "term"
+        },
+        {
+          "en": "the scaffold plank",
+          "es": "el tablón del andamio",
+          "kind": "term"
+        },
+        {
+          "en": "the guardrail",
+          "es": "el barandal",
+          "kind": "term",
+          "note": "Common Mexican usage; you also hear la baranda."
+        },
+        {
+          "en": "the toeboard",
+          "es": "el rodapié",
+          "kind": "term"
+        },
+        {
+          "en": "the harness",
+          "es": "el arnés",
+          "kind": "term"
+        },
+        {
+          "en": "falling objects",
+          "es": "la caída de objetos",
+          "kind": "term"
+        },
+        {
+          "en": "the final check",
+          "es": "la revisión final",
+          "kind": "term"
+        },
+        {
+          "en": "the daily report",
+          "es": "el informe diario",
+          "kind": "term"
+        },
+        {
+          "en": "the workday",
+          "es": "la jornada",
+          "kind": "term"
+        },
+        {
+          "en": "on the first try",
+          "es": "a la primera",
+          "kind": "term"
+        },
+        {
+          "en": "Sergio, grab the tape and measure it with me; don't cut it yet.",
+          "es": "Sergio, agarra la cinta y mídelo conmigo; no lo cortes todavía.",
+          "kind": "phrase",
+          "note": "Informal tú commands with pronouns."
+        },
+        {
+          "en": "Ernesto, the beam you sent doesn't match the plan.",
+          "es": "Ernesto, la viga que mandaste no coincide con el plano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We won't install it until the right one arrives.",
+          "es": "No la vamos a instalar hasta que llegue la correcta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If there were no toeboard, that hammer would have fallen on someone.",
+          "es": "Si no hubiera rodapié, ese martillo le habría caído a alguien.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Check the planks and the guardrail before you go up on the scaffold.",
+          "es": "Revisen los tablones y el barandal antes de subir al andamio.",
+          "kind": "phrase",
+          "note": "Ustedes command to the crew."
+        },
+        {
+          "en": "Mr. Ortega, the shear walls were nailed according to the plan.",
+          "es": "Sr. Ortega, los muros de corte se clavaron según el plano.",
+          "kind": "phrase",
+          "note": "Formal; passive se for the inspector."
+        },
+        {
+          "en": "In addition, it should be noted that the right beam arrives early tomorrow.",
+          "es": "Además, cabe señalar que la viga correcta llega mañana temprano.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sergio, now you explain it to me, as if I were the new guy.",
+          "es": "Sergio, ahora explícamelo tú, como si yo fuera el nuevo.",
+          "kind": "phrase",
+          "note": "Como si is always followed by the past subjunctive."
+        }
+      ],
+      "speaking": "You are the lead on Lot 7, and the AI plays each person: coach Sergio (mídelo, no lo cortes), settle the beam with Ernesto using si clauses, debrief the scaffold near miss, show Sr. Ortega the shear walls with the passive se, and report to Sra. Rivas with además and por lo tanto.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar (connectors, commands with pronouns, subjunctive, si clauses, formal passive se, written register)",
+        "examples": [
+          {
+            "es": "Si la viga no coincide con el plano, no la instalamos.",
+            "en": "If the beam doesn't match the plan, we don't install it."
+          },
+          {
+            "es": "Sin embargo, se revisaron los hold-downs antes de que llegara el inspector.",
+            "en": "However, the hold-downs were checked before the inspector arrived."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

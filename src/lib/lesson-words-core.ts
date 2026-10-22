@@ -173,13 +173,53 @@ export function wordsFromModelOutput(input: unknown): LessonWord[] {
 
 // ─── Which words does a learner get? ─────────────────────────────────────────
 
-/** Authored words are Spanish-only (en = English). Anything else is generated. */
+/** The language pair a module's authored words are written for. */
+export interface AuthoredWordsPair {
+  /** The language being learned (what the `es` field holds). */
+  language: string;
+  /** The learner's native language (what the `en` field holds). */
+  nativeLanguage: string;
+}
+
+/** Spanish-target modules (the default): `es` is Spanish, `en` is English. */
+export const SPANISH_AUTHORED_PAIR: AuthoredWordsPair = {
+  language: "Spanish",
+  nativeLanguage: "English",
+};
+
+/**
+ * English-for-work modules (learnDirection "en-target"): their stage files store the English
+ * target text in `es` and the Spanish gloss in `en`, already in the LessonWord convention, so
+ * the words need no swapping.
+ */
+export const ENGLISH_AUTHORED_PAIR: AuthoredWordsPair = {
+  language: "English",
+  nativeLanguage: "Spanish",
+};
+
+/** The pair a module's authored words are written for, from its AppModule.learnDirection. */
+export function authoredWordsPair(learnDirection?: string | null): AuthoredWordsPair {
+  return learnDirection === "en-target" ? ENGLISH_AUTHORED_PAIR : SPANISH_AUTHORED_PAIR;
+}
+
+/**
+ * Authored words are served only to the pair they were written for (Spanish target / English
+ * native by default, English target / Spanish native for en-target modules). Any other pair,
+ * including the reverse of the written pair, is generated instead: the sides and the notes
+ * would be in the wrong language.
+ */
 export function pickAuthoredWords(
   authored: readonly LessonWord[] | undefined,
   language: string,
   nativeLanguage = "English",
+  writtenFor: AuthoredWordsPair = SPANISH_AUTHORED_PAIR,
 ): LessonWord[] | null {
-  if (language !== "Spanish" || nativeLanguage !== "English" || !authored || authored.length === 0)
+  if (
+    language !== writtenFor.language ||
+    nativeLanguage !== writtenFor.nativeLanguage ||
+    !authored ||
+    authored.length === 0
+  )
     return null;
   return [...authored];
 }

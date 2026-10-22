@@ -1,0 +1,2922 @@
+{
+  "version": 1,
+  "module": "master-travel-scooter-car-rental",
+  "baseModule": "travel-scooter-car-rental",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Vespa, Scooter & Car Rental Master 20",
+  "threshold": "By Lesson 20, you can teach a companion to ride and have them teach it back, solve a breakdown or vehicle substitution with the agency, settle a group conflict, report an accident formally to an assessor, and negotiate a fair return in Spanish.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.171Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Brief Your Group From Pickup to Return",
+      "objective": "Explain to your travel group, in order and with reasons, every step from pickup photos to deposit release.",
+      "words": [
+        {
+          "en": "the pickup",
+          "es": "la recogida",
+          "kind": "term"
+        },
+        {
+          "en": "the deposit",
+          "es": "la fianza",
+          "kind": "term",
+          "note": "Spain's usual word for a rental deposit."
+        },
+        {
+          "en": "the cardholder",
+          "es": "el titular de la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "the main driver",
+          "es": "el conductor principal",
+          "kind": "term"
+        },
+        {
+          "en": "the damage diagram",
+          "es": "el croquis de daños",
+          "kind": "term",
+          "note": "The car or scooter outline on the contract where existing damage is marked."
+        },
+        {
+          "en": "the scratch",
+          "es": "el arañazo",
+          "kind": "term",
+          "note": "Spain usage."
+        },
+        {
+          "en": "the dent",
+          "es": "el bollo",
+          "kind": "term",
+          "note": "Colloquial in Spain."
+        },
+        {
+          "en": "the mileage",
+          "es": "el kilometraje",
+          "kind": "term"
+        },
+        {
+          "en": "the proof",
+          "es": "la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt (written proof)",
+          "es": "el justificante",
+          "kind": "term",
+          "note": "Spain: any signed paper proving something was done or paid."
+        },
+        {
+          "en": "the drop-off",
+          "es": "la entrega",
+          "kind": "term"
+        },
+        {
+          "en": "the release (of a card hold)",
+          "es": "el desbloqueo",
+          "kind": "term"
+        },
+        {
+          "en": "the time frame",
+          "es": "el plazo",
+          "kind": "term"
+        },
+        {
+          "en": "the claim",
+          "es": "la reclamación",
+          "kind": "term"
+        },
+        {
+          "en": "that's why",
+          "es": "por eso",
+          "kind": "term"
+        },
+        {
+          "en": "at the end",
+          "es": "al final",
+          "kind": "term"
+        },
+        {
+          "en": "First we take photos of every side, and then we sign.",
+          "es": "Primero hacemos fotos de cada lado, y luego firmamos.",
+          "kind": "phrase",
+          "note": "In Spain people say hacer fotos; sacar fotos is also understood."
+        },
+        {
+          "en": "The photos come first because the deposit depends on them.",
+          "es": "Las fotos van primero porque la fianza depende de eso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Rodrigo, it's 5 minutes and it can save us a claim.",
+          "es": "Rodrigo, son 5 minutos y nos pueden ahorrar una reclamación.",
+          "kind": "phrase",
+          "note": "Informal, to a friend."
+        },
+        {
+          "en": "Then we check that the damage diagram matches the photos.",
+          "es": "Después comprobamos que el croquis de daños coincide con las fotos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So nobody starts the scooter without having the photos, OK?",
+          "es": "Así que nadie arranca la moto sin tener las fotos, ¿vale?",
+          "kind": "phrase",
+          "note": "¿Vale? is informal Spain for OK."
+        },
+        {
+          "en": "At the end we ask for the signed drop-off receipt.",
+          "es": "Al final pedimos el justificante de entrega firmado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you tell me how long it takes to release the deposit?",
+          "es": "¿Me puede decir en qué plazo se desbloquea la fianza?",
+          "kind": "phrase",
+          "note": "Formal, to the rental clerk."
+        }
+      ],
+      "speaking": "You are the trip organizer, and the AI is Rodrigo, a travel companion: walk him through the rental day from pickup photos to deposit release, in order, justifying each step with primero, luego, después, porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero hacemos fotos, luego firmamos, porque el depósito depende de eso, por eso...)",
+        "examples": [
+          {
+            "es": "Primero hacemos las fotos, luego firmamos y después salimos.",
+            "en": "First we take the photos, then we sign, and after that we leave."
+          },
+          {
+            "es": "La fianza depende del estado de la moto; por eso grabamos un vídeo.",
+            "en": "The deposit depends on the scooter's condition; that's why we record a video."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Explain How Madrid's Low-Emission Zone Catches Drivers",
+      "objective": "Explain to a friend how cameras enforce the zone and why the fine reaches the renter months later.",
+      "words": [
+        {
+          "en": "the low-emission zone",
+          "es": "la zona de bajas emisiones",
+          "kind": "term",
+          "note": "Often shortened to ZBE (zeta-be-e)."
+        },
+        {
+          "en": "the environmental sticker",
+          "es": "la etiqueta ambiental",
+          "kind": "term",
+          "note": "The DGT sticker on the windshield (0, ECO, C, B)."
+        },
+        {
+          "en": "the license plate",
+          "es": "la matrícula",
+          "kind": "term",
+          "note": "Spain usage; Latin America says la placa."
+        },
+        {
+          "en": "the plate reading",
+          "es": "la lectura de matrículas",
+          "kind": "term"
+        },
+        {
+          "en": "the registered owner",
+          "es": "el titular del vehículo",
+          "kind": "term"
+        },
+        {
+          "en": "the rental company",
+          "es": "la empresa de alquiler",
+          "kind": "term"
+        },
+        {
+          "en": "the driver identification",
+          "es": "la identificación del conductor",
+          "kind": "term"
+        },
+        {
+          "en": "the notice",
+          "es": "la notificación",
+          "kind": "term"
+        },
+        {
+          "en": "the penalty",
+          "es": "la sanción",
+          "kind": "term"
+        },
+        {
+          "en": "the handling fees",
+          "es": "los gastos de gestión",
+          "kind": "term",
+          "note": "What Spanish rental agencies charge for processing a fine."
+        },
+        {
+          "en": "the city council",
+          "es": "el ayuntamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the park-and-ride lot",
+          "es": "el aparcamiento disuasorio",
+          "kind": "term"
+        },
+        {
+          "en": "the exemption",
+          "es": "la exención",
+          "kind": "term"
+        },
+        {
+          "en": "exempt",
+          "es": "exento",
+          "kind": "term",
+          "note": "Agrees with the noun: exento, exenta, exentos."
+        },
+        {
+          "en": "the boundary",
+          "es": "el perímetro",
+          "kind": "term"
+        },
+        {
+          "en": "When you enter, the plate is read automatically.",
+          "es": "Al entrar, se lee la matrícula automáticamente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you enter without permission, the fine goes to the agency.",
+          "es": "Si entras sin permiso, la multa llega a la agencia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then the agency names you as the driver and charges you handling fees.",
+          "es": "Luego la agencia te identifica y te cobra gastos de gestión.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why the fine can reach you months later.",
+          "es": "Por eso la multa puede llegarte meses después.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't know of any exemption for tourists; check it on the city council website.",
+          "es": "No conozco ninguna exención para turistas; compruébalo en la web del ayuntamiento.",
+          "kind": "phrase",
+          "note": "Informal, to a friend."
+        },
+        {
+          "en": "If you can't go in, you park at a park-and-ride and take the metro.",
+          "es": "Si no puedes entrar, aparcas en un disuasorio y coges el metro.",
+          "kind": "phrase",
+          "note": "Coger is neutral in Spain."
+        },
+        {
+          "en": "What environmental sticker does this car have, please?",
+          "es": "¿Qué etiqueta ambiental tiene este coche, por favor?",
+          "kind": "phrase",
+          "note": "Polite question for the rental agent."
+        },
+        {
+          "en": "Could you tell me how much you charge in handling fees per fine?",
+          "es": "¿Me podría decir cuánto cobran de gastos de gestión por multa?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is your friend Sergio, who plans to drive the rental downtown: explain how cameras enforce Madrid's low-emission zone and why fines arrive months later, using impersonal se (se lee la matrícula) and si + present (si entras sin permiso...).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (se lee la matrícula; si entras sin permiso, te llega la multa)",
+        "examples": [
+          {
+            "es": "En la zona de bajas emisiones se lee la matrícula de cada coche.",
+            "en": "In the low-emission zone, every car's license plate is read."
+          },
+          {
+            "es": "Si entras sin autorización, te llega la multa a través de la agencia.",
+            "en": "If you go in without authorization, the fine reaches you through the agency."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Teach Your Partner the Scooter in a Quiet Lot",
+      "objective": "Teach a companion to start, brake, signal and park the scooter, then have her teach it back to you.",
+      "words": [
+        {
+          "en": "the brake lever",
+          "es": "la palanca del freno",
+          "kind": "term"
+        },
+        {
+          "en": "the front brake",
+          "es": "el freno delantero",
+          "kind": "term"
+        },
+        {
+          "en": "the throttle",
+          "es": "el acelerador",
+          "kind": "term"
+        },
+        {
+          "en": "the grip",
+          "es": "el puño",
+          "kind": "term"
+        },
+        {
+          "en": "the kill switch",
+          "es": "el interruptor de apagado",
+          "kind": "term"
+        },
+        {
+          "en": "the braking",
+          "es": "el frenado",
+          "kind": "term"
+        },
+        {
+          "en": "the braking distance",
+          "es": "la distancia de frenado",
+          "kind": "term"
+        },
+        {
+          "en": "the skid",
+          "es": "el derrape",
+          "kind": "term"
+        },
+        {
+          "en": "the balance",
+          "es": "el equilibrio",
+          "kind": "term"
+        },
+        {
+          "en": "your line of sight",
+          "es": "la mirada",
+          "kind": "term",
+          "note": "Mirada al frente = eyes ahead."
+        },
+        {
+          "en": "the kickstand",
+          "es": "la pata lateral",
+          "kind": "term",
+          "note": "Common informal term in Mexico."
+        },
+        {
+          "en": "the cone",
+          "es": "el cono",
+          "kind": "term"
+        },
+        {
+          "en": "the turn",
+          "es": "la vuelta",
+          "kind": "term"
+        },
+        {
+          "en": "gentle, gently",
+          "es": "suave",
+          "kind": "term"
+        },
+        {
+          "en": "suddenly, all at once",
+          "es": "de golpe",
+          "kind": "term"
+        },
+        {
+          "en": "Squeeze it gently, little by little.",
+          "es": "Apriétalo suave, poco a poco.",
+          "kind": "phrase",
+          "note": "Informal tú command; the pronoun attaches and the stress gets an accent: apriétalo."
+        },
+        {
+          "en": "Don't squeeze it suddenly; the wheel can lock.",
+          "es": "No lo aprietes de golpe; se puede bloquear la llanta.",
+          "kind": "phrase",
+          "note": "In negative commands the pronoun goes before the verb: no lo aprietes."
+        },
+        {
+          "en": "Use both brakes at the same time, not just the front one.",
+          "es": "Usa los dos frenos a la vez, no solo el delantero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Signal before the turn and switch it off afterward.",
+          "es": "Pon la direccional antes de la vuelta y apágala después.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Turn it off before you get off and put the kickstand down.",
+          "es": "Apágala antes de bajarte y pon la pata lateral.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now you explain it to me, step by step.",
+          "es": "Ahora explícamelo tú, paso por paso.",
+          "kind": "phrase",
+          "note": "Two pronouns together: me before lo."
+        },
+        {
+          "en": "That's it, do another lap!",
+          "es": "¡Así mero, da otra vuelta!",
+          "kind": "phrase",
+          "note": "Así mero is informal Mexican Spanish."
+        },
+        {
+          "en": "What do you recommend for braking if there's sand on the road?",
+          "es": "¿Qué nos recomienda para frenar si hay arena en el camino?",
+          "kind": "phrase",
+          "note": "Formal usted, to the clerk."
+        }
+      ],
+      "speaking": "You are coaching the AI, your partner Daniela, in an empty lot: teach her to start, brake, signal and park the scooter with commands like apriétalo suave, no lo sueltes and apágala, then ask her to teach it back to you.",
+      "grammar": {
+        "focus": "Commands with object pronouns (apriétalo suave, no lo sueltes, apágalo antes de bajarte)",
+        "examples": [
+          {
+            "es": "Apriétalo suave y no lo sueltes de golpe.",
+            "en": "Squeeze it gently and don't let go of it suddenly."
+          },
+          {
+            "es": "Apágala antes de bajarte de la motoneta.",
+            "en": "Turn it off before you get off the scooter."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Read the Load Sticker Before Riding Two-Up",
+      "objective": "Read the manufacturer's load and tire sticker aloud and explain what it means for your passenger and bags.",
+      "words": [
+        {
+          "en": "the sticker",
+          "es": "la pegatina",
+          "kind": "term",
+          "note": "Spain usage."
+        },
+        {
+          "en": "the manufacturer",
+          "es": "el fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the maximum load",
+          "es": "la carga máxima",
+          "kind": "term"
+        },
+        {
+          "en": "the maximum authorized weight",
+          "es": "el peso máximo autorizado",
+          "kind": "term"
+        },
+        {
+          "en": "the tire pressure",
+          "es": "la presión de los neumáticos",
+          "kind": "term",
+          "note": "Spain says neumático; Latin America says llanta."
+        },
+        {
+          "en": "the rear tire",
+          "es": "el neumático trasero",
+          "kind": "term"
+        },
+        {
+          "en": "the passenger (on a motorbike)",
+          "es": "el acompañante",
+          "kind": "term",
+          "note": "For a woman: la acompañante."
+        },
+        {
+          "en": "the passenger footrests",
+          "es": "las estriberas",
+          "kind": "term"
+        },
+        {
+          "en": "the backpack",
+          "es": "la mochila",
+          "kind": "term"
+        },
+        {
+          "en": "the top box",
+          "es": "el baúl",
+          "kind": "term"
+        },
+        {
+          "en": "the luggage rack",
+          "es": "el portaequipajes",
+          "kind": "term"
+        },
+        {
+          "en": "the overload",
+          "es": "la sobrecarga",
+          "kind": "term"
+        },
+        {
+          "en": "the stability",
+          "es": "la estabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the weight distribution",
+          "es": "el reparto del peso",
+          "kind": "term"
+        },
+        {
+          "en": "the scale",
+          "es": "la báscula",
+          "kind": "term"
+        },
+        {
+          "en": "Before loading the backpacks, we have to read the sticker.",
+          "es": "Antes de cargar las mochilas, hay que leer la pegatina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the manufacturer's sticker, the maximum load is 160 kilos.",
+          "es": "Según la pegatina del fabricante, la carga máxima es de 160 kilos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That includes both of us, the backpacks and the top box.",
+          "es": "Eso incluye a los dos, las mochilas y el baúl.",
+          "kind": "phrase",
+          "note": "Personal a before people: incluye a los dos."
+        },
+        {
+          "en": "After adding it all up, we're over the limit by a few kilos.",
+          "es": "Después de sumarlo todo, nos pasamos del límite por unos kilos.",
+          "kind": "phrase",
+          "note": "Pasarse del límite = to go over the limit; informal."
+        },
+        {
+          "en": "With a passenger, the tire pressure has to go up, according to the sticker.",
+          "es": "Con acompañante, hay que subir la presión según la pegatina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'd better leave a backpack in the hostel's left-luggage room.",
+          "es": "Mejor dejamos una mochila en la consigna del hostal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Where does this sticker show the maximum load?",
+          "es": "¿Dónde pone la carga máxima en esta pegatina?",
+          "kind": "phrase",
+          "note": "In Spain, pone means says or is written."
+        },
+        {
+          "en": "Could you check the tire pressure for us, please?",
+          "es": "¿Nos podría comprobar la presión de los neumáticos, por favor?",
+          "kind": "phrase",
+          "note": "Formal, to the clerk."
+        }
+      ],
+      "speaking": "You are the traveler, and the AI is your friend Guillermo, at a Palma shop: read the manufacturer's load and tire-pressure sticker aloud and explain what it means for riding two-up with bags, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de cargar las mochilas, hay que leer la etiqueta)",
+        "examples": [
+          {
+            "es": "Antes de subir las mochilas, hay que leer la pegatina bajo el asiento.",
+            "en": "Before putting the backpacks on, we have to read the sticker under the seat."
+          },
+          {
+            "es": "Después de pesar las mochilas, hay que sumarlas a nuestro peso.",
+            "en": "After weighing the backpacks, we have to add them to our own weight."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Warning Light Outside Ronda: Propose a Swap",
+      "objective": "Tell the agency what happened before and after the light came on, and propose a replacement car.",
+      "words": [
+        {
+          "en": "the oil warning light",
+          "es": "el testigo de aceite",
+          "kind": "term",
+          "note": "Spain: a dashboard warning light is el testigo; informally el chivato."
+        },
+        {
+          "en": "the engine warning light",
+          "es": "el testigo del motor",
+          "kind": "term"
+        },
+        {
+          "en": "the owner's manual",
+          "es": "el manual del propietario",
+          "kind": "term"
+        },
+        {
+          "en": "the dashboard",
+          "es": "el cuadro de mandos",
+          "kind": "term",
+          "note": "Spain. In Mexico people say el tablero."
+        },
+        {
+          "en": "the oil level",
+          "es": "el nivel de aceite",
+          "kind": "term"
+        },
+        {
+          "en": "the coolant",
+          "es": "el refrigerante",
+          "kind": "term"
+        },
+        {
+          "en": "the breakdown",
+          "es": "la avería",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement car",
+          "es": "el coche de sustitución",
+          "kind": "term"
+        },
+        {
+          "en": "the hard shoulder",
+          "es": "el arcén",
+          "kind": "term",
+          "note": "Spain. In Mexico it is el acotamiento."
+        },
+        {
+          "en": "the uphill climb",
+          "es": "la subida",
+          "kind": "term"
+        },
+        {
+          "en": "the loss of power",
+          "es": "la pérdida de potencia",
+          "kind": "term"
+        },
+        {
+          "en": "the burning smell",
+          "es": "el olor a quemado",
+          "kind": "term"
+        },
+        {
+          "en": "the case number",
+          "es": "el número de expediente",
+          "kind": "term"
+        },
+        {
+          "en": "suddenly",
+          "es": "de repente",
+          "kind": "term"
+        },
+        {
+          "en": "flashing",
+          "es": "parpadeando",
+          "kind": "term",
+          "note": "From parpadear, to blink: el testigo está parpadeando."
+        },
+        {
+          "en": "We were driving up toward Ronda when the warning light came on.",
+          "es": "Íbamos subiendo hacia Ronda cuando se encendió el testigo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First it was flashing orange and then it stayed solid red.",
+          "es": "Primero parpadeaba en naranja y luego se quedó fijo en rojo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The car was losing power on the climb and smelled like burning.",
+          "es": "El coche perdía potencia en la subida y olía a quemado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Álvaro, read me what the manual says about this light.",
+          "es": "Álvaro, léeme qué dice el manual sobre este testigo.",
+          "kind": "phrase",
+          "note": "Informal, to a friend (tú command with pronoun)."
+        },
+        {
+          "en": "The manual says we have to stop and check it.",
+          "es": "El manual dice que hay que parar y comprobarlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather not keep driving until someone checks it.",
+          "es": "Prefiero no seguir conduciendo hasta que alguien lo revise.",
+          "kind": "phrase",
+          "note": "Formal, to the agent. Hasta que + subjunctive for a future event."
+        },
+        {
+          "en": "Could you send us a replacement car at the gas station?",
+          "es": "¿Podrían mandarnos un coche de sustitución a la gasolinera?",
+          "kind": "phrase",
+          "note": "Formal. The conditional podrían makes the request polite."
+        },
+        {
+          "en": "Could you give me a case number, please?",
+          "es": "¿Me podría dar un número de expediente, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Belén, the rental agent: explain what was happening before and after the warning light came on using the imperfect and preterite (íbamos subiendo cuando se encendió), then propose a replacement car with ¿podrían mandar...?",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (íbamos subiendo cuando se encendió; ¿podrían mandar otro coche?)",
+        "examples": [
+          {
+            "es": "Conducíamos por la subida cuando se encendió el testigo del motor.",
+            "en": "We were driving up the climb when the engine warning light came on."
+          },
+          {
+            "es": "¿Les importaría mandarnos otro coche hoy mismo?",
+            "en": "Would you mind sending us another car today?"
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Booked Scooter Gone: Weigh 150cc vs. Electric",
+      "objective": "Compare two substitute scooters for a mountain route, checking license fit, range and price before choosing.",
+      "words": [
+        {
+          "en": "the engine size",
+          "es": "la cilindrada",
+          "kind": "term",
+          "note": "Measured in cc: una moto de 150 is a 150cc scooter."
+        },
+        {
+          "en": "the 150cc engine",
+          "es": "el motor de 150",
+          "kind": "term"
+        },
+        {
+          "en": "the electric scooter",
+          "es": "la moto eléctrica",
+          "kind": "term"
+        },
+        {
+          "en": "the power",
+          "es": "la potencia",
+          "kind": "term"
+        },
+        {
+          "en": "the top speed",
+          "es": "la velocidad máxima",
+          "kind": "term"
+        },
+        {
+          "en": "the hill",
+          "es": "la cuesta",
+          "kind": "term"
+        },
+        {
+          "en": "the unpaved dirt road",
+          "es": "el camino de terracería",
+          "kind": "term",
+          "note": "Mexico: terracería is a dirt or gravel road."
+        },
+        {
+          "en": "the round trip",
+          "es": "el viaje redondo",
+          "kind": "term",
+          "note": "Mexico. Spain says ida y vuelta."
+        },
+        {
+          "en": "the full charge",
+          "es": "la carga completa",
+          "kind": "term"
+        },
+        {
+          "en": "the charging time",
+          "es": "el tiempo de carga",
+          "kind": "term"
+        },
+        {
+          "en": "the battery percentage",
+          "es": "el porcentaje de batería",
+          "kind": "term"
+        },
+        {
+          "en": "the price difference",
+          "es": "la diferencia de precio",
+          "kind": "term"
+        },
+        {
+          "en": "the license type",
+          "es": "el tipo de licencia",
+          "kind": "term"
+        },
+        {
+          "en": "more powerful",
+          "es": "más potente",
+          "kind": "term"
+        },
+        {
+          "en": "approximately",
+          "es": "aproximadamente",
+          "kind": "term"
+        },
+        {
+          "en": "Can I ride a 150 with my license?",
+          "es": "¿Con mi licencia puedo manejar una de 150?",
+          "kind": "phrase",
+          "note": "Formal context; una de 150 means a 150cc scooter."
+        },
+        {
+          "en": "Can you show me in the contract what license is needed?",
+          "es": "¿Me puede mostrar en el contrato qué licencia se necesita?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "The 150 is more powerful than the electric one, right?",
+          "es": "La de 150 es más potente que la eléctrica, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "The electric one is going to have less range on the hills.",
+          "es": "La eléctrica va a tener menos autonomía en las cuestas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many kilometers will the battery last on a full charge?",
+          "es": "¿Cuántos kilómetros va a durar la batería con carga completa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there anywhere to charge it out at Hierve el Agua?",
+          "es": "¿Hay algún lugar para cargarla allá en Hierve el Agua?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's the price difference between the two?",
+          "es": "¿Cuánto es la diferencia de precio entre las dos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If my license doesn't cover it, I'll take the electric one.",
+          "es": "Si mi licencia no la cubre, me voy a llevar la eléctrica.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Rafael, the shop clerk: compare the 150cc and the electric scooter for the ride to Hierve el Agua, asking about license, range and price with ir a, the future and comparisons (más potente que, menos autonomía que), then choose one.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (la eléctrica va a tener menos autonomía; la de 150 es más potente que la otra)",
+        "examples": [
+          {
+            "es": "La eléctrica va a tener menos autonomía que la de 150.",
+            "en": "The electric one is going to have less range than the 150."
+          },
+          {
+            "es": "Saldremos temprano y llegaremos a Hierve el Agua antes del mediodía.",
+            "en": "We'll leave early and reach Hierve el Agua before noon."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "Recover a Towed Scooter at the City Depot",
+      "objective": "Tell the depot attendant when and where you parked, and handle plate numbers, times and fees under pressure.",
+      "words": [
+        {
+          "en": "the municipal tow depot",
+          "es": "el depósito municipal",
+          "kind": "term",
+          "note": "Here depósito means the lot where towed vehicles are kept."
+        },
+        {
+          "en": "the tow (vehicle removal)",
+          "es": "la retirada",
+          "kind": "term",
+          "note": "Spain: la retirada del vehículo is the official word for towing."
+        },
+        {
+          "en": "the towing fee",
+          "es": "la tasa de retirada",
+          "kind": "term"
+        },
+        {
+          "en": "the daily storage fee",
+          "es": "la tasa de estancia",
+          "kind": "term"
+        },
+        {
+          "en": "the amount due",
+          "es": "el importe",
+          "kind": "term",
+          "note": "Spain: standard word for the amount on a bill."
+        },
+        {
+          "en": "the payment receipt",
+          "es": "el resguardo de pago",
+          "kind": "term"
+        },
+        {
+          "en": "the vehicle documents",
+          "es": "la documentación del vehículo",
+          "kind": "term"
+        },
+        {
+          "en": "the owner's authorization",
+          "es": "la autorización del titular",
+          "kind": "term"
+        },
+        {
+          "en": "the bus lane",
+          "es": "el carril bus",
+          "kind": "term"
+        },
+        {
+          "en": "the driveway entrance",
+          "es": "el vado",
+          "kind": "term",
+          "note": "Spain: a marked garage entrance where parking is banned."
+        },
+        {
+          "en": "the motorbike parking area",
+          "es": "el aparcamiento para motos",
+          "kind": "term"
+        },
+        {
+          "en": "the intersection",
+          "es": "el cruce",
+          "kind": "term"
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "quarter past",
+          "es": "y cuarto",
+          "kind": "term",
+          "note": "a las nueve y cuarto = at 9:15."
+        },
+        {
+          "en": "quarter to",
+          "es": "menos cuarto",
+          "kind": "term",
+          "note": "a las once menos cuarto = at 10:45."
+        },
+        {
+          "en": "I left it at a quarter past nine on Aribau Street.",
+          "es": "La dejé a las nueve y cuarto en la calle Aribau.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I came back at a quarter to eleven and it was gone.",
+          "es": "Volví a las once menos cuarto y ya no estaba.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The plate is 4821 KLM; do you want me to spell it?",
+          "es": "La matrícula es 4821 KLM, ¿quiere que se la deletree?",
+          "kind": "phrase",
+          "note": "Formal. Spell letters clearly: ka, ele, eme."
+        },
+        {
+          "en": "Sorry, could you repeat that more slowly?",
+          "es": "Perdone, ¿me lo puede repetir más despacio?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I didn't see any no-parking sign on that corner.",
+          "es": "No vi ninguna señal de prohibido aparcar en esa esquina.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's the total amount, including the storage fee?",
+          "es": "¿Cuánto es el importe total, con la tasa de estancia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you need the owner's authorization, or is the contract enough?",
+          "es": "¿Necesitan la autorización del titular o basta con el contrato?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Albert, I've paid and I'm sending you a photo of the receipt.",
+          "es": "Albert, ya pagué y te mando foto del resguardo.",
+          "kind": "phrase",
+          "note": "Informal, to the shop owner on speaker (tú)."
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Montse, the depot attendant: say when and where you parked and when you came back using the preterite (la dejé a las nueve y cuarto), give the plate number and times clearly, and confirm the fees and the receipt.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (lo dejé a las nueve y cuarto; la matrícula es...; pagué...)",
+        "examples": [
+          {
+            "es": "Aparqué la moto a las nueve y cuarto y me fui a cenar.",
+            "en": "I parked the scooter at a quarter past nine and went to dinner."
+          },
+          {
+            "es": "Pagué el importe en caja y me dieron el resguardo.",
+            "en": "I paid the amount at the window and they gave me the receipt."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Say No When a Beach Acquaintance Asks for the Keys",
+      "objective": "Refuse to lend the rented scooter to someone off the contract, give reasons, and offer a safe alternative.",
+      "words": [
+        {
+          "en": "the authorized driver",
+          "es": "el conductor autorizado",
+          "kind": "term"
+        },
+        {
+          "en": "the clause",
+          "es": "la cláusula",
+          "kind": "term"
+        },
+        {
+          "en": "the lending (loan)",
+          "es": "el préstamo",
+          "kind": "term"
+        },
+        {
+          "en": "the risk",
+          "es": "el riesgo",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the consequences",
+          "es": "las consecuencias",
+          "kind": "term"
+        },
+        {
+          "en": "the traffic police",
+          "es": "la policía de tránsito",
+          "kind": "term"
+        },
+        {
+          "en": "the breathalyzer test",
+          "es": "la prueba de alcohol",
+          "kind": "term"
+        },
+        {
+          "en": "the taxi",
+          "es": "el taxi",
+          "kind": "term"
+        },
+        {
+          "en": "the bus stop",
+          "es": "la parada de bus",
+          "kind": "term"
+        },
+        {
+          "en": "the lift (ride)",
+          "es": "el jalón",
+          "kind": "term",
+          "note": "Costa Rica, informal: ¿Me das un jalón? = Can you give me a ride?"
+        },
+        {
+          "en": "drunk",
+          "es": "tomado",
+          "kind": "term",
+          "note": "Latin America: está tomado is a softer way to say borracho."
+        },
+        {
+          "en": "dude",
+          "es": "mae",
+          "kind": "term",
+          "note": "Costa Rican slang; informal, only with peers."
+        },
+        {
+          "en": "no way",
+          "es": "de ninguna manera",
+          "kind": "term"
+        },
+        {
+          "en": "Dude, I can't lend it to you; you're not on the contract.",
+          "es": "Mae, no te la puedo prestar; no estás en el contrato.",
+          "kind": "phrase",
+          "note": "Informal (tú)."
+        },
+        {
+          "en": "According to my contract, the insurance only covers me.",
+          "es": "Según mi contrato, el seguro solo me cubre a mí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't recommend you ride like this, with no helmet and drunk.",
+          "es": "No te recomiendo que manejes así, sin casco y tomado.",
+          "kind": "phrase",
+          "note": "No recomiendo que + subjunctive (manejes)."
+        },
+        {
+          "en": "Don't touch it, please; if something happens, I pay.",
+          "es": "No la toques, por favor; si pasa algo, pago yo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't get mad, but my answer is no.",
+          "es": "No te enojes, pero mi respuesta es no.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Better not to ride today; tomorrow we'll see what to do.",
+          "es": "Mejor no manejes hoy; mañana vemos qué hacemos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you want, I'll call you a taxi right now.",
+          "es": "Si quieres, te llamo un taxi ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll walk you to the bus stop, okay?",
+          "es": "Te acompaño a la parada de bus, ¿te parece?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Mauricio, a new acquaintance at the beach bar: refuse to lend him your rented scooter, give clear reasons with negative commands (no la tomes) and no te recomiendo que + subjunctive, and offer him a safe way to get where he's going.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no lo tomes; no te recomiendo que manejes así)",
+        "examples": [
+          {
+            "es": "No la tomes, mae; no estás en el contrato.",
+            "en": "Don't take it, dude; you're not on the contract."
+          },
+          {
+            "es": "No te recomiendo que manejes sin casco.",
+            "en": "I don't recommend that you ride without a helmet."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for a Friend Who Tailgated on Teide Road",
+      "objective": "Give a riding friend clear, kind feedback on distance and signaling, and agree on what she will do next.",
+      "words": [
+        {
+          "en": "the safe following distance",
+          "es": "la distancia de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the turn signal",
+          "es": "el intermitente",
+          "kind": "term",
+          "note": "Spain's word; Latin America says la direccional."
+        },
+        {
+          "en": "the reaction time",
+          "es": "el tiempo de reacción",
+          "kind": "term"
+        },
+        {
+          "en": "the sudden braking",
+          "es": "el frenazo",
+          "kind": "term"
+        },
+        {
+          "en": "the overtaking",
+          "es": "el adelantamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the lane change",
+          "es": "el cambio de carril",
+          "kind": "term"
+        },
+        {
+          "en": "the rear-view mirror",
+          "es": "el retrovisor",
+          "kind": "term"
+        },
+        {
+          "en": "the hairpin bend",
+          "es": "la curva cerrada",
+          "kind": "term"
+        },
+        {
+          "en": "the descent",
+          "es": "la bajada",
+          "kind": "term"
+        },
+        {
+          "en": "the cyclist",
+          "es": "el ciclista",
+          "kind": "term"
+        },
+        {
+          "en": "the scare",
+          "es": "el susto",
+          "kind": "term",
+          "note": "Pegarse un susto = to get a real fright (Spain, informal)."
+        },
+        {
+          "en": "the trust",
+          "es": "la confianza",
+          "kind": "term"
+        },
+        {
+          "en": "the habit",
+          "es": "el hábito",
+          "kind": "term"
+        },
+        {
+          "en": "defensive",
+          "es": "a la defensiva",
+          "kind": "term",
+          "note": "Ponerse a la defensiva = to get defensive."
+        },
+        {
+          "en": "Nerea, do you have a minute? I want to mention something about the ride up.",
+          "es": "Nerea, ¿tienes un minuto? Quiero comentarte algo de la subida.",
+          "kind": "phrase",
+          "note": "Informal tú between friends."
+        },
+        {
+          "en": "You were riding right on my tail in the bends.",
+          "es": "Ibas muy pegada a mi moto en las curvas.",
+          "kind": "phrase",
+          "note": "Pegada is feminine because Nerea is a woman; use pegado for a man."
+        },
+        {
+          "en": "I want you to leave more distance, especially on the descent.",
+          "es": "Quiero que dejes más distancia, sobre todo en la bajada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you put your signal on before changing lanes.",
+          "es": "Te recomiendo que pongas el intermitente antes de cambiar de carril.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not saying it to criticize you; I got a real scare.",
+          "es": "No te lo digo para criticarte; me pegué un susto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I understand it bothers you, but it's for our safety.",
+          "es": "Entiendo que te moleste, pero es por nuestra seguridad.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'd rather you ride in front, so you set your own pace.",
+          "es": "Prefiero que vayas delante, así marcas tu propio ritmo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So, what are you going to do differently on the way down?",
+          "es": "Entonces, ¿qué vas a hacer distinto en la bajada?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are Nerea's riding partner, and the AI is Nerea, your friend who rode too close and skipped her signals on the Teide road: give clear, kind feedback with quiero que and te recomiendo que + subjunctive, then agree on what she will do on the descent.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que dejes más distancia; te recomiendo que señales antes)",
+        "examples": [
+          {
+            "es": "Quiero que dejes más distancia en la bajada.",
+            "en": "I want you to leave more distance on the descent."
+          },
+          {
+            "es": "Te recomiendo que señales antes de adelantar a los ciclistas.",
+            "en": "I recommend you signal before overtaking the cyclists."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Two Friends, One Scratch: Settle the Damage Split",
+      "objective": "Report what each friend and the clerk said about a scratch and propose a fair way to split the cost.",
+      "words": [
+        {
+          "en": "the scrape",
+          "es": "el roce",
+          "kind": "term"
+        },
+        {
+          "en": "the bumper",
+          "es": "el parachoques",
+          "kind": "term"
+        },
+        {
+          "en": "the passenger door",
+          "es": "la puerta del copiloto",
+          "kind": "term"
+        },
+        {
+          "en": "the garage parking space",
+          "es": "la plaza de garaje",
+          "kind": "term",
+          "note": "Spain says plaza; Latin America says lugar or cajón."
+        },
+        {
+          "en": "the pillar",
+          "es": "la columna",
+          "kind": "term"
+        },
+        {
+          "en": "the reverse gear",
+          "es": "la marcha atrás",
+          "kind": "term",
+          "note": "Dar marcha atrás = to reverse (Spain)."
+        },
+        {
+          "en": "the maneuver",
+          "es": "la maniobra",
+          "kind": "term"
+        },
+        {
+          "en": "the repair estimate",
+          "es": "el presupuesto de reparación",
+          "kind": "term"
+        },
+        {
+          "en": "the excess (insurance deductible)",
+          "es": "la franquicia",
+          "kind": "term",
+          "note": "Spain's word; Latin America says el deducible."
+        },
+        {
+          "en": "the version (of events)",
+          "es": "la versión",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the blame",
+          "es": "la culpa",
+          "kind": "term"
+        },
+        {
+          "en": "the agreement",
+          "es": "el acuerdo",
+          "kind": "term"
+        },
+        {
+          "en": "the half",
+          "es": "la mitad",
+          "kind": "term"
+        },
+        {
+          "en": "in equal shares",
+          "es": "a partes iguales",
+          "kind": "term"
+        },
+        {
+          "en": "Pablo says the scrape was already there when we picked up the car.",
+          "es": "Pablo dice que el roce ya estaba cuando recogimos el coche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ana says you were reversing into the space next to the pillar.",
+          "es": "Ana dice que estabas aparcando marcha atrás junto a la columna.",
+          "kind": "phrase",
+          "note": "Informal, said to Pablo."
+        },
+        {
+          "en": "And you said you couldn't see the pillar well, right?",
+          "es": "Y tú dijiste que no veías bien la columna, ¿no?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody is lying; each of you remembers something different.",
+          "es": "Ninguno miente; cada uno recuerda algo distinto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I suggest we pay it in equal shares and drop the subject.",
+          "es": "Les propongo pagarlo a partes iguales y olvidarnos del tema.",
+          "kind": "phrase",
+          "note": "Les propongo addresses two or more friends (ustedes)."
+        },
+        {
+          "en": "First we ask for the repair estimate, then we decide.",
+          "es": "Primero pedimos el presupuesto de reparación y luego decidimos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you tell me exactly what your colleague said about scrapes?",
+          "es": "¿Me podría decir qué dijo exactamente su compañero sobre los roces?",
+          "kind": "phrase",
+          "note": "Formal usted, for the rental agency on the phone."
+        },
+        {
+          "en": "I'd appreciate it if you could confirm it by email, please.",
+          "es": "Le agradezco que me lo confirme por correo, por favor.",
+          "kind": "phrase",
+          "note": "Formal usted."
+        }
+      ],
+      "speaking": "You are the friend in the middle, and the AI plays Pablo and Ana in turn: report what each of them and the clerk said using dijo que with the imperfect (estaba, había, veía), then propose a fair way to split the repair cost.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (Pablo dijo que ya estaba; Ana dijo que él estaba aparcando)",
+        "examples": [
+          {
+            "es": "Pablo dijo que el roce ya estaba cuando recogimos el coche.",
+            "en": "Pablo said the scrape was already there when we picked up the car."
+          },
+          {
+            "es": "Ana dijo que Pablo estaba dando marcha atrás junto a la columna.",
+            "en": "Ana said Pablo was reversing next to the pillar."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Keep the Group Going on the Ruta 40 Gravel",
+      "objective": "Encourage a tired, nervous group and commit to a clear plan for driving, breaks and fuel on a long stretch.",
+      "words": [
+        {
+          "en": "the gravel road",
+          "es": "el ripio",
+          "kind": "term",
+          "note": "Word for loose gravel roads in Argentina and Chile."
+        },
+        {
+          "en": "the stretch (of road)",
+          "es": "el tramo",
+          "kind": "term"
+        },
+        {
+          "en": "the detour",
+          "es": "el desvío",
+          "kind": "term"
+        },
+        {
+          "en": "the roadside stop",
+          "es": "el parador",
+          "kind": "term"
+        },
+        {
+          "en": "the gasoline",
+          "es": "la nafta",
+          "kind": "term",
+          "note": "Argentina's word; elsewhere gasolina."
+        },
+        {
+          "en": "the service station",
+          "es": "la estación de servicio",
+          "kind": "term"
+        },
+        {
+          "en": "the jerrycan",
+          "es": "el bidón",
+          "kind": "term"
+        },
+        {
+          "en": "the turn (at the wheel)",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the wind gusts",
+          "es": "las ráfagas de viento",
+          "kind": "term"
+        },
+        {
+          "en": "the guanaco",
+          "es": "el guanaco",
+          "kind": "term"
+        },
+        {
+          "en": "the tiredness",
+          "es": "el cansancio",
+          "kind": "term"
+        },
+        {
+          "en": "the fear",
+          "es": "el miedo",
+          "kind": "term"
+        },
+        {
+          "en": "the phone signal",
+          "es": "la señal de celular",
+          "kind": "term"
+        },
+        {
+          "en": "little by little",
+          "es": "de a poco",
+          "kind": "term",
+          "note": "Common in Argentina; elsewhere poco a poco."
+        },
+        {
+          "en": "I'll drive the gravel stretch to the next service station.",
+          "es": "Yo manejaré el ripio hasta la próxima estación de servicio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll stop every hour to stretch our legs.",
+          "es": "Pararemos cada hora para estirar las piernas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before we leave, we'll fill the tank here.",
+          "es": "Antes de salir, llenaremos el tanque acá.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Valentina, you're going to do great; we'll take it step by step.",
+          "es": "Valentina, vos lo vas a hacer bien; vamos de a poco.",
+          "kind": "phrase",
+          "note": "Informal vos, normal among friends in Argentina."
+        },
+        {
+          "en": "Tomás, you'll be co-pilot and warn me about potholes.",
+          "es": "Tomás, vos irás de copiloto y me avisarás de los pozos.",
+          "kind": "phrase",
+          "note": "Pozos is Argentina's everyday word for potholes."
+        },
+        {
+          "en": "If you feel scared, tell me and we'll stop, no problem.",
+          "es": "Si tenés miedo, me avisás y paramos, sin problema.",
+          "kind": "phrase",
+          "note": "Vos forms: tenés, avisás."
+        },
+        {
+          "en": "I promise you we won't speed; we'll go slowly on the gravel.",
+          "es": "Les prometo que no correremos; iremos despacio en el ripio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hey, we've already done the hardest part, we're doing fine!",
+          "es": "¡Che, ya hicimos lo más difícil, vamos bien!",
+          "kind": "phrase",
+          "note": "Che is a friendly Argentine call for attention."
+        }
+      ],
+      "speaking": "You are the group's planner, and the AI plays Valentina and Tomás, tired friends at a parador near El Calafate: encourage them with lo vas a hacer bien and commit to a plan for driving, breaks and fuel using the future (manejaré, pararemos, cargaremos).",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (yo manejaré el ripio; pararemos cada hora; lo vas a hacer bien)",
+        "examples": [
+          {
+            "es": "Yo manejaré el ripio y vos descansarás atrás.",
+            "en": "I'll drive the gravel and you'll rest in the back."
+          },
+          {
+            "es": "Cargaremos nafta antes de salir y pararemos cada hora.",
+            "en": "We'll get gas before leaving and stop every hour."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "Owner, Son and Friend: Switch Register in One Visit",
+      "objective": "Speak formally to the owner and informally to his son and your friend while asking for a refund of an unused day.",
+      "words": [
+        {
+          "en": "the partial refund",
+          "es": "el reembolso parcial",
+          "kind": "term"
+        },
+        {
+          "en": "the store credit",
+          "es": "la nota de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "the date change",
+          "es": "el cambio de fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the unused day",
+          "es": "el día sin usar",
+          "kind": "term"
+        },
+        {
+          "en": "the receipt (proof of payment)",
+          "es": "el comprobante",
+          "kind": "term"
+        },
+        {
+          "en": "the advance notice",
+          "es": "el aviso previo",
+          "kind": "term"
+        },
+        {
+          "en": "the downpour",
+          "es": "el aguacero",
+          "kind": "term"
+        },
+        {
+          "en": "the cobblestone streets",
+          "es": "las calles empedradas",
+          "kind": "term"
+        },
+        {
+          "en": "the day trip",
+          "es": "la excursión",
+          "kind": "term"
+        },
+        {
+          "en": "the volcano",
+          "es": "el volcán",
+          "kind": "term"
+        },
+        {
+          "en": "the workshop",
+          "es": "el taller",
+          "kind": "term"
+        },
+        {
+          "en": "the family business",
+          "es": "el negocio familiar",
+          "kind": "term"
+        },
+        {
+          "en": "title of respect for an older man",
+          "es": "don",
+          "kind": "term",
+          "note": "Use with the first name and usted: don Arturo."
+        },
+        {
+          "en": "excuse me (when passing or entering)",
+          "es": "con permiso",
+          "kind": "term"
+        },
+        {
+          "en": "Good afternoon, Don Arturo, do you have a moment?",
+          "es": "Buenas tardes, don Arturo, ¿tiene un momento?",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "I'd like to know if a refund for the unused day would be possible.",
+          "es": "Quisiera saber si sería posible un reembolso del día sin usar.",
+          "kind": "phrase",
+          "note": "Formal; quisiera and sería soften the request."
+        },
+        {
+          "en": "If that's not possible, could you give me store credit?",
+          "es": "Si no se puede, ¿me podría dar una nota de crédito?",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "I understand, don't worry; what if we change the date?",
+          "es": "Comprendo, no se preocupe; ¿y si cambiamos la fecha?",
+          "kind": "phrase",
+          "note": "Formal usted."
+        },
+        {
+          "en": "Hey, Kevin, can you pass me the black helmet?",
+          "es": "Oye, Kevin, ¿me pasas el casco negro?",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Did you already check the tires on mine, Kevin?",
+          "es": "¿Ya revisaste las llantas de la mía, Kevin?",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Sofía, how about we go to the volcano tomorrow?",
+          "es": "Sofía, ¿qué te parece si vamos mañana al volcán?",
+          "kind": "phrase",
+          "note": "Informal tú."
+        },
+        {
+          "en": "Thank you very much for your kindness, Don Arturo.",
+          "es": "Muchas gracias por su amabilidad, don Arturo.",
+          "kind": "phrase",
+          "note": "Formal: su, not tu."
+        }
+      ],
+      "speaking": "You are the customer, and the AI plays owner Don Arturo, his son Kevin and your friend Sofía: ask Don Arturo formally about refunding your unused day with quisiera saber si sería posible, then switch to tú with Kevin and Sofía (oye, ¿me pasas...?).",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera saber si sería posible...; oye, ¿me pasas el casco?)",
+        "examples": [
+          {
+            "es": "Don Arturo, quisiera saber si sería posible devolverme el día sin usar.",
+            "en": "Don Arturo, I'd like to know if it would be possible to refund me the unused day."
+          },
+          {
+            "es": "Oye, Kevin, ¿me pasas la llave de la moto azul?",
+            "en": "Hey, Kevin, can you pass me the key for the blue scooter?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Fill Out the Accident Report at a Granada Roundabout",
+      "objective": "Narrate a minor collision step by step with times and fill out the joint accident report with the other driver.",
+      "words": [
+        {
+          "en": "the joint accident report",
+          "es": "el parte amistoso",
+          "kind": "term",
+          "note": "Spain's standard form; both drivers fill it out together and each keeps a copy."
+        },
+        {
+          "en": "the roundabout",
+          "es": "la rotonda",
+          "kind": "term",
+          "note": "The usual word in Spain."
+        },
+        {
+          "en": "the inner lane",
+          "es": "el carril interior",
+          "kind": "term"
+        },
+        {
+          "en": "the outer lane",
+          "es": "el carril exterior",
+          "kind": "term"
+        },
+        {
+          "en": "the exit",
+          "es": "la salida",
+          "kind": "term"
+        },
+        {
+          "en": "the yield sign",
+          "es": "el ceda el paso",
+          "kind": "term"
+        },
+        {
+          "en": "the point of impact",
+          "es": "el punto de impacto",
+          "kind": "term"
+        },
+        {
+          "en": "the circumstances",
+          "es": "las circunstancias",
+          "kind": "term",
+          "note": "The checkbox section of the form; each driver ticks the boxes for their own vehicle."
+        },
+        {
+          "en": "the remarks",
+          "es": "las observaciones",
+          "kind": "term",
+          "note": "The free-text box where you write your own version."
+        },
+        {
+          "en": "the policyholder",
+          "es": "el tomador del seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the policy number",
+          "es": "el número de póliza",
+          "kind": "term"
+        },
+        {
+          "en": "the right side",
+          "es": "el lateral derecho",
+          "kind": "term"
+        },
+        {
+          "en": "the witnesses",
+          "es": "los testigos",
+          "kind": "term"
+        },
+        {
+          "en": "right after",
+          "es": "justo después",
+          "kind": "term"
+        },
+        {
+          "en": "at that moment",
+          "es": "en ese momento",
+          "kind": "term"
+        },
+        {
+          "en": "I entered the roundabout at about a quarter past ten.",
+          "es": "Entré en la rotonda a las diez y cuarto, más o menos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Right after entering, I signaled for the second exit.",
+          "es": "Justo después de entrar, puse el intermitente para la segunda salida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At that moment, I saw your car on my right.",
+          "es": "En ese momento, vi su coche a mi derecha.",
+          "kind": "phrase",
+          "note": "Formal: su coche = your car (usted)."
+        },
+        {
+          "en": "You remember it differently; shall we go over it step by step?",
+          "es": "Usted lo recuerda de otra manera; ¿lo repasamos paso a paso?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "If we don't agree, each of us explains it in the remarks.",
+          "es": "Si no coincidimos, cada uno lo explica en observaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before signing anything, let's check the sketch together.",
+          "es": "Antes de firmar nada, revisemos juntos el croquis.",
+          "kind": "phrase"
+        },
+        {
+          "en": "May I see your policy number, please?",
+          "es": "¿Me deja ver su número de póliza, por favor?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "Afterwards we pulled over to one side so we wouldn't block traffic.",
+          "es": "Después nos apartamos a un lado para no cortar el tráfico.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are a driver after a minor collision in Granada, and the AI is Remedios, the other driver: fill out the parte amistoso together, narrating each step in order with time markers like a las diez y cuarto, justo después de entrar, en ese momento and después.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las diez y cuarto, justo después de entrar, en ese momento, después)",
+        "examples": [
+          {
+            "es": "A las diez y cuarto entré en la rotonda y en ese momento no venía nadie.",
+            "en": "At a quarter past ten I entered the roundabout, and at that moment no one was coming."
+          },
+          {
+            "es": "Justo después de entrar, noté un golpe en la puerta trasera.",
+            "en": "Right after entering, I felt a bump on the rear door."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Near Miss With a Bus: Talk It Through, No Blame",
+      "objective": "Talk through a near miss with your passenger, say what almost happened and what could change tomorrow.",
+      "words": [
+        {
+          "en": "the city bus",
+          "es": "el camión urbano",
+          "kind": "term",
+          "note": "In Mexico, el camión usually means the bus."
+        },
+        {
+          "en": "the cut-off",
+          "es": "el cerrón",
+          "kind": "term",
+          "note": "Informal Mexican: echar un cerrón = to cut someone off in traffic."
+        },
+        {
+          "en": "the driver (of a bus)",
+          "es": "el chofer",
+          "kind": "term"
+        },
+        {
+          "en": "the blind spot",
+          "es": "el punto ciego",
+          "kind": "term"
+        },
+        {
+          "en": "the right lane",
+          "es": "el carril de la derecha",
+          "kind": "term"
+        },
+        {
+          "en": "rush hour",
+          "es": "la hora pico",
+          "kind": "term"
+        },
+        {
+          "en": "the departure time",
+          "es": "la hora de salida",
+          "kind": "term"
+        },
+        {
+          "en": "the distraction",
+          "es": "la distracción",
+          "kind": "term"
+        },
+        {
+          "en": "the hand signal",
+          "es": "la señal con la mano",
+          "kind": "term"
+        },
+        {
+          "en": "the rule",
+          "es": "la regla",
+          "kind": "term"
+        },
+        {
+          "en": "the warning",
+          "es": "el aviso",
+          "kind": "term"
+        },
+        {
+          "en": "serious",
+          "es": "grave",
+          "kind": "term"
+        },
+        {
+          "en": "almost",
+          "es": "por poco",
+          "kind": "term",
+          "note": "Takes the present tense for a past event: por poco nos caemos = we almost fell."
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "The bus almost cut us off on the curve.",
+          "es": "El camión casi nos echa un cerrón en la curva.",
+          "kind": "phrase",
+          "note": "Informal. Casi + present describes a past near miss."
+        },
+        {
+          "en": "We almost fell, but I braked in time.",
+          "es": "Por poco nos caemos, pero frené a tiempo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It could have been serious; good thing we had helmets on.",
+          "es": "Podría haber sido grave; qué bueno que traíamos casco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It wasn't your fault, Esteban; nobody's to blame here.",
+          "es": "No fue tu culpa, Esteban; aquí nadie tiene la culpa.",
+          "kind": "phrase",
+          "note": "Informal (tú)"
+        },
+        {
+          "en": "I think the driver didn't see us in his blind spot.",
+          "es": "Creo que el chofer no nos vio en su punto ciego.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If we leave before rush hour, there will be fewer buses.",
+          "es": "Si salimos antes de la hora pico, habrá menos camiones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you need to tell me something, tap my shoulder and I'll pull over.",
+          "es": "Si necesitas decirme algo, tócame el hombro y me orillo.",
+          "kind": "phrase",
+          "note": "Informal. Orillarse = to pull over (Mexico)."
+        },
+        {
+          "en": "What do you think we can do differently tomorrow?",
+          "es": "¿Qué crees que podemos hacer distinto mañana?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the rider, and the AI is Esteban, your pillion passenger, over dinner: replay how the bus almost cut you off using casi, por poco and podría haber sido, without blaming anyone, then agree on changes for tomorrow with si clauses like si salimos antes, habrá menos tráfico.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (por poco nos caemos; podría haber sido grave; si salimos antes, habrá menos tráfico)",
+        "examples": [
+          {
+            "es": "Por poco nos pega el camión en la curva.",
+            "en": "The bus almost hit us on the curve."
+          },
+          {
+            "es": "Si mañana salimos temprano, habrá menos tráfico en la carretera.",
+            "en": "If we leave early tomorrow, there will be less traffic on the road."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Landslide Ahead: Call Roadside From the Shoulder",
+      "objective": "Call the roadside dispatcher, give location and status in short phrases, and follow her instructions.",
+      "words": [
+        {
+          "en": "the landslide",
+          "es": "el derrumbe",
+          "kind": "term"
+        },
+        {
+          "en": "the road shoulder",
+          "es": "el espaldón",
+          "kind": "term",
+          "note": "The usual word in Costa Rica."
+        },
+        {
+          "en": "the hazard lights",
+          "es": "las luces de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the landmark",
+          "es": "el punto de referencia",
+          "kind": "term"
+        },
+        {
+          "en": "the mud",
+          "es": "el lodo",
+          "kind": "term"
+        },
+        {
+          "en": "the creek",
+          "es": "la quebrada",
+          "kind": "term",
+          "note": "Common in Costa Rica for a stream that can rise fast in rain."
+        },
+        {
+          "en": "the mist",
+          "es": "la neblina",
+          "kind": "term"
+        },
+        {
+          "en": "the ditch",
+          "es": "la cuneta",
+          "kind": "term"
+        },
+        {
+          "en": "the response vehicle",
+          "es": "la unidad",
+          "kind": "term",
+          "note": "Dispatchers say le mandamos una unidad = we're sending a vehicle."
+        },
+        {
+          "en": "the dispatcher (woman)",
+          "es": "la operadora",
+          "kind": "term",
+          "note": "A man is el operador."
+        },
+        {
+          "en": "the estimated time",
+          "es": "el tiempo estimado",
+          "kind": "term"
+        },
+        {
+          "en": "the alternate route",
+          "es": "la ruta alterna",
+          "kind": "term"
+        },
+        {
+          "en": "the road",
+          "es": "la vía",
+          "kind": "term"
+        },
+        {
+          "en": "the safe place",
+          "es": "el lugar seguro",
+          "kind": "term"
+        },
+        {
+          "en": "unstable",
+          "es": "inestable",
+          "kind": "term"
+        },
+        {
+          "en": "We're on the shoulder, about 5 kilometers before Monteverde.",
+          "es": "Estamos en el espaldón, unos 5 kilómetros antes de Monteverde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a landslide blocking the whole road.",
+          "es": "Hay un derrumbe que tapa toda la vía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're fine; nobody is hurt.",
+          "es": "Estamos bien; nadie está herido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We already have the hazard lights on.",
+          "es": "Ya tenemos las luces de emergencia encendidas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Andrés, don't go through there; wait for the response vehicle.",
+          "es": "Andrés, no se meta por ahí; espere a la unidad.",
+          "kind": "phrase",
+          "note": "Many Costa Ricans use usted even with friends."
+        },
+        {
+          "en": "If it keeps raining, we'll wait here inside the car.",
+          "es": "Si sigue lloviendo, esperaremos aquí dentro del carro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the call drops, I'll call you back.",
+          "es": "Si se cae la llamada, la llamaré otra vez.",
+          "kind": "phrase",
+          "note": "Formal: la = you (the dispatcher, a woman)."
+        },
+        {
+          "en": "What's the estimated arrival time?",
+          "es": "¿Cuál es el tiempo estimado de llegada?",
+          "kind": "phrase",
+          "note": "Formal"
+        }
+      ],
+      "speaking": "You are the driver, and the AI is Yesenia, the roadside dispatcher: give your location and status in short phrases, repeat back her commands like quédese en el carro, and plan next steps with si + present → future, such as si sigue lloviendo, esperaremos.",
+      "grammar": {
+        "focus": "Si + present → future; short phone commands (si sigue lloviendo, esperaremos; quédese en el carro, encienda las intermitentes)",
+        "examples": [
+          {
+            "es": "Si sigue lloviendo, esperaremos a la unidad aquí.",
+            "en": "If it keeps raining, we'll wait for the response vehicle here."
+          },
+          {
+            "es": "Quédese en el carro y encienda las luces de emergencia.",
+            "en": "Stay in the car and turn on the hazard lights."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Meet the Insurance Assessor About the Roundabout",
+      "objective": "Answer an insurance assessor's formal questions and explain step by step what was done after the collision.",
+      "words": [
+        {
+          "en": "the insurance assessor",
+          "es": "el perito",
+          "kind": "term",
+          "note": "Spain's usual word; a woman is la perita."
+        },
+        {
+          "en": "the assessor's report",
+          "es": "el informe pericial",
+          "kind": "term"
+        },
+        {
+          "en": "the damage assessment",
+          "es": "la peritación",
+          "kind": "term"
+        },
+        {
+          "en": "the insured incident",
+          "es": "el siniestro",
+          "kind": "term",
+          "note": "Insurance word for any claim event, not only a disaster."
+        },
+        {
+          "en": "the claim notification",
+          "es": "la declaración de siniestro",
+          "kind": "term"
+        },
+        {
+          "en": "the damage valuation",
+          "es": "la valoración de daños",
+          "kind": "term"
+        },
+        {
+          "en": "the photo record",
+          "es": "el reportaje fotográfico",
+          "kind": "term",
+          "note": "The full set of photos an insurer asks for."
+        },
+        {
+          "en": "the overall view",
+          "es": "la vista general",
+          "kind": "term"
+        },
+        {
+          "en": "the other party's insurer",
+          "es": "la compañía contraria",
+          "kind": "term"
+        },
+        {
+          "en": "the damaged part",
+          "es": "la pieza dañada",
+          "kind": "term"
+        },
+        {
+          "en": "the replacement",
+          "es": "la sustitución",
+          "kind": "term"
+        },
+        {
+          "en": "the liability",
+          "es": "la responsabilidad",
+          "kind": "term"
+        },
+        {
+          "en": "the agency's procedure",
+          "es": "el protocolo de la agencia",
+          "kind": "term"
+        },
+        {
+          "en": "subsequently",
+          "es": "posteriormente",
+          "kind": "term"
+        },
+        {
+          "en": "duly",
+          "es": "debidamente",
+          "kind": "term"
+        },
+        {
+          "en": "Photos of both vehicles were taken at the scene.",
+          "es": "Se tomaron fotos de los dos vehículos en el lugar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The report was signed right there, next to the roundabout.",
+          "es": "Se firmó el parte allí mismo, junto a la rotonda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The agency was notified by phone that same morning.",
+          "es": "Se avisó a la agencia esa misma mañana, por teléfono.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The claim notification was subsequently sent by email.",
+          "es": "Posteriormente se envió la declaración de siniestro por correo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you tell me which photos the agency's procedure requires?",
+          "es": "¿Podría indicarme qué fotos exige el protocolo de la agencia?",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "Excuse me, I didn't quite understand the question.",
+          "es": "Disculpe, no he entendido bien la pregunta.",
+          "kind": "phrase",
+          "note": "Formal. Spain uses the present perfect for something that just happened."
+        },
+        {
+          "en": "If any document is missing, I'll send it to you today.",
+          "es": "Si falta algún documento, se lo envío hoy mismo.",
+          "kind": "phrase",
+          "note": "Formal"
+        },
+        {
+          "en": "I would appreciate a copy of the assessor's report.",
+          "es": "Le agradecería una copia del informe pericial.",
+          "kind": "phrase",
+          "note": "Formal"
+        }
+      ],
+      "speaking": "You are the driver from the Granada roundabout, and the AI is Ignacio Ferrer, the insurance assessor: answer his questions formally with usted and explain step by step what was done after the collision using passive se, like se tomaron fotos, se firmó el parte and se avisó a la agencia.",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (se tomaron fotos, se firmó el parte, se avisó a la agencia)",
+        "examples": [
+          {
+            "es": "Se tomaron fotos de ambos vehículos antes de moverlos.",
+            "en": "Photos of both vehicles were taken before they were moved."
+          },
+          {
+            "es": "Se avisó a la agencia y se firmó el parte en el lugar.",
+            "en": "The agency was notified and the report was signed at the scene."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Write a Formal Complaint for a Pre-Existing Dent",
+      "objective": "Write an official complaint form about an unfair dent charge with clear facts, evidence and the outcome you want.",
+      "words": [
+        {
+          "en": "the official complaint form",
+          "es": "la hoja de reclamaciones",
+          "kind": "term",
+          "note": "In Spain, ask for it by this exact name at the desk."
+        },
+        {
+          "en": "the unjustified charge",
+          "es": "el cargo indebido",
+          "kind": "term"
+        },
+        {
+          "en": "the facts",
+          "es": "los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the requested outcome",
+          "es": "la pretensión",
+          "kind": "term",
+          "note": "The box on the form where you state what you want the company to do."
+        },
+        {
+          "en": "the photo metadata",
+          "es": "los metadatos",
+          "kind": "term"
+        },
+        {
+          "en": "the vehicle's condition",
+          "es": "el estado del vehículo",
+          "kind": "term"
+        },
+        {
+          "en": "the attachment",
+          "es": "el anexo",
+          "kind": "term"
+        },
+        {
+          "en": "the complainant's copy",
+          "es": "el ejemplar del reclamante",
+          "kind": "term",
+          "note": "A woman filing is la reclamante."
+        },
+        {
+          "en": "the local consumer office",
+          "es": "la OMIC",
+          "kind": "term",
+          "note": "Say it as one word: O-MIC."
+        },
+        {
+          "en": "the company stamp",
+          "es": "el sello",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation of the charge",
+          "es": "la anulación del cargo",
+          "kind": "term"
+        },
+        {
+          "en": "the rear door",
+          "es": "la puerta trasera",
+          "kind": "term"
+        },
+        {
+          "en": "first of all",
+          "es": "en primer lugar",
+          "kind": "term",
+          "note": "Written register; opens the first point of a report."
+        },
+        {
+          "en": "likewise, in addition",
+          "es": "asimismo",
+          "kind": "term",
+          "note": "Written register; in speech people say también."
+        },
+        {
+          "en": "consequently",
+          "es": "por consiguiente",
+          "kind": "term",
+          "note": "Formal written connector for a result."
+        },
+        {
+          "en": "therefore",
+          "es": "por lo tanto",
+          "kind": "term"
+        },
+        {
+          "en": "Can you give me the official complaint form, please?",
+          "es": "¿Me puede dar la hoja de reclamaciones, por favor?",
+          "kind": "phrase",
+          "note": "Formal, to the agent."
+        },
+        {
+          "en": "The dent already shows in my pickup photos.",
+          "es": "La abolladura ya sale en mis fotos de salida.",
+          "kind": "phrase",
+          "note": "Spoken; in Spain sale means it shows up."
+        },
+        {
+          "en": "First of all, the dent already existed when I picked up the vehicle.",
+          "es": "En primer lugar, la abolladura ya existía al recoger el vehículo.",
+          "kind": "phrase",
+          "note": "Written register for the form."
+        },
+        {
+          "en": "In addition, I attach the photos with date and time.",
+          "es": "Asimismo, adjunto las fotos con fecha y hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, the damage did not happen during the rental.",
+          "es": "Por lo tanto, el daño no se produjo durante el alquiler.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Consequently, I request the cancellation of the unjustified charge.",
+          "es": "Por consiguiente, solicito la anulación del cargo indebido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you stamp my copy, please?",
+          "es": "¿Me sella mi ejemplar, por favor?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "Raquel, it's nothing personal; I just want it on record.",
+          "es": "Raquel, no es nada personal; solo quiero que conste.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Raquel, the agent at the Alicante airport desk: politely ask for the hoja de reclamaciones, then state the facts, your evidence and the outcome you want, using en primer lugar, asimismo and por consiguiente.",
+      "grammar": {
+        "focus": "Written register; report connectors (en primer lugar, asimismo, por consiguiente, por lo tanto)",
+        "examples": [
+          {
+            "es": "En primer lugar, recogí el vehículo el 3 de mayo a las 10:15.",
+            "en": "First of all, I picked up the vehicle on May 3 at 10:15."
+          },
+          {
+            "es": "Por consiguiente, solicito la anulación del cargo de 300 euros.",
+            "en": "Consequently, I request the cancellation of the 300-euro charge."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Coordinate a Hotel Scooter Delivery by WhatsApp",
+      "objective": "Text and call a delivery driver and hotel reception to agree on time, place and handover of the scooter.",
+      "words": [
+        {
+          "en": "the voice message",
+          "es": "el audio",
+          "kind": "term",
+          "note": "In Mexico people say mándame un audio on WhatsApp."
+        },
+        {
+          "en": "the location",
+          "es": "la ubicación",
+          "kind": "term"
+        },
+        {
+          "en": "the receptionist (woman)",
+          "es": "la recepcionista",
+          "kind": "term",
+          "note": "For a man: el recepcionista."
+        },
+        {
+          "en": "the delivery driver",
+          "es": "el repartidor",
+          "kind": "term"
+        },
+        {
+          "en": "the main entrance",
+          "es": "la entrada principal",
+          "kind": "term"
+        },
+        {
+          "en": "the back street",
+          "es": "la calle de atrás",
+          "kind": "term"
+        },
+        {
+          "en": "the sidewalk",
+          "es": "la banqueta",
+          "kind": "term",
+          "note": "Mexican usage; acera is understood too."
+        },
+        {
+          "en": "the arrival time",
+          "es": "la hora de llegada",
+          "kind": "term"
+        },
+        {
+          "en": "the meeting point",
+          "es": "el punto de encuentro",
+          "kind": "term"
+        },
+        {
+          "en": "the sign",
+          "es": "el letrero",
+          "kind": "term"
+        },
+        {
+          "en": "the missed call",
+          "es": "la llamada perdida",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel lobby",
+          "es": "el lobby",
+          "kind": "term",
+          "note": "Standard loanword in Mexican hotels."
+        },
+        {
+          "en": "the gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "the block",
+          "es": "la cuadra",
+          "kind": "term"
+        },
+        {
+          "en": "right now, in a moment",
+          "es": "ahorita",
+          "kind": "term",
+          "note": "In Mexico it can mean now or soon; confirm with a time."
+        },
+        {
+          "en": "half a block away",
+          "es": "a media cuadra",
+          "kind": "term"
+        },
+        {
+          "en": "Hi, Hugo, could you send me your location, please?",
+          "es": "Hola, Hugo, ¿podría mandarme su ubicación, por favor?",
+          "kind": "phrase",
+          "note": "Formal, by text."
+        },
+        {
+          "en": "Would you mind waiting on the back street?",
+          "es": "¿Le importaría esperar en la calle de atrás?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I'm sending you a voice message with the directions.",
+          "es": "Le mando un audio con las indicaciones.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm in front of the blue gate, half a block from the beach.",
+          "es": "Estoy frente al portón azul, a media cuadra de la playa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hugo, I called you, but the call didn't go through.",
+          "es": "Hugo, le marqué, pero no entró la llamada.",
+          "kind": "phrase",
+          "note": "Marcar is the usual Mexican verb for phoning."
+        },
+        {
+          "en": "Lupita, could you tell me where parking is allowed?",
+          "es": "Lupita, ¿podría decirme dónde sí se puede estacionar?",
+          "kind": "phrase",
+          "note": "Formal, to the receptionist."
+        },
+        {
+          "en": "Would it be possible to sign the handover in the lobby?",
+          "es": "¿Sería posible firmar la entrega en el lobby?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Perfect, see you there in 10 minutes.",
+          "es": "Perfecto, nos vemos ahí en 10 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the hotel guest, and the AI is Hugo, the shop driver bringing your scooter, and later Lupita at reception: agree on the time, meeting point and handover by text and phone, using polite forms like ¿podría mandarme…? and ¿le importaría…?",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría mandarme su ubicación?; ¿le importaría esperar en la esquina?)",
+        "examples": [
+          {
+            "es": "¿Podría mandarme su ubicación cuando pueda?",
+            "en": "Could you send me your location when you can?"
+          },
+          {
+            "es": "¿Le importaría estacionarse a media cuadra del hotel?",
+            "en": "Would you mind parking half a block from the hotel?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "Cracked Mirror at Return: Negotiate the Final Check",
+      "objective": "Walk the car with the agent and agree on conditions for paying a repair and releasing the rest of the deposit.",
+      "words": [
+        {
+          "en": "the mirror housing",
+          "es": "la carcasa del espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the mirror glass",
+          "es": "el vidrio del espejo",
+          "kind": "term"
+        },
+        {
+          "en": "the crack",
+          "es": "la rajadura",
+          "kind": "term",
+          "note": "Common in Argentina for a cracked surface."
+        },
+        {
+          "en": "the spare part",
+          "es": "el repuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the labor",
+          "es": "la mano de obra",
+          "kind": "term"
+        },
+        {
+          "en": "the repair shop invoice",
+          "es": "la factura del taller",
+          "kind": "term"
+        },
+        {
+          "en": "the case number",
+          "es": "el número de gestión",
+          "kind": "term"
+        },
+        {
+          "en": "the security deposit",
+          "es": "la garantía",
+          "kind": "term",
+          "note": "In Argentina rental deposits are often called la garantía."
+        },
+        {
+          "en": "the remaining balance",
+          "es": "el saldo restante",
+          "kind": "term"
+        },
+        {
+          "en": "the release (of the deposit)",
+          "es": "la liberación",
+          "kind": "term"
+        },
+        {
+          "en": "normal wear and tear",
+          "es": "el desgaste normal",
+          "kind": "term"
+        },
+        {
+          "en": "the actual cost",
+          "es": "el costo real",
+          "kind": "term"
+        },
+        {
+          "en": "the return checklist",
+          "es": "la planilla de devolución",
+          "kind": "term"
+        },
+        {
+          "en": "the amount",
+          "es": "el monto",
+          "kind": "term"
+        },
+        {
+          "en": "in writing",
+          "es": "por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "as long as, provided that",
+          "es": "siempre que",
+          "kind": "term",
+          "note": "Always followed by the subjunctive in a condition."
+        },
+        {
+          "en": "I told you about the crack by phone on Tuesday.",
+          "es": "Le avisé de la rajadura por teléfono el martes.",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "I have the case number from that call.",
+          "es": "Tengo el número de gestión de esa llamada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would pay for the glass as long as you show me the shop invoice.",
+          "es": "Pagaría el vidrio siempre que me muestren la factura del taller.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would accept the charge provided you release the remaining balance today.",
+          "es": "Aceptaría el cargo con tal de que liberen el saldo restante hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It doesn't seem reasonable to keep the whole deposit for one mirror.",
+          "es": "No me parece razonable retener toda la garantía por un espejo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you gave me the actual cost, I'd pay it with no problem.",
+          "es": "Si me dieran el costo real, lo pagaría sin problema.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you put that in writing on the return checklist?",
+          "es": "¿Me lo podría poner por escrito en la planilla de devolución?",
+          "kind": "phrase",
+          "note": "Formal."
+        },
+        {
+          "en": "If the part costs less, will you refund me the difference?",
+          "es": "En caso de que el repuesto cueste menos, ¿me devuelven la diferencia?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the renter, and the AI is Facundo, the agent at the Bariloche office: walk the car with him, point out that you already reported the cracked mirror by phone, and agree on fair payment terms using the conditional and siempre que / con tal de que + subjunctive.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (pagaría el espejo siempre que me den la factura del taller)",
+        "examples": [
+          {
+            "es": "Pagaría la mano de obra siempre que figure en la factura.",
+            "en": "I would pay the labor as long as it appears on the invoice."
+          },
+          {
+            "es": "Firmaría ahora con tal de que liberen el resto de la garantía.",
+            "en": "I would sign now provided you release the rest of the deposit."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Full Day of Island Scooters in Lanzarote",
+      "objective": "Run a full rental day: teach a friend, solve a flat, handle a near miss, report to the agency and close the return.",
+      "words": [
+        {
+          "en": "the flat tire",
+          "es": "el pinchazo",
+          "kind": "term",
+          "note": "Spain usage; the verb is pinchar."
+        },
+        {
+          "en": "the hand lever",
+          "es": "la maneta",
+          "kind": "term",
+          "note": "Spain usage for brake and clutch levers."
+        },
+        {
+          "en": "the full-face helmet",
+          "es": "el casco integral",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "la guagua",
+          "kind": "term",
+          "note": "Canary Islands word for bus."
+        },
+        {
+          "en": "the crosswind",
+          "es": "el viento lateral",
+          "kind": "term"
+        },
+        {
+          "en": "the roadway",
+          "es": "la calzada",
+          "kind": "term"
+        },
+        {
+          "en": "the stop sign",
+          "es": "el stop",
+          "kind": "term",
+          "note": "Standard in Spain; say it like estop."
+        },
+        {
+          "en": "the kilometer marker",
+          "es": "el punto kilométrico",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "la incidencia",
+          "kind": "term"
+        },
+        {
+          "en": "the lapse of attention",
+          "es": "el despiste",
+          "kind": "term"
+        },
+        {
+          "en": "the sudden swerve",
+          "es": "el volantazo",
+          "kind": "term"
+        },
+        {
+          "en": "the van",
+          "es": "la furgoneta",
+          "kind": "term"
+        },
+        {
+          "en": "the final check",
+          "es": "la revisión final",
+          "kind": "term"
+        },
+        {
+          "en": "the contract closeout",
+          "es": "el cierre del contrato",
+          "kind": "term"
+        },
+        {
+          "en": "without looking for someone to blame",
+          "es": "sin buscar culpables",
+          "kind": "term"
+        },
+        {
+          "en": "calmly",
+          "es": "con calma",
+          "kind": "term"
+        },
+        {
+          "en": "Yaiza, before leaving, shall we check both scooters together?",
+          "es": "Yaiza, antes de salir, ¿revisamos juntos las dos motos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Óscar, you show me which one is the rear brake.",
+          "es": "Óscar, enséñame tú cuál es el freno trasero.",
+          "kind": "phrase",
+          "note": "Informal tú command to a friend."
+        },
+        {
+          "en": "Chema, we have a flat on the rear wheel near Famara.",
+          "es": "Chema, tenemos un pinchazo en la rueda trasera cerca de Famara.",
+          "kind": "phrase",
+          "note": "Formal: keep usted with the dispatcher."
+        },
+        {
+          "en": "We're off the roadway, at kilometer marker 12.",
+          "es": "Estamos fuera de la calzada, en el punto kilométrico 12.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not going to keep riding on the flat tire.",
+          "es": "No vamos a seguir con la rueda pinchada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Óscar, are you okay? Sit down for a moment and breathe.",
+          "es": "Óscar, ¿estás bien? Siéntate un momento y respira.",
+          "kind": "phrase",
+          "note": "Informal."
+        },
+        {
+          "en": "I'm not looking for blame; I want to know what each of us saw.",
+          "es": "No busco culpables; quiero saber qué vimos cada uno.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you sign the final check before we close the contract?",
+          "es": "¿Me firma la revisión final antes de cerrar el contrato?",
+          "kind": "phrase",
+          "note": "Formal, to the clerk."
+        }
+      ],
+      "speaking": "You are the group leader, and the AI plays Yaiza, Óscar and dispatcher Chema: pick up two scooters, teach Óscar the controls with tú commands, report a flat near Famara with your location, talk through a near miss without blame, and close the return using usted.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Si el viento lateral sigue así, preferiría que volviéramos por la costa.",
+            "en": "If the crosswind keeps up like this, I'd prefer that we go back along the coast."
+          },
+          {
+            "es": "Cuando llegue la grúa, le mandaré a la agencia las fotos del pinchazo.",
+            "en": "When the tow truck arrives, I'll send the agency the photos of the flat."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

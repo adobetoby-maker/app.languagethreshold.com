@@ -1584,14 +1584,13 @@ export function getSpeakingMissions(language: SpeakingMissionLanguage) {
   }
   const cached = missionCache.get(language);
   if (cached) return cached;
-  const versionBefore = stageCurriculaVersion();
   const missions = buildSpeakingMissions(language);
-  // Under Node a stage file is read on first use, inside the build: other languages' lists may
-  // predate it.
-  if (stageCurriculaVersion() !== versionBefore) {
-    missionCache.clear();
-    missionIndexCache.clear();
-  }
+  // Under Node a stage file is read on first use, inside this build. That does not make another
+  // language's finished list stale: a stage module belongs to this language's module set, and any
+  // module an earlier language's set shares with it was already read in that earlier build. So the
+  // caches are not cleared here; clearing them re-created every other language's missions, and a
+  // list or mission handed out earlier stopped being the one the lookup returns (the English
+  // Foundations load in the last language's build and used to discard the Spanish list).
   missionCacheStageVersion = stageCurriculaVersion();
   missionCache.set(language, missions);
   missionIndexCache.set(language, new Map(missions.map((mission) => [mission.id, mission])));

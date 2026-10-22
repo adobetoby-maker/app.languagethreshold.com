@@ -3,6 +3,7 @@ import test from "node:test";
 import { loadModule } from "./helpers/bundle.mjs";
 
 const { lessonReviewSnapshot, lessonReviewFingerprint } = await loadModule("src/lib/lesson-review.ts");
+const short = await loadModule("tests/fixtures/short-curriculum.ts");
 const roofing = () => lessonReviewSnapshot("roofing", "Spanish", "English");
 
 test("review snapshot exposes all actual Roofing lesson materials while retaining draft status", () => {
@@ -28,9 +29,13 @@ test("review snapshot exposes all actual Roofing lesson materials while retainin
 });
 
 test("missing lessons and language materials stay visible as gaps rather than invented parity", () => {
+  // No shipped module is short any more; a synthetic 15-lesson curriculum keeps the gap path covered.
+  const shortDraft = short.lessonReviewSnapshot(short.SHORT_MODULE_ID, "Spanish", "English");
+  assert.equal(shortDraft.lessons.length, short.SHORT_LESSON_COUNT);
+  assert.ok(shortDraft.gaps.some((gap) => /15 lesson plans.*requires 30/.test(gap)));
   const travel = lessonReviewSnapshot("travel-breakfast", "Spanish", "English");
-  assert.equal(travel.lessons.length, 15);
-  assert.ok(travel.gaps.some((gap) => /15 lesson plans.*requires 30/.test(gap)));
+  assert.equal(travel.lessons.length, 30);
+  assert.ok(!travel.gaps.some((gap) => /requires 30/.test(gap)));
   const french = lessonReviewSnapshot("roofing", "French", "English");
   assert.ok(french.lessons.every((lesson) => !lesson.words.length && !lesson.reading && !lesson.teaching));
   assert.equal(french.sourceVersion, "unversioned-app-draft");

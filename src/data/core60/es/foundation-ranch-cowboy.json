@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "module": "foundation-ranch-cowboy",
+  "baseModule": "ranch-cowboy",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Ranch & Cowboy Foundation",
+  "threshold": "By Lesson 10, you can greet the crew, count cattle and bales, describe animals and gates, ask where tools are, make polite requests, ask for help, and start Ranch & Cowboy Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say ranch words clearly and greet the crew, the foreman and the owner politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the ranch",
+          "es": "el rancho",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the cow",
+          "es": "la vaca",
+          "kind": "term",
+          "note": "Spanish a is always 'ah'; v sounds close to b."
+        },
+        {
+          "en": "the bull",
+          "es": "el toro",
+          "kind": "term",
+          "note": "A single r is a quick tap of the tongue."
+        },
+        {
+          "en": "the horse",
+          "es": "el caballo",
+          "kind": "term",
+          "note": "ll sounds like English y: ca-BA-yo."
+        },
+        {
+          "en": "the calf",
+          "es": "el becerro",
+          "kind": "term",
+          "note": "rr is a strong rolled r: be-SE-rro."
+        },
+        {
+          "en": "the corral",
+          "es": "el corral",
+          "kind": "term",
+          "note": "Roll the rr and stress the last syllable: co-RRAL."
+        },
+        {
+          "en": "the ear",
+          "es": "la oreja",
+          "kind": "term",
+          "note": "j sounds like a strong English h: o-RE-ha."
+        },
+        {
+          "en": "the scale",
+          "es": "la báscula",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: BÁS-cu-la."
+        },
+        {
+          "en": "the cowboy, the ranch hand",
+          "es": "el vaquero",
+          "kind": "term",
+          "note": "For a woman: la vaquera."
+        },
+        {
+          "en": "Good morning, my name is Carlos.",
+          "es": "Buenos días, me llamo Carlos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, I'm the new ranch hand.",
+          "es": "Mucho gusto, soy el vaquero nuevo.",
+          "kind": "phrase",
+          "note": "A woman says: soy la vaquera nueva."
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use with the owner, a buyer or someone older."
+        },
+        {
+          "en": "Good afternoon, how's it going?",
+          "es": "Buenas tardes, ¿qué tal?",
+          "kind": "phrase",
+          "note": "Informal: fine between coworkers."
+        },
+        {
+          "en": "Fine, thanks, and you?",
+          "es": "Bien, gracias, ¿y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow.",
+          "es": "Hasta mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet the foreman at the corral, say your name, say you are the new ranch hand, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Count cattle and bales, say the time, and give weights, acres and gallons on the ranch.",
+      "focus": "Numbers 0 to 1,000, clock time, and pounds, bales, acres, gallons and head of cattle",
+      "words": [
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term"
+        },
+        {
+          "en": "the bale",
+          "es": "la paca",
+          "kind": "term",
+          "note": "Common in Mexico and the US: una paca de pastura, a bale of hay."
+        },
+        {
+          "en": "the head (of cattle)",
+          "es": "la cabeza",
+          "kind": "term",
+          "note": "Ranchers count cattle by cabezas: 300 cabezas."
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the acre",
+          "es": "el acre",
+          "kind": "term"
+        },
+        {
+          "en": "the mile",
+          "es": "la milla",
+          "kind": "term"
+        },
+        {
+          "en": "the hour, the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the weight",
+          "es": "el peso",
+          "kind": "term",
+          "note": "Also the name of the Mexican currency."
+        },
+        {
+          "en": "the ton",
+          "es": "la tonelada",
+          "kind": "term"
+        },
+        {
+          "en": "We start at 6 in the morning.",
+          "es": "Empezamos a las 6 de la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have 300 head of cattle.",
+          "es": "Tenemos 300 cabezas de ganado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The calf weighs 450 pounds.",
+          "es": "El becerro pesa 450 libras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need 20 bales of hay.",
+          "es": "Necesito 20 pacas de pastura.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The south pasture has 160 acres.",
+          "es": "El potrero sur tiene 160 acres.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's 7 o'clock.",
+          "es": "Son las 7.",
+          "kind": "phrase",
+          "note": "Use son las for 2 o'clock and later; es la 1 for one o'clock."
+        }
+      ],
+      "speaking": "Tell a coworker what time you start, how many bales you need, and how many head of cattle are in the corral."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe animals, gates and troughs, and say who people are and where the horses are.",
+      "focus": "ser for what something or someone is, estar for its condition or location",
+      "words": [
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term",
+          "note": "Agrees: la vaca está enferma."
+        },
+        {
+          "en": "healthy",
+          "es": "sano",
+          "kind": "term"
+        },
+        {
+          "en": "wild, aggressive",
+          "es": "bravo",
+          "kind": "term",
+          "note": "Ranch use for a mean or wild animal, not 'brave'."
+        },
+        {
+          "en": "gentle, tame",
+          "es": "manso",
+          "kind": "term"
+        },
+        {
+          "en": "lame",
+          "es": "cojo",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "empty",
+          "es": "vacío",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "The gate is open.",
+          "es": "El portón está abierto.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "That bull is aggressive.",
+          "es": "Ese toro es bravo.",
+          "kind": "phrase",
+          "note": "ser: what the animal is like."
+        },
+        {
+          "en": "The cow is sick.",
+          "es": "La vaca está enferma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The water trough is empty.",
+          "es": "El bebedero está vacío.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The horses are in the corral.",
+          "es": "Los caballos están en el corral.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "I'm a ranch hand and she is the owner.",
+          "es": "Soy vaquero y ella es la dueña.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the foreman if the gate is open or closed, which cow is sick, and where the horses are."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what there is, and what you need or want for ranch chores.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the water trough",
+          "es": "el bebedero",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun with el: el agua fría."
+        },
+        {
+          "en": "the hay, the feed",
+          "es": "la pastura",
+          "kind": "term",
+          "note": "Also el heno or el zacate, depending on the region."
+        },
+        {
+          "en": "the salt block",
+          "es": "el bloque de sal",
+          "kind": "term"
+        },
+        {
+          "en": "the wire",
+          "es": "el alambre",
+          "kind": "term"
+        },
+        {
+          "en": "the pliers",
+          "es": "las pinzas",
+          "kind": "term"
+        },
+        {
+          "en": "the rope",
+          "es": "la soga",
+          "kind": "term"
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the bucket",
+          "es": "la cubeta",
+          "kind": "term"
+        },
+        {
+          "en": "There is water in the trough.",
+          "es": "Hay agua en el bebedero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I have the rope in the truck.",
+          "es": "Tengo la soga en la troca.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need the pliers and the wire.",
+          "es": "Necesito las pinzas y el alambre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want the gloves?",
+          "es": "¿Quieres los guantes?",
+          "kind": "phrase",
+          "note": "Informal tú, between coworkers."
+        },
+        {
+          "en": "We have to fill the trough today.",
+          "es": "Hay que llenar el bebedero hoy.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done."
+        },
+        {
+          "en": "We have to put the salt block in the corral.",
+          "es": "Hay que poner el bloque de sal en el corral.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker what you have, what you need for the trough, and ask if they want the gloves."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you will do on the ranch, and what you can or can't do.",
+      "focus": "ir, ir a + infinitive for plans, hacer, poder",
+      "words": [
+        {
+          "en": "the fence",
+          "es": "la cerca",
+          "kind": "term"
+        },
+        {
+          "en": "the fence post",
+          "es": "el poste",
+          "kind": "term"
+        },
+        {
+          "en": "the pasture",
+          "es": "el potrero",
+          "kind": "term"
+        },
+        {
+          "en": "the grass",
+          "es": "el pasto",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup truck",
+          "es": "la troca",
+          "kind": "term",
+          "note": "Standard US ranch word; also la camioneta."
+        },
+        {
+          "en": "the trailer",
+          "es": "el remolque",
+          "kind": "term",
+          "note": "Many US crews also say la traila."
+        },
+        {
+          "en": "the tractor",
+          "es": "el tractor",
+          "kind": "term"
+        },
+        {
+          "en": "the road",
+          "es": "el camino",
+          "kind": "term"
+        },
+        {
+          "en": "the barn",
+          "es": "el granero",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the south pasture.",
+          "es": "Voy al potrero sur.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to fix the fence tomorrow.",
+          "es": "Vamos a arreglar la cerca mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do I do with the post?",
+          "es": "¿Qué hago con el poste?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you drive the truck?",
+          "es": "¿Puedes manejar la troca?",
+          "kind": "phrase",
+          "note": "Informal tú; with the boss say ¿Puede usted…?"
+        },
+        {
+          "en": "I can't move the trailer alone.",
+          "es": "No puedo mover el remolque solo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker where you are going, what you are going to fix, and ask if they can drive the truck."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about daily ranch work: who rides, who checks the cows, and what the animals eat and drink.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the cattle",
+          "es": "el ganado",
+          "kind": "term"
+        },
+        {
+          "en": "the steer",
+          "es": "el novillo",
+          "kind": "term"
+        },
+        {
+          "en": "the heifer",
+          "es": "la vaquilla",
+          "kind": "term"
+        },
+        {
+          "en": "the saddle",
+          "es": "la silla de montar",
+          "kind": "term",
+          "note": "Often just la silla on the ranch."
+        },
+        {
+          "en": "the reins",
+          "es": "las riendas",
+          "kind": "term"
+        },
+        {
+          "en": "the bit",
+          "es": "el freno",
+          "kind": "term"
+        },
+        {
+          "en": "the horseshoe",
+          "es": "la herradura",
+          "kind": "term"
+        },
+        {
+          "en": "the lasso, the lariat",
+          "es": "el lazo",
+          "kind": "term"
+        },
+        {
+          "en": "the hat",
+          "es": "el sombrero",
+          "kind": "term"
+        },
+        {
+          "en": "the boots",
+          "es": "las botas",
+          "kind": "term"
+        },
+        {
+          "en": "I work on the ranch Monday to Saturday.",
+          "es": "Trabajo en el rancho de lunes a sábado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you ride horses?",
+          "es": "¿Montas a caballo?",
+          "kind": "phrase",
+          "note": "Informal tú form: montas."
+        },
+        {
+          "en": "We drive the cattle to the pasture.",
+          "es": "Nosotros arreamos el ganado al potrero.",
+          "kind": "phrase",
+          "note": "arrear: to drive or move cattle."
+        },
+        {
+          "en": "You open the gate and I check the cows.",
+          "es": "Usted abre el portón y yo reviso las vacas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The cows eat grass in the morning.",
+          "es": "Las vacas comen pasto en la mañana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The calves drink water from the trough.",
+          "es": "Los becerros beben agua del bebedero.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker what you do every day on the ranch and ask if they ride horses and when the cattle eat."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask who, what, where, when, how many and why about cattle, tools and the crew.",
+      "focus": "qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees: ¿cuántas vacas?, ¿cuántos becerros?"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words for 'why'; porque, one word, means 'because'."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the brand, the branding iron",
+          "es": "el fierro",
+          "kind": "term",
+          "note": "Mexican ranch word; also la marca."
+        },
+        {
+          "en": "the ear tag",
+          "es": "el arete",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the branding iron?",
+          "es": "¿Dónde está el fierro?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many cows are in the corral?",
+          "es": "¿Cuántas vacas hay en el corral?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the foreman?",
+          "es": "¿Quién es el encargado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When are we going to brand?",
+          "es": "¿Cuándo vamos a herrar?",
+          "kind": "phrase",
+          "note": "herrar: to brand cattle; also marcar."
+        },
+        {
+          "en": "Why is the horse lame?",
+          "es": "¿Por qué está cojo el caballo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which is the gate to the north pasture?",
+          "es": "¿Cuál es el portón del potrero norte?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the foreman who is in charge, where the branding iron is, and how many cows are in the corral."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody, nothing and not yet, and ask for more, less or another on the ranch.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: no veo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another, other",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never use un before it: otra jeringa, not una otra."
+        },
+        {
+          "en": "the vaccine",
+          "es": "la vacuna",
+          "kind": "term"
+        },
+        {
+          "en": "the syringe",
+          "es": "la jeringa",
+          "kind": "term"
+        },
+        {
+          "en": "the needle",
+          "es": "la aguja",
+          "kind": "term"
+        },
+        {
+          "en": "There is nobody in the barn.",
+          "es": "No hay nadie en el granero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I never work alone with the bull.",
+          "es": "Nunca trabajo solo con el toro.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The calves don't have the vaccine yet.",
+          "es": "Los becerros todavía no tienen la vacuna.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another needle, please.",
+          "es": "Necesito otra aguja, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There is less water in the trough today.",
+          "es": "Hay menos agua en el bebedero hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't touch anything without asking.",
+          "es": "No toque nada sin preguntar.",
+          "kind": "phrase",
+          "note": "Formal usted command."
+        }
+      ],
+      "speaking": "Tell the foreman the calves don't have the vaccine yet, ask for another needle, and say there is less water today."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask for help politely and give simple usted commands at the chute, the gate and the barn.",
+      "focus": "¿Puede…? + infinitive and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "the chute (alley)",
+          "es": "la manga",
+          "kind": "term",
+          "note": "Mexican ranch word for the cattle alley leading to the squeeze."
+        },
+        {
+          "en": "the squeeze chute",
+          "es": "la prensa",
+          "kind": "term"
+        },
+        {
+          "en": "the first aid kit",
+          "es": "el botiquín",
+          "kind": "term"
+        },
+        {
+          "en": "the vet",
+          "es": "el veterinario",
+          "kind": "term",
+          "note": "For a woman: la veterinaria."
+        },
+        {
+          "en": "the foreman",
+          "es": "el encargado",
+          "kind": "term",
+          "note": "For a woman: la encargada."
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "the padlock",
+          "es": "el candado",
+          "kind": "term"
+        },
+        {
+          "en": "the radio",
+          "es": "el radio",
+          "kind": "term"
+        },
+        {
+          "en": "the flashlight",
+          "es": "la lámpara",
+          "kind": "term"
+        },
+        {
+          "en": "Can you open the chute, please?",
+          "es": "¿Puede abrir la manga, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Close the gate, please.",
+          "es": "Cierre el portón, por favor.",
+          "kind": "phrase",
+          "note": "Usted command; to a crew say cierren."
+        },
+        {
+          "en": "Bring the first aid kit, please.",
+          "es": "Traiga el botiquín, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you call the vet?",
+          "es": "¿Puede llamar al veterinario?",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: al veterinario."
+        },
+        {
+          "en": "Wait here, please.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Hand me the padlock key, please.",
+          "es": "Páseme la llave del candado, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a coworker politely to open the chute, close the gate, and bring the first aid kit."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize ranch words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases",
+      "words": [
+        {
+          "en": "the vaccination",
+          "es": "la vacunación",
+          "kind": "term",
+          "note": "-ción equals English -tion; these words are feminine."
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the infection",
+          "es": "la infección",
+          "kind": "term"
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term",
+          "note": "-dad equals English -ty; these words are feminine."
+        },
+        {
+          "en": "the quantity",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the property",
+          "es": "la propiedad",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the temperature",
+          "es": "la temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat more slowly, please?",
+          "es": "¿Puede repetir más despacio, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say 'fence' in Spanish?",
+          "es": "¿Cómo se dice 'fence' en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, call 911.",
+          "es": "Es una emergencia, llame al 911.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker you speak a little Spanish, ask them to repeat more slowly, and ask how to say a ranch word."
+    }
+  ]
+}

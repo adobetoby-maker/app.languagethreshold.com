@@ -1,0 +1,952 @@
+{
+  "version": 1,
+  "module": "foundation-catholic-ministry",
+  "baseModule": "catholic-ministry",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Catholic Ministry Foundation",
+  "threshold": "By Lesson 10, you can greet parishioners, give Mass times and dates, say what a family needs for a sacrament, ask simple questions, make polite requests, and start Catholic Ministry Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce key church words and greet parishioners at the door before and after Mass.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings",
+      "words": [
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term",
+          "note": "Each vowel is short and clear: ee-GLEH-syah."
+        },
+        {
+          "en": "the Mass",
+          "es": "la misa",
+          "kind": "term",
+          "note": "Pure vowels, no glide: MEE-sah."
+        },
+        {
+          "en": "the priest (Father)",
+          "es": "el padre",
+          "kind": "term",
+          "note": "Address a priest directly as padre."
+        },
+        {
+          "en": "the chapel",
+          "es": "la capilla",
+          "kind": "term",
+          "note": "ll sounds like English y: kah-PEE-yah."
+        },
+        {
+          "en": "the rosary",
+          "es": "el rosario",
+          "kind": "term",
+          "note": "An r at the start of a word is trilled like rr."
+        },
+        {
+          "en": "the prayer",
+          "es": "la oración",
+          "kind": "term",
+          "note": "The written accent marks the stress: o-rah-SYOHN."
+        },
+        {
+          "en": "the son",
+          "es": "el hijo",
+          "kind": "term",
+          "note": "j sounds like a strong English h: EE-ho."
+        },
+        {
+          "en": "Christmas Eve",
+          "es": "la Nochebuena",
+          "kind": "term",
+          "note": "ch sounds as in English church."
+        },
+        {
+          "en": "the burial",
+          "es": "el entierro",
+          "kind": "term",
+          "note": "rr is a strong rolled trill: en-TYEH-rro."
+        },
+        {
+          "en": "the deacon",
+          "es": "el diácono",
+          "kind": "term",
+          "note": "Stress the accented syllable: DYAH-ko-no."
+        },
+        {
+          "en": "Good morning, my name is Miguel.",
+          "es": "Buenos días, me llamo Miguel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I work here at the parish.",
+          "es": "Trabajo aquí en la parroquia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal; use it with parishioners you don't know well."
+        },
+        {
+          "en": "Welcome to the church!",
+          "es": "¡Bienvenidos a la iglesia!",
+          "kind": "phrase"
+        },
+        {
+          "en": "God bless you.",
+          "es": "Que Dios lo bendiga.",
+          "kind": "phrase",
+          "note": "Say lo to a man, la to a woman, los to a group."
+        }
+      ],
+      "speaking": "Greet a parishioner at the church door, say your name and that you work at the parish, and wish them God's blessing."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give Mass times, page numbers, counts and prices for parish events.",
+      "focus": "Numbers 0 to 1,000, clock time (a las 12:30), and counts of pages, minutes, people and dollars",
+      "words": [
+        {
+          "en": "the Mass schedule",
+          "es": "el horario de misas",
+          "kind": "term"
+        },
+        {
+          "en": "Sunday",
+          "es": "el domingo",
+          "kind": "term",
+          "note": "Los domingos means on Sundays, every week."
+        },
+        {
+          "en": "Saturday",
+          "es": "el sábado",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the morning",
+          "es": "la mañana",
+          "kind": "term",
+          "note": "A las 9 de la mañana means at 9 a.m."
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term",
+          "note": "A las 5 de la tarde means at 5 p.m."
+        },
+        {
+          "en": "the page",
+          "es": "la página",
+          "kind": "term"
+        },
+        {
+          "en": "the pew",
+          "es": "la banca",
+          "kind": "term"
+        },
+        {
+          "en": "the candles",
+          "es": "las velas",
+          "kind": "term"
+        },
+        {
+          "en": "the collection",
+          "es": "la colecta",
+          "kind": "term"
+        },
+        {
+          "en": "the hymnal",
+          "es": "el cancionero",
+          "kind": "term"
+        },
+        {
+          "en": "The Spanish Mass is at 12:30.",
+          "es": "La misa en español es a las 12:30.",
+          "kind": "phrase",
+          "note": "Use a las for at with clock times."
+        },
+        {
+          "en": "Open the hymnal to page 125.",
+          "es": "Abran el cancionero en la página 125.",
+          "kind": "phrase",
+          "note": "Ustedes command to the whole congregation."
+        },
+        {
+          "en": "The class lasts 90 minutes.",
+          "es": "La clase dura 90 minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The retreat costs 25 dollars per person.",
+          "es": "El retiro cuesta 25 dólares por persona.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's already 10 o'clock.",
+          "es": "Ya son las 10 en punto.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a visitor what time the Spanish Mass is, how long the class lasts, and what page to open in the hymnal."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Describe people, places and conditions in the parish with ser and estar.",
+      "focus": "ser for what something or someone is, estar for its condition or location",
+      "words": [
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term",
+          "note": "Agrees with the noun: la iglesia está abierta."
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "sad",
+          "es": "triste",
+          "kind": "term",
+          "note": "Use estar for a feeling right now: está triste."
+        },
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term"
+        },
+        {
+          "en": "happy",
+          "es": "contento",
+          "kind": "term"
+        },
+        {
+          "en": "baptized",
+          "es": "bautizado",
+          "kind": "term"
+        },
+        {
+          "en": "Catholic",
+          "es": "católico",
+          "kind": "term",
+          "note": "Ser for identity: es católico, es católica."
+        },
+        {
+          "en": "new",
+          "es": "nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the sacristy",
+          "es": "la sacristía",
+          "kind": "term"
+        },
+        {
+          "en": "the priest",
+          "es": "el sacerdote",
+          "kind": "term"
+        },
+        {
+          "en": "The church is open until 6.",
+          "es": "La iglesia está abierta hasta las 6.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Father is in the sacristy.",
+          "es": "El padre está en la sacristía.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "It's a big, bilingual parish.",
+          "es": "Es una parroquia grande y bilingüe.",
+          "kind": "phrase",
+          "note": "ser: what something is."
+        },
+        {
+          "en": "Is your son already baptized?",
+          "es": "¿Su hijo ya está bautizado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're new here, right?",
+          "es": "Usted es nuevo aquí, ¿verdad?",
+          "kind": "phrase",
+          "note": "Say nueva to a woman."
+        }
+      ],
+      "speaking": "Tell a visitor whether the church is open, where the priest is, and what kind of parish it is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what a family has, needs and wants for a baptism, and what they have to do.",
+      "focus": "tener, hay, necesitar, querer, and hay que + infinitive for documents and steps",
+      "words": [
+        {
+          "en": "the baptism certificate",
+          "es": "el certificado de bautismo",
+          "kind": "term"
+        },
+        {
+          "en": "the birth certificate",
+          "es": "el acta de nacimiento",
+          "kind": "term",
+          "note": "Feminine noun that takes el in the singular: el acta, las actas."
+        },
+        {
+          "en": "the godfather",
+          "es": "el padrino",
+          "kind": "term"
+        },
+        {
+          "en": "the godmother",
+          "es": "la madrina",
+          "kind": "term"
+        },
+        {
+          "en": "the class",
+          "es": "la clase",
+          "kind": "term"
+        },
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "religious education",
+          "es": "la catequesis",
+          "kind": "term"
+        },
+        {
+          "en": "the date",
+          "es": "la fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the baptismal water",
+          "es": "el agua bautismal",
+          "kind": "term",
+          "note": "Feminine; takes el in the singular: el agua bautismal."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "the prep talk",
+          "es": "la plática",
+          "kind": "term",
+          "note": "In Mexican parishes, la plática is the required preparation talk."
+        },
+        {
+          "en": "Do you have the baptism certificate?",
+          "es": "¿Tiene el certificado de bautismo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need the child's birth certificate.",
+          "es": "Necesito el acta de nacimiento del niño.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want to baptize your daughter?",
+          "es": "¿Quiere bautizar a su hija?",
+          "kind": "phrase",
+          "note": "Personal a before a person: bautizar a su hija."
+        },
+        {
+          "en": "There's religious education class on Sundays.",
+          "es": "Hay clase de catequesis los domingos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to fill out this form.",
+          "es": "Hay que llenar este formulario.",
+          "kind": "phrase",
+          "note": "Hay que + infinitive: something everyone has to do."
+        },
+        {
+          "en": "The godparents have to go to a prep talk.",
+          "es": "Los padrinos tienen que ir a una plática.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a parent what documents they need for the baptism, ask if they have a godfather and godmother, and say what they have to do."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you are going, what you plan to do, and what you can do in ministry.",
+      "focus": "ir, ir a + infinitive for plans, hacer, and poder (puedo, puede)",
+      "words": [
+        {
+          "en": "the retreat",
+          "es": "el retiro",
+          "kind": "term"
+        },
+        {
+          "en": "the procession",
+          "es": "la procesión",
+          "kind": "term"
+        },
+        {
+          "en": "the visit",
+          "es": "la visita",
+          "kind": "term"
+        },
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent: os-pee-TAHL."
+        },
+        {
+          "en": "First Communion",
+          "es": "la primera comunión",
+          "kind": "term"
+        },
+        {
+          "en": "Confirmation",
+          "es": "la confirmación",
+          "kind": "term"
+        },
+        {
+          "en": "the rehearsal",
+          "es": "el ensayo",
+          "kind": "term"
+        },
+        {
+          "en": "the quinceañera",
+          "es": "los quince años",
+          "kind": "term",
+          "note": "The celebration is los quince años; la quinceañera is the girl."
+        },
+        {
+          "en": "the meeting",
+          "es": "la reunión",
+          "kind": "term"
+        },
+        {
+          "en": "Friday",
+          "es": "el viernes",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to visit your mother in the hospital.",
+          "es": "Voy a visitar a su mamá en el hospital.",
+          "kind": "phrase",
+          "note": "Personal a before a person: visitar a su mamá."
+        },
+        {
+          "en": "We're going to have the rehearsal on Friday.",
+          "es": "Vamos a hacer el ensayo el viernes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Are you going to have a party after the baptism?",
+          "es": "¿Van a hacer una fiesta después del bautizo?",
+          "kind": "phrase",
+          "note": "El bautizo is the event; el bautismo is the sacrament."
+        },
+        {
+          "en": "I can bring Communion to your home.",
+          "es": "Puedo llevar la comunión a su casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can't go to the meeting tomorrow.",
+          "es": "No puedo ir a la reunión mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a family when you are going to visit, what you are going to do at the rehearsal, and what you can bring."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you, volunteers and families regularly do at Mass and in parish groups.",
+      "focus": "Present tense of -ar, -er, -ir verbs: rezo, cantas, vive, rezamos, asisten",
+      "words": [
+        {
+          "en": "the reading",
+          "es": "la lectura",
+          "kind": "term"
+        },
+        {
+          "en": "the psalm",
+          "es": "el salmo",
+          "kind": "term"
+        },
+        {
+          "en": "the Gospel",
+          "es": "el Evangelio",
+          "kind": "term"
+        },
+        {
+          "en": "the homily",
+          "es": "la homilía",
+          "kind": "term"
+        },
+        {
+          "en": "the choir",
+          "es": "el coro",
+          "kind": "term"
+        },
+        {
+          "en": "the altar",
+          "es": "el altar",
+          "kind": "term"
+        },
+        {
+          "en": "the ambo",
+          "es": "el ambón",
+          "kind": "term"
+        },
+        {
+          "en": "the lector",
+          "es": "el lector",
+          "kind": "term",
+          "note": "For a woman: la lectora."
+        },
+        {
+          "en": "the catechist",
+          "es": "la catequista",
+          "kind": "term",
+          "note": "Same form for a man: el catequista."
+        },
+        {
+          "en": "the prayer group",
+          "es": "el grupo de oración",
+          "kind": "term"
+        },
+        {
+          "en": "I read the first reading.",
+          "es": "Leo la primera lectura.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you sing in the choir?",
+          "es": "¿Tú cantas en el coro?",
+          "kind": "phrase",
+          "note": "Tú is informal: use it with a fellow volunteer you know well."
+        },
+        {
+          "en": "You live near the church, right?",
+          "es": "Usted vive cerca de la iglesia, ¿verdad?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We pray the rosary on Tuesdays.",
+          "es": "Nosotros rezamos el rosario los martes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They attend Mass every Sunday.",
+          "es": "Ellos asisten a misa cada domingo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The children learn the prayers in religious education.",
+          "es": "Los niños aprenden las oraciones en catequesis.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a new lector what you read, what the choir sings, and when your prayer group prays the rosary."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask parishioners and visitors simple questions about names, times, places and reasons.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who",
+          "es": "¿quién?",
+          "kind": "term",
+          "note": "Plural for more than one person: ¿quiénes?"
+        },
+        {
+          "en": "where",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Use ¿cuántos? for how many: ¿cuántos niños?"
+        },
+        {
+          "en": "how",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque, one word, means because."
+        },
+        {
+          "en": "which / what",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿cuál es...? for a name, number or date."
+        },
+        {
+          "en": "the parish office",
+          "es": "la oficina parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the confessional",
+          "es": "el confesionario",
+          "kind": "term"
+        },
+        {
+          "en": "Where is the parish office?",
+          "es": "¿Dónde está la oficina parroquial?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When are confessions?",
+          "es": "¿Cuándo son las confesiones?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's your daughter's name?",
+          "es": "¿Cómo se llama su hija?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's your phone number?",
+          "es": "¿Cuál es su número de teléfono?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is registration?",
+          "es": "¿Cuánto cuesta la inscripción?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why do you want to become Catholic?",
+          "es": "¿Por qué quiere ser católico?",
+          "kind": "phrase",
+          "note": "Say católica to a woman."
+        }
+      ],
+      "speaking": "Ask a newcomer their name, their phone number, when they can come to the parish office, and why they want to become Catholic."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is missing, not done yet, or needed in larger or smaller amounts at the parish.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro; double negatives (no hay nadie)",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term",
+          "note": "After a verb, use no first: no hay nadie."
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "After a verb, use no first: no tiene nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less / fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before it: otra misa, not una otra misa."
+        },
+        {
+          "en": "the host",
+          "es": "la hostia",
+          "kind": "term"
+        },
+        {
+          "en": "the chalice",
+          "es": "el cáliz",
+          "kind": "term"
+        },
+        {
+          "en": "the parish bulletin",
+          "es": "el boletín",
+          "kind": "term"
+        },
+        {
+          "en": "There's no one in the chapel.",
+          "es": "No hay nadie en la capilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's never too late to come back to the Church.",
+          "es": "Nunca es tarde para regresar a la Iglesia.",
+          "kind": "phrase",
+          "note": "Capital I for the Church as a community; small i for a building."
+        },
+        {
+          "en": "We don't have the baptism date yet.",
+          "es": "Todavía no tenemos la fecha del bautizo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We need more hosts for the 11 o'clock Mass.",
+          "es": "Necesitamos más hostias para la misa de las 11.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You don't have to pay anything.",
+          "es": "No tiene que pagar nada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's another Mass at 5 in the afternoon.",
+          "es": "Hay otra misa a las 5 de la tarde.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the sacristan that no one is in the chapel yet, that you need more hosts, and that there is another Mass at 5."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask politely and give simple usted and ustedes commands at the door, office and Mass.",
+      "focus": "¿Puede…? requests and usted commands (pase, escriba, espere); ustedes for a group",
+      "words": [
+        {
+          "en": "the door",
+          "es": "la puerta",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term"
+        },
+        {
+          "en": "the microphone",
+          "es": "el micrófono",
+          "kind": "term"
+        },
+        {
+          "en": "the parish hall",
+          "es": "el salón parroquial",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the full name",
+          "es": "el nombre completo",
+          "kind": "term"
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term"
+        },
+        {
+          "en": "the chairs",
+          "es": "las sillas",
+          "kind": "term"
+        },
+        {
+          "en": "Can you open the door, please?",
+          "es": "¿Puede abrir la puerta, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Come in and have a seat, please.",
+          "es": "Pase y siéntese, por favor.",
+          "kind": "phrase",
+          "note": "Usted commands for one person you address formally."
+        },
+        {
+          "en": "Write your full name here.",
+          "es": "Escriba su nombre completo aquí.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me your phone number?",
+          "es": "¿Me puede dar su teléfono?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Please stand.",
+          "es": "Pónganse de pie, por favor.",
+          "kind": "phrase",
+          "note": "Ustedes command to the whole congregation."
+        }
+      ],
+      "speaking": "Welcome a visitor to the parish office: ask them politely to come in, sit down, write their full name, and wait a moment."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize church cognates and ask for help when you don't understand a parishioner.",
+      "focus": "Cognates ending in -ción, -dad and -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term",
+          "note": "Words ending in -dad are feminine and often match English -ty."
+        },
+        {
+          "en": "charity",
+          "es": "la caridad",
+          "kind": "term"
+        },
+        {
+          "en": "the Trinity",
+          "es": "la Trinidad",
+          "kind": "term"
+        },
+        {
+          "en": "the celebration",
+          "es": "la celebración",
+          "kind": "term",
+          "note": "Words ending in -ción are feminine and often match English -tion."
+        },
+        {
+          "en": "the tradition",
+          "es": "la tradición",
+          "kind": "term"
+        },
+        {
+          "en": "reconciliation",
+          "es": "la reconciliación",
+          "kind": "term"
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the teenager",
+          "es": "el adolescente",
+          "kind": "term",
+          "note": "For a girl: la adolescente."
+        },
+        {
+          "en": "the patient",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "For a woman: la paciente."
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "Sorry, I don't understand.",
+          "es": "Perdón, no entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you repeat that for me, please?",
+          "es": "¿Me lo puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm learning Spanish.",
+          "es": "Estoy aprendiendo español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, I'm going to call the secretary.",
+          "es": "Un momento, voy a llamar a la secretaria.",
+          "kind": "phrase",
+          "note": "Personal a before a person: llamar a la secretaria."
+        }
+      ],
+      "speaking": "Ask a parishioner to speak more slowly and repeat, then use a few cognates to talk about the parish community and its celebrations."
+    }
+  ]
+}

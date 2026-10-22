@@ -84,6 +84,27 @@ export function levelFor(lessonNumber: number, lessonCount: number): { band: str
   };
 }
 
+// ─── Quality rules shared with the Core 60 generator ─────────────────────────
+
+/** Notes (word or verb) carry the final rule only. Enforced by selfTalkIssue in lesson-content-core.ts. */
+export const NOTE_FINAL_RULE =
+  'Every note states the final rule only, never deliberation or self-correction: decide the answer before you write it, and never write "? No:", "... no", "wait", "actually", "hmm" or "let me" in a note (write "Stem change e to i (pido, pides), except nosotros.", not "Stem change e to ie? No: e to i").';
+
+export const REGION_RULE =
+  "Use one regional variety per lesson, matching the setting, and never mix them: Spain uses euros, billete, camarero, comisaría, franquicia; Mexico and Latin America use pesos, boleto, mesero, deducible.";
+
+export const DIRECT_SPEECH_RULE =
+  'Direct speech goes at the end of a sentence, after a colon; it never runs into narration (write "El jefe dice: Revisen la cuchilla.", never "El jefe dice: Revisen la cuchilla, y Marta corta.").';
+
+/** The passage rules added after the 277-lesson blind review (items introduced, coverage, region, speech). */
+export const PASSAGE_QUALITY_RULES: readonly string[] = [
+  "Every item, charge, fee, document or person a sentence refers to, disputes or questions is introduced earlier in that passage; never dispute, confirm or answer something the passage has not raised.",
+  "Every clause of the lesson objective and roleplay is covered by at least one full sentence of its own; a capstone's listed beats each get their own sentence (a long conversation is several sentences, and an emergency is a sentence that says what happened and what to do, not only a stray phrase).",
+  "Any question about allergies or ingredients is answered in the passage.",
+  REGION_RULE,
+  DIRECT_SPEECH_RULE,
+];
+
 // ─── Prompt ──────────────────────────────────────────────────────────────────
 
 export function lessonContentSystemPrompt(
@@ -136,7 +157,20 @@ Rules for everything you write:
 - Medical, legal and safety topics teach communication and verification, never an unsupported dose, diagnosis or legal conclusion.
 - Use the word people in this trade actually say in ${targetLanguage}; never coin a literal word-for-word phrase. If you are unsure of the right ${targetLanguage} term, choose a different, safer term instead of guessing.
 - Level for this lesson is given in the request. Keep the language inside it. Avoid stereotypes, slang the learner could misuse, and anything unsafe.
-- Stay consistent: the passage, words and verbs of this lesson must belong together.`;
+- Stay consistent: the passage, words and verbs of this lesson must belong together.${
+    parts.words || parts.verbs ? `\n- ${NOTE_FINAL_RULE}` : ""
+  }${parts.passage ? PASSAGE_QUALITY_RULES.map((rule) => `\n- ${rule}`).join("") : ""}`;
+}
+
+/**
+ * The system prompt for the cli provider (`claude -p --json-schema`): the CLI has no custom tools,
+ * so the reply is the structured output. Only the delivery sentence changes; every rule is kept.
+ */
+export function lessonContentCliSystemPrompt(system: string): string {
+  return system.replaceAll(
+    `by calling the ${LESSON_CONTENT_TOOL_NAME} tool; always call it, once.`,
+    "as ONE JSON object that matches the given JSON schema (your structured output); always return it, once.",
+  );
 }
 
 export function lessonContentUserContent(args: ContentRequestArgs): string {

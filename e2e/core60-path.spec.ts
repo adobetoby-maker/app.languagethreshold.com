@@ -210,8 +210,8 @@ test.describe("Grammar focus box", () => {
   });
 });
 
-test.describe("Core 30 page of a module without a Core 60 path", () => {
-  test("the banner says the Core 30 is ready and the Foundation and Master 20 are coming soon", async ({
+test.describe("Core 30 page of a module with a published Foundation and Master (plumber)", () => {
+  test("the banner is the whole Core 60 purpose text, and the path has Foundation and Master 20 open", async ({
     page,
   }) => {
     await page.goto("/");
@@ -233,13 +233,24 @@ test.describe("Core 30 page of a module without a Core 60 path", () => {
       if (await banner.isVisible()) break;
     }
     const banner = page.getByRole("region", { name: /purpose/i }).first();
+    // Both stages are published and listed, so no "coming soon" banner: the page keeps the whole Core 60 text.
     await expect(banner).toContainText(
-      "Core 30 is ready for this module. The free Foundation and Master 20 are coming soon.",
+      "Core 60 — Your module, step by step: the free Foundation, then Core 30, then Master 20.",
     );
-    await expect(banner).not.toContainText("Your module's Core 30");
-    // No path card and no eyebrow on a trade without a Core 60 path.
-    await expect(page.getByTestId("core60-path")).toHaveCount(0);
-    await expect(page.getByTestId("core60-eyebrow")).toHaveCount(0);
+    await expect(banner).not.toContainText("coming soon");
+    // A trade with both stages published has a full path: Foundation open, Core 30 current, Master 20 open.
+    const steps = page.getByTestId("core60-path").locator("li");
+    await expect(steps).toHaveCount(3);
+    const foundation = page.getByTestId("core60-step-foundation");
+    await expect(foundation).toHaveJSProperty("tagName", "BUTTON");
+    await expect(foundation).toContainText("Open");
+    const master = page.getByTestId("core60-step-master");
+    await expect(master).toHaveJSProperty("tagName", "BUTTON");
+    await expect(master).toContainText("Open");
+    await expect(master).not.toContainText("Coming soon");
+    await expect(master).not.toHaveAttribute("aria-disabled", "true");
+    await expect(page.getByTestId("core60-step-core")).toHaveAttribute("aria-current", "step");
+    await expect(page.getByTestId("core60-eyebrow")).toHaveText("Core 60 · Plumber · Step 2 of 3");
   });
 });
 

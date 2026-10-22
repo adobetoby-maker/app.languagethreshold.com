@@ -1,0 +1,2839 @@
+{
+  "version": 1,
+  "module": "master-pain-management",
+  "baseModule": "pain-management",
+  "stage": "master",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Pain Management Master 20",
+  "threshold": "By Lesson 20, you can train new pain-clinic staff and have them teach back in Spanish, explain a postponed or changed procedure to a frustrated patient, refuse an unsafe request with care, debrief an incident or near miss without blame, and dictate the day's report.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T23:56:32.172Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Orienting a New Medical Assistant to Clinic Flow",
+      "objective": "Walk a new medical assistant through the pain clinic's visit flow and explain the reason for each step.",
+      "words": [
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the medical assistant",
+          "es": "la asistente médica",
+          "kind": "term",
+          "note": "For a woman; for a man say el asistente médico."
+        },
+        {
+          "en": "the visit flow",
+          "es": "el flujo de la visita",
+          "kind": "term"
+        },
+        {
+          "en": "the waiting room",
+          "es": "la sala de espera",
+          "kind": "term"
+        },
+        {
+          "en": "the vital signs",
+          "es": "los signos vitales",
+          "kind": "term"
+        },
+        {
+          "en": "the blood pressure",
+          "es": "la presión arterial",
+          "kind": "term"
+        },
+        {
+          "en": "the pain questionnaire",
+          "es": "el cuestionario de dolor",
+          "kind": "term"
+        },
+        {
+          "en": "the exam room",
+          "es": "el cuarto de examen",
+          "kind": "term",
+          "note": "Common in US clinics; you will also hear la sala de exploración."
+        },
+        {
+          "en": "the urine sample",
+          "es": "la muestra de orina",
+          "kind": "term"
+        },
+        {
+          "en": "the chain of custody",
+          "es": "la cadena de custodia",
+          "kind": "term"
+        },
+        {
+          "en": "the medication list",
+          "es": "la lista de medicamentos",
+          "kind": "term"
+        },
+        {
+          "en": "the photo ID",
+          "es": "la identificación con foto",
+          "kind": "term"
+        },
+        {
+          "en": "the copay",
+          "es": "el copago",
+          "kind": "term"
+        },
+        {
+          "en": "the follow-up appointment",
+          "es": "la cita de seguimiento",
+          "kind": "term"
+        },
+        {
+          "en": "First, the patient checks in at the front desk.",
+          "es": "Primero, el paciente se registra en la recepción.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Then you ask them their pain level from 0 to 10.",
+          "es": "Después le preguntas su nivel de dolor del 0 al 10.",
+          "kind": "phrase",
+          "note": "Informal (tú) to a coworker."
+        },
+        {
+          "en": "We ask for the sample first because the result takes a few minutes.",
+          "es": "Pedimos la muestra antes porque el resultado tarda unos minutos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's why the doctor already has the result when he walks in.",
+          "es": "Por eso el doctor ya tiene el resultado cuando entra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "First I'll weigh you, ma'am, and then we'll go to room 3.",
+          "es": "Primero la peso, señora, y luego pasamos al cuarto 3.",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        },
+        {
+          "en": "Sir, did you bring your medication list?",
+          "es": "Señor, ¿trajo su lista de medicamentos?",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        },
+        {
+          "en": "If you don't understand something, feel free to ask me.",
+          "es": "Si no entiendes algo, pregúntame sin pena.",
+          "kind": "phrase",
+          "note": "Informal; sin pena is common Mexican Spanish for 'don't be shy'."
+        },
+        {
+          "en": "Any questions so far?",
+          "es": "¿Tienes alguna duda hasta aquí?",
+          "kind": "phrase",
+          "note": "Informal (tú) to a coworker."
+        }
+      ],
+      "speaking": "You are the clinic lead, and the AI is Lucía Ferrer, a new medical assistant: walk her through the visit from check-in to pain scores to the exam room and explain why each step happens, using primero, luego, porque and por eso.",
+      "grammar": {
+        "focus": "Connectors for sequence and cause (primero, luego, porque, por eso)",
+        "examples": [
+          {
+            "es": "Primero el paciente llena el cuestionario y luego pasa a signos vitales.",
+            "en": "First the patient fills out the questionnaire and then goes to vital signs."
+          },
+          {
+            "es": "El doctor necesita el resultado, por eso la muestra va primero.",
+            "en": "The doctor needs the result, that's why the sample comes first."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 2,
+      "title": "Why We Repeat the Safety Questions Every Time",
+      "objective": "Explain to a new pre-procedure nurse why the screening questions are asked again before each injection.",
+      "words": [
+        {
+          "en": "the blood thinner",
+          "es": "el anticoagulante",
+          "kind": "term",
+          "note": "Patients often say medicina para adelgazar la sangre."
+        },
+        {
+          "en": "the antiplatelet drug",
+          "es": "el antiagregante plaquetario",
+          "kind": "term"
+        },
+        {
+          "en": "the contrast dye",
+          "es": "el medio de contraste",
+          "kind": "term"
+        },
+        {
+          "en": "the contrast allergy",
+          "es": "la alergia al contraste",
+          "kind": "term"
+        },
+        {
+          "en": "the fever",
+          "es": "la fiebre",
+          "kind": "term"
+        },
+        {
+          "en": "the active infection",
+          "es": "la infección activa",
+          "kind": "term"
+        },
+        {
+          "en": "the epidural hematoma",
+          "es": "el hematoma epidural",
+          "kind": "term"
+        },
+        {
+          "en": "the safety questions",
+          "es": "las preguntas de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the checklist",
+          "es": "la lista de verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-op area",
+          "es": "el área preoperatoria",
+          "kind": "term",
+          "note": "Área is feminine but takes el in the singular: el área, las áreas."
+        },
+        {
+          "en": "the last dose",
+          "es": "la última dosis",
+          "kind": "term"
+        },
+        {
+          "en": "the medication change",
+          "es": "el cambio de medicamento",
+          "kind": "term"
+        },
+        {
+          "en": "the blood sugar",
+          "es": "el azúcar en la sangre",
+          "kind": "term"
+        },
+        {
+          "en": "the pregnancy",
+          "es": "el embarazo",
+          "kind": "term"
+        },
+        {
+          "en": "the cardiologist",
+          "es": "el cardiólogo",
+          "kind": "term",
+          "note": "For a woman: la cardióloga."
+        },
+        {
+          "en": "We ask every time because things change.",
+          "es": "Se pregunta cada vez porque las cosas cambian.",
+          "kind": "phrase",
+          "note": "Impersonal se: no specific person does the action."
+        },
+        {
+          "en": "The chart may be out of date.",
+          "es": "El expediente puede estar desactualizado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If they have a fever, the doctor is notified before starting.",
+          "es": "Si tiene fiebre, se avisa al médico antes de empezar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you're unsure, ask the charge nurse.",
+          "es": "Si tienes duda, pregúntale a la enfermera encargada.",
+          "kind": "phrase",
+          "note": "Informal (tú) to a coworker."
+        },
+        {
+          "en": "Do you take any blood thinner?",
+          "es": "¿Toma usted algún medicamento para adelgazar la sangre?",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        },
+        {
+          "en": "When did you take the last pill?",
+          "es": "¿Cuándo tomó la última pastilla?",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        },
+        {
+          "en": "Have you ever had a reaction to contrast dye?",
+          "es": "¿Alguna vez tuvo una reacción al medio de contraste?",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        }
+      ],
+      "speaking": "You are the lead pain physician, and the AI is Andrés Pineda, a new pre-procedure nurse: explain why the blood thinner, contrast allergy and infection questions are asked before every injection, using impersonal se and si + present (si toma anticoagulante, se avisa al médico).",
+      "grammar": {
+        "focus": "Impersonal se; si + present for general truths (si el paciente toma anticoagulante, se avisa al médico)",
+        "examples": [
+          {
+            "es": "Si el paciente toma un anticoagulante, se confirma la fecha de la última dosis.",
+            "en": "If the patient takes a blood thinner, the date of the last dose is confirmed."
+          },
+          {
+            "es": "Las preguntas se repiten antes de cada inyección.",
+            "en": "The questions are repeated before each injection."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 3,
+      "title": "Setting Up the Fluoroscopy Suite With a Trainee",
+      "objective": "Give clear step-by-step instructions to set up a sterile tray and the suite, then have the trainee repeat them.",
+      "words": [
+        {
+          "en": "the sterile field",
+          "es": "el campo estéril",
+          "kind": "term"
+        },
+        {
+          "en": "the sterile tray",
+          "es": "la bandeja estéril",
+          "kind": "term"
+        },
+        {
+          "en": "the sterile gloves",
+          "es": "los guantes estériles",
+          "kind": "term"
+        },
+        {
+          "en": "the sterile technique",
+          "es": "la técnica estéril",
+          "kind": "term"
+        },
+        {
+          "en": "the lead apron",
+          "es": "la bata de plomo",
+          "kind": "term"
+        },
+        {
+          "en": "the thyroid shield",
+          "es": "el protector de tiroides",
+          "kind": "term"
+        },
+        {
+          "en": "the C-arm",
+          "es": "el arco en C",
+          "kind": "term",
+          "note": "Many staff just say el arco."
+        },
+        {
+          "en": "the procedure table",
+          "es": "la mesa de procedimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the chlorhexidine",
+          "es": "la clorhexidina",
+          "kind": "term"
+        },
+        {
+          "en": "the syringe",
+          "es": "la jeringa",
+          "kind": "term"
+        },
+        {
+          "en": "the spinal needle",
+          "es": "la aguja espinal",
+          "kind": "term"
+        },
+        {
+          "en": "the wrapper",
+          "es": "el envoltorio",
+          "kind": "term"
+        },
+        {
+          "en": "the expiration date",
+          "es": "la fecha de caducidad",
+          "kind": "term",
+          "note": "Mexico says caducidad; other countries say fecha de vencimiento."
+        },
+        {
+          "en": "the sterilization indicator",
+          "es": "el indicador de esterilización",
+          "kind": "term"
+        },
+        {
+          "en": "the sterile marker",
+          "es": "el marcador estéril",
+          "kind": "term"
+        },
+        {
+          "en": "Open it outward, away from your body.",
+          "es": "Ábrelo hacia afuera, lejos de tu cuerpo.",
+          "kind": "phrase",
+          "note": "Informal (tú) to a trainee; the pronoun attaches to the command."
+        },
+        {
+          "en": "Don't touch it without sterile gloves.",
+          "es": "No lo toques sin guantes estériles.",
+          "kind": "phrase",
+          "note": "Negative command: the pronoun goes before the verb."
+        },
+        {
+          "en": "Read it to me out loud: medication, strength and date.",
+          "es": "Léemelo en voz alta: medicamento, concentración y fecha.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Label it before you put it on the field.",
+          "es": "Etiquétala antes de ponerla en el campo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you're not sure it's sterile, replace it.",
+          "es": "Si tienes duda de que esté estéril, cámbialo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Now repeat it back to me, step by step.",
+          "es": "Ahora repítemelo, paso por paso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sir, please don't touch the blue drape.",
+          "es": "Señor, no toque la sábana azul, por favor.",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        }
+      ],
+      "speaking": "You are the procedure lead, and the AI is Yesenia Ocampo, a procedure nurse trainee: talk her through setting up the sterile tray and the fluoroscopy suite with commands like ábrelo, no lo toques and léemelo, then have her repeat the steps back.",
+      "grammar": {
+        "focus": "Commands with object pronouns (ábrelo, no lo toques, léemelo)",
+        "examples": [
+          {
+            "es": "Ábrelo por las orillas y no lo toques por dentro.",
+            "en": "Open it by the edges and don't touch the inside."
+          },
+          {
+            "es": "La etiqueta del frasco: léemela antes de llenar la jeringa.",
+            "en": "The vial label: read it to me before you fill the syringe."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "A"
+    },
+    {
+      "n": 4,
+      "title": "Reading a Stimulator MRI Card With a Patient",
+      "objective": "Read the manufacturer's MRI card with a patient and explain the steps that must happen before any scan.",
+      "words": [
+        {
+          "en": "the implant card",
+          "es": "la tarjeta del implante",
+          "kind": "term"
+        },
+        {
+          "en": "the model number",
+          "es": "el número de modelo",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer",
+          "es": "el fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer's rep",
+          "es": "el representante del fabricante",
+          "kind": "term",
+          "note": "Staff often just say el representante or el rep."
+        },
+        {
+          "en": "the radiology department",
+          "es": "el departamento de radiología",
+          "kind": "term"
+        },
+        {
+          "en": "the MRI technologist",
+          "es": "el técnico de resonancia",
+          "kind": "term",
+          "note": "For a woman: la técnica de resonancia."
+        },
+        {
+          "en": "conditional (MR conditional)",
+          "es": "condicional",
+          "kind": "term",
+          "note": "Means the scan is allowed only under the exact conditions the manufacturer lists."
+        },
+        {
+          "en": "the MRI mode",
+          "es": "el modo resonancia",
+          "kind": "term"
+        },
+        {
+          "en": "the implanted generator",
+          "es": "el generador implantado",
+          "kind": "term"
+        },
+        {
+          "en": "the leads",
+          "es": "los cables",
+          "kind": "term",
+          "note": "Patients say cables; clinicians also say electrodos."
+        },
+        {
+          "en": "the knee coil",
+          "es": "la bobina de rodilla",
+          "kind": "term"
+        },
+        {
+          "en": "the MRI order",
+          "es": "la orden de la resonancia",
+          "kind": "term"
+        },
+        {
+          "en": "the manufacturer's manual",
+          "es": "el manual del fabricante",
+          "kind": "term"
+        },
+        {
+          "en": "the heating",
+          "es": "el calentamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the go-ahead",
+          "es": "el visto bueno",
+          "kind": "term"
+        },
+        {
+          "en": "May I see your implant card?",
+          "es": "¿Me permite ver la tarjeta de su implante?",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        },
+        {
+          "en": "The card says the conditions depend on the exact model.",
+          "es": "La tarjeta dice que las condiciones dependen del modelo exacto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before you have the MRI, we need to confirm your model.",
+          "es": "Antes de hacerse la resonancia, hay que confirmar su modelo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We have to call the rep before scheduling the appointment.",
+          "es": "Hay que llamar al representante antes de programar la cita.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The rep will tell you if the MRI mode needs to be turned on.",
+          "es": "El representante le dirá si hay que activar el modo resonancia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you feel heat or anything strange, tell the technologist right away.",
+          "es": "Si siente calor o algo raro, avísele al técnico enseguida.",
+          "kind": "phrase",
+          "note": "Formal (usted) command."
+        },
+        {
+          "en": "After the MRI is done, we need to check the stimulator.",
+          "es": "Después de terminar la resonancia, hay que revisar el estimulador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't schedule anything until I confirm with you.",
+          "es": "No programe nada hasta que yo le confirme.",
+          "kind": "phrase",
+          "note": "Formal (usted) to a patient."
+        }
+      ],
+      "speaking": "You are the pain physician, and the AI is Tomás Echeverría, a patient with an implanted stimulator who needs a knee MRI: read his MRI card with him and explain the steps before the scan, using antes de / después de + infinitive and hay que.",
+      "grammar": {
+        "focus": "Antes de / después de + infinitive; hay que (antes de hacerse la resonancia, hay que llamar al representante)",
+        "examples": [
+          {
+            "es": "Antes de programar la cita, hay que llamar al representante del fabricante.",
+            "en": "Before scheduling the appointment, we have to call the manufacturer's rep."
+          },
+          {
+            "es": "Después de hablar con radiología, le llamo para confirmar.",
+            "en": "After talking with radiology, I'll call you to confirm."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "A"
+    },
+    {
+      "n": 5,
+      "title": "Infected Skin Found at the Injection Site",
+      "objective": "Ask what happened to the skin, explain why the injection is postponed, and propose a new plan to an upset patient.",
+      "words": [
+        {
+          "en": "the injection site",
+          "es": "el sitio de la inyección",
+          "kind": "term"
+        },
+        {
+          "en": "the redness",
+          "es": "el enrojecimiento",
+          "kind": "term"
+        },
+        {
+          "en": "warm to the touch",
+          "es": "caliente al tacto",
+          "kind": "term",
+          "note": "Adjective expression; agrees with the noun: la piel está caliente al tacto."
+        },
+        {
+          "en": "the insect bite",
+          "es": "la picadura de insecto",
+          "kind": "term"
+        },
+        {
+          "en": "the drainage",
+          "es": "la secreción",
+          "kind": "term"
+        },
+        {
+          "en": "the chills",
+          "es": "los escalofríos",
+          "kind": "term"
+        },
+        {
+          "en": "the bacteria",
+          "es": "las bacterias",
+          "kind": "term"
+        },
+        {
+          "en": "the abscess",
+          "es": "el absceso",
+          "kind": "term"
+        },
+        {
+          "en": "the antibiotic",
+          "es": "el antibiótico",
+          "kind": "term",
+          "note": "Whether to treat is the treating doctor's decision; you inform and refer."
+        },
+        {
+          "en": "the primary care doctor",
+          "es": "el médico de cabecera",
+          "kind": "term"
+        },
+        {
+          "en": "the new date",
+          "es": "la nueva fecha",
+          "kind": "term"
+        },
+        {
+          "en": "the postponement",
+          "es": "el aplazamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the needle path",
+          "es": "el trayecto de la aguja",
+          "kind": "term"
+        },
+        {
+          "en": "the healthy skin",
+          "es": "la piel sana",
+          "kind": "term"
+        },
+        {
+          "en": "the pre-op bay",
+          "es": "el cubículo",
+          "kind": "term"
+        },
+        {
+          "en": "When did the redness appear?",
+          "es": "¿Cuándo apareció el enrojecimiento?",
+          "kind": "phrase",
+          "note": "Preterite for the moment something started."
+        },
+        {
+          "en": "Did you have a fever or chills this week?",
+          "es": "¿Tenía fiebre o escalofríos esta semana?",
+          "kind": "phrase",
+          "note": "Imperfect for an ongoing state in the past. Formal usted."
+        },
+        {
+          "en": "Did it hurt or itch before today?",
+          "es": "¿Le dolía o le picaba antes de hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Today we can't inject through this skin.",
+          "es": "Hoy no podemos inyectar a través de esta piel.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The needle could carry bacteria toward the spine.",
+          "es": "La aguja podría llevar bacterias hacia la columna.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I know you drove two hours to come, and I'm very sorry.",
+          "es": "Sé que manejó dos horas para venir, y lo siento mucho.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I would propose another date, once the skin is healthy.",
+          "es": "Le propondría otra fecha, cuando la piel ya esté sana.",
+          "kind": "phrase",
+          "note": "Conditional softens the proposal; cuando + subjunctive for a future time."
+        },
+        {
+          "en": "Ramiro, did you take a photo of the lesion?",
+          "es": "Ramiro, ¿le tomaste foto a la lesión?",
+          "kind": "phrase",
+          "note": "Informal tú with a coworker."
+        }
+      ],
+      "speaking": "You are the pain physician, and the AI is Gloria Benavides, an upset patient: ask about the red patch with the preterite and imperfect (¿cuándo apareció?, ¿tenía fiebre?), explain why the injection is postponed, and propose a new plan with the conditional (le propondría).",
+      "grammar": {
+        "focus": "Preterite vs imperfect; conditional for the proposal (¿cuándo apareció?, ¿tenía fiebre?, le propondría otra fecha)",
+        "examples": [
+          {
+            "es": "La semana pasada era una picadura, pero ayer empezó a doler más.",
+            "en": "Last week it was a bite, but yesterday it started to hurt more."
+          },
+          {
+            "es": "Yo le recomendaría ver a su médico de cabecera hoy mismo.",
+            "en": "I would recommend that you see your primary care doctor today."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 6,
+      "title": "Backordered Steroid: Explaining the Substitute",
+      "objective": "Explain a pharmacy substitution, compare waiting with going ahead, and answer the patient's doubts.",
+      "words": [
+        {
+          "en": "the shortage",
+          "es": "el desabasto",
+          "kind": "term",
+          "note": "Common in Mexico for a supply shortage."
+        },
+        {
+          "en": "out of stock",
+          "es": "agotado",
+          "kind": "term",
+          "note": "Adjective; agrees with the noun: el esteroide está agotado."
+        },
+        {
+          "en": "the substitute",
+          "es": "el sustituto",
+          "kind": "term"
+        },
+        {
+          "en": "the steroid",
+          "es": "el esteroide",
+          "kind": "term"
+        },
+        {
+          "en": "triamcinolone",
+          "es": "la triamcinolona",
+          "kind": "term"
+        },
+        {
+          "en": "dexamethasone",
+          "es": "la dexametasona",
+          "kind": "term"
+        },
+        {
+          "en": "the potency",
+          "es": "la potencia",
+          "kind": "term"
+        },
+        {
+          "en": "the equivalence",
+          "es": "la equivalencia",
+          "kind": "term"
+        },
+        {
+          "en": "the duration of the effect",
+          "es": "la duración del efecto",
+          "kind": "term"
+        },
+        {
+          "en": "the attending physician",
+          "es": "el médico tratante",
+          "kind": "term"
+        },
+        {
+          "en": "the estimated date",
+          "es": "la fecha estimada",
+          "kind": "term"
+        },
+        {
+          "en": "the supplier",
+          "es": "el proveedor",
+          "kind": "term"
+        },
+        {
+          "en": "the reliable source",
+          "es": "la fuente confiable",
+          "kind": "term"
+        },
+        {
+          "en": "the evidence",
+          "es": "la evidencia",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy approval",
+          "es": "la aprobación de farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "Pharmacy told us the usual steroid is out of stock.",
+          "es": "La farmacia nos avisó que el esteroide de siempre está agotado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to use the substitute Dr. Medina approved with pharmacy.",
+          "es": "Vamos a usar el sustituto que aprobó el Dr. Medina con farmacia.",
+          "kind": "phrase",
+          "note": "Ir a + infinitive for a near, planned action."
+        },
+        {
+          "en": "According to pharmacy, there's no firm date for the order.",
+          "es": "Según la farmacia, no hay fecha segura para el pedido.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What you read online doesn't always apply to your case.",
+          "es": "Lo que leyó en internet no siempre aplica a su caso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What worries you more, the effect or the wait?",
+          "es": "¿Qué le preocupa más, el efecto o la espera?",
+          "kind": "phrase"
+        },
+        {
+          "en": "If you prefer to wait, we'll call you when it arrives.",
+          "es": "Si prefiere esperar, lo llamaremos cuando llegue.",
+          "kind": "phrase",
+          "note": "Simple future for a promise; cuando + subjunctive."
+        },
+        {
+          "en": "Inés, can you confirm in writing which medication you'll send?",
+          "es": "Inés, ¿me confirma por escrito qué medicamento va a mandar?",
+          "kind": "phrase",
+          "note": "Formal usted with a colleague."
+        },
+        {
+          "en": "It's your decision; you don't have to answer right now.",
+          "es": "Usted decide; no tiene que contestar ahora mismo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the pain physician, and the AI is Ernesto Villalba, a patient who thinks the substitute is weaker: explain the pharmacy substitution with the future and ir a (vamos a usar, llegará), compare waiting with going ahead (más largo que, tan… como), and answer his doubts.",
+      "grammar": {
+        "focus": "Future and ir a; comparisons (vamos a usar, la espera será más larga que)",
+        "examples": [
+          {
+            "es": "Vamos a usar dexametasona, que el Dr. Medina aprobó con farmacia.",
+            "en": "We're going to use dexamethasone, which Dr. Medina approved with pharmacy."
+          },
+          {
+            "es": "Según la farmacia, la espera será más larga de lo que pensábamos.",
+            "en": "According to pharmacy, the wait will be longer than we thought."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "B"
+    },
+    {
+      "n": 7,
+      "title": "A Workers' Comp Case Manager Joins the Visit",
+      "objective": "Give injury and treatment dates and numbers clearly while protecting what the patient has not authorized you to share.",
+      "words": [
+        {
+          "en": "the case manager",
+          "es": "la administradora de casos",
+          "kind": "term",
+          "note": "Feminine for a woman; el administrador de casos for a man."
+        },
+        {
+          "en": "workers' comp",
+          "es": "la compensación laboral",
+          "kind": "term"
+        },
+        {
+          "en": "the signed release",
+          "es": "la autorización firmada",
+          "kind": "term"
+        },
+        {
+          "en": "the release form",
+          "es": "el formulario de autorización",
+          "kind": "term"
+        },
+        {
+          "en": "privacy",
+          "es": "la privacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the privacy law",
+          "es": "la ley de privacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the medical information",
+          "es": "la información médica",
+          "kind": "term"
+        },
+        {
+          "en": "the date of injury",
+          "es": "la fecha de la lesión",
+          "kind": "term"
+        },
+        {
+          "en": "the claim",
+          "es": "el reclamo",
+          "kind": "term"
+        },
+        {
+          "en": "the claim number",
+          "es": "el número de reclamo",
+          "kind": "term"
+        },
+        {
+          "en": "the employer",
+          "es": "el empleador",
+          "kind": "term"
+        },
+        {
+          "en": "the physical exam",
+          "es": "el examen físico",
+          "kind": "term"
+        },
+        {
+          "en": "the return date",
+          "es": "la fecha de regreso",
+          "kind": "term"
+        },
+        {
+          "en": "the work restrictions",
+          "es": "las restricciones de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the warehouse",
+          "es": "el almacén",
+          "kind": "term"
+        },
+        {
+          "en": "Ms. Quiroga, I ask you to wait outside during the exam.",
+          "es": "Señora Quiroga, le pido que espere afuera durante el examen.",
+          "kind": "phrase",
+          "note": "Formal usted; polite but firm."
+        },
+        {
+          "en": "Without a signed release, I can't discuss his exam.",
+          "es": "Sin autorización firmada, no puedo hablar de su examen.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Salinas, do you want her to hear this part?",
+          "es": "Señor Salinas, ¿quiere que ella escuche esta parte?",
+          "kind": "phrase"
+        },
+        {
+          "en": "He got hurt on March 3 at the warehouse.",
+          "es": "Se lastimó el 3 de marzo en el almacén.",
+          "kind": "phrase",
+          "note": "Preterite for a completed event on a specific date."
+        },
+        {
+          "en": "He received 2 injections, one in April and one in June.",
+          "es": "Recibió 2 inyecciones, una en abril y otra en junio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Let me repeat the date: March 3, not the 13th.",
+          "es": "Le repito la fecha: el 3 de marzo, no el 13.",
+          "kind": "phrase",
+          "note": "Say tres and trece slowly; they sound alike under pressure."
+        },
+        {
+          "en": "I can't give you a return-to-work date yet.",
+          "es": "Todavía no puedo darle una fecha de regreso al trabajo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll send you the report in writing once he authorizes it.",
+          "es": "Le mandaremos el informe por escrito cuando él lo autorice.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the pain physician, and the AI is Marisol Quiroga, a workers' comp case manager at Héctor's follow-up: give injury and treatment dates clearly in the preterite (se lastimó el 3 de marzo, recibió 2 inyecciones) and protect what Héctor has not authorized you to share.",
+      "grammar": {
+        "focus": "Preterite narration; numbers under pressure (se lastimó el 3 de marzo, recibió dos inyecciones)",
+        "examples": [
+          {
+            "es": "El señor Salinas se lastimó el 3 de marzo y empezó fisioterapia el 20 de marzo.",
+            "en": "Mr. Salinas got hurt on March 3 and started physical therapy on March 20."
+          },
+          {
+            "es": "Recibió 2 inyecciones epidurales; la última fue el 12 de junio.",
+            "en": "He received 2 epidural injections; the last one was on June 12."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 8,
+      "title": "Patient Wants to Drive Home After Sedation",
+      "objective": "Refuse a patient's request to drive after sedation, explain why, and help him find a safe way home.",
+      "words": [
+        {
+          "en": "the escort",
+          "es": "el acompañante",
+          "kind": "term",
+          "note": "Feminine for a woman: la acompañante."
+        },
+        {
+          "en": "the responsible adult",
+          "es": "el adulto responsable",
+          "kind": "term"
+        },
+        {
+          "en": "the reflexes",
+          "es": "los reflejos",
+          "kind": "term"
+        },
+        {
+          "en": "the reaction time",
+          "es": "el tiempo de reacción",
+          "kind": "term"
+        },
+        {
+          "en": "judgment",
+          "es": "el juicio",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup truck",
+          "es": "la troca",
+          "kind": "term",
+          "note": "Common US/Mexican loanword; also la camioneta."
+        },
+        {
+          "en": "the ride service",
+          "es": "el servicio de transporte",
+          "kind": "term"
+        },
+        {
+          "en": "the center's policy",
+          "es": "la política del centro",
+          "kind": "term"
+        },
+        {
+          "en": "the discharge instructions",
+          "es": "las instrucciones de alta",
+          "kind": "term"
+        },
+        {
+          "en": "the discharge",
+          "es": "el alta",
+          "kind": "term",
+          "note": "Feminine noun that takes el in the singular: el alta, las altas."
+        },
+        {
+          "en": "the emergency contact",
+          "es": "el contacto de emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the parking lot",
+          "es": "el estacionamiento",
+          "kind": "term"
+        },
+        {
+          "en": "the medial branch block",
+          "es": "el bloqueo de rama medial",
+          "kind": "term"
+        },
+        {
+          "en": "drowsy",
+          "es": "adormilado",
+          "kind": "term"
+        },
+        {
+          "en": "Mr. Castaño, please don't drive today.",
+          "es": "Señor Castaño, no maneje hoy, por favor.",
+          "kind": "phrase",
+          "note": "Negative formal command: no + usted subjunctive form."
+        },
+        {
+          "en": "I don't recommend that you leave alone after sedation.",
+          "es": "No recomiendo que se vaya solo después de la sedación.",
+          "kind": "phrase",
+          "note": "No recomiendo que triggers the subjunctive."
+        },
+        {
+          "en": "Even if you feel fine, your reflexes are still slow.",
+          "es": "Aunque se sienta bien, sus reflejos todavía están lentos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to the center's policy, you need a responsible adult.",
+          "es": "Según la política del centro, necesita un adulto responsable.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who else can we call to come get you?",
+          "es": "¿A quién más podemos llamar para que venga por usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't worry about your truck; we'll figure out where to leave it today.",
+          "es": "No se preocupe por su troca; vemos dónde dejarla hoy.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't sign anything important today either.",
+          "es": "No firme nada importante hoy tampoco.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Don't let him leave until his escort arrives.",
+          "es": "No lo dejes salir hasta que llegue su acompañante.",
+          "kind": "phrase",
+          "note": "Informal tú with a coworker."
+        }
+      ],
+      "speaking": "You are the CRNA, and the AI is Rubén Castaño, a patient in recovery after sedation who wants to drive his own truck home: refuse with negative commands (no maneje hoy) and no recomiendo que + subjunctive, explain why, and help him find a safe way home.",
+      "grammar": {
+        "focus": "Negative commands; subjunctive after no recomiendo que (no maneje hoy, no recomiendo que se vaya solo)",
+        "examples": [
+          {
+            "es": "No maneje ni use máquinas hasta mañana, según sus instrucciones de alta.",
+            "en": "Don't drive or use machinery until tomorrow, according to your discharge instructions."
+          },
+          {
+            "es": "No recomiendo que tome un taxi solo; necesita que alguien lo acompañe.",
+            "en": "I don't recommend that you take a taxi alone; you need someone to go with you."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "B"
+    },
+    {
+      "n": 9,
+      "title": "Feedback for a Fellow Who Rushed a Consent",
+      "objective": "Give a fellow specific, respectful feedback on a rushed consent and agree on what she will do differently.",
+      "words": [
+        {
+          "en": "the feedback",
+          "es": "la retroalimentación",
+          "kind": "term"
+        },
+        {
+          "en": "the fellow (female doctor in training)",
+          "es": "la doctora en formación",
+          "kind": "term",
+          "note": "Use el doctor en formación for a man."
+        },
+        {
+          "en": "the patient's understanding",
+          "es": "la comprensión del paciente",
+          "kind": "term"
+        },
+        {
+          "en": "the consent form",
+          "es": "el formulario de consentimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the pace",
+          "es": "el ritmo",
+          "kind": "term"
+        },
+        {
+          "en": "enough time",
+          "es": "el tiempo suficiente",
+          "kind": "term"
+        },
+        {
+          "en": "the comprehension check",
+          "es": "la verificación de comprensión",
+          "kind": "term"
+        },
+        {
+          "en": "the open-ended questions",
+          "es": "las preguntas abiertas",
+          "kind": "term"
+        },
+        {
+          "en": "the medical jargon",
+          "es": "la jerga médica",
+          "kind": "term"
+        },
+        {
+          "en": "plain language",
+          "es": "el lenguaje sencillo",
+          "kind": "term"
+        },
+        {
+          "en": "the temporary weakness",
+          "es": "la debilidad temporal",
+          "kind": "term"
+        },
+        {
+          "en": "the rare complications",
+          "es": "las complicaciones poco frecuentes",
+          "kind": "term"
+        },
+        {
+          "en": "patient autonomy",
+          "es": "la autonomía del paciente",
+          "kind": "term"
+        },
+        {
+          "en": "the area for improvement",
+          "es": "el área de mejora",
+          "kind": "term",
+          "note": "Área is feminine but takes el because it starts with a stressed a."
+        },
+        {
+          "en": "Camila, do you have a few minutes to talk about the consult?",
+          "es": "Camila, ¿tienes unos minutos para hablar de la consulta?",
+          "kind": "phrase",
+          "note": "Informal: tú between attending and fellow."
+        },
+        {
+          "en": "Mrs. Lugo said she didn't understand the risks.",
+          "es": "La señora Lugo dijo que no entendió los riesgos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want you to ask her what she understood, in her own words.",
+          "es": "Quiero que le preguntes qué entendió, con sus propias palabras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I recommend you go over the explanation again more calmly.",
+          "es": "Te recomiendo que repitas la explicación con más calma.",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's important that you don't rush her before she signs.",
+          "es": "Es importante que no la apures antes de firmar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I suggest you talk with her again before the procedure.",
+          "es": "Sugiero que vuelvas a hablar con ella antes del procedimiento.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do you think happened with the time in that consult?",
+          "es": "¿Qué crees que pasó con el tiempo en esa consulta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mrs. Lugo, I want you to understand clearly before you decide.",
+          "es": "Señora Lugo, quiero que entienda bien antes de decidir.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        }
+      ],
+      "speaking": "You are the attending physician, and the AI is Dr. Camila Restrepo, a fellow who rushed a nerve block consent: give specific, respectful feedback and agree on what she will do differently, using quiero que and te recomiendo que with the present subjunctive.",
+      "grammar": {
+        "focus": "Present subjunctive after wishes and recommendations (quiero que le preguntes, te recomiendo que repitas)",
+        "examples": [
+          {
+            "es": "Quiero que le preguntes a la señora Lugo qué entendió.",
+            "en": "I want you to ask Mrs. Lugo what she understood."
+          },
+          {
+            "es": "Te recomiendo que uses lenguaje sencillo, sin jerga médica.",
+            "en": "I recommend you use plain language, without medical jargon."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 10,
+      "title": "Settling a Scheduling Clash Between Two Colleagues",
+      "objective": "Hear each side, report back what each person said, and settle a conflict over a double-booked procedure slot.",
+      "words": [
+        {
+          "en": "the scheduler (male)",
+          "es": "el encargado de citas",
+          "kind": "term",
+          "note": "Use la encargada de citas for a woman."
+        },
+        {
+          "en": "the procedure nurse (female)",
+          "es": "la enfermera de procedimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure room",
+          "es": "la sala de procedimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the slot in the schedule",
+          "es": "el espacio en la agenda",
+          "kind": "term"
+        },
+        {
+          "en": "the double-booked appointment",
+          "es": "la cita duplicada",
+          "kind": "term"
+        },
+        {
+          "en": "the electronic schedule",
+          "es": "la agenda electrónica",
+          "kind": "term"
+        },
+        {
+          "en": "the misunderstanding",
+          "es": "el malentendido",
+          "kind": "term"
+        },
+        {
+          "en": "the written confirmation",
+          "es": "la confirmación por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "the internal message",
+          "es": "el mensaje interno",
+          "kind": "term"
+        },
+        {
+          "en": "the wait time",
+          "es": "el tiempo de espera",
+          "kind": "term"
+        },
+        {
+          "en": "each person's side of the story",
+          "es": "la versión de cada uno",
+          "kind": "term"
+        },
+        {
+          "en": "the system log",
+          "es": "el registro del sistema",
+          "kind": "term"
+        },
+        {
+          "en": "the patient complaint",
+          "es": "la queja del paciente",
+          "kind": "term"
+        },
+        {
+          "en": "the apology",
+          "es": "la disculpa",
+          "kind": "term"
+        },
+        {
+          "en": "Nelson, tell me your side without interruptions.",
+          "es": "Nelson, cuéntame tu versión sin interrupciones.",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker."
+        },
+        {
+          "en": "Nelson says you confirmed the room to him by phone.",
+          "es": "Nelson dice que tú le confirmaste la sala por teléfono.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Pilar, according to Nelson, the schedule showed the slot as open.",
+          "es": "Pilar, según Nelson, la agenda mostraba el espacio libre.",
+          "kind": "phrase"
+        },
+        {
+          "en": "So both of you thought the other one had confirmed it.",
+          "es": "Entonces, los dos pensaban que el otro lo había confirmado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're not here to find someone to blame.",
+          "es": "No estamos aquí para buscar culpables.",
+          "kind": "phrase"
+        },
+        {
+          "en": "From now on, confirm the room in writing.",
+          "es": "De ahora en adelante, confirmen la sala por escrito.",
+          "kind": "phrase",
+          "note": "Ustedes command to both colleagues."
+        },
+        {
+          "en": "Mr. Ortega, I apologize for the 90-minute wait.",
+          "es": "Señor Ortega, le pido disculpas por la espera de 90 minutos.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        }
+      ],
+      "speaking": "You are the physician lead, and the AI plays scheduler Nelson and nurse Pilar: hear each side, report back what each said with reported speech and the imperfect (ella dijo que la sala estaba libre), and settle on a fix together.",
+      "grammar": {
+        "focus": "Reported speech; imperfect for background (ella dijo que la sala estaba libre)",
+        "examples": [
+          {
+            "es": "Pilar dijo que la sala estaba libre a las 10.",
+            "en": "Pilar said the room was free at 10."
+          },
+          {
+            "es": "Nelson explicó que el sistema no mostraba la otra cita.",
+            "en": "Nelson explained that the system wasn't showing the other appointment."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 11,
+      "title": "Huddle on a Short-Staffed Procedure Day",
+      "objective": "Lead a morning huddle, commit to your part of a heavy day, and have each team member teach back their role.",
+      "words": [
+        {
+          "en": "the huddle",
+          "es": "la junta rápida",
+          "kind": "term"
+        },
+        {
+          "en": "the procedure list",
+          "es": "la lista de procedimientos",
+          "kind": "term"
+        },
+        {
+          "en": "the short staffing",
+          "es": "la falta de personal",
+          "kind": "term"
+        },
+        {
+          "en": "the recovery area",
+          "es": "el área de recuperación",
+          "kind": "term"
+        },
+        {
+          "en": "the radiology tech (male)",
+          "es": "el técnico de radiología",
+          "kind": "term"
+        },
+        {
+          "en": "fluoroscopy",
+          "es": "la fluoroscopia",
+          "kind": "term"
+        },
+        {
+          "en": "the room turnover",
+          "es": "el cambio de sala",
+          "kind": "term"
+        },
+        {
+          "en": "the lunch break",
+          "es": "la hora de comida",
+          "kind": "term"
+        },
+        {
+          "en": "the delay",
+          "es": "el retraso",
+          "kind": "term"
+        },
+        {
+          "en": "the priorities",
+          "es": "las prioridades",
+          "kind": "term"
+        },
+        {
+          "en": "the workload",
+          "es": "la carga de trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the first case",
+          "es": "el primer caso",
+          "kind": "term"
+        },
+        {
+          "en": "teamwork",
+          "es": "el trabajo en equipo",
+          "kind": "term"
+        },
+        {
+          "en": "each person's role",
+          "es": "el papel de cada uno",
+          "kind": "term"
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "Agrees: cansada for a woman, cansados for a group."
+        },
+        {
+          "en": "We're short a nurse today, but we're going to pull it off.",
+          "es": "Hoy nos falta una enfermera, pero lo vamos a sacar adelante.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll cover recovery between my cases.",
+          "es": "Yo cubriré la recuperación entre mis casos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Julio, what will you do after the first case?",
+          "es": "Julio, ¿qué harás tú después del primer caso?",
+          "kind": "phrase",
+          "note": "Informal: tú with a teammate."
+        },
+        {
+          "en": "Daniela, tell me your part back, please.",
+          "es": "Daniela, repíteme tu parte, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Omar, you'll have the room ready before each case.",
+          "es": "Omar, tendrás la sala lista antes de cada caso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If anyone falls behind, let me know right away.",
+          "es": "Si alguien se atrasa, avísenme enseguida.",
+          "kind": "phrase",
+          "note": "Ustedes command to the whole team."
+        },
+        {
+          "en": "I know you're tired; I appreciate the effort.",
+          "es": "Sé que están cansados; les agradezco el esfuerzo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody will skip lunch today.",
+          "es": "Nadie se saltará la hora de comida hoy.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the physician leading the morning huddle, and the AI plays Julio, Daniela and Omar: assign roles, commit to your part with the future (yo cubriré la recuperación), encourage them with lo vamos a sacar adelante, and have each teach back their role.",
+      "grammar": {
+        "focus": "Future for commitments; encouragement register (yo cubriré la recuperación, lo vamos a sacar adelante)",
+        "examples": [
+          {
+            "es": "Yo hablaré con los pacientes si hay retraso.",
+            "en": "I'll talk with the patients if there's a delay."
+          },
+          {
+            "es": "Terminaremos a tiempo si trabajamos juntos.",
+            "en": "We'll finish on time if we work together."
+          }
+        ]
+      },
+      "lessonType": "Teach-back",
+      "block": "C"
+    },
+    {
+      "n": 12,
+      "title": "One Insurance Denial, Four Different Listeners",
+      "objective": "Deliver the same insurance denial news to a patient, her son, a coworker and a device rep in the right register.",
+      "words": [
+        {
+          "en": "the insurance company",
+          "es": "la aseguradora",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance denial",
+          "es": "el rechazo del seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the denial letter",
+          "es": "la carta de rechazo",
+          "kind": "term"
+        },
+        {
+          "en": "the prior authorization",
+          "es": "la autorización previa",
+          "kind": "term"
+        },
+        {
+          "en": "the appeal",
+          "es": "la apelación",
+          "kind": "term"
+        },
+        {
+          "en": "the peer-to-peer review",
+          "es": "la revisión entre médicos",
+          "kind": "term",
+          "note": "A call between your doctor and the insurer's doctor."
+        },
+        {
+          "en": "medical necessity",
+          "es": "la necesidad médica",
+          "kind": "term"
+        },
+        {
+          "en": "the documentation",
+          "es": "la documentación",
+          "kind": "term"
+        },
+        {
+          "en": "the psychological evaluation",
+          "es": "la evaluación psicológica",
+          "kind": "term"
+        },
+        {
+          "en": "the deadline",
+          "es": "el plazo",
+          "kind": "term"
+        },
+        {
+          "en": "the coverage",
+          "es": "la cobertura",
+          "kind": "term"
+        },
+        {
+          "en": "the coverage criteria",
+          "es": "los criterios de cobertura",
+          "kind": "term"
+        },
+        {
+          "en": "the device company",
+          "es": "la compañía del dispositivo",
+          "kind": "term"
+        },
+        {
+          "en": "the trial date",
+          "es": "la fecha de la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "Mrs. Arango, I'd like to talk with you about your insurance.",
+          "es": "Señora Arango, quisiera hablar con usted sobre su seguro.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        },
+        {
+          "en": "I'm sorry to tell you the insurance denied the stimulator trial.",
+          "es": "Lamento decirle que el seguro negó la prueba del estimulador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This doesn't mean we doubt your pain.",
+          "es": "Esto no significa que dudemos de su dolor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would it be all right with you if we file an appeal this week?",
+          "es": "¿Le parecería bien que presentemos una apelación esta semana?",
+          "kind": "phrase",
+          "note": "Formal softener; it takes the subjunctive after que."
+        },
+        {
+          "en": "Kevin, would you be willing to come to the next visit with your mom?",
+          "es": "Kevin, ¿le parecería bien venir a la próxima cita con su mamá?",
+          "kind": "phrase",
+          "note": "Formal: usted with an adult family member."
+        },
+        {
+          "en": "Brenda, can you help me gather the notes for the appeal?",
+          "es": "Brenda, ¿me ayudas a juntar las notas para la apelación?",
+          "kind": "phrase",
+          "note": "Informal: tú with a coworker."
+        },
+        {
+          "en": "Mauricio, I'd like to ask you to postpone the trial date.",
+          "es": "Mauricio, quisiera pedirle que posponga la fecha de la prueba.",
+          "kind": "phrase",
+          "note": "Formal: usted with an outside rep."
+        }
+      ],
+      "speaking": "You are the clinic physician, and the AI plays patient Lourdes, her son Kevin, MA Brenda and device rep Mauricio: give each one the stimulator trial denial, switching between usted and tú and softening with quisiera and ¿le parecería?",
+      "grammar": {
+        "focus": "Usted / tú switching; softeners (quisiera, ¿le parecería?)",
+        "examples": [
+          {
+            "es": "Señora Arango, quisiera explicarle lo que dice la carta.",
+            "en": "Mrs. Arango, I'd like to explain to you what the letter says."
+          },
+          {
+            "es": "Brenda, ¿me pasas la carta de rechazo, por favor?",
+            "en": "Brenda, can you hand me the denial letter, please?"
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "C"
+    },
+    {
+      "n": 13,
+      "title": "Patient Faints in Recovery: The Incident Report",
+      "objective": "Tell a risk manager exactly what happened, in order, and complete the written incident report.",
+      "words": [
+        {
+          "en": "the fainting spell",
+          "es": "el desmayo",
+          "kind": "term",
+          "note": "Verb: desmayarse (se desmayó, she fainted)."
+        },
+        {
+          "en": "the fall",
+          "es": "la caída",
+          "kind": "term"
+        },
+        {
+          "en": "the incident report",
+          "es": "el informe de incidente",
+          "kind": "term"
+        },
+        {
+          "en": "the risk manager",
+          "es": "la gerente de riesgos",
+          "kind": "term",
+          "note": "La gerente for a woman, el gerente for a man."
+        },
+        {
+          "en": "the witness",
+          "es": "el testigo",
+          "kind": "term",
+          "note": "El testigo for a man, la testigo for a woman."
+        },
+        {
+          "en": "the scalp",
+          "es": "el cuero cabelludo",
+          "kind": "term"
+        },
+        {
+          "en": "the wound",
+          "es": "la herida",
+          "kind": "term",
+          "note": "For a small cut, many in Mexico and the US also say la cortada."
+        },
+        {
+          "en": "the gauze",
+          "es": "la gasa",
+          "kind": "term"
+        },
+        {
+          "en": "the loss of consciousness",
+          "es": "la pérdida del conocimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the sequence of events",
+          "es": "el orden de los hechos",
+          "kind": "term"
+        },
+        {
+          "en": "the exact time",
+          "es": "la hora exacta",
+          "kind": "term"
+        },
+        {
+          "en": "the stretcher rail",
+          "es": "el barandal de la camilla",
+          "kind": "term"
+        },
+        {
+          "en": "the low blood pressure",
+          "es": "la presión baja",
+          "kind": "term"
+        },
+        {
+          "en": "conscious",
+          "es": "consciente",
+          "kind": "term"
+        },
+        {
+          "en": "the written statement",
+          "es": "la declaración por escrito",
+          "kind": "term"
+        },
+        {
+          "en": "Sonia, I'll tell you everything in the exact order.",
+          "es": "Sonia, le cuento todo en el orden exacto.",
+          "kind": "phrase",
+          "note": "Formal: usted with the risk manager."
+        },
+        {
+          "en": "At 10:15, the patient got up from the stretcher.",
+          "es": "A las 10:15, la paciente se levantó de la camilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A few minutes later, she said she felt dizzy.",
+          "es": "Unos minutos después, dijo que se sentía mareada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As soon as she stood up, she lost consciousness and fell.",
+          "es": "En cuanto se paró, perdió el conocimiento y se cayó.",
+          "kind": "phrase",
+          "note": "Pararse means to stand up in Mexico and the US."
+        },
+        {
+          "en": "She hit her head on the stretcher rail.",
+          "es": "Se golpeó la cabeza contra el barandal de la camilla.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Fabián, correct me if I get any time wrong.",
+          "es": "Fabián, corrígeme si me equivoco en alguna hora.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "Mrs. Quintana, don't get up; stay lying down, please.",
+          "es": "Señora Quintana, no se levante; quédese acostada, por favor.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        },
+        {
+          "en": "In the report I only write what I saw.",
+          "es": "En el informe solo escribo lo que vi.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the physician at Northside Pain Center, and the AI is risk manager Sonia Peralta: tell her minute by minute how Marta Quintana fainted and cut her scalp, using time markers like a las 10:15, unos minutos después and en cuanto, then confirm the report.",
+      "grammar": {
+        "focus": "Past narration with time markers (a las diez y cuarto, unos minutos después, en cuanto)",
+        "examples": [
+          {
+            "es": "A las 10:00 terminé la inyección y la pasamos a recuperación.",
+            "en": "At 10:00 I finished the injection and we moved her to recovery."
+          },
+          {
+            "es": "En cuanto la vi en el piso, llamé a Fabián.",
+            "en": "As soon as I saw her on the floor, I called Fabián."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 14,
+      "title": "Wrong-Side Near Miss Caught at the Time-Out",
+      "objective": "Lead a no-blame debrief of a side mix-up caught at the time-out and agree on one change to prevent it.",
+      "words": [
+        {
+          "en": "the time-out",
+          "es": "la pausa de seguridad",
+          "kind": "term",
+          "note": "Many US teams also just say el time-out."
+        },
+        {
+          "en": "the near miss",
+          "es": "el cuasi incidente",
+          "kind": "term",
+          "note": "Report term; in conversation people often say casi error."
+        },
+        {
+          "en": "the discrepancy",
+          "es": "la discrepancia",
+          "kind": "term"
+        },
+        {
+          "en": "the left side",
+          "es": "el lado izquierdo",
+          "kind": "term"
+        },
+        {
+          "en": "the right side",
+          "es": "el lado derecho",
+          "kind": "term"
+        },
+        {
+          "en": "the signed consent",
+          "es": "el consentimiento firmado",
+          "kind": "term"
+        },
+        {
+          "en": "the day's schedule",
+          "es": "la programación del día",
+          "kind": "term"
+        },
+        {
+          "en": "the data-entry error",
+          "es": "el error de captura",
+          "kind": "term",
+          "note": "Captura means data entry in Mexico and the US."
+        },
+        {
+          "en": "the site marking",
+          "es": "la marca del sitio",
+          "kind": "term"
+        },
+        {
+          "en": "the root cause",
+          "es": "la causa raíz",
+          "kind": "term"
+        },
+        {
+          "en": "the system failure",
+          "es": "la falla del sistema",
+          "kind": "term"
+        },
+        {
+          "en": "the double check",
+          "es": "la doble verificación",
+          "kind": "term"
+        },
+        {
+          "en": "the safety culture",
+          "es": "la cultura de seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the process change",
+          "es": "el cambio de proceso",
+          "kind": "term"
+        },
+        {
+          "en": "in time",
+          "es": "a tiempo",
+          "kind": "term"
+        },
+        {
+          "en": "If we hadn't paused, it could have been the wrong side.",
+          "es": "Si no hubiéramos pausado, podría haber sido el lado equivocado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We almost marked the right side.",
+          "es": "Por poco marcamos el lado derecho.",
+          "kind": "phrase",
+          "note": "Por poco takes the present tense but means almost, in the past."
+        },
+        {
+          "en": "Alejandra, thank you for speaking up in time; you did the right thing.",
+          "es": "Alejandra, gracias por hablar a tiempo; hiciste lo correcto.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "Iván, this isn't your fault; we're going to review the process.",
+          "es": "Iván, esto no es tu culpa; vamos a revisar el proceso.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "It almost happened, but the time-out worked.",
+          "es": "Casi pasa, pero la pausa funcionó.",
+          "kind": "phrase"
+        },
+        {
+          "en": "At what point could it have been caught earlier?",
+          "es": "¿En qué punto se pudo haber detectado antes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I propose that two people verify the side before scheduling.",
+          "es": "Propongo que dos personas verifiquen el lado antes de programar.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Robles, which side hurts, please?",
+          "es": "Señor Robles, ¿de qué lado le duele, por favor?",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        }
+      ],
+      "speaking": "You are the physician leading the debrief in procedure room 4, and the AI is radiology tech Iván Corral: go over the left-right mix-up without blame using si no hubiéramos pausado, podría haber sido and por poco, and agree on one process change.",
+      "grammar": {
+        "focus": "Casi, por poco, podría haber; si clauses (si no hubiéramos pausado, podría haber sido el lado equivocado)",
+        "examples": [
+          {
+            "es": "Si Alejandra no hubiera hablado, podríamos haber inyectado el lado derecho.",
+            "en": "If Alejandra hadn't spoken up, we could have injected the right side."
+          },
+          {
+            "es": "Por poco seguimos la programación, que decía lado derecho.",
+            "en": "We almost followed the schedule, which said right side."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 15,
+      "title": "Contrast Reaction: Calling Rapid Response",
+      "objective": "Stop the procedure, call for help with short clear commands, and keep the patient and team informed.",
+      "words": [
+        {
+          "en": "the allergic reaction",
+          "es": "la reacción alérgica",
+          "kind": "term"
+        },
+        {
+          "en": "the hives",
+          "es": "la urticaria",
+          "kind": "term",
+          "note": "Singular in Spanish, plural in English."
+        },
+        {
+          "en": "the wheezing",
+          "es": "las sibilancias",
+          "kind": "term"
+        },
+        {
+          "en": "the rapid response team",
+          "es": "el equipo de respuesta rápida",
+          "kind": "term"
+        },
+        {
+          "en": "the crash cart",
+          "es": "el carro rojo",
+          "kind": "term",
+          "note": "Standard term in Mexico and US hospitals."
+        },
+        {
+          "en": "the oxygen mask",
+          "es": "la mascarilla de oxígeno",
+          "kind": "term"
+        },
+        {
+          "en": "the IV line",
+          "es": "la vía intravenosa",
+          "kind": "term",
+          "note": "Often shortened to la vía."
+        },
+        {
+          "en": "the reaction protocol",
+          "es": "el protocolo de reacción",
+          "kind": "term"
+        },
+        {
+          "en": "the oxygen saturation",
+          "es": "la saturación de oxígeno",
+          "kind": "term"
+        },
+        {
+          "en": "the heart rate",
+          "es": "la frecuencia cardiaca",
+          "kind": "term"
+        },
+        {
+          "en": "the monitor",
+          "es": "el monitor",
+          "kind": "term"
+        },
+        {
+          "en": "the epinephrine",
+          "es": "la epinefrina",
+          "kind": "term",
+          "note": "Given only according to the hospital protocol and the physician's order."
+        },
+        {
+          "en": "the trouble breathing",
+          "es": "la dificultad para respirar",
+          "kind": "term"
+        },
+        {
+          "en": "the onset time",
+          "es": "la hora de inicio",
+          "kind": "term"
+        },
+        {
+          "en": "stable",
+          "es": "estable",
+          "kind": "term"
+        },
+        {
+          "en": "Stop the procedure now!",
+          "es": "¡Paren el procedimiento ahora!",
+          "kind": "phrase",
+          "note": "Ustedes command to the whole team."
+        },
+        {
+          "en": "Gerardo, bring the crash cart.",
+          "es": "Gerardo, trae el carro rojo.",
+          "kind": "phrase",
+          "note": "Informal: tú between coworkers."
+        },
+        {
+          "en": "I need rapid response in the interventional suite, now.",
+          "es": "Necesito respuesta rápida en la sala de intervencionismo, ahora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Before you give it, read me the dose from the protocol.",
+          "es": "Antes de darlo, léeme la dosis según el protocolo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If the pressure drops, we'll do what the protocol says.",
+          "es": "Si la presión baja, haremos lo que indica el protocolo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Ms. Montes, breathe slowly; you're not alone.",
+          "es": "Señora Montes, respire despacio; no está sola.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        },
+        {
+          "en": "If you feel worse, tell me and we'll act right away.",
+          "es": "Si se siente peor, dígamelo y actuaremos enseguida.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        },
+        {
+          "en": "When the team arrives, I'll give them the summary.",
+          "es": "Cuando llegue el equipo, les daré el resumen.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the physician in the interventional suite at St. Clare's, and the AI is nurse Gerardo Aguilar: stop the procedure, call rapid response, give short commands like trae el carro rojo, and use si + present → future to explain next steps to Gerardo and Valeria Montes.",
+      "grammar": {
+        "focus": "Si + present → future; short radio or phone commands (si baja la presión, llamaremos; trae el carro)",
+        "examples": [
+          {
+            "es": "Si le cuesta más respirar, el equipo le pondrá oxígeno enseguida.",
+            "en": "If it gets harder to breathe, the team will give you oxygen right away."
+          },
+          {
+            "es": "Trae el carro rojo y anota la hora de inicio.",
+            "en": "Bring the crash cart and write down the onset time."
+          }
+        ]
+      },
+      "lessonType": "Case",
+      "block": "D"
+    },
+    {
+      "n": 16,
+      "title": "Controlled-Substance Audit in the Procedure Suite",
+      "objective": "Answer an auditor's formal questions on how controlled medications are stored, logged and wasted.",
+      "words": [
+        {
+          "en": "the auditor",
+          "es": "la auditora",
+          "kind": "term",
+          "note": "Address her as licenciada; it is written Lic. or Lcda. in Puerto Rico."
+        },
+        {
+          "en": "the inventory log",
+          "es": "el registro de inventario",
+          "kind": "term"
+        },
+        {
+          "en": "the waste",
+          "es": "el desecho",
+          "kind": "term"
+        },
+        {
+          "en": "the witness signature",
+          "es": "la firma del testigo",
+          "kind": "term"
+        },
+        {
+          "en": "the locked cabinet",
+          "es": "el gabinete con llave",
+          "kind": "term",
+          "note": "In Puerto Rico you will also hear la gaveta for a drawer."
+        },
+        {
+          "en": "the automated dispensing cabinet",
+          "es": "el dispensador automatizado",
+          "kind": "term"
+        },
+        {
+          "en": "the count",
+          "es": "el conteo",
+          "kind": "term"
+        },
+        {
+          "en": "the incomplete entry",
+          "es": "la entrada incompleta",
+          "kind": "term"
+        },
+        {
+          "en": "the fentanyl",
+          "es": "el fentanilo",
+          "kind": "term"
+        },
+        {
+          "en": "the midazolam",
+          "es": "el midazolam",
+          "kind": "term"
+        },
+        {
+          "en": "the leftover amount",
+          "es": "el sobrante",
+          "kind": "term"
+        },
+        {
+          "en": "the institutional policy",
+          "es": "la política institucional",
+          "kind": "term"
+        },
+        {
+          "en": "the restricted access",
+          "es": "el acceso restringido",
+          "kind": "term"
+        },
+        {
+          "en": "the corrective action",
+          "es": "la acción correctiva",
+          "kind": "term"
+        },
+        {
+          "en": "the reconciliation",
+          "es": "la conciliación",
+          "kind": "term"
+        },
+        {
+          "en": "under lock and key",
+          "es": "bajo llave",
+          "kind": "term"
+        },
+        {
+          "en": "Ms. Navarro, I'll gladly show you the logs.",
+          "es": "Licenciada Navarro, con gusto le muestro los registros.",
+          "kind": "phrase",
+          "note": "Formal: licenciada plus usted with the auditor."
+        },
+        {
+          "en": "According to our policy, the count is done at every shift change.",
+          "es": "Según nuestra política, el conteo se hace en cada cambio de turno.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Only authorized staff have access to this cabinet.",
+          "es": "Solo el personal autorizado tiene acceso a este gabinete.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You're right, that entry is missing the witness signature.",
+          "es": "Tiene razón, a esa entrada le falta la firma del testigo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The signature isn't added afterward without following the policy.",
+          "es": "La firma no se agrega después sin seguir la política.",
+          "kind": "phrase"
+        },
+        {
+          "en": "May I check with pharmacy before I answer?",
+          "es": "¿Me permite consultar con farmacia antes de responder?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Pharmacy will be notified today, according to institutional policy.",
+          "es": "Se notificará a farmacia hoy mismo, según la política institucional.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like me to send you a copy of the plan in writing?",
+          "es": "¿Desea que le envíe una copia del plan por escrito?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the CRNA at Hospital del Carmen, and the AI is auditor Lic. Patricia Navarro: answer her formal questions on how controlled medications are stored, logged and wasted, using usted and passive se (se guardan bajo llave, se documenta con testigo).",
+      "grammar": {
+        "focus": "Formal register; passive se for procedures (los medicamentos se guardan bajo llave, el desecho se documenta con testigo)",
+        "examples": [
+          {
+            "es": "Los medicamentos controlados se guardan bajo llave en el dispensador.",
+            "en": "Controlled medications are kept under lock and key in the dispensing cabinet."
+          },
+          {
+            "es": "El desecho se documenta con testigo en el momento, no después.",
+            "en": "Waste is documented with a witness at the time, not afterward."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "D"
+    },
+    {
+      "n": 17,
+      "title": "Dictating the Day's Report for the Director",
+      "objective": "Dictate a clear written summary of the day: cases done, cases postponed, problems and tomorrow's plan.",
+      "words": [
+        {
+          "en": "the daily report",
+          "es": "el informe diario",
+          "kind": "term"
+        },
+        {
+          "en": "the medical director",
+          "es": "el director médico",
+          "kind": "term",
+          "note": "Use la directora médica for a woman."
+        },
+        {
+          "en": "the board",
+          "es": "la junta directiva",
+          "kind": "term"
+        },
+        {
+          "en": "the dictation",
+          "es": "el dictado",
+          "kind": "term"
+        },
+        {
+          "en": "the completed cases",
+          "es": "los casos realizados",
+          "kind": "term"
+        },
+        {
+          "en": "the postponed case",
+          "es": "el caso pospuesto",
+          "kind": "term"
+        },
+        {
+          "en": "the cancellation",
+          "es": "la cancelación",
+          "kind": "term"
+        },
+        {
+          "en": "the reason",
+          "es": "el motivo",
+          "kind": "term"
+        },
+        {
+          "en": "the fasting",
+          "es": "el ayuno",
+          "kind": "term",
+          "note": "Used for the no-food rule before sedation."
+        },
+        {
+          "en": "the equipment failure",
+          "es": "la falla del equipo",
+          "kind": "term"
+        },
+        {
+          "en": "the technical service",
+          "es": "el servicio técnico",
+          "kind": "term"
+        },
+        {
+          "en": "the rescheduling",
+          "es": "la reprogramación",
+          "kind": "term"
+        },
+        {
+          "en": "the pending items",
+          "es": "los pendientes",
+          "kind": "term",
+          "note": "Common in Mexico for open tasks or to-dos."
+        },
+        {
+          "en": "tomorrow's plan",
+          "es": "el plan para mañana",
+          "kind": "term"
+        },
+        {
+          "en": "the recommendation",
+          "es": "la recomendación",
+          "kind": "term"
+        },
+        {
+          "en": "Today 9 of the 11 scheduled procedures were done.",
+          "es": "Hoy se realizaron 9 de los 11 procedimientos programados.",
+          "kind": "phrase",
+          "note": "Written register: impersonal se with past tense keeps the report neutral."
+        },
+        {
+          "en": "However, 2 cases were cancelled for different reasons.",
+          "es": "Sin embargo, se cancelaron 2 casos por motivos distintos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The first patient did not follow the fasting instructions for sedation.",
+          "es": "El primer paciente no cumplió con el ayuno indicado para la sedación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "In addition, the C-arm failed at 2 in the afternoon.",
+          "es": "Además, el arco en C falló a las 2 de la tarde.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Therefore, both cases were rescheduled for Thursday.",
+          "es": "Por lo tanto, ambos casos se reprogramaron para el jueves.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Technical service will come first thing tomorrow.",
+          "es": "El servicio técnico vendrá mañana a primera hora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Dr. Ibarra, I'll email you the report before 6.",
+          "es": "Doctor Ibarra, le envío el informe por correo antes de las 6.",
+          "kind": "phrase",
+          "note": "Formal: usted with the director."
+        },
+        {
+          "en": "For tomorrow, I recommend confirming fasting one day ahead.",
+          "es": "Para mañana, recomiendo confirmar el ayuno un día antes.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the pain physician dictating today's report, and the AI is Dr. Raúl Ibarra, the medical director: summarize the cases done, explain why two cases were cancelled, and give tomorrow's plan, linking ideas with además, sin embargo and por lo tanto.",
+      "grammar": {
+        "focus": "Written register; report connectors (además, sin embargo, por lo tanto)",
+        "examples": [
+          {
+            "es": "Además, se atendieron 4 consultas nuevas sin contratiempos.",
+            "en": "In addition, 4 new consultations were seen without setbacks."
+          },
+          {
+            "es": "Sin embargo, el arco en C falló; por lo tanto, se canceló el último caso.",
+            "en": "However, the C-arm failed; therefore, the last case was cancelled."
+          }
+        ]
+      },
+      "lessonType": "Document",
+      "block": "E"
+    },
+    {
+      "n": 18,
+      "title": "Next-Day Callbacks After Injections",
+      "objective": "Return patients' calls and texts politely, spot the one that needs escalation, and protect privacy.",
+      "words": [
+        {
+          "en": "the nurse line",
+          "es": "la línea de enfermería",
+          "kind": "term"
+        },
+        {
+          "en": "the voicemail",
+          "es": "el buzón de voz",
+          "kind": "term"
+        },
+        {
+          "en": "the text message",
+          "es": "el mensaje de texto",
+          "kind": "term"
+        },
+        {
+          "en": "the headache",
+          "es": "la cefalea",
+          "kind": "term",
+          "note": "Clinical word; patients usually say dolor de cabeza."
+        },
+        {
+          "en": "the neck stiffness",
+          "es": "la rigidez de cuello",
+          "kind": "term"
+        },
+        {
+          "en": "the on-call doctor",
+          "es": "el médico de guardia",
+          "kind": "term"
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the identity verification",
+          "es": "la verificación de identidad",
+          "kind": "term"
+        },
+        {
+          "en": "the patient's authorization",
+          "es": "la autorización del paciente",
+          "kind": "term"
+        },
+        {
+          "en": "the authorized representative",
+          "es": "el representante autorizado",
+          "kind": "term"
+        },
+        {
+          "en": "the appointment change",
+          "es": "el cambio de cita",
+          "kind": "term"
+        },
+        {
+          "en": "the available time slot",
+          "es": "el horario disponible",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency room",
+          "es": "la sala de emergencias",
+          "kind": "term",
+          "note": "Many patients just say emergencias."
+        },
+        {
+          "en": "the contact number",
+          "es": "el número de contacto",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, I'm calling on behalf of the Sunvale Pain Clinic.",
+          "es": "Buenos días, le llamo de parte de la Clínica del Dolor Sunvale.",
+          "kind": "phrase",
+          "note": "Formal phone opening."
+        },
+        {
+          "en": "Could you confirm your full name and date of birth for me?",
+          "es": "¿Podría confirmarme su nombre completo y fecha de nacimiento?",
+          "kind": "phrase",
+          "note": "Formal; verify identity before sharing anything."
+        },
+        {
+          "en": "Does the headache get worse when you stand up?",
+          "es": "¿El dolor de cabeza empeora cuando se levanta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to notify the on-call doctor right now.",
+          "es": "Voy a avisarle al médico de guardia ahora mismo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it gets worse before we call you, go to the emergency room.",
+          "es": "Si empeora antes de que la llamemos, vaya a emergencias.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Diego, does Tuesday at 3 p.m. work for you?",
+          "es": "Diego, ¿le queda bien el martes a las 3 p. m.?",
+          "kind": "phrase",
+          "note": "Text message: keep it short, with no medical details."
+        },
+        {
+          "en": "Without your father's authorization, I can't give you information.",
+          "es": "Sin la autorización de su papá, no puedo darle información.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Could you ask your father to call us directly?",
+          "es": "¿Podría pedirle a su papá que nos llame directamente?",
+          "kind": "phrase",
+          "note": "Formal and polite to the daughter."
+        }
+      ],
+      "speaking": "You are the clinician on the nurse line, and the AI plays patients and a family member who called or texted: return each message, verify identity, decide who needs the on-call doctor and protect privacy, using le llamo de parte de and ¿podría confirmarme...?",
+      "grammar": {
+        "focus": "Phone and text conventions; conditional politeness (¿podría confirmarme...?, le llamo de parte de)",
+        "examples": [
+          {
+            "es": "¿Podría decirme a qué hora empezó el dolor?",
+            "en": "Could you tell me what time the pain started?"
+          },
+          {
+            "es": "Le llamo de parte del Dr. Rivas para darle seguimiento.",
+            "en": "I'm calling on behalf of Dr. Rivas to follow up with you."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 19,
+      "title": "End of the Stimulator Trial: Reviewing Results",
+      "objective": "Review trial results with a patient and spouse and explain what would come next and under what conditions.",
+      "words": [
+        {
+          "en": "the percentage of relief",
+          "es": "el porcentaje de alivio",
+          "kind": "term"
+        },
+        {
+          "en": "the trial diary",
+          "es": "el diario de la prueba",
+          "kind": "term"
+        },
+        {
+          "en": "the permanent implant",
+          "es": "el implante permanente",
+          "kind": "term"
+        },
+        {
+          "en": "the surgeon",
+          "es": "el cirujano",
+          "kind": "term",
+          "note": "Use la cirujana for a woman."
+        },
+        {
+          "en": "the incision",
+          "es": "la incisión",
+          "kind": "term"
+        },
+        {
+          "en": "the recovery",
+          "es": "la recuperación",
+          "kind": "term"
+        },
+        {
+          "en": "the improvement",
+          "es": "la mejoría",
+          "kind": "term"
+        },
+        {
+          "en": "the realistic expectations",
+          "es": "las expectativas realistas",
+          "kind": "term"
+        },
+        {
+          "en": "the success criterion",
+          "es": "el criterio de éxito",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance approval",
+          "es": "la aprobación del seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the device programming",
+          "es": "la programación del dispositivo",
+          "kind": "term"
+        },
+        {
+          "en": "the removal",
+          "es": "la extracción",
+          "kind": "term"
+        },
+        {
+          "en": "reversible",
+          "es": "reversible",
+          "kind": "term"
+        },
+        {
+          "en": "long-term",
+          "es": "a largo plazo",
+          "kind": "term"
+        },
+        {
+          "en": "the husband",
+          "es": "el esposo",
+          "kind": "term"
+        },
+        {
+          "en": "I'm glad you had a better week.",
+          "es": "Me da gusto que haya tenido una semana mejor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "According to your diary, the relief was about 60%.",
+          "es": "Según su diario, el alivio fue de alrededor del 60%.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What activities could you do this week that you couldn't before?",
+          "es": "¿Qué actividades pudo hacer esta semana que antes no podía?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We would move to the permanent implant, as long as insurance approves it.",
+          "es": "Pasaríamos al implante permanente, siempre que el seguro lo apruebe.",
+          "kind": "phrase"
+        },
+        {
+          "en": "As long as the evaluation is complete, we could schedule the surgery.",
+          "es": "Siempre que la evaluación esté completa, podríamos programar la cirugía.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Mr. Arturo, I understand the surgery worries you.",
+          "es": "Don Arturo, entiendo que la cirugía le preocupe.",
+          "kind": "phrase",
+          "note": "Don + first name is respectful and warm in Mexico."
+        },
+        {
+          "en": "If the relief didn't last, we could adjust the programming.",
+          "es": "Si el alivio no durara, podríamos ajustar la programación.",
+          "kind": "phrase"
+        },
+        {
+          "en": "If it doesn't work, the device can be removed.",
+          "es": "En caso de que no funcione, el dispositivo se puede retirar.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the pain physician, and the AI is Rosa Elvira Maldonado with her husband Arturo: review her trial diary, explain the next steps and their conditions, and answer his concerns, using the conditional and siempre que + subjunctive.",
+      "grammar": {
+        "focus": "Conditional; subjunctive in conditions (siempre que el seguro lo apruebe, siempre que la evaluación esté completa)",
+        "examples": [
+          {
+            "es": "El cirujano la vería en 2 semanas, siempre que el seguro autorice la consulta.",
+            "en": "The surgeon would see you in 2 weeks, as long as insurance authorizes the visit."
+          },
+          {
+            "es": "Usted seguiría con fisioterapia, siempre que el dolor lo permita.",
+            "en": "You would continue physical therapy, as long as the pain allows it."
+          }
+        ]
+      },
+      "lessonType": "People",
+      "block": "E"
+    },
+    {
+      "n": 20,
+      "title": "Capstone: A Full Day Running the Procedure Suite",
+      "objective": "Lead a full procedure day in Spanish: teach, adjust plans, handle an emergency, talk with patients and report.",
+      "words": [
+        {
+          "en": "the training",
+          "es": "la capacitación",
+          "kind": "term"
+        },
+        {
+          "en": "the new staff",
+          "es": "el personal nuevo",
+          "kind": "term"
+        },
+        {
+          "en": "the blood-thinner hold",
+          "es": "la suspensión del anticoagulante",
+          "kind": "term"
+        },
+        {
+          "en": "the rescheduled case",
+          "es": "el caso reprogramado",
+          "kind": "term"
+        },
+        {
+          "en": "the vasovagal episode",
+          "es": "el episodio vasovagal",
+          "kind": "term"
+        },
+        {
+          "en": "the cold sweat",
+          "es": "el sudor frío",
+          "kind": "term"
+        },
+        {
+          "en": "the pallor",
+          "es": "la palidez",
+          "kind": "term"
+        },
+        {
+          "en": "the leg elevation",
+          "es": "la elevación de piernas",
+          "kind": "term"
+        },
+        {
+          "en": "the juice",
+          "es": "el jugo",
+          "kind": "term"
+        },
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term"
+        },
+        {
+          "en": "the state surveyor",
+          "es": "la inspectora estatal",
+          "kind": "term",
+          "note": "Use el inspector estatal for a man."
+        },
+        {
+          "en": "the compliance",
+          "es": "el cumplimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the temperature log",
+          "es": "el registro de temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the end-of-day wrap-up",
+          "es": "el cierre del día",
+          "kind": "term"
+        },
+        {
+          "en": "Lucía, show them how to open the tray without contaminating it.",
+          "es": "Lucía, enséñale a abrir la bandeja sin contaminarla.",
+          "kind": "phrase",
+          "note": "Informal tú between coworkers."
+        },
+        {
+          "en": "Check the list before the first patient comes in.",
+          "es": "Revisen la lista antes de que entre el primer paciente.",
+          "kind": "phrase",
+          "note": "Ustedes command to the whole team."
+        },
+        {
+          "en": "Since you didn't stop the blood thinner, it isn't safe to inject today.",
+          "es": "Como no suspendió el anticoagulante, hoy no es seguro inyectar.",
+          "kind": "phrase",
+          "note": "Formal: usted with the patient."
+        },
+        {
+          "en": "We'll give you another appointment when your doctor approves stopping it.",
+          "es": "Le daremos otra cita cuando su médico apruebe suspenderlo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Lie down, sir; we're going to raise your legs.",
+          "es": "Acuéstese, señor; le vamos a levantar las piernas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll gladly show you this week's temperature log.",
+          "es": "Con gusto le muestro el registro de temperatura de esta semana.",
+          "kind": "phrase",
+          "note": "Formal with the surveyor."
+        },
+        {
+          "en": "How have you been since yesterday's injection?",
+          "es": "¿Cómo ha seguido desde la inyección de ayer?",
+          "kind": "phrase"
+        },
+        {
+          "en": "In summary, 10 cases were done; however, 1 was postponed.",
+          "es": "En resumen, se realizaron 10 casos; sin embargo, se pospuso 1.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "You are the physician leading the procedure day, and the AI plays your team, patients, a state surveyor and the director: run the huddle, guide the trainer, talk with patients, answer the surveyor, return callbacks and dictate the report, using commands, subjunctive, conditionals and connectors.",
+      "grammar": {
+        "focus": "Capstone: integrating the Master 20 grammar",
+        "examples": [
+          {
+            "es": "Si la paciente hubiera suspendido el anticoagulante, la habríamos inyectado hoy.",
+            "en": "If the patient had stopped the blood thinner, we would have injected her today."
+          },
+          {
+            "es": "Revisen que cada paciente haya suspendido su anticoagulante según la orden del médico.",
+            "en": "Check that each patient has stopped their blood thinner according to the doctor's order."
+          }
+        ]
+      },
+      "lessonType": "Capstone",
+      "block": "E"
+    }
+  ]
+}

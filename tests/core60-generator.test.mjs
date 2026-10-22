@@ -426,3 +426,30 @@ test("cli provider: parses the CLI's JSON result, its usage, and classifies limi
   assert.equal(classifyCliFailure("API Error: 429 rate_limit_error"), "rate_limit");
   assert.equal(classifyCliFailure("OAuth token has expired"), "auth");
 });
+
+test("Spanish prompts require ustedes and Americas terms; passages with vosotros are rejected", () => {
+  const file = roofingStageFile("master");
+  for (const request of [
+    stageContentRequest(ctx("master"), "m", file.lessons[0], { scene: "s" }),
+    foundationCurriculumRequest(ctx("foundation"), "m"),
+  ]) {
+    assert.match(request.system, /neutral Latin-American Spanish only/);
+    assert.match(request.system, /ALWAYS ustedes/);
+    assert.match(request.system, /never vosotros/);
+    assert.match(request.system, /el celular, not el móvil; el video, not el vídeo/);
+  }
+  const lesson = file.lessons[0];
+  const content = clone(roofingContent("master")[String(lesson.n)]);
+  assert.deepEqual(stageContentErrors(content, lesson, ctx("master")), []);
+  content.passage.target[1] = "El jefe dice: Os necesito arriba, así que subís ya.";
+  const errors = stageContentErrors(content, lesson, ctx("master"));
+  assert.ok(errors.some((e) => e.startsWith('passage.target[1]: vosotros form "Os", "subís"')), errors.join("\n"));
+});
+
+test("Hockey stages are scoped to ice hockey (its catalog blurb also names field hockey)", () => {
+  const hockey = { ...ctx("master"), module: getModule("hockey") };
+  const outline = masterOutlineRequest(hockey, "m");
+  assert.match(outline.messages[0].content, /Ice hockey only/);
+  assert.match(outline.messages[0].content, /never field hockey/);
+  assert.doesNotMatch(masterOutlineRequest(ctx("master"), "m").messages[0].content, /Ice hockey only/);
+});

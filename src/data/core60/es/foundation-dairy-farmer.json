@@ -1,0 +1,913 @@
+{
+  "version": 1,
+  "module": "foundation-dairy-farmer",
+  "baseModule": "dairy-farmer",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Dairy Farmer Foundation",
+  "threshold": "By Lesson 10, you can greet the crew, give cow numbers and shift times, describe cows and supplies, ask where things are, make polite requests and ask for help, and start Dairy Farmer Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.030Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet coworkers on the dairy and say basic farm words with clear Spanish vowels and sounds.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings at the start of a shift",
+      "words": [
+        {
+          "en": "the cow",
+          "es": "la vaca",
+          "kind": "term",
+          "note": "Spanish a is always 'ah'; v sounds close to a soft b."
+        },
+        {
+          "en": "the milk",
+          "es": "la leche",
+          "kind": "term",
+          "note": "ch as in 'church'; final e sounds like 'eh.'"
+        },
+        {
+          "en": "the boss",
+          "es": "el jefe",
+          "kind": "term",
+          "note": "j is a strong h sound. A woman boss is la jefa."
+        },
+        {
+          "en": "the calf",
+          "es": "el becerro",
+          "kind": "term",
+          "note": "rr is a strong trill. A female calf is la becerra."
+        },
+        {
+          "en": "the water tap",
+          "es": "la llave del agua",
+          "kind": "term",
+          "note": "ll sounds like y in 'yes' in most of Mexico."
+        },
+        {
+          "en": "the teat",
+          "es": "el pezón",
+          "kind": "term",
+          "note": "The accent marks the stressed syllable: pe-ZÓN."
+        },
+        {
+          "en": "the udder",
+          "es": "la ubre",
+          "kind": "term",
+          "note": "u sounds like 'oo' in 'food.'"
+        },
+        {
+          "en": "good morning",
+          "es": "buenos días",
+          "kind": "term",
+          "note": "Use until about noon."
+        },
+        {
+          "en": "good afternoon",
+          "es": "buenas tardes",
+          "kind": "term",
+          "note": "Use from noon until dark."
+        },
+        {
+          "en": "the coworker",
+          "es": "el compañero",
+          "kind": "term",
+          "note": "ñ sounds like 'ny' in 'canyon.' A woman coworker is la compañera."
+        },
+        {
+          "en": "Good morning, my name is Ana.",
+          "es": "Buenos días, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, I'm the new milker.",
+          "es": "Mucho gusto, soy el nuevo ordeñador.",
+          "kind": "phrase",
+          "note": "A woman says: soy la nueva ordeñadora."
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use with the boss or someone you just met."
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow.",
+          "es": "Hasta mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a coworker at the start of the shift, say your name, and ask how to say a farm word in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give cow numbers, shift times and pounds of milk using numbers from 0 to 1,000.",
+      "focus": "Numbers 0 to 1,000, clock time, and dairy quantities in pounds, gallons and bales",
+      "words": [
+        {
+          "en": "the time",
+          "es": "la hora",
+          "kind": "term",
+          "note": "Also 'the hour': ¿Qué hora es? = What time is it?"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term",
+          "note": "Milk on US dairies is weighed in pounds."
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the bale",
+          "es": "la paca",
+          "kind": "term",
+          "note": "A bale of hay or straw."
+        },
+        {
+          "en": "the ear tag",
+          "es": "el arete",
+          "kind": "term",
+          "note": "The tag with the cow's number."
+        },
+        {
+          "en": "the bucket",
+          "es": "la cubeta",
+          "kind": "term"
+        },
+        {
+          "en": "the afternoon",
+          "es": "la tarde",
+          "kind": "term"
+        },
+        {
+          "en": "the night",
+          "es": "la noche",
+          "kind": "term"
+        },
+        {
+          "en": "the number",
+          "es": "el número",
+          "kind": "term"
+        },
+        {
+          "en": "the degree",
+          "es": "el grado",
+          "kind": "term",
+          "note": "In the US, temperature is given in degrees Fahrenheit."
+        },
+        {
+          "en": "It's half past 3.",
+          "es": "Son las 3 y media.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I start at 4 in the morning.",
+          "es": "Entro a las 4 de la mañana.",
+          "kind": "phrase",
+          "note": "Entrar = go in to work, start your shift."
+        },
+        {
+          "en": "Cow 315 gives 80 pounds of milk.",
+          "es": "La vaca 315 da 80 libras de leche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We milk 1,000 cows a day.",
+          "es": "Ordeñamos 1,000 vacas al día.",
+          "kind": "phrase",
+          "note": "Say mil for 1,000, with no 'un' before it."
+        },
+        {
+          "en": "The shift is 8 hours.",
+          "es": "El turno es de 8 horas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker what time your shift starts, a cow's ear tag number, and how many pounds of milk she gives."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what something is and describe the condition or location of cows, floors and troughs.",
+      "focus": "ser for what someone or something is, estar for a cow's condition or location",
+      "words": [
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term",
+          "note": "Ends in -a for a cow: la vaca está enferma."
+        },
+        {
+          "en": "healthy",
+          "es": "sano",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "empty",
+          "es": "vacío",
+          "kind": "term"
+        },
+        {
+          "en": "slippery",
+          "es": "resbaloso",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "Estar listo = to be ready."
+        },
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the vet",
+          "es": "el veterinario",
+          "kind": "term",
+          "note": "A woman vet is la veterinaria."
+        },
+        {
+          "en": "the water trough",
+          "es": "el bebedero",
+          "kind": "term"
+        },
+        {
+          "en": "Cow 120 is sick.",
+          "es": "La vaca 120 está enferma.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The floor is slippery.",
+          "es": "El piso está resbaloso.",
+          "kind": "phrase"
+        },
+        {
+          "en": "She is the vet.",
+          "es": "Ella es la veterinaria.",
+          "kind": "phrase",
+          "note": "ser: who someone is."
+        },
+        {
+          "en": "The calf is in the barn.",
+          "es": "El becerro está en el establo.",
+          "kind": "phrase",
+          "note": "estar: where something is."
+        },
+        {
+          "en": "The teat cups are clean.",
+          "es": "Las pezoneras están limpias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker which cow is sick, where the calf is, and whether the floor is slippery or clean."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what supplies you have, what you need or want, and what has to be done before milking.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with dairy supplies",
+      "words": [
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the boots",
+          "es": "las botas",
+          "kind": "term"
+        },
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the towels",
+          "es": "las toallas",
+          "kind": "term"
+        },
+        {
+          "en": "the teat dip",
+          "es": "el sellador",
+          "kind": "term",
+          "note": "Many crews also say el dip."
+        },
+        {
+          "en": "the shovel",
+          "es": "la pala",
+          "kind": "term"
+        },
+        {
+          "en": "the feed",
+          "es": "el alimento",
+          "kind": "term"
+        },
+        {
+          "en": "the hay",
+          "es": "el heno",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelbarrow",
+          "es": "la carretilla",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "A feminine word that takes el: el agua fría."
+        },
+        {
+          "en": "I have gloves and boots.",
+          "es": "Tengo guantes y botas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There is water in the trough.",
+          "es": "Hay agua en el bebedero.",
+          "kind": "phrase",
+          "note": "hay = there is / there are."
+        },
+        {
+          "en": "I need the hose.",
+          "es": "Necesito la manguera.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want clean towels?",
+          "es": "¿Quieres toallas limpias?",
+          "kind": "phrase",
+          "note": "Informal tú, between coworkers."
+        },
+        {
+          "en": "You have to clean the teats before milking.",
+          "es": "Hay que limpiar los pezones antes de ordeñar.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done."
+        }
+      ],
+      "speaking": "Tell a coworker what supplies you have, ask for the hose, and say what has to be done before milking."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do, and what you can do on the dairy.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder with places on the dairy",
+      "words": [
+        {
+          "en": "the milking parlor",
+          "es": "la sala de ordeña",
+          "kind": "term"
+        },
+        {
+          "en": "the barn",
+          "es": "el establo",
+          "kind": "term"
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "the storeroom",
+          "es": "la bodega",
+          "kind": "term"
+        },
+        {
+          "en": "the tractor",
+          "es": "el tractor",
+          "kind": "term"
+        },
+        {
+          "en": "the pickup truck",
+          "es": "la troca",
+          "kind": "term",
+          "note": "Common US loanword; also la camioneta."
+        },
+        {
+          "en": "the feed bunk",
+          "es": "el comedero",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "Without an article it means tomorrow; la mañana = the morning."
+        },
+        {
+          "en": "later",
+          "es": "después",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the milking parlor.",
+          "es": "Voy a la sala de ordeña.",
+          "kind": "phrase",
+          "note": "With el, a + el = al: voy al establo."
+        },
+        {
+          "en": "Tomorrow we're going to clean the feed bunk.",
+          "es": "Mañana vamos a limpiar el comedero.",
+          "kind": "phrase",
+          "note": "ir a + infinitive = going to do something."
+        },
+        {
+          "en": "Today I'm doing the night shift.",
+          "es": "Hoy hago el turno de noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I drive the pickup?",
+          "es": "¿Puedo manejar la troca?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I can help in the barn.",
+          "es": "Puedo ayudar en el establo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your boss where you are going now and what you are going to do tomorrow, and ask if you can help."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Talk about daily dairy tasks in the present tense for yourself, coworkers and the cows.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the teat cups",
+          "es": "las pezoneras",
+          "kind": "term"
+        },
+        {
+          "en": "the gate",
+          "es": "la puerta",
+          "kind": "term",
+          "note": "Puerta means door or gate."
+        },
+        {
+          "en": "the bedding",
+          "es": "la cama",
+          "kind": "term",
+          "note": "On a dairy, la cama is the stall bedding."
+        },
+        {
+          "en": "the sand",
+          "es": "la arena",
+          "kind": "term"
+        },
+        {
+          "en": "the tail",
+          "es": "la cola",
+          "kind": "term"
+        },
+        {
+          "en": "the leg",
+          "es": "la pata",
+          "kind": "term",
+          "note": "Use pata for an animal's leg or foot; pierna for a person."
+        },
+        {
+          "en": "the notebook",
+          "es": "la libreta",
+          "kind": "term"
+        },
+        {
+          "en": "the dairy",
+          "es": "la lechería",
+          "kind": "term"
+        },
+        {
+          "en": "the alley",
+          "es": "el pasillo",
+          "kind": "term",
+          "note": "The lane where cows walk in the barn."
+        },
+        {
+          "en": "the scraper",
+          "es": "el raspador",
+          "kind": "term"
+        },
+        {
+          "en": "I milk 300 cows each shift.",
+          "es": "Ordeño 300 vacas cada turno.",
+          "kind": "phrase",
+          "note": "-ar verb, yo form ends in -o."
+        },
+        {
+          "en": "Do you wash the teat cups?",
+          "es": "¿Tú lavas las pezoneras?",
+          "kind": "phrase",
+          "note": "tú between coworkers; use usted with the boss."
+        },
+        {
+          "en": "Do you live near the dairy?",
+          "es": "¿Usted vive cerca de la lechería?",
+          "kind": "phrase",
+          "note": "-ir verb, usted form: vive."
+        },
+        {
+          "en": "We clean the alley.",
+          "es": "Nosotros limpiamos el pasillo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The cows eat and drink after milking.",
+          "es": "Las vacas comen y beben después de ordeñar.",
+          "kind": "phrase",
+          "note": "-er verbs, ellos form: comen, beben."
+        }
+      ],
+      "speaking": "Describe your daily tasks to a coworker: how many cows you milk, what you clean, and when the cows eat."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask where things are, who is in charge, when the vet comes and which cow is sick.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuántas vacas, cuántos becerros."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in questions; porque (one word) = because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "In Mexico also used before a noun: ¿cuál vaca?"
+        },
+        {
+          "en": "the person in charge",
+          "es": "el encargado",
+          "kind": "term",
+          "note": "A woman in charge is la encargada."
+        },
+        {
+          "en": "Where are the gloves?",
+          "es": "¿Dónde están los guantes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is in charge?",
+          "es": "¿Quién es el encargado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When is the vet coming?",
+          "es": "¿Cuándo viene el veterinario?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many cows are in this pen?",
+          "es": "¿Cuántas vacas hay en este corral?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which cow is sick?",
+          "es": "¿Qué vaca está enferma?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What do I do now?",
+          "es": "¿Qué hago ahora?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a new coworker where the gloves are, who is in charge, and how many cows are in a pen."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is not done yet, what never happens, and ask for more, less or another.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos, otro in dairy work",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Use with no before the verb: no veo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "No 'un' before otro: otra cubeta = another bucket."
+        },
+        {
+          "en": "the bull",
+          "es": "el toro",
+          "kind": "term"
+        },
+        {
+          "en": "the fence",
+          "es": "la cerca",
+          "kind": "term"
+        },
+        {
+          "en": "I never go into the bull pen alone.",
+          "es": "Nunca entro solo al corral del toro.",
+          "kind": "phrase",
+          "note": "A woman says sola."
+        },
+        {
+          "en": "There's nobody in the milking parlor.",
+          "es": "No hay nadie en la sala de ordeña.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm not done yet.",
+          "es": "Todavía no termino.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This cow is eating less than yesterday.",
+          "es": "Esta vaca come menos que ayer.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another bucket and more towels.",
+          "es": "Necesito otra cubeta y más toallas.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell your boss you are not done yet, that a cow is eating less, and ask for another bucket and more towels."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask coworkers politely for help and give simple usted commands while moving cows.",
+      "focus": "¿Puede…? requests and usted commands for everyday verbs like abrir, prender, llamar",
+      "words": [
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term"
+        },
+        {
+          "en": "excuse me",
+          "es": "con permiso",
+          "kind": "term",
+          "note": "Say it to pass by someone or to leave."
+        },
+        {
+          "en": "the light",
+          "es": "la luz",
+          "kind": "term"
+        },
+        {
+          "en": "the two-way radio",
+          "es": "el radio",
+          "kind": "term"
+        },
+        {
+          "en": "the apron",
+          "es": "el mandil",
+          "kind": "term",
+          "note": "Milkers' apron; also el delantal."
+        },
+        {
+          "en": "the broom",
+          "es": "la escoba",
+          "kind": "term"
+        },
+        {
+          "en": "the pump",
+          "es": "la bomba",
+          "kind": "term"
+        },
+        {
+          "en": "the large gate",
+          "es": "el portón",
+          "kind": "term"
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "Can you open the gate, please?",
+          "es": "¿Puede abrir el portón, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you pass me the broom?",
+          "es": "¿Me puede pasar la escoba?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Turn on the light, please.",
+          "es": "Prenda la luz, por favor.",
+          "kind": "phrase",
+          "note": "In Mexico prender = turn on; apagar = turn off."
+        },
+        {
+          "en": "Call the vet, please.",
+          "es": "Llame al veterinario, por favor.",
+          "kind": "phrase",
+          "note": "Personal a before a person: a + el = al."
+        },
+        {
+          "en": "Move the cows slowly, please.",
+          "es": "Mueva las vacas despacio, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: mover becomes mueva."
+        }
+      ],
+      "speaking": "Politely ask a coworker to open the gate, turn on the light, and move the cows slowly."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize Spanish words you already know and ask for help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad, -ente and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term",
+          "note": "Words ending in -ción are feminine."
+        },
+        {
+          "en": "the injection",
+          "es": "la inyección",
+          "kind": "term",
+          "note": "Give injections only as the vet or the label directs."
+        },
+        {
+          "en": "the production",
+          "es": "la producción",
+          "kind": "term"
+        },
+        {
+          "en": "the quantity",
+          "es": "la cantidad",
+          "kind": "term",
+          "note": "-dad often matches English -ty."
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the temperature",
+          "es": "la temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term",
+          "note": "-ente often matches English -ent."
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand.",
+          "es": "No entiendo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you speak more slowly?",
+          "es": "¿Puede hablar más despacio?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does this word mean?",
+          "es": "¿Qué significa esta palabra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help in the milking parlor!",
+          "es": "¡Necesito ayuda en la sala de ordeña!",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, call 911.",
+          "es": "Es una emergencia, llame al 911.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a coworker to speak more slowly, ask what a word means, and call for help in an emergency."
+    }
+  ]
+}

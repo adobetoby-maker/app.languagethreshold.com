@@ -1,0 +1,958 @@
+{
+  "version": 1,
+  "module": "foundation-meatpacking-butcher",
+  "baseModule": "meatpacking-butcher",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Meatpacking & Butcher Foundation",
+  "threshold": "By Lesson 10, you can greet the crew, count pounds and boxes, tell the time, describe the floor and the meat, ask questions, give polite safety commands and ask for help, and start Meatpacking & Butcher Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.031Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say the Spanish vowels and sounds of plant words and greet coworkers at the start of a shift.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent in plant words; greetings",
+      "words": [
+        {
+          "en": "the knife",
+          "es": "el cuchillo",
+          "kind": "term",
+          "note": "ll sounds like English y: cu-CHI-yo; u sounds like oo."
+        },
+        {
+          "en": "the honing steel",
+          "es": "la chaira",
+          "kind": "term",
+          "note": "ch sounds like the ch in church."
+        },
+        {
+          "en": "the boss",
+          "es": "el jefe",
+          "kind": "term",
+          "note": "j sounds like a strong English h: HEH-feh. A woman is la jefa."
+        },
+        {
+          "en": "the saw",
+          "es": "la sierra",
+          "kind": "term",
+          "note": "rr is a rolled, trilled r."
+        },
+        {
+          "en": "the cart",
+          "es": "el carrito",
+          "kind": "term",
+          "note": "rr is trilled; i always sounds like ee."
+        },
+        {
+          "en": "the meat",
+          "es": "la carne",
+          "kind": "term",
+          "note": "A single r is a quick tap; e sounds like the e in bet."
+        },
+        {
+          "en": "the bone",
+          "es": "el hueso",
+          "kind": "term",
+          "note": "h is always silent: WEH-so."
+        },
+        {
+          "en": "the scale",
+          "es": "la báscula",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: BÁS-cu-la."
+        },
+        {
+          "en": "the hook",
+          "es": "el gancho",
+          "kind": "term",
+          "note": "o is short and pure, as in the o of note without the glide."
+        },
+        {
+          "en": "the line",
+          "es": "la línea",
+          "kind": "term",
+          "note": "The accent marks the stress: LÍ-ne-a."
+        },
+        {
+          "en": "the fat",
+          "es": "la grasa",
+          "kind": "term",
+          "note": "a always sounds like the a in father."
+        },
+        {
+          "en": "Good morning, my name is Carlos.",
+          "es": "Buenos días, me llamo Carlos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "Mucho gusto.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal; with a coworker you can say ¿Cómo estás?"
+        },
+        {
+          "en": "Fine, thanks. And you?",
+          "es": "Bien, gracias. ¿Y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Good afternoon, boss.",
+          "es": "Buenas tardes, jefe.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow.",
+          "es": "Hasta mañana.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a coworker at the start of the shift, say your name, and name three things on the line: the knife, the hook and the saw."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Count to 1,000, tell the time of the shift, and give pounds, inches and box counts.",
+      "focus": "Numbers 0 to 1,000, clock time, and pounds, inches, degrees, boxes and pallets",
+      "words": [
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term",
+          "note": "US plants weigh meat in pounds: 60 libras."
+        },
+        {
+          "en": "the ounce",
+          "es": "la onza",
+          "kind": "term"
+        },
+        {
+          "en": "the inch",
+          "es": "la pulgada",
+          "kind": "term"
+        },
+        {
+          "en": "the degree",
+          "es": "el grado",
+          "kind": "term",
+          "note": "US plant temperatures are read in Fahrenheit degrees."
+        },
+        {
+          "en": "the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the break",
+          "es": "el descanso",
+          "kind": "term"
+        },
+        {
+          "en": "the box",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "the pallet",
+          "es": "la tarima",
+          "kind": "term",
+          "note": "Many US plants also say el pallet."
+        },
+        {
+          "en": "the piece",
+          "es": "la pieza",
+          "kind": "term"
+        },
+        {
+          "en": "the weight",
+          "es": "el peso",
+          "kind": "term"
+        },
+        {
+          "en": "It's 6 in the morning.",
+          "es": "Son las 6 de la mañana.",
+          "kind": "phrase",
+          "note": "Use son las for most hours; es la only for 1: Es la 1."
+        },
+        {
+          "en": "The shift starts at 5:30.",
+          "es": "El turno empieza a las 5:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The box weighs 60 pounds.",
+          "es": "La caja pesa 60 libras.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This pallet has 40 boxes on it.",
+          "es": "Esta tarima lleva 40 cajas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The steak is 1 inch thick.",
+          "es": "El bistec es de 1 pulgada.",
+          "kind": "phrase",
+          "note": "Measurements take de: es de 1 pulgada."
+        },
+        {
+          "en": "The break is 30 minutes long.",
+          "es": "El descanso es de 30 minutos.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a line worker what time the shift and the break start, and how many boxes and pounds are on the pallet."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what a cut or a person is with ser and describe the floor, knives and tables with estar.",
+      "focus": "ser for what a cut or person is, estar for the condition or location of things",
+      "words": [
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term",
+          "note": "Agrees: el cuchillo limpio, la mesa limpia."
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "sharp",
+          "es": "filoso",
+          "kind": "term",
+          "note": "Common in Mexico; you may also hear afilado."
+        },
+        {
+          "en": "dull",
+          "es": "desafilado",
+          "kind": "term"
+        },
+        {
+          "en": "slippery",
+          "es": "resbaloso",
+          "kind": "term"
+        },
+        {
+          "en": "cold",
+          "es": "frío",
+          "kind": "term"
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "estar listo means ready; ser listo means smart."
+        },
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term"
+        },
+        {
+          "en": "I'm the supervisor on this shift.",
+          "es": "Soy el supervisor de este turno.",
+          "kind": "phrase",
+          "note": "ser: who someone is. A woman says Soy la supervisora."
+        },
+        {
+          "en": "The floor is slippery.",
+          "es": "El piso está resbaloso.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "This knife is dull.",
+          "es": "Este cuchillo está desafilado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "This cut is beef loin.",
+          "es": "Este corte es lomo de res.",
+          "kind": "phrase",
+          "note": "ser: what something is."
+        },
+        {
+          "en": "The table is clean.",
+          "es": "La mesa está limpia.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the order ready?",
+          "es": "¿Está listo el pedido?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe your station to a coworker: say whether the floor, the table and the knives are clean, dull, slippery or ready."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, what there is, what you need and want, and what you have to do on the floor.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive with gear and orders",
+      "words": [
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the mesh glove",
+          "es": "el guante de malla",
+          "kind": "term",
+          "note": "Steel mesh glove worn on the hand that holds the meat."
+        },
+        {
+          "en": "the apron",
+          "es": "el mandil",
+          "kind": "term",
+          "note": "Common in Mexico; you will also hear el delantal."
+        },
+        {
+          "en": "the hairnet",
+          "es": "la redecilla",
+          "kind": "term"
+        },
+        {
+          "en": "the hard hat",
+          "es": "el casco",
+          "kind": "term"
+        },
+        {
+          "en": "the boots",
+          "es": "las botas",
+          "kind": "term"
+        },
+        {
+          "en": "the frock",
+          "es": "la bata",
+          "kind": "term",
+          "note": "The white smock worn over clothes on the floor."
+        },
+        {
+          "en": "the label",
+          "es": "la etiqueta",
+          "kind": "term"
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "the order",
+          "es": "el pedido",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have your mesh glove?",
+          "es": "¿Tiene su guante de malla?",
+          "kind": "phrase",
+          "note": "Formal usted; with a coworker: ¿Tienes tu guante de malla?"
+        },
+        {
+          "en": "There are 3 boxes without a label.",
+          "es": "Hay 3 cajas sin etiqueta.",
+          "kind": "phrase",
+          "note": "hay means there is or there are; it never changes."
+        },
+        {
+          "en": "I need some new gloves.",
+          "es": "Necesito unos guantes nuevos.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you want loin or brisket?",
+          "es": "¿Quiere lomo o pecho?",
+          "kind": "phrase",
+          "note": "Formal, for a customer."
+        },
+        {
+          "en": "You have to wash your hands before going in.",
+          "es": "Hay que lavarse las manos antes de entrar.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: what everyone has to do."
+        },
+        {
+          "en": "You have to wear the hairnet.",
+          "es": "Hay que usar la redecilla.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a new worker if they have gloves, a hairnet and a mesh glove, and tell them what you need for the order."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you are going to do, what you make and what you can do in the plant.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder around the plant",
+      "words": [
+        {
+          "en": "the cooler",
+          "es": "la cámara fría",
+          "kind": "term"
+        },
+        {
+          "en": "the freezer",
+          "es": "el congelador",
+          "kind": "term"
+        },
+        {
+          "en": "the break room",
+          "es": "el comedor",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "the packing area",
+          "es": "el área de empaque",
+          "kind": "term",
+          "note": "área is feminine but takes el: el área, las áreas."
+        },
+        {
+          "en": "the boning room",
+          "es": "la sala de deshuese",
+          "kind": "term"
+        },
+        {
+          "en": "the meat grinder",
+          "es": "el molino de carne",
+          "kind": "term"
+        },
+        {
+          "en": "the truck",
+          "es": "el camión",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the cooler.",
+          "es": "Voy a la cámara fría.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to grind the meat at 10.",
+          "es": "Vamos a moler la carne a las 10.",
+          "kind": "phrase",
+          "note": "ir a + infinitive talks about plans."
+        },
+        {
+          "en": "Can I go to the restroom?",
+          "es": "¿Puedo ir al baño?",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "I make the labels for the order.",
+          "es": "Yo hago las etiquetas del pedido.",
+          "kind": "phrase",
+          "note": "hacer is irregular in yo: hago."
+        },
+        {
+          "en": "I can cut the brisket now.",
+          "es": "Puedo cortar el pecho ahora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The truck is going to arrive at 2.",
+          "es": "El camión va a llegar a las 2.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker where you are going and what you are going to do after the break, and ask if you can go to the restroom."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you, a coworker and the crew do on the line with regular present tense verbs.",
+      "focus": "Present tense of regular -ar, -er, -ir verbs: yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the loin",
+          "es": "el lomo",
+          "kind": "term"
+        },
+        {
+          "en": "the brisket",
+          "es": "el pecho",
+          "kind": "term",
+          "note": "Also called el pecho de res."
+        },
+        {
+          "en": "the rib",
+          "es": "la costilla",
+          "kind": "term"
+        },
+        {
+          "en": "the carcass",
+          "es": "la canal",
+          "kind": "term",
+          "note": "Feminine in the plant: la canal, las canales."
+        },
+        {
+          "en": "the cut",
+          "es": "el corte",
+          "kind": "term",
+          "note": "A cut of meat; an injury cut is la cortada."
+        },
+        {
+          "en": "the steak",
+          "es": "el bistec",
+          "kind": "term"
+        },
+        {
+          "en": "the ground meat",
+          "es": "la carne molida",
+          "kind": "term"
+        },
+        {
+          "en": "the trim",
+          "es": "el recorte",
+          "kind": "term"
+        },
+        {
+          "en": "the tenderloin",
+          "es": "el filete",
+          "kind": "term",
+          "note": "In Mexico, filete is the tenderloin."
+        },
+        {
+          "en": "I cut the loin.",
+          "es": "Yo corto el lomo.",
+          "kind": "phrase",
+          "note": "-ar verbs: yo form ends in -o."
+        },
+        {
+          "en": "You clean the table, right?",
+          "es": "Tú limpias la mesa, ¿verdad?",
+          "kind": "phrase",
+          "note": "tú between coworkers; with a boss or inspector use usted."
+        },
+        {
+          "en": "You learn fast.",
+          "es": "Usted aprende rápido.",
+          "kind": "phrase",
+          "note": "Formal; -er verbs: usted form ends in -e."
+        },
+        {
+          "en": "We pack the ground meat.",
+          "es": "Nosotros empacamos la carne molida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They receive the carcasses at 4.",
+          "es": "Ellos reciben las canales a las 4.",
+          "kind": "phrase",
+          "note": "-ir verbs: ellos form ends in -en."
+        }
+      ],
+      "speaking": "Tell a new worker what you, a coworker and the crew do on the line: cut, clean, learn, pack and receive."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask basic questions about places, people, times, amounts and reasons on the plant floor.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuánta carne, cuántas libras."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words in questions; the answer porque is one word."
+        },
+        {
+          "en": "which one?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use before es or son: ¿Cuál es...?"
+        },
+        {
+          "en": "the supervisor",
+          "es": "el supervisor",
+          "kind": "term",
+          "note": "A woman is la supervisora."
+        },
+        {
+          "en": "the inspector",
+          "es": "el inspector",
+          "kind": "term",
+          "note": "A woman is la inspectora."
+        },
+        {
+          "en": "Where are the hairnets?",
+          "es": "¿Dónde están las redecillas?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who is the supervisor on this shift?",
+          "es": "¿Quién es el supervisor de este turno?",
+          "kind": "phrase"
+        },
+        {
+          "en": "When does the inspector arrive?",
+          "es": "¿Cuándo llega el inspector?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many pounds would you like?",
+          "es": "¿Cuántas libras quiere?",
+          "kind": "phrase",
+          "note": "Formal, for a customer."
+        },
+        {
+          "en": "Why is the line stopped?",
+          "es": "¿Por qué está parada la línea?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which spot on the line is mine?",
+          "es": "¿Cuál es mi lugar en la línea?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a new coworker where the hairnets are, who the supervisor is, and when the inspector arrives."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say no, never, nobody and nothing, and ask for more, less or another one on the line.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "After a verb, use no too: No toque nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never with un or una: otra caja."
+        },
+        {
+          "en": "the hand",
+          "es": "la mano",
+          "kind": "term",
+          "note": "Feminine even though it ends in -o."
+        },
+        {
+          "en": "the fingers",
+          "es": "los dedos",
+          "kind": "term"
+        },
+        {
+          "en": "the cut (injury)",
+          "es": "la cortada",
+          "kind": "term",
+          "note": "An injury on the body; a cut of meat is el corte."
+        },
+        {
+          "en": "Never cut toward your body.",
+          "es": "Nunca corte hacia su cuerpo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody in the freezer.",
+          "es": "No hay nadie en el congelador.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The grinder isn't clean yet.",
+          "es": "El molino todavía no está limpio.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another box, please.",
+          "es": "Necesito otra caja, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The customer wants less fat.",
+          "es": "El cliente quiere menos grasa.",
+          "kind": "phrase",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "Don't touch anything without gloves.",
+          "es": "No toque nada sin guantes.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Warn a new worker never to cut toward the body, and say the grinder is not clean yet and you need another box."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask politely with ¿Puede…? and give simple usted commands for cleaning and safety.",
+      "focus": "¿Puede…? requests and usted commands for everyday verbs",
+      "words": [
+        {
+          "en": "the hose",
+          "es": "la manguera",
+          "kind": "term"
+        },
+        {
+          "en": "the soap",
+          "es": "el jabón",
+          "kind": "term"
+        },
+        {
+          "en": "the brush",
+          "es": "el cepillo",
+          "kind": "term"
+        },
+        {
+          "en": "the bucket",
+          "es": "la cubeta",
+          "kind": "term",
+          "note": "Common in Mexico and the US."
+        },
+        {
+          "en": "the trash can",
+          "es": "el bote de basura",
+          "kind": "term"
+        },
+        {
+          "en": "the hand sink",
+          "es": "el lavamanos",
+          "kind": "term"
+        },
+        {
+          "en": "the paper towels",
+          "es": "las toallas de papel",
+          "kind": "term"
+        },
+        {
+          "en": "please",
+          "es": "por favor",
+          "kind": "term",
+          "note": "Add it to any command to sound polite."
+        },
+        {
+          "en": "slowly",
+          "es": "despacio",
+          "kind": "term"
+        },
+        {
+          "en": "Can you bring the hose, please?",
+          "es": "¿Puede traer la manguera, por favor?",
+          "kind": "phrase",
+          "note": "¿Puede + infinitive? is a polite request to one person."
+        },
+        {
+          "en": "Wash your hands with soap.",
+          "es": "Lávese las manos con jabón.",
+          "kind": "phrase",
+          "note": "Usted command of lavarse; -se attaches to the end."
+        },
+        {
+          "en": "Speak more slowly, please.",
+          "es": "Hable más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Throw the trash in the can.",
+          "es": "Tire la basura en el bote.",
+          "kind": "phrase",
+          "note": "Usted commands: -ar verbs end in -e (tire, hable)."
+        },
+        {
+          "en": "Wait here, please.",
+          "es": "Espere aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me with this box?",
+          "es": "¿Me puede ayudar con esta caja?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a line worker politely to bring the hose, wash their hands with soap, and wait at the hand sink."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize plant cognates and use survival phrases to get help and check meaning on the floor.",
+      "focus": "Cognates ending in -ción, -dad, -ente and survival phrases",
+      "words": [
+        {
+          "en": "the inspection",
+          "es": "la inspección",
+          "kind": "term",
+          "note": "-tion becomes -ción, and these words are feminine."
+        },
+        {
+          "en": "the sanitation",
+          "es": "la sanitación",
+          "kind": "term",
+          "note": "Common in US plants: el equipo de sanitación. Standard Spanish: el saneamiento."
+        },
+        {
+          "en": "the production",
+          "es": "la producción",
+          "kind": "term"
+        },
+        {
+          "en": "the portion",
+          "es": "la porción",
+          "kind": "term"
+        },
+        {
+          "en": "the quality",
+          "es": "la calidad",
+          "kind": "term",
+          "note": "-ty often becomes -dad; these words are feminine."
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the disinfectant",
+          "es": "el desinfectante",
+          "kind": "term",
+          "note": "Mix and use it the way the label says."
+        },
+        {
+          "en": "the accident",
+          "es": "el accidente",
+          "kind": "term"
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "I don't understand. Can you repeat, please?",
+          "es": "No entiendo. ¿Puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"brisket\" in Spanish?",
+          "es": "¿Cómo se dice \"brisket\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        },
+        {
+          "en": "What does this word mean?",
+          "es": "¿Qué significa esta palabra?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help! There's an accident.",
+          "es": "¡Necesito ayuda! Hay un accidente.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a USDA inspection today.",
+          "es": "Hoy hay inspección del USDA.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker you speak a little Spanish, ask what a word on a sign means, and ask how to say a cut in Spanish."
+    }
+  ]
+}

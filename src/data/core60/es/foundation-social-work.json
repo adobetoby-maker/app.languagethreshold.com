@@ -1,0 +1,937 @@
+{
+  "version": 1,
+  "module": "foundation-social-work",
+  "baseModule": "social-work",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Social Work Foundation",
+  "threshold": "By Lesson 10, you can greet patients and families, give times and numbers, ask simple questions about home, money and support, and make polite requests, and start Social Work Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.032Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet patients and families politely and say basic hospital words with clear Spanish sounds.",
+      "focus": "The five vowels, ch, j, ll, rr, silent h and the written accent; greetings",
+      "words": [
+        {
+          "en": "the social worker (female)",
+          "es": "la trabajadora social",
+          "kind": "term",
+          "note": "A man is el trabajador social. The j sounds like English h."
+        },
+        {
+          "en": "the patient (male)",
+          "es": "el paciente",
+          "kind": "term",
+          "note": "A woman is la paciente. Each e sounds like 'eh'."
+        },
+        {
+          "en": "the family",
+          "es": "la familia",
+          "kind": "term",
+          "note": "Every a sounds like 'ah', and i like 'ee'."
+        },
+        {
+          "en": "the hospital",
+          "es": "el hospital",
+          "kind": "term",
+          "note": "The h is silent: 'os-pee-TAL'."
+        },
+        {
+          "en": "the call",
+          "es": "la llamada",
+          "kind": "term",
+          "note": "ll sounds like English y: 'ya-MA-da'."
+        },
+        {
+          "en": "the check",
+          "es": "el cheque",
+          "kind": "term",
+          "note": "ch sounds like English ch in 'check'."
+        },
+        {
+          "en": "the son",
+          "es": "el hijo",
+          "kind": "term",
+          "note": "Silent h; j sounds like English h: 'EE-ho'."
+        },
+        {
+          "en": "the neighborhood",
+          "es": "el barrio",
+          "kind": "term",
+          "note": "rr is a strong trilled r."
+        },
+        {
+          "en": "the phone",
+          "es": "el teléfono",
+          "kind": "term",
+          "note": "The written accent shows the stressed syllable: te-LÉ-fo-no."
+        },
+        {
+          "en": "the room",
+          "es": "el cuarto",
+          "kind": "term",
+          "note": "u sounds like 'oo'."
+        },
+        {
+          "en": "the appointment",
+          "es": "la cita",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, my name is Ana.",
+          "es": "Buenos días, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, ma'am.",
+          "es": "Mucho gusto, señora.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal, for patients and families. With a coworker: ¿Cómo estás?"
+        },
+        {
+          "en": "Good afternoon, I'm from the social work department.",
+          "es": "Buenas tardes, soy del departamento de trabajo social.",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow, take care.",
+          "es": "Hasta mañana, que le vaya bien.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a patient in their hospital room, say your name, say you are from social work, and ask how they are."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say ages, times, days and dollar amounts a patient or family gives you during a visit.",
+      "focus": "Numbers 0 to 1,000, clock time, and days, months, dollars and household size",
+      "words": [
+        {
+          "en": "the day",
+          "es": "el día",
+          "kind": "term"
+        },
+        {
+          "en": "the week",
+          "es": "la semana",
+          "kind": "term"
+        },
+        {
+          "en": "the month",
+          "es": "el mes",
+          "kind": "term"
+        },
+        {
+          "en": "the year",
+          "es": "el año",
+          "kind": "term",
+          "note": "Write the ñ: año means year; ano is a different word."
+        },
+        {
+          "en": "the hour, the time",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the dollar",
+          "es": "el dólar",
+          "kind": "term"
+        },
+        {
+          "en": "the monthly income",
+          "es": "el ingreso mensual",
+          "kind": "term"
+        },
+        {
+          "en": "the age",
+          "es": "la edad",
+          "kind": "term"
+        },
+        {
+          "en": "the person",
+          "es": "la persona",
+          "kind": "term"
+        },
+        {
+          "en": "Your appointment is at 10:30.",
+          "es": "Su cita es a las 10:30.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There are 4 of us in the house.",
+          "es": "Somos 4 personas en la casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I earn 800 dollars a month.",
+          "es": "Gano 800 dólares al mes.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm 67 years old.",
+          "es": "Tengo 67 años.",
+          "kind": "phrase",
+          "note": "Spanish uses tener for age: 'I have 67 years'."
+        },
+        {
+          "en": "You leave the hospital in 2 days.",
+          "es": "Usted sale del hospital en 2 días.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient their age, how many people live at home and their monthly income, then tell them the time of their appointment."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are and describe how a patient feels or where a family member is.",
+      "focus": "ser for who someone is, estar for feelings, conditions and location",
+      "words": [
+        {
+          "en": "alone",
+          "es": "solo",
+          "kind": "term",
+          "note": "For a woman: sola."
+        },
+        {
+          "en": "sad",
+          "es": "triste",
+          "kind": "term"
+        },
+        {
+          "en": "worried",
+          "es": "preocupado",
+          "kind": "term",
+          "note": "For a woman: preocupada."
+        },
+        {
+          "en": "tired",
+          "es": "cansado",
+          "kind": "term",
+          "note": "For a woman: cansada."
+        },
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "Estar listo means ready; ser listo means smart."
+        },
+        {
+          "en": "married",
+          "es": "casado",
+          "kind": "term",
+          "note": "Use estar casado in everyday speech."
+        },
+        {
+          "en": "sick",
+          "es": "enfermo",
+          "kind": "term",
+          "note": "For a woman: enferma."
+        },
+        {
+          "en": "calm",
+          "es": "tranquilo",
+          "kind": "term"
+        },
+        {
+          "en": "the nurse (female)",
+          "es": "la enfermera",
+          "kind": "term",
+          "note": "A man is el enfermero."
+        },
+        {
+          "en": "the doctor (female)",
+          "es": "la doctora",
+          "kind": "term",
+          "note": "A man is el doctor."
+        },
+        {
+          "en": "I'm the hospital social worker.",
+          "es": "Soy la trabajadora social del hospital.",
+          "kind": "phrase",
+          "note": "ser: who you are. A man says Soy el trabajador social."
+        },
+        {
+          "en": "She is my daughter.",
+          "es": "Ella es mi hija.",
+          "kind": "phrase"
+        },
+        {
+          "en": "My husband is in room 12.",
+          "es": "Mi esposo está en el cuarto 12.",
+          "kind": "phrase",
+          "note": "estar: location."
+        },
+        {
+          "en": "I'm very worried about my house.",
+          "es": "Estoy muy preocupada por mi casa.",
+          "kind": "phrase",
+          "note": "estar: a feeling that can change. A man says preocupado."
+        },
+        {
+          "en": "Are you ready to leave today?",
+          "es": "¿Está listo para salir hoy?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient who you are, then ask if they feel worried, tired or calm and where their family member is."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Ask what a patient has and needs at home: housing, food, transportation and a caregiver.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive",
+      "words": [
+        {
+          "en": "the housing",
+          "es": "la vivienda",
+          "kind": "term"
+        },
+        {
+          "en": "the apartment",
+          "es": "el apartamento",
+          "kind": "term"
+        },
+        {
+          "en": "the rent",
+          "es": "la renta",
+          "kind": "term",
+          "note": "Common in US Spanish; el alquiler is also understood."
+        },
+        {
+          "en": "the food",
+          "es": "la comida",
+          "kind": "term"
+        },
+        {
+          "en": "the transportation",
+          "es": "el transporte",
+          "kind": "term"
+        },
+        {
+          "en": "the medicine",
+          "es": "la medicina",
+          "kind": "term"
+        },
+        {
+          "en": "the wheelchair",
+          "es": "la silla de ruedas",
+          "kind": "term"
+        },
+        {
+          "en": "the health insurance",
+          "es": "el seguro médico",
+          "kind": "term"
+        },
+        {
+          "en": "the caregiver (female)",
+          "es": "la cuidadora",
+          "kind": "term",
+          "note": "A man is el cuidador."
+        },
+        {
+          "en": "the car",
+          "es": "el carro",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have a safe place to live?",
+          "es": "¿Tiene un lugar seguro para vivir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help with the rent.",
+          "es": "Necesito ayuda con la renta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there someone at home to take care of you?",
+          "es": "¿Hay alguien en casa para cuidarlo?",
+          "kind": "phrase",
+          "note": "cuidarlo for a man, cuidarla for a woman."
+        },
+        {
+          "en": "I want to talk with my daughter.",
+          "es": "Quiero hablar con mi hija.",
+          "kind": "phrase"
+        },
+        {
+          "en": "You have to fill out the form before leaving.",
+          "es": "Hay que llenar el formulario antes de salir.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done."
+        }
+      ],
+      "speaking": "Ask a patient if they have housing, a car and health insurance, and what they need at home after the hospital."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where a patient will go after discharge and what they can do on their own.",
+      "focus": "ir, ir a + infinitive for plans, hacer and poder",
+      "words": [
+        {
+          "en": "the clinic",
+          "es": "la clínica",
+          "kind": "term"
+        },
+        {
+          "en": "the pharmacy",
+          "es": "la farmacia",
+          "kind": "term"
+        },
+        {
+          "en": "the shelter",
+          "es": "el refugio",
+          "kind": "term"
+        },
+        {
+          "en": "the office",
+          "es": "la oficina",
+          "kind": "term"
+        },
+        {
+          "en": "the bus",
+          "es": "el autobús",
+          "kind": "term",
+          "note": "In Mexico people also say el camión."
+        },
+        {
+          "en": "the house, home",
+          "es": "la casa",
+          "kind": "term"
+        },
+        {
+          "en": "today",
+          "es": "hoy",
+          "kind": "term"
+        },
+        {
+          "en": "tomorrow",
+          "es": "mañana",
+          "kind": "term",
+          "note": "la mañana means the morning."
+        },
+        {
+          "en": "Monday",
+          "es": "el lunes",
+          "kind": "term",
+          "note": "Use el for 'on': el lunes = on Monday."
+        },
+        {
+          "en": "the discharge plan",
+          "es": "el plan de alta",
+          "kind": "term",
+          "note": "dar de alta = to discharge a patient from the hospital."
+        },
+        {
+          "en": "Are you going home today?",
+          "es": "¿Va a ir a casa hoy?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to call your daughter.",
+          "es": "Voy a llamar a su hija.",
+          "kind": "phrase",
+          "note": "Use the personal a before a person: llamar a su hija."
+        },
+        {
+          "en": "Can you go to the clinic by bus?",
+          "es": "¿Puede ir en autobús a la clínica?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Tomorrow we're going to make the discharge plan.",
+          "es": "Mañana vamos a hacer el plan de alta.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'll make you an appointment for Monday.",
+          "es": "Le hago una cita para el lunes.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a patient what you are going to do for their discharge and ask if they can get to the clinic or pharmacy."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Ask and answer simple questions about who a patient lives with, works with and talks to.",
+      "focus": "Present tense -ar, -er, -ir endings for yo, tú, usted, nosotros and ellos",
+      "words": [
+        {
+          "en": "the job",
+          "es": "el trabajo",
+          "kind": "term"
+        },
+        {
+          "en": "the benefits",
+          "es": "los beneficios",
+          "kind": "term"
+        },
+        {
+          "en": "the school",
+          "es": "la escuela",
+          "kind": "term"
+        },
+        {
+          "en": "the husband",
+          "es": "el esposo",
+          "kind": "term"
+        },
+        {
+          "en": "the wife",
+          "es": "la esposa",
+          "kind": "term"
+        },
+        {
+          "en": "the children",
+          "es": "los niños",
+          "kind": "term",
+          "note": "los hijos means one's own sons and daughters."
+        },
+        {
+          "en": "the neighbor (male)",
+          "es": "el vecino",
+          "kind": "term",
+          "note": "A woman is la vecina."
+        },
+        {
+          "en": "the church",
+          "es": "la iglesia",
+          "kind": "term"
+        },
+        {
+          "en": "English (the language)",
+          "es": "el inglés",
+          "kind": "term"
+        },
+        {
+          "en": "Spanish (the language)",
+          "es": "el español",
+          "kind": "term"
+        },
+        {
+          "en": "Do you live with your family?",
+          "es": "¿Vive usted con su familia?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I live with my wife and my children.",
+          "es": "Vivo con mi esposa y mis niños.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak Spanish?",
+          "es": "¿Hablas español?",
+          "kind": "phrase",
+          "note": "Informal tú, for a coworker. To a patient: ¿Habla español?"
+        },
+        {
+          "en": "My neighbor helps me with food.",
+          "es": "Mi vecina me ayuda con la comida.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll call the clinic tomorrow.",
+          "es": "Nosotros llamamos a la clínica mañana.",
+          "kind": "phrase",
+          "note": "The present tense can describe a near-future plan."
+        },
+        {
+          "en": "My children work all day.",
+          "es": "Mis hijos trabajan todo el día.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient who they live with, who helps them, and whether their family works or speaks English."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask a patient the basic who, what, where, when and how-much questions of an intake.",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuánta, cuántos, cuántas."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque (one word) means because."
+        },
+        {
+          "en": "which?, what?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use ¿Cuál es...? for a name, address or number."
+        },
+        {
+          "en": "the address",
+          "es": "la dirección",
+          "kind": "term"
+        },
+        {
+          "en": "the date of birth",
+          "es": "la fecha de nacimiento",
+          "kind": "term"
+        },
+        {
+          "en": "the name",
+          "es": "el nombre",
+          "kind": "term"
+        },
+        {
+          "en": "Where are you going to live after the hospital?",
+          "es": "¿Dónde va a vivir después del hospital?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who takes care of you at home?",
+          "es": "¿Quién lo cuida en casa?",
+          "kind": "phrase",
+          "note": "lo for a man, la for a woman."
+        },
+        {
+          "en": "What is your address?",
+          "es": "¿Cuál es su dirección?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much do you pay in rent per month?",
+          "es": "¿Cuánto paga de renta al mes?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Why can't you go back home?",
+          "es": "¿Por qué no puede volver a casa?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you feel today?",
+          "es": "¿Cómo se siente hoy?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient their name, date of birth and address, where they will live after the hospital, and who takes care of them."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Understand when a patient says they have no one, nothing, or not enough money yet.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "no, not",
+          "es": "no",
+          "kind": "term"
+        },
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: No tengo nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less, fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another, other",
+          "es": "otro",
+          "kind": "term",
+          "note": "For a feminine noun: otra. Never say 'un otro'."
+        },
+        {
+          "en": "the money",
+          "es": "el dinero",
+          "kind": "term"
+        },
+        {
+          "en": "the place",
+          "es": "el lugar",
+          "kind": "term"
+        },
+        {
+          "en": "I don't have anywhere to live.",
+          "es": "No tengo dónde vivir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nobody helps me at home.",
+          "es": "Nadie me ayuda en casa.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The money is never enough.",
+          "es": "Nunca me alcanza el dinero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't have health insurance yet.",
+          "es": "Todavía no tengo seguro médico.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need another form, please.",
+          "es": "Necesito otro formulario, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient if anyone helps at home and if they have money for food, and listen for no, nobody, never and not yet."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Politely ask a patient to sign, bring documents, sit down or wait.",
+      "focus": "¿Puede…? requests and usted commands: firme, llene, traiga, siéntese, espere",
+      "words": [
+        {
+          "en": "the form",
+          "es": "el formulario",
+          "kind": "term"
+        },
+        {
+          "en": "the signature",
+          "es": "la firma",
+          "kind": "term"
+        },
+        {
+          "en": "the papers, the documents",
+          "es": "los papeles",
+          "kind": "term"
+        },
+        {
+          "en": "the ID",
+          "es": "la identificación",
+          "kind": "term"
+        },
+        {
+          "en": "the insurance card",
+          "es": "la tarjeta del seguro",
+          "kind": "term"
+        },
+        {
+          "en": "the proof of address",
+          "es": "el comprobante de domicilio",
+          "kind": "term"
+        },
+        {
+          "en": "the pen",
+          "es": "la pluma",
+          "kind": "term",
+          "note": "Common in Mexico; el bolígrafo is also understood."
+        },
+        {
+          "en": "the letter",
+          "es": "la carta",
+          "kind": "term"
+        },
+        {
+          "en": "the pay stub",
+          "es": "el talón de pago",
+          "kind": "term"
+        },
+        {
+          "en": "the copy",
+          "es": "la copia",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Fill out this form, please.",
+          "es": "Llene este formulario, por favor.",
+          "kind": "phrase",
+          "note": "Usted command: llenar becomes llene."
+        },
+        {
+          "en": "Bring your ID tomorrow, please.",
+          "es": "Traiga su identificación mañana, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Sit here, please.",
+          "es": "Siéntese aquí, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you give me your phone number?",
+          "es": "¿Me puede dar su número de teléfono?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a patient politely to sit down, fill out and sign a form, and bring their ID and insurance card next time."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize social work cognates and ask for help, repetition or an interpreter.",
+      "focus": "Cognates ending in -ción, -dad, -ente, and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the community",
+          "es": "la comunidad",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the situation",
+          "es": "la situación",
+          "kind": "term"
+        },
+        {
+          "en": "the disability",
+          "es": "la discapacidad",
+          "kind": "term"
+        },
+        {
+          "en": "the safety",
+          "es": "la seguridad",
+          "kind": "term"
+        },
+        {
+          "en": "the depression",
+          "es": "la depresión",
+          "kind": "term"
+        },
+        {
+          "en": "the anxiety",
+          "es": "la ansiedad",
+          "kind": "term"
+        },
+        {
+          "en": "urgent",
+          "es": "urgente",
+          "kind": "term"
+        },
+        {
+          "en": "the mental health",
+          "es": "la salud mental",
+          "kind": "term",
+          "note": "salud means health; it is not a cognate."
+        },
+        {
+          "en": "the interpreter (male)",
+          "es": "el intérprete",
+          "kind": "term",
+          "note": "A woman is la intérprete."
+        },
+        {
+          "en": "I don't understand, can you repeat, please?",
+          "es": "No entiendo, ¿puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "More slowly, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm going to get an interpreter.",
+          "es": "Voy a buscar a un intérprete.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"housing\" in Spanish?",
+          "es": "¿Cómo se dice \"housing\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "It's an emergency, I need help.",
+          "es": "Es una emergencia, necesito ayuda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you help me, please?",
+          "es": "¿Me puede ayudar, por favor?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a family member you don't understand, ask them to speak more slowly, and say you are going to get an interpreter."
+    }
+  ]
+}

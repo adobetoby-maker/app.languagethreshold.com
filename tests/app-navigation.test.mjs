@@ -100,3 +100,19 @@ test("an already synchronized address is stable through repeated renders", () =>
     next,
   );
 });
+test("leaving Games clears the Verbs sub-route", () => {
+  const next = appNavigationLocation(
+    "/?module=core&target=Spanish&native=English&tab=games&verbs=unit&vfamily=es.present.go-yo",
+    { ...context, tab: "reader" },
+  );
+  assert.equal(params(next).get("verbs"), null);
+  assert.equal(params(next).get("vfamily"), null);
+});
+test("staying on Games keeps the Verbs sub-route", () => {
+  const next = appNavigationLocation(
+    "/?module=core&target=Spanish&native=English&tab=games&verbs=unit&vfamily=es.present.go-yo",
+    { ...context, tab: "games" },
+  );
+  assert.equal(params(next).get("verbs"), "unit");
+  assert.equal(params(next).get("vfamily"), "es.present.go-yo");
+});

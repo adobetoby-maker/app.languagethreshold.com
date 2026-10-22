@@ -1520,10 +1520,9 @@ function OwnedLessonRunner({
                     : undefined
                 }
                 language={state.selectedLanguage}
-                // Authored words keep English as the native side, whatever the app's native setting.
-                nativeLanguage={
-                  lessonWords.status === "authored" ? "English" : state.nativeLanguage
-                }
+                // Authored words are served only to the pair they were written for (English native
+                // for Spanish, Spanish native for the English-for-work stages), so this matches.
+                nativeLanguage={state.nativeLanguage}
                 verbs={verbs}
                 mode={kitMode}
                 onModeChange={onKitModeChange}

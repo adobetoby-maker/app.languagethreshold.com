@@ -1,0 +1,954 @@
+{
+  "version": 1,
+  "module": "foundation-travel-lunch",
+  "baseModule": "travel-lunch",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Lunch & Casual Dining Foundation",
+  "threshold": "By Lesson 10, you can greet staff, order with numbers and pesos, ask simple questions, say what you don't eat, ask for the bill and get help, and start Lunch & Casual Dining Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T11:47:05.838Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Pronounce common lunch words and greet a server or a local diner politely.",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings at lunch",
+      "words": [
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term",
+          "note": "Vowels are short and pure: MEH-sah."
+        },
+        {
+          "en": "the chili pepper",
+          "es": "el chile",
+          "kind": "term",
+          "note": "ch sounds like the ch in 'church'."
+        },
+        {
+          "en": "the juice",
+          "es": "el jugo",
+          "kind": "term",
+          "note": "j is a breathy h sound: HOO-go."
+        },
+        {
+          "en": "the tortilla",
+          "es": "la tortilla",
+          "kind": "term",
+          "note": "ll sounds like English y: tor-TEE-yah."
+        },
+        {
+          "en": "the rice",
+          "es": "el arroz",
+          "kind": "term",
+          "note": "rr is a strong rolled r."
+        },
+        {
+          "en": "the coffee",
+          "es": "el café",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: ka-FEH."
+        },
+        {
+          "en": "the menu",
+          "es": "el menú",
+          "kind": "term",
+          "note": "Stress the last syllable: meh-NOO."
+        },
+        {
+          "en": "the chicken",
+          "es": "el pollo",
+          "kind": "term",
+          "note": "ll like y: POH-yoh."
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "A feminine word that takes el because it starts with a stressed a."
+        },
+        {
+          "en": "Good morning.",
+          "es": "Buenos días.",
+          "kind": "phrase",
+          "note": "Use until about noon; after that say buenas tardes."
+        },
+        {
+          "en": "Good afternoon, how are you?",
+          "es": "Buenas tardes, ¿cómo está?",
+          "kind": "phrase",
+          "note": "Está is formal, for staff and people you don't know."
+        },
+        {
+          "en": "Very well, thanks, and you?",
+          "es": "Muy bien, gracias, ¿y usted?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, my name is Sam.",
+          "es": "Mucho gusto, me llamo Sam.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Enjoy your meal!",
+          "es": "¡Buen provecho!",
+          "kind": "phrase",
+          "note": "Said to people eating when you pass their table or leave."
+        },
+        {
+          "en": "Thanks, see you later.",
+          "es": "Gracias, hasta luego.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a server, say your name, and say three lunch words like chile, tortilla and arroz clearly."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say numbers, prices in pesos, times and simple food quantities when ordering lunch.",
+      "focus": "Numbers 0 to 1,000, clock time, pesos, and food quantities like orden, vaso and kilo",
+      "words": [
+        {
+          "en": "the pesos",
+          "es": "los pesos",
+          "kind": "term"
+        },
+        {
+          "en": "noon",
+          "es": "el mediodía",
+          "kind": "term"
+        },
+        {
+          "en": "the time, the hour",
+          "es": "la hora",
+          "kind": "term"
+        },
+        {
+          "en": "the minutes",
+          "es": "los minutos",
+          "kind": "term"
+        },
+        {
+          "en": "the glass",
+          "es": "el vaso",
+          "kind": "term"
+        },
+        {
+          "en": "the bottle",
+          "es": "la botella",
+          "kind": "term"
+        },
+        {
+          "en": "the order, the serving",
+          "es": "la orden",
+          "kind": "term",
+          "note": "In Mexico you order una orden de tacos, a serving of tacos."
+        },
+        {
+          "en": "the plate, the dish",
+          "es": "el plato",
+          "kind": "term"
+        },
+        {
+          "en": "the half",
+          "es": "la mitad",
+          "kind": "term"
+        },
+        {
+          "en": "the kilo",
+          "es": "el kilo",
+          "kind": "term",
+          "note": "Markets sell carnitas and barbacoa by the kilo or medio kilo."
+        },
+        {
+          "en": "There are 4 of us.",
+          "es": "Somos 4.",
+          "kind": "phrase",
+          "note": "Use this to tell the host how many are in your group."
+        },
+        {
+          "en": "5 pastor tacos, please.",
+          "es": "5 tacos al pastor, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is that 250 pesos?",
+          "es": "¿Son 250 pesos?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Half a kilo of carnitas, please.",
+          "es": "Medio kilo de carnitas, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We'll get there at 1:30.",
+          "es": "Llegamos a la 1:30.",
+          "kind": "phrase",
+          "note": "Say a la 1 for one o'clock, a las 2 for other hours."
+        },
+        {
+          "en": "Do you have change for 1,000 pesos?",
+          "es": "¿Tiene cambio de 1,000 pesos?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a counter worker how many of you there are, order 5 tacos, and check the price in pesos."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say what food and places are like and where they are, using ser and estar.",
+      "focus": "ser for what something is (picante, turista); estar for condition or place (caliente, cerca)",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term"
+        },
+        {
+          "en": "hot (temperature)",
+          "es": "caliente",
+          "kind": "term"
+        },
+        {
+          "en": "cold",
+          "es": "frío",
+          "kind": "term"
+        },
+        {
+          "en": "delicious",
+          "es": "rico",
+          "kind": "term",
+          "note": "Está rico for food you are tasting now."
+        },
+        {
+          "en": "spicy",
+          "es": "picante",
+          "kind": "term"
+        },
+        {
+          "en": "free, available",
+          "es": "libre",
+          "kind": "term"
+        },
+        {
+          "en": "taken, busy",
+          "es": "ocupado",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "near, close by",
+          "es": "cerca",
+          "kind": "term"
+        },
+        {
+          "en": "the tourist",
+          "es": "el turista",
+          "kind": "term",
+          "note": "Say la turista for a woman."
+        },
+        {
+          "en": "The soup is very hot.",
+          "es": "La sopa está muy caliente.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "Is this table free?",
+          "es": "¿Esta mesa está libre?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the salsa spicy?",
+          "es": "¿La salsa es picante?",
+          "kind": "phrase",
+          "note": "ser: what the salsa is like by nature."
+        },
+        {
+          "en": "I'm a tourist.",
+          "es": "Soy turista.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The market is close by.",
+          "es": "El mercado está cerca.",
+          "kind": "phrase",
+          "note": "estar for location."
+        },
+        {
+          "en": "It's delicious!",
+          "es": "¡Está muy rico!",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a server if a table is free and if the salsa is spicy, then say the food is delicious."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what you have, need and want, and ask what there is for lunch today.",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive at the lunch table",
+      "words": [
+        {
+          "en": "the set lunch",
+          "es": "la comida corrida",
+          "kind": "term",
+          "note": "Mexican fixed-price lunch, usually soup, rice, a main dish and a drink."
+        },
+        {
+          "en": "the spoon",
+          "es": "la cuchara",
+          "kind": "term"
+        },
+        {
+          "en": "the fork",
+          "es": "el tenedor",
+          "kind": "term"
+        },
+        {
+          "en": "the knife",
+          "es": "el cuchillo",
+          "kind": "term"
+        },
+        {
+          "en": "the napkin",
+          "es": "la servilleta",
+          "kind": "term"
+        },
+        {
+          "en": "the salt",
+          "es": "la sal",
+          "kind": "term"
+        },
+        {
+          "en": "the salsa, the sauce",
+          "es": "la salsa",
+          "kind": "term"
+        },
+        {
+          "en": "the soda",
+          "es": "el refresco",
+          "kind": "term"
+        },
+        {
+          "en": "the soup",
+          "es": "la sopa",
+          "kind": "term"
+        },
+        {
+          "en": "the dessert",
+          "es": "el postre",
+          "kind": "term"
+        },
+        {
+          "en": "the register, the cashier",
+          "es": "la caja",
+          "kind": "term"
+        },
+        {
+          "en": "Do you have a table for 2?",
+          "es": "¿Tiene mesa para 2?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is there a set lunch today?",
+          "es": "¿Hay comida corrida hoy?",
+          "kind": "phrase",
+          "note": "hay means there is or there are; it never changes."
+        },
+        {
+          "en": "I need a spoon, please.",
+          "es": "Necesito una cuchara, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I want the soup and a soda.",
+          "es": "Quiero la sopa y un refresco.",
+          "kind": "phrase",
+          "note": "Quisiera sounds softer and more polite than quiero."
+        },
+        {
+          "en": "Do we have to pay at the register?",
+          "es": "¿Hay que pagar en la caja?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm very hungry.",
+          "es": "Tengo mucha hambre.",
+          "kind": "phrase",
+          "note": "Spanish says 'I have hunger'; hambre takes mucha."
+        }
+      ],
+      "speaking": "Ask a server if there is a set lunch today, say what you want, and ask for a spoon."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Talk about where you are going to eat, what you plan to order, and what you can do.",
+      "focus": "ir, ir a + infinitive for lunch plans, hacer, and poder to ask permission",
+      "words": [
+        {
+          "en": "lunch, the midday meal",
+          "es": "la comida",
+          "kind": "term",
+          "note": "In Mexico la comida is the main meal, eaten in the afternoon."
+        },
+        {
+          "en": "the taco shop",
+          "es": "la taquería",
+          "kind": "term"
+        },
+        {
+          "en": "the small family restaurant",
+          "es": "la fonda",
+          "kind": "term"
+        },
+        {
+          "en": "the market",
+          "es": "el mercado",
+          "kind": "term"
+        },
+        {
+          "en": "the stall, the food stand",
+          "es": "el puesto",
+          "kind": "term"
+        },
+        {
+          "en": "the Mexican sandwich",
+          "es": "la torta",
+          "kind": "term",
+          "note": "A sandwich on a crusty roll; in Mexico a torta is not a cake."
+        },
+        {
+          "en": "the corner",
+          "es": "la esquina",
+          "kind": "term"
+        },
+        {
+          "en": "downtown",
+          "es": "el centro",
+          "kind": "term"
+        },
+        {
+          "en": "the card",
+          "es": "la tarjeta",
+          "kind": "term"
+        },
+        {
+          "en": "to go",
+          "es": "para llevar",
+          "kind": "term",
+          "note": "The opposite is para comer aquí, for here."
+        },
+        {
+          "en": "I'm going to the market to eat.",
+          "es": "Voy al mercado a comer.",
+          "kind": "phrase",
+          "note": "a + el becomes al."
+        },
+        {
+          "en": "We're going to order tortas.",
+          "es": "Vamos a pedir tortas.",
+          "kind": "phrase",
+          "note": "ir a + infinitive for a plan."
+        },
+        {
+          "en": "We're going to eat at the fonda.",
+          "es": "Vamos a comer en la fonda.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I pay by card?",
+          "es": "¿Puedo pagar con tarjeta?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you make tortas to go?",
+          "es": "¿Hacen tortas para llevar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can I sit here?",
+          "es": "¿Puedo sentarme aquí?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a travel companion where you are going to eat, then ask the server if you can pay by card."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Say what you and others eat, share and pay, using regular present-tense verbs.",
+      "focus": "Present tense -ar, -er, -ir verbs (pagar, comer, compartir) for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the meat, the beef",
+          "es": "la carne",
+          "kind": "term"
+        },
+        {
+          "en": "the fish",
+          "es": "el pescado",
+          "kind": "term"
+        },
+        {
+          "en": "the beans",
+          "es": "los frijoles",
+          "kind": "term"
+        },
+        {
+          "en": "the salad",
+          "es": "la ensalada",
+          "kind": "term"
+        },
+        {
+          "en": "the avocado",
+          "es": "el aguacate",
+          "kind": "term"
+        },
+        {
+          "en": "the onion",
+          "es": "la cebolla",
+          "kind": "term"
+        },
+        {
+          "en": "the tomato",
+          "es": "el jitomate",
+          "kind": "term",
+          "note": "Mexico says jitomate for red tomato; tomate often means the green tomatillo."
+        },
+        {
+          "en": "the lime",
+          "es": "el limón",
+          "kind": "term",
+          "note": "In Mexico limón is the small green lime."
+        },
+        {
+          "en": "the cash",
+          "es": "el efectivo",
+          "kind": "term"
+        },
+        {
+          "en": "the cook",
+          "es": "el cocinero",
+          "kind": "term",
+          "note": "Say la cocinera for a woman."
+        },
+        {
+          "en": "I eat beans with rice.",
+          "es": "Yo como frijoles con arroz.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you eat avocado?",
+          "es": "¿Tú comes aguacate?",
+          "kind": "phrase",
+          "note": "tú for a friend or companion; use usted with staff."
+        },
+        {
+          "en": "Do you make the salsa here?",
+          "es": "¿Usted prepara la salsa aquí?",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're sharing the salad.",
+          "es": "Nosotros compartimos la ensalada.",
+          "kind": "phrase"
+        },
+        {
+          "en": "They sell fish tacos.",
+          "es": "Ellos venden tacos de pescado.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I'm paying in cash.",
+          "es": "Pago en efectivo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a lunch companion what you eat, ask if they eat avocado, and say how you are paying."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask what a dish has, where things are, what it costs and which one to choose.",
+      "focus": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál with rising tone",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term"
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term",
+          "note": "A polite ¿cómo? also means 'sorry, what did you say?'"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words with an accent; porque in one word means because."
+        },
+        {
+          "en": "which?, which one?",
+          "es": "¿cuál?",
+          "kind": "term"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the daily special",
+          "es": "el platillo del día",
+          "kind": "term"
+        },
+        {
+          "en": "What comes in the daily special?",
+          "es": "¿Qué lleva el platillo del día?",
+          "kind": "phrase",
+          "note": "llevar is the usual verb for what a dish contains."
+        },
+        {
+          "en": "Where is the restroom?",
+          "es": "¿Dónde está el baño?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How much is the chicken torta?",
+          "es": "¿Cuánto cuesta la torta de pollo?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Which one do you recommend?",
+          "es": "¿Cuál me recomienda?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you eat this?",
+          "es": "¿Cómo se come esto?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Who's serving this table?",
+          "es": "¿Quién atiende esta mesa?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a server what is in the daily special, how much it costs, and which dish they recommend."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what you don't eat, ask for more or less, and decline an offer politely.",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro with food",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Spanish uses a double negative: no quiero nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "Never put un before otro: otro taco, otra tortilla."
+        },
+        {
+          "en": "without",
+          "es": "sin",
+          "kind": "term"
+        },
+        {
+          "en": "the pork",
+          "es": "el puerco",
+          "kind": "term"
+        },
+        {
+          "en": "the peanut",
+          "es": "el cacahuate",
+          "kind": "term",
+          "note": "Mexican word; other countries say maní."
+        },
+        {
+          "en": "I don't eat pork.",
+          "es": "No como puerco.",
+          "kind": "phrase",
+          "note": "Put no right before the verb."
+        },
+        {
+          "en": "Not yet, thanks.",
+          "es": "Todavía no, gracias.",
+          "kind": "phrase",
+          "note": "Use when the server asks if you are ready to order."
+        },
+        {
+          "en": "Another order of tortillas, please.",
+          "es": "Otra orden de tortillas, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Less spicy, please.",
+          "es": "Menos picante, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's nobody at the register.",
+          "es": "No hay nadie en la caja.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I don't need anything else, thanks.",
+          "es": "No necesito nada más, gracias.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell the server you don't eat pork, ask for food less spicy, and ask for another order of tortillas."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Ask a server politely for the bill, ice, food to go and separate checks.",
+      "focus": "¿Puede…? requests and usted commands (tráigame, deme, quédese) with a server",
+      "words": [
+        {
+          "en": "excuse me",
+          "es": "disculpe",
+          "kind": "term",
+          "note": "Formal; the polite way to get a server's attention."
+        },
+        {
+          "en": "the bill, the check",
+          "es": "la cuenta",
+          "kind": "term"
+        },
+        {
+          "en": "the tip",
+          "es": "la propina",
+          "kind": "term",
+          "note": "Tipping is customary in Mexico; check the bill to see if it is included."
+        },
+        {
+          "en": "the change (money)",
+          "es": "el cambio",
+          "kind": "term"
+        },
+        {
+          "en": "the server, the waiter",
+          "es": "el mesero",
+          "kind": "term"
+        },
+        {
+          "en": "the server, the waitress",
+          "es": "la mesera",
+          "kind": "term"
+        },
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the straw",
+          "es": "el popote",
+          "kind": "term",
+          "note": "Mexican word; other countries say pajita or sorbete."
+        },
+        {
+          "en": "the bag",
+          "es": "la bolsa",
+          "kind": "term"
+        },
+        {
+          "en": "Could you bring us the bill, please?",
+          "es": "¿Nos puede traer la cuenta, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Bring me a glass with ice, please.",
+          "es": "Tráigame un vaso con hielo, por favor.",
+          "kind": "phrase",
+          "note": "usted command; por favor keeps it polite."
+        },
+        {
+          "en": "Could you pack it to go for me?",
+          "es": "¿Me lo puede poner para llevar?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you charge us separately?",
+          "es": "¿Puede cobrarnos por separado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Give me a moment, please.",
+          "es": "Deme un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Keep the change.",
+          "es": "Quédese con el cambio.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask the server for a glass with ice, then ask for the bill and tell them to keep the change."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize cognates on a menu and get help when you don't understand.",
+      "focus": "Cognates ending in -ción, -dad and -ente, plus survival phrases for getting help",
+      "words": [
+        {
+          "en": "the restaurant",
+          "es": "el restaurante",
+          "kind": "term"
+        },
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "-ción words are feminine and match English -tion."
+        },
+        {
+          "en": "the recommendation",
+          "es": "la recomendación",
+          "kind": "term"
+        },
+        {
+          "en": "the portion",
+          "es": "la porción",
+          "kind": "term"
+        },
+        {
+          "en": "the specialty",
+          "es": "la especialidad",
+          "kind": "term",
+          "note": "-dad words are feminine and match English -ty."
+        },
+        {
+          "en": "the quantity, the amount",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the ingredient",
+          "es": "el ingrediente",
+          "kind": "term"
+        },
+        {
+          "en": "excellent",
+          "es": "excelente",
+          "kind": "term"
+        },
+        {
+          "en": "different",
+          "es": "diferente",
+          "kind": "term"
+        },
+        {
+          "en": "vegetarian",
+          "es": "vegetariano",
+          "kind": "term",
+          "note": "Say vegetariana for a woman or a feminine noun."
+        },
+        {
+          "en": "I don't understand, can you repeat?",
+          "es": "No entiendo, ¿puede repetir?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you speak English?",
+          "es": "¿Habla inglés?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say this in Spanish?",
+          "es": "¿Cómo se dice esto en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Do you have a vegetarian option?",
+          "es": "¿Tiene una opción vegetariana?",
+          "kind": "phrase"
+        },
+        {
+          "en": "I need help, please.",
+          "es": "Necesito ayuda, por favor.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a server you don't understand, ask them to speak more slowly, and ask if there is a vegetarian option."
+    }
+  ]
+}

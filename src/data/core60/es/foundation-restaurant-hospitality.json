@@ -1,0 +1,993 @@
+{
+  "version": 1,
+  "module": "foundation-restaurant-hospitality",
+  "baseModule": "restaurant-hospitality",
+  "stage": "foundation",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "The Restaurant & Hospitality Foundation",
+  "threshold": "By Lesson 10, you can greet guests and staff, give numbers, times and quantities, describe tables, rooms and food, ask questions, make polite requests and ask for help in Spanish, and start Restaurant & Hospitality Lesson 1.",
+  "reviewed": false,
+  "model": "claude-opus-5-5",
+  "generatedAt": "2026-10-21T13:26:09.029Z",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Greet guests and staff and say common restaurant words clearly",
+      "focus": "The five vowels, ch, j, ll, rr and the written accent; greetings for each time of day",
+      "words": [
+        {
+          "en": "the table",
+          "es": "la mesa",
+          "kind": "term",
+          "note": "Spanish vowels are short and pure: e as in 'met', a as in 'father'."
+        },
+        {
+          "en": "the spoon",
+          "es": "la cuchara",
+          "kind": "term",
+          "note": "ch sounds like the ch in 'church'."
+        },
+        {
+          "en": "the cash register",
+          "es": "la caja",
+          "kind": "term",
+          "note": "j sounds like a strong English h: KA-ha."
+        },
+        {
+          "en": "the chair",
+          "es": "la silla",
+          "kind": "term",
+          "note": "ll sounds like English y: SEE-ya."
+        },
+        {
+          "en": "the rice",
+          "es": "el arroz",
+          "kind": "term",
+          "note": "rr is a rolled, trilled r; z sounds like s in Mexico and the US."
+        },
+        {
+          "en": "the menu",
+          "es": "el menú",
+          "kind": "term",
+          "note": "The written accent marks the stressed syllable: me-NÚ."
+        },
+        {
+          "en": "the coffee",
+          "es": "el café",
+          "kind": "term",
+          "note": "Stress the last syllable: ca-FÉ."
+        },
+        {
+          "en": "the server",
+          "es": "el mesero",
+          "kind": "term",
+          "note": "Single r is a quick tap, like dd in 'ladder'. A woman is la mesera."
+        },
+        {
+          "en": "the kitchen",
+          "es": "la cocina",
+          "kind": "term",
+          "note": "c before e or i sounds like s: co-SEE-na."
+        },
+        {
+          "en": "the check",
+          "es": "la cuenta",
+          "kind": "term",
+          "note": "ue sounds like 'weh': KWEN-ta."
+        },
+        {
+          "en": "the plate",
+          "es": "el plato",
+          "kind": "term"
+        },
+        {
+          "en": "Good morning, welcome.",
+          "es": "Buenos días, bienvenidos.",
+          "kind": "phrase",
+          "note": "Buenos días until noon, buenas tardes until dark, buenas noches after dark."
+        },
+        {
+          "en": "Good afternoon, my name is Ana.",
+          "es": "Buenas tardes, me llamo Ana.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you, welcome to the restaurant.",
+          "es": "Mucho gusto, bienvenido al restaurante.",
+          "kind": "phrase",
+          "note": "Say bienvenida to a woman, bienvenidos to a group."
+        },
+        {
+          "en": "How are you?",
+          "es": "¿Cómo está usted?",
+          "kind": "phrase",
+          "note": "Formal: use with guests and people you don't know."
+        },
+        {
+          "en": "Hi, how's it going?",
+          "es": "Hola, ¿qué tal?",
+          "kind": "phrase",
+          "note": "Informal: use with coworkers."
+        },
+        {
+          "en": "See you tomorrow, team.",
+          "es": "Hasta mañana, equipo.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a coworker at the start of the shift, say your name, and say three restaurant words with clear vowels."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Say table numbers, times, prices and kitchen amounts like pounds and dozens",
+      "focus": "Numbers 0 to 1,000, clock time with a las, and pounds, ounces, dozens and dollars",
+      "words": [
+        {
+          "en": "the pound",
+          "es": "la libra",
+          "kind": "term",
+          "note": "US kitchens weigh in pounds: 5 libras de carne."
+        },
+        {
+          "en": "the ounce",
+          "es": "la onza",
+          "kind": "term"
+        },
+        {
+          "en": "the gallon",
+          "es": "el galón",
+          "kind": "term"
+        },
+        {
+          "en": "the dozen",
+          "es": "la docena",
+          "kind": "term",
+          "note": "Una docena de huevos means 12 eggs."
+        },
+        {
+          "en": "the bottle",
+          "es": "la botella",
+          "kind": "term"
+        },
+        {
+          "en": "the price",
+          "es": "el precio",
+          "kind": "term"
+        },
+        {
+          "en": "the tip",
+          "es": "la propina",
+          "kind": "term"
+        },
+        {
+          "en": "the shift",
+          "es": "el turno",
+          "kind": "term"
+        },
+        {
+          "en": "the minute",
+          "es": "el minuto",
+          "kind": "term"
+        },
+        {
+          "en": "the half hour",
+          "es": "la media hora",
+          "kind": "term",
+          "note": "A las 6 y media means at 6:30."
+        },
+        {
+          "en": "It's 5 in the afternoon.",
+          "es": "Son las 5 de la tarde.",
+          "kind": "phrase",
+          "note": "Use son las for every hour except 1: es la 1."
+        },
+        {
+          "en": "The shift starts at 4:30.",
+          "es": "El turno empieza a las 4:30.",
+          "kind": "phrase",
+          "note": "a las + time tells when something happens."
+        },
+        {
+          "en": "That's 12 pounds of chicken.",
+          "es": "Son 12 libras de pollo.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The check is 85 dollars.",
+          "es": "La cuenta es de 85 dólares.",
+          "kind": "phrase",
+          "note": "Use de before an amount: es de 85 dólares."
+        },
+        {
+          "en": "20 minutes until we open.",
+          "es": "Faltan 20 minutos para abrir.",
+          "kind": "phrase"
+        },
+        {
+          "en": "A bottle of wine costs 40 dollars.",
+          "es": "Una botella de vino cuesta 40 dólares.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a cook what time the shift starts and how many pounds of chicken and dozens of eggs the kitchen needs today."
+    },
+    {
+      "n": 3,
+      "title": "Ser and Estar",
+      "objective": "Say who you are and describe tables, rooms and food as ready, clean, free or cold",
+      "focus": "ser for what something is, estar for its condition or location",
+      "words": [
+        {
+          "en": "ready",
+          "es": "listo",
+          "kind": "term",
+          "note": "Changes with the noun: la mesa está lista."
+        },
+        {
+          "en": "clean",
+          "es": "limpio",
+          "kind": "term"
+        },
+        {
+          "en": "dirty",
+          "es": "sucio",
+          "kind": "term"
+        },
+        {
+          "en": "taken, busy",
+          "es": "ocupado",
+          "kind": "term",
+          "note": "For a table: taken. For a person: busy."
+        },
+        {
+          "en": "free, available",
+          "es": "libre",
+          "kind": "term",
+          "note": "For tables and rooms that are open for guests."
+        },
+        {
+          "en": "full",
+          "es": "lleno",
+          "kind": "term"
+        },
+        {
+          "en": "open",
+          "es": "abierto",
+          "kind": "term"
+        },
+        {
+          "en": "closed",
+          "es": "cerrado",
+          "kind": "term"
+        },
+        {
+          "en": "hot",
+          "es": "caliente",
+          "kind": "term"
+        },
+        {
+          "en": "cold",
+          "es": "frío",
+          "kind": "term"
+        },
+        {
+          "en": "the manager",
+          "es": "el gerente",
+          "kind": "term",
+          "note": "A woman is la gerente."
+        },
+        {
+          "en": "I'm the restaurant manager.",
+          "es": "Soy el gerente del restaurante.",
+          "kind": "phrase",
+          "note": "ser: who you are. A woman says Soy la gerente."
+        },
+        {
+          "en": "Table 5 is free.",
+          "es": "La mesa 5 está libre.",
+          "kind": "phrase",
+          "note": "estar: a condition that can change."
+        },
+        {
+          "en": "The soup is cold.",
+          "es": "La sopa está fría.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The restroom is at the back.",
+          "es": "El baño está al fondo.",
+          "kind": "phrase",
+          "note": "estar for location: where something is."
+        },
+        {
+          "en": "It's a family restaurant.",
+          "es": "Es un restaurante familiar.",
+          "kind": "phrase",
+          "note": "ser: what something is."
+        },
+        {
+          "en": "Is table 3 ready?",
+          "es": "¿Está lista la mesa 3?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Introduce yourself to a new server as the manager and say which tables are free, clean or ready."
+    },
+    {
+      "n": 4,
+      "title": "Have, There Is, Need and Want",
+      "objective": "Say what the restaurant has, needs and wants, and what the team has to do",
+      "focus": "tener, hay, necesitar, querer and hay que + infinitive for restaurant supplies",
+      "words": [
+        {
+          "en": "the ice",
+          "es": "el hielo",
+          "kind": "term"
+        },
+        {
+          "en": "the water",
+          "es": "el agua",
+          "kind": "term",
+          "note": "Feminine noun that takes el: el agua fría."
+        },
+        {
+          "en": "the glasses",
+          "es": "los vasos",
+          "kind": "term"
+        },
+        {
+          "en": "the silverware",
+          "es": "los cubiertos",
+          "kind": "term"
+        },
+        {
+          "en": "the napkins",
+          "es": "las servilletas",
+          "kind": "term"
+        },
+        {
+          "en": "the bread",
+          "es": "el pan",
+          "kind": "term"
+        },
+        {
+          "en": "the salt",
+          "es": "la sal",
+          "kind": "term"
+        },
+        {
+          "en": "the lime",
+          "es": "el limón",
+          "kind": "term",
+          "note": "In Mexico and the US, limón usually means lime."
+        },
+        {
+          "en": "the high chair",
+          "es": "la silla para bebé",
+          "kind": "term",
+          "note": "In Mexico also called la periquera."
+        },
+        {
+          "en": "the tablecloths",
+          "es": "los manteles",
+          "kind": "term"
+        },
+        {
+          "en": "I need ice for the bar.",
+          "es": "Necesito hielo para la barra.",
+          "kind": "phrase"
+        },
+        {
+          "en": "There's a table for 6 on the patio.",
+          "es": "Hay una mesa para 6 en el patio.",
+          "kind": "phrase",
+          "note": "hay means there is or there are."
+        },
+        {
+          "en": "We have 3 servers tonight.",
+          "es": "Tenemos 3 meseros esta noche.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Would you like water with ice?",
+          "es": "¿Quiere agua con hielo?",
+          "kind": "phrase",
+          "note": "Formal usted, for one guest."
+        },
+        {
+          "en": "We have to clean the tables before opening.",
+          "es": "Hay que limpiar las mesas antes de abrir.",
+          "kind": "phrase",
+          "note": "hay que + infinitive: something that must be done."
+        },
+        {
+          "en": "I need clean glasses for table 9.",
+          "es": "Necesito vasos limpios para la mesa 9.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a server what the dining room needs, like ice, glasses and napkins, and one thing the team has to do before opening."
+    },
+    {
+      "n": 5,
+      "title": "Go, Do and Can",
+      "objective": "Say where you are going, what you plan to do, and what you can do",
+      "focus": "ir, ir a + infinitive for plans, hacer for tasks, poder for can",
+      "words": [
+        {
+          "en": "the dining room",
+          "es": "el comedor",
+          "kind": "term"
+        },
+        {
+          "en": "the bar",
+          "es": "la barra",
+          "kind": "term"
+        },
+        {
+          "en": "the patio",
+          "es": "el patio",
+          "kind": "term"
+        },
+        {
+          "en": "the storeroom",
+          "es": "la bodega",
+          "kind": "term",
+          "note": "In US kitchens, the dry storage room."
+        },
+        {
+          "en": "the walk-in cooler",
+          "es": "el cuarto frío",
+          "kind": "term",
+          "note": "Many US kitchens also say el walk-in."
+        },
+        {
+          "en": "the entrance",
+          "es": "la entrada",
+          "kind": "term"
+        },
+        {
+          "en": "the elevator",
+          "es": "el elevador",
+          "kind": "term"
+        },
+        {
+          "en": "the hotel room",
+          "es": "el cuarto",
+          "kind": "term",
+          "note": "Also la habitación."
+        },
+        {
+          "en": "the stove",
+          "es": "la estufa",
+          "kind": "term"
+        },
+        {
+          "en": "the oven",
+          "es": "el horno",
+          "kind": "term"
+        },
+        {
+          "en": "I'm going to the storeroom for napkins.",
+          "es": "Voy a la bodega por servilletas.",
+          "kind": "phrase"
+        },
+        {
+          "en": "We're going to open the patio at 5.",
+          "es": "Vamos a abrir el patio a las 5.",
+          "kind": "phrase",
+          "note": "ir a + infinitive: a plan."
+        },
+        {
+          "en": "May I take your order?",
+          "es": "¿Les puedo tomar la orden?",
+          "kind": "phrase",
+          "note": "Les for a table of guests; le for one guest."
+        },
+        {
+          "en": "I do the schedule on Mondays.",
+          "es": "Hago el horario los lunes.",
+          "kind": "phrase",
+          "note": "hacer: hago, haces, hace, hacemos, hacen."
+        },
+        {
+          "en": "They're going to clean the walk-in cooler.",
+          "es": "Ellos van a limpiar el cuarto frío.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a coworker where you are going, what you are going to do before opening, and what you can do to help."
+    },
+    {
+      "n": 6,
+      "title": "Present Tense",
+      "objective": "Describe the daily work of your staff with present-tense verbs",
+      "focus": "Present tense of regular -ar, -er, -ir verbs for yo, tú, usted, nosotros, ellos",
+      "words": [
+        {
+          "en": "the cook",
+          "es": "el cocinero",
+          "kind": "term",
+          "note": "A woman is la cocinera."
+        },
+        {
+          "en": "the dishwasher",
+          "es": "el lavaplatos",
+          "kind": "term",
+          "note": "The person or the machine."
+        },
+        {
+          "en": "the bartender",
+          "es": "el cantinero",
+          "kind": "term",
+          "note": "Many US bars also say el bartender."
+        },
+        {
+          "en": "the busser",
+          "es": "el ayudante de mesero",
+          "kind": "term",
+          "note": "Many US restaurants also say el busser."
+        },
+        {
+          "en": "the host",
+          "es": "el anfitrión",
+          "kind": "term",
+          "note": "A woman is la anfitriona; many US places say la hostess."
+        },
+        {
+          "en": "the customer",
+          "es": "el cliente",
+          "kind": "term",
+          "note": "A woman is la clienta."
+        },
+        {
+          "en": "the hotel guest",
+          "es": "el huésped",
+          "kind": "term",
+          "note": "A woman is la huésped."
+        },
+        {
+          "en": "the housekeeper",
+          "es": "la recamarera",
+          "kind": "term",
+          "note": "Common hotel word in Mexico; a man is el recamarero."
+        },
+        {
+          "en": "the head chef",
+          "es": "el jefe de cocina",
+          "kind": "term",
+          "note": "A woman is la jefa de cocina."
+        },
+        {
+          "en": "the team",
+          "es": "el equipo",
+          "kind": "term"
+        },
+        {
+          "en": "I work Monday to Friday.",
+          "es": "Trabajo de lunes a viernes.",
+          "kind": "phrase",
+          "note": "-ar verbs: trabajo, trabajas, trabaja, trabajamos, trabajan."
+        },
+        {
+          "en": "Are you cooking tonight?",
+          "es": "¿Tú cocinas esta noche?",
+          "kind": "phrase",
+          "note": "Tú between coworkers; usted with guests."
+        },
+        {
+          "en": "Do you receive the deliveries in the morning?",
+          "es": "¿Usted recibe las entregas en la mañana?",
+          "kind": "phrase",
+          "note": "-ir verbs: recibo, recibes, recibe, recibimos, reciben."
+        },
+        {
+          "en": "We open at 11.",
+          "es": "Nosotros abrimos a las 11.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The cooks prepare the staff meal.",
+          "es": "Los cocineros preparan la comida del personal.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The servers sweep the dining room at closing.",
+          "es": "Los meseros barren el comedor al cerrar.",
+          "kind": "phrase",
+          "note": "-er verbs: barro, barres, barre, barremos, barren."
+        }
+      ],
+      "speaking": "Tell a new hire who works each station and what the team does every day before and after service."
+    },
+    {
+      "n": 7,
+      "title": "Questions",
+      "objective": "Ask guests and staff simple questions about people, places, times and amounts",
+      "focus": "Question words: qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+      "words": [
+        {
+          "en": "what?",
+          "es": "¿qué?",
+          "kind": "term"
+        },
+        {
+          "en": "who?",
+          "es": "¿quién?",
+          "kind": "term"
+        },
+        {
+          "en": "where?",
+          "es": "¿dónde?",
+          "kind": "term"
+        },
+        {
+          "en": "when?",
+          "es": "¿cuándo?",
+          "kind": "term"
+        },
+        {
+          "en": "how much?",
+          "es": "¿cuánto?",
+          "kind": "term",
+          "note": "Agrees with the noun: cuántos platos, cuántas personas."
+        },
+        {
+          "en": "how?",
+          "es": "¿cómo?",
+          "kind": "term"
+        },
+        {
+          "en": "why?",
+          "es": "¿por qué?",
+          "kind": "term",
+          "note": "Two words means why; porque, one word, means because."
+        },
+        {
+          "en": "which?",
+          "es": "¿cuál?",
+          "kind": "term",
+          "note": "Use before es for 'what': ¿Cuál es su nombre?"
+        },
+        {
+          "en": "the restroom",
+          "es": "el baño",
+          "kind": "term"
+        },
+        {
+          "en": "the key",
+          "es": "la llave",
+          "kind": "term",
+          "note": "Many hotels say la tarjeta for a key card."
+        },
+        {
+          "en": "Who has table 6?",
+          "es": "¿Quién tiene la mesa 6?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How many in your party?",
+          "es": "¿Cuántas personas son?",
+          "kind": "phrase",
+          "note": "Ask at the host stand for the party size."
+        },
+        {
+          "en": "What would you like to drink?",
+          "es": "¿Qué desea tomar?",
+          "kind": "phrase",
+          "note": "Formal, to one guest. Tomar here means to drink."
+        },
+        {
+          "en": "When does the fish order arrive?",
+          "es": "¿Cuándo llega el pedido de pescado?",
+          "kind": "phrase"
+        },
+        {
+          "en": "What's the name for the reservation?",
+          "es": "¿Cuál es su nombre para la reservación?",
+          "kind": "phrase"
+        },
+        {
+          "en": "How is the food?",
+          "es": "¿Cómo está la comida?",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask a guest how many are in the party, the name for the table, and what they would like to drink."
+    },
+    {
+      "n": 8,
+      "title": "No, Never and How Much",
+      "objective": "Say what is out, what is not ready yet, and what you need more or less of",
+      "focus": "no, nunca, nadie, nada, todavía no, más, menos and otro",
+      "words": [
+        {
+          "en": "never",
+          "es": "nunca",
+          "kind": "term"
+        },
+        {
+          "en": "nobody",
+          "es": "nadie",
+          "kind": "term"
+        },
+        {
+          "en": "nothing",
+          "es": "nada",
+          "kind": "term",
+          "note": "Use with no before the verb: no hay nada."
+        },
+        {
+          "en": "not yet",
+          "es": "todavía no",
+          "kind": "term"
+        },
+        {
+          "en": "more",
+          "es": "más",
+          "kind": "term"
+        },
+        {
+          "en": "less, fewer",
+          "es": "menos",
+          "kind": "term"
+        },
+        {
+          "en": "another",
+          "es": "otro",
+          "kind": "term",
+          "note": "otra with feminine nouns; never say un otro."
+        },
+        {
+          "en": "the order",
+          "es": "la orden",
+          "kind": "term",
+          "note": "Common in US kitchens for a food order; also el pedido."
+        },
+        {
+          "en": "the towels",
+          "es": "las toallas",
+          "kind": "term"
+        },
+        {
+          "en": "the pillow",
+          "es": "la almohada",
+          "kind": "term"
+        },
+        {
+          "en": "There's no more salmon tonight.",
+          "es": "No hay más salmón esta noche.",
+          "kind": "phrase",
+          "note": "Tell servers when an item is out (86)."
+        },
+        {
+          "en": "Nobody leaves without telling the manager.",
+          "es": "Nadie sale sin avisar al gerente.",
+          "kind": "phrase",
+          "note": "Personal a before a person: avisar al gerente."
+        },
+        {
+          "en": "Table 4's order hasn't come out yet.",
+          "es": "La orden de la mesa 4 todavía no sale.",
+          "kind": "phrase"
+        },
+        {
+          "en": "The guest doesn't want anything else.",
+          "es": "El cliente no quiere nada más.",
+          "kind": "phrase",
+          "note": "Double negative is correct: no ... nada."
+        },
+        {
+          "en": "There are fewer people today; I don't need another server.",
+          "es": "Hoy hay menos gente; no necesito otro mesero.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Never leave the walk-in door open.",
+          "es": "Nunca dejen abierta la puerta del cuarto frío.",
+          "kind": "phrase",
+          "note": "dejen: ustedes command to the whole crew."
+        }
+      ],
+      "speaking": "Tell the kitchen what is out tonight, which order is not ready yet, and whether you need another server."
+    },
+    {
+      "n": 9,
+      "title": "Polite Requests and Commands",
+      "objective": "Make polite requests and give simple usted commands to guests and staff",
+      "focus": "¿Puede…? requests and usted commands for everyday restaurant verbs",
+      "words": [
+        {
+          "en": "the receipt",
+          "es": "el recibo",
+          "kind": "term"
+        },
+        {
+          "en": "the credit card",
+          "es": "la tarjeta de crédito",
+          "kind": "term"
+        },
+        {
+          "en": "the to-go box",
+          "es": "el contenedor para llevar",
+          "kind": "term",
+          "note": "Para llevar means to go."
+        },
+        {
+          "en": "the tray",
+          "es": "la charola",
+          "kind": "term",
+          "note": "Common in Mexico and the US; also la bandeja."
+        },
+        {
+          "en": "the gloves",
+          "es": "los guantes",
+          "kind": "term"
+        },
+        {
+          "en": "the apron",
+          "es": "el delantal",
+          "kind": "term",
+          "note": "Also el mandil in Mexico."
+        },
+        {
+          "en": "the rag",
+          "es": "el trapo",
+          "kind": "term"
+        },
+        {
+          "en": "the broom",
+          "es": "la escoba",
+          "kind": "term"
+        },
+        {
+          "en": "the floor",
+          "es": "el piso",
+          "kind": "term"
+        },
+        {
+          "en": "the room number",
+          "es": "el número de cuarto",
+          "kind": "term"
+        },
+        {
+          "en": "Can you sign here, please?",
+          "es": "¿Puede firmar aquí, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Come this way, please.",
+          "es": "Pase por aquí, por favor.",
+          "kind": "phrase",
+          "note": "Usted command to one guest; to a group say pasen."
+        },
+        {
+          "en": "Wait a moment, please.",
+          "es": "Espere un momento, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "Can you bring the rag and the broom?",
+          "es": "¿Puede traer el trapo y la escoba?",
+          "kind": "phrase",
+          "note": "¿Puede...? is a polite way to ask one worker."
+        },
+        {
+          "en": "Wash your hands before going into the kitchen.",
+          "es": "Lávese las manos antes de entrar a la cocina.",
+          "kind": "phrase",
+          "note": "Between coworkers, use tú: lávate las manos."
+        },
+        {
+          "en": "Be careful, the floor is wet.",
+          "es": "Tenga cuidado, el piso está mojado.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Seat a guest politely, ask them to wait or sign the receipt, and ask a busser to bring the rag and the broom."
+    },
+    {
+      "n": 10,
+      "title": "Words You Already Know and Getting Help",
+      "objective": "Recognize cognates and use survival phrases to get help on a busy shift",
+      "focus": "Cognates ending in -ción, -dad, -ente and survival phrases for getting help",
+      "words": [
+        {
+          "en": "the reservation",
+          "es": "la reservación",
+          "kind": "term",
+          "note": "-ción words match English -tion and are feminine."
+        },
+        {
+          "en": "the allergy",
+          "es": "la alergia",
+          "kind": "term",
+          "note": "Never guess about an allergy: always confirm with the kitchen."
+        },
+        {
+          "en": "the front desk",
+          "es": "la recepción",
+          "kind": "term"
+        },
+        {
+          "en": "the temperature",
+          "es": "la temperatura",
+          "kind": "term"
+        },
+        {
+          "en": "the specialty",
+          "es": "la especialidad",
+          "kind": "term",
+          "note": "-dad words often match English -ty."
+        },
+        {
+          "en": "the ingredient",
+          "es": "el ingrediente",
+          "kind": "term",
+          "note": "-ente words often match English -ent."
+        },
+        {
+          "en": "the information",
+          "es": "la información",
+          "kind": "term"
+        },
+        {
+          "en": "the quantity",
+          "es": "la cantidad",
+          "kind": "term"
+        },
+        {
+          "en": "the vegetarian option",
+          "es": "la opción vegetariana",
+          "kind": "term"
+        },
+        {
+          "en": "the emergency",
+          "es": "la emergencia",
+          "kind": "term"
+        },
+        {
+          "en": "the gluten",
+          "es": "el gluten",
+          "kind": "term",
+          "note": "Same word as English, said GLOO-ten."
+        },
+        {
+          "en": "I don't understand, can you repeat, please?",
+          "es": "No entiendo, ¿puede repetir, por favor?",
+          "kind": "phrase"
+        },
+        {
+          "en": "Slower, please.",
+          "es": "Más despacio, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "How do you say \"tray\" in Spanish?",
+          "es": "¿Cómo se dice \"tray\" en español?",
+          "kind": "phrase"
+        },
+        {
+          "en": "One moment, I'm going to ask in the kitchen.",
+          "es": "Un momento, voy a preguntar en la cocina.",
+          "kind": "phrase",
+          "note": "Use this whenever a guest asks about allergies or ingredients."
+        },
+        {
+          "en": "I need help in the dining room, please.",
+          "es": "Necesito ayuda en el comedor, por favor.",
+          "kind": "phrase"
+        },
+        {
+          "en": "I speak a little Spanish.",
+          "es": "Hablo un poco de español.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Tell a cook you don't understand, ask them to repeat more slowly, and ask how to say a word in Spanish."
+    }
+  ]
+}

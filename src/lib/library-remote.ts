@@ -1,3 +1,4 @@
+import { readLearningResetId } from "./learning-reset-epoch.ts";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "../integrations/supabase/types";
 import type { LibraryEntry, BookChapter } from "../state/library-state";
@@ -43,6 +44,10 @@ function entryToInsert(entry: LibraryEntry, userId: string) {
   return {
     id: entry.id,
     user_id: userId,
+    learning_reset_id: readLearningResetId(
+      typeof window === "undefined" ? null : window.localStorage,
+      userId,
+    ),
     title: entry.title,
     subtitle: entry.subtitle ?? "",
     language: entry.language,

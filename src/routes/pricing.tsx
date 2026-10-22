@@ -3,11 +3,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { CheckCircle, Sparkles, ChevronRight, Users } from "lucide-react";
-import { useAuth } from "@/state/auth-state";
-import { useSubscription } from "@/state/subscription-state";
+import { AuthProvider, useAuth } from "@/state/auth-state";
+import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 
 export const Route = createFileRoute("/pricing")({
-  component: PricingPage,
+  component: () => (
+    <AuthProvider>
+      <SubscriptionProvider>
+        <PricingPage />
+      </SubscriptionProvider>
+    </AuthProvider>
+  ),
   head: () => ({
     meta: [
       { title: "Pricing — Language Threshold" },

@@ -1,3 +1,4 @@
+import { readLearningResetId } from "./learning-reset-epoch.ts";
 /** Local practice data is owned by an account (or guest), never inferred from a legacy key. */
 export interface LearnerStorage {
   getItem(key: string): string | null;
@@ -18,12 +19,19 @@ export function createLearnerDeviceStore({
   isCurrent: () => boolean;
 }) {
   const key = learnerDeviceKey(kind, actor);
+  let resetId: string | null | undefined;
+  const current = () => {
+    if (!isCurrent()) return false;
+    const latest = readLearningResetId(storage, actor);
+    if (resetId === undefined) resetId = latest;
+    return resetId === latest;
+  };
   return {
     get kind() {
       return kind;
     },
     read(): unknown {
-      if (!isCurrent()) return null;
+      if (!current()) return null;
       try {
         const raw = storage?.getItem(key);
         if (!raw || raw.length > 8 * 1024 * 1024) return null;
@@ -35,7 +43,7 @@ export function createLearnerDeviceStore({
       }
     },
     write(data: unknown) {
-      if (!storage || !isCurrent()) return false;
+      if (!storage || !current()) return false;
       try {
         const raw = JSON.stringify({ schema: 1, actor, kind, data });
         if (raw.length > 8 * 1024 * 1024) return false;

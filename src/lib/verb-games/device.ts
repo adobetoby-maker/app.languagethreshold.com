@@ -3,8 +3,8 @@
 // Pure functions only; persistence lives in src/hooks/use-verb-device.ts.
 
 import { FAMILIES, isFamilyId } from "./families.ts";
-import { scopeKey } from "./rules.ts";
-import type { FamilyId, PatternData, RoundLog, RoundResult, SourceFilter } from "./types.ts";
+import { isRoundMode, scopeKey } from "./rules.ts";
+import type { FamilyId, PatternData, RoundLog, RoundMode, RoundResult, SourceFilter } from "./types.ts";
 
 export type VerbStep = "see" | "hear" | "recall";
 
@@ -12,11 +12,12 @@ export interface VerbDeviceState {
   v: 1;
   /** Key "familyId|infinitive". */
   mastery: Record<string, { picks: number; correct: number }>;
-  /** Key "game|scopeKey". */
+  /** Key "game|scopeKey": timed "bubble|go-yo", or with a mode "bubble|go-yo|forever", "crush|L1:go-yo|count10". */
   bests: Record<string, { score: number; moves: number; at: string }>;
   ranks: Record<string, { period: string; rank: number | null }>;
   queue: RoundLog[];
-  settings: { source: "module" | "core" | "both"; listMode: boolean };
+  /** `mode` is the picker's last choice; absent means timed. */
+  settings: { source: "module" | "core" | "both"; listMode: boolean; mode?: RoundMode };
   unitSteps: Partial<Record<FamilyId, VerbStep[]>>;
 }
 
@@ -72,9 +73,11 @@ export function readVerbDevice(raw: unknown): VerbDeviceState {
     out.queue = logs.slice(-MAX_QUEUE);
   }
   if (isRecord(raw.settings)) {
-    const { source, listMode } = raw.settings;
+    const { source, listMode, mode } = raw.settings;
     if ((SOURCES as readonly unknown[]).includes(source) && typeof listMode === "boolean") {
       out.settings = { source: source as VerbDeviceState["settings"]["source"], listMode };
+      // A bad remembered mode is dropped (timed), never a reason to lose the other settings.
+      if (isRoundMode(mode)) out.settings.mode = mode.kind === "count" ? { kind: "count", n: mode.n } : { kind: mode.kind };
     }
   }
   if (isRecord(raw.unitSteps)) {

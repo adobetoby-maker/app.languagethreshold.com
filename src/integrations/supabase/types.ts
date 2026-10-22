@@ -113,6 +113,7 @@ export type Database = {
       };
       library_books: {
         Row: {
+          learning_reset_id: string | null;
           available: boolean;
           chapters: Json;
           created_at: string;
@@ -127,6 +128,7 @@ export type Database = {
           user_id: string;
         };
         Insert: {
+          learning_reset_id?: string | null;
           available?: boolean;
           chapters?: Json;
           created_at?: string;
@@ -141,6 +143,7 @@ export type Database = {
           user_id: string;
         };
         Update: {
+          learning_reset_id?: string | null;
           available?: boolean;
           chapters?: Json;
           created_at?: string;

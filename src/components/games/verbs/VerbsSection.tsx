@@ -9,7 +9,7 @@ import { recordPicks, recordRound, sourceFilterFor, type VerbDeviceState } from 
 import { loadPatternData } from "@/lib/verb-games/load-patterns";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
 import { modeKey, modeOf, scopeKey } from "@/lib/verb-games/rules";
-import type { FamilyId, PatternData, RoundConfig, RoundLog, RoundMode, RoundResult } from "@/lib/verb-games/types";
+import type { EndReason, FamilyId, PatternData, RoundConfig, RoundLog, RoundMode, RoundResult } from "@/lib/verb-games/types";
 import { parseVerbRoute, practiceScreen, verbRouteSearch, type VerbScreen } from "@/lib/verb-games/verb-route";
 import { BubblePopGame } from "./BubblePopGame";
 import { picksOf } from "./recap-groups";
@@ -52,6 +52,8 @@ function bestBefore(s: VerbDeviceState, config: RoundConfig): { score: number } 
 interface EndedRound {
   result: RoundResult;
   config: RoundConfig;
+  /** Why the round ended, as the engine reported it. */
+  endReason: EndReason;
   /** The personal best before this round. */
   previousBest: { score: number } | null;
 }
@@ -154,7 +156,7 @@ export function VerbsSection() {
   const { update } = device;
   /** A round ended: update bests and mastery on this device, then show the recap. */
   const finishRound = useCallback(
-    (log: RoundLog, result: RoundResult) => {
+    (log: RoundLog, result: RoundResult, endReason: EndReason) => {
       if (recordedRef.current === log.clientRoundId) return;
       recordedRef.current = log.clientRoundId;
       const seen: { best: { score: number } | null } = { best: null };
@@ -165,7 +167,7 @@ export function VerbsSection() {
         const recorded = result.score > 0 ? recordRound(s, log, result, { queue: false }) : s;
         return recordPicks(recorded, picksOf(result));
       });
-      setEnded({ result, config: log.config, previousBest: seen.best });
+      setEnded({ result, config: log.config, endReason, previousBest: seen.best });
     },
     [update],
   );
@@ -275,6 +277,7 @@ export function VerbsSection() {
           eyebrow={recapEyebrow(ended.config)}
           mode={modeOf(ended.config)}
           result={ended.result}
+          endReason={ended.endReason}
           best={ended.previousBest}
           countsForBest={!ended.config.listMode}
           // Public boards are closed until the leaderboard server lands (Task 21+).

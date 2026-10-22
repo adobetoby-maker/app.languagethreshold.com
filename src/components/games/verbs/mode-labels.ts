@@ -2,7 +2,7 @@
 // Verb Games round-mode text helpers (no JSX): eyebrow pattern part, goal titles, recap summaries.
 import { familyById } from "@/lib/verb-games/families";
 import { familyPick, modeOf } from "@/lib/verb-games/rules";
-import type { CrushLevel, FamilyId, RoundConfig, RoundMode, RoundResult } from "@/lib/verb-games/types";
+import type { CrushLevel, EndReason, FamilyId, RoundConfig, RoundMode, RoundResult } from "@/lib/verb-games/types";
 
 /** The eyebrow's pattern part: "MIX", one family's label, or the picked families' pills joined. */
 export function pickLabel(config: RoundConfig): string {
@@ -41,4 +41,20 @@ export function countSummary(result: RoundResult, goal: number): string {
   const words = Math.min(result.correct, goal);
   const what = words >= goal ? `${goal} words` : `${words} of ${goal} words`;
   return `${what} in ${roundTime(result.durationMs)}`;
+}
+
+/** The recap line for a forever round, by the engine's own end reason. Null when the reason is unknown. */
+export function endLine(reason: EndReason | undefined): string | null {
+  switch (reason) {
+    case "miss":
+      return "One miss ends a forever round.";
+    case "moves":
+      return "Out of moves.";
+    case "cap":
+      return "Round complete — that's the longest round we keep.";
+    case "player":
+      return "You ended the round.";
+    default:
+      return null;
+  }
 }

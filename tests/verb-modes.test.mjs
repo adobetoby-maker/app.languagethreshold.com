@@ -259,6 +259,78 @@ test("crush forever: the first trap swap ends the round", () => {
   assert.equal(res.moves, 0);
 });
 
+test("crush forever: an honest round driven to the event cap ends on its own, as a natural end", () => {
+  const config = { ...base("crush"), mode: FOREVER };
+  const r = createCrushRound(miniData(), config);
+  let last = [];
+  let t = 0;
+  while (!r.view().ended) {
+    t += 400;
+    const s = r.findPopSwap();
+    assert.ok(s, "an honest round always has a pop to play");
+    last = r.swap(t, s[0], s[1]);
+  }
+  const v = r.view();
+  assert.equal(r.events().length, MAX_UNTIMED_EVENTS);
+  assert.equal(v.endReason, "cap");
+  assert.equal(v.won, false);
+  assert.ok(v.movesLeft > 0, "it was not the moves that ran out");
+  assert.equal(last.at(-1).kind, "end");
+  // Nothing more is accepted, and ending it again keeps the cap end time.
+  assert.deepEqual(r.swap(t + 400, 0, 1), [{ kind: "invalid" }]);
+  assert.equal(r.events().length, MAX_UNTIMED_EVENTS);
+  assert.equal(r.end(UNTIMED_MAX_MS).durationMs, t);
+});
+
+test("bubble forever: an honest round driven to the event cap ends on its own", () => {
+  const r = createBubbleRound(miniData(), { ...base("bubble"), mode: FOREVER });
+  const t = bubbleRight(r, MAX_UNTIMED_EVENTS + 50, 400);
+  assert.equal(r.view().ended, true);
+  assert.equal(r.view().endReason, "cap");
+  assert.equal(r.events().length, MAX_UNTIMED_EVENTS);
+  assert.equal(r.end(UNTIMED_MAX_MS).durationMs, t);
+});
+
+test("bubble count: the Nth form is a goal end, well before the cap", () => {
+  const r = createBubbleRound(miniData(), { ...base("bubble"), mode: COUNT(15) });
+  bubbleRight(r, 5000, 400);
+  assert.equal(r.view().endReason, "goal");
+  assert.equal(r.events().length, 15);
+});
+
+test("end reasons: moves, goal, the clock, the 30-minute stop and the player each name themselves", () => {
+  const timed = createCrushRound(miniData(), base("crush"));
+  assert.equal(timed.view().endReason, null);
+  assert.equal(timed.advance(ROUND_MS.crush)[0].kind, "end");
+  assert.equal(timed.view().endReason, "time");
+  const quit = createCrushRound(miniData(), { ...base("crush"), mode: FOREVER });
+  quit.end(12_000);
+  assert.equal(quit.view().endReason, "player");
+  const stop = createCrushRound(miniData(), { ...base("crush"), mode: FOREVER });
+  assert.equal(stop.advance(UNTIMED_MAX_MS)[0].kind, "end");
+  assert.equal(stop.view().endReason, "cap");
+  const bubbleStop = createBubbleRound(miniData(), { ...base("bubble"), mode: COUNT(15) });
+  bubbleStop.advance(UNTIMED_MAX_MS);
+  assert.equal(bubbleStop.view().endReason, "cap");
+  const goal = createCrushRound(miniData(), { ...base("crush"), mode: COUNT(5) });
+  crushPop(goal, () => false);
+  assert.equal(goal.view().endReason, "goal");
+  // Moves: spend every move on swaps that do not pop (a trap spends none, so keep going).
+  const moves = createCrushRound(miniData(), { ...base("crush"), mode: COUNT(5) });
+  let t = 0;
+  for (let i = 0; i < 2000 && !moves.view().ended; i++) {
+    t += 400;
+    const pop = moves.findPopSwap();
+    const a = i % 24;
+    const b = a % 5 < 4 ? a + 1 : a + 5;
+    if (pop && pop[0] === a && pop[1] === b) continue;
+    moves.swap(t, a, b);
+  }
+  assert.equal(moves.view().endReason, "moves");
+  assert.equal(moves.view().won, false);
+  assert.equal(moves.view().movesLeft, 0);
+});
+
 test("crush timed: a trap still only costs the streak", () => {
   const tile = (kind, label, infinitive) => ({ kind, label, infinitive });
   const cells = Array.from({ length: 25 }, (_, id) => ({ id, ...tile("ending", "amos", "hablar") }));
@@ -341,6 +413,38 @@ test("untimed rounds cap events at 2000; timed caps are unchanged", () => {
   assert.equal(scoreRound(miniData(), { ...log, events }).reason, "too-many-events");
   const ok = Array.from({ length: MAX_UNTIMED_EVENTS }, (_, i) => ({ t: i * 200, kind: "pick", frame: 0, piece: 0 }));
   assert.notEqual(scoreRound(miniData(), { ...log, events: ok }).reason, "too-many-events");
+});
+
+test("a capped Crush forever log replays to the client's result: ok, unranked, reason mode only", () => {
+  const config = { ...base("crush"), mode: FOREVER };
+  const round = createCrushRound(miniData(), config);
+  let t = 0;
+  while (!round.view().ended) {
+    t += 400;
+    const s = round.findPopSwap();
+    round.swap(t, s[0], s[1]);
+  }
+  const result = round.end(roundLimitMs(config));
+  // The client logs a natural end: no quitAtMs.
+  const log = buildRoundLog(config, round.events(), miniData());
+  assert.equal(log.events.length, MAX_UNTIMED_EVENTS);
+  assert.equal(log.quitAtMs, undefined);
+  const v = scoreRound(miniData(), log);
+  assert.equal(v.ok, true);
+  assert.deepEqual(v.result, result);
+  assert.equal(v.ranked, false);
+  assert.deepEqual(v.softReasons, ["mode"]);
+});
+
+test("a capped Bubble forever log replays the same way", () => {
+  const config = { ...base("bubble"), mode: FOREVER };
+  const round = createBubbleRound(miniData(), config);
+  bubbleRight(round, MAX_UNTIMED_EVENTS + 50, 400);
+  const result = round.end(roundLimitMs(config));
+  const v = scoreRound(miniData(), buildRoundLog(config, round.events(), miniData()));
+  assert.equal(v.ok, true);
+  assert.deepEqual(v.result, result);
+  assert.deepEqual(v.softReasons, ["mode"]);
 });
 
 test("untimed events past the untimed cap are after-end; a pick at 70 s is fine", () => {

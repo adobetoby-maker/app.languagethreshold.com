@@ -147,6 +147,14 @@ export interface Miss {
   reason: string;
 }
 
+/**
+ * Why a round ended, set by the engine and never inferred. `goal`: the Nth form or the Crush goal.
+ * `miss`: the first miss or trap of a forever round. `moves`: Crush ran out of moves. `time`: a
+ * timed round's clock. `cap`: a count or forever round reached its 30 minutes or its event cap.
+ * `player`: the player ended it (End round).
+ */
+export type EndReason = "goal" | "miss" | "moves" | "time" | "cap" | "player";
+
 export interface RoundResult {
   score: number;
   moves: number;

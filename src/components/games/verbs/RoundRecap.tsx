@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import { PERSON_LABEL } from "@/lib/verb-games/families";
-import type { FamilyId, Person, RoundMode, RoundResult } from "@/lib/verb-games/types";
-import { countSummary, roundTime } from "./mode-labels";
+import type { EndReason, FamilyId, Person, RoundMode, RoundResult } from "@/lib/verb-games/types";
+import { countSummary, endLine, roundTime } from "./mode-labels";
 import { groupMisses, practiceFamily, type MissRow } from "./recap-groups";
 
 const EYEBROW = "font-mono text-[11px] uppercase tracking-[0.22em] text-gold-ink";
@@ -45,6 +45,8 @@ export function RoundRecap(p: {
   showSend?: boolean;
   /** The round's mode (default timed): forever leads with the streak, count with words and time. */
   mode?: RoundMode;
+  /** Why the round ended, from the engine. A forever round names it under the headline. */
+  endReason?: EndReason;
 }) {
   const { result } = p;
   const mode: RoundMode = p.mode ?? { kind: "timed" };
@@ -81,9 +83,9 @@ export function RoundRecap(p: {
             {countSummary(result, mode.n)}
           </p>
         )}
-        {mode.kind === "forever" && (
+        {mode.kind === "forever" && endLine(p.endReason) && (
           <p className="text-sm text-muted-foreground" data-testid="recap-summary">
-            {result.misses.length > 0 ? "One miss ends a forever round." : "You ended the round."}
+            {endLine(p.endReason)}
           </p>
         )}
       </header>

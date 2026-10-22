@@ -19,6 +19,7 @@ import { buildRoundLog } from "@/lib/verb-games/scoring";
 import type {
   Completion,
   CrushLevel,
+  EndReason,
   Outcome,
   PatternData,
   RoundConfig,
@@ -34,6 +35,16 @@ import { goalTitle } from "./mode-labels";
 import { PIECE_COLORS } from "./piece-colors";
 import { PieceTile } from "./PieceTile";
 import { ReasonBand } from "./ReasonBand";
+
+/** What the live region says when the engine ends a round, by its own end reason. */
+const END_SAID: Record<EndReason, string> = {
+  goal: "Goal complete.",
+  miss: "A trap ends a forever round.",
+  moves: "Out of moves.",
+  time: "Time is up.",
+  cap: "Round complete.",
+  player: "Round ended.",
+};
 
 /** Dev builds only (ruling F7): the first popping swap is marked so e2e can play it. Always false in production. */
 const DEV = Boolean(import.meta.env?.DEV);
@@ -509,7 +520,8 @@ function GoalBox(p: { level: CrushLevel; mode: RoundMode; count: number; list: n
 export function VerbCrushGame(p: {
   data: PatternData;
   config: RoundConfig;
-  onEnd(log: RoundLog, result: RoundResult): void;
+  /** `endReason` is the engine's own: why the round ended. */
+  onEnd(log: RoundLog, result: RoundResult, endReason: EndReason): void;
   /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
   onSaveCard?(c: Completion): void;
 }) {
@@ -548,7 +560,7 @@ export function VerbCrushGame(p: {
   /** At most one input that arrived during a swap tween; it runs once the tween settles. */
   const queued = useRef<(() => void) | null>(null);
   /** A natural end waiting out its hold; handed over at once if the screen unmounts first. */
-  const pendingEnd = useRef<{ log: RoundLog; result: RoundResult } | null>(null);
+  const pendingEnd = useRef<{ log: RoundLog; result: RoundResult; endReason: EndReason } | null>(null);
   const cellsRef = useRef(cells);
   cellsRef.current = cells;
   const selectedRef = useRef(selected);
@@ -619,21 +631,23 @@ export function VerbCrushGame(p: {
         Date.now(),
         quit && !engineEnded && at < limit ? at : undefined,
       );
+      // end() always leaves the engine with a reason; "player" is only a type guard here.
+      const endReason = round.view().endReason ?? "player";
       setActive(false);
       setSelected(null);
       stopRemoteTTS();
       queued.current = null;
       if (quit) {
-        onEndRef.current(log, result);
+        onEndRef.current(log, result, endReason);
         return;
       }
       // A natural end holds the board so the last pop, its whole chain and the full goal are seen.
       // If the screen unmounts during the hold, the unmount cleanup hands the round over instead.
-      pendingEnd.current = { log, result };
+      pendingEnd.current = { log, result, endReason };
       later(() => {
         const pending = pendingEnd.current;
         pendingEnd.current = null;
-        if (pending) onEndRef.current(pending.log, pending.result);
+        if (pending) onEndRef.current(pending.log, pending.result, pending.endReason);
       }, endHoldMs(steps));
     },
     [round, config, data, later, limit],
@@ -669,15 +683,7 @@ export function VerbCrushGame(p: {
       }
       if (reshuffle && !next.ended) said.push("No pops left, so here is a new board.");
       if (out.some((o) => o.kind === "end")) {
-        said.push(
-          next.won
-            ? "Goal complete."
-            : miss
-              ? "A trap ends a forever round."
-              : next.movesLeft <= 0
-                ? "Out of moves."
-                : "Time is up.",
-        );
+        said.push(END_SAID[next.endReason ?? "time"]);
       }
       setView(next);
       setMessage(said.join(" "));
@@ -1051,7 +1057,7 @@ export function VerbCrushGame(p: {
       stopRemoteTTS();
       const end = pendingEnd.current;
       pendingEnd.current = null;
-      if (end) onEndRef.current(end.log, end.result);
+      if (end) onEndRef.current(end.log, end.result, end.endReason);
     };
   }, []);
 

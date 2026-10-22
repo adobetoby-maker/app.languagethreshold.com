@@ -148,6 +148,26 @@ test("recap forever: the headline is the streak; time replaces Best streak", () 
   assert.doesNotMatch(h, /Best streak/);
 });
 
+test("recap forever: the end line follows the engine's reason, one line each", () => {
+  const line = (endReason) => {
+    const h = html(RoundRecap, recapProps({ mode: { kind: "forever" }, endReason }));
+    return /data-testid="recap-summary"[^>]*>([^<]*)</.exec(h)?.[1] ?? null;
+  };
+  assert.equal(line("moves"), "Out of moves.");
+  assert.equal(line("cap"), "Round complete — that&#x27;s the longest round we keep.");
+  assert.equal(line("player"), "You ended the round.");
+  assert.equal(line("miss"), "One miss ends a forever round.");
+  // A recap handed no reason names none: it does not guess from the misses.
+  assert.equal(line(undefined), null);
+  assert.equal(html(RoundRecap, recapProps({ mode: { kind: "forever" }, result: result({ misses: [] }) })).includes("You ended the round."), false);
+});
+
+test("recap forever: no misses and moves out never says the player ended it", () => {
+  const h = html(RoundRecap, recapProps({ mode: { kind: "forever" }, endReason: "moves", result: result({ misses: [] }) }));
+  assert.match(h, />Out of moves\.</);
+  assert.doesNotMatch(h, /You ended the round/);
+});
+
 test("recap count: words in time, or how far the round got", () => {
   const done = html(RoundRecap, recapProps({ mode: { kind: "count", n: 10 }, result: result({ correct: 10, durationMs: 102_000, won: true }) }));
   assert.match(done, /data-testid="recap-summary"[^>]*>10 words in 1:42</);

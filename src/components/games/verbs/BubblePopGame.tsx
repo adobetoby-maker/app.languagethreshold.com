@@ -8,7 +8,7 @@ import { stopRemoteTTS } from "@/lib/tts";
 import { createBubbleRound, type BubbleRound, type BubbleView } from "@/lib/verb-games/bubble";
 import { REASON_MS, modeOf, roundLimitMs } from "@/lib/verb-games/rules";
 import { buildRoundLog } from "@/lib/verb-games/scoring";
-import type { Completion, Outcome, PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
+import type { Completion, EndReason, Outcome, PatternData, RoundConfig, RoundLog, RoundResult } from "@/lib/verb-games/types";
 import { choiceForKey } from "./choice-keys";
 import { CompletionFlash } from "./CompletionFlash";
 import { FrameChoices } from "./FrameChoices";
@@ -235,7 +235,8 @@ function Countdown(p: { barRef: React.RefObject<HTMLDivElement | null> }) {
 export function BubblePopGame(p: {
   data: PatternData;
   config: RoundConfig;
-  onEnd(log: RoundLog, result: RoundResult): void;
+  /** `endReason` is the engine's own: why the round ended. */
+  onEnd(log: RoundLog, result: RoundResult, endReason: EndReason): void;
   /** Omit until saving a card is possible: the completion flash is then plain text, not a dead control. */
   onSaveCard?(c: Completion): void;
 }) {
@@ -281,9 +282,11 @@ export function BubblePopGame(p: {
       const result = round.end(at);
       // Ruling F19: the log is built by buildRoundLog; quitAtMs only when the player left early.
       const log = buildRoundLog(config, round.events(), data, Date.now(), quit && !engineEnded && at < limit ? at : undefined);
+      // end() always leaves the engine with a reason; "player" is only a type guard here.
+      const endReason = round.view().endReason ?? "player";
       setActive(false);
       stopRemoteTTS();
-      onEndRef.current(log, result);
+      onEndRef.current(log, result, endReason);
     },
     [round, config, data],
   );

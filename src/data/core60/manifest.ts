@@ -5,10 +5,9 @@
 // stage: its catalog entry (MODULES), its step on the Core 60 path and its lazy-loaded curriculum.
 // A stage that is not listed shows "Coming soon" on its trade's path.
 // Roofing is not listed: its stages are hand-written (foundation-/master-roofing-curriculum.ts).
-// master-electrician and master-nursing are deliberately NOT listed: their files on disk are the
-// Sonnet pilot (known Spanish errors), and only Opus-generated content ships. Both trades show
-// Master as "Coming soon" until Opus regenerates them and the master entry is added back.
-// (npm run validate:core60 warns about those two unlisted stage files: expected.)
+// master-electrician and master-nursing are listed: the Opus-generated files (20 lessons each)
+// replaced the earlier Sonnet pilot, which had known Spanish errors.
+// (npm run validate:core60 expects no unlisted stage files.)
 // Check with: npm run validate:core60
 
 import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";

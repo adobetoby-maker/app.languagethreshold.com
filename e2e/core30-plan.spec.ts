@@ -659,7 +659,8 @@ test.describe("Core 30 plan: Roofing", () => {
 
 // ─── A lesson with no authored words: the list comes from the server function ────────────
 // The server function is stubbed with page.route, so these tests need no API key or network.
-// Authored words exist only for Spanish with English instructions (pickAuthoredWords) and
+// Authored words exist only for Spanish with English instructions and for the English-for-work
+// stages with Spanish instructions (pickAuthoredWords) and
 // authored lesson content only for one native language per target (contentNativeLanguage), so
 // the generated path is reached with a French target: Orthopedics in French has neither, and
 // the lesson-decks stub below answers 404, leaving the server function (lesson-words.ts).

@@ -1,5 +1,6 @@
 // Built by TAC — 2026-10-15
-// Client side of per-lesson word lists. Order: authored words (roofing, Spanish; no network)
+// Client side of per-lesson word lists. Order: authored words (Spanish stages, or English for the
+// English-for-work stages; no network)
 // -> authored lesson content (/lesson-content, words written with the lesson's passage and verbs)
 // -> pre-built static deck (/lesson-decks, one fetch per module+language, cached offline by
 // the service worker) -> localStorage cache -> generated once by the server function and
@@ -7,11 +8,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { getCurriculum, type LessonWord } from "@/data/curriculum";
+import { getModule } from "@/data/modules";
 import { generateLessonWords } from "@/fns/lesson-words.functions";
 import { loadedLessonContent, loadLessonContent } from "@/lib/lesson-content";
 import { contentNativeLanguage } from "@/lib/lesson-content-core";
 import { pickContentWords } from "@/lib/lesson-content-core";
 import {
+  authoredWordsPair,
   deckNativeLanguage,
   lessonDeckPath,
   lessonWordsKey,
@@ -38,6 +41,11 @@ type Generate = (args: {
   data: { moduleId: string; lessonNumber: number; language: string; nativeLanguage: string };
 }) => Promise<{ words: LessonWord[] | null; error: string | null }>;
 
+/** The pair this module's authored words are written for (English target for en-target modules). */
+function writtenFor(moduleId: string) {
+  return authoredWordsPair(getModule(moduleId)?.learnDirection);
+}
+
 // ─── Static decks ────────────────────────────────────────────────────────────
 
 // One fetch per module+language for the whole session. null = no deck (404 / unusable).
@@ -53,7 +61,10 @@ function hasAuthoredWords(moduleId: string, language: string, nativeLanguage: st
   const lessons = getCurriculum(moduleId)?.lessons ?? [];
   return (
     lessons.length > 0 &&
-    lessons.every((lesson) => pickAuthoredWords(lesson.words, language, nativeLanguage) !== null)
+    lessons.every(
+      (lesson) =>
+        pickAuthoredWords(lesson.words, language, nativeLanguage, writtenFor(moduleId)) !== null,
+    )
   );
 }
 
@@ -144,7 +155,7 @@ export function useLessonWords(
   generateRef.current = generate;
   const authored = useMemo(() => {
     const lesson = getCurriculum(moduleId)?.lessons.find((item) => item.n === lessonNumber);
-    return pickAuthoredWords(lesson?.words, language, nativeLanguage);
+    return pickAuthoredWords(lesson?.words, language, nativeLanguage, writtenFor(moduleId));
   }, [moduleId, lessonNumber, language, nativeLanguage]);
   const key = lessonWordsKey(moduleId, lessonNumber, language, nativeLanguage);
   const [fetched, setFetched] = useState<Fetched | null>(null);

@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
 // The free Roofing Foundation (module foundation-roofing): ten beginner lessons in front of the
@@ -19,8 +20,8 @@ function today(): string {
   const d = new Date();
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
-const scopeKey = (moduleId: string) =>
-  JSON.stringify(["core30", 1, moduleId, "Spanish", "English", null]);
+const scopeKey = (moduleId: string, target = "Spanish", native = "English") =>
+  JSON.stringify(["core30", 1, moduleId, target, native, null]);
 
 function fakeSession() {
   const b64 = (value: object) => Buffer.from(JSON.stringify(value)).toString("base64url");
@@ -64,6 +65,7 @@ async function openCore30(
   core30Log: Record<string, unknown>,
   ready: string,
   userId: string | null = null,
+  { target, native } = { target: "Spanish", native: "English" },
 ) {
   await page.goto("/");
   if (userId) {
@@ -77,7 +79,7 @@ async function openCore30(
   }
   for (let attempt = 0; attempt < 3; attempt++) {
     await page.evaluate(
-      ({ id, log, user }) => {
+      ({ id, log, user, target, native }) => {
         const key = user
           ? `lt.profile-device.v1.user.${encodeURIComponent(user)}`
           : "lt.profile-device.v1.guest";
@@ -87,16 +89,16 @@ async function openCore30(
           onboardingComplete: true,
           activeModuleId: id,
           purchasedModules: [id],
-          selectedLanguage: "Spanish",
-          nativeLanguage: "English",
+          selectedLanguage: target,
+          nativeLanguage: native,
           currentTab: "core30",
           core30Log: log,
         };
         localStorage.setItem(key, JSON.stringify({ schema: 1, userId: user, data }));
       },
-      { id: moduleId, log: core30Log, user: userId },
+      { id: moduleId, log: core30Log, user: userId, target, native },
     );
-    await page.goto(`/?tab=core30&module=${moduleId}&target=Spanish&native=English`);
+    await page.goto(`/?tab=core30&module=${moduleId}&target=${target}&native=${native}`);
     await page
       .getByTestId(ready)
       .waitFor({ timeout: attempt < 2 ? 15_000 : 60_000 })
@@ -182,6 +184,35 @@ test.describe("Roofing Foundation: signed in", () => {
     await page.getByTestId("core60-step-foundation").click();
     await expect(page.getByRole("heading", { name: "The Roofing Foundation" })).toBeVisible();
     await expect(page.getByTestId("core60-step-foundation")).toHaveAttribute("aria-current", "step");
+  });
+});
+
+// An English-for-work Foundation (English target, Spanish native): its authored word list must
+// show, not the "Couldn't build the word list" error the generate-words fallback used to give.
+test.describe("fmg Foundation (English target): lesson 1 word list", () => {
+  test("lists the lesson's authored words in the Recall practice kit", async ({ page }) => {
+    const module = "foundation-fmg";
+    const stage = JSON.parse(readFileSync(`src/data/core60/en/${module}.json`, "utf8"));
+    const lessonWords = stage.lessons[0].words;
+    await signIn(page);
+    await openCore30(
+      page,
+      module,
+      { [scopeKey(module, "English", "Spanish")]: { startDate: today(), lessons: {} } },
+      "core30-plan-card",
+      FAKE_USER_ID,
+      { target: "English", native: "Spanish" },
+    );
+    await page
+      .getByRole("button", { name: /Today: Foundation Lesson 1|Start Foundation Lesson 1/ })
+      .first()
+      .click();
+    await expect(page.getByTestId("lesson-reader")).toBeVisible({ timeout: 60_000 });
+    await page.getByTestId("lesson-nav-recall").click();
+    await expect(page.getByTestId("lesson-words-error")).toHaveCount(0);
+    const section = page.getByTestId("lesson-practice-section");
+    await expect(section).toContainText(`Practice this lesson's words (${lessonWords.length})`);
+    await expect(page.getByTestId("flashcard").first()).toBeVisible();
   });
 });
 

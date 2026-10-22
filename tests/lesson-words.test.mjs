@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import {
+  ENGLISH_AUTHORED_PAIR,
+  SPANISH_AUTHORED_PAIR,
+  authoredWordsPair,
   LESSON_DECK_VERSION,
   cleanLessonWords,
   deckLanguageDir,
@@ -114,6 +118,48 @@ test("authored words are used only for the Spanish/English pair", () => {
   assert.equal(pickAuthoredWords(authored, "Spanish", "Portuguese"), null);
   assert.equal(pickAuthoredWords(undefined, "Spanish"), null);
   assert.equal(pickAuthoredWords([], "Spanish"), null);
+});
+
+test("authored words default to the Spanish target / English native pair", () => {
+  const authored = [{ en: "roof", es: "techo", kind: "term" }];
+  assert.deepEqual(authoredWordsPair(undefined), SPANISH_AUTHORED_PAIR);
+  assert.deepEqual(authoredWordsPair(null), SPANISH_AUTHORED_PAIR);
+  const spanish = authoredWordsPair(undefined);
+  assert.deepEqual(pickAuthoredWords(authored, "Spanish", "English", spanish), authored);
+  // A Spanish-target module is not served to an English-target learner: the sides would be swapped.
+  assert.equal(pickAuthoredWords(authored, "English", "Spanish", spanish), null);
+});
+
+test("an English-target stage returns its authored words, target on es and native on en", () => {
+  assert.deepEqual(authoredWordsPair("en-target"), ENGLISH_AUTHORED_PAIR);
+  const english = authoredWordsPair("en-target");
+  for (const stage of ["foundation-fmg", "master-fmg", "foundation-or-evs", "master-or-evs"]) {
+    const file = JSON.parse(readFileSync(`src/data/core60/en/${stage}.json`, "utf8"));
+    assert.equal(file.language, english.language, stage);
+    assert.equal(file.nativeLanguage, english.nativeLanguage, stage);
+    const words = file.lessons[0].words;
+    assert.ok(words.length > 0, stage);
+    const picked = pickAuthoredWords(words, "English", "Spanish", english);
+    assert.deepEqual(picked, words, stage);
+    assert.notEqual(picked, words, "returns a copy");
+  }
+  const fmg = JSON.parse(readFileSync("src/data/core60/en/foundation-fmg.json", "utf8"));
+  const doctor = pickAuthoredWords(fmg.lessons[0].words, "English", "Spanish", english)[0];
+  // es is the language being learned (English), en the learner's native language (Spanish).
+  assert.equal(doctor.es, "the doctor");
+  assert.equal(doctor.en, "el médico");
+});
+
+test("an English-target stage is served only to the English/Spanish pair", () => {
+  const authored = [{ en: "el médico", es: "the doctor", kind: "term" }];
+  const english = authoredWordsPair("en-target");
+  assert.deepEqual(pickAuthoredWords(authored, "English", "Spanish", english), authored);
+  assert.equal(pickAuthoredWords(authored, "English", "Arabic", english), null);
+  assert.equal(pickAuthoredWords(authored, "English", "English", english), null);
+  assert.equal(pickAuthoredWords(authored, "Spanish", "English", english), null);
+  assert.equal(pickAuthoredWords(authored, "French", "Spanish", english), null);
+  assert.equal(pickAuthoredWords(undefined, "English", "Spanish", english), null);
+  assert.equal(pickAuthoredWords([], "English", "Spanish", english), null);
 });
 
 test("cache write then read round-trips and validates", () => {

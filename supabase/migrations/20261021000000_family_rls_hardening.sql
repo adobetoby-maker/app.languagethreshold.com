@@ -181,7 +181,7 @@ returns trigger language plpgsql set search_path = public as $$
 declare
   v_keys text[] := array[
     'subscription_status', 'subscription_id', 'cancel_at_period_end', 'cancel_reason',
-    'last_payment_failed', 'trial_ending_soon'
+    'last_payment_failed', 'trial_ending_soon', 'stripe_customer_id', 'period_end', 'price_id'
   ];
 begin
   -- Only browser roles are restricted; server roles (service_role, migrations) pass through.

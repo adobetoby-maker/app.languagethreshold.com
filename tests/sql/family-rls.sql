@@ -125,6 +125,16 @@ set local role service_role;
 update public.profiles set data=data||'{"subscription_status":"canceled"}' where id='20000000-0000-4000-8000-00000000000a';
 reset role;
 do $$begin if (select data->>'subscription_status' from public.profiles where id='20000000-0000-4000-8000-00000000000a')<>'canceled' then raise exception 'Service role cannot update billing';end if;end$$;
+-- Customer linkage, price and paid-through date belong to the webhook too.
+update public.profiles set data=data||'{"stripe_customer_id":"cus_fixture","price_id":"price_fixture","period_end":12345}' where id='20000000-0000-4000-8000-00000000000a';
+set local role authenticated;
+set local request.jwt.claim.sub='20000000-0000-4000-8000-00000000000a';
+update public.profiles set data='{"xp":2,"stripe_customer_id":"cus_other","price_id":"price_other","period_end":99999}' where id='20000000-0000-4000-8000-00000000000a';
+reset role;
+do $$declare p jsonb;begin
+ select data into p from public.profiles where id='20000000-0000-4000-8000-00000000000a';
+ if p->>'stripe_customer_id'<>'cus_fixture' or p->>'price_id'<>'price_fixture' or p->>'period_end'<>'12345' then raise exception 'Client changed server-owned billing metadata';end if;
+end$$;
 -- Reset remains usable without erasing paid access or other accounts' books.
 update public.profiles set data=data||'{"subscription_status":"active","xp":42}' where id='20000000-0000-4000-8000-00000000000a';
 insert into public.library_books(user_id) values('20000000-0000-4000-8000-00000000000a'),('20000000-0000-4000-8000-00000000000b');
@@ -141,6 +151,7 @@ reset role;
 do $$declare p jsonb;begin
  select data into p from public.profiles where id='20000000-0000-4000-8000-00000000000a';
  if p->>'subscription_status'<>'active' or p->>'subscription_id'<>'sub_fixture' then raise exception 'Reset or later client sync changed billing';end if;
+ if p->>'stripe_customer_id'<>'cus_fixture' or p->>'price_id'<>'price_fixture' or p->>'period_end'<>'12345' then raise exception 'Reset lost billing metadata';end if;
  if p->>'xp'<>'3' or p->>'learningResetId'<>'40000000-0000-4000-8000-000000000001' then raise exception 'Reset retry erased new progress or marker';end if;
  if (select count(*) from public.library_books where user_id='20000000-0000-4000-8000-00000000000a')<>1 then raise exception 'Reset retry deleted the new book';end if;
  if (select count(*) from public.library_books where user_id='20000000-0000-4000-8000-00000000000b')<>1 then raise exception 'Reset touched another account book';end if;

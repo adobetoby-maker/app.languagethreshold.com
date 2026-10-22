@@ -14,12 +14,18 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
-import { useAuth } from "@/state/auth-state";
-import { useSubscription } from "@/state/subscription-state";
+import { AuthProvider, useAuth } from "@/state/auth-state";
+import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
 import { PwaInstallControl } from "@/components/PwaInstallControl";
 
 export const Route = createFileRoute("/account")({
-  component: AccountPage,
+  component: () => (
+    <AuthProvider>
+      <SubscriptionProvider>
+        <AccountPage />
+      </SubscriptionProvider>
+    </AuthProvider>
+  ),
   head: () => ({
     meta: [{ title: "Account — Language Threshold" }],
   }),
